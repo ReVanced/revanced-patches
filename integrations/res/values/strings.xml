@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="xfile_about_summary">"
+        - xfileFIN (Mods, Theming, Support)
+        - Laura (Theming, Support)
+        - ZaneZam (Publishing, Support)
+        - KevinX8 (Neko, Support)"</string>
+    <string name="xfile_about_title">About</string>
+    <string name="xfile_auto_repeat_bg_summary_off">Auto repeat in background is off</string>
+    <string name="xfile_auto_repeat_bg_summary_on">Auto repeat in background is on</string>
+    <string name="xfile_auto_repeat_bg_title">Auto repeat in background</string>
+    <string name="xfile_auto_repeat_linked_summary_off">Auto repeat is not linked to Autoplay toggle</string>
+    <string name="xfile_auto_repeat_linked_summary_on">Auto repeat is linked to Autoplay toggle (Autoplay off = Auto repeat on)</string>
+    <string name="xfile_auto_repeat_linked_title">Auto repeat linked to Autoplay</string>
+    <string name="xfile_auto_repeat_summary_off">Auto repeat is off</string>
+    <string name="xfile_auto_repeat_summary_on">Auto repeat is on</string>
+    <string name="xfile_auto_repeat_title">Auto repeat</string>
+    <string name="xfile_branding_watermark_summary_off">Video watermark is hidden</string>
+    <string name="xfile_branding_watermark_summary_on">Video watermark is shown</string>
+    <string name="xfile_branding_watermark_title">Video watermark</string>
+    <string name="xfile_buffer_summary">ExoPlayer v2 has to be enabled for buffer settings</string>
+    <string name="xfile_buffer_title">Buffer settings</string>
+    <string name="xfile_cast_button_summary_off">Cast button is hidden</string>
+    <string name="xfile_cast_button_summary_on">Cast button is shown</string>
+    <string name="xfile_cast_button_title">Cast button</string>
+    <string name="xfile_codec_override_title">Codec override</string>
+    <string name="xfile_current_override_manufacturer">Overrided manufacturer</string>
+    <string name="xfile_current_override_model">Overrided model</string>
+    <string name="xfile_debug_summary_off">Extra debug logging is disabled</string>
+    <string name="xfile_debug_summary_on">Extra debug logging is enabled</string>
+    <string name="xfile_debug_title">Debug mode</string>
+    <string name="xfile_default_codec_summary">Tap to set your device\'s default codec</string>
+    <string name="xfile_default_codec_title">Default codec</string>
+    <string name="xfile_discord_summary">Tap to join Vanced on Discord</string>
+    <string name="xfile_discord_title">Discord Server</string>
+    <string name="xfile_exoplayerv2_warning_summary">ExoPlayer v2 is experimental. DO NOT report errors happened when ExoPlayer v2 is enabled</string>
+    <string name="xfile_exoplayerv2_warning_title">Warning</string>
+    <string name="xfile_hardware_hdr_summary">Tap to enable hardware HDR</string>
+    <string name="xfile_hardware_hdr_title" translatable="false">Samsung Galaxy S8+</string>
+    <string name="xfile_hdr_full_brightness_summary_off">Video brightness will follow your device\'s brightness on HDR landscape videos</string>
+    <string name="xfile_hdr_full_brightness_summary_on">Video brightness is set to max on HDR landscape videos</string>
+    <string name="xfile_hdr_full_brightness_title">HDR Max brightness</string>
+    <string name="xfile_hiddenmenu_needed">taps needed to enable hidden setting</string>
+    <string name="xfile_hiddenmenu_open">No need, hidden setting has already been enabled</string>
+    <string name="xfile_hiddenmenu_opened">Hidden setting has been enabled</string>
+    <string name="xfile_info_cards_summary_off">Info cards are hidden</string>
+    <string name="xfile_info_cards_summary_on">Info cards are shown</string>
+    <string name="xfile_info_cards_title">Info cards</string>
+    <string name="xfile_layout_settings_title">Layout settings</string>
+    <string name="xfile_maximum_buffer_summary">"The maximum duration of media that the player will attempt to buffer (in milliseconds)
+
+        Default: 120000"</string>
+    <string name="xfile_maximum_buffer_title">Maximum buffer</string>
+    <string name="xfile_minimized_video_type_summary">Select the preferred minimized video type</string>
+    <string name="xfile_minimized_video_type_title">Minimized video type</string>
+    <string name="xfile_miniplayer_style_video">Video only</string>
+    <string name="xfile_miniplayer_style_video_controls">Video with media controls</string>
+    <string name="xfile_misc_title">Misc</string>
+    <string name="xfile_override_resolution_summary_off">Video resolution is being overridden to max</string>
+    <string name="xfile_override_resolution_summary_on">Video resolution is following your device screen resolution</string>
+    <string name="xfile_override_resolution_title">Max resolution</string>
+    <string name="xfile_playback_start_summary">"The duration of media that must be buffered for playback to start or resume following a user action such as seeking (in milliseconds)
+
+        Default: 2500"</string>
+    <string name="xfile_playback_start_title">Playback start</string>
+    <string name="xfile_preferred_video_quality_mobile_summary">Select preferred video resolution on Cellular Network</string>
+    <string name="xfile_preferred_video_quality_mobile_title">Preferred video quality Cellular</string>
+    <string name="xfile_preferred_video_quality_wifi_summary">Select preferred video resolution on Wi-Fi Network</string>
+    <string name="xfile_preferred_video_quality_wifi_title">Preferred video quality Wi-Fi</string>
+    <string name="xfile_preferred_video_speed_summary">Select preferred video speed</string>
+    <string name="xfile_preferred_video_speed_title">Preferred video speed</string>
+    <string name="xfile_rebuffer_summary">"The duration of media that must be buffered for playback to resume after a rebuffer (in milliseconds). A rebuffer is defined to be caused by buffer depletion rather than a user action
+
+        Default: 5000"</string>
+    <string name="xfile_rebuffer_title">Rebuffer</string>
+    <string name="xfile_settings">Vanced settings</string>
+    <string name="xfile_software_hdr_summary">Tap to enable software HDR</string>
+    <string name="xfile_software_hdr_title" translatable="false">Google Pixel XL</string>
+    <string name="xfile_suggestion_summary_off">End screens are hidden</string>
+    <string name="xfile_suggestion_summary_on">End screens are shown</string>
+    <string name="xfile_suggestion_title">End screens</string>
+    <string name="xfile_support_summary">Support links</string>
+    <string name="xfile_support_title">Support</string>
+    <string name="xfile_video_settings_title">Video settings</string>
+    <string name="xfile_vp9_summary">Tap to start forcing the VP9 codec</string>
+    <string name="xfile_vp9_summary_off">VP9 codec not enabled</string>
+    <string name="xfile_vp9_summary_on">VP9 codec enabled for supported devices, disable if you encounter stuttering/slowness in videos</string>
+    <string name="xfile_vp9_title">VP9 codec</string>
+    <string name="xfile_xda_summary">Tap to open the XDA post</string>
+    <string name="xfile_xda_title">XDA thread</string>
+    <string name="xfile_new_actionbar_title">Wide search bar</string>
+    <string name="xfile_new_actionbar_summary_off">Search bar style is defined by the app</string>
+    <string name="xfile_new_actionbar_summary_on">Forcing wide search bar</string>
+    <string name="xfile_zoom_to_fit_vertical_title">Dynamic player</string>
+    <string name="xfile_zoom_to_fit_vertical_summary_off">Dynamic player is defined automatically</string>
+    <string name="xfile_zoom_to_fit_vertical_summary_on">Dynamic player is forced on square and vertical videos</string>
+    <string name="xfile_about_theme_summary">New official theme toggle is in the General settings. This theme toggle is \"Developer\" toggle.</string>
+    <string name="xfile_about_theme_title">Theme info</string>
+    <string name="xfile_accessibility_seek_buttons_summary_off">Accessibility controls aren\'t displayed in the player</string>
+    <string name="xfile_accessibility_seek_buttons_summary_on">Accessibility controls are displayed in the player</string>
+    <string name="xfile_accessibility_seek_buttons_title">Accessibility player</string>
+    <string name="xfile_auto_captions_summary_off">Captions aren\'t enabled automatically at 0% volume </string>
+    <string name="xfile_auto_captions_summary_on">Captions are enabled automatically at 0% volume</string>
+    <string name="xfile_auto_captions_title">Auto captions</string>
+    <string name="xfile_swipe_padding_top_summary">Amount of pixels excluded from swiping at the top of the display to prevent swipe controls when dragging down notifications</string>
+    <string name="xfile_swipe_padding_top_title">Swipe padding</string>
+    <string name="xfile_swipe_threshold_summary">Amount of pixels you have to swipe until detecting starts to prevent unintended swiping</string>
+    <string name="xfile_swipe_threshold_title">Swipe threshold</string>
+    <string name="xfile_xfenster_brightness_summary_off">Swipe controls for brightness are disabled</string>
+    <string name="xfile_xfenster_brightness_summary_on">Swipe controls for brightness are enabled</string>
+    <string name="xfile_xfenster_brightness_title">Swipe controls for Brightness</string>
+    <string name="xfile_xfenster_screen_summary">Swipe controls for Brightness and Volume</string>
+    <string name="xfile_xfenster_title">Swipe controls</string>
+    <string name="xfile_xfenster_volume_summary_off">Swipe controls for volume are disabled</string>
+    <string name="xfile_xfenster_volume_summary_on">Swipe controls for volume are enabled</string>
+    <string name="xfile_xfenster_volume_title">Swipe controls for Volume</string>
+    <string name="xfile_website_summary">Tap to open our website</string>
+    <string name="xfile_website_title">Vanced website</string>
+    <string name="xfile_home_ads_summary_off">Home ads are hidden</string>
+    <string name="xfile_home_ads_summary_on">Home ads are shown</string>
+    <string name="xfile_home_ads_title">Home ads (Experimental)</string>
+    <string name="xfile_reel_summary_off">Stories are hidden</string>
+    <string name="xfile_reel_summary_on">Stories are shown</string>
+    <string name="xfile_reel_title">YouTube stories (Experimental)</string>
+    <string name="xfile_ad_settings_title">Ad settings</string>
+    <string name="xfile_credit_summary">Credits for people who have contributed</string>
+    <string name="xfile_credit_title">Credits</string>
+    <string name="souramoo_summary">Home ads removing enhancement and showed other kinds of debugging methods</string>
+    <string name="souramoo_title" translatable="false">souramoo</string>
+    <string name="bawm_summary">SponsorBlock implementation</string>
+    <string name="bawm_title" translatable="false">JakubWeg</string>
+
+    <string name="enable_sb">Enable Sponsor Block (Beta)</string>
+    <string name="enable_sb_sum">Switch this on for very cool sponsor segments skipping</string>
+    <string name="enable_segmadding">Enable new segment adding</string>
+    <string name="enable_segmadding_sum">Switch this on to enable experimental segment adding (has button visibility issues).</string>
+    <string name="diff_segments">What to do with different segments</string>
+    <string name="general">General</string>
+    <string name="general_skiptoast">Show a toast when skipping segment automatically</string>
+    <string name="general_skiptoast_sum">Click to see an example toast</string>
+    <string name="general_skipcount">Skip count tracking</string>
+    <string name="general_skipcount_sum">This lets SponsorBlock leaderboard system know how much time people have saved. The extension sends a message to the server each time you skip a segment.</string>
+    <string name="general_adjusting">Adjusting new segment step</string>
+    <string name="general_adjusting_sum">This is a number of milliseconds you can move when clicking buttons when adding new segment</string>
+    <string name="general_uuid">Your unique user id</string>
+    <string name="general_uuid_sum">This should be kept private. This is like a password and should not be shared with anyone. If someone has this, they can impersonate you</string>
+    <string name="general_cache">Cache segments locally</string>
+    <string name="general_cache_sum">Frequently watched videos (eg. music videos) may store segments on this device to make skipping segments faster</string>
+    <string name="general_cache_clear">Clear sponsor block segments cache</string>
+    <string name="segments_sponsor">Sponsor</string>
+    <string name="segments_sponsor_sum">Paid promotion, paid referrals and direct advertisements</string>
+    <string name="segments_intermission">Intermission/Intro Animation</string>
+    <string name="segments_intermission_sum">An interval without actual content. Could be a pause, static frame, repeating animation</string>
+    <string name="segments_endcards">Endcards/Credits</string>
+    <string name="segments_endcards_sum">Credits or when the YouTube endcards appear. Not spoken conclusions</string>
+    <string name="segments_subscribe">Interaction Reminder (Subscribe)</string>
+    <string name="segments_subscribe_sum">When there is a short reminder to like, subscribe or follow them in the middle of content</string>
+    <string name="segments_selfpromo">Unpaid/Self Promotion</string>
+    <string name="segments_selfpromo_sum">Similar to "sponsor" except for unpaid or self promotion. This includes sections about merchandise, donations, or information about who they collaborated with</string>
+    <string name="segments_nomusic">Music: Non-Music Section</string>
+    <string name="segments_nomusic_sum">Only for use in music videos. This includes introductions or outros in music videos</string>
+    <string name="skipped_segment">Skipped a sponsor segment</string>
+    <string name="skipped_sponsor">Skipped sponsor</string>
+    <string name="skipped_intermission">Skipped intro</string>
+    <string name="skipped_endcard">Skipped outro</string>
+    <string name="skipped_subscribe">Skipped annoying reminder</string>
+    <string name="skipped_selfpromo">Skipped self promotion</string>
+    <string name="skipped_nomusic">Skipped silence</string>
+    <string name="skipped_preview">Skipped preview</string>
+    <string name="skip_automatically">Just skip, automatically</string>
+    <string name="skip_showbutton">Show skip button</string>
+    <string name="skip_ignore">Don\'t do anything</string>
+    <string name="about">About</string>
+    <string name="about_api">This app uses API from Sponsor Block</string>
+    <string name="about_api_sum">Click to learn more at: sponsor.ajay.app</string>
+    <string name="about_madeby">Integration made by JakubWeg</string>
+    <string name="tap_skip">Tap to skip</string>
+    <string name="app_name" />
+
+</resources>
