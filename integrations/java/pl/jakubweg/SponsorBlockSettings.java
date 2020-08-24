@@ -37,8 +37,9 @@ public class SponsorBlockSettings {
     public static int adjustNewSegmentMillis = 150;
     public static String uuid = "<invalid>";
     public static File cacheDirectory;
-    static Context context;
     private static String sponsorBlockUrlCategories = "[]";
+
+    static Context context;
 
     public SponsorBlockSettings(Context context) {
         SponsorBlockSettings.context = context;

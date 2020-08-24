@@ -19,9 +19,9 @@ import java.util.TimerTask;
 @SuppressLint({"LongLogTag"})
 public class PlayerController {
     public static final String TAG = "jakubweg.PlayerController";
-    public static final boolean VERBOSE = false;
+    public static final boolean VERBOSE = true;
     @SuppressWarnings("PointlessBooleanExpression")
-    public static final boolean VERBOSE_DRAW_OPTIONS = false && VERBOSE;
+    public static final boolean VERBOSE_DRAW_OPTIONS = true && VERBOSE;
 
     private static final Timer sponsorTimer = new Timer("sponsor-skip-timer");
     public static WeakReference<Activity> playerActivity = new WeakReference<>(null);
@@ -297,6 +297,18 @@ public class PlayerController {
         sponsorBarLeft = left;
     }
 
+    public static void setSponsorBarRect(final Object self) {
+        try {
+            Rect rect = ((Rect) self.getClass().getField("e").get(self));
+            if (rect != null) {
+                setSponsorBarAbsoluteLeft(rect.left);
+                setSponsorBarAbsoluteRight(rect.right);
+            }
+        } catch (IllegalAccessException | NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void setSponsorBarAbsoluteRight(final Rect rect) {
         setSponsorBarAbsoluteRight(rect.right);
     }
@@ -313,8 +325,8 @@ public class PlayerController {
     }
 
     public static void setSponsorBarThickness(final float thickness) {
-        if (VERBOSE_DRAW_OPTIONS)
-            Log.d(TAG, String.format("setSponsorBarThickness: thickness=%.2f", thickness));
+//        if (VERBOSE_DRAW_OPTIONS)
+//            Log.d(TAG, String.format("setSponsorBarThickness: thickness=%.2f", thickness));
 
         sponsorBarThickness = thickness;
     }
