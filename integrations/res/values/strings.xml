@@ -4,7 +4,7 @@
         - xfileFIN (Mods, Theming, Support)
         - Laura (Theming, Support)
         - ZaneZam (Publishing, Support)
-        - KevinX8 (Neko, Support)"</string>
+        - KevinX8 (Overlord, Support)"</string>
     <string name="xfile_about_title">About</string>
     <string name="xfile_auto_repeat_bg_summary_off">Auto repeat in background is off</string>
     <string name="xfile_auto_repeat_bg_summary_on">Auto repeat in background is on</string>
@@ -24,8 +24,8 @@
     <string name="xfile_cast_button_summary_on">Cast button is shown</string>
     <string name="xfile_cast_button_title">Cast button</string>
     <string name="xfile_codec_override_title">Codec override</string>
-    <string name="xfile_current_override_manufacturer">Overrided manufacturer</string>
-    <string name="xfile_current_override_model">Overrided model</string>
+    <string name="xfile_current_override_manufacturer">Override manufacturer</string>
+    <string name="xfile_current_override_model">Override model</string>
     <string name="xfile_debug_summary_off">Extra debug logging is disabled</string>
     <string name="xfile_debug_summary_on">Extra debug logging is enabled</string>
     <string name="xfile_debug_title">Debug mode</string>
@@ -33,7 +33,7 @@
     <string name="xfile_default_codec_title">Default codec</string>
     <string name="xfile_discord_summary">Tap to join Vanced on Discord</string>
     <string name="xfile_discord_title">Discord Server</string>
-    <string name="xfile_exoplayerv2_warning_summary">ExoPlayer v2 is experimental. DO NOT report errors happened when ExoPlayer v2 is enabled</string>
+    <string name="xfile_exoplayerv2_warning_summary">ExoPlayer v2 is experimental. DO NOT report errors that occur when ExoPlayer v2 is enabled</string>
     <string name="xfile_exoplayerv2_warning_title">Warning</string>
     <string name="xfile_hardware_hdr_summary">Tap to enable hardware HDR</string>
     <string name="xfile_hardware_hdr_title" translatable="false">Samsung Galaxy S8+</string>
@@ -42,7 +42,7 @@
     <string name="xfile_hdr_full_brightness_title">HDR Max brightness</string>
     <string name="xfile_hiddenmenu_needed">taps needed to enable hidden setting</string>
     <string name="xfile_hiddenmenu_open">No need, hidden setting has already been enabled</string>
-    <string name="xfile_hiddenmenu_opened">Hidden setting has been enabled</string>
+    <string name="xfile_hiddenmenu_opened">Hidden setting have been enabled</string>
     <string name="xfile_info_cards_summary_off">Info cards are hidden</string>
     <string name="xfile_info_cards_summary_on">Info cards are shown</string>
     <string name="xfile_info_cards_title">Info cards</string>
@@ -82,9 +82,9 @@
     <string name="xfile_support_summary">Support links</string>
     <string name="xfile_support_title">Support</string>
     <string name="xfile_video_settings_title">Video settings</string>
-    <string name="xfile_vp9_summary">Tap to start forcing the VP9 codec</string>
-    <string name="xfile_vp9_summary_off">VP9 codec not enabled</string>
-    <string name="xfile_vp9_summary_on">VP9 codec enabled for supported devices, disable if you encounter stuttering/slowness in videos</string>
+    <string name="xfile_vp9_summary">Tap to force usage of the VP9 codec</string>
+    <string name="xfile_vp9_summary_off">VP9 codec not forced</string>
+    <string name="xfile_vp9_summary_on">VP9 codec is enabled by default for supported devices, disable if you encounter stuttering/slowness in videos</string>
     <string name="xfile_vp9_title">VP9 codec</string>
     <string name="xfile_xda_summary">Tap to open the XDA post</string>
     <string name="xfile_xda_title">XDA thread</string>
@@ -129,6 +129,14 @@
     <string name="souramoo_title" translatable="false">souramoo</string>
     <string name="bawm_summary">SponsorBlock implementation</string>
     <string name="bawm_title" translatable="false">JakubWeg</string>
+    <string name="xfile_comments_location_summary_off">Comments are shown at the top (new place)</string>
+    <string name="xfile_comments_location_summary_on">Comments are shown at the bottom (old place). This feature can break things. For example swipe features will not work.</string>
+    <string name="xfile_comments_location_title">Comments location (Alpha)</string>
+    <string name="xfile_tablet_miniplayer_summary_off">Tablet miniplayer is not being used</string>
+    <string name="xfile_tablet_miniplayer_summary_on">Tablet miniplayer is being used</string>
+    <string name="xfile_tablet_miniplayer_title">Tablet miniplayer</string>
+	<string name="vanced_translators_title">Vanced translators</string>
+    <string name="vanced_translators_summary">Link to Crowdin where you can contribute by translating Vanced to your language</string>
 
 
     <string name="enable_sb">Enable Sponsor Block (Beta)</string>
@@ -142,11 +150,11 @@
     <string name="general_skipcount">Skip count tracking</string>
     <string name="general_skipcount_sum">This lets SponsorBlock leaderboard system know how much time people have saved. The extension sends a message to the server each time you skip a segment.</string>
     <string name="general_adjusting">Adjusting new segment step</string>
-    <string name="general_adjusting_sum">This is a number of milliseconds you can move when clicking buttons when adding new segment</string>
+    <string name="general_adjusting_sum">This is the number of milliseconds you can move when you use the time adjustment buttons while adding new segment</string>
     <string name="general_uuid">Your unique user id</string>
     <string name="general_uuid_sum">This should be kept private. This is like a password and should not be shared with anyone. If someone has this, they can impersonate you</string>
     <string name="general_cache">Cache segments locally</string>
-    <string name="general_cache_sum">Frequently watched videos (eg. music videos) may store segments on this device to make skipping segments faster</string>
+    <string name="general_cache_sum">Frequently watched videos (eg. music videos) may store segments in app cache to make skipping segments faster</string>
     <string name="general_cache_clear">Clear sponsor block segments cache</string>
     <string name="segments_sponsor">Sponsor</string>
     <string name="segments_sponsor_sum">Paid promotion, paid referrals and direct advertisements</string>
@@ -168,12 +176,12 @@
     <string name="skipped_selfpromo">Skipped self promotion</string>
     <string name="skipped_nomusic">Skipped silence</string>
     <string name="skipped_preview">Skipped preview</string>
-    <string name="skip_automatically">Just skip, automatically</string>
-    <string name="skip_showbutton">Show skip button</string>
+    <string name="skip_automatically">Skip automatically</string>
+    <string name="skip_showbutton">Show a skip button</string>
     <string name="skip_ignore">Don\'t do anything</string>
     <string name="about">About</string>
-    <string name="about_api">This app uses API from Sponsor Block</string>
-    <string name="about_api_sum">Click to learn more at: sponsor.ajay.app</string>
+    <string name="about_api">This app uses the API from Sponsor Block</string>
+    <string name="about_api_sum">Tap to learn more at: sponsor.ajay.app</string>
     <string name="about_madeby">Integration made by JakubWeg</string>
     <string name="tap_skip">Tap to skip</string>
 
