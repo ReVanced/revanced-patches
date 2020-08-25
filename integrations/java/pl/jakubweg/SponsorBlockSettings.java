@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-import static pl.jakubweg.Helper.getStringByName;
+import static pl.jakubweg.StringRef.sf;
 
 public class SponsorBlockSettings {
 
@@ -28,7 +28,10 @@ public class SponsorBlockSettings {
     public static final String PREFERENCES_KEY_NEW_SEGMENT_ENABLED = "sb-new-segment-enabled";
     public static final String sponsorBlockSkipSegmentsUrl = "https://sponsor.ajay.app/api/skipSegments";
     public static final String sponsorBlockViewedUrl = "https://sponsor.ajay.app/api/viewedVideoSponsorTime";
+
+
     public static final SegmentBehaviour DefaultBehaviour = SegmentBehaviour.SkipAutomatically;
+
     public static boolean isSponsorBlockEnabled = false;
     public static boolean isAddNewSegmentEnabled = false;
     public static boolean showToastWhenSkippedAutomatically = true;
@@ -39,10 +42,10 @@ public class SponsorBlockSettings {
     public static File cacheDirectory;
     private static String sponsorBlockUrlCategories = "[]";
 
-    static Context context;
-
-    public SponsorBlockSettings(Context context) {
-        SponsorBlockSettings.context = context;
+    @SuppressWarnings("unused")
+    @Deprecated
+    public SponsorBlockSettings(Context ignored) {
+        Log.e("jakubweg.Settings", "Do not call SponsorBlockSettings constructor!");
     }
 
     public static String getSponsorBlockUrlWithCategories(String videoId) {
@@ -128,17 +131,17 @@ public class SponsorBlockSettings {
     }
 
     public enum SegmentBehaviour {
-        SkipAutomatically("skip", getStringByName(context, "skip_automatically"), true, true),
-        ManualSkip("manual-skip", getStringByName(context, "skip_showbutton"), false, true),
-        Ignore("ignore", getStringByName(context, "skip_ignore"), false, false);
+        SkipAutomatically("skip", sf("skip_automatically"), true, true),
+        ManualSkip("manual-skip", sf("skip_showbutton"), false, true),
+        Ignore("ignore", sf("skip_ignore"), false, false);
 
         public final String key;
-        public final String name;
+        public final StringRef name;
         public final boolean skip;
         public final boolean showOnTimeBar;
 
         SegmentBehaviour(String key,
-                         String name,
+                         StringRef name,
                          boolean skip,
                          boolean showOnTimeBar) {
             this.key = key;
@@ -149,13 +152,13 @@ public class SponsorBlockSettings {
     }
 
     public enum SegmentInfo {
-        Sponsor("sponsor", getStringByName(context, "segments_sponsor"), getStringByName(context, "skipped_sponsor"), getStringByName(context, "segments_sponsor_sum"), null, 0xFF00d400),
-        Intro("intro", getStringByName(context, "segments_intermission"), getStringByName(context, "skipped_intermission"), getStringByName(context, "segments_intermission_sum"), null, 0xFF00ffff),
-        Outro("outro", getStringByName(context, "segments_endcard"), getStringByName(context, "skipped_endcard"), getStringByName(context, "segments_endcards_sum"), null, 0xFF0202ed),
-        Interaction("interaction", getStringByName(context, "segments_subscribe"), getStringByName(context, "skipped_subscribe"), getStringByName(context, "segments_subscribe_sum"), null, 0xFFcc00ff),
-        SelfPromo("selfpromo", getStringByName(context, "segments_selfpromo"), getStringByName(context, "skipped_selfpromo"), getStringByName(context, "segments_selfpromo_sum"), null, 0xFFffff00),
-        MusicOfftopic("music_offtopic", getStringByName(context, "segments_music"), getStringByName(context, "skipped_music"), getStringByName(context, "segments_music_sum"), null, 0xFFff9900),
-        Preview("preview", "", getStringByName(context, "skipped_preview"), "", SegmentBehaviour.SkipAutomatically, 0xFF000000),
+        Sponsor("sponsor", sf("segments_sponsor"), sf("skipped_sponsor"), sf("segments_sponsor_sum"), null, 0xFF00d400),
+        Intro("intro", sf("segments_intermission"), sf("skipped_intermission"), sf("segments_intermission_sum"), null, 0xFF00ffff),
+        Outro("outro", sf("segments_endcard"), sf("skipped_endcard"), sf("segments_endcards_sum"), null, 0xFF0202ed),
+        Interaction("interaction", sf("segments_subscribe"), sf("skipped_subscribe"), sf("segments_subscribe_sum"), null, 0xFFcc00ff),
+        SelfPromo("selfpromo", sf("segments_selfpromo"), sf("skipped_selfpromo"), sf("segments_selfpromo_sum"), null, 0xFFffff00),
+        MusicOfftopic("music_offtopic", sf("segments_nomusic"), sf("skipped_nomusic"), sf("segments_nomusic_sum"), null, 0xFFff9900),
+        Preview("preview", StringRef.empty, sf("skipped_preview"), StringRef.empty, SegmentBehaviour.SkipAutomatically, 0xFF000000),
         ;
 
         private static SegmentInfo[] mValuesWithoutPreview = new SegmentInfo[]{
@@ -174,18 +177,18 @@ public class SponsorBlockSettings {
         }
 
         public final String key;
-        public final String title;
-        public final String skipMessage;
-        public final String description;
+        public final StringRef title;
+        public final StringRef skipMessage;
+        public final StringRef description;
         public final int color;
         public final Paint paint;
         public SegmentBehaviour behaviour;
         private CharSequence lazyTitleWithDot;
 
         SegmentInfo(String key,
-                    String title,
-                    String skipMessage,
-                    String description,
+                    StringRef title,
+                    StringRef skipMessage,
+                    StringRef description,
                     SegmentBehaviour behaviour,
                     int color) {
 

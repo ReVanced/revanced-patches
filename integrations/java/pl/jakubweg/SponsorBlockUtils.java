@@ -51,6 +51,8 @@ import static pl.jakubweg.PlayerController.getCurrentVideoId;
 import static pl.jakubweg.PlayerController.getLastKnownVideoTime;
 import static pl.jakubweg.PlayerController.sponsorSegmentsOfCurrentVideo;
 import static pl.jakubweg.SponsorBlockSettings.sponsorBlockSkipSegmentsUrl;
+import static pl.jakubweg.StringRef.sf;
+import static pl.jakubweg.StringRef.str;
 
 @SuppressWarnings({"LongLogTag"})
 public abstract class SponsorBlockUtils {
@@ -78,12 +80,12 @@ public abstract class SponsorBlockUtils {
                 case DialogInterface.BUTTON_NEGATIVE:
                     // start
                     newSponsorSegmentStartMillis = newSponsorSegmentDialogShownMillis;
-                    Toast.makeText(context.getApplicationContext(), "Start of the segment set", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context.getApplicationContext(), str("new_segment_time_start_set"), Toast.LENGTH_LONG).show();
                     break;
                 case DialogInterface.BUTTON_POSITIVE:
                     // end
                     newSponsorSegmentEndMillis = newSponsorSegmentDialogShownMillis;
-                    Toast.makeText(context.getApplicationContext(), "End of the segment set", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context.getApplicationContext(), str("new_segment_time_end_set"), Toast.LENGTH_SHORT).show();
                     break;
             }
             dialog.dismiss();
@@ -98,13 +100,13 @@ public abstract class SponsorBlockUtils {
             if (!segmentType.behaviour.showOnTimeBar) {
                 Toast.makeText(
                         ((AlertDialog) dialog).getContext().getApplicationContext(),
-                        "You've disabled this category in the settings, so can't submit it",
+                        str("new_segment_disabled_category"),
                         Toast.LENGTH_SHORT).show();
                 enableButton = false;
             } else {
                 Toast.makeText(
                         ((AlertDialog) dialog).getContext().getApplicationContext(),
-                        segmentType.description,
+                        segmentType.description.toString(),
                         Toast.LENGTH_SHORT).show();
                 newSponsorBlockSegmentType = segmentType;
                 enableButton = true;
@@ -132,7 +134,7 @@ public abstract class SponsorBlockUtils {
 
             newSponsorBlockSegmentType = null;
             new AlertDialog.Builder(context)
-                    .setTitle("Choose the segment category")
+                    .setTitle(str("new_segment_choose_category"))
                     .setSingleChoiceItems(titles, -1, segmentTypeListener)
                     .setNegativeButton(android.R.string.cancel, null)
                     .setPositiveButton(android.R.string.ok, segmentCategorySelectedDialogListener)
@@ -148,7 +150,7 @@ public abstract class SponsorBlockUtils {
         public void onClick(DialogInterface dialog, int which) {
             dialog.dismiss();
             Context context = ((AlertDialog) dialog).getContext().getApplicationContext();
-            Toast.makeText(context, "Submitting segment...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, str("submit_started"), Toast.LENGTH_SHORT).show();
 
             appContext = new WeakReference<>(context);
             new Thread(submitRunnable).start();
@@ -179,10 +181,10 @@ public abstract class SponsorBlockUtils {
             editByHandSaveDialogListener.settingStart = isStart;
             editByHandSaveDialogListener.editText = new WeakReference<>(textView);
             new AlertDialog.Builder(context)
-                    .setTitle("Time of the " + (isStart ? "start" : "end") + " of the segment")
+                    .setTitle(str(isStart ? "new_segment_time_start" : "new_segment_time_end"))
                     .setView(textView)
                     .setNegativeButton(android.R.string.cancel, null)
-                    .setNeutralButton("now", editByHandSaveDialogListener)
+                    .setNeutralButton(str("new_segment_now"), editByHandSaveDialogListener)
                     .setPositiveButton(android.R.string.ok, editByHandSaveDialogListener)
                     .show();
 
@@ -221,19 +223,19 @@ public abstract class SponsorBlockUtils {
                 connection.setRequestMethod("POST");
                 switch (connection.getResponseCode()) {
                     default:
-                        messageToToast = "Unable to submit segments: Status: " + connection.getResponseCode() + " " + connection.getResponseMessage();
+                        messageToToast = String.format(str("submit_failed_unknown_error"), connection.getResponseCode(), connection.getResponseMessage());
                         break;
                     case 429:
-                        messageToToast = "Can't submit the segment.\nRate Limit (Too many for the same user or IP)";
+                        messageToToast = str("submit_failed_rate_limit");
                         break;
                     case 403:
-                        messageToToast = "Can't submit the segment.\nRejected by auto moderator";
+                        messageToToast = str("submit_failed_forbidden");
                         break;
                     case 409:
-                        messageToToast = "Duplicate";
+                        messageToToast = str("submit_failed_duplicate");
                         break;
                     case 200:
-                        messageToToast = "Segment submitted successfully";
+                        messageToToast = str("submit_succeeded");
                         break;
                 }
 
@@ -379,14 +381,14 @@ public abstract class SponsorBlockUtils {
         newSponsorSegmentDialogShownMillis = PlayerController.getLastKnownVideoTime();
 
         new AlertDialog.Builder(context)
-                .setTitle("New Sponsor Block segment")
-                .setMessage(String.format("Set %02d:%02d:%04d as a start or end of new segment?",
+                .setTitle(str("new_segment_title"))
+                .setMessage(String.format(str("new_segment_mark_time_as_question"),
                         newSponsorSegmentDialogShownMillis / 60000,
                         newSponsorSegmentDialogShownMillis / 1000 % 60,
                         newSponsorSegmentDialogShownMillis % 1000))
-                .setNeutralButton("Cancel", null)
-                .setNegativeButton("Start", newSponsorSegmentDialogListener)
-                .setPositiveButton("End", newSponsorSegmentDialogListener)
+                .setNeutralButton(android.R.string.cancel, null)
+                .setNegativeButton(str("new_segment_mark_start"), newSponsorSegmentDialogListener)
+                .setPositiveButton(str("new_segment_mark_end"), newSponsorSegmentDialogListener)
                 .show();
     }
 
@@ -397,8 +399,8 @@ public abstract class SponsorBlockUtils {
             long start = (newSponsorSegmentStartMillis) / 1000;
             long end = (newSponsorSegmentEndMillis) / 1000;
             new AlertDialog.Builder(context)
-                    .setTitle("Is it right?")
-                    .setMessage(String.format("The segment lasts from %02d:%02d to %02d:%02d (%d minutes %02d seconds)\nIs it ready to submit?",
+                    .setTitle(str("new_segment_confirm_title"))
+                    .setMessage(String.format(str("new_segment_confirm_content"),
                             start / 60, start % 60,
                             end / 60, end % 60,
                             length / 60, length % 60))
@@ -413,9 +415,9 @@ public abstract class SponsorBlockUtils {
     @SuppressLint("DefaultLocale")
     public static void onPreviewClicked(Context context) {
         if (newSponsorSegmentStartMillis >= 0 && newSponsorSegmentStartMillis < newSponsorSegmentEndMillis) {
-            Toast t = Toast.makeText(context, "Preview", Toast.LENGTH_SHORT);
-            t.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.TOP, t.getXOffset(), t.getYOffset());
-            t.show();
+//            Toast t = Toast.makeText(context, "Preview", Toast.LENGTH_SHORT);
+//            t.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.TOP, t.getXOffset(), t.getYOffset());
+//            t.show();
             PlayerController.skipToMillisecond(newSponsorSegmentStartMillis - 3000);
             final SponsorSegment[] original = PlayerController.sponsorSegmentsOfCurrentVideo;
             final SponsorSegment[] segments = original == null ? new SponsorSegment[1] : Arrays.copyOf(original, original.length + 1);
@@ -426,18 +428,18 @@ public abstract class SponsorBlockUtils {
             Arrays.sort(segments);
             sponsorSegmentsOfCurrentVideo = segments;
         } else {
-            Toast.makeText(context, "Mark two locations on the time bar first", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, str("new_segment_mark_locations_first"), Toast.LENGTH_SHORT).show();
         }
     }
 
     @SuppressLint("DefaultLocale")
     public static void onEditByHandClicked(Context context) {
         new AlertDialog.Builder(context)
-                .setTitle("Edit time of new segment by hand")
-                .setMessage("Do you want to edit time of the start or the end of the segment?")
+                .setTitle(str("new_segment_edit_by_hand_title"))
+                .setMessage(str("new_segment_edit_by_hand_content"))
                 .setNeutralButton(android.R.string.cancel, null)
-                .setNegativeButton("start", editByHandDialogListener)
-                .setPositiveButton("end", editByHandDialogListener)
+                .setNegativeButton(str("new_segment_mark_start"), editByHandDialogListener)
+                .setPositiveButton(str("new_segment_mark_end"), editByHandDialogListener)
                 .show();
     }
 
@@ -638,9 +640,9 @@ public abstract class SponsorBlockUtils {
                             DialogInterface.BUTTON_NEGATIVE :
                             DialogInterface.BUTTON_POSITIVE);
                 else
-                    Toast.makeText(context.getApplicationContext(), "Done", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context.getApplicationContext(), str("new_segment_edit_by_hand_saved"), Toast.LENGTH_SHORT).show();
             } catch (ParseException e) {
-                Toast.makeText(context.getApplicationContext(), "Cannot parse this time 😔", Toast.LENGTH_LONG).show();
+                Toast.makeText(context.getApplicationContext(), str("new_segment_edit_by_hand_parse_error"), Toast.LENGTH_LONG).show();
             }
         }
     }

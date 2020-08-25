@@ -19,7 +19,6 @@ import android.widget.Toast;
 import java.io.File;
 import java.util.ArrayList;
 
-import static pl.jakubweg.Helper.getStringByName;
 import static pl.jakubweg.SponsorBlockSettings.DefaultBehaviour;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_CACHE_SEGMENTS;
@@ -34,7 +33,10 @@ import static pl.jakubweg.SponsorBlockSettings.cacheEnabled;
 import static pl.jakubweg.SponsorBlockSettings.countSkips;
 import static pl.jakubweg.SponsorBlockSettings.showToastWhenSkippedAutomatically;
 import static pl.jakubweg.SponsorBlockSettings.uuid;
+import static pl.jakubweg.StringRef.str;
 
+
+@SuppressWarnings({"unused", "deprecation"}) // injected
 public class SponsorBlockPreferenceFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     private ArrayList<Preference> preferencesToDisableWhenSBDisabled = new ArrayList<>();
@@ -57,8 +59,8 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             preference.setKey(PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED);
             preference.setDefaultValue(SponsorBlockSettings.isSponsorBlockEnabled);
             preference.setChecked(SponsorBlockSettings.isSponsorBlockEnabled);
-            preference.setTitle(getStringByName(context, "enable_sb"));
-            preference.setSummary(getStringByName(context, "enable_sb_sum"));
+            preference.setTitle(str("enable_sb"));
+            preference.setSummary(str("enable_sb_sum"));
             preference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -74,8 +76,8 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             preference.setKey(PREFERENCES_KEY_NEW_SEGMENT_ENABLED);
             preference.setDefaultValue(SponsorBlockSettings.isAddNewSegmentEnabled);
             preference.setChecked(SponsorBlockSettings.isAddNewSegmentEnabled);
-            preference.setTitle(getStringByName(context, "enable_segmadding"));
-            preference.setSummary(getStringByName(context, "enable_segmadding_sum"));
+            preference.setTitle(str("enable_segmadding"));
+            preference.setSummary(str("enable_segmadding_sum"));
             preferencesToDisableWhenSBDisabled.add(preference);
         }
 
@@ -101,7 +103,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
         PreferenceCategory category = new PreferenceCategory(context);
         screen.addPreference(category);
         preferencesToDisableWhenSBDisabled.add(category);
-        category.setTitle(getStringByName(context, "diff_segments"));
+        category.setTitle(str("diff_segments"));
 
         String defaultValue = DefaultBehaviour.key;
         SponsorBlockSettings.SegmentBehaviour[] segmentBehaviours = SponsorBlockSettings.SegmentBehaviour.values();
@@ -109,14 +111,14 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
         String[] entryValues = new String[segmentBehaviours.length];
         for (int i = 0, segmentBehavioursLength = segmentBehaviours.length; i < segmentBehavioursLength; i++) {
             SponsorBlockSettings.SegmentBehaviour behaviour = segmentBehaviours[i];
-            entries[i] = behaviour.name;
+            entries[i] = behaviour.name.toString();
             entryValues[i] = behaviour.key;
         }
 
         for (SponsorBlockSettings.SegmentInfo segmentInfo : SponsorBlockSettings.SegmentInfo.valuesWithoutPreview()) {
             ListPreference preference = new ListPreference(context);
             preference.setTitle(segmentInfo.getTitleWithDot());
-            preference.setSummary(segmentInfo.description);
+            preference.setSummary(segmentInfo.description.toString());
             preference.setKey(segmentInfo.key);
             preference.setDefaultValue(defaultValue);
             preference.setEntries(entries);
@@ -134,8 +136,8 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
         {
             Preference preference = new Preference(context);
             screen.addPreference(preference);
-            preference.setTitle(getStringByName(context, "about_api"));
-            preference.setSummary(getStringByName(context, "about_api_sum"));
+            preference.setTitle(str("about_api"));
+            preference.setSummary(str("about_api_sum"));
             preference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
@@ -150,7 +152,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
         {
             Preference preference = new Preference(context);
             screen.addPreference(preference);
-            preference.setTitle(getStringByName(context, "about_madeby"));
+            preference.setTitle(str("about_madeby"));
         }
 
     }
@@ -159,18 +161,18 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
         final PreferenceCategory category = new PreferenceCategory(context);
         preferencesToDisableWhenSBDisabled.add(category);
         screen.addPreference(category);
-        category.setTitle(getStringByName(context, "general"));
+        category.setTitle(str("general"));
 
         {
             Preference preference = new SwitchPreference(context);
-            preference.setTitle(getStringByName(context, "general_skiptoast"));
-            preference.setSummary(getStringByName(context, "general_skiptoast_sum"));
+            preference.setTitle(str("general_skiptoast"));
+            preference.setSummary(str("general_skiptoast_sum"));
             preference.setKey(PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP);
             preference.setDefaultValue(showToastWhenSkippedAutomatically);
             preference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
-                    Toast.makeText(preference.getContext(), getStringByName(context, "skipped_segment"), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(preference.getContext(), str("skipped_segment"), Toast.LENGTH_SHORT).show();
                     return false;
                 }
             });
@@ -180,8 +182,8 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
 
         {
             Preference preference = new SwitchPreference(context);
-            preference.setTitle(getStringByName(context, "general_skipcount"));
-            preference.setSummary(getStringByName(context, "general_skipcount_sum"));
+            preference.setTitle(str("general_skipcount"));
+            preference.setSummary(str("general_skipcount_sum"));
             preference.setKey(PREFERENCES_KEY_COUNT_SKIPS);
             preference.setDefaultValue(countSkips);
             preferencesToDisableWhenSBDisabled.add(preference);
@@ -191,8 +193,8 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
         {
             EditTextPreference preference = new EditTextPreference(context);
             preference.getEditText().setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED);
-            preference.setTitle(getStringByName(context, "general_adjusting"));
-            preference.setSummary(getStringByName(context, "general_adjusting_sum"));
+            preference.setTitle(str("general_adjusting"));
+            preference.setSummary(str("general_adjusting_sum"));
             preference.setKey(PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP);
             preference.setDefaultValue(String.valueOf(adjustNewSegmentMillis));
             screen.addPreference(preference);
@@ -201,8 +203,8 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
 
         {
             Preference preference = new EditTextPreference(context);
-            preference.setTitle(getStringByName(context, "general_uuid"));
-            preference.setSummary(getStringByName(context, "general_uuid_sum"));
+            preference.setTitle(str("general_uuid"));
+            preference.setSummary(str("general_uuid_sum"));
             preference.setKey(PREFERENCES_KEY_UUID);
             preference.setDefaultValue(uuid);
             screen.addPreference(preference);
@@ -211,8 +213,8 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
 
         {
             Preference preference = new SwitchPreference(context);
-            preference.setTitle(getStringByName(context, "general_cache"));
-            preference.setSummary(getStringByName(context, "general_cache_sum"));
+            preference.setTitle(str("general_cache"));
+            preference.setSummary(str("general_cache_sum"));
             preference.setKey(PREFERENCES_KEY_CACHE_SEGMENTS);
             preference.setDefaultValue(cacheEnabled);
             screen.addPreference(preference);
@@ -221,7 +223,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
 
         {
             Preference preference = new Preference(context);
-            preference.setTitle(getStringByName(context, "general_cache_clear"));
+            preference.setTitle(str("general_cache_clear"));
             preference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
@@ -231,7 +233,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
                             if (!file.delete())
                                 return false;
                         }
-                        Toast.makeText(getActivity(), getStringByName(context, "done"), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), str("done"), Toast.LENGTH_SHORT).show();
                     }
                     return false;
                 }

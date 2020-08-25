@@ -12,10 +12,10 @@ import android.widget.Toast;
 
 import java.lang.ref.WeakReference;
 
-import static pl.jakubweg.Helper.getStringByName;
 import static pl.jakubweg.PlayerController.VERBOSE;
+import static pl.jakubweg.StringRef.str;
 
-@SuppressLint({"RtlHardcoded", "SetTextI18n", "LongLogTag"})
+@SuppressLint({"RtlHardcoded", "SetTextI18n", "LongLogTag", "AppCompatCustomView"})
 public class SkipSegmentView extends TextView implements View.OnClickListener {
     public static final String TAG = "jakubweg.SkipSegmentView";
     private static boolean isVisible = false;
@@ -40,7 +40,7 @@ public class SkipSegmentView extends TextView implements View.OnClickListener {
         int padding = (int) convertDpToPixel(4, context);
         setPadding(padding, padding, padding, padding);
 
-        this.setText("▶ " + getStringByName(context, "tap_skip"));
+        this.setText("▶ " + str("tap_skip"));
 
         setOnClickListener(this);
     }
@@ -76,7 +76,7 @@ public class SkipSegmentView extends TextView implements View.OnClickListener {
             return;
         }
         lastNotifiedSegment = segment;
-        String skipMessage = segment.category.skipMessage;
+        String skipMessage = segment.category.skipMessage.toString();
         SkipSegmentView view = SkipSegmentView.view.get();
         if (VERBOSE)
             Log.d(TAG, String.format("notifySkipped; view=%s, message=%s", view, skipMessage));

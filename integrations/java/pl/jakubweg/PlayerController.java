@@ -2,6 +2,7 @@ package pl.jakubweg;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.os.Handler;
@@ -9,6 +10,7 @@ import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
@@ -19,9 +21,9 @@ import java.util.TimerTask;
 @SuppressLint({"LongLogTag"})
 public class PlayerController {
     public static final String TAG = "jakubweg.PlayerController";
-    public static final boolean VERBOSE = true;
+    public static final boolean VERBOSE = false;
     @SuppressWarnings("PointlessBooleanExpression")
-    public static final boolean VERBOSE_DRAW_OPTIONS = true && VERBOSE;
+    public static final boolean VERBOSE_DRAW_OPTIONS = false && VERBOSE;
 
     private static final Timer sponsorTimer = new Timer("sponsor-skip-timer");
     public static WeakReference<Activity> playerActivity = new WeakReference<>(null);
