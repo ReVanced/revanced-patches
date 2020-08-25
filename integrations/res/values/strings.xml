@@ -185,7 +185,7 @@
     <string name="about_madeby">Integration made by JakubWeg</string>
     <string name="tap_skip">Tap to skip</string>
 
-    <string name="submit_failed_unknown_error">Unable to submit segments: Status: %d %s</string>
+    <string name="submit_failed_unknown_error" formatted="false">Unable to submit segments: Status: %d %s</string>
     <string name="submit_failed_rate_limit">Can\'t submit the segment.\nRate Limit (Too many for the same user or IP)</string>
     <string name="submit_failed_forbidden">Can\'t submit the segment.\nRejected by auto moderator</string>
     <string name="submit_failed_duplicate">Can\'t submit the segment.\nAlready exists</string>
@@ -195,7 +195,7 @@
     <string name="new_segment_choose_category">Choose the segment category</string>
     <string name="new_segment_disabled_category">You\'ve disabled this category in the settings, so can\'t submit it</string>
     <string name="new_segment_title">New Sponsor Block segment</string>
-    <string name="new_segment_mark_time_as_question">Set %02d:%02d:%04d as a start or end of new segment?</string>
+    <string name="new_segment_mark_time_as_question" formatted="false">Set %02d:%02d:%04d as a start or end of new segment?</string>
     <string name="new_segment_mark_start">start</string>
     <string name="new_segment_mark_end">end</string>
     <string name="new_segment_now">now</string>
@@ -204,7 +204,7 @@
     <string name="new_segment_time_start_set">Start of the segment set</string>
     <string name="new_segment_time_end_set">End of the segment set</string>
     <string name="new_segment_confirm_title">Is it right?</string>
-    <string name="new_segment_confirm_content">The segment lasts from %02d:%02d to %02d:%02d (%d minutes %02d seconds)\nIs it ready to submit?</string>
+    <string name="new_segment_confirm_content" formatted="false">The segment lasts from %02d:%02d to %02d:%02d (%d minutes %02d seconds)\nIs it ready to submit?</string>
     <string name="new_segment_mark_locations_first">Mark two locations on the time bar first</string>
     <string name="new_segment_edit_by_hand_title">Edit time of new segment by hand</string>
     <string name="new_segment_edit_by_hand_content">Do you want to edit time of the start or the end of the segment?</string>
