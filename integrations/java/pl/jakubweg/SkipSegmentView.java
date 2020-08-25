@@ -40,7 +40,7 @@ public class SkipSegmentView extends TextView implements View.OnClickListener {
         int padding = (int) convertDpToPixel(4, context);
         setPadding(padding, padding, padding, padding);
 
-        this.setText("▶ " + str("tap_skip"));
+        this.setText(str("tap_skip"));
 
         setOnClickListener(this);
     }
