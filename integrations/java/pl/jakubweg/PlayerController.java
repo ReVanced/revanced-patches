@@ -75,7 +75,7 @@ public class PlayerController {
         sponsorTimer.schedule(new TimerTask() {
             @Override
             public void run() {
-                executeDownloadSegments(currentVideoId, false);
+                executeDownloadSegments(currentVideoId);
             }
         }, 0);
     }
@@ -114,8 +114,8 @@ public class PlayerController {
         }
     }
 
-    public static void executeDownloadSegments(String videoId, boolean ignoreCache) {
-        SponsorSegment[] segments = SponsorBlockUtils.getSegmentsForVideo(videoId, ignoreCache);
+    public static void executeDownloadSegments(String videoId) {
+        SponsorSegment[] segments = SponsorBlockUtils.getSegmentsForVideo(videoId);
         Arrays.sort(segments);
 
         if (VERBOSE)

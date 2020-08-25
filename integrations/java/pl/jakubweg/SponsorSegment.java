@@ -1,9 +1,5 @@
 package pl.jakubweg;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-
 public class SponsorSegment implements Comparable<SponsorSegment> {
     public final long start;
     public final long end;
@@ -15,15 +11,6 @@ public class SponsorSegment implements Comparable<SponsorSegment> {
         this.end = end;
         this.category = category;
         this.UUID = UUID;
-    }
-
-    public static SponsorSegment readFrom(RandomAccessFile stream) throws IOException {
-        long start = stream.readLong();
-        long end = stream.readLong();
-        String categoryName = stream.readUTF();
-        String UUID = stream.readUTF();
-        SponsorBlockSettings.SegmentInfo category = SponsorBlockSettings.SegmentInfo.valueOf(categoryName);
-        return new SponsorSegment(start, end, category, UUID);
     }
 
     @Override
@@ -40,10 +27,4 @@ public class SponsorSegment implements Comparable<SponsorSegment> {
         return (int) (this.start - o.start);
     }
 
-    public void writeTo(DataOutputStream stream) throws IOException {
-        stream.writeLong(start);
-        stream.writeLong(end);
-        stream.writeUTF(category.name());
-        stream.writeUTF(UUID);
-    }
 }

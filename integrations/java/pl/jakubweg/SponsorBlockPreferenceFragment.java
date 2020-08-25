@@ -21,7 +21,6 @@ import java.util.ArrayList;
 
 import static pl.jakubweg.SponsorBlockSettings.DefaultBehaviour;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP;
-import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_CACHE_SEGMENTS;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_COUNT_SKIPS;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_NEW_SEGMENT_ENABLED;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP;
@@ -29,7 +28,6 @@ import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SPONSOR_BLOCK_ENA
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_UUID;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_NAME;
 import static pl.jakubweg.SponsorBlockSettings.adjustNewSegmentMillis;
-import static pl.jakubweg.SponsorBlockSettings.cacheEnabled;
 import static pl.jakubweg.SponsorBlockSettings.countSkips;
 import static pl.jakubweg.SponsorBlockSettings.showToastWhenSkippedAutomatically;
 import static pl.jakubweg.SponsorBlockSettings.uuid;
@@ -210,38 +208,6 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             screen.addPreference(preference);
             preferencesToDisableWhenSBDisabled.add(preference);
         }
-
-        {
-            Preference preference = new SwitchPreference(context);
-            preference.setTitle(str("general_cache"));
-            preference.setSummary(str("general_cache_sum"));
-            preference.setKey(PREFERENCES_KEY_CACHE_SEGMENTS);
-            preference.setDefaultValue(cacheEnabled);
-            screen.addPreference(preference);
-            preferencesToDisableWhenSBDisabled.add(preference);
-        }
-
-        {
-            Preference preference = new Preference(context);
-            preference.setTitle(str("general_cache_clear"));
-            preference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
-                    File cacheDirectory = SponsorBlockSettings.cacheDirectory;
-                    if (cacheDirectory != null) {
-                        for (File file : cacheDirectory.listFiles()) {
-                            if (!file.delete())
-                                return false;
-                        }
-                        Toast.makeText(getActivity(), str("done"), Toast.LENGTH_SHORT).show();
-                    }
-                    return false;
-                }
-            });
-            preferencesToDisableWhenSBDisabled.add(preference);
-            screen.addPreference(preference);
-        }
-
     }
 
     @Override

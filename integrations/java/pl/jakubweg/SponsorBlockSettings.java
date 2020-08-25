@@ -22,7 +22,6 @@ public class SponsorBlockSettings {
     public static final String PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP = "show-toast";
     public static final String PREFERENCES_KEY_COUNT_SKIPS = "count-skips";
     public static final String PREFERENCES_KEY_UUID = "uuid";
-    public static final String PREFERENCES_KEY_CACHE_SEGMENTS = "cache-enabled";
     public static final String PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP = "new-segment-step-accuracy";
     public static final String PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED = "sb-enabled";
     public static final String PREFERENCES_KEY_NEW_SEGMENT_ENABLED = "sb-new-segment-enabled";
@@ -36,10 +35,8 @@ public class SponsorBlockSettings {
     public static boolean isAddNewSegmentEnabled = false;
     public static boolean showToastWhenSkippedAutomatically = true;
     public static boolean countSkips = true;
-    public static boolean cacheEnabled = true;
     public static int adjustNewSegmentMillis = 150;
     public static String uuid = "<invalid>";
-    public static File cacheDirectory;
     private static String sponsorBlockUrlCategories = "[]";
 
     @SuppressWarnings("unused")
@@ -58,11 +55,6 @@ public class SponsorBlockSettings {
 
     public static void update(Context context) {
         if (context == null) return;
-        File directory = cacheDirectory = new File(context.getCacheDir(), CACHE_DIRECTORY_NAME);
-        if (!directory.mkdirs() && !directory.exists()) {
-            Log.e("jakubweg.Settings", "Unable to create cache directory");
-            cacheDirectory = null;
-        }
 
         SharedPreferences preferences = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         isSponsorBlockEnabled = preferences.getBoolean(PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED, isSponsorBlockEnabled);
@@ -114,10 +106,9 @@ public class SponsorBlockSettings {
 
 
         showToastWhenSkippedAutomatically = preferences.getBoolean(PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP, showToastWhenSkippedAutomatically);
-        cacheEnabled = preferences.getBoolean(PREFERENCES_KEY_CACHE_SEGMENTS, true);
-        adjustNewSegmentMillis = Integer.parseInt(preferences
-                .getString(PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP,
-                        String.valueOf(adjustNewSegmentMillis)));
+        String tmp1 = preferences.getString(PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP, null);
+        if (tmp1 != null)
+            adjustNewSegmentMillis = Integer.parseInt(tmp1);
 
 
         uuid = preferences.getString(PREFERENCES_KEY_UUID, null);

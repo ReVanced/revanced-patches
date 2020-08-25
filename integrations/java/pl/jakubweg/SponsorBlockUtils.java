@@ -250,7 +250,7 @@ public abstract class SponsorBlockUtils {
             }
 
             if (videoId != null)
-                PlayerController.executeDownloadSegments(videoId, true);
+                PlayerController.executeDownloadSegments(videoId);
         }
     };
 
@@ -453,69 +453,8 @@ public abstract class SponsorBlockUtils {
         }
     }
 
-    public synchronized static SponsorSegment[] getSegmentsForVideo(String videoId, boolean ignoreCache) {
+    public synchronized static SponsorSegment[] getSegmentsForVideo(String videoId) {
         newSponsorSegmentEndMillis = newSponsorSegmentStartMillis = -1;
-
-        int usageCounter = 0;
-        if (!ignoreCache && SponsorBlockSettings.cacheEnabled) {
-
-            File cacheDirectory = SponsorBlockSettings.cacheDirectory;
-            if (cacheDirectory == null) {
-                Log.w(TAG, "Cache directory is null, cannot read");
-            } else {
-                File file = new File(cacheDirectory, videoId);
-                try {
-                    RandomAccessFile rwd = new RandomAccessFile(file, "rw");
-                    rwd.seek(0);
-                    usageCounter = rwd.readInt();
-                    long now = System.currentTimeMillis();
-                    long savedTimestamp = rwd.readLong();
-                    int segmentsSize = rwd.readInt();
-                    byte maxDaysCache;
-                    if (usageCounter < 2)
-                        maxDaysCache = 0;
-                    else if (usageCounter < 5 || segmentsSize == 0)
-                        maxDaysCache = 2;
-                    else if (usageCounter < 10)
-                        maxDaysCache = 5;
-                    else
-                        maxDaysCache = 10;
-
-
-                    if (VERBOSE)
-                        Log.d(TAG, String.format("Read cache data about segments, counter=%d, timestamp=%d, now=%d, maxCacheDays=%s, segmentsSize=%d",
-                                usageCounter, savedTimestamp, now, maxDaysCache, segmentsSize));
-
-                    if (savedTimestamp + (((long) maxDaysCache) * 24 * 60 * 60 * 1000) > now) {
-                        if (VERBOSE)
-                            Log.d(TAG, "getSegmentsForVideo: cacheHonored videoId=" + videoId);
-
-                        SponsorSegment[] segments = new SponsorSegment[segmentsSize];
-                        for (int i = 0; i < segmentsSize; i++) {
-                            segments[i] = SponsorSegment.readFrom(rwd);
-                        }
-
-                        rwd.seek(0);
-                        rwd.writeInt(usageCounter + 1);
-                        rwd.close();
-                        if (VERBOSE)
-                            Log.d(TAG, "getSegmentsForVideo: reading from cache and updating usageCounter finished");
-
-                        return segments;
-                    } else {
-                        if (VERBOSE)
-                            Log.d(TAG, "getSegmentsForVideo: cache of video " + videoId + " was not honored, fallback to downloading...");
-                    }
-                } catch (FileNotFoundException | EOFException ignored) {
-                    if (VERBOSE)
-                        Log.e(TAG, "FileNotFoundException | EOFException ignored");
-                } catch (Exception e) {
-                    //noinspection ResultOfMethodCallIgnored
-                    file.delete();
-                    Log.e(TAG, "Error while reading cached segments", e);
-                }
-            }
-        }
 
         ArrayList<SponsorSegment> sponsorSegments = new ArrayList<>();
         try {
@@ -568,29 +507,6 @@ public abstract class SponsorBlockUtils {
             }
 
             connection.disconnect();
-
-            if (SponsorBlockSettings.cacheEnabled) {
-                File cacheDirectory = SponsorBlockSettings.cacheDirectory;
-                if (cacheDirectory == null) {
-                    Log.w(TAG, "Cache directory is null");
-                } else {
-                    File file = new File(cacheDirectory, videoId);
-                    try {
-                        DataOutputStream stream = new DataOutputStream(new FileOutputStream(file));
-                        stream.writeInt(usageCounter + 1);
-                        stream.writeLong(System.currentTimeMillis());
-                        stream.writeInt(sponsorSegments.size());
-                        for (SponsorSegment segment : sponsorSegments) {
-                            segment.writeTo(stream);
-                        }
-                        stream.close();
-                    } catch (Exception e) {
-                        //noinspection ResultOfMethodCallIgnored
-                        file.delete();
-                        Log.e(TAG, "Unable to write segments to file", e);
-                    }
-                }
-            }
 
         } catch (Exception e) {
             Log.e(TAG, "download segments failed", e);

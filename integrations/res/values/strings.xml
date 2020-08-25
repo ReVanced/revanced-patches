@@ -153,9 +153,6 @@
     <string name="general_adjusting_sum">This is the number of milliseconds you can move when you use the time adjustment buttons while adding new segment</string>
     <string name="general_uuid">Your unique user id</string>
     <string name="general_uuid_sum">This should be kept private. This is like a password and should not be shared with anyone. If someone has this, they can impersonate you</string>
-    <string name="general_cache">Cache segments locally</string>
-    <string name="general_cache_sum">Frequently watched videos (eg. music videos) may store segments in app cache to make skipping segments faster</string>
-    <string name="general_cache_clear">Clear sponsor block segments cache</string>
     <string name="segments_sponsor">Sponsor</string>
     <string name="segments_sponsor_sum">Paid promotion, paid referrals and direct advertisements</string>
     <string name="segments_intermission">Intermission/Intro Animation</string>
