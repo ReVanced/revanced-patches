@@ -165,7 +165,6 @@
     <string name="segments_selfpromo_sum">Similar to "sponsor" except for unpaid or self promotion. This includes sections about merchandise, donations, or information about who they collaborated with</string>
     <string name="segments_nomusic">Music: Non-Music Section</string>
     <string name="segments_nomusic_sum">Only for use in music videos. This includes introductions or outros in music videos</string>
-    <string name="skipped_segment">Skipped a sponsor segment</string>
     <string name="skipped_sponsor">Skipped sponsor</string>
     <string name="skipped_intermission">Skipped intro</string>
     <string name="skipped_endcard">Skipped outro</string>

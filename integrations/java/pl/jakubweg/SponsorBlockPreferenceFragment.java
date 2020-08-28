@@ -170,7 +170,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             preference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
-                    Toast.makeText(preference.getContext(), str("skipped_segment"), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(preference.getContext(), str("skipped_sponsor"), Toast.LENGTH_SHORT).show();
                     return false;
                 }
             });
