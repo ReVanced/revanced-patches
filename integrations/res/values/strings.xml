@@ -207,6 +207,13 @@
     <string name="new_segment_edit_by_hand_saved">Done</string>
     <string name="new_segment_edit_by_hand_parse_error">Cannot parse this time 😔</string>
 
+    <string name="sb_guidelines_preference_title">View guidelines</string>
+    <string name="sb_guidelines_preference_sum">Guidelines contain tips about submitting a segment</string>
+    <string name="sb_guidelines_popup_title">There are guidelines</string>
+    <string name="sb_guidelines_popup_content">It\'s recommended to read the Sponsor Block guidelines before submitting any segment</string>
+    <string name="sb_guidelines_popup_already_read">Already read</string>
+    <string name="sb_guidelines_popup_open">Show me</string>
+
     <string name="app_name" />
 
 </resources>

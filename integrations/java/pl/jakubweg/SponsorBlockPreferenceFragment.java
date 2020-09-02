@@ -1,7 +1,9 @@
 package pl.jakubweg;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -29,6 +31,8 @@ import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_UUID;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_NAME;
 import static pl.jakubweg.SponsorBlockSettings.adjustNewSegmentMillis;
 import static pl.jakubweg.SponsorBlockSettings.countSkips;
+import static pl.jakubweg.SponsorBlockSettings.getPreferences;
+import static pl.jakubweg.SponsorBlockSettings.setSeenGuidelines;
 import static pl.jakubweg.SponsorBlockSettings.showToastWhenSkippedAutomatically;
 import static pl.jakubweg.SponsorBlockSettings.uuid;
 import static pl.jakubweg.StringRef.str;
@@ -46,7 +50,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
 
         getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
 
-        Activity context = this.getActivity();
+        final Activity context = this.getActivity();
 
         PreferenceScreen preferenceScreen = getPreferenceManager().createPreferenceScreen(context);
         setPreferenceScreen(preferenceScreen);
@@ -62,7 +66,8 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             preference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference, Object newValue) {
-                    enableCategoriesIfNeeded(((Boolean) newValue));
+                    final boolean value = (Boolean) newValue;
+                    enableCategoriesIfNeeded(value);
                     return true;
                 }
             });
@@ -77,6 +82,26 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             preference.setTitle(str("enable_segmadding"));
             preference.setSummary(str("enable_segmadding_sum"));
             preferencesToDisableWhenSBDisabled.add(preference);
+            preference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object o) {
+                    final boolean value = (Boolean) o;
+                    if (value && !SponsorBlockSettings.seenGuidelinesPopup) {
+                        new AlertDialog.Builder(preference.getContext())
+                                .setTitle(str("sb_guidelines_popup_title"))
+                                .setMessage(str("sb_guidelines_popup_content"))
+                                .setNegativeButton(str("sb_guidelines_popup_already_read"), null)
+                                .setPositiveButton(str("sb_guidelines_popup_open"), new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        openGuidelines();
+                                    }
+                                })
+                                .show();
+                    }
+                    return true;
+                }
+            });
         }
 
         addGeneralCategory(context, preferenceScreen);
@@ -84,6 +109,15 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
         addAboutCategory(context, preferenceScreen);
 
         enableCategoriesIfNeeded(SponsorBlockSettings.isSponsorBlockEnabled);
+    }
+
+    private void openGuidelines() {
+        final Context context = getActivity();
+        setSeenGuidelines(context);
+
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("https://github.com/ajayyy/SponsorBlock/wiki/Guidelines"));
+        context.startActivity(intent);
     }
 
     private void enableCategoriesIfNeeded(boolean enabled) {
@@ -160,6 +194,20 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
         preferencesToDisableWhenSBDisabled.add(category);
         screen.addPreference(category);
         category.setTitle(str("general"));
+
+        {
+            Preference preference = new Preference(context);
+            preference.setTitle(str("sb_guidelines_preference_title"));
+            preference.setSummary(str("sb_guidelines_preference_sum"));
+            preference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    openGuidelines();
+                    return false;
+                }
+            });
+            screen.addPreference(preference);
+        }
 
         {
             Preference preference = new SwitchPreference(context);

@@ -17,13 +17,13 @@ import static pl.jakubweg.StringRef.sf;
 
 public class SponsorBlockSettings {
 
-    public static final String CACHE_DIRECTORY_NAME = "sponsor-block-segments-1";
     public static final String PREFERENCES_NAME = "sponsor-block";
     public static final String PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP = "show-toast";
     public static final String PREFERENCES_KEY_COUNT_SKIPS = "count-skips";
     public static final String PREFERENCES_KEY_UUID = "uuid";
     public static final String PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP = "new-segment-step-accuracy";
     public static final String PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED = "sb-enabled";
+    public static final String PREFERENCES_KEY_SEEN_GUIDELINES = "sb-seen-gl";
     public static final String PREFERENCES_KEY_NEW_SEGMENT_ENABLED = "sb-new-segment-enabled";
     public static final String sponsorBlockSkipSegmentsUrl = "https://sponsor.ajay.app/api/skipSegments";
     public static final String sponsorBlockViewedUrl = "https://sponsor.ajay.app/api/viewedVideoSponsorTime";
@@ -32,6 +32,7 @@ public class SponsorBlockSettings {
     public static final SegmentBehaviour DefaultBehaviour = SegmentBehaviour.SkipAutomatically;
 
     public static boolean isSponsorBlockEnabled = false;
+    public static boolean seenGuidelinesPopup = false;
     public static boolean isAddNewSegmentEnabled = false;
     public static boolean showToastWhenSkippedAutomatically = true;
     public static boolean countSkips = true;
@@ -53,11 +54,22 @@ public class SponsorBlockSettings {
         return sponsorBlockViewedUrl + "?UUID=" + UUID;
     }
 
+    public static SharedPreferences getPreferences(Context context) {
+        return context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
+    }
+
+    public static void setSeenGuidelines(Context context) {
+        SponsorBlockSettings.seenGuidelinesPopup = true;
+        getPreferences(context).edit().putBoolean(PREFERENCES_KEY_SEEN_GUIDELINES, true).apply();
+    }
+
     public static void update(Context context) {
         if (context == null) return;
 
-        SharedPreferences preferences = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
+        SharedPreferences preferences = getPreferences(context);
         isSponsorBlockEnabled = preferences.getBoolean(PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED, isSponsorBlockEnabled);
+        seenGuidelinesPopup = preferences.getBoolean(PREFERENCES_KEY_SEEN_GUIDELINES, seenGuidelinesPopup);
+
         if (!isSponsorBlockEnabled) {
             SkipSegmentView.hide();
             NewSegmentHelperLayout.hide();
