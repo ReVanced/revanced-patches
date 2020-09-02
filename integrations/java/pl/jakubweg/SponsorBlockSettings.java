@@ -75,12 +75,12 @@ public class SponsorBlockSettings {
             NewSegmentHelperLayout.hide();
             SponsorBlockUtils.hideButton();
             PlayerController.sponsorSegmentsOfCurrentVideo = null;
-        } else if (isAddNewSegmentEnabled) {
+        } else if (/*isAddNewSegmentEnabled*/false) {
             SponsorBlockUtils.showButton();
         }
 
         isAddNewSegmentEnabled = preferences.getBoolean(PREFERENCES_KEY_NEW_SEGMENT_ENABLED, isAddNewSegmentEnabled);
-        if (!isAddNewSegmentEnabled) {
+        if (!/*isAddNewSegmentEnabled*/false) {
             NewSegmentHelperLayout.hide();
             SponsorBlockUtils.hideButton();
         } else {

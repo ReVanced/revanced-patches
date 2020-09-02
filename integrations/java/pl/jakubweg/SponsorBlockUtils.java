@@ -61,7 +61,7 @@ public abstract class SponsorBlockUtils {
     @SuppressLint("SimpleDateFormat")
     public static final SimpleDateFormat dateFormatter = new SimpleDateFormat(DATE_FORMAT);
     private static final int sponsorBtnId = 1234;
-    private static final View.OnClickListener sponsorBlockBtnListener = new View.OnClickListener() {
+    public static final View.OnClickListener sponsorBlockBtnListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             NewSegmentHelperLayout.toggle();
@@ -292,7 +292,7 @@ public abstract class SponsorBlockUtils {
         if (existingSponsorBtn != null) {
             if (VERBOSE)
                 Log.d(TAG, "addImageButton: sponsorBtn exists");
-            if (SponsorBlockSettings.isAddNewSegmentEnabled)
+            if (/*isAddNewSegmentEnabled*/false)
                 showButton();
             return;
         }
@@ -365,7 +365,7 @@ public abstract class SponsorBlockUtils {
                     instance.setOnClickListener(sponsorBlockBtnListener);
                     sponsorBlockBtn = new WeakReference<>(instance);
                     isShown = true;
-                    if (!SponsorBlockSettings.isAddNewSegmentEnabled)
+                    if (!/*isAddNewSegmentEnabled*/false)
                         hideButton();
                     if (VERBOSE)
                         Log.i(TAG, "Image Button added");
@@ -444,7 +444,7 @@ public abstract class SponsorBlockUtils {
     }
 
     public static void notifyShareBtnVisibilityChanged(View v) {
-        if (v.getId() != shareBtnId || !SponsorBlockSettings.isAddNewSegmentEnabled) return;
+        if (v.getId() != shareBtnId || !/*SponsorBlockSettings.isAddNewSegmentEnabled*/false) return;
 //        if (VERBOSE)
 //            Log.d(TAG, "VISIBILITY CHANGED of view " + v);
         ImageView sponsorBtn = sponsorBlockBtn.get();
