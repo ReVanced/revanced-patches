@@ -104,11 +104,6 @@ public class PlayerController {
 
             SkipSegmentView.hide();
             NewSegmentHelperLayout.hide();
-
-            // add image button when starting new video
-            Activity activity = playerActivity.get();
-            if (activity != null)
-                SponsorBlockUtils.addImageButton(activity, 5);
         } catch (Exception e) {
             Log.e(TAG, "Exception while initializing skip method", e);
         }
@@ -344,14 +339,13 @@ public class PlayerController {
         playerActivity = new WeakReference<>((Activity) view.getContext());
         if (VERBOSE)
             Log.d(TAG, "addSkipSponsorView15: view=" + view.toString());
+
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
                 final ViewGroup viewGroup = (ViewGroup) ((ViewGroup) view).getChildAt(2);
                 Activity context = ((Activity) viewGroup.getContext());
-                viewGroup.addView(new SkipSegmentView(context));
-                viewGroup.addView(new NewSegmentHelperLayout(context));
-                SponsorBlockUtils.addImageButton(context, 40);
+                NewSegmentHelperLayout.context = context;
             }
         }, 500);
     }
@@ -365,15 +359,7 @@ public class PlayerController {
             public void run() {
                 final ViewGroup viewGroup = (ViewGroup) view.getParent();
                 Activity activity = (Activity) viewGroup.getContext();
-                viewGroup.addView(new SkipSegmentView(activity));
-                viewGroup.addView(new NewSegmentHelperLayout(activity));
-
-                // add image button when creating new activity
-                SponsorBlockUtils.addImageButton(activity, 5);
-
-//                InjectedPlugin.printViewStack(viewGroup, 0);
-
-//                SponsorBlockUtils.addImageButton(activity);
+                NewSegmentHelperLayout.context = activity;
             }
         }, 500);
     }
