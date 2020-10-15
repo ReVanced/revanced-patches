@@ -163,7 +163,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
     private void addAboutCategory(Context context, PreferenceScreen screen) {
         PreferenceCategory category = new PreferenceCategory(context);
         screen.addPreference(category);
-        category.setTitle("About");
+        category.setTitle(str("about"));
 
         {
             Preference preference = new Preference(context);
