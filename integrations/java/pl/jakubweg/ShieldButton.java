@@ -13,8 +13,9 @@ import com.google.android.apps.youtube.app.YouTubeApplication;
 
 import java.lang.ref.WeakReference;
 
+import static fi.razerman.youtube.XGlobals.debug;
+
 public class ShieldButton {
-    static boolean debug = true;
     static String TAG = "SHIELD";
     static RelativeLayout _youtubeControlsLayout;
     static WeakReference<ImageView> _shieldBtn = new WeakReference<>(null);
@@ -54,7 +55,7 @@ public class ShieldButton {
             changeVisibilityImmediate(false);
         }
         catch (Exception ex) {
-            Log.e("XError", "Unable to set RelativeLayout", ex);
+            Log.e(TAG, "Unable to set RelativeLayout", ex);
         }
     }
 
@@ -78,7 +79,7 @@ public class ShieldButton {
         if (_youtubeControlsLayout == null || iView == null) return;
 
         if (visible && shouldBeShown()) {
-            if (debug){
+            if (debug) {
                 Log.d(TAG, "Fading in");
             }
             iView.setVisibility(View.VISIBLE);
@@ -88,7 +89,7 @@ public class ShieldButton {
         }
 
         if (iView.getVisibility() == View.VISIBLE) {
-            if (debug){
+            if (debug) {
                 Log.d(TAG, "Fading out");
             }
             if (!immediate)

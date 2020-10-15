@@ -46,6 +46,7 @@ import java.util.TimeZone;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
+import static fi.razerman.youtube.XGlobals.debug;
 import static pl.jakubweg.PlayerController.VERBOSE;
 import static pl.jakubweg.PlayerController.getCurrentVideoId;
 import static pl.jakubweg.PlayerController.getLastKnownVideoTime;
@@ -64,6 +65,9 @@ public abstract class SponsorBlockUtils {
     public static final View.OnClickListener sponsorBlockBtnListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            if (debug) {
+                Log.d(TAG, "Shield button clicked");
+            }
             NewSegmentHelperLayout.toggle();
         }
     };
@@ -278,102 +282,6 @@ public abstract class SponsorBlockUtils {
         View i = sponsorBlockBtn.get();
         if (i != null)
             i.setVisibility(GONE);
-    }
-
-    @SuppressLint("LongLogTag")
-    public static void addImageButton(final Activity activity, final int attemptsWhenFail) {
-        if (VERBOSE)
-            Log.d(TAG, "addImageButton activity=" + activity + ",attemptsWhenFail=" + attemptsWhenFail);
-
-        if (activity == null)
-            return;
-
-        final View existingSponsorBtn = activity.findViewById(sponsorBtnId);
-        if (existingSponsorBtn != null) {
-            if (VERBOSE)
-                Log.d(TAG, "addImageButton: sponsorBtn exists");
-            if (/*isAddNewSegmentEnabled*/false)
-                showButton();
-            return;
-        }
-
-        String packageName = activity.getPackageName();
-        Resources R = activity.getResources();
-        shareBtnId = R.getIdentifier("player_share_button", "id", packageName);
-//        final int addToBtnId = R.getIdentifier("player_addto_button", "id", packageName);
-        final int addToBtnId = R.getIdentifier("live_chat_overlay_button", "id", packageName);
-        int titleViewId = R.getIdentifier("player_video_title_view", "id", packageName);
-//        final int iconId = R.getIdentifier("player_fast_forward", "drawable", packageName);
-        final int iconId = R.getIdentifier("ic_sb_logo", "drawable", packageName);
-
-
-        final View addToBtn = activity.findViewById(addToBtnId);
-        final ImageView shareBtn = activity.findViewById(shareBtnId);
-        final TextView titleView = activity.findViewById(titleViewId);
-
-        if (addToBtn == null || shareBtn == null || titleView == null) {
-            if (VERBOSE)
-                Log.e(TAG, String.format("one of following is null: addToBtn=%s shareBtn=%s titleView=%s",
-                        addToBtn, shareBtn, titleView));
-
-            if (attemptsWhenFail > 0)
-                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (VERBOSE)
-                            Log.i(TAG, "Retrying addImageButton");
-                        addImageButton(PlayerController.playerActivity.get(), attemptsWhenFail - 1);
-                    }
-                }, 5000);
-            return;
-        }
-
-        new Handler(Looper.getMainLooper()).post(new Runnable() {
-            @Override
-            public void run() {
-                try {
-
-                    Class<?> touchImageViewClass = Class.forName("com.google.android.libraries.youtube.common.ui.TouchImageView");
-                    Constructor<?> constructor = touchImageViewClass.getConstructor(Context.class);
-                    final ImageView instance = ((ImageView) constructor.newInstance(activity));
-                    instance.setImageResource(iconId);
-                    instance.setId(sponsorBtnId);
-
-                    RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(shareBtn.getLayoutParams());
-                    layoutParams.addRule(RelativeLayout.LEFT_OF, addToBtnId);
-
-                    instance.setLayoutParams(layoutParams);
-                    ((ViewGroup) shareBtn.getParent()).addView(instance, 0);
-
-
-                    instance.setPadding(shareBtn.getPaddingLeft(),
-                            shareBtn.getPaddingTop(),
-                            shareBtn.getPaddingRight(),
-                            shareBtn.getPaddingBottom());
-
-
-                    RelativeLayout.LayoutParams titleViewLayoutParams = (RelativeLayout.LayoutParams) titleView.getLayoutParams();
-                    titleViewLayoutParams.addRule(RelativeLayout.START_OF, sponsorBtnId);
-                    titleView.requestLayout();
-
-                    instance.setClickable(true);
-                    instance.setFocusable(true);
-                    Drawable.ConstantState constantState = shareBtn.getBackground().mutate().getConstantState();
-                    if (constantState != null)
-                        instance.setBackground(constantState.newDrawable());
-
-                    instance.setOnClickListener(sponsorBlockBtnListener);
-                    sponsorBlockBtn = new WeakReference<>(instance);
-                    isShown = true;
-                    if (!/*isAddNewSegmentEnabled*/false)
-                        hideButton();
-                    if (VERBOSE)
-                        Log.i(TAG, "Image Button added");
-                } catch (Exception e) {
-                    Log.e(TAG, "Error while adding button", e);
-                }
-            }
-        });
     }
 
     @SuppressLint("DefaultLocale")
