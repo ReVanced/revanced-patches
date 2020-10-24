@@ -95,7 +95,7 @@ public class PlayerController {
             Log.i(TAG, String.format("onCreate called with object %s on thread %s", o.toString(), Thread.currentThread().toString()));
 
         try {
-            setMillisecondMethod = o.getClass().getMethod("a", Long.TYPE);
+            setMillisecondMethod = o.getClass().getMethod("replaceMeWithsetMillisecondMethod", Long.TYPE);
             setMillisecondMethod.setAccessible(true);
 
             lastKnownVideoTime = 0;
