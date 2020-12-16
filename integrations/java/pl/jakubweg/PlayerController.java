@@ -18,6 +18,8 @@ import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import fi.vanced.libraries.youtube.player.VideoInformation;
+
 @SuppressLint({"LongLogTag"})
 public class PlayerController {
     public static final String TAG = "jakubweg.PlayerController";
@@ -55,6 +57,8 @@ public class PlayerController {
             Log.d(TAG, "setCurrentVideoId: videoId is null");
             return;
         }
+
+        VideoInformation.currentVideoId = videoId;
 
         if (!SponsorBlockSettings.isSponsorBlockEnabled) {
             currentVideoId = null;
@@ -99,6 +103,7 @@ public class PlayerController {
             setMillisecondMethod.setAccessible(true);
 
             lastKnownVideoTime = 0;
+            VideoInformation.lastKnownVideoTime = 0;
             currentVideoLength = 1;
             currentPlayerController = new WeakReference<>(o);
 
@@ -191,6 +196,7 @@ public class PlayerController {
     public static void setCurrentVideoTime(long millis) {
         if (VERBOSE)
             Log.v(TAG, "setCurrentVideoTime: current video time: " + millis);
+        VideoInformation.lastKnownVideoTime = millis;
         if (!SponsorBlockSettings.isSponsorBlockEnabled) return;
         lastKnownVideoTime = millis;
         if (millis <= 0) return;
@@ -217,6 +223,7 @@ public class PlayerController {
                         public void run() {
                             skipSponsorTask = null;
                             lastKnownVideoTime = segment.start + 1;
+                            VideoInformation.lastKnownVideoTime = lastKnownVideoTime;
                             new Handler(Looper.getMainLooper()).post(findAndSkipSegmentRunnable);
                         }
                     };
@@ -263,8 +270,10 @@ public class PlayerController {
      * Called very high frequency (once every about 100ms), also in background. It sometimes triggers when a video is paused (couple times in the row with the same value)
      */
     public static void setCurrentVideoTimeHighPrecision(final long millis) {
-        if (lastKnownVideoTime > 0)
+        if (lastKnownVideoTime > 0) {
             lastKnownVideoTime = millis;
+            VideoInformation.lastKnownVideoTime = lastKnownVideoTime;
+        }
         else
             setCurrentVideoTime(millis);
     }
@@ -431,6 +440,7 @@ public class PlayerController {
                     if (VERBOSE)
                         Log.i(TAG, "Skipping to millis=" + finalMillisecond);
                     lastKnownVideoTime = finalMillisecond;
+                    VideoInformation.lastKnownVideoTime = lastKnownVideoTime;
                     setMillisecondMethod.invoke(currentObj, finalMillisecond);
                 } catch (Exception e) {
                     Log.e(TAG, "Cannot skip to millisecond", e);

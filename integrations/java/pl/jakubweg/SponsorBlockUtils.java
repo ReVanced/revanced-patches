@@ -1,38 +1,24 @@
 package pl.jakubweg;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.EOFException;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.RandomAccessFile;
 import java.lang.ref.WeakReference;
-import java.lang.reflect.Constructor;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.ParseException;
@@ -52,7 +38,6 @@ import static pl.jakubweg.PlayerController.getCurrentVideoId;
 import static pl.jakubweg.PlayerController.getLastKnownVideoTime;
 import static pl.jakubweg.PlayerController.sponsorSegmentsOfCurrentVideo;
 import static pl.jakubweg.SponsorBlockSettings.sponsorBlockSkipSegmentsUrl;
-import static pl.jakubweg.StringRef.sf;
 import static pl.jakubweg.StringRef.str;
 
 @SuppressWarnings({"LongLogTag"})
