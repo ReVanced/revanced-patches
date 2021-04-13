@@ -122,6 +122,7 @@ public class SponsorBlockSettings {
         if (tmp1 != null)
             adjustNewSegmentMillis = Integer.parseInt(tmp1);
 
+        countSkips = preferences.getBoolean(PREFERENCES_KEY_COUNT_SKIPS, countSkips);
 
         uuid = preferences.getString(PREFERENCES_KEY_UUID, null);
         if (uuid == null) {
