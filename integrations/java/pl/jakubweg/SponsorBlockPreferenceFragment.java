@@ -18,7 +18,6 @@ import android.preference.SwitchPreference;
 import android.text.InputType;
 import android.widget.Toast;
 
-import java.io.File;
 import java.util.ArrayList;
 
 import static pl.jakubweg.SponsorBlockSettings.DefaultBehaviour;
@@ -31,10 +30,10 @@ import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_UUID;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_NAME;
 import static pl.jakubweg.SponsorBlockSettings.adjustNewSegmentMillis;
 import static pl.jakubweg.SponsorBlockSettings.countSkips;
-import static pl.jakubweg.SponsorBlockSettings.getPreferences;
 import static pl.jakubweg.SponsorBlockSettings.setSeenGuidelines;
 import static pl.jakubweg.SponsorBlockSettings.showToastWhenSkippedAutomatically;
 import static pl.jakubweg.SponsorBlockSettings.uuid;
+import static pl.jakubweg.StringRef.sf;
 import static pl.jakubweg.StringRef.str;
 
 
@@ -155,7 +154,16 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             preference.setDefaultValue(defaultValue);
             preference.setEntries(entries);
             preference.setEntryValues(entryValues);
+
+            EditTextPreference colorPreference = new EditTextPreference(context);
+            colorPreference.setTitle("Set " + segmentInfo.title + " color");
+            colorPreference.getEditText().setInputType(InputType.TYPE_CLASS_NUMBER);
+            colorPreference.setKey(segmentInfo.key + "_color");
+            colorPreference.setDefaultValue(segmentInfo.color);
+            preferencesToDisableWhenSBDisabled.add(colorPreference);
+
             category.addPreference(preference);
+            category.addPreference(colorPreference);
         }
 
     }
