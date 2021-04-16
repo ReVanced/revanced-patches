@@ -33,7 +33,6 @@ import static pl.jakubweg.SponsorBlockSettings.countSkips;
 import static pl.jakubweg.SponsorBlockSettings.setSeenGuidelines;
 import static pl.jakubweg.SponsorBlockSettings.showToastWhenSkippedAutomatically;
 import static pl.jakubweg.SponsorBlockSettings.uuid;
-import static pl.jakubweg.StringRef.sf;
 import static pl.jakubweg.StringRef.str;
 
 

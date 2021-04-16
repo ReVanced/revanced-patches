@@ -222,7 +222,7 @@ public class SponsorBlockSettings {
 
         public CharSequence getTitleWithDot() {
             return (lazyTitleWithDot == null) ?
-                    lazyTitleWithDot = Html.fromHtml(String.format("<font color=\"#%06X\">⬤</font> %s", this.color, title))
+                    lazyTitleWithDot = Html.fromHtml(String.format("<font color=\"#%06X\">⬤</font> %s", color, title))
                     : lazyTitleWithDot;
         }
     }
