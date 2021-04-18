@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import java.lang.ref.WeakReference;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Timer;
@@ -305,7 +306,9 @@ public class PlayerController {
 
     public static void setSponsorBarRect(final Object self) {
         try {
-            Rect rect = ((Rect) self.getClass().getField("e").get(self));
+            Field field = self.getClass().getDeclaredField("e");
+            field.setAccessible(true);
+            Rect rect = (Rect) field.get(self);
             if (rect != null) {
                 setSponsorBarAbsoluteLeft(rect.left);
                 setSponsorBarAbsoluteRight(rect.right);
