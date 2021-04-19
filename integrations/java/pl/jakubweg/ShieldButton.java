@@ -9,7 +9,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import com.google.android.apps.youtube.app.YouTubeApplication;
+import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
 
 import java.lang.ref.WeakReference;
 
@@ -103,7 +103,7 @@ public class ShieldButton {
     }
 
     private static void initButtonVisibilitySettings() {
-        Context context = YouTubeApplication.getAppContext();
+        Context context = YouTubeTikTokRoot_Application.getAppContext();
         if(context == null){
             Log.e(TAG, "context is null");
             SponsorBlockSettings.isSponsorBlockEnabled = false;
@@ -118,16 +118,16 @@ public class ShieldButton {
 
     //region Helpers
     private static int getIdentifier(String name, String defType) {
-        Context context = YouTubeApplication.getAppContext();
+        Context context = YouTubeTikTokRoot_Application.getAppContext();
         return context.getResources().getIdentifier(name, defType, context.getPackageName());
     }
 
     private static int getInteger(String name) {
-        return YouTubeApplication.getAppContext().getResources().getInteger(getIdentifier(name, "integer"));
+        return YouTubeTikTokRoot_Application.getAppContext().getResources().getInteger(getIdentifier(name, "integer"));
     }
 
     private static Animation getAnimation(String name) {
-        return AnimationUtils.loadAnimation(YouTubeApplication.getAppContext(), getIdentifier(name, "anim"));
+        return AnimationUtils.loadAnimation(YouTubeTikTokRoot_Application.getAppContext(), getIdentifier(name, "anim"));
     }
     //endregion
 }
