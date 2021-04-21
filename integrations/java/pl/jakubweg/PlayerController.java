@@ -65,9 +65,6 @@ public class PlayerController {
             return;
         }
 
-        if (Looper.myLooper() != Looper.getMainLooper()) // check if thread is not main
-            return;
-
         if (videoId.equals(currentVideoId))
             return;
 
