@@ -201,25 +201,30 @@ public abstract class SponsorBlockUtils {
             final Context context = ((AlertDialog) dialog).getContext();
             final SponsorSegment segment = sponsorSegmentsOfCurrentVideo[which];
 
-            new AlertDialog.Builder(context) // negative and positive are switched for more intuitive order
-                    .setNegativeButton(str("vote_upvote"), new DialogInterface.OnClickListener() {
+            final VoteOption[] voteOptions = VoteOption.values();
+            String[] items = new String[voteOptions.length];
+
+            for (int i = 0; i < voteOptions.length; i++) {
+                items[i] = voteOptions[i].title;
+            }
+
+            new AlertDialog.Builder(context)
+                    .setItems(items, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Toast.makeText(context, str("vote_started"), Toast.LENGTH_SHORT).show();
-                            voteForSegment(segment, true, null);
-                        }
-                    })
-                    .setPositiveButton(str("vote_downvote"), new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Toast.makeText(context, str("vote_started"), Toast.LENGTH_SHORT).show();
-                            voteForSegment(segment, false, null);
-                        }
-                    })
-                    .setNeutralButton(str("vote_category"), new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            onNewCategorySelect(segment, context);
+                            switch (voteOptions[which]) {
+                                case UPVOTE:
+                                    Toast.makeText(context, str("vote_started"), Toast.LENGTH_SHORT).show();
+                                    voteForSegment(segment, true, null);
+                                    break;
+                                case DOWNVOTE:
+                                    Toast.makeText(context, str("vote_started"), Toast.LENGTH_SHORT).show();
+                                    voteForSegment(segment, false, null);
+                                    break;
+                                case CATEGORY_CHANGE:
+                                    onNewCategorySelect(segment, context);
+                                    break;
+                            }
                         }
                     })
                     .show();
@@ -560,6 +565,18 @@ public abstract class SponsorBlockUtils {
             connection.disconnect();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private enum VoteOption {
+        UPVOTE(str("vote_upvote")),
+        DOWNVOTE(str("vote_downvote")),
+        CATEGORY_CHANGE(str("vote_category"));
+
+        public final String title;
+
+        VoteOption(String title) {
+            this.title = title;
         }
     }
 
