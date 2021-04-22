@@ -212,19 +212,21 @@ public abstract class SponsorBlockUtils {
                     .setItems(items, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            Context con = context.getApplicationContext();
                             switch (voteOptions[which]) {
                                 case UPVOTE:
-                                    Toast.makeText(context, str("vote_started"), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(con, str("vote_started"), Toast.LENGTH_SHORT).show();
                                     voteForSegment(segment, true, null);
                                     break;
                                 case DOWNVOTE:
-                                    Toast.makeText(context, str("vote_started"), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(con, str("vote_started"), Toast.LENGTH_SHORT).show();
                                     voteForSegment(segment, false, null);
                                     break;
                                 case CATEGORY_CHANGE:
-                                    onNewCategorySelect(segment, context);
+                                    onNewCategorySelect(segment, con);
                                     break;
                             }
+                            appContext = new WeakReference<>(con);
                         }
                     })
                     .show();
@@ -370,7 +372,7 @@ public abstract class SponsorBlockUtils {
                     .setPositiveButton(android.R.string.yes, segmentReadyDialogButtonListener)
                     .show();
         } else {
-            Toast.makeText(context, "Mark two locations on the time bar first", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, str("new_segment_mark_locations_first"), Toast.LENGTH_SHORT).show();
         }
     }
 
