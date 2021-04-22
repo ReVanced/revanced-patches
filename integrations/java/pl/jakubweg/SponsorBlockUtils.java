@@ -223,7 +223,7 @@ public abstract class SponsorBlockUtils {
                                     voteForSegment(segment, false, null);
                                     break;
                                 case CATEGORY_CHANGE:
-                                    onNewCategorySelect(segment, con);
+                                    onNewCategorySelect(segment, context);
                                     break;
                             }
                             appContext = new WeakReference<>(con);
