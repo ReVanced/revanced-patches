@@ -7,7 +7,6 @@ import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,8 +24,10 @@ public class SponsorBlockSettings {
     public static final String PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED = "sb-enabled";
     public static final String PREFERENCES_KEY_SEEN_GUIDELINES = "sb-seen-gl";
     public static final String PREFERENCES_KEY_NEW_SEGMENT_ENABLED = "sb-new-segment-enabled";
+    public static final String PREFERENCES_KEY_VOTING_ENABLED = "sb-voting-enabled";
     public static final String sponsorBlockSkipSegmentsUrl = "https://sponsor.ajay.app/api/skipSegments";
     public static final String sponsorBlockViewedUrl = "https://sponsor.ajay.app/api/viewedVideoSponsorTime";
+    public static final String sponsorBlockVoteUrl = "https://sponsor.ajay.app/api/voteOnSponsorTime";
 
 
     public static final SegmentBehaviour DefaultBehaviour = SegmentBehaviour.SkipAutomatically;
@@ -34,6 +35,7 @@ public class SponsorBlockSettings {
     public static boolean isSponsorBlockEnabled = false;
     public static boolean seenGuidelinesPopup = false;
     public static boolean isAddNewSegmentEnabled = false;
+    public static boolean isVotingEnabled = true;
     public static boolean showToastWhenSkippedAutomatically = true;
     public static boolean countSkips = true;
     public static int adjustNewSegmentMillis = 150;
@@ -52,6 +54,14 @@ public class SponsorBlockSettings {
 
     public static String getSponsorBlockViewedUrl(String UUID) {
         return sponsorBlockViewedUrl + "?UUID=" + UUID;
+    }
+
+    public static String getSponsorBlockVoteUrl(String uuid, String userId, int type) {
+        return sponsorBlockVoteUrl + "?UUID=" + uuid + "&userID=" + userId + "&type=" + type;
+    }
+
+    public static String getSponsorBlockVoteUrl(String uuid, String userId, String category) {
+        return sponsorBlockVoteUrl + "?UUID=" + uuid + "&userID=" + userId + "&category=" + category;
     }
 
     public static SharedPreferences getPreferences(Context context) {
@@ -73,19 +83,25 @@ public class SponsorBlockSettings {
         if (!isSponsorBlockEnabled) {
             SkipSegmentView.hide();
             NewSegmentHelperLayout.hide();
-            SponsorBlockUtils.hideButton();
+            SponsorBlockUtils.hideShieldButton();
             PlayerController.sponsorSegmentsOfCurrentVideo = null;
         } else if (/*isAddNewSegmentEnabled*/false) {
-            SponsorBlockUtils.showButton();
+            SponsorBlockUtils.showShieldButton();
         }
 
         isAddNewSegmentEnabled = preferences.getBoolean(PREFERENCES_KEY_NEW_SEGMENT_ENABLED, isAddNewSegmentEnabled);
         if (!/*isAddNewSegmentEnabled*/false) {
             NewSegmentHelperLayout.hide();
-            SponsorBlockUtils.hideButton();
+            SponsorBlockUtils.hideShieldButton();
         } else {
-            SponsorBlockUtils.showButton();
+            SponsorBlockUtils.showShieldButton();
         }
+
+        isVotingEnabled = preferences.getBoolean(PREFERENCES_KEY_VOTING_ENABLED, isVotingEnabled);
+        if (!isVotingEnabled)
+            SponsorBlockUtils.hideVoteButton();
+        else
+            SponsorBlockUtils.showVoteButton();
 
         SegmentBehaviour[] possibleBehaviours = SegmentBehaviour.values();
         final ArrayList<String> enabledCategories = new ArrayList<>(possibleBehaviours.length);

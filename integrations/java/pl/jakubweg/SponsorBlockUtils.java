@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.Html;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -37,7 +39,9 @@ import static pl.jakubweg.PlayerController.VERBOSE;
 import static pl.jakubweg.PlayerController.getCurrentVideoId;
 import static pl.jakubweg.PlayerController.getLastKnownVideoTime;
 import static pl.jakubweg.PlayerController.sponsorSegmentsOfCurrentVideo;
+import static pl.jakubweg.SponsorBlockSettings.getSponsorBlockVoteUrl;
 import static pl.jakubweg.SponsorBlockSettings.sponsorBlockSkipSegmentsUrl;
+import static pl.jakubweg.SponsorBlockSettings.uuid;
 import static pl.jakubweg.StringRef.str;
 
 @SuppressWarnings({"LongLogTag"})
@@ -54,6 +58,15 @@ public abstract class SponsorBlockUtils {
                 Log.d(TAG, "Shield button clicked");
             }
             NewSegmentHelperLayout.toggle();
+        }
+    };
+    public static final View.OnClickListener voteButtonListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (debug) {
+                Log.d(TAG, "Vote button clicked");
+            }
+            SponsorBlockUtils.onVotingClicked(v.getContext());
         }
     };
     private static int shareBtnId = -1;
@@ -145,8 +158,10 @@ public abstract class SponsorBlockUtils {
             new Thread(submitRunnable).start();
         }
     };
-    private static boolean isShown = false;
+    private static boolean isShieldShown = false;
+    private static boolean isVoteShown = false;
     private static WeakReference<ImageView> sponsorBlockBtn = new WeakReference<>(null);
+    private static WeakReference<ImageView> votingBtn = new WeakReference<>(null);
     private static String messageToToast = "";
     private static EditByHandSaveDialogListener editByHandSaveDialogListener = new EditByHandSaveDialogListener();
     private static final DialogInterface.OnClickListener editByHandDialogListener = new DialogInterface.OnClickListener() {
@@ -178,6 +193,36 @@ public abstract class SponsorBlockUtils {
                     .show();
 
             dialog.dismiss();
+        }
+    };
+    private static final DialogInterface.OnClickListener segmentVoteClickListener = new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            final Context context = ((AlertDialog) dialog).getContext();
+            final SponsorSegment segment = sponsorSegmentsOfCurrentVideo[which];
+
+            new AlertDialog.Builder(context) // negative and positive are switched for more intuitive order
+                    .setNegativeButton(str("vote_upvote"), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(context, str("vote_started"), Toast.LENGTH_SHORT).show();
+                            voteForSegment(segment, true, null);
+                        }
+                    })
+                    .setPositiveButton(str("vote_downvote"), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(context, str("vote_started"), Toast.LENGTH_SHORT).show();
+                            voteForSegment(segment, false, null);
+                        }
+                    })
+                    .setNeutralButton(str("vote_category"), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            onNewCategorySelect(segment, context);
+                        }
+                    })
+                    .show();
         }
     };
     private static Runnable toastRunnable = new Runnable() {
@@ -250,9 +295,9 @@ public abstract class SponsorBlockUtils {
     private SponsorBlockUtils() {
     }
 
-    public static void showButton() {
-        if (isShown) return;
-        isShown = true;
+    public static void showShieldButton() {
+        if (isShieldShown) return;
+        isShieldShown = true;
         View i = sponsorBlockBtn.get();
         if (i == null) return;
         i.setVisibility(VISIBLE);
@@ -261,10 +306,29 @@ public abstract class SponsorBlockUtils {
         i.invalidate();
     }
 
-    public static void hideButton() {
-        if (!isShown) return;
-        isShown = false;
+    public static void hideShieldButton() {
+        if (!isShieldShown) return;
+        isShieldShown = false;
         View i = sponsorBlockBtn.get();
+        if (i != null)
+            i.setVisibility(GONE);
+    }
+
+    public static void showVoteButton() {
+        if (isVoteShown) return;
+        isVoteShown = true;
+        View i = votingBtn.get();
+        if (i == null) return;
+        i.setVisibility(VISIBLE);
+        i.bringToFront();
+        i.requestLayout();
+        i.invalidate();
+    }
+
+    public static void hideVoteButton() {
+        if (!isVoteShown) return;
+        isVoteShown = false;
+        View i = votingBtn.get();
         if (i != null)
             i.setVisibility(GONE);
     }
@@ -303,6 +367,43 @@ public abstract class SponsorBlockUtils {
         } else {
             Toast.makeText(context, "Mark two locations on the time bar first", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public static void onVotingClicked(final Context context) {
+        if (sponsorSegmentsOfCurrentVideo == null || sponsorSegmentsOfCurrentVideo.length == 0) // prevent crashing or empty dialog
+            return;
+        CharSequence[] titles = new CharSequence[sponsorSegmentsOfCurrentVideo.length];
+        for (int i = 0; i < sponsorSegmentsOfCurrentVideo.length; i++) {
+            SponsorSegment segment = sponsorSegmentsOfCurrentVideo[i];
+
+            String start = dateFormatter.format(new Date(segment.start));
+            String end = dateFormatter.format(new Date(segment.end));
+            Spanned html = Html.fromHtml(String.format("<b><font color=\"#%06X\">⬤</font> %s<br> %s to %s",
+                    segment.category.color, segment.category.title, start, end));
+            titles[i] = html;
+        }
+
+        new AlertDialog.Builder(context)
+                .setItems(titles, segmentVoteClickListener)
+                .show();
+    }
+
+    private static void onNewCategorySelect(final SponsorSegment segment, Context context) {
+        final SponsorBlockSettings.SegmentInfo[] values = SponsorBlockSettings.SegmentInfo.valuesWithoutPreview();
+        CharSequence[] titles = new CharSequence[values.length];
+        for (int i = 0; i < values.length; i++) {
+            titles[i] = values[i].getTitleWithDot();
+        }
+
+        new AlertDialog.Builder(context)
+                .setTitle(str("new_segment_choose_category"))
+                .setItems(titles, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        voteForSegment(segment, false, values[which].key);
+                    }
+                })
+                .show();
     }
 
     @SuppressLint("DefaultLocale")
@@ -416,7 +517,46 @@ public abstract class SponsorBlockUtils {
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
-            connection.getInputStream().close();
+            connection.disconnect();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void voteForSegment(SponsorSegment segment, boolean upvote, String category) {
+        messageToToast = null;
+        try {
+            String voteUrl = category == null
+                    ? getSponsorBlockVoteUrl(segment.UUID, uuid, upvote ? 1 : 0)
+                    : getSponsorBlockVoteUrl(segment.UUID, uuid, category);
+            URL url = new URL(voteUrl);
+
+            Log.d("sponsorblock", "requesting: " + url.getPath());
+
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("POST");
+
+            switch (connection.getResponseCode()) {
+                default:
+                    messageToToast = String.format(str("vote_failed_unknown_error"), connection.getResponseCode(), connection.getResponseMessage());
+                    break;
+                case 429:
+                    messageToToast = str("vote_failed_rate_limit");
+                    break;
+                case 403:
+                    messageToToast = str("vote_failed_forbidden");
+                    break;
+                case 409:
+                    messageToToast = str("vote_failed_duplicate");
+                    break;
+                case 200:
+                    messageToToast = str("vote_succeeded");
+                    break;
+            }
+
+            Log.i(TAG, "Voted for segment with status: " + connection.getResponseCode() + ", " + messageToToast);
+            new Handler(Looper.getMainLooper()).post(toastRunnable);
+
             connection.disconnect();
         } catch (IOException e) {
             e.printStackTrace();
