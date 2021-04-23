@@ -193,7 +193,6 @@
     <string name="vote_failed_unknown_error" formatted="false">Unable to vote for segment: Status: %d %s</string>
     <string name="vote_failed_rate_limit">Can\'t vote for segment.\nRate Limited (Too many from the same user or IP)</string>
     <string name="vote_failed_forbidden">Can\'t vote for segment.\nA moderator has decided that this segment is correct</string>
-    <string name="vote_failed_duplicate">Can\'t vote for segment.\nDuplicate</string>
     <string name="vote_succeeded">Voted successfully</string>
     <string name="vote_started">Voting for segment…</string>
     <string name="vote_upvote">Upvote</string>

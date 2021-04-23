@@ -553,9 +553,6 @@ public abstract class SponsorBlockUtils {
                 case 403:
                     messageToToast = str("vote_failed_forbidden");
                     break;
-                case 409:
-                    messageToToast = str("vote_failed_duplicate");
-                    break;
                 case 200:
                     messageToToast = str("vote_succeeded");
                     break;
