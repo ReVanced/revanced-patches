@@ -212,21 +212,18 @@ public abstract class SponsorBlockUtils {
                     .setItems(items, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Context con = context.getApplicationContext();
+                            appContext = new WeakReference<>(context.getApplicationContext());
                             switch (voteOptions[which]) {
                                 case UPVOTE:
-                                    Toast.makeText(con, str("vote_started"), Toast.LENGTH_SHORT).show();
-                                    voteForSegment(segment, true, null);
+                                    voteForSegment(segment, VoteOption.UPVOTE);
                                     break;
                                 case DOWNVOTE:
-                                    Toast.makeText(con, str("vote_started"), Toast.LENGTH_SHORT).show();
-                                    voteForSegment(segment, false, null);
+                                    voteForSegment(segment, VoteOption.DOWNVOTE);
                                     break;
                                 case CATEGORY_CHANGE:
                                     onNewCategorySelect(segment, context);
                                     break;
                             }
-                            appContext = new WeakReference<>(con);
                         }
                     })
                     .show();
@@ -407,7 +404,7 @@ public abstract class SponsorBlockUtils {
                 .setItems(titles, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        voteForSegment(segment, false, values[which].key);
+                        voteForSegment(segment, VoteOption.CATEGORY_CHANGE, values[which].key);
                     }
                 })
                 .show();
@@ -530,14 +527,15 @@ public abstract class SponsorBlockUtils {
         }
     }
 
-    public static void voteForSegment(SponsorSegment segment, boolean upvote, String category) {
+    public static void voteForSegment(SponsorSegment segment, VoteOption voteOption, String... args) {
         messageToToast = null;
         try {
-            String voteUrl = category == null
-                    ? getSponsorBlockVoteUrl(segment.UUID, uuid, upvote ? 1 : 0)
-                    : getSponsorBlockVoteUrl(segment.UUID, uuid, category);
+            String voteUrl = voteOption == VoteOption.CATEGORY_CHANGE
+                    ? getSponsorBlockVoteUrl(segment.UUID, uuid, args[0])
+                    : getSponsorBlockVoteUrl(segment.UUID, uuid, voteOption == VoteOption.UPVOTE ? 1 : 0);
             URL url = new URL(voteUrl);
 
+            Toast.makeText(appContext.get(), str("vote_started"), Toast.LENGTH_SHORT).show();
             Log.d("sponsorblock", "requesting: " + url.getPath());
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
