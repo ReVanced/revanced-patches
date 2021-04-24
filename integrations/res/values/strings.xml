@@ -143,6 +143,8 @@
     <string name="enable_sb_sum">Switch this on for very cool sponsor segments skipping</string>
     <string name="enable_segmadding">Enable new segment adding</string>
     <string name="enable_segmadding_sum">Switch this on to enable experimental segment adding (has button visibility issues).</string>
+    <string name="enable_voting">Enable voting</string>
+    <string name="enable_voting_sum">Switch this on to enable voting.</string>
     <string name="diff_segments">What to do with different segments</string>
     <string name="general">General</string>
     <string name="general_skiptoast">Show a toast when skipping segment automatically</string>
@@ -187,6 +189,15 @@
     <string name="submit_failed_duplicate">Can\'t submit the segment.\nAlready exists</string>
     <string name="submit_succeeded">Segment submitted successfully</string>
     <string name="submit_started">Submitting segment…</string>
+
+    <string name="vote_failed_unknown_error" formatted="false">Unable to vote for segment: Status: %d %s</string>
+    <string name="vote_failed_rate_limit">Can\'t vote for segment.\nRate Limited (Too many from the same user or IP)</string>
+    <string name="vote_failed_forbidden">Can\'t vote for segment.\nA moderator has decided that this segment is correct</string>
+    <string name="vote_succeeded">Voted successfully</string>
+    <string name="vote_started">Voting for segment…</string>
+    <string name="vote_upvote">Upvote</string>
+    <string name="vote_downvote">Downvote</string>
+    <string name="vote_category">Change category</string>
 
     <string name="new_segment_choose_category">Choose the segment category</string>
     <string name="new_segment_disabled_category">You\'ve disabled this category in the settings, enable it to be able to submit</string>
