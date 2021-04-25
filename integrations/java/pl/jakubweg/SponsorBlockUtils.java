@@ -7,7 +7,6 @@ import android.content.DialogInterface;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.Html;
-import android.text.Spanned;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -378,15 +377,19 @@ public abstract class SponsorBlockUtils {
             Toast.makeText(context.getApplicationContext(), str("vote_no_segments"), Toast.LENGTH_SHORT).show();
             return;
         }
-        CharSequence[] titles = new CharSequence[sponsorSegmentsOfCurrentVideo.length];
-        for (int i = 0; i < sponsorSegmentsOfCurrentVideo.length; i++) {
+        int segmentAmount = sponsorSegmentsOfCurrentVideo.length;
+        CharSequence[] titles = new CharSequence[segmentAmount];
+        for (int i = 0; i < segmentAmount; i++) {
             SponsorSegment segment = sponsorSegmentsOfCurrentVideo[i];
 
             String start = dateFormatter.format(new Date(segment.start));
             String end = dateFormatter.format(new Date(segment.end));
-            Spanned html = Html.fromHtml(String.format("<b><font color=\"#%06X\">⬤</font> %s<br> %s to %s",
+            StringBuilder htmlBuilder = new StringBuilder();
+            htmlBuilder.append(String.format("<b><font color=\"#%06X\">⬤</font> %s<br> %s to %s",
                     segment.category.color, segment.category.title, start, end));
-            titles[i] = html;
+            if (i + 1 != segmentAmount) // prevents trailing new line after last segment
+                htmlBuilder.append("<br>");
+            titles[i] = Html.fromHtml(htmlBuilder.toString());
         }
 
         new AlertDialog.Builder(context)
