@@ -374,8 +374,10 @@ public abstract class SponsorBlockUtils {
     }
 
     public static void onVotingClicked(final Context context) {
-        if (sponsorSegmentsOfCurrentVideo == null || sponsorSegmentsOfCurrentVideo.length == 0) // prevent crashing or empty dialog
+        if (sponsorSegmentsOfCurrentVideo == null || sponsorSegmentsOfCurrentVideo.length == 0) {
+            Toast.makeText(context.getApplicationContext(), str("vote_no_segments"), Toast.LENGTH_SHORT).show();
             return;
+        }
         CharSequence[] titles = new CharSequence[sponsorSegmentsOfCurrentVideo.length];
         for (int i = 0; i < sponsorSegmentsOfCurrentVideo.length; i++) {
             SponsorSegment segment = sponsorSegmentsOfCurrentVideo[i];

@@ -198,6 +198,7 @@
     <string name="vote_upvote">Upvote</string>
     <string name="vote_downvote">Downvote</string>
     <string name="vote_category">Change category</string>
+    <string name="vote_no_segments">There are no segments to vote for</string>
 
     <string name="new_segment_choose_category">Choose the segment category</string>
     <string name="new_segment_disabled_category">You\'ve disabled this category in the settings, enable it to be able to submit</string>
