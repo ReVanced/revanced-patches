@@ -95,7 +95,7 @@ public class PlayerController {
             Log.i(TAG, String.format("onCreate called with object %s on thread %s", o.toString(), Thread.currentThread().toString()));
 
         try {
-            setMillisecondMethod = o.getClass().getMethod("replaceMeWithsetMillisecondMethod", Long.TYPE);
+            setMillisecondMethod = o.getClass().getMethod("t", Long.TYPE);
             setMillisecondMethod.setAccessible(true);
 
             lastKnownVideoTime = 0;
@@ -198,6 +198,12 @@ public class PlayerController {
         if (millis <= 0) return;
         //findAndSkipSegment(false);
 
+        if (millis == currentVideoLength) {
+            SponsorBlockUtils.hideShieldButton();
+            SponsorBlockUtils.hideVoteButton();
+            return;
+        }
+
         SponsorSegment[] segments = sponsorSegmentsOfCurrentVideo;
         if (segments == null || segments.length == 0) return;
 
@@ -272,6 +278,10 @@ public class PlayerController {
         }
         else
             setCurrentVideoTime(millis);
+    }
+
+    public static long getCurrentVideoLength() {
+        return currentVideoLength;
     }
 
     public static long getLastKnownVideoTime() {

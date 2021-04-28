@@ -158,10 +158,6 @@ public abstract class SponsorBlockUtils {
             new Thread(submitRunnable).start();
         }
     };
-    private static boolean isShieldShown = false;
-    private static boolean isVoteShown = false;
-    private static WeakReference<ImageView> sponsorBlockBtn = new WeakReference<>(null);
-    private static WeakReference<ImageView> votingBtn = new WeakReference<>(null);
     private static String messageToToast = "";
     private static EditByHandSaveDialogListener editByHandSaveDialogListener = new EditByHandSaveDialogListener();
     private static final DialogInterface.OnClickListener editByHandDialogListener = new DialogInterface.OnClickListener() {
@@ -300,9 +296,7 @@ public abstract class SponsorBlockUtils {
     }
 
     public static void showShieldButton() {
-        if (isShieldShown) return;
-        isShieldShown = true;
-        View i = sponsorBlockBtn.get();
+        View i = ShieldButton._shieldBtn.get();
         if (i == null) return;
         i.setVisibility(VISIBLE);
         i.bringToFront();
@@ -311,17 +305,13 @@ public abstract class SponsorBlockUtils {
     }
 
     public static void hideShieldButton() {
-        if (!isShieldShown) return;
-        isShieldShown = false;
-        View i = sponsorBlockBtn.get();
+        View i = ShieldButton._shieldBtn.get();
         if (i != null)
             i.setVisibility(GONE);
     }
 
     public static void showVoteButton() {
-        if (isVoteShown) return;
-        isVoteShown = true;
-        View i = votingBtn.get();
+        View i = VotingButton._votingButton.get();
         if (i == null) return;
         i.setVisibility(VISIBLE);
         i.bringToFront();
@@ -330,9 +320,7 @@ public abstract class SponsorBlockUtils {
     }
 
     public static void hideVoteButton() {
-        if (!isVoteShown) return;
-        isVoteShown = false;
-        View i = votingBtn.get();
+        View i = VotingButton._votingButton.get();
         if (i != null)
             i.setVisibility(GONE);
     }
@@ -445,7 +433,7 @@ public abstract class SponsorBlockUtils {
         if (v.getId() != shareBtnId || !/*SponsorBlockSettings.isAddNewSegmentEnabled*/false) return;
 //        if (VERBOSE)
 //            Log.d(TAG, "VISIBILITY CHANGED of view " + v);
-        ImageView sponsorBtn = sponsorBlockBtn.get();
+        ImageView sponsorBtn = ShieldButton._shieldBtn.get();
         if (sponsorBtn != null) {
             sponsorBtn.setVisibility(v.getVisibility());
         }

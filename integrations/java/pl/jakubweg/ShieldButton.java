@@ -14,6 +14,8 @@ import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
 import java.lang.ref.WeakReference;
 
 import static fi.razerman.youtube.XGlobals.debug;
+import static pl.jakubweg.PlayerController.getCurrentVideoLength;
+import static pl.jakubweg.PlayerController.getLastKnownVideoTime;
 
 public class ShieldButton {
     static String TAG = "SHIELD";
@@ -79,6 +81,9 @@ public class ShieldButton {
         if (_youtubeControlsLayout == null || iView == null) return;
 
         if (visible && shouldBeShown()) {
+            if (getLastKnownVideoTime() == getCurrentVideoLength()) {
+                return;
+            }
             if (debug) {
                 Log.d(TAG, "Fading in");
             }
