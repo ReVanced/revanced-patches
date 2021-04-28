@@ -198,6 +198,12 @@ public class PlayerController {
         if (millis <= 0) return;
         //findAndSkipSegment(false);
 
+        if (millis == currentVideoLength) {
+            SponsorBlockUtils.hideShieldButton();
+            SponsorBlockUtils.hideVoteButton();
+            return;
+        }
+
         SponsorSegment[] segments = sponsorSegmentsOfCurrentVideo;
         if (segments == null || segments.length == 0) return;
 
@@ -272,6 +278,10 @@ public class PlayerController {
         }
         else
             setCurrentVideoTime(millis);
+    }
+
+    public static long getCurrentVideoLength() {
+        return currentVideoLength;
     }
 
     public static long getLastKnownVideoTime() {
