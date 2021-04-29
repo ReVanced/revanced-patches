@@ -296,7 +296,7 @@ public abstract class SponsorBlockUtils {
 
     public static void showShieldButton() {
         View i = ShieldButton._shieldBtn.get();
-        if (i == null || i.isShown() || !ShieldButton.shouldBeShown()) return;
+        if (i == null || !ShieldButton.shouldBeShown()) return;
         i.setVisibility(VISIBLE);
         i.bringToFront();
         i.requestLayout();
@@ -311,7 +311,7 @@ public abstract class SponsorBlockUtils {
 
     public static void showVoteButton() {
         View i = VotingButton._votingButton.get();
-        if (i == null || i.isShown() || !VotingButton.shouldBeShown()) return;
+        if (i == null || !VotingButton.shouldBeShown()) return;
         i.setVisibility(VISIBLE);
         i.bringToFront();
         i.requestLayout();
