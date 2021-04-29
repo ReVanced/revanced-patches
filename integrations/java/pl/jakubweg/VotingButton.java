@@ -103,7 +103,7 @@ public class VotingButton {
         }
     }
 
-    private static boolean shouldBeShown() {
+    static boolean shouldBeShown() {
         return SponsorBlockSettings.isVotingEnabled && SponsorBlockSettings.isSponsorBlockEnabled;
     }
 
