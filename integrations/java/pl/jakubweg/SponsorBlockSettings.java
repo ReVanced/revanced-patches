@@ -83,8 +83,8 @@ public class SponsorBlockSettings {
         if (!isSponsorBlockEnabled) {
             SkipSegmentView.hide();
             NewSegmentHelperLayout.hide();
-            ShieldButton.changeVisibilityImmediate(false);
-            VotingButton.changeVisibilityImmediate(false);
+            SponsorBlockUtils.hideShieldButton();
+            SponsorBlockUtils.hideVoteButton();
             PlayerController.sponsorSegmentsOfCurrentVideo = null;
         } else if (/*isAddNewSegmentEnabled*/false) {
             SponsorBlockUtils.showShieldButton();
@@ -93,13 +93,16 @@ public class SponsorBlockSettings {
         isAddNewSegmentEnabled = preferences.getBoolean(PREFERENCES_KEY_NEW_SEGMENT_ENABLED, isAddNewSegmentEnabled);
         if (!isAddNewSegmentEnabled) {
             NewSegmentHelperLayout.hide();
-            ShieldButton.changeVisibilityImmediate(false);
+            SponsorBlockUtils.hideShieldButton();
         } else {
-            ShieldButton.changeVisibilityImmediate(true);
+            SponsorBlockUtils.showShieldButton();
         }
 
         isVotingEnabled = preferences.getBoolean(PREFERENCES_KEY_VOTING_ENABLED, isVotingEnabled);
-        VotingButton.changeVisibilityImmediate(isVotingEnabled);
+        if (!isVotingEnabled)
+            SponsorBlockUtils.hideVoteButton();
+        else
+            SponsorBlockUtils.showVoteButton();
 
         SegmentBehaviour[] possibleBehaviours = SegmentBehaviour.values();
         final ArrayList<String> enabledCategories = new ArrayList<>(possibleBehaviours.length);

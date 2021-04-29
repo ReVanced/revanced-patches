@@ -204,9 +204,6 @@ public class PlayerController {
             return;
         }
 
-        SponsorBlockUtils.showShieldButton(); // skipping from end to the video will show the buttons again
-        SponsorBlockUtils.showVoteButton();
-
         SponsorSegment[] segments = sponsorSegmentsOfCurrentVideo;
         if (segments == null || segments.length == 0) return;
 
@@ -275,6 +272,10 @@ public class PlayerController {
      * Called very high frequency (once every about 100ms), also in background. It sometimes triggers when a video is paused (couple times in the row with the same value)
      */
     public static void setCurrentVideoTimeHighPrecision(final long millis) {
+        if ((millis < lastKnownVideoTime && lastKnownVideoTime >= currentVideoLength) || millis == 0) {
+            SponsorBlockUtils.showShieldButton(); // skipping from end to the video will show the buttons again
+            SponsorBlockUtils.showVoteButton();
+        }
         if (lastKnownVideoTime > 0) {
             lastKnownVideoTime = millis;
             VideoInformation.lastKnownVideoTime = lastKnownVideoTime;
