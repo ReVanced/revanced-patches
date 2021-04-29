@@ -81,7 +81,7 @@ public class ShieldButton {
         if (_youtubeControlsLayout == null || iView == null) return;
 
         if (visible && shouldBeShown()) {
-            if (getLastKnownVideoTime() == getCurrentVideoLength()) {
+            if (getLastKnownVideoTime() >= getCurrentVideoLength()) {
                 return;
             }
             if (debug) {
