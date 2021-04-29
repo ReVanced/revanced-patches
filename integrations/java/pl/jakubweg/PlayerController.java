@@ -204,6 +204,9 @@ public class PlayerController {
             return;
         }
 
+        SponsorBlockUtils.showShieldButton(); // skipping from end to the video will show the buttons again
+        SponsorBlockUtils.showVoteButton();
+
         SponsorSegment[] segments = sponsorSegmentsOfCurrentVideo;
         if (segments == null || segments.length == 0) return;
 
