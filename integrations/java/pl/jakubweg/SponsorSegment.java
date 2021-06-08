@@ -26,5 +26,4 @@ public class SponsorSegment implements Comparable<SponsorSegment> {
     public int compareTo(SponsorSegment o) {
         return (int) (this.start - o.start);
     }
-
 }

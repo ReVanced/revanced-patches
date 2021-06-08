@@ -36,7 +36,6 @@ import static pl.jakubweg.SponsorBlockSettings.showToastWhenSkippedAutomatically
 import static pl.jakubweg.SponsorBlockSettings.uuid;
 import static pl.jakubweg.StringRef.str;
 
-
 @SuppressWarnings({"unused", "deprecation"}) // injected
 public class SponsorBlockPreferenceFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
 
@@ -53,6 +52,8 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
 
         PreferenceScreen preferenceScreen = getPreferenceManager().createPreferenceScreen(context);
         setPreferenceScreen(preferenceScreen);
+
+        SponsorBlockSettings.update(context);
 
         {
             SwitchPreference preference = new SwitchPreference(context);

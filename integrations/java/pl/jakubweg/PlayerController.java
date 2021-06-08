@@ -2,6 +2,7 @@ package pl.jakubweg;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.os.Handler;
@@ -9,6 +10,8 @@ import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
 
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
@@ -58,6 +61,13 @@ public class PlayerController {
         }
 
         VideoInformation.currentVideoId = videoId;
+
+        Context context = YouTubeTikTokRoot_Application.getAppContext();
+        if(context == null){
+            Log.e(TAG, "context is null");
+            return;
+        }
+        SponsorBlockSettings.update(context);
 
         if (!SponsorBlockSettings.isSponsorBlockEnabled) {
             currentVideoId = null;

@@ -34,7 +34,6 @@ public class VotingButton {
             }
 
             _youtubeControlsLayout = (RelativeLayout) viewStub;
-            initButtonVisibilitySettings();
 
             ImageView imageView = (ImageView)_youtubeControlsLayout
                     .findViewById(getIdentifier("voting_button", "id"));
@@ -105,20 +104,6 @@ public class VotingButton {
 
     static boolean shouldBeShown() {
         return SponsorBlockSettings.isVotingEnabled && SponsorBlockSettings.isSponsorBlockEnabled;
-    }
-
-    private static void initButtonVisibilitySettings() {
-        Context context = YouTubeTikTokRoot_Application.getAppContext();
-        if(context == null){
-            Log.e(TAG, "context is null");
-            SponsorBlockSettings.isSponsorBlockEnabled = false;
-            SponsorBlockSettings.isVotingEnabled = false;
-            return;
-        }
-
-        SharedPreferences sharedPreferences = context.getSharedPreferences(SponsorBlockSettings.PREFERENCES_NAME, Context.MODE_PRIVATE);
-        SponsorBlockSettings.isSponsorBlockEnabled = sharedPreferences.getBoolean(SponsorBlockSettings.PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED, false);
-        SponsorBlockSettings.isVotingEnabled = sharedPreferences.getBoolean(SponsorBlockSettings.PREFERENCES_KEY_VOTING_ENABLED, false);
     }
 
     //region Helpers

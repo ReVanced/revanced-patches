@@ -86,7 +86,7 @@ public class SponsorBlockSettings {
             SponsorBlockUtils.hideShieldButton();
             SponsorBlockUtils.hideVoteButton();
             PlayerController.sponsorSegmentsOfCurrentVideo = null;
-        } else if (/*isAddNewSegmentEnabled*/false) {
+        } else { /*isAddNewSegmentEnabled*/
             SponsorBlockUtils.showShieldButton();
         }
 

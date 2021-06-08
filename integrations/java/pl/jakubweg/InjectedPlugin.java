@@ -92,7 +92,6 @@ public class InjectedPlugin {
             Log.i(TAG, spacesStr + "Normal view: " + view);
         }
     }
-
 }
 
 

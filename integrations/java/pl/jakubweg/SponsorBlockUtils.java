@@ -602,5 +602,4 @@ public abstract class SponsorBlockUtils {
             }
         }
     }
-
 }

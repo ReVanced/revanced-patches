@@ -34,7 +34,6 @@ public class ShieldButton {
             }
 
             _youtubeControlsLayout = (RelativeLayout) viewStub;
-            initButtonVisibilitySettings();
 
             ImageView imageView = (ImageView)_youtubeControlsLayout
                     .findViewById(getIdentifier("sponsorblock_button", "id"));
@@ -105,20 +104,6 @@ public class ShieldButton {
 
     static boolean shouldBeShown() {
         return SponsorBlockSettings.isSponsorBlockEnabled && SponsorBlockSettings.isAddNewSegmentEnabled;
-    }
-
-    private static void initButtonVisibilitySettings() {
-        Context context = YouTubeTikTokRoot_Application.getAppContext();
-        if(context == null){
-            Log.e(TAG, "context is null");
-            SponsorBlockSettings.isSponsorBlockEnabled = false;
-            SponsorBlockSettings.isAddNewSegmentEnabled = false;
-            return;
-        }
-
-        SharedPreferences sharedPreferences = context.getSharedPreferences(SponsorBlockSettings.PREFERENCES_NAME, Context.MODE_PRIVATE);
-        SponsorBlockSettings.isSponsorBlockEnabled = sharedPreferences.getBoolean(SponsorBlockSettings.PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED, false);
-        SponsorBlockSettings.isAddNewSegmentEnabled = sharedPreferences.getBoolean(SponsorBlockSettings.PREFERENCES_KEY_NEW_SEGMENT_ENABLED, false);
     }
 
     //region Helpers
