@@ -11,6 +11,8 @@ import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
 
 import java.lang.ref.WeakReference;
 
+import fi.razerman.youtube.Helpers.XSwipeHelper;
+
 import static fi.razerman.youtube.XGlobals.debug;
 
 public class SponsorBlockView {
@@ -145,9 +147,27 @@ public class SponsorBlockView {
     }
 
     private static void bringLayoutToFront() {
+        checkLayout();
         inlineSponsorOverlay.bringToFront();
         inlineSponsorOverlay.requestLayout();
         inlineSponsorOverlay.invalidate();
+    }
+
+    private static void checkLayout() {
+        if (inlineSponsorOverlay.getHeight() == 0) {
+            View layout = XSwipeHelper.nextGenWatchLayout.findViewById(getIdentifier("player_overlays", "id"));
+            if (layout != null) {
+
+                initialize(layout);
+
+                if (debug){
+                    Log.d("XGlobals", "player_overlays refreshed for SB");
+                }
+            }
+            else if (debug){
+                Log.d("XGlobals", "player_overlays was not found for SB");
+            }
+        }
     }
 
     private static int getIdentifier(String name, String defType) {
