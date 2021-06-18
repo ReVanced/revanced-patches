@@ -158,7 +158,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             entryValues[i] = behaviour.key;
         }
 
-        for (SponsorBlockSettings.SegmentInfo segmentInfo : SponsorBlockSettings.SegmentInfo.valuesWithoutPreview()) {
+        for (SponsorBlockSettings.SegmentInfo segmentInfo : SponsorBlockSettings.SegmentInfo.valuesWithoutUnsubmitted()) {
             ListPreference preference = new ListPreference(context);
             preference.setTitle(segmentInfo.getTitleWithDot());
             preference.setSummary(segmentInfo.description.toString());

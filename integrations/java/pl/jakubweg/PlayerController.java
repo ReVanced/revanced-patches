@@ -269,7 +269,7 @@ public class PlayerController {
             @Override
             public void run() {
                 if (SponsorBlockSettings.countSkips &&
-                        segment.category != SponsorBlockSettings.SegmentInfo.Preview &&
+                        segment.category != SponsorBlockSettings.SegmentInfo.Unsubmitted &&
                         millis - segment.start < 2000) {
                     // Only skips from the start should count as a view
                     SponsorBlockUtils.sendViewCountRequest(segment);
@@ -508,7 +508,7 @@ public class PlayerController {
 
         skipToMillisecond(segment.end + 2);
         SkipSegmentView.hide();
-        if (segment.category == SponsorBlockSettings.SegmentInfo.Preview) {
+        if (segment.category == SponsorBlockSettings.SegmentInfo.Unsubmitted) {
             SponsorSegment[] newSegments = new SponsorSegment[sponsorSegmentsOfCurrentVideo.length - 1];
             int i = 0;
             for (SponsorSegment sponsorSegment : sponsorSegmentsOfCurrentVideo) {

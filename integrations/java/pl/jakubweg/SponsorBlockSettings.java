@@ -106,7 +106,7 @@ public class SponsorBlockSettings {
 
         SegmentBehaviour[] possibleBehaviours = SegmentBehaviour.values();
         final ArrayList<String> enabledCategories = new ArrayList<>(possibleBehaviours.length);
-        for (SegmentInfo segment : SegmentInfo.valuesWithoutPreview()) {
+        for (SegmentInfo segment : SegmentInfo.valuesWithoutUnsubmitted()) {
             SegmentBehaviour behaviour = null;
             String value = preferences.getString(segment.key, null);
             if (value == null)
@@ -127,7 +127,7 @@ public class SponsorBlockSettings {
                 enabledCategories.add(segment.key);
         }
 
-        //"[%22sponsor%22,%22outro%22,%22music_offtopic%22,%22intro%22,%22selfpromo%22,%22interaction%22]";
+        //"[%22sponsor%22,%22outro%22,%22music_offtopic%22,%22intro%22,%22selfpromo%22,%22interaction%22,%22preview%22]";
         if (enabledCategories.size() == 0)
             sponsorBlockUrlCategories = "[]";
         else
@@ -179,21 +179,23 @@ public class SponsorBlockSettings {
         Interaction("interaction", sf("segments_subscribe"), sf("skipped_subscribe"), sf("segments_subscribe_sum"), null, 0xFFcc00ff),
         SelfPromo("selfpromo", sf("segments_selfpromo"), sf("skipped_selfpromo"), sf("segments_selfpromo_sum"), null, 0xFFffff00),
         MusicOfftopic("music_offtopic", sf("segments_nomusic"), sf("skipped_nomusic"), sf("segments_nomusic_sum"), null, 0xFFff9900),
-        Preview("preview", StringRef.empty, sf("skipped_preview"), StringRef.empty, SegmentBehaviour.SkipAutomatically, 0xFF000000),
+        Preview("preview", sf("segments_preview"), sf("skipped_preview"), sf("segments_preview_sum"), null, 0xFF0b9d65),
+        Unsubmitted("unsubmitted", StringRef.empty, sf("skipped_unsubmitted"), StringRef.empty, SegmentBehaviour.SkipAutomatically, 0xFFFFFFFF),
         ;
 
-        private static SegmentInfo[] mValuesWithoutPreview = new SegmentInfo[]{
+        private static SegmentInfo[] mValuesWithoutUnsubmitted = new SegmentInfo[]{
                 Sponsor,
                 Intro,
                 Outro,
                 Interaction,
                 SelfPromo,
-                MusicOfftopic
+                MusicOfftopic,
+                Preview
         };
-        private static Map<String, SegmentInfo> mValuesMap = new HashMap<>(7);
+        private static Map<String, SegmentInfo> mValuesMap = new HashMap<>(8);
 
         static {
-            for (SegmentInfo value : valuesWithoutPreview())
+            for (SegmentInfo value : valuesWithoutUnsubmitted())
                 mValuesMap.put(value.key, value);
         }
 
@@ -223,8 +225,8 @@ public class SponsorBlockSettings {
             paint.setColor(color);
         }
 
-        public static SegmentInfo[] valuesWithoutPreview() {
-            return mValuesWithoutPreview;
+        public static SegmentInfo[] valuesWithoutUnsubmitted() {
+            return mValuesWithoutUnsubmitted;
         }
 
         public static SegmentInfo byCategoryKey(String key) {
