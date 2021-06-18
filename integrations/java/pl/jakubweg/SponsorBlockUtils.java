@@ -9,9 +9,13 @@ import android.os.Looper;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -32,6 +36,8 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.TimeZone;
 
+import fi.razerman.youtube.Helpers.XSwipeHelper;
+
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static fi.razerman.youtube.XGlobals.debug;
@@ -48,8 +54,12 @@ import static pl.jakubweg.StringRef.str;
 public abstract class SponsorBlockUtils {
     public static final String TAG = "jakubweg.SponsorBlockUtils";
     public static final String DATE_FORMAT = "HH:mm:ss.SSS";
+    public static final String WITHOUT_SEGMENTS_FORMAT = " (m:ss)";
+    public static final String WITHOUT_SEGMENTS_FORMAT_H = " (H:m:ss)";
     @SuppressLint("SimpleDateFormat")
     public static final SimpleDateFormat dateFormatter = new SimpleDateFormat(DATE_FORMAT);
+    public static final SimpleDateFormat withoutSegmentsFormatter = new SimpleDateFormat(WITHOUT_SEGMENTS_FORMAT);
+    public static final SimpleDateFormat withoutSegmentsFormatterH = new SimpleDateFormat(WITHOUT_SEGMENTS_FORMAT_H);
     private static final int sponsorBtnId = 1234;
     public static final View.OnClickListener sponsorBlockBtnListener = new View.OnClickListener() {
         @Override
@@ -507,7 +517,17 @@ public abstract class SponsorBlockUtils {
             Log.e(TAG, "download segments failed", e);
         }
 
+        View layout = XSwipeHelper.nextGenWatchLayout.findViewById(getIdentifier("player_overlays", "id"));
+        View bar = layout.findViewById(getIdentifier("time_bar_total_time", "id"));
+
+        ((TextView) bar).append(getTimeWithoutSegments());
+
         return sponsorSegments.toArray(new SponsorSegment[0]);
+    }
+
+    private static int getIdentifier(String name, String defType) {
+        Context context = YouTubeTikTokRoot_Application.getAppContext();
+        return context.getResources().getIdentifier(name, defType, context.getPackageName());
     }
 
     public static void sendViewCountRequest(SponsorSegment segment) {
@@ -560,6 +580,18 @@ public abstract class SponsorBlockUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static String getTimeWithoutSegments() {
+        if (!SponsorBlockSettings.isSponsorBlockEnabled || sponsorSegmentsOfCurrentVideo == null) {
+            return "";
+        }
+        long timeWithoutSegments = PlayerController.getCurrentVideoLength();
+        for (SponsorSegment segment : sponsorSegmentsOfCurrentVideo) {
+            timeWithoutSegments -= segment.end - segment.start;
+        }
+        Date date = new Date(timeWithoutSegments);
+        return timeWithoutSegments >= 3600000 ? withoutSegmentsFormatterH.format(date) : withoutSegmentsFormatter.format(date);
     }
 
     private enum VoteOption {
