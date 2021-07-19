@@ -272,7 +272,7 @@ public class PlayerController {
             Context context = YouTubeTikTokRoot_Application.getAppContext();
             if (context != null) {
                 SharedPreferences preferences = SponsorBlockSettings.getPreferences(context);
-                long newSkippedTime = skippedTime + segment.end - segment.start;
+                long newSkippedTime = skippedTime + (segment.end - segment.start);
                 preferences.edit().putInt(SponsorBlockSettings.PREFERENCES_KEY_SKIPPED_SEGMENTS, skippedSegments + 1).apply();
                 preferences.edit().putLong(SponsorBlockSettings.PREFERENCES_KEY_SKIPPED_SEGMENTS_TIME, newSkippedTime).apply();
             }
