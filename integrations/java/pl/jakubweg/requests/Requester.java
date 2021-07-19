@@ -34,7 +34,7 @@ public class Requester {
     public static synchronized SponsorSegment[] getSegments(String videoId) {
         List<SponsorSegment> segments = new ArrayList<>();
         try {
-            HttpURLConnection connection = getConnectionFromRoute(Route.GET_SEGMENTS, videoId);
+            HttpURLConnection connection = getConnectionFromRoute(Route.GET_SEGMENTS, videoId, SponsorBlockSettings.sponsorBlockUrlCategories);
             int responseCode = connection.getResponseCode();
 
             switch (responseCode) {

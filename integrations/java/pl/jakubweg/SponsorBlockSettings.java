@@ -36,7 +36,7 @@ public class SponsorBlockSettings {
     public static boolean countSkips = true;
     public static int adjustNewSegmentMillis = 150;
     public static String uuid = "<invalid>";
-    private static String sponsorBlockUrlCategories = "[]";
+    public static String sponsorBlockUrlCategories = "[]";
 
     @SuppressWarnings("unused")
     @Deprecated
