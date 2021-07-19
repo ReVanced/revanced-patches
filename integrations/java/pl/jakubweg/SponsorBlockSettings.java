@@ -25,10 +25,6 @@ public class SponsorBlockSettings {
     public static final String PREFERENCES_KEY_SEEN_GUIDELINES = "sb-seen-gl";
     public static final String PREFERENCES_KEY_NEW_SEGMENT_ENABLED = "sb-new-segment-enabled";
     public static final String PREFERENCES_KEY_VOTING_ENABLED = "sb-voting-enabled";
-    public static final String sponsorBlockSkipSegmentsUrl = "https://sponsor.ajay.app/api/skipSegments";
-    public static final String sponsorBlockViewedUrl = "https://sponsor.ajay.app/api/viewedVideoSponsorTime";
-    public static final String sponsorBlockVoteUrl = "https://sponsor.ajay.app/api/voteOnSponsorTime";
-
 
     public static final SegmentBehaviour DefaultBehaviour = SegmentBehaviour.SkipAutomatically;
 
@@ -46,22 +42,6 @@ public class SponsorBlockSettings {
     @Deprecated
     public SponsorBlockSettings(Context ignored) {
         Log.e("jakubweg.Settings", "Do not call SponsorBlockSettings constructor!");
-    }
-
-    public static String getSponsorBlockUrlWithCategories(String videoId) {
-        return sponsorBlockSkipSegmentsUrl + "?videoID=" + videoId + "&categories=" + sponsorBlockUrlCategories;
-    }
-
-    public static String getSponsorBlockViewedUrl(String UUID) {
-        return sponsorBlockViewedUrl + "?UUID=" + UUID;
-    }
-
-    public static String getSponsorBlockVoteUrl(String uuid, String userId, int type) {
-        return sponsorBlockVoteUrl + "?UUID=" + uuid + "&userID=" + userId + "&type=" + type;
-    }
-
-    public static String getSponsorBlockVoteUrl(String uuid, String userId, String category) {
-        return sponsorBlockVoteUrl + "?UUID=" + uuid + "&userID=" + userId + "&category=" + category;
     }
 
     public static SharedPreferences getPreferences(Context context) {

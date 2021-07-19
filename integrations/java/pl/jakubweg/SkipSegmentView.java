@@ -8,6 +8,8 @@ import android.widget.Toast;
 
 import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
 
+import pl.jakubweg.objects.SponsorSegment;
+
 import static fi.vanced.libraries.youtube.sponsors.player.ui.SponsorBlockView.hideSkipButton;
 import static fi.vanced.libraries.youtube.sponsors.player.ui.SponsorBlockView.showSkipButton;
 import static pl.jakubweg.PlayerController.VERBOSE;

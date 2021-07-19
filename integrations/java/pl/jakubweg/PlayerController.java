@@ -21,6 +21,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import fi.vanced.libraries.youtube.player.VideoInformation;
+import pl.jakubweg.objects.SponsorSegment;
+import pl.jakubweg.requests.Requester;
 
 @SuppressLint({"LongLogTag"})
 public class PlayerController {
@@ -38,12 +40,9 @@ public class PlayerController {
     private static String currentVideoId;
     private static long currentVideoLength = 1L;
     private static long lastKnownVideoTime = -1L;
-    private static final Runnable findAndSkipSegmentRunnable = new Runnable() {
-        @Override
-        public void run() {
+    private static final Runnable findAndSkipSegmentRunnable = () -> {
 //            Log.d(TAG, "findAndSkipSegmentRunnable");
-            findAndSkipSegment(false);
-        }
+        findAndSkipSegment(false);
     };
     private static float sponsorBarLeft = 1f;
     private static float sponsorBarRight = 1f;
@@ -121,7 +120,7 @@ public class PlayerController {
     }
 
     public static void executeDownloadSegments(String videoId) {
-        SponsorSegment[] segments = SponsorBlockUtils.getSegmentsForVideo(videoId);
+        SponsorSegment[] segments = Requester.getSegments(videoId);
         Arrays.sort(segments);
 
         if (VERBOSE)
@@ -265,15 +264,12 @@ public class PlayerController {
     }
 
     private static void sendViewRequestAsync(final long millis, final SponsorSegment segment) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                if (SponsorBlockSettings.countSkips &&
-                        segment.category != SponsorBlockSettings.SegmentInfo.Unsubmitted &&
-                        millis - segment.start < 2000) {
-                    // Only skips from the start should count as a view
-                    SponsorBlockUtils.sendViewCountRequest(segment);
-                }
+        new Thread(() -> {
+            if (SponsorBlockSettings.countSkips &&
+                    segment.category != SponsorBlockSettings.SegmentInfo.Unsubmitted &&
+                    millis - segment.start < 2000) {
+                // Only skips from the start should count as a view
+                Requester.sendViewCountRequest(segment);
             }
         }).start();
     }
@@ -371,13 +367,10 @@ public class PlayerController {
         if (VERBOSE)
             Log.d(TAG, "addSkipSponsorView15: view=" + view.toString());
 
-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                final ViewGroup viewGroup = (ViewGroup) ((ViewGroup) view).getChildAt(2);
-                Activity context = ((Activity) viewGroup.getContext());
-                NewSegmentHelperLayout.context = context;
-            }
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            final ViewGroup viewGroup = (ViewGroup) ((ViewGroup) view).getChildAt(2);
+            Activity context = ((Activity) viewGroup.getContext());
+            NewSegmentHelperLayout.context = context;
         }, 500);
     }
 
@@ -385,13 +378,10 @@ public class PlayerController {
         playerActivity = new WeakReference<>((Activity) view.getContext());
         if (VERBOSE)
             Log.d(TAG, "addSkipSponsorView14: view=" + view.toString());
-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                final ViewGroup viewGroup = (ViewGroup) view.getParent();
-                Activity activity = (Activity) viewGroup.getContext();
-                NewSegmentHelperLayout.context = activity;
-            }
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            final ViewGroup viewGroup = (ViewGroup) view.getParent();
+            Activity activity = (Activity) viewGroup.getContext();
+            NewSegmentHelperLayout.context = activity;
         }, 500);
     }
 
@@ -455,18 +445,15 @@ public class PlayerController {
             Log.d(TAG, String.format("Requesting skip to millis=%d on thread %s", millisecond, Thread.currentThread().toString()));
 
         final long finalMillisecond = millisecond;
-        new Handler(Looper.getMainLooper()).post(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    if (VERBOSE)
-                        Log.i(TAG, "Skipping to millis=" + finalMillisecond);
-                    lastKnownVideoTime = finalMillisecond;
-                    VideoInformation.lastKnownVideoTime = lastKnownVideoTime;
-                    setMillisecondMethod.invoke(currentObj, finalMillisecond);
-                } catch (Exception e) {
-                    Log.e(TAG, "Cannot skip to millisecond", e);
-                }
+        new Handler(Looper.getMainLooper()).post(() -> {
+            try {
+                if (VERBOSE)
+                    Log.i(TAG, "Skipping to millis=" + finalMillisecond);
+                lastKnownVideoTime = finalMillisecond;
+                VideoInformation.lastKnownVideoTime = lastKnownVideoTime;
+                setMillisecondMethod.invoke(currentObj, finalMillisecond);
+            } catch (Exception e) {
+                Log.e(TAG, "Cannot skip to millisecond", e);
             }
         });
     }
