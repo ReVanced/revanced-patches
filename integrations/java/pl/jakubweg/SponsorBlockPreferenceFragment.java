@@ -15,12 +15,10 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.text.InputType;
-import android.util.Log;
 import android.widget.Toast;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 
 import pl.jakubweg.objects.UserStats;
 import pl.jakubweg.requests.Requester;
