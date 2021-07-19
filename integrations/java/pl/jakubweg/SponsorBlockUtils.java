@@ -4,8 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.os.Handler;
-import android.os.Looper;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
@@ -13,22 +11,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import java.util.Objects;
 import java.util.TimeZone;
 
@@ -38,11 +27,9 @@ import pl.jakubweg.requests.Requester;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static fi.razerman.youtube.XGlobals.debug;
-import static pl.jakubweg.PlayerController.VERBOSE;
 import static pl.jakubweg.PlayerController.getCurrentVideoId;
 import static pl.jakubweg.PlayerController.getLastKnownVideoTime;
 import static pl.jakubweg.PlayerController.sponsorSegmentsOfCurrentVideo;
-import static pl.jakubweg.SponsorBlockSettings.uuid;
 import static pl.jakubweg.StringRef.str;
 import static pl.jakubweg.requests.Requester.voteForSegment;
 
