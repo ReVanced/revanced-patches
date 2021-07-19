@@ -17,8 +17,13 @@ import android.preference.SwitchPreference;
 import android.text.InputType;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+import pl.jakubweg.objects.UserStats;
+import pl.jakubweg.requests.Requester;
+
+import static android.text.Html.fromHtml;
 import static pl.jakubweg.SponsorBlockSettings.DefaultBehaviour;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_COUNT_SKIPS;
@@ -37,7 +42,7 @@ import static pl.jakubweg.StringRef.str;
 
 @SuppressWarnings({"unused", "deprecation"}) // injected
 public class SponsorBlockPreferenceFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
-
+    private static final DecimalFormat FORMATTER = new DecimalFormat("#,###,###");
     private final ArrayList<Preference> preferencesToDisableWhenSBDisabled = new ArrayList<>();
 
     @Override
@@ -105,6 +110,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
 
         addGeneralCategory(context, preferenceScreen);
         addSegmentsCategory(context, preferenceScreen);
+        addStatsCategory(context, preferenceScreen);
         addAboutCategory(context, preferenceScreen);
 
         enableCategoriesIfNeeded(SponsorBlockSettings.isSponsorBlockEnabled);
@@ -157,6 +163,48 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             category.addPreference(preference);
         }
 
+    }
+
+    private void addStatsCategory(Context context, PreferenceScreen screen) {
+        PreferenceCategory category = new PreferenceCategory(context);
+        screen.addPreference(category);
+        category.setTitle("stats");
+
+        UserStats stats = Requester.getUserStats();
+
+        {
+            EditTextPreference preference = new EditTextPreference(context);
+            screen.addPreference(preference);
+            String userName = stats.getUserName();
+            preference.setTitle(fromHtml("Your username: <b>" + userName + "</b>"));
+            preference.setSummary("Click to change your username");
+            preference.setText(userName);
+            preference.setOnPreferenceChangeListener((preference1, newUsername) -> {
+                Requester.setUsername((String) newUsername);
+                return false;
+            });
+        }
+
+        {
+            Preference preference = new Preference(context);
+            screen.addPreference(preference);
+            String formatted = FORMATTER.format(stats.getSegmentCount());
+            preference.setTitle(fromHtml("Submissions: <b>" + formatted + "</b>"));
+        }
+
+        {
+            Preference preference = new Preference(context);
+            screen.addPreference(preference);
+            String formatted = FORMATTER.format(stats.getViewCount());
+
+            double saved = stats.getMinutesSaved();
+            int hoursSaved = (int) (saved / 60);
+            double minutesSaved = saved % 60;
+            String formattedSaved = String.format("%dh %.1f minutes", hoursSaved, minutesSaved);
+
+            preference.setTitle(fromHtml("You've saved people from <b>" + formatted + "</b> segments."));
+            preference.setSummary(fromHtml("That's <b>" + formattedSaved + "</b> of their lives."));
+        }
     }
 
     private void addAboutCategory(Context context, PreferenceScreen screen) {

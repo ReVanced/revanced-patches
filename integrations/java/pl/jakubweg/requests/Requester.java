@@ -3,6 +3,7 @@ package pl.jakubweg.requests;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -152,7 +153,17 @@ public class Requester {
         catch (Exception ex) {
             ex.printStackTrace();
         }
-        return new UserStats("", 0, 0, 0);
+        return new UserStats("N/A", -1, -1, -1);
+    }
+
+    public static void setUsername(String username) {
+        try {
+            HttpURLConnection connection = getConnectionFromRoute(Route.CHANGE_USERNAME, SponsorBlockSettings.uuid, username);
+            connection.disconnect();
+        }
+        catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     private static HttpURLConnection getConnectionFromRoute(Route route, String... params) throws IOException {
