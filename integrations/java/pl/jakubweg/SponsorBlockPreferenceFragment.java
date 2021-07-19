@@ -3,7 +3,6 @@ package pl.jakubweg;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -39,7 +38,7 @@ import static pl.jakubweg.StringRef.str;
 @SuppressWarnings({"unused", "deprecation"}) // injected
 public class SponsorBlockPreferenceFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-    private ArrayList<Preference> preferencesToDisableWhenSBDisabled = new ArrayList<>();
+    private final ArrayList<Preference> preferencesToDisableWhenSBDisabled = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -63,13 +62,10 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             preference.setChecked(SponsorBlockSettings.isSponsorBlockEnabled);
             preference.setTitle(str("enable_sb"));
             preference.setSummary(str("enable_sb_sum"));
-            preference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                @Override
-                public boolean onPreferenceChange(Preference preference, Object newValue) {
-                    final boolean value = (Boolean) newValue;
-                    enableCategoriesIfNeeded(value);
-                    return true;
-                }
+            preference.setOnPreferenceChangeListener((preference1, newValue) -> {
+                final boolean value = (Boolean) newValue;
+                enableCategoriesIfNeeded(value);
+                return true;
             });
         }
 
@@ -82,25 +78,17 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             preference.setTitle(str("enable_segmadding"));
             preference.setSummary(str("enable_segmadding_sum"));
             preferencesToDisableWhenSBDisabled.add(preference);
-            preference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                @Override
-                public boolean onPreferenceChange(Preference preference, Object o) {
-                    final boolean value = (Boolean) o;
-                    if (value && !SponsorBlockSettings.seenGuidelinesPopup) {
-                        new AlertDialog.Builder(preference.getContext())
-                                .setTitle(str("sb_guidelines_popup_title"))
-                                .setMessage(str("sb_guidelines_popup_content"))
-                                .setNegativeButton(str("sb_guidelines_popup_already_read"), null)
-                                .setPositiveButton(str("sb_guidelines_popup_open"), new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        openGuidelines();
-                                    }
-                                })
-                                .show();
-                    }
-                    return true;
+            preference.setOnPreferenceChangeListener((preference12, o) -> {
+                final boolean value = (Boolean) o;
+                if (value && !SponsorBlockSettings.seenGuidelinesPopup) {
+                    new AlertDialog.Builder(preference12.getContext())
+                            .setTitle(str("sb_guidelines_popup_title"))
+                            .setMessage(str("sb_guidelines_popup_content"))
+                            .setNegativeButton(str("sb_guidelines_popup_already_read"), null)
+                            .setPositiveButton(str("sb_guidelines_popup_open"), (dialogInterface, i) -> openGuidelines())
+                            .show();
                 }
+                return true;
             });
         }
 
@@ -181,14 +169,11 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             screen.addPreference(preference);
             preference.setTitle(str("about_api"));
             preference.setSummary(str("about_api_sum"));
-            preference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
-                    Intent i = new Intent(Intent.ACTION_VIEW);
-                    i.setData(Uri.parse("http://sponsor.ajay.app"));
-                    preference.getContext().startActivity(i);
-                    return false;
-                }
+            preference.setOnPreferenceClickListener(preference1 -> {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse("http://sponsor.ajay.app"));
+                preference1.getContext().startActivity(i);
+                return false;
             });
         }
 
@@ -210,12 +195,9 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             Preference preference = new Preference(context);
             preference.setTitle(str("sb_guidelines_preference_title"));
             preference.setSummary(str("sb_guidelines_preference_sum"));
-            preference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
-                    openGuidelines();
-                    return false;
-                }
+            preference.setOnPreferenceClickListener(preference1 -> {
+                openGuidelines();
+                return false;
             });
             screen.addPreference(preference);
         }
@@ -226,12 +208,9 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             preference.setSummary(str("general_skiptoast_sum"));
             preference.setKey(PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP);
             preference.setDefaultValue(showToastWhenSkippedAutomatically);
-            preference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
-                    Toast.makeText(preference.getContext(), str("skipped_sponsor"), Toast.LENGTH_SHORT).show();
-                    return false;
-                }
+            preference.setOnPreferenceClickListener(preference12 -> {
+                Toast.makeText(preference12.getContext(), str("skipped_sponsor"), Toast.LENGTH_SHORT).show();
+                return false;
             });
             preferencesToDisableWhenSBDisabled.add(preference);
             screen.addPreference(preference);

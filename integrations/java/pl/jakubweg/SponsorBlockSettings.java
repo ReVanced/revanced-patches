@@ -26,7 +26,7 @@ public class SponsorBlockSettings {
     public static final String PREFERENCES_KEY_NEW_SEGMENT_ENABLED = "sb-new-segment-enabled";
     public static final String PREFERENCES_KEY_VOTING_ENABLED = "sb-voting-enabled";
 
-    public static final SegmentBehaviour DefaultBehaviour = SegmentBehaviour.SkipAutomatically;
+    public static final SegmentBehaviour DefaultBehaviour = SegmentBehaviour.SKIP_AUTOMATICALLY;
 
     public static boolean isSponsorBlockEnabled = false;
     public static boolean seenGuidelinesPopup = false;
@@ -108,7 +108,7 @@ public class SponsorBlockSettings {
         }
 
         //"[%22sponsor%22,%22outro%22,%22music_offtopic%22,%22intro%22,%22selfpromo%22,%22interaction%22,%22preview%22]";
-        if (enabledCategories.size() == 0)
+        if (enabledCategories.isEmpty())
             sponsorBlockUrlCategories = "[]";
         else
             sponsorBlockUrlCategories = "[%22" + TextUtils.join("%22,%22", enabledCategories) + "%22]";
@@ -132,9 +132,9 @@ public class SponsorBlockSettings {
     }
 
     public enum SegmentBehaviour {
-        SkipAutomatically("skip", sf("skip_automatically"), true, true),
-        ManualSkip("manual-skip", sf("skip_showbutton"), false, true),
-        Ignore("ignore", sf("skip_ignore"), false, false);
+        SKIP_AUTOMATICALLY("skip", sf("skip_automatically"), true, true),
+        MANUAL_SKIP("manual-skip", sf("skip_showbutton"), false, true),
+        IGNORE("ignore", sf("skip_ignore"), false, false);
 
         public final String key;
         public final StringRef name;
@@ -153,26 +153,25 @@ public class SponsorBlockSettings {
     }
 
     public enum SegmentInfo {
-        Sponsor("sponsor", sf("segments_sponsor"), sf("skipped_sponsor"), sf("segments_sponsor_sum"), null, 0xFF00d400),
-        Intro("intro", sf("segments_intermission"), sf("skipped_intermission"), sf("segments_intermission_sum"), null, 0xFF00ffff),
-        Outro("outro", sf("segments_endcards"), sf("skipped_endcard"), sf("segments_endcards_sum"), null, 0xFF0202ed),
-        Interaction("interaction", sf("segments_subscribe"), sf("skipped_subscribe"), sf("segments_subscribe_sum"), null, 0xFFcc00ff),
-        SelfPromo("selfpromo", sf("segments_selfpromo"), sf("skipped_selfpromo"), sf("segments_selfpromo_sum"), null, 0xFFffff00),
-        MusicOfftopic("music_offtopic", sf("segments_nomusic"), sf("skipped_nomusic"), sf("segments_nomusic_sum"), null, 0xFFff9900),
-        Preview("preview", sf("segments_preview"), sf("skipped_preview"), sf("segments_preview_sum"), null, 0xFF008fd6),
-        Unsubmitted("unsubmitted", StringRef.empty, sf("skipped_unsubmitted"), StringRef.empty, SegmentBehaviour.SkipAutomatically, 0xFFFFFFFF),
-        ;
+        SPONSOR("sponsor", sf("segments_sponsor"), sf("skipped_sponsor"), sf("segments_sponsor_sum"), null, 0xFF00d400),
+        INTRO("intro", sf("segments_intermission"), sf("skipped_intermission"), sf("segments_intermission_sum"), null, 0xFF00ffff),
+        OUTRO("outro", sf("segments_endcards"), sf("skipped_endcard"), sf("segments_endcards_sum"), null, 0xFF0202ed),
+        INTERACTION("interaction", sf("segments_subscribe"), sf("skipped_subscribe"), sf("segments_subscribe_sum"), null, 0xFFcc00ff),
+        SELF_PROMO("selfpromo", sf("segments_selfpromo"), sf("skipped_selfpromo"), sf("segments_selfpromo_sum"), null, 0xFFffff00),
+        MUSIC_OFFTOPIC("music_offtopic", sf("segments_nomusic"), sf("skipped_nomusic"), sf("segments_nomusic_sum"), null, 0xFFff9900),
+        PREVIEW("preview", sf("segments_preview"), sf("skipped_preview"), sf("segments_preview_sum"), null, 0xFF008fd6),
+        UNSUBMITTED("unsubmitted", StringRef.empty, sf("skipped_unsubmitted"), StringRef.empty, SegmentBehaviour.SKIP_AUTOMATICALLY, 0xFFFFFFFF),;
 
-        private static SegmentInfo[] mValuesWithoutUnsubmitted = new SegmentInfo[]{
-                Sponsor,
-                Intro,
-                Outro,
-                Interaction,
-                SelfPromo,
-                MusicOfftopic,
-                Preview
+        private static final SegmentInfo[] mValuesWithoutUnsubmitted = new SegmentInfo[]{
+                SPONSOR,
+                INTRO,
+                OUTRO,
+                INTERACTION,
+                SELF_PROMO,
+                MUSIC_OFFTOPIC,
+                PREVIEW
         };
-        private static Map<String, SegmentInfo> mValuesMap = new HashMap<>(8);
+        private static final Map<String, SegmentInfo> mValuesMap = new HashMap<>(8);
 
         static {
             for (SegmentInfo value : valuesWithoutUnsubmitted())

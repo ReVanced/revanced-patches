@@ -307,7 +307,7 @@ public abstract class SponsorBlockUtils {
         List<CharSequence> titles = new ArrayList<>(segmentAmount); // I've replaced an array with a list to prevent null elements in the array as unsubmitted segments get filtered out
         for (int i = 0; i < segmentAmount; i++) {
             SponsorSegment segment = sponsorSegmentsOfCurrentVideo[i];
-            if (segment.category == SponsorBlockSettings.SegmentInfo.Unsubmitted) {
+            if (segment.category == SponsorBlockSettings.SegmentInfo.UNSUBMITTED) {
                 continue;
             }
 
@@ -350,7 +350,7 @@ public abstract class SponsorBlockUtils {
             final SponsorSegment[] segments = original == null ? new SponsorSegment[1] : Arrays.copyOf(original, original.length + 1);
 
             segments[segments.length - 1] = new SponsorSegment(newSponsorSegmentStartMillis, newSponsorSegmentEndMillis,
-                    SponsorBlockSettings.SegmentInfo.Unsubmitted, null);
+                    SponsorBlockSettings.SegmentInfo.UNSUBMITTED, null);
 
             Arrays.sort(segments);
             sponsorSegmentsOfCurrentVideo = segments;

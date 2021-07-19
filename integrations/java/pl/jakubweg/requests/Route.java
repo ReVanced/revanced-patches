@@ -29,8 +29,7 @@ public class Route {
         return method;
     }
 
-    public CompiledRoute compile(String... params)
-    {
+    public CompiledRoute compile(String... params) {
         if (params.length != paramCount)
             throw new IllegalArgumentException("Error Compiling Route: [" + route + "], incorrect amount of parameters provided." +
                     "Expected: " + paramCount + ", Provided: " + params.length);
