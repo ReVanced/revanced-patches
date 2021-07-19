@@ -177,7 +177,7 @@ public class SponsorBlockSettings {
                 MUSIC_OFFTOPIC,
                 PREVIEW
         };
-        private static final Map<String, SegmentInfo> mValuesMap = new HashMap<>(values().length + 1);
+        private static final Map<String, SegmentInfo> mValuesMap = new HashMap<>(values().length);
 
         static {
             for (SegmentInfo value : valuesWithoutUnsubmitted())
