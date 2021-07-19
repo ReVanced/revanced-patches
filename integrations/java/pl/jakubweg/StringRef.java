@@ -24,7 +24,7 @@ public class StringRef {
         packageName = context.getPackageName();
     }
 
-    private static HashMap<String, StringRef> strings = new HashMap<>();
+    private static final HashMap<String, StringRef> strings = new HashMap<>();
 
     /**
      * Gets strings reference from shared collection or creates if not exists yet,
@@ -50,6 +50,18 @@ public class StringRef {
     @NonNull
     public static String str(@NonNull String id) {
         return sf(id).toString();
+    }
+
+    /**
+     * Gets string value by string id, shorthand for <code>sf(id).toString()</code> and formats the string
+     * with given args.
+     * @param id   string resource name/id
+     * @param args the args to format the string with
+     * @return String value from string.xml formatted with given args
+     */
+    @NonNull
+    public static String str(@NonNull String id, Object... args) {
+        return String.format(str(id), args);
     }
 
 

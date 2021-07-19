@@ -268,7 +268,7 @@ public abstract class SponsorBlockUtils {
 
         new AlertDialog.Builder(context)
                 .setTitle(str("new_segment_title"))
-                .setMessage(String.format(str("new_segment_mark_time_as_question"),
+                .setMessage(str("new_segment_mark_time_as_question",
                         newSponsorSegmentDialogShownMillis / 60000,
                         newSponsorSegmentDialogShownMillis / 1000 % 60,
                         newSponsorSegmentDialogShownMillis % 1000))
@@ -286,7 +286,7 @@ public abstract class SponsorBlockUtils {
             long end = (newSponsorSegmentEndMillis) / 1000;
             new AlertDialog.Builder(context)
                     .setTitle(str("new_segment_confirm_title"))
-                    .setMessage(String.format(str("new_segment_confirm_content"),
+                    .setMessage(str("new_segment_confirm_content",
                             start / 60, start % 60,
                             end / 60, end % 60,
                             length / 60, length % 60))

@@ -15,10 +15,12 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.text.InputType;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import pl.jakubweg.objects.UserStats;
 import pl.jakubweg.requests.Requester;
@@ -37,12 +39,15 @@ import static pl.jakubweg.SponsorBlockSettings.adjustNewSegmentMillis;
 import static pl.jakubweg.SponsorBlockSettings.countSkips;
 import static pl.jakubweg.SponsorBlockSettings.setSeenGuidelines;
 import static pl.jakubweg.SponsorBlockSettings.showToastWhenSkippedAutomatically;
+import static pl.jakubweg.SponsorBlockSettings.skippedSegments;
+import static pl.jakubweg.SponsorBlockSettings.skippedTime;
 import static pl.jakubweg.SponsorBlockSettings.uuid;
 import static pl.jakubweg.StringRef.str;
 
 @SuppressWarnings({"unused", "deprecation"}) // injected
 public class SponsorBlockPreferenceFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
     private static final DecimalFormat FORMATTER = new DecimalFormat("#,###,###");
+    private static final String SAVED_TEMPLATE = "%dh %.1f minutes";
     private final ArrayList<Preference> preferencesToDisableWhenSBDisabled = new ArrayList<>();
 
     @Override
@@ -168,16 +173,17 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
     private void addStatsCategory(Context context, PreferenceScreen screen) {
         PreferenceCategory category = new PreferenceCategory(context);
         screen.addPreference(category);
-        category.setTitle("stats");
+        category.setTitle(str("stats"));
+        preferencesToDisableWhenSBDisabled.add(category);
 
         UserStats stats = Requester.getUserStats();
 
         {
             EditTextPreference preference = new EditTextPreference(context);
-            screen.addPreference(preference);
+            category.addPreference(preference);
             String userName = stats.getUserName();
-            preference.setTitle(fromHtml("Your username: <b>" + userName + "</b>"));
-            preference.setSummary("Click to change your username");
+            preference.setTitle(fromHtml(str("stats_username", userName)));
+            preference.setSummary(str("stats_username_change"));
             preference.setText(userName);
             preference.setOnPreferenceChangeListener((preference1, newUsername) -> {
                 Requester.setUsername((String) newUsername);
@@ -187,23 +193,42 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
 
         {
             Preference preference = new Preference(context);
-            screen.addPreference(preference);
+            category.addPreference(preference);
             String formatted = FORMATTER.format(stats.getSegmentCount());
-            preference.setTitle(fromHtml("Submissions: <b>" + formatted + "</b>"));
+            preference.setTitle(fromHtml(str("stats_submissions", formatted)));
         }
 
         {
             Preference preference = new Preference(context);
-            screen.addPreference(preference);
+            category.addPreference(preference);
             String formatted = FORMATTER.format(stats.getViewCount());
 
             double saved = stats.getMinutesSaved();
             int hoursSaved = (int) (saved / 60);
             double minutesSaved = saved % 60;
-            String formattedSaved = String.format("%dh %.1f minutes", hoursSaved, minutesSaved);
+            String formattedSaved = String.format(SAVED_TEMPLATE, hoursSaved, minutesSaved);
 
-            preference.setTitle(fromHtml("You've saved people from <b>" + formatted + "</b> segments."));
-            preference.setSummary(fromHtml("That's <b>" + formattedSaved + "</b> of their lives."));
+            preference.setTitle(fromHtml(str("stats_saved", formatted)));
+            preference.setSummary(fromHtml(str("stats_saved_sum", formattedSaved)));
+            preference.setOnPreferenceClickListener(preference1 -> {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse("https://sponsor.ajay.app/stats/"));
+                preference1.getContext().startActivity(i);
+                return false;
+            });
+        }
+
+        {
+            Preference preference = new Preference(context);
+            category.addPreference(preference);
+            String formatted = FORMATTER.format(skippedSegments);
+
+            long hoursSaved = skippedTime / 3600000;
+            double minutesSaved = (skippedTime / 60000d) % 60;
+            String formattedSaved = String.format(SAVED_TEMPLATE, hoursSaved, minutesSaved);
+
+            preference.setTitle(fromHtml(str("stats_self_saved", formatted)));
+            preference.setSummary(fromHtml(str("stats_self_saved_sum", formattedSaved)));
         }
     }
 
@@ -219,7 +244,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             preference.setSummary(str("about_api_sum"));
             preference.setOnPreferenceClickListener(preference1 -> {
                 Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse("http://sponsor.ajay.app"));
+                i.setData(Uri.parse("https://sponsor.ajay.app"));
                 preference1.getContext().startActivity(i);
                 return false;
             });

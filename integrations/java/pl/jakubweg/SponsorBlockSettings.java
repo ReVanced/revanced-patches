@@ -25,6 +25,8 @@ public class SponsorBlockSettings {
     public static final String PREFERENCES_KEY_SEEN_GUIDELINES = "sb-seen-gl";
     public static final String PREFERENCES_KEY_NEW_SEGMENT_ENABLED = "sb-new-segment-enabled";
     public static final String PREFERENCES_KEY_VOTING_ENABLED = "sb-voting-enabled";
+    public static final String PREFERENCES_KEY_SKIPPED_SEGMENTS = "sb-skipped-segments";
+    public static final String PREFERENCES_KEY_SKIPPED_SEGMENTS_TIME = "sb-skipped-segments-time";
 
     public static final SegmentBehaviour DefaultBehaviour = SegmentBehaviour.SKIP_AUTOMATICALLY;
 
@@ -37,6 +39,8 @@ public class SponsorBlockSettings {
     public static int adjustNewSegmentMillis = 150;
     public static String uuid = "<invalid>";
     public static String sponsorBlockUrlCategories = "[]";
+    public static int skippedSegments;
+    public static long skippedTime;
 
     @SuppressWarnings("unused")
     @Deprecated
@@ -113,6 +117,8 @@ public class SponsorBlockSettings {
         else
             sponsorBlockUrlCategories = "[%22" + TextUtils.join("%22,%22", enabledCategories) + "%22]";
 
+        skippedSegments = preferences.getInt(PREFERENCES_KEY_SKIPPED_SEGMENTS, skippedSegments);
+        skippedTime = preferences.getLong(PREFERENCES_KEY_SKIPPED_SEGMENTS_TIME, skippedTime);
 
         showToastWhenSkippedAutomatically = preferences.getBoolean(PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP, showToastWhenSkippedAutomatically);
         String tmp1 = preferences.getString(PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP, null);

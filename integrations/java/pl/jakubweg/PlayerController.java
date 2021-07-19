@@ -3,6 +3,7 @@ package pl.jakubweg;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.os.Handler;
@@ -23,6 +24,9 @@ import java.util.TimerTask;
 import fi.vanced.libraries.youtube.player.VideoInformation;
 import pl.jakubweg.objects.SponsorSegment;
 import pl.jakubweg.requests.Requester;
+
+import static pl.jakubweg.SponsorBlockSettings.skippedSegments;
+import static pl.jakubweg.SponsorBlockSettings.skippedTime;
 
 @SuppressLint({"LongLogTag"})
 public class PlayerController {
@@ -264,6 +268,15 @@ public class PlayerController {
     }
 
     private static void sendViewRequestAsync(final long millis, final SponsorSegment segment) {
+        if (segment.category != SponsorBlockSettings.SegmentInfo.UNSUBMITTED) {
+            Context context = YouTubeTikTokRoot_Application.getAppContext();
+            if (context != null) {
+                SharedPreferences preferences = SponsorBlockSettings.getPreferences(context);
+                long newSkippedTime = skippedTime + segment.end - segment.start;
+                preferences.edit().putInt(SponsorBlockSettings.PREFERENCES_KEY_SKIPPED_SEGMENTS, skippedSegments + 1).apply();
+                preferences.edit().putLong(SponsorBlockSettings.PREFERENCES_KEY_SKIPPED_SEGMENTS_TIME, newSkippedTime).apply();
+            }
+        }
         new Thread(() -> {
             if (SponsorBlockSettings.countSkips &&
                     segment.category != SponsorBlockSettings.SegmentInfo.UNSUBMITTED &&

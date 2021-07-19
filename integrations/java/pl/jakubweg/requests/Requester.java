@@ -131,7 +131,7 @@ public class Requester {
                     SponsorBlockUtils.messageToToast = str("vote_failed_rate_limit");
                     break;
                 default:
-                    SponsorBlockUtils.messageToToast = String.format(str("vote_failed_unknown_error"), responseCode, connection.getResponseMessage());
+                    SponsorBlockUtils.messageToToast = str("vote_failed_unknown_error", responseCode, connection.getResponseMessage());
                     break;
             }
             new Handler(Looper.getMainLooper()).post(toastRunnable);
@@ -143,6 +143,10 @@ public class Requester {
     }
 
     public static UserStats getUserStats() {
+        UserStats defaultStats = new UserStats("N/A", -1, -1, -1);
+        if (!SponsorBlockSettings.isSponsorBlockEnabled)
+            return defaultStats;
+
         try {
             HttpURLConnection connection = getConnectionFromRoute(Route.GET_USER_STATS, SponsorBlockSettings.uuid);
             JSONObject json = new JSONObject(parseJson(connection));
@@ -153,7 +157,7 @@ public class Requester {
         catch (Exception ex) {
             ex.printStackTrace();
         }
-        return new UserStats("N/A", -1, -1, -1);
+        return defaultStats;
     }
 
     public static void setUsername(String username) {
