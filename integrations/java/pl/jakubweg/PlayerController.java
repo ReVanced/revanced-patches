@@ -56,7 +56,8 @@ public class PlayerController {
 
     public static void setCurrentVideoId(final String videoId) {
         if (videoId == null) {
-            Log.d(TAG, "setCurrentVideoId: videoId is null");
+            currentVideoId = null;
+            sponsorSegmentsOfCurrentVideo = null;
             return;
         }
 
