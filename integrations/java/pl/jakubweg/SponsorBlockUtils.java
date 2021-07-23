@@ -10,10 +10,12 @@ import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.text.Html;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.lang.ref.WeakReference;
@@ -48,8 +50,14 @@ import static pl.jakubweg.requests.Requester.voteForSegment;
 public abstract class SponsorBlockUtils {
     public static final String TAG = "jakubweg.SponsorBlockUtils";
     public static final String DATE_FORMAT = "HH:mm:ss.SSS";
+    public static final String WITHOUT_SEGMENTS_FORMAT = " (m:ss)";
+    public static final String WITHOUT_SEGMENTS_FORMAT_H = " (H:m:ss)";
     @SuppressLint("SimpleDateFormat")
     public static final SimpleDateFormat dateFormatter = new SimpleDateFormat(DATE_FORMAT);
+    public static final SimpleDateFormat withoutSegmentsFormatter = new SimpleDateFormat(WITHOUT_SEGMENTS_FORMAT);
+    public static final SimpleDateFormat withoutSegmentsFormatterH = new SimpleDateFormat(WITHOUT_SEGMENTS_FORMAT_H);
+    private static boolean videoHasSegments = false;
+    private static String timeWithoutSegments = "";
     private static final int sponsorBtnId = 1234;
     public static final View.OnClickListener sponsorBlockBtnListener = v -> {
         if (debug) {

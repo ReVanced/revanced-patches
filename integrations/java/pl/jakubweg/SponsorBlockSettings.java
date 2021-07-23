@@ -27,6 +27,7 @@ public class SponsorBlockSettings {
     public static final String PREFERENCES_KEY_VOTING_ENABLED = "sb-voting-enabled";
     public static final String PREFERENCES_KEY_SKIPPED_SEGMENTS = "sb-skipped-segments";
     public static final String PREFERENCES_KEY_SKIPPED_SEGMENTS_TIME = "sb-skipped-segments-time";
+    public static final String PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS = "sb-length-without-segments";
 
     public static final SegmentBehaviour DefaultBehaviour = SegmentBehaviour.SKIP_AUTOMATICALLY;
 
@@ -36,6 +37,7 @@ public class SponsorBlockSettings {
     public static boolean isVotingEnabled = true;
     public static boolean showToastWhenSkippedAutomatically = true;
     public static boolean countSkips = true;
+    public static boolean showTimeWithoutSegments = true;
     public static int adjustNewSegmentMillis = 150;
     public static String uuid = "<invalid>";
     public static String sponsorBlockUrlCategories = "[]";
@@ -112,7 +114,7 @@ public class SponsorBlockSettings {
         }
 
         //"[%22sponsor%22,%22outro%22,%22music_offtopic%22,%22intro%22,%22selfpromo%22,%22interaction%22,%22preview%22]";
-        if (enabledCategories.isEmpty())
+        if (enabledCategories.size() == 0)
             sponsorBlockUrlCategories = "[]";
         else
             sponsorBlockUrlCategories = "[%22" + TextUtils.join("%22,%22", enabledCategories) + "%22]";
@@ -126,6 +128,7 @@ public class SponsorBlockSettings {
             adjustNewSegmentMillis = Integer.parseInt(tmp1);
 
         countSkips = preferences.getBoolean(PREFERENCES_KEY_COUNT_SKIPS, countSkips);
+        showTimeWithoutSegments = preferences.getBoolean(PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS, showTimeWithoutSegments);
 
         uuid = preferences.getString(PREFERENCES_KEY_UUID, null);
         if (uuid == null) {

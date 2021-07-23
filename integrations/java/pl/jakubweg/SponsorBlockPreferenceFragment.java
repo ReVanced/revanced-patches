@@ -26,6 +26,7 @@ import static pl.jakubweg.SponsorBlockSettings.DefaultBehaviour;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_COUNT_SKIPS;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_NEW_SEGMENT_ENABLED;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_UUID;
@@ -34,6 +35,7 @@ import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_NAME;
 import static pl.jakubweg.SponsorBlockSettings.adjustNewSegmentMillis;
 import static pl.jakubweg.SponsorBlockSettings.countSkips;
 import static pl.jakubweg.SponsorBlockSettings.setSeenGuidelines;
+import static pl.jakubweg.SponsorBlockSettings.showTimeWithoutSegments;
 import static pl.jakubweg.SponsorBlockSettings.showToastWhenSkippedAutomatically;
 import static pl.jakubweg.SponsorBlockSettings.uuid;
 import static pl.jakubweg.StringRef.str;
@@ -242,6 +244,16 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             preference.setSummary(str("general_skipcount_sum"));
             preference.setKey(PREFERENCES_KEY_COUNT_SKIPS);
             preference.setDefaultValue(countSkips);
+            preferencesToDisableWhenSBDisabled.add(preference);
+            screen.addPreference(preference);
+        }
+
+        {
+            Preference preference = new SwitchPreference(context);
+            preference.setTitle(str("general_time_without_sb"));
+            preference.setSummary(str("general_time_without_sb_sum"));
+            preference.setKey(PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS);
+            preference.setDefaultValue(showTimeWithoutSegments);
             preferencesToDisableWhenSBDisabled.add(preference);
             screen.addPreference(preference);
         }
