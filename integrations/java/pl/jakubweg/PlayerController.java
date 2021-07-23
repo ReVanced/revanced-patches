@@ -335,7 +335,7 @@ public class PlayerController {
 
     public static void setSponsorBarRect(final Object self) {
         try {
-            Field field = self.getClass().getDeclaredField("e");
+            Field field = self.getClass().getDeclaredField("replaceMeWithsetSponsorBarRect");
             field.setAccessible(true);
             Rect rect = (Rect) field.get(self);
             if (rect != null) {
