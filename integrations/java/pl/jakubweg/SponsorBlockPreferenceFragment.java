@@ -251,7 +251,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
 
         {
             Preference preference = new SwitchPreference(context);
-            preference.setTitle(str("general_ime_without_sb"));
+            preference.setTitle(str("general_time_without_sb"));
             preference.setSummary(str("general_time_without_sb_sum"));
             preference.setKey(PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS);
             preference.setDefaultValue(showTimeWithoutSegments);
