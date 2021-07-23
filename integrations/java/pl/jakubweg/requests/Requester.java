@@ -25,6 +25,8 @@ import pl.jakubweg.SponsorBlockUtils.VoteOption;
 import pl.jakubweg.objects.SponsorSegment;
 import pl.jakubweg.objects.UserStats;
 
+import static pl.jakubweg.SponsorBlockUtils.timeWithoutSegments;
+import static pl.jakubweg.SponsorBlockUtils.videoHasSegments;
 import static pl.jakubweg.StringRef.str;
 
 public class Requester {
@@ -38,6 +40,8 @@ public class Requester {
         try {
             HttpURLConnection connection = getConnectionFromRoute(Route.GET_SEGMENTS, videoId, SponsorBlockSettings.sponsorBlockUrlCategories);
             int responseCode = connection.getResponseCode();
+            videoHasSegments = false;
+            timeWithoutSegments = "";
 
             switch (responseCode) {
                 case 200:
@@ -57,6 +61,8 @@ public class Requester {
                             segments.add(sponsorSegment);
                         }
                     }
+                    videoHasSegments = true;
+                    timeWithoutSegments = SponsorBlockUtils.getTimeWithoutSegments(segments);
                     break;
                 case 404:
                     break;

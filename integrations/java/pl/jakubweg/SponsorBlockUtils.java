@@ -15,7 +15,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.lang.ref.WeakReference;
@@ -56,8 +55,8 @@ public abstract class SponsorBlockUtils {
     public static final SimpleDateFormat dateFormatter = new SimpleDateFormat(DATE_FORMAT);
     public static final SimpleDateFormat withoutSegmentsFormatter = new SimpleDateFormat(WITHOUT_SEGMENTS_FORMAT);
     public static final SimpleDateFormat withoutSegmentsFormatterH = new SimpleDateFormat(WITHOUT_SEGMENTS_FORMAT_H);
-    private static boolean videoHasSegments = false;
-    private static String timeWithoutSegments = "";
+    public static boolean videoHasSegments = false;
+    public static String timeWithoutSegments = "";
     private static final int sponsorBtnId = 1234;
     public static final View.OnClickListener sponsorBlockBtnListener = v -> {
         if (debug) {
@@ -396,6 +395,37 @@ public abstract class SponsorBlockUtils {
         ImageView sponsorBtn = ShieldButton._shieldBtn.get();
         if (sponsorBtn != null) {
             sponsorBtn.setVisibility(v.getVisibility());
+        }
+    }
+
+    public static String appendTimeWithoutSegments(String totalTime) {
+        if (videoHasSegments && SponsorBlockSettings.showTimeWithoutSegments && !TextUtils.isEmpty(totalTime)) {
+            return totalTime + timeWithoutSegments;
+        }
+
+        return totalTime;
+    }
+
+    public static String getTimeWithoutSegments(List<SponsorSegment> sponsorSegmentsOfCurrentVideo) {
+        if (!SponsorBlockSettings.isSponsorBlockEnabled || !SponsorBlockSettings.showTimeWithoutSegments || sponsorSegmentsOfCurrentVideo == null) {
+            return "";
+        }
+        long timeWithoutSegments = PlayerController.getCurrentVideoLength();
+        for (SponsorSegment segment : sponsorSegmentsOfCurrentVideo) {
+            timeWithoutSegments -= segment.end - segment.start;
+        }
+        Date date = new Date(timeWithoutSegments);
+        return timeWithoutSegments >= 3600000 ? withoutSegmentsFormatterH.format(date) : withoutSegmentsFormatter.format(date);
+    }
+
+    public static void playerTypeChanged(String playerType) {
+        try {
+            if (videoHasSegments && (playerType.equalsIgnoreCase("NONE"))) {
+                PlayerController.setCurrentVideoId(null);
+            }
+        }
+        catch (Exception ex) {
+            Log.e(TAG, "Player type changed caused a crash.", ex);
         }
     }
 
