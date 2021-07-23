@@ -28,7 +28,7 @@ public class SponsorBlockSettings {
     public static final String sponsorBlockSkipSegmentsUrl = "https://sponsor.ajay.app/api/skipSegments";
     public static final String sponsorBlockViewedUrl = "https://sponsor.ajay.app/api/viewedVideoSponsorTime";
     public static final String sponsorBlockVoteUrl = "https://sponsor.ajay.app/api/voteOnSponsorTime";
-
+    public static final String PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS = "sb-length-without-segments";
 
     public static final SegmentBehaviour DefaultBehaviour = SegmentBehaviour.SkipAutomatically;
 
@@ -38,6 +38,7 @@ public class SponsorBlockSettings {
     public static boolean isVotingEnabled = true;
     public static boolean showToastWhenSkippedAutomatically = true;
     public static boolean countSkips = true;
+    public static boolean showTimeWithoutSegments = true;
     public static int adjustNewSegmentMillis = 150;
     public static String uuid = "<invalid>";
     private static String sponsorBlockUrlCategories = "[]";
@@ -140,6 +141,7 @@ public class SponsorBlockSettings {
             adjustNewSegmentMillis = Integer.parseInt(tmp1);
 
         countSkips = preferences.getBoolean(PREFERENCES_KEY_COUNT_SKIPS, countSkips);
+        showTimeWithoutSegments = preferences.getBoolean(PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS, showTimeWithoutSegments);
 
         uuid = preferences.getString(PREFERENCES_KEY_UUID, null);
         if (uuid == null) {
