@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.Html;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -61,7 +62,7 @@ public abstract class SponsorBlockUtils {
     public static final SimpleDateFormat withoutSegmentsFormatter = new SimpleDateFormat(WITHOUT_SEGMENTS_FORMAT);
     public static final SimpleDateFormat withoutSegmentsFormatterH = new SimpleDateFormat(WITHOUT_SEGMENTS_FORMAT_H);
     private static boolean videoHasSegments = false;
-    private static boolean needToAppendTime = false;
+    private static String timeWithoutSegments = "";
     private static final int sponsorBtnId = 1234;
     public static final View.OnClickListener sponsorBlockBtnListener = new View.OnClickListener() {
         @Override
@@ -471,16 +472,14 @@ public abstract class SponsorBlockUtils {
             URL url = new URL(SponsorBlockSettings.getSponsorBlockUrlWithCategories(videoId));
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            videoHasSegments = false;
+            timeWithoutSegments = "";
             switch (connection.getResponseCode()) {
                 default:
                     Log.e(TAG, "Unable to download segments: Status: " + connection.getResponseCode() + " " + connection.getResponseMessage());
-                    videoHasSegments = false;
-                    needToAppendTime = false;
                     break;
                 case 404:
                     Log.w(TAG, "No segments for this video (ERR404)");
-                    videoHasSegments = false;
-                    needToAppendTime = false;
                     break;
                 case 200:
                     if (VERBOSE)
@@ -516,7 +515,6 @@ public abstract class SponsorBlockUtils {
                         Log.v(TAG, "Parsing done");
 
                     videoHasSegments = true;
-                    needToAppendTime = true;
                     break;
             }
 
@@ -525,6 +523,8 @@ public abstract class SponsorBlockUtils {
         } catch (Exception e) {
             Log.e(TAG, "download segments failed", e);
         }
+
+        timeWithoutSegments = getTimeWithoutSegments(sponsorSegments);
 
         return sponsorSegments.toArray(new SponsorSegment[0]);
     }
@@ -586,36 +586,15 @@ public abstract class SponsorBlockUtils {
         }
     }
 
-    public static void forceAppendTimeWithoutSegments() {
-        appendTimeWithoutSegments(true);
-    }
-
-    public static void appendTimeWithoutSegments() {
-        appendTimeWithoutSegments(false);
-    }
-
-    public static void appendTimeWithoutSegments(boolean forceAppend) {
-        try {
-            if (!videoHasSegments || (!needToAppendTime && !forceAppend)) {
-                return;
-            }
-
-            View layout = XSwipeHelper.nextGenWatchLayout.findViewById(getIdentifier("player_overlays", "id"));
-            if (layout != null) {
-                View bar = layout.findViewById(getIdentifier("time_bar_total_time", "id"));
-                ((TextView) bar).append(getTimeWithoutSegments());
-            }
-            else if (XGlobals.debug){
-                Log.d(TAG, "player_overlays was not found");
-            }
-
-            needToAppendTime = false;
-        } catch (Exception e) {
-            Log.e(TAG, "setting the time without segments failed", e);
+    public static String appendTimeWithoutSegments(String totalTime) {
+        if (videoHasSegments && SponsorBlockSettings.showTimeWithoutSegments && !TextUtils.isEmpty(totalTime)) {
+            return totalTime + timeWithoutSegments;
         }
+
+        return totalTime;
     }
 
-    public static String getTimeWithoutSegments() {
+    public static String getTimeWithoutSegments(ArrayList<SponsorSegment> sponsorSegmentsOfCurrentVideo) {
         if (!SponsorBlockSettings.isSponsorBlockEnabled || !SponsorBlockSettings.showTimeWithoutSegments || sponsorSegmentsOfCurrentVideo == null) {
             return "";
         }
@@ -630,7 +609,6 @@ public abstract class SponsorBlockUtils {
     public static void playerTypeChanged(String playerType) {
         try {
             if (videoHasSegments && (playerType.equalsIgnoreCase("NONE"))) {
-                needToAppendTime = true;
                 PlayerController.setCurrentVideoId(null);
                 return;
             }
