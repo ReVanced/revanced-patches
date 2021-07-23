@@ -616,7 +616,7 @@ public abstract class SponsorBlockUtils {
     }
 
     public static String getTimeWithoutSegments() {
-        if (!SponsorBlockSettings.isSponsorBlockEnabled || sponsorSegmentsOfCurrentVideo == null) {
+        if (!SponsorBlockSettings.isSponsorBlockEnabled || !SponsorBlockSettings.showTimeWithoutSegments || sponsorSegmentsOfCurrentVideo == null) {
             return "";
         }
         long timeWithoutSegments = PlayerController.getCurrentVideoLength();
@@ -631,6 +631,7 @@ public abstract class SponsorBlockUtils {
         try {
             if (videoHasSegments && (playerType.equalsIgnoreCase("NONE"))) {
                 needToAppendTime = true;
+                PlayerController.setCurrentVideoId(null);
                 return;
             }
         }
