@@ -36,6 +36,7 @@ import java.util.Objects;
 import java.util.TimeZone;
 
 import fi.razerman.youtube.Helpers.XSwipeHelper;
+import fi.razerman.youtube.XGlobals;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -59,6 +60,8 @@ public abstract class SponsorBlockUtils {
     public static final SimpleDateFormat dateFormatter = new SimpleDateFormat(DATE_FORMAT);
     public static final SimpleDateFormat withoutSegmentsFormatter = new SimpleDateFormat(WITHOUT_SEGMENTS_FORMAT);
     public static final SimpleDateFormat withoutSegmentsFormatterH = new SimpleDateFormat(WITHOUT_SEGMENTS_FORMAT_H);
+    private static boolean videoHasSegments = false;
+    private static boolean needToAppendTime = false;
     private static final int sponsorBtnId = 1234;
     public static final View.OnClickListener sponsorBlockBtnListener = new View.OnClickListener() {
         @Override
@@ -471,9 +474,13 @@ public abstract class SponsorBlockUtils {
             switch (connection.getResponseCode()) {
                 default:
                     Log.e(TAG, "Unable to download segments: Status: " + connection.getResponseCode() + " " + connection.getResponseMessage());
+                    videoHasSegments = false;
+                    needToAppendTime = false;
                     break;
                 case 404:
                     Log.w(TAG, "No segments for this video (ERR404)");
+                    videoHasSegments = false;
+                    needToAppendTime = false;
                     break;
                 case 200:
                     if (VERBOSE)
@@ -507,6 +514,9 @@ public abstract class SponsorBlockUtils {
 
                     if (VERBOSE)
                         Log.v(TAG, "Parsing done");
+
+                    videoHasSegments = true;
+                    needToAppendTime = true;
                     break;
             }
 
@@ -515,11 +525,6 @@ public abstract class SponsorBlockUtils {
         } catch (Exception e) {
             Log.e(TAG, "download segments failed", e);
         }
-
-        View layout = XSwipeHelper.nextGenWatchLayout.findViewById(getIdentifier("player_overlays", "id"));
-        View bar = layout.findViewById(getIdentifier("time_bar_total_time", "id"));
-
-        ((TextView) bar).append(getTimeWithoutSegments());
 
         return sponsorSegments.toArray(new SponsorSegment[0]);
     }
@@ -581,6 +586,35 @@ public abstract class SponsorBlockUtils {
         }
     }
 
+    public static void forceAppendTimeWithoutSegments() {
+        appendTimeWithoutSegments(true);
+    }
+
+    public static void appendTimeWithoutSegments() {
+        appendTimeWithoutSegments(false);
+    }
+
+    public static void appendTimeWithoutSegments(boolean forceAppend) {
+        try {
+            if (!videoHasSegments || (!needToAppendTime && !forceAppend)) {
+                return;
+            }
+
+            View layout = XSwipeHelper.nextGenWatchLayout.findViewById(getIdentifier("player_overlays", "id"));
+            if (layout != null) {
+                View bar = layout.findViewById(getIdentifier("time_bar_total_time", "id"));
+                ((TextView) bar).append(getTimeWithoutSegments());
+            }
+            else if (XGlobals.debug){
+                Log.d(TAG, "player_overlays was not found");
+            }
+
+            needToAppendTime = false;
+        } catch (Exception e) {
+            Log.e(TAG, "setting the time without segments failed", e);
+        }
+    }
+
     public static String getTimeWithoutSegments() {
         if (!SponsorBlockSettings.isSponsorBlockEnabled || sponsorSegmentsOfCurrentVideo == null) {
             return "";
@@ -591,6 +625,18 @@ public abstract class SponsorBlockUtils {
         }
         Date date = new Date(timeWithoutSegments);
         return timeWithoutSegments >= 3600000 ? withoutSegmentsFormatterH.format(date) : withoutSegmentsFormatter.format(date);
+    }
+
+    public static void playerTypeChanged(String playerType) {
+        try {
+            if (videoHasSegments && (playerType.equalsIgnoreCase("NONE"))) {
+                needToAppendTime = true;
+                return;
+            }
+        }
+        catch (Exception ex) {
+            Log.e(TAG, "Player type changed caused a crash.", ex);
+        }
     }
 
     private enum VoteOption {
