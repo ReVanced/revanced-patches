@@ -4,6 +4,11 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
+import android.preference.EditTextPreference;
+import android.preference.Preference;
+import android.preference.PreferenceCategory;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
@@ -22,14 +27,20 @@ import java.util.Objects;
 import java.util.TimeZone;
 
 import pl.jakubweg.objects.SponsorSegment;
+import pl.jakubweg.objects.UserStats;
 import pl.jakubweg.requests.Requester;
 
+import static android.text.Html.fromHtml;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static fi.razerman.youtube.XGlobals.debug;
 import static pl.jakubweg.PlayerController.getCurrentVideoId;
 import static pl.jakubweg.PlayerController.getLastKnownVideoTime;
 import static pl.jakubweg.PlayerController.sponsorSegmentsOfCurrentVideo;
+import static pl.jakubweg.SponsorBlockPreferenceFragment.FORMATTER;
+import static pl.jakubweg.SponsorBlockPreferenceFragment.SAVED_TEMPLATE;
+import static pl.jakubweg.SponsorBlockSettings.skippedSegments;
+import static pl.jakubweg.SponsorBlockSettings.skippedTime;
 import static pl.jakubweg.StringRef.str;
 import static pl.jakubweg.requests.Requester.voteForSegment;
 
@@ -380,6 +391,75 @@ public abstract class SponsorBlockUtils {
         }
     }
 
+    public static int countMatches(CharSequence seq, char c) {
+        int count = 0;
+        for (int i = 0; i < seq.length(); i++) {
+            if (seq.charAt(i) == c)
+                count++;
+        }
+        return count;
+    }
+
+    @SuppressWarnings("deprecation")
+    public static void addUserStats(PreferenceCategory category, Preference loadingPreference, UserStats stats) {
+        category.removePreference(loadingPreference);
+
+        Context context = category.getContext();
+
+        {
+            EditTextPreference preference = new EditTextPreference(context);
+            category.addPreference(preference);
+            String userName = stats.getUserName();
+            preference.setTitle(fromHtml(str("stats_username", userName)));
+            preference.setSummary(str("stats_username_change"));
+            preference.setText(userName);
+            preference.setOnPreferenceChangeListener((preference1, newUsername) -> {
+                Requester.setUsername((String) newUsername);
+                return false;
+            });
+        }
+
+        {
+            Preference preference = new Preference(context);
+            category.addPreference(preference);
+            String formatted = FORMATTER.format(stats.getSegmentCount());
+            preference.setTitle(fromHtml(str("stats_submissions", formatted)));
+        }
+
+        {
+            Preference preference = new Preference(context);
+            category.addPreference(preference);
+            String formatted = FORMATTER.format(stats.getViewCount());
+
+            double saved = stats.getMinutesSaved();
+            int hoursSaved = (int) (saved / 60);
+            double minutesSaved = saved % 60;
+            String formattedSaved = String.format(SAVED_TEMPLATE, hoursSaved, minutesSaved);
+
+            preference.setTitle(fromHtml(str("stats_saved", formatted)));
+            preference.setSummary(fromHtml(str("stats_saved_sum", formattedSaved)));
+            preference.setOnPreferenceClickListener(preference1 -> {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse("https://sponsor.ajay.app/stats/"));
+                preference1.getContext().startActivity(i);
+                return false;
+            });
+        }
+
+        {
+            Preference preference = new Preference(context);
+            category.addPreference(preference);
+            String formatted = FORMATTER.format(skippedSegments);
+
+            long hoursSaved = skippedTime / 3600000;
+            double minutesSaved = (skippedTime / 60000d) % 60;
+            String formattedSaved = String.format(SAVED_TEMPLATE, hoursSaved, minutesSaved);
+
+            preference.setTitle(fromHtml(str("stats_self_saved", formatted)));
+            preference.setSummary(fromHtml(str("stats_self_saved_sum", formattedSaved)));
+        }
+    }
+
     public enum VoteOption {
         UPVOTE(str("vote_upvote")),
         DOWNVOTE(str("vote_downvote")),
@@ -423,15 +503,5 @@ public abstract class SponsorBlockUtils {
                 Toast.makeText(context.getApplicationContext(), str("new_segment_edit_by_hand_parse_error"), Toast.LENGTH_LONG).show();
             }
         }
-    }
-
-    public static int countMatches(CharSequence seq, char c)
-    {
-        int count = 0;
-        for (int i = 0; i < seq.length(); i++) {
-            if (seq.charAt(i) == c)
-                count++;
-        }
-        return count;
     }
 }
