@@ -4,52 +4,46 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.os.Handler;
-import android.os.Looper;
+import android.content.Intent;
+import android.net.Uri;
+import android.preference.EditTextPreference;
+import android.preference.Preference;
+import android.preference.PreferenceCategory;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import java.util.Objects;
 import java.util.TimeZone;
 
-import fi.razerman.youtube.Helpers.XSwipeHelper;
-import fi.razerman.youtube.XGlobals;
+import pl.jakubweg.objects.SponsorSegment;
+import pl.jakubweg.objects.UserStats;
+import pl.jakubweg.requests.Requester;
 
+import static android.text.Html.fromHtml;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static fi.razerman.youtube.XGlobals.debug;
-import static pl.jakubweg.PlayerController.VERBOSE;
 import static pl.jakubweg.PlayerController.getCurrentVideoId;
 import static pl.jakubweg.PlayerController.getLastKnownVideoTime;
 import static pl.jakubweg.PlayerController.sponsorSegmentsOfCurrentVideo;
-import static pl.jakubweg.SponsorBlockSettings.getSponsorBlockVoteUrl;
-import static pl.jakubweg.SponsorBlockSettings.sponsorBlockSkipSegmentsUrl;
-import static pl.jakubweg.SponsorBlockSettings.uuid;
+import static pl.jakubweg.SponsorBlockPreferenceFragment.FORMATTER;
+import static pl.jakubweg.SponsorBlockPreferenceFragment.SAVED_TEMPLATE;
+import static pl.jakubweg.SponsorBlockSettings.skippedSegments;
+import static pl.jakubweg.SponsorBlockSettings.skippedTime;
 import static pl.jakubweg.StringRef.str;
+import static pl.jakubweg.requests.Requester.voteForSegment;
 
 @SuppressWarnings({"LongLogTag"})
 public abstract class SponsorBlockUtils {
@@ -61,26 +55,20 @@ public abstract class SponsorBlockUtils {
     public static final SimpleDateFormat dateFormatter = new SimpleDateFormat(DATE_FORMAT);
     public static final SimpleDateFormat withoutSegmentsFormatter = new SimpleDateFormat(WITHOUT_SEGMENTS_FORMAT);
     public static final SimpleDateFormat withoutSegmentsFormatterH = new SimpleDateFormat(WITHOUT_SEGMENTS_FORMAT_H);
-    private static boolean videoHasSegments = false;
-    private static String timeWithoutSegments = "";
+    public static boolean videoHasSegments = false;
+    public static String timeWithoutSegments = "";
     private static final int sponsorBtnId = 1234;
-    public static final View.OnClickListener sponsorBlockBtnListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            if (debug) {
-                Log.d(TAG, "Shield button clicked");
-            }
-            NewSegmentHelperLayout.toggle();
+    public static final View.OnClickListener sponsorBlockBtnListener = v -> {
+        if (debug) {
+            Log.d(TAG, "Shield button clicked");
         }
+        NewSegmentHelperLayout.toggle();
     };
-    public static final View.OnClickListener voteButtonListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            if (debug) {
-                Log.d(TAG, "Vote button clicked");
-            }
-            SponsorBlockUtils.onVotingClicked(v.getContext());
+    public static final View.OnClickListener voteButtonListener = v -> {
+        if (debug) {
+            Log.d(TAG, "Vote button clicked");
         }
+        SponsorBlockUtils.onVotingClicked(v.getContext());
     };
     private static int shareBtnId = -1;
     private static long newSponsorSegmentDialogShownMillis;
@@ -171,134 +159,88 @@ public abstract class SponsorBlockUtils {
             new Thread(submitRunnable).start();
         }
     };
-    private static String messageToToast = "";
-    private static EditByHandSaveDialogListener editByHandSaveDialogListener = new EditByHandSaveDialogListener();
-    private static final DialogInterface.OnClickListener editByHandDialogListener = new DialogInterface.OnClickListener() {
-        @SuppressLint("DefaultLocale")
-        @Override
-        public void onClick(DialogInterface dialog, int which) {
-            Context context = ((AlertDialog) dialog).getContext();
+    public static String messageToToast = "";
+    private static final EditByHandSaveDialogListener editByHandSaveDialogListener = new EditByHandSaveDialogListener();
+    private static final DialogInterface.OnClickListener editByHandDialogListener = (dialog, which) -> {
+        Context context = ((AlertDialog) dialog).getContext();
 
-            final boolean isStart = DialogInterface.BUTTON_NEGATIVE == which;
+        final boolean isStart = DialogInterface.BUTTON_NEGATIVE == which;
 
-            final EditText textView = new EditText(context);
-            textView.setHint(DATE_FORMAT);
-            if (isStart) {
-                if (newSponsorSegmentStartMillis >= 0)
-                    textView.setText(dateFormatter.format(new Date(newSponsorSegmentStartMillis)));
-            } else {
-                if (newSponsorSegmentEndMillis >= 0)
-                    textView.setText(dateFormatter.format(new Date(newSponsorSegmentEndMillis)));
-            }
-
-            editByHandSaveDialogListener.settingStart = isStart;
-            editByHandSaveDialogListener.editText = new WeakReference<>(textView);
-            new AlertDialog.Builder(context)
-                    .setTitle(str(isStart ? "new_segment_time_start" : "new_segment_time_end"))
-                    .setView(textView)
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .setNeutralButton(str("new_segment_now"), editByHandSaveDialogListener)
-                    .setPositiveButton(android.R.string.ok, editByHandSaveDialogListener)
-                    .show();
-
-            dialog.dismiss();
+        final EditText textView = new EditText(context);
+        textView.setHint(DATE_FORMAT);
+        if (isStart) {
+            if (newSponsorSegmentStartMillis >= 0)
+                textView.setText(dateFormatter.format(new Date(newSponsorSegmentStartMillis)));
+        } else {
+            if (newSponsorSegmentEndMillis >= 0)
+                textView.setText(dateFormatter.format(new Date(newSponsorSegmentEndMillis)));
         }
+
+        editByHandSaveDialogListener.settingStart = isStart;
+        editByHandSaveDialogListener.editText = new WeakReference<>(textView);
+        new AlertDialog.Builder(context)
+                .setTitle(str(isStart ? "new_segment_time_start" : "new_segment_time_end"))
+                .setView(textView)
+                .setNegativeButton(android.R.string.cancel, null)
+                .setNeutralButton(str("new_segment_now"), editByHandSaveDialogListener)
+                .setPositiveButton(android.R.string.ok, editByHandSaveDialogListener)
+                .show();
+
+        dialog.dismiss();
     };
-    private static final DialogInterface.OnClickListener segmentVoteClickListener = new DialogInterface.OnClickListener() {
-        @Override
-        public void onClick(DialogInterface dialog, int which) {
-            final Context context = ((AlertDialog) dialog).getContext();
-            final SponsorSegment segment = sponsorSegmentsOfCurrentVideo[which];
-
-            final VoteOption[] voteOptions = VoteOption.values();
-            String[] items = new String[voteOptions.length];
-
-            for (int i = 0; i < voteOptions.length; i++) {
-                items[i] = voteOptions[i].title;
-            }
-
-            new AlertDialog.Builder(context)
-                    .setItems(items, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            appContext = new WeakReference<>(context.getApplicationContext());
-                            switch (voteOptions[which]) {
-                                case UPVOTE:
-                                    voteForSegment(segment, VoteOption.UPVOTE);
-                                    break;
-                                case DOWNVOTE:
-                                    voteForSegment(segment, VoteOption.DOWNVOTE);
-                                    break;
-                                case CATEGORY_CHANGE:
-                                    onNewCategorySelect(segment, context);
-                                    break;
-                            }
-                        }
-                    })
-                    .show();
-        }
+    private static final Runnable toastRunnable = () -> {
+        Context context = appContext.get();
+        if (context != null && messageToToast != null)
+            Toast.makeText(context, messageToToast, Toast.LENGTH_LONG).show();
     };
-    private static Runnable toastRunnable = new Runnable() {
-        @Override
-        public void run() {
-            Context context = appContext.get();
-            if (context != null && messageToToast != null)
-                Toast.makeText(context, messageToToast, Toast.LENGTH_LONG).show();
+    private static final DialogInterface.OnClickListener segmentVoteClickListener = (dialog, which) -> {
+        final Context context = ((AlertDialog) dialog).getContext();
+        final SponsorSegment segment = sponsorSegmentsOfCurrentVideo[which];
+
+        final VoteOption[] voteOptions = VoteOption.values();
+        String[] items = new String[voteOptions.length];
+
+        for (int i = 0; i < voteOptions.length; i++) {
+            items[i] = voteOptions[i].title;
         }
+
+        new AlertDialog.Builder(context)
+                .setItems(items, (dialog1, which1) -> {
+                    appContext = new WeakReference<>(context.getApplicationContext());
+                    switch (voteOptions[which1]) {
+                        case UPVOTE:
+                            voteForSegment(segment, VoteOption.UPVOTE, appContext.get(), toastRunnable);
+                            break;
+                        case DOWNVOTE:
+                            voteForSegment(segment, VoteOption.DOWNVOTE, appContext.get(), toastRunnable);
+                            break;
+                        case CATEGORY_CHANGE:
+                            onNewCategorySelect(segment, context);
+                            break;
+                    }
+                })
+                .show();
     };
-    private static final Runnable submitRunnable = new Runnable() {
-        @Override
-        public void run() {
-            messageToToast = null;
-            final String uuid = SponsorBlockSettings.uuid;
-            final long start = newSponsorSegmentStartMillis;
-            final long end = newSponsorSegmentEndMillis;
-            final String videoId = getCurrentVideoId();
-            final SponsorBlockSettings.SegmentInfo segmentType = SponsorBlockUtils.newSponsorBlockSegmentType;
-            try {
-
-                if (start < 0 || end < 0 || start >= end || segmentType == null || videoId == null || uuid == null) {
-                    Log.e(TAG, "Unable to submit times, invalid parameters");
-                    return;
-                }
-
-                URL url = new URL(String.format(Locale.US,
-                        sponsorBlockSkipSegmentsUrl + "?videoID=%s&userID=%s&startTime=%.3f&endTime=%.3f&category=%s",
-                        videoId, uuid, ((float) start) / 1000f, ((float) end) / 1000f, segmentType.key));
-
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setRequestMethod("POST");
-                switch (connection.getResponseCode()) {
-                    default:
-                        messageToToast = String.format(str("submit_failed_unknown_error"), connection.getResponseCode(), connection.getResponseMessage());
-                        break;
-                    case 429:
-                        messageToToast = str("submit_failed_rate_limit");
-                        break;
-                    case 403:
-                        messageToToast = str("submit_failed_forbidden");
-                        break;
-                    case 409:
-                        messageToToast = str("submit_failed_duplicate");
-                        break;
-                    case 200:
-                        messageToToast = str("submit_succeeded");
-                        break;
-                }
-
-                Log.i(TAG, "Segment submitted with status: " + connection.getResponseCode() + ", " + messageToToast);
-                new Handler(Looper.getMainLooper()).post(toastRunnable);
-
-                connection.disconnect();
-
-                newSponsorSegmentEndMillis = newSponsorSegmentStartMillis = -1;
-            } catch (Exception e) {
-                Log.e(TAG, "Unable to submit segment", e);
+    private static final Runnable submitRunnable = () -> {
+        messageToToast = null;
+        final String uuid = SponsorBlockSettings.uuid;
+        final long start = newSponsorSegmentStartMillis;
+        final long end = newSponsorSegmentEndMillis;
+        final String videoId = getCurrentVideoId();
+        final SponsorBlockSettings.SegmentInfo segmentType = SponsorBlockUtils.newSponsorBlockSegmentType;
+        try {
+            if (start < 0 || end < 0 || start >= end || segmentType == null || videoId == null || uuid == null) {
+                Log.e(TAG, "Unable to submit times, invalid parameters");
+                return;
             }
-
-            if (videoId != null)
-                PlayerController.executeDownloadSegments(videoId);
+            Requester.submitSegments(videoId, uuid, ((float) start) / 1000f, ((float) end) / 1000f, segmentType.key, toastRunnable);
+            newSponsorSegmentEndMillis = newSponsorSegmentStartMillis = -1;
+        } catch (Exception e) {
+            Log.e(TAG, "Unable to submit segment", e);
         }
+
+        if (videoId != null)
+            PlayerController.executeDownloadSegments(videoId);
     };
 
     static {
@@ -344,7 +286,7 @@ public abstract class SponsorBlockUtils {
 
         new AlertDialog.Builder(context)
                 .setTitle(str("new_segment_title"))
-                .setMessage(String.format(str("new_segment_mark_time_as_question"),
+                .setMessage(str("new_segment_mark_time_as_question",
                         newSponsorSegmentDialogShownMillis / 60000,
                         newSponsorSegmentDialogShownMillis / 1000 % 60,
                         newSponsorSegmentDialogShownMillis % 1000))
@@ -362,7 +304,7 @@ public abstract class SponsorBlockUtils {
             long end = (newSponsorSegmentEndMillis) / 1000;
             new AlertDialog.Builder(context)
                     .setTitle(str("new_segment_confirm_title"))
-                    .setMessage(String.format(str("new_segment_confirm_content"),
+                    .setMessage(str("new_segment_confirm_content",
                             start / 60, start % 60,
                             end / 60, end % 60,
                             length / 60, length % 60))
@@ -383,7 +325,7 @@ public abstract class SponsorBlockUtils {
         List<CharSequence> titles = new ArrayList<>(segmentAmount); // I've replaced an array with a list to prevent null elements in the array as unsubmitted segments get filtered out
         for (int i = 0; i < segmentAmount; i++) {
             SponsorSegment segment = sponsorSegmentsOfCurrentVideo[i];
-            if (segment.category == SponsorBlockSettings.SegmentInfo.Unsubmitted) {
+            if (segment.category == SponsorBlockSettings.SegmentInfo.UNSUBMITTED) {
                 continue;
             }
 
@@ -411,12 +353,7 @@ public abstract class SponsorBlockUtils {
 
         new AlertDialog.Builder(context)
                 .setTitle(str("new_segment_choose_category"))
-                .setItems(titles, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        voteForSegment(segment, VoteOption.CATEGORY_CHANGE, values[which].key);
-                    }
-                })
+                .setItems(titles, (dialog, which) -> voteForSegment(segment, VoteOption.CATEGORY_CHANGE, appContext.get(), toastRunnable, values[which].key))
                 .show();
     }
 
@@ -431,7 +368,7 @@ public abstract class SponsorBlockUtils {
             final SponsorSegment[] segments = original == null ? new SponsorSegment[1] : Arrays.copyOf(original, original.length + 1);
 
             segments[segments.length - 1] = new SponsorSegment(newSponsorSegmentStartMillis, newSponsorSegmentEndMillis,
-                    SponsorBlockSettings.SegmentInfo.Unsubmitted, null);
+                    SponsorBlockSettings.SegmentInfo.UNSUBMITTED, null);
 
             Arrays.sort(segments);
             sponsorSegmentsOfCurrentVideo = segments;
@@ -461,131 +398,6 @@ public abstract class SponsorBlockUtils {
         }
     }
 
-    public synchronized static SponsorSegment[] getSegmentsForVideo(String videoId) {
-        newSponsorSegmentEndMillis = newSponsorSegmentStartMillis = -1;
-
-        ArrayList<SponsorSegment> sponsorSegments = new ArrayList<>();
-        try {
-            if (VERBOSE)
-                Log.i(TAG, "Trying to download segments for videoId=" + videoId);
-
-            URL url = new URL(SponsorBlockSettings.getSponsorBlockUrlWithCategories(videoId));
-
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            videoHasSegments = false;
-            timeWithoutSegments = "";
-            switch (connection.getResponseCode()) {
-                default:
-                    Log.e(TAG, "Unable to download segments: Status: " + connection.getResponseCode() + " " + connection.getResponseMessage());
-                    break;
-                case 404:
-                    Log.w(TAG, "No segments for this video (ERR404)");
-                    break;
-                case 200:
-                    if (VERBOSE)
-                        Log.i(TAG, "Received status 200 OK, parsing response...");
-
-                    StringBuilder stringBuilder = new StringBuilder();
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        stringBuilder.append(line);
-                    }
-                    connection.getInputStream().close();
-
-
-                    JSONArray responseArray = new JSONArray(stringBuilder.toString());
-                    int length = responseArray.length();
-                    for (int i = 0; i < length; i++) {
-                        JSONObject obj = ((JSONObject) responseArray.get(i));
-                        JSONArray segments = obj.getJSONArray("segment");
-                        long start = (long) (segments.getDouble(0) * 1000);
-                        long end = (long) (segments.getDouble(1) * 1000);
-                        String category = obj.getString("category");
-                        String UUID = obj.getString("UUID");
-
-                        SponsorBlockSettings.SegmentInfo segmentCategory = SponsorBlockSettings.SegmentInfo.byCategoryKey(category);
-                        if (segmentCategory != null && segmentCategory.behaviour.showOnTimeBar) {
-                            SponsorSegment segment = new SponsorSegment(start, end, segmentCategory, UUID);
-                            sponsorSegments.add(segment);
-                        }
-                    }
-
-                    if (VERBOSE)
-                        Log.v(TAG, "Parsing done");
-
-                    videoHasSegments = true;
-                    break;
-            }
-
-            connection.disconnect();
-
-        } catch (Exception e) {
-            Log.e(TAG, "download segments failed", e);
-        }
-
-        timeWithoutSegments = getTimeWithoutSegments(sponsorSegments);
-
-        return sponsorSegments.toArray(new SponsorSegment[0]);
-    }
-
-    private static int getIdentifier(String name, String defType) {
-        Context context = YouTubeTikTokRoot_Application.getAppContext();
-        return context.getResources().getIdentifier(name, defType, context.getPackageName());
-    }
-
-    public static void sendViewCountRequest(SponsorSegment segment) {
-        try {
-            URL url = new URL(SponsorBlockSettings.getSponsorBlockViewedUrl(segment.UUID));
-
-            Log.d("sponsorblock", "requesting: " + url.getPath());
-
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("POST");
-            connection.disconnect();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void voteForSegment(SponsorSegment segment, VoteOption voteOption, String... args) {
-        messageToToast = null;
-        try {
-            String voteUrl = voteOption == VoteOption.CATEGORY_CHANGE
-                    ? getSponsorBlockVoteUrl(segment.UUID, uuid, args[0])
-                    : getSponsorBlockVoteUrl(segment.UUID, uuid, voteOption == VoteOption.UPVOTE ? 1 : 0);
-            URL url = new URL(voteUrl);
-
-            Toast.makeText(appContext.get(), str("vote_started"), Toast.LENGTH_SHORT).show();
-            Log.d("sponsorblock", "requesting: " + url.getPath());
-
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("POST");
-
-            switch (connection.getResponseCode()) {
-                default:
-                    messageToToast = String.format(str("vote_failed_unknown_error"), connection.getResponseCode(), connection.getResponseMessage());
-                    break;
-                case 429:
-                    messageToToast = str("vote_failed_rate_limit");
-                    break;
-                case 403:
-                    messageToToast = str("vote_failed_forbidden");
-                    break;
-                case 200:
-                    messageToToast = str("vote_succeeded");
-                    break;
-            }
-
-            Log.i(TAG, "Voted for segment with status: " + connection.getResponseCode() + ", " + messageToToast);
-            new Handler(Looper.getMainLooper()).post(toastRunnable);
-
-            connection.disconnect();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public static String appendTimeWithoutSegments(String totalTime) {
         if (videoHasSegments && SponsorBlockSettings.showTimeWithoutSegments && !TextUtils.isEmpty(totalTime)) {
             return totalTime + timeWithoutSegments;
@@ -594,7 +406,7 @@ public abstract class SponsorBlockUtils {
         return totalTime;
     }
 
-    public static String getTimeWithoutSegments(ArrayList<SponsorSegment> sponsorSegmentsOfCurrentVideo) {
+    public static String getTimeWithoutSegments(List<SponsorSegment> sponsorSegmentsOfCurrentVideo) {
         if (!SponsorBlockSettings.isSponsorBlockEnabled || !SponsorBlockSettings.showTimeWithoutSegments || sponsorSegmentsOfCurrentVideo == null) {
             return "";
         }
@@ -610,7 +422,6 @@ public abstract class SponsorBlockUtils {
         try {
             if (videoHasSegments && (playerType.equalsIgnoreCase("NONE"))) {
                 PlayerController.setCurrentVideoId(null);
-                return;
             }
         }
         catch (Exception ex) {
@@ -618,7 +429,76 @@ public abstract class SponsorBlockUtils {
         }
     }
 
-    private enum VoteOption {
+    public static int countMatches(CharSequence seq, char c) {
+        int count = 0;
+        for (int i = 0; i < seq.length(); i++) {
+            if (seq.charAt(i) == c)
+                count++;
+        }
+        return count;
+    }
+
+    @SuppressWarnings("deprecation")
+    public static void addUserStats(PreferenceCategory category, Preference loadingPreference, UserStats stats) {
+        category.removePreference(loadingPreference);
+
+        Context context = category.getContext();
+
+        {
+            EditTextPreference preference = new EditTextPreference(context);
+            category.addPreference(preference);
+            String userName = stats.getUserName();
+            preference.setTitle(fromHtml(str("stats_username", userName)));
+            preference.setSummary(str("stats_username_change"));
+            preference.setText(userName);
+            preference.setOnPreferenceChangeListener((preference1, newUsername) -> {
+                Requester.setUsername((String) newUsername);
+                return false;
+            });
+        }
+
+        {
+            Preference preference = new Preference(context);
+            category.addPreference(preference);
+            String formatted = FORMATTER.format(stats.getSegmentCount());
+            preference.setTitle(fromHtml(str("stats_submissions", formatted)));
+        }
+
+        {
+            Preference preference = new Preference(context);
+            category.addPreference(preference);
+            String formatted = FORMATTER.format(stats.getViewCount());
+
+            double saved = stats.getMinutesSaved();
+            int hoursSaved = (int) (saved / 60);
+            double minutesSaved = saved % 60;
+            String formattedSaved = String.format(SAVED_TEMPLATE, hoursSaved, minutesSaved);
+
+            preference.setTitle(fromHtml(str("stats_saved", formatted)));
+            preference.setSummary(fromHtml(str("stats_saved_sum", formattedSaved)));
+            preference.setOnPreferenceClickListener(preference1 -> {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse("https://sponsor.ajay.app/stats/"));
+                preference1.getContext().startActivity(i);
+                return false;
+            });
+        }
+
+        {
+            Preference preference = new Preference(context);
+            category.addPreference(preference);
+            String formatted = FORMATTER.format(skippedSegments);
+
+            long hoursSaved = skippedTime / 3600000;
+            double minutesSaved = (skippedTime / 60000d) % 60;
+            String formattedSaved = String.format(SAVED_TEMPLATE, hoursSaved, minutesSaved);
+
+            preference.setTitle(fromHtml(str("stats_self_saved", formatted)));
+            preference.setSummary(fromHtml(str("stats_self_saved_sum", formattedSaved)));
+        }
+    }
+
+    public enum VoteOption {
         UPVOTE(str("vote_upvote")),
         DOWNVOTE(str("vote_downvote")),
         CATEGORY_CHANGE(str("vote_category"));

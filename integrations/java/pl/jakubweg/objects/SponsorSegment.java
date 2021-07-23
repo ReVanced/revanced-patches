@@ -1,4 +1,6 @@
-package pl.jakubweg;
+package pl.jakubweg.objects;
+
+import pl.jakubweg.SponsorBlockSettings;
 
 public class SponsorSegment implements Comparable<SponsorSegment> {
     public final long start;

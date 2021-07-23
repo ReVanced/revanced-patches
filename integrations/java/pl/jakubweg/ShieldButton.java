@@ -1,7 +1,6 @@
 package pl.jakubweg;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
