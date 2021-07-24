@@ -35,7 +35,6 @@ import static android.text.Html.fromHtml;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static fi.razerman.youtube.XGlobals.debug;
-import static java.lang.String.format;
 import static pl.jakubweg.PlayerController.getCurrentVideoId;
 import static pl.jakubweg.PlayerController.getLastKnownVideoTime;
 import static pl.jakubweg.PlayerController.sponsorSegmentsOfCurrentVideo;
@@ -50,7 +49,6 @@ import static pl.jakubweg.requests.Requester.voteForSegment;
 public abstract class SponsorBlockUtils {
     public static final String TAG = "jakubweg.SponsorBlockUtils";
     public static final String DATE_FORMAT = "HH:mm:ss.SSS";
-    public static final String TIME_WITHOUT_SEGMENTS_FORMAT = "%d:%d%02d";
     @SuppressLint("SimpleDateFormat")
     public static final SimpleDateFormat dateFormatter = new SimpleDateFormat(DATE_FORMAT);
     public static boolean videoHasSegments = false;
@@ -330,7 +328,7 @@ public abstract class SponsorBlockUtils {
             String start = dateFormatter.format(new Date(segment.start));
             String end = dateFormatter.format(new Date(segment.end));
             StringBuilder htmlBuilder = new StringBuilder();
-            htmlBuilder.append(format("<b><font color=\"#%06X\">⬤</font> %s<br> %s to %s",
+            htmlBuilder.append(String.format("<b><font color=\"#%06X\">⬤</font> %s<br> %s to %s",
                     segment.category.color, segment.category.title, start, end));
             if (i + 1 != segmentAmount) // prevents trailing new line after last segment
                 htmlBuilder.append("<br>");
@@ -475,7 +473,7 @@ public abstract class SponsorBlockUtils {
             double saved = stats.getMinutesSaved();
             int hoursSaved = (int) (saved / 60);
             double minutesSaved = saved % 60;
-            String formattedSaved = format(SAVED_TEMPLATE, hoursSaved, minutesSaved);
+            String formattedSaved = String.format(SAVED_TEMPLATE, hoursSaved, minutesSaved);
 
             preference.setTitle(fromHtml(str("stats_saved", formatted)));
             preference.setSummary(fromHtml(str("stats_saved_sum", formattedSaved)));
@@ -494,7 +492,7 @@ public abstract class SponsorBlockUtils {
 
             long hoursSaved = skippedTime / 3600000;
             double minutesSaved = (skippedTime / 60000d) % 60;
-            String formattedSaved = format(SAVED_TEMPLATE, hoursSaved, minutesSaved);
+            String formattedSaved = String.format(SAVED_TEMPLATE, hoursSaved, minutesSaved);
 
             preference.setTitle(fromHtml(str("stats_self_saved", formatted)));
             preference.setSummary(fromHtml(str("stats_self_saved_sum", formattedSaved)));
