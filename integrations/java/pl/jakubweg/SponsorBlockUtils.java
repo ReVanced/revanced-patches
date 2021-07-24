@@ -11,6 +11,7 @@ import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.text.Html;
 import android.text.TextUtils;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -26,7 +27,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.TimeZone;
-import java.util.concurrent.TimeUnit;
 
 import pl.jakubweg.objects.SponsorSegment;
 import pl.jakubweg.objects.UserStats;
@@ -411,45 +411,7 @@ public abstract class SponsorBlockUtils {
         for (SponsorSegment segment : sponsorSegmentsOfCurrentVideo) {
             timeWithoutSegments -= segment.end - segment.start;
         }
-        return String.format(" (%s)", formatToVideoTimeString(TimeUnit.MILLISECONDS.toSeconds(timeWithoutSegments + 500L), 3));
-    }
-
-    public static String formatToVideoTimeString(long seconds, int padAmount) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(seconds >= 0L ? "" : "-");
-        long abs_seconds = Math.abs(seconds);
-        long minutes = abs_seconds / 60L;
-        long hours = minutes / 60L;
-        if(hours > 0L) {
-            minutes %= 60L;
-            padAmount = Math.max(padAmount, 5);
-        }
-
-        String seconds_str = Long.toString(abs_seconds % 60L);
-        if(seconds_str.length() == 1) {
-            String safe_str = String.valueOf(seconds_str);
-            seconds_str = safe_str.length() == 0 ? new String("0") : "0".concat(safe_str);
-        }
-
-        String minutes_str = Long.toString(minutes);
-        if(minutes_str.length() == 1 && padAmount > 3) {
-            String safe_str = String.valueOf(minutes_str);
-            minutes_str = safe_str.length() == 0 ? new String("0") : "0".concat(safe_str);
-        }
-
-        if(padAmount > 4) {
-            sb.append(hours);
-            sb.append(':');
-            sb.append(minutes_str);
-            sb.append(':');
-            sb.append(seconds_str);
-            return sb.toString();
-        }
-
-        sb.append(minutes_str);
-        sb.append(':');
-        sb.append(seconds_str);
-        return sb.toString();
+        return String.format(" (%s)", DateUtils.formatElapsedTime(timeWithoutSegments / 1000));
     }
 
     public static void playerTypeChanged(String playerType) {
