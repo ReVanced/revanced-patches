@@ -11,7 +11,6 @@ import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.text.Html;
 import android.text.TextUtils;
-import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -36,6 +35,7 @@ import static android.text.Html.fromHtml;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static fi.razerman.youtube.XGlobals.debug;
+import static java.lang.String.format;
 import static pl.jakubweg.PlayerController.getCurrentVideoId;
 import static pl.jakubweg.PlayerController.getLastKnownVideoTime;
 import static pl.jakubweg.PlayerController.sponsorSegmentsOfCurrentVideo;
@@ -50,6 +50,7 @@ import static pl.jakubweg.requests.Requester.voteForSegment;
 public abstract class SponsorBlockUtils {
     public static final String TAG = "jakubweg.SponsorBlockUtils";
     public static final String DATE_FORMAT = "HH:mm:ss.SSS";
+    public static final String TIME_WITHOUT_SEGMENTS_FORMAT = "%d:%d%02d";
     @SuppressLint("SimpleDateFormat")
     public static final SimpleDateFormat dateFormatter = new SimpleDateFormat(DATE_FORMAT);
     public static boolean videoHasSegments = false;
@@ -329,7 +330,7 @@ public abstract class SponsorBlockUtils {
             String start = dateFormatter.format(new Date(segment.start));
             String end = dateFormatter.format(new Date(segment.end));
             StringBuilder htmlBuilder = new StringBuilder();
-            htmlBuilder.append(String.format("<b><font color=\"#%06X\">⬤</font> %s<br> %s to %s",
+            htmlBuilder.append(format("<b><font color=\"#%06X\">⬤</font> %s<br> %s to %s",
                     segment.category.color, segment.category.title, start, end));
             if (i + 1 != segmentAmount) // prevents trailing new line after last segment
                 htmlBuilder.append("<br>");
@@ -411,7 +412,12 @@ public abstract class SponsorBlockUtils {
         for (SponsorSegment segment : sponsorSegmentsOfCurrentVideo) {
             timeWithoutSegments -= segment.end - segment.start;
         }
-        return String.format(" (%s)", DateUtils.formatElapsedTime(timeWithoutSegments / 1000));
+        long hours = timeWithoutSegments / 3600000;
+        long minutes = (timeWithoutSegments / 60000) % 60;
+        long seconds = (timeWithoutSegments / 1000) % 60;
+        String format = (hours > 0 ? "%d:%02" : "%") + "d:%02d"; // mmLul
+        String formatted = hours > 0 ? String.format(format, hours, minutes, seconds) : String.format(format, minutes, seconds);
+        return String.format(" (%s)", formatted);
     }
 
     public static void playerTypeChanged(String playerType) {
@@ -469,7 +475,7 @@ public abstract class SponsorBlockUtils {
             double saved = stats.getMinutesSaved();
             int hoursSaved = (int) (saved / 60);
             double minutesSaved = saved % 60;
-            String formattedSaved = String.format(SAVED_TEMPLATE, hoursSaved, minutesSaved);
+            String formattedSaved = format(SAVED_TEMPLATE, hoursSaved, minutesSaved);
 
             preference.setTitle(fromHtml(str("stats_saved", formatted)));
             preference.setSummary(fromHtml(str("stats_saved_sum", formattedSaved)));
@@ -488,7 +494,7 @@ public abstract class SponsorBlockUtils {
 
             long hoursSaved = skippedTime / 3600000;
             double minutesSaved = (skippedTime / 60000d) % 60;
-            String formattedSaved = String.format(SAVED_TEMPLATE, hoursSaved, minutesSaved);
+            String formattedSaved = format(SAVED_TEMPLATE, hoursSaved, minutesSaved);
 
             preference.setTitle(fromHtml(str("stats_self_saved", formatted)));
             preference.setSummary(fromHtml(str("stats_self_saved_sum", formattedSaved)));
