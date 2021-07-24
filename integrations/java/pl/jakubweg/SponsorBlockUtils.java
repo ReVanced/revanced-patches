@@ -190,6 +190,7 @@ public abstract class SponsorBlockUtils {
     };
     private static final Runnable toastRunnable = () -> {
         Context context = appContext.get();
+        Log.d("cock", String.valueOf(context));
         if (context != null && messageToToast != null)
             Toast.makeText(context, messageToToast, Toast.LENGTH_LONG).show();
     };
@@ -452,7 +453,8 @@ public abstract class SponsorBlockUtils {
             preference.setSummary(str("stats_username_change"));
             preference.setText(userName);
             preference.setOnPreferenceChangeListener((preference1, newUsername) -> {
-                Requester.setUsername((String) newUsername);
+                appContext = new WeakReference<>(context.getApplicationContext());
+                Requester.setUsername((String) newUsername, toastRunnable);
                 return false;
             });
         }

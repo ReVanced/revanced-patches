@@ -134,9 +134,6 @@ public class Requester {
                 case 403:
                     SponsorBlockUtils.messageToToast = str("vote_failed_forbidden");
                     break;
-                case 429:
-                    SponsorBlockUtils.messageToToast = str("vote_failed_rate_limit");
-                    break;
                 default:
                     SponsorBlockUtils.messageToToast = str("vote_failed_unknown_error", responseCode, connection.getResponseMessage());
                     break;
@@ -170,9 +167,18 @@ public class Requester {
         }).start();
     }
 
-    public static void setUsername(String username) {
+    public static void setUsername(String username, Runnable toastRunnable) {
         try {
             HttpURLConnection connection = getConnectionFromRoute(Route.CHANGE_USERNAME, SponsorBlockSettings.uuid, username);
+            int responseCode = connection.getResponseCode();
+
+            if (responseCode == 200) {
+                SponsorBlockUtils.messageToToast = str("stats_username_changed");
+            }
+            else {
+                SponsorBlockUtils.messageToToast = str("stats_username_change_unknown_error", responseCode, connection.getResponseMessage());
+            }
+            new Handler(Looper.getMainLooper()).post(toastRunnable);
             connection.disconnect();
         }
         catch (Exception ex) {
@@ -184,7 +190,6 @@ public class Requester {
         String url = SPONSORBLOCK_API_URL + route.compile(params).getCompiledRoute();
         HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
         connection.setRequestMethod(route.getMethod().name());
-        connection.getInputStream().close(); // this is required so it properly establishes the connection when not reading the InputStream in any of the routes
         return connection;
     }
 
