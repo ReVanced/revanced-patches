@@ -184,6 +184,7 @@ public class Requester {
         String url = SPONSORBLOCK_API_URL + route.compile(params).getCompiledRoute();
         HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
         connection.setRequestMethod(route.getMethod().name());
+        connection.getInputStream().close(); // this is required so it properly establishes the connection when not reading the InputStream in any of the routes
         return connection;
     }
 
