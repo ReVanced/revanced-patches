@@ -190,7 +190,6 @@ public abstract class SponsorBlockUtils {
     };
     private static final Runnable toastRunnable = () -> {
         Context context = appContext.get();
-        Log.d("cock", String.valueOf(context));
         if (context != null && messageToToast != null)
             Toast.makeText(context, messageToToast, Toast.LENGTH_LONG).show();
     };
