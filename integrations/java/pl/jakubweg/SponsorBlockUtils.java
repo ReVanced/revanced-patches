@@ -406,7 +406,7 @@ public abstract class SponsorBlockUtils {
         if (!SponsorBlockSettings.isSponsorBlockEnabled || !SponsorBlockSettings.showTimeWithoutSegments || sponsorSegmentsOfCurrentVideo == null) {
             return "";
         }
-        long timeWithoutSegments = PlayerController.getCurrentVideoLength();
+        long timeWithoutSegments = PlayerController.getCurrentVideoLength() + 500; // YouTube:tm:
         for (SponsorSegment segment : sponsorSegmentsOfCurrentVideo) {
             timeWithoutSegments -= segment.end - segment.start;
         }
