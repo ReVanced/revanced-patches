@@ -448,7 +448,8 @@ public abstract class SponsorBlockUtils {
             preference.setSummary(str("stats_username_change"));
             preference.setText(userName);
             preference.setOnPreferenceChangeListener((preference1, newUsername) -> {
-                Requester.setUsername((String) newUsername);
+                appContext = new WeakReference<>(context.getApplicationContext());
+                Requester.setUsername((String) newUsername, toastRunnable);
                 return false;
             });
         }
