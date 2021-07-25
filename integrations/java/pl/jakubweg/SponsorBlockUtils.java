@@ -40,6 +40,8 @@ import static pl.jakubweg.PlayerController.getLastKnownVideoTime;
 import static pl.jakubweg.PlayerController.sponsorSegmentsOfCurrentVideo;
 import static pl.jakubweg.SponsorBlockPreferenceFragment.FORMATTER;
 import static pl.jakubweg.SponsorBlockPreferenceFragment.SAVED_TEMPLATE;
+import static pl.jakubweg.SponsorBlockSettings.isSponsorBlockEnabled;
+import static pl.jakubweg.SponsorBlockSettings.showTimeWithoutSegments;
 import static pl.jakubweg.SponsorBlockSettings.skippedSegments;
 import static pl.jakubweg.SponsorBlockSettings.skippedTime;
 import static pl.jakubweg.StringRef.str;
@@ -395,18 +397,22 @@ public abstract class SponsorBlockUtils {
     }
 
     public static String appendTimeWithoutSegments(String totalTime) {
-        if (videoHasSegments && SponsorBlockSettings.showTimeWithoutSegments && !TextUtils.isEmpty(totalTime)) {
+        if (videoHasSegments && isSettingEnabled(showTimeWithoutSegments) && !TextUtils.isEmpty(totalTime)) {
+            if (timeWithoutSegments.isEmpty()) {
+                timeWithoutSegments = getTimeWithoutSegments(sponsorSegmentsOfCurrentVideo);
+            }
             return totalTime + timeWithoutSegments;
         }
 
         return totalTime;
     }
 
-    public static String getTimeWithoutSegments(List<SponsorSegment> sponsorSegmentsOfCurrentVideo) {
-        if (!SponsorBlockSettings.isSponsorBlockEnabled || !SponsorBlockSettings.showTimeWithoutSegments || sponsorSegmentsOfCurrentVideo == null) {
+    public static String getTimeWithoutSegments(SponsorSegment[] sponsorSegmentsOfCurrentVideo) {
+        long currentVideoLength = PlayerController.getCurrentVideoLength();
+        if (!isSettingEnabled(showTimeWithoutSegments) || sponsorSegmentsOfCurrentVideo == null || currentVideoLength == 1) {
             return "";
         }
-        long timeWithoutSegments = PlayerController.getCurrentVideoLength() + 500; // YouTube:tm:
+        long timeWithoutSegments = currentVideoLength + 500; // YouTube:tm:
         for (SponsorSegment segment : sponsorSegmentsOfCurrentVideo) {
             timeWithoutSegments -= segment.end - segment.start;
         }
@@ -497,6 +503,10 @@ public abstract class SponsorBlockUtils {
             preference.setTitle(fromHtml(str("stats_self_saved", formatted)));
             preference.setSummary(fromHtml(str("stats_self_saved_sum", formattedSaved)));
         }
+    }
+
+    public static boolean isSettingEnabled(boolean setting) {
+        return isSponsorBlockEnabled && setting;
     }
 
     public enum VoteOption {

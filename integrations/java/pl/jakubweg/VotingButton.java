@@ -102,7 +102,7 @@ public class VotingButton {
     }
 
     static boolean shouldBeShown() {
-        return SponsorBlockSettings.isVotingEnabled && SponsorBlockSettings.isSponsorBlockEnabled;
+        return SponsorBlockUtils.isSettingEnabled(SponsorBlockSettings.isVotingEnabled);
     }
 
     //region Helpers

@@ -43,29 +43,25 @@ public class Requester {
             videoHasSegments = false;
             timeWithoutSegments = "";
 
-            switch (responseCode) {
-                case 200:
-                    JSONArray responseArray = new JSONArray(parseJson(connection));
-                    int length = responseArray.length();
-                    for (int i = 0; i < length; i++) {
-                        JSONObject obj = ((JSONObject) responseArray.get(i));
-                        JSONArray segment = obj.getJSONArray("segment");
-                        long start = (long) (segment.getDouble(0) * 1000);
-                        long end = (long) (segment.getDouble(1) * 1000);
-                        String category = obj.getString("category");
-                        String uuid = obj.getString("UUID");
+            if (responseCode == 200) {
+                JSONArray responseArray = new JSONArray(parseJson(connection));
+                int length = responseArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject obj = ((JSONObject) responseArray.get(i));
+                    JSONArray segment = obj.getJSONArray("segment");
+                    long start = (long) (segment.getDouble(0) * 1000);
+                    long end = (long) (segment.getDouble(1) * 1000);
+                    String category = obj.getString("category");
+                    String uuid = obj.getString("UUID");
 
-                        SponsorBlockSettings.SegmentInfo segmentCategory = SponsorBlockSettings.SegmentInfo.byCategoryKey(category);
-                        if (segmentCategory != null && segmentCategory.behaviour.showOnTimeBar) {
-                            SponsorSegment sponsorSegment = new SponsorSegment(start, end, segmentCategory, uuid);
-                            segments.add(sponsorSegment);
-                        }
+                    SponsorBlockSettings.SegmentInfo segmentCategory = SponsorBlockSettings.SegmentInfo.byCategoryKey(category);
+                    if (segmentCategory != null && segmentCategory.behaviour.showOnTimeBar) {
+                        SponsorSegment sponsorSegment = new SponsorSegment(start, end, segmentCategory, uuid);
+                        segments.add(sponsorSegment);
                     }
-                    videoHasSegments = true;
-                    timeWithoutSegments = SponsorBlockUtils.getTimeWithoutSegments(segments);
-                    break;
-                case 404:
-                    break;
+                }
+                videoHasSegments = true;
+                timeWithoutSegments = SponsorBlockUtils.getTimeWithoutSegments(segments.toArray(new SponsorSegment[0]));
             }
             connection.disconnect();
         }

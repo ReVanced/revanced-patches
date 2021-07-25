@@ -102,7 +102,7 @@ public class ShieldButton {
     }
 
     static boolean shouldBeShown() {
-        return SponsorBlockSettings.isSponsorBlockEnabled && SponsorBlockSettings.isAddNewSegmentEnabled;
+        return SponsorBlockUtils.isSettingEnabled(SponsorBlockSettings.isAddNewSegmentEnabled);
     }
 
     //region Helpers
