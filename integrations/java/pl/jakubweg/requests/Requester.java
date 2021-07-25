@@ -91,6 +91,9 @@ public class Requester {
                 case 429:
                     SponsorBlockUtils.messageToToast = str("submit_failed_rate_limit");
                     break;
+                default:
+                    SponsorBlockUtils.messageToToast = str("submit_failed_unknown_error", responseCode, connection.getResponseMessage());
+                    break;
             }
             new Handler(Looper.getMainLooper()).post(toastRunnable);
             connection.disconnect();
