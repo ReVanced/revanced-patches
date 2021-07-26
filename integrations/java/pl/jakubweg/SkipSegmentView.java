@@ -6,14 +6,13 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.google.android.apps.youtube.app.YouTubeApplication;
+import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
 
-import java.lang.ref.WeakReference;
+import pl.jakubweg.objects.SponsorSegment;
 
 import static fi.vanced.libraries.youtube.sponsors.player.ui.SponsorBlockView.hideSkipButton;
 import static fi.vanced.libraries.youtube.sponsors.player.ui.SponsorBlockView.showSkipButton;
 import static pl.jakubweg.PlayerController.VERBOSE;
-import static pl.jakubweg.StringRef.str;
 
 @SuppressLint({"RtlHardcoded", "SetTextI18n", "LongLogTag", "AppCompatCustomView"})
 public class SkipSegmentView {
@@ -36,7 +35,7 @@ public class SkipSegmentView {
         }
         lastNotifiedSegment = segment;
         String skipMessage = segment.category.skipMessage.toString();
-        Context context = YouTubeApplication.getAppContext();
+        Context context = YouTubeTikTokRoot_Application.getAppContext();
         if (VERBOSE)
             Log.d(TAG, String.format("notifySkipped; message=%s", skipMessage));
 

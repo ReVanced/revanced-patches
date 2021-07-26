@@ -16,10 +16,10 @@ import static fi.razerman.youtube.XGlobals.debug;
 import static pl.jakubweg.PlayerController.getCurrentVideoLength;
 import static pl.jakubweg.PlayerController.getLastKnownVideoTime;
 
-public class ShieldButton {
-    static String TAG = "SHIELD";
+public class VotingButton {
+    static String TAG = "VOTING";
     static RelativeLayout _youtubeControlsLayout;
-    static WeakReference<ImageView> _shieldBtn = new WeakReference<>(null);
+    static WeakReference<ImageView> _votingButton = new WeakReference<>(null);
     static int fadeDurationFast;
     static int fadeDurationScheduled;
     static Animation fadeIn;
@@ -29,20 +29,20 @@ public class ShieldButton {
     public static void initialize(Object viewStub) {
         try {
             if(debug){
-                Log.d(TAG, "initializing shield button");
+                Log.d(TAG, "initializing voting button");
             }
 
             _youtubeControlsLayout = (RelativeLayout) viewStub;
 
             ImageView imageView = (ImageView)_youtubeControlsLayout
-                    .findViewById(getIdentifier("sponsorblock_button", "id"));
+                    .findViewById(getIdentifier("voting_button", "id"));
 
             if (debug && imageView == null){
-                Log.d(TAG, "Couldn't find imageView with tag \"sponsorblock_button\"");
+                Log.d(TAG, "Couldn't find imageView with tag \"voting_button\"");
             }
             if (imageView == null) return;
-            imageView.setOnClickListener(SponsorBlockUtils.sponsorBlockBtnListener);
-            _shieldBtn = new WeakReference<>(imageView);
+            imageView.setOnClickListener(SponsorBlockUtils.voteButtonListener);
+            _votingButton = new WeakReference<>(imageView);
 
             // Animations
             fadeDurationFast = getInteger("fade_duration_fast");
@@ -75,7 +75,7 @@ public class ShieldButton {
         if (isShowing == visible) return;
         isShowing = visible;
 
-        ImageView iView = _shieldBtn.get();
+        ImageView iView = _votingButton.get();
         if (_youtubeControlsLayout == null || iView == null) return;
 
         if (visible && shouldBeShown()) {
@@ -102,7 +102,7 @@ public class ShieldButton {
     }
 
     static boolean shouldBeShown() {
-        return SponsorBlockUtils.isSettingEnabled(SponsorBlockSettings.isAddNewSegmentEnabled);
+        return SponsorBlockUtils.isSettingEnabled(SponsorBlockSettings.isVotingEnabled);
     }
 
     //region Helpers

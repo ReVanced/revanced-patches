@@ -143,12 +143,16 @@
     <string name="enable_sb_sum">Switch this on for very cool sponsor segments skipping</string>
     <string name="enable_segmadding">Enable new segment adding</string>
     <string name="enable_segmadding_sum">Switch this on to enable experimental segment adding (has button visibility issues).</string>
+    <string name="enable_voting">Enable voting</string>
+    <string name="enable_voting_sum">Switch this on to enable voting.</string>
     <string name="diff_segments">What to do with different segments</string>
     <string name="general">General</string>
     <string name="general_skiptoast">Show a toast when skipping segment automatically</string>
     <string name="general_skiptoast_sum">Click to see an example toast</string>
     <string name="general_skipcount">Skip count tracking</string>
     <string name="general_skipcount_sum">This lets SponsorBlock leaderboard system know how much time people have saved. The extension sends a message to the server each time you skip a segment.</string>
+    <string name="general_time_without_sb">Show time without segments</string>
+    <string name="general_time_without_sb_sum">This time appears in brackets next to the current time. This shows the total video duration minus any segments.</string>
     <string name="general_adjusting">Adjusting new segment step</string>
     <string name="general_adjusting_sum">This is the number of milliseconds you can move when you use the time adjustment buttons while adding new segment</string>
     <string name="general_uuid">Your unique user id</string>
@@ -165,6 +169,8 @@
     <string name="segments_selfpromo_sum">Similar to "sponsor" except for unpaid or self promotion. This includes sections about merchandise, donations, or information about who they collaborated with</string>
     <string name="segments_nomusic">Music: Non-Music Section</string>
     <string name="segments_nomusic_sum">Only for use in music videos. This includes introductions or outros in music videos</string>
+    <string name="segments_preview">Preview/Recap</string>
+    <string name="segments_preview_sum">Quick recap of previous episodes, or a preview of what\'s coming up later in the current video. Meant for edited together clips, not for spoken summaries.</string>
     <string name="skipped_sponsor">Skipped sponsor</string>
     <string name="skipped_intermission">Skipped intro</string>
     <string name="skipped_endcard">Skipped outro</string>
@@ -172,12 +178,27 @@
     <string name="skipped_selfpromo">Skipped self promotion</string>
     <string name="skipped_nomusic">Skipped silence</string>
     <string name="skipped_preview">Skipped preview</string>
+    <string name="skipped_unsubmitted">Skipped unsubmitted segment</string>
     <string name="skip_automatically">Skip automatically</string>
     <string name="skip_showbutton">Show a skip button</string>
     <string name="skip_ignore">Don\'t do anything</string>
+
+    <string name="stats">Stats</string>
+    <string name="stats_loading">Loading..</string>
+    <string name="stats_sb_disabled">SponsorBlock is disabled</string>
+    <string name="stats_username" formatted="false">Your username: &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="stats_username_change">Click to change your username</string>
+    <string name="stats_username_change_unknown_error" formatted="false">Unable to change username: Status: %d %s</string>
+    <string name="stats_username_changed">Username changed successfully</string>
+    <string name="stats_submissions" formatted="false">Submissions: &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="stats_saved" formatted="false">You\'ve saved people from &lt;b&gt;%s&lt;/b&gt; segments.</string>
+    <string name="stats_saved_sum" formatted="false">That\'s &lt;b&gt;%s&lt;/b&gt; of their lives. Click to see the leaderboard</string>
+    <string name="stats_self_saved" formatted="false">You\'ve skipped &lt;b&gt;%s&lt;/b&gt; segments.</string>
+    <string name="stats_self_saved_sum" formatted="false">That\'s &lt;b&gt;%s&lt;/b&gt;.</string>
+
     <string name="about">About</string>
-    <string name="about_api">This app uses the API from Sponsor Block</string>
-    <string name="about_api_sum">Tap to learn more at: sponsor.ajay.app</string>
+    <string name="about_api">This app uses the API from SponsorBlock</string>
+    <string name="about_api_sum">Tap to learn more, and see downloads for other platforms at: sponsor.ajay.app</string>
     <string name="about_madeby">Integration made by JakubWeg</string>
     <string name="tap_skip">Tap to skip</string>
 
@@ -187,6 +208,15 @@
     <string name="submit_failed_duplicate">Can\'t submit the segment.\nAlready exists</string>
     <string name="submit_succeeded">Segment submitted successfully</string>
     <string name="submit_started">Submitting segment…</string>
+
+    <string name="vote_failed_unknown_error" formatted="false">Unable to vote for segment: Status: %d %s</string>
+    <string name="vote_failed_forbidden">Can\'t vote for segment.\nA moderator has decided that this segment is correct</string>
+    <string name="vote_succeeded">Voted successfully</string>
+    <string name="vote_started">Voting for segment…</string>
+    <string name="vote_upvote">Upvote</string>
+    <string name="vote_downvote">Downvote</string>
+    <string name="vote_category">Change category</string>
+    <string name="vote_no_segments">There are no segments to vote for</string>
 
     <string name="new_segment_choose_category">Choose the segment category</string>
     <string name="new_segment_disabled_category">You\'ve disabled this category in the settings, enable it to be able to submit</string>

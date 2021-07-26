@@ -7,9 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-import com.google.android.apps.youtube.app.YouTubeApplication;
+import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
 
 import java.lang.ref.WeakReference;
+
+import fi.razerman.youtube.Helpers.XSwipeHelper;
 
 import static fi.razerman.youtube.XGlobals.debug;
 
@@ -69,9 +71,9 @@ public class SponsorBlockView {
     }
 
     private static void addView() {
-        inlineSponsorOverlay = new RelativeLayout(YouTubeApplication.getAppContext());
+        inlineSponsorOverlay = new RelativeLayout(YouTubeTikTokRoot_Application.getAppContext());
         setLayoutParams(inlineSponsorOverlay);
-        LayoutInflater.from(YouTubeApplication.getAppContext()).inflate(getIdentifier("inline_sponsor_overlay", "layout"), inlineSponsorOverlay);
+        LayoutInflater.from(YouTubeTikTokRoot_Application.getAppContext()).inflate(getIdentifier("inline_sponsor_overlay", "layout"), inlineSponsorOverlay);
 
         _youtubeOverlaysLayout.addView(inlineSponsorOverlay, _youtubeOverlaysLayout.getChildCount() - 2);
 
@@ -145,13 +147,31 @@ public class SponsorBlockView {
     }
 
     private static void bringLayoutToFront() {
+        checkLayout();
         inlineSponsorOverlay.bringToFront();
         inlineSponsorOverlay.requestLayout();
         inlineSponsorOverlay.invalidate();
     }
 
+    private static void checkLayout() {
+        if (inlineSponsorOverlay.getHeight() == 0) {
+            View layout = XSwipeHelper.nextGenWatchLayout.findViewById(getIdentifier("player_overlays", "id"));
+            if (layout != null) {
+
+                initialize(layout);
+
+                if (debug){
+                    Log.d("XGlobals", "player_overlays refreshed for SB");
+                }
+            }
+            else if (debug){
+                Log.d("XGlobals", "player_overlays was not found for SB");
+            }
+        }
+    }
+
     private static int getIdentifier(String name, String defType) {
-        Context context = YouTubeApplication.getAppContext();
+        Context context = YouTubeTikTokRoot_Application.getAppContext();
         return context.getResources().getIdentifier(name, defType, context.getPackageName());
     }
 }

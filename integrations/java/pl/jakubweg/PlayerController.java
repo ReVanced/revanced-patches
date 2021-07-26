@@ -3,6 +3,7 @@ package pl.jakubweg;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.os.Handler;
@@ -10,15 +11,22 @@ import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+
+import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
 
 import java.lang.ref.WeakReference;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import fi.vanced.libraries.youtube.player.VideoInformation;
+import pl.jakubweg.objects.SponsorSegment;
+import pl.jakubweg.requests.Requester;
+
+import static pl.jakubweg.SponsorBlockSettings.skippedSegments;
+import static pl.jakubweg.SponsorBlockSettings.skippedTime;
 
 @SuppressLint({"LongLogTag"})
 public class PlayerController {
@@ -36,12 +44,9 @@ public class PlayerController {
     private static String currentVideoId;
     private static long currentVideoLength = 1L;
     private static long lastKnownVideoTime = -1L;
-    private static final Runnable findAndSkipSegmentRunnable = new Runnable() {
-        @Override
-        public void run() {
+    private static final Runnable findAndSkipSegmentRunnable = () -> {
 //            Log.d(TAG, "findAndSkipSegmentRunnable");
-            findAndSkipSegment(false);
-        }
+        findAndSkipSegment(false);
     };
     private static float sponsorBarLeft = 1f;
     private static float sponsorBarRight = 1f;
@@ -54,19 +59,24 @@ public class PlayerController {
 
     public static void setCurrentVideoId(final String videoId) {
         if (videoId == null) {
-            Log.d(TAG, "setCurrentVideoId: videoId is null");
+            currentVideoId = null;
+            sponsorSegmentsOfCurrentVideo = null;
             return;
         }
 
         VideoInformation.currentVideoId = videoId;
 
+        Context context = YouTubeTikTokRoot_Application.getAppContext();
+        if(context == null){
+            Log.e(TAG, "context is null");
+            return;
+        }
+        SponsorBlockSettings.update(context);
+
         if (!SponsorBlockSettings.isSponsorBlockEnabled) {
             currentVideoId = null;
             return;
         }
-
-        if (Looper.myLooper() != Looper.getMainLooper()) // check if thread is not main
-            return;
 
         if (videoId.equals(currentVideoId))
             return;
@@ -115,7 +125,7 @@ public class PlayerController {
     }
 
     public static void executeDownloadSegments(String videoId) {
-        SponsorSegment[] segments = SponsorBlockUtils.getSegmentsForVideo(videoId);
+        SponsorSegment[] segments = Requester.getSegments(videoId);
         Arrays.sort(segments);
 
         if (VERBOSE)
@@ -202,6 +212,12 @@ public class PlayerController {
         if (millis <= 0) return;
         //findAndSkipSegment(false);
 
+        if (millis == currentVideoLength) {
+            SponsorBlockUtils.hideShieldButton();
+            SponsorBlockUtils.hideVoteButton();
+            return;
+        }
+
         SponsorSegment[] segments = sponsorSegmentsOfCurrentVideo;
         if (segments == null || segments.length == 0) return;
 
@@ -253,15 +269,21 @@ public class PlayerController {
     }
 
     private static void sendViewRequestAsync(final long millis, final SponsorSegment segment) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                if (SponsorBlockSettings.countSkips &&
-                        segment.category != SponsorBlockSettings.SegmentInfo.Preview &&
-                        millis - segment.start < 2000) {
-                    // Only skips from the start should count as a view
-                    SponsorBlockUtils.sendViewCountRequest(segment);
-                }
+        if (segment.category != SponsorBlockSettings.SegmentInfo.UNSUBMITTED) {
+            Context context = YouTubeTikTokRoot_Application.getAppContext();
+            if (context != null) {
+                SharedPreferences preferences = SponsorBlockSettings.getPreferences(context);
+                long newSkippedTime = skippedTime + (segment.end - segment.start);
+                preferences.edit().putInt(SponsorBlockSettings.PREFERENCES_KEY_SKIPPED_SEGMENTS, skippedSegments + 1).apply();
+                preferences.edit().putLong(SponsorBlockSettings.PREFERENCES_KEY_SKIPPED_SEGMENTS_TIME, newSkippedTime).apply();
+            }
+        }
+        new Thread(() -> {
+            if (SponsorBlockSettings.countSkips &&
+                    segment.category != SponsorBlockSettings.SegmentInfo.UNSUBMITTED &&
+                    millis - segment.start < 2000) {
+                // Only skips from the start should count as a view
+                Requester.sendViewCountRequest(segment);
             }
         }).start();
     }
@@ -270,12 +292,20 @@ public class PlayerController {
      * Called very high frequency (once every about 100ms), also in background. It sometimes triggers when a video is paused (couple times in the row with the same value)
      */
     public static void setCurrentVideoTimeHighPrecision(final long millis) {
+        if ((millis < lastKnownVideoTime && lastKnownVideoTime >= currentVideoLength) || millis == 0) {
+            SponsorBlockUtils.showShieldButton(); // skipping from end to the video will show the buttons again
+            SponsorBlockUtils.showVoteButton();
+        }
         if (lastKnownVideoTime > 0) {
             lastKnownVideoTime = millis;
             VideoInformation.lastKnownVideoTime = lastKnownVideoTime;
         }
         else
             setCurrentVideoTime(millis);
+    }
+
+    public static long getCurrentVideoLength() {
+        return currentVideoLength;
     }
 
     public static long getLastKnownVideoTime() {
@@ -305,7 +335,9 @@ public class PlayerController {
 
     public static void setSponsorBarRect(final Object self) {
         try {
-            Rect rect = ((Rect) self.getClass().getField("e").get(self));
+            Field field = self.getClass().getDeclaredField("replaceMeWithsetSponsorBarRect");
+            field.setAccessible(true);
+            Rect rect = (Rect) field.get(self);
             if (rect != null) {
                 setSponsorBarAbsoluteLeft(rect.left);
                 setSponsorBarAbsoluteRight(rect.right);
@@ -349,13 +381,10 @@ public class PlayerController {
         if (VERBOSE)
             Log.d(TAG, "addSkipSponsorView15: view=" + view.toString());
 
-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                final ViewGroup viewGroup = (ViewGroup) ((ViewGroup) view).getChildAt(2);
-                Activity context = ((Activity) viewGroup.getContext());
-                NewSegmentHelperLayout.context = context;
-            }
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            final ViewGroup viewGroup = (ViewGroup) ((ViewGroup) view).getChildAt(2);
+            Activity context = ((Activity) viewGroup.getContext());
+            NewSegmentHelperLayout.context = context;
         }, 500);
     }
 
@@ -363,13 +392,10 @@ public class PlayerController {
         playerActivity = new WeakReference<>((Activity) view.getContext());
         if (VERBOSE)
             Log.d(TAG, "addSkipSponsorView14: view=" + view.toString());
-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                final ViewGroup viewGroup = (ViewGroup) view.getParent();
-                Activity activity = (Activity) viewGroup.getContext();
-                NewSegmentHelperLayout.context = activity;
-            }
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            final ViewGroup viewGroup = (ViewGroup) view.getParent();
+            Activity activity = (Activity) viewGroup.getContext();
+            NewSegmentHelperLayout.context = activity;
         }, 500);
     }
 
@@ -433,18 +459,15 @@ public class PlayerController {
             Log.d(TAG, String.format("Requesting skip to millis=%d on thread %s", millisecond, Thread.currentThread().toString()));
 
         final long finalMillisecond = millisecond;
-        new Handler(Looper.getMainLooper()).post(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    if (VERBOSE)
-                        Log.i(TAG, "Skipping to millis=" + finalMillisecond);
-                    lastKnownVideoTime = finalMillisecond;
-                    VideoInformation.lastKnownVideoTime = lastKnownVideoTime;
-                    setMillisecondMethod.invoke(currentObj, finalMillisecond);
-                } catch (Exception e) {
-                    Log.e(TAG, "Cannot skip to millisecond", e);
-                }
+        new Handler(Looper.getMainLooper()).post(() -> {
+            try {
+                if (VERBOSE)
+                    Log.i(TAG, "Skipping to millis=" + finalMillisecond);
+                lastKnownVideoTime = finalMillisecond;
+                VideoInformation.lastKnownVideoTime = lastKnownVideoTime;
+                setMillisecondMethod.invoke(currentObj, finalMillisecond);
+            } catch (Exception e) {
+                Log.e(TAG, "Cannot skip to millisecond", e);
             }
         });
     }
@@ -486,7 +509,7 @@ public class PlayerController {
 
         skipToMillisecond(segment.end + 2);
         SkipSegmentView.hide();
-        if (segment.category == SponsorBlockSettings.SegmentInfo.Preview) {
+        if (segment.category == SponsorBlockSettings.SegmentInfo.UNSUBMITTED) {
             SponsorSegment[] newSegments = new SponsorSegment[sponsorSegmentsOfCurrentVideo.length - 1];
             int i = 0;
             for (SponsorSegment sponsorSegment : sponsorSegmentsOfCurrentVideo) {
