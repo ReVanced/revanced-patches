@@ -183,6 +183,13 @@
     <string name="skip_showbutton">Show a skip button</string>
     <string name="skip_ignore">Don\'t do anything</string>
 
+    <string name="color_change">Change color</string>
+    <string name="color_changed">Color changed</string>
+    <string name="color_reset">Color reset</string>
+    <string name="color_invalid">Invalid hex code</string>
+    <string name="reset">Reset</string>
+    <string name="change">Change</string>
+
     <string name="stats">Stats</string>
     <string name="stats_loading">Loading..</string>
     <string name="stats_sb_disabled">SponsorBlock is disabled</string>

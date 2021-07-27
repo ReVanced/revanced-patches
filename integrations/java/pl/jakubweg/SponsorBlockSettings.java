@@ -2,6 +2,7 @@ package pl.jakubweg;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.text.Html;
 import android.text.TextUtils;
@@ -28,6 +29,7 @@ public class SponsorBlockSettings {
     public static final String PREFERENCES_KEY_SKIPPED_SEGMENTS = "sb-skipped-segments";
     public static final String PREFERENCES_KEY_SKIPPED_SEGMENTS_TIME = "sb-skipped-segments-time";
     public static final String PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS = "sb-length-without-segments";
+    public static final String PREFERENCES_KEY_CATEGORY_COLOR_SUFFIX = "_color";
 
     public static final SegmentBehaviour DefaultBehaviour = SegmentBehaviour.SKIP_AUTOMATICALLY;
 
@@ -93,6 +95,9 @@ public class SponsorBlockSettings {
         SegmentBehaviour[] possibleBehaviours = SegmentBehaviour.values();
         final ArrayList<String> enabledCategories = new ArrayList<>(possibleBehaviours.length);
         for (SegmentInfo segment : SegmentInfo.valuesWithoutUnsubmitted()) {
+            String categoryColor = preferences.getString(segment.key + PREFERENCES_KEY_CATEGORY_COLOR_SUFFIX, SponsorBlockUtils.formatColorString(segment.defaultColor));
+            segment.setColor(Color.parseColor(categoryColor));
+
             SegmentBehaviour behaviour = null;
             String value = preferences.getString(segment.key, null);
             if (value == null)
@@ -111,9 +116,6 @@ public class SponsorBlockSettings {
             segment.behaviour = behaviour;
             if (behaviour.showOnTimeBar)
                 enabledCategories.add(segment.key);
-
-            String tmp = preferences.getString(segment.key + "_color", String.valueOf(segment.color));
-            segment.setColor(Integer.parseInt(tmp));
         }
 
         //"[%22sponsor%22,%22outro%22,%22music_offtopic%22,%22intro%22,%22selfpromo%22,%22interaction%22,%22preview%22]";
@@ -195,23 +197,24 @@ public class SponsorBlockSettings {
         public final StringRef skipMessage;
         public final StringRef description;
         public final Paint paint;
+        public final int defaultColor;
         public int color;
         public SegmentBehaviour behaviour;
-        private CharSequence lazyTitleWithDot;
 
         SegmentInfo(String key,
                     StringRef title,
                     StringRef skipMessage,
                     StringRef description,
                     SegmentBehaviour behaviour,
-                    int color) {
+                    int defaultColor) {
 
             this.key = key;
             this.title = title;
             this.skipMessage = skipMessage;
             this.description = description;
             this.behaviour = behaviour;
-            this.color = color & 0xFFFFFF;
+            this.defaultColor = defaultColor;
+            this.color = defaultColor;
             this.paint = new Paint();
         }
 
@@ -224,15 +227,14 @@ public class SponsorBlockSettings {
         }
 
         public void setColor(int color) {
+            color = color & 0xFFFFFF;
             this.color = color;
             paint.setColor(color);
             paint.setAlpha(255);
         }
 
         public CharSequence getTitleWithDot() {
-            return (lazyTitleWithDot == null) ?
-                    lazyTitleWithDot = Html.fromHtml(String.format("<font color=\"#%06X\">⬤</font> %s", color, title))
-                    : lazyTitleWithDot;
+            return Html.fromHtml(String.format("<font color=\"#%06X\">⬤</font> %s", color, title));
         }
     }
 }

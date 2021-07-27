@@ -444,6 +444,10 @@ public abstract class SponsorBlockUtils {
         return count;
     }
 
+    public static String formatColorString(int color) {
+        return String.format("#%06X", color);
+    }
+
     @SuppressWarnings("deprecation")
     public static void addUserStats(PreferenceCategory category, Preference loadingPreference, UserStats stats) {
         category.removePreference(loadingPreference);
