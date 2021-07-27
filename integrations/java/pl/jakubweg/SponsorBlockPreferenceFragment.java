@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
@@ -16,7 +15,6 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.text.InputType;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import java.text.DecimalFormat;
@@ -26,7 +24,6 @@ import pl.jakubweg.requests.Requester;
 
 import static pl.jakubweg.SponsorBlockSettings.DefaultBehaviour;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP;
-import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_CATEGORY_COLOR_SUFFIX;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_COUNT_SKIPS;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_NEW_SEGMENT_ENABLED;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS;
@@ -41,7 +38,6 @@ import static pl.jakubweg.SponsorBlockSettings.setSeenGuidelines;
 import static pl.jakubweg.SponsorBlockSettings.showTimeWithoutSegments;
 import static pl.jakubweg.SponsorBlockSettings.showToastWhenSkippedAutomatically;
 import static pl.jakubweg.SponsorBlockSettings.uuid;
-import static pl.jakubweg.SponsorBlockUtils.formatColorString;
 import static pl.jakubweg.StringRef.str;
 
 @SuppressWarnings({"unused", "deprecation"}) // injected
@@ -157,7 +153,9 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             entryValues[i] = behaviour.key;
         }
 
-        for (SponsorBlockSettings.SegmentInfo segmentInfo : SponsorBlockSettings.SegmentInfo.valuesWithoutUnsubmitted()) {
+        SponsorBlockSettings.SegmentInfo[] categories = SponsorBlockSettings.SegmentInfo.valuesWithoutUnsubmitted();
+
+        for (SponsorBlockSettings.SegmentInfo segmentInfo : categories) {
             ListPreference preference = new ListPreference(context);
             preference.setTitle(segmentInfo.getTitleWithDot());
             preference.setSummary(segmentInfo.description.toString());
@@ -166,45 +164,26 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             preference.setEntries(entries);
             preference.setEntryValues(entryValues);
 
-            String key = segmentInfo.key + PREFERENCES_KEY_CATEGORY_COLOR_SUFFIX;
-            Preference colorPreference = new Preference(context);
-            colorPreference.setTitle(str("color_change"));
-
-            colorPreference.setOnPreferenceClickListener(preference1 -> {
-                EditText editText = new EditText(context);
-                editText.setInputType(InputType.TYPE_CLASS_TEXT);
-                editText.setText(formatColorString(segmentInfo.color));
-
-                Context applicationContext = context.getApplicationContext();
-                SharedPreferences preferences = SponsorBlockSettings.getPreferences(context);
-
-                new AlertDialog.Builder(context)
-                        .setView(editText)
-                        .setPositiveButton(str("change"), (dialog, which) -> {
-                            try {
-                                int color = Color.parseColor(editText.getText().toString());
-                                segmentInfo.setColor(color);
-                                Toast.makeText(applicationContext, str("color_changed"), Toast.LENGTH_SHORT).show();
-                                preferences.edit().putString(key, formatColorString(color)).apply();
-                            }
-                            catch (Exception ex) {
-                                Toast.makeText(applicationContext, str("color_invalid"), Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .setNeutralButton(str("reset"), (dialog, which) -> {
-                            int defaultColor = segmentInfo.defaultColor;
-                            segmentInfo.setColor(defaultColor);
-                            Toast.makeText(applicationContext, str("color_reset"), Toast.LENGTH_SHORT).show();
-                            preferences.edit().putString(key, formatColorString(defaultColor)).apply();
-                        })
-                        .show();
-                return true;
-            });
-            preferencesToDisableWhenSBDisabled.add(colorPreference);
-
             category.addPreference(preference);
-            category.addPreference(colorPreference);
         }
+
+        Preference colorPreference = new Preference(context);
+        screen.addPreference(colorPreference);
+        colorPreference.setTitle(str("color_change"));
+
+        colorPreference.setOnPreferenceClickListener(preference1 -> {
+            CharSequence[] items = new CharSequence[categories.length];
+            for (int i = 0; i < items.length; i++) {
+                items[i] = categories[i].getTitleWithDot();
+            }
+
+            new AlertDialog.Builder(context)
+                    .setTitle(str("color_choose_category"))
+                    .setItems(items, SponsorBlockUtils.categoryColorChangeClickListener)
+                    .show();
+            return true;
+        });
+        preferencesToDisableWhenSBDisabled.add(colorPreference);
     }
 
     private void addStatsCategory(Context context, PreferenceScreen screen) {
