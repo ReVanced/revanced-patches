@@ -447,7 +447,7 @@ public abstract class SponsorBlockUtils {
     }
 
     public static String getTimeWithoutSegments(SponsorSegment[] sponsorSegmentsOfCurrentVideo) {
-        long currentVideoLength = PlayerController.getCurrentVideoLength();
+        long currentVideoLength = getCurrentVideoLength();
         if (!isSettingEnabled(showTimeWithoutSegments) || sponsorSegmentsOfCurrentVideo == null || currentVideoLength == 1) {
             return "";
         }
