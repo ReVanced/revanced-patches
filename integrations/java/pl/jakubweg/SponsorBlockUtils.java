@@ -39,6 +39,7 @@ import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static fi.razerman.youtube.XGlobals.debug;
 import static pl.jakubweg.PlayerController.getCurrentVideoId;
+import static pl.jakubweg.PlayerController.getCurrentVideoLength;
 import static pl.jakubweg.PlayerController.getLastKnownVideoTime;
 import static pl.jakubweg.PlayerController.sponsorSegmentsOfCurrentVideo;
 import static pl.jakubweg.SponsorBlockPreferenceFragment.FORMATTER;
@@ -435,7 +436,7 @@ public abstract class SponsorBlockUtils {
     }
 
     public static String appendTimeWithoutSegments(String totalTime) {
-        if (videoHasSegments && isSettingEnabled(showTimeWithoutSegments) && !TextUtils.isEmpty(totalTime)) {
+        if (videoHasSegments && isSettingEnabled(showTimeWithoutSegments) && !TextUtils.isEmpty(totalTime) && getCurrentVideoLength() != 1) {
             if (timeWithoutSegments.isEmpty()) {
                 timeWithoutSegments = getTimeWithoutSegments(sponsorSegmentsOfCurrentVideo);
             }
