@@ -153,7 +153,9 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             entryValues[i] = behaviour.key;
         }
 
-        for (SponsorBlockSettings.SegmentInfo segmentInfo : SponsorBlockSettings.SegmentInfo.valuesWithoutUnsubmitted()) {
+        SponsorBlockSettings.SegmentInfo[] categories = SponsorBlockSettings.SegmentInfo.valuesWithoutUnsubmitted();
+
+        for (SponsorBlockSettings.SegmentInfo segmentInfo : categories) {
             ListPreference preference = new ListPreference(context);
             preference.setTitle(segmentInfo.getTitleWithDot());
             preference.setSummary(segmentInfo.description.toString());
@@ -161,9 +163,27 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             preference.setDefaultValue(defaultValue);
             preference.setEntries(entries);
             preference.setEntryValues(entryValues);
+
             category.addPreference(preference);
         }
 
+        Preference colorPreference = new Preference(context);
+        screen.addPreference(colorPreference);
+        colorPreference.setTitle(str("color_change"));
+
+        colorPreference.setOnPreferenceClickListener(preference1 -> {
+            CharSequence[] items = new CharSequence[categories.length];
+            for (int i = 0; i < items.length; i++) {
+                items[i] = categories[i].getTitleWithDot();
+            }
+
+            new AlertDialog.Builder(context)
+                    .setTitle(str("color_choose_category"))
+                    .setItems(items, SponsorBlockUtils.categoryColorChangeClickListener)
+                    .show();
+            return true;
+        });
+        preferencesToDisableWhenSBDisabled.add(colorPreference);
     }
 
     private void addStatsCategory(Context context, PreferenceScreen screen) {
