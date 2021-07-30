@@ -1,5 +1,23 @@
 package pl.jakubweg;
 
+import static android.text.Html.fromHtml;
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+import static fi.razerman.youtube.XGlobals.debug;
+import static pl.jakubweg.PlayerController.getCurrentVideoId;
+import static pl.jakubweg.PlayerController.getCurrentVideoLength;
+import static pl.jakubweg.PlayerController.getLastKnownVideoTime;
+import static pl.jakubweg.PlayerController.sponsorSegmentsOfCurrentVideo;
+import static pl.jakubweg.SponsorBlockPreferenceFragment.FORMATTER;
+import static pl.jakubweg.SponsorBlockPreferenceFragment.SAVED_TEMPLATE;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_CATEGORY_COLOR_SUFFIX;
+import static pl.jakubweg.SponsorBlockSettings.isSponsorBlockEnabled;
+import static pl.jakubweg.SponsorBlockSettings.showTimeWithoutSegments;
+import static pl.jakubweg.SponsorBlockSettings.skippedSegments;
+import static pl.jakubweg.SponsorBlockSettings.skippedTime;
+import static pl.jakubweg.StringRef.str;
+import static pl.jakubweg.requests.Requester.voteForSegment;
+
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -33,24 +51,6 @@ import java.util.TimeZone;
 import pl.jakubweg.objects.SponsorSegment;
 import pl.jakubweg.objects.UserStats;
 import pl.jakubweg.requests.Requester;
-
-import static android.text.Html.fromHtml;
-import static android.view.View.GONE;
-import static android.view.View.VISIBLE;
-import static fi.razerman.youtube.XGlobals.debug;
-import static pl.jakubweg.PlayerController.getCurrentVideoId;
-import static pl.jakubweg.PlayerController.getCurrentVideoLength;
-import static pl.jakubweg.PlayerController.getLastKnownVideoTime;
-import static pl.jakubweg.PlayerController.sponsorSegmentsOfCurrentVideo;
-import static pl.jakubweg.SponsorBlockPreferenceFragment.FORMATTER;
-import static pl.jakubweg.SponsorBlockPreferenceFragment.SAVED_TEMPLATE;
-import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_CATEGORY_COLOR_SUFFIX;
-import static pl.jakubweg.SponsorBlockSettings.isSponsorBlockEnabled;
-import static pl.jakubweg.SponsorBlockSettings.showTimeWithoutSegments;
-import static pl.jakubweg.SponsorBlockSettings.skippedSegments;
-import static pl.jakubweg.SponsorBlockSettings.skippedTime;
-import static pl.jakubweg.StringRef.str;
-import static pl.jakubweg.requests.Requester.voteForSegment;
 
 @SuppressWarnings({"LongLogTag"})
 public abstract class SponsorBlockUtils {
@@ -492,6 +492,7 @@ public abstract class SponsorBlockUtils {
         category.removePreference(loadingPreference);
 
         Context context = category.getContext();
+        String minutesStr = str("minutes");
 
         {
             EditTextPreference preference = new EditTextPreference(context);
@@ -522,7 +523,7 @@ public abstract class SponsorBlockUtils {
             double saved = stats.getMinutesSaved();
             int hoursSaved = (int) (saved / 60);
             double minutesSaved = saved % 60;
-            String formattedSaved = String.format(SAVED_TEMPLATE, hoursSaved, minutesSaved);
+            String formattedSaved = String.format(SAVED_TEMPLATE, hoursSaved, minutesSaved, minutesStr);
 
             preference.setTitle(fromHtml(str("stats_saved", formatted)));
             preference.setSummary(fromHtml(str("stats_saved_sum", formattedSaved)));
@@ -541,7 +542,7 @@ public abstract class SponsorBlockUtils {
 
             long hoursSaved = skippedTime / 3600000;
             double minutesSaved = (skippedTime / 60000d) % 60;
-            String formattedSaved = String.format(SAVED_TEMPLATE, hoursSaved, minutesSaved);
+            String formattedSaved = String.format(SAVED_TEMPLATE, hoursSaved, minutesSaved, minutesStr);
 
             preference.setTitle(fromHtml(str("stats_self_saved", formatted)));
             preference.setSummary(fromHtml(str("stats_self_saved_sum", formattedSaved)));

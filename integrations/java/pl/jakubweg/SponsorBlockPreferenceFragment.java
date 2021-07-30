@@ -1,5 +1,23 @@
 package pl.jakubweg;
 
+import static pl.jakubweg.SponsorBlockSettings.DefaultBehaviour;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_COUNT_SKIPS;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_NEW_SEGMENT_ENABLED;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_UUID;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_VOTING_ENABLED;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_NAME;
+import static pl.jakubweg.SponsorBlockSettings.adjustNewSegmentMillis;
+import static pl.jakubweg.SponsorBlockSettings.countSkips;
+import static pl.jakubweg.SponsorBlockSettings.setSeenGuidelines;
+import static pl.jakubweg.SponsorBlockSettings.showTimeWithoutSegments;
+import static pl.jakubweg.SponsorBlockSettings.showToastWhenSkippedAutomatically;
+import static pl.jakubweg.SponsorBlockSettings.uuid;
+import static pl.jakubweg.StringRef.str;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -22,28 +40,10 @@ import java.util.ArrayList;
 
 import pl.jakubweg.requests.Requester;
 
-import static pl.jakubweg.SponsorBlockSettings.DefaultBehaviour;
-import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP;
-import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_COUNT_SKIPS;
-import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_NEW_SEGMENT_ENABLED;
-import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS;
-import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP;
-import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED;
-import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_UUID;
-import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_VOTING_ENABLED;
-import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_NAME;
-import static pl.jakubweg.SponsorBlockSettings.adjustNewSegmentMillis;
-import static pl.jakubweg.SponsorBlockSettings.countSkips;
-import static pl.jakubweg.SponsorBlockSettings.setSeenGuidelines;
-import static pl.jakubweg.SponsorBlockSettings.showTimeWithoutSegments;
-import static pl.jakubweg.SponsorBlockSettings.showToastWhenSkippedAutomatically;
-import static pl.jakubweg.SponsorBlockSettings.uuid;
-import static pl.jakubweg.StringRef.str;
-
 @SuppressWarnings({"unused", "deprecation"}) // injected
 public class SponsorBlockPreferenceFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
     public static final DecimalFormat FORMATTER = new DecimalFormat("#,###,###");
-    public static final String SAVED_TEMPLATE = "%dh %.1f minutes";
+    public static final String SAVED_TEMPLATE = "%dh %.1f %s";
     private final ArrayList<Preference> preferencesToDisableWhenSBDisabled = new ArrayList<>();
 
     @Override

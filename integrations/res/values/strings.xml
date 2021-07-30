@@ -203,6 +203,7 @@
     <string name="stats_saved_sum" formatted="false">That\'s &lt;b&gt;%s&lt;/b&gt; of their lives. Click to see the leaderboard</string>
     <string name="stats_self_saved" formatted="false">You\'ve skipped &lt;b&gt;%s&lt;/b&gt; segments.</string>
     <string name="stats_self_saved_sum" formatted="false">That\'s &lt;b&gt;%s&lt;/b&gt;.</string>
+    <string name="minutes">minutes</string>
 
     <string name="about">About</string>
     <string name="about_api">This app uses the API from SponsorBlock</string>
