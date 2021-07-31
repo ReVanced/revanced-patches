@@ -436,7 +436,7 @@ public abstract class SponsorBlockUtils {
     }
 
     public static String appendTimeWithoutSegments(String totalTime) {
-        if (videoHasSegments && isSettingEnabled(showTimeWithoutSegments) && !TextUtils.isEmpty(totalTime) && getCurrentVideoLength() != 1) {
+        if (videoHasSegments && isSettingEnabled(showTimeWithoutSegments) && !TextUtils.isEmpty(totalTime) && getCurrentVideoLength() > 1) {
             if (timeWithoutSegments.isEmpty()) {
                 timeWithoutSegments = getTimeWithoutSegments(sponsorSegmentsOfCurrentVideo);
             }
@@ -448,7 +448,7 @@ public abstract class SponsorBlockUtils {
 
     public static String getTimeWithoutSegments(SponsorSegment[] sponsorSegmentsOfCurrentVideo) {
         long currentVideoLength = getCurrentVideoLength();
-        if (!isSettingEnabled(showTimeWithoutSegments) || sponsorSegmentsOfCurrentVideo == null || currentVideoLength == 1) {
+        if (!isSettingEnabled(showTimeWithoutSegments) || sponsorSegmentsOfCurrentVideo == null || currentVideoLength <= 1) {
             return "";
         }
         long timeWithoutSegments = currentVideoLength + 500; // YouTube:tm:
