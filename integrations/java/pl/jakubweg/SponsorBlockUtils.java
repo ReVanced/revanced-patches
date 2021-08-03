@@ -599,8 +599,8 @@ public abstract class SponsorBlockUtils {
             Toast.makeText(context, str("settings_import_successful"), Toast.LENGTH_SHORT).show();
         }
         catch (Exception ex) {
-            ex.printStackTrace();
             Toast.makeText(context, str("settings_import_failed"), Toast.LENGTH_SHORT).show();
+            ex.printStackTrace();
         }
     }
 
