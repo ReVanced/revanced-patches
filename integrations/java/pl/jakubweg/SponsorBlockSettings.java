@@ -1,5 +1,7 @@
 package pl.jakubweg;
 
+import static pl.jakubweg.StringRef.sf;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -12,8 +14,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-
-import static pl.jakubweg.StringRef.sf;
 
 public class SponsorBlockSettings {
 
@@ -119,7 +119,7 @@ public class SponsorBlockSettings {
         }
 
         //"[%22sponsor%22,%22outro%22,%22music_offtopic%22,%22intro%22,%22selfpromo%22,%22interaction%22,%22preview%22]";
-        if (enabledCategories.size() == 0)
+        if (enabledCategories.isEmpty())
             sponsorBlockUrlCategories = "[]";
         else
             sponsorBlockUrlCategories = "[%22" + TextUtils.join("%22,%22", enabledCategories) + "%22]";
@@ -146,23 +146,35 @@ public class SponsorBlockSettings {
     }
 
     public enum SegmentBehaviour {
-        SKIP_AUTOMATICALLY("skip", sf("skip_automatically"), true, true),
-        MANUAL_SKIP("manual-skip", sf("skip_showbutton"), false, true),
-        IGNORE("ignore", sf("skip_ignore"), false, false);
+        SKIP_AUTOMATICALLY("skip", 2, sf("skip_automatically"), true, true),
+        MANUAL_SKIP("manual-skip", 1, sf("skip_showbutton"), false, true),
+        IGNORE("ignore", -1, sf("skip_ignore"), false, false);
 
         public final String key;
+        public final int desktopKey;
         public final StringRef name;
         public final boolean skip;
         public final boolean showOnTimeBar;
 
         SegmentBehaviour(String key,
+                         int desktopKey,
                          StringRef name,
                          boolean skip,
                          boolean showOnTimeBar) {
             this.key = key;
+            this.desktopKey = desktopKey;
             this.name = name;
             this.skip = skip;
             this.showOnTimeBar = showOnTimeBar;
+        }
+
+        public static SegmentBehaviour byDesktopKey(int desktopKey) {
+            for (SegmentBehaviour behaviour : values()) {
+                if (behaviour.desktopKey == desktopKey) {
+                    return behaviour;
+                }
+            }
+            return null;
         }
     }
 
