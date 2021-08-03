@@ -604,7 +604,7 @@ public abstract class SponsorBlockUtils {
         }
     }
 
-    public static String exportSettings() {
+    public static String exportSettings(Context context) {
         try {
             JSONObject json = new JSONObject();
 
@@ -636,6 +636,7 @@ public abstract class SponsorBlockUtils {
             return json.toString();
         }
         catch (Exception ex) {
+            Toast.makeText(context, str("settings_export_failed"), Toast.LENGTH_SHORT).show();
             ex.printStackTrace();
             return "";
         }
