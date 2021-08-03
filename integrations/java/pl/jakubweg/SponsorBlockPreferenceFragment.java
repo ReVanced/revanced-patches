@@ -298,6 +298,21 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             screen.addPreference(preference);
             preferencesToDisableWhenSBDisabled.add(preference);
         }
+
+        {
+            EditTextPreference preference = new EditTextPreference(context);
+            Context applicationContext = context.getApplicationContext();
+
+            preference.setTitle(str("settings_ie"));
+            preference.setSummary(str("settings_ie_sum"));
+            preference.setText(SponsorBlockUtils.exportSettings(applicationContext));
+            preference.setOnPreferenceChangeListener((preference1, newValue) -> {
+                SponsorBlockUtils.importSettings((String) newValue, applicationContext);
+                return false;
+            });
+            screen.addPreference(preference);
+            preferencesToDisableWhenSBDisabled.add(preference);
+        }
     }
 
     @Override

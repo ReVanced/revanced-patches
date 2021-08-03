@@ -11,10 +11,18 @@ import static pl.jakubweg.PlayerController.sponsorSegmentsOfCurrentVideo;
 import static pl.jakubweg.SponsorBlockPreferenceFragment.FORMATTER;
 import static pl.jakubweg.SponsorBlockPreferenceFragment.SAVED_TEMPLATE;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_CATEGORY_COLOR_SUFFIX;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_COUNT_SKIPS;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_UUID;
+import static pl.jakubweg.SponsorBlockSettings.countSkips;
+import static pl.jakubweg.SponsorBlockSettings.getPreferences;
 import static pl.jakubweg.SponsorBlockSettings.isSponsorBlockEnabled;
 import static pl.jakubweg.SponsorBlockSettings.showTimeWithoutSegments;
+import static pl.jakubweg.SponsorBlockSettings.showToastWhenSkippedAutomatically;
 import static pl.jakubweg.SponsorBlockSettings.skippedSegments;
 import static pl.jakubweg.SponsorBlockSettings.skippedTime;
+import static pl.jakubweg.SponsorBlockSettings.uuid;
 import static pl.jakubweg.StringRef.str;
 import static pl.jakubweg.requests.Requester.voteForSegment;
 
@@ -37,6 +45,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.lang.ref.WeakReference;
 import java.text.ParseException;
@@ -546,6 +557,88 @@ public abstract class SponsorBlockUtils {
 
             preference.setTitle(fromHtml(str("stats_self_saved", formatted)));
             preference.setSummary(fromHtml(str("stats_self_saved_sum", formattedSaved)));
+        }
+    }
+
+    public static void importSettings(String json, Context context) {
+        try {
+            JSONObject settingsJson = new JSONObject(json);
+
+            JSONObject barTypesObject = settingsJson.getJSONObject("barTypes");
+            JSONArray categorySelectionsArray = settingsJson.getJSONArray("categorySelections");
+
+            SharedPreferences.Editor editor = getPreferences(context).edit();
+
+            SponsorBlockSettings.SegmentInfo[] categories = SponsorBlockSettings.SegmentInfo.valuesWithoutUnsubmitted();
+            for (SponsorBlockSettings.SegmentInfo category : categories) {
+                String categoryKey = category.key;
+                JSONObject categoryObject = barTypesObject.getJSONObject(categoryKey);
+                String color = categoryObject.getString("color");
+
+                editor.putString(categoryKey + PREFERENCES_KEY_CATEGORY_COLOR_SUFFIX, color);
+                editor.putString(categoryKey, SponsorBlockSettings.SegmentBehaviour.IGNORE.key);
+            }
+
+            for (int i = 0; i < categorySelectionsArray.length(); i++) {
+                JSONObject categorySelectionObject = categorySelectionsArray.getJSONObject(i);
+
+                String categoryKey = categorySelectionObject.getString("name");
+                SponsorBlockSettings.SegmentInfo category = SponsorBlockSettings.SegmentInfo.byCategoryKey(categoryKey);
+
+                int desktopKey = categorySelectionObject.getInt("option");
+                SponsorBlockSettings.SegmentBehaviour behaviour = SponsorBlockSettings.SegmentBehaviour.byDesktopKey(desktopKey);
+                editor.putString(category.key, behaviour.key);
+            }
+
+            editor.putBoolean(PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP, !settingsJson.getBoolean("dontShowNotice"));
+            editor.putBoolean(PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS, settingsJson.getBoolean("showTimeWithSkips"));
+            editor.putBoolean(PREFERENCES_KEY_COUNT_SKIPS, settingsJson.getBoolean("trackViewCount"));
+            editor.putString(PREFERENCES_KEY_UUID, settingsJson.getString("userID"));
+            editor.apply();
+
+            Toast.makeText(context, str("settings_import_successful"), Toast.LENGTH_SHORT).show();
+        }
+        catch (Exception ex) {
+            Toast.makeText(context, str("settings_import_failed"), Toast.LENGTH_SHORT).show();
+            ex.printStackTrace();
+        }
+    }
+
+    public static String exportSettings(Context context) {
+        try {
+            JSONObject json = new JSONObject();
+
+            JSONObject barTypesObject = new JSONObject(); // categories' colors
+            JSONArray categorySelectionsArray = new JSONArray(); // categories' behavior
+
+            SponsorBlockSettings.SegmentInfo[] categories = SponsorBlockSettings.SegmentInfo.valuesWithoutUnsubmitted();
+            for (SponsorBlockSettings.SegmentInfo category : categories) {
+                JSONObject categoryObject = new JSONObject();
+                String categoryKey = category.key;
+                categoryObject.put("color", formatColorString(category.color));
+                barTypesObject.put(categoryKey, categoryObject);
+
+                int desktopKey = category.behaviour.desktopKey;
+                if (desktopKey != -1) {
+                    JSONObject behaviorObject = new JSONObject();
+                    behaviorObject.put("name", categoryKey);
+                    behaviorObject.put("option", desktopKey);
+                    categorySelectionsArray.put(behaviorObject);
+                }
+            }
+            json.put("dontShowNotice", !showToastWhenSkippedAutomatically);
+            json.put("barTypes", barTypesObject);
+            json.put("showTimeWithSkips", showTimeWithoutSegments);
+            json.put("trackViewCount", countSkips);
+            json.put("categorySelections", categorySelectionsArray);
+            json.put("userID", uuid);
+
+            return json.toString();
+        }
+        catch (Exception ex) {
+            Toast.makeText(context, str("settings_export_failed"), Toast.LENGTH_SHORT).show();
+            ex.printStackTrace();
+            return "";
         }
     }
 
