@@ -158,7 +158,7 @@
     <string name="general_uuid">Your unique user id</string>
     <string name="general_uuid_sum">This should be kept private. This is like a password and should not be shared with anyone. If someone has this, they can impersonate you</string>
     <string name="settings_ie">Import/Export settings</string>
-    <string name="settings_ie_sum">This is your entire configuration that is applicable in the desktop extension in JSON. This includes your userID, so be sure to share this wisely.</string>
+    <string name="settings_ie_sum">This is your entire configuration that is applicable in the browser extension in JSON. This includes your userID, so be sure to share this wisely.</string>
     <string name="settings_import_successful">Settings were successfully imported</string>
     <string name="settings_import_failed">Failed to import settings</string>
     <string name="settings_export_failed">Failed to export settings</string>
