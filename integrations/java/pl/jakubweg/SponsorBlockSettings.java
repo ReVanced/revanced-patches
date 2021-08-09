@@ -94,7 +94,7 @@ public class SponsorBlockSettings {
 
         SegmentBehaviour[] possibleBehaviours = SegmentBehaviour.values();
         final ArrayList<String> enabledCategories = new ArrayList<>(possibleBehaviours.length);
-        for (SegmentInfo segment : SegmentInfo.valuesWithoutUnsubmitted()) {
+        for (SegmentInfo segment : SegmentInfo.values()) {
             String categoryColor = preferences.getString(segment.key + PREFERENCES_KEY_CATEGORY_COLOR_SUFFIX, SponsorBlockUtils.formatColorString(segment.defaultColor));
             segment.setColor(Color.parseColor(categoryColor));
 
@@ -114,7 +114,7 @@ public class SponsorBlockSettings {
                 behaviour = DefaultBehaviour;
 
             segment.behaviour = behaviour;
-            if (behaviour.showOnTimeBar)
+            if (behaviour.showOnTimeBar && segment != SegmentInfo.UNSUBMITTED)
                 enabledCategories.add(segment.key);
         }
 
