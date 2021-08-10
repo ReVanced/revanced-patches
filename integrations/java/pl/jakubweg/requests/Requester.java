@@ -31,7 +31,7 @@ import pl.jakubweg.objects.SponsorSegment;
 import pl.jakubweg.objects.UserStats;
 
 public class Requester {
-    private static final String SPONSORBLOCK_API_URL = "http://10.0.2.2/api/";
+    private static final String SPONSORBLOCK_API_URL = "https://sponsor.ajay.app/api/";
     private static final String TIME_TEMPLATE = "%.3f";
 
     private Requester() {}
