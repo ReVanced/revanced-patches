@@ -1,8 +1,9 @@
 package pl.jakubweg.requests;
 
-import pl.jakubweg.SponsorBlockUtils;
+import static pl.jakubweg.requests.Route.Method.GET;
+import static pl.jakubweg.requests.Route.Method.POST;
 
-import static pl.jakubweg.requests.Route.Method.*;
+import pl.jakubweg.SponsorBlockUtils;
 
 public class Route {
     public static final Route GET_SEGMENTS =             new Route(GET,   "skipSegments?videoID={video_id}&categories={categories}");
@@ -51,10 +52,6 @@ public class Route {
         private CompiledRoute(Route baseRoute, String compiledRoute) {
             this.baseRoute = baseRoute;
             this.compiledRoute = compiledRoute;
-        }
-
-        public Route getBaseRoute() {
-            return baseRoute;
         }
 
         public String getCompiledRoute() {

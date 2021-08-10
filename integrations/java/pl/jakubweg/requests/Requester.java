@@ -1,5 +1,9 @@
 package pl.jakubweg.requests;
 
+import static pl.jakubweg.SponsorBlockUtils.timeWithoutSegments;
+import static pl.jakubweg.SponsorBlockUtils.videoHasSegments;
+import static pl.jakubweg.StringRef.str;
+
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
@@ -18,6 +22,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import pl.jakubweg.SponsorBlockSettings;
 import pl.jakubweg.SponsorBlockUtils;
@@ -25,12 +30,8 @@ import pl.jakubweg.SponsorBlockUtils.VoteOption;
 import pl.jakubweg.objects.SponsorSegment;
 import pl.jakubweg.objects.UserStats;
 
-import static pl.jakubweg.SponsorBlockUtils.timeWithoutSegments;
-import static pl.jakubweg.SponsorBlockUtils.videoHasSegments;
-import static pl.jakubweg.StringRef.str;
-
 public class Requester {
-    private static final String SPONSORBLOCK_API_URL = "https://sponsor.ajay.app/api/";
+    private static final String SPONSORBLOCK_API_URL = "http://10.0.2.2/api/";
     private static final String TIME_TEMPLATE = "%.3f";
 
     private Requester() {}
@@ -73,8 +74,8 @@ public class Requester {
 
     public static void submitSegments(String videoId, String uuid, float startTime, float endTime, String category, Runnable toastRunnable) {
         try {
-            String start = String.format(TIME_TEMPLATE, startTime);
-            String end = String.format(TIME_TEMPLATE, endTime);
+            String start = String.format(Locale.US, TIME_TEMPLATE, startTime);
+            String end = String.format(Locale.US, TIME_TEMPLATE, endTime);
             HttpURLConnection connection = getConnectionFromRoute(Route.SUBMIT_SEGMENTS, videoId, uuid, start, end, category);
             int responseCode = connection.getResponseCode();
 
