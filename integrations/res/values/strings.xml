@@ -139,8 +139,8 @@
     <string name="vanced_translators_title">Vanced translators</string>
     <string name="vanced_translators_summary">Link to Crowdin where you can contribute by translating Vanced to your language</string>
 
-    <string name="enable_sb">Enable SponsorBlock (Beta)</string>
-    <string name="enable_sb_sum">Switch this on for very cool sponsor segments skipping</string>
+    <string name="enable_sb">Enable SponsorBlock</string>
+    <string name="enable_sb_sum">SponsorBlock is a crowd-sourced system for skipping annoying parts in YouTube videos</string>
     <string name="enable_segmadding">Enable new segment adding</string>
     <string name="enable_segmadding_sum">Switch this on to enable experimental segment adding (has button visibility issues)</string>
     <string name="diff_segments">What to do with different segments</string>
