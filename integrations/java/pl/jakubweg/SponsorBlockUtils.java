@@ -585,6 +585,10 @@ public abstract class SponsorBlockUtils {
                 String categoryKey = categorySelectionObject.getString("name");
                 SponsorBlockSettings.SegmentInfo category = SponsorBlockSettings.SegmentInfo.byCategoryKey(categoryKey);
 
+                if (category == null) {
+                    continue;
+                }
+
                 int desktopKey = categorySelectionObject.getInt("option");
                 SponsorBlockSettings.SegmentBehaviour behaviour = SponsorBlockSettings.SegmentBehaviour.byDesktopKey(desktopKey);
                 editor.putString(category.key, behaviour.key);
