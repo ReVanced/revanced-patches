@@ -333,4 +333,8 @@
     <string name="color_invalid">Invalid hex code</string>
     <string name="change">Change</string>
     <string name="reset">Reset</string>
+
+    <string name="action_copy">Copy</string>
+    <string name="action_tcopy">TCopy</string>
+    <string name="action_ads">Ads</string>
 </resources>

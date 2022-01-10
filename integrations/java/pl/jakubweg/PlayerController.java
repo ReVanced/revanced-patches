@@ -64,8 +64,6 @@ public class PlayerController {
             return;
         }
 
-        VideoInformation.currentVideoId = videoId;
-
         Context context = YouTubeTikTokRoot_Application.getAppContext();
         if(context == null){
             Log.e(TAG, "context is null");
