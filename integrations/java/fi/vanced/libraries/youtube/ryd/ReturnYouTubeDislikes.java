@@ -7,6 +7,9 @@ import static fi.vanced.libraries.youtube.ryd.RYDSettings.PREFERENCES_NAME;
 import static fi.vanced.utils.VancedUtils.getIdentifier;
 import static fi.vanced.utils.VancedUtils.parseJson;
 
+import android.content.Context;
+import android.icu.text.CompactDecimalFormat;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
@@ -20,6 +23,7 @@ import org.json.JSONObject;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Locale;
 
 import static fi.vanced.libraries.youtube.player.VideoInformation.dislikeCount;
 
@@ -37,12 +41,28 @@ public class ReturnYouTubeDislikes {
     private static boolean likeActive;
     private static boolean dislikeActive;
     private static int votingValue = 0; // 1 = like, -1 = dislike, 0 = no vote
+    private static CompactDecimalFormat compactNumberFormatter;
 
     static {
-        isEnabled = SharedPrefUtils.getBoolean(YouTubeTikTokRoot_Application.getAppContext(), PREFERENCES_NAME, PREFERENCES_KEY_RYD_ENABLED, false);
+        Context context = YouTubeTikTokRoot_Application.getAppContext();
+        isEnabled = SharedPrefUtils.getBoolean(context, PREFERENCES_NAME, PREFERENCES_KEY_RYD_ENABLED, false);
         if (isEnabled) {
-            registration = new Registration(YouTubeTikTokRoot_Application.getAppContext());
-            voting = new Voting(YouTubeTikTokRoot_Application.getAppContext(), registration);
+            registration = new Registration(context);
+            voting = new Voting(context, registration);
+        }
+
+        Locale locale = context.getResources().getConfiguration().locale;
+        if (debug) {
+            Log.d(TAG, "locale - " + locale);
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            compactNumberFormatter = CompactDecimalFormat.getInstance(
+                    locale,
+                    CompactDecimalFormat.CompactStyle.SHORT
+            );
+            compactNumberFormatter.setMaximumIntegerDigits(3);
+            compactNumberFormatter.setMaximumFractionDigits(1);
+            compactNumberFormatter.setSignificantDigitsUsed(false);
         }
     }
 
@@ -95,7 +115,7 @@ public class ReturnYouTubeDislikes {
                     new Handler(Looper.getMainLooper()).post(new Runnable () {
                         @Override
                         public void run () {
-                            trySetDislikes(String.valueOf(dislikeCount));
+                            trySetDislikes(formatDislikes(dislikeCount));
                         }
                     });
                 }
@@ -181,7 +201,7 @@ public class ReturnYouTubeDislikes {
                 return originalText;
             }
             else if (tag == "dislike") {
-                return dislikeCount != null ? String.valueOf(dislikeCount) : originalText;
+                return dislikeCount != null ? formatDislikes(dislikeCount) : originalText;
             }
         }
         catch (Exception ex) {
@@ -239,7 +259,7 @@ public class ReturnYouTubeDislikes {
                 else { likeActive = false; }
 
                 // Like was activated and dislike was previously activated
-                if (!previousState && dislikeActive) { dislikeCount--; trySetDislikes(String.valueOf(dislikeCount)); }
+                if (!previousState && dislikeActive) { dislikeCount--; trySetDislikes(formatDislikes(dislikeCount)); }
             }
             else if (tag == "dislike") {
                 likeActive = false;
@@ -248,7 +268,7 @@ public class ReturnYouTubeDislikes {
                 if (!previousState) { votingValue = -1; dislikeActive = true; dislikeCount++; }
                 // Dislike was removed
                 else { dislikeActive = false; dislikeCount--; }
-                trySetDislikes(String.valueOf(dislikeCount));
+                trySetDislikes(formatDislikes(dislikeCount));
             }
             else {
                 // Unknown tag
@@ -323,5 +343,21 @@ public class ReturnYouTubeDislikes {
         catch (Exception ex) {
             Log.e(TAG, "Error while trying to set tag to view", ex);
         }
+    }
+
+    private static String formatDislikes(int dislikes) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && compactNumberFormatter != null) {
+            final String formatted = compactNumberFormatter.format(dislikes);
+            if (debug) {
+                Log.d(TAG, "Formatting dislikes - " + dislikes + " - " + formatted);
+            }
+
+            return formatted;
+        }
+
+        if (debug) {
+            Log.d(TAG, "Couldn't format dislikes, using the unformatted count - " + dislikes);
+        }
+        return String.valueOf(dislikes);
     }
 }
