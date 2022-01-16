@@ -25,10 +25,12 @@ import fi.razerman.youtube.XGlobals;
 import fi.vanced.libraries.youtube.player.ChannelModel;
 import fi.vanced.libraries.youtube.player.VideoInformation;
 import fi.vanced.utils.ObjectSerializer;
+import fi.vanced.utils.SharedPrefUtils;
 
 public class VideoAds {
     public static final String TAG = "VI - VideoAds";
     public static final String PREFERENCES_NAME = "channel-whitelist";
+    public static boolean isEnabled;
     private static final String YT_API_URL = "https://www.youtube.com/youtubei/v1";
     private static final String YT_API_KEY = "replaceMeWithTheYouTubeAPIKey";
     private static ArrayList<ChannelModel> whiteList;
@@ -36,6 +38,7 @@ public class VideoAds {
 
     static {
         whiteList = parseWhitelist(YouTubeTikTokRoot_Application.getAppContext());
+        isEnabled = SharedPrefUtils.getBoolean(YouTubeTikTokRoot_Application.getAppContext(), "youtube", "vanced_videoadwhitelisting_enabled", false);
     }
 
     // Call to this needs to be injected in YT code
@@ -44,6 +47,8 @@ public class VideoAds {
             Log.d(TAG, "channel name set to " + channelName);
         }
         VideoInformation.channelName = channelName;
+
+        if (!isEnabled) return;
 
         if (adBlockButton != null) {
             adBlockButton.changeEnabled(getShouldShowAds());
@@ -108,6 +113,8 @@ public class VideoAds {
     }
 
     public static boolean getShouldShowAds() {
+        if (!isEnabled) return false;
+
         if (channelName == null || channelName.isEmpty() || channelName.trim().isEmpty()) {
             if (XGlobals.debug) {
                 Log.d(TAG, "getShouldShowAds skipped because channelId was null");
@@ -131,6 +138,23 @@ public class VideoAds {
 
     public static boolean addToWhitelist(Context context, String channelName, String channelId) {
         try {
+            // Check that the channel doesn't exist already (can happen if for example the channel changes the name)
+            // If it exists, remove it
+            Iterator<ChannelModel> iterator = whiteList.iterator();
+            while(iterator.hasNext())
+            {
+                ChannelModel value = iterator.next();
+                if (value.getChannelId().equals(channelId))
+                {
+                    if (XGlobals.debug) {
+                        Log.d(TAG, String.format("Tried whitelisting an existing channel again. Old info (%1$s | %2$s) - New info (%3$s | %4$s)",
+                                value.getAuthor(), value.getChannelId(), channelName, channelId));
+                    }
+                    iterator.remove();
+                    break;
+                }
+            }
+
             whiteList.add(new ChannelModel(channelName, channelId));
             updateWhitelist(context);
             return true;

@@ -5,14 +5,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import fi.vanced.libraries.youtube.player.VideoHelpers;
-import fi.vanced.utils.SharedPrefUtils;
 import fi.vanced.utils.VancedUtils;
 
 import static pl.jakubweg.StringRef.str;
 
 public class CopyWithTimestamp extends SlimButton {
     public CopyWithTimestamp(Context context, ViewGroup container) {
-        super(context, container, SlimButton.SLIM_METADATA_BUTTON_ID, SharedPrefUtils.getBoolean(context, "youtube", "pref_copy_video_url_timestamp_button", false));
+        super(context, container, SlimButton.SLIM_METADATA_BUTTON_ID, ButtonVisibility.isVisibleInContainer(context, "pref_copy_video_url_timestamp_button_list"));
 
         initialize();
     }

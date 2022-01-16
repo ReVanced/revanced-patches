@@ -24,6 +24,7 @@ import java.net.URL;
 import fi.vanced.libraries.youtube.ads.VideoAds;
 import fi.vanced.libraries.youtube.player.ChannelModel;
 import fi.vanced.libraries.youtube.player.VideoInformation;
+import fi.vanced.utils.SharedPrefUtils;
 import fi.vanced.utils.VancedUtils;
 
 public class AdBlock extends SlimButton {
@@ -32,7 +33,7 @@ public class AdBlock extends SlimButton {
     private static final String YT_API_KEY = "replaceMeWithTheYouTubeAPIKey";
 
     public AdBlock(Context context, ViewGroup container) {
-        super(context, container, SlimButton.SLIM_METADATA_BUTTON_ID, true);
+        super(context, container, SlimButton.SLIM_METADATA_BUTTON_ID, SharedPrefUtils.getBoolean(context, "youtube", "vanced_videoadwhitelisting_enabled", false));
 
         initialize();
     }

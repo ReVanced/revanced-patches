@@ -2,6 +2,8 @@ package fi.vanced.libraries.youtube.ryd;
 
 import static fi.razerman.youtube.XGlobals.debug;
 import static fi.vanced.libraries.youtube.player.VideoInformation.currentVideoId;
+import static fi.vanced.libraries.youtube.ryd.RYDSettings.PREFERENCES_KEY_RYD_ENABLED;
+import static fi.vanced.libraries.youtube.ryd.RYDSettings.PREFERENCES_NAME;
 import static fi.vanced.utils.VancedUtils.getIdentifier;
 import static fi.vanced.utils.VancedUtils.parseJson;
 
@@ -21,8 +23,11 @@ import java.net.URL;
 
 import static fi.vanced.libraries.youtube.player.VideoInformation.dislikeCount;
 
+import fi.vanced.utils.SharedPrefUtils;
+
 public class ReturnYouTubeDislikes {
     public static final String RYD_API_URL = "https://returnyoutubedislikeapi.com";
+    public static boolean isEnabled;
     private static final String TAG = "VI - RYD";
     private static View _dislikeView = null;
     private static Thread _dislikeFetchThread = null;
@@ -34,14 +39,30 @@ public class ReturnYouTubeDislikes {
     private static int votingValue = 0; // 1 = like, -1 = dislike, 0 = no vote
 
     static {
-        registration = new Registration(YouTubeTikTokRoot_Application.getAppContext());
-        voting = new Voting(YouTubeTikTokRoot_Application.getAppContext(), registration);
+        isEnabled = SharedPrefUtils.getBoolean(YouTubeTikTokRoot_Application.getAppContext(), PREFERENCES_NAME, PREFERENCES_KEY_RYD_ENABLED, false);
+        if (isEnabled) {
+            registration = new Registration(YouTubeTikTokRoot_Application.getAppContext());
+            voting = new Voting(YouTubeTikTokRoot_Application.getAppContext(), registration);
+        }
+    }
+
+    public static void onEnabledChange(boolean enabled) {
+        isEnabled = enabled;
+        if (registration == null) {
+            registration = new Registration(YouTubeTikTokRoot_Application.getAppContext());
+        }
+        if (voting == null) {
+            voting = new Voting(YouTubeTikTokRoot_Application.getAppContext(), registration);
+        }
     }
 
     public static void newVideoLoaded(String videoId) {
         if (debug) {
             Log.d(TAG, "newVideoLoaded - " + videoId);
         }
+
+        dislikeCount = null;
+        if (!isEnabled) return;
 
         try {
             if (_dislikeFetchThread != null && _dislikeFetchThread.getState() != Thread.State.TERMINATED) {
@@ -93,10 +114,14 @@ public class ReturnYouTubeDislikes {
 
     // Call to this needs to be injected in YT code
     public static void setLikeTag(View view) {
+        if (!isEnabled) return;
+
         setTag(view, "like");
     }
 
     public static void setLikeTag(View view, boolean active) {
+        if (!isEnabled) return;
+
         likeActive = active;
         if (likeActive) {
             votingValue = 1;
@@ -109,11 +134,15 @@ public class ReturnYouTubeDislikes {
 
     // Call to this needs to be injected in YT code
     public static void setDislikeTag(View view) {
+        if (!isEnabled) return;
+
         _dislikeView = view;
         setTag(view, "dislike");
     }
 
     public static void setDislikeTag(View view, boolean active) {
+        if (!isEnabled) return;
+
         dislikeActive = active;
         if (dislikeActive) {
             votingValue = -1;
@@ -127,15 +156,20 @@ public class ReturnYouTubeDislikes {
 
     // Call to this needs to be injected in YT code
     public static CharSequence onSetText(View view, CharSequence originalText) {
+        if (!isEnabled) return originalText;
         return handleOnSetText(view, originalText);
     }
 
     // Call to this needs to be injected in YT code
     public static void onClick(View view, boolean inactive) {
+        if (!isEnabled) return;
+
         handleOnClick(view, inactive);
     }
 
     private static CharSequence handleOnSetText(View view, CharSequence originalText) {
+        if (!isEnabled) return originalText;
+
         try {
             CharSequence tag = (CharSequence) view.getTag();
             if (debug) {
@@ -158,6 +192,8 @@ public class ReturnYouTubeDislikes {
     }
 
     private static void trySetDislikes(String dislikeCount) {
+        if (!isEnabled) return;
+
         try {
             // Try to set normal video dislike count
             if (_dislikeView == null) {
@@ -184,6 +220,8 @@ public class ReturnYouTubeDislikes {
     }
 
     private static void handleOnClick(View view, boolean previousState) {
+        if (!isEnabled) return;
+
         try {
             String tag = (String) view.getTag();
             if (debug) {
@@ -232,6 +270,8 @@ public class ReturnYouTubeDislikes {
     }
 
     private static void sendVote(int vote) {
+        if (!isEnabled) return;
+
         if (debug) {
             Log.d(TAG, "sending vote - " + vote + " for video " + currentVideoId);
         }
@@ -264,6 +304,8 @@ public class ReturnYouTubeDislikes {
     }
 
     private static void setTag(View view, String tag) {
+        if (!isEnabled) return;
+
         try {
             if (view == null) {
                 if (debug) {

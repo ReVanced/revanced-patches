@@ -337,4 +337,19 @@
     <string name="action_copy">Copy</string>
     <string name="action_tcopy">TCopy</string>
     <string name="action_ads">Ads</string>
+
+    <string name="vanced_video_ad_settings_title">Video ad settings</string>
+    <string name="vanced_videoadwhitelisting_title">Video ad whitelisting</string>
+    <string name="vanced_videoadwhitelisting_summary_off">Video ad whitelisting is turned off</string>
+    <string name="vanced_videoadwhitelisting_summary_on">Video ad whitelisting is turned on. Use the ad button under the player to whitelist a channel</string>
+    <string name="vanced_button_location_entry_none">Hidden</string>
+    <string name="vanced_button_location_entry_player">In player</string>
+    <string name="vanced_button_location_entry_buttoncontainer">Under player</string>
+    <string name="vanced_button_location_entry_both">Both</string>
+    <string name="vanced_ryd_settings_title">RYD settings</string>
+    <string name="vanced_ryd_settings_summary">Uses the RYD API</string>
+    <string name="vanced_ryd_title">Enable RYD</string>
+    <string name="vanced_ryd_summary">Switch this on to see the dislike counts again</string>
+    <string name="vanced_ryd_attribution_title">Return YouTube Dislike Integration</string>
+    <string name="vanced_ryd_attribution_summary">This integration uses the RYD API from https://returnyoutubedislike.com. Tap to learn more</string>
 </resources>

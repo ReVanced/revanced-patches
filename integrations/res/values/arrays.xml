@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="vanced_button_location_entries">
+        <item>@string/vanced_button_location_entry_none</item>
+        <item>@string/vanced_button_location_entry_player</item>
+        <item>@string/vanced_button_location_entry_buttoncontainer</item>
+        <item>@string/vanced_button_location_entry_both</item>
+    </string-array>
+    <string-array name="vanced_button_location_entry_values">
+        <item>NONE</item>
+        <item>PLAYER</item>
+        <item>BUTTON_CONTAINER</item>
+        <item>BOTH</item>
+    </string-array>
+</resources>

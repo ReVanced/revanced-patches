@@ -1,6 +1,8 @@
 package fi.vanced.libraries.youtube.ryd;
 
 import static fi.razerman.youtube.XGlobals.debug;
+import static fi.vanced.libraries.youtube.ryd.RYDSettings.PREFERENCES_KEY_USERID;
+import static fi.vanced.libraries.youtube.ryd.RYDSettings.PREFERENCES_NAME;
 import static fi.vanced.utils.VancedUtils.getPreferences;
 import static fi.vanced.utils.VancedUtils.parseJson;
 import static fi.vanced.utils.VancedUtils.randomString;
@@ -18,7 +20,6 @@ import java.nio.charset.StandardCharsets;
 
 public class Registration {
     private static final String TAG = "VI - RYD - Registration";
-    public static final String PREFERENCES_NAME = "ryd";
 
     private String userId;
     private Context context;
@@ -36,7 +37,7 @@ public class Registration {
             if (this.context == null) throw new Exception("Unable to fetch userId because context was null");
 
             SharedPreferences preferences = getPreferences(context, PREFERENCES_NAME);
-            this.userId = preferences.getString("userId", null);
+            this.userId = preferences.getString(PREFERENCES_KEY_USERID, null);
 
             if (this.userId == null) {
                 this.userId = register();
@@ -55,7 +56,7 @@ public class Registration {
 
             SharedPreferences preferences = getPreferences(context, PREFERENCES_NAME);
             SharedPreferences.Editor editor = preferences.edit();
-            editor.putString("userId", userId).apply();
+            editor.putString(PREFERENCES_KEY_USERID, userId).apply();
         }
         catch (Exception ex) {
             Log.e(TAG, "Unable to save the userId in shared preferences", ex);
