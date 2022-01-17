@@ -34,9 +34,9 @@ public class SBWhitelistButton extends SlimButton {
     }
 
     public void changeEnabled(boolean enabled) {
-        //if (debug) {
+        if (debug) {
             Log.d(TAG, "changeEnabled " + enabled);
-        //}
+        }
         this.button_icon.setEnabled(enabled);
     }
 
