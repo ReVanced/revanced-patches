@@ -38,6 +38,7 @@ import android.widget.Toast;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+import fi.vanced.libraries.youtube.whitelisting.WhitelistType;
 import pl.jakubweg.requests.SBRequester;
 
 @SuppressWarnings({"unused", "deprecation"}) // injected
@@ -274,6 +275,15 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             preference.setSummary(str("general_time_without_sb_sum"));
             preference.setKey(PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS);
             preference.setDefaultValue(showTimeWithoutSegments);
+            preferencesToDisableWhenSBDisabled.add(preference);
+            screen.addPreference(preference);
+        }
+
+        {
+            Preference preference = new SwitchPreference(context);
+            preference.setTitle(str("general_whitelisting"));
+            preference.setSummary(str("general_whitelisting_sum"));
+            preference.setKey(WhitelistType.SPONSORBLOCK.getPreferenceEnabledName());
             preferencesToDisableWhenSBDisabled.add(preference);
             screen.addPreference(preference);
         }

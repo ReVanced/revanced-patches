@@ -7,6 +7,7 @@ import android.content.Context;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import fi.vanced.libraries.youtube.player.VideoInformation;
 import fi.vanced.libraries.youtube.whitelisting.Whitelist;
@@ -14,13 +15,14 @@ import fi.vanced.libraries.youtube.whitelisting.WhitelistType;
 import fi.vanced.libraries.youtube.whitelisting.requests.WhitelistRequester;
 import fi.vanced.utils.SharedPrefUtils;
 import fi.vanced.utils.VancedUtils;
+import pl.jakubweg.SponsorBlockSettings;
 
 public class SBWhitelistButton extends SlimButton {
     public static final String TAG = "VI - SBWhitelistButton";
 
     public SBWhitelistButton(Context context, ViewGroup container) {
         super(context, container, SlimButton.SLIM_METADATA_BUTTON_ID,
-                SharedPrefUtils.getBoolean(context, "youtube", WhitelistType.SPONSORBLOCK.getPreferenceEnabledName(), false));
+                SharedPrefUtils.getBoolean(context, SponsorBlockSettings.PREFERENCES_NAME, WhitelistType.SPONSORBLOCK.getPreferenceEnabledName(), false));
 
         initialize();
     }
@@ -32,9 +34,9 @@ public class SBWhitelistButton extends SlimButton {
     }
 
     public void changeEnabled(boolean enabled) {
-        if (debug) {
+        //if (debug) {
             Log.d(TAG, "changeEnabled " + enabled);
-        }
+        //}
         this.button_icon.setEnabled(enabled);
     }
 
@@ -47,7 +49,7 @@ public class SBWhitelistButton extends SlimButton {
         }
         //this.button_icon.setEnabled(!this.button_icon.isEnabled());
 
-        addToWhiteList();
+        addToWhiteList(this.view, this.button_icon);
     }
 
     private void removeFromWhitelist() {
@@ -63,12 +65,12 @@ public class SBWhitelistButton extends SlimButton {
         this.view.setEnabled(true);
     }
 
-    private void addToWhiteList() {
+    private void addToWhiteList(View view, ImageView buttonIcon) {
         new Thread(() -> {
             if (debug) {
                 Log.d(TAG, "Fetching channelId for " + currentVideoId);
             }
-            WhitelistRequester.addChannelToWhitelist(WhitelistType.SPONSORBLOCK, this.view, this.button_icon, this.context);
+            WhitelistRequester.addChannelToWhitelist(WhitelistType.SPONSORBLOCK, view, buttonIcon, this.context);
         }).start();
     }
 }

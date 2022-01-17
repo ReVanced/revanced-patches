@@ -3,6 +3,7 @@ package fi.vanced.libraries.youtube.whitelisting.requests;
 import static fi.razerman.youtube.XGlobals.debug;
 import static fi.vanced.libraries.youtube.player.VideoInformation.currentVideoId;
 import static fi.vanced.libraries.youtube.ui.AdButton.TAG;
+import static pl.jakubweg.StringRef.str;
 
 import android.content.Context;
 import android.os.Handler;
@@ -29,6 +30,8 @@ public class WhitelistRequester {
     private static final String YT_API_URL = "https://www.youtube.com/youtubei/v1/";
     private static final String YT_API_KEY = "replaceMeWithTheYouTubeAPIKey";
 
+    private WhitelistRequester() {}
+
     public static void addChannelToWhitelist(WhitelistType whitelistType, View view, ImageView buttonIcon, Context context) {
         try {
             HttpURLConnection connection = getConnectionFromRoute(WhitelistRoutes.GET_CHANNEL_DETAILS, YT_API_KEY);
@@ -48,19 +51,21 @@ public class WhitelistRequester {
                 JSONObject json = getJSONObject(connection);
                 JSONObject videoInfo = json.getJSONObject("videoDetails");
                 ChannelModel channelModel = new ChannelModel(videoInfo.getString("author"), videoInfo.getString("channelId"));
+                String author = channelModel.getAuthor();
                 if (debug) {
-                    Log.d(TAG, "channelId " + channelModel.getChannelId() + " fetched for author " + channelModel.getAuthor());
+                    Log.d(TAG, "channelId " + channelModel.getChannelId() + " fetched for author " + author);
                 }
 
                 boolean success = Whitelist.addToWhitelist(whitelistType, context, channelModel);
+                String whitelistTypeName = whitelistType.getFriendlyName();
                 new Handler(Looper.getMainLooper()).post(() -> {
                     if (success) {
                         buttonIcon.setEnabled(true);
-                        Toast.makeText(context, "Channel " + channelModel.getAuthor() + " whitelisted", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, str("vanced_whitelisting_added", author, whitelistTypeName), Toast.LENGTH_SHORT).show();
                     }
                     else {
                         buttonIcon.setEnabled(false);
-                        Toast.makeText(context, "Channel " + channelModel.getAuthor() + " failed to whitelist", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, str("vanced_whitelisting_add_failed", author, whitelistTypeName), Toast.LENGTH_SHORT).show();
                     }
 
                     view.setEnabled(true);

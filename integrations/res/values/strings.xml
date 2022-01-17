@@ -311,6 +311,8 @@
 
     <string name="general_time_without_sb">Show time without segments</string>
     <string name="general_time_without_sb_sum">This time appears in brackets next to the current time. This shows the total video duration minus any segments.</string>
+    <string name="general_whitelisting">Channel whitelisting</string>
+    <string name="general_whitelisting_sum">Use the whitelist button under the player to whitelist a channel</string>
     <string name="segments_preview">Preview/Recap</string>
     <string name="segments_preview_sum">Quick recap of previous episodes, or a preview of what\'s coming up later in the current video. Meant for edited together clips, not for spoken summaries.</string>
     <string name="stats">Stats</string>
@@ -342,6 +344,10 @@
     <string name="vanced_videoadwhitelisting_title">Video ad whitelisting</string>
     <string name="vanced_videoadwhitelisting_summary_off">Video ad whitelisting is turned off</string>
     <string name="vanced_videoadwhitelisting_summary_on">Video ad whitelisting is turned on. Use the ad button under the player to whitelist a channel</string>
+    <string name="vanced_whitelisting_added" formatted="false">Channel %s was added to the %s whitelist</string>
+    <string name="vanced_whitelisting_removed" formatted="false">Channel %s was removed from the %s whitelist</string>
+    <string name="vanced_whitelisting_add_failed" formatted="false">Failed to add channel %s to the %s whitelist</string>
+    <string name="vanced_whitelisting_remove_failed" formatted="false">Failed to remove channel %s from the %s whitelist</string>
     <string name="vanced_button_location_entry_none">Hidden</string>
     <string name="vanced_button_location_entry_player">In player</string>
     <string name="vanced_button_location_entry_buttoncontainer">Under player</string>

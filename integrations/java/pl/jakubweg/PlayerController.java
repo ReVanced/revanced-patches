@@ -2,6 +2,8 @@ package pl.jakubweg;
 
 import static pl.jakubweg.SponsorBlockSettings.skippedSegments;
 import static pl.jakubweg.SponsorBlockSettings.skippedTime;
+import static pl.jakubweg.SponsorBlockUtils.timeWithoutSegments;
+import static pl.jakubweg.SponsorBlockUtils.videoHasSegments;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -25,6 +27,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import fi.vanced.libraries.youtube.player.VideoInformation;
+import fi.vanced.libraries.youtube.whitelisting.Whitelist;
 import pl.jakubweg.objects.SponsorSegment;
 import pl.jakubweg.requests.SBRequester;
 
@@ -123,6 +126,10 @@ public class PlayerController {
     }
 
     public static void executeDownloadSegments(String videoId) {
+        videoHasSegments = false;
+        timeWithoutSegments = "";
+        if (!Whitelist.shouldShowSegments())
+            return;
         SponsorSegment[] segments = SBRequester.getSegments(videoId);
         Arrays.sort(segments);
 

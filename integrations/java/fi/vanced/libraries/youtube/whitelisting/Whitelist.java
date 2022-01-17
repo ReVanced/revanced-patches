@@ -5,17 +5,19 @@ import static fi.vanced.libraries.youtube.player.VideoInformation.channelName;
 import static fi.vanced.libraries.youtube.ui.SlimButtonContainer.adBlockButton;
 import static fi.vanced.libraries.youtube.ui.SlimButtonContainer.sbWhitelistButton;
 import static fi.vanced.utils.VancedUtils.getPreferences;
+import static pl.jakubweg.StringRef.str;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -64,7 +66,7 @@ public class Whitelist {
             return Collections.emptyMap();
         }
         WhitelistType[] whitelistTypes = WhitelistType.values();
-        Map<WhitelistType, ArrayList<ChannelModel>> whitelistMap = new HashMap<>(whitelistTypes.length);
+        Map<WhitelistType, ArrayList<ChannelModel>> whitelistMap = new EnumMap<>(WhitelistType.class);
 
         for (WhitelistType whitelistType : whitelistTypes) {
             SharedPreferences preferences = VancedUtils.getPreferences(context, whitelistType.getPreferencesName());
@@ -73,6 +75,7 @@ public class Whitelist {
                 if (debug) {
                     Log.d(TAG, String.format("channels string was null for %s whitelisting", whitelistType));
                 }
+                whitelistMap.put(whitelistType, new ArrayList<>());
                 continue;
             }
             try {
@@ -93,9 +96,8 @@ public class Whitelist {
     }
 
     private static Map<WhitelistType, Boolean> parseEnabledMap(Context context) {
-        WhitelistType[] whitelistTypes = WhitelistType.values();
-        Map<WhitelistType, Boolean> enabledMap = new HashMap<>(whitelistTypes.length);
-        for (WhitelistType whitelistType : whitelistTypes) {
+        Map<WhitelistType, Boolean> enabledMap = new EnumMap<>(WhitelistType.class);
+        for (WhitelistType whitelistType : WhitelistType.values()) {
             enabledMap.put(whitelistType, SharedPrefUtils.getBoolean(context, "youtube", whitelistType.getPreferenceEnabledName()));
         }
         return enabledMap;
@@ -140,7 +142,7 @@ public class Whitelist {
         return updateWhitelist(whitelistType, whitelisted, context);
     }
 
-    public static boolean removeFromWhitelist(WhitelistType whitelistType, Context context, String channelName) {
+    public static void removeFromWhitelist(WhitelistType whitelistType, Context context, String channelName) {
         ArrayList<ChannelModel> channels = whitelistMap.get(whitelistType);
         Iterator<ChannelModel> iterator = channels.iterator();
         while (iterator.hasNext()) {
@@ -150,7 +152,14 @@ public class Whitelist {
                 break;
             }
         }
-        return updateWhitelist(whitelistType, channels, context);
+        boolean success = updateWhitelist(whitelistType, channels, context);
+        String friendlyName = whitelistType.getFriendlyName();
+        if (success) {
+            Toast.makeText(context, str("vanced_whitelisting_removed", channelName, friendlyName), Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(context, str("vanced_whitelisting_remove_failed", channelName, friendlyName), Toast.LENGTH_SHORT).show();
+        }
     }
 
     private static boolean updateWhitelist(WhitelistType whitelistType, ArrayList<ChannelModel> channels, Context context) {

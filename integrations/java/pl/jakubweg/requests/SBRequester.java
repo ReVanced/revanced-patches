@@ -39,8 +39,6 @@ public class SBRequester {
         try {
             HttpURLConnection connection = getConnectionFromRoute(SBRoutes.GET_SEGMENTS, videoId, SponsorBlockSettings.sponsorBlockUrlCategories);
             int responseCode = connection.getResponseCode();
-            videoHasSegments = false;
-            timeWithoutSegments = "";
 
             if (responseCode == 200) {
                 JSONArray responseArray = Requester.getJSONArray(connection);

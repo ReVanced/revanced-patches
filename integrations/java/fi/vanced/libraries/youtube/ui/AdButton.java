@@ -8,6 +8,7 @@ import android.content.Context;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import fi.vanced.libraries.youtube.player.VideoInformation;
 import fi.vanced.libraries.youtube.whitelisting.Whitelist;
@@ -48,7 +49,7 @@ public class AdButton extends SlimButton {
         }
         //this.button_icon.setEnabled(!this.button_icon.isEnabled());
 
-        addToWhiteList();
+        addToWhiteList(this.view, this.button_icon);
     }
 
     private void removeFromWhitelist() {
@@ -64,12 +65,12 @@ public class AdButton extends SlimButton {
         this.view.setEnabled(true);
     }
 
-    private void addToWhiteList() {
+    private void addToWhiteList(View view, ImageView buttonIcon) {
         new Thread(() -> {
             if (debug) {
                 Log.d(TAG, "Fetching channelId for " + currentVideoId);
             }
-            WhitelistRequester.addChannelToWhitelist(WhitelistType.ADS, this.view, this.button_icon, this.context);
+            WhitelistRequester.addChannelToWhitelist(WhitelistType.ADS, view, buttonIcon, this.context);
         }).start();
     }
 }
