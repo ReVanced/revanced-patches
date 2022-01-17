@@ -54,10 +54,11 @@ public class Requester {
                     long end = (long) (segment.getDouble(1) * 1000);
                     String category = obj.getString("category");
                     String uuid = obj.getString("UUID");
+                    boolean locked = obj.getInt("locked") == 1;
 
                     SponsorBlockSettings.SegmentInfo segmentCategory = SponsorBlockSettings.SegmentInfo.byCategoryKey(category);
                     if (segmentCategory != null && segmentCategory.behaviour.showOnTimeBar) {
-                        SponsorSegment sponsorSegment = new SponsorSegment(start, end, segmentCategory, uuid);
+                        SponsorSegment sponsorSegment = new SponsorSegment(start, end, segmentCategory, uuid, locked);
                         segments.add(sponsorSegment);
                     }
                 }

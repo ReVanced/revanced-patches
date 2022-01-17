@@ -72,6 +72,7 @@ public abstract class SponsorBlockUtils {
     public static boolean videoHasSegments = false;
     public static String timeWithoutSegments = "";
     private static final int sponsorBtnId = 1234;
+    private static final String LOCKED_COLOR = "#FFC83D";
     public static final View.OnClickListener sponsorBlockBtnListener = v -> {
         if (debug) {
             Log.d(TAG, "Shield button clicked");
@@ -212,10 +213,17 @@ public abstract class SponsorBlockUtils {
         final SponsorSegment segment = sponsorSegmentsOfCurrentVideo[which];
 
         final VoteOption[] voteOptions = VoteOption.values();
-        String[] items = new String[voteOptions.length];
+        CharSequence[] items = new CharSequence[voteOptions.length];
 
         for (int i = 0; i < voteOptions.length; i++) {
-            items[i] = voteOptions[i].title;
+            VoteOption voteOption = voteOptions[i];
+            String title = voteOption.title;
+            if (segment.isLocked && voteOption.shouldHighlight) {
+                items[i] = Html.fromHtml(String.format("<font color=\"%s\">%s</font>", LOCKED_COLOR, title));
+            }
+            else {
+                items[i] = title;
+            }
         }
 
         new AlertDialog.Builder(context)
@@ -416,7 +424,7 @@ public abstract class SponsorBlockUtils {
             final SponsorSegment[] segments = original == null ? new SponsorSegment[1] : Arrays.copyOf(original, original.length + 1);
 
             segments[segments.length - 1] = new SponsorSegment(newSponsorSegmentStartMillis, newSponsorSegmentEndMillis,
-                    SponsorBlockSettings.SegmentInfo.UNSUBMITTED, null);
+                    SponsorBlockSettings.SegmentInfo.UNSUBMITTED, null, false);
 
             Arrays.sort(segments);
             sponsorSegmentsOfCurrentVideo = segments;
@@ -651,14 +659,17 @@ public abstract class SponsorBlockUtils {
     }
 
     public enum VoteOption {
-        UPVOTE(str("vote_upvote")),
-        DOWNVOTE(str("vote_downvote")),
-        CATEGORY_CHANGE(str("vote_category"));
+        UPVOTE(str("vote_upvote"), false),
+        DOWNVOTE(str("vote_downvote"), true),
+        CATEGORY_CHANGE(str("vote_category"), true);
 
         public final String title;
+        public final boolean shouldHighlight;
 
-        VoteOption(String title) {
+
+        VoteOption(String title, boolean shouldHighlight) {
             this.title = title;
+            this.shouldHighlight = shouldHighlight;
         }
     }
 
