@@ -24,7 +24,7 @@ import fi.vanced.utils.requests.Requester;
 import fi.vanced.utils.requests.Route;
 
 public class AdsRequester {
-    private static final String YT_API_URL = "https://www.youtube.com/youtubei/v1";
+    private static final String YT_API_URL = "https://www.youtube.com/youtubei/v1/";
     private static final String YT_API_KEY = "replaceMeWithTheYouTubeAPIKey";
 
     public static void retrieveChannelDetails(View view, ImageView buttonIcon, Context context) {
