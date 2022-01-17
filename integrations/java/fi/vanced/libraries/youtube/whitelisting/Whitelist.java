@@ -2,6 +2,8 @@ package fi.vanced.libraries.youtube.whitelisting;
 
 import static fi.razerman.youtube.XGlobals.debug;
 import static fi.vanced.libraries.youtube.player.VideoInformation.channelName;
+import static fi.vanced.libraries.youtube.ui.SlimButtonContainer.adBlockButton;
+import static fi.vanced.libraries.youtube.ui.SlimButtonContainer.sbWhitelistButton;
 import static fi.vanced.utils.VancedUtils.getPreferences;
 
 import android.content.Context;
@@ -19,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 import fi.vanced.libraries.youtube.player.ChannelModel;
+import fi.vanced.libraries.youtube.player.VideoInformation;
 import fi.vanced.utils.ObjectSerializer;
 import fi.vanced.utils.SharedPrefUtils;
 import fi.vanced.utils.VancedUtils;
@@ -30,9 +33,27 @@ public class Whitelist {
 
     private Whitelist() {}
 
+    // injected calls
+
     public static boolean shouldShowAds() {
         return isWhitelisted(WhitelistType.ADS);
     }
+
+    public static void setChannelName(String channelName) {
+        if (debug) {
+            Log.d(TAG, "channel name set to " + channelName);
+        }
+        VideoInformation.channelName = channelName;
+
+        if (enabledMap.get(WhitelistType.ADS) && adBlockButton != null) {
+            adBlockButton.changeEnabled(shouldShowAds());
+        }
+        if (enabledMap.get(WhitelistType.SPONSORBLOCK) && sbWhitelistButton != null) {
+            sbWhitelistButton.changeEnabled(shouldShowSegments());
+        }
+    }
+
+    // the rest
 
     public static boolean shouldShowSegments() {
         return !isWhitelisted(WhitelistType.SPONSORBLOCK);
@@ -147,5 +168,9 @@ public class Whitelist {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public static void setEnabled(WhitelistType whitelistType, boolean enabled) {
+        enabledMap.put(whitelistType, enabled);
     }
 }

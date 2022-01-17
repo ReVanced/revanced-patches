@@ -2,7 +2,7 @@ package fi.vanced.libraries.youtube.whitelisting.requests;
 
 import static fi.razerman.youtube.XGlobals.debug;
 import static fi.vanced.libraries.youtube.player.VideoInformation.currentVideoId;
-import static fi.vanced.libraries.youtube.ui.AdBlock.TAG;
+import static fi.vanced.libraries.youtube.ui.AdButton.TAG;
 
 import android.content.Context;
 import android.os.Handler;

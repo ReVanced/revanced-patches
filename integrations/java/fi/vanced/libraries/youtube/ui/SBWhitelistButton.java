@@ -1,35 +1,34 @@
 package fi.vanced.libraries.youtube.ui;
 
 import static fi.razerman.youtube.XGlobals.debug;
-import static fi.vanced.libraries.youtube.ads.VideoAds.getShouldShowAds;
 import static fi.vanced.libraries.youtube.player.VideoInformation.currentVideoId;
-import static pl.jakubweg.StringRef.str;
 
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
-import fi.vanced.libraries.youtube.ads.VideoAds;
 import fi.vanced.libraries.youtube.player.VideoInformation;
+import fi.vanced.libraries.youtube.whitelisting.Whitelist;
 import fi.vanced.libraries.youtube.whitelisting.WhitelistType;
 import fi.vanced.libraries.youtube.whitelisting.requests.WhitelistRequester;
 import fi.vanced.utils.SharedPrefUtils;
 import fi.vanced.utils.VancedUtils;
 
-public class AdBlock extends SlimButton {
-    public static final String TAG = "VI - AdBlock - Button";
+public class SBWhitelistButton extends SlimButton {
+    public static final String TAG = "VI - SBWhitelistButton";
 
-    public AdBlock(Context context, ViewGroup container) {
-        super(context, container, SlimButton.SLIM_METADATA_BUTTON_ID, SharedPrefUtils.getBoolean(context, "youtube", "vanced_videoadwhitelisting_enabled", false));
+    public SBWhitelistButton(Context context, ViewGroup container) {
+        super(context, container, SlimButton.SLIM_METADATA_BUTTON_ID,
+                SharedPrefUtils.getBoolean(context, "youtube", WhitelistType.SPONSORBLOCK.getPreferenceEnabledName(), false));
 
         initialize();
     }
 
     private void initialize() {
-        this.button_icon.setImageResource(VancedUtils.getIdentifier("vanced_yt_ad_button", "drawable"));
-        this.button_text.setText(str("action_ads"));
-        changeEnabled(getShouldShowAds());
+        this.button_icon.setImageResource(VancedUtils.getIdentifier("vanced_sb_logo", "drawable"));
+        this.button_text.setText("SB");
+        changeEnabled(Whitelist.shouldShowSegments());
     }
 
     public void changeEnabled(boolean enabled) {
@@ -53,7 +52,7 @@ public class AdBlock extends SlimButton {
 
     private void removeFromWhitelist() {
         try {
-            VideoAds.removeFromWhitelist(this.context, VideoInformation.channelName);
+            Whitelist.removeFromWhitelist(WhitelistType.SPONSORBLOCK, this.context, VideoInformation.channelName);
             this.button_icon.setEnabled(false);
         }
         catch (Exception ex) {
@@ -69,7 +68,7 @@ public class AdBlock extends SlimButton {
             if (debug) {
                 Log.d(TAG, "Fetching channelId for " + currentVideoId);
             }
-            WhitelistRequester.addChannelToWhitelist(WhitelistType.ADS, this.view, this.button_icon, this.context);
+            WhitelistRequester.addChannelToWhitelist(WhitelistType.SPONSORBLOCK, this.view, this.button_icon, this.context);
         }).start();
     }
 }
