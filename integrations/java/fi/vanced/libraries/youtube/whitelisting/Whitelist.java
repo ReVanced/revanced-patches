@@ -2,6 +2,7 @@ package fi.vanced.libraries.youtube.whitelisting;
 
 import static fi.razerman.youtube.XGlobals.debug;
 import static fi.vanced.libraries.youtube.player.VideoInformation.channelName;
+import static fi.vanced.utils.VancedUtils.getPreferences;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -9,8 +10,11 @@ import android.util.Log;
 
 import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -21,7 +25,7 @@ import fi.vanced.utils.VancedUtils;
 
 public class Whitelist {
     private static final String TAG = "VI - Whitelisting";
-    private static final Map<WhitelistType, List<ChannelModel>> whitelistMap = parseWhitelist(YouTubeTikTokRoot_Application.getAppContext());
+    private static final Map<WhitelistType, ArrayList<ChannelModel>> whitelistMap = parseWhitelist(YouTubeTikTokRoot_Application.getAppContext());
     private static final Map<WhitelistType, Boolean> enabledMap = parseEnabledMap(YouTubeTikTokRoot_Application.getAppContext());
 
     private Whitelist() {}
@@ -34,12 +38,12 @@ public class Whitelist {
         return !isWhitelisted(WhitelistType.SPONSORBLOCK);
     }
 
-    private static Map<WhitelistType, List<ChannelModel>> parseWhitelist(Context context) {
+    private static Map<WhitelistType, ArrayList<ChannelModel>> parseWhitelist(Context context) {
         if (context == null) {
             return Collections.emptyMap();
         }
         WhitelistType[] whitelistTypes = WhitelistType.values();
-        Map<WhitelistType, List<ChannelModel>> whitelistMap = new HashMap<>(whitelistTypes.length);
+        Map<WhitelistType, ArrayList<ChannelModel>> whitelistMap = new HashMap<>(whitelistTypes.length);
 
         for (WhitelistType whitelistType : whitelistTypes) {
             SharedPreferences preferences = VancedUtils.getPreferences(context, whitelistType.getPreferencesName());
@@ -48,10 +52,10 @@ public class Whitelist {
                 if (debug) {
                     Log.d(TAG, String.format("channels string was null for %s whitelisting", whitelistType));
                 }
-                return Collections.emptyMap();
+                continue;
             }
             try {
-                List<ChannelModel> deserializedChannels = (List<ChannelModel>) ObjectSerializer.deserialize(serializedChannels);
+                ArrayList<ChannelModel> deserializedChannels = (ArrayList<ChannelModel>) ObjectSerializer.deserialize(serializedChannels);
                 if (debug) {
                     Log.d(TAG, serializedChannels);
                     for (ChannelModel channel : deserializedChannels) {
@@ -97,5 +101,51 @@ public class Whitelist {
             }
         }
         return false;
+    }
+
+    public static boolean addToWhitelist(WhitelistType whitelistType, Context context, ChannelModel channel) {
+        ArrayList<ChannelModel> whitelisted = whitelistMap.get(whitelistType);
+        for (ChannelModel whitelistedChannel : whitelisted) {
+            String channelId = channel.getChannelId();
+            if (whitelistedChannel.getChannelId().equals(channelId)) {
+                if (debug) {
+                    Log.d(TAG, String.format("Tried whitelisting an existing channel again. Old info (%1$s | %2$s) - New info (%3$s | %4$s)",
+                            whitelistedChannel.getAuthor(), channelId, channelName, channelId));
+                }
+                return true;
+            }
+        }
+        whitelisted.add(channel);
+        return updateWhitelist(whitelistType, whitelisted, context);
+    }
+
+    public static boolean removeFromWhitelist(WhitelistType whitelistType, Context context, String channelName) {
+        ArrayList<ChannelModel> channels = whitelistMap.get(whitelistType);
+        Iterator<ChannelModel> iterator = channels.iterator();
+        while (iterator.hasNext()) {
+            ChannelModel channel = iterator.next();
+            if (channel.getAuthor().equals(channelName)) {
+                iterator.remove();
+                break;
+            }
+        }
+        return updateWhitelist(whitelistType, channels, context);
+    }
+
+    private static boolean updateWhitelist(WhitelistType whitelistType, ArrayList<ChannelModel> channels, Context context) {
+        if (context == null) {
+            return false;
+        }
+        SharedPreferences preferences = getPreferences(context, whitelistType.getPreferencesName());
+        SharedPreferences.Editor editor = preferences.edit();
+
+        try {
+            editor.putString("channels", ObjectSerializer.serialize(channels));
+            editor.apply();
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

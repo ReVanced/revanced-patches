@@ -10,9 +10,10 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
-import fi.vanced.libraries.youtube.ads.AdsRequester;
 import fi.vanced.libraries.youtube.ads.VideoAds;
 import fi.vanced.libraries.youtube.player.VideoInformation;
+import fi.vanced.libraries.youtube.whitelisting.WhitelistType;
+import fi.vanced.libraries.youtube.whitelisting.requests.WhitelistRequester;
 import fi.vanced.utils.SharedPrefUtils;
 import fi.vanced.utils.VancedUtils;
 
@@ -68,7 +69,7 @@ public class AdBlock extends SlimButton {
             if (debug) {
                 Log.d(TAG, "Fetching channelId for " + currentVideoId);
             }
-            AdsRequester.retrieveChannelDetails(this.view, this.button_icon, this.context);
+            WhitelistRequester.addChannelToWhitelist(WhitelistType.ADS, this.view, this.button_icon, this.context);
         }).start();
     }
 }

@@ -1,4 +1,4 @@
-package fi.vanced.libraries.youtube.ads;
+package fi.vanced.libraries.youtube.whitelisting.requests;
 
 import static fi.razerman.youtube.XGlobals.debug;
 import static fi.vanced.libraries.youtube.player.VideoInformation.currentVideoId;
@@ -20,16 +20,18 @@ import java.net.HttpURLConnection;
 import java.nio.charset.StandardCharsets;
 
 import fi.vanced.libraries.youtube.player.ChannelModel;
+import fi.vanced.libraries.youtube.whitelisting.Whitelist;
+import fi.vanced.libraries.youtube.whitelisting.WhitelistType;
 import fi.vanced.utils.requests.Requester;
 import fi.vanced.utils.requests.Route;
 
-public class AdsRequester {
+public class WhitelistRequester {
     private static final String YT_API_URL = "https://www.youtube.com/youtubei/v1/";
     private static final String YT_API_KEY = "replaceMeWithTheYouTubeAPIKey";
 
-    public static void retrieveChannelDetails(View view, ImageView buttonIcon, Context context) {
+    public static void addChannelToWhitelist(WhitelistType whitelistType, View view, ImageView buttonIcon, Context context) {
         try {
-            HttpURLConnection connection = getConnectionFromRoute(AdsRoutes.GET_CHANNEL_DETAILS, YT_API_KEY);
+            HttpURLConnection connection = getConnectionFromRoute(WhitelistRoutes.GET_CHANNEL_DETAILS, YT_API_KEY);
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/json; utf-8");
             connection.setRequestProperty("Accept", "application/json");
@@ -50,7 +52,7 @@ public class AdsRequester {
                     Log.d(TAG, "channelId " + channelModel.getChannelId() + " fetched for author " + channelModel.getAuthor());
                 }
 
-                boolean success = VideoAds.addToWhitelist(context, channelModel.getAuthor(), channelModel.getChannelId());
+                boolean success = Whitelist.addToWhitelist(whitelistType, context, channelModel);
                 new Handler(Looper.getMainLooper()).post(() -> {
                     if (success) {
                         buttonIcon.setEnabled(true);
