@@ -38,7 +38,7 @@ import android.widget.Toast;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-import pl.jakubweg.requests.Requester;
+import pl.jakubweg.requests.SBRequester;
 
 @SuppressWarnings({"unused", "deprecation"}) // injected
 public class SponsorBlockPreferenceFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -197,7 +197,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             category.addPreference(preference);
             preference.setTitle(str("stats_loading"));
 
-            Requester.retrieveUserStats(category, preference);
+            SBRequester.retrieveUserStats(category, preference);
         }
     }
 

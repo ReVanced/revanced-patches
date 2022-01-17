@@ -2,16 +2,14 @@ package fi.vanced.libraries.youtube.ryd;
 
 import static fi.razerman.youtube.XGlobals.debug;
 import static fi.vanced.libraries.youtube.player.VideoInformation.currentVideoId;
+import static fi.vanced.libraries.youtube.player.VideoInformation.dislikeCount;
 import static fi.vanced.libraries.youtube.ryd.RYDSettings.PREFERENCES_KEY_RYD_ENABLED;
 import static fi.vanced.libraries.youtube.ryd.RYDSettings.PREFERENCES_NAME;
 import static fi.vanced.utils.VancedUtils.getIdentifier;
-import static fi.vanced.utils.VancedUtils.parseJson;
 
 import android.content.Context;
 import android.icu.text.CompactDecimalFormat;
 import android.os.Build;
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -19,20 +17,14 @@ import android.widget.Toast;
 
 import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
 
-import org.json.JSONObject;
-
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.Locale;
 
-import static fi.vanced.libraries.youtube.player.VideoInformation.dislikeCount;
-
+import fi.vanced.libraries.youtube.ryd.requests.RYDRequester;
 import fi.vanced.utils.SharedPrefUtils;
 
 public class ReturnYouTubeDislikes {
-    public static final String RYD_API_URL = "https://returnyoutubedislikeapi.com";
     public static boolean isEnabled;
-    private static final String TAG = "VI - RYD";
+    public static final String TAG = "VI - RYD";
     private static View _dislikeView = null;
     private static Thread _dislikeFetchThread = null;
     private static Thread _votingThread = null;
@@ -96,39 +88,7 @@ public class ReturnYouTubeDislikes {
             Log.e(TAG, "Error in the dislike fetch thread", ex);
         }
 
-        _dislikeFetchThread = new Thread(() -> {
-            try {
-                if (debug) {
-                    Log.d(TAG, "Fetching dislikes for " + videoId);
-                }
-                HttpURLConnection connection = (HttpURLConnection) new URL(RYD_API_URL + "/votes?videoId=" + videoId).openConnection();
-                connection.setRequestProperty("User-agent", System.getProperty("http.agent") + ";vanced");
-                connection.setConnectTimeout(5 * 1000);
-                if (connection.getResponseCode() == 200) {
-                    JSONObject json = new JSONObject(parseJson(connection));
-                    dislikeCount = json.getInt("dislikes");
-                    if (debug) {
-                        Log.d(TAG, "dislikes fetched - " + dislikeCount);
-                    }
-
-                    // Set the dislikes
-                    new Handler(Looper.getMainLooper()).post(new Runnable () {
-                        @Override
-                        public void run () {
-                            trySetDislikes(formatDislikes(dislikeCount));
-                        }
-                    });
-                }
-                else if (debug) {
-                    Log.d(TAG, "dislikes fetch response was " + connection.getResponseCode());
-                }
-            }
-            catch (Exception ex) {
-                dislikeCount = null;
-                Log.e(TAG, "Failed to fetch dislikes", ex);
-                return;
-            }
-        });
+        _dislikeFetchThread = new Thread(() -> RYDRequester.fetchDislikes(videoId));
         _dislikeFetchThread.start();
     }
 
@@ -211,7 +171,7 @@ public class ReturnYouTubeDislikes {
         return originalText;
     }
 
-    private static void trySetDislikes(String dislikeCount) {
+    public static void trySetDislikes(String dislikeCount) {
         if (!isEnabled) return;
 
         try {
@@ -345,7 +305,7 @@ public class ReturnYouTubeDislikes {
         }
     }
 
-    private static String formatDislikes(int dislikes) {
+    public static String formatDislikes(int dislikes) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && compactNumberFormatter != null) {
             final String formatted = compactNumberFormatter.format(dislikes);
             if (debug) {

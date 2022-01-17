@@ -24,7 +24,7 @@ import static pl.jakubweg.SponsorBlockSettings.skippedSegments;
 import static pl.jakubweg.SponsorBlockSettings.skippedTime;
 import static pl.jakubweg.SponsorBlockSettings.uuid;
 import static pl.jakubweg.StringRef.str;
-import static pl.jakubweg.requests.Requester.voteForSegment;
+import static pl.jakubweg.requests.SBRequester.voteForSegment;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -61,7 +61,7 @@ import java.util.TimeZone;
 
 import pl.jakubweg.objects.SponsorSegment;
 import pl.jakubweg.objects.UserStats;
-import pl.jakubweg.requests.Requester;
+import pl.jakubweg.requests.SBRequester;
 
 @SuppressWarnings({"LongLogTag"})
 public abstract class SponsorBlockUtils {
@@ -281,7 +281,7 @@ public abstract class SponsorBlockUtils {
                 Log.e(TAG, "Unable to submit times, invalid parameters");
                 return;
             }
-            Requester.submitSegments(videoId, uuid, ((float) start) / 1000f, ((float) end) / 1000f, segmentType.key, toastRunnable);
+            SBRequester.submitSegments(videoId, uuid, ((float) start) / 1000f, ((float) end) / 1000f, segmentType.key, toastRunnable);
             newSponsorSegmentEndMillis = newSponsorSegmentStartMillis = -1;
         } catch (Exception e) {
             Log.e(TAG, "Unable to submit segment", e);
@@ -485,15 +485,6 @@ public abstract class SponsorBlockUtils {
         }
     }
 
-    public static int countMatches(CharSequence seq, char c) {
-        int count = 0;
-        for (int i = 0; i < seq.length(); i++) {
-            if (seq.charAt(i) == c)
-                count++;
-        }
-        return count;
-    }
-
     public static String formatColorString(int color) {
         return String.format("#%06X", color);
     }
@@ -514,7 +505,7 @@ public abstract class SponsorBlockUtils {
             preference.setText(userName);
             preference.setOnPreferenceChangeListener((preference1, newUsername) -> {
                 appContext = new WeakReference<>(context.getApplicationContext());
-                Requester.setUsername((String) newUsername, toastRunnable);
+                SBRequester.setUsername((String) newUsername, toastRunnable);
                 return false;
             });
         }

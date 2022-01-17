@@ -4,7 +4,6 @@ import static fi.razerman.youtube.XGlobals.debug;
 import static fi.vanced.libraries.youtube.player.VideoInformation.channelName;
 import static fi.vanced.libraries.youtube.ui.SlimButtonContainer.adBlockButton;
 import static fi.vanced.utils.VancedUtils.getPreferences;
-import static fi.vanced.utils.VancedUtils.parseJson;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -12,12 +11,7 @@ import android.util.Log;
 
 import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
 
-import org.json.JSONObject;
-
 import java.io.IOException;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -53,63 +47,6 @@ public class VideoAds {
         if (adBlockButton != null) {
             adBlockButton.changeEnabled(getShouldShowAds());
         }
-    }
-
-    // Call to this needs to be injected in YT code (CURRENTLY NOT USED)
-    public static void newVideoLoaded(String videoId) {
-        if (debug) {
-            Log.d(TAG, "newVideoLoaded - " + videoId);
-        }
-
-        try {
-            if (fetchThread != null && fetchThread.getState() != Thread.State.TERMINATED) {
-                if (debug) {
-                    Log.d(TAG, "Interrupting the thread. Current state " + fetchThread.getState());
-                }
-                fetchThread.interrupt();
-            }
-        }
-        catch (Exception ex) {
-            Log.e(TAG, "Error in the fetch thread", ex);
-        }
-
-        fetchThread = new Thread(() -> {
-            try {
-                if (debug) {
-                    Log.d(TAG, "Fetching channelId for " + videoId);
-                }
-                HttpURLConnection connection = (HttpURLConnection) new URL(YT_API_URL + "/player?key=" + YT_API_KEY).openConnection();
-                connection.setRequestMethod("POST");
-                connection.setRequestProperty("Content-Type", "application/json; utf-8");
-                connection.setRequestProperty("Accept", "application/json");
-                connection.setDoOutput(true);
-                connection.setConnectTimeout(2 * 1000);
-
-                // TODO: Actually fetch the version
-                String jsonInputString = "{\"context\": {\"client\": { \"clientName\": \"Android\", \"clientVersion\": \"16.49.37\" } }, \"videoId\": \"" + videoId + "\"}";
-                try(OutputStream os = connection.getOutputStream()) {
-                    byte[] input = jsonInputString.getBytes("utf-8");
-                    os.write(input, 0, input.length);
-                }
-                if (connection.getResponseCode() == 200) {
-                    JSONObject json = new JSONObject(parseJson(connection));
-                    JSONObject videoInfo = json.getJSONObject("videoDetails");
-                    ChannelModel channelModel = new ChannelModel(videoInfo.getString("author"), videoInfo.getString("channelId"));
-                    if (debug) {
-                        Log.d(TAG, "channelId " + channelModel.getChannelId() + " fetched for author " + channelModel.getAuthor());
-                    }
-                }
-                else if (debug) {
-                    Log.d(TAG, "player fetch response was " + connection.getResponseCode());
-                }
-            }
-            catch (Exception ex) {
-                Log.e(TAG, "Failed to fetch channelId", ex);
-                return;
-            }
-        });
-
-        fetchThread.start();
     }
 
     public static boolean getShouldShowAds() {

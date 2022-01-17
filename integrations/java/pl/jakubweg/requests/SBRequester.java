@@ -14,41 +14,39 @@ import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import fi.vanced.utils.requests.Requester;
+import fi.vanced.utils.requests.Route;
 import pl.jakubweg.SponsorBlockSettings;
 import pl.jakubweg.SponsorBlockUtils;
 import pl.jakubweg.SponsorBlockUtils.VoteOption;
 import pl.jakubweg.objects.SponsorSegment;
 import pl.jakubweg.objects.UserStats;
 
-public class Requester {
-    private static final String SPONSORBLOCK_API_URL = "https://sponsor.ajay.app/api/";
+public class SBRequester {
+    private static final String SPONSORLOCK_API_URL = "https://sponsor.ajay.app/api/";
     private static final String TIME_TEMPLATE = "%.3f";
 
-    private Requester() {}
+    private SBRequester() {}
 
     public static synchronized SponsorSegment[] getSegments(String videoId) {
         List<SponsorSegment> segments = new ArrayList<>();
         try {
-            HttpURLConnection connection = getConnectionFromRoute(Route.GET_SEGMENTS, videoId, SponsorBlockSettings.sponsorBlockUrlCategories);
+            HttpURLConnection connection = getConnectionFromRoute(SBRoutes.GET_SEGMENTS, videoId, SponsorBlockSettings.sponsorBlockUrlCategories);
             int responseCode = connection.getResponseCode();
             videoHasSegments = false;
             timeWithoutSegments = "";
 
             if (responseCode == 200) {
-                JSONArray responseArray = new JSONArray(parseJson(connection));
+                JSONArray responseArray = Requester.getJSONArray(connection);
                 int length = responseArray.length();
                 for (int i = 0; i < length; i++) {
-                    JSONObject obj = ((JSONObject) responseArray.get(i));
+                    JSONObject obj = (JSONObject) responseArray.get(i);
                     JSONArray segment = obj.getJSONArray("segment");
                     long start = (long) (segment.getDouble(0) * 1000);
                     long end = (long) (segment.getDouble(1) * 1000);
@@ -64,7 +62,6 @@ public class Requester {
                 videoHasSegments = true;
                 timeWithoutSegments = SponsorBlockUtils.getTimeWithoutSegments(segments.toArray(new SponsorSegment[0]));
             }
-            connection.disconnect();
         }
         catch (Exception ex) {
             ex.printStackTrace();
@@ -76,7 +73,7 @@ public class Requester {
         try {
             String start = String.format(Locale.US, TIME_TEMPLATE, startTime);
             String end = String.format(Locale.US, TIME_TEMPLATE, endTime);
-            HttpURLConnection connection = getConnectionFromRoute(Route.SUBMIT_SEGMENTS, videoId, uuid, start, end, category);
+            HttpURLConnection connection = getConnectionFromRoute(SBRoutes.SUBMIT_SEGMENTS, videoId, uuid, start, end, category);
             int responseCode = connection.getResponseCode();
 
             switch (responseCode) {
@@ -106,7 +103,7 @@ public class Requester {
 
     public static void sendViewCountRequest(SponsorSegment segment) {
         try {
-            HttpURLConnection connection = getConnectionFromRoute(Route.VIEWED_SEGMENT, segment.UUID);
+            HttpURLConnection connection = getConnectionFromRoute(SBRoutes.VIEWED_SEGMENT, segment.UUID);
             connection.disconnect();
         }
         catch (Exception ex) {
@@ -123,8 +120,8 @@ public class Requester {
             Toast.makeText(context, str("vote_started"), Toast.LENGTH_SHORT).show();
 
             HttpURLConnection connection = voteOption == VoteOption.CATEGORY_CHANGE
-                    ? getConnectionFromRoute(Route.VOTE_ON_SEGMENT_CATEGORY, segmentUuid, uuid, args[0])
-                    : getConnectionFromRoute(Route.VOTE_ON_SEGMENT_QUALITY, segmentUuid, uuid, vote);
+                    ? getConnectionFromRoute(SBRoutes.VOTE_ON_SEGMENT_CATEGORY, segmentUuid, uuid, args[0])
+                    : getConnectionFromRoute(SBRoutes.VOTE_ON_SEGMENT_QUALITY, segmentUuid, uuid, vote);
             int responseCode = connection.getResponseCode();
 
             switch (responseCode) {
@@ -154,9 +151,7 @@ public class Requester {
 
         new Thread(() -> {
             try {
-                HttpURLConnection connection = getConnectionFromRoute(Route.GET_USER_STATS, SponsorBlockSettings.uuid);
-                JSONObject json = new JSONObject(parseJson(connection));
-                connection.disconnect();
+                JSONObject json = getJSONObject(SBRoutes.GET_USER_STATS, SponsorBlockSettings.uuid);
                 UserStats stats = new UserStats(json.getString("userName"), json.getDouble("minutesSaved"), json.getInt("segmentCount"),
                         json.getInt("viewCount"));
                 SponsorBlockUtils.addUserStats(category, loadingPreference, stats);
@@ -169,7 +164,7 @@ public class Requester {
 
     public static void setUsername(String username, Runnable toastRunnable) {
         try {
-            HttpURLConnection connection = getConnectionFromRoute(Route.CHANGE_USERNAME, SponsorBlockSettings.uuid, username);
+            HttpURLConnection connection = getConnectionFromRoute(SBRoutes.CHANGE_USERNAME, SponsorBlockSettings.uuid, username);
             int responseCode = connection.getResponseCode();
 
             if (responseCode == 200) {
@@ -187,21 +182,10 @@ public class Requester {
     }
 
     private static HttpURLConnection getConnectionFromRoute(Route route, String... params) throws IOException {
-        String url = SPONSORBLOCK_API_URL + route.compile(params).getCompiledRoute();
-        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
-        connection.setRequestMethod(route.getMethod().name());
-        return connection;
+        return Requester.getConnectionFromRoute(SPONSORLOCK_API_URL, route, params);
     }
 
-    private static String parseJson(HttpURLConnection connection) throws IOException {
-        StringBuilder jsonBuilder = new StringBuilder();
-        InputStream inputStream = connection.getInputStream();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-        String line;
-        while ((line = reader.readLine()) != null) {
-            jsonBuilder.append(line);
-        }
-        inputStream.close();
-        return jsonBuilder.toString();
+    private static JSONObject getJSONObject(Route route, String... params) throws Exception {
+        return Requester.getJSONObject(getConnectionFromRoute(route, params));
     }
 }
