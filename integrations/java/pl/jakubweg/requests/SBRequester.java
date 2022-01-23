@@ -60,6 +60,7 @@ public class SBRequester {
                 videoHasSegments = true;
                 timeWithoutSegments = SponsorBlockUtils.getTimeWithoutSegments(segments.toArray(new SponsorSegment[0]));
             }
+            connection.disconnect();
         }
         catch (Exception ex) {
             ex.printStackTrace();
