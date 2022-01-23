@@ -48,6 +48,7 @@ public class RYDRequester {
             else if (debug) {
                 Log.d(TAG, "dislikes fetch response was " + connection.getResponseCode());
             }
+            connection.disconnect();
         }
         catch (Exception ex) {
             dislikeCount = null;
@@ -79,6 +80,7 @@ public class RYDRequester {
             else if (debug) {
                 Log.d(TAG, "Registration response was " + connection.getResponseCode());
             }
+            connection.disconnect();
         }
         catch (Exception ex){
             Log.e(TAG, "Failed to register userId", ex);
@@ -118,6 +120,7 @@ public class RYDRequester {
             else if (debug) {
                 Log.d(TAG, "Registration confirmation response was " + connection.getResponseCode());
             }
+            connection.disconnect();
         }
         catch (Exception ex) {
             Log.e(TAG, "Failed to confirm registration", ex);
@@ -157,6 +160,7 @@ public class RYDRequester {
             else if (debug) {
                 Log.d(TAG, "Vote response was " + connection.getResponseCode());
             }
+            connection.disconnect();
         }
         catch (Exception ex) {
             Log.e(TAG, "Failed to send vote", ex);
@@ -191,6 +195,7 @@ public class RYDRequester {
             else if (debug) {
                 Log.d(TAG, "Vote confirmation response was " + connection.getResponseCode());
             }
+            connection.disconnect();
         }
         catch (Exception ex) {
             Log.e(TAG, "Failed to confirm vote", ex);

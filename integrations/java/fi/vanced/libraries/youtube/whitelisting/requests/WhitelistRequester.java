@@ -81,6 +81,7 @@ public class WhitelistRequester {
                     view.setEnabled(true);
                 });
             }
+            connection.disconnect();
         }
         catch (Exception ex) {
             Log.e(TAG, "Failed to fetch channelId", ex);
