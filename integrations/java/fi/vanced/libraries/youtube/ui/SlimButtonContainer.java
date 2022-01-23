@@ -78,7 +78,7 @@ public class SlimButtonContainer extends SlimMetadataScrollableButtonContainerLa
                 WhitelistType whitelistAds = WhitelistType.ADS;
                 String adsEnabledPreferenceName = whitelistAds.getPreferenceEnabledName();
                 if (adsEnabledPreferenceName.equals(key) && adBlockButton != null) {
-                    boolean enabled = SharedPrefUtils.getBoolean(context, "youtube", adsEnabledPreferenceName, false);
+                    boolean enabled = SharedPrefUtils.getBoolean(context, whitelistAds.getSharedPreferencesName(), adsEnabledPreferenceName, false);
                     Whitelist.setEnabled(whitelistAds, enabled);
                     adBlockButton.setVisible(enabled);
                     return;
@@ -86,7 +86,7 @@ public class SlimButtonContainer extends SlimMetadataScrollableButtonContainerLa
                 WhitelistType whitelistSB = WhitelistType.SPONSORBLOCK;
                 String sbEnabledPreferenceName = whitelistSB.getPreferenceEnabledName();
                 if (sbEnabledPreferenceName.equals(key) && sbWhitelistButton != null) {
-                    boolean enabled = SharedPrefUtils.getBoolean(context, "youtube", sbEnabledPreferenceName, false);
+                    boolean enabled = SharedPrefUtils.getBoolean(context, whitelistSB.getSharedPreferencesName(), sbEnabledPreferenceName, false);
                     Whitelist.setEnabled(whitelistSB, enabled);
                     sbWhitelistButton.setVisible(enabled);
                     return;
@@ -97,7 +97,9 @@ public class SlimButtonContainer extends SlimMetadataScrollableButtonContainerLa
             }
         };
 
-        context.getSharedPreferences("youtube", Context.MODE_PRIVATE)
+        context.getSharedPreferences(WhitelistType.ADS.getSharedPreferencesName(), Context.MODE_PRIVATE)
+                .registerOnSharedPreferenceChangeListener(listener);
+        context.getSharedPreferences(WhitelistType.SPONSORBLOCK.getSharedPreferencesName(), Context.MODE_PRIVATE)
                 .registerOnSharedPreferenceChangeListener(listener);
     }
 }

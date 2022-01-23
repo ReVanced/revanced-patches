@@ -22,7 +22,7 @@ public class AdButton extends SlimButton {
 
     public AdButton(Context context, ViewGroup container) {
         super(context, container, SlimButton.SLIM_METADATA_BUTTON_ID,
-                SharedPrefUtils.getBoolean(context, "youtube", WhitelistType.ADS.getPreferenceEnabledName(), false));
+                SharedPrefUtils.getBoolean(context, WhitelistType.ADS.getSharedPreferencesName(), WhitelistType.ADS.getPreferenceEnabledName(), false));
 
         initialize();
     }
@@ -55,7 +55,7 @@ public class AdButton extends SlimButton {
     private void removeFromWhitelist() {
         try {
             Whitelist.removeFromWhitelist(WhitelistType.ADS, this.context, VideoInformation.channelName);
-            this.button_icon.setEnabled(false);
+            changeEnabled(false);
         }
         catch (Exception ex) {
             Log.e(TAG, "Failed to remove from whitelist", ex);

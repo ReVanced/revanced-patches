@@ -2,6 +2,7 @@ package fi.vanced.libraries.youtube.ui;
 
 import static fi.razerman.youtube.XGlobals.debug;
 import static fi.vanced.libraries.youtube.player.VideoInformation.currentVideoId;
+import static pl.jakubweg.StringRef.str;
 
 import android.content.Context;
 import android.util.Log;
@@ -15,35 +16,34 @@ import fi.vanced.libraries.youtube.whitelisting.WhitelistType;
 import fi.vanced.libraries.youtube.whitelisting.requests.WhitelistRequester;
 import fi.vanced.utils.SharedPrefUtils;
 import fi.vanced.utils.VancedUtils;
-import pl.jakubweg.SponsorBlockSettings;
 
 public class SBWhitelistButton extends SlimButton {
     public static final String TAG = "VI - SBWhitelistButton";
 
     public SBWhitelistButton(Context context, ViewGroup container) {
         super(context, container, SlimButton.SLIM_METADATA_BUTTON_ID,
-                SharedPrefUtils.getBoolean(context, SponsorBlockSettings.PREFERENCES_NAME, WhitelistType.SPONSORBLOCK.getPreferenceEnabledName(), false));
+                SharedPrefUtils.getBoolean(context, WhitelistType.SPONSORBLOCK.getSharedPreferencesName(), WhitelistType.SPONSORBLOCK.getPreferenceEnabledName(), false));
 
         initialize();
     }
 
     private void initialize() {
-        this.button_icon.setImageResource(VancedUtils.getIdentifier("vanced_sb_logo", "drawable"));
-        this.button_text.setText("SB");
-        changeEnabled(Whitelist.shouldShowSegments());
+        this.button_icon.setImageResource(VancedUtils.getIdentifier("vanced_yt_sb_button", "drawable"));
+        this.button_text.setText(str("action_segments"));
+        changeEnabled(Whitelist.isChannelSBWhitelisted());
     }
 
     public void changeEnabled(boolean enabled) {
         if (debug) {
             Log.d(TAG, "changeEnabled " + enabled);
         }
-        this.button_icon.setEnabled(enabled);
+        this.button_icon.setEnabled(!enabled); // enabled == true -> strikethrough (no segments), enabled == false -> clear (segments)
     }
 
     @Override
     public void onClick(View view) {
         this.view.setEnabled(false);
-        if (this.button_icon.isEnabled()) {
+        if (Whitelist.isChannelSBWhitelisted()) {
             removeFromWhitelist();
             return;
         }
@@ -55,7 +55,7 @@ public class SBWhitelistButton extends SlimButton {
     private void removeFromWhitelist() {
         try {
             Whitelist.removeFromWhitelist(WhitelistType.SPONSORBLOCK, this.context, VideoInformation.channelName);
-            this.button_icon.setEnabled(false);
+            changeEnabled(false);
         }
         catch (Exception ex) {
             Log.e(TAG, "Failed to remove from whitelist", ex);

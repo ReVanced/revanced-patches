@@ -47,7 +47,8 @@ public class WhitelistRequester {
                 byte[] input = jsonInputString.getBytes(StandardCharsets.UTF_8);
                 os.write(input, 0, input.length);
             }
-            if (connection.getResponseCode() == 200) {
+            int responseCode = connection.getResponseCode();
+            if (responseCode == 200) {
                 JSONObject json = getJSONObject(connection);
                 JSONObject videoInfo = json.getJSONObject("videoDetails");
                 ChannelModel channelModel = new ChannelModel(videoInfo.getString("author"), videoInfo.getString("channelId"));
@@ -58,35 +59,40 @@ public class WhitelistRequester {
 
                 boolean success = Whitelist.addToWhitelist(whitelistType, context, channelModel);
                 String whitelistTypeName = whitelistType.getFriendlyName();
-                new Handler(Looper.getMainLooper()).post(() -> {
+                runOnMainThread(() -> {
                     if (success) {
-                        buttonIcon.setEnabled(true);
+                        buttonIcon.setEnabled(whitelistType != WhitelistType.SPONSORBLOCK);
                         Toast.makeText(context, str("vanced_whitelisting_added", author, whitelistTypeName), Toast.LENGTH_SHORT).show();
                     }
                     else {
-                        buttonIcon.setEnabled(false);
+                        buttonIcon.setEnabled(whitelistType == WhitelistType.SPONSORBLOCK);
                         Toast.makeText(context, str("vanced_whitelisting_add_failed", author, whitelistTypeName), Toast.LENGTH_SHORT).show();
                     }
-
                     view.setEnabled(true);
                 });
             }
             else {
                 if (debug) {
-                    Log.d(TAG, "player fetch response was " + connection.getResponseCode());
+                    Log.d(TAG, "player fetch response was " + responseCode);
                 }
-
-                buttonIcon.setEnabled(false);
-                view.setEnabled(true);
+                runOnMainThread(() -> {
+                    Toast.makeText(context, str("vanced_whitelisting_fetch_failed", responseCode), Toast.LENGTH_SHORT).show();
+                    buttonIcon.setEnabled(true);
+                    view.setEnabled(true);
+                });
             }
         }
         catch (Exception ex) {
             Log.e(TAG, "Failed to fetch channelId", ex);
-            view.setEnabled(true);
+            runOnMainThread(() -> view.setEnabled(true));
         }
     }
 
     // helpers
+
+    private static void runOnMainThread(Runnable runnable) {
+        new Handler(Looper.getMainLooper()).post(runnable);
+    }
 
     private static HttpURLConnection getConnectionFromRoute(Route route, String... params) throws IOException {
         return Requester.getConnectionFromRoute(YT_API_URL, route, params);

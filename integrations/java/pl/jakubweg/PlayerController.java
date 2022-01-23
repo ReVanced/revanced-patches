@@ -128,7 +128,7 @@ public class PlayerController {
     public static void executeDownloadSegments(String videoId) {
         videoHasSegments = false;
         timeWithoutSegments = "";
-        if (!Whitelist.shouldShowSegments())
+        if (Whitelist.isChannelSBWhitelisted())
             return;
         SponsorSegment[] segments = SBRequester.getSegments(videoId);
         Arrays.sort(segments);

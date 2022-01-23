@@ -13,7 +13,6 @@ import android.os.Build;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
 
@@ -239,8 +238,6 @@ public class ReturnYouTubeDislikes {
                 Log.d(TAG, "New vote status - " + votingValue);
                 Log.d(TAG, "Like button " + likeActive + " | Dislike button " + dislikeActive);
             }
-
-            Toast.makeText(YouTubeTikTokRoot_Application.getAppContext(), "Voting value: " + votingValue, Toast.LENGTH_SHORT).show();
 
             sendVote(votingValue);
         }

@@ -51,14 +51,14 @@ public class Whitelist {
             adBlockButton.changeEnabled(shouldShowAds());
         }
         if (enabledMap.get(WhitelistType.SPONSORBLOCK) && sbWhitelistButton != null) {
-            sbWhitelistButton.changeEnabled(shouldShowSegments());
+            sbWhitelistButton.changeEnabled(isChannelSBWhitelisted());
         }
     }
 
     // the rest
 
-    public static boolean shouldShowSegments() {
-        return !isWhitelisted(WhitelistType.SPONSORBLOCK);
+    public static boolean isChannelSBWhitelisted() {
+        return isWhitelisted(WhitelistType.SPONSORBLOCK);
     }
 
     private static Map<WhitelistType, ArrayList<ChannelModel>> parseWhitelist(Context context) {
@@ -98,7 +98,7 @@ public class Whitelist {
     private static Map<WhitelistType, Boolean> parseEnabledMap(Context context) {
         Map<WhitelistType, Boolean> enabledMap = new EnumMap<>(WhitelistType.class);
         for (WhitelistType whitelistType : WhitelistType.values()) {
-            enabledMap.put(whitelistType, SharedPrefUtils.getBoolean(context, "youtube", whitelistType.getPreferenceEnabledName()));
+            enabledMap.put(whitelistType, SharedPrefUtils.getBoolean(context, whitelistType.getSharedPreferencesName(), whitelistType.getPreferenceEnabledName()));
         }
         return enabledMap;
     }
