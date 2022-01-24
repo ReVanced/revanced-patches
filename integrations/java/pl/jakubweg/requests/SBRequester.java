@@ -84,7 +84,7 @@ public class SBRequester {
                     SponsorBlockUtils.messageToToast = str("submit_failed_duplicate");
                     break;
                 case 403:
-                    SponsorBlockUtils.messageToToast = str("submit_failed_forbidden");
+                    SponsorBlockUtils.messageToToast = str("submit_failed_forbidden", Requester.parseJson(connection.getErrorStream()));
                     break;
                 case 429:
                     SponsorBlockUtils.messageToToast = str("submit_failed_rate_limit");
@@ -130,7 +130,7 @@ public class SBRequester {
                         SponsorBlockUtils.messageToToast = str("vote_succeeded");
                         break;
                     case 403:
-                        SponsorBlockUtils.messageToToast = str("vote_failed_forbidden");
+                        SponsorBlockUtils.messageToToast = str("vote_failed_forbidden", Requester.parseJson(connection.getErrorStream()));
                         break;
                     default:
                         SponsorBlockUtils.messageToToast = str("vote_failed_unknown_error", responseCode, connection.getResponseMessage());
@@ -188,6 +188,8 @@ public class SBRequester {
             }
         }).start();
     }
+
+    // helpers
 
     private static HttpURLConnection getConnectionFromRoute(Route route, String... params) throws IOException {
         return Requester.getConnectionFromRoute(SPONSORBLOCK_API_URL, route, params);

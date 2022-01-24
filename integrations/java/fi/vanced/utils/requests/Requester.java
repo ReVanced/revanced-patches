@@ -21,12 +21,15 @@ public class Requester {
     }
 
     public static String parseJson(HttpURLConnection connection) throws IOException {
+        return parseJson(connection.getInputStream());
+    }
+
+    public static String parseJson(InputStream inputStream) throws IOException {
         StringBuilder jsonBuilder = new StringBuilder();
-        InputStream inputStream = connection.getInputStream();
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         String line;
         while ((line = reader.readLine()) != null) {
-            jsonBuilder.append(line);
+            jsonBuilder.append(line).append("\n");
         }
         inputStream.close();
         return jsonBuilder.toString();
