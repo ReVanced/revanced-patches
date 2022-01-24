@@ -22,6 +22,7 @@ public class SponsorBlockSettings {
     public static final String PREFERENCES_KEY_COUNT_SKIPS = "count-skips";
     public static final String PREFERENCES_KEY_UUID = "uuid";
     public static final String PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP = "new-segment-step-accuracy";
+    public static final String PREFERENCES_KEY_MIN_DURATION = "sb-min-duration";
     public static final String PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED = "sb-enabled";
     public static final String PREFERENCES_KEY_SEEN_GUIDELINES = "sb-seen-gl";
     public static final String PREFERENCES_KEY_NEW_SEGMENT_ENABLED = "sb-new-segment-enabled";
@@ -41,6 +42,7 @@ public class SponsorBlockSettings {
     public static boolean countSkips = true;
     public static boolean showTimeWithoutSegments = true;
     public static int adjustNewSegmentMillis = 150;
+    public static float minDuration = 0f;
     public static String uuid = "<invalid>";
     public static String sponsorBlockUrlCategories = "[]";
     public static int skippedSegments;
@@ -131,6 +133,10 @@ public class SponsorBlockSettings {
         String tmp1 = preferences.getString(PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP, null);
         if (tmp1 != null)
             adjustNewSegmentMillis = Integer.parseInt(tmp1);
+
+        String minTmp = preferences.getString(PREFERENCES_KEY_MIN_DURATION, null);
+        if (minTmp != null)
+            minDuration = Float.parseFloat(minTmp);
 
         countSkips = preferences.getBoolean(PREFERENCES_KEY_COUNT_SKIPS, countSkips);
         showTimeWithoutSegments = preferences.getBoolean(PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS, showTimeWithoutSegments);

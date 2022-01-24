@@ -12,12 +12,14 @@ import static pl.jakubweg.SponsorBlockPreferenceFragment.FORMATTER;
 import static pl.jakubweg.SponsorBlockPreferenceFragment.SAVED_TEMPLATE;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_CATEGORY_COLOR_SUFFIX;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_COUNT_SKIPS;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_MIN_DURATION;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_UUID;
 import static pl.jakubweg.SponsorBlockSettings.countSkips;
 import static pl.jakubweg.SponsorBlockSettings.getPreferences;
 import static pl.jakubweg.SponsorBlockSettings.isSponsorBlockEnabled;
+import static pl.jakubweg.SponsorBlockSettings.minDuration;
 import static pl.jakubweg.SponsorBlockSettings.showTimeWithoutSegments;
 import static pl.jakubweg.SponsorBlockSettings.showToastWhenSkippedAutomatically;
 import static pl.jakubweg.SponsorBlockSettings.skippedSegments;
@@ -588,6 +590,7 @@ public abstract class SponsorBlockUtils {
             editor.putBoolean(PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP, !settingsJson.getBoolean("dontShowNotice"));
             editor.putBoolean(PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS, settingsJson.getBoolean("showTimeWithSkips"));
             editor.putBoolean(PREFERENCES_KEY_COUNT_SKIPS, settingsJson.getBoolean("trackViewCount"));
+            editor.putString(PREFERENCES_KEY_MIN_DURATION, settingsJson.getString("minDuration"));
             editor.putString(PREFERENCES_KEY_UUID, settingsJson.getString("userID"));
             editor.apply();
 
@@ -624,6 +627,7 @@ public abstract class SponsorBlockUtils {
             json.put("dontShowNotice", !showToastWhenSkippedAutomatically);
             json.put("barTypes", barTypesObject);
             json.put("showTimeWithSkips", showTimeWithoutSegments);
+            json.put("minDuration", minDuration);
             json.put("trackViewCount", countSkips);
             json.put("categorySelections", categorySelectionsArray);
             json.put("userID", uuid);

@@ -3,6 +3,7 @@ package pl.jakubweg;
 import static pl.jakubweg.SponsorBlockSettings.DefaultBehaviour;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_COUNT_SKIPS;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_MIN_DURATION;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_NEW_SEGMENT_ENABLED;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP;
@@ -12,6 +13,7 @@ import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_VOTING_ENABLED;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_NAME;
 import static pl.jakubweg.SponsorBlockSettings.adjustNewSegmentMillis;
 import static pl.jakubweg.SponsorBlockSettings.countSkips;
+import static pl.jakubweg.SponsorBlockSettings.minDuration;
 import static pl.jakubweg.SponsorBlockSettings.setSeenGuidelines;
 import static pl.jakubweg.SponsorBlockSettings.showTimeWithoutSegments;
 import static pl.jakubweg.SponsorBlockSettings.showToastWhenSkippedAutomatically;
@@ -290,11 +292,22 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
 
         {
             EditTextPreference preference = new EditTextPreference(context);
-            preference.getEditText().setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED);
+            preference.getEditText().setInputType(InputType.TYPE_CLASS_NUMBER);
             preference.setTitle(str("general_adjusting"));
             preference.setSummary(str("general_adjusting_sum"));
             preference.setKey(PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP);
             preference.setDefaultValue(String.valueOf(adjustNewSegmentMillis));
+            screen.addPreference(preference);
+            preferencesToDisableWhenSBDisabled.add(preference);
+        }
+
+        {
+            EditTextPreference preference = new EditTextPreference(context);
+            preference.getEditText().setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+            preference.setTitle(str("general_min_duration"));
+            preference.setSummary(str("general_min_duration_sum"));
+            preference.setKey(PREFERENCES_KEY_MIN_DURATION);
+            preference.setDefaultValue(String.valueOf(minDuration));
             screen.addPreference(preference);
             preferencesToDisableWhenSBDisabled.add(preference);
         }

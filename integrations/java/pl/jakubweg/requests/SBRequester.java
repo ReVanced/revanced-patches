@@ -49,6 +49,11 @@ public class SBRequester {
                     JSONArray segment = obj.getJSONArray("segment");
                     long start = (long) (segment.getDouble(0) * 1000);
                     long end = (long) (segment.getDouble(1) * 1000);
+
+                    long minDuration = (long) (SponsorBlockSettings.minDuration * 1000);
+                    if ((end - start) < minDuration)
+                        continue;
+
                     String category = obj.getString("category");
                     String uuid = obj.getString("UUID");
 
@@ -58,8 +63,10 @@ public class SBRequester {
                         segments.add(sponsorSegment);
                     }
                 }
-                videoHasSegments = true;
-                timeWithoutSegments = SponsorBlockUtils.getTimeWithoutSegments(segments.toArray(new SponsorSegment[0]));
+                if (!segments.isEmpty()) {
+                    videoHasSegments = true;
+                    timeWithoutSegments = SponsorBlockUtils.getTimeWithoutSegments(segments.toArray(new SponsorSegment[0]));
+                }
             }
             connection.disconnect();
         }
