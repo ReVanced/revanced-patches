@@ -10,9 +10,13 @@ public class VideoInformation {
     private static final String TAG = "VI - VideoInfo";
 
     public static String currentVideoId;
-    public static Integer dislikeCount = null;
-    public static String channelName = null;
+    public static Integer dislikeCount;
+    public static String channelName;
     public static long lastKnownVideoTime = -1L;
+
+    private static boolean tempInfoSaved = false;
+    private static String tempVideoId;
+    private static Integer tempDislikeCount;
 
     // Call hook in the YT code when the video changes
     public static void setCurrentVideoId(final String videoId) {
@@ -20,10 +24,13 @@ public class VideoInformation {
             if (debug) {
                 Log.d(TAG, "setCurrentVideoId - new id was null - currentVideoId was" + currentVideoId);
             }
-            currentVideoId = null;
-            dislikeCount = null;
-            channelName = null;
+            clearInformation();
             return;
+        }
+
+        // Restore temporary information that was stored from the last watched video
+        if (tempInfoSaved) {
+            restoreTempInformation();
         }
 
         if (videoId.equals(currentVideoId)) {
@@ -41,5 +48,37 @@ public class VideoInformation {
 
         // New video
         ReturnYouTubeDislikes.newVideoLoaded(videoId);
+    }
+
+    // Call hook in the YT code when the video ends
+    public static void videoEnded() {
+        saveTempInformation();
+        clearInformation();
+    }
+
+    // Information is cleared once a video ends
+    // It's cleared because the setCurrentVideoId isn't called for Shorts
+    // so Shorts would otherwise use the information from the last watched video
+    private static void clearInformation() {
+        currentVideoId = null;
+        dislikeCount = null;
+        channelName = null;
+    }
+
+    // Temporary information is saved once a video ends
+    // so that if the user watches the same video again,
+    // the information can be restored without having to fetch again
+    private static void saveTempInformation() {
+        tempVideoId = currentVideoId;
+        tempDislikeCount = dislikeCount;
+        tempInfoSaved = true;
+    }
+
+    private static void restoreTempInformation() {
+        currentVideoId = tempVideoId;
+        dislikeCount = tempDislikeCount;
+        tempVideoId = null;
+        tempDislikeCount = null;
+        tempInfoSaved = false;
     }
 }
