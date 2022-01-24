@@ -345,6 +345,8 @@
     <string name="vanced_videoadwhitelisting_title">Video ad whitelisting</string>
     <string name="vanced_videoadwhitelisting_summary_off">Video ad whitelisting is turned off</string>
     <string name="vanced_videoadwhitelisting_summary_on">Video ad whitelisting is turned on. Use the ad button under the player to whitelist a channel</string>
+    <string name="vanced_whitelisting_ads">Ads</string>
+    <string name="vanced_whitelisting_sponsorblock">SponsorBlock</string>
     <string name="vanced_whitelisting_added" formatted="false">Channel %s was added to the %s whitelist</string>
     <string name="vanced_whitelisting_removed" formatted="false">Channel %s was removed from the %s whitelist</string>
     <string name="vanced_whitelisting_add_failed" formatted="false">Failed to add channel %s to the %s whitelist</string>
