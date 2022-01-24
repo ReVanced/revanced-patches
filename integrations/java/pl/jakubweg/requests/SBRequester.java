@@ -1,12 +1,13 @@
 package pl.jakubweg.requests;
 
+import static android.text.Html.fromHtml;
+import static fi.vanced.utils.VancedUtils.runOnMainThread;
 import static pl.jakubweg.SponsorBlockUtils.timeWithoutSegments;
 import static pl.jakubweg.SponsorBlockUtils.videoHasSegments;
 import static pl.jakubweg.StringRef.str;
 
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
+import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.widget.Toast;
@@ -92,7 +93,7 @@ public class SBRequester {
                     SponsorBlockUtils.messageToToast = str("submit_failed_unknown_error", responseCode, connection.getResponseMessage());
                     break;
             }
-            new Handler(Looper.getMainLooper()).post(toastRunnable);
+            runOnMainThread(toastRunnable);
             connection.disconnect();
         }
         catch (Exception ex) {
@@ -110,36 +111,38 @@ public class SBRequester {
         }
     }
 
-    public static void voteForSegment(SponsorSegment segment, VoteOption voteOption, Context context, Runnable toastRunnable, String... args) {
-        try {
-            String segmentUuid = segment.UUID;
-            String uuid = SponsorBlockSettings.uuid;
-            String vote = Integer.toString(voteOption == VoteOption.UPVOTE ? 1 : 0);
+    public static void voteForSegment(SponsorSegment segment, VoteOption voteOption, Context context, String... args) {
+        new Thread(() -> {
+            try {
+                String segmentUuid = segment.UUID;
+                String uuid = SponsorBlockSettings.uuid;
+                String vote = Integer.toString(voteOption == VoteOption.UPVOTE ? 1 : 0);
 
-            Toast.makeText(context, str("vote_started"), Toast.LENGTH_SHORT).show();
+                runOnMainThread(() -> Toast.makeText(context, str("vote_started"), Toast.LENGTH_SHORT).show());
 
-            HttpURLConnection connection = voteOption == VoteOption.CATEGORY_CHANGE
-                    ? getConnectionFromRoute(SBRoutes.VOTE_ON_SEGMENT_CATEGORY, segmentUuid, uuid, args[0])
-                    : getConnectionFromRoute(SBRoutes.VOTE_ON_SEGMENT_QUALITY, segmentUuid, uuid, vote);
-            int responseCode = connection.getResponseCode();
+                HttpURLConnection connection = voteOption == VoteOption.CATEGORY_CHANGE
+                        ? getConnectionFromRoute(SBRoutes.VOTE_ON_SEGMENT_CATEGORY, segmentUuid, uuid, args[0])
+                        : getConnectionFromRoute(SBRoutes.VOTE_ON_SEGMENT_QUALITY, segmentUuid, uuid, vote);
+                int responseCode = connection.getResponseCode();
 
-            switch (responseCode) {
-                case 200:
-                    SponsorBlockUtils.messageToToast = str("vote_succeeded");
-                    break;
-                case 403:
-                    SponsorBlockUtils.messageToToast = str("vote_failed_forbidden");
-                    break;
-                default:
-                    SponsorBlockUtils.messageToToast = str("vote_failed_unknown_error", responseCode, connection.getResponseMessage());
-                    break;
+                switch (responseCode) {
+                    case 200:
+                        SponsorBlockUtils.messageToToast = str("vote_succeeded");
+                        break;
+                    case 403:
+                        SponsorBlockUtils.messageToToast = str("vote_failed_forbidden");
+                        break;
+                    default:
+                        SponsorBlockUtils.messageToToast = str("vote_failed_unknown_error", responseCode, connection.getResponseMessage());
+                        break;
+                }
+                runOnMainThread(() -> Toast.makeText(context, SponsorBlockUtils.messageToToast, Toast.LENGTH_LONG).show());
+                connection.disconnect();
             }
-            new Handler(Looper.getMainLooper()).post(toastRunnable);
-            connection.disconnect();
-        }
-        catch (Exception ex) {
-            ex.printStackTrace();
-        }
+            catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }).start();
     }
 
     public static void retrieveUserStats(PreferenceCategory category, Preference loadingPreference) {
@@ -161,23 +164,29 @@ public class SBRequester {
         }).start();
     }
 
-    public static void setUsername(String username, Runnable toastRunnable) {
-        try {
-            HttpURLConnection connection = getConnectionFromRoute(SBRoutes.CHANGE_USERNAME, SponsorBlockSettings.uuid, username);
-            int responseCode = connection.getResponseCode();
+    public static void setUsername(String username, EditTextPreference preference, Runnable toastRunnable) {
+        new Thread(() -> {
+            try {
+                HttpURLConnection connection = getConnectionFromRoute(SBRoutes.CHANGE_USERNAME, SponsorBlockSettings.uuid, username);
+                int responseCode = connection.getResponseCode();
 
-            if (responseCode == 200) {
-                SponsorBlockUtils.messageToToast = str("stats_username_changed");
+                if (responseCode == 200) {
+                    SponsorBlockUtils.messageToToast = str("stats_username_changed");
+                    runOnMainThread(() -> {
+                        preference.setTitle(fromHtml(str("stats_username", username)));
+                        preference.setText(username);
+                    });
+                }
+                else {
+                    SponsorBlockUtils.messageToToast = str("stats_username_change_unknown_error", responseCode, connection.getResponseMessage());
+                }
+                runOnMainThread(toastRunnable);
+                connection.disconnect();
             }
-            else {
-                SponsorBlockUtils.messageToToast = str("stats_username_change_unknown_error", responseCode, connection.getResponseMessage());
+            catch (Exception ex) {
+                ex.printStackTrace();
             }
-            new Handler(Looper.getMainLooper()).post(toastRunnable);
-            connection.disconnect();
-        }
-        catch (Exception ex) {
-            ex.printStackTrace();
-        }
+        }).start();
     }
 
     private static HttpURLConnection getConnectionFromRoute(Route route, String... params) throws IOException {

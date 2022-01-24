@@ -2,6 +2,8 @@ package fi.vanced.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Handler;
+import android.os.Looper;
 
 import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
 
@@ -39,5 +41,9 @@ public class VancedUtils {
                 count++;
         }
         return count;
+    }
+
+    public static void runOnMainThread(Runnable runnable) {
+        new Handler(Looper.getMainLooper()).post(runnable);
     }
 }

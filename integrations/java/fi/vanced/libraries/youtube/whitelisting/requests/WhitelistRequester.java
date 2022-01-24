@@ -3,11 +3,10 @@ package fi.vanced.libraries.youtube.whitelisting.requests;
 import static fi.razerman.youtube.XGlobals.debug;
 import static fi.vanced.libraries.youtube.player.VideoInformation.currentVideoId;
 import static fi.vanced.libraries.youtube.ui.AdButton.TAG;
+import static fi.vanced.utils.VancedUtils.runOnMainThread;
 import static pl.jakubweg.StringRef.str;
 
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -88,10 +87,6 @@ public class WhitelistRequester {
     }
 
     // helpers
-
-    private static void runOnMainThread(Runnable runnable) {
-        new Handler(Looper.getMainLooper()).post(runnable);
-    }
 
     private static HttpURLConnection getConnectionFromRoute(Route route, String... params) throws IOException {
         return Requester.getConnectionFromRoute(YT_API_URL, route, params);

@@ -223,10 +223,10 @@ public abstract class SponsorBlockUtils {
                     appContext = new WeakReference<>(context.getApplicationContext());
                     switch (voteOptions[which1]) {
                         case UPVOTE:
-                            voteForSegment(segment, VoteOption.UPVOTE, appContext.get(), toastRunnable);
+                            voteForSegment(segment, VoteOption.UPVOTE, appContext.get());
                             break;
                         case DOWNVOTE:
-                            voteForSegment(segment, VoteOption.DOWNVOTE, appContext.get(), toastRunnable);
+                            voteForSegment(segment, VoteOption.DOWNVOTE, appContext.get());
                             break;
                         case CATEGORY_CHANGE:
                             onNewCategorySelect(segment, context);
@@ -401,7 +401,7 @@ public abstract class SponsorBlockUtils {
 
         new AlertDialog.Builder(context)
                 .setTitle(str("new_segment_choose_category"))
-                .setItems(titles, (dialog, which) -> voteForSegment(segment, VoteOption.CATEGORY_CHANGE, appContext.get(), toastRunnable, values[which].key))
+                .setItems(titles, (dialog, which) -> voteForSegment(segment, VoteOption.CATEGORY_CHANGE, appContext.get(), values[which].key))
                 .show();
     }
 
@@ -505,7 +505,7 @@ public abstract class SponsorBlockUtils {
             preference.setText(userName);
             preference.setOnPreferenceChangeListener((preference1, newUsername) -> {
                 appContext = new WeakReference<>(context.getApplicationContext());
-                SBRequester.setUsername((String) newUsername, toastRunnable);
+                SBRequester.setUsername((String) newUsername, preference, toastRunnable);
                 return false;
             });
         }
