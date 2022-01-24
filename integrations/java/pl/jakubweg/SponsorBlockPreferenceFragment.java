@@ -163,7 +163,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             preference.setTitle(segmentInfo.getTitleWithDot());
             preference.setSummary(segmentInfo.description.toString());
             preference.setKey(segmentInfo.key);
-            preference.setDefaultValue(defaultValue);
+            preference.setDefaultValue(segmentInfo.behaviour.key);
             preference.setEntries(entries);
             preference.setEntryValues(entryValues);
 
