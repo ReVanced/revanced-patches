@@ -28,14 +28,12 @@ import fi.vanced.utils.requests.Route;
 
 public class WhitelistRequester {
     private static final String YT_API_URL = "https://www.youtube.com/youtubei/v1/";
-    private static final String YT_API_KEY = "replaceMeWithTheYouTubeAPIKey";
 
     private WhitelistRequester() {}
 
     public static void addChannelToWhitelist(WhitelistType whitelistType, View view, ImageView buttonIcon, Context context) {
         try {
-            HttpURLConnection connection = getConnectionFromRoute(WhitelistRoutes.GET_CHANNEL_DETAILS, YT_API_KEY);
-            connection.setRequestMethod("POST");
+            HttpURLConnection connection = getConnectionFromRoute(WhitelistRoutes.GET_CHANNEL_DETAILS, "replaceMeWithTheYouTubeAPIKey");
             connection.setRequestProperty("Content-Type", "application/json; utf-8");
             connection.setRequestProperty("Accept", "application/json");
             connection.setDoOutput(true);
