@@ -34,13 +34,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.net.Uri;
 import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.text.Html;
-import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -235,40 +233,6 @@ public abstract class SponsorBlockUtils {
                             break;
                     }
                 })
-                .show();
-    };
-    public static final DialogInterface.OnClickListener categoryColorChangeClickListener = (dialog, which) -> {
-        SponsorBlockSettings.SegmentInfo segmentInfo = SponsorBlockSettings.SegmentInfo.valuesWithoutUnsubmitted()[which];
-        String key = segmentInfo.key + PREFERENCES_KEY_CATEGORY_COLOR_SUFFIX;
-
-        Context context = ((AlertDialog) dialog).getContext();
-        EditText editText = new EditText(context);
-        editText.setInputType(InputType.TYPE_CLASS_TEXT);
-        editText.setText(formatColorString(segmentInfo.color));
-
-        Context applicationContext = context.getApplicationContext();
-        SharedPreferences preferences = SponsorBlockSettings.getPreferences(context);
-
-        new AlertDialog.Builder(context)
-                .setView(editText)
-                .setPositiveButton(str("change"), (dialog1, which1) -> {
-                    try {
-                        int color = Color.parseColor(editText.getText().toString());
-                        segmentInfo.setColor(color);
-                        Toast.makeText(applicationContext, str("color_changed"), Toast.LENGTH_SHORT).show();
-                        preferences.edit().putString(key, formatColorString(color)).apply();
-                    }
-                    catch (Exception ex) {
-                        Toast.makeText(applicationContext, str("color_invalid"), Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .setNeutralButton(str("reset"), (dialog1, which1) -> {
-                    int defaultColor = segmentInfo.defaultColor;
-                    segmentInfo.setColor(defaultColor);
-                    Toast.makeText(applicationContext, str("color_reset"), Toast.LENGTH_SHORT).show();
-                    preferences.edit().putString(key, formatColorString(defaultColor)).apply();
-                })
-                .setNegativeButton(android.R.string.cancel, null)
                 .show();
     };
     private static final Runnable submitRunnable = () -> {

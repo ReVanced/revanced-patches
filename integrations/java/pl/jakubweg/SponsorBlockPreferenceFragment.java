@@ -28,7 +28,6 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
-import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
@@ -41,6 +40,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import fi.vanced.libraries.youtube.whitelisting.WhitelistType;
+import pl.jakubweg.objects.EditTextListPreference;
 import pl.jakubweg.requests.SBRequester;
 
 @SuppressWarnings({"unused", "deprecation"}) // injected
@@ -159,7 +159,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
         SponsorBlockSettings.SegmentInfo[] categories = SponsorBlockSettings.SegmentInfo.valuesWithoutUnsubmitted();
 
         for (SponsorBlockSettings.SegmentInfo segmentInfo : categories) {
-            ListPreference preference = new ListPreference(context);
+            EditTextListPreference preference = new EditTextListPreference(context);
             preference.setTitle(segmentInfo.getTitleWithDot());
             preference.setSummary(segmentInfo.description.toString());
             preference.setKey(segmentInfo.key);
@@ -170,22 +170,10 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             category.addPreference(preference);
         }
 
-        Preference colorPreference = new Preference(context);
+        Preference colorPreference = new Preference(context); // TODO remove this after the next major update
         screen.addPreference(colorPreference);
         colorPreference.setTitle(str("color_change"));
-
-        colorPreference.setOnPreferenceClickListener(preference1 -> {
-            CharSequence[] items = new CharSequence[categories.length];
-            for (int i = 0; i < items.length; i++) {
-                items[i] = categories[i].getTitleWithDot();
-            }
-
-            new AlertDialog.Builder(context)
-                    .setTitle(str("color_choose_category"))
-                    .setItems(items, SponsorBlockUtils.categoryColorChangeClickListener)
-                    .show();
-            return true;
-        });
+        colorPreference.setSummary(str("color_change_sum"));
         preferencesToDisableWhenSBDisabled.add(colorPreference);
     }
 

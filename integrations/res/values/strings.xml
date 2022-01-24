@@ -330,7 +330,8 @@
     <string name="stats_self_saved">You\'ve skipped &lt;b&gt;%s&lt;/b&gt; segments.</string>
     <string name="stats_self_saved_sum">That\'s &lt;b&gt;%s&lt;/b&gt;.</string>
     <string name="minutes">minutes</string>
-    <string name="color_change">Change colors</string>
+    <string name="color_change">Are you looking for changing colors?</string>
+    <string name="color_change_sum">You can now change a category\'s color by clicking on it above.</string>
     <string name="color_choose_category">Choose the category</string>
     <string name="color_changed">Color changed</string>
     <string name="color_reset">Color reset</string>
