@@ -102,9 +102,7 @@ public class SponsorBlockSettings {
 
             SegmentBehaviour behaviour = null;
             String value = preferences.getString(segment.key, null);
-            if (value == null)
-                behaviour = DefaultBehaviour;
-            else {
+            if (value != null) {
                 for (SegmentBehaviour possibleBehaviour : possibleBehaviours) {
                     if (possibleBehaviour.key.equals(value)) {
                         behaviour = possibleBehaviour;
@@ -112,10 +110,13 @@ public class SponsorBlockSettings {
                     }
                 }
             }
-            if (behaviour == null)
-                behaviour = DefaultBehaviour;
+            if (behaviour != null) {
+                segment.behaviour = behaviour;
+            }
+            else {
+                behaviour = segment.behaviour;
+            }
 
-            segment.behaviour = behaviour;
             if (behaviour.showOnTimeBar && segment != SegmentInfo.UNSUBMITTED)
                 enabledCategories.add(segment.key);
         }
@@ -185,13 +186,14 @@ public class SponsorBlockSettings {
     }
 
     public enum SegmentInfo {
-        SPONSOR("sponsor", sf("segments_sponsor"), sf("skipped_sponsor"), sf("segments_sponsor_sum"), null, 0xFF00d400),
-        INTRO("intro", sf("segments_intermission"), sf("skipped_intermission"), sf("segments_intermission_sum"), null, 0xFF00ffff),
-        OUTRO("outro", sf("segments_endcards"), sf("skipped_endcard"), sf("segments_endcards_sum"), null, 0xFF0202ed),
-        INTERACTION("interaction", sf("segments_subscribe"), sf("skipped_subscribe"), sf("segments_subscribe_sum"), null, 0xFFcc00ff),
-        SELF_PROMO("selfpromo", sf("segments_selfpromo"), sf("skipped_selfpromo"), sf("segments_selfpromo_sum"), null, 0xFFffff00),
-        MUSIC_OFFTOPIC("music_offtopic", sf("segments_nomusic"), sf("skipped_nomusic"), sf("segments_nomusic_sum"), null, 0xFFff9900),
-        PREVIEW("preview", sf("segments_preview"), sf("skipped_preview"), sf("segments_preview_sum"), null, 0xFF008fd6),
+        SPONSOR("sponsor", sf("segments_sponsor"), sf("skipped_sponsor"), sf("segments_sponsor_sum"), DefaultBehaviour, 0xFF00d400),
+        INTRO("intro", sf("segments_intermission"), sf("skipped_intermission"), sf("segments_intermission_sum"), DefaultBehaviour, 0xFF00ffff),
+        OUTRO("outro", sf("segments_endcards"), sf("skipped_endcard"), sf("segments_endcards_sum"), DefaultBehaviour, 0xFF0202ed),
+        INTERACTION("interaction", sf("segments_subscribe"), sf("skipped_subscribe"), sf("segments_subscribe_sum"), DefaultBehaviour, 0xFFcc00ff),
+        SELF_PROMO("selfpromo", sf("segments_selfpromo"), sf("skipped_selfpromo"), sf("segments_selfpromo_sum"), DefaultBehaviour, 0xFFffff00),
+        MUSIC_OFFTOPIC("music_offtopic", sf("segments_nomusic"), sf("skipped_nomusic"), sf("segments_nomusic_sum"), DefaultBehaviour, 0xFFff9900),
+        PREVIEW("preview", sf("segments_preview"), sf("skipped_preview"), sf("segments_preview_sum"), DefaultBehaviour, 0xFF008fd6),
+        FILLER("filler", sf("segments_filler"), sf("skipped_filler"), sf("segments_filler_sum"), SegmentBehaviour.IGNORE, 0xFF7300FF),
         UNSUBMITTED("unsubmitted", StringRef.empty, sf("skipped_unsubmitted"), StringRef.empty, SegmentBehaviour.SKIP_AUTOMATICALLY, 0xFFFFFFFF);
 
         private static final SegmentInfo[] mValuesWithoutUnsubmitted = new SegmentInfo[]{
@@ -201,7 +203,8 @@ public class SponsorBlockSettings {
                 INTERACTION,
                 SELF_PROMO,
                 MUSIC_OFFTOPIC,
-                PREVIEW
+                PREVIEW,
+                FILLER
         };
         private static final Map<String, SegmentInfo> mValuesMap = new HashMap<>(values().length);
 

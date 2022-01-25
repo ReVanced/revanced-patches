@@ -1,6 +1,5 @@
 package pl.jakubweg;
 
-import static pl.jakubweg.SponsorBlockSettings.DefaultBehaviour;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_COUNT_SKIPS;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_MIN_DURATION;
@@ -146,7 +145,6 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
         preferencesToDisableWhenSBDisabled.add(category);
         category.setTitle(str("diff_segments"));
 
-        String defaultValue = DefaultBehaviour.key;
         SponsorBlockSettings.SegmentBehaviour[] segmentBehaviours = SponsorBlockSettings.SegmentBehaviour.values();
         String[] entries = new String[segmentBehaviours.length];
         String[] entryValues = new String[segmentBehaviours.length];
@@ -163,7 +161,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             preference.setTitle(segmentInfo.getTitleWithDot());
             preference.setSummary(segmentInfo.description.toString());
             preference.setKey(segmentInfo.key);
-            preference.setDefaultValue(defaultValue);
+            preference.setDefaultValue(segmentInfo.behaviour.key);
             preference.setEntries(entries);
             preference.setEntryValues(entryValues);
 
