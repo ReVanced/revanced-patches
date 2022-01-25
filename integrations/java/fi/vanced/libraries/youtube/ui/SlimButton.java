@@ -20,6 +20,7 @@ public abstract class SlimButton implements View.OnClickListener {
     private final ViewGroup container;
     protected final ImageView button_icon;
     protected final TextView button_text;
+    private boolean viewAdded = false;
 
     static {
         SLIM_METADATA_BUTTON_ID = VancedUtils.getIdentifier("slim_metadata_button", "layout");
@@ -36,14 +37,25 @@ public abstract class SlimButton implements View.OnClickListener {
         button_text = (TextView)view.findViewById(VancedUtils.getIdentifier("button_text", "id"));
 
         view.setOnClickListener(this);
-        setVisible(visible);
 
-        container.addView(view);
+        setVisible(visible);
     }
 
     public void setVisible(boolean visible) {
-        view.setVisibility(visible ? View.VISIBLE : View.GONE);
-        setContainerVisibility();
+        try {
+            if (!viewAdded && visible) {
+                container.addView(view);
+                viewAdded = true;
+            }
+            else if (viewAdded && !visible) {
+                container.removeView(view);
+                viewAdded = false;
+            }
+            setContainerVisibility();
+        }
+        catch (Exception ex) {
+            Log.e(TAG, "Error while changing button visibility", ex);
+        }
     }
 
     private void setContainerVisibility() {
