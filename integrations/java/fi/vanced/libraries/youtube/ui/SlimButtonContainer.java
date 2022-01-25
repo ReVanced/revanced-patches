@@ -10,7 +10,8 @@ import android.view.ViewGroup;
 
 import com.google.android.apps.youtube.app.ui.SlimMetadataScrollableButtonContainerLayout;
 
-import fi.vanced.libraries.youtube.ads.VideoAds;
+import fi.vanced.libraries.youtube.whitelisting.Whitelist;
+import fi.vanced.libraries.youtube.whitelisting.WhitelistType;
 import fi.vanced.utils.SharedPrefUtils;
 import fi.vanced.utils.VancedUtils;
 
@@ -19,7 +20,8 @@ public class SlimButtonContainer extends SlimMetadataScrollableButtonContainerLa
     private ViewGroup container;
     private CopyButton copyButton;
     private CopyWithTimestamp copyWithTimestampButton;
-    public static AdBlock adBlockButton;
+    public static AdButton adBlockButton;
+    public static SBWhitelistButton sbWhitelistButton;
     private final Context context;
     SharedPreferences.OnSharedPreferenceChangeListener listener;
 
@@ -48,8 +50,8 @@ public class SlimButtonContainer extends SlimMetadataScrollableButtonContainerLa
 
             copyButton = new CopyButton(context, this);
             copyWithTimestampButton = new CopyWithTimestamp(context, this);
-            adBlockButton = new AdBlock(context, this);
-            new SponsorBlock(context, this);
+            adBlockButton = new AdButton(context, this);
+            sbWhitelistButton = new SBWhitelistButton(context, this);
             new SponsorBlockVoting(context, this);
 
             addSharedPrefsChangeListener();
@@ -73,9 +75,20 @@ public class SlimButtonContainer extends SlimMetadataScrollableButtonContainerLa
                     copyWithTimestampButton.setVisible(ButtonVisibility.isVisibleInContainer(context, "pref_copy_video_url_timestamp_button_list"));
                     return;
                 }
-                if ("vanced_videoadwhitelisting_enabled".equals(key) && adBlockButton != null) {
-                    VideoAds.isEnabled = SharedPrefUtils.getBoolean(context, "youtube", "vanced_videoadwhitelisting_enabled", false);
-                    adBlockButton.setVisible(VideoAds.isEnabled);
+                WhitelistType whitelistAds = WhitelistType.ADS;
+                String adsEnabledPreferenceName = whitelistAds.getPreferenceEnabledName();
+                if (adsEnabledPreferenceName.equals(key) && adBlockButton != null) {
+                    boolean enabled = SharedPrefUtils.getBoolean(context, whitelistAds.getSharedPreferencesName(), adsEnabledPreferenceName, false);
+                    Whitelist.setEnabled(whitelistAds, enabled);
+                    adBlockButton.setVisible(enabled);
+                    return;
+                }
+                WhitelistType whitelistSB = WhitelistType.SPONSORBLOCK;
+                String sbEnabledPreferenceName = whitelistSB.getPreferenceEnabledName();
+                if (sbEnabledPreferenceName.equals(key) && sbWhitelistButton != null) {
+                    boolean enabled = SharedPrefUtils.getBoolean(context, whitelistSB.getSharedPreferencesName(), sbEnabledPreferenceName, false);
+                    Whitelist.setEnabled(whitelistSB, enabled);
+                    sbWhitelistButton.setVisible(enabled);
                     return;
                 }
             }
@@ -84,7 +97,9 @@ public class SlimButtonContainer extends SlimMetadataScrollableButtonContainerLa
             }
         };
 
-        context.getSharedPreferences("youtube", Context.MODE_PRIVATE)
+        context.getSharedPreferences(WhitelistType.ADS.getSharedPreferencesName(), Context.MODE_PRIVATE)
+                .registerOnSharedPreferenceChangeListener(listener);
+        context.getSharedPreferences(WhitelistType.SPONSORBLOCK.getSharedPreferencesName(), Context.MODE_PRIVATE)
                 .registerOnSharedPreferenceChangeListener(listener);
     }
 }

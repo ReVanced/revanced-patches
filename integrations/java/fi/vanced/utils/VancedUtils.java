@@ -2,33 +2,22 @@ package fi.vanced.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.os.Handler;
+import android.os.Looper;
 
 import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.security.SecureRandom;
 
 public class VancedUtils {
 
+    private VancedUtils() {}
+
     public static SharedPreferences getPreferences(Context context, String preferencesName) {
         if (context == null) return null;
         return context.getSharedPreferences(preferencesName, Context.MODE_PRIVATE);
-    }
-
-    public static String parseJson(HttpURLConnection connection) throws IOException {
-        StringBuilder jsonBuilder = new StringBuilder();
-        InputStream inputStream = connection.getInputStream();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-        String line;
-        while ((line = reader.readLine()) != null) {
-            jsonBuilder.append(line);
-        }
-        inputStream.close();
-        return jsonBuilder.toString();
     }
 
     public static int getIdentifier(String name, String defType) {
@@ -45,5 +34,30 @@ public class VancedUtils {
         for(int i = 0; i < len; i++)
             sb.append(AB.charAt(rnd.nextInt(AB.length())));
         return sb.toString();
+    }
+
+    public static int countMatches(CharSequence seq, char c) {
+        int count = 0;
+        for (int i = 0; i < seq.length(); i++) {
+            if (seq.charAt(i) == c)
+                count++;
+        }
+        return count;
+    }
+
+    public static String getVersionName(Context context) {
+        try {
+            PackageInfo pInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            String version = pInfo.versionName;
+            return (version);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return ("17.03.35");
+    }
+
+    public static void runOnMainThread(Runnable runnable) {
+        new Handler(Looper.getMainLooper()).post(runnable);
     }
 }

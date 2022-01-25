@@ -12,19 +12,21 @@ import static pl.jakubweg.SponsorBlockPreferenceFragment.FORMATTER;
 import static pl.jakubweg.SponsorBlockPreferenceFragment.SAVED_TEMPLATE;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_CATEGORY_COLOR_SUFFIX;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_COUNT_SKIPS;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_MIN_DURATION;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_UUID;
 import static pl.jakubweg.SponsorBlockSettings.countSkips;
 import static pl.jakubweg.SponsorBlockSettings.getPreferences;
 import static pl.jakubweg.SponsorBlockSettings.isSponsorBlockEnabled;
+import static pl.jakubweg.SponsorBlockSettings.minDuration;
 import static pl.jakubweg.SponsorBlockSettings.showTimeWithoutSegments;
 import static pl.jakubweg.SponsorBlockSettings.showToastWhenSkippedAutomatically;
 import static pl.jakubweg.SponsorBlockSettings.skippedSegments;
 import static pl.jakubweg.SponsorBlockSettings.skippedTime;
 import static pl.jakubweg.SponsorBlockSettings.uuid;
 import static pl.jakubweg.StringRef.str;
-import static pl.jakubweg.requests.Requester.voteForSegment;
+import static pl.jakubweg.requests.SBRequester.voteForSegment;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -32,13 +34,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.net.Uri;
 import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.text.Html;
-import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -61,7 +61,7 @@ import java.util.TimeZone;
 
 import pl.jakubweg.objects.SponsorSegment;
 import pl.jakubweg.objects.UserStats;
-import pl.jakubweg.requests.Requester;
+import pl.jakubweg.requests.SBRequester;
 
 @SuppressWarnings({"LongLogTag"})
 public abstract class SponsorBlockUtils {
@@ -223,50 +223,16 @@ public abstract class SponsorBlockUtils {
                     appContext = new WeakReference<>(context.getApplicationContext());
                     switch (voteOptions[which1]) {
                         case UPVOTE:
-                            voteForSegment(segment, VoteOption.UPVOTE, appContext.get(), toastRunnable);
+                            voteForSegment(segment, VoteOption.UPVOTE, appContext.get());
                             break;
                         case DOWNVOTE:
-                            voteForSegment(segment, VoteOption.DOWNVOTE, appContext.get(), toastRunnable);
+                            voteForSegment(segment, VoteOption.DOWNVOTE, appContext.get());
                             break;
                         case CATEGORY_CHANGE:
                             onNewCategorySelect(segment, context);
                             break;
                     }
                 })
-                .show();
-    };
-    public static final DialogInterface.OnClickListener categoryColorChangeClickListener = (dialog, which) -> {
-        SponsorBlockSettings.SegmentInfo segmentInfo = SponsorBlockSettings.SegmentInfo.valuesWithoutUnsubmitted()[which];
-        String key = segmentInfo.key + PREFERENCES_KEY_CATEGORY_COLOR_SUFFIX;
-
-        Context context = ((AlertDialog) dialog).getContext();
-        EditText editText = new EditText(context);
-        editText.setInputType(InputType.TYPE_CLASS_TEXT);
-        editText.setText(formatColorString(segmentInfo.color));
-
-        Context applicationContext = context.getApplicationContext();
-        SharedPreferences preferences = SponsorBlockSettings.getPreferences(context);
-
-        new AlertDialog.Builder(context)
-                .setView(editText)
-                .setPositiveButton(str("change"), (dialog1, which1) -> {
-                    try {
-                        int color = Color.parseColor(editText.getText().toString());
-                        segmentInfo.setColor(color);
-                        Toast.makeText(applicationContext, str("color_changed"), Toast.LENGTH_SHORT).show();
-                        preferences.edit().putString(key, formatColorString(color)).apply();
-                    }
-                    catch (Exception ex) {
-                        Toast.makeText(applicationContext, str("color_invalid"), Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .setNeutralButton(str("reset"), (dialog1, which1) -> {
-                    int defaultColor = segmentInfo.defaultColor;
-                    segmentInfo.setColor(defaultColor);
-                    Toast.makeText(applicationContext, str("color_reset"), Toast.LENGTH_SHORT).show();
-                    preferences.edit().putString(key, formatColorString(defaultColor)).apply();
-                })
-                .setNegativeButton(android.R.string.cancel, null)
                 .show();
     };
     private static final Runnable submitRunnable = () -> {
@@ -281,7 +247,7 @@ public abstract class SponsorBlockUtils {
                 Log.e(TAG, "Unable to submit times, invalid parameters");
                 return;
             }
-            Requester.submitSegments(videoId, uuid, ((float) start) / 1000f, ((float) end) / 1000f, segmentType.key, toastRunnable);
+            SBRequester.submitSegments(videoId, uuid, ((float) start) / 1000f, ((float) end) / 1000f, segmentType.key, toastRunnable);
             newSponsorSegmentEndMillis = newSponsorSegmentStartMillis = -1;
         } catch (Exception e) {
             Log.e(TAG, "Unable to submit segment", e);
@@ -401,7 +367,7 @@ public abstract class SponsorBlockUtils {
 
         new AlertDialog.Builder(context)
                 .setTitle(str("new_segment_choose_category"))
-                .setItems(titles, (dialog, which) -> voteForSegment(segment, VoteOption.CATEGORY_CHANGE, appContext.get(), toastRunnable, values[which].key))
+                .setItems(titles, (dialog, which) -> voteForSegment(segment, VoteOption.CATEGORY_CHANGE, appContext.get(), values[which].key))
                 .show();
     }
 
@@ -485,15 +451,6 @@ public abstract class SponsorBlockUtils {
         }
     }
 
-    public static int countMatches(CharSequence seq, char c) {
-        int count = 0;
-        for (int i = 0; i < seq.length(); i++) {
-            if (seq.charAt(i) == c)
-                count++;
-        }
-        return count;
-    }
-
     public static String formatColorString(int color) {
         return String.format("#%06X", color);
     }
@@ -514,7 +471,7 @@ public abstract class SponsorBlockUtils {
             preference.setText(userName);
             preference.setOnPreferenceChangeListener((preference1, newUsername) -> {
                 appContext = new WeakReference<>(context.getApplicationContext());
-                Requester.setUsername((String) newUsername, toastRunnable);
+                SBRequester.setUsername((String) newUsername, preference, toastRunnable);
                 return false;
             });
         }
@@ -597,6 +554,7 @@ public abstract class SponsorBlockUtils {
             editor.putBoolean(PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP, !settingsJson.getBoolean("dontShowNotice"));
             editor.putBoolean(PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS, settingsJson.getBoolean("showTimeWithSkips"));
             editor.putBoolean(PREFERENCES_KEY_COUNT_SKIPS, settingsJson.getBoolean("trackViewCount"));
+            editor.putString(PREFERENCES_KEY_MIN_DURATION, settingsJson.getString("minDuration"));
             editor.putString(PREFERENCES_KEY_UUID, settingsJson.getString("userID"));
             editor.apply();
 
@@ -633,6 +591,7 @@ public abstract class SponsorBlockUtils {
             json.put("dontShowNotice", !showToastWhenSkippedAutomatically);
             json.put("barTypes", barTypesObject);
             json.put("showTimeWithSkips", showTimeWithoutSegments);
+            json.put("minDuration", minDuration);
             json.put("trackViewCount", countSkips);
             json.put("categorySelections", categorySelectionsArray);
             json.put("userID", uuid);

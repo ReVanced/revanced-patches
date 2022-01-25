@@ -151,6 +151,8 @@
     <string name="general_skipcount_sum">This lets SponsorBlock leaderboard system know how much time people have saved. The extension sends a message to the server each time you skip a segment</string>
     <string name="general_adjusting">Adjusting new segment step</string>
     <string name="general_adjusting_sum">This is the number of milliseconds you can move when you use the time adjustment buttons while adding new segment</string>
+    <string name="general_min_duration">Minimum segment duration</string>
+    <string name="general_min_duration_sum">Segments shorter than the set value (in seconds) will not be skipped or show in the player</string>
     <string name="general_uuid">Your unique user id</string>
     <string name="general_uuid_sum">This should be kept private. This is like a password and should not be shared with anyone. If someone has this, they can impersonate you</string>
     <string name="settings_ie">Import/Export settings</string>
@@ -173,6 +175,8 @@
     <string name="segments_selfpromo_sum">Similar to "sponsor" except for unpaid or self promotion. This includes sections about merchandise, donations, or information about who they collaborated with</string>
     <string name="segments_nomusic">Music: Non-Music Section</string>
     <string name="segments_nomusic_sum">Only for use in music videos. This includes introductions or outros in music videos</string>
+    <string name="segments_filler">Filler/Tangent</string>
+    <string name="segments_filler_sum">Tangential scenes added only for filler or humor that are not required to understand the main content of the video. This should not include segments providing context or background details</string>
     <string name="skipped_segment">Skipped a sponsor segment</string>
     <string name="skipped_sponsor">Skipped sponsor</string>
     <string name="skipped_intermission">Skipped intro</string>
@@ -181,6 +185,7 @@
     <string name="skipped_selfpromo">Skipped self promotion</string>
     <string name="skipped_nomusic">Skipped silence</string>
     <string name="skipped_preview">Skipped preview</string>
+    <string name="skipped_filler">Skipped filler</string>
     <string name="skipped_unsubmitted">Skipped unsubmitted segment</string>
     <string name="skip_automatically">Skip automatically</string>
     <string name="skip_showbutton">Show a skip button</string>
@@ -193,14 +198,14 @@
 
     <string name="submit_failed_unknown_error" formatted="false">Unable to submit segments: Status: %d %s</string>
     <string name="submit_failed_rate_limit">Can\'t submit the segment.\nRate Limited (Too many from the same user or IP)</string>
-    <string name="submit_failed_forbidden">Can\'t submit the segment.\nRejected by auto moderator</string>
+    <string name="submit_failed_forbidden" formatted="false">Can\'t submit the segment.\n\n%s</string>
     <string name="submit_failed_duplicate">Can\'t submit the segment.\nAlready exists</string>
     <string name="submit_succeeded">Segment submitted successfully</string>
     <string name="submit_started">Submitting segment…</string>
 
     <string name="vote_failed_unknown_error" formatted="false">Unable to vote for segment: Status: %d %s</string>
     <string name="vote_failed_rate_limit">Can\'t vote for segment.\nRate Limited (Too many from the same user or IP)</string>
-    <string name="vote_failed_forbidden">Can\'t vote for segment.\nA moderator has decided that this segment is correct</string>
+    <string name="vote_failed_forbidden" formatted="false">Can\'t vote for segment.\n\n%s</string>
     <string name="vote_succeeded">Voted successfully</string>
     <string name="vote_started">Voting for segment…</string>
     <string name="vote_upvote">Upvote</string>
@@ -311,14 +316,16 @@
 
     <string name="general_time_without_sb">Show time without segments</string>
     <string name="general_time_without_sb_sum">This time appears in brackets next to the current time. This shows the total video duration minus any segments.</string>
+    <string name="general_whitelisting">Channel whitelisting</string>
+    <string name="general_whitelisting_sum">Use the Segments button under the player to whitelist a channel</string>
     <string name="segments_preview">Preview/Recap</string>
     <string name="segments_preview_sum">Quick recap of previous episodes, or a preview of what\'s coming up later in the current video. Meant for edited together clips, not for spoken summaries.</string>
     <string name="stats">Stats</string>
     <string name="stats_loading">Loading..</string>
     <string name="stats_sb_disabled">SponsorBlock is disabled</string>
-    <string name="stats_username">Your username: &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="stats_username" formatted="false">Your username: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="stats_username_change">Click to change your username</string>
-    <string name="stats_username_change_unknown_error">Unable to change username: Status: %d %s</string>
+    <string name="stats_username_change_unknown_error" formatted="false">Unable to change username: Status: %d %s</string>
     <string name="stats_username_changed">Username successfully changed</string>
     <string name="stats_submissions">Submissions: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="stats_saved">You\'ve saved people from &lt;b&gt;%s&lt;/b&gt; segments.</string>
@@ -326,7 +333,8 @@
     <string name="stats_self_saved">You\'ve skipped &lt;b&gt;%s&lt;/b&gt; segments.</string>
     <string name="stats_self_saved_sum">That\'s &lt;b&gt;%s&lt;/b&gt;.</string>
     <string name="minutes">minutes</string>
-    <string name="color_change">Change colors</string>
+    <string name="color_change">Are you looking for changing colors?</string>
+    <string name="color_change_sum">You can now change a category\'s color by clicking on it above.</string>
     <string name="color_choose_category">Choose the category</string>
     <string name="color_changed">Color changed</string>
     <string name="color_reset">Color reset</string>
@@ -334,22 +342,42 @@
     <string name="change">Change</string>
     <string name="reset">Reset</string>
 
-    <string name="action_copy">Copy</string>
-    <string name="action_tcopy">TCopy</string>
+    <string name="action_copy">Copy link</string>
+    <string name="action_tcopy">Timestamp</string>
     <string name="action_ads">Ads</string>
+    <string name="action_segments">Segments</string>
 
     <string name="vanced_video_ad_settings_title">Video ad settings</string>
     <string name="vanced_videoadwhitelisting_title">Video ad whitelisting</string>
     <string name="vanced_videoadwhitelisting_summary_off">Video ad whitelisting is turned off</string>
-    <string name="vanced_videoadwhitelisting_summary_on">Video ad whitelisting is turned on. Use the ad button under the player to whitelist a channel</string>
+    <string name="vanced_videoadwhitelisting_summary_on">Video ad whitelisting is turned on. Use the Ads button under the player to whitelist a channel</string>
+    <string name="vanced_whitelisting_ads">Ads</string>
+    <string name="vanced_whitelisting_sponsorblock">SponsorBlock</string>
+    <string name="vanced_whitelisting_added" formatted="false">Channel %s was added to the %s whitelist</string>
+    <string name="vanced_whitelisting_removed" formatted="false">Channel %s was removed from the %s whitelist</string>
+    <string name="vanced_whitelisting_add_failed" formatted="false">Failed to add channel %s to the %s whitelist</string>
+    <string name="vanced_whitelisting_remove_failed" formatted="false">Failed to remove channel %s from the %s whitelist</string>
+    <string name="vanced_whitelisting_fetch_failed" formatted="false">Failed to retrieve channel details, received code %d</string>
     <string name="vanced_button_location_entry_none">Hidden</string>
     <string name="vanced_button_location_entry_player">In player</string>
     <string name="vanced_button_location_entry_buttoncontainer">Under player</string>
     <string name="vanced_button_location_entry_both">Both</string>
-    <string name="vanced_ryd_settings_title">RYD settings</string>
+    <string name="vanced_ryd_settings_title">Return YouTube Dislike settings</string>
     <string name="vanced_ryd_settings_summary">Uses the RYD API</string>
     <string name="vanced_ryd_title">Enable RYD</string>
     <string name="vanced_ryd_summary">Switch this on to see the dislike counts again</string>
     <string name="vanced_ryd_attribution_title">Return YouTube Dislike Integration</string>
     <string name="vanced_ryd_attribution_summary">This integration uses the RYD API from https://returnyoutubedislike.com. Tap to learn more</string>
+
+    <string name="xfile_xfenster_tablet_title">Tablet style</string>
+    <string name="xfile_xfenster_tablet_summary_on">Tablet style is turned on. For example suggested videos are only partially working</string>
+    <string name="xfile_xfenster_tablet_summary_off">Tablet style is turned off</string>
+
+    <string name="vanced_ryd">Return YouTube Dislike</string>
+    <string name="vanced_ryd_firstrun">Want to enable Return YouTube Dislikes to see dislikes again? Your likes/dislikes will be sent to RYD API (anonymously) after enabling RYD integration. You can enable/disable this in the settings at any time.</string>
+    <string name="vanced_sb">SponsorBlock</string>
+    <string name="vanced_sb_firstrun">Are you aware of the SponsorBlock integration in Vanced? With it you can skip sponsored segments in the videos. You can enable/disable this in the settings at any time.</string>
+    <string name="vanced_learnmore">Learn more</string>
+    <string name="vanced_disable">Disable</string>
+    <string name="vanced_enable">Enable</string>
 </resources>

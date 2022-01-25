@@ -1,13 +1,14 @@
 package fi.vanced.libraries.youtube.ryd;
 
-import android.util.Log;
 import android.util.Base64;
+import android.util.Log;
+
 import java.security.MessageDigest;
 
 public class Utils {
     private static final String TAG = "VI - RYD - Utils";
 
-    static String solvePuzzle(String challenge, int difficulty) {
+    public static String solvePuzzle(String challenge, int difficulty) {
         byte[] decodedChallenge = Base64.decode(challenge, Base64.NO_WRAP);
 
         byte[] buffer = new byte[20];
