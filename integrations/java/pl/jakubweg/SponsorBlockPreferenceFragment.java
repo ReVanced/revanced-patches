@@ -1,5 +1,6 @@
 package pl.jakubweg;
 
+import static fi.razerman.youtube.XGlobals.debug;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_COUNT_SKIPS;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_MIN_DURATION;
@@ -7,6 +8,7 @@ import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_NEW_SEGMENT_ENABL
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SPONSOR_BLOCK_HINT_SHOWN;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_UUID;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_VOTING_ENABLED;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_NAME;
@@ -39,6 +41,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import fi.vanced.libraries.youtube.whitelisting.WhitelistType;
+import fi.vanced.utils.SharedPrefUtils;
 import pl.jakubweg.objects.EditTextListPreference;
 import pl.jakubweg.requests.SBRequester;
 
@@ -75,6 +78,18 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
                 enableCategoriesIfNeeded(value);
                 return true;
             });
+        }
+
+        // Clear hint
+        if (debug) {
+            SwitchPreference preference = new SwitchPreference(context);
+            preferenceScreen.addPreference(preference);
+            preference.setKey(PREFERENCES_KEY_SPONSOR_BLOCK_HINT_SHOWN);
+            preference.setDefaultValue(false);
+            preference.setChecked(SharedPrefUtils.getBoolean(context, PREFERENCES_NAME, PREFERENCES_KEY_SPONSOR_BLOCK_HINT_SHOWN));
+            preference.setTitle("Hint debug");
+            preference.setSummary("Debug toggle for clearing the hint shown preference");
+            preference.setOnPreferenceChangeListener((pref, newValue) -> true);
         }
 
         {

@@ -24,6 +24,7 @@ public class SponsorBlockSettings {
     public static final String PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP = "new-segment-step-accuracy";
     public static final String PREFERENCES_KEY_MIN_DURATION = "sb-min-duration";
     public static final String PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED = "sb-enabled";
+    public static final String PREFERENCES_KEY_SPONSOR_BLOCK_HINT_SHOWN = "sb_hint_shown";
     public static final String PREFERENCES_KEY_SEEN_GUIDELINES = "sb-seen-gl";
     public static final String PREFERENCES_KEY_NEW_SEGMENT_ENABLED = "sb-new-segment-enabled";
     public static final String PREFERENCES_KEY_VOTING_ENABLED = "sb-voting-enabled";

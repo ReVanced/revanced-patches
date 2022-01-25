@@ -1,6 +1,8 @@
 package fi.vanced.libraries.youtube.ryd;
 
+import static fi.razerman.youtube.XGlobals.debug;
 import static fi.vanced.libraries.youtube.ryd.RYDSettings.PREFERENCES_KEY_RYD_ENABLED;
+import static fi.vanced.libraries.youtube.ryd.RYDSettings.PREFERENCES_KEY_RYD_HINT_SHOWN;
 import static fi.vanced.libraries.youtube.ryd.RYDSettings.PREFERENCES_NAME;
 import static pl.jakubweg.StringRef.str;
 
@@ -42,6 +44,18 @@ public class RYDFragment extends PreferenceFragment {
                 ReturnYouTubeDislikes.onEnabledChange(value);
                 return true;
             });
+        }
+
+        // Clear hint
+        if (debug) {
+            SwitchPreference preference = new SwitchPreference(context);
+            preferenceScreen.addPreference(preference);
+            preference.setKey(PREFERENCES_KEY_RYD_HINT_SHOWN);
+            preference.setDefaultValue(false);
+            preference.setChecked(SharedPrefUtils.getBoolean(context, PREFERENCES_NAME, PREFERENCES_KEY_RYD_HINT_SHOWN));
+            preference.setTitle("Hint debug");
+            preference.setSummary("Debug toggle for clearing the hint shown preference");
+            preference.setOnPreferenceChangeListener((pref, newValue) -> true);
         }
 
         // About category

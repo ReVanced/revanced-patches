@@ -372,4 +372,12 @@
     <string name="xfile_xfenster_tablet_title">Tablet style</string>
     <string name="xfile_xfenster_tablet_summary_on">Tablet style is turned on. For example suggested videos are only partially working</string>
     <string name="xfile_xfenster_tablet_summary_off">Tablet style is turned off</string>
+
+    <string name="vanced_ryd">Return YouTube Dislike</string>
+    <string name="vanced_ryd_firstrun">Want to enable Return YouTube Dislikes to see dislikes again? Your likes/dislikes will be sent to RYD API (anonymously) after enabling RYD integration. You can enable/disable this in the settings at any time.</string>
+    <string name="vanced_sb">SponsorBlock</string>
+    <string name="vanced_sb_firstrun">Are you aware of the SponsorBlock integration in Vanced? With it you can skip sponsored segments in the videos. You can enable/disable this in the settings at any time.</string>
+    <string name="vanced_learnmore">Learn more</string>
+    <string name="vanced_disable">Disable</string>
+    <string name="vanced_enable">Enable</string>
 </resources>
