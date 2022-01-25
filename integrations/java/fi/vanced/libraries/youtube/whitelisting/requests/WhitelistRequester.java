@@ -22,8 +22,10 @@ import java.nio.charset.StandardCharsets;
 import fi.vanced.libraries.youtube.player.ChannelModel;
 import fi.vanced.libraries.youtube.whitelisting.Whitelist;
 import fi.vanced.libraries.youtube.whitelisting.WhitelistType;
+import fi.vanced.utils.VancedUtils;
 import fi.vanced.utils.requests.Requester;
 import fi.vanced.utils.requests.Route;
+import vanced.integrations.BuildConfig;
 
 public class WhitelistRequester {
     private static final String YT_API_URL = "https://www.youtube.com/youtubei/v1/";
@@ -32,14 +34,14 @@ public class WhitelistRequester {
 
     public static void addChannelToWhitelist(WhitelistType whitelistType, View view, ImageView buttonIcon, Context context) {
         try {
-            HttpURLConnection connection = getConnectionFromRoute(WhitelistRoutes.GET_CHANNEL_DETAILS, "replaceMeWithTheYouTubeAPIKey");
+            HttpURLConnection connection = getConnectionFromRoute(WhitelistRoutes.GET_CHANNEL_DETAILS, BuildConfig.YT_API_KEY);
             connection.setRequestProperty("Content-Type", "application/json; utf-8");
             connection.setRequestProperty("Accept", "application/json");
             connection.setDoOutput(true);
             connection.setConnectTimeout(2 * 1000);
 
-            // TODO: Actually fetch the version
-            String jsonInputString = "{\"context\": {\"client\": { \"clientName\": \"Android\", \"clientVersion\": \"16.49.37\" } }, \"videoId\": \"" + currentVideoId + "\"}";
+            String versionName = VancedUtils.getVersionName(context);
+            String jsonInputString = "{\"context\": {\"client\": { \"clientName\": \"Android\", \"clientVersion\": \"" + versionName + "\" } }, \"videoId\": \"" + currentVideoId + "\"}";
             try(OutputStream os = connection.getOutputStream()) {
                 byte[] input = jsonInputString.getBytes(StandardCharsets.UTF_8);
                 os.write(input, 0, input.length);

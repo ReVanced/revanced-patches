@@ -320,9 +320,9 @@
     <string name="stats">Stats</string>
     <string name="stats_loading">Loading..</string>
     <string name="stats_sb_disabled">SponsorBlock is disabled</string>
-    <string name="stats_username">Your username: &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="stats_username" formatted="false">Your username: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="stats_username_change">Click to change your username</string>
-    <string name="stats_username_change_unknown_error">Unable to change username: Status: %d %s</string>
+    <string name="stats_username_change_unknown_error" formatted="false">Unable to change username: Status: %d %s</string>
     <string name="stats_username_changed">Username successfully changed</string>
     <string name="stats_submissions">Submissions: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="stats_saved">You\'ve saved people from &lt;b&gt;%s&lt;/b&gt; segments.</string>
@@ -339,8 +339,8 @@
     <string name="change">Change</string>
     <string name="reset">Reset</string>
 
-    <string name="action_copy">Copy</string>
-    <string name="action_tcopy">TCopy</string>
+    <string name="action_copy">Copy link</string>
+    <string name="action_tcopy">Timestamp</string>
     <string name="action_ads">Ads</string>
     <string name="action_segments">Segments</string>
 
@@ -359,10 +359,14 @@
     <string name="vanced_button_location_entry_player">In player</string>
     <string name="vanced_button_location_entry_buttoncontainer">Under player</string>
     <string name="vanced_button_location_entry_both">Both</string>
-    <string name="vanced_ryd_settings_title">RYD settings</string>
+    <string name="vanced_ryd_settings_title">Return YouTube Dislike settings</string>
     <string name="vanced_ryd_settings_summary">Uses the RYD API</string>
     <string name="vanced_ryd_title">Enable RYD</string>
     <string name="vanced_ryd_summary">Switch this on to see the dislike counts again</string>
     <string name="vanced_ryd_attribution_title">Return YouTube Dislike Integration</string>
     <string name="vanced_ryd_attribution_summary">This integration uses the RYD API from https://returnyoutubedislike.com. Tap to learn more</string>
+
+    <string name="xfile_xfenster_tablet_title">Tablet style</string>
+    <string name="xfile_xfenster_tablet_summary_on">Tablet style is turned on. For example suggested videos are only partially working</string>
+    <string name="xfile_xfenster_tablet_summary_off">Tablet style is turned off</string>
 </resources>
