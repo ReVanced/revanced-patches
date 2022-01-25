@@ -221,12 +221,11 @@ public abstract class SponsorBlockUtils {
         new AlertDialog.Builder(context)
                 .setItems(items, (dialog1, which1) -> {
                     appContext = new WeakReference<>(context.getApplicationContext());
-                    switch (voteOptions[which1]) {
+                    VoteOption voteOption = voteOptions[which1];
+                    switch (voteOption) {
                         case UPVOTE:
-                            voteForSegment(segment, VoteOption.UPVOTE, appContext.get());
-                            break;
                         case DOWNVOTE:
-                            voteForSegment(segment, VoteOption.DOWNVOTE, appContext.get());
+                            voteForSegment(segment, voteOption, appContext.get());
                             break;
                         case CATEGORY_CHANGE:
                             onNewCategorySelect(segment, context);
