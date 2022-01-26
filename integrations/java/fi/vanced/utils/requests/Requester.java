@@ -21,18 +21,24 @@ public class Requester {
     }
 
     public static String parseJson(HttpURLConnection connection) throws IOException {
-        return parseJson(connection.getInputStream());
+        return parseJson(connection.getInputStream(), false);
     }
 
-    public static String parseJson(InputStream inputStream) throws IOException {
+    public static String parseJson(InputStream inputStream, boolean isError) throws IOException {
         StringBuilder jsonBuilder = new StringBuilder();
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         String line;
         while ((line = reader.readLine()) != null) {
-            jsonBuilder.append(line).append("\n");
+            jsonBuilder.append(line);
+            if (isError)
+                jsonBuilder.append("\n");
         }
         inputStream.close();
         return jsonBuilder.toString();
+    }
+
+    public static String parseErrorJson(HttpURLConnection connection) throws IOException {
+        return parseJson(connection.getErrorStream(), true);
     }
 
     public static JSONObject getJSONObject(HttpURLConnection connection) throws Exception {

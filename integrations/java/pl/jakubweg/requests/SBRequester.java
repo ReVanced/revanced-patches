@@ -91,7 +91,7 @@ public class SBRequester {
                     SponsorBlockUtils.messageToToast = str("submit_failed_duplicate");
                     break;
                 case 403:
-                    SponsorBlockUtils.messageToToast = str("submit_failed_forbidden", Requester.parseJson(connection.getErrorStream()));
+                    SponsorBlockUtils.messageToToast = str("submit_failed_forbidden", Requester.parseErrorJson(connection));
                     break;
                 case 429:
                     SponsorBlockUtils.messageToToast = str("submit_failed_rate_limit");
@@ -137,7 +137,7 @@ public class SBRequester {
                         SponsorBlockUtils.messageToToast = str("vote_succeeded");
                         break;
                     case 403:
-                        SponsorBlockUtils.messageToToast = str("vote_failed_forbidden", Requester.parseJson(connection.getErrorStream()));
+                        SponsorBlockUtils.messageToToast = str("vote_failed_forbidden", Requester.parseErrorJson(connection));
                         break;
                     default:
                         SponsorBlockUtils.messageToToast = str("vote_failed_unknown_error", responseCode, connection.getResponseMessage());
