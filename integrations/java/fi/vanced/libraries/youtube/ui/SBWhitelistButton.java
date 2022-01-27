@@ -14,15 +14,15 @@ import fi.vanced.libraries.youtube.player.VideoInformation;
 import fi.vanced.libraries.youtube.whitelisting.Whitelist;
 import fi.vanced.libraries.youtube.whitelisting.WhitelistType;
 import fi.vanced.libraries.youtube.whitelisting.requests.WhitelistRequester;
-import fi.vanced.utils.SharedPrefUtils;
 import fi.vanced.utils.VancedUtils;
+import pl.jakubweg.SponsorBlockUtils;
 
 public class SBWhitelistButton extends SlimButton {
     public static final String TAG = "VI - SBWhitelistButton";
 
     public SBWhitelistButton(Context context, ViewGroup container) {
         super(context, container, SlimButton.SLIM_METADATA_BUTTON_ID,
-                SharedPrefUtils.getBoolean(context, WhitelistType.SPONSORBLOCK.getSharedPreferencesName(), WhitelistType.SPONSORBLOCK.getPreferenceEnabledName(), false));
+                SponsorBlockUtils.isSBButtonEnabled(context, WhitelistType.SPONSORBLOCK.getPreferenceEnabledName()));
 
         initialize();
     }

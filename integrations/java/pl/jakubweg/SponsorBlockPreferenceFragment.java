@@ -2,6 +2,7 @@ package pl.jakubweg;
 
 import static fi.razerman.youtube.XGlobals.debug;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_BROWSER_BUTTON;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_COUNT_SKIPS;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_MIN_DURATION;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_NEW_SEGMENT_ENABLED;
@@ -287,6 +288,15 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             preference.setTitle(str("general_whitelisting"));
             preference.setSummary(str("general_whitelisting_sum"));
             preference.setKey(WhitelistType.SPONSORBLOCK.getPreferenceEnabledName());
+            preferencesToDisableWhenSBDisabled.add(preference);
+            screen.addPreference(preference);
+        }
+
+        {
+            Preference preference = new SwitchPreference(context);
+            preference.setTitle(str("general_browser_button"));
+            preference.setSummary(str("general_browser_button_sum"));
+            preference.setKey(PREFERENCES_KEY_BROWSER_BUTTON);
             preferencesToDisableWhenSBDisabled.add(preference);
             screen.addPreference(preference);
         }

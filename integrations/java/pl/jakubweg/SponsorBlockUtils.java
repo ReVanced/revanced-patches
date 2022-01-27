@@ -16,6 +16,7 @@ import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_MIN_DURATION;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_UUID;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_NAME;
 import static pl.jakubweg.SponsorBlockSettings.countSkips;
 import static pl.jakubweg.SponsorBlockSettings.getPreferences;
 import static pl.jakubweg.SponsorBlockSettings.isSponsorBlockEnabled;
@@ -59,6 +60,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.TimeZone;
 
+import fi.vanced.utils.SharedPrefUtils;
 import pl.jakubweg.objects.SponsorSegment;
 import pl.jakubweg.objects.UserStats;
 import pl.jakubweg.requests.SBRequester;
@@ -606,6 +608,10 @@ public abstract class SponsorBlockUtils {
 
     public static boolean isSettingEnabled(boolean setting) {
         return isSponsorBlockEnabled && setting;
+    }
+
+    public static boolean isSBButtonEnabled(Context context, String key) {
+        return isSettingEnabled(SharedPrefUtils.getBoolean(context, PREFERENCES_NAME, key, false));
     }
 
     public enum VoteOption {
