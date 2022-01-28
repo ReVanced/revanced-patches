@@ -157,6 +157,8 @@
     <string name="general_uuid_sum">This should be kept private. This is like a password and should not be shared with anyone. If someone has this, they can impersonate you</string>
     <string name="settings_ie">Import/Export settings</string>
     <string name="settings_ie_sum">This is your entire configuration that is applicable in the desktop extension in JSON. This includes your userID, so be sure to share this wisely.</string>
+    <string name="general_api_url">Change API URL</string>
+    <string name="general_api_url_sum">The address SponsorBlock uses to make calls to the server. &lt;b>Don\'t change this unless you know what you\'re doing.&lt;/b></string>
     <string name="settings_import_successful">Settings were successfully imported</string>
     <string name="settings_import_failed">Failed to import settings</string>
     <string name="settings_export_failed">Failed to export settings</string>
@@ -349,6 +351,10 @@
     <string name="action_ads">Ads</string>
     <string name="action_segments">Segments</string>
     <string name="action_browser">SB Browser</string>
+
+    <string name="api_url_changed">API URL changed</string>
+    <string name="api_url_reset">API URL reset</string>
+    <string name="api_url_invalid">Provided API URL is invalid</string>
 
     <string name="vanced_video_ad_settings_title">Video ad settings</string>
     <string name="vanced_videoadwhitelisting_title">Video ad whitelisting</string>

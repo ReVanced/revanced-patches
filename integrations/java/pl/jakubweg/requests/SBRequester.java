@@ -31,7 +31,6 @@ import pl.jakubweg.objects.SponsorSegment;
 import pl.jakubweg.objects.UserStats;
 
 public class SBRequester {
-    private static final String SPONSORBLOCK_API_URL = "https://sponsor.ajay.app/api/";
     private static final String TIME_TEMPLATE = "%.3f";
 
     private SBRequester() {}
@@ -201,7 +200,7 @@ public class SBRequester {
     // helpers
 
     private static HttpURLConnection getConnectionFromRoute(Route route, String... params) throws IOException {
-        return Requester.getConnectionFromRoute(SPONSORBLOCK_API_URL, route, params);
+        return Requester.getConnectionFromRoute(SponsorBlockSettings.apiUrl, route, params);
     }
 
     private static JSONObject getJSONObject(Route route, String... params) throws Exception {

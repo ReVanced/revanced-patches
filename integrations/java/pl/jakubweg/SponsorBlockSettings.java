@@ -33,8 +33,10 @@ public class SponsorBlockSettings {
     public static final String PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS = "sb-length-without-segments";
     public static final String PREFERENCES_KEY_CATEGORY_COLOR_SUFFIX = "_color";
     public static final String PREFERENCES_KEY_BROWSER_BUTTON = "sb-browser-button";
+    public static final String PREFERENCES_KEY_API_URL = "sb-api-url";
 
     public static final SegmentBehaviour DefaultBehaviour = SegmentBehaviour.SKIP_AUTOMATICALLY;
+    public static final String DEFAULT_API_URL = "https://sponsor.ajay.app/api/";
 
     public static boolean isSponsorBlockEnabled = false;
     public static boolean seenGuidelinesPopup = false;
@@ -46,6 +48,7 @@ public class SponsorBlockSettings {
     public static int adjustNewSegmentMillis = 150;
     public static float minDuration = 0f;
     public static String uuid = "<invalid>";
+    public static String apiUrl = DEFAULT_API_URL;
     public static String sponsorBlockUrlCategories = "[]";
     public static int skippedSegments;
     public static long skippedTime;
@@ -143,6 +146,8 @@ public class SponsorBlockSettings {
 
         countSkips = preferences.getBoolean(PREFERENCES_KEY_COUNT_SKIPS, countSkips);
         showTimeWithoutSegments = preferences.getBoolean(PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS, showTimeWithoutSegments);
+
+        apiUrl = preferences.getString(PREFERENCES_KEY_API_URL, DEFAULT_API_URL);
 
         uuid = preferences.getString(PREFERENCES_KEY_UUID, null);
         if (uuid == null) {

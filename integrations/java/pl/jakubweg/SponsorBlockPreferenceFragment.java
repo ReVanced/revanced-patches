@@ -1,7 +1,9 @@
 package pl.jakubweg;
 
 import static fi.razerman.youtube.XGlobals.debug;
+import static pl.jakubweg.SponsorBlockSettings.DEFAULT_API_URL;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_API_URL;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_BROWSER_BUTTON;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_COUNT_SKIPS;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_MIN_DURATION;
@@ -25,6 +27,7 @@ import static pl.jakubweg.StringRef.str;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -35,9 +38,14 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
+import android.text.Editable;
+import android.text.Html;
 import android.text.InputType;
+import android.util.Patterns;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import java.lang.ref.WeakReference;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
@@ -50,6 +58,7 @@ import pl.jakubweg.requests.SBRequester;
 public class SponsorBlockPreferenceFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
     public static final DecimalFormat FORMATTER = new DecimalFormat("#,###,###");
     public static final String SAVED_TEMPLATE = "%dh %.1f %s";
+    private static final APIURLChangeListener API_URL_CHANGE_LISTENER = new APIURLChangeListener();
     private final ArrayList<Preference> preferencesToDisableWhenSBDisabled = new ArrayList<>();
 
     @Override
@@ -346,6 +355,73 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             });
             screen.addPreference(preference);
             preferencesToDisableWhenSBDisabled.add(preference);
+        }
+
+        {
+            Preference preference = new Preference(context);
+            String title = str("general_api_url");
+            preference.setTitle(title);
+            preference.setSummary(Html.fromHtml(str("general_api_url_sum")));
+            preference.setOnPreferenceClickListener(preference1 -> {
+                EditText editText = new EditText(context);
+                editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_URI);
+                editText.setText(SponsorBlockSettings.apiUrl);
+
+                API_URL_CHANGE_LISTENER.setEditTextRef(editText);
+                new AlertDialog.Builder(context)
+                        .setTitle(title)
+                        .setView(editText)
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .setNeutralButton(str("reset"), API_URL_CHANGE_LISTENER)
+                        .setPositiveButton(android.R.string.ok, API_URL_CHANGE_LISTENER)
+                        .show();
+                return true;
+            });
+
+            screen.addPreference(preference);
+            preferencesToDisableWhenSBDisabled.add(preference);
+        }
+    }
+
+    private static class APIURLChangeListener implements DialogInterface.OnClickListener {
+        private WeakReference<EditText> editTextRef;
+
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            EditText editText = editTextRef.get();
+            if (editText == null)
+                return;
+            Context context = ((AlertDialog) dialog).getContext();
+            Context applicationContext = context.getApplicationContext();
+            SharedPreferences preferences = SponsorBlockSettings.getPreferences(context);
+
+            switch (which) {
+                case DialogInterface.BUTTON_NEUTRAL:
+                    preferences.edit().putString(PREFERENCES_KEY_API_URL, DEFAULT_API_URL).apply();
+                    Toast.makeText(applicationContext, str("api_url_reset"), Toast.LENGTH_SHORT).show();
+                    break;
+                case DialogInterface.BUTTON_POSITIVE:
+                    Editable text = editText.getText();
+                    Toast invalidToast = Toast.makeText(applicationContext, str("api_url_invalid"), Toast.LENGTH_SHORT);
+                    if (text == null) {
+                        invalidToast.show();
+                    }
+                    else {
+                        String textAsString = text.toString();
+                        if (textAsString.isEmpty() || !Patterns.WEB_URL.matcher(textAsString).matches()) {
+                            invalidToast.show();
+                        }
+                        else {
+                            preferences.edit().putString(PREFERENCES_KEY_API_URL, textAsString).apply();
+                            Toast.makeText(applicationContext, str("api_url_changed"), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    break;
+            }
+        }
+
+        public void setEditTextRef(EditText editText) {
+            editTextRef = new WeakReference<>(editText);
         }
     }
 
