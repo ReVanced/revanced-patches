@@ -23,6 +23,7 @@ import java.util.Locale;
 
 import fi.vanced.utils.requests.Requester;
 import fi.vanced.utils.requests.Route;
+import pl.jakubweg.PlayerController;
 import pl.jakubweg.SponsorBlockSettings;
 import pl.jakubweg.SponsorBlockUtils;
 import pl.jakubweg.SponsorBlockUtils.VoteOption;
@@ -80,7 +81,8 @@ public class SBRequester {
         try {
             String start = String.format(Locale.US, TIME_TEMPLATE, startTime);
             String end = String.format(Locale.US, TIME_TEMPLATE, endTime);
-            HttpURLConnection connection = getConnectionFromRoute(SBRoutes.SUBMIT_SEGMENTS, videoId, uuid, start, end, category);
+            String duration = String.valueOf(PlayerController.getCurrentVideoLength() / 1000);
+            HttpURLConnection connection = getConnectionFromRoute(SBRoutes.SUBMIT_SEGMENTS, videoId, uuid, start, end, category, duration);
             int responseCode = connection.getResponseCode();
 
             switch (responseCode) {
