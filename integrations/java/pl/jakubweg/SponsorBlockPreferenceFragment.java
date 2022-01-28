@@ -140,7 +140,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
         setSeenGuidelines(context);
 
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://github.com/ajayyy/SponsorBlock/wiki/Guidelines"));
+        intent.setData(Uri.parse("https://wiki.sponsor.ajay.app/w/Guidelines"));
         context.startActivity(intent);
     }
 
