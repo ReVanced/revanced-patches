@@ -8,7 +8,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.preference.ListPreference;
+import android.text.Editable;
+import android.text.Html;
 import android.text.InputType;
+import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -44,7 +47,24 @@ public class EditTextListPreference extends ListPreference {
         mEditText = new EditText(builder.getContext());
         mEditText.setInputType(InputType.TYPE_CLASS_TEXT);
         mEditText.setText(formatColorString(category.color));
+        mEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                try {
+                    Color.parseColor(s.toString()); // validation
+                    getDialog().setTitle(Html.fromHtml(String.format("<font color=\"%s\">⬤</font> %s", s, category.title)));
+                }
+                catch (Exception ex) {}
+            }
+        });
         builder.setView(mEditText);
+        builder.setTitle(category.getTitleWithDot());
 
         builder.setPositiveButton(android.R.string.ok, (dialog, which) -> {
             EditTextListPreference.this.onClick(dialog, DialogInterface.BUTTON_POSITIVE);
@@ -55,6 +75,7 @@ public class EditTextListPreference extends ListPreference {
             category.setColor(defaultColor);
             Toast.makeText(getContext().getApplicationContext(), str("color_reset"), Toast.LENGTH_SHORT).show();
             getSharedPreferences().edit().putString(getColorPreferenceKey(), formatColorString(defaultColor)).apply();
+            reformatTitle();
         });
         builder.setNegativeButton(android.R.string.cancel, null);
 
@@ -80,6 +101,7 @@ public class EditTextListPreference extends ListPreference {
                 category.setColor(color);
                 Toast.makeText(applicationContext, str("color_changed"), Toast.LENGTH_SHORT).show();
                 getSharedPreferences().edit().putString(getColorPreferenceKey(), formatColorString(color)).apply();
+                reformatTitle();
             }
             catch (Exception ex) {
                 Toast.makeText(applicationContext, str("color_invalid"), Toast.LENGTH_SHORT).show();
@@ -93,5 +115,9 @@ public class EditTextListPreference extends ListPreference {
 
     private String getColorPreferenceKey() {
         return getKey() + SponsorBlockSettings.PREFERENCES_KEY_CATEGORY_COLOR_SUFFIX;
+    }
+
+    private void reformatTitle() {
+        this.setTitle(getCategoryBySelf().getTitleWithDot());
     }
 }
