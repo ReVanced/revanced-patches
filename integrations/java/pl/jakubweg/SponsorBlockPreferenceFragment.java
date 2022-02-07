@@ -343,21 +343,6 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
         }
 
         {
-            EditTextPreference preference = new EditTextPreference(context);
-            Context applicationContext = context.getApplicationContext();
-
-            preference.setTitle(str("settings_ie"));
-            preference.setSummary(str("settings_ie_sum"));
-            preference.setText(SponsorBlockUtils.exportSettings(applicationContext));
-            preference.setOnPreferenceChangeListener((preference1, newValue) -> {
-                SponsorBlockUtils.importSettings((String) newValue, applicationContext);
-                return false;
-            });
-            screen.addPreference(preference);
-            preferencesToDisableWhenSBDisabled.add(preference);
-        }
-
-        {
             Preference preference = new Preference(context);
             String title = str("general_api_url");
             preference.setTitle(title);
@@ -378,6 +363,21 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
                 return true;
             });
 
+            screen.addPreference(preference);
+            preferencesToDisableWhenSBDisabled.add(preference);
+        }
+
+        {
+            EditTextPreference preference = new EditTextPreference(context);
+            Context applicationContext = context.getApplicationContext();
+
+            preference.setTitle(str("settings_ie"));
+            preference.setSummary(str("settings_ie_sum"));
+            preference.setText(SponsorBlockUtils.exportSettings(applicationContext));
+            preference.setOnPreferenceChangeListener((preference1, newValue) -> {
+                SponsorBlockUtils.importSettings((String) newValue, applicationContext);
+                return false;
+            });
             screen.addPreference(preference);
             preferencesToDisableWhenSBDisabled.add(preference);
         }

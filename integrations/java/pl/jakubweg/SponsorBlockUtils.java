@@ -10,6 +10,9 @@ import static pl.jakubweg.PlayerController.getLastKnownVideoTime;
 import static pl.jakubweg.PlayerController.sponsorSegmentsOfCurrentVideo;
 import static pl.jakubweg.SponsorBlockPreferenceFragment.FORMATTER;
 import static pl.jakubweg.SponsorBlockPreferenceFragment.SAVED_TEMPLATE;
+import static pl.jakubweg.SponsorBlockSettings.DEFAULT_API_URL;
+import static pl.jakubweg.SponsorBlockSettings.DEFAULT_SERVER_URL;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_API_URL;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_CATEGORY_COLOR_SUFFIX;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_COUNT_SKIPS;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_IS_VIP;
@@ -19,6 +22,7 @@ import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TIME_WITHOUT
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_UUID;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_NAME;
+import static pl.jakubweg.SponsorBlockSettings.apiUrl;
 import static pl.jakubweg.SponsorBlockSettings.countSkips;
 import static pl.jakubweg.SponsorBlockSettings.getPreferences;
 import static pl.jakubweg.SponsorBlockSettings.isSponsorBlockEnabled;
@@ -571,6 +575,13 @@ public abstract class SponsorBlockUtils {
             editor.putString(PREFERENCES_KEY_MIN_DURATION, settingsJson.getString("minDuration"));
             editor.putString(PREFERENCES_KEY_UUID, settingsJson.getString("userID"));
             editor.putString(PREFERENCES_KEY_LAST_VIP_CHECK, settingsJson.getString("lastIsVipUpdate"));
+
+            String serverAddress = settingsJson.getString("serverAddress");
+            if (serverAddress.equalsIgnoreCase(DEFAULT_SERVER_URL)) {
+                serverAddress = DEFAULT_API_URL;
+            }
+            editor.putString(PREFERENCES_KEY_API_URL, serverAddress);
+
             editor.apply();
 
             Toast.makeText(context, str("settings_import_successful"), Toast.LENGTH_SHORT).show();
@@ -612,6 +623,12 @@ public abstract class SponsorBlockUtils {
             json.put("userID", uuid);
             json.put("isVip", vip);
             json.put("lastIsVipUpdate", lastVipCheck);
+
+            String apiAddress = apiUrl;
+            if (apiAddress.equalsIgnoreCase(DEFAULT_API_URL)) {
+                apiAddress = DEFAULT_SERVER_URL;
+            }
+            json.put("serverAddress", apiAddress);
 
             return json.toString();
         }

@@ -38,7 +38,8 @@ public class SponsorBlockSettings {
     public static final String PREFERENCES_KEY_API_URL = "sb-api-url";
 
     public static final SegmentBehaviour DefaultBehaviour = SegmentBehaviour.SKIP_AUTOMATICALLY;
-    public static final String DEFAULT_API_URL = "https://sponsor.ajay.app/api/";
+    public static final String DEFAULT_SERVER_URL = "https://sponsor.ajay.app";
+    public static final String DEFAULT_API_URL = DEFAULT_SERVER_URL + "/api/";
 
     public static boolean isSponsorBlockEnabled = false;
     public static boolean seenGuidelinesPopup = false;
