@@ -33,6 +33,8 @@ public class SponsorBlockSettings {
     public static final String PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS = "sb-length-without-segments";
     public static final String PREFERENCES_KEY_CATEGORY_COLOR_SUFFIX = "_color";
     public static final String PREFERENCES_KEY_BROWSER_BUTTON = "sb-browser-button";
+    public static final String PREFERENCES_KEY_IS_VIP = "sb-is-vip";
+    public static final String PREFERENCES_KEY_LAST_VIP_CHECK = "sb-last-vip-check";
     public static final String PREFERENCES_KEY_API_URL = "sb-api-url";
 
     public static final SegmentBehaviour DefaultBehaviour = SegmentBehaviour.SKIP_AUTOMATICALLY;
@@ -45,6 +47,8 @@ public class SponsorBlockSettings {
     public static boolean showToastWhenSkippedAutomatically = true;
     public static boolean countSkips = true;
     public static boolean showTimeWithoutSegments = true;
+    public static boolean vip = false;
+    public static long lastVipCheck = 0;
     public static int adjustNewSegmentMillis = 150;
     public static float minDuration = 0f;
     public static String uuid = "<invalid>";
@@ -146,6 +150,11 @@ public class SponsorBlockSettings {
 
         countSkips = preferences.getBoolean(PREFERENCES_KEY_COUNT_SKIPS, countSkips);
         showTimeWithoutSegments = preferences.getBoolean(PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS, showTimeWithoutSegments);
+        vip = preferences.getBoolean(PREFERENCES_KEY_IS_VIP, false);
+
+        String vipCheckTmp = preferences.getString(PREFERENCES_KEY_LAST_VIP_CHECK, null);
+        if (vipCheckTmp != null)
+            lastVipCheck = Long.parseLong(vipCheckTmp);
 
         apiUrl = preferences.getString(PREFERENCES_KEY_API_URL, DEFAULT_API_URL);
 

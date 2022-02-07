@@ -12,6 +12,8 @@ import static pl.jakubweg.SponsorBlockPreferenceFragment.FORMATTER;
 import static pl.jakubweg.SponsorBlockPreferenceFragment.SAVED_TEMPLATE;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_CATEGORY_COLOR_SUFFIX;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_COUNT_SKIPS;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_IS_VIP;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_LAST_VIP_CHECK;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_MIN_DURATION;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP;
@@ -20,12 +22,14 @@ import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_NAME;
 import static pl.jakubweg.SponsorBlockSettings.countSkips;
 import static pl.jakubweg.SponsorBlockSettings.getPreferences;
 import static pl.jakubweg.SponsorBlockSettings.isSponsorBlockEnabled;
+import static pl.jakubweg.SponsorBlockSettings.lastVipCheck;
 import static pl.jakubweg.SponsorBlockSettings.minDuration;
 import static pl.jakubweg.SponsorBlockSettings.showTimeWithoutSegments;
 import static pl.jakubweg.SponsorBlockSettings.showToastWhenSkippedAutomatically;
 import static pl.jakubweg.SponsorBlockSettings.skippedSegments;
 import static pl.jakubweg.SponsorBlockSettings.skippedTime;
 import static pl.jakubweg.SponsorBlockSettings.uuid;
+import static pl.jakubweg.SponsorBlockSettings.vip;
 import static pl.jakubweg.StringRef.str;
 import static pl.jakubweg.requests.SBRequester.voteForSegment;
 
@@ -74,6 +78,7 @@ public abstract class SponsorBlockUtils {
     public static boolean videoHasSegments = false;
     public static String timeWithoutSegments = "";
     private static final int sponsorBtnId = 1234;
+    private static final String LOCKED_COLOR = "#FFC83D";
     public static final View.OnClickListener sponsorBlockBtnListener = v -> {
         if (debug) {
             Log.d(TAG, "Shield button clicked");
@@ -214,10 +219,17 @@ public abstract class SponsorBlockUtils {
         final SponsorSegment segment = sponsorSegmentsOfCurrentVideo[which];
 
         final VoteOption[] voteOptions = VoteOption.values();
-        String[] items = new String[voteOptions.length];
+        CharSequence[] items = new CharSequence[voteOptions.length];
 
         for (int i = 0; i < voteOptions.length; i++) {
-            items[i] = voteOptions[i].title;
+            VoteOption voteOption = voteOptions[i];
+            String title = voteOption.title;
+            if (vip && segment.isLocked && voteOption.shouldHighlight) {
+                items[i] = Html.fromHtml(String.format("<font color=\"%s\">%s</font>", LOCKED_COLOR, title));
+            }
+            else {
+                items[i] = title;
+            }
         }
 
         new AlertDialog.Builder(context)
@@ -383,7 +395,7 @@ public abstract class SponsorBlockUtils {
             final SponsorSegment[] segments = original == null ? new SponsorSegment[1] : Arrays.copyOf(original, original.length + 1);
 
             segments[segments.length - 1] = new SponsorSegment(newSponsorSegmentStartMillis, newSponsorSegmentEndMillis,
-                    SponsorBlockSettings.SegmentInfo.UNSUBMITTED, null);
+                    SponsorBlockSettings.SegmentInfo.UNSUBMITTED, null, false);
 
             Arrays.sort(segments);
             sponsorSegmentsOfCurrentVideo = segments;
@@ -555,8 +567,10 @@ public abstract class SponsorBlockUtils {
             editor.putBoolean(PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP, !settingsJson.getBoolean("dontShowNotice"));
             editor.putBoolean(PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS, settingsJson.getBoolean("showTimeWithSkips"));
             editor.putBoolean(PREFERENCES_KEY_COUNT_SKIPS, settingsJson.getBoolean("trackViewCount"));
+            editor.putBoolean(PREFERENCES_KEY_IS_VIP, settingsJson.getBoolean("isVip"));
             editor.putString(PREFERENCES_KEY_MIN_DURATION, settingsJson.getString("minDuration"));
             editor.putString(PREFERENCES_KEY_UUID, settingsJson.getString("userID"));
+            editor.putString(PREFERENCES_KEY_LAST_VIP_CHECK, settingsJson.getString("lastIsVipUpdate"));
             editor.apply();
 
             Toast.makeText(context, str("settings_import_successful"), Toast.LENGTH_SHORT).show();
@@ -596,6 +610,8 @@ public abstract class SponsorBlockUtils {
             json.put("trackViewCount", countSkips);
             json.put("categorySelections", categorySelectionsArray);
             json.put("userID", uuid);
+            json.put("isVip", vip);
+            json.put("lastIsVipUpdate", lastVipCheck);
 
             return json.toString();
         }
@@ -615,14 +631,17 @@ public abstract class SponsorBlockUtils {
     }
 
     public enum VoteOption {
-        UPVOTE(str("vote_upvote")),
-        DOWNVOTE(str("vote_downvote")),
-        CATEGORY_CHANGE(str("vote_category"));
+        UPVOTE(str("vote_upvote"), false),
+        DOWNVOTE(str("vote_downvote"), true),
+        CATEGORY_CHANGE(str("vote_category"), true);
 
         public final String title;
+        public final boolean shouldHighlight;
 
-        VoteOption(String title) {
+
+        VoteOption(String title, boolean shouldHighlight) {
             this.title = title;
+            this.shouldHighlight = shouldHighlight;
         }
     }
 

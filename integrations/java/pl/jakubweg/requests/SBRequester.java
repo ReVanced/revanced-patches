@@ -7,10 +7,13 @@ import static pl.jakubweg.SponsorBlockUtils.videoHasSegments;
 import static pl.jakubweg.StringRef.str;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.widget.Toast;
+
+import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -20,6 +23,7 @@ import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 import fi.vanced.utils.requests.Requester;
 import fi.vanced.utils.requests.Route;
@@ -40,6 +44,7 @@ public class SBRequester {
         try {
             HttpURLConnection connection = getConnectionFromRoute(SBRoutes.GET_SEGMENTS, videoId, SponsorBlockSettings.sponsorBlockUrlCategories);
             int responseCode = connection.getResponseCode();
+            runVipCheck();
 
             if (responseCode == 200) {
                 JSONArray responseArray = Requester.getJSONArray(connection);
@@ -56,10 +61,11 @@ public class SBRequester {
 
                     String category = obj.getString("category");
                     String uuid = obj.getString("UUID");
+                    boolean locked = obj.getInt("locked") == 1;
 
                     SponsorBlockSettings.SegmentInfo segmentCategory = SponsorBlockSettings.SegmentInfo.byCategoryKey(category);
                     if (segmentCategory != null && segmentCategory.behaviour.showOnTimeBar) {
-                        SponsorSegment sponsorSegment = new SponsorSegment(start, end, segmentCategory, uuid);
+                        SponsorSegment sponsorSegment = new SponsorSegment(start, end, segmentCategory, uuid, locked);
                         segments.add(sponsorSegment);
                     }
                 }
@@ -195,6 +201,27 @@ public class SBRequester {
                 ex.printStackTrace();
             }
         }).start();
+    }
+
+    public static void runVipCheck() {
+        long now = System.currentTimeMillis();
+        if (now < (SponsorBlockSettings.lastVipCheck + TimeUnit.DAYS.toMillis(3))) {
+            return;
+        }
+        try {
+            JSONObject json = getJSONObject(SBRoutes.IS_USER_VIP, SponsorBlockSettings.uuid);
+            boolean vip = json.getBoolean("vip");
+            SponsorBlockSettings.vip = vip;
+            SponsorBlockSettings.lastVipCheck = now;
+
+            SharedPreferences.Editor edit = SponsorBlockSettings.getPreferences(YouTubeTikTokRoot_Application.getAppContext()).edit();
+            edit.putString(SponsorBlockSettings.PREFERENCES_KEY_LAST_VIP_CHECK, String.valueOf(now));
+            edit.putBoolean(SponsorBlockSettings.PREFERENCES_KEY_IS_VIP, vip);
+            edit.apply();
+        }
+        catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     // helpers
