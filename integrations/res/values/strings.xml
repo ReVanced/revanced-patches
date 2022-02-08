@@ -177,7 +177,7 @@
     <string name="segments_selfpromo_sum">Similar to "sponsor" except for unpaid or self promotion. This includes sections about merchandise, donations, or information about who they collaborated with</string>
     <string name="segments_nomusic">Music: Non-Music Section</string>
     <string name="segments_nomusic_sum">Only for use in music videos. This includes introductions or outros in music videos</string>
-    <string name="segments_filler">Filler Tangent</string>
+    <string name="segments_filler">Filler Tangent/Jokes</string>
     <string name="segments_filler_sum">Tangential scenes added only for filler or humor that are not required to understand the main content of the video. This should not include segments providing context or background details</string>
     <string name="skipped_segment">Skipped a sponsor segment</string>
     <string name="skipped_sponsor">Skipped sponsor</string>
