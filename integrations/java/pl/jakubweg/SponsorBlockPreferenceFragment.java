@@ -1,17 +1,23 @@
 package pl.jakubweg;
 
-import static pl.jakubweg.SponsorBlockSettings.DefaultBehaviour;
+import static fi.razerman.youtube.XGlobals.debug;
+import static pl.jakubweg.SponsorBlockSettings.DEFAULT_API_URL;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_API_URL;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_BROWSER_BUTTON;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_COUNT_SKIPS;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_MIN_DURATION;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_NEW_SEGMENT_ENABLED;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SPONSOR_BLOCK_HINT_SHOWN;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_UUID;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_VOTING_ENABLED;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_NAME;
 import static pl.jakubweg.SponsorBlockSettings.adjustNewSegmentMillis;
 import static pl.jakubweg.SponsorBlockSettings.countSkips;
+import static pl.jakubweg.SponsorBlockSettings.minDuration;
 import static pl.jakubweg.SponsorBlockSettings.setSeenGuidelines;
 import static pl.jakubweg.SponsorBlockSettings.showTimeWithoutSegments;
 import static pl.jakubweg.SponsorBlockSettings.showToastWhenSkippedAutomatically;
@@ -21,29 +27,38 @@ import static pl.jakubweg.StringRef.str;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
-import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
+import android.text.Editable;
+import android.text.Html;
 import android.text.InputType;
+import android.util.Patterns;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import java.lang.ref.WeakReference;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-import pl.jakubweg.requests.Requester;
+import fi.vanced.libraries.youtube.whitelisting.WhitelistType;
+import fi.vanced.utils.SharedPrefUtils;
+import pl.jakubweg.objects.EditTextListPreference;
+import pl.jakubweg.requests.SBRequester;
 
 @SuppressWarnings({"unused", "deprecation"}) // injected
 public class SponsorBlockPreferenceFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
     public static final DecimalFormat FORMATTER = new DecimalFormat("#,###,###");
     public static final String SAVED_TEMPLATE = "%dh %.1f %s";
+    private static final APIURLChangeListener API_URL_CHANGE_LISTENER = new APIURLChangeListener();
     private final ArrayList<Preference> preferencesToDisableWhenSBDisabled = new ArrayList<>();
 
     @Override
@@ -73,6 +88,18 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
                 enableCategoriesIfNeeded(value);
                 return true;
             });
+        }
+
+        // Clear hint
+        if (debug) {
+            SwitchPreference preference = new SwitchPreference(context);
+            preferenceScreen.addPreference(preference);
+            preference.setKey(PREFERENCES_KEY_SPONSOR_BLOCK_HINT_SHOWN);
+            preference.setDefaultValue(false);
+            preference.setChecked(SharedPrefUtils.getBoolean(context, PREFERENCES_NAME, PREFERENCES_KEY_SPONSOR_BLOCK_HINT_SHOWN));
+            preference.setTitle("Hint debug");
+            preference.setSummary("Debug toggle for clearing the hint shown preference");
+            preference.setOnPreferenceChangeListener((pref, newValue) -> true);
         }
 
         {
@@ -122,7 +149,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
         setSeenGuidelines(context);
 
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://github.com/ajayyy/SponsorBlock/wiki/Guidelines"));
+        intent.setData(Uri.parse("https://wiki.sponsor.ajay.app/w/Guidelines"));
         context.startActivity(intent);
     }
 
@@ -143,7 +170,6 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
         preferencesToDisableWhenSBDisabled.add(category);
         category.setTitle(str("diff_segments"));
 
-        String defaultValue = DefaultBehaviour.key;
         SponsorBlockSettings.SegmentBehaviour[] segmentBehaviours = SponsorBlockSettings.SegmentBehaviour.values();
         String[] entries = new String[segmentBehaviours.length];
         String[] entryValues = new String[segmentBehaviours.length];
@@ -156,33 +182,21 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
         SponsorBlockSettings.SegmentInfo[] categories = SponsorBlockSettings.SegmentInfo.valuesWithoutUnsubmitted();
 
         for (SponsorBlockSettings.SegmentInfo segmentInfo : categories) {
-            ListPreference preference = new ListPreference(context);
+            EditTextListPreference preference = new EditTextListPreference(context);
             preference.setTitle(segmentInfo.getTitleWithDot());
             preference.setSummary(segmentInfo.description.toString());
             preference.setKey(segmentInfo.key);
-            preference.setDefaultValue(defaultValue);
+            preference.setDefaultValue(segmentInfo.behaviour.key);
             preference.setEntries(entries);
             preference.setEntryValues(entryValues);
 
             category.addPreference(preference);
         }
 
-        Preference colorPreference = new Preference(context);
+        Preference colorPreference = new Preference(context); // TODO remove this after the next major update
         screen.addPreference(colorPreference);
         colorPreference.setTitle(str("color_change"));
-
-        colorPreference.setOnPreferenceClickListener(preference1 -> {
-            CharSequence[] items = new CharSequence[categories.length];
-            for (int i = 0; i < items.length; i++) {
-                items[i] = categories[i].getTitleWithDot();
-            }
-
-            new AlertDialog.Builder(context)
-                    .setTitle(str("color_choose_category"))
-                    .setItems(items, SponsorBlockUtils.categoryColorChangeClickListener)
-                    .show();
-            return true;
-        });
+        colorPreference.setSummary(str("color_change_sum"));
         preferencesToDisableWhenSBDisabled.add(colorPreference);
     }
 
@@ -197,7 +211,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             category.addPreference(preference);
             preference.setTitle(str("stats_loading"));
 
-            Requester.retrieveUserStats(category, preference);
+            SBRequester.retrieveUserStats(category, preference);
         }
     }
 
@@ -279,12 +293,41 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
         }
 
         {
+            Preference preference = new SwitchPreference(context);
+            preference.setTitle(str("general_whitelisting"));
+            preference.setSummary(str("general_whitelisting_sum"));
+            preference.setKey(WhitelistType.SPONSORBLOCK.getPreferenceEnabledName());
+            preferencesToDisableWhenSBDisabled.add(preference);
+            screen.addPreference(preference);
+        }
+
+        {
+            Preference preference = new SwitchPreference(context);
+            preference.setTitle(str("general_browser_button"));
+            preference.setSummary(str("general_browser_button_sum"));
+            preference.setKey(PREFERENCES_KEY_BROWSER_BUTTON);
+            preferencesToDisableWhenSBDisabled.add(preference);
+            screen.addPreference(preference);
+        }
+
+        {
             EditTextPreference preference = new EditTextPreference(context);
-            preference.getEditText().setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED);
+            preference.getEditText().setInputType(InputType.TYPE_CLASS_NUMBER);
             preference.setTitle(str("general_adjusting"));
             preference.setSummary(str("general_adjusting_sum"));
             preference.setKey(PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP);
             preference.setDefaultValue(String.valueOf(adjustNewSegmentMillis));
+            screen.addPreference(preference);
+            preferencesToDisableWhenSBDisabled.add(preference);
+        }
+
+        {
+            EditTextPreference preference = new EditTextPreference(context);
+            preference.getEditText().setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+            preference.setTitle(str("general_min_duration"));
+            preference.setSummary(str("general_min_duration_sum"));
+            preference.setKey(PREFERENCES_KEY_MIN_DURATION);
+            preference.setDefaultValue(String.valueOf(minDuration));
             screen.addPreference(preference);
             preferencesToDisableWhenSBDisabled.add(preference);
         }
@@ -295,6 +338,31 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             preference.setSummary(str("general_uuid_sum"));
             preference.setKey(PREFERENCES_KEY_UUID);
             preference.setDefaultValue(uuid);
+            screen.addPreference(preference);
+            preferencesToDisableWhenSBDisabled.add(preference);
+        }
+
+        {
+            Preference preference = new Preference(context);
+            String title = str("general_api_url");
+            preference.setTitle(title);
+            preference.setSummary(Html.fromHtml(str("general_api_url_sum")));
+            preference.setOnPreferenceClickListener(preference1 -> {
+                EditText editText = new EditText(context);
+                editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_URI);
+                editText.setText(SponsorBlockSettings.apiUrl);
+
+                API_URL_CHANGE_LISTENER.setEditTextRef(editText);
+                new AlertDialog.Builder(context)
+                        .setTitle(title)
+                        .setView(editText)
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .setNeutralButton(str("reset"), API_URL_CHANGE_LISTENER)
+                        .setPositiveButton(android.R.string.ok, API_URL_CHANGE_LISTENER)
+                        .show();
+                return true;
+            });
+
             screen.addPreference(preference);
             preferencesToDisableWhenSBDisabled.add(preference);
         }
@@ -312,6 +380,48 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment implement
             });
             screen.addPreference(preference);
             preferencesToDisableWhenSBDisabled.add(preference);
+        }
+    }
+
+    private static class APIURLChangeListener implements DialogInterface.OnClickListener {
+        private WeakReference<EditText> editTextRef;
+
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            EditText editText = editTextRef.get();
+            if (editText == null)
+                return;
+            Context context = ((AlertDialog) dialog).getContext();
+            Context applicationContext = context.getApplicationContext();
+            SharedPreferences preferences = SponsorBlockSettings.getPreferences(context);
+
+            switch (which) {
+                case DialogInterface.BUTTON_NEUTRAL:
+                    preferences.edit().putString(PREFERENCES_KEY_API_URL, DEFAULT_API_URL).apply();
+                    Toast.makeText(applicationContext, str("api_url_reset"), Toast.LENGTH_SHORT).show();
+                    break;
+                case DialogInterface.BUTTON_POSITIVE:
+                    Editable text = editText.getText();
+                    Toast invalidToast = Toast.makeText(applicationContext, str("api_url_invalid"), Toast.LENGTH_SHORT);
+                    if (text == null) {
+                        invalidToast.show();
+                    }
+                    else {
+                        String textAsString = text.toString();
+                        if (textAsString.isEmpty() || !Patterns.WEB_URL.matcher(textAsString).matches()) {
+                            invalidToast.show();
+                        }
+                        else {
+                            preferences.edit().putString(PREFERENCES_KEY_API_URL, textAsString).apply();
+                            Toast.makeText(applicationContext, str("api_url_changed"), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    break;
+            }
+        }
+
+        public void setEditTextRef(EditText editText) {
+            editTextRef = new WeakReference<>(editText);
         }
     }
 

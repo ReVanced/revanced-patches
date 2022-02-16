@@ -10,21 +10,32 @@ import static pl.jakubweg.PlayerController.getLastKnownVideoTime;
 import static pl.jakubweg.PlayerController.sponsorSegmentsOfCurrentVideo;
 import static pl.jakubweg.SponsorBlockPreferenceFragment.FORMATTER;
 import static pl.jakubweg.SponsorBlockPreferenceFragment.SAVED_TEMPLATE;
+import static pl.jakubweg.SponsorBlockSettings.DEFAULT_API_URL;
+import static pl.jakubweg.SponsorBlockSettings.DEFAULT_SERVER_URL;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_API_URL;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_CATEGORY_COLOR_SUFFIX;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_COUNT_SKIPS;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_IS_VIP;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_LAST_VIP_CHECK;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_MIN_DURATION;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP;
 import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_KEY_UUID;
+import static pl.jakubweg.SponsorBlockSettings.PREFERENCES_NAME;
+import static pl.jakubweg.SponsorBlockSettings.apiUrl;
 import static pl.jakubweg.SponsorBlockSettings.countSkips;
 import static pl.jakubweg.SponsorBlockSettings.getPreferences;
 import static pl.jakubweg.SponsorBlockSettings.isSponsorBlockEnabled;
+import static pl.jakubweg.SponsorBlockSettings.lastVipCheck;
+import static pl.jakubweg.SponsorBlockSettings.minDuration;
 import static pl.jakubweg.SponsorBlockSettings.showTimeWithoutSegments;
 import static pl.jakubweg.SponsorBlockSettings.showToastWhenSkippedAutomatically;
 import static pl.jakubweg.SponsorBlockSettings.skippedSegments;
 import static pl.jakubweg.SponsorBlockSettings.skippedTime;
 import static pl.jakubweg.SponsorBlockSettings.uuid;
+import static pl.jakubweg.SponsorBlockSettings.vip;
 import static pl.jakubweg.StringRef.str;
-import static pl.jakubweg.requests.Requester.voteForSegment;
+import static pl.jakubweg.requests.SBRequester.voteForSegment;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -32,13 +43,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.net.Uri;
 import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.text.Html;
-import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -59,9 +68,10 @@ import java.util.List;
 import java.util.Objects;
 import java.util.TimeZone;
 
+import fi.vanced.utils.SharedPrefUtils;
 import pl.jakubweg.objects.SponsorSegment;
 import pl.jakubweg.objects.UserStats;
-import pl.jakubweg.requests.Requester;
+import pl.jakubweg.requests.SBRequester;
 
 @SuppressWarnings({"LongLogTag"})
 public abstract class SponsorBlockUtils {
@@ -72,6 +82,7 @@ public abstract class SponsorBlockUtils {
     public static boolean videoHasSegments = false;
     public static String timeWithoutSegments = "";
     private static final int sponsorBtnId = 1234;
+    private static final String LOCKED_COLOR = "#FFC83D";
     public static final View.OnClickListener sponsorBlockBtnListener = v -> {
         if (debug) {
             Log.d(TAG, "Shield button clicked");
@@ -212,61 +223,33 @@ public abstract class SponsorBlockUtils {
         final SponsorSegment segment = sponsorSegmentsOfCurrentVideo[which];
 
         final VoteOption[] voteOptions = VoteOption.values();
-        String[] items = new String[voteOptions.length];
+        CharSequence[] items = new CharSequence[voteOptions.length];
 
         for (int i = 0; i < voteOptions.length; i++) {
-            items[i] = voteOptions[i].title;
+            VoteOption voteOption = voteOptions[i];
+            String title = voteOption.title;
+            if (vip && segment.isLocked && voteOption.shouldHighlight) {
+                items[i] = Html.fromHtml(String.format("<font color=\"%s\">%s</font>", LOCKED_COLOR, title));
+            }
+            else {
+                items[i] = title;
+            }
         }
 
         new AlertDialog.Builder(context)
                 .setItems(items, (dialog1, which1) -> {
                     appContext = new WeakReference<>(context.getApplicationContext());
-                    switch (voteOptions[which1]) {
+                    VoteOption voteOption = voteOptions[which1];
+                    switch (voteOption) {
                         case UPVOTE:
-                            voteForSegment(segment, VoteOption.UPVOTE, appContext.get(), toastRunnable);
-                            break;
                         case DOWNVOTE:
-                            voteForSegment(segment, VoteOption.DOWNVOTE, appContext.get(), toastRunnable);
+                            voteForSegment(segment, voteOption, appContext.get());
                             break;
                         case CATEGORY_CHANGE:
                             onNewCategorySelect(segment, context);
                             break;
                     }
                 })
-                .show();
-    };
-    public static final DialogInterface.OnClickListener categoryColorChangeClickListener = (dialog, which) -> {
-        SponsorBlockSettings.SegmentInfo segmentInfo = SponsorBlockSettings.SegmentInfo.valuesWithoutUnsubmitted()[which];
-        String key = segmentInfo.key + PREFERENCES_KEY_CATEGORY_COLOR_SUFFIX;
-
-        Context context = ((AlertDialog) dialog).getContext();
-        EditText editText = new EditText(context);
-        editText.setInputType(InputType.TYPE_CLASS_TEXT);
-        editText.setText(formatColorString(segmentInfo.color));
-
-        Context applicationContext = context.getApplicationContext();
-        SharedPreferences preferences = SponsorBlockSettings.getPreferences(context);
-
-        new AlertDialog.Builder(context)
-                .setView(editText)
-                .setPositiveButton(str("change"), (dialog1, which1) -> {
-                    try {
-                        int color = Color.parseColor(editText.getText().toString());
-                        segmentInfo.setColor(color);
-                        Toast.makeText(applicationContext, str("color_changed"), Toast.LENGTH_SHORT).show();
-                        preferences.edit().putString(key, formatColorString(color)).apply();
-                    }
-                    catch (Exception ex) {
-                        Toast.makeText(applicationContext, str("color_invalid"), Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .setNeutralButton(str("reset"), (dialog1, which1) -> {
-                    int defaultColor = segmentInfo.defaultColor;
-                    segmentInfo.setColor(defaultColor);
-                    Toast.makeText(applicationContext, str("color_reset"), Toast.LENGTH_SHORT).show();
-                    preferences.edit().putString(key, formatColorString(defaultColor)).apply();
-                })
-                .setNegativeButton(android.R.string.cancel, null)
                 .show();
     };
     private static final Runnable submitRunnable = () -> {
@@ -281,7 +264,7 @@ public abstract class SponsorBlockUtils {
                 Log.e(TAG, "Unable to submit times, invalid parameters");
                 return;
             }
-            Requester.submitSegments(videoId, uuid, ((float) start) / 1000f, ((float) end) / 1000f, segmentType.key, toastRunnable);
+            SBRequester.submitSegments(videoId, uuid, ((float) start) / 1000f, ((float) end) / 1000f, segmentType.key, toastRunnable);
             newSponsorSegmentEndMillis = newSponsorSegmentStartMillis = -1;
         } catch (Exception e) {
             Log.e(TAG, "Unable to submit segment", e);
@@ -401,7 +384,7 @@ public abstract class SponsorBlockUtils {
 
         new AlertDialog.Builder(context)
                 .setTitle(str("new_segment_choose_category"))
-                .setItems(titles, (dialog, which) -> voteForSegment(segment, VoteOption.CATEGORY_CHANGE, appContext.get(), toastRunnable, values[which].key))
+                .setItems(titles, (dialog, which) -> voteForSegment(segment, VoteOption.CATEGORY_CHANGE, appContext.get(), values[which].key))
                 .show();
     }
 
@@ -416,7 +399,7 @@ public abstract class SponsorBlockUtils {
             final SponsorSegment[] segments = original == null ? new SponsorSegment[1] : Arrays.copyOf(original, original.length + 1);
 
             segments[segments.length - 1] = new SponsorSegment(newSponsorSegmentStartMillis, newSponsorSegmentEndMillis,
-                    SponsorBlockSettings.SegmentInfo.UNSUBMITTED, null);
+                    SponsorBlockSettings.SegmentInfo.UNSUBMITTED, null, false);
 
             Arrays.sort(segments);
             sponsorSegmentsOfCurrentVideo = segments;
@@ -485,15 +468,6 @@ public abstract class SponsorBlockUtils {
         }
     }
 
-    public static int countMatches(CharSequence seq, char c) {
-        int count = 0;
-        for (int i = 0; i < seq.length(); i++) {
-            if (seq.charAt(i) == c)
-                count++;
-        }
-        return count;
-    }
-
     public static String formatColorString(int color) {
         return String.format("#%06X", color);
     }
@@ -514,7 +488,7 @@ public abstract class SponsorBlockUtils {
             preference.setText(userName);
             preference.setOnPreferenceChangeListener((preference1, newUsername) -> {
                 appContext = new WeakReference<>(context.getApplicationContext());
-                Requester.setUsername((String) newUsername, toastRunnable);
+                SBRequester.setUsername((String) newUsername, preference, toastRunnable);
                 return false;
             });
         }
@@ -597,7 +571,17 @@ public abstract class SponsorBlockUtils {
             editor.putBoolean(PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP, !settingsJson.getBoolean("dontShowNotice"));
             editor.putBoolean(PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS, settingsJson.getBoolean("showTimeWithSkips"));
             editor.putBoolean(PREFERENCES_KEY_COUNT_SKIPS, settingsJson.getBoolean("trackViewCount"));
+            editor.putBoolean(PREFERENCES_KEY_IS_VIP, settingsJson.getBoolean("isVip"));
+            editor.putString(PREFERENCES_KEY_MIN_DURATION, settingsJson.getString("minDuration"));
             editor.putString(PREFERENCES_KEY_UUID, settingsJson.getString("userID"));
+            editor.putString(PREFERENCES_KEY_LAST_VIP_CHECK, settingsJson.getString("lastIsVipUpdate"));
+
+            String serverAddress = settingsJson.getString("serverAddress");
+            if (serverAddress.equalsIgnoreCase(DEFAULT_SERVER_URL)) {
+                serverAddress = DEFAULT_API_URL;
+            }
+            editor.putString(PREFERENCES_KEY_API_URL, serverAddress);
+
             editor.apply();
 
             Toast.makeText(context, str("settings_import_successful"), Toast.LENGTH_SHORT).show();
@@ -633,9 +617,18 @@ public abstract class SponsorBlockUtils {
             json.put("dontShowNotice", !showToastWhenSkippedAutomatically);
             json.put("barTypes", barTypesObject);
             json.put("showTimeWithSkips", showTimeWithoutSegments);
+            json.put("minDuration", minDuration);
             json.put("trackViewCount", countSkips);
             json.put("categorySelections", categorySelectionsArray);
             json.put("userID", uuid);
+            json.put("isVip", vip);
+            json.put("lastIsVipUpdate", lastVipCheck);
+
+            String apiAddress = apiUrl;
+            if (apiAddress.equalsIgnoreCase(DEFAULT_API_URL)) {
+                apiAddress = DEFAULT_SERVER_URL;
+            }
+            json.put("serverAddress", apiAddress);
 
             return json.toString();
         }
@@ -650,15 +643,22 @@ public abstract class SponsorBlockUtils {
         return isSponsorBlockEnabled && setting;
     }
 
+    public static boolean isSBButtonEnabled(Context context, String key) {
+        return isSettingEnabled(SharedPrefUtils.getBoolean(context, PREFERENCES_NAME, key, false));
+    }
+
     public enum VoteOption {
-        UPVOTE(str("vote_upvote")),
-        DOWNVOTE(str("vote_downvote")),
-        CATEGORY_CHANGE(str("vote_category"));
+        UPVOTE(str("vote_upvote"), false),
+        DOWNVOTE(str("vote_downvote"), true),
+        CATEGORY_CHANGE(str("vote_category"), true);
 
         public final String title;
+        public final boolean shouldHighlight;
 
-        VoteOption(String title) {
+
+        VoteOption(String title, boolean shouldHighlight) {
             this.title = title;
+            this.shouldHighlight = shouldHighlight;
         }
     }
 

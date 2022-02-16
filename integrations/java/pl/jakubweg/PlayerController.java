@@ -1,5 +1,10 @@
 package pl.jakubweg;
 
+import static pl.jakubweg.SponsorBlockSettings.skippedSegments;
+import static pl.jakubweg.SponsorBlockSettings.skippedTime;
+import static pl.jakubweg.SponsorBlockUtils.timeWithoutSegments;
+import static pl.jakubweg.SponsorBlockUtils.videoHasSegments;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -22,11 +27,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import fi.vanced.libraries.youtube.player.VideoInformation;
+import fi.vanced.libraries.youtube.whitelisting.Whitelist;
 import pl.jakubweg.objects.SponsorSegment;
-import pl.jakubweg.requests.Requester;
-
-import static pl.jakubweg.SponsorBlockSettings.skippedSegments;
-import static pl.jakubweg.SponsorBlockSettings.skippedTime;
+import pl.jakubweg.requests.SBRequester;
 
 @SuppressLint({"LongLogTag"})
 public class PlayerController {
@@ -63,8 +66,6 @@ public class PlayerController {
             sponsorSegmentsOfCurrentVideo = null;
             return;
         }
-
-        VideoInformation.currentVideoId = videoId;
 
         Context context = YouTubeTikTokRoot_Application.getAppContext();
         if(context == null){
@@ -125,7 +126,11 @@ public class PlayerController {
     }
 
     public static void executeDownloadSegments(String videoId) {
-        SponsorSegment[] segments = Requester.getSegments(videoId);
+        videoHasSegments = false;
+        timeWithoutSegments = "";
+        if (Whitelist.isChannelSBWhitelisted())
+            return;
+        SponsorSegment[] segments = SBRequester.getSegments(videoId);
         Arrays.sort(segments);
 
         if (VERBOSE)
@@ -283,7 +288,7 @@ public class PlayerController {
                     segment.category != SponsorBlockSettings.SegmentInfo.UNSUBMITTED &&
                     millis - segment.start < 2000) {
                 // Only skips from the start should count as a view
-                Requester.sendViewCountRequest(segment);
+                SBRequester.sendViewCountRequest(segment);
             }
         }).start();
     }
