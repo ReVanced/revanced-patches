@@ -369,11 +369,11 @@
     <string name="vanced_whitelisting_fetch_failed" formatted="false">Failed to retrieve channel details, received code %d</string>
     <string name="vanced_button_location_entry_none">Hidden</string>
     <string name="vanced_button_location_entry_player">In player</string>
-    <string name="vanced_button_location_entry_buttoncontainer">Under player</string>
+    <string name="vanced_button_location_entry_buttoncontainer">Under player (ALPHA)</string>
     <string name="vanced_button_location_entry_both">Both</string>
     <string name="vanced_ryd_settings_title">Return YouTube Dislike settings</string>
     <string name="vanced_ryd_settings_summary">Uses the RYD API</string>
-    <string name="vanced_ryd_title">Enable RYD</string>
+    <string name="vanced_ryd_title">Enable RYD (ALPHA)</string>
     <string name="vanced_ryd_summary">Switch this on to see the dislike counts again</string>
     <string name="vanced_ryd_attribution_title">Return YouTube Dislike Integration</string>
     <string name="vanced_ryd_attribution_summary">This integration uses the RYD API from https://returnyoutubedislike.com. Tap to learn more</string>

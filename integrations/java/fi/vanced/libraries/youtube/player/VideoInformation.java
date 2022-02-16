@@ -24,7 +24,7 @@ public class VideoInformation {
             if (debug) {
                 Log.d(TAG, "setCurrentVideoId - new id was null - currentVideoId was" + currentVideoId);
             }
-            clearInformation();
+            clearInformation(true);
             return;
         }
 
@@ -53,15 +53,17 @@ public class VideoInformation {
     // Call hook in the YT code when the video ends
     public static void videoEnded() {
         saveTempInformation();
-        clearInformation();
+        clearInformation(false);
     }
 
     // Information is cleared once a video ends
     // It's cleared because the setCurrentVideoId isn't called for Shorts
     // so Shorts would otherwise use the information from the last watched video
-    private static void clearInformation() {
-        currentVideoId = null;
-        dislikeCount = null;
+    private static void clearInformation(boolean full) {
+        if (full) {
+            currentVideoId = null;
+            dislikeCount = null;
+        }
         channelName = null;
     }
 

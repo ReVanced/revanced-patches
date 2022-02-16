@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
 
 import java.util.Locale;
+import java.util.Objects;
 
 import fi.vanced.libraries.youtube.ryd.requests.RYDRequester;
 import fi.vanced.utils.SharedPrefUtils;
@@ -36,7 +37,7 @@ public class ReturnYouTubeDislikes {
 
     static {
         Context context = YouTubeTikTokRoot_Application.getAppContext();
-        isEnabled = SharedPrefUtils.getBoolean(context, PREFERENCES_NAME, PREFERENCES_KEY_RYD_ENABLED, false);
+        isEnabled = SharedPrefUtils.getBoolean(Objects.requireNonNull(context), PREFERENCES_NAME, PREFERENCES_KEY_RYD_ENABLED, false);
         if (isEnabled) {
             registration = new Registration(context);
             voting = new Voting(context, registration);
@@ -51,9 +52,6 @@ public class ReturnYouTubeDislikes {
                     locale,
                     CompactDecimalFormat.CompactStyle.SHORT
             );
-            compactNumberFormatter.setMaximumIntegerDigits(3);
-            compactNumberFormatter.setMaximumFractionDigits(1);
-            compactNumberFormatter.setSignificantDigitsUsed(false);
         }
     }
 
@@ -199,7 +197,8 @@ public class ReturnYouTubeDislikes {
     }
 
     private static void handleOnClick(View view, boolean previousState) {
-        if (!isEnabled) return;
+        Context context = YouTubeTikTokRoot_Application.getAppContext();
+        if (!isEnabled || SharedPrefUtils.getBoolean(Objects.requireNonNull(context),"youtube","user_signed_out",true)) return;
 
         try {
             String tag = (String) view.getTag();
@@ -210,7 +209,7 @@ public class ReturnYouTubeDislikes {
 
             // If active status was removed, vote should be none
             if (previousState) { votingValue = 0; }
-            if (tag == "like") {
+            if (tag.equals("like")) {
                 dislikeActive = false;
 
                 // Like was activated
@@ -218,9 +217,9 @@ public class ReturnYouTubeDislikes {
                 else { likeActive = false; }
 
                 // Like was activated and dislike was previously activated
-                if (!previousState && dislikeActive) { dislikeCount--; trySetDislikes(formatDislikes(dislikeCount)); }
+                if (!previousState) { dislikeCount--; trySetDislikes(formatDislikes(dislikeCount)); }
             }
-            else if (tag == "dislike") {
+            else if (tag.equals("dislike")) {
                 likeActive = false;
 
                 // Dislike was activated
@@ -274,7 +273,6 @@ public class ReturnYouTubeDislikes {
             }
             catch (Exception ex) {
                 Log.e(TAG, "Failed to send vote", ex);
-                return;
             }
         });
         _votingThread.start();
