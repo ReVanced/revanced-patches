@@ -210,14 +210,14 @@ public class ReturnYouTubeDislikes {
             // If active status was removed, vote should be none
             if (previousState) { votingValue = 0; }
             if (tag.equals("like")) {
-                dislikeActive = false;
 
                 // Like was activated
                 if (!previousState) { votingValue = 1; likeActive = true; }
                 else { likeActive = false; }
 
                 // Like was activated and dislike was previously activated
-                if (!previousState) { dislikeCount--; trySetDislikes(formatDislikes(dislikeCount)); }
+                if (!previousState && dislikeActive) { dislikeCount--; trySetDislikes(formatDislikes(dislikeCount)); }
+                dislikeActive = false;
             }
             else if (tag.equals("dislike")) {
                 likeActive = false;
