@@ -96,6 +96,9 @@ public class Whitelist {
     }
 
     private static Map<WhitelistType, Boolean> parseEnabledMap(Context context) {
+        if (context == null) {
+            return Collections.emptyMap();
+        }
         Map<WhitelistType, Boolean> enabledMap = new EnumMap<>(WhitelistType.class);
         for (WhitelistType whitelistType : WhitelistType.values()) {
             enabledMap.put(whitelistType, SharedPrefUtils.getBoolean(context, whitelistType.getSharedPreferencesName(), whitelistType.getPreferenceEnabledName()));
