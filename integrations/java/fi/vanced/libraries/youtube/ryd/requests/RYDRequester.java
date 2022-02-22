@@ -33,7 +33,6 @@ public class RYDRequester {
                 Log.d(TAG, "Fetching dislikes for " + videoId);
             }
             HttpURLConnection connection = getConnectionFromRoute(RYDRoutes.GET_DISLIKES, videoId);
-            connection.setRequestProperty("User-agent", System.getProperty("http.agent") + ";vanced");
             connection.setConnectTimeout(5 * 1000);
             if (connection.getResponseCode() == 200) {
                 JSONObject json = getJSONObject(connection);
@@ -60,7 +59,6 @@ public class RYDRequester {
     public static String register(String userId, Registration registration) {
         try {
             HttpURLConnection connection = getConnectionFromRoute(RYDRoutes.GET_REGISTRATION, userId);
-            connection.setRequestProperty("User-agent", System.getProperty("http.agent") + ";vanced");
             connection.setConnectTimeout(5 * 1000);
             if (connection.getResponseCode() == 200) {
                 JSONObject json = getJSONObject(connection);
@@ -207,7 +205,6 @@ public class RYDRequester {
     // utils
 
     private static void applyCommonRequestSettings(HttpURLConnection connection) throws Exception {
-        connection.setRequestProperty("User-agent", System.getProperty("http.agent") + ";vanced");
         connection.setRequestMethod("POST");
         connection.setRequestProperty("Content-Type", "application/json");
         connection.setRequestProperty("Accept", "application/json");
