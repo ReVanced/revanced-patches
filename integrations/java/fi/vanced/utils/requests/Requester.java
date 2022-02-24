@@ -10,6 +10,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import fi.vanced.libraries.youtube.whitelisting.requests.WhitelistRoutes;
+
 public class Requester {
     private Requester() {}
 
@@ -17,7 +19,9 @@ public class Requester {
         String url = apiUrl + route.compile(params).getCompiledRoute();
         HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
         connection.setRequestMethod(route.getMethod().name());
-        connection.setRequestProperty("User-agent", System.getProperty("http.agent") + ";vanced");
+        if (route != WhitelistRoutes.GET_CHANNEL_DETAILS) {
+            connection.setRequestProperty("User-agent", System.getProperty("http.agent") + ";vanced");
+        }
         return connection;
     }
 
