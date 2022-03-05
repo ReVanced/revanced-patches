@@ -185,7 +185,7 @@
     <string name="skipped_endcard">Skipped outro</string>
     <string name="skipped_subscribe">Skipped annoying reminder</string>
     <string name="skipped_selfpromo">Skipped self promotion</string>
-    <string name="skipped_nomusic">Skipped silence</string>
+    <string name="skipped_nomusic">Skipped a non-music section</string>
     <string name="skipped_preview">Skipped preview</string>
     <string name="skipped_filler">Skipped filler</string>
     <string name="skipped_unsubmitted">Skipped unsubmitted segment</string>
