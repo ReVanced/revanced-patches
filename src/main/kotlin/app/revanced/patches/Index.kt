@@ -1,9 +1,9 @@
 package app.revanced.patches
 
 import app.revanced.patcher.patch.Patch
-import app.revanced.patches.ads.VideoAds
-import app.revanced.patches.layouts.CreateButtonRemover
-import app.revanced.patches.layouts.MinimizedPlayback
+import app.revanced.patches.ad.VideoAds
+import app.revanced.patches.interaction.EnableSeekbarTapping
+import app.revanced.patches.layout.*
 import kotlin.reflect.KClass
 
 /**
@@ -18,6 +18,10 @@ object Index {
     val patches: Array<KClass<out Patch>> = arrayOf(
         VideoAds::class,
         MinimizedPlayback::class,
-        CreateButtonRemover::class
+        CreateButtonRemover::class,
+        HideReels::class,
+        HideSuggestions::class,
+        OldQualityLayout::class,
+        EnableSeekbarTapping::class
     )
 }

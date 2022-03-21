@@ -1,4 +1,4 @@
-package app.revanced.patches.layouts
+package app.revanced.patches.layout
 
 import app.revanced.patcher.cache.Cache
 import app.revanced.patcher.patch.Patch

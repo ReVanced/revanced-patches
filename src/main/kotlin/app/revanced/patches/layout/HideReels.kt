@@ -1,4 +1,4 @@
-package app.revanced.patches.layouts
+package app.revanced.patches.layout
 
 import app.revanced.patcher.cache.Cache
 import app.revanced.patcher.patch.Patch
@@ -9,20 +9,17 @@ import org.objectweb.asm.Opcodes
 import org.objectweb.asm.tree.MethodInsnNode
 import org.objectweb.asm.tree.VarInsnNode
 
-class CreateButtonRemover : Patch("create-button-remover") {
+class HideReels : Patch("hide-reels") {
     override fun execute(cache: Cache): PatchResult {
-        val patchData = cache.methods["create-button-patch"]
+        val patchData = cache.methods["hide-reel-patch"]
 
         patchData.method.instructions.insertAt(
-            patchData.scanData.endIndex - 1,
-            VarInsnNode(
-                Opcodes.ALOAD,
-                6
-            ),
+            patchData.scanData.endIndex + 1,
+            VarInsnNode(Opcodes.ALOAD, 18),
             MethodInsnNode(
                 Opcodes.INVOKESTATIC,
                 "fi/razerman/youtube/XAdRemover",
-                "hideCreateButton",
+                "HideReels",
                 "(Landroid/view/View;)V"
             )
         )

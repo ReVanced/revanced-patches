@@ -1,4 +1,4 @@
-package app.revanced.patches.ads
+package app.revanced.patches.ad
 
 import app.revanced.patcher.cache.Cache
 import app.revanced.patcher.patch.Patch
