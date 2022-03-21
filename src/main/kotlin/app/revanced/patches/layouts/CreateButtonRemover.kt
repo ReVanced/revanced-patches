@@ -1,10 +1,10 @@
-package net.revanced.patches.layouts
+package app.revanced.patches.layouts
 
-import net.revanced.patcher.cache.Cache
-import net.revanced.patcher.patch.Patch
-import net.revanced.patcher.patch.PatchResult
-import net.revanced.patcher.patch.PatchResultSuccess
-import net.revanced.patcher.writer.ASMWriter.insertAt
+import app.revanced.patcher.cache.Cache
+import app.revanced.patcher.patch.Patch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.writer.ASMWriter.insertAt
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.tree.MethodInsnNode
 import org.objectweb.asm.tree.VarInsnNode

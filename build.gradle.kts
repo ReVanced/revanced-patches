@@ -4,7 +4,7 @@ plugins {
     `maven-publish`
 }
 
-group = "net.revanced"
+group = "app.revanced"
 
 repositories {
     mavenCentral()
@@ -29,7 +29,7 @@ dependencies {
     implementation("org.ow2.asm:asm-tree:9.2")
     implementation("org.ow2.asm:asm-commons:9.2")
 
-    implementation("net.revanced:revanced-patcher:1.+") // use latest version.
+    implementation("app.revanced:revanced-patcher:1.+") // use latest version.
 }
 
 java {

@@ -1,9 +1,9 @@
-package net.revanced.patches
+package app.revanced.patches
 
-import net.revanced.patcher.patch.Patch
-import net.revanced.patches.ads.VideoAds
-import net.revanced.patches.layouts.CreateButtonRemover
-import net.revanced.patches.layouts.MinimizedPlayback
+import app.revanced.patcher.patch.Patch
+import app.revanced.patches.ads.VideoAds
+import app.revanced.patches.layouts.CreateButtonRemover
+import app.revanced.patches.layouts.MinimizedPlayback
 import kotlin.reflect.KClass
 
 /**
