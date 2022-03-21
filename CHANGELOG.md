@@ -1,3 +1,10 @@
+# [1.0.0-dev.3](https://github.com/ReVancedTeam/revanced-patches/compare/v1.0.0-dev.2...v1.0.0-dev.3) (2022-03-21)
+
+
+### Features
+
+* OldQualityLayout, HideSuggestions, HideReels, EnableSeekbarTapping ([04a7cff](https://github.com/ReVancedTeam/revanced-patches/commit/04a7cfff20d2734b1c92713de4e7e08a3b93ee85))
+
 # [1.0.0-dev.2](https://github.com/ReVancedTeam/revanced-patches/compare/v1.0.0-dev.1...v1.0.0-dev.2) (2022-03-21)
 
 
