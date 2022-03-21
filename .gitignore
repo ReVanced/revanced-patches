@@ -112,6 +112,3 @@ gradle-app.setting
 
 # # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
 # gradle/wrapper/gradle-wrapper.properties
-
-# Avoid ignoring test resources
-!src/test/resources/*
