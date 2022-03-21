@@ -12,7 +12,7 @@ import org.objectweb.asm.Type
 import org.objectweb.asm.tree.MethodInsnNode
 import org.objectweb.asm.tree.VarInsnNode
 
-class VideoAds: Patch("VideoAds") {
+class VideoAds : Patch("VideoAds") {
     override fun execute(cache: Cache): PatchResult {
         val showVideoAdsMethodData = cache.methods["show-video-ads"].findParentMethod(
             Signature(
@@ -24,7 +24,8 @@ class VideoAds: Patch("VideoAds") {
             )
         ) ?: return PatchResultError("Could not find required method to patch")
 
-        showVideoAdsMethodData.method.instructions.insertAt(0,
+        showVideoAdsMethodData.method.instructions.insertAt(
+            0,
             VarInsnNode(Opcodes.ISTORE, 1),
             MethodInsnNode(
                 Opcodes.INVOKESTATIC,
