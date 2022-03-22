@@ -4,7 +4,6 @@ import app.revanced.patcher.patch.Patch
 import app.revanced.patches.ads.VideoAds
 import app.revanced.patches.layouts.CreateButtonRemover
 import app.revanced.patches.layouts.MinimizedPlayback
-import kotlin.reflect.KClass
 
 /**
  * Index contains all the patches and should be imported when using this library.
@@ -15,9 +14,9 @@ object Index {
      * Array of patches.
      * New patches should be added to the array.
      */
-    val patches: Array<KClass<out Patch>> = arrayOf(
-        VideoAds::class,
-        MinimizedPlayback::class,
-        CreateButtonRemover::class
+    val patches: Array<() -> Patch> = arrayOf(
+        ::VideoAds,
+        ::MinimizedPlayback,
+        ::CreateButtonRemover
     )
 }
