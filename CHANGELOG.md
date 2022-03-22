@@ -1,3 +1,17 @@
+# [1.0.0-dev.4](https://github.com/ReVancedTeam/revanced-patches/compare/v1.0.0-dev.3...v1.0.0-dev.4) (2022-03-22)
+
+
+### Features
+
+* use supplier instead of KClass ([08af6e5](https://github.com/ReVancedTeam/revanced-patches/commit/08af6e54af79ef9ef4fb3372a348ce9b6fba4d20))
+* use supplier instead of KClass ([91aa019](https://github.com/ReVancedTeam/revanced-patches/commit/91aa019f8d3d87fbf7affeb7abc2b02ba87af5c3))
+
+
+### BREAKING CHANGES
+
+* signature of patches was changed
+* signature of patches was changed
+
 # [1.0.0-dev.3](https://github.com/ReVancedTeam/revanced-patches/compare/v1.0.0-dev.2...v1.0.0-dev.3) (2022-03-21)
 
 
