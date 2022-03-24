@@ -10,7 +10,6 @@ import app.revanced.patcher.writer.ASMWriter.insertAt
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
 import org.objectweb.asm.tree.MethodInsnNode
-import org.objectweb.asm.tree.VarInsnNode
 
 class VideoAds : Patch("VideoAds") {
     override fun execute(cache: Cache): PatchResult {
@@ -26,7 +25,6 @@ class VideoAds : Patch("VideoAds") {
 
         showVideoAdsMethodData.method.instructions.insertAt(
             0,
-            VarInsnNode(Opcodes.ISTORE, 1),
             MethodInsnNode(
                 Opcodes.INVOKESTATIC,
                 "fi/vanced/libraries/youtube/whitelisting/Whitelist",
