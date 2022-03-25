@@ -37,7 +37,7 @@ public class SponsorBlockSettings {
     public static final String PREFERENCES_KEY_LAST_VIP_CHECK = "sb-last-vip-check";
     public static final String PREFERENCES_KEY_API_URL = "sb-api-url";
 
-    public static final SegmentBehaviour DefaultBehaviour = SegmentBehaviour.SKIP_AUTOMATICALLY;
+    public static final SegmentBehaviour DefaultBehaviour = SegmentBehaviour.IGNORE;
     public static final String DEFAULT_SERVER_URL = "https://sponsor.ajay.app";
     public static final String DEFAULT_API_URL = DEFAULT_SERVER_URL + "/api/";
 
@@ -203,7 +203,7 @@ public class SponsorBlockSettings {
     }
 
     public enum SegmentInfo {
-        SPONSOR("sponsor", sf("segments_sponsor"), sf("skipped_sponsor"), sf("segments_sponsor_sum"), DefaultBehaviour, 0xFF00d400),
+        SPONSOR("sponsor", sf("segments_sponsor"), sf("skipped_sponsor"), sf("segments_sponsor_sum"), SegmentBehaviour.SKIP_AUTOMATICALLY, 0xFF00d400),
         INTRO("intro", sf("segments_intermission"), sf("skipped_intermission"), sf("segments_intermission_sum"), DefaultBehaviour, 0xFF00ffff),
         OUTRO("outro", sf("segments_endcards"), sf("skipped_endcard"), sf("segments_endcards_sum"), DefaultBehaviour, 0xFF0202ed),
         INTERACTION("interaction", sf("segments_subscribe"), sf("skipped_subscribe"), sf("segments_subscribe_sum"), DefaultBehaviour, 0xFFcc00ff),
