@@ -191,13 +191,13 @@ public class XAdRemover {
             Log.d("Litho", "Item is null.");
         } else if (item.getClass().getSimpleName().contains("cwl")) {
             Log.d("Litho", "Item is a cwl item.");
-            Log.i("Litho", getViewHierarcy((ViewGroup) item));
+            Log.i("Litho", getViewHierarchy((ViewGroup) item));
         } else {
             Log.d("Litho", "Item is not a cwl item.");
         }
     }
 
-    public static String getViewHierarcy(ViewGroup v) {
+    public static String getViewHierarchy(ViewGroup v) {
         StringBuffer buf = new StringBuffer();
         printViews(v, buf, 0);
         return buf.toString();
