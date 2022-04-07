@@ -4,27 +4,16 @@ import app.revanced.patcher.cache.Cache
 import app.revanced.patcher.patch.Patch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.writer.ASMWriter.insertAt
-import org.objectweb.asm.Opcodes
-import org.objectweb.asm.tree.MethodInsnNode
-import org.objectweb.asm.tree.VarInsnNode
+import app.revanced.patcher.smali.asInstruction
 
 class CreateButtonRemover : Patch("create-button-remover") {
     override fun execute(cache: Cache): PatchResult {
-        val patchData = cache.methods["create-button-patch"]
+        val map = cache.methodMap["create-button-patch"]
 
-        patchData.method.instructions.insertAt(
-            patchData.scanData.endIndex - 1,
-            VarInsnNode(
-                Opcodes.ALOAD,
-                6
-            ),
-            MethodInsnNode(
-                Opcodes.INVOKESTATIC,
-                "fi/razerman/youtube/XAdRemover",
-                "hideCreateButton",
-                "(Landroid/view/View;)V"
-            )
+        // Hide the button view via proxy by passing it to the hideCreateButton method
+        map.resolveAndGetMethod().implementation!!.addInstruction(
+            map.scanData.endIndex,
+            "invoke-static { v6 }, Lfi/razerman/youtube/XAdRemover;->hideCreateButton(Landroid/view/View;)V".asInstruction()
         )
 
         return PatchResultSuccess()

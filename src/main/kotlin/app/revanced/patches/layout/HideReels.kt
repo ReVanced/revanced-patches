@@ -4,24 +4,17 @@ import app.revanced.patcher.cache.Cache
 import app.revanced.patcher.patch.Patch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.writer.ASMWriter.insertAt
-import org.objectweb.asm.Opcodes
-import org.objectweb.asm.tree.MethodInsnNode
-import org.objectweb.asm.tree.VarInsnNode
+import app.revanced.patcher.smali.asInstruction
 
 class HideReels : Patch("hide-reels") {
     override fun execute(cache: Cache): PatchResult {
-        val patchData = cache.methods["hide-reel-patch"]
+        val implementation = cache.methodMap["hide-reel-patch"].resolveAndGetMethod().implementation!!
 
-        patchData.method.instructions.insertAt(
-            patchData.scanData.endIndex + 1,
-            VarInsnNode(Opcodes.ALOAD, 18),
-            MethodInsnNode(
-                Opcodes.INVOKESTATIC,
-                "fi/razerman/youtube/XAdRemover",
-                "HideReels",
-                "(Landroid/view/View;)V"
-            )
+        // HideReel will hide the reel view before it is being used,
+        // so we pass the view to the HideReel method
+        implementation.addInstruction(
+            22,
+            "invoke-static { v2 }, Lfi/razerman/youtube/XAdRemover;->HideReel(Landroid/view/View;)V".asInstruction()
         )
 
         return PatchResultSuccess()

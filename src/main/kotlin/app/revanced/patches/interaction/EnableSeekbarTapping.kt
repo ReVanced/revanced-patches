@@ -1,49 +1,95 @@
 package app.revanced.patches.interaction
 
 import app.revanced.patcher.cache.Cache
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.Patch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.writer.ASMWriter.insertAt
-import org.objectweb.asm.Opcodes
-import org.objectweb.asm.tree.*
+import app.revanced.patcher.smali.asInstructions
+import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.builder.instruction.BuilderInstruction11n
+import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
+import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
+import org.jf.dexlib2.iface.Method
+import org.jf.dexlib2.immutable.reference.ImmutableMethodReference
 
 class EnableSeekbarTapping : Patch("enable-seekbar-tapping") {
     override fun execute(cache: Cache): PatchResult {
-        val patchData = cache.methods["enable-seekbar-tapping"]
-        val methodOPatchData = cache.methods["enable-seekbar-tapping-method-o"]
-        val methodPPatchData = cache.methods["enable-seekbar-tapping-method-p"]
+        val map = cache.methodMap["tap-seekbar-parent-method"]
 
-        val elseLabel = LabelNode()
-        patchData.method.instructions.insertAt(
-            patchData.scanData.endIndex,
-            InsnNode(Opcodes.ACONST_NULL),
-            MethodInsnNode(
-                Opcodes.INVOKESTATIC,
-                "fi/razerman/youtube/preferences/BooleanPreferences",
-                "isTapSeekingEnabled",
-                "()Z"
-            ),
-            JumpInsnNode(Opcodes.IFEQ, elseLabel),
-            VarInsnNode(Opcodes.ALOAD, 0),
-            VarInsnNode(Opcodes.ILOAD, 6),
-            MethodInsnNode(
-                Opcodes.INVOKEVIRTUAL,
-                methodOPatchData.declaringClass.name,
-                methodOPatchData.method.name,
-                "(I)V"
-            ),
-            VarInsnNode(Opcodes.ALOAD, 0),
-            VarInsnNode(Opcodes.ILOAD, 6),
-            MethodInsnNode(
-                Opcodes.INVOKEVIRTUAL,
-                methodPPatchData.declaringClass.name,
-                methodPPatchData.method.name,
-                "(I)V"
-            ),
-            elseLabel
+        val tapSeekMethods = mutableMapOf<String, Method>()
+
+        // find the methods which tap the seekbar
+        map.definingClassProxy.immutableClass.methods.forEach {
+            val instructions = it.implementation!!.instructions
+            // here we make sure we actually find the method because it has more then 7 instructions
+            if (instructions.count() < 7) return@forEach
+
+            // we know that the 7th instruction has the opcode CONST_4
+            val instruction = instructions.elementAt(6)
+            if (instruction.opcode != Opcode.CONST_4) return@forEach
+
+            // the literal for this instruction has to be either 1 or 2
+            val literal = (instruction as BuilderInstruction11n).narrowLiteral
+
+            // method founds
+            if (literal == 1) tapSeekMethods["P"] = it
+            if (literal == 2) tapSeekMethods["O"] = it
+        }
+        val implementation = cache.methodMap["enable-seekbar-tapping"].resolveAndGetMethod().implementation!!
+
+        // if tap-seeking is enabled, do not invoke the two methods below
+        val pMethod = tapSeekMethods["P"]!!
+        val oMethod = tapSeekMethods["O"]!!
+        implementation.addInstructions(
+            map.scanData.endIndex,
+            listOf(
+                BuilderInstruction35c(
+                    Opcode.INVOKE_VIRTUAL,
+                    0,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    ImmutableMethodReference(
+                        oMethod.definingClass,
+                        oMethod.name,
+                        setOf("I"),
+                        "V"
+                    )
+                ),
+                BuilderInstruction35c(
+                    Opcode.INVOKE_VIRTUAL,
+                    0,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    ImmutableMethodReference(
+                        pMethod.definingClass,
+                        pMethod.name,
+                        setOf("I"),
+                        "V"
+                    )
+                )
+            )
         )
 
+        // if tap-seeking is disabled, do not invoke the two methods above by jumping to the else label
+        val elseLabel = implementation.instructions[7].location.labels.first()
+        implementation.addInstruction(
+            map.scanData.endIndex,
+            BuilderInstruction21t(Opcode.IF_EQZ, 0, elseLabel)
+        )
+        implementation.addInstructions(
+            map.scanData.endIndex,
+            """
+                invoke-static { }, Lfi/razerman/youtube/preferences/BooleanPreferences;->isTapSeekingEnabled()Z
+                move-result v0
+            """.trimIndent().asInstructions()
+        )
         return PatchResultSuccess()
     }
 }

@@ -1,52 +1,47 @@
 package app.revanced.patches.layout
 
 import app.revanced.patcher.cache.Cache
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.Patch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.signature.Signature
-import app.revanced.patcher.writer.ASMWriter.insertAt
-import org.objectweb.asm.Opcodes
-import org.objectweb.asm.Type
-import org.objectweb.asm.tree.MethodInsnNode
-import org.objectweb.asm.tree.VarInsnNode
+import app.revanced.patcher.signature.MethodSignature
+import app.revanced.patcher.smali.asInstructions
+import org.jf.dexlib2.AccessFlags
+import org.jf.dexlib2.Opcode
 
 class HideSuggestions : Patch("hide-suggestions") {
     override fun execute(cache: Cache): PatchResult {
-        val method = cache.methods["hide-suggestions-patch"].findParentMethod(
-            Signature(
+        val map = cache.methodMap["hide-suggestions-patch"].findParentMethod(
+            MethodSignature(
                 "hide-suggestions-method",
-                Type.VOID_TYPE,
-                Opcodes.ACC_PUBLIC or Opcodes.ACC_FINAL,
-                arrayOf(Type.BOOLEAN_TYPE),
+                "V",
+                AccessFlags.PUBLIC or AccessFlags.PUBLIC,
+                setOf("Z"),
                 arrayOf(
-                    Opcodes.ALOAD,
-                    Opcodes.ILOAD,
-                    Opcodes.PUTFIELD,
-                    Opcodes.ALOAD,
-                    Opcodes.GETFIELD
+                    Opcode.IPUT_BOOLEAN,
+                    Opcode.IGET_OBJECT,
+                    Opcode.IPUT_BOOLEAN,
+                    Opcode.INVOKE_VIRTUAL,
+                    Opcode.RETURN_VOID
                 )
             )
         ) ?: return PatchResultError("Parent method hide-suggestions-method has not been found")
 
-        method.method.instructions.insertAt(
+        // Proxy the first parameter by passing it to the RemoveSuggestions method
+        map.resolveAndGetMethod().implementation!!.addInstructions(
             0,
-            VarInsnNode(Opcodes.ILOAD, 1),
-            MethodInsnNode(
-                Opcodes.INVOKESTATIC,
-                "java/lang/Boolean",
-                "valueOf",
-                "(Z)Ljava/lang/Boolean"
-            ),
-            MethodInsnNode(
-                Opcodes.INVOKESTATIC,
-                "fi/razerman/youtube/XAdRemover",
-                "HideReels",
-                "(Landroid/view/View;)V"
-            )
+            """
+                invoke-static { p1 }, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+                move-result-object v0
+                invoke-static { v0 }, Lfi/razerman/youtube/XAdRemover;->RemoveSuggestions(Ljava/lang/Boolean;)Ljava/lang/Boolean;
+                move-result-object v0
+                invoke-virtual { v0 }, Ljava/lang/Boolean;->booleanValue()Z
+                move-result v0
+            """.trimIndent().asInstructions()
         )
-
         return PatchResultSuccess()
     }
 }

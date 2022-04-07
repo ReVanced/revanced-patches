@@ -24,12 +24,8 @@ repositories {
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.10")
 
-    implementation("org.ow2.asm:asm:9.2")
-    implementation("org.ow2.asm:asm-util:9.2")
-    implementation("org.ow2.asm:asm-tree:9.2")
-    implementation("org.ow2.asm:asm-commons:9.2")
-
     implementation("app.revanced:revanced-patcher:1.+") // use latest version.
+    implementation("org.smali:dexlib2:2.5.2")
 }
 
 java {
