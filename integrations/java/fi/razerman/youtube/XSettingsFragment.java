@@ -25,6 +25,10 @@ import vanced.integrations.BuildConfig;
 /* loaded from: classes6.dex */
 public class XSettingsFragment extends PreferenceFragment {
 
+    // YouTubePlayerOverlaysLayout.overlayContext
+    public static Context overlayContext;
+    // Shell_HomeActivity.class
+    public static Class homeActivityClass;
     private Toast toast;
     private PreferenceScreen adsSettingsPreferenceScreen;
     private PreferenceScreen bufferSettingsPreferenceScreen;

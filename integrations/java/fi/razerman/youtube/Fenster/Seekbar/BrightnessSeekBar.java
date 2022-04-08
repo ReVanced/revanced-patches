@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.google.android.apps.youtube.app.common.player.overlay.YouTubePlayerOverlaysLayout;
 import fi.razerman.youtube.Fenster.Helpers.BrightnessHelper;
 import fi.razerman.youtube.Helpers.SharedPrefs;
 import fi.razerman.youtube.XGlobals;
@@ -41,11 +40,14 @@ public class BrightnessSeekBar {
         this.mViewGroup.addView(this.mTextView);
     }
 
-    public void refreshViewGroup(ViewGroup viewGroup) {
+    /**
+     * @param context YouTubePlayerOverlaysLayout.overlayContext
+     */
+    public void refreshViewGroup(ViewGroup viewGroup, Context context) {
         if (this.mTextView.getParent() != null) {
             ((ViewGroup) this.mTextView.getParent()).removeView(this.mTextView);
         }
-        this.mContext = YouTubePlayerOverlaysLayout.overlayContext;
+        this.mContext = context;
         this.mViewGroup = viewGroup;
         this.mViewGroup.addView(this.mTextView);
     }

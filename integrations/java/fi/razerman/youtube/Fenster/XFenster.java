@@ -11,6 +11,7 @@ import fi.razerman.youtube.Fenster.Seekbar.BrightnessSeekBar;
 import fi.razerman.youtube.Fenster.Seekbar.VolumeSeekBar;
 import fi.razerman.youtube.Helpers.XSwipeHelper;
 import fi.razerman.youtube.XGlobals;
+import fi.razerman.youtube.XSettingsFragment;
 
 /* loaded from: classes6.dex */
 public class XFenster implements FensterEventsListener {
@@ -285,7 +286,7 @@ public class XFenster implements FensterEventsListener {
                 View layout = XSwipeHelper.nextGenWatchLayout.findViewById(getIdentifier());
                 if (layout != null) {
                     this.mViewGroup = (ViewGroup) layout;
-                    this.mBrightness.refreshViewGroup(this.mViewGroup);
+                    this.mBrightness.refreshViewGroup(this.mViewGroup, XSettingsFragment.overlayContext);
                     this.mVolume.refreshViewGroup(this.mViewGroup);
                     if (XGlobals.debug) {
                         Log.d("XGlobals", "player_overlays refreshed");
