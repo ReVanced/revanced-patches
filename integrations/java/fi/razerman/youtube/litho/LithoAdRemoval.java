@@ -188,14 +188,17 @@ public class LithoAdRemoval {
             return 0;
         }
 
-        int i = 0;
-        while (i < array.length - target.length + 1 ){
+        for (int i = 0; i < array.length - target.length + 1; i++) {
+            boolean targetFound = true;
             for (int j = 0; j < target.length; j++) {
                 if (array[i+j] != target[j]) {
+                    targetFound = false;
                     break;
                 }
             }
-            return i;
+            if (targetFound) {
+                return i;
+            }
         }
         return -1;
     }
