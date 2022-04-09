@@ -18,12 +18,12 @@ class HideSuggestions : Patch("hide-suggestions") {
             MethodSignature(
                 "hide-suggestions-method",
                 "V",
-                AccessFlags.PUBLIC or AccessFlags.PUBLIC,
-                setOf("Z"),
+                AccessFlags.PUBLIC or AccessFlags.FINAL,
+                arrayOf("Z"),
                 arrayOf(
                     Opcode.IPUT_BOOLEAN,
                     Opcode.IGET_OBJECT,
-                    Opcode.IPUT_BOOLEAN,
+                    Opcode.IGET_BOOLEAN,
                     Opcode.INVOKE_VIRTUAL,
                     Opcode.RETURN_VOID
                 )
@@ -31,7 +31,7 @@ class HideSuggestions : Patch("hide-suggestions") {
         ) ?: return PatchResultError("Parent method hide-suggestions-method has not been found")
 
         // Proxy the first parameter by passing it to the RemoveSuggestions method
-        map.resolveAndGetMethod().implementation!!.addInstructions(
+        map.method.implementation!!.addInstructions(
             0,
             """
                 invoke-static { p1 }, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;

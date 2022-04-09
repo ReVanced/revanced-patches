@@ -11,7 +11,7 @@ class CreateButtonRemover : Patch("create-button-remover") {
         val map = cache.methodMap["create-button-patch"]
 
         // Hide the button view via proxy by passing it to the hideCreateButton method
-        map.resolveAndGetMethod().implementation!!.addInstruction(
+        map.method.implementation!!.addInstruction(
             map.scanData.endIndex,
             "invoke-static { v6 }, Lfi/razerman/youtube/XAdRemover;->hideCreateButton(Landroid/view/View;)V".asInstruction()
         )

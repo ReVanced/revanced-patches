@@ -12,7 +12,7 @@ class MinimizedPlayback : Patch("minimized-playback") {
         // Instead of removing all instructions like Vanced,
         // we return the method at the beginning instead
         cache.methodMap["minimized-playback-manager"]
-            .resolveAndGetMethod()
+            .method
             .implementation!!
             .addInstruction(
                 0,

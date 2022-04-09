@@ -19,18 +19,20 @@ class OldQualityLayout : Patch("old-quality-restore") {
                 "old-quality-patch-method",
                 "L",
                 AccessFlags.FINAL or AccessFlags.PUBLIC,
-                emptySet(),
+                emptyArray(),
                 arrayOf(
-                    Opcode.IF_NEZ,
                     Opcode.IGET,
                     Opcode.CONST_4,
-                    Opcode.IF_NE
+                    Opcode.IF_NE,
+                    Opcode.IGET_OBJECT,
+                    Opcode.GOTO,
+                    Opcode.IGET_OBJECT,
+                    Opcode.RETURN_OBJECT
                 )
             )
         ) ?: return PatchResultError("Parent method old-quality-patch-method has not been found")
 
-
-        val implementation = map.resolveAndGetMethod().implementation!!
+        val implementation = map.method.implementation!!
 
         // if useOldStyleQualitySettings == true, jump over all instructions and return the field at the end
         val jmpInstruction =

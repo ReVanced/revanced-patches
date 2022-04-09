@@ -18,17 +18,17 @@ class VideoAds : Patch("VideoAds") {
                 "show-video-ads-method",
                 "V",
                 AccessFlags.PUBLIC or AccessFlags.FINAL,
-                setOf("Z"),
+                arrayOf("Z"),
                 null
             )
         ) ?: return PatchResultError("Could not find required method to patch")
 
         // Override the parameter by calling shouldShowAds and setting the parameter to the result
-        map.resolveAndGetMethod().implementation!!.addInstructions(
+        map.method.implementation!!.addInstructions(
             0,
             """
                 invoke-static { }, Lfi/vanced/libraries/youtube/whitelisting/Whitelist;->shouldShowAds()Z
-                move-result v0
+                move-result v1
             """.trimIndent().asInstructions()
         )
 

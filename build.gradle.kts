@@ -24,7 +24,7 @@ repositories {
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.10")
 
-    implementation("app.revanced:revanced-patcher:1.+") // use latest version.
+    implementation(files("P:\\Andere Dateien\\STUFF\\Coding\\Java\\revanced\\revanced-patcher\\build\\libs\\revanced-patcher-1.0.0-dev.8.jar")) // use latest version.
     implementation("org.smali:dexlib2:2.5.2")
 }
 
