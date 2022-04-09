@@ -8,6 +8,7 @@ group = "app.revanced"
 
 repositories {
     mavenCentral()
+    mavenLocal()
     maven {
         url = uri("https://maven.pkg.github.com/ReVancedTeam/revanced-patcher") // note the "r"!
         credentials {
@@ -24,8 +25,7 @@ repositories {
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.10")
 
-    implementation(files("P:\\Andere Dateien\\STUFF\\Coding\\Java\\revanced\\revanced-patcher\\build\\libs\\revanced-patcher-1.0.0-dev.8.jar")) // use latest version.
-    implementation("org.smali:dexlib2:2.5.2")
+    implementation("app.revanced:revanced-patcher:1.0.0-dev.8")
 }
 
 java {
@@ -33,15 +33,21 @@ java {
     withJavadocJar()
 }
 
+val isGitHubCI = System.getenv("GITHUB_ACTOR") != null
+
 publishing {
     repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/ReVancedTeam/revanced-patches") // note the "s"!
-            credentials {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("GITHUB_TOKEN")
+        if (isGitHubCI) {
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://maven.pkg.github.com/ReVancedTeam/revanced-patches") // note the "s"!
+                credentials {
+                    username = System.getenv("GITHUB_ACTOR")
+                    password = System.getenv("GITHUB_TOKEN")
+                }
             }
+        } else {
+            mavenLocal()
         }
     }
     publications {
