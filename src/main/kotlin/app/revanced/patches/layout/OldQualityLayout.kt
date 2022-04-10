@@ -1,13 +1,14 @@
 package app.revanced.patches.layout
 
 import app.revanced.patcher.cache.Cache
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.Patch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.signature.MethodSignature
-import app.revanced.patcher.smali.asInstruction
+import app.revanced.patcher.smali.asInstructions
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
@@ -38,12 +39,12 @@ class OldQualityLayout : Patch("old-quality-restore") {
         val jmpInstruction =
             BuilderInstruction21t(Opcode.IF_NEZ, 0, implementation.instructions[5].location.labels.first())
         implementation.addInstruction(0, jmpInstruction)
-        implementation.addInstruction(
+        implementation.addInstructions(
             0,
             """
                 invoke-static { }, Lfi/razerman/youtube/XGlobals;->useOldStyleQualitySettings()Z
                 move-result v0
-            """.trimIndent().asInstruction()
+            """.trimIndent().asInstructions()
         )
 
         return PatchResultSuccess()
