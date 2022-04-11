@@ -18,7 +18,7 @@ class VideoAds : Patch("VideoAds") {
                 "show-video-ads-method",
                 "V",
                 AccessFlags.PUBLIC or AccessFlags.FINAL,
-                arrayOf("Z"),
+                listOf("Z"),
                 null
             )
         ) ?: return PatchResultError("Could not find required method to patch")

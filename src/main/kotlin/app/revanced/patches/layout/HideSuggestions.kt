@@ -19,8 +19,8 @@ class HideSuggestions : Patch("hide-suggestions") {
                 "hide-suggestions-method",
                 "V",
                 AccessFlags.PUBLIC or AccessFlags.FINAL,
-                arrayOf("Z"),
-                arrayOf(
+                listOf("Z"),
+                listOf(
                     Opcode.IPUT_BOOLEAN,
                     Opcode.IGET_OBJECT,
                     Opcode.IGET_BOOLEAN,

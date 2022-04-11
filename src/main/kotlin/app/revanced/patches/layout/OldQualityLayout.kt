@@ -19,8 +19,8 @@ class OldQualityLayout : Patch("old-quality-restore") {
                 "old-quality-patch-method",
                 "L",
                 AccessFlags.FINAL or AccessFlags.PUBLIC,
-                emptyArray(),
-                arrayOf(
+                emptyList(),
+                listOf(
                     Opcode.IGET,
                     Opcode.CONST_4,
                     Opcode.IF_NE,
