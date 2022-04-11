@@ -13,7 +13,7 @@ class CreateButtonRemover : Patch("create-button-remover") {
         // Hide the button view via proxy by passing it to the hideCreateButton method
         map.method.implementation!!.addInstruction(
             map.scanData.endIndex,
-            "invoke-static { v6 }, Lfi/razerman/youtube/XAdRemover;->hideCreateButton(Landroid/view/View;)V".asInstruction()
+            "invoke-static { v2 }, Lfi/razerman/youtube/XAdRemover;->hideCreateButton(Landroid/view/View;)V".asInstruction()
         )
 
         return PatchResultSuccess()

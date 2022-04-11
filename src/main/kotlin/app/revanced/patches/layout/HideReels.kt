@@ -8,12 +8,13 @@ import app.revanced.patcher.smali.asInstruction
 
 class HideReels : Patch("hide-reels") {
     override fun execute(cache: Cache): PatchResult {
-        val implementation = cache.methodMap["hide-reel-patch"].method.implementation!!
+        val map = cache.methodMap["hide-reel-patch"]
+        val implementation = map.method.implementation!!
 
         // HideReel will hide the reel view before it is being used,
         // so we pass the view to the HideReel method
         implementation.addInstruction(
-            22,
+            map.scanData.endIndex - 1,
             "invoke-static { v2 }, Lfi/razerman/youtube/XAdRemover;->HideReel(Landroid/view/View;)V".asInstruction()
         )
 
