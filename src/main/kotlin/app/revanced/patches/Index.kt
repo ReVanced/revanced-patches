@@ -4,6 +4,7 @@ import app.revanced.patcher.patch.Patch
 import app.revanced.patches.ad.VideoAds
 import app.revanced.patches.interaction.EnableSeekbarTapping
 import app.revanced.patches.layout.*
+import app.revanced.patches.misc.Integrations
 
 /**
  * Index contains all the patches and should be imported when using this library.
@@ -21,6 +22,7 @@ object Index {
         ::HideReels,
         ::HideSuggestions,
         ::OldQualityLayout,
-        ::EnableSeekbarTapping
+        ::EnableSeekbarTapping,
+        ::Integrations
     )
 }
