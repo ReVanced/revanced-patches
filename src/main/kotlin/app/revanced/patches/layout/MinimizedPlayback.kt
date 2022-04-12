@@ -1,11 +1,11 @@
 package app.revanced.patches.layout
 
 import app.revanced.patcher.cache.Cache
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.Patch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.builder.instruction.BuilderInstruction10x
+import app.revanced.patcher.smali.asInstructions
 
 class MinimizedPlayback : Patch("minimized-playback") {
     override fun execute(cache: Cache): PatchResult {
@@ -14,9 +14,12 @@ class MinimizedPlayback : Patch("minimized-playback") {
         cache.methodMap["minimized-playback-manager"]
             .method
             .implementation!!
-            .addInstruction(
+            .addInstructions(
                 0,
-                BuilderInstruction10x(Opcode.RETURN_VOID)
+                """
+                    const/4 v0, 0x1
+                    return v0
+                """.trimIndent().asInstructions()
             )
         return PatchResultSuccess()
     }
