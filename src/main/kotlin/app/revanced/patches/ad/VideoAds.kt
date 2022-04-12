@@ -11,7 +11,7 @@ import app.revanced.patcher.signature.MethodSignature
 import app.revanced.patcher.smali.asInstructions
 import org.jf.dexlib2.AccessFlags
 
-class VideoAds : Patch("VideoAds") {
+class VideoAds : Patch("video-ads") {
     override fun execute(cache: Cache): PatchResult {
         val map = cache.methodMap["show-video-ads-constructor"].findParentMethod(
             MethodSignature(
