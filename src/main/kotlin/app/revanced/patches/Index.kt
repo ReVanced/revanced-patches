@@ -16,13 +16,13 @@ object Index {
      * New patches should be added to the array.
      */
     val patches: Array<() -> Patch> = arrayOf(
+        ::Integrations,
         ::VideoAds,
         ::MinimizedPlayback,
         ::CreateButtonRemover,
         ::HideReels,
         ::HideSuggestions,
         ::OldQualityLayout,
-        ::EnableSeekbarTapping,
-        ::Integrations
+        ::EnableSeekbarTapping
     )
 }

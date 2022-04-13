@@ -8,14 +8,12 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.smali.asInstructions
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
-import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
 import org.jf.dexlib2.iface.Method
 import org.jf.dexlib2.iface.instruction.formats.Instruction11n
-import org.jf.dexlib2.immutable.reference.ImmutableMethodReference
 
 class EnableSeekbarTapping : Patch("enable-seekbar-tapping") {
     override fun execute(cache: Cache): PatchResult {
-        val map = cache.methodMap["tap-seekbar-parent-method"]
+        var map = cache.methodMap["tap-seekbar-parent-method"]
 
         val tapSeekMethods = mutableMapOf<String, Method>()
 
@@ -39,45 +37,21 @@ class EnableSeekbarTapping : Patch("enable-seekbar-tapping") {
             if (literal == 2) tapSeekMethods["O"] = it
         }
 
-        val implementation = cache.methodMap["enable-seekbar-tapping"].method.implementation!!
+        // replace map because we dont need the upper one anymore
+        map = cache.methodMap["enable-seekbar-tapping"]
+
+        val implementation = map.method.implementation!!
 
         // if tap-seeking is enabled, do not invoke the two methods below
         val pMethod = tapSeekMethods["P"]!!
         val oMethod = tapSeekMethods["O"]!!
+
         implementation.addInstructions(
             map.scanData.endIndex,
-            listOf(
-                BuilderInstruction35c(
-                    Opcode.INVOKE_VIRTUAL,
-                    0,
-                    3,
-                    0,
-                    0,
-                    0,
-                    0,
-                    ImmutableMethodReference(
-                        oMethod.definingClass,
-                        oMethod.name,
-                        setOf("I"),
-                        "V"
-                    )
-                ),
-                BuilderInstruction35c(
-                    Opcode.INVOKE_VIRTUAL,
-                    0,
-                    3,
-                    0,
-                    0,
-                    0,
-                    0,
-                    ImmutableMethodReference(
-                        pMethod.definingClass,
-                        pMethod.name,
-                        setOf("I"),
-                        "V"
-                    )
-                )
-            )
+            """
+               invoke-virtual { v12, v2 }, ${oMethod.definingClass}->${oMethod.name}(I)V
+               invoke-virtual { v12, v2 }, ${pMethod.definingClass}->${pMethod.name}(I)V
+            """.trimIndent().asInstructions()
         )
 
         // if tap-seeking is disabled, do not invoke the two methods above by jumping to the else label
