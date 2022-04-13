@@ -17,6 +17,6 @@ public class BooleanPreferences {
     }
 
     public static boolean isCreateButtonHidden() {
-        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "xfile_create_button_hidden", false);
+        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "xfile_create_button_hidden", true);
     }
 }
