@@ -1,23 +1,28 @@
 package app.revanced.patches.layout
 
 import app.revanced.patcher.cache.Cache
+import app.revanced.patcher.extensions.AccessFlagExtensions.Companion.or
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.patch.Patch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.*
 import app.revanced.patcher.signature.MethodSignature
 import app.revanced.patcher.smali.asInstructions
+import app.revanced.patches.SHARED_METADATA
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
 
-class OldQualityLayout : Patch("old-quality-restore") {
+class OldQualityLayout : Patch(
+    PatchMetadata(
+        "old-quality-layout",
+        "TODO",
+        "TODO"
+    )
+) {
     override fun execute(cache: Cache): PatchResult {
         val map = cache.methodMap["old-quality-patch"].findParentMethod(
             MethodSignature(
                 "old-quality-patch-method",
+                SHARED_METADATA,
                 "L",
                 AccessFlags.FINAL or AccessFlags.PUBLIC,
                 emptyList(),

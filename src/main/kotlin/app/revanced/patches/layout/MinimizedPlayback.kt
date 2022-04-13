@@ -3,11 +3,18 @@ package app.revanced.patches.layout
 import app.revanced.patcher.cache.Cache
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.Patch
+import app.revanced.patcher.patch.PatchMetadata
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.smali.asInstructions
 
-class MinimizedPlayback : Patch("minimized-playback") {
+class MinimizedPlayback : Patch(
+    PatchMetadata(
+        "minimized-playback",
+        "TODO",
+        "TODO"
+    )
+) {
     override fun execute(cache: Cache): PatchResult {
         // Instead of removing all instructions like Vanced,
         // we return the method at the beginning instead

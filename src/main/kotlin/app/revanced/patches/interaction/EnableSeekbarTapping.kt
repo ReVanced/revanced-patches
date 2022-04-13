@@ -3,6 +3,7 @@ package app.revanced.patches.interaction
 import app.revanced.patcher.cache.Cache
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.Patch
+import app.revanced.patcher.patch.PatchMetadata
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.smali.asInstructions
@@ -11,7 +12,13 @@ import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
 import org.jf.dexlib2.iface.Method
 import org.jf.dexlib2.iface.instruction.formats.Instruction11n
 
-class EnableSeekbarTapping : Patch("enable-seekbar-tapping") {
+class EnableSeekbarTapping : Patch(
+    PatchMetadata(
+        "enable-seekbar-tapping",
+        "TODO",
+        "TODO"
+    )
+) {
     override fun execute(cache: Cache): PatchResult {
         var map = cache.methodMap["tap-seekbar-parent-method"]
 

@@ -2,11 +2,18 @@ package app.revanced.patches.layout
 
 import app.revanced.patcher.cache.Cache
 import app.revanced.patcher.patch.Patch
+import app.revanced.patcher.patch.PatchMetadata
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.smali.asInstruction
 
-class CreateButtonRemover : Patch("create-button-remover") {
+class CreateButtonRemover : Patch(
+    PatchMetadata(
+        "create-button-remover",
+        "TODO",
+        "TODO"
+    )
+) {
     override fun execute(cache: Cache): PatchResult {
         val map = cache.methodMap["create-button-patch"]
 

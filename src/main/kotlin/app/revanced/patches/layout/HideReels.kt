@@ -2,11 +2,18 @@ package app.revanced.patches.layout
 
 import app.revanced.patcher.cache.Cache
 import app.revanced.patcher.patch.Patch
+import app.revanced.patcher.patch.PatchMetadata
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.smali.asInstruction
 
-class HideReels : Patch("hide-reels") {
+class HideReels : Patch(
+    PatchMetadata(
+        "hide-reels",
+        "TODO",
+        "TODO"
+    )
+) {
     override fun execute(cache: Cache): PatchResult {
         val map = cache.methodMap["hide-reel-patch"]
         val implementation = map.method.implementation!!

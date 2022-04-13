@@ -1,21 +1,26 @@
 package app.revanced.patches.ad
 
 import app.revanced.patcher.cache.Cache
+import app.revanced.patcher.extensions.AccessFlagExtensions.Companion.or
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.patch.Patch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.*
 import app.revanced.patcher.signature.MethodSignature
 import app.revanced.patcher.smali.asInstructions
+import app.revanced.patches.SHARED_METADATA
 import org.jf.dexlib2.AccessFlags
 
-class VideoAds : Patch("video-ads") {
+class VideoAds : Patch(
+    PatchMetadata(
+        "video-ads",
+        "TODO",
+        "TODO"
+    )
+) {
     override fun execute(cache: Cache): PatchResult {
         val map = cache.methodMap["show-video-ads-constructor"].findParentMethod(
             MethodSignature(
                 "show-video-ads-method",
+                SHARED_METADATA,
                 "V",
                 AccessFlags.PUBLIC or AccessFlags.FINAL,
                 listOf("Z"),
