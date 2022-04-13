@@ -11,7 +11,7 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
 
-class OldQualityLayout : Patch(
+class OldQualityLayoutPatch : Patch(
     PatchMetadata(
         "old-quality-layout",
         "TODO",

@@ -12,7 +12,7 @@ import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
 import org.jf.dexlib2.iface.Method
 import org.jf.dexlib2.iface.instruction.formats.Instruction11n
 
-class EnableSeekbarTapping : Patch(
+class EnableSeekbarTappingPatch : Patch(
     PatchMetadata(
         "enable-seekbar-tapping",
         "TODO",

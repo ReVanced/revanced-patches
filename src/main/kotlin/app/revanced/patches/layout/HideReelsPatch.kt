@@ -7,20 +7,22 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.smali.asInstruction
 
-class CreateButtonRemover : Patch(
+class HideReelsPatch : Patch(
     PatchMetadata(
-        "create-button-remover",
+        "hide-reels",
         "TODO",
         "TODO"
     )
 ) {
     override fun execute(cache: Cache): PatchResult {
-        val map = cache.methodMap["create-button-patch"]
+        val map = cache.methodMap["hide-reel-patch"]
+        val implementation = map.method.implementation!!
 
-        // Hide the button view via proxy by passing it to the hideCreateButton method
-        map.method.implementation!!.addInstruction(
-            map.scanData.endIndex,
-            "invoke-static { v2 }, Lfi/razerman/youtube/XAdRemover;->hideCreateButton(Landroid/view/View;)V".asInstruction()
+        // HideReel will hide the reel view before it is being used,
+        // so we pass the view to the HideReel method
+        implementation.addInstruction(
+            map.scanData.endIndex - 1,
+            "invoke-static { v2 }, Lfi/razerman/youtube/XAdRemover;->HideReel(Landroid/view/View;)V".asInstruction()
         )
 
         return PatchResultSuccess()

@@ -17,7 +17,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 import org.jf.dexlib2.immutable.ImmutableMethod
 import org.jf.dexlib2.immutable.ImmutableMethodImplementation
 
-class HideSuggestions : Patch(
+class HideSuggestionsPatch : Patch(
     PatchMetadata(
         "hide-suggestions",
         "TODO",

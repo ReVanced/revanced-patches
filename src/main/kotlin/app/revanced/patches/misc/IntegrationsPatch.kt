@@ -13,7 +13,7 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.immutable.ImmutableMethod
 import org.jf.dexlib2.immutable.ImmutableMethodImplementation
 
-class Integrations : Patch(
+class IntegrationsPatch : Patch(
     PatchMetadata(
         "integrations",
         "TODO",

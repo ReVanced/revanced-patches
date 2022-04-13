@@ -9,7 +9,7 @@ import app.revanced.patcher.smali.asInstructions
 import app.revanced.patches.SHARED_METADATA
 import org.jf.dexlib2.AccessFlags
 
-class VideoAds : Patch(
+class VideoAdsPatch : Patch(
     PatchMetadata(
         "video-ads",
         "TODO",

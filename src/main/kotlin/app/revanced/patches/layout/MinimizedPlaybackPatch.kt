@@ -8,7 +8,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.smali.asInstructions
 
-class MinimizedPlayback : Patch(
+class MinimizedPlaybackPatch : Patch(
     PatchMetadata(
         "minimized-playback",
         "TODO",
