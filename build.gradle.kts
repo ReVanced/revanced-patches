@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.6.10"
+    kotlin("jvm") version "1.6.20"
     java
     `maven-publish`
 }
@@ -23,7 +23,8 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.10")
+    implementation(kotlin("stdlib"))
+    testImplementation(kotlin("test"))
 
     implementation("app.revanced:revanced-patcher:1.0.0-dev.8")
 }
