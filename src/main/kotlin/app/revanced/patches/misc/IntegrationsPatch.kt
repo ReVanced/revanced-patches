@@ -20,8 +20,8 @@ private val compatiblePackages = arrayOf("com.google.android.youtube")
 class IntegrationsPatch : Patch(
     metadata = PatchMetadata(
         "integrations",
-        "Inject integrations",
-        "Applies mandatory patches to implement the ReVanced integrations into the application",
+        "Inject integrations Patch",
+        "Applies mandatory patches to implement the ReVanced integrations into the application.",
         compatiblePackages,
         "1.0.0"
     ),
@@ -76,11 +76,7 @@ class IntegrationsPatch : Patch(
     )
 ) {
     override fun execute(patcherData: PatcherData): PatchResult {
-        val signature = signatures.first()
-        val result = signatures.first().result
-        result ?: return PatchResultError(
-            "Could not resolve required signature ${signature.methodSignatureMetadata.name}"
-        )
+        val result = signatures.first().result!!
 
         val implementation = result.method.implementation!!
         val count = implementation.registerCount - 1

@@ -1,4 +1,4 @@
-package app.revanced.shared
+package app.revanced
 
 import app.revanced.patcher.patch.Patch
 import app.revanced.patches.ad.VideoAdsPatch
@@ -7,7 +7,7 @@ import app.revanced.patches.layout.*
 import app.revanced.patches.misc.IntegrationsPatch
 
 /**
- * Index contains all the patches and signatures.
+ * Index contains all the patches.
  */
 @Suppress("Unused")
 object Index {

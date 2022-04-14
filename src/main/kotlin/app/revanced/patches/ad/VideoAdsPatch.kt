@@ -18,7 +18,7 @@ class VideoAdsPatch : Patch(
     metadata = PatchMetadata(
         shortName = "video-ads",
         name = "YouTube Video Ads Patch",
-        description = "Patch to remove ads in the YouTube video player",
+        description = "Patch to remove ads in the YouTube video player.",
         compatiblePackages = compatiblePackages,
         version = "0.0.1"
     ),
@@ -62,11 +62,7 @@ class VideoAdsPatch : Patch(
     )
 ) {
     override fun execute(patcherData: PatcherData): PatchResult {
-        val constructorSignature = signatures.first()
-        var result = signatures.first().result
-        result ?: return PatchResultError(
-            "Could not resolve required signature ${constructorSignature.methodSignatureMetadata.name}"
-        )
+        var result = signatures.first().result!!
 
         val responsibleMethodSignature = MethodSignature(
             methodSignatureMetadata = MethodSignatureMetadata(

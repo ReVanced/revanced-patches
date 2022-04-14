@@ -1,13 +1,15 @@
 package app.revanced.patches.layout
 
-import app.revanced.patcher.cache.Cache
+import app.revanced.patcher.PatcherData
 import app.revanced.patcher.extensions.AccessFlagExtensions.Companion.or
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.*
 import app.revanced.patcher.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.revanced.patcher.signature.MethodMetadata
 import app.revanced.patcher.signature.MethodSignature
+import app.revanced.patcher.signature.MethodSignatureMetadata
+import app.revanced.patcher.signature.PatternScanMethod
 import app.revanced.patcher.smali.asInstructions
-import app.revanced.patches.SHARED_METADATA
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction22c
@@ -17,20 +19,72 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 import org.jf.dexlib2.immutable.ImmutableMethod
 import org.jf.dexlib2.immutable.ImmutableMethodImplementation
 
+private val compatiblePackages = arrayOf("com.google.android.youtube")
+
 class HideSuggestionsPatch : Patch(
-    PatchMetadata(
+    metadata = PatchMetadata(
         "hide-suggestions",
-        "TODO",
-        "TODO"
+        "Hide suggestions patch",
+        "Hide suggested videos.",
+        compatiblePackages,
+        "1.0.0"
+    ),
+    signatures = listOf(
+        MethodSignature(
+            methodSignatureMetadata = MethodSignatureMetadata(
+                name = "hide-suggestions-parent-method",
+                methodMetadata = MethodMetadata(null, null), // unknown
+                patternScanMethod = PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
+                compatiblePackages = compatiblePackages,
+                description = "Signature for a parent method, which is needed to find the actual method required to be patched.",
+                version = "0.0.1"
+            ),
+            returnType = "V",
+            accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+            methodParameters = listOf("L", "Z"),
+            opcodes = listOf(
+                Opcode.CONST_4,
+                Opcode.IF_EQZ,
+                Opcode.IGET,
+                Opcode.AND_INT_LIT16,
+                Opcode.IF_EQZ,
+                Opcode.IGET_OBJECT,
+                Opcode.IF_NEZ,
+                Opcode.SGET_OBJECT,
+                Opcode.IGET,
+                Opcode.CONST,
+                Opcode.IF_NE,
+                Opcode.IGET_OBJECT,
+                Opcode.IF_NEZ,
+                Opcode.SGET_OBJECT,
+                Opcode.IGET,
+                Opcode.IF_NE,
+                Opcode.IGET_OBJECT,
+                Opcode.CHECK_CAST,
+                Opcode.GOTO,
+                Opcode.SGET_OBJECT,
+                Opcode.GOTO,
+                Opcode.CONST_4,
+                Opcode.IF_EQZ,
+                Opcode.IGET_BOOLEAN,
+                Opcode.IF_EQ
+            )
+        )
     )
 ) {
-    override fun execute(cache: Cache): PatchResult {
-        val map = cache.methodMap["hide-suggestions-patch"].findParentMethod(
+    override fun execute(patcherData: PatcherData): PatchResult {
+        val result = signatures.first().result!!.findParentMethod(
             MethodSignature(
-                "hide-suggestions-method",
-                SHARED_METADATA,
-                "V",
-                AccessFlags.PUBLIC or AccessFlags.FINAL,
+                methodSignatureMetadata = MethodSignatureMetadata(
+                    name = "hide-suggestions-method",
+                    methodMetadata = MethodMetadata(null, null), // unknown
+                    patternScanMethod = PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
+                    compatiblePackages = compatiblePackages,
+                    description = "Signature for the method, which is required to be patched.",
+                    version = "0.0.1"
+                ),
+                returnType = "V",
+                accessFlags = AccessFlags.FINAL or AccessFlags.PUBLIC,
                 listOf("Z"),
                 listOf(
                     Opcode.IPUT_BOOLEAN,
@@ -40,11 +94,11 @@ class HideSuggestionsPatch : Patch(
                     Opcode.RETURN_VOID
                 )
             )
-        ) ?: return PatchResultError("Parent method hide-suggestions-method has not been found")
+        ) ?: return PatchResultError("Method old-quality-patch-method has not been found")
 
         // deep clone the method in order to add a new register
         // TODO: replace by a mutable method implementation with settable register count when available
-        val originalMethod = map.immutableMethod
+        val originalMethod = result.immutableMethod
         val originalImplementation = originalMethod.implementation!!
         val clonedMethod = ImmutableMethod(
             originalMethod.returnType,
@@ -96,7 +150,7 @@ class HideSuggestionsPatch : Patch(
         }
 
         // resolve the class proxy
-        val clazz = map.definingClassProxy.resolve()
+        val clazz = result.definingClassProxy.resolve()
 
         // remove the old method & add the clone with our additional register
         clazz.methods.remove(originalMethod)
