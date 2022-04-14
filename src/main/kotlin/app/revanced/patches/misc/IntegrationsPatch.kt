@@ -1,39 +1,99 @@
 package app.revanced.patches.misc
 
-import app.revanced.patcher.cache.Cache
+import app.revanced.patcher.PatcherData
 import app.revanced.patcher.extensions.AccessFlagExtensions.Companion.or
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.Patch
-import app.revanced.patcher.patch.PatchMetadata
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.*
 import app.revanced.patcher.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.revanced.patcher.signature.MethodMetadata
+import app.revanced.patcher.signature.MethodSignature
+import app.revanced.patcher.signature.MethodSignatureMetadata
+import app.revanced.patcher.signature.PatternScanMethod
 import app.revanced.patcher.smali.asInstructions
 import org.jf.dexlib2.AccessFlags
+import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.immutable.ImmutableMethod
 import org.jf.dexlib2.immutable.ImmutableMethodImplementation
 
+private val compatiblePackages = arrayOf("com.google.android.youtube")
+
 class IntegrationsPatch : Patch(
-    PatchMetadata(
+    metadata = PatchMetadata(
         "integrations",
-        "TODO",
-        "TODO"
+        "Inject integrations",
+        "Applies mandatory patches to implement the ReVanced integrations into the application",
+        compatiblePackages,
+        "1.0.0"
+    ),
+    signatures = listOf(
+        MethodSignature(
+            methodSignatureMetadata = MethodSignatureMetadata(
+                name = "integrations-patch",
+                methodMetadata = MethodMetadata(null, null), // unknown
+                patternScanMethod = PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
+                compatiblePackages = compatiblePackages,
+                description = "Inject the integrations into the application with the method of this signature",
+                version = "0.0.1"
+            ),
+            returnType = "V",
+            accessFlags = AccessFlags.PUBLIC.value,
+            methodParameters = listOf(),
+            opcodes = listOf(
+                Opcode.SGET_OBJECT,
+                Opcode.NEW_INSTANCE,
+                Opcode.INVOKE_DIRECT,
+                Opcode.IGET_OBJECT,
+                Opcode.CONST_STRING,
+                Opcode.IF_NEZ,
+                Opcode.IGET_OBJECT,
+                Opcode.IGET_OBJECT,
+                Opcode.IGET_OBJECT,
+                Opcode.IGET_OBJECT,
+                Opcode.MOVE_OBJECT,
+                Opcode.CHECK_CAST,
+                Opcode.MOVE_OBJECT,
+                Opcode.CHECK_CAST,
+                Opcode.CONST_4,
+                Opcode.CONST_STRING,
+                Opcode.INVOKE_INTERFACE_RANGE,
+                Opcode.MOVE_RESULT_OBJECT,
+                Opcode.INVOKE_STATIC,
+                Opcode.MOVE_RESULT_OBJECT,
+                Opcode.SPUT_OBJECT,
+                Opcode.SGET_OBJECT,
+                Opcode.INVOKE_STATIC,
+                Opcode.INVOKE_STATIC,
+                Opcode.MOVE_RESULT_OBJECT,
+                Opcode.IGET_OBJECT,
+                Opcode.INVOKE_INTERFACE,
+                Opcode.MOVE_RESULT_OBJECT,
+                Opcode.CHECK_CAST,
+                Opcode.INVOKE_VIRTUAL,
+                Opcode.INVOKE_SUPER,
+                Opcode.INVOKE_VIRTUAL
+            )
+        )
     )
 ) {
-    override fun execute(cache: Cache): PatchResult {
-        val map = cache.methodMap["integrations-patch"]
-        val implementation = map.method.implementation!!
+    override fun execute(patcherData: PatcherData): PatchResult {
+        val signature = signatures.first()
+        val result = signatures.first().result
+        result ?: return PatchResultError(
+            "Could not resolve required signature ${signature.methodSignatureMetadata.name}"
+        )
+
+        val implementation = result.method.implementation!!
         val count = implementation.registerCount - 1
 
         implementation.addInstructions(
-            map.scanData.endIndex,
+            result.scanData.endIndex,
             """
                   invoke-static {v$count}, Lpl/jakubweg/StringRef;->setContext(Landroid/content/Context;)V
                   sput-object v$count, Lapp/revanced/integrations/Globals;->context:Landroid/content/Context;
             """.trimIndent().asInstructions()
         )
 
-        val classDef = map.definingClassProxy.resolve()
+        val classDef = result.definingClassProxy.resolve()
         classDef.methods.add(
             ImmutableMethod(
                 classDef.type,
