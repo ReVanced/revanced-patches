@@ -35,7 +35,7 @@ internal class SignatureChecker {
                     for (i in (warning.actualIndex - 5).coerceAtLeast(0) until warning.actualIndex) {
                         println("$i: ${instructions[i].opcode}")
                     }
-                    println(warning.toString())
+                    println("${warning.actualIndex}: $warning")
                     for (i in warning.actualIndex + 1 until (warning.actualIndex + 5).coerceAtMost(instructions.size)) {
                         println("$i: ${instructions[i].opcode}")
                     }
