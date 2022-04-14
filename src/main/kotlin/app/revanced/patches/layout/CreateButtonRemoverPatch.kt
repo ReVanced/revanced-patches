@@ -35,7 +35,7 @@ class CreateButtonRemoverPatch : Patch(
                 version = "0.0.1"
             ),
             returnType = "V",
-            accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+            accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
             methodParameters = listOf("Z"),
             opcodes = listOf(
                 Opcode.IGET,
