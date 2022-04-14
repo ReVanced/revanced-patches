@@ -18,7 +18,7 @@ import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
 import org.jf.dexlib2.iface.Method
 import org.jf.dexlib2.iface.instruction.formats.Instruction11n
 
-private val compatiblePackages = arrayOf("com.google.android.youtube")
+private val compatiblePackages = listOf("com.google.android.youtube")
 
 class EnableSeekbarTappingPatch : Patch(
     metadata = PatchMetadata(

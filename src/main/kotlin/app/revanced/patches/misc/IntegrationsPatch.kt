@@ -15,7 +15,7 @@ import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.immutable.ImmutableMethod
 import org.jf.dexlib2.immutable.ImmutableMethodImplementation
 
-private val compatiblePackages = arrayOf("com.google.android.youtube")
+private val compatiblePackages = listOf("com.google.android.youtube")
 
 class IntegrationsPatch : Patch(
     metadata = PatchMetadata(

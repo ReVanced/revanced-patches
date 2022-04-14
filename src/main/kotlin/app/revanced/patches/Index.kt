@@ -15,7 +15,7 @@ object Index {
      * Array of patches.
      * New patches should be added to the array.
      */
-    val patches: Array<() -> Patch> = arrayOf(
+    val patches: List<() -> Patch> = listOf(
         ::IntegrationsPatch,
         ::VideoAdsPatch,
         ::MinimizedPlaybackPatch,

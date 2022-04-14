@@ -19,7 +19,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 import org.jf.dexlib2.immutable.ImmutableMethod
 import org.jf.dexlib2.immutable.ImmutableMethodImplementation
 
-private val compatiblePackages = arrayOf("com.google.android.youtube")
+private val compatiblePackages = listOf("com.google.android.youtube")
 
 class HideSuggestionsPatch : Patch(
     metadata = PatchMetadata(

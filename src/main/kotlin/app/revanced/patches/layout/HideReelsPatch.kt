@@ -14,7 +14,7 @@ import app.revanced.patcher.smali.asInstruction
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
-private val compatiblePackages = arrayOf("com.google.android.youtube")
+private val compatiblePackages = listOf("com.google.android.youtube")
 
 class HideReelsPatch : Patch(
     metadata = PatchMetadata(

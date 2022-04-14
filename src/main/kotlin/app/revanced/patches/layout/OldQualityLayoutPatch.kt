@@ -13,7 +13,7 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
 
-private val compatiblePackages = arrayOf("com.google.android.youtube")
+private val compatiblePackages = listOf("com.google.android.youtube")
 
 class OldQualityLayoutPatch : Patch(
     metadata = PatchMetadata(
