@@ -32,7 +32,7 @@ class CreateButtonRemoverPatch : Patch(
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
                 compatiblePackages,
                 "Signature for the method required to be patched.",
-                "0.0.1"
+                "0.0.2"
             ),
             "V",
             AccessFlags.PUBLIC or AccessFlags.FINAL,
@@ -69,6 +69,7 @@ class CreateButtonRemoverPatch : Patch(
                 Opcode.CONST_4,
                 Opcode.INVOKE_VIRTUAL,
                 Opcode.MOVE_RESULT_OBJECT,
+                Opcode.INVOKE_STATIC,
                 Opcode.MOVE_OBJECT
             )
         )
