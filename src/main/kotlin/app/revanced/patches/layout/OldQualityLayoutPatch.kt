@@ -66,7 +66,7 @@ class OldQualityLayoutPatch : Patch(
                 Opcode.IGET_BOOLEAN,
                 Opcode.CONST_4,
                 Opcode.CONST_4,
-                Opcode.CONST,
+                Opcode.CONST_4,
             )
         )
     )

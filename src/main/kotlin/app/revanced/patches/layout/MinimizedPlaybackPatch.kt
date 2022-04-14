@@ -63,7 +63,7 @@ class MinimizedPlaybackPatch : Patch(
                 Opcode.CONST_4,
                 Opcode.IF_EQZ,
                 Opcode.IGET_BOOLEAN,
-                Opcode.IF_EQ
+                Opcode.IF_EQZ
             )
         )
     )
