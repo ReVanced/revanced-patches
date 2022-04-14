@@ -1,7 +1,7 @@
 package app.revanced.patches.layout
 
 import app.revanced.patcher.PatcherData
-import app.revanced.patcher.extensions.AccessFlagExtensions.Companion.or
+import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.Patch
 import app.revanced.patcher.patch.PatchMetadata
 import app.revanced.patcher.patch.PatchResult
@@ -10,7 +10,7 @@ import app.revanced.patcher.signature.MethodMetadata
 import app.revanced.patcher.signature.MethodSignature
 import app.revanced.patcher.signature.MethodSignatureMetadata
 import app.revanced.patcher.signature.PatternScanMethod
-import app.revanced.patcher.smali.asInstruction
+import app.revanced.patcher.smali.toInstruction
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
@@ -101,7 +101,7 @@ class HideReelsPatch : Patch(
         // so we pass the view to the HideReel method
         implementation.addInstruction(
             result.scanData.endIndex - 1,
-            "invoke-static { v2 }, Lfi/razerman/youtube/XAdRemover;->HideReel(Landroid/view/View;)V".asInstruction()
+            "invoke-static { v2 }, Lfi/razerman/youtube/XAdRemover;->HideReel(Landroid/view/View;)V".toInstruction()
         )
 
         return PatchResultSuccess()

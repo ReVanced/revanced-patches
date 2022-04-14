@@ -1,7 +1,7 @@
 package app.revanced.patches.misc
 
 import app.revanced.patcher.PatcherData
-import app.revanced.patcher.extensions.AccessFlagExtensions.Companion.or
+import app.revanced.patcher.extensions.or
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.*
 import app.revanced.patcher.proxy.mutableTypes.MutableMethod.Companion.toMutable
@@ -9,7 +9,7 @@ import app.revanced.patcher.signature.MethodMetadata
 import app.revanced.patcher.signature.MethodSignature
 import app.revanced.patcher.signature.MethodSignatureMetadata
 import app.revanced.patcher.signature.PatternScanMethod
-import app.revanced.patcher.smali.asInstructions
+import app.revanced.patcher.smali.toInstructions
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.immutable.ImmutableMethod
@@ -86,7 +86,7 @@ class IntegrationsPatch : Patch(
             """
                   invoke-static {v$count}, Lpl/jakubweg/StringRef;->setContext(Landroid/content/Context;)V
                   sput-object v$count, Lapp/revanced/integrations/Globals;->context:Landroid/content/Context;
-            """.trimIndent().asInstructions()
+            """.trimIndent().toInstructions()
         )
 
         val classDef = result.definingClassProxy.resolve()
@@ -105,7 +105,7 @@ class IntegrationsPatch : Patch(
                         invoke-static { }, Lapp/revanced/integrations/Globals;->getAppContext()Landroid/content/Context;
                         move-result-object v0
                         return-object v0
-                    """.trimIndent().asInstructions(),
+                    """.trimIndent().toInstructions(),
                     null,
                     null
                 )

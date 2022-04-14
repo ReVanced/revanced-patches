@@ -1,14 +1,14 @@
 package app.revanced.patches.layout
 
 import app.revanced.patcher.PatcherData
-import app.revanced.patcher.extensions.AccessFlagExtensions.Companion.or
+import app.revanced.patcher.extensions.or
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.*
 import app.revanced.patcher.signature.MethodMetadata
 import app.revanced.patcher.signature.MethodSignature
 import app.revanced.patcher.signature.MethodSignatureMetadata
 import app.revanced.patcher.signature.PatternScanMethod
-import app.revanced.patcher.smali.asInstructions
+import app.revanced.patcher.smali.toInstructions
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
@@ -73,7 +73,7 @@ class MinimizedPlaybackPatch : Patch(
             """
                 const/4 v0, 0x1
                 return v0
-                """.trimIndent().asInstructions()
+                """.trimIndent().toInstructions()
         )
         return PatchResultSuccess()
     }

@@ -1,7 +1,7 @@
 package app.revanced.patches.interaction
 
 import app.revanced.patcher.PatcherData
-import app.revanced.patcher.extensions.AccessFlagExtensions.Companion.or
+import app.revanced.patcher.extensions.or
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.Patch
 import app.revanced.patcher.patch.PatchMetadata
@@ -11,7 +11,7 @@ import app.revanced.patcher.signature.MethodMetadata
 import app.revanced.patcher.signature.MethodSignature
 import app.revanced.patcher.signature.MethodSignatureMetadata
 import app.revanced.patcher.signature.PatternScanMethod
-import app.revanced.patcher.smali.asInstructions
+import app.revanced.patcher.smali.toInstructions
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
@@ -162,7 +162,7 @@ class EnableSeekbarTappingPatch : Patch(
             """
                invoke-virtual { v12, v2 }, ${oMethod.definingClass}->${oMethod.name}(I)V
                invoke-virtual { v12, v2 }, ${pMethod.definingClass}->${pMethod.name}(I)V
-            """.trimIndent().asInstructions()
+            """.trimIndent().toInstructions()
         )
 
         // if tap-seeking is disabled, do not invoke the two methods above by jumping to the else label
@@ -176,7 +176,7 @@ class EnableSeekbarTappingPatch : Patch(
             """
                 invoke-static { }, Lfi/razerman/youtube/preferences/BooleanPreferences;->isTapSeekingEnabled()Z
                 move-result v0
-            """.trimIndent().asInstructions()
+            """.trimIndent().toInstructions()
         )
         return PatchResultSuccess()
     }

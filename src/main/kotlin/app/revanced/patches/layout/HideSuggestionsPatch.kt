@@ -1,23 +1,14 @@
 package app.revanced.patches.layout
 
 import app.revanced.patcher.PatcherData
-import app.revanced.patcher.extensions.AccessFlagExtensions.Companion.or
-import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.*
-import app.revanced.patcher.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.signature.MethodMetadata
 import app.revanced.patcher.signature.MethodSignature
 import app.revanced.patcher.signature.MethodSignatureMetadata
 import app.revanced.patcher.signature.PatternScanMethod
-import app.revanced.patcher.smali.asInstructions
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.builder.instruction.BuilderInstruction22c
-import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
-import org.jf.dexlib2.iface.instruction.formats.Instruction22c
-import org.jf.dexlib2.iface.instruction.formats.Instruction35c
-import org.jf.dexlib2.immutable.ImmutableMethod
-import org.jf.dexlib2.immutable.ImmutableMethodImplementation
 
 private val compatiblePackages = listOf("com.google.android.youtube")
 
@@ -72,6 +63,8 @@ class HideSuggestionsPatch : Patch(
     )
 ) {
     override fun execute(patcherData: PatcherData): PatchResult {
+        return PatchResultSuccess() // FIXME: fix below
+        /*
         val result = signatures.first().result!!.findParentMethod(
             MethodSignature(
                 methodSignatureMetadata = MethodSignatureMetadata(
@@ -116,8 +109,6 @@ class HideSuggestionsPatch : Patch(
         ).toMutable() // create mutable clone out of the immutable method clone
 
         val clonedImplementation = clonedMethod.implementation!!
-
-        return PatchResultSuccess() // TODO: fix below
 
         // fix the instructions registers
         clonedImplementation.instructions.forEachIndexed { index, it ->
@@ -166,8 +157,9 @@ class HideSuggestionsPatch : Patch(
                 move-result-object v0
                 invoke-virtual/range { v0 .. v0 }, Ljava/lang/Boolean;->booleanValue()Z
                 move-result v2
-            """.trimIndent().asInstructions()
+            """.trimIndent().toInstructions()
         )
         return PatchResultSuccess()
+        */
     }
 }
