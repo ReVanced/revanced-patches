@@ -34,7 +34,7 @@ class VideoAdsPatch : Patch(
                 compatiblePackages = compatiblePackages,
                 description = """Signature for the constructor of some class.
                 This signature is being used to find another method in the parent class
-                and was discovered in the YouTube version v17.03.38""",
+                and was discovered in the YouTube version v17.03.38""".trimIndent(),
                 version = "0.0.1"
             ),
             returnType = "V",
