@@ -157,6 +157,7 @@ class EnableSeekbarTappingPatch : Patch(
         val pMethod = tapSeekMethods["P"]!!
         val oMethod = tapSeekMethods["O"]!!
 
+        // The instructions are written in reverse order.
         implementation.addInstructions(
             result.scanData.endIndex,
             """
