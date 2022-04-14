@@ -62,7 +62,7 @@ class VideoAdsPatch : Patch(
     )
 ) {
     override fun execute(patcherData: PatcherData): PatchResult {
-        val result = signatures.first().result!!
+        var result = signatures.first().result!!
 
         val responsibleMethodSignature = MethodSignature(
             MethodSignatureMetadata(
@@ -82,7 +82,7 @@ class VideoAdsPatch : Patch(
             null
         )
 
-        result.findParentMethod(
+        result = result.findParentMethod(
             responsibleMethodSignature
         ) ?: return PatchResultError(
             "Could not find parent method with signature ${responsibleMethodSignature.metadata.name}"

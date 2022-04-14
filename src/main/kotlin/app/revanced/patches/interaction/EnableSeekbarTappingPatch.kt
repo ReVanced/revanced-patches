@@ -124,7 +124,7 @@ class EnableSeekbarTappingPatch : Patch(
     )
 ) {
     override fun execute(patcherData: PatcherData): PatchResult {
-        val result = signatures.first().result!!
+        var result = signatures.first().result!!
 
         val tapSeekMethods = mutableMapOf<String, Method>()
 
@@ -149,7 +149,7 @@ class EnableSeekbarTappingPatch : Patch(
         }
 
         // replace map because we dont need the upper one anymore
-        signatures.last().result!!
+        result = signatures.last().result!!
 
         val implementation = result.method.implementation!!
 

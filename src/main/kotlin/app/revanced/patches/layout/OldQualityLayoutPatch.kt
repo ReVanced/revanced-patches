@@ -72,9 +72,9 @@ class OldQualityLayoutPatch : Patch(
     )
 ) {
     override fun execute(patcherData: PatcherData): PatchResult {
-        val result = signatures.first().result!!
+        var result = signatures.first().result!!
 
-        result.findParentMethod(
+        result = result.findParentMethod(
             MethodSignature(
                 MethodSignatureMetadata(
                     "old-quality-method-signature",
