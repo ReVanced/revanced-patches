@@ -35,7 +35,7 @@ class VideoAdsPatch : Patch(
                 """Signature for the constructor of some class.
                 This signature is being used to find another method in the parent class
                 and was discovered in the YouTube version v17.03.38""".trimIndent(),
-                "0.0.1"
+                "0.0.2"
             ),
             "V",
             AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
@@ -46,7 +46,7 @@ class VideoAdsPatch : Patch(
                 Opcode.INVOKE_DIRECT,
                 Opcode.IPUT_OBJECT,
                 Opcode.NEW_INSTANCE,
-                Opcode.CONST_4,
+                null, // either CONST_4 or CONST_16
                 Opcode.INVOKE_DIRECT,
                 Opcode.IPUT_OBJECT,
                 Opcode.NEW_INSTANCE,
