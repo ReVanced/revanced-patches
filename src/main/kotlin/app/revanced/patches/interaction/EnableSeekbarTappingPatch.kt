@@ -3,10 +3,7 @@ package app.revanced.patches.interaction
 import app.revanced.patcher.PatcherData
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.patch.Patch
-import app.revanced.patcher.patch.PatchMetadata
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.*
 import app.revanced.patcher.signature.MethodMetadata
 import app.revanced.patcher.signature.MethodSignature
 import app.revanced.patcher.signature.MethodSignatureMetadata
@@ -17,6 +14,7 @@ import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
 import org.jf.dexlib2.iface.Method
 import org.jf.dexlib2.iface.instruction.formats.Instruction11n
+import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
 private val compatiblePackages = listOf("com.google.android.youtube")
 
@@ -157,12 +155,18 @@ class EnableSeekbarTappingPatch : Patch(
         val pMethod = tapSeekMethods["P"]!!
         val oMethod = tapSeekMethods["O"]!!
 
-        // The instructions are written in reverse order.
+        // get the required register
+        val instruction = implementation.instructions[result.scanData.endIndex + 1]
+        if (instruction.opcode != Opcode.INVOKE_VIRTUAL)
+            return PatchResultError("Could not find the correct register")
+        val register = (instruction as Instruction35c).registerC
+
+        // the instructions are written in reverse order.
         implementation.addInstructions(
             result.scanData.endIndex,
             """
-               invoke-virtual { v12, v2 }, ${oMethod.definingClass}->${oMethod.name}(I)V
-               invoke-virtual { v12, v2 }, ${pMethod.definingClass}->${pMethod.name}(I)V
+               invoke-virtual { v$register, v2 }, ${oMethod.definingClass}->${oMethod.name}(I)V
+               invoke-virtual { v$register, v2 }, ${pMethod.definingClass}->${pMethod.name}(I)V
             """.trimIndent().toInstructions()
         )
 
