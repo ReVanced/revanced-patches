@@ -1,8 +1,8 @@
 package app.revanced.patches.interaction
 
 import app.revanced.patcher.PatcherData
-import app.revanced.patcher.extensions.or
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.Patch
 import app.revanced.patcher.patch.PatchMetadata
 import app.revanced.patcher.patch.PatchResult
@@ -21,27 +21,27 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction11n
 private val compatiblePackages = listOf("com.google.android.youtube")
 
 class EnableSeekbarTappingPatch : Patch(
-    metadata = PatchMetadata(
+    PatchMetadata(
         "seekbar-tapping",
         "Enable seekbar tapping patch",
         "Enable tapping on the seekbar of the YouTube player.",
         compatiblePackages,
         "1.0.0"
     ),
-    signatures = listOf(
+    listOf(
         MethodSignature(
-            methodSignatureMetadata = MethodSignatureMetadata(
-                name = "enable-seekbar-tapping-parent-signature",
-                methodMetadata = MethodMetadata(null, null), // unknown
-                patternScanMethod = PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                compatiblePackages = compatiblePackages,
-                description = "Signature for a parent method, which is needed to find the actual method required to be patched.",
-                version = "0.0.1"
+            MethodSignatureMetadata(
+                "enable-seekbar-tapping-parent-signature",
+                MethodMetadata(null, null), // unknown
+                PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
+                compatiblePackages,
+                "Signature for a parent method, which is needed to find the actual method required to be patched.",
+                "0.0.1"
             ),
-            returnType = "L",
-            accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-            methodParameters = listOf(),
-            opcodes = listOf(
+            "L",
+            AccessFlags.PUBLIC or AccessFlags.FINAL,
+            listOf(),
+            listOf(
                 Opcode.INVOKE_VIRTUAL,
                 Opcode.MOVE_RESULT_OBJECT,
                 Opcode.INVOKE_VIRTUAL,
@@ -75,18 +75,18 @@ class EnableSeekbarTappingPatch : Patch(
             )
         ),
         MethodSignature(
-            methodSignatureMetadata = MethodSignatureMetadata(
-                name = "enable-seekbar-tapping-signature",
-                methodMetadata = MethodMetadata(null, null), // unknown
-                patternScanMethod = PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                compatiblePackages = compatiblePackages,
-                description = "Signature for the method required to be patched.",
-                version = "0.0.1"
+            MethodSignatureMetadata(
+                "enable-seekbar-tapping-signature",
+                MethodMetadata(null, null), // unknown
+                PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
+                compatiblePackages,
+                "Signature for the method required to be patched.",
+                "0.0.1"
             ),
-            returnType = "Z",
-            accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-            methodParameters = listOf("L"),
-            opcodes = listOf(
+            "Z",
+            AccessFlags.PUBLIC or AccessFlags.FINAL,
+            listOf("L"),
+            listOf(
                 Opcode.CMPG_DOUBLE,
                 Opcode.IF_GTZ,
                 Opcode.GOTO,
@@ -124,7 +124,7 @@ class EnableSeekbarTappingPatch : Patch(
     )
 ) {
     override fun execute(patcherData: PatcherData): PatchResult {
-        var result = signatures.first().result!!
+        val result = signatures.first().result!!
 
         val tapSeekMethods = mutableMapOf<String, Method>()
 
@@ -149,7 +149,7 @@ class EnableSeekbarTappingPatch : Patch(
         }
 
         // replace map because we dont need the upper one anymore
-        result = signatures.last().result!!
+        signatures.last().result!!
 
         val implementation = result.method.implementation!!
 

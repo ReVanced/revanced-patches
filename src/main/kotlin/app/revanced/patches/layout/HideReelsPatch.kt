@@ -17,26 +17,26 @@ import org.jf.dexlib2.Opcode
 private val compatiblePackages = listOf("com.google.android.youtube")
 
 class HideReelsPatch : Patch(
-    metadata = PatchMetadata(
+    PatchMetadata(
         "hide-reels",
         "Hide reels patch",
         "Hide reels on the page.",
         compatiblePackages,
         "1.0.0"
     ),
-    signatures = listOf(
+    listOf(
         MethodSignature(
-            methodSignatureMetadata = MethodSignatureMetadata(
-                name = "hide-reels-signature",
-                methodMetadata = MethodMetadata(null, null), // unknown
-                patternScanMethod = PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                compatiblePackages = compatiblePackages,
-                description = "Signature for the method required to be patched.",
-                version = "0.0.1"
+            MethodSignatureMetadata(
+                "hide-reels-signature",
+                MethodMetadata(null, null), // unknown
+                PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
+                compatiblePackages,
+                "Signature for the method required to be patched.",
+                "0.0.1"
             ),
-            returnType = "V",
-            accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-            methodParameters = listOf(
+            "V",
+            AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+            listOf(
                 "L",
                 "L",
                 "L",
@@ -55,7 +55,7 @@ class HideReelsPatch : Patch(
                 "[B",
                 "[B"
             ),
-            opcodes = listOf(
+            listOf(
                 Opcode.MOVE_OBJECT,
                 Opcode.MOVE_OBJECT,
                 Opcode.INVOKE_DIRECT,

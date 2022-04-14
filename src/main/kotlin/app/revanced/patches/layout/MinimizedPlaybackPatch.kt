@@ -1,9 +1,12 @@
 package app.revanced.patches.layout
 
 import app.revanced.patcher.PatcherData
-import app.revanced.patcher.extensions.or
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.*
+import app.revanced.patcher.extensions.or
+import app.revanced.patcher.patch.Patch
+import app.revanced.patcher.patch.PatchMetadata
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.signature.MethodMetadata
 import app.revanced.patcher.signature.MethodSignature
 import app.revanced.patcher.signature.MethodSignatureMetadata
@@ -15,27 +18,27 @@ import org.jf.dexlib2.Opcode
 private val compatiblePackages = listOf("com.google.android.youtube")
 
 class MinimizedPlaybackPatch : Patch(
-    metadata = PatchMetadata(
+    PatchMetadata(
         "minimized-playback",
         "Minimized Playback Patch",
         "Enable minimized and background playback.",
         compatiblePackages,
         "1.0.0"
     ),
-    signatures = listOf(
+    listOf(
         MethodSignature(
-            methodSignatureMetadata = MethodSignatureMetadata(
-                name = "minimized-playback-manager",
-                methodMetadata = MethodMetadata(null, null), // unknown
-                patternScanMethod = PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                compatiblePackages = compatiblePackages,
-                description = "Signature for the method required to be patched.",
-                version = "0.0.1"
+            MethodSignatureMetadata(
+                "minimized-playback-manager",
+                MethodMetadata(null, null), // unknown
+                PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
+                compatiblePackages,
+                "Signature for the method required to be patched.",
+                "0.0.1"
             ),
-            returnType = "Z",
-            accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-            methodParameters = listOf("L"),
-            opcodes = listOf(
+            "Z",
+            AccessFlags.PUBLIC or AccessFlags.STATIC,
+            listOf("L"),
+            listOf(
                 Opcode.CONST_4,
                 Opcode.IF_EQZ,
                 Opcode.IGET,

@@ -2,7 +2,10 @@ package app.revanced.patches.layout
 
 import app.revanced.patcher.PatcherData
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.patch.*
+import app.revanced.patcher.patch.Patch
+import app.revanced.patcher.patch.PatchMetadata
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.signature.MethodMetadata
 import app.revanced.patcher.signature.MethodSignature
 import app.revanced.patcher.signature.MethodSignatureMetadata
@@ -13,27 +16,27 @@ import org.jf.dexlib2.Opcode
 private val compatiblePackages = listOf("com.google.android.youtube")
 
 class HideSuggestionsPatch : Patch(
-    metadata = PatchMetadata(
+    PatchMetadata(
         "hide-suggestions",
         "Hide suggestions patch",
         "Hide suggested videos.",
         compatiblePackages,
         "1.0.0"
     ),
-    signatures = listOf(
+    listOf(
         MethodSignature(
-            methodSignatureMetadata = MethodSignatureMetadata(
-                name = "hide-suggestions-parent-method",
-                methodMetadata = MethodMetadata(null, null), // unknown
-                patternScanMethod = PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                compatiblePackages = compatiblePackages,
-                description = "Signature for a parent method, which is needed to find the actual method required to be patched.",
-                version = "0.0.1"
+            MethodSignatureMetadata(
+                "hide-suggestions-parent-method",
+                MethodMetadata(null, null), // unknown
+                PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
+                compatiblePackages,
+                "Signature for a parent method, which is needed to find the actual method required to be patched.",
+                "0.0.1"
             ),
-            returnType = "V",
-            accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-            methodParameters = listOf("L", "Z"),
-            opcodes = listOf(
+            "V",
+            AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+            listOf("L", "Z"),
+            listOf(
                 Opcode.INVOKE_VIRTUAL,
                 Opcode.MOVE_RESULT_OBJECT,
                 Opcode.CHECK_CAST,
@@ -67,16 +70,16 @@ class HideSuggestionsPatch : Patch(
         /*
         val result = signatures.first().result!!.findParentMethod(
             MethodSignature(
-                methodSignatureMetadata = MethodSignatureMetadata(
-                    name = "hide-suggestions-method",
-                    methodMetadata = MethodMetadata(null, null), // unknown
-                    patternScanMethod = PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                    compatiblePackages = compatiblePackages,
-                    description = "Signature for the method, which is required to be patched.",
-                    version = "0.0.1"
+                MethodSignatureMetadata(
+                    "hide-suggestions-method",
+                    MethodMetadata(null, null), // unknown
+                    PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
+                    compatiblePackages,
+                    "Signature for the method, which is required to be patched.",
+                    "0.0.1"
                 ),
-                returnType = "V",
-                accessFlags = AccessFlags.FINAL or AccessFlags.PUBLIC,
+                "V",
+                AccessFlags.FINAL or AccessFlags.PUBLIC,
                 listOf("Z"),
                 listOf(
                     Opcode.IPUT_BOOLEAN,

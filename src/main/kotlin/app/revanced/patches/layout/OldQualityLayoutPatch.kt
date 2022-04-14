@@ -1,8 +1,8 @@
 package app.revanced.patches.layout
 
 import app.revanced.patcher.PatcherData
-import app.revanced.patcher.extensions.or
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.*
 import app.revanced.patcher.signature.MethodMetadata
 import app.revanced.patcher.signature.MethodSignature
@@ -16,27 +16,27 @@ import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
 private val compatiblePackages = listOf("com.google.android.youtube")
 
 class OldQualityLayoutPatch : Patch(
-    metadata = PatchMetadata(
+    PatchMetadata(
         "old-quality-layout",
         "Old Quality Layout Patch",
         "Enable the original quality flyout menu",
         compatiblePackages,
         "1.0.0"
     ),
-    signatures = listOf(
+    listOf(
         MethodSignature(
-            methodSignatureMetadata = MethodSignatureMetadata(
-                name = "old-quality-parent-method-signature",
-                methodMetadata = MethodMetadata(null, null), // unknown
-                patternScanMethod = PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                compatiblePackages = compatiblePackages,
-                description = "Signature to find a parent method required by the Old Quality Layout patch.",
-                version = "0.0.1"
+            MethodSignatureMetadata(
+                "old-quality-parent-method-signature",
+                MethodMetadata(null, null), // unknown
+                PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
+                compatiblePackages,
+                "Signature to find a parent method required by the Old Quality Layout patch.",
+                "0.0.1"
             ),
-            returnType = "V",
-            accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-            methodParameters = listOf("L", "L", "L", "L", "L", "L", "L"),
-            opcodes = listOf(
+            "V",
+            AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+            listOf("L", "L", "L", "L", "L", "L", "L"),
+            listOf(
                 Opcode.IPUT_OBJECT,
                 Opcode.CONST,
                 Opcode.CONST,
@@ -72,20 +72,20 @@ class OldQualityLayoutPatch : Patch(
     )
 ) {
     override fun execute(patcherData: PatcherData): PatchResult {
-        var result = signatures.first().result!!
+        val result = signatures.first().result!!
 
-        result = result.findParentMethod(
+        result.findParentMethod(
             MethodSignature(
-                methodSignatureMetadata = MethodSignatureMetadata(
-                    name = "old-quality-method-signature",
-                    methodMetadata = MethodMetadata(null, null), // unknown
-                    patternScanMethod = PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                    compatiblePackages = compatiblePackages,
-                    description = "Signature to find the method required by the Old Quality Layout patch",
-                    version = "0.0.1"
+                MethodSignatureMetadata(
+                    "old-quality-method-signature",
+                    MethodMetadata(null, null), // unknown
+                    PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
+                    compatiblePackages,
+                    "Signature to find the method required by the Old Quality Layout patch",
+                    "0.0.1"
                 ),
-                returnType = "L",
-                accessFlags = AccessFlags.FINAL or AccessFlags.PUBLIC,
+                "L",
+                AccessFlags.FINAL or AccessFlags.PUBLIC,
                 emptyList(),
                 listOf(
                     Opcode.IGET,

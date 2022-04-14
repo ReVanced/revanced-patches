@@ -1,9 +1,12 @@
 package app.revanced.patches.misc
 
 import app.revanced.patcher.PatcherData
-import app.revanced.patcher.extensions.or
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.*
+import app.revanced.patcher.extensions.or
+import app.revanced.patcher.patch.Patch
+import app.revanced.patcher.patch.PatchMetadata
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.signature.MethodMetadata
 import app.revanced.patcher.signature.MethodSignature
@@ -18,27 +21,27 @@ import org.jf.dexlib2.immutable.ImmutableMethodImplementation
 private val compatiblePackages = listOf("com.google.android.youtube")
 
 class IntegrationsPatch : Patch(
-    metadata = PatchMetadata(
+    PatchMetadata(
         "integrations",
         "Inject integrations Patch",
         "Applies mandatory patches to implement the ReVanced integrations into the application.",
         compatiblePackages,
         "1.0.0"
     ),
-    signatures = listOf(
+    listOf(
         MethodSignature(
-            methodSignatureMetadata = MethodSignatureMetadata(
-                name = "integrations-patch",
-                methodMetadata = MethodMetadata(null, null), // unknown
-                patternScanMethod = PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                compatiblePackages = compatiblePackages,
-                description = "Inject the integrations into the application with the method of this signature",
-                version = "0.0.1"
+            MethodSignatureMetadata(
+                "integrations-patch",
+                MethodMetadata(null, null), // unknown
+                PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
+                compatiblePackages,
+                "Inject the integrations into the application with the method of this signature",
+                "0.0.1"
             ),
-            returnType = "V",
-            accessFlags = AccessFlags.PUBLIC.value,
-            methodParameters = listOf(),
-            opcodes = listOf(
+            "V",
+            AccessFlags.PUBLIC.value,
+            listOf(),
+            listOf(
                 Opcode.SGET_OBJECT,
                 Opcode.NEW_INSTANCE,
                 Opcode.INVOKE_DIRECT,

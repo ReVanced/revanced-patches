@@ -17,27 +17,27 @@ import org.jf.dexlib2.Opcode
 private val compatiblePackages = listOf("com.google.android.youtube")
 
 class CreateButtonRemoverPatch : Patch(
-    metadata = PatchMetadata(
+    PatchMetadata(
         "create-button",
         "Create button patch",
         "Disable the create button.",
         compatiblePackages,
         "1.0.0"
     ),
-    signatures = listOf(
+    listOf(
         MethodSignature(
-            methodSignatureMetadata = MethodSignatureMetadata(
-                name = "create-button-method",
-                methodMetadata = MethodMetadata(null, null), // unknown
-                patternScanMethod = PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                compatiblePackages = compatiblePackages,
-                description = "Signature for the method required to be patched.",
-                version = "0.0.1"
+            MethodSignatureMetadata(
+                "create-button-method",
+                MethodMetadata(null, null), // unknown
+                PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
+                compatiblePackages,
+                "Signature for the method required to be patched.",
+                "0.0.1"
             ),
-            returnType = "V",
-            accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-            methodParameters = listOf("Z"),
-            opcodes = listOf(
+            "V",
+            AccessFlags.PUBLIC or AccessFlags.FINAL,
+            listOf("Z"),
+            listOf(
                 Opcode.IGET,
                 Opcode.INVOKE_STATIC,
                 Opcode.MOVE_RESULT_OBJECT,
