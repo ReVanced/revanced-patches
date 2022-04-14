@@ -1,4 +1,4 @@
-package app.revanced
+package app.revanced.patches
 
 import app.revanced.patcher.patch.Patch
 import app.revanced.patches.ad.VideoAdsPatch
