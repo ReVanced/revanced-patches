@@ -17,14 +17,24 @@ internal class SignatureChecker {
         patcher.addPatches(Index.patches.map { it() })
         val unresolved = mutableListOf<MethodSignature>()
         for (signature in patcher.resolveSignatures()) {
-            if (!signature.resolved) unresolved.add(signature)
+            if (!signature.resolved) {
+                unresolved.add(signature)
+                continue
+            }
 
             val patternScanMethod = signature.metadata.patternScanMethod
             if (patternScanMethod is PatternScanMethod.Fuzzy) {
-                val warnings = patternScanMethod.warnings
+                val warnings = patternScanMethod.warnings!!
                 println("Signature ${signature.metadata.name} had ${warnings.size} warnings!")
                 for (warning in warnings) {
+                    val instructions = signature.result!!.method.implementation!!.instructions
+                    for (i in warning.expectedIndex - 5 until warning.expectedIndex) {
+                        println(instructions[i].opcode)
+                    }
                     println(warning.toString())
+                    for (i in warning.expectedIndex - 5 .. warning.expectedIndex + 1) {
+                        println(instructions[i].opcode)
+                    }
                 }
             }
         }
