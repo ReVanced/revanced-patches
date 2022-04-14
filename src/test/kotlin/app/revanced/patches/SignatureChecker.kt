@@ -3,6 +3,7 @@ package app.revanced.patches
 import app.revanced.patcher.Patcher
 import app.revanced.patcher.signature.MethodSignature
 import app.revanced.patcher.signature.PatternScanMethod
+import org.jf.dexlib2.iface.Method
 import org.junit.Test
 import java.io.File
 
@@ -26,16 +27,20 @@ internal class SignatureChecker {
             if (patternScanMethod is PatternScanMethod.Fuzzy) {
                 val warnings = patternScanMethod.warnings!!
                 println("Signature ${signature.metadata.name} had ${warnings.size} warnings!")
+                val method = signature.result!!.method
+                val instructions = method.implementation!!.instructions
+                println("class = ${method.definingClass}, method = ${printMethod(method)}")
                 for (warning in warnings) {
-                    val instructions = signature.result!!.method.implementation!!.instructions
-                    for (i in warning.expectedIndex - 5 until warning.expectedIndex) {
-                        println(instructions[i].opcode)
+                    println("-".repeat(10))
+                    for (i in (warning.actualIndex - 5).coerceAtLeast(0) until warning.actualIndex) {
+                        println("$i: ${instructions[i].opcode}")
                     }
                     println(warning.toString())
-                    for (i in warning.expectedIndex - 5 .. warning.expectedIndex + 1) {
-                        println(instructions[i].opcode)
+                    for (i in warning.actualIndex + 1 until (warning.actualIndex + 5).coerceAtMost(instructions.size)) {
+                        println("$i: ${instructions[i].opcode}")
                     }
                 }
+                println("=".repeat(20))
             }
         }
         if (unresolved.isNotEmpty()) {
@@ -45,5 +50,9 @@ internal class SignatureChecker {
             }
             throw base
         }
+    }
+
+    private fun printMethod(method: Method): String {
+        return "${method.name}(${method.parameterTypes.joinToString("")})${method.returnType}"
     }
 }
