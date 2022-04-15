@@ -53,7 +53,6 @@ class HideReelsPatch : Patch(
                 "[B",
                 "[B",
                 "[B",
-                "[B",
                 "[B"
             ),
             listOf(
