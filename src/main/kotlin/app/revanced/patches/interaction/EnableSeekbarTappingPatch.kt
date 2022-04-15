@@ -30,7 +30,7 @@ class EnableSeekbarTappingPatch : Patch(
         MethodSignature(
             MethodSignatureMetadata(
                 "enable-seekbar-tapping-parent-signature",
-                MethodMetadata(null, null), // unknown
+                MethodMetadata("Lesa;", "<init>"), // unknown
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
                 compatiblePackages,
                 "Signature for a parent method, which is needed to find the actual method required to be patched.",
@@ -75,7 +75,7 @@ class EnableSeekbarTappingPatch : Patch(
         MethodSignature(
             MethodSignatureMetadata(
                 "enable-seekbar-tapping-signature",
-                MethodMetadata(null, null), // unknown
+                MethodMetadata("Lesa;", "onTouchEvent"), // unknown
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
                 compatiblePackages,
                 "Signature for the method required to be patched.",
@@ -85,17 +85,6 @@ class EnableSeekbarTappingPatch : Patch(
             AccessFlags.PUBLIC or AccessFlags.FINAL,
             listOf("L"),
             listOf(
-                Opcode.CMPG_DOUBLE,
-                Opcode.IF_GTZ,
-                Opcode.GOTO,
-                Opcode.INT_TO_FLOAT,
-                Opcode.INT_TO_FLOAT,
-                Opcode.INVOKE_VIRTUAL,
-                Opcode.MOVE_RESULT,
-                Opcode.IF_NEZ,
-                Opcode.RETURN,
-                Opcode.IGET_OBJECT,
-                Opcode.IF_EQZ,
                 Opcode.INVOKE_VIRTUAL,
                 Opcode.MOVE_RESULT_WIDE,
                 Opcode.INT_TO_FLOAT,
@@ -114,6 +103,15 @@ class EnableSeekbarTappingPatch : Patch(
                 Opcode.CONST_4,
                 Opcode.INVOKE_INTERFACE,
                 Opcode.NEW_INSTANCE,
+                Opcode.INVOKE_DIRECT,
+                Opcode.IPUT_OBJECT,
+                Opcode.NEW_INSTANCE,
+                Opcode.INVOKE_VIRTUAL,
+                Opcode.MOVE_RESULT,
+                Opcode.FLOAT_TO_INT,
+                Opcode.INVOKE_VIRTUAL,
+                Opcode.MOVE_RESULT,
+                Opcode.FLOAT_TO_INT,
                 Opcode.INVOKE_DIRECT,
                 Opcode.IPUT_OBJECT,
                 Opcode.INVOKE_VIRTUAL
@@ -156,7 +154,7 @@ class EnableSeekbarTappingPatch : Patch(
         val oMethod = tapSeekMethods["O"]!!
 
         // get the required register
-        val instruction = implementation.instructions[result.scanData.endIndex + 1]
+        val instruction = implementation.instructions[result.scanData.endIndex - 1]
         if (instruction.opcode != Opcode.INVOKE_VIRTUAL)
             return PatchResultError("Could not find the correct register")
         val register = (instruction as Instruction35c).registerC

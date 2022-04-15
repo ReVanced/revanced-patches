@@ -10,7 +10,7 @@ import java.io.File
 internal class SignatureChecker {
     @Test
     fun checkSignatures() {
-        val file = File("stock.apk")
+        val file = File("newest.apk")
         if (!file.exists()) {
             throw IllegalStateException("Missing stock.apk! To run this test, please place stock.apk here: ${file.absolutePath}")
         }
@@ -26,21 +26,14 @@ internal class SignatureChecker {
             val patternScanMethod = signature.metadata.patternScanMethod
             if (patternScanMethod is PatternScanMethod.Fuzzy) {
                 val warnings = patternScanMethod.warnings!!
-                println("Signature ${signature.metadata.name} had ${warnings.size} warnings!")
                 val method = signature.result!!.method
-                val instructions = method.implementation!!.instructions
-                println("class = ${method.definingClass}, method = ${printMethod(method)}")
+
+                println("Signature: ${signature.metadata.name}.\nMethod: ${method.definingClass}->${method.toStr()}\nWarnings: ${warnings.count()}")
                 for (warning in warnings) {
-                    println("-".repeat(10))
-                    for (i in (warning.actualIndex - 5).coerceAtLeast(0) until warning.actualIndex) {
-                        println("$i: ${instructions[i].opcode}")
-                    }
-                    println("${warning.actualIndex}: $warning")
-                    for (i in warning.actualIndex + 1 until (warning.actualIndex + 5).coerceAtMost(instructions.size)) {
-                        println("$i: ${instructions[i].opcode}")
-                    }
+                    println("${warning.instructionIndex} / ${warning.patternIndex}: ${warning.current} (expected: ${warning.expected})")
                 }
-                println("=".repeat(20))
+
+                println("=".repeat(20) + "\n")
             }
         }
         if (unresolved.isNotEmpty()) {
@@ -52,7 +45,7 @@ internal class SignatureChecker {
         }
     }
 
-    private fun printMethod(method: Method): String {
-        return "${method.name}(${method.parameterTypes.joinToString("")})${method.returnType}"
+    private fun Method.toStr(): String {
+        return "${this.name}(${this.parameterTypes.joinToString("")})${this.returnType}"
     }
 }
