@@ -2,10 +2,7 @@ package app.revanced.patches.layout
 
 import app.revanced.patcher.PatcherData
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.patch.Patch
-import app.revanced.patcher.patch.PatchMetadata
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.*
 import app.revanced.patcher.signature.MethodMetadata
 import app.revanced.patcher.signature.MethodSignature
 import app.revanced.patcher.signature.MethodSignatureMetadata
@@ -13,6 +10,7 @@ import app.revanced.patcher.signature.PatternScanMethod
 import app.revanced.patcher.smali.toInstruction
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
 private val compatiblePackages = listOf("com.google.android.youtube")
 
@@ -69,8 +67,6 @@ class CreateButtonRemoverPatch : Patch(
                 Opcode.CONST_4,
                 Opcode.INVOKE_VIRTUAL,
                 Opcode.MOVE_RESULT_OBJECT,
-                Opcode.INVOKE_STATIC,
-                Opcode.MOVE_RESULT_OBJECT
             )
         )
     )
@@ -78,10 +74,17 @@ class CreateButtonRemoverPatch : Patch(
     override fun execute(patcherData: PatcherData): PatchResult {
         val result = signatures.first().result!!
 
+        // Get the required register which holds the view object we need to pass to the method hideCreateButton
+        val implementation = result.method.implementation!!
+        val instruction = implementation.instructions[result.scanData.endIndex]
+        if (instruction.opcode != Opcode.INVOKE_STATIC)
+            return PatchResultError("Could not find the correct register")
+        val register = (instruction as Instruction35c).registerC
+
         // Hide the button view via proxy by passing it to the hideCreateButton method
-        result.method.implementation!!.addInstruction(
+        implementation.addInstruction(
             result.scanData.endIndex,
-            "invoke-static { v2 }, Lfi/razerman/youtube/XAdRemover;->hideCreateButton(Landroid/view/View;)V".toInstruction()
+            "invoke-static { v$register }, Lfi/razerman/youtube/XAdRemover;->hideCreateButton(Landroid/view/View;)V".toInstruction()
         )
 
         return PatchResultSuccess()
