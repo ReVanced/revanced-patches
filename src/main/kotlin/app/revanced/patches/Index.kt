@@ -21,7 +21,6 @@ object Index {
         ::MinimizedPlaybackPatch,
         ::CreateButtonRemoverPatch,
         ::HideReelsPatch,
-        ::HideSuggestionsPatch,
         ::OldQualityLayoutPatch,
         ::EnableSeekbarTappingPatch
     )
