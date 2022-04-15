@@ -114,4 +114,4 @@ gradle-app.setting
 # gradle/wrapper/gradle-wrapper.properties
 
 # Potentially copyrighted test APK
-stock.apk
+*.apk

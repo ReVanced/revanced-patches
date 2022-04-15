@@ -10,9 +10,9 @@ import java.io.File
 internal class SignatureChecker {
     @Test
     fun checkSignatures() {
-        val file = File("newest.apk")
+        val file = File("stock.apk")
         if (!file.exists()) {
-            throw IllegalStateException("Missing stock.apk! To run this test, please place stock.apk here: ${file.absolutePath}")
+            throw IllegalStateException("Missing $file! To run this test, please place stock.apk here: ${file.absolutePath}")
         }
         val patcher = Patcher(file)
         patcher.addPatches(Index.patches.map { it() })
@@ -30,10 +30,10 @@ internal class SignatureChecker {
 
                 println("Signature: ${signature.metadata.name}.\nMethod: ${method.definingClass}->${method.toStr()}\nWarnings: ${warnings.count()}")
                 for (warning in warnings) {
-                    println("${warning.instructionIndex} / ${warning.patternIndex}: ${warning.current} (expected: ${warning.expected})")
+                    println("${warning.instructionIndex} / ${warning.patternIndex}: ${warning.wrongOpcode} (expected: ${warning.correctOpcode})")
                 }
 
-                println("=".repeat(20) + "\n")
+                println("=".repeat(20))
             }
         }
         if (unresolved.isNotEmpty()) {
