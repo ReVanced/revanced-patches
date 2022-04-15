@@ -29,7 +29,7 @@ class HideReelsPatch : Patch(
             MethodSignatureMetadata(
                 "hide-reels-signature",
                 MethodMetadata(null, null), // unknown
-                PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
+                PatternScanMethod.Fuzzy(3), // FIXME: Test this threshold and find the best value.
                 compatiblePackages,
                 "Signature for the method required to be patched.",
                 "0.0.1"
@@ -48,6 +48,7 @@ class HideReelsPatch : Patch(
                 "L",
                 "L",
                 "L",
+                "[B",
                 "[B",
                 "[B",
                 "[B",
