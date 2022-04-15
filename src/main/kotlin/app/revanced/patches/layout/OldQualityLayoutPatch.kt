@@ -21,7 +21,7 @@ class OldQualityLayoutPatch : Patch(
         "Old Quality Layout Patch",
         "Enable the original quality flyout menu",
         compatiblePackages,
-        "1.0.0"
+        "0.0.1"
     ),
     listOf(
         MethodSignature(

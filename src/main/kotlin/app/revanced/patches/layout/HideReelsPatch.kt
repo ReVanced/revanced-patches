@@ -22,7 +22,7 @@ class HideReelsPatch : Patch(
         "Hide reels patch",
         "Hide reels on the page.",
         compatiblePackages,
-        "1.0.0"
+        "0.0.1"
     ),
     listOf(
         MethodSignature(

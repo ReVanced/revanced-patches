@@ -24,7 +24,7 @@ class EnableSeekbarTappingPatch : Patch(
         "Enable seekbar tapping patch",
         "Enable tapping on the seekbar of the YouTube player.",
         compatiblePackages,
-        "1.0.0"
+        "0.0.1"
     ),
     listOf(
         MethodSignature(

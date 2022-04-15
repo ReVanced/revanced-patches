@@ -23,7 +23,7 @@ class MinimizedPlaybackPatch : Patch(
         "Minimized Playback Patch",
         "Enable minimized and background playback.",
         compatiblePackages,
-        "1.0.0"
+        "0.0.1"
     ),
     listOf(
         MethodSignature(

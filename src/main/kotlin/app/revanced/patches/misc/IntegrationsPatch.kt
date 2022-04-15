@@ -26,7 +26,7 @@ class IntegrationsPatch : Patch(
         "Inject integrations Patch",
         "Applies mandatory patches to implement the ReVanced integrations into the application.",
         compatiblePackages,
-        "1.0.0"
+        "0.0.1"
     ),
     listOf(
         MethodSignature(

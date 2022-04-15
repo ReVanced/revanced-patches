@@ -22,7 +22,7 @@ class CreateButtonRemoverPatch : Patch(
         "Create button patch",
         "Disable the create button.",
         compatiblePackages,
-        "1.0.0"
+        "0.0.1"
     ),
     listOf(
         MethodSignature(
@@ -32,7 +32,7 @@ class CreateButtonRemoverPatch : Patch(
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
                 compatiblePackages,
                 "Signature for the method required to be patched.",
-                "0.0.3"
+                "0.0.1"
             ),
             "V",
             AccessFlags.PUBLIC or AccessFlags.FINAL,
