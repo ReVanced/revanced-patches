@@ -35,16 +35,10 @@ class OldQualityLayoutPatch : Patch(
             ),
             "V",
             AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-            listOf("L", "L", "L", "L", "L", "L", "L"),
+            listOf("L", "L", "L", "L", "L", "L", "L", "[B"),
             listOf(
+                Opcode.INVOKE_DIRECT,
                 Opcode.IPUT_OBJECT,
-                Opcode.CONST,
-                Opcode.CONST,
-                Opcode.INVOKE_STATIC,
-                Opcode.MOVE_RESULT_OBJECT,
-                Opcode.IPUT_OBJECT,
-                Opcode.INVOKE_STATIC,
-                Opcode.MOVE_RESULT_OBJECT,
                 Opcode.IPUT_OBJECT,
                 Opcode.IPUT_OBJECT,
                 Opcode.IPUT_OBJECT,
@@ -85,26 +79,27 @@ class OldQualityLayoutPatch : Patch(
                     "0.0.1"
                 ),
                 "L",
-                AccessFlags.FINAL or AccessFlags.PUBLIC,
-                emptyList(),
+                AccessFlags.FINAL or AccessFlags.PRIVATE,
+                listOf("Z"),
                 listOf(
-                    Opcode.IGET,
                     Opcode.CONST_4,
-                    Opcode.IF_NE,
+                    Opcode.INVOKE_VIRTUAL,
+                    Opcode.IGET_OBJECT,
+                    Opcode.IGET_OBJECT,
+                    Opcode.INVOKE_VIRTUAL,
                     Opcode.IGET_OBJECT,
                     Opcode.GOTO,
                     Opcode.IGET_OBJECT,
-                    Opcode.RETURN_OBJECT
                 )
             )
         ) ?: return PatchResultError("Method old-quality-patch-method has not been found")
 
         val implementation = result.method.implementation!!
 
-        // if useOldStyleQualitySettings == true, jump over all instructions and return the field at the end
+        // if useOldStyleQualitySettings == true, jump over all instructions
         val jmpInstruction =
-            BuilderInstruction21t(Opcode.IF_NEZ, 0, implementation.instructions[5].location.labels.first())
-        implementation.addInstruction(0, jmpInstruction)
+            BuilderInstruction21t(Opcode.IF_NEZ, 0, implementation.instructions[result.scanData.endIndex - 1].location.labels.first())
+        implementation.addInstruction(5, jmpInstruction)
         implementation.addInstructions(
             0,
             """
