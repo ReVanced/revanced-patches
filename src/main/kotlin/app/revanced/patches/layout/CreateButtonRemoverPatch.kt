@@ -76,14 +76,14 @@ class CreateButtonRemoverPatch : Patch(
 
         // Get the required register which holds the view object we need to pass to the method hideCreateButton
         val implementation = result.method.implementation!!
-        val instruction = implementation.instructions[result.scanData.endIndex]
+        val instruction = implementation.instructions[result.scanData.endIndex + 1]
         if (instruction.opcode != Opcode.INVOKE_STATIC)
             return PatchResultError("Could not find the correct register")
         val register = (instruction as Instruction35c).registerC
 
         // Hide the button view via proxy by passing it to the hideCreateButton method
         implementation.addInstruction(
-            result.scanData.endIndex,
+            result.scanData.endIndex + 1,
             "invoke-static { v$register }, Lfi/razerman/youtube/XAdRemover;->hideCreateButton(Landroid/view/View;)V".toInstruction()
         )
 

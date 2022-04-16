@@ -101,7 +101,7 @@ class HideReelsPatch : Patch(
         // HideReel will hide the reel view before it is being used,
         // so we pass the view to the HideReel method
         implementation.addInstruction(
-            result.scanData.endIndex - 1,
+            result.scanData.endIndex,
             "invoke-static { v2 }, Lfi/razerman/youtube/XAdRemover;->HideReel(Landroid/view/View;)V".toInstruction()
         )
 
