@@ -1,6 +1,7 @@
 package app.revanced.patches
 
 import app.revanced.patcher.patch.Patch
+import app.revanced.patches.ad.HomeAdsPatch
 import app.revanced.patches.ad.VideoAdsPatch
 import app.revanced.patches.interaction.EnableSeekbarTappingPatch
 import app.revanced.patches.layout.*
@@ -17,6 +18,7 @@ object Index {
      */
     val patches: List<() -> Patch> = listOf(
         ::IntegrationsPatch,
+        ::HomeAdsPatch,
         ::VideoAdsPatch,
         ::MinimizedPlaybackPatch,
         ::CreateButtonRemoverPatch,
