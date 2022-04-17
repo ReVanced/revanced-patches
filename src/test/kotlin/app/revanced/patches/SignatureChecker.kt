@@ -27,8 +27,8 @@ internal class SignatureChecker {
             if (patternScanMethod is PatternScanMethod.Fuzzy) {
                 val warnings = patternScanMethod.warnings!!
                 val method = signature.result!!.method
-
-                println("Signature: ${signature.metadata.name}.\nMethod: ${method.definingClass}->${method.toStr()}\nWarnings: ${warnings.count()}")
+                val methodFromMetadata = signature.metadata.methodMetadata
+                println("Signature: ${signature.metadata.name}.\nMethod: ${methodFromMetadata.definingClass}->${methodFromMetadata.name} (Signature matches: ${method.definingClass}->${method.toStr()})\nWarnings: ${warnings.count()}")
                 for (warning in warnings) {
                     println("${warning.instructionIndex} / ${warning.patternIndex}: ${warning.wrongOpcode} (expected: ${warning.correctOpcode})")
                 }
