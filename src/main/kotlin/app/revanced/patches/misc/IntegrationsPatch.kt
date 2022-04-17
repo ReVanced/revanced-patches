@@ -23,7 +23,7 @@ private val compatiblePackages = listOf("com.google.android.youtube")
 class IntegrationsPatch : Patch(
     PatchMetadata(
         "integrations",
-        "Inject integrations Patch",
+        "Inject Integrations Patch",
         "Applies mandatory patches to implement the ReVanced integrations into the application.",
         compatiblePackages,
         "0.0.1"
