@@ -1,6 +1,7 @@
 package app.revanced.patches
 
 import app.revanced.patcher.Patcher
+import app.revanced.patcher.signature.MethodMetadata
 import app.revanced.patcher.signature.MethodSignature
 import app.revanced.patcher.signature.PatternScanMethod
 import org.jf.dexlib2.iface.Method
@@ -27,7 +28,8 @@ internal class SignatureChecker {
             if (patternScanMethod is PatternScanMethod.Fuzzy) {
                 val warnings = patternScanMethod.warnings!!
                 val method = signature.result!!.method
-                val methodFromMetadata = signature.metadata.methodMetadata
+                val methodFromMetadata = if (signature.metadata.methodMetadata != null) signature.metadata.methodMetadata!! else MethodMetadata(null, null)
+
                 println("Signature: ${signature.metadata.name}.\nMethod: ${methodFromMetadata.definingClass}->${methodFromMetadata.name} (Signature matches: ${method.definingClass}->${method.toStr()})\nWarnings: ${warnings.count()}")
                 for (warning in warnings) {
                     println("${warning.instructionIndex} / ${warning.patternIndex}: ${warning.wrongOpcode} (expected: ${warning.correctOpcode})")
