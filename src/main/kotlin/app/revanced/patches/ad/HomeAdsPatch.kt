@@ -1,5 +1,6 @@
 package app.revanced.patches.ad
 
+import app.revanced.extensions.injectHideCall
 import app.revanced.patcher.PatcherData
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.Patch
@@ -10,7 +11,6 @@ import app.revanced.patcher.signature.MethodMetadata
 import app.revanced.patcher.signature.MethodSignature
 import app.revanced.patcher.signature.MethodSignatureMetadata
 import app.revanced.patcher.signature.PatternScanMethod
-import app.revanced.patcher.smali.toInstruction
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.formats.Instruction11x
@@ -22,7 +22,7 @@ private val compatiblePackages = listOf("com.google.android.youtube")
 class HomeAdsPatch : Patch(
     PatchMetadata(
         "home-ads",
-        "Home ads patch",
+        "Home Ads Patch",
         "Patch to remove ads in YouTube",
         compatiblePackages,
         "0.0.1"
@@ -219,8 +219,7 @@ class HomeAdsPatch : Patch(
                 Opcode.IPUT_OBJECT,
                 Opcode.MOVE_OBJECT_FROM16,
                 Opcode.CONST,
-
-                )
+            )
         ),
         MethodSignature(
             MethodSignatureMetadata(
@@ -736,7 +735,7 @@ class HomeAdsPatch : Patch(
             ),
             "V",
             AccessFlags.PRIVATE or AccessFlags.FINAL,
-            emptyList(),
+            listOf(),
             listOf(
                 Opcode.INVOKE_VIRTUAL,
                 Opcode.MOVE_RESULT_OBJECT,
@@ -839,7 +838,7 @@ class HomeAdsPatch : Patch(
             ),
             "V",
             AccessFlags.PRIVATE or AccessFlags.FINAL,
-            emptyList(),
+            listOf(),
             listOf(
                 Opcode.INVOKE_VIRTUAL,
                 Opcode.MOVE_RESULT_OBJECT,
@@ -1221,12 +1220,9 @@ class HomeAdsPatch : Patch(
                 if (i < 2)
                     (instructions[index - 1] as Instruction11x).registerA
                 else
-                    (instructions[index + 1] as Instruction35c).registerC
+                    (instructions[index] as Instruction35c).registerC
 
-            implementation.addInstruction(
-                index,
-                "invoke-static { v$register }, Lfi/razerman/youtube/XAdRemover;->HideView(Landroid/view/View;)V".toInstruction()
-            )
+            implementation.injectHideCall(index, register)
         }
 
         return PatchResultSuccess()
