@@ -2,9 +2,13 @@ package app.revanced.patches
 
 import app.revanced.patcher.patch.Patch
 import app.revanced.patches.ad.HomeAdsPatch
+import app.revanced.patches.ad.HomePromoPatch
 import app.revanced.patches.ad.VideoAdsPatch
 import app.revanced.patches.interaction.EnableSeekbarTappingPatch
-import app.revanced.patches.layout.*
+import app.revanced.patches.layout.CreateButtonRemoverPatch
+import app.revanced.patches.layout.HideReelsPatch
+import app.revanced.patches.layout.MinimizedPlaybackPatch
+import app.revanced.patches.layout.OldQualityLayoutPatch
 import app.revanced.patches.misc.IntegrationsPatch
 
 /**
@@ -20,6 +24,7 @@ object Index {
         ::IntegrationsPatch,
         ::HomeAdsPatch,
         ::VideoAdsPatch,
+        ::HomePromoPatch,
         ::MinimizedPlaybackPatch,
         ::CreateButtonRemoverPatch,
         ::HideReelsPatch,
