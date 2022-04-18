@@ -12,7 +12,12 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
-private val compatiblePackages = listOf("com.google.android.youtube")
+private val compatiblePackages = listOf(
+    PackageMetadata(
+        "com.google.android.youtube",
+        listOf("17.14.35")
+    )
+)
 
 class CreateButtonRemoverPatch : Patch(
     PatchMetadata(

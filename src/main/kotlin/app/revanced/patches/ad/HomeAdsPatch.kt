@@ -3,10 +3,7 @@ package app.revanced.patches.ad
 import app.revanced.extensions.injectHideCall
 import app.revanced.patcher.PatcherData
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.patch.Patch
-import app.revanced.patcher.patch.PatchMetadata
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.*
 import app.revanced.patcher.signature.MethodMetadata
 import app.revanced.patcher.signature.MethodSignature
 import app.revanced.patcher.signature.MethodSignatureMetadata
@@ -16,17 +13,26 @@ import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.formats.Instruction11x
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
-private val compatiblePackages = listOf("com.google.android.youtube")
 
+private val packageMetadata = listOf(
+    PackageMetadata(
+        "com.google.android.youtube",
+        listOf("17.03.38")
+    ),
+)
+
+private val patchMetadata = PatchMetadata(
+    "home-ads",
+    "Home Ads Patch",
+    "Patch to remove ads in YouTube",
+    packageMetadata,
+    "0.0.1"
+)
+
+private val signatureDescription = "Required signature for ${patchMetadata.name}. Discovered in version 17.03.38."
 
 class HomeAdsPatch : Patch(
-    PatchMetadata(
-        "home-ads",
-        "Home Ads Patch",
-        "Patch to remove ads in YouTube",
-        compatiblePackages,
-        "0.0.1"
-    ),
+    patchMetadata,
     listOf(
         MethodSignature(
             MethodSignatureMetadata(
@@ -36,8 +42,8 @@ class HomeAdsPatch : Patch(
                     "k",
                 ),
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                compatiblePackages,
-                "Found in YouTube version v17.03.38",
+                packageMetadata,
+                signatureDescription,
                 "0.0.1"
             ),
             "Z",
@@ -86,8 +92,8 @@ class HomeAdsPatch : Patch(
                     "<init>",
                 ),
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                compatiblePackages,
-                "Found in YouTube version v17.03.38",
+                packageMetadata,
+                signatureDescription,
                 "0.0.1"
             ),
             "V",
@@ -158,8 +164,8 @@ class HomeAdsPatch : Patch(
                     "<init>",
                 ),
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                compatiblePackages,
-                "Found in YouTube version v17.03.38",
+                packageMetadata,
+                signatureDescription,
                 "0.0.1"
             ),
             "V",
@@ -229,8 +235,8 @@ class HomeAdsPatch : Patch(
                     "<init>",
                 ),
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                compatiblePackages,
-                "Found in YouTube version v17.03.38",
+                packageMetadata,
+                signatureDescription,
                 "0.0.1"
             ),
             "V",
@@ -279,8 +285,8 @@ class HomeAdsPatch : Patch(
                     "<init>",
                 ),
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                compatiblePackages,
-                "Found in YouTube version v17.03.38",
+                packageMetadata,
+                signatureDescription,
                 "0.0.1"
             ),
             "V",
@@ -332,8 +338,8 @@ class HomeAdsPatch : Patch(
                     "<init>",
                 ),
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                compatiblePackages,
-                "Found in YouTube version v17.03.38",
+                packageMetadata,
+                signatureDescription,
                 "0.0.1"
             ),
             "V",
@@ -401,8 +407,8 @@ class HomeAdsPatch : Patch(
                     "<init>",
                 ),
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                compatiblePackages,
-                "Found in YouTube version v17.03.38",
+                packageMetadata,
+                signatureDescription,
                 "0.0.1"
             ),
             "V",
@@ -460,8 +466,8 @@ class HomeAdsPatch : Patch(
                     "<init>",
                 ),
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                compatiblePackages,
-                "Found in YouTube version v17.03.38",
+                packageMetadata,
+                signatureDescription,
                 "0.0.1"
             ),
             "V",
@@ -524,8 +530,8 @@ class HomeAdsPatch : Patch(
                     "<init>",
                 ),
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                compatiblePackages,
-                "Found in YouTube version v17.03.38",
+                packageMetadata,
+                signatureDescription,
                 "0.0.1"
             ),
             "V",
@@ -586,8 +592,8 @@ class HomeAdsPatch : Patch(
                     "<init>",
                 ),
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                compatiblePackages,
-                "Found in YouTube version v17.03.38",
+                packageMetadata,
+                signatureDescription,
                 "0.0.1"
             ),
             "V",
@@ -669,8 +675,8 @@ class HomeAdsPatch : Patch(
                     "lG",
                 ),
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                compatiblePackages,
-                "Found in YouTube version v17.03.38",
+                packageMetadata,
+                signatureDescription,
                 "0.0.1"
             ),
             "V",
@@ -729,8 +735,8 @@ class HomeAdsPatch : Patch(
                     "b",
                 ),
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                compatiblePackages,
-                "Found in YouTube version v17.03.38",
+                packageMetadata,
+                signatureDescription,
                 "0.0.1"
             ),
             "V",
@@ -797,8 +803,8 @@ class HomeAdsPatch : Patch(
                     "<init>",
                 ),
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                compatiblePackages,
-                "Found in YouTube version v17.03.38",
+                packageMetadata,
+                signatureDescription,
                 "0.0.1"
             ),
             "V",
@@ -832,8 +838,8 @@ class HomeAdsPatch : Patch(
                     "b",
                 ),
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                compatiblePackages,
-                "Found in YouTube version v17.03.38",
+                packageMetadata,
+                signatureDescription,
                 "0.0.1"
             ),
             "V",
@@ -896,8 +902,8 @@ class HomeAdsPatch : Patch(
                     "<init>",
                 ),
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                compatiblePackages,
-                "Found in YouTube version v17.03.38",
+                packageMetadata,
+                signatureDescription,
                 "0.0.1"
             ),
             "V",
@@ -1042,8 +1048,8 @@ class HomeAdsPatch : Patch(
                     "<init>",
                 ),
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                compatiblePackages,
-                "Found in YouTube version v17.03.38",
+                packageMetadata,
+                signatureDescription,
                 "0.0.1"
             ),
             "V",
@@ -1177,8 +1183,8 @@ class HomeAdsPatch : Patch(
                     "<init>",
                 ),
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
-                compatiblePackages,
-                "Found in YouTube version v17.03.38",
+                packageMetadata,
+                signatureDescription,
                 "0.0.1"
             ),
             "V",

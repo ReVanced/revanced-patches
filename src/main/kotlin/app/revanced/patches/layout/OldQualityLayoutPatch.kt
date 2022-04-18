@@ -13,7 +13,12 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
 
-private val compatiblePackages = listOf("com.google.android.youtube")
+private val compatiblePackages = listOf(
+    PackageMetadata(
+        "com.google.android.youtube",
+        listOf("17.14.35")
+    )
+)
 
 class OldQualityLayoutPatch : Patch(
     PatchMetadata(
@@ -98,7 +103,11 @@ class OldQualityLayoutPatch : Patch(
 
         // if useOldStyleQualitySettings == true, jump over all instructions
         val jmpInstruction =
-            BuilderInstruction21t(Opcode.IF_NEZ, 0, implementation.instructions[result.scanData.endIndex].location.labels.first())
+            BuilderInstruction21t(
+                Opcode.IF_NEZ,
+                0,
+                implementation.instructions[result.scanData.endIndex].location.labels.first()
+            )
         implementation.addInstruction(5, jmpInstruction)
         implementation.addInstructions(
             0,

@@ -3,10 +3,7 @@ package app.revanced.patches.layout
 import app.revanced.patcher.PatcherData
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.patch.Patch
-import app.revanced.patcher.patch.PatchMetadata
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.*
 import app.revanced.patcher.signature.MethodMetadata
 import app.revanced.patcher.signature.MethodSignature
 import app.revanced.patcher.signature.MethodSignatureMetadata
@@ -15,7 +12,12 @@ import app.revanced.patcher.smali.toInstructions
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
-private val compatiblePackages = listOf("com.google.android.youtube")
+private val compatiblePackages = listOf(
+    PackageMetadata(
+        "com.google.android.youtube",
+        listOf("17.14.35")
+    )
+)
 
 class MinimizedPlaybackPatch : Patch(
     PatchMetadata(

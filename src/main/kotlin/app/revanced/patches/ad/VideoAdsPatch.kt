@@ -12,16 +12,23 @@ import app.revanced.patcher.smali.toInstructions
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
-private val compatiblePackages = listOf("com.google.android.youtube")
+private val packageMetadata = listOf(
+    PackageMetadata(
+        "com.google.android.youtube",
+        listOf("17.14.35")
+    )
+)
+
+private val patchMetadata = PatchMetadata(
+    "video-ads",
+    "YouTube Video Ads Patch",
+    "Patch to remove ads in the YouTube video player.",
+    packageMetadata,
+    "0.0.1"
+)
 
 class VideoAdsPatch : Patch(
-    PatchMetadata(
-        "video-ads",
-        "YouTube Video Ads Patch",
-        "Patch to remove ads in the YouTube video player.",
-        compatiblePackages,
-        "0.0.1"
-    ),
+    patchMetadata,
     listOf(
         MethodSignature(
             MethodSignatureMetadata(
@@ -31,10 +38,8 @@ class VideoAdsPatch : Patch(
                     "<init>",
                 ),
                 PatternScanMethod.Fuzzy(2),// FIXME: Test this threshold and find the best value.
-                compatiblePackages,
-                """Signature for the constructor of some class.
-                This signature is being used to find another method in the parent class
-                and was discovered in the YouTube version v17.03.38""".trimIndent(),
+                packageMetadata,
+                "Required signature for ${patchMetadata.name}. Discovered in version 17.14.35.",
                 "0.0.1"
             ),
             "V",
@@ -72,8 +77,8 @@ class VideoAdsPatch : Patch(
                     null // unknown
                 ),
                 PatternScanMethod.Direct(),
-                compatiblePackages,
-                "Signature to find the method, which is responsible for showing the video ads",
+                packageMetadata,
+                "Signature to find the method, which is responsible for showing the video ads. Discovered in version 17.14.35",
                 "0.0.1"
             ),
             "V",

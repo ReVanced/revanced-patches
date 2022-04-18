@@ -3,10 +3,7 @@ package app.revanced.patches.misc
 import app.revanced.patcher.PatcherData
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.patch.Patch
-import app.revanced.patcher.patch.PatchMetadata
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.*
 import app.revanced.patcher.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.signature.MethodMetadata
 import app.revanced.patcher.signature.MethodSignature
@@ -18,7 +15,12 @@ import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.immutable.ImmutableMethod
 import org.jf.dexlib2.immutable.ImmutableMethodImplementation
 
-private val compatiblePackages = listOf("com.google.android.youtube")
+private val compatiblePackages = listOf(
+    PackageMetadata(
+        "com.google.android.youtube",
+        listOf("17.03.38", "17.14.35")
+    )
+)
 
 class IntegrationsPatch : Patch(
     PatchMetadata(
