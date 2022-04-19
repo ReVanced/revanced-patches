@@ -152,6 +152,7 @@ public class XGlobals {
     public static Integer maxBuffer = 120000;
     public static Integer playbackMS = 2500;
     public static Integer reBuffer = 5000;
+    public static Enum lastPivotTab;
 
     public static void ReadSettings() {
         Context context;
