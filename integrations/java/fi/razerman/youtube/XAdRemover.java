@@ -178,6 +178,19 @@ public class XAdRemover {
         }
     }
 
+    public static void hideShortsButton(View view) {
+        if (XGlobals.lastPivotTab != null && XGlobals.lastPivotTab.name() == "TAB_SHORTS") {
+            if (BooleanPreferences.isShortsButtonHidden()) {
+                if (XGlobals.debug) {
+                    Log.d("XAdRemover", "Shorts button: shown");
+                }
+                view.setVisibility(View.GONE);
+            } else if (XGlobals.debug) {
+                Log.d("XAdRemover", "Shorts button: hidden");
+            }
+        }
+    }
+
     public static void inspectComponentHost(Object item) {
         StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
         if (stackTraceElements.length <= 3) {
