@@ -1,5 +1,6 @@
 package app.revanced.patches.misc
 
+import app.revanced.extensions.startsWithAny
 import app.revanced.patcher.PatcherData
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.or
@@ -385,47 +386,27 @@ class MicroGPatch : Patch(
     override fun execute(patcherData: PatcherData): PatchResult {
         // smali patches
         disablePlayServiceChecks()
-        for (classDef in patcherData.classes) {
-            methodLoop@ for (method in classDef.methods) {
-                val implementation = method.implementation ?: continue@methodLoop
+        patcherData.classes.forEach { classDef ->
+            classDef.methods.forEach methodLoop@{ method ->
+                val implementation = method.implementation ?: return@methodLoop
 
                 implementation.instructions.forEachIndexed { i, instruction ->
                     if (instruction.opcode == Opcode.CONST_STRING) {
-
-                        val reference = ((instruction as Instruction21c).reference as StringReference).string
-
-                        val newString =
-                            if (reference == "com.google") {
-                                BASE_MICROG_PACKAGE_NAME
-                            } else if (
-                                // https://github.com/TeamVanced/VancedMicroG/pull/139/file
-                                !reference.startsWith("com.google.android.gms.chimera.container") &&
-                                reference.startsWith("com.google.iid") ||
-                                reference.startsWith("com.google.android.gms.chimera") ||
-                                reference.startsWith("com.google.android.c2dm") ||
-                                //reference.startsWith("com.google.android.gms.phenotype") || TODO: implement when we replace references below
-                                reference.startsWith("com.google.android.gms.auth.accounts") ||
-                                reference.startsWith("com.google.android.c2dm") ||
-                                reference.startsWith("com.google.android.gsf") ||
-                                reference.startsWith("com.google.android.c2dm") ||
-                                reference.startsWith("content://com.google.settings")
-                            ) {
-                                reference.replace("com.google", BASE_MICROG_PACKAGE_NAME)
-                            } else if (
-                                reference.startsWith("com.google.android.youtube.SuggestionsProvider") || // TODO: also in resources & manifest
-                                reference.startsWith("com.google.android.youtube.fileprovider") // TODO: also in resources & manifest
-                            ) {
-                                reference.replace("com.google.android.youtube", BASE_REVANCED_PACKAGE_NAME)
-                            } else {
-                                reference
-                            }
-                        patcherData.proxy(classDef)
-                            .resolve().methods.first { it.name == method.name }.implementation!!.replaceInstruction(
-                                i, BuilderInstruction21c(
-                                    Opcode.CONST_STRING, instruction.registerA, ImmutableStringReference(newString)
+                        val instructionString = ((instruction as Instruction21c).reference as StringReference).string
+                        patcherData
+                            .proxy(classDef)
+                            .resolve()
+                            .methods
+                            .first { it.name == method.name }
+                            .implementation!!
+                            .replaceInstruction(
+                                i,
+                                BuilderInstruction21c(
+                                    Opcode.CONST_STRING,
+                                    instruction.registerA,
+                                    ImmutableStringReference(instructionString.replacePackageName())
                                 )
                             )
-
                     }
 
                     // TODO: phenotype reference -> microg reference
@@ -500,7 +481,33 @@ class MicroGPatch : Patch(
             }
         }
 
+        // allow GC to clean unused/ replaced immutable class definitions
+        patcherData.classes.applyProxies()
+
+        // TODO: resource patches
         return PatchResultSuccess()
+    }
+
+    private fun String.replacePackageName(): String {
+        return if (this == "com.google") BASE_MICROG_PACKAGE_NAME
+        else if (!this.startsWith("com.google.android.gms.chimera.container") && // https://github.com/TeamVanced/VancedMicroG/pull/139/file
+            this.startsWithAny(
+                "com.google.android.gms.auth.accounts",
+                "com.google.android.gms.chimera",
+                "com.google.android.c2dm",
+                "com.google.android.c2dm",
+                "com.google.android.gsf",
+                "com.google.android.c2dm",
+                "com.google.iid",
+                "content://com.google.settings",
+                // "com.google.android.gms.phenotype" TODO: implement when we replace references below
+            )
+        ) this.replace("com.google", BASE_MICROG_PACKAGE_NAME)
+        else if (this.startsWithAny(
+                "com.google.android.youtube.SuggestionsProvider", "com.google.android.youtube.fileprovider"
+            )
+        ) this.replace("com.google.android.youtube", BASE_REVANCED_PACKAGE_NAME)
+        else this
     }
 
     private fun disablePlayServiceChecks() {
@@ -523,18 +530,28 @@ class MicroGPatch : Patch(
             )
         }
 
-        val implementation = signatures.last().result!!.method.implementation!!
+        val implementation = signatures
+            .last()
+            .result!!
+            .method
+            .implementation!!
+
         var register = 2
-        val index = implementation.instructions.indexOfFirst {
-            return@indexOfFirst if (it.opcode == Opcode.CONST_STRING && ((it as Instruction21c).reference as StringReference).string == "com.google.android.youtube") {
+        val index = implementation
+            .instructions
+            .indexOfFirst {
+                if (it.opcode != Opcode.CONST_STRING) return@indexOfFirst false
+
+                val instructionString = ((it as Instruction21c).reference as StringReference).string
+                if (instructionString != "com.google.android.youtube") return@indexOfFirst false
+
                 register = it.registerA
-                true
-            } else false
+                return@indexOfFirst true
+            }
 
-        }
-
-        signatures.last().result!!.method.implementation!!.replaceInstruction(
-            index, "const-string v$register, \"$BASE_REVANCED_PACKAGE_NAME\"".toInstruction()
+        implementation.replaceInstruction(
+            index,
+            "const-string v$register, \"$BASE_REVANCED_PACKAGE_NAME\"".toInstruction()
         )
     }
 }
