@@ -12,3 +12,11 @@ internal fun MutableMethodImplementation.injectHideCall(
         "invoke-static { v$register }, Lfi/razerman/youtube/XAdRemover;->HideView(Landroid/view/View;)V".toInstruction()
     )
 }
+
+internal fun String.startsWithAny(vararg prefix: String): Boolean {
+    for (_prefix in prefix)
+        if (this.startsWith(_prefix))
+            return true
+
+    return false
+}
