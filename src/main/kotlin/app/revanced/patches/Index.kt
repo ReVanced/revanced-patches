@@ -10,6 +10,7 @@ import app.revanced.patches.layout.HideReelsPatch
 import app.revanced.patches.layout.MinimizedPlaybackPatch
 import app.revanced.patches.layout.OldQualityLayoutPatch
 import app.revanced.patches.misc.IntegrationsPatch
+import app.revanced.patches.misc.MicroGPatch
 
 /**
  * Index contains all the patches.
@@ -22,6 +23,7 @@ object Index {
      */
     val patches: List<() -> Patch> = listOf(
         ::IntegrationsPatch,
+        ::MicroGPatch,
         ::HomeAdsPatch,
         ::VideoAdsPatch,
         ::HomePromoPatch,
