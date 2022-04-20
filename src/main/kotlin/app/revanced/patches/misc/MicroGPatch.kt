@@ -6,6 +6,7 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.*
 import app.revanced.patcher.proxy
+import app.revanced.patcher.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.signature.MethodMetadata
 import app.revanced.patcher.signature.MethodSignature
 import app.revanced.patcher.signature.MethodSignatureMetadata
@@ -14,13 +15,14 @@ import app.revanced.patcher.smali.toInstruction
 import app.revanced.patcher.smali.toInstructions
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.builder.MutableMethodImplementation
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
 import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 import org.jf.dexlib2.iface.reference.StringReference
 import org.jf.dexlib2.immutable.reference.ImmutableStringReference
 
 private const val BASE_MICROG_PACKAGE_NAME = "com.mgoogle"
-private const val BASE_REVANCED_PACKAGE_NAME = "app.revanced.youtube"
+private const val BASE_REVANCED_PACKAGE_NAME = "app.revanced.android.youtube"
 
 private val compatiblePackages = listOf(
     PackageMetadata(
@@ -37,6 +39,10 @@ private val metadata = PatchMetadata(
 )
 
 private val description = "Signature required for ${metadata.name}."
+
+enum class StringReplaceMode {
+    REPLACE_WITH_MICROG, REPLACE_WITH_REVANCED, DO_NOT_REPLACE
+}
 
 class MicroGPatch : Patch(
     metadata, listOf(
@@ -387,127 +393,169 @@ class MicroGPatch : Patch(
         // smali patches
         disablePlayServiceChecks()
         patcherData.classes.forEach { classDef ->
+            var proxiedClass: MutableClass? = null
+
             classDef.methods.forEach methodLoop@{ method ->
                 val implementation = method.implementation ?: return@methodLoop
 
+                var proxiedImplementation: MutableMethodImplementation? = null
+
                 implementation.instructions.forEachIndexed { i, instruction ->
                     if (instruction.opcode == Opcode.CONST_STRING) {
-                        val instructionString = ((instruction as Instruction21c).reference as StringReference).string
-                        patcherData
-                            .proxy(classDef)
-                            .resolve()
-                            .methods
-                            .first { it.name == method.name }
-                            .implementation!!
-                            .replaceInstruction(
-                                i,
-                                BuilderInstruction21c(
-                                    Opcode.CONST_STRING,
-                                    instruction.registerA,
-                                    ImmutableStringReference(instructionString.replacePackageName())
+                        val stringValue = ((instruction as Instruction21c).reference as StringReference).string
+
+                        val replaceMode =
+                            if (stringValue.startsWith("com.google.android.gms.chimera.container")) // https://github.com/TeamVanced/VancedMicroG/pull/139/file
+                                StringReplaceMode.DO_NOT_REPLACE
+                            else if (stringValue == "com.google" || stringValue.startsWithAny(
+                                    "com.google.android.gms.auth.accounts",
+                                    "com.google.android.gms.chimera",
+                                    "com.google.android.c2dm",
+                                    "com.google.android.c2dm",
+                                    "com.google.android.gsf",
+                                    "com.google.android.c2dm",
+                                    "com.google.iid",
+                                    "content://com.google.settings"
+                                )
+                            ) {
+                                StringReplaceMode.REPLACE_WITH_MICROG
+                            } else if (stringValue.startsWithAny(
+                                    "com.google.android.youtube.SuggestionsProvider",
+                                    "com.google.android.youtube.fileprovider"
+                                )
+                            ) {
+                                StringReplaceMode.REPLACE_WITH_REVANCED
+                            } else {
+                                StringReplaceMode.DO_NOT_REPLACE
+                            }
+
+
+                        if (replaceMode != StringReplaceMode.DO_NOT_REPLACE) {
+                            if (proxiedClass == null) {
+                                proxiedClass = patcherData.proxy(classDef).resolve()
+                            }
+
+                            if (proxiedImplementation == null) {
+                                proxiedImplementation =
+                                    proxiedClass!!.methods.first {
+                                        it.name == method.name && it.parameterTypes.containsAll(method.parameterTypes)
+                                    }.implementation!!
+                            }
+
+                            val newString =
+                                if (replaceMode == StringReplaceMode.REPLACE_WITH_REVANCED) stringValue.replace(
+                                    "com.google.android.youtube", BASE_REVANCED_PACKAGE_NAME
+                                )
+                                else stringValue.replace("com.google", BASE_MICROG_PACKAGE_NAME)
+
+                            proxiedImplementation!!.replaceInstruction(
+                                i, BuilderInstruction21c(
+                                    Opcode.CONST_STRING, instruction.registerA, ImmutableStringReference(newString)
                                 )
                             )
+                        }
+
+                        // TODO: phenotype reference -> microg reference
+                        //if (instruction is ReferenceInstruction) {
+                        //    val proxy = patcherData.proxy(classDef).resolve()
+                        //    val implementation = proxy.methods.first { it.name == method.name }.implementation!!
+                        //    when (instruction.referenceType) {
+                        //        ReferenceType.METHOD -> {
+                        //            val reference = instruction.reference as MethodReference
+                        //            if (!reference.name.startsWith("com.google.android.gms.phenotype")) return@forEachIndexed
+
+                        //            val modifiedReference = ImmutableMethodReference(
+                        //                reference.definingClass.replace("com.google", BASE_MICROG_PACKAGE_NAME),
+                        //                reference.name,
+                        //                reference.parameterTypes.map {
+                        //                    it.toString().replace("com.google", BASE_MICROG_PACKAGE_NAME)
+                        //                },
+                        //                reference.returnType.replace("com.google", BASE_MICROG_PACKAGE_NAME),
+                        //            );
+
+                        //            val newInstruction = when (instruction.opcode.format) {
+                        //                Format.Format35c -> {
+                        //                    val instruction35c = instruction as Instruction35c
+                        //                    BuilderInstruction35c(
+                        //                        instruction.opcode,
+                        //                        instruction35c.registerCount,
+                        //                        instruction35c.registerC,
+                        //                        instruction35c.registerD,
+                        //                        instruction35c.registerE,
+                        //                        instruction35c.registerF,
+                        //                        instruction35c.registerG,
+                        //                        modifiedReference
+                        //                    )
+                        //                }
+                        //                Format.Format3rc ->
+                        //                    BuilderInstruction3rc(
+                        //                        instruction.opcode,
+                        //                    )
+                        //                Format.Format45cc ->
+                        //                    BuilderInstruction45cc(
+                        //                        instruction.opcode,
+                        //                    )
+                        //                Format.Format4rcc ->
+                        //                    BuilderInstruction4rcc(
+                        //                        instruction.opcode,
+                        //                    )
+                        //            }
+                        //            implementation.replaceInstruction(
+                        //                i,
+
+                        //                )
+                        //        }
+                        //        ReferenceType.METHOD_PROTO -> {
+
+                        //        }
+                        //        ReferenceType.TYPE -> {
+
+                        //        }
+                        //        ReferenceType.CALL_SITE -> {
+
+                        //        }
+                        //        ReferenceType.METHOD_HANDLE -> {
+
+                        //        }
+                        //        ReferenceType.FIELD -> {
+
+                        //        }
+                        //        ReferenceType.NONE -> {
+
+                        //        }
+                        //    }
+                        //}
+
                     }
-
-                    // TODO: phenotype reference -> microg reference
-                    //if (instruction is ReferenceInstruction) {
-                    //    val proxy = patcherData.proxy(classDef).resolve()
-                    //    val implementation = proxy.methods.first { it.name == method.name }.implementation!!
-                    //    when (instruction.referenceType) {
-                    //        ReferenceType.METHOD -> {
-                    //            val reference = instruction.reference as MethodReference
-                    //            if (!reference.name.startsWith("com.google.android.gms.phenotype")) return@forEachIndexed
-
-                    //            val modifiedReference = ImmutableMethodReference(
-                    //                reference.definingClass.replace("com.google", BASE_MICROG_PACKAGE_NAME),
-                    //                reference.name,
-                    //                reference.parameterTypes.map { it.toString().replace("com.google", BASE_MICROG_PACKAGE_NAME) },
-                    //                reference.returnType.replace("com.google", BASE_MICROG_PACKAGE_NAME),
-                    //            );
-
-                    //            val newInstruction = when (instruction.opcode.format) {
-                    //                Format.Format35c -> {
-                    //                    val instruction35c = instruction as Instruction35c
-                    //                    BuilderInstruction35c(
-                    //                        instruction.opcode,
-                    //                        instruction35c.registerCount,
-                    //                        instruction35c.registerC,
-                    //                        instruction35c.registerD,
-                    //                        instruction35c.registerE,
-                    //                        instruction35c.registerF,
-                    //                        instruction35c.registerG,
-                    //                        modifiedReference
-                    //                    )
-                    //                }
-                    //                Format.Format3rc ->
-                    //                    BuilderInstruction3rc(
-                    //                        instruction.opcode,
-                    //                    )
-                    //                Format.Format45cc ->
-                    //                    BuilderInstruction45cc(
-                    //                        instruction.opcode,
-                    //                    )
-                    //                Format.Format4rcc ->
-                    //                    BuilderInstruction4rcc(
-                    //                        instruction.opcode,
-                    //                    )
-                    //            }
-                    //            implementation.replaceInstruction(
-                    //                i,
-
-                    //            )
-                    //        }
-                    //        ReferenceType.METHOD_PROTO -> {
-
-                    //        }
-                    //        ReferenceType.TYPE -> {
-
-                    //        }
-                    //        ReferenceType.CALL_SITE -> {
-
-                    //        }
-                    //        ReferenceType.METHOD_HANDLE -> {
-
-                    //        }
-                    //        ReferenceType.FIELD -> {
-
-                    //        }
-                    //        ReferenceType.NONE -> {
-
-                    //        }
-                    //    }
-                    //}
                 }
             }
         }
 
-        // allow GC to clean unused/ replaced immutable class definitions
+        // replace string back
+        val implementation = signatures.elementAt(2).result!!.findParentMethod(
+            MethodSignature(
+                MethodSignatureMetadata(
+                    "do-not-replace-method",
+                    MethodMetadata("Llpe;", "c"),
+                    PatternScanMethod.Direct(),
+                    compatiblePackages,
+                    description,
+                    "0.0.1"
+                ), "L", AccessFlags.PUBLIC or AccessFlags.STATIC, listOf("L"), null, listOf("com.google.android.gms")
+            )
+        )!!.method.implementation!!
+
+        implementation.replaceInstruction(
+            implementation.instructions.indexOfFirst { it.opcode == Opcode.CONST_STRING },
+            "const-string v0, \"com.google.android.gms\"".toInstruction()
+        )
+
+        // allow GC to clean unused/ replaced immutable class definitions after this call
         patcherData.classes.applyProxies()
 
         // TODO: resource patches
         return PatchResultSuccess()
-    }
 
-    private fun String.replacePackageName(): String {
-        return if (this == "com.google") BASE_MICROG_PACKAGE_NAME
-        else if (!this.startsWith("com.google.android.gms.chimera.container") && // https://github.com/TeamVanced/VancedMicroG/pull/139/file
-            this.startsWithAny(
-                "com.google.android.gms.auth.accounts",
-                "com.google.android.gms.chimera",
-                "com.google.android.c2dm",
-                "com.google.android.c2dm",
-                "com.google.android.gsf",
-                "com.google.android.c2dm",
-                "com.google.iid",
-                "content://com.google.settings",
-                // "com.google.android.gms.phenotype" TODO: implement when we replace references below
-            )
-        ) this.replace("com.google", BASE_MICROG_PACKAGE_NAME)
-        else if (this.startsWithAny(
-                "com.google.android.youtube.SuggestionsProvider", "com.google.android.youtube.fileprovider"
-            )
-        ) this.replace("com.google.android.youtube", BASE_REVANCED_PACKAGE_NAME)
-        else this
     }
 
     private fun disablePlayServiceChecks() {
@@ -516,42 +564,35 @@ class MicroGPatch : Patch(
             val stringInstructions = when (result.immutableMethod.returnType.first()) {
                 'L' -> """
                         const/4 v0, 0x0
-                        return-object
+                        return-object v0
                         """
                 'V' -> "return-void"
                 'I' -> """
                         const/4 v0, 0x0
                         return v0
                         """
-                else -> ""
+                else -> throw Exception("This case should never happen.")
             }
             result.method.implementation!!.addInstructions(
-                0, stringInstructions.trimMargin().toInstructions()
+                0, stringInstructions.trimIndent().toInstructions()
             )
         }
 
-        val implementation = signatures
-            .last()
-            .result!!
-            .method
-            .implementation!!
+        val implementation = signatures.last().result!!.method.implementation!!
 
         var register = 2
-        val index = implementation
-            .instructions
-            .indexOfFirst {
-                if (it.opcode != Opcode.CONST_STRING) return@indexOfFirst false
+        val index = implementation.instructions.indexOfFirst {
+            if (it.opcode != Opcode.CONST_STRING) return@indexOfFirst false
 
-                val instructionString = ((it as Instruction21c).reference as StringReference).string
-                if (instructionString != "com.google.android.youtube") return@indexOfFirst false
+            val instructionString = ((it as Instruction21c).reference as StringReference).string
+            if (instructionString != "com.google.android.youtube") return@indexOfFirst false
 
-                register = it.registerA
-                return@indexOfFirst true
-            }
+            register = it.registerA
+            return@indexOfFirst true
+        }
 
         implementation.replaceInstruction(
-            index,
-            "const-string v$register, \"$BASE_REVANCED_PACKAGE_NAME\"".toInstruction()
+            index, "const-string v$register, \"$BASE_REVANCED_PACKAGE_NAME\"".toInstruction()
         )
     }
 }
