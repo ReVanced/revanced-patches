@@ -15,20 +15,20 @@ import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
+
 import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+
 import fi.razerman.youtube.Fenster.FensterGestureController;
 import fi.razerman.youtube.Fenster.FensterGestureListener;
 import fi.razerman.youtube.Fenster.Helpers.BrightnessHelper;
 import fi.razerman.youtube.Fenster.XFenster;
 import fi.razerman.youtube.Helpers.ColorRef;
 import fi.razerman.youtube.Helpers.XSwipeHelper;
-import fi.vanced.libraries.youtube.player.PlayerType;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-
-
 import pl.jakubweg.NewSegmentHelperLayout;
 
 /* compiled from: PG */
@@ -135,7 +135,7 @@ public class XGlobals {
     public static Boolean prefAutoCaptions = false;
     public static Boolean homeAdsShown = false;
     public static Boolean videoAdsShown = false;
-    public static Boolean reelShown = true;
+    public static Boolean reelShown = false;
     public static Boolean suggestionsShown = true;
     public static Boolean infoCardsShown = true;
     public static Boolean brandingShown = true;
@@ -162,14 +162,14 @@ public class XGlobals {
             debug = Boolean.valueOf(sharedPreferences.getBoolean("debug_xfile_enabled", false));
             manufacturerOverride = sharedPreferences.getString("override_manufacturer", null);
             modelOverride = sharedPreferences.getString("override_model", null);
-            overrideCodec = Boolean.valueOf(sharedPreferences.getBoolean("override_resolution_xfile_enabled", false));
-            prefResolutionWIFI = Integer.valueOf(Integer.parseInt(sharedPreferences.getString("pref_preferred_video_quality_wifi", "-2")));
+            overrideCodec = sharedPreferences.getBoolean("override_resolution_xfile_enabled", false);
+            prefResolutionWIFI = Integer.parseInt(sharedPreferences.getString("pref_preferred_video_quality_wifi", "-2"));
             prefResolutionMobile = Integer.valueOf(Integer.parseInt(sharedPreferences.getString("pref_preferred_video_quality_mobile", "-2")));
             prefVideoSpeed = Float.valueOf(Float.parseFloat(sharedPreferences.getString("pref_preferred_video_speed", "-2")));
             prefAutoCaptions = Boolean.valueOf(sharedPreferences.getBoolean("pref_auto_captions", false));
             homeAdsShown = Boolean.valueOf(sharedPreferences.getBoolean("home_ads_enabled", false));
             videoAdsShown = Boolean.valueOf(sharedPreferences.getBoolean("video_ads_enabled", false));
-            reelShown = Boolean.valueOf(sharedPreferences.getBoolean("reel_enabled", true));
+            reelShown = Boolean.valueOf(sharedPreferences.getBoolean("reel_enabled", false));
             suggestionsShown = Boolean.valueOf(sharedPreferences.getBoolean("info_card_suggestions_enabled", true));
             infoCardsShown = Boolean.valueOf(sharedPreferences.getBoolean("info_cards_enabled", true));
             brandingShown = Boolean.valueOf(sharedPreferences.getBoolean("branding_watermark_enabled", true));
