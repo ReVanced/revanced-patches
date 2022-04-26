@@ -33,6 +33,7 @@ object Index {
         ::EnableSeekbarTappingPatch,
         ::EnableAudioOnlyPatch,
         ::RemoveUpgradeTabPatch,
-        ::BackgroundPlayPatch
+        ::BackgroundPlayPatch,
+        ::CodecsUnlockPatch
     )
 }
