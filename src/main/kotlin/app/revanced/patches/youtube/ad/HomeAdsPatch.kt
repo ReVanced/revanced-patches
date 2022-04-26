@@ -1,4 +1,4 @@
-package app.revanced.patches.ad
+package app.revanced.patches.youtube.ad
 
 import app.revanced.extensions.injectHideCall
 import app.revanced.patcher.PatcherData
