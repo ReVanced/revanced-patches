@@ -13,6 +13,7 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction22t
 import org.jf.dexlib2.iface.instruction.formats.Instruction22c
+import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
 private val compatiblePackages = listOf(
     PackageMetadata(
@@ -99,15 +100,15 @@ class RemoveUpgradeTabPatch : Patch(
         val pivotBarElementFieldRef =
             (implementation.instructions[result.scanData.endIndex - 1] as Instruction22c).reference
 
+        val register = (implementation.instructions.first() as Instruction35c).registerC
         // first compile all the needed instructions
         val instructionList =
             """
                 invoke-interface { v0 }, Ljava/util/List;->size()I
                 move-result v1
                 const/4 v2, 0x3
-                const/4 v1, 0x3
-                invoke-interface {v0, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-                iput-object v0, p0, $pivotBarElementFieldRef
+                invoke-interface {v0, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+                iput-object v0, v$register, $pivotBarElementFieldRef
             """.trimIndent().toInstructions().toMutableList()
 
 
@@ -116,6 +117,8 @@ class RemoveUpgradeTabPatch : Patch(
             result.scanData.endIndex - 1,
             instructionList[0] // invoke-interface
         )
+        // do not forget to remove this instruction since we added it already
+        instructionList.removeFirst()
 
         val exitInstruction = instructionList.last() // iput-object
         implementation.addInstruction(
@@ -127,7 +130,7 @@ class RemoveUpgradeTabPatch : Patch(
 
         // add the necessary if statement to remove the upgrade tab button in case it exists
         instructionList.add(
-            3, // if-le
+            2, // if-le
             BuilderInstruction22t(
                 Opcode.IF_LE,
                 1, 2,
