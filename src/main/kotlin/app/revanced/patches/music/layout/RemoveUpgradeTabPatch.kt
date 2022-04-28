@@ -18,7 +18,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 private val compatiblePackages = listOf(
     PackageMetadata(
         "com.google.android.apps.youtube.music",
-        listOf("05.03.50")
+        listOf("5.03.50")
     )
 )
 
