@@ -1,4 +1,4 @@
-package app.revanced.patches.layout
+package app.revanced.patches.youtube.layout
 
 import app.revanced.patcher.PatcherData
 import app.revanced.patcher.extensions.or
@@ -10,10 +10,7 @@ import app.revanced.patcher.signature.PatternScanMethod
 import app.revanced.patcher.smali.toInstruction
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.formats.Instruction35c
-import org.jf.dexlib2.iface.instruction.formats.Instruction3rc
 import org.jf.dexlib2.iface.instruction.formats.Instruction11x
-import org.jf.dexlib2.builder.instruction.BuilderInstruction32x
 
 private val compatiblePackages = listOf(
     PackageMetadata(

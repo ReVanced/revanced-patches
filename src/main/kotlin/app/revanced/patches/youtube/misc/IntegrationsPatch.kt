@@ -1,4 +1,4 @@
-package app.revanced.patches.misc
+package app.revanced.patches.youtube.misc
 
 import app.revanced.patcher.PatcherData
 import app.revanced.patcher.extensions.addInstructions

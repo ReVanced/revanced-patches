@@ -1,4 +1,4 @@
-package app.revanced.patches.interaction
+package app.revanced.patches.youtube.interaction
 
 import app.revanced.patcher.PatcherData
 import app.revanced.patcher.extensions.addInstructions
