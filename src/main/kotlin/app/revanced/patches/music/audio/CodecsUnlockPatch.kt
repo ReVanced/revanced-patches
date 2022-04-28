@@ -1,4 +1,4 @@
-package app.revanced.patches
+package app.revanced.patches.music.audio
 
 import app.revanced.patcher.PatcherData
 import app.revanced.patcher.extensions.or
@@ -22,7 +22,7 @@ private val packageMetadata = listOf(
 private val patchMetadata = PatchMetadata(
     "codecs-unlock",
     "Audio codecs unlock patch",
-    "Patch to unlock more audio codecs",
+    "Enables more audio codecs. Usually results in better audio quality but may depend on song and device.",
     packageMetadata,
     "0.0.1"
 )

@@ -20,18 +20,18 @@ private val compatiblePackages = listOf(
     )
 )
 
-class RemoveTastebuilderPatch : Patch(
+class RemoveTasteBuilderPatch : Patch(
     PatchMetadata(
-        "tastebuilder-remover",
-        "Remove Tastebuilder Patch",
-        "Remove the tastebuilder from the Home screen.",
+        "tasteBuilder-remover",
+        "Remove TasteBuilder Patch",
+        "Removes the \"Tell us which artists you like\" card from the Home screen. The same functionality can be triggered from the settings anyway.",
         compatiblePackages,
         "0.0.1"
     ),
     listOf(
         MethodSignature(
             MethodSignatureMetadata(
-                "tastebuilder-constructor",
+                "taste-builder-constructor",
                 MethodMetadata("Lkyu;", "<init>"),
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
                 compatiblePackages,
@@ -53,6 +53,14 @@ class RemoveTastebuilderPatch : Patch(
                 Opcode.CONST_4,
                 Opcode.INVOKE_VIRTUAL,
                 Opcode.MOVE_RESULT_OBJECT,
+                Opcode.IPUT_OBJECT,
+                Opcode.CONST,
+                Opcode.INVOKE_VIRTUAL,
+                Opcode.MOVE_RESULT_OBJECT,
+                Opcode.CHECK_CAST,
+                Opcode.IPUT_OBJECT,
+                Opcode.NEW_INSTANCE,
+                Opcode.INVOKE_DIRECT,
                 Opcode.IPUT_OBJECT
             )
         )
@@ -62,7 +70,9 @@ class RemoveTastebuilderPatch : Patch(
         val result = signatures.first().result!!
         val implementation = result.method.implementation!!
 
-        val register = (implementation.instructions[result.scanData.endIndex] as Instruction22c).registerA
+        val insertIndex = result.scanData.endIndex - 8
+
+        val register = (implementation.instructions[insertIndex] as Instruction22c).registerA
 
         val instructionList =
             """
@@ -71,7 +81,7 @@ class RemoveTastebuilderPatch : Patch(
             """.trimIndent().toInstructions().toMutableList()
 
         implementation.addInstructions(
-            result.scanData.endIndex,
+            insertIndex,
             instructionList
         )
 
