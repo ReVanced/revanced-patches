@@ -3,6 +3,7 @@ package app.revanced.patches
 import app.revanced.patcher.patch.Patch
 import app.revanced.patches.music.audio.EnableAudioOnlyPatch
 import app.revanced.patches.music.layout.RemoveUpgradeTabPatch
+import app.revanced.patches.music.layout.RemoveTastebuilderPatch
 import app.revanced.patches.music.premium.BackgroundPlayPatch
 import app.revanced.patches.youtube.ad.HomeAdsPatch
 import app.revanced.patches.youtube.ad.HomePromoPatch
@@ -33,6 +34,7 @@ object Index {
         ::EnableSeekbarTappingPatch,
         ::EnableAudioOnlyPatch,
         ::RemoveUpgradeTabPatch,
+        ::RemoveTastebuilderPatch,
         ::BackgroundPlayPatch,
         ::CodecsUnlockPatch
     )
