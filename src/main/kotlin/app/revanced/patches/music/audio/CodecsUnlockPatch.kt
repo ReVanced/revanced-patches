@@ -1,14 +1,18 @@
 package app.revanced.patches.music.audio
 
-import app.revanced.patcher.PatcherData
+import app.revanced.patcher.data.implementation.BytecodeData
+import app.revanced.patcher.data.implementation.toMethodWalker
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.patch.*
+import app.revanced.patcher.patch.implementation.BytecodePatch
+import app.revanced.patcher.patch.implementation.metadata.PackageMetadata
+import app.revanced.patcher.patch.implementation.metadata.PatchMetadata
+import app.revanced.patcher.patch.implementation.misc.PatchResult
+import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
 import app.revanced.patcher.signature.MethodMetadata
 import app.revanced.patcher.signature.MethodSignature
 import app.revanced.patcher.signature.MethodSignatureMetadata
 import app.revanced.patcher.signature.PatternScanMethod
 import app.revanced.patcher.smali.toInstruction
-import app.revanced.patcher.toMethodWalker
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
@@ -27,7 +31,7 @@ private val patchMetadata = PatchMetadata(
     "0.0.1"
 )
 
-class CodecsUnlockPatch : Patch(
+class CodecsUnlockPatch : BytecodePatch(
     patchMetadata,
     listOf(
         MethodSignature(
@@ -130,7 +134,7 @@ class CodecsUnlockPatch : Patch(
         )
     )
 ) {
-    override fun execute(patcherData: PatcherData): PatchResult {
+    override fun execute(data: BytecodeData): PatchResult {
         var result = signatures.first().result!!
 
         val implementation = result.method.implementation!!
@@ -138,7 +142,7 @@ class CodecsUnlockPatch : Patch(
         val instructionIndex = result.scanData.startIndex
 
         result = signatures.last().result!!
-        val codecMethod = patcherData
+        val codecMethod = data
             .toMethodWalker(result.immutableMethod)
             .walk(result.scanData.startIndex)
             .getMethod()
