@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.interaction.EnableSeekbarTappingPatch
 import app.revanced.patches.youtube.layout.*
 import app.revanced.patches.youtube.misc.FixLocaleConfigErrorPatch
 import app.revanced.patches.youtube.misc.IntegrationsPatch
-import app.revanced.patches.music.misc.MicroGPatch
+import app.revanced.patches.youtube.misc.MicroGPatch
 
 /**
  * Index contains all the patches.
