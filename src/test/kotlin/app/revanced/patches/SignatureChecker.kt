@@ -15,7 +15,7 @@ internal class SignatureChecker {
         if (!file.exists()) {
             throw IllegalStateException("Missing $file! To run this test, please place stock.apk here: ${file.absolutePath}")
         }
-        val patcher = Patcher(file)
+        val patcher = Patcher(file, "signatureCheckerCache", false)
         patcher.addPatches(Index.patches.map { it() })
         val unresolved = mutableListOf<MethodSignature>()
         for (signature in patcher.resolveSignatures()) {
