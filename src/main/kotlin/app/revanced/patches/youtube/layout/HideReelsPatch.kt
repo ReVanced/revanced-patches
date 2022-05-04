@@ -1,8 +1,12 @@
 package app.revanced.patches.youtube.layout
 
-import app.revanced.patcher.PatcherData
+import app.revanced.patcher.data.implementation.BytecodeData
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.patch.*
+import app.revanced.patcher.patch.implementation.BytecodePatch
+import app.revanced.patcher.patch.implementation.metadata.PackageMetadata
+import app.revanced.patcher.patch.implementation.metadata.PatchMetadata
+import app.revanced.patcher.patch.implementation.misc.PatchResult
+import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
 import app.revanced.patcher.signature.MethodMetadata
 import app.revanced.patcher.signature.MethodSignature
 import app.revanced.patcher.signature.MethodSignatureMetadata
@@ -18,7 +22,7 @@ private val compatiblePackages = listOf(
     )
 )
 
-class HideReelsPatch : Patch(
+class HideReelsPatch : BytecodePatch(
     PatchMetadata(
         "hide-reels",
         "Hide reels patch",
@@ -96,7 +100,7 @@ class HideReelsPatch : Patch(
         )
     )
 ) {
-    override fun execute(patcherData: PatcherData): PatchResult {
+    override fun execute(data: BytecodeData): PatchResult {
         val result = signatures.first().result!!
         val implementation = result.method.implementation!!
 

@@ -1,8 +1,12 @@
 package app.revanced.patches.youtube.layout
 
-import app.revanced.patcher.PatcherData
+import app.revanced.patcher.data.implementation.BytecodeData
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.patch.*
+import app.revanced.patcher.patch.implementation.BytecodePatch
+import app.revanced.patcher.patch.implementation.metadata.PackageMetadata
+import app.revanced.patcher.patch.implementation.metadata.PatchMetadata
+import app.revanced.patcher.patch.implementation.misc.PatchResult
+import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
 import app.revanced.patcher.signature.MethodMetadata
 import app.revanced.patcher.signature.MethodSignature
 import app.revanced.patcher.signature.MethodSignatureMetadata
@@ -19,7 +23,7 @@ private val compatiblePackages = listOf(
     )
 )
 
-class ShortsButtonRemoverPatch : Patch(
+class ShortsButtonRemoverPatch : BytecodePatch(
     PatchMetadata(
         "shorts-button",
         "Shorts button patch",
@@ -102,7 +106,7 @@ class ShortsButtonRemoverPatch : Patch(
         ),
     )
 ) {
-    override fun execute(patcherData: PatcherData): PatchResult {
+    override fun execute(data: BytecodeData): PatchResult {
         val result1 = signatures.first().result!!
         val implementation1 = result1.method.implementation!!
         val moveEnumInstruction = implementation1.instructions[result1.scanData.endIndex]
