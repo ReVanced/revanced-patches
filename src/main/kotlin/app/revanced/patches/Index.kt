@@ -1,17 +1,20 @@
 package app.revanced.patches
 
-import app.revanced.patcher.patch.Patch
-import app.revanced.patches.ad.HomeAdsPatch
-import app.revanced.patches.ad.HomePromoPatch
-import app.revanced.patches.ad.VideoAdsPatch
-import app.revanced.patches.interaction.EnableSeekbarTappingPatch
-import app.revanced.patches.layout.CreateButtonRemoverPatch
-import app.revanced.patches.layout.ShortsButtonRemoverPatch
-import app.revanced.patches.layout.HideReelsPatch
-import app.revanced.patches.layout.MinimizedPlaybackPatch
-import app.revanced.patches.layout.OldQualityLayoutPatch
-import app.revanced.patches.misc.IntegrationsPatch
-import app.revanced.patches.misc.MicroGPatch
+import app.revanced.patcher.data.base.Data
+import app.revanced.patcher.patch.base.Patch
+import app.revanced.patches.music.audio.CodecsUnlockPatch
+import app.revanced.patches.music.audio.EnableAudioOnlyPatch
+import app.revanced.patches.music.layout.RemoveTasteBuilderPatch
+import app.revanced.patches.music.layout.RemoveUpgradeTabPatch
+import app.revanced.patches.music.premium.BackgroundPlayPatch
+import app.revanced.patches.youtube.ad.HomeAdsPatch
+import app.revanced.patches.youtube.ad.HomePromoPatch
+import app.revanced.patches.youtube.ad.VideoAdsPatch
+import app.revanced.patches.youtube.interaction.EnableSeekbarTappingPatch
+import app.revanced.patches.youtube.layout.*
+import app.revanced.patches.youtube.misc.FixLocaleConfigErrorPatch
+import app.revanced.patches.youtube.misc.IntegrationsPatch
+import app.revanced.patches.music.misc.MicroGPatch
 
 /**
  * Index contains all the patches.
@@ -22,8 +25,9 @@ object Index {
      * Array of patches.
      * New patches should be added to the array.
      */
-    val patches: List<() -> Patch> = listOf(
+    val patches: List<() -> Patch<Data>> = listOf(
         ::IntegrationsPatch,
+        ::FixLocaleConfigErrorPatch,
         ::MicroGPatch,
         ::HomeAdsPatch,
         ::VideoAdsPatch,
@@ -33,6 +37,11 @@ object Index {
         ::ShortsButtonRemoverPatch,
         ::HideReelsPatch,
         ::OldQualityLayoutPatch,
-        ::EnableSeekbarTappingPatch
+        ::EnableSeekbarTappingPatch,
+        ::EnableAudioOnlyPatch,
+        ::RemoveUpgradeTabPatch,
+        ::RemoveTasteBuilderPatch,
+        ::BackgroundPlayPatch,
+        ::CodecsUnlockPatch
     )
 }
