@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.implementation.metadata.PackageMetadata
 import app.revanced.patcher.patch.implementation.metadata.PatchMetadata
 import app.revanced.patcher.patch.implementation.misc.PatchResult
 import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
-import com.sun.org.apache.xerces.internal.dom.ElementImpl
+import org.w3c.dom.Element
 
 private val compatiblePackages = listOf(
     PackageMetadata(
@@ -31,7 +31,7 @@ class FixLocaleConfigErrorPatch : ResourcePatch(
         val applicationNode = editor
             .file
             .getElementsByTagName("application")
-            .item(0) as ElementImpl
+            .item(0) as Element
 
         // by replacing the attributes name
         val attribute = "android:localeConfig"
