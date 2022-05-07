@@ -20,7 +20,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 private val compatiblePackages = listOf(
     PackageMetadata(
         "com.google.android.youtube",
-        listOf("17.14.35")
+        listOf("17.14.35", "17.17.34")
     )
 )
 
@@ -36,7 +36,7 @@ class CreateButtonRemoverPatch : BytecodePatch(
         MethodSignature(
             MethodSignatureMetadata(
                 "create-button-method",
-                MethodMetadata(null, null), // unknown
+                MethodMetadata("Lkne", "z"), // unknown
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
                 compatiblePackages,
                 "Signature for the method required to be patched.",

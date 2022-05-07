@@ -18,7 +18,7 @@ import org.jf.dexlib2.Opcode
 private val compatiblePackages = listOf(
     PackageMetadata(
         "com.google.android.youtube",
-        listOf("17.14.35")
+        listOf("17.17.34")
     )
 )
 
@@ -34,7 +34,7 @@ class HideReelsPatch : BytecodePatch(
         MethodSignature(
             MethodSignatureMetadata(
                 "hide-reels-signature",
-                MethodMetadata(null, null), // unknown
+                MethodMetadata("Ljvy", "<init>"), // unknown
                 PatternScanMethod.Fuzzy(3), // FIXME: Test this threshold and find the best value.
                 compatiblePackages,
                 "Signature for the method required to be patched.",
@@ -54,7 +54,6 @@ class HideReelsPatch : BytecodePatch(
                 "L",
                 "L",
                 "L",
-                "[B",
                 "[B",
                 "[B",
                 "[B",
