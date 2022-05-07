@@ -1,3 +1,10 @@
+# [1.0.0-dev.6](https://github.com/revanced/revanced-patches/compare/v1.0.0-dev.5...v1.0.0-dev.6) (2022-05-07)
+
+
+### Bug Fixes
+
+* update patches ([91b8ec8](https://github.com/revanced/revanced-patches/commit/91b8ec81f33417798546c32db708fe09ada3930c))
+
 # [1.0.0-dev.5](https://github.com/revanced/revanced-patches/compare/v1.0.0-dev.4...v1.0.0-dev.5) (2022-05-07)
 
 
