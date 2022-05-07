@@ -21,7 +21,7 @@ import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
 private val compatiblePackages = listOf(
     PackageMetadata(
         "com.google.android.youtube",
-        listOf("17.14.35")
+        listOf("17.17.34")
     )
 )
 
@@ -37,7 +37,7 @@ class OldQualityLayoutPatch : BytecodePatch(
         MethodSignature(
             MethodSignatureMetadata(
                 "old-quality-parent-method-signature",
-                MethodMetadata(null, null), // unknown
+                MethodMetadata("Libh", "<init>"), // unknown
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
                 compatiblePackages,
                 "Signature to find a parent method required by the Old Quality Layout patch.",
@@ -45,7 +45,7 @@ class OldQualityLayoutPatch : BytecodePatch(
             ),
             "V",
             AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-            listOf("L", "L", "L", "L", "L", "L", "L", "[B"),
+            listOf("L", "L", "L", "L", "L", "L", "L"),
             listOf(
                 Opcode.INVOKE_DIRECT,
                 Opcode.IPUT_OBJECT,
@@ -82,7 +82,7 @@ class OldQualityLayoutPatch : BytecodePatch(
             MethodSignature(
                 MethodSignatureMetadata(
                     "old-quality-method-signature",
-                    MethodMetadata(null, null), // unknown
+                    MethodMetadata("Libh", null), // unknown
                     PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
                     compatiblePackages,
                     "Signature to find the method required by the Old Quality Layout patch",

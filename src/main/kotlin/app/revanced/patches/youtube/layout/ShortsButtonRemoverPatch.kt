@@ -19,7 +19,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction11x
 private val compatiblePackages = listOf(
     PackageMetadata(
         "com.google.android.youtube",
-        listOf("17.14.35")
+        listOf("17.14.35", "17.17.34")
     )
 )
 
@@ -35,7 +35,7 @@ class ShortsButtonRemoverPatch : BytecodePatch(
         MethodSignature(
             MethodSignatureMetadata(
                 "pivotbar-buttons-method-tabenum",
-                MethodMetadata(null, null), // unknown
+                MethodMetadata("Lkne", "z"), // unknown
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
                 compatiblePackages,
                 "Signature for the pivotbar method that creates all button views.",
@@ -69,7 +69,7 @@ class ShortsButtonRemoverPatch : BytecodePatch(
         MethodSignature(
             MethodSignatureMetadata(
                 "pivotbar-buttons-method-view",
-                MethodMetadata(null, null), // unknown
+                MethodMetadata("Lkne", "z"), // unknown
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
                 compatiblePackages,
                 "Signature for the pivotbar method that creates all button views.",

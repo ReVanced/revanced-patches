@@ -22,7 +22,7 @@ import org.jf.dexlib2.immutable.ImmutableMethodImplementation
 private val compatiblePackages = listOf(
     PackageMetadata(
         "com.google.android.youtube",
-        listOf("17.03.38", "17.14.35")
+        listOf("17.03.38", "17.14.35", "17.17.34")
     )
 )
 
@@ -38,7 +38,7 @@ class IntegrationsPatch : BytecodePatch(
         MethodSignature(
             MethodSignatureMetadata(
                 "integrations-patch",
-                MethodMetadata(null, null), // unknown
+                MethodMetadata("Lacnx", "onCreate"),
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
                 compatiblePackages,
                 "Inject the integrations into the application with the method of this signature",

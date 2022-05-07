@@ -7,7 +7,6 @@ import app.revanced.patches.music.audio.EnableAudioOnlyPatch
 import app.revanced.patches.music.layout.RemoveTasteBuilderPatch
 import app.revanced.patches.music.layout.RemoveUpgradeTabPatch
 import app.revanced.patches.music.premium.BackgroundPlayPatch
-import app.revanced.patches.youtube.ad.HomeAdsPatch
 import app.revanced.patches.youtube.ad.HomePromoPatch
 import app.revanced.patches.youtube.ad.VideoAdsPatch
 import app.revanced.patches.youtube.interaction.EnableSeekbarTappingPatch
@@ -27,7 +26,7 @@ object Index {
     val patches: List<() -> Patch<Data>> = listOf(
         ::IntegrationsPatch,
         ::FixLocaleConfigErrorPatch,
-        ::HomeAdsPatch,
+        //::HomeAdsPatch,
         ::VideoAdsPatch,
         ::HomePromoPatch,
         ::MinimizedPlaybackPatch,

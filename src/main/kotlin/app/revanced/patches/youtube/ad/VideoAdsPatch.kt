@@ -20,7 +20,7 @@ import org.jf.dexlib2.Opcode
 private val packageMetadata = listOf(
     PackageMetadata(
         "com.google.android.youtube",
-        listOf("17.14.35")
+        listOf("17.14.35", "17.17.34")
     )
 )
 
@@ -39,7 +39,7 @@ class VideoAdsPatch : BytecodePatch(
             MethodSignatureMetadata(
                 "show-video-ads-constructor",
                 MethodMetadata(
-                    "zai",
+                    "Laadb",
                     "<init>",
                 ),
                 PatternScanMethod.Fuzzy(2),// FIXME: Test this threshold and find the best value.

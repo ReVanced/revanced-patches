@@ -22,7 +22,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction11x
 private val compatiblePackages = listOf(
     PackageMetadata(
         "com.google.android.youtube",
-        listOf("17.03.38", "17.14.35")
+        listOf("17.03.38", "17.14.35", "17.17.34")
     )
 )
 
@@ -43,8 +43,8 @@ class HomePromoPatch : BytecodePatch(
             MethodSignatureMetadata(
                 "promoted-discovery-app-parent-method",
                 MethodMetadata(
-                    "Ljjl;",
-                    "lG",
+                    "Ljre;",
+                    "lP",
                 ),
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
                 compatiblePackages,
@@ -94,8 +94,8 @@ class HomePromoPatch : BytecodePatch(
             MethodSignatureMetadata(
                 "promoted-discovery-action-parent-method",
                 MethodMetadata(
-                    "Ljjc;",
-                    "lG",
+                    "Ljqv;",
+                    "lP",
                 ),
                 PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
                 compatiblePackages,
@@ -150,7 +150,7 @@ class HomePromoPatch : BytecodePatch(
             val requiredMethod = result.findParentMethod(
                 MethodSignature(
                     MethodSignatureMetadata(
-                        "promoted-discovery-action-parent-method",
+                        "promoted-discovery-action-method",
                         methodMetadata,
                         PatternScanMethod.Fuzzy(2), // FIXME: Test this threshold and find the best value.
                         compatiblePackages,
