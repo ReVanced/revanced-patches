@@ -11,7 +11,7 @@ import org.w3c.dom.Element
 private val compatiblePackages = listOf(
     PackageMetadata(
         "com.google.android.youtube",
-        listOf("17.14.35")
+        listOf("17.14.35", "17.17.34")
     )
 )
 class FixLocaleConfigErrorPatch : ResourcePatch(
