@@ -26,7 +26,7 @@ dependencies {
     implementation(kotlin("stdlib"))
     testImplementation(kotlin("test"))
 
-    implementation("app.revanced:revanced-patcher:1.0.0-dev.8")
+    implementation("app.revanced:revanced-patcher:1.0.0-dev.9")
 }
 
 java {
