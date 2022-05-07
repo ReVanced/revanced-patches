@@ -1,3 +1,10 @@
+# [1.0.0-dev.7](https://github.com/revanced/revanced-patches/compare/v1.0.0-dev.6...v1.0.0-dev.7) (2022-05-07)
+
+
+### Bug Fixes
+
+* use the latest version of patcher dependency ([fe4a439](https://github.com/revanced/revanced-patches/commit/fe4a439cb2bc5e385ae13e8e155f25bb15e74633))
+
 # [1.0.0-dev.6](https://github.com/revanced/revanced-patches/compare/v1.0.0-dev.5...v1.0.0-dev.6) (2022-05-07)
 
 
