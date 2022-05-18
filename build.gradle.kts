@@ -27,6 +27,7 @@ dependencies {
     testImplementation(kotlin("test"))
 
     implementation("app.revanced:revanced-patcher:1.+")
+    implementation(kotlin("reflect"))
 }
 
 java {
