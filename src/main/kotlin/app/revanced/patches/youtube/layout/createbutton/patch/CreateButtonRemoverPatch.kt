@@ -1,0 +1,46 @@
+package app.revanced.patches.youtube.layout.createbutton.patch
+
+import app.revanced.patcher.annotation.Description
+import app.revanced.patcher.annotation.Name
+import app.revanced.patcher.annotation.Version
+import app.revanced.patcher.data.implementation.BytecodeData
+import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patcher.patch.implementation.BytecodePatch
+import app.revanced.patcher.patch.implementation.misc.PatchResult
+import app.revanced.patcher.patch.implementation.misc.PatchResultError
+import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
+import app.revanced.patcher.util.smali.toInstruction
+import app.revanced.patches.youtube.layout.createbutton.signatures.CreateButtonSignature
+import app.revanced.patches.youtube.layout.minimizedplayback.annotations.MinimizedPlaybackCompatibility
+import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.iface.instruction.formats.Instruction35c
+
+@Patch
+@Name("disable-create-button")
+@Description("Disable the create button.")
+@MinimizedPlaybackCompatibility
+@Version("0.0.1")
+class CreateButtonRemoverPatch : BytecodePatch(
+    listOf(
+        CreateButtonSignature
+    )
+) {
+    override fun execute(data: BytecodeData): PatchResult {
+        val result = signatures.first().result!!
+
+        // Get the required register which holds the view object we need to pass to the method hideCreateButton
+        val implementation = result.method.implementation!!
+        val instruction = implementation.instructions[result.scanData.endIndex + 1]
+        if (instruction.opcode != Opcode.INVOKE_STATIC)
+            return PatchResultError("Could not find the correct register")
+        val register = (instruction as Instruction35c).registerC
+
+        // Hide the button view via proxy by passing it to the hideCreateButton method
+        implementation.addInstruction(
+            result.scanData.endIndex + 1,
+            "invoke-static { v$register }, Lfi/razerman/youtube/XAdRemover;->hideCreateButton(Landroid/view/View;)V".toInstruction()
+        )
+
+        return PatchResultSuccess()
+    }
+}

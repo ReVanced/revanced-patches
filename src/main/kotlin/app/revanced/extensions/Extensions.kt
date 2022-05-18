@@ -1,6 +1,6 @@
 package app.revanced.extensions
 
-import app.revanced.patcher.smali.toInstruction
+import app.revanced.patcher.util.smali.toInstruction
 import org.jf.dexlib2.builder.MutableMethodImplementation
 
 internal fun MutableMethodImplementation.injectHideCall(
