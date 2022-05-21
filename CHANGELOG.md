@@ -1,3 +1,17 @@
+# [1.0.0-dev.9](https://github.com/revanced/revanced-patches/compare/v1.0.0-dev.8...v1.0.0-dev.9) (2022-05-13)
+
+
+### Bug Fixes
+
+* clean after building ([a2df3fb](https://github.com/revanced/revanced-patches/commit/a2df3fbc9761b07f3010542fa8684ade00e4dc91))
+
+# [1.0.0-dev.8](https://github.com/revanced/revanced-patches/compare/v1.0.0-dev.7...v1.0.0-dev.8) (2022-05-13)
+
+
+### Bug Fixes
+
+* publish releases ([83916f9](https://github.com/revanced/revanced-patches/commit/83916f96d27989dcbb35c0ba6ef326a16b470501))
+
 # [1.0.0-dev.7](https://github.com/revanced/revanced-patches/compare/v1.0.0-dev.6...v1.0.0-dev.7) (2022-05-07)
 
 
