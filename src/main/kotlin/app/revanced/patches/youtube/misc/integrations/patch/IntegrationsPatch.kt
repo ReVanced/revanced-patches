@@ -13,7 +13,7 @@ import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.youtube.misc.integrations.annotations.IntegrationsCompatibility
-import app.revanced.patches.youtube.misc.integrations.signatures.InitSignature
+import app.revanced.patches.youtube.misc.microg.signatures.IntegrityCheckSignature
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.immutable.ImmutableMethod
 import org.jf.dexlib2.immutable.ImmutableMethodImplementation
@@ -25,7 +25,7 @@ import org.jf.dexlib2.immutable.ImmutableMethodImplementation
 @Version("0.0.1")
 class IntegrationsPatch : BytecodePatch(
     listOf(
-        InitSignature
+        IntegrityCheckSignature
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
