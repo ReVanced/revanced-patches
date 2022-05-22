@@ -22,7 +22,7 @@ class AmoledPatch : ResourcePatch() {
         data.getXmlEditor("res${File.separator}values${File.separator}colors.xml").use { editor ->
             val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
 
-            for (i in 0..resourcesNode.childNodes.length) {
+            for (i in 0 until resourcesNode.childNodes.length) {
                 val node = resourcesNode.childNodes.item(i) as Element
 
                 node.nodeValue = when (node.getAttribute("name")) {
