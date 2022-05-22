@@ -28,7 +28,7 @@ class RemoveTasteBuilderPatch : BytecodePatch(
         val result = signatures.first().result!!
         val implementation = result.method.implementation!!
 
-        val insertIndex = result.scanData.endIndex - 8
+        val insertIndex = result.scanResult.endIndex - 8
 
         val register = (implementation.instructions[insertIndex] as Instruction22c).registerA
 

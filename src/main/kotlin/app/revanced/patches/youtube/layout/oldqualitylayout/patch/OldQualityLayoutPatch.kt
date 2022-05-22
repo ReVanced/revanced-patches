@@ -51,7 +51,7 @@ class OldQualityLayoutPatch : BytecodePatch(
 
         // if useOldStyleQualitySettings == true, jump over all instructions
         val jmpInstruction = BuilderInstruction21t(
-            Opcode.IF_NEZ, 0, implementation.instructions[result.scanData.endIndex].location.labels.first()
+            Opcode.IF_NEZ, 0, implementation.instructions[result.scanResult.endIndex].location.labels.first()
         )
         implementation.addInstruction(5, jmpInstruction)
         implementation.addInstructions(

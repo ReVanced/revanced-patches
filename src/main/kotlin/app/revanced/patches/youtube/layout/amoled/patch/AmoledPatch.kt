@@ -14,7 +14,7 @@ import java.io.File
 
 @Patch
 @Name("amoled")
-@Description("Enables black theme (amoled mode)")
+@Description("Enables pure black theme.")
 @AmoledCompatibility
 @Version("0.0.1")
 class AmoledPatch : ResourcePatch() {
@@ -23,18 +23,13 @@ class AmoledPatch : ResourcePatch() {
             val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
 
             for (i in 0 until resourcesNode.childNodes.length) {
-                val node = resourcesNode.childNodes.item(i) as Element
+                val node = resourcesNode.childNodes.item(i)
+                if (node !is Element) continue
 
-                node.nodeValue = when (node.getAttribute("name")) {
-                    "yt_black1",
-                    "yt_black1_opacity95",
-                    "yt_black2",
-                    "yt_black3",
-                    "yt_black4",
-                    "yt_status_bar_background_dark"
-                    -> "@android:color/black"
-                    "yt_selected_nav_label_dark"
-                    -> "#ffdf0000"
+                val element = resourcesNode.childNodes.item(i) as Element
+                element.textContent = when (element.getAttribute("name")) {
+                    "yt_black1", "yt_black1_opacity95", "yt_black2", "yt_black3", "yt_black4", "yt_status_bar_background_dark" -> "@android:color/black"
+                    "yt_selected_nav_label_dark" -> "#ffdf0000"
                     else -> continue
                 }
             }

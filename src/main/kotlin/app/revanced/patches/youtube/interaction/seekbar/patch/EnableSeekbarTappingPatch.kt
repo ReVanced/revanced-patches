@@ -66,25 +66,25 @@ class EnableSeekbarTappingPatch : BytecodePatch(
         val oMethod = tapSeekMethods["O"]!!
 
         // get the required register
-        val instruction = implementation.instructions[result.scanData.endIndex]
+        val instruction = implementation.instructions[result.scanResult.endIndex]
         if (instruction.opcode != Opcode.INVOKE_VIRTUAL) return PatchResultError("Could not find the correct register")
         val register = (instruction as Instruction35c).registerC
 
         // the instructions are written in reverse order.
         implementation.addInstructions(
-            result.scanData.endIndex + 1, """
+            result.scanResult.endIndex + 1, """
                invoke-virtual { v$register, v2 }, ${oMethod.definingClass}->${oMethod.name}(I)V
                invoke-virtual { v$register, v2 }, ${pMethod.definingClass}->${pMethod.name}(I)V
             """.trimIndent().toInstructions()
         )
 
         // if tap-seeking is disabled, do not invoke the two methods above by jumping to the else label
-        val elseLabel = implementation.newLabelForIndex(result.scanData.endIndex + 1)
+        val elseLabel = implementation.newLabelForIndex(result.scanResult.endIndex + 1)
         implementation.addInstruction(
-            result.scanData.endIndex + 1, BuilderInstruction21t(Opcode.IF_EQZ, 0, elseLabel)
+            result.scanResult.endIndex + 1, BuilderInstruction21t(Opcode.IF_EQZ, 0, elseLabel)
         )
         implementation.addInstructions(
-            result.scanData.endIndex + 1, """
+            result.scanResult.endIndex + 1, """
                 invoke-static { }, Lfi/razerman/youtube/preferences/BooleanPreferences;->isTapSeekingEnabled()Z
                 move-result v0
             """.trimIndent().toInstructions()

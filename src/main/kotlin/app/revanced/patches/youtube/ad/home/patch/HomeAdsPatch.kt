@@ -1697,7 +1697,7 @@ for (i in 0 until signatures.count()) {
 val signature = signatures.elementAt(i)
 val result = signature.result!!
 val implementation = result.method.implementation!!
-val index = result.scanData.startIndex
+val index = result.scanResult.startIndex
 val instructions = implementation.instructions
 
 val register = (instructions[index + (if (i < 2) -1 else 1)] as Instruction11x).registerA

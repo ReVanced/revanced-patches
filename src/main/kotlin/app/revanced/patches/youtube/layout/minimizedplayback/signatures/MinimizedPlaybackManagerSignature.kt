@@ -12,7 +12,7 @@ import org.jf.dexlib2.Opcode
 
 @Name("minimized-playback-manager-signature")
 @MatchingMethod(
-    "Lype", "j"
+    "Lyuf", "n"
 )
 @FuzzyPatternScanMethod(2) // FIXME: Test this threshold and find the best value.
 @MinimizedPlaybackCompatibility

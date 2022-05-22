@@ -6,17 +6,17 @@ import app.revanced.patcher.extensions.or
 import app.revanced.patcher.signature.implementation.method.MethodSignature
 import app.revanced.patcher.signature.implementation.method.annotation.FuzzyPatternScanMethod
 import app.revanced.patcher.signature.implementation.method.annotation.MatchingMethod
-import app.revanced.patches.youtube.interaction.seekbar.annotation.SeekbarTappingCompatibility
+import app.revanced.patches.youtube.ad.video.annotations.VideoAdsCompatibility
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 @Name("show-video-ads-constructor-signature")
 @MatchingMethod(
-    "Laadb",
+    "Laair",
     "<init>",
 )
 @FuzzyPatternScanMethod(2) // FIXME: Test this threshold and find the best value.
-@SeekbarTappingCompatibility
+@VideoAdsCompatibility
 @Version("0.0.1")
 object ShowVideoAdsConstructorSignature : MethodSignature(
     "V", AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR, listOf("L", "L", "L"), listOf(

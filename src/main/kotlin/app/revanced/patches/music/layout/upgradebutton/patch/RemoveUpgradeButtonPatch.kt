@@ -33,7 +33,7 @@ class RemoveUpgradeButtonPatch : BytecodePatch(
         val implementation = result.method.implementation!!
 
         val pivotBarElementFieldRef =
-            (implementation.instructions[result.scanData.endIndex - 1] as Instruction22c).reference
+            (implementation.instructions[result.scanResult.endIndex - 1] as Instruction22c).reference
 
         val register = (implementation.instructions.first() as Instruction35c).registerC
         // first compile all the needed instructions
@@ -48,14 +48,14 @@ class RemoveUpgradeButtonPatch : BytecodePatch(
 
         // replace the instruction to retain the label at given index
         implementation.replaceInstruction(
-            result.scanData.endIndex - 1, instructionList[0] // invoke-interface
+            result.scanResult.endIndex - 1, instructionList[0] // invoke-interface
         )
         // do not forget to remove this instruction since we added it already
         instructionList.removeFirst()
 
         val exitInstruction = instructionList.last() // iput-object
         implementation.addInstruction(
-            result.scanData.endIndex, exitInstruction
+            result.scanResult.endIndex, exitInstruction
         )
         // do not forget to remove this instruction since we added it already
         instructionList.removeLast()
@@ -64,12 +64,12 @@ class RemoveUpgradeButtonPatch : BytecodePatch(
         instructionList.add(
             2, // if-le
             BuilderInstruction22t(
-                Opcode.IF_LE, 1, 2, implementation.newLabelForIndex(result.scanData.endIndex)
+                Opcode.IF_LE, 1, 2, implementation.newLabelForIndex(result.scanResult.endIndex)
             )
         )
 
         implementation.addInstructions(
-            result.scanData.endIndex, instructionList
+            result.scanResult.endIndex, instructionList
         )
         return PatchResultSuccess()
     }

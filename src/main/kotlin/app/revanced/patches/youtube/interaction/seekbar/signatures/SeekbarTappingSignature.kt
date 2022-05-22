@@ -11,7 +11,7 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 @Name("enable-seekbar-tapping-signature")
-@MatchingMethod("Lfao;", "onTouchEvent")
+@MatchingMethod("Lfbl;", "onTouchEvent")
 @FuzzyPatternScanMethod(2) // FIXME: Test this threshold and find the best value.
 @SeekbarTappingCompatibility
 @Version("0.0.1")
