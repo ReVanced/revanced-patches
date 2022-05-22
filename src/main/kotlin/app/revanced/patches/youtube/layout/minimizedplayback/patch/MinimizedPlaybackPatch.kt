@@ -9,7 +9,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.implementation.BytecodePatch
 import app.revanced.patcher.patch.implementation.misc.PatchResult
 import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
-import app.revanced.patcher.smali.toInstructions
+import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.youtube.layout.minimizedplayback.annotations.MinimizedPlaybackCompatibility
 import app.revanced.patches.youtube.layout.minimizedplayback.signatures.MinimizedPlaybackManagerSignature
 

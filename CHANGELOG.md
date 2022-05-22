@@ -1,3 +1,18 @@
+# [1.0.0-dev.10](https://github.com/revanced/revanced-patches/compare/v1.0.0-dev.9...v1.0.0-dev.10) (2022-05-22)
+
+
+### Bug Fixes
+
+* `create-button-signature` ([a173f6e](https://github.com/revanced/revanced-patches/commit/a173f6e5a7e65943657e2072e8a72a4a680e5277))
+* breaking changes by `revanced-patcher` dependency ([e12e484](https://github.com/revanced/revanced-patches/commit/e12e484e3796c5c9c8505b677838cdf8432f2e79))
+* loop in `amoled` patch ([c4c86b6](https://github.com/revanced/revanced-patches/commit/c4c86b65fd8b2463c1d86ad2e46ec9f08e60d47c))
+
+
+### Features
+
+* add `amoled` patch ([d61bac4](https://github.com/revanced/revanced-patches/commit/d61bac4f8243d0ef72ca91c7c1d5facd858d515e))
+* update patches to latest version ([bad25de](https://github.com/revanced/revanced-patches/commit/bad25dec1d73137f8b7a1bf4daaceb2279b4d48c))
+
 # [1.0.0-dev.9](https://github.com/revanced/revanced-patches/compare/v1.0.0-dev.8...v1.0.0-dev.9) (2022-05-13)
 
 

@@ -13,7 +13,7 @@ import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
 import app.revanced.patcher.signature.implementation.method.MethodSignature
 import app.revanced.patcher.signature.implementation.method.annotation.DirectPatternScanMethod
 import app.revanced.patcher.signature.implementation.method.annotation.MatchingMethod
-import app.revanced.patcher.smali.toInstruction
+import app.revanced.patcher.util.smali.toInstruction
 import app.revanced.patches.music.audio.exclusiveaudio.annotations.ExclusiveAudioCompatibility
 import app.revanced.patches.music.audio.exclusiveaudio.signatures.ExclusiveAudioSignature
 import org.jf.dexlib2.AccessFlags

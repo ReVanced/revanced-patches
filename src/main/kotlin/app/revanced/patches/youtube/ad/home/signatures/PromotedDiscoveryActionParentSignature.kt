@@ -6,16 +6,16 @@ import app.revanced.patcher.extensions.or
 import app.revanced.patcher.signature.implementation.method.MethodSignature
 import app.revanced.patcher.signature.implementation.method.annotation.FuzzyPatternScanMethod
 import app.revanced.patcher.signature.implementation.method.annotation.MatchingMethod
-import app.revanced.patches.youtube.interaction.seekbar.annotation.SeekbarTappingCompatibility
+import app.revanced.patches.youtube.ad.home.annotation.PromotionsCompatibility
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 @Name("promoted-discovery-app-parent-signature")
 @MatchingMethod(
-    "Ljre;", "lP"
+    "Ljqb;", "lG"
 )
 @FuzzyPatternScanMethod(2) // FIXME: Test this threshold and find the best value.
-@SeekbarTappingCompatibility
+@PromotionsCompatibility
 @Version("0.0.1")
 object PromotedDiscoveryActionParentSignature : MethodSignature(
     "V",

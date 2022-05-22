@@ -9,16 +9,16 @@ import app.revanced.patcher.patch.implementation.BytecodePatch
 import app.revanced.patcher.patch.implementation.misc.PatchResult
 import app.revanced.patcher.patch.implementation.misc.PatchResultError
 import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
-import app.revanced.patcher.smali.toInstruction
+import app.revanced.patcher.util.smali.toInstruction
+import app.revanced.patches.youtube.layout.createbutton.annotations.CreateButtonCompatibility
 import app.revanced.patches.youtube.layout.createbutton.signatures.CreateButtonSignature
-import app.revanced.patches.youtube.layout.minimizedplayback.annotations.MinimizedPlaybackCompatibility
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch
 @Name("disable-create-button")
 @Description("Disable the create button.")
-@MinimizedPlaybackCompatibility
+@CreateButtonCompatibility
 @Version("0.0.1")
 class CreateButtonRemoverPatch : BytecodePatch(
     listOf(
@@ -30,14 +30,14 @@ class CreateButtonRemoverPatch : BytecodePatch(
 
         // Get the required register which holds the view object we need to pass to the method hideCreateButton
         val implementation = result.method.implementation!!
-        val instruction = implementation.instructions[result.scanData.endIndex + 1]
+        val instruction = implementation.instructions[result.scanResult.endIndex + 1]
         if (instruction.opcode != Opcode.INVOKE_STATIC)
             return PatchResultError("Could not find the correct register")
         val register = (instruction as Instruction35c).registerC
 
         // Hide the button view via proxy by passing it to the hideCreateButton method
         implementation.addInstruction(
-            result.scanData.endIndex + 1,
+            result.scanResult.endIndex + 1,
             "invoke-static { v$register }, Lfi/razerman/youtube/XAdRemover;->hideCreateButton(Landroid/view/View;)V".toInstruction()
         )
 

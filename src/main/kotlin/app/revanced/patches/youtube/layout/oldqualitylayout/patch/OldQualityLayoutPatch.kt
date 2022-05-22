@@ -14,7 +14,7 @@ import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
 import app.revanced.patcher.signature.implementation.method.MethodSignature
 import app.revanced.patcher.signature.implementation.method.annotation.FuzzyPatternScanMethod
 import app.revanced.patcher.signature.implementation.method.annotation.MatchingMethod
-import app.revanced.patcher.smali.toInstructions
+import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.youtube.layout.oldqualitylayout.annotations.OldQualityLayoutCompatibility
 import app.revanced.patches.youtube.layout.oldqualitylayout.signatures.OldQualityParentSignature
 import org.jf.dexlib2.AccessFlags
@@ -51,7 +51,7 @@ class OldQualityLayoutPatch : BytecodePatch(
 
         // if useOldStyleQualitySettings == true, jump over all instructions
         val jmpInstruction = BuilderInstruction21t(
-            Opcode.IF_NEZ, 0, implementation.instructions[result.scanData.endIndex].location.labels.first()
+            Opcode.IF_NEZ, 0, implementation.instructions[result.scanResult.endIndex].location.labels.first()
         )
         implementation.addInstruction(5, jmpInstruction)
         implementation.addInstructions(

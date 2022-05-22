@@ -9,7 +9,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.implementation.BytecodePatch
 import app.revanced.patcher.patch.implementation.misc.PatchResult
 import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
-import app.revanced.patcher.smali.toInstructions
+import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.music.layout.tastebuilder.annotations.RemoveTasteBuilderCompatibility
 import app.revanced.patches.music.layout.tastebuilder.signatures.TasteBuilderConstructorSignature
 import org.jf.dexlib2.iface.instruction.formats.Instruction22c
@@ -28,7 +28,7 @@ class RemoveTasteBuilderPatch : BytecodePatch(
         val result = signatures.first().result!!
         val implementation = result.method.implementation!!
 
-        val insertIndex = result.scanData.endIndex - 8
+        val insertIndex = result.scanResult.endIndex - 8
 
         val register = (implementation.instructions[insertIndex] as Instruction22c).registerA
 

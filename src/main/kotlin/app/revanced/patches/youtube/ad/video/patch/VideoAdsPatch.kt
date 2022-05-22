@@ -14,7 +14,7 @@ import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
 import app.revanced.patcher.signature.implementation.method.MethodSignature
 import app.revanced.patcher.signature.implementation.method.annotation.DirectPatternScanMethod
 import app.revanced.patcher.signature.implementation.method.annotation.MatchingMethod
-import app.revanced.patcher.smali.toInstructions
+import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.youtube.ad.video.annotations.VideoAdsCompatibility
 import app.revanced.patches.youtube.ad.video.signatures.ShowVideoAdsConstructorSignature
 import org.jf.dexlib2.AccessFlags

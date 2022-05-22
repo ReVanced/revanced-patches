@@ -10,8 +10,8 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.implementation.BytecodePatch
 import app.revanced.patcher.patch.implementation.misc.PatchResult
 import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
-import app.revanced.patcher.proxy.mutableTypes.MutableMethod.Companion.toMutable
-import app.revanced.patcher.smali.toInstructions
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.youtube.misc.integrations.annotations.IntegrationsCompatibility
 import app.revanced.patches.youtube.misc.integrations.signatures.InitSignature
 import org.jf.dexlib2.AccessFlags
@@ -35,7 +35,7 @@ class IntegrationsPatch : BytecodePatch(
         val count = implementation.registerCount - 1
 
         implementation.addInstructions(
-            result.scanData.endIndex + 1, """
+            result.scanResult.endIndex + 1, """
                   invoke-static {v$count}, Lpl/jakubweg/StringRef;->setContext(Landroid/content/Context;)V
                   sput-object v$count, Lapp/revanced/integrations/Globals;->context:Landroid/content/Context;
             """.trimIndent().toInstructions()

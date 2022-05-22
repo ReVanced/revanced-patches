@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.ad.video.annotations
+package app.revanced.patches.youtube.layout.amoled.annotations
 
 import app.revanced.patcher.annotation.Compatibility
 import app.revanced.patcher.annotation.Package
@@ -10,5 +10,4 @@ import app.revanced.patcher.annotation.Package
 )
 @Target(AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.RUNTIME)
-internal annotation class VideoAdsCompatibility
-
+internal annotation class AmoledCompatibility

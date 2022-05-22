@@ -12,7 +12,7 @@ import org.jf.dexlib2.Opcode
 
 @Name("create-button-signature")
 @MatchingMethod(
-    "Lkne", "z"
+    "Lknw", "z"
 )
 @FuzzyPatternScanMethod(2) // FIXME: Test this threshold and find the best value.
 @CreateButtonCompatibility

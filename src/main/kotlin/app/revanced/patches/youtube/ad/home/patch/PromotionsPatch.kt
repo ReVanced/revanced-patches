@@ -12,10 +12,10 @@ import app.revanced.patcher.patch.implementation.BytecodePatch
 import app.revanced.patcher.patch.implementation.misc.PatchResult
 import app.revanced.patcher.patch.implementation.misc.PatchResultError
 import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
-import app.revanced.patcher.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.signature.implementation.method.MethodSignature
 import app.revanced.patcher.signature.implementation.method.annotation.DirectPatternScanMethod
 import app.revanced.patcher.signature.implementation.method.annotation.MatchingMethod
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.ad.home.annotation.PromotionsCompatibility
 import app.revanced.patches.youtube.ad.home.signatures.PromotedDiscoveryActionParentSignature
 import app.revanced.patches.youtube.ad.home.signatures.PromotedDiscoveryAppParentSignature

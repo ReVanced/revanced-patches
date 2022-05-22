@@ -12,7 +12,7 @@ import org.jf.dexlib2.Opcode
 
 @Name("pivotbar-buttons-tabenum-signature")
 @MatchingMethod(
-    "Lkne", "z"
+    "Lknw", "z"
 )
 @FuzzyPatternScanMethod(2) // FIXME: Test this threshold and find the best value.
 @ShortsButtonCompatibility
