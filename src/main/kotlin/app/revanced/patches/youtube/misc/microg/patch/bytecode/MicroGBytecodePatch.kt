@@ -21,7 +21,7 @@ import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.youtube.misc.microg.annotations.MicroGPatchCompatibility
 import app.revanced.patches.youtube.misc.microg.patch.resource.enum.StringReplaceMode
 import app.revanced.patches.youtube.misc.microg.shared.Constants.BASE_MICROG_PACKAGE_NAME
-import app.revanced.patches.youtube.misc.microg.shared.Constants.BASE_REVANCED_PACKAGE_NAME
+import app.revanced.patches.youtube.misc.microg.shared.Constants.REVANCED_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.microg.signatures.GooglePlayUtilitySignature
 import app.revanced.patches.youtube.misc.microg.signatures.IntegrityCheckSignature
 import app.revanced.patches.youtube.misc.microg.signatures.PrimeSignature
@@ -98,7 +98,7 @@ class MicroGBytecodePatch : BytecodePatch(
 
                             val newString =
                                 if (replaceMode == StringReplaceMode.REPLACE_WITH_REVANCED) stringValue.replace(
-                                    "com.google.android.youtube", BASE_REVANCED_PACKAGE_NAME
+                                    "com.google.android.youtube", REVANCED_PACKAGE_NAME
                                 )
                                 else stringValue.replace("com.google", BASE_MICROG_PACKAGE_NAME)
 
@@ -167,7 +167,7 @@ class MicroGBytecodePatch : BytecodePatch(
         }
 
         implementation.replaceInstruction(
-            index, "const-string v$register, \"$BASE_REVANCED_PACKAGE_NAME\"".toInstruction()
+            index, "const-string v$register, \"$REVANCED_PACKAGE_NAME\"".toInstruction()
         )
     }
 }

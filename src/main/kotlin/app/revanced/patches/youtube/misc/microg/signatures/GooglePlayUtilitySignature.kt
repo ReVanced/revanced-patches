@@ -12,7 +12,7 @@ import org.jf.dexlib2.Opcode
 
 @Name("google-play-utility-signature")
 @MatchingMethod(
-    "Llpe;", "b"
+    "Llss;", "b"
 )
 @FuzzyPatternScanMethod(2) // FIXME: Test this threshold and find the best value.
 @MicroGPatchCompatibility

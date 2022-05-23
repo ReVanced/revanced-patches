@@ -9,7 +9,7 @@ import app.revanced.patches.youtube.misc.microg.annotations.MicroGPatchCompatibi
 
 @Name("google-play-prime-signature")
 @MatchingMethod(
-    "Louy;", "e"
+    "Lpag;", "d"
 )
 @DirectPatternScanMethod
 @MicroGPatchCompatibility

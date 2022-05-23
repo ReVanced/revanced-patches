@@ -12,7 +12,7 @@ import org.jf.dexlib2.Opcode
 
 @Name("google-play-sig-check-signature")
 @MatchingMethod(
-    "Ldsf;", "d"
+    "Ldwn;", "d"
 )
 @FuzzyPatternScanMethod(2) // FIXME: Test this threshold and find the best value.
 @MicroGPatchCompatibility
