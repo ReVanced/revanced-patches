@@ -59,30 +59,29 @@ class MicroGBytecodePatch : BytecodePatch(
                     if (instruction.opcode == Opcode.CONST_STRING) {
                         val stringValue = ((instruction as Instruction21c).reference as StringReference).string
 
-                        val replaceMode =
-                            if (stringValue.startsWith("com.google.android.gms.chimera.container")) // https://github.com/TeamVanced/VancedMicroG/pull/139/file
-                                StringReplaceMode.DO_NOT_REPLACE
-                            else if (stringValue == "com.google" || stringValue.startsWithAny(
-                                    "com.google.android.gms.auth.accounts",
-                                    "com.google.android.gms.chimera",
-                                    "com.google.android.c2dm",
-                                    "com.google.android.c2dm",
-                                    "com.google.android.gsf",
-                                    "com.google.android.c2dm",
-                                    "com.google.iid",
-                                    "content://com.google.settings"
-                                )
-                            ) {
-                                StringReplaceMode.REPLACE_WITH_MICROG
-                            } else if (stringValue.startsWithAny(
-                                    "com.google.android.youtube.SuggestionsProvider",
-                                    "com.google.android.youtube.fileprovider"
-                                )
-                            ) {
-                                StringReplaceMode.REPLACE_WITH_REVANCED
-                            } else {
-                                StringReplaceMode.DO_NOT_REPLACE
-                            }
+                        val replaceMode = if (stringValue == "com.google" || stringValue.startsWithAny(
+                                "com.google.android.gms.auth.accounts",
+                                "com.google.android.gms.chimera",
+                                "com.google.android.c2dm",
+                                "com.google.android.c2dm",
+                                "com.google.android.gsf",
+                                "com.google.android.c2dm",
+                                "com.google.iid",
+                                "content://com.google.settings"
+                            )
+                        ) {
+                            StringReplaceMode.REPLACE_WITH_MICROG
+                        } else if (stringValue.startsWith("com.google.android.gms.chimera.container")) // https://github.com/TeamVanced/VancedMicroG/pull/139/file
+                            StringReplaceMode.DO_NOT_REPLACE
+                        else if (stringValue.startsWithAny(
+                                "com.google.android.youtube.SuggestionsProvider",
+                                "com.google.android.youtube.fileprovider"
+                            )
+                        ) {
+                            StringReplaceMode.REPLACE_WITH_REVANCED
+                        } else {
+                            StringReplaceMode.DO_NOT_REPLACE
+                        }
 
 
                         if (replaceMode != StringReplaceMode.DO_NOT_REPLACE) {

@@ -19,8 +19,10 @@ import app.revanced.patches.youtube.misc.microg.shared.Constants.REVANCED_PACKAG
 @Version("0.0.1")
 class MicroGResourcePatch : ResourcePatch() {
     override fun execute(data: ResourceData): PatchResult {
-        data.writer("AndroidManifest.xml").write(
-            data.reader("AndroidManifest.xml").readText().replace(
+        val manifest = data.get("AndroidManifest.xml").readText()
+
+        data.get("AndroidManifest.xml").writeText(
+            manifest.replace(
                 "package=\"com.google.android.youtube\"", "package=\"$REVANCED_PACKAGE_NAME\""
             ).replace(
                 " android:label=\"@string/application_name\" ", " android:label=\"{APP_NAME}\" "
@@ -47,15 +49,15 @@ class MicroGResourcePatch : ResourcePatch() {
         val replacement = arrayOf(
             Pair(
                 "com.google.android.youtube.SuggestionProvider", "$REVANCED_PACKAGE_NAME.SuggestionProvider"
-            ),
-            Pair(
+            ), Pair(
                 "com.google.android.youtube.fileprovider", "$REVANCED_PACKAGE_NAME.fileprovider"
             )
         )
 
         data.forEach {
-            if (it.extension != ".xml") return@forEach
+            if (it.extension != "xml") return@forEach
 
+            // TODO: use a reader and only replace strings where needed instead of reading & writing the entire file
             var content = it.readText()
             replacement.filter { translation -> content.contains(translation.first) }.forEach { translation ->
                 content = content.replace(translation.first, translation.second)
