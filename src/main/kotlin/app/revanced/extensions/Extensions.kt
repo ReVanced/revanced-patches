@@ -20,3 +20,11 @@ internal fun String.startsWithAny(vararg prefix: String): Boolean {
 
     return false
 }
+
+internal fun String.containsAny(vararg others: String): Boolean {
+    for (other in others)
+        if (this.contains(other))
+            return true
+
+    return false
+}

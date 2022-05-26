@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.misc.microg.patch.bytecode
 
+import app.revanced.extensions.containsAny
 import app.revanced.extensions.startsWithAny
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
@@ -54,19 +55,20 @@ class MicroGBytecodePatch : BytecodePatch(
                 val implementation = method.implementation ?: return@methodLoop
 
                 var proxiedImplementation: MutableMethodImplementation? = null
-
                 implementation.instructions.forEachIndexed { i, instruction ->
-                    if (instruction.opcode == Opcode.CONST_STRING) {
-                        val stringValue = ((instruction as Instruction21c).reference as StringReference).string
+                    if (instruction.opcode != Opcode.CONST_STRING) return@forEachIndexed
 
-                        val replaceMode = if (stringValue == "com.google" || stringValue.startsWithAny(
-                                "com.google.android.gms.auth.accounts",
+                    val stringValue = ((instruction as Instruction21c).reference as StringReference).string
+
+                    val replaceMode =
+                        if (stringValue == "com.google" || stringValue == "com.google.android.gms" ||
+                            stringValue.startsWithAny(
+                                "com.google.iid",
                                 "com.google.android.gms.chimera",
                                 "com.google.android.c2dm",
-                                "com.google.android.c2dm",
+                            ) || stringValue.containsAny(
+                                "com.google.android.gms.auth.accounts",
                                 "com.google.android.gsf",
-                                "com.google.android.c2dm",
-                                "com.google.iid",
                                 "content://com.google.settings"
                             )
                         ) {
@@ -83,30 +85,27 @@ class MicroGBytecodePatch : BytecodePatch(
                             StringReplaceMode.DO_NOT_REPLACE
                         }
 
-
-                        if (replaceMode != StringReplaceMode.DO_NOT_REPLACE) {
-                            if (proxiedClass == null) {
-                                proxiedClass = data.proxy(classDef).resolve()
-                            }
-
-                            if (proxiedImplementation == null) {
-                                proxiedImplementation = proxiedClass!!.methods.first {
-                                    it.name == method.name && it.parameterTypes.containsAll(method.parameterTypes)
-                                }.implementation!!
-                            }
-
-                            val newString =
-                                if (replaceMode == StringReplaceMode.REPLACE_WITH_REVANCED) stringValue.replace(
-                                    "com.google.android.youtube", REVANCED_PACKAGE_NAME
-                                )
-                                else stringValue.replace("com.google", BASE_MICROG_PACKAGE_NAME)
-
-                            proxiedImplementation!!.replaceInstruction(
-                                i, BuilderInstruction21c(
-                                    Opcode.CONST_STRING, instruction.registerA, ImmutableStringReference(newString)
-                                )
-                            )
+                    if (replaceMode != StringReplaceMode.DO_NOT_REPLACE) {
+                        if (proxiedClass == null) {
+                            proxiedClass = data.proxy(classDef).resolve()
                         }
+
+                        if (proxiedImplementation == null) {
+                            proxiedImplementation = proxiedClass!!.methods.first {
+                                it.name == method.name && it.parameterTypes.containsAll(method.parameterTypes)
+                            }.implementation!!
+                        }
+
+                        val newString = if (replaceMode == StringReplaceMode.REPLACE_WITH_REVANCED) stringValue.replace(
+                            "com.google.android.youtube", REVANCED_PACKAGE_NAME
+                        )
+                        else stringValue.replace("com.google", BASE_MICROG_PACKAGE_NAME)
+
+                        proxiedImplementation!!.replaceInstruction(
+                            i, BuilderInstruction21c(
+                                Opcode.CONST_STRING, instruction.registerA, ImmutableStringReference(newString)
+                            )
+                        )
                     }
                 }
             }
@@ -125,9 +124,6 @@ class MicroGBytecodePatch : BytecodePatch(
             implementation.instructions.indexOfFirst { it.opcode == Opcode.CONST_STRING },
             "const-string v0, \"com.google.android.gms\"".toInstruction()
         )
-
-        // allow GC to clean unused/ replaced immutable class definitions after this call
-        data.classes.applyProxies()
 
         return PatchResultSuccess()
     }
