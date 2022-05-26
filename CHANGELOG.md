@@ -1,3 +1,20 @@
+# [1.0.0-dev.11](https://github.com/revanced/revanced-patches/compare/v1.0.0-dev.10...v1.0.0-dev.11) (2022-05-26)
+
+
+### Bug Fixes
+
+* breaking changes by `revanced-patcher` dependency ([7e485b4](https://github.com/revanced/revanced-patches/commit/7e485b4ffe204d724809aeb9bd9f693a35ded94d))
+* breaking patcher changes ([50f9cc5](https://github.com/revanced/revanced-patches/commit/50f9cc52acfd5bc23330ecd23d8d85678a9d3eee))
+* breaking patcher changes ([cbb9e2c](https://github.com/revanced/revanced-patches/commit/cbb9e2cd1fa829e1d1dd92dbd40131b11ae6a05b))
+* bugfixes in `microg` ([a43b33b](https://github.com/revanced/revanced-patches/commit/a43b33bdbb2b36e0a8f991fa11dfeeec34de01f9))
+* write while reading resources and remove checking for "." in resource extensions ([7bc6094](https://github.com/revanced/revanced-patches/commit/7bc60943cb2350e89dac091ec9c98c5effd0b8a9))
+
+
+### Features
+
+* begin `MicroG Patch` ([91474ba](https://github.com/revanced/revanced-patches/commit/91474ba07376c13e7a71685dfd8b6e6913ed5ee9))
+* update MicroG patch to latest version ([c24f806](https://github.com/revanced/revanced-patches/commit/c24f8063a04f89aea2d2f7087a435738de7dfeae))
+
 # [1.0.0-dev.10](https://github.com/revanced/revanced-patches/compare/v1.0.0-dev.9...v1.0.0-dev.10) (2022-05-22)
 
 
