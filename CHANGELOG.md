@@ -1,3 +1,10 @@
+# [1.0.0-dev.12](https://github.com/revanced/revanced-patches/compare/v1.0.0-dev.11...v1.0.0-dev.12) (2022-05-28)
+
+
+### Bug Fixes
+
+* wrong annotation and signature in patches ([a0fdee8](https://github.com/revanced/revanced-patches/commit/a0fdee81a6d6773603520e7c3040ae8637642d58))
+
 # [1.0.0-dev.11](https://github.com/revanced/revanced-patches/compare/v1.0.0-dev.10...v1.0.0-dev.11) (2022-05-26)
 
 
