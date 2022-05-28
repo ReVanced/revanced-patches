@@ -9,7 +9,6 @@ import app.revanced.patcher.data.implementation.BytecodeData
 import app.revanced.patcher.data.implementation.proxy
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.implementation.BytecodePatch
 import app.revanced.patcher.patch.implementation.misc.PatchResult
 import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
@@ -35,7 +34,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 import org.jf.dexlib2.iface.reference.StringReference
 import org.jf.dexlib2.immutable.reference.ImmutableStringReference
 
-@Patch
+// @Patch TODO: finish patch
 @Name("microg-bytecode-patch")
 @Description("Patch to allow YouTube ReVanced to run without root and under a different package name.")
 @MicroGPatchCompatibility

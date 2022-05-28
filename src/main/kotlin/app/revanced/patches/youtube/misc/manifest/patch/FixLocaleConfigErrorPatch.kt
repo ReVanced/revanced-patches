@@ -8,13 +8,13 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.implementation.ResourcePatch
 import app.revanced.patcher.patch.implementation.misc.PatchResult
 import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
-import app.revanced.patches.youtube.misc.microg.annotations.MicroGPatchCompatibility
+import app.revanced.patches.youtube.misc.manifest.annotations.FixLocaleConfigErrorCompatibility
 import org.w3c.dom.Element
 
 @Patch
 @Name("locale-config-fix")
 @Description("Fix an error when building the resources by patching the manifest file.")
-@MicroGPatchCompatibility
+@FixLocaleConfigErrorCompatibility
 @Version("0.0.1")
 class FixLocaleConfigErrorPatch : ResourcePatch() {
     override fun execute(data: ResourceData): PatchResult {

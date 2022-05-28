@@ -4,7 +4,6 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.implementation.ResourceData
-import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.implementation.ResourcePatch
 import app.revanced.patcher.patch.implementation.misc.PatchResult
 import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
@@ -12,7 +11,7 @@ import app.revanced.patches.youtube.misc.microg.annotations.MicroGPatchCompatibi
 import app.revanced.patches.youtube.misc.microg.shared.Constants.BASE_MICROG_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.microg.shared.Constants.REVANCED_PACKAGE_NAME
 
-@Patch
+// @Patch TODO: finish patch
 @Name("microg-resource-patch")
 @Description("Resource patch to allow YouTube ReVanced to run without root and under a different package name.")
 @MicroGPatchCompatibility
