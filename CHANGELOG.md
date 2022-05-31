@@ -1,3 +1,11 @@
+# [1.0.0-dev.13](https://github.com/revanced/revanced-patches/compare/v1.0.0-dev.12...v1.0.0-dev.13) (2022-05-31)
+
+
+### Bug Fixes
+
+* migrate patches to latest patcher api changes ([8a0ee03](https://github.com/revanced/revanced-patches/commit/8a0ee03a71cf4a000c9a7246d0e64ed8291a5127))
+* missing extension method `doRecursively` ([e9c9460](https://github.com/revanced/revanced-patches/commit/e9c946008ee912652d288e515b83b52ae2d239d8))
+
 # [1.0.0-dev.12](https://github.com/revanced/revanced-patches/compare/v1.0.0-dev.11...v1.0.0-dev.12) (2022-05-28)
 
 
