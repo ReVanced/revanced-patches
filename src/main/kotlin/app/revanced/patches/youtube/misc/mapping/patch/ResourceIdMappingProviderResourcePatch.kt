@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.misc.mapping.patch
 
+import app.revanced.extensions.doRecursively
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -7,7 +8,6 @@ import app.revanced.patcher.data.implementation.ResourceData
 import app.revanced.patcher.patch.implementation.ResourcePatch
 import app.revanced.patcher.patch.implementation.misc.PatchResult
 import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
-import app.revanced.patches.youtube.ad.general.resource.util.Extensions.doRecursively
 import org.w3c.dom.Element
 
 @Name("resource-id-mapping-provider-resource-patch-dependency")
