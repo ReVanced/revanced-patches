@@ -32,7 +32,8 @@ class CodecsUnlockPatch : BytecodePatch(
         val instructionIndex = result.scanResult.startIndex
 
         result = signatures.last().result!!
-        val codecMethod = data.toMethodWalker(result.immutableMethod).walk(result.scanResult.startIndex).getMethod()
+        val codecMethod =
+            data.toMethodWalker(result.immutableMethod).nextMethod(result.scanResult.startIndex).getMethod()
 
         implementation.replaceInstruction(
             instructionIndex,

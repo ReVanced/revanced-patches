@@ -6,9 +6,9 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.implementation.BytecodeData
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.implementation.BytecodePatch
 import app.revanced.patcher.patch.implementation.misc.PatchResult
+import app.revanced.patcher.patch.implementation.misc.PatchResultError
 import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
@@ -18,7 +18,6 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.immutable.ImmutableMethod
 import org.jf.dexlib2.immutable.ImmutableMethodImplementation
 
-@Patch
 @Name("integrations")
 @Description("Applies mandatory patches to implement the ReVanced integrations into the application.")
 @IntegrationsCompatibility
@@ -29,6 +28,9 @@ class IntegrationsPatch : BytecodePatch(
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
+        if (data.findClass("Lapp/revanced/integrations/Globals") == null)
+            return PatchResultError("Integrations have not been merged yet. This patch can not succeed without the integrations.")
+
         val result = signatures.first().result!!
 
         val implementation = result.method.implementation!!

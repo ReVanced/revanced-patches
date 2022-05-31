@@ -19,7 +19,6 @@ import app.revanced.patches.youtube.layout.minimizedplayback.signatures.Minimize
 @Description("Enable minimized and background playback.")
 @MinimizedPlaybackCompatibility
 @Version("0.0.1")
-
 class MinimizedPlaybackPatch : BytecodePatch(
     listOf(
         MinimizedPlaybackManagerSignature

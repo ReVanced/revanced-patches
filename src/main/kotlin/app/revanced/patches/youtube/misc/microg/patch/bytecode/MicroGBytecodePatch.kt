@@ -135,11 +135,13 @@ class MicroGBytecodePatch : BytecodePatch(
                         const/4 v0, 0x0
                         return-object v0
                         """
+
                 'V' -> "return-void"
                 'I' -> """
                         const/4 v0, 0x0
                         return v0
                         """
+
                 else -> throw Exception("This case should never happen.")
             }
             result.method.implementation!!.addInstructions(

@@ -6,8 +6,8 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.implementation.BytecodeData
 import app.revanced.patcher.data.implementation.toMethodWalker
+import app.revanced.patcher.extensions.PatchExtensions.patchName
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.implementation.BytecodePatch
 import app.revanced.patcher.patch.implementation.misc.PatchResult
 import app.revanced.patcher.patch.implementation.misc.PatchResultError
@@ -23,7 +23,7 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.formats.Instruction11x
 
-@Patch
+//@Patch(dependencies = [IntegrationsPatch::class])
 @Name("home-promo-ads")
 @Description("Patch to remove promoted ads in YouTube.")
 @PromotionsCompatibility
@@ -47,14 +47,14 @@ class PromotionsPatch : BytecodePatch(
             val toBePatchedInvokeOffset =
                 requiredMethod.immutableMethod.implementation!!.instructions.indexOfFirst { it.opcode == Opcode.INVOKE_DIRECT }
             val toBePatchedMethod =
-                data.toMethodWalker(requiredMethod.immutableMethod).walk(toBePatchedInvokeOffset, true)
+                data.toMethodWalker(requiredMethod.immutableMethod).nextMethod(toBePatchedInvokeOffset, true)
                     .getMethod() as MutableMethod
 
             val implementation = toBePatchedMethod.implementation!!
             val invokeVirtualOffset = implementation.instructions.indexOfFirst { it.opcode == Opcode.INVOKE_VIRTUAL }
 
             val moveResultInstruction = implementation.instructions[invokeVirtualOffset + 1]
-            if (moveResultInstruction.opcode != Opcode.MOVE_RESULT_OBJECT) return PatchResultError("The toBePatchedInvokeOffset offset was wrong in ${(this::class.annotations.find { it is Name } as Name).name}")
+            if (moveResultInstruction.opcode != Opcode.MOVE_RESULT_OBJECT) return PatchResultError("The toBePatchedInvokeOffset offset was wrong in ${this.javaClass.patchName}")
 
             val register = (moveResultInstruction as Instruction11x).registerA
             implementation.injectHideCall(invokeVirtualOffset + 2, register)

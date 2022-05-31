@@ -12,9 +12,10 @@ import app.revanced.patcher.util.smali.toInstruction
 import app.revanced.patches.youtube.layout.shorts.button.annotations.ShortsButtonCompatibility
 import app.revanced.patches.youtube.layout.shorts.button.signatures.PivotBarButtonTabenumSignature
 import app.revanced.patches.youtube.layout.shorts.button.signatures.PivotBarButtonsViewSignature
+import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import org.jf.dexlib2.iface.instruction.formats.Instruction11x
 
-@Patch
+@Patch(dependencies = [IntegrationsPatch::class])
 @Name("shorts-button")
 @Description("Hide the shorts button.")
 @ShortsButtonCompatibility

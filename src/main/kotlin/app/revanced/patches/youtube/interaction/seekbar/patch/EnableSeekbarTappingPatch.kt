@@ -14,6 +14,7 @@ import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.youtube.interaction.seekbar.annotation.SeekbarTappingCompatibility
 import app.revanced.patches.youtube.interaction.seekbar.signatures.SeekbarTappingParentSignature
 import app.revanced.patches.youtube.interaction.seekbar.signatures.SeekbarTappingSignature
+import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
 import org.jf.dexlib2.iface.Method
@@ -21,7 +22,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction11n
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
 
-@Patch
+@Patch(dependencies = [IntegrationsPatch::class])
 @Name("seekbar-tapping")
 @Description("Enable tapping on the seekbar of the YouTube player.")
 @SeekbarTappingCompatibility

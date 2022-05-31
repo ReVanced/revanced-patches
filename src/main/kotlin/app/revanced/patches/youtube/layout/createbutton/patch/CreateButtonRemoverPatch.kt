@@ -12,10 +12,11 @@ import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
 import app.revanced.patcher.util.smali.toInstruction
 import app.revanced.patches.youtube.layout.createbutton.annotations.CreateButtonCompatibility
 import app.revanced.patches.youtube.layout.createbutton.signatures.CreateButtonSignature
+import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
-@Patch
+@Patch(dependencies = [IntegrationsPatch::class])
 @Name("disable-create-button")
 @Description("Disable the create button.")
 @CreateButtonCompatibility

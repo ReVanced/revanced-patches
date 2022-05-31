@@ -17,11 +17,12 @@ import app.revanced.patcher.signature.implementation.method.annotation.MatchingM
 import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.youtube.layout.oldqualitylayout.annotations.OldQualityLayoutCompatibility
 import app.revanced.patches.youtube.layout.oldqualitylayout.signatures.OldQualityParentSignature
+import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
 
-@Patch
+@Patch(dependencies = [IntegrationsPatch::class])
 @Name("old-quality-layout")
 @Description("Enable the original quality flyout menu.")
 @OldQualityLayoutCompatibility

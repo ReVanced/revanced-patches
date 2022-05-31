@@ -17,9 +17,10 @@ import app.revanced.patcher.signature.implementation.method.annotation.MatchingM
 import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.youtube.ad.video.annotations.VideoAdsCompatibility
 import app.revanced.patches.youtube.ad.video.signatures.ShowVideoAdsConstructorSignature
+import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import org.jf.dexlib2.AccessFlags
 
-@Patch
+@Patch(dependencies = [IntegrationsPatch::class])
 @Name("video-ads")
 @Description("Patch to remove ads in the YouTube video player.")
 @VideoAdsCompatibility
@@ -36,7 +37,6 @@ class VideoAdsPatch : BytecodePatch(
             ) @DirectPatternScanMethod @VideoAdsCompatibility @Version("0.0.1") object : MethodSignature(
                 "V", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf("Z"), null
             ) {}) ?: return PatchResultError("Required parent method could not be found.")
-
 
         // Override the parameter by calling shouldShowAds and setting the parameter to the result
         result.method.implementation!!.addInstructions(
