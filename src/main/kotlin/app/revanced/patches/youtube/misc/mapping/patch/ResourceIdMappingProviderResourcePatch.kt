@@ -11,7 +11,7 @@ import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
 import org.w3c.dom.Element
 
 @Name("resource-id-mapping-provider-resource-patch-dependency")
-@Description("This patch works as a acts as a provider for resources mapped to their ids.")
+@Description("This patch acts as a provider/ dependency for resource mappings.")
 @Version("0.0.1")
 class ResourceIdMappingProviderResourcePatch : ResourcePatch() {
     companion object {
