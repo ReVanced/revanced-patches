@@ -6,6 +6,7 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.implementation.BytecodeData
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.or
+import app.revanced.patcher.patch.annotations.Dependencies
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.implementation.BytecodePatch
 import app.revanced.patcher.patch.implementation.misc.PatchResult
@@ -20,7 +21,8 @@ import app.revanced.patches.youtube.ad.video.signatures.ShowVideoAdsConstructorS
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import org.jf.dexlib2.AccessFlags
 
-@Patch(dependencies = [IntegrationsPatch::class])
+@Patch
+@Dependencies(dependencies = [IntegrationsPatch::class])
 @Name("video-ads")
 @Description("Patch to remove ads in the YouTube video player.")
 @VideoAdsCompatibility

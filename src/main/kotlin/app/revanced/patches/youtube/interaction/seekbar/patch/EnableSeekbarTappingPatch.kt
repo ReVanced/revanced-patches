@@ -5,6 +5,7 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.implementation.BytecodeData
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.patch.annotations.Dependencies
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.implementation.BytecodePatch
 import app.revanced.patcher.patch.implementation.misc.PatchResult
@@ -21,8 +22,8 @@ import org.jf.dexlib2.iface.Method
 import org.jf.dexlib2.iface.instruction.formats.Instruction11n
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
-
-@Patch(dependencies = [IntegrationsPatch::class])
+@Patch
+@Dependencies(dependencies = [IntegrationsPatch::class])
 @Name("seekbar-tapping")
 @Description("Enable tapping on the seekbar of the YouTube player.")
 @SeekbarTappingCompatibility

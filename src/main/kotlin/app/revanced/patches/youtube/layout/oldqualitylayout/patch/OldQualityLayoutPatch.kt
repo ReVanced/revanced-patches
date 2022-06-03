@@ -6,6 +6,7 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.implementation.BytecodeData
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.or
+import app.revanced.patcher.patch.annotations.Dependencies
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.implementation.BytecodePatch
 import app.revanced.patcher.patch.implementation.misc.PatchResult
@@ -22,7 +23,8 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
 
-@Patch(dependencies = [IntegrationsPatch::class])
+@Patch
+@Dependencies(dependencies = [IntegrationsPatch::class])
 @Name("old-quality-layout")
 @Description("Enable the original quality flyout menu.")
 @OldQualityLayoutCompatibility

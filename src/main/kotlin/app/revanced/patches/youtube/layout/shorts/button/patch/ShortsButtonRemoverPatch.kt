@@ -4,6 +4,7 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.implementation.BytecodeData
+import app.revanced.patcher.patch.annotations.Dependencies
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.implementation.BytecodePatch
 import app.revanced.patcher.patch.implementation.misc.PatchResult
@@ -15,7 +16,8 @@ import app.revanced.patches.youtube.layout.shorts.button.signatures.PivotBarButt
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import org.jf.dexlib2.iface.instruction.formats.Instruction11x
 
-@Patch(dependencies = [IntegrationsPatch::class])
+@Patch
+@Dependencies(dependencies = [IntegrationsPatch::class])
 @Name("shorts-button")
 @Description("Hide the shorts button.")
 @ShortsButtonCompatibility
