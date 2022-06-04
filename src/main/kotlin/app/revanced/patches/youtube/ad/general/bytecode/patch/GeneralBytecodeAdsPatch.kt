@@ -7,8 +7,6 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.implementation.BytecodeData
 import app.revanced.patcher.data.implementation.proxy
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.extensions.softCompareTo
 import app.revanced.patcher.patch.annotations.Dependencies
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.implementation.BytecodePatch
@@ -17,20 +15,20 @@ import app.revanced.patcher.patch.implementation.misc.PatchResultError
 import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.youtube.ad.general.annotation.GeneralAdsCompatibility
+import app.revanced.patches.youtube.ad.general.bytecode.extensions.MethodExtensions.addMethod
+import app.revanced.patches.youtube.ad.general.bytecode.extensions.MethodExtensions.findMutableMethodOf
+import app.revanced.patches.youtube.ad.general.bytecode.extensions.MethodExtensions.insertBlocks
+import app.revanced.patches.youtube.ad.general.bytecode.extensions.MethodExtensions.toDescriptor
+import app.revanced.patches.youtube.ad.general.bytecode.utils.MethodUtils.createMutableMethod
 import app.revanced.patches.youtube.ad.general.resource.patch.GeneralResourceAdsPatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.mapping.patch.ResourceIdMappingProviderResourcePatch
-import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.builder.BuilderInstruction
 import org.jf.dexlib2.builder.MutableMethodImplementation
 import org.jf.dexlib2.builder.instruction.*
-import org.jf.dexlib2.iface.Method
 import org.jf.dexlib2.iface.MethodImplementation
-import org.jf.dexlib2.iface.instruction.Instruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 import org.jf.dexlib2.iface.instruction.formats.Instruction22c
@@ -38,10 +36,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 import org.jf.dexlib2.iface.reference.FieldReference
 import org.jf.dexlib2.iface.reference.MethodReference
-import org.jf.dexlib2.iface.reference.Reference
 import org.jf.dexlib2.iface.reference.StringReference
-import org.jf.dexlib2.immutable.ImmutableMethod
-import org.jf.dexlib2.immutable.ImmutableMethodParameter
 import org.jf.dexlib2.immutable.reference.ImmutableMethodReference
 
 @Patch
@@ -431,61 +426,5 @@ class GeneralBytecodeAdsPatch : BytecodePatch(
             descriptors[0].split("->")[0], // a bit weird to get the type this way,
             getTemplateNameImplementation
         )
-    }
-
-    private fun MutableMethodImplementation.insertBlocks(
-        startIndex: Int,
-        vararg blocks: List<BuilderInstruction>,
-    ) {
-        blocks.reversed().forEach {
-            this.addInstructions(
-                startIndex, it
-            )
-        }
-    }
-
-    private fun MutableClass.addMethod(mutableMethod: MutableMethod) {
-        this.methods.add(mutableMethod)
-    }
-
-    private fun createMutableMethod(
-        definingClass: String, name: String, returnType: String, parameter: String, implementation: MethodImplementation
-    ) = ImmutableMethod(
-        definingClass, name, listOf(
-            ImmutableMethodParameter(
-                parameter, null, null
-            )
-        ), returnType, AccessFlags.PRIVATE or AccessFlags.STATIC, null, null, implementation
-    ).toMutable()
-
-    private fun MutableClass.findMutableMethodOf(
-        method: Method
-    ) = this.methods.first {
-        it.softCompareTo(
-            ImmutableMethodReference(
-                method.definingClass, method.name, method.parameters, method.returnType
-            )
-        )
-    }
-
-    private inline fun <reified T : Reference> Instruction.toDescriptor(): String {
-        val reference = (this as ReferenceInstruction).reference
-        return when (T::class) {
-            MethodReference::class -> {
-                val methodReference = reference as MethodReference
-                "${methodReference.definingClass}->${methodReference.name}(${
-                    methodReference.parameterTypes.joinToString(
-                        ""
-                    ) { it }
-                })${methodReference.returnType}"
-            }
-
-            FieldReference::class -> {
-                val fieldReference = reference as FieldReference
-                "${fieldReference.definingClass}->${fieldReference.name}:${fieldReference.type}"
-            }
-
-            else -> throw PatchResultError("Unsupported reference type")
-        }
     }
 }
