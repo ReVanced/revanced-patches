@@ -1,3 +1,16 @@
+# [1.0.0-dev.14](https://github.com/revanced/revanced-patches/compare/v1.0.0-dev.13...v1.0.0-dev.14) (2022-06-04)
+
+
+### Bug Fixes
+
+* spelling mistake ([52f9147](https://github.com/revanced/revanced-patches/commit/52f9147ee8d591f786397d174dc02a141d9250a9))
+
+
+### Features
+
+* `Dependencies` annotation ([85806bb](https://github.com/revanced/revanced-patches/commit/85806bb355e342ecb33d4ee1e76f9edf89b2c2ee))
+* `GeneralBytecodeAds` and `GeneralResourceAds` patch ([f99bbef](https://github.com/revanced/revanced-patches/commit/f99bbef4c911ac2492166c7a3792ea11ffceffab))
+
 # [1.0.0-dev.13](https://github.com/revanced/revanced-patches/compare/v1.0.0-dev.12...v1.0.0-dev.13) (2022-05-31)
 
 
