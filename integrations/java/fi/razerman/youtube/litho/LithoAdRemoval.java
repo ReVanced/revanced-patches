@@ -34,6 +34,10 @@ public class LithoAdRemoval {
         return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_compact_banner", false);
     }
 
+    public static boolean isExperimentalAppPromoBannerRemoval() {
+        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_app_promo_banner", false);
+    }
+
     public static boolean isExperimentalCommentsRemoval() {
         return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_comments", false);
     }
@@ -59,7 +63,7 @@ public class LithoAdRemoval {
     }
 
     public static boolean containsAd(String value) {
-        if (!(isExperimentalAdRemoval() || isExperimentalMerchandiseRemoval() || isExperimentalCommunityPostRemoval() || isExperimentalMovieUpsellRemoval() || isExperimentalCompactBannerRemoval() || isExperimentalCommentsRemoval() || isExperimentalCompactMovieRemoval() || isExperimentalHorizontalMovieShelfRemoval() || isInFeedSurvey() || isShortsShelf() || isCommunityGuidelines()) || value == null || value.isEmpty()) {
+        if (!(isExperimentalAdRemoval() || isExperimentalMerchandiseRemoval() || isExperimentalAppPromoBannerRemoval() || isExperimentalCommunityPostRemoval() || isExperimentalMovieUpsellRemoval() || isExperimentalCompactBannerRemoval() || isExperimentalCommentsRemoval() || isExperimentalCompactMovieRemoval() || isExperimentalHorizontalMovieShelfRemoval() || isInFeedSurvey() || isShortsShelf() || isCommunityGuidelines()) || value == null || value.isEmpty()) {
             return false;
         }
         List<String> blockList = new ArrayList<>();
@@ -75,6 +79,9 @@ public class LithoAdRemoval {
         }
         if (isExperimentalMovieUpsellRemoval()) {
             blockList.add("movie_and_show_upsell_card");
+        }
+        if (isExperimentalAppPromoBannerRemoval()) {
+            blockList.add("watch_metadata_app_promo");
         }
         if (isExperimentalCompactBannerRemoval()) {
             blockList.add("compact_banner");
@@ -114,7 +121,7 @@ public class LithoAdRemoval {
 
     public static boolean containsAd(String value, ByteBuffer buffer) {
         try {
-            if (!(isExperimentalAdRemoval() || isExperimentalMerchandiseRemoval() || isExperimentalCommunityPostRemoval() || isExperimentalMovieUpsellRemoval() || isExperimentalCompactBannerRemoval() || isExperimentalCommentsRemoval() || isExperimentalCompactMovieRemoval() || isExperimentalHorizontalMovieShelfRemoval() || isInFeedSurvey() || isShortsShelf() || isCommunityGuidelines()) || value == null || value.isEmpty()) {
+            if (!(isExperimentalAdRemoval() || isExperimentalMerchandiseRemoval() || isExperimentalAppPromoBannerRemoval() || isExperimentalCommunityPostRemoval() || isExperimentalMovieUpsellRemoval() || isExperimentalCompactBannerRemoval() || isExperimentalCommentsRemoval() || isExperimentalCompactMovieRemoval() || isExperimentalHorizontalMovieShelfRemoval() || isInFeedSurvey() || isShortsShelf() || isCommunityGuidelines()) || value == null || value.isEmpty()) {
                 return false;
             }
             List<String> blockList = new ArrayList<>();
@@ -131,6 +138,9 @@ public class LithoAdRemoval {
             }
             if (isExperimentalMovieUpsellRemoval()) {
                 blockList.add("movie_and_show_upsell_card");
+            }
+            if (isExperimentalAppPromoBannerRemoval()) {
+                blockList.add("watch_metadata_app_promo");
             }
             if (isExperimentalCompactBannerRemoval()) {
                 blockList.add("compact_banner");
