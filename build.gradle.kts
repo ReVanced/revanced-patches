@@ -25,7 +25,7 @@ repositories {
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.21")
 
-    implementation("app.revanced:revanced-patcher:1.0.0-dev.17")
+    implementation("app.revanced:revanced-patcher:1.0.0-dev.18")
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.21")
 }
 
