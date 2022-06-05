@@ -11,7 +11,7 @@ import app.revanced.patcher.util.smali.toInstruction
 import app.revanced.patches.youtube.layout.reels.annotations.HideReelsCompatibility
 import app.revanced.patches.youtube.layout.reels.signatures.HideReelsSignature
 
-//@Patch TODO: converted to litho
+//@Patch TODO: this is currently in the general-bytecode-ads patch due to the integrations having a preference for including reels or not. Move it here.
 @Name("hide-reels")
 @Description("Hide reels on the page.")
 @HideReelsCompatibility
