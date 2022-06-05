@@ -1,3 +1,10 @@
+# [1.0.0-dev.15](https://github.com/revanced/revanced-patches/compare/v1.0.0-dev.14...v1.0.0-dev.15) (2022-06-05)
+
+
+### Bug Fixes
+
+* remove unused patches ([d12e92a](https://github.com/revanced/revanced-patches/commit/d12e92aead677fefa9dcb48748d783225b65fab1))
+
 # [1.0.0-dev.14](https://github.com/revanced/revanced-patches/compare/v1.0.0-dev.13...v1.0.0-dev.14) (2022-06-04)
 
 
