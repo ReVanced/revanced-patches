@@ -14,12 +14,24 @@ public class LithoAdRemoval {
     private static final byte[] endRelatedPageAd = {112, 97, 103, 101, 97, 100};
     private static final char[] hexArray = "0123456789ABCDEF".toCharArray();
 
+    private static boolean isExperimentalInfoPanelRemoval() {
+        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_info_panel", true);
+    }
+
+    private static boolean isExperimentalMedicalPanelRemoval() {
+        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_medical_panel", true);
+    }
+
+    private static boolean isExperimentalEmergencyBoxRemoval() {
+        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_emergency_box", true);
+    }
+
     public static boolean isExperimentalAdRemoval() {
         return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_ad_removal", true);
     }
 
     public static boolean isExperimentalMerchandiseRemoval() {
-        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_merchandise", false);
+        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_merchandise", true);
     }
 
     public static boolean isExperimentalCommunityPostRemoval() {
@@ -34,8 +46,8 @@ public class LithoAdRemoval {
         return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_compact_banner", false);
     }
 
-    public static boolean isExperimentalAppPromoBannerRemoval() {
-        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_app_promo_banner", false);
+    public static boolean isExperimentalPaidContentRemoval() {
+        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_paid_content", true);
     }
 
     public static boolean isExperimentalCommentsRemoval() {
@@ -55,16 +67,16 @@ public class LithoAdRemoval {
     }
 
     public static boolean isShortsShelf() {
-        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_shorts_shelf", false);
+        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_shorts_shelf", true);
     }
 
     public static boolean isCommunityGuidelines() {
-        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_community_guidelines", false);
+        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_community_guidelines", true);
     }
 
     public static boolean containsAd(String value, ByteBuffer buffer) {
         try {
-            if (!(isExperimentalAdRemoval() || isExperimentalMerchandiseRemoval() || isExperimentalAppPromoBannerRemoval() || isExperimentalCommunityPostRemoval() || isExperimentalMovieUpsellRemoval() || isExperimentalCompactBannerRemoval() || isExperimentalCommentsRemoval() || isExperimentalCompactMovieRemoval() || isExperimentalHorizontalMovieShelfRemoval() || isInFeedSurvey() || isShortsShelf() || isCommunityGuidelines()) || value == null || value.isEmpty()) {
+            if (!(isExperimentalAdRemoval() || isExperimentalMerchandiseRemoval() || isExperimentalPaidContentRemoval() || isExperimentalCommunityPostRemoval() || isExperimentalMovieUpsellRemoval() || isExperimentalCompactBannerRemoval() || isExperimentalCommentsRemoval() || isExperimentalCompactMovieRemoval() || isExperimentalHorizontalMovieShelfRemoval() || isInFeedSurvey() || isShortsShelf() || isCommunityGuidelines()) || value == null || value.isEmpty()) {
                 return false;
             }
             List<String> blockList = new ArrayList<>();
@@ -72,6 +84,10 @@ public class LithoAdRemoval {
                 blockList.add("_ad");
                 blockList.add("ad_badge");
                 blockList.add("ads_video_with_context");
+                blockList.add("text_search_ad_with_description_first");
+                blockList.add("shelf_header");
+                blockList.add("cell_divider");
+                blockList.add("watch_metadata_app_promo");
             }
             if (isExperimentalMerchandiseRemoval()) {
                 blockList.add("product_carousel");
@@ -82,8 +98,17 @@ public class LithoAdRemoval {
             if (isExperimentalMovieUpsellRemoval()) {
                 blockList.add("movie_and_show_upsell_card");
             }
-            if (isExperimentalAppPromoBannerRemoval()) {
-                blockList.add("watch_metadata_app_promo");
+            if (isExperimentalPaidContentRemoval()) {
+                blockList.add("paid_content_overlay");
+            }
+            if (isExperimentalEmergencyBoxRemoval()) {
+                blockList.add("emergency_onebox");
+            }
+            if (isExperimentalMedicalPanelRemoval()) {
+                blockList.add("medical_panel");
+            }
+            if (isExperimentalInfoPanelRemoval()) {
+                blockList.add("single_item_information_panel");
             }
             if (isExperimentalCompactBannerRemoval()) {
                 blockList.add("compact_banner");
@@ -134,7 +159,6 @@ public class LithoAdRemoval {
             return false;
         }
     }
-
 
     public static int indexOf(byte[] array, byte[] target) {
         if (target.length == 0) {
