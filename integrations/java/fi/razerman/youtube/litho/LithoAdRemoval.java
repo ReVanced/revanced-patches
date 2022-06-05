@@ -62,63 +62,6 @@ public class LithoAdRemoval {
         return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_community_guidelines", false);
     }
 
-    public static boolean containsAd(String value) {
-        if (!(isExperimentalAdRemoval() || isExperimentalMerchandiseRemoval() || isExperimentalAppPromoBannerRemoval() || isExperimentalCommunityPostRemoval() || isExperimentalMovieUpsellRemoval() || isExperimentalCompactBannerRemoval() || isExperimentalCommentsRemoval() || isExperimentalCompactMovieRemoval() || isExperimentalHorizontalMovieShelfRemoval() || isInFeedSurvey() || isShortsShelf() || isCommunityGuidelines()) || value == null || value.isEmpty()) {
-            return false;
-        }
-        List<String> blockList = new ArrayList<>();
-        if (isExperimentalAdRemoval()) {
-            blockList.add("_ad");
-            blockList.add("ad_badge");
-        }
-        if (isExperimentalMerchandiseRemoval()) {
-            blockList.add("product_carousel");
-        }
-        if (isExperimentalCommunityPostRemoval()) {
-            blockList.add("post_base_wrapper");
-        }
-        if (isExperimentalMovieUpsellRemoval()) {
-            blockList.add("movie_and_show_upsell_card");
-        }
-        if (isExperimentalAppPromoBannerRemoval()) {
-            blockList.add("watch_metadata_app_promo");
-        }
-        if (isExperimentalCompactBannerRemoval()) {
-            blockList.add("compact_banner");
-        }
-        if (isExperimentalCommentsRemoval()) {
-            blockList.add("comments_composite_entry_point");
-        }
-        if (isExperimentalCompactMovieRemoval()) {
-            blockList.add("compact_movie");
-        }
-        if (isExperimentalHorizontalMovieShelfRemoval()) {
-            blockList.add("horizontal_movie_shelf");
-        }
-        if (isInFeedSurvey()) {
-            blockList.add("in_feed_survey");
-        }
-        if (isShortsShelf()) {
-            blockList.add("shorts_shelf");
-        }
-        if (isCommunityGuidelines()) {
-            blockList.add("community_guidelines");
-        }
-        for (String s : blockList) {
-            if (value.contains(s)) {
-                if (XGlobals.debug) {
-                    Log.d("TemplateBlocked", value);
-                }
-                return true;
-            }
-        }
-        if (!XGlobals.debug) {
-            return false;
-        }
-        Log.d("Template", value);
-        return false;
-    }
-
     public static boolean containsAd(String value, ByteBuffer buffer) {
         try {
             if (!(isExperimentalAdRemoval() || isExperimentalMerchandiseRemoval() || isExperimentalAppPromoBannerRemoval() || isExperimentalCommunityPostRemoval() || isExperimentalMovieUpsellRemoval() || isExperimentalCompactBannerRemoval() || isExperimentalCommentsRemoval() || isExperimentalCompactMovieRemoval() || isExperimentalHorizontalMovieShelfRemoval() || isInFeedSurvey() || isShortsShelf() || isCommunityGuidelines()) || value == null || value.isEmpty()) {
