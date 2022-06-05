@@ -1,77 +1,82 @@
 package fi.razerman.youtube.litho;
 
 import android.util.Log;
+
 import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
-import fi.razerman.youtube.Helpers.SharedPrefs;
-import fi.razerman.youtube.XGlobals;
+
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/* loaded from: classes6.dex */
+import fi.razerman.youtube.Helpers.SharedPrefs;
+import fi.razerman.youtube.XGlobals;
+
 public class LithoAdRemoval {
     private static final byte[] endRelatedPageAd = {112, 97, 103, 101, 97, 100};
-    private static final char[] hexArray = "0123456789ABCDEF".toCharArray();
+
+    private static boolean getBoolean(String key, boolean _default) {
+        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), key, _default);
+    }
 
     private static boolean isExperimentalInfoPanelRemoval() {
-        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_info_panel", true);
+        return getBoolean("experimental_info_panel", true);
     }
 
     private static boolean isExperimentalMedicalPanelRemoval() {
-        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_medical_panel", true);
+        return getBoolean("experimental_medical_panel", true);
     }
 
     private static boolean isExperimentalEmergencyBoxRemoval() {
-        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_emergency_box", true);
+        return getBoolean("experimental_emergency_box", true);
     }
 
     public static boolean isExperimentalAdRemoval() {
-        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_ad_removal", true);
+        return getBoolean("experimental_ad_removal", true);
     }
 
     public static boolean isExperimentalMerchandiseRemoval() {
-        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_merchandise", true);
+        return getBoolean("experimental_merchandise", true);
     }
 
     public static boolean isExperimentalCommunityPostRemoval() {
-        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_community_posts", false);
+        return getBoolean("experimental_community_posts", false);
     }
 
     public static boolean isExperimentalMovieUpsellRemoval() {
-        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_movie_upsell", false);
+        return getBoolean("experimental_movie_upsell", false);
     }
 
     public static boolean isExperimentalCompactBannerRemoval() {
-        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_compact_banner", false);
+        return getBoolean("experimental_compact_banner", false);
     }
 
     public static boolean isExperimentalPaidContentRemoval() {
-        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_paid_content", true);
+        return getBoolean("experimental_paid_content", true);
     }
 
     public static boolean isExperimentalCommentsRemoval() {
-        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_comments", false);
+        return getBoolean("experimental_comments", false);
     }
 
     public static boolean isExperimentalCompactMovieRemoval() {
-        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_compact_movie", false);
+        return getBoolean("experimental_compact_movie", false);
     }
 
     public static boolean isExperimentalHorizontalMovieShelfRemoval() {
-        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_horizontal_movie_shelf", false);
+        return getBoolean("experimental_horizontal_movie_shelf", false);
     }
 
     public static boolean isInFeedSurvey() {
-        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_in_feed_survey", false);
+        return getBoolean("experimental_in_feed_survey", false);
     }
 
     public static boolean isShortsShelf() {
-        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_shorts_shelf", true);
+        return getBoolean("experimental_shorts_shelf", true);
     }
 
     public static boolean isCommunityGuidelines() {
-        return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "experimental_community_guidelines", true);
+        return getBoolean("experimental_community_guidelines", true);
     }
 
     public static boolean containsAd(String value, ByteBuffer buffer) {
@@ -168,7 +173,7 @@ public class LithoAdRemoval {
         for (int i = 0; i < array.length - target.length + 1; i++) {
             boolean targetFound = true;
             for (int j = 0; j < target.length; j++) {
-                if (array[i+j] != target[j]) {
+                if (array[i + j] != target[j]) {
                     targetFound = false;
                     break;
                 }
@@ -181,12 +186,9 @@ public class LithoAdRemoval {
     }
 
     private static String bytesToHex(byte[] bytes) {
-        char[] hexChars = new char[bytes.length * 2];
-        for (int j = 0; j < bytes.length; j++) {
-            int v = bytes[j] & 255;
-            hexChars[j * 2] = hexArray[v >>> 4];
-            hexChars[(j * 2) + 1] = hexArray[v & 15];
-        }
-        return new String(hexChars);
+        StringBuilder builder = new StringBuilder(bytes.length * 2);
+        for (byte b : bytes)
+            builder.append(String.format("%02x", b));
+        return builder.toString();
     }
 }

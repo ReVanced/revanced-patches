@@ -6,7 +6,6 @@ import java.util.Objects;
 
 import fi.razerman.youtube.Helpers.SharedPrefs;
 
-/* loaded from: classes6.dex */
 public class BooleanPreferences {
     public static boolean isTapSeekingEnabled() {
         return SharedPrefs.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), "xfile_enable_tap_seeking", true);
