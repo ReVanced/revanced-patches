@@ -1,3 +1,10 @@
+# [1.0.0-dev.16](https://github.com/revanced/revanced-patches/compare/v1.0.0-dev.15...v1.0.0-dev.16) (2022-06-05)
+
+
+### Features
+
+* add patches compatibility to the newest version ([799401d](https://github.com/revanced/revanced-patches/commit/799401ddf99da0aaa5f52c39d3d3d4061370fd75))
+
 # [1.0.0-dev.15](https://github.com/revanced/revanced-patches/compare/v1.0.0-dev.14...v1.0.0-dev.15) (2022-06-05)
 
 
