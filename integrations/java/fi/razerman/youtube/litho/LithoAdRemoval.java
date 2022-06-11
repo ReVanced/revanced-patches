@@ -164,10 +164,7 @@ public class LithoAdRemoval {
                     "-count",
                     "-space",
                     "-button"
-            )) {
-                if (XGlobals.debug) Log.d("TemplateBlocked", value);
-                return true;
-            }
+            )) return false;
 
             if (blockList.stream().anyMatch(value::contains)) {
                 if (XGlobals.debug) Log.d("TemplateBlocked", value);
