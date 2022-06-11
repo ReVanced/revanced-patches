@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/revanced/revanced-patches/compare/v1.1.0...v1.2.0) (2022-06-11)
+
+
+### Bug Fixes
+
+* migrate to `include` annotation ([110bbf1](https://github.com/revanced/revanced-patches/commit/110bbf143a9cec8dce1f0416cff40f8d93055e96))
+
+
+### Features
+
+* `microg-patch` ([48bbd57](https://github.com/revanced/revanced-patches/commit/48bbd574a52c8bf6834b26facfe7384b830f944a))
+* updated all patches to support v17.22.36 of `com.android.google.youtube` ([e12dc11](https://github.com/revanced/revanced-patches/commit/e12dc11b670c2b0c414741616e0a646e8421e418))
+
 # [1.1.0](https://github.com/revanced/revanced-patches/compare/v1.0.0...v1.1.0) (2022-06-11)
 
 
