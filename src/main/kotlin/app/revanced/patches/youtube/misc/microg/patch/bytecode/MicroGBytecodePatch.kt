@@ -1,24 +1,22 @@
 package app.revanced.patches.youtube.misc.microg.patch.bytecode
 
-import app.revanced.extensions.containsAny
-import app.revanced.extensions.startsWithAny
+import app.revanced.extensions.equalsAny
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.implementation.BytecodeData
 import app.revanced.patcher.data.implementation.proxy
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.or
+import app.revanced.patcher.patch.annotations.Dependencies
+import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.implementation.BytecodePatch
 import app.revanced.patcher.patch.implementation.misc.PatchResult
 import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
-import app.revanced.patcher.signature.implementation.method.MethodSignature
-import app.revanced.patcher.signature.implementation.method.annotation.DirectPatternScanMethod
-import app.revanced.patcher.signature.implementation.method.annotation.MatchingMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.smali.toInstruction
 import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.youtube.misc.microg.annotations.MicroGPatchCompatibility
+import app.revanced.patches.youtube.misc.microg.patch.resource.MicroGResourcePatch
 import app.revanced.patches.youtube.misc.microg.patch.resource.enum.StringReplaceMode
 import app.revanced.patches.youtube.misc.microg.shared.Constants.BASE_MICROG_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.microg.shared.Constants.REVANCED_PACKAGE_NAME
@@ -26,7 +24,6 @@ import app.revanced.patches.youtube.misc.microg.signatures.GooglePlayUtilitySign
 import app.revanced.patches.youtube.misc.microg.signatures.IntegrityCheckSignature
 import app.revanced.patches.youtube.misc.microg.signatures.PrimeSignature
 import app.revanced.patches.youtube.misc.microg.signatures.ServiceCheckSignature
-import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.MutableMethodImplementation
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
@@ -34,8 +31,9 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 import org.jf.dexlib2.iface.reference.StringReference
 import org.jf.dexlib2.immutable.reference.ImmutableStringReference
 
-// @Patch TODO: finish patch
-@Name("microg-bytecode-patch")
+@Patch(include = false)
+@Dependencies(dependencies = [MicroGResourcePatch::class])
+@Name("microg-patch")
 @Description("Patch to allow YouTube ReVanced to run without root and under a different package name.")
 @MicroGPatchCompatibility
 @Version("0.0.1")
@@ -59,30 +57,33 @@ class MicroGBytecodePatch : BytecodePatch(
 
                     val stringValue = ((instruction as Instruction21c).reference as StringReference).string
 
-                    val replaceMode =
-                        if (stringValue == "com.google" || stringValue == "com.google.android.gms" ||
-                            stringValue.startsWithAny(
-                                "com.google.iid",
-                                "com.google.android.gms.chimera",
-                                "com.google.android.c2dm",
-                            ) || stringValue.containsAny(
-                                "com.google.android.gms.auth.accounts",
-                                "com.google.android.gsf",
-                                "content://com.google.settings"
-                            )
-                        ) {
-                            StringReplaceMode.REPLACE_WITH_MICROG
-                        } else if (stringValue.startsWith("com.google.android.gms.chimera.container")) // https://github.com/TeamVanced/VancedMicroG/pull/139/file
-                            StringReplaceMode.DO_NOT_REPLACE
-                        else if (stringValue.startsWithAny(
-                                "com.google.android.youtube.SuggestionsProvider",
-                                "com.google.android.youtube.fileprovider"
-                            )
-                        ) {
-                            StringReplaceMode.REPLACE_WITH_REVANCED
-                        } else {
-                            StringReplaceMode.DO_NOT_REPLACE
-                        }
+                    val replaceMode = if (stringValue.equalsAny(
+                            "com.google.android.gms",
+                            "com.google.android.youtube.fileprovider",
+                            "com.google.android.c2dm.intent.REGISTER",
+                            "com.google.android.c2dm.permission.SEND",
+                            "com.google.iid.TOKEN_REQUEST",
+                            "com.google",
+                            "com.google.android.gms.auth.accounts",
+                            "com.google.android.youtube.SuggestionProvider",
+                            "com.google.android.c2dm.intent.REGISTRATION",
+                            "com.google.android.gsf.action.GET_GLS",
+                            "com.google.android.gsf.login",
+                            "content://com.google.settings/partner",
+                            "content://com.google.android.gsf.gservices",
+                            "content://com.google.android.gsf.gservices/prefix",
+                            "com.google.android.c2dm.intent.RECEIVE"
+                        )
+                    ) {
+                        StringReplaceMode.REPLACE_WITH_MICROG
+                    } else if (stringValue.equalsAny(
+                            "com.google.android.youtube.SuggestionsProvider", "com.google.android.youtube.fileprovider"
+                        )
+                    ) {
+                        StringReplaceMode.REPLACE_WITH_REVANCED
+                    } else {
+                        StringReplaceMode.DO_NOT_REPLACE
+                    }
 
                     if (replaceMode != StringReplaceMode.DO_NOT_REPLACE) {
                         if (proxiedClass == null) {
@@ -109,20 +110,6 @@ class MicroGBytecodePatch : BytecodePatch(
                 }
             }
         }
-
-
-        // replace string back
-        val implementation =
-            signatures.elementAt(2).result!!.findParentMethod(@Name("do-not-replace-method") @MatchingMethod(
-                "Llpe;", "c"
-            ) @DirectPatternScanMethod @MicroGPatchCompatibility @Version("0.0.1") object : MethodSignature(
-                "L", AccessFlags.PUBLIC or AccessFlags.STATIC, listOf("L"), null, listOf("com.google.android.gms")
-            ) {})!!.method.implementation!!
-
-        implementation.replaceInstruction(
-            implementation.instructions.indexOfFirst { it.opcode == Opcode.CONST_STRING },
-            "const-string v0, \"com.google.android.gms\"".toInstruction()
-        )
 
         return PatchResultSuccess()
     }

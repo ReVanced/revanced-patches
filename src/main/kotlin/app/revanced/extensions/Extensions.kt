@@ -27,9 +27,9 @@ internal fun String.startsWithAny(vararg prefixes: String): Boolean {
     return false
 }
 
-internal fun String.containsAny(vararg others: String): Boolean {
-    for (other in others)
-        if (this.contains(other))
+internal fun String.equalsAny(vararg other: String): Boolean {
+    for (_other in other)
+        if (this == _other)
             return true
 
     return false
