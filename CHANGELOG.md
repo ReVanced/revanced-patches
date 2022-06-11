@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/revanced/revanced-patches/compare/v1.0.0...v1.1.0) (2022-06-11)
+
+
+### Features
+
+* generate & upload dex files ([#18](https://github.com/revanced/revanced-patches/issues/18)) ([e6f5355](https://github.com/revanced/revanced-patches/commit/e6f53553a98c164c4eb926fb273358ed506e00a4))
+
 # 1.0.0 (2022-06-05)
 
 
