@@ -19,9 +19,9 @@ internal fun Node.doRecursively(action: (Node) -> Unit) {
     for (i in 0 until this.childNodes.length) this.childNodes.item(i).doRecursively(action)
 }
 
-internal fun String.startsWithAny(vararg prefix: String): Boolean {
-    for (_prefix in prefix)
-        if (this.startsWith(_prefix))
+internal fun String.startsWithAny(vararg prefixes: String): Boolean {
+    for (prefix in prefixes)
+        if (this.startsWith(prefix))
             return true
 
     return false

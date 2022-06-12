@@ -26,6 +26,9 @@
         "assets": [
           {
             "path": "build/libs/*.jar"
+          },
+          {
+            "path": "bin/*.dex"
           }
         ]
       }
