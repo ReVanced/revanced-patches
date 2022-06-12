@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/revanced/revanced-patches/compare/v1.2.0...v1.2.1) (2022-06-12)
+
+
+### Performance Improvements
+
+* fix high battery consumption due to chromecast not working with `microg` ([dd8b01a](https://github.com/revanced/revanced-patches/commit/dd8b01a5c5d75b00ea4d04ce35bc43942c1b0409))
+
 # [1.2.0](https://github.com/revanced/revanced-patches/compare/v1.1.0...v1.2.0) (2022-06-11)
 
 
