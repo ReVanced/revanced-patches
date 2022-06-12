@@ -20,13 +20,11 @@ import app.revanced.patches.youtube.misc.microg.patch.resource.MicroGResourcePat
 import app.revanced.patches.youtube.misc.microg.patch.resource.enum.StringReplaceMode
 import app.revanced.patches.youtube.misc.microg.shared.Constants.BASE_MICROG_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.microg.shared.Constants.REVANCED_PACKAGE_NAME
-import app.revanced.patches.youtube.misc.microg.signatures.GooglePlayUtilitySignature
-import app.revanced.patches.youtube.misc.microg.signatures.IntegrityCheckSignature
-import app.revanced.patches.youtube.misc.microg.signatures.PrimeSignature
-import app.revanced.patches.youtube.misc.microg.signatures.ServiceCheckSignature
+import app.revanced.patches.youtube.misc.microg.signatures.*
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.MutableMethodImplementation
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
+import org.jf.dexlib2.builder.instruction.BuilderInstruction21s
 import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 import org.jf.dexlib2.iface.reference.StringReference
 import org.jf.dexlib2.immutable.reference.ImmutableStringReference
@@ -39,12 +37,17 @@ import org.jf.dexlib2.immutable.reference.ImmutableStringReference
 @Version("0.0.1")
 class MicroGBytecodePatch : BytecodePatch(
     listOf(
-        IntegrityCheckSignature, ServiceCheckSignature, GooglePlayUtilitySignature, PrimeSignature
+        IntegrityCheckSignature,
+        ServiceCheckSignature,
+        GooglePlayUtilitySignature,
+        CastDynamiteModuleSignature,
+        CastDynamiteModuleV2Signature,
+        CastContextFetchSignature,
+        PrimeSignature,
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        // smali patches
-        disablePlayServiceChecks()
+        disablePlayServiceChecksAndFixCastIssues()
         data.classes.forEach { classDef ->
             var proxiedClass: MutableClass? = null
 
@@ -52,6 +55,18 @@ class MicroGBytecodePatch : BytecodePatch(
                 val implementation = method.implementation ?: return@methodLoop
 
                 var proxiedImplementation: MutableMethodImplementation? = null
+
+                // disable cast button since it is unsupported by microg and causes battery issues
+                // the code is here instead of the fixCastIssues method because we do not need a signature this way
+                if (classDef.type.endsWith("MediaRouteButton;") && method.name == "setVisibility") {
+                    proxiedClass = data.proxy(classDef).resolve()
+                    proxiedImplementation = proxiedClass!!.methods.first { it.name == "setVisibility" }.implementation
+
+                    proxiedImplementation!!.replaceInstruction(
+                        0, BuilderInstruction21s(Opcode.CONST_16, 1, 8) // 8 == HIDDEN
+                    )
+                }
+
                 implementation.instructions.forEachIndexed { i, instruction ->
                     if (instruction.opcode != Opcode.CONST_STRING) return@forEachIndexed
 
@@ -111,10 +126,11 @@ class MicroGBytecodePatch : BytecodePatch(
             }
         }
 
+        signatures.last()
         return PatchResultSuccess()
     }
 
-    private fun disablePlayServiceChecks() {
+    private fun disablePlayServiceChecksAndFixCastIssues() {
         for (i in 0 until signatures.count() - 1) {
             val result = signatures.elementAt(i).result!!
             val stringInstructions = when (result.immutableMethod.returnType.first()) {
