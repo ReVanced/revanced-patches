@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/revanced/revanced-patches/compare/v1.2.1...v1.2.2) (2022-06-13)
+
+
+### Bug Fixes
+
+* environment variable not found in gradle build script ([0da15fb](https://github.com/revanced/revanced-patches/commit/0da15fb0effac0566d080d7b85e9fbe46c3dd34d))
+
 ## [1.2.1](https://github.com/revanced/revanced-patches/compare/v1.2.0...v1.2.1) (2022-06-12)
 
 
