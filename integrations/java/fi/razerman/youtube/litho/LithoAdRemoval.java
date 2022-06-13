@@ -101,6 +101,7 @@ public class LithoAdRemoval {
                 blockList.add("shelf_header");
                 blockList.add("cell_divider");
                 blockList.add("watch_metadata_app_promo");
+                blockList.add("reels_player_overlay");
 
                 bufferBlockList.add("ad_cpn");
             }
