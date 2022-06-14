@@ -31,7 +31,7 @@ import org.jf.dexlib2.immutable.reference.ImmutableStringReference
 
 @Patch(include = false)
 @Dependencies(dependencies = [MicroGResourcePatch::class])
-@Name("microg-patch")
+@Name("microg-support")
 @Description("Patch to allow YouTube ReVanced to run without root and under a different package name.")
 @MicroGPatchCompatibility
 @Version("0.0.1")
