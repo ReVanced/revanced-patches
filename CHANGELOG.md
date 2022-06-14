@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/revanced/revanced-patches/compare/v1.2.2...v1.3.0) (2022-06-14)
+
+
+### Features
+
+* `custom-branding` patch ([0d65ea8](https://github.com/revanced/revanced-patches/commit/0d65ea8cdb0e02287f6be6855cd3d28823a61e70))
+
 ## [1.2.2](https://github.com/revanced/revanced-patches/compare/v1.2.1...v1.2.2) (2022-06-13)
 
 
