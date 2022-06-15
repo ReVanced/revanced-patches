@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.branding.patch
+package app.revanced.patches.youtube.layout.branding.icon.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.implementation.ResourcePatch
 import app.revanced.patcher.patch.implementation.misc.PatchResult
 import app.revanced.patcher.patch.implementation.misc.PatchResultError
 import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
-import app.revanced.patches.youtube.layout.branding.annotations.CustomBrandingCompatibility
+import app.revanced.patches.youtube.layout.branding.icon.annotations.CustomBrandingCompatibility
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import java.nio.file.Files
 
@@ -35,18 +35,18 @@ class CustomBrandingPatch : ResourcePatch() {
         )
 
         mapOf(
-            "mipmap-xxxhdpi" to 192,
-            "mipmap-xxhdpi" to 144,
-            "mipmap-xhdpi" to 96,
-            "mipmap-hdpi" to 72,
-            "mipmap-mdpi" to 48
+            "xxxhdpi" to 192,
+            "xxhdpi" to 144,
+            "xhdpi" to 96,
+            "hdpi" to 72,
+            "mdpi" to 48
         ).forEach { (iconDirectory, size) ->
             iconNames.forEach iconLoop@{ iconName ->
                 val iconFile = this.javaClass.classLoader.getResourceAsStream("branding/$size/$iconName.png")
                     ?: return PatchResultError("The icon $iconName can not be found.")
 
                 Files.write(
-                    resDirectory.resolve(iconDirectory).resolve("$iconName.png").toPath(), iconFile.readAllBytes()
+                    resDirectory.resolve("mipmap-$iconDirectory").resolve("$iconName.png").toPath(), iconFile.readAllBytes()
                 )
             }
         }
