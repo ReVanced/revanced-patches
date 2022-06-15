@@ -139,7 +139,7 @@ public class XGlobals {
     public static Boolean suggestionsShown = true;
     public static Boolean infoCardsShown = true;
     public static Boolean brandingShown = true;
-    public static Boolean castButtonShown = true;
+    public static Boolean castButtonShown = false;
     public static Boolean tabletMiniplayer = false;
     public static Boolean commentsLocation = false;
     public static Boolean newActionBar = false;
@@ -173,7 +173,7 @@ public class XGlobals {
             suggestionsShown = Boolean.valueOf(sharedPreferences.getBoolean("info_card_suggestions_enabled", true));
             infoCardsShown = Boolean.valueOf(sharedPreferences.getBoolean("info_cards_enabled", true));
             brandingShown = Boolean.valueOf(sharedPreferences.getBoolean("branding_watermark_enabled", true));
-            castButtonShown = Boolean.valueOf(sharedPreferences.getBoolean("cast_button_enabled", true));
+            castButtonShown = Boolean.valueOf(sharedPreferences.getBoolean("cast_button_enabled", false));
             tabletMiniplayer = Boolean.valueOf(sharedPreferences.getBoolean("tablet_miniplayer", false));
             commentsLocation = Boolean.valueOf(sharedPreferences.getBoolean("comments_location", false));
             newActionBar = Boolean.valueOf(sharedPreferences.getBoolean("xfile_new_actionbar", false));
