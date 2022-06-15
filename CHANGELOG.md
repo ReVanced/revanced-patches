@@ -1,3 +1,15 @@
+# [1.4.0](https://github.com/revanced/revanced-patches/compare/v1.3.1...v1.4.0) (2022-06-15)
+
+
+### Bug Fixes
+
+* add size `48px` for `custom-branding` patch ([f81872b](https://github.com/revanced/revanced-patches/commit/f81872b8e41da215517fdb59364130d8ce681607))
+
+
+### Features
+
+* `premium-heading` patch ([78913bf](https://github.com/revanced/revanced-patches/commit/78913bf1e80f5b91d0dee506fdfe3f875e8e6988))
+
 ## [1.3.1](https://github.com/revanced/revanced-patches/compare/v1.3.0...v1.3.1) (2022-06-15)
 
 
