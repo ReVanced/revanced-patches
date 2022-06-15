@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.icon.annotations
+package app.revanced.patches.youtube.layout.branding.annotations
 
 import app.revanced.patcher.annotation.Compatibility
 import app.revanced.patcher.annotation.Package
