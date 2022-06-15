@@ -12,7 +12,7 @@ import org.jf.dexlib2.Opcode
 
 @Name("cast-button-signature")
 @MatchingMethod(
-    "Landroidx/mediarouter/app/MediaRouteButton", "setVisibility"
+    "Landroidx/mediarouter/app/MediaRouteButton", "setVisibility" // first one is prolly causing the issue
 )
 @FuzzyPatternScanMethod(2) // FIXME: Test this threshold and find the best value.
 @CastButtonCompatibility
