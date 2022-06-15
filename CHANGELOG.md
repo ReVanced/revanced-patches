@@ -1,3 +1,11 @@
+## [1.4.1](https://github.com/revanced/revanced-patches/compare/v1.4.0...v1.4.1) (2022-06-15)
+
+
+### Bug Fixes
+
+* `hide-cast-button` patch ([6a9ffe0](https://github.com/revanced/revanced-patches/commit/6a9ffe05734a775a555e98cb365df96133f7cd8b))
+* comments ([d102883](https://github.com/revanced/revanced-patches/commit/d1028831ca889f1214801174d1d75ce24505e7ba))
+
 # [1.4.0](https://github.com/revanced/revanced-patches/compare/v1.3.1...v1.4.0) (2022-06-15)
 
 
