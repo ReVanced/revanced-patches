@@ -12,15 +12,15 @@ import org.jf.dexlib2.Opcode
 
 @Name("cast-button-signature")
 @MatchingMethod(
-    "Landroidx/mediarouter/app/MediaRouteButton", "setVisibility" // first one is prolly causing the issue
+    "Landroidx/mediarouter/app/MediaRouteButton", "setVisibility" // first one is prolly causing the issue since not sure what to write there
 )
 @FuzzyPatternScanMethod(2) // FIXME: Test this threshold and find the best value.
 @CastButtonCompatibility
 @Version("0.0.1")
 object CastButtonSignature : MethodSignature(
-    "V",
+    "V", // this might be broken as well since idk what is this
     AccessFlags.PUBLIC or AccessFlags.FINAL,
-    listOf("L","L"),
+    listOf("L","L"), // this too
     listOf(
                 Opcode.IPUT,
                 Opcode.INVOKE_VIRTUAL,
