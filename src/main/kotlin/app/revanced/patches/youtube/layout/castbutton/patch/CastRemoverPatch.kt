@@ -34,7 +34,7 @@ class CastButtonRemoverPatch : BytecodePatch(
 ) {
     override fun execute(data: BytecodeData): PatchResult {
         val result = signatures.first().result!!
-        val implementation = result.method.implementation!!
+        val implementation = result.method.implementation!! // stole code from shorts button since it worked pretty good
 
         implementation.addInstruction(
             0,
