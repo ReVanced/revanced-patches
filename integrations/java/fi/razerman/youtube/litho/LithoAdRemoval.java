@@ -120,7 +120,6 @@ public class LithoAdRemoval {
                                     .anyMatch(StandardCharsets.UTF_8.decode(buffer).toString()::contains)
             ) return true;
 
-
             if (isExperimentalMerchandiseRemoval()) {
                 blockList.add("product_carousel");
             }
@@ -139,6 +138,7 @@ public class LithoAdRemoval {
             }
             if (isExperimentalInfoPanelRemoval()) {
                 blockList.add("single_item_information_panel");
+                blockList.add("publisher_transparency_panel");
             }
             if (isExperimentalCompactBannerRemoval()) {
                 blockList.add("compact_banner");
