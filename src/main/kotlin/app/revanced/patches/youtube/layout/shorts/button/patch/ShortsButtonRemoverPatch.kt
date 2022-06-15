@@ -18,7 +18,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction11x
 
 @Patch
 @Dependencies(dependencies = [IntegrationsPatch::class])
-@Name("shorts-button")
+@Name("disable-shorts-button")
 @Description("Hide the shorts button.")
 @ShortsButtonCompatibility
 @Version("0.0.1")

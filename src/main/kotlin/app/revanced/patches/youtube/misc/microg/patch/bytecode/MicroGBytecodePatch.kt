@@ -15,6 +15,7 @@ import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.smali.toInstruction
 import app.revanced.patcher.util.smali.toInstructions
+import app.revanced.patches.youtube.layout.castbutton.patch.HideCastButtonPatch
 import app.revanced.patches.youtube.misc.microg.annotations.MicroGPatchCompatibility
 import app.revanced.patches.youtube.misc.microg.patch.resource.MicroGResourcePatch
 import app.revanced.patches.youtube.misc.microg.patch.resource.enum.StringReplaceMode
@@ -24,13 +25,14 @@ import app.revanced.patches.youtube.misc.microg.signatures.*
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.MutableMethodImplementation
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
-import org.jf.dexlib2.builder.instruction.BuilderInstruction21s
 import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 import org.jf.dexlib2.iface.reference.StringReference
 import org.jf.dexlib2.immutable.reference.ImmutableStringReference
 
 @Patch(include = false)
-@Dependencies(dependencies = [MicroGResourcePatch::class])
+@Dependencies(
+    dependencies = [MicroGResourcePatch::class, HideCastButtonPatch::class]
+)
 @Name("microg-support")
 @Description("Patch to allow YouTube ReVanced to run without root and under a different package name.")
 @MicroGPatchCompatibility
@@ -55,17 +57,6 @@ class MicroGBytecodePatch : BytecodePatch(
                 val implementation = method.implementation ?: return@methodLoop
 
                 var proxiedImplementation: MutableMethodImplementation? = null
-
-                // disable cast button since it is unsupported by microg and causes battery issues
-                // the code is here instead of the fixCastIssues method because we do not need a signature this way
-                if (classDef.type.endsWith("MediaRouteButton;") && method.name == "setVisibility") {
-                    proxiedClass = data.proxy(classDef).resolve()
-                    proxiedImplementation = proxiedClass!!.methods.first { it.name == "setVisibility" }.implementation
-
-                    proxiedImplementation!!.replaceInstruction(
-                        0, BuilderInstruction21s(Opcode.CONST_16, 1, 8) // 8 == HIDDEN
-                    )
-                }
 
                 implementation.instructions.forEachIndexed { i, instruction ->
                     if (instruction.opcode != Opcode.CONST_STRING) return@forEachIndexed
