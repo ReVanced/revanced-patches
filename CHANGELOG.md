@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/revanced/revanced-patches/compare/v1.3.0...v1.3.1) (2022-06-15)
+
+
+### Bug Fixes
+
+* `custom-branding` patch failing to get resources ([efb6d4c](https://github.com/revanced/revanced-patches/commit/efb6d4c2be515185fc9bd29c40ce202f0d684cee))
+
 # [1.3.0](https://github.com/revanced/revanced-patches/compare/v1.2.2...v1.3.0) (2022-06-14)
 
 
