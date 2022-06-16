@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/revanced/revanced-patches/compare/v1.6.1...v1.6.2) (2022-06-16)
+
+
+### Bug Fixes
+
+* broken gradle task ([91483a8](https://github.com/revanced/revanced-patches/commit/91483a8fbf92559d079dc52f846f5f871f5d6b5c))
+
 ## [1.6.1](https://github.com/revanced/revanced-patches/compare/v1.6.0...v1.6.1) (2022-06-16)
 
 
