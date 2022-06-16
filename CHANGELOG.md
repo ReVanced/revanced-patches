@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/revanced/revanced-patches/compare/v1.5.0...v1.5.1) (2022-06-16)
+
+
+### Reverts
+
+* Revert "Changed app name to ReVanced (#21)" (#24) ([70a48c5](https://github.com/revanced/revanced-patches/commit/70a48c5f35cd236612352a1dbbf50487625e6e96)), closes [#21](https://github.com/revanced/revanced-patches/issues/21) [#24](https://github.com/revanced/revanced-patches/issues/24)
+
 # [1.5.0](https://github.com/revanced/revanced-patches/compare/v1.4.0...v1.5.0) (2022-06-15)
 
 
