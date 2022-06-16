@@ -28,7 +28,7 @@
             "path": "build/libs/*.jar"
           },
           {
-            "path": "bin/*.dex"
+            "path": "build/libs/*.dex"
           }
         ]
       }
