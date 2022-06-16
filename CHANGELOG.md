@@ -1,3 +1,11 @@
+## [1.5.2](https://github.com/revanced/revanced-patches/compare/v1.5.1...v1.5.2) (2022-06-16)
+
+
+### Bug Fixes
+
+* dummy task for Gradle semantic-release plugin ([f6a8911](https://github.com/revanced/revanced-patches/commit/f6a8911906dfe52fcdb685daf7a02d6d0052cba9))
+* releases ([30d5c9a](https://github.com/revanced/revanced-patches/commit/30d5c9a67ccf88ca6ac00d0a9f2a2e330f8092dd))
+
 ## [1.5.1](https://github.com/revanced/revanced-patches/compare/v1.5.0...v1.5.1) (2022-06-16)
 
 
