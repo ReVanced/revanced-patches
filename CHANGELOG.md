@@ -1,3 +1,10 @@
+## [1.5.3](https://github.com/revanced/revanced-patches/compare/v1.5.2...v1.5.3) (2022-06-16)
+
+
+### Bug Fixes
+
+* forgot about this ([7102a25](https://github.com/revanced/revanced-patches/commit/7102a25dc618f19b324b01870d23f5418f375b2a))
+
 ## [1.5.2](https://github.com/revanced/revanced-patches/compare/v1.5.1...v1.5.2) (2022-06-16)
 
 
