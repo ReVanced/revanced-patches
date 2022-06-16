@@ -28,5 +28,6 @@ tasks {
     register<DefaultTask>("publish") {
         group = "publish"
         description = "Dummy task"
+        dependsOn(build)
     }
 }
