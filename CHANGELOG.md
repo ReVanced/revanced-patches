@@ -1,3 +1,15 @@
+# [1.6.0](https://github.com/revanced/revanced-patches/compare/v1.5.3...v1.6.0) (2022-06-16)
+
+
+### Bug Fixes
+
+* broken gradle task ([28e3f55](https://github.com/revanced/revanced-patches/commit/28e3f554ea6a7144416523fe48ce7adbb613b263))
+
+
+### Features
+
+* generate dex files using gradle task ([c34c1be](https://github.com/revanced/revanced-patches/commit/c34c1be21f50b4f720a7cd81e0dfe5ef6330caab))
+
 ## [1.5.3](https://github.com/revanced/revanced-patches/compare/v1.5.2...v1.5.3) (2022-06-16)
 
 
