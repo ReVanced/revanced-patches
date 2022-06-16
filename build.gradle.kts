@@ -40,7 +40,7 @@ tasks {
 
             exec {
                 workingDir = work
-                commandLine = listOf("mv", "*.dex", output)
+                commandLine = listOf("mv", "classes.dex", output)
             }
         }
     }
