@@ -35,18 +35,9 @@ jobs:
       - name: Build with Gradle
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./gradlew build
+        run: ./gradlew build clean
       - name: Install Android build-tools
         run: sdkmanager "build-tools;32.0.0"
-      - name: Generate Patches DEX
-        run: |
-          mkdir -p bin
-          fn=$(find build/libs -maxdepth 1 | grep -P "[\d]+\.jar")
-          out=bin/$(basename "$fn" | sed 's/jar/dex/g')
-          $ANDROID_HOME/build-tools/32.0.0/d8 $fn
-          mv *.dex $out
-      - name: Clean build
-        run: ./gradlew clean
       - name: Setup semantic-release
         run: npm install -g semantic-release @semantic-release/git @semantic-release/changelog gradle-semantic-release-plugin -D
       - name: Release
