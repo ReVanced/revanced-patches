@@ -1,3 +1,10 @@
+## [1.6.3](https://github.com/revanced/revanced-patches/compare/v1.6.2...v1.6.3) (2022-06-16)
+
+
+### Bug Fixes
+
+* wrong dex path ([170fbbb](https://github.com/revanced/revanced-patches/commit/170fbbb99e4a2dbe3e0febe44d07a692aa9d7224))
+
 ## [1.6.2](https://github.com/revanced/revanced-patches/compare/v1.6.1...v1.6.2) (2022-06-16)
 
 
