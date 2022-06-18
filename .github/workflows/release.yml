@@ -30,8 +30,6 @@ jobs:
           node-version: "lts/*"
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
-      - name: Make gradlew executable
-        run: chmod +x gradlew
       - name: Build with Gradle
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
