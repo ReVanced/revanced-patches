@@ -65,13 +65,11 @@ class MicroGBytecodePatch : BytecodePatch(
 
                     val replaceMode = if (stringValue.equalsAny(
                             "com.google.android.gms",
-                            "com.google.android.youtube.fileprovider",
                             "com.google.android.c2dm.intent.REGISTER",
                             "com.google.android.c2dm.permission.SEND",
                             "com.google.iid.TOKEN_REQUEST",
                             "com.google",
                             "com.google.android.gms.auth.accounts",
-                            "com.google.android.youtube.SuggestionProvider",
                             "com.google.android.c2dm.intent.REGISTRATION",
                             "com.google.android.gsf.action.GET_GLS",
                             "com.google.android.gsf.login",

@@ -40,10 +40,6 @@ class MicroGResourcePatch : ResourcePatch() {
             ).replace(
                 "android:authorities=\"com.google.android.youtube", "android:authorities=\"$REVANCED_PACKAGE_NAME"
             ).replace(
-                "com.google.android.youtube.fileprovider", "$REVANCED_PACKAGE_NAME.fileprovider"
-            ).replace(
-                "com.google.android.youtube.SuggestionProvider", "$REVANCED_PACKAGE_NAME.SuggestionProvider"
-            ).replace(
                 "com.google.android.youtube.permission.C2D_MESSAGE", "$REVANCED_PACKAGE_NAME.permission.C2D_MESSAGE"
             ).replace( // TODO: might not be needed
                 "com.google.android.youtube.lifecycle-trojan", "$REVANCED_PACKAGE_NAME.lifecycle-trojan"
