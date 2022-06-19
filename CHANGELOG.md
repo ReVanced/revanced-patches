@@ -1,3 +1,10 @@
+## [1.6.4](https://github.com/revanced/revanced-patches/compare/v1.6.3...v1.6.4) (2022-06-19)
+
+
+### Bug Fixes
+
+* update patcher version ([#35](https://github.com/revanced/revanced-patches/issues/35)) ([1a379df](https://github.com/revanced/revanced-patches/commit/1a379dfd974b9f92d4bd0d5d7a4711eb6d1060b3)), closes [#34](https://github.com/revanced/revanced-patches/issues/34)
+
 ## [1.6.3](https://github.com/revanced/revanced-patches/compare/v1.6.2...v1.6.3) (2022-06-16)
 
 
