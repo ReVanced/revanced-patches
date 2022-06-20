@@ -16,7 +16,7 @@ import app.revanced.patches.youtube.layout.fullscreenpanels.annotations.Fullscre
 
 @Patch
 @Name("disable-fullscreen-panels")
-@Description("Disable fullscreen panels")
+@Description("Disable comments panel in fullscreen view.")
 @FullscreenPanelsCompatibility
 @Version("0.0.1")
 class FullscreenPanelsRemovalPatch : BytecodePatch(listOf()) {
