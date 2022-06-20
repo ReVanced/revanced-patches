@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/revanced/revanced-patches/compare/v1.7.0...v1.8.0) (2022-06-20)
+
+
+### Features
+
+* bump compatibility of patches for Youtube to v17.23.35 ([3748d05](https://github.com/revanced/revanced-patches/commit/3748d0533e62a8871ab2202ce9b61170a90dae62))
+
 # [1.7.0](https://github.com/revanced/revanced-patches/compare/v1.6.4...v1.7.0) (2022-06-20)
 
 
