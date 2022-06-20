@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/revanced/revanced-patches/compare/v1.6.4...v1.7.0) (2022-06-20)
+
+
+### Features
+
+* `disable-fullscreen-panels` patch ([3bf0561](https://github.com/revanced/revanced-patches/commit/3bf056163500b006d1a20c5f3a3e0c92fec13bd8))
+
 ## [1.6.4](https://github.com/revanced/revanced-patches/compare/v1.6.3...v1.6.4) (2022-06-19)
 
 
