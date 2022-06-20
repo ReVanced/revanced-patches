@@ -11,7 +11,6 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.implementation.BytecodePatch
 import app.revanced.patcher.patch.implementation.misc.PatchResult
 import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
-import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.youtube.layout.castbutton.annotations.CastButtonCompatibility
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 
@@ -26,14 +25,14 @@ class HideCastButtonPatch : BytecodePatch(listOf()) {
         data.classes.forEach { classDef ->
             classDef.methods.forEach { method ->
                 if (classDef.type.endsWith("MediaRouteButton;") && method.name == "setVisibility") {
-                    val implementation =
-                        data.proxy(classDef).resolve().methods.first { it.name == "setVisibility" }.implementation!!
+                    val setVisibilityMethod =
+                        data.proxy(classDef).resolve().methods.first { it.name == "setVisibility" }
 
-                    implementation.addInstructions(
+                    setVisibilityMethod.addInstructions(
                         0, """
-                        invoke-static {p1}, Lfi/razerman/youtube/XGlobals;->getCastButtonOverrideV2(I)I
-                        move-result p1
-                    """.trimIndent().toInstructions("I", 2, false)
+                            invoke-static {p1}, Lfi/razerman/youtube/XGlobals;->getCastButtonOverrideV2(I)I
+                            move-result p1
+                        """
                     )
                 }
             }

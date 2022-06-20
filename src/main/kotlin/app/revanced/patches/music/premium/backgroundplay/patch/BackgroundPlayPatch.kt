@@ -24,7 +24,7 @@ class BackgroundPlayPatch : BytecodePatch(
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        signatures.first().result!!.method.implementation!!.addInstructions(
+        BackgroundPlaybackDisableSignature.result!!.method.implementation!!.addInstructions(
             0,
             """
                 const/4 v0, 0x1

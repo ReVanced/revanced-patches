@@ -30,7 +30,7 @@ class ExclusiveAudioPatch : BytecodePatch(
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        val result = signatures.first().result!!.findParentMethod(@Name("audio-only-enabler-method") @MatchingMethod(
+        val result = ExclusiveAudioSignature.result!!.findParentMethod(@Name("audio-only-enabler-method") @MatchingMethod(
             "Lgmd;",
             "d"
         ) @DirectPatternScanMethod @ExclusiveAudioCompatibility @Version(

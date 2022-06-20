@@ -25,13 +25,13 @@ class CodecsUnlockPatch : BytecodePatch(
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        var result = signatures.first().result!!
+        var result = CodecsLockSignature.result!!
 
         val implementation = result.method.implementation!!
 
         val instructionIndex = result.scanResult.startIndex
 
-        result = signatures.last().result!!
+        result = AllCodecsReferenceSignature.result!!
         val codecMethod =
             data.toMethodWalker(result.immutableMethod).nextMethod(result.scanResult.startIndex).getMethod()
 

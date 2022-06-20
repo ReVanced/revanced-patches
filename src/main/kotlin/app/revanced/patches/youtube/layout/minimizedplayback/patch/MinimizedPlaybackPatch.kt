@@ -27,7 +27,7 @@ class MinimizedPlaybackPatch : BytecodePatch(
     override fun execute(data: BytecodeData): PatchResult {
         // Instead of removing all instructions like Vanced,
         // we return the method at the beginning instead
-        signatures.first().result!!.method.implementation!!.addInstructions(
+        MinimizedPlaybackManagerSignature.result!!.method.implementation!!.addInstructions(
             0, """
                 const/4 v0, 0x1
                 return v0

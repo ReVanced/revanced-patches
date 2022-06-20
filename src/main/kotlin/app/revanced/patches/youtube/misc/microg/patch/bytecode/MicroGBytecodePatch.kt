@@ -16,6 +16,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.smali.toInstruction
 import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.youtube.layout.castbutton.patch.HideCastButtonPatch
+import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import app.revanced.patches.youtube.misc.microg.annotations.MicroGPatchCompatibility
 import app.revanced.patches.youtube.misc.microg.patch.resource.MicroGResourcePatch
 import app.revanced.patches.youtube.misc.microg.patch.resource.enum.StringReplaceMode
@@ -31,7 +32,11 @@ import org.jf.dexlib2.immutable.reference.ImmutableStringReference
 
 @Patch(include = false)
 @Dependencies(
-    dependencies = [MicroGResourcePatch::class, HideCastButtonPatch::class]
+    dependencies = [
+        MicroGResourcePatch::class,
+        HideCastButtonPatch::class,
+        FixLocaleConfigErrorPatch::class
+    ]
 )
 @Name("microg-support")
 @Description("Patch to allow YouTube ReVanced to run without root and under a different package name.")
@@ -115,13 +120,19 @@ class MicroGBytecodePatch : BytecodePatch(
             }
         }
 
-        signatures.last()
         return PatchResultSuccess()
     }
 
     private fun disablePlayServiceChecksAndFixCastIssues() {
-        for (i in 0 until signatures.count() - 1) {
-            val result = signatures.elementAt(i).result!!
+        listOf(
+            IntegrityCheckSignature,
+            ServiceCheckSignature,
+            GooglePlayUtilitySignature,
+            CastDynamiteModuleSignature,
+            CastDynamiteModuleV2Signature,
+            CastContextFetchSignature
+        ).forEach { signature ->
+            val result = signature.result!!
             val stringInstructions = when (result.immutableMethod.returnType.first()) {
                 'L' -> """
                         const/4 v0, 0x0
@@ -141,7 +152,7 @@ class MicroGBytecodePatch : BytecodePatch(
             )
         }
 
-        val implementation = signatures.last().result!!.method.implementation!!
+        val implementation = PrimeSignature.result!!.method.implementation!!
 
         var register = 2
         val index = implementation.instructions.indexOfFirst {

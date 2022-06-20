@@ -34,7 +34,7 @@ class EnableSeekbarTappingPatch : BytecodePatch(
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        var result = signatures.first().result!!
+        var result = SeekbarTappingParentSignature.result!!
 
         val tapSeekMethods = mutableMapOf<String, Method>()
 
@@ -59,7 +59,7 @@ class EnableSeekbarTappingPatch : BytecodePatch(
         }
 
         // replace map because we dont need the upper one anymore
-        result = signatures.last().result!!
+        result = SeekbarTappingSignature.result!!
 
         val implementation = result.method.implementation!!
 

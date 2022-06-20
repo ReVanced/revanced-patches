@@ -29,7 +29,7 @@ class CreateButtonRemoverPatch : BytecodePatch(
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        val result = signatures.first().result!!
+        val result = CreateButtonSignature.result!!
 
         // Get the required register which holds the view object we need to pass to the method hideCreateButton
         val implementation = result.method.implementation!!

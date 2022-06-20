@@ -35,7 +35,7 @@ class OldQualityLayoutPatch : BytecodePatch(
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        val result = signatures.first().result!!.findParentMethod(@Name("old-quality-signature") @MatchingMethod(
+        val result = OldQualityParentSignature.result!!.findParentMethod(@Name("old-quality-signature") @MatchingMethod(
             definingClass = "Libh"
         ) @FuzzyPatternScanMethod(2) @OldQualityLayoutCompatibility @Version("0.0.1") object : MethodSignature(
             "L", AccessFlags.FINAL or AccessFlags.PRIVATE, listOf("Z"), listOf(

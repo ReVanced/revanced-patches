@@ -28,12 +28,12 @@ class ShortsButtonRemoverPatch : BytecodePatch(
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        val result1 = signatures.first().result!!
+        val result1 = PivotBarButtonTabenumSignature.result!!
         val implementation1 = result1.method.implementation!!
         val moveEnumInstruction = implementation1.instructions[result1.scanResult.endIndex]
         val enumRegister = (moveEnumInstruction as Instruction11x).registerA
 
-        val result2 = signatures.last().result!!
+        val result2 = PivotBarButtonsViewSignature.result!!
         val implementation2 = result2.method.implementation!!
         val moveViewInstruction = implementation2.instructions[result2.scanResult.endIndex]
         val viewRegister = (moveViewInstruction as Instruction11x).registerA

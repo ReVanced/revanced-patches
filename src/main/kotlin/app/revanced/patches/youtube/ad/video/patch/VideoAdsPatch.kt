@@ -34,7 +34,7 @@ class VideoAdsPatch : BytecodePatch(
 ) {
     override fun execute(data: BytecodeData): PatchResult {
         val result =
-            signatures.first().result!!.findParentMethod(@Name("show-video-ads-method-signature") @MatchingMethod(
+            ShowVideoAdsConstructorSignature.result!!.findParentMethod(@Name("show-video-ads-method-signature") @MatchingMethod(
                 definingClass = "zai"
             ) @DirectPatternScanMethod @VideoAdsCompatibility @Version("0.0.1") object : MethodSignature(
                 "V", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf("Z"), null

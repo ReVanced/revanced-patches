@@ -31,7 +31,7 @@ class IntegrationsPatch : BytecodePatch(
         if (data.findClass("Lapp/revanced/integrations/Globals") == null)
             return PatchResultError("Integrations have not been merged yet. This patch can not succeed without the integrations.")
 
-        val result = signatures.first().result!!
+        val result = InitSignature.result!!
 
         val implementation = result.method.implementation!!
         val count = implementation.registerCount - 1

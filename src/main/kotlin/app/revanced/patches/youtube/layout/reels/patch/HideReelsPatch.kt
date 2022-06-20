@@ -22,7 +22,7 @@ class HideReelsPatch : BytecodePatch(
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        val result = signatures.first().result!!
+        val result = HideReelsSignature.result!!
         val implementation = result.method.implementation!!
 
         // HideReel will hide the reel view before it is being used,

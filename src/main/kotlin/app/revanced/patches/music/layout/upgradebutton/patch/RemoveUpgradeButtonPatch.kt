@@ -29,7 +29,7 @@ class RemoveUpgradeButtonPatch : BytecodePatch(
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        val result = signatures.first().result!!
+        val result = PivotBarConstructorSignature.result!!
         val implementation = result.method.implementation!!
 
         val pivotBarElementFieldRef =
