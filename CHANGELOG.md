@@ -1,3 +1,11 @@
+## [1.8.2](https://github.com/revanced/revanced-patches/compare/v1.8.1...v1.8.2) (2022-06-20)
+
+
+### Bug Fixes
+
+* migrate to breaking changes from patcher ([2c0a419](https://github.com/revanced/revanced-patches/commit/2c0a4196fed2fbdcd454ed882b720898d3050c51))
+* old usage of `toInstructions` extension method ([65ddd52](https://github.com/revanced/revanced-patches/commit/65ddd522dca19e0590d9cb6fdb2d85ad7b98481e))
+
 ## [1.8.1](https://github.com/revanced/revanced-patches/compare/v1.8.0...v1.8.1) (2022-06-20)
 
 
