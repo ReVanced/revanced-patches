@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/revanced/revanced-patches/compare/v1.8.2...v1.9.0) (2022-06-21)
+
+
+### Features
+
+* use `install` mode by default ([c2b2993](https://github.com/revanced/revanced-patches/commit/c2b299336a984d66a2d066e5ebe9c4f9bee5c2aa))
+
 ## [1.8.2](https://github.com/revanced/revanced-patches/compare/v1.8.1...v1.8.2) (2022-06-20)
 
 
