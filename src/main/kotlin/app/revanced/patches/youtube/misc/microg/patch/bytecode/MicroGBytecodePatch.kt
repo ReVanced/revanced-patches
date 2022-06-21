@@ -30,7 +30,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 import org.jf.dexlib2.iface.reference.StringReference
 import org.jf.dexlib2.immutable.reference.ImmutableStringReference
 
-@Patch(include = false)
+@Patch
 @Dependencies(
     dependencies = [
         MicroGResourcePatch::class,
