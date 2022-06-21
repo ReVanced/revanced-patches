@@ -1,3 +1,10 @@
+## [1.9.1](https://github.com/revanced/revanced-patches/compare/v1.9.0...v1.9.1) (2022-06-21)
+
+
+### Bug Fixes
+
+* update patcher version ([5f54bc9](https://github.com/revanced/revanced-patches/commit/5f54bc9aa8fd8b83448141a9b05746e3e977369d))
+
 # [1.9.0](https://github.com/revanced/revanced-patches/compare/v1.8.2...v1.9.0) (2022-06-21)
 
 
