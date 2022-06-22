@@ -153,6 +153,7 @@ public class XGlobals {
     public static Integer playbackMS = 2500;
     public static Integer reBuffer = 5000;
     public static Enum lastPivotTab;
+    public static float[] videoSpeeds = { 0.25f, 0.5f, 0.75f, 1.0f, 1.25f, 1.5f, 2f, 3f, 4f, 5f };
 
     public static void ReadSettings() {
         Context context;
