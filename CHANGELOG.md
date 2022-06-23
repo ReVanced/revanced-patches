@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/revanced/revanced-patches/compare/v1.9.1...v1.10.0) (2022-06-23)
+
+
+### Features
+
+* add compatibility for YouTube v17.23.36 and v17.24.34 ([1812bc3](https://github.com/revanced/revanced-patches/commit/1812bc39e0e88f1ab02ae8127e9000780eedf49c))
+
 ## [1.9.1](https://github.com/revanced/revanced-patches/compare/v1.9.0...v1.9.1) (2022-06-21)
 
 
