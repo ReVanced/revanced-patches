@@ -9,7 +9,6 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.implementation.BytecodePatch
 import app.revanced.patcher.patch.implementation.misc.PatchResult
 import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
-import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.music.premium.backgroundplay.annotations.BackgroundPlayCompatibility
 import app.revanced.patches.music.premium.backgroundplay.signatures.BackgroundPlaybackDisableSignature
 
@@ -24,12 +23,12 @@ class BackgroundPlayPatch : BytecodePatch(
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        BackgroundPlaybackDisableSignature.result!!.method.implementation!!.addInstructions(
+        BackgroundPlaybackDisableSignature.result!!.method.addInstructions(
             0,
             """
                 const/4 v0, 0x1
                 return v0
-            """.trimIndent().toInstructions()
+            """
         )
 
         return PatchResultSuccess()

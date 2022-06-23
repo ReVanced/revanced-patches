@@ -148,11 +148,11 @@ class GeneralBytecodeAdsPatch : BytecodePatch(
                                         mutableClass!!.findMutableMethodOf(method)
 
                                     // TODO: dynamically get registers
-                                    mutableMethod!!.implementation!!.addInstructions(
+                                    mutableMethod!!.addInstructions(
                                         insertIndex, """
                                                 const/16 v1, 0x8
                                                 invoke-virtual {v0,v1}, Landroid/widget/FrameLayout;->setVisibility(I)V
-                                            """.trimIndent().toInstructions()
+                                            """
                                     )
                                 }
 

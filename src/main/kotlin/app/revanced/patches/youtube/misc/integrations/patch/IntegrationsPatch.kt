@@ -36,11 +36,11 @@ class IntegrationsPatch : BytecodePatch(
         val implementation = result.method.implementation!!
         val count = implementation.registerCount - 1
 
-        implementation.addInstructions(
+        result.method.addInstructions(
             result.scanResult.endIndex + 1, """
                   invoke-static {v$count}, Lpl/jakubweg/StringRef;->setContext(Landroid/content/Context;)V
                   sput-object v$count, Lapp/revanced/integrations/Globals;->context:Landroid/content/Context;
-            """.trimIndent().toInstructions()
+            """
         )
 
         val classDef = result.definingClassProxy.resolve()

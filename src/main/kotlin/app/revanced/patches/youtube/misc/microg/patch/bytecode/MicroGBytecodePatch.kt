@@ -147,8 +147,8 @@ class MicroGBytecodePatch : BytecodePatch(
 
                 else -> throw Exception("This case should never happen.")
             }
-            result.method.implementation!!.addInstructions(
-                0, stringInstructions.trimIndent().toInstructions()
+            result.method.addInstructions(
+                0, stringInstructions
             )
         }
 

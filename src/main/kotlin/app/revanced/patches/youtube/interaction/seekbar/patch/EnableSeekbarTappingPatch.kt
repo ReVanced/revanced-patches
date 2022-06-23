@@ -11,7 +11,6 @@ import app.revanced.patcher.patch.implementation.BytecodePatch
 import app.revanced.patcher.patch.implementation.misc.PatchResult
 import app.revanced.patcher.patch.implementation.misc.PatchResultError
 import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
-import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.youtube.interaction.seekbar.annotation.SeekbarTappingCompatibility
 import app.revanced.patches.youtube.interaction.seekbar.signatures.SeekbarTappingParentSignature
 import app.revanced.patches.youtube.interaction.seekbar.signatures.SeekbarTappingSignature
@@ -73,11 +72,11 @@ class EnableSeekbarTappingPatch : BytecodePatch(
         val register = (instruction as Instruction35c).registerC
 
         // the instructions are written in reverse order.
-        implementation.addInstructions(
+        result.method.addInstructions(
             result.scanResult.endIndex + 1, """
                invoke-virtual { v$register, v2 }, ${oMethod.definingClass}->${oMethod.name}(I)V
                invoke-virtual { v$register, v2 }, ${pMethod.definingClass}->${pMethod.name}(I)V
-            """.trimIndent().toInstructions()
+            """
         )
 
         // if tap-seeking is disabled, do not invoke the two methods above by jumping to the else label
@@ -85,11 +84,11 @@ class EnableSeekbarTappingPatch : BytecodePatch(
         implementation.addInstruction(
             result.scanResult.endIndex + 1, BuilderInstruction21t(Opcode.IF_EQZ, 0, elseLabel)
         )
-        implementation.addInstructions(
+        result.method.addInstructions(
             result.scanResult.endIndex + 1, """
                 invoke-static { }, Lfi/razerman/youtube/preferences/BooleanPreferences;->isTapSeekingEnabled()Z
                 move-result v0
-            """.trimIndent().toInstructions()
+            """
         )
         return PatchResultSuccess()
     }

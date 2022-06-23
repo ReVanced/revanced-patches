@@ -4,13 +4,13 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.implementation.BytecodeData
+import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.patch.annotations.Dependencies
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.implementation.BytecodePatch
 import app.revanced.patcher.patch.implementation.misc.PatchResult
 import app.revanced.patcher.patch.implementation.misc.PatchResultError
 import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
-import app.revanced.patcher.util.smali.toInstruction
 import app.revanced.patches.youtube.layout.createbutton.annotations.CreateButtonCompatibility
 import app.revanced.patches.youtube.layout.createbutton.signatures.CreateButtonSignature
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
@@ -38,9 +38,9 @@ class CreateButtonRemoverPatch : BytecodePatch(
         val register = (instruction as Instruction35c).registerC
 
         // Hide the button view via proxy by passing it to the hideCreateButton method
-        implementation.addInstruction(
+        result.method.addInstruction(
             result.scanResult.endIndex + 1,
-            "invoke-static { v$register }, Lfi/razerman/youtube/XAdRemover;->hideCreateButton(Landroid/view/View;)V".toInstruction()
+            "invoke-static { v$register }, Lfi/razerman/youtube/XAdRemover;->hideCreateButton(Landroid/view/View;)V"
         )
 
         return PatchResultSuccess()

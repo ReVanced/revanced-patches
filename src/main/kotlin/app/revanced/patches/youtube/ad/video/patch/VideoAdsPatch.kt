@@ -15,7 +15,6 @@ import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
 import app.revanced.patcher.signature.implementation.method.MethodSignature
 import app.revanced.patcher.signature.implementation.method.annotation.DirectPatternScanMethod
 import app.revanced.patcher.signature.implementation.method.annotation.MatchingMethod
-import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.youtube.ad.video.annotations.VideoAdsCompatibility
 import app.revanced.patches.youtube.ad.video.signatures.ShowVideoAdsConstructorSignature
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
@@ -41,11 +40,11 @@ class VideoAdsPatch : BytecodePatch(
             ) {}) ?: return PatchResultError("Required parent method could not be found.")
 
         // Override the parameter by calling shouldShowAds and setting the parameter to the result
-        result.method.implementation!!.addInstructions(
+        result.method.addInstructions(
             0, """
                 invoke-static { }, Lfi/vanced/libraries/youtube/whitelisting/Whitelist;->shouldShowAds()Z
                 move-result v1
-            """.trimIndent().toInstructions()
+            """
         )
 
         return PatchResultSuccess()
