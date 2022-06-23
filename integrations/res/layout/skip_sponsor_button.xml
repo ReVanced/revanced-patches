@@ -1,5 +1,5 @@
-<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yt="http://schemas.android.com/apk/res-auto"></merge>
-<!-- The actual layout file but commented because too lazy to include everything from YouTube
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yt="http://schemas.android.com/apk/res-auto"></merge><!-- The actual layout file but commented because too lazy to include everything from YouTube
 <?xml version="1.0" encoding="utf-8"?>
 <merge
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yt="http://schemas.android.com/apk/res-auto">
