@@ -1,3 +1,10 @@
+## [1.10.4](https://github.com/revanced/revanced-patches/compare/v1.10.3...v1.10.4) (2022-06-23)
+
+
+### Bug Fixes
+
+* missing brackets at inlining ([8936c8a](https://github.com/revanced/revanced-patches/commit/8936c8aaedb56817cda5eec5f4a8c32f433862aa))
+
 ## [1.10.3](https://github.com/revanced/revanced-patches/compare/v1.10.2...v1.10.3) (2022-06-23)
 
 
