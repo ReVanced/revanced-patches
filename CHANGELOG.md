@@ -1,3 +1,10 @@
+## [1.10.3](https://github.com/revanced/revanced-patches/compare/v1.10.2...v1.10.3) (2022-06-23)
+
+
+### Bug Fixes
+
+* get create button view register by more reliable means ([#59](https://github.com/revanced/revanced-patches/issues/59)) ([6ab821e](https://github.com/revanced/revanced-patches/commit/6ab821e377176f4e9f1b7ec2b58a924fa40299db))
+
 ## [1.10.2](https://github.com/revanced/revanced-patches/compare/v1.10.1...v1.10.2) (2022-06-23)
 
 
