@@ -1,3 +1,10 @@
+## [1.10.2](https://github.com/revanced/revanced-patches/compare/v1.10.1...v1.10.2) (2022-06-23)
+
+
+### Bug Fixes
+
+* `disable-create-button` not working with prebuilt jar file ([#55](https://github.com/revanced/revanced-patches/issues/55)) ([78be64a](https://github.com/revanced/revanced-patches/commit/78be64accc2023281c0c376849cdb0213622dc5c))
+
 ## [1.10.1](https://github.com/revanced/revanced-patches/compare/v1.10.0...v1.10.1) (2022-06-23)
 
 
