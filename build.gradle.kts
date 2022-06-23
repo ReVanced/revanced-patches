@@ -18,7 +18,7 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib"))
 
-    implementation("app.revanced:revanced-patcher:1.3.4")
+    implementation("app.revanced:revanced-patcher:1.10.1")
 }
 
 tasks {
