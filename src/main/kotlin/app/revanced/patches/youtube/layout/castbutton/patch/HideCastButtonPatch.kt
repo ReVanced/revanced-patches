@@ -30,7 +30,7 @@ class HideCastButtonPatch : BytecodePatch(listOf()) {
 
                     setVisibilityMethod.addInstructions(
                         0, """
-                            invoke-static {p1}, Lfi/razerman/youtube/XGlobals;->getCastButtonOverrideV2(I)I
+                            invoke-static {p1}, Lapp/revanced/integrations/patches/HideCastButtonPatch;->getCastButtonOverrideV2(I)I
                             move-result p1
                         """
                     )

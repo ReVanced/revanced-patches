@@ -58,7 +58,7 @@ class OldQualityLayoutPatch : BytecodePatch(
         implementation.addInstruction(5, jmpInstruction)
         result.method.addInstructions(
             0, """
-                invoke-static { }, Lfi/razerman/youtube/XGlobals;->useOldStyleQualitySettings()Z
+                invoke-static { }, Lapp/revanced/integrations/patches/OldStyleQualityPatch;->useOldStyleQualitySettings()Z
                 move-result v0
             """
         )

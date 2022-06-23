@@ -28,7 +28,7 @@ class HideReelsPatch : BytecodePatch(
         // so we pass the view to the HideReel method
         result.method.addInstruction(
             result.scanResult.endIndex,
-            "invoke-static { v2 }, Lfi/razerman/youtube/XAdRemover;->HideReel(Landroid/view/View;)V"
+            "invoke-static { v2 }, Lapp/revanced/integrations/patches/HideReelsPatch;->HideReel(Landroid/view/View;)V"
         )
 
         return PatchResultSuccess()

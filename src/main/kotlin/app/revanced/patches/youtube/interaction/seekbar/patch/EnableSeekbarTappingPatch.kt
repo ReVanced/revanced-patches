@@ -86,7 +86,7 @@ class EnableSeekbarTappingPatch : BytecodePatch(
         )
         result.method.addInstructions(
             result.scanResult.endIndex + 1, """
-                invoke-static { }, Lfi/razerman/youtube/preferences/BooleanPreferences;->isTapSeekingEnabled()Z
+                invoke-static { }, Lapp/revanced/integrations/patches/SeekbarTappingPatch;->isTapSeekingEnabled()Z
                 move-result v0
             """
         )

@@ -249,7 +249,7 @@ class GeneralBytecodeAdsPatch : BytecodePatch(
                                     val block2 = """
                                         move-object/from16 v1, p3
                                         iget-object v2, v1, $templateNameParameterType->b:Ljava/nio/ByteBuffer;
-                                        invoke-static {v0, v2}, Lfi/razerman/youtube/litho/LithoAdRemoval;->containsAd(Ljava/lang/String;Ljava/nio/ByteBuffer;)Z
+                                        invoke-static {v0, v2}, Lapp/revanced/integrations/patches/GeneralBytecodeAdsPatch;->containsAd(Ljava/lang/String;Ljava/nio/ByteBuffer;)Z
                                         move-result v1
                                     """.trimIndent().toInstructions(lithoMethod)
                                     val block3 = """

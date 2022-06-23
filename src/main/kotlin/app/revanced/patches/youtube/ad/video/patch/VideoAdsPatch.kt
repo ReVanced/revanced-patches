@@ -42,7 +42,7 @@ class VideoAdsPatch : BytecodePatch(
         // Override the parameter by calling shouldShowAds and setting the parameter to the result
         result.method.addInstructions(
             0, """
-                invoke-static { }, Lfi/vanced/libraries/youtube/whitelisting/Whitelist;->shouldShowAds()Z
+                invoke-static { }, Lapp/revanced/integrations/patches/VideoAdsPatch;->shouldShowAds()Z
                 move-result v1
             """
         )

@@ -41,14 +41,14 @@ class ShortsButtonRemoverPatch : BytecodePatch(
         // Save the tab enum in XGlobals to avoid smali/register workarounds
         result1.method.addInstruction(
             result1.scanResult.endIndex + 1,
-            "sput-object v$enumRegister, Lfi/razerman/youtube/XGlobals;->lastPivotTab:Ljava/lang/Enum;"
+            "sput-object v$enumRegister, Lapp/revanced/integrations/patches/HideShortsButtonPatch;->lastPivotTab:Ljava/lang/Enum;"
         )
 
         // Hide the button view via proxy by passing it to the hideShortsButton method
         // It only hides it if the last tab name is "TAB_SHORTS"
         result2.method.addInstruction(
             result2.scanResult.endIndex + 2,
-            "invoke-static { v$viewRegister }, Lfi/razerman/youtube/XAdRemover;->hideShortsButton(Landroid/view/View;)V"
+            "invoke-static { v$viewRegister }, Lapp/revanced/integrations/patches/HideShortsButtonPatch;->hideShortsButton(Landroid/view/View;)V"
         )
 
         return PatchResultSuccess()

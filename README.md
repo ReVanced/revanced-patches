@@ -1,2 +1,1 @@
-# revanced-patches
-Repo for all ReVanced patches
+Repo for all ReVanced patches 
