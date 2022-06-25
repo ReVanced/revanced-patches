@@ -13,7 +13,7 @@ import java.util.Iterator;
 
 /* loaded from: classes6.dex */
 public class VideoSpeed {
-    static final float[] videoSpeeds = {0.25f, 0.5f, 0.75f, 1.0f, 1.25f, 1.5f, 1.75f, 2.0f};
+    public static final float[] videoSpeeds = {0.25f, 0.5f, 0.75f, 1.0f, 1.25f, 1.5f, 1.75f, 2.0f, 3.0f, 4.0f, 5.0f};
 
     public static int DefaultSpeed(Object[] speeds, int speed, Object qInterface) {
         int speed2;

@@ -36,7 +36,6 @@ public class Settings {
     public static Boolean userChangedSpeed = false;
     public static Boolean newVideo = false;
     public static Boolean newVideoSpeed = false;
-    public static float[] videoSpeeds = { 0.25f, 0.5f, 0.75f, 1.0f, 1.25f, 1.5f, 2f, 3f, 4f, 5f };
 
     public static String getManufacturer() {
         String manufacturer = SettingsEnum.MANUFACTURER_OVERRIDE_STRING.getString();
