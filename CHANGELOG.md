@@ -1,3 +1,11 @@
+# [1.11.0](https://github.com/revanced/revanced-patches/compare/v1.10.5...v1.11.0) (2022-06-26)
+
+
+### Features
+
+* add youtube version 17.24.35 ([ec626cc](https://github.com/revanced/revanced-patches/commit/ec626ccfa2bcf14b722d08110382de009a1c12b4))
+* add youtube version 17.24.35 ([adc60a6](https://github.com/revanced/revanced-patches/commit/adc60a6fa09f6a21800ba51b8ca888d11a17e870))
+
 ## [1.10.5](https://github.com/revanced/revanced-patches/compare/v1.10.4...v1.10.5) (2022-06-25)
 
 
