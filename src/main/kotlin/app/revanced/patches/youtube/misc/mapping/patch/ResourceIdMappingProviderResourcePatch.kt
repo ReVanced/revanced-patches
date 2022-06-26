@@ -5,9 +5,9 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.impl.ResourceData
-import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.impl.ResourcePatch
 import org.w3c.dom.Element
 
 @Name("resource-id-mapping-provider-resource-patch-dependency")
@@ -20,7 +20,7 @@ class ResourceIdMappingProviderResourcePatch : ResourcePatch() {
     }
 
     override fun execute(data: ResourceData): PatchResult {
-        data.getXmlEditor("res/values/public.xml").use { editor ->
+        data.xmlEditor["res/values/public.xml"].use { editor ->
             resourceMappings = buildMap {
                 editor.file.documentElement.doRecursively { node ->
                     if (node !is Element) return@doRecursively
