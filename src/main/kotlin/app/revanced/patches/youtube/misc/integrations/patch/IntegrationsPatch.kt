@@ -59,7 +59,7 @@ class IntegrationsPatch : BytecodePatch(
                         invoke-static { }, Lapp/revanced/integrations/utils/Globals;->getAppContext()Landroid/content/Context;
                         move-result-object v0
                         return-object v0
-                    """.trimIndent().toInstructions(), null, null
+                    """.toInstructions(), null, null
                 )
             ).toMutable()
         )
