@@ -1,24 +1,21 @@
 package app.revanced.patches.youtube.layout.oldqualitylayout.patch
 
+import OldQualityFingerprint
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.implementation.BytecodeData
+import app.revanced.patcher.data.impl.BytecodeData
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.or
+import app.revanced.patcher.fingerprint.method.utils.MethodFingerprintUtils.resolve
 import app.revanced.patcher.patch.annotations.Dependencies
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.implementation.BytecodePatch
-import app.revanced.patcher.patch.implementation.misc.PatchResult
-import app.revanced.patcher.patch.implementation.misc.PatchResultError
-import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
-import app.revanced.patcher.signature.implementation.method.MethodSignature
-import app.revanced.patcher.signature.implementation.method.annotation.FuzzyPatternScanMethod
-import app.revanced.patcher.signature.implementation.method.annotation.MatchingMethod
+import app.revanced.patcher.patch.impl.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultError
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.youtube.layout.oldqualitylayout.annotations.OldQualityLayoutCompatibility
-import app.revanced.patches.youtube.layout.oldqualitylayout.signatures.OldQualityParentSignature
+import app.revanced.patches.youtube.layout.oldqualitylayout.fingerprints.OldQualityParentFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
 
@@ -30,33 +27,22 @@ import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
 @Version("0.0.1")
 class OldQualityLayoutPatch : BytecodePatch(
     listOf(
-        OldQualityParentSignature
+        OldQualityParentFingerprint
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        val result = OldQualityParentSignature.result!!.findParentMethod(@Name("old-quality-signature") @MatchingMethod(
-            definingClass = "Libh"
-        ) @FuzzyPatternScanMethod(2) @OldQualityLayoutCompatibility @Version("0.0.1") object : MethodSignature(
-            "L", AccessFlags.FINAL or AccessFlags.PRIVATE, listOf("Z"), listOf(
-                Opcode.CONST_4,
-                Opcode.INVOKE_VIRTUAL,
-                Opcode.IGET_OBJECT,
-                Opcode.IGET_OBJECT,
-                Opcode.INVOKE_VIRTUAL,
-                Opcode.IGET_OBJECT,
-                Opcode.GOTO,
-                Opcode.IGET_OBJECT,
-            )
-        ) {}) ?: return PatchResultError("Required parent method could not be found.")
+        OldQualityFingerprint.resolve(data, OldQualityParentFingerprint.result!!.classDef)
+        val result = OldQualityFingerprint.result
+            ?: return PatchResultError("Required parent method could not be found.")
 
-        val implementation = result.method.implementation!!
+        val implementation = result.mutableMethod.implementation!!
 
         // if useOldStyleQualitySettings == true, jump over all instructions
         val jmpInstruction = BuilderInstruction21t(
-            Opcode.IF_NEZ, 0, implementation.instructions[result.scanResult.endIndex].location.labels.first()
+            Opcode.IF_NEZ, 0, implementation.instructions[result.patternScanResult!!.endIndex].location.labels.first()
         )
         implementation.addInstruction(5, jmpInstruction)
-        result.method.addInstructions(
+        result.mutableMethod.addInstructions(
             0, """
                 invoke-static { }, Lapp/revanced/integrations/patches/OldStyleQualityPatch;->useOldStyleQualitySettings()Z
                 move-result v0

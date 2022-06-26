@@ -3,12 +3,12 @@ package app.revanced.patches.youtube.layout.amoled.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.implementation.ResourceData
+import app.revanced.patcher.data.impl.ResourceData
 import app.revanced.patcher.patch.annotations.Dependencies
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.implementation.ResourcePatch
-import app.revanced.patcher.patch.implementation.misc.PatchResult
-import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
+import app.revanced.patcher.patch.impl.ResourcePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.youtube.layout.amoled.annotations.AmoledCompatibility
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import org.w3c.dom.Element

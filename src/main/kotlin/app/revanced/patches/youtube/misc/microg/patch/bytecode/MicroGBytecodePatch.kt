@@ -4,17 +4,17 @@ import app.revanced.extensions.equalsAny
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.implementation.BytecodeData
-import app.revanced.patcher.data.implementation.proxy
+import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.data.impl.proxy
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.annotations.Dependencies
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.implementation.BytecodePatch
-import app.revanced.patcher.patch.implementation.misc.PatchResult
-import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
+import app.revanced.patcher.patch.impl.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.smali.toInstruction
-import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.youtube.layout.castbutton.patch.HideCastButtonPatch
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import app.revanced.patches.youtube.misc.microg.annotations.MicroGPatchCompatibility
@@ -22,7 +22,7 @@ import app.revanced.patches.youtube.misc.microg.patch.resource.MicroGResourcePat
 import app.revanced.patches.youtube.misc.microg.patch.resource.enum.StringReplaceMode
 import app.revanced.patches.youtube.misc.microg.shared.Constants.BASE_MICROG_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.microg.shared.Constants.REVANCED_PACKAGE_NAME
-import app.revanced.patches.youtube.misc.microg.signatures.*
+import app.revanced.patches.youtube.misc.microg.fingerprints.*
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.MutableMethodImplementation
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
@@ -44,13 +44,13 @@ import org.jf.dexlib2.immutable.reference.ImmutableStringReference
 @Version("0.0.1")
 class MicroGBytecodePatch : BytecodePatch(
     listOf(
-        IntegrityCheckSignature,
-        ServiceCheckSignature,
-        GooglePlayUtilitySignature,
-        CastDynamiteModuleSignature,
-        CastDynamiteModuleV2Signature,
-        CastContextFetchSignature,
-        PrimeSignature,
+        IntegrityCheckFingerprint,
+        ServiceCheckFingerprint,
+        GooglePlayUtilityFingerprint,
+        CastDynamiteModuleFingerprint,
+        CastDynamiteModuleV2Fingerprint,
+        CastContextFetchFingerprint,
+        PrimeFingerprint,
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
@@ -125,15 +125,15 @@ class MicroGBytecodePatch : BytecodePatch(
 
     private fun disablePlayServiceChecksAndFixCastIssues() {
         listOf(
-            IntegrityCheckSignature,
-            ServiceCheckSignature,
-            GooglePlayUtilitySignature,
-            CastDynamiteModuleSignature,
-            CastDynamiteModuleV2Signature,
-            CastContextFetchSignature
-        ).forEach { signature ->
-            val result = signature.result!!
-            val stringInstructions = when (result.immutableMethod.returnType.first()) {
+            IntegrityCheckFingerprint,
+            ServiceCheckFingerprint,
+            GooglePlayUtilityFingerprint,
+            CastDynamiteModuleFingerprint,
+            CastDynamiteModuleV2Fingerprint,
+            CastContextFetchFingerprint
+        ).forEach { fingerprint ->
+            val result = fingerprint.result!!
+            val stringInstructions = when (result.method.returnType.first()) {
                 'L' -> """
                         const/4 v0, 0x0
                         return-object v0
@@ -147,12 +147,13 @@ class MicroGBytecodePatch : BytecodePatch(
 
                 else -> throw Exception("This case should never happen.")
             }
-            result.method.addInstructions(
+            result.mutableMethod.addInstructions(
                 0, stringInstructions
             )
         }
 
-        val implementation = PrimeSignature.result!!.method.implementation!!
+        val primeMethod = PrimeFingerprint.result!!.mutableMethod
+        val implementation = primeMethod.implementation!!
 
         var register = 2
         val index = implementation.instructions.indexOfFirst {
@@ -165,8 +166,8 @@ class MicroGBytecodePatch : BytecodePatch(
             return@indexOfFirst true
         }
 
-        implementation.replaceInstruction(
-            index, "const-string v$register, \"$REVANCED_PACKAGE_NAME\"".toInstruction()
+        primeMethod.replaceInstruction(
+            index, "const-string v$register, \"$REVANCED_PACKAGE_NAME\""
         )
     }
 }

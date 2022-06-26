@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.ad.general.bytecode.extensions
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.softCompareTo
-import app.revanced.patcher.patch.implementation.misc.PatchResultError
+import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import org.jf.dexlib2.builder.BuilderInstruction

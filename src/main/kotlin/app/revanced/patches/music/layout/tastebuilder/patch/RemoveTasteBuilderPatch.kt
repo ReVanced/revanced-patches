@@ -3,14 +3,14 @@ package app.revanced.patches.music.layout.tastebuilder.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.implementation.BytecodeData
+import app.revanced.patcher.data.impl.BytecodeData
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.implementation.BytecodePatch
-import app.revanced.patcher.patch.implementation.misc.PatchResult
-import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
+import app.revanced.patcher.patch.impl.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.music.layout.tastebuilder.annotations.RemoveTasteBuilderCompatibility
-import app.revanced.patches.music.layout.tastebuilder.signatures.TasteBuilderConstructorSignature
+import app.revanced.patches.music.layout.tastebuilder.fingerprints.TasteBuilderConstructorFingerprint
 import org.jf.dexlib2.iface.instruction.formats.Instruction22c
 
 @Patch
@@ -20,18 +20,16 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction22c
 @Version("0.0.1")
 class RemoveTasteBuilderPatch : BytecodePatch(
     listOf(
-        TasteBuilderConstructorSignature
+        TasteBuilderConstructorFingerprint
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        val result = TasteBuilderConstructorSignature.result!!
-        val implementation = result.method.implementation!!
+        val result = TasteBuilderConstructorFingerprint.result!!
+        val method = result.mutableMethod
 
-        val insertIndex = result.scanResult.endIndex - 8
-
-        val register = (implementation.instructions[insertIndex] as Instruction22c).registerA
-
-        result.method.addInstructions(
+        val insertIndex = result.patternScanResult!!.endIndex - 8
+        val register = (method.implementation!!.instructions[insertIndex] as Instruction22c).registerA
+        method.addInstructions(
             insertIndex, """
                 const/16 v1, 0x8
                 invoke-virtual {v${register}, v1}, Landroid/view/View;->setVisibility(I)V

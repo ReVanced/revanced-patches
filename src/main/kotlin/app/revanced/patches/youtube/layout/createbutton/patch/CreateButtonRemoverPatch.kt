@@ -3,16 +3,16 @@ package app.revanced.patches.youtube.layout.createbutton.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.implementation.BytecodeData
+import app.revanced.patcher.data.impl.BytecodeData
 import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultError
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Dependencies
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.implementation.BytecodePatch
-import app.revanced.patcher.patch.implementation.misc.PatchResult
-import app.revanced.patcher.patch.implementation.misc.PatchResultError
-import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
+import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.layout.createbutton.annotations.CreateButtonCompatibility
-import app.revanced.patches.youtube.layout.createbutton.signatures.CreateButtonSignature
+import app.revanced.patches.youtube.layout.createbutton.fingerprints.CreateButtonFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.mapping.patch.ResourceIdMappingProviderResourcePatch
 import org.jf.dexlib2.Opcode
@@ -29,14 +29,14 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @Version("0.0.1")
 class CreateButtonRemoverPatch : BytecodePatch(
     listOf(
-        CreateButtonSignature
+        CreateButtonFingerprint
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        val result = CreateButtonSignature.result!!
+        val result = CreateButtonFingerprint.result!!
 
         // Get the required register which holds the view object we need to pass to the method hideCreateButton
-        val implementation = result.method.implementation!!
+        val implementation = result.mutableMethod.implementation!!
 
         val imageOnlyLayout = ResourceIdMappingProviderResourcePatch.resourceMappings["image_only_tab"]
             ?: return PatchResultError("Required resource could not be found in the map")
@@ -45,7 +45,10 @@ class CreateButtonRemoverPatch : BytecodePatch(
             implementation.instructions.indexOfFirst { (it as? WideLiteralInstruction)?.wideLiteral == imageOnlyLayout }
 
         val (instructionIndex, instruction) = implementation.instructions.drop(imageOnlyLayoutConstIndex).withIndex()
-            .first { (((it.value as? ReferenceInstruction)?.reference) as? MethodReference)?.definingClass?.contains("PivotBar") ?: false }
+            .first {
+                (((it.value as? ReferenceInstruction)?.reference) as? MethodReference)?.definingClass?.contains("PivotBar")
+                    ?: false
+            }
 
         if (instruction.opcode != Opcode.INVOKE_VIRTUAL) return PatchResultError("Could not find the correct instruction")
 
@@ -53,7 +56,7 @@ class CreateButtonRemoverPatch : BytecodePatch(
         val moveResultInstruction = implementation.instructions[moveResultIndex] as OneRegisterInstruction
 
         // Hide the button view via proxy by passing it to the hideCreateButton method
-        result.method.addInstruction(
+        result.mutableMethod.addInstruction(
             moveResultIndex + 1,
             "invoke-static { v${moveResultInstruction.registerA} }, Lapp/revanced/integrations/patches/HideCreateButtonPatch;->hideCreateButton(Landroid/view/View;)V"
         )

@@ -3,13 +3,13 @@ package app.revanced.patches.youtube.layout.fullscreenpanels.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.implementation.BytecodeData
-import app.revanced.patcher.data.implementation.proxy
+import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.data.impl.proxy
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.implementation.BytecodePatch
-import app.revanced.patcher.patch.implementation.misc.PatchResult
-import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
+import app.revanced.patcher.patch.impl.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.youtube.layout.fullscreenpanels.annotations.FullscreenPanelsCompatibility
 
 @Patch

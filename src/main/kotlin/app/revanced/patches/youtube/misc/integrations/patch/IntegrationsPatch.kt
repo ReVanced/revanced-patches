@@ -3,17 +3,17 @@ package app.revanced.patches.youtube.misc.integrations.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.implementation.BytecodeData
+import app.revanced.patcher.data.impl.BytecodeData
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.patch.implementation.BytecodePatch
-import app.revanced.patcher.patch.implementation.misc.PatchResult
-import app.revanced.patcher.patch.implementation.misc.PatchResultError
-import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultError
+import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.youtube.misc.integrations.annotations.IntegrationsCompatibility
-import app.revanced.patches.youtube.misc.integrations.signatures.InitSignature
+import app.revanced.patches.youtube.misc.integrations.fingerprints.InitFingerprint
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.immutable.ImmutableMethod
 import org.jf.dexlib2.immutable.ImmutableMethodImplementation
@@ -24,26 +24,27 @@ import org.jf.dexlib2.immutable.ImmutableMethodImplementation
 @Version("0.0.1")
 class IntegrationsPatch : BytecodePatch(
     listOf(
-        InitSignature
+        InitFingerprint
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
         if (data.findClass("Lapp/revanced/integrations/utils/Globals") == null)
             return PatchResultError("Integrations have not been merged yet. This patch can not succeed without the integrations.")
 
-        val result = InitSignature.result!!
+        val result = InitFingerprint.result!!
 
-        val implementation = result.method.implementation!!
+        val method = result.mutableMethod
+        val implementation = method.implementation!!
         val count = implementation.registerCount - 1
 
-        result.method.addInstructions(
-            result.scanResult.endIndex + 1, """
+        method.addInstructions(
+            0, """
                   invoke-static {v$count}, Lapp/revanced/integrations/sponsorblock/StringRef;->setContext(Landroid/content/Context;)V
                   sput-object v$count, Lapp/revanced/integrations/utils/Globals;->context:Landroid/content/Context;
             """
         )
 
-        val classDef = result.definingClassProxy.resolve()
+        val classDef = result.mutableClass
         classDef.methods.add(
             ImmutableMethod(
                 classDef.type,

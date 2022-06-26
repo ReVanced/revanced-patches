@@ -3,16 +3,16 @@ package app.revanced.patches.music.audio.codecs.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.implementation.BytecodeData
-import app.revanced.patcher.data.implementation.toMethodWalker
+import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.data.impl.toMethodWalker
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.implementation.BytecodePatch
-import app.revanced.patcher.patch.implementation.misc.PatchResult
-import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
+import app.revanced.patcher.patch.impl.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.smali.toInstruction
 import app.revanced.patches.music.audio.codecs.annotations.CodecsUnlockCompatibility
-import app.revanced.patches.music.audio.codecs.signatures.AllCodecsReferenceSignature
-import app.revanced.patches.music.audio.codecs.signatures.CodecsLockSignature
+import app.revanced.patches.music.audio.codecs.fingerprints.AllCodecsReferenceFingerprint
+import app.revanced.patches.music.audio.codecs.fingerprints.CodecsLockFingerprint
 
 @Patch
 @Name("codecs-unlock")
@@ -21,19 +21,19 @@ import app.revanced.patches.music.audio.codecs.signatures.CodecsLockSignature
 @Version("0.0.1")
 class CodecsUnlockPatch : BytecodePatch(
     listOf(
-        CodecsLockSignature, AllCodecsReferenceSignature
+        CodecsLockFingerprint, AllCodecsReferenceFingerprint
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        var result = CodecsLockSignature.result!!
+        var result = CodecsLockFingerprint.result!!
 
-        val implementation = result.method.implementation!!
+        val implementation = result.mutableMethod.implementation!!
 
-        val instructionIndex = result.scanResult.startIndex
+        val instructionIndex = result.patternScanResult!!.startIndex
 
-        result = AllCodecsReferenceSignature.result!!
+        result = AllCodecsReferenceFingerprint.result!!
         val codecMethod =
-            data.toMethodWalker(result.immutableMethod).nextMethod(result.scanResult.startIndex).getMethod()
+            data.toMethodWalker(result.method).nextMethod(result.patternScanResult!!.startIndex).getMethod()
 
         implementation.replaceInstruction(
             instructionIndex,

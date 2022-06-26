@@ -3,17 +3,17 @@ package app.revanced.patches.youtube.interaction.seekbar.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.implementation.BytecodeData
+import app.revanced.patcher.data.impl.BytecodeData
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultError
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Dependencies
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.implementation.BytecodePatch
-import app.revanced.patcher.patch.implementation.misc.PatchResult
-import app.revanced.patcher.patch.implementation.misc.PatchResultError
-import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
+import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.interaction.seekbar.annotation.SeekbarTappingCompatibility
-import app.revanced.patches.youtube.interaction.seekbar.signatures.SeekbarTappingParentSignature
-import app.revanced.patches.youtube.interaction.seekbar.signatures.SeekbarTappingSignature
+import app.revanced.patches.youtube.interaction.seekbar.fingerprints.SeekbarTappingFingerprint
+import app.revanced.patches.youtube.interaction.seekbar.fingerprints.SeekbarTappingParentFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
@@ -29,16 +29,16 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 @Version("0.0.1")
 class EnableSeekbarTappingPatch : BytecodePatch(
     listOf(
-        SeekbarTappingParentSignature, SeekbarTappingSignature
+        SeekbarTappingParentFingerprint, SeekbarTappingFingerprint
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        var result = SeekbarTappingParentSignature.result!!
+        var result = SeekbarTappingParentFingerprint.result!!
 
         val tapSeekMethods = mutableMapOf<String, Method>()
 
         // find the methods which tap the seekbar
-        for (it in result.definingClassProxy.immutableClass.methods) {
+        for (it in result.classDef.methods) {
             if (it.implementation == null) continue
 
             val instructions = it.implementation!!.instructions
@@ -57,35 +57,35 @@ class EnableSeekbarTappingPatch : BytecodePatch(
             if (literal == 2) tapSeekMethods["O"] = it
         }
 
-        // replace map because we dont need the upper one anymore
-        result = SeekbarTappingSignature.result!!
+        // replace map because we don't need the upper one anymore
+        result = SeekbarTappingFingerprint.result!!
 
-        val implementation = result.method.implementation!!
+        val implementation = result.mutableMethod.implementation!!
 
         // if tap-seeking is enabled, do not invoke the two methods below
         val pMethod = tapSeekMethods["P"]!!
         val oMethod = tapSeekMethods["O"]!!
 
         // get the required register
-        val instruction = implementation.instructions[result.scanResult.endIndex]
+        val instruction = implementation.instructions[result.patternScanResult!!.endIndex]
         if (instruction.opcode != Opcode.INVOKE_VIRTUAL) return PatchResultError("Could not find the correct register")
         val register = (instruction as Instruction35c).registerC
 
         // the instructions are written in reverse order.
-        result.method.addInstructions(
-            result.scanResult.endIndex + 1, """
+        result.mutableMethod.addInstructions(
+            result.patternScanResult!!.endIndex + 1, """
                invoke-virtual { v$register, v2 }, ${oMethod.definingClass}->${oMethod.name}(I)V
                invoke-virtual { v$register, v2 }, ${pMethod.definingClass}->${pMethod.name}(I)V
             """
         )
 
         // if tap-seeking is disabled, do not invoke the two methods above by jumping to the else label
-        val elseLabel = implementation.newLabelForIndex(result.scanResult.endIndex + 1)
+        val elseLabel = implementation.newLabelForIndex(result.patternScanResult!!.endIndex + 1)
         implementation.addInstruction(
-            result.scanResult.endIndex + 1, BuilderInstruction21t(Opcode.IF_EQZ, 0, elseLabel)
+            result.patternScanResult!!.endIndex + 1, BuilderInstruction21t(Opcode.IF_EQZ, 0, elseLabel)
         )
-        result.method.addInstructions(
-            result.scanResult.endIndex + 1, """
+        result.mutableMethod.addInstructions(
+            result.patternScanResult!!.endIndex + 1, """
                 invoke-static { }, Lapp/revanced/integrations/patches/SeekbarTappingPatch;->isTapSeekingEnabled()Z
                 move-result v0
             """

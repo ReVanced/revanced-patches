@@ -1,24 +1,20 @@
 package app.revanced.patches.youtube.ad.video.patch
 
+import ShowVideoAdsFingerprint
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.implementation.BytecodeData
+import app.revanced.patcher.data.impl.BytecodeData
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.or
+import app.revanced.patcher.fingerprint.method.utils.MethodFingerprintUtils.resolve
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Dependencies
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.implementation.BytecodePatch
-import app.revanced.patcher.patch.implementation.misc.PatchResult
-import app.revanced.patcher.patch.implementation.misc.PatchResultError
-import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
-import app.revanced.patcher.signature.implementation.method.MethodSignature
-import app.revanced.patcher.signature.implementation.method.annotation.DirectPatternScanMethod
-import app.revanced.patcher.signature.implementation.method.annotation.MatchingMethod
+import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.ad.video.annotations.VideoAdsCompatibility
-import app.revanced.patches.youtube.ad.video.signatures.ShowVideoAdsConstructorSignature
+import app.revanced.patches.youtube.ad.video.fingerprints.ShowVideoAdsConstructorFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import org.jf.dexlib2.AccessFlags
 
 @Patch
 @Dependencies(dependencies = [IntegrationsPatch::class])
@@ -28,19 +24,14 @@ import org.jf.dexlib2.AccessFlags
 @Version("0.0.1")
 class VideoAdsPatch : BytecodePatch(
     listOf(
-        ShowVideoAdsConstructorSignature
+        ShowVideoAdsConstructorFingerprint
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        val result =
-            ShowVideoAdsConstructorSignature.result!!.findParentMethod(@Name("show-video-ads-method-signature") @MatchingMethod(
-                definingClass = "zai"
-            ) @DirectPatternScanMethod @VideoAdsCompatibility @Version("0.0.1") object : MethodSignature(
-                "V", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf("Z"), null
-            ) {}) ?: return PatchResultError("Required parent method could not be found.")
+        ShowVideoAdsFingerprint.resolve(data, ShowVideoAdsConstructorFingerprint.result!!.classDef)
 
         // Override the parameter by calling shouldShowAds and setting the parameter to the result
-        result.method.addInstructions(
+        ShowVideoAdsFingerprint.result!!.mutableMethod.addInstructions(
             0, """
                 invoke-static { }, Lapp/revanced/integrations/patches/VideoAdsPatch;->shouldShowAds()Z
                 move-result v1

@@ -1,23 +1,19 @@
 package app.revanced.patches.music.audio.exclusiveaudio.patch
 
+import AudioOnlyEnablerFingerprint
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.implementation.BytecodeData
-import app.revanced.patcher.extensions.or
+import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.fingerprint.method.utils.MethodFingerprintUtils.resolve
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.implementation.BytecodePatch
-import app.revanced.patcher.patch.implementation.misc.PatchResult
-import app.revanced.patcher.patch.implementation.misc.PatchResultError
-import app.revanced.patcher.patch.implementation.misc.PatchResultSuccess
-import app.revanced.patcher.signature.implementation.method.MethodSignature
-import app.revanced.patcher.signature.implementation.method.annotation.DirectPatternScanMethod
-import app.revanced.patcher.signature.implementation.method.annotation.MatchingMethod
-import app.revanced.patcher.util.smali.toInstruction
+import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.music.audio.exclusiveaudio.annotations.ExclusiveAudioCompatibility
-import app.revanced.patches.music.audio.exclusiveaudio.signatures.ExclusiveAudioSignature
-import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.Opcode
+import app.revanced.patches.music.audio.exclusiveaudio.fingerprints.ExclusiveAudioFingerprint
 
 @Patch
 @Name("exclusive-audio-playback")
@@ -26,44 +22,15 @@ import org.jf.dexlib2.Opcode
 @Version("0.0.1")
 class ExclusiveAudioPatch : BytecodePatch(
     listOf(
-        ExclusiveAudioSignature
+        ExclusiveAudioFingerprint
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        val result = ExclusiveAudioSignature.result!!.findParentMethod(@Name("audio-only-enabler-method") @MatchingMethod(
-            "Lgmd;",
-            "d"
-        ) @DirectPatternScanMethod @ExclusiveAudioCompatibility @Version(
-            "0.0.1"
-        ) object : MethodSignature(
-            "Z", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf(), listOf(
-                Opcode.IGET_OBJECT,
-                Opcode.INVOKE_INTERFACE,
-                Opcode.MOVE_RESULT_OBJECT,
-                Opcode.IGET_OBJECT,
-                Opcode.INVOKE_INTERFACE,
-                Opcode.MOVE_RESULT_OBJECT,
-                Opcode.INVOKE_VIRTUAL,
-                Opcode.MOVE_RESULT_OBJECT,
-                Opcode.CHECK_CAST,
-                Opcode.IF_NEZ,
-                Opcode.IGET_OBJECT,
-                Opcode.INVOKE_VIRTUAL,
-                Opcode.MOVE_RESULT,
-                Opcode.GOTO,
-                Opcode.INVOKE_VIRTUAL,
-                Opcode.MOVE_RESULT,
-                Opcode.RETURN
-            )
-        ) {}) ?: return PatchResultError("Required parent method could not be found.")
+        ExclusiveAudioFingerprint.resolve(data, AudioOnlyEnablerFingerprint.result!!.classDef)
 
-        val implementation = result.method.implementation!!
-        implementation.replaceInstruction(
-            implementation.instructions.count() - 1, "const/4 v0, 0x1".toInstruction()
-        )
-        implementation.addInstruction(
-            "return v0".toInstruction()
-        )
+        val method = ExclusiveAudioFingerprint.result!!.mutableMethod
+        method.replaceInstruction(method.implementation!!.instructions.count() - 1, "const/4 v0, 0x1")
+        method.addInstruction("return v0")
 
         return PatchResultSuccess()
     }
