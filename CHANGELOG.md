@@ -1,3 +1,11 @@
+## [2.0.1](https://github.com/revanced/revanced-patches/compare/v2.0.0...v2.0.1) (2022-06-26)
+
+
+### Bug Fixes
+
+* invalid string in strings list ([f08b53b](https://github.com/revanced/revanced-patches/commit/f08b53b07d93bd8ac6e7da376ea6e6023e53076e))
+* migrate to new `proxy` api ([db32ffe](https://github.com/revanced/revanced-patches/commit/db32ffe56a8e73177bef724ee10eda9a28b367b8))
+
 # [2.0.0](https://github.com/revanced/revanced-patches/compare/v1.11.0...v2.0.0) (2022-06-26)
 
 
