@@ -78,5 +78,5 @@ object IntegrityCheckFingerprint : MethodFingerprint(
         Opcode.CONST_STRING,
         Opcode.GOTO,
         Opcode.NEW_ARRAY
-    ), listOf("This should never happen.", "GooglePlayServicesUtil", "Google Play Store fingerprint invalid.")
+    ), listOf("This should never happen.", "GooglePlayServicesUtil", "Google Play Store signature invalid.")
 )
