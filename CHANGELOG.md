@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/revanced/revanced-patches/compare/v2.0.1...v2.0.2) (2022-06-27)
+
+
+### Bug Fixes
+
+* some more refactoring of integrations, add hide-watermark patch ([#63](https://github.com/revanced/revanced-patches/issues/63)) ([feb09c5](https://github.com/revanced/revanced-patches/commit/feb09c56f475e2537a67d3636b08737848158a8e))
+
 ## [2.0.1](https://github.com/revanced/revanced-patches/compare/v2.0.0...v2.0.1) (2022-06-26)
 
 
