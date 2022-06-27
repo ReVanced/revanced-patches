@@ -1,3 +1,10 @@
+## [2.0.3](https://github.com/revanced/revanced-patches/compare/v2.0.2...v2.0.3) (2022-06-27)
+
+
+### Bug Fixes
+
+* check if resource files exist ([ba1f3af](https://github.com/revanced/revanced-patches/commit/ba1f3af99be58edc44ed1b8f1875508d5034efd8))
+
 ## [2.0.2](https://github.com/revanced/revanced-patches/compare/v2.0.1...v2.0.2) (2022-06-27)
 
 
