@@ -112,7 +112,7 @@ public class LithoAdRemoval {
 
                 bufferBlockList.add("YouTube Movies");
             }
-            if ((value.contains("home_video_with_context") || value.contains("related_video_with_context")) &&
+            if (containsAny(value, "home_video_with_context", "related_video_with_context") &&
                 bufferBlockList.stream().anyMatch(StandardCharsets.UTF_8.decode(buffer).toString()::contains)
             ) return true;
 
