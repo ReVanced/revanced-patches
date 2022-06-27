@@ -3,11 +3,9 @@ package app.revanced.integrations.videoplayer.videosettings;
 import android.content.Context;
 
 
-import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
-
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
-import app.revanced.integrations.settings.Settings;
+import app.revanced.integrations.utils.ReVancedUtils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -16,38 +14,41 @@ import java.util.Collections;
 
 /* loaded from: classes6.dex */
 public class VideoQuality {
-    static final int[] videoResolutions = {0, 144, 240, 360, 480, 720, 1080, 1440, 2160};
+    public static final int[] videoResolutions = {0, 144, 240, 360, 480, 720, 1080, 1440, 2160};
+    private static Boolean userChangedQuality = false;
+    private static Boolean newVideo = false;
+
 
     public static void userChangedQuality() {
-        Settings.userChangedQuality = true;
-        Settings.newVideo = false;
+        userChangedQuality = true;
+        newVideo = false;
     }
 
     public static int setVideoQuality(Object[] qualities, int quality, Object qInterface) {
         int preferredQuality;
         Field[] fields;
-        if (!Settings.newVideo || Settings.userChangedQuality || qInterface == null) {
-            if (SettingsEnum.DEBUG_BOOLEAN.getBoolean() && Settings.userChangedQuality) {
-                LogHelper.debug("Settings - quality", "Skipping quality change because user changed it: " + quality);
+        if (!newVideo || userChangedQuality || qInterface == null) {
+            if (SettingsEnum.DEBUG_BOOLEAN.getBoolean() && userChangedQuality) {
+                LogHelper.debug("VideoQuality", "Skipping quality change because user changed it: " + quality);
             }
-            Settings.userChangedQuality = false;
+            userChangedQuality = false;
             return quality;
         }
-        Settings.newVideo = false;
-        LogHelper.debug("Settings - quality", "Quality: " + quality);
-        Context context = YouTubeTikTokRoot_Application.getAppContext();
+        newVideo = false;
+        LogHelper.debug("VideoQuality", "Quality: " + quality);
+        Context context = ReVancedUtils.getContext();
         if (context == null) {
-            LogHelper.printException("Settings", "Context is null or settings not initialized, returning quality: " + quality);
+            LogHelper.printException("VideoQuality", "Context is null or settings not initialized, returning quality: " + quality);
             return quality;
         }
         if (Connectivity.isConnectedWifi(context)) {
             preferredQuality = SettingsEnum.PREFERRED_RESOLUTION_WIFI_INTEGER.getInt();
-            LogHelper.debug("Settings", "Wi-Fi connection detected, preferred quality: " + preferredQuality);
+            LogHelper.debug("VideoQuality", "Wi-Fi connection detected, preferred quality: " + preferredQuality);
         } else if (Connectivity.isConnectedMobile(context)) {
             preferredQuality = SettingsEnum.PREFERRED_RESOLUTION_MOBILE_INTEGER.getInt();
-            LogHelper.debug("Settings", "Mobile data connection detected, preferred quality: " + preferredQuality);
+            LogHelper.debug("VideoQuality", "Mobile data connection detected, preferred quality: " + preferredQuality);
         } else {
-            LogHelper.debug("Settings", "No Internet connection!");
+            LogHelper.debug("VideoQuality", "No Internet connection!");
             return quality;
         }
         if (preferredQuality == -2) {
@@ -71,7 +72,7 @@ public class VideoQuality {
         Collections.sort(iStreamQualities);
         int index = 0;
         for (int streamQuality2 : iStreamQualities) {
-            LogHelper.debug("Settings - qualities", "Quality at index " + index + ": " + streamQuality2);
+            LogHelper.debug("VideoQuality", "Quality at index " + index + ": " + streamQuality2);
             index++;
         }
         for (Integer iStreamQuality : iStreamQualities) {
@@ -84,15 +85,15 @@ public class VideoQuality {
             return quality;
         }
         int qualityIndex = iStreamQualities.indexOf(quality);
-        LogHelper.debug("Settings", "Index of quality " + quality + " is " + qualityIndex);
+        LogHelper.debug("VideoQuality", "Index of quality " + quality + " is " + qualityIndex);
         try {
             Class<?> cl = qInterface.getClass();
             Method m = cl.getMethod("x", Integer.TYPE);
             m.invoke(qInterface, iStreamQualities.get(qualityIndex));
-            LogHelper.debug("Settings", "Quality changed to: " + qualityIndex);
+            LogHelper.debug("VideoQuality", "Quality changed to: " + qualityIndex);
             return qualityIndex;
         } catch (Exception ex) {
-            LogHelper.printException("Settings", "Failed to set quality", ex);
+            LogHelper.printException("VideoQuality", "Failed to set quality", ex);
             return qualityIndex;
         }
     }

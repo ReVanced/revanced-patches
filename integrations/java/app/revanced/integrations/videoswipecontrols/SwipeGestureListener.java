@@ -7,14 +7,14 @@ import android.view.ViewConfiguration;
 import app.revanced.integrations.utils.LogHelper;
 
 /* loaded from: classes6.dex */
-public class FensterGestureListener implements GestureDetector.OnGestureListener {
+public class SwipeGestureListener implements GestureDetector.OnGestureListener {
     private boolean ignoreScroll = false;
-    private final FensterEventsListener listener;
+    private final SwipeEventsListener listener;
     private final int minFlingVelocity;
     public static int SWIPE_THRESHOLD = 0;
     public static int TOP_PADDING = 20;
 
-    public FensterGestureListener(FensterEventsListener listener, ViewConfiguration viewConfiguration) {
+    public SwipeGestureListener(SwipeEventsListener listener, ViewConfiguration viewConfiguration) {
         this.listener = listener;
         this.minFlingVelocity = viewConfiguration.getScaledMinimumFlingVelocity();
     }

@@ -5,8 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
-
 import app.revanced.integrations.utils.ReVancedUtils;
 
 public class SponsorBlockVoting extends SlimButton {
@@ -23,6 +21,6 @@ public class SponsorBlockVoting extends SlimButton {
 
     @Override
     public void onClick(View view) {
-        Toast.makeText(YouTubeTikTokRoot_Application.getAppContext(), "Nothing atm", Toast.LENGTH_SHORT).show();
+        Toast.makeText(ReVancedUtils.getContext(), "Nothing atm", Toast.LENGTH_SHORT).show();
     }
 }

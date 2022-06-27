@@ -7,8 +7,8 @@ import static app.revanced.integrations.sponsorblock.PlayerController.getCurrent
 import static app.revanced.integrations.sponsorblock.PlayerController.getCurrentVideoLength;
 import static app.revanced.integrations.sponsorblock.PlayerController.getLastKnownVideoTime;
 import static app.revanced.integrations.sponsorblock.PlayerController.sponsorSegmentsOfCurrentVideo;
-import static app.revanced.integrations.sponsorblock.SponsorBlockPreferenceFragment.FORMATTER;
-import static app.revanced.integrations.sponsorblock.SponsorBlockPreferenceFragment.SAVED_TEMPLATE;
+import static app.revanced.integrations.settingsmenu.SponsorBlockSettingsFragment.FORMATTER;
+import static app.revanced.integrations.settingsmenu.SponsorBlockSettingsFragment.SAVED_TEMPLATE;
 import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.DEFAULT_API_URL;
 import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.DEFAULT_SERVER_URL;
 import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.PREFERENCES_KEY_API_URL;

@@ -14,14 +14,16 @@ import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class VideoSpeed {
     public static final float[] videoSpeeds = {0.25f, 0.5f, 0.75f, 1.0f, 1.25f, 1.5f, 1.75f, 2.0f, 3.0f, 4.0f, 5.0f};
+    private static Boolean userChangedSpeed = false;
+    private static Boolean newVideoSpeed = false;
 
     public static int DefaultSpeed(Object[] speeds, int speed, Object qInterface) {
         int speed2;
         Exception e;
-        if (!Settings.newVideoSpeed) {
+        if (!newVideoSpeed) {
             return speed;
         }
-        Settings.newVideoSpeed = false;
+        newVideoSpeed = false;
         LogHelper.debug("Settings - speeds", "Speed: " + speed);
         float preferredSpeed = SettingsEnum.PREFERRED_VIDEO_SPEED_FLOAT.getFloat();
         LogHelper.debug("Settings", "Preferred speed: " + preferredSpeed);
@@ -90,31 +92,26 @@ public class VideoSpeed {
     }
 
     public static void userChangedSpeed() {
-        Settings.userChangedSpeed = true;
-        Settings.newVideoSpeed = false;
+        userChangedSpeed = true;
+        newVideoSpeed = false;
     }
 
-    private static float getSpeedByIndex(int index) {
-        if (index == -2) {
-            return 1.0f;
-        }
-        try {
-            return videoSpeeds[index];
-        } catch (Exception e) {
-            return 1.0f;
-        }
+
+    public static void NewVideoStarted() {
+        newVideoSpeed = true;
+        LogHelper.debug("VideoSpeed", "New video started!");
     }
 
     public static float getSpeedValue(Object[] speeds, int speed) {
         int i = 0;
-        if (!Settings.newVideoSpeed || Settings.userChangedSpeed) {
-            if (SettingsEnum.DEBUG_BOOLEAN.getBoolean() && Settings.userChangedSpeed) {
+        if (!newVideoSpeed || userChangedSpeed) {
+            if (SettingsEnum.DEBUG_BOOLEAN.getBoolean() && userChangedSpeed) {
                 LogHelper.debug("Settings - speeds", "Skipping speed change because user changed it: " + speed);
             }
-            Settings.userChangedSpeed = false;
+            userChangedSpeed = false;
             return -1.0f;
         }
-        Settings.newVideoSpeed = false;
+        newVideoSpeed = false;
         LogHelper.debug("Settings - speeds", "Speed: " + speed);
         float preferredSpeed = SettingsEnum.PREFERRED_VIDEO_SPEED_FLOAT.getFloat();
         LogHelper.debug("Settings", "Preferred speed: " + preferredSpeed);
@@ -170,4 +167,16 @@ public class VideoSpeed {
         LogHelper.debug("Settings", "Speed changed to: " + newSpeedIndex);
         return getSpeedByIndex(newSpeedIndex);
     }
+
+    private static float getSpeedByIndex(int index) {
+        if (index == -2) {
+            return 1.0f;
+        }
+        try {
+            return videoSpeeds[index];
+        } catch (Exception e) {
+            return 1.0f;
+        }
+    }
+
 }

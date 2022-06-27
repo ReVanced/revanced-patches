@@ -3,7 +3,7 @@ package app.revanced.integrations.videoswipecontrols;
 import android.view.MotionEvent;
 
 /* loaded from: classes6.dex */
-public interface FensterEventsListener {
+public interface SwipeEventsListener {
     void onDown(MotionEvent motionEvent);
 
     void onHorizontalScroll(MotionEvent motionEvent, float f);

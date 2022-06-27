@@ -9,10 +9,9 @@ import android.widget.ImageView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
-
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
+import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
 import app.revanced.integrations.videoplayer.videourl.Copy;
 import app.revanced.integrations.videoplayer.videourl.CopyWithTimeStamp;
@@ -106,7 +105,7 @@ public class AutoRepeat {
     }
 
     private static boolean shouldBeSelected() {
-        Context context = YouTubeTikTokRoot_Application.getAppContext();
+        Context context = ReVancedUtils.getContext();
         if (context == null) {
             LogHelper.printException("AutoRepeat", "ChangeSelected - context is null!");
             return false;
@@ -115,12 +114,12 @@ public class AutoRepeat {
     }
 
     private static void setSelected(boolean selected) {
-        Context context = YouTubeTikTokRoot_Application.getAppContext();
+        Context context = ReVancedUtils.getContext();
         SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, "pref_auto_repeat", selected);
     }
 
     private static boolean shouldBeShown() {
-        Context context = YouTubeTikTokRoot_Application.getAppContext();
+        Context context = ReVancedUtils.getContext();
         if (context == null) {
             LogHelper.printException("AutoRepeat", "ChangeSelected - context is null!");
             return false;
@@ -129,17 +128,17 @@ public class AutoRepeat {
     }
 
     private static int getIdentifier(String name, String defType) {
-        Context context = YouTubeTikTokRoot_Application.getAppContext();
+        Context context = ReVancedUtils.getContext();
         return context.getResources().getIdentifier(name, defType, context.getPackageName());
     }
 
     private static int getInteger(String name) {
-        Context context = YouTubeTikTokRoot_Application.getAppContext();
+        Context context = ReVancedUtils.getContext();
         return context.getResources().getInteger(getIdentifier(name, "integer"));
     }
 
     private static Animation getAnimation(String name) {
-        Context context = YouTubeTikTokRoot_Application.getAppContext();
+        Context context = ReVancedUtils.getContext();
         return AnimationUtils.loadAnimation(context, getIdentifier(name, "anim"));
     }
 }

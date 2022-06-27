@@ -10,8 +10,6 @@ import android.content.SharedPreferences;
 
 import android.widget.Toast;
 
-import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,16 +20,16 @@ import java.util.Map;
 
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
-import app.revanced.integrations.settings.Settings;
 import app.revanced.integrations.sponsorblock.player.ChannelModel;
 import app.revanced.integrations.sponsorblock.player.VideoInformation;
 import app.revanced.integrations.utils.ObjectSerializer;
+import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
 
 public class Whitelist {
     private static final String TAG = "VI - Whitelisting";
-    private static final Map<WhitelistType, ArrayList<ChannelModel>> whitelistMap = parseWhitelist(YouTubeTikTokRoot_Application.getAppContext());
-    private static final Map<WhitelistType, Boolean> enabledMap = parseEnabledMap(YouTubeTikTokRoot_Application.getAppContext());
+    private static final Map<WhitelistType, ArrayList<ChannelModel>> whitelistMap = parseWhitelist(ReVancedUtils.getContext());
+    private static final Map<WhitelistType, Boolean> enabledMap = parseEnabledMap(ReVancedUtils.getContext());
 
     private Whitelist() {
     }

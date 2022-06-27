@@ -13,8 +13,6 @@ import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.widget.Toast;
 
-import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -33,6 +31,7 @@ import app.revanced.integrations.sponsorblock.SponsorBlockUtils;
 import app.revanced.integrations.sponsorblock.SponsorBlockUtils.VoteOption;
 import app.revanced.integrations.sponsorblock.objects.SponsorSegment;
 import app.revanced.integrations.sponsorblock.objects.UserStats;
+import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
 
 public class SBRequester {
@@ -209,7 +208,7 @@ public class SBRequester {
             SponsorBlockSettings.vip = vip;
             SponsorBlockSettings.lastVipCheck = now;
 
-            SharedPreferences.Editor edit = SharedPrefHelper.getPreferences(YouTubeTikTokRoot_Application.getAppContext(), SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK).edit();
+            SharedPreferences.Editor edit = SharedPrefHelper.getPreferences(ReVancedUtils.getContext(), SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK).edit();
             edit.putString(SponsorBlockSettings.PREFERENCES_KEY_LAST_VIP_CHECK, String.valueOf(now));
             edit.putBoolean(SponsorBlockSettings.PREFERENCES_KEY_IS_VIP, vip);
             edit.apply();

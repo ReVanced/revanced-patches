@@ -2,9 +2,8 @@ package app.revanced.integrations.settings;
 
 import android.content.Context;
 
-import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
-
 import app.revanced.integrations.utils.LogHelper;
+import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
 
 public enum SettingsEnum {
@@ -12,38 +11,34 @@ public enum SettingsEnum {
     DEBUG_BOOLEAN("debug_xfile_enabled", false),
     MANUFACTURER_OVERRIDE_STRING("override_manufacturer", null),
     MODEL_OVERRIDE_STRING("override_model", null),
-    CODEC_OVERRIDE_BOOLEAN("override_resolution_xfile_enabled", false),
+    CODEC_OVERRIDE_BOOLEAN("override_resolution_xfile_enabled", true),
     PREFERRED_RESOLUTION_WIFI_INTEGER("pref_video_quality_wifi", -2),
     PREFERRED_RESOLUTION_MOBILE_INTEGER("pref_video_quality_mobile", -2),
     PREFERRED_VIDEO_SPEED_FLOAT("pref_video_speed", -2.0f),
-    PREFERRED_AUTO_CAPTIONS_BOOLEAN("pref_auto_captions", false),
     PREFERRED_MINIMIZED_VIDEO_PREVIEW_INTEGER("pref_minimized_video_preview", -2),
-    PREFERRED_AUTO_REPEAT_BOOLEAN("pref_auto_repeat", false),
+    PREFERRED_AUTO_REPEAT_BOOLEAN("pref_auto_repeat", true),
     HOME_ADS_SHOWN_BOOLEAN("home_ads_enabled", false),
     VIDEO_ADS_SHOWN_BOOLEAN("video_ads_enabled", false),
     REEL_BUTTON_SHOWN_BOOLEAN("reel_button_enabled", false),
     SHORTS_BUTTON_SHOWN_BOOLEAN("shorts_button_enabled", false),
     CAST_BUTTON_SHOWN_BOOLEAN("cast_button_enabled", false),
-    CREATE_BUTTON_SHOWN_BOOLEAN("xfile_create_button_hidden", true),
-    SUGGESTIONS_SHOWN_BOOLEAN("info_card_suggestions_enabled", true),
-    INFO_CARDS_SHOWN_BOOLEAN("info_cards_enabled", true),
-    BRANDING_SHOWN_BOOLEAN("branding_watermark_enabled", true),
+    CREATE_BUTTON_SHOWN_BOOLEAN("xfile_create_button_enabled", false),
+    SUGGESTIONS_SHOWN_BOOLEAN("info_card_suggestions_enabled", false),
+    INFO_CARDS_SHOWN_BOOLEAN("info_cards_enabled", false),
+    BRANDING_SHOWN_BOOLEAN("branding_watermark_enabled", false),
     USE_TABLET_MINIPLAYER_BOOLEAN("tablet_miniplayer", false),
-    CHANGE_COMMENT_LOCATION_BOOLEAN("comments_location", false),
     USE_NEW_ACTIONBAR_BOOLEAN("xfile_new_actionbar", false),
-    USE_VERTICAL_ZOOM_TO_FIT_BOOLEAN("xfile_zoom_to_fit_vertical", false),
     USE_DARK_THEME_BOOLEAN("app_theme_dark", false),
-    ACCESSIBILITY_SEEK_BOOLEAN("xfile_accessibility_seek_buttons", false),
-    USE_HDR_BRIGHTNESS_BOOLEAN("pref_hdr_autobrightness", false),
-    ENABLE_SWIPE_BRIGHTNESS_BOOLEAN("pref_xfenster_brightness", false),
-    ENABLE_SWIPE_VOLUME_BOOLEAN("pref_xfenster_volume", false),
+    USE_HDR_BRIGHTNESS_BOOLEAN("pref_hdr_autobrightness", true),
+    ENABLE_SWIPE_BRIGHTNESS_BOOLEAN("pref_xfenster_brightness", true),
+    ENABLE_SWIPE_VOLUME_BOOLEAN("pref_xfenster_volume", true),
     SWIPE_THRESHOLD_INTEGER("pref_xfenster_swipe_threshold", 30),
     SWIPE_PADDING_TOP_INTEGER("pref_xfenster_swipe_padding_top", 50),
+    SWIPE_USE_TABLET_MODE("pref_xfenster_tablet", false),
     MAX_BUFFER_INTEGER("pref_max_buffer_ms", 120000),
     PLAYBACK_MAX_BUFFER_INTEGER("pref_buffer_for_playback_ms", 2500),
     MAX_PLAYBACK_BUFFER_AFTER_REBUFFER_INTEGER("pref_buffer_for_playback_after_rebuffer_ms", 5000),
     OLD_STYLE_QUALITY_SETTINGS_BOOLEAN("old_style_quality_settings", true),
-    OLD_LAYOUT_XFILE_ENABLED_BOOLEAN("old_layout_xfile_enabled", false),
     TAP_SEEKING_ENABLED_BOOLEAN("xfile_enable_tap_seeking", true),
     ;
 
@@ -61,8 +56,8 @@ public enum SettingsEnum {
     public static void loadSettings() {
         if (loaded) return;
 
-        Context context;
-        if ((context = YouTubeTikTokRoot_Application.getAppContext()) != null) {
+        Context context = ReVancedUtils.getContext();
+        if (context != null) {
             for (SettingsEnum setting : values()) {
                 Object value = null;
                 if (setting.name().endsWith("BOOLEAN")) {
@@ -98,8 +93,8 @@ public enum SettingsEnum {
 
     public void saveValue(Object newValue) {
         loadSettings();
-        Context context;
-        if ((context = YouTubeTikTokRoot_Application.getAppContext()) != null) {
+        Context context = ReVancedUtils.getContext();
+        if (context != null) {
             if (name().endsWith("BOOLEAN")) {
                 SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, getPath(), (Boolean) newValue);
             } else if (name().endsWith("INTEGER")) {
@@ -113,6 +108,7 @@ public enum SettingsEnum {
             } else {
                 LogHelper.printException("SettingsEnum", "Setting does not end with a valid Type. Name is: " + name());
             }
+            value = newValue;
         } else {
             LogHelper.printException("SettingsEnum", "Context on SaveValue is null!");
         }
@@ -151,11 +147,11 @@ public enum SettingsEnum {
         return (Float) value;
     }
 
-    private Object getDefaultValue() {
+    public Object getDefaultValue() {
         return defaultValue;
     }
 
-    private String getPath() {
+    public String getPath() {
         return path;
     }
 

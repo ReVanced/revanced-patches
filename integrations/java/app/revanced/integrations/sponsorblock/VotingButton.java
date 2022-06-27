@@ -8,14 +8,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
-
 import java.lang.ref.WeakReference;
 
 import static app.revanced.integrations.sponsorblock.PlayerController.getCurrentVideoLength;
 import static app.revanced.integrations.sponsorblock.PlayerController.getLastKnownVideoTime;
 
 import app.revanced.integrations.utils.LogHelper;
+import app.revanced.integrations.utils.ReVancedUtils;
 
 public class VotingButton {
     static RelativeLayout _youtubeControlsLayout;
@@ -99,16 +98,16 @@ public class VotingButton {
 
     //region Helpers
     private static int getIdentifier(String name, String defType) {
-        Context context = YouTubeTikTokRoot_Application.getAppContext();
+        Context context = ReVancedUtils.getContext();
         return context.getResources().getIdentifier(name, defType, context.getPackageName());
     }
 
     private static int getInteger(String name) {
-        return YouTubeTikTokRoot_Application.getAppContext().getResources().getInteger(getIdentifier(name, "integer"));
+        return ReVancedUtils.getContext().getResources().getInteger(getIdentifier(name, "integer"));
     }
 
     private static Animation getAnimation(String name) {
-        return AnimationUtils.loadAnimation(YouTubeTikTokRoot_Application.getAppContext(), getIdentifier(name, "anim"));
+        return AnimationUtils.loadAnimation(ReVancedUtils.getContext(), getIdentifier(name, "anim"));
     }
     //endregion
 }

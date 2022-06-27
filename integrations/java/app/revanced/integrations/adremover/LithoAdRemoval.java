@@ -5,8 +5,6 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
-import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
-
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -15,12 +13,12 @@ import java.util.Objects;
 
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
+import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
-import app.revanced.integrations.settings.Settings;
 
 public class LithoAdRemoval {
     private static boolean getBoolean(String key, boolean _default) {
-        return SharedPrefHelper.getBoolean(Objects.requireNonNull(YouTubeTikTokRoot_Application.getAppContext()), SharedPrefHelper.SharedPrefNames.YOUTUBE, key, _default);
+        return SharedPrefHelper.getBoolean(Objects.requireNonNull(ReVancedUtils.getContext()), SharedPrefHelper.SharedPrefNames.YOUTUBE, key, _default);
     }
 
     private static boolean isExperimentalInfoPanelRemoval() {

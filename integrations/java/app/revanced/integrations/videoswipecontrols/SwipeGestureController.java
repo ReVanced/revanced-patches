@@ -8,10 +8,10 @@ import android.view.ViewConfiguration;
 import app.revanced.integrations.utils.LogHelper;
 
 /* loaded from: classes6.dex */
-public class FensterGestureController {
+public class SwipeGestureController {
     public boolean TouchesEnabled = false;
     private GestureDetector gestureDetector;
-    public FensterEventsListener listener;
+    public SwipeEventsListener listener;
 
     public boolean onTouchEvent(MotionEvent event) {
         if (event == null || !this.TouchesEnabled || event.getPointerCount() > 1) {
@@ -24,8 +24,8 @@ public class FensterGestureController {
         return this.gestureDetector.onTouchEvent(event);
     }
 
-    public void setFensterEventsListener(FensterEventsListener listener, Context context, ViewConfiguration viewConfiguration) {
+    public void setFensterEventsListener(SwipeEventsListener listener, Context context, ViewConfiguration viewConfiguration) {
         this.listener = listener;
-        this.gestureDetector = new GestureDetector(context, new FensterGestureListener(listener, viewConfiguration));
+        this.gestureDetector = new GestureDetector(context, new SwipeGestureListener(listener, viewConfiguration));
     }
 }

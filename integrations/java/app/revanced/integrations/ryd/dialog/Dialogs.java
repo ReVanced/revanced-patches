@@ -15,8 +15,6 @@ import android.graphics.LightingColorFilter;
 import android.net.Uri;
 import android.os.Build;
 
-import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
-
 import app.revanced.integrations.utils.SharedPrefHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 
@@ -28,7 +26,7 @@ public class Dialogs {
     }
 
     private static void rydFirstRun(Activity activity) {
-        Context context = YouTubeTikTokRoot_Application.getAppContext();
+        Context context = ReVancedUtils.getContext();
         boolean enabled = SharedPrefHelper.getBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_RYD_ENABLED, false);
         boolean hintShown = SharedPrefHelper.getBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_RYD_HINT_SHOWN, false);
 
@@ -82,7 +80,7 @@ public class Dialogs {
     }
 
     private static void sbFirstRun(Activity activity) {
-        Context context = YouTubeTikTokRoot_Application.getAppContext();
+        Context context = ReVancedUtils.getContext();
         boolean enabled = SharedPrefHelper.getBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED, false);
         boolean hintShown = SharedPrefHelper.getBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_SPONSOR_BLOCK_HINT_SHOWN, false);
 

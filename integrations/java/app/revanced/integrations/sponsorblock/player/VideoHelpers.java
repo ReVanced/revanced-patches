@@ -3,11 +3,10 @@ package app.revanced.integrations.sponsorblock.player;
 import android.content.Context;
 import android.widget.Toast;
 
-import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
-
 import static app.revanced.integrations.sponsorblock.StringRef.str;
 
 import app.revanced.integrations.utils.LogHelper;
+import app.revanced.integrations.utils.ReVancedUtils;
 
 public class VideoHelpers {
 
@@ -35,9 +34,9 @@ public class VideoHelpers {
 
             LogHelper.debug("VideoHelpers", "Video URL: " + videoUrl);
 
-            setClipboard(YouTubeTikTokRoot_Application.getAppContext(), videoUrl);
+            setClipboard(ReVancedUtils.getContext(), videoUrl);
 
-            Toast.makeText(YouTubeTikTokRoot_Application.getAppContext(), str("share_copy_url_success"), Toast.LENGTH_SHORT).show();
+            Toast.makeText(ReVancedUtils.getContext(), str("share_copy_url_success"), Toast.LENGTH_SHORT).show();
         } catch (Exception ex) {
             LogHelper.printException("VideoHelpers", "Couldn't generate video url", ex);
         }

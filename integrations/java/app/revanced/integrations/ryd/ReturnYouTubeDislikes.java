@@ -12,13 +12,12 @@ import android.os.Build;
 import android.view.View;
 import android.widget.TextView;
 
-import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
-
 import java.util.Locale;
 import java.util.Objects;
 
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.ryd.requests.RYDRequester;
+import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
 
 public class ReturnYouTubeDislikes {
@@ -34,7 +33,7 @@ public class ReturnYouTubeDislikes {
     private static CompactDecimalFormat compactNumberFormatter;
 
     static {
-        Context context = YouTubeTikTokRoot_Application.getAppContext();
+        Context context = ReVancedUtils.getContext();
         isEnabled = SharedPrefHelper.getBoolean(Objects.requireNonNull(context), SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_RYD_ENABLED, false);
         if (isEnabled) {
             registration = new Registration(context);
@@ -54,10 +53,10 @@ public class ReturnYouTubeDislikes {
     public static void onEnabledChange(boolean enabled) {
         isEnabled = enabled;
         if (registration == null) {
-            registration = new Registration(YouTubeTikTokRoot_Application.getAppContext());
+            registration = new Registration(ReVancedUtils.getContext());
         }
         if (voting == null) {
-            voting = new Voting(YouTubeTikTokRoot_Application.getAppContext(), registration);
+            voting = new Voting(ReVancedUtils.getContext(), registration);
         }
     }
 
@@ -176,7 +175,7 @@ public class ReturnYouTubeDislikes {
     }
 
     private static void handleOnClick(View view, boolean previousState) {
-        Context context = YouTubeTikTokRoot_Application.getAppContext();
+        Context context = ReVancedUtils.getContext();
         if (!isEnabled || SharedPrefHelper.getBoolean(Objects.requireNonNull(context), SharedPrefHelper.SharedPrefNames.YOUTUBE, "user_signed_out", true))
             return;
 

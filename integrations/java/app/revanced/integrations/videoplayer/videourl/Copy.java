@@ -8,10 +8,9 @@ import android.widget.ImageView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
-
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.sponsorblock.player.VideoHelpers;
+import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
 
 import java.lang.ref.WeakReference;
@@ -82,7 +81,7 @@ public class Copy {
     }
 
     private static boolean shouldBeShown() {
-        Context appContext = YouTubeTikTokRoot_Application.getAppContext();
+        Context appContext = ReVancedUtils.getContext();
         if (appContext == null) {
             LogHelper.printException("CopyButton", "shouldBeShown - context is null!");
             return false;
@@ -95,15 +94,15 @@ public class Copy {
     }
 
     private static int getIdentifier(String str, String str2) {
-        Context appContext = YouTubeTikTokRoot_Application.getAppContext();
+        Context appContext = ReVancedUtils.getContext();
         return appContext.getResources().getIdentifier(str, str2, appContext.getPackageName());
     }
 
     private static int getInteger(String str) {
-        return YouTubeTikTokRoot_Application.getAppContext().getResources().getInteger(getIdentifier(str, "integer"));
+        return ReVancedUtils.getContext().getResources().getInteger(getIdentifier(str, "integer"));
     }
 
     private static Animation getAnimation(String str) {
-        return AnimationUtils.loadAnimation(YouTubeTikTokRoot_Application.getAppContext(), getIdentifier(str, "anim"));
+        return AnimationUtils.loadAnimation(ReVancedUtils.getContext(), getIdentifier(str, "anim"));
     }
 }

@@ -7,9 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
-
-import app.revanced.integrations.settings.Settings;
+import app.revanced.integrations.sponsorblock.player.PlayerType;
 
 /* loaded from: classes6.dex */
 public class SwipeHelper {
@@ -20,7 +18,7 @@ public class SwipeHelper {
     public static void SetFrameLayout(Object obj) {
         try {
             _frameLayout = (FrameLayout) obj;
-            Context appContext = YouTubeTikTokRoot_Application.getAppContext();
+            Context appContext = ReVancedUtils.getContext();
             if (ScreenSizeHelper.isTablet(appContext) || SharedPrefHelper.getBoolean(appContext, SharedPrefHelper.SharedPrefNames.YOUTUBE,"pref_xfenster_tablet", false)) {
                 isTabletMode = true;
             }
@@ -56,13 +54,21 @@ public class SwipeHelper {
     private static void refreshLayout() {
         View findViewById;
         try {
-            if (Settings.isWatchWhileFullScreen() && (findViewById = nextGenWatchLayout.findViewById(getIdentifier())) != null) {
+            if (isWatchWhileFullScreen() && (findViewById = nextGenWatchLayout.findViewById(getIdentifier())) != null) {
                 _frameLayout = (FrameLayout) findViewById.getParent();
                 LogHelper.debug("Settings", "related_endscreen_results refreshed");
             }
         } catch (Exception e) {
             LogHelper.printException("XError", "Unable to refresh related_endscreen_results layout", e);
         }
+    }
+
+
+    private static boolean isWatchWhileFullScreen() {
+        if (ReVancedUtils.getPlayerType() == null) {
+            return false;
+        }
+        return ReVancedUtils.getPlayerType() == PlayerType.WATCH_WHILE_FULLSCREEN;
     }
 
     private static String getViewMessage(View view) {
@@ -75,7 +81,7 @@ public class SwipeHelper {
     }
 
     private static int getIdentifier() {
-        Context appContext = YouTubeTikTokRoot_Application.getAppContext();
+        Context appContext = ReVancedUtils.getContext();
         assert appContext != null;
         return appContext.getResources().getIdentifier("related_endscreen_results", "id", appContext.getPackageName());
     }

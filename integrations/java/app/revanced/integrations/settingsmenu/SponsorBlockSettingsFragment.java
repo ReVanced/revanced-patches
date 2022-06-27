@@ -1,4 +1,4 @@
-package app.revanced.integrations.sponsorblock;
+package app.revanced.integrations.settingsmenu;
 
 import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.DEFAULT_API_URL;
 import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP;
@@ -50,12 +50,14 @@ import java.util.ArrayList;
 import app.revanced.integrations.adremover.whitelist.WhitelistType;
 import app.revanced.integrations.settings.Settings;
 import app.revanced.integrations.settings.SettingsEnum;
+import app.revanced.integrations.sponsorblock.SponsorBlockSettings;
+import app.revanced.integrations.sponsorblock.SponsorBlockUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
 import app.revanced.integrations.sponsorblock.objects.EditTextListPreference;
 import app.revanced.integrations.sponsorblock.requests.SBRequester;
 
 @SuppressWarnings({"unused", "deprecation"}) // injected
-public class SponsorBlockPreferenceFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class SponsorBlockSettingsFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
     public static final DecimalFormat FORMATTER = new DecimalFormat("#,###,###");
     public static final String SAVED_TEMPLATE = "%dh %.1f %s";
     private static final APIURLChangeListener API_URL_CHANGE_LISTENER = new APIURLChangeListener();

@@ -1,4 +1,4 @@
-package app.revanced.integrations.ryd;
+package app.revanced.integrations.settingsmenu;
 
 import static app.revanced.integrations.ryd.RYDSettings.PREFERENCES_KEY_RYD_ENABLED;
 import static app.revanced.integrations.ryd.RYDSettings.PREFERENCES_KEY_RYD_HINT_SHOWN;
@@ -15,11 +15,12 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 
+import app.revanced.integrations.ryd.ReturnYouTubeDislikes;
 import app.revanced.integrations.settings.Settings;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.SharedPrefHelper;
 
-public class RYDFragment extends PreferenceFragment {
+public class RYDSettingsFragment extends PreferenceFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

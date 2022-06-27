@@ -6,12 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
-
 import java.lang.ref.WeakReference;
 
 import app.revanced.integrations.sponsorblock.player.PlayerType;
 import app.revanced.integrations.utils.LogHelper;
+import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SwipeHelper;
 
 public class SponsorBlockView {
@@ -68,9 +67,9 @@ public class SponsorBlockView {
     }
 
     private static void addView() {
-        inlineSponsorOverlay = new RelativeLayout(YouTubeTikTokRoot_Application.getAppContext());
+        inlineSponsorOverlay = new RelativeLayout(ReVancedUtils.getContext());
         setLayoutParams(inlineSponsorOverlay);
-        LayoutInflater.from(YouTubeTikTokRoot_Application.getAppContext()).inflate(getIdentifier("inline_sponsor_overlay", "layout"), inlineSponsorOverlay);
+        LayoutInflater.from(ReVancedUtils.getContext()).inflate(getIdentifier("inline_sponsor_overlay", "layout"), inlineSponsorOverlay);
 
         _youtubeOverlaysLayout.addView(inlineSponsorOverlay, _youtubeOverlaysLayout.getChildCount() - 2);
 
@@ -165,7 +164,7 @@ public class SponsorBlockView {
     }
 
     private static int getIdentifier(String name, String defType) {
-        Context context = YouTubeTikTokRoot_Application.getAppContext();
+        Context context = ReVancedUtils.getContext();
         return context.getResources().getIdentifier(name, defType, context.getPackageName());
     }
 }

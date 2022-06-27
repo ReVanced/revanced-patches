@@ -6,6 +6,8 @@ import static app.revanced.integrations.sponsorblock.StringRef.str;
 
 import android.content.Context;
 
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -17,7 +19,6 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.nio.charset.StandardCharsets;
 
-import app.revanced.integrations.settings.Settings;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.sponsorblock.player.ChannelModel;
 import app.revanced.integrations.adremover.whitelist.Whitelist;
@@ -38,7 +39,7 @@ public class WhitelistRequester {
             connection.setDoOutput(true);
             connection.setConnectTimeout(2 * 1000);
 
-            String versionName = Settings.getVersionName(context);
+            String versionName = getVersionName(context);
             String jsonInputString = "{\"context\": {\"client\": { \"clientName\": \"Android\", \"clientVersion\": \"" + versionName + "\" } }, \"videoId\": \"" + currentVideoId + "\"}";
             try (OutputStream os = connection.getOutputStream()) {
                 byte[] input = jsonInputString.getBytes(StandardCharsets.UTF_8);
@@ -87,5 +88,16 @@ public class WhitelistRequester {
 
     private static JSONObject getJSONObject(HttpURLConnection connection) throws Exception {
         return Requester.getJSONObject(connection);
+    }
+
+    private static String getVersionName(Context context) {
+        try {
+            PackageInfo pInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            String version = pInfo.versionName;
+            return (version);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return ("17.24.34");
     }
 }
