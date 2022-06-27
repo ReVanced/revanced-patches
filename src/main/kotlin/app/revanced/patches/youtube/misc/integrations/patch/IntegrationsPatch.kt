@@ -28,7 +28,7 @@ class IntegrationsPatch : BytecodePatch(
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        if (data.findClass("Lapp/revanced/integrations/utils/Globals") == null)
+        if (data.findClass("Lapp/revanced/integrations/utils/ReVancedUtils") == null)
             return PatchResultError("Integrations have not been merged yet. This patch can not succeed without the integrations.")
 
         val result = InitFingerprint.result!!
@@ -40,7 +40,7 @@ class IntegrationsPatch : BytecodePatch(
         method.addInstructions(
             0, """
                   invoke-static {v$count}, Lapp/revanced/integrations/sponsorblock/StringRef;->setContext(Landroid/content/Context;)V
-                  sput-object v$count, Lapp/revanced/integrations/utils/Globals;->context:Landroid/content/Context;
+                  sput-object v$count, Lapp/revanced/integrations/utils/ReVancedUtils;->context:Landroid/content/Context;
             """
         )
 
@@ -56,7 +56,7 @@ class IntegrationsPatch : BytecodePatch(
                 null,
                 ImmutableMethodImplementation(
                     1, """
-                        invoke-static { }, Lapp/revanced/integrations/utils/Globals;->getAppContext()Landroid/content/Context;
+                        invoke-static { }, Lapp/revanced/integrations/utils/ReVancedUtils;->getAppContext()Landroid/content/Context;
                         move-result-object v0
                         return-object v0
                     """.toInstructions(), null, null

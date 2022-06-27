@@ -38,6 +38,7 @@ class ShortsButtonRemoverPatch : BytecodePatch(
         val moveViewInstruction = buttonsViewImplementation.instructions[buttonsViewResult.patternScanResult!!.endIndex]
         val viewRegister = (moveViewInstruction as OneRegisterInstruction).registerA
 
+
         // Save the tab enum in XGlobals to avoid smali/register workarounds
         tabEnumResult.mutableMethod.addInstruction(
             tabEnumResult.patternScanResult!!.endIndex + 1,
