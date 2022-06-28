@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/revanced/revanced-patches/compare/v2.0.3...v2.1.0) (2022-06-28)
+
+
+### Features
+
+* `custom-playback-speed` patch ([#50](https://github.com/revanced/revanced-patches/issues/50)) ([224254b](https://github.com/revanced/revanced-patches/commit/224254bcce2b394bbfd2549089f0204ce4ed4a89))
+
 ## [2.0.3](https://github.com/revanced/revanced-patches/compare/v2.0.2...v2.0.3) (2022-06-27)
 
 
