@@ -62,8 +62,8 @@ class GeneralBytecodeAdsPatch : BytecodePatch(
         "endscreen_element_layout_icon",
         "promoted_video_item_land",
         "promoted_video_item_full_bleed",
-    ).map {
-        ResourceIdMappingProviderResourcePatch.resourceMappings[it]!!
+    ).map { name ->
+        ResourceIdMappingProviderResourcePatch.resourceMappings.first { it.name == name }.id
     }
 
     private val stringReferences = arrayOf(

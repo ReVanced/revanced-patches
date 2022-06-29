@@ -38,11 +38,11 @@ class CreateButtonRemoverPatch : BytecodePatch(
         // Get the required register which holds the view object we need to pass to the method hideCreateButton
         val implementation = result.mutableMethod.implementation!!
 
-        val imageOnlyLayout = ResourceIdMappingProviderResourcePatch.resourceMappings["image_only_tab"]
-            ?: return PatchResultError("Required resource could not be found in the map")
+        val imageOnlyLayout =
+            ResourceIdMappingProviderResourcePatch.resourceMappings.first { it.type == "layout" && it.name == "image_only_tab" }
 
         val imageOnlyLayoutConstIndex =
-            implementation.instructions.indexOfFirst { (it as? WideLiteralInstruction)?.wideLiteral == imageOnlyLayout }
+            implementation.instructions.indexOfFirst { (it as? WideLiteralInstruction)?.wideLiteral == imageOnlyLayout.id }
 
         val (instructionIndex, instruction) = implementation.instructions.drop(imageOnlyLayoutConstIndex).withIndex()
             .first {

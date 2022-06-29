@@ -15,18 +15,20 @@ import org.w3c.dom.Element
 @Version("0.0.1")
 class ResourceIdMappingProviderResourcePatch : ResourcePatch() {
     companion object {
-        internal lateinit var resourceMappings: Map<String, Long>
+        internal lateinit var resourceMappings: List<ResourceElement>
             private set
     }
 
     override fun execute(data: ResourceData): PatchResult {
         data.xmlEditor["res/values/public.xml"].use { editor ->
-            resourceMappings = buildMap {
+            resourceMappings = buildList {
                 editor.file.documentElement.doRecursively { node ->
                     if (node !is Element) return@doRecursively
                     val nameAttribute = node.getAttribute("name")
+                    val typeAttribute = node.getAttribute("type")
                     if (node.nodeName != "public" || nameAttribute.startsWith("APKTOOL")) return@doRecursively
-                    this[nameAttribute] = node.getAttribute("id").substring(2).toLong(16)
+                    val id = node.getAttribute("id").substring(2).toLong(16)
+                    add(ResourceElement(typeAttribute, nameAttribute, id))
                 }
             }
         }
@@ -34,3 +36,5 @@ class ResourceIdMappingProviderResourcePatch : ResourcePatch() {
         return PatchResultSuccess()
     }
 }
+
+data class ResourceElement(val type: String, val name: String, val id: Long)
