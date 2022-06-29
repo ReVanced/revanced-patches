@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/revanced/revanced-patches/compare/v2.1.0...v2.2.0) (2022-06-29)
+
+
+### Features
+
+* make resource mapping patch aware of types ([#77](https://github.com/revanced/revanced-patches/issues/77)) ([188491a](https://github.com/revanced/revanced-patches/commit/188491a707abccc1164413f075d8a66c145a1455))
+
 # [2.1.0](https://github.com/revanced/revanced-patches/compare/v2.0.3...v2.1.0) (2022-06-28)
 
 
