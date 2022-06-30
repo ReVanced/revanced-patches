@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/revanced/revanced-patches/compare/v2.2.0...v2.3.0) (2022-06-30)
+
+
+### Features
+
+* `disable-autoplay-button` patch ([#79](https://github.com/revanced/revanced-patches/issues/79)) ([0d6fb51](https://github.com/revanced/revanced-patches/commit/0d6fb51e025649aae37e230778ea367482fab0d7))
+
 # [2.2.0](https://github.com/revanced/revanced-patches/compare/v2.1.0...v2.2.0) (2022-06-29)
 
 
