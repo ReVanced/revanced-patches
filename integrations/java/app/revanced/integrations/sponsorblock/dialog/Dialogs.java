@@ -1,4 +1,4 @@
-package app.revanced.integrations.ryd.dialog;
+package app.revanced.integrations.sponsorblock.dialog;
 
 import static app.revanced.integrations.ryd.RYDSettings.PREFERENCES_KEY_RYD_ENABLED;
 import static app.revanced.integrations.ryd.RYDSettings.PREFERENCES_KEY_RYD_HINT_SHOWN;
@@ -15,25 +15,25 @@ import android.graphics.LightingColorFilter;
 import android.net.Uri;
 import android.os.Build;
 
-import app.revanced.integrations.utils.SharedPrefHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
+import app.revanced.integrations.utils.SharedPrefHelper;
 
 public class Dialogs {
     // Inject call from YT to this
     public static void showDialogsAtStartup(Activity activity) {
-        rydFirstRun(activity);
+        sbFirstRun(activity);
     }
 
-    private static void rydFirstRun(Activity activity) {
+    private static void sbFirstRun(Activity activity) {
         Context context = ReVancedUtils.getContext();
-        boolean enabled = SharedPrefHelper.getBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_RYD_ENABLED, false);
-        boolean hintShown = SharedPrefHelper.getBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_RYD_HINT_SHOWN, false);
+        boolean enabled = SharedPrefHelper.getBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED, false);
+        boolean hintShown = SharedPrefHelper.getBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_SPONSOR_BLOCK_HINT_SHOWN, false);
 
-        // If RYD is enabled or hint has been shown, exit
+        // If SB is enabled or hint has been shown, exit
         if (enabled || hintShown) {
-            // If RYD is enabled but hint hasn't been shown, mark it as shown
+            // If SB is enabled but hint hasn't been shown, mark it as shown
             if (enabled && !hintShown) {
-                SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_RYD_HINT_SHOWN, true);
+                SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_SPONSOR_BLOCK_HINT_SHOWN, true);
             }
             return;
         }
@@ -44,21 +44,21 @@ public class Dialogs {
         } else {
             builder = new AlertDialog.Builder(activity);
         }
-        builder.setTitle(str("vanced_ryd"));
-        builder.setIcon(ReVancedUtils.getIdentifier("reel_dislike_icon", "drawable"));
+        builder.setTitle(str("vanced_sb"));
+        builder.setIcon(ReVancedUtils.getIdentifier("ic_sb_logo", "drawable"));
         builder.setCancelable(false);
-        builder.setMessage(str("vanced_ryd_firstrun"));
+        builder.setMessage(str("vanced_sb_firstrun"));
         builder.setPositiveButton(str("vanced_enable"),
                 (dialog, id) -> {
-                    SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_RYD_HINT_SHOWN, true);
-                    SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_RYD_ENABLED, true);
+                    SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_SPONSOR_BLOCK_HINT_SHOWN, true);
+                    SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED, true);
                     dialog.dismiss();
                 });
 
         builder.setNegativeButton(str("vanced_disable"),
                 (dialog, id) -> {
-                    SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_RYD_HINT_SHOWN, true);
-                    SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_RYD_ENABLED, false);
+                    SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_SPONSOR_BLOCK_HINT_SHOWN, true);
+                    SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED, false);
                     dialog.dismiss();
                 });
 
@@ -72,7 +72,7 @@ public class Dialogs {
 
         // Set learn more action (set here so clicking it doesn't dismiss the dialog)
         dialog.getButton(DialogInterface.BUTTON_NEUTRAL).setOnClickListener(v -> {
-            Uri uri = Uri.parse("https://www.returnyoutubedislike.com/");
+            Uri uri = Uri.parse("https://sponsor.ajay.app/");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             activity.startActivity(intent);
         });
