@@ -20,27 +20,27 @@ public class SwipeControlAPI {
 
     public static void InitializeFensterController(Context context, ViewGroup viewGroup, ViewConfiguration viewConfiguration) {
         swipeGestureController = new SwipeGestureController();
-        swipeGestureController.setFensterEventsListener(new XSwipe(context, viewGroup), context, viewConfiguration);
-        LogHelper.debug("Settings", "XFenster initialized");
+        swipeGestureController.setFensterEventsListener(new SwipeListener(context, viewGroup), context, viewConfiguration);
+        LogHelper.debug(SwipeControlAPI.class, "XFenster initialized");
     }
 
     public static boolean FensterTouchEvent(MotionEvent motionEvent) {
         if (swipeGestureController == null) {
-            LogHelper.debug("Settings", "fensterGestureController is null");
+            LogHelper.debug(SwipeControlAPI.class, "fensterGestureController is null");
             return false;
         } else if (motionEvent == null) {
-            LogHelper.debug("Settings", "motionEvent is null");
+            LogHelper.debug(SwipeControlAPI.class, "motionEvent is null");
             return false;
         } else if (!SwipeHelper.IsControlsShown()) {
             return swipeGestureController.onTouchEvent(motionEvent);
         } else {
-            LogHelper.debug("Settings", "skipping onTouchEvent dispatching because controls are shown.");
+            LogHelper.debug(SwipeControlAPI.class, "skipping onTouchEvent dispatching because controls are shown.");
             return false;
         }
     }
 
     public static void PlayerTypeChanged(PlayerType playerType) {
-        LogHelper.debug("XDebug", playerType.toString());
+        LogHelper.debug(SwipeControlAPI.class, playerType.toString());
         if (ReVancedUtils.getPlayerType() != playerType) {
             if (playerType == PlayerType.WATCH_WHILE_FULLSCREEN) {
                 EnableSwipeControl();
@@ -60,14 +60,14 @@ public class SwipeControlAPI {
         if (SettingsEnum.ENABLE_SWIPE_BRIGHTNESS_BOOLEAN.getBoolean() || SettingsEnum.ENABLE_SWIPE_VOLUME_BOOLEAN.getBoolean()) {
             SwipeGestureController swipeGestureController2 = swipeGestureController;
             swipeGestureController2.TouchesEnabled = true;
-            ((XSwipe) swipeGestureController2.listener).enable(SettingsEnum.ENABLE_SWIPE_BRIGHTNESS_BOOLEAN.getBoolean(), SettingsEnum.ENABLE_SWIPE_VOLUME_BOOLEAN.getBoolean());
+            ((SwipeListener) swipeGestureController2.listener).enable(SettingsEnum.ENABLE_SWIPE_BRIGHTNESS_BOOLEAN.getBoolean(), SettingsEnum.ENABLE_SWIPE_VOLUME_BOOLEAN.getBoolean());
         }
     }
 
     private static void DisableSwipeControl() {
         SwipeGestureController swipeGestureController2 = swipeGestureController;
         swipeGestureController2.TouchesEnabled = false;
-        ((XSwipe) swipeGestureController2.listener).disable();
+        ((SwipeListener) swipeGestureController2.listener).disable();
     }
 
 }

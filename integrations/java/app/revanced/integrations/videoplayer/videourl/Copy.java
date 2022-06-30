@@ -28,17 +28,17 @@ public class Copy {
 
     public static void initializeCopyButton(Object obj) {
         try {
-            LogHelper.debug("CopyButton", "initializing");
+            LogHelper.debug(Copy.class, "initializing");
             _constraintLayout = (ConstraintLayout) obj;
             isCopyButtonEnabled = shouldBeShown();
             ImageView imageView = _constraintLayout.findViewById(getIdentifier("copy_button", "id"));
             if (imageView == null) {
-                LogHelper.debug("CopyButton", "Couldn't find imageView with id \"copy_button\"");
+                LogHelper.debug(Copy.class, "Couldn't find imageView with id \"copy_button\"");
                 return;
             }
 
             imageView.setOnClickListener(view -> {
-                LogHelper.debug("CopyButton", "Button clicked");
+                LogHelper.debug(Copy.class, "Button clicked");
                 VideoHelpers.copyVideoUrlToClipboard();
             });
             _button = new WeakReference<>(imageView);
@@ -54,7 +54,7 @@ public class Copy {
             changeVisibility(false);
 
         } catch (Exception e) {
-            LogHelper.printException("CopyButton", "Unable to set FrameLayout", e);
+            LogHelper.printException(Copy.class, "Unable to set FrameLayout", e);
         }
     }
 
@@ -64,11 +64,11 @@ public class Copy {
             ImageView imageView = _button.get();
             if (_constraintLayout != null && imageView != null) {
                 if (z && isCopyButtonEnabled) {
-                    LogHelper.debug("CopyButton", "Fading in");
+                    LogHelper.debug(Copy.class, "Fading in");
                     imageView.setVisibility(View.VISIBLE);
                     imageView.startAnimation(fadeIn);
                 } else if (imageView.getVisibility() == View.VISIBLE) {
-                    LogHelper.debug("CopyButton", "Fading out");
+                    LogHelper.debug(Copy.class, "Fading out");
                     imageView.startAnimation(fadeOut);
                     imageView.setVisibility(View.GONE);
                 }
@@ -83,7 +83,7 @@ public class Copy {
     private static boolean shouldBeShown() {
         Context appContext = ReVancedUtils.getContext();
         if (appContext == null) {
-            LogHelper.printException("CopyButton", "shouldBeShown - context is null!");
+            LogHelper.printException(Copy.class, "shouldBeShown - context is null!");
             return false;
         }
         String string = SharedPrefHelper.getString(appContext, SharedPrefHelper.SharedPrefNames.YOUTUBE, "pref_copy_video_url_button_list", null);

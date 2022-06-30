@@ -62,14 +62,14 @@ public class SlimButtonContainer extends SlimMetadataScrollableButtonContainerLa
 
             addSharedPrefsChangeListener();
         } catch (Exception ex) {
-            LogHelper.printException("SlimButtonContainer", "Unable to initialize the button container", ex);
+            LogHelper.printException(SlimButtonContainer.class, "Unable to initialize the button container", ex);
         }
     }
 
     private void addSharedPrefsChangeListener() {
         listener = (sharedPreferences, key) -> {
             try {
-                LogHelper.debug("SlimButtonContainer", String.format("SharedPreference changed with key %s", key));
+                LogHelper.debug(SlimButtonContainer.class, String.format("SharedPreference changed with key %s", key));
                 if ("pref_copy_video_url_button_list".equals(key) && copyButton != null) {
                     copyButton.setVisible(ButtonVisibility.isVisibleInContainer(context, "pref_copy_video_url_button_list"));
                     return;
@@ -112,7 +112,7 @@ public class SlimButtonContainer extends SlimMetadataScrollableButtonContainerLa
                     return;
                 }
             } catch (Exception ex) {
-                LogHelper.printException("SlimButtonContainer", "Error handling shared preference change", ex);
+                LogHelper.printException(SlimButtonContainer.class, "Error handling shared preference change", ex);
             }
         };
 

@@ -19,7 +19,7 @@ public class SwipeGestureController {
         }
         if (event.getAction() == 1) {
             this.listener.onUp();
-            LogHelper.debug("TouchTest", "Touch up");
+            LogHelper.debug(SwipeGestureController.class, "Touch up");
         }
         return this.gestureDetector.onTouchEvent(event);
     }

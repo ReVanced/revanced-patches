@@ -51,7 +51,7 @@ public class WhitelistRequester {
                 JSONObject videoInfo = json.getJSONObject("videoDetails");
                 ChannelModel channelModel = new ChannelModel(videoInfo.getString("author"), videoInfo.getString("channelId"));
                 String author = channelModel.getAuthor();
-                LogHelper.debug("WhitelistRequester", "channelId " + channelModel.getChannelId() + " fetched for author " + author);
+                LogHelper.debug(WhitelistRequester.class, "channelId " + channelModel.getChannelId() + " fetched for author " + author);
 
                 boolean success = Whitelist.addToWhitelist(whitelistType, context, channelModel);
                 String whitelistTypeName = whitelistType.getFriendlyName();
@@ -66,7 +66,7 @@ public class WhitelistRequester {
                     view.setEnabled(true);
                 });
             } else {
-                LogHelper.debug("WhitelistRequester", "player fetch response was " + responseCode);
+                LogHelper.debug(WhitelistRequester.class, "player fetch response was " + responseCode);
                 runOnMainThread(() -> {
                     Toast.makeText(context, str("revanced_whitelisting_fetch_failed", responseCode), Toast.LENGTH_SHORT).show();
                     buttonIcon.setEnabled(true);
@@ -75,7 +75,7 @@ public class WhitelistRequester {
             }
             connection.disconnect();
         } catch (Exception ex) {
-            LogHelper.printException("WhitelistRequester", "Failed to fetch channelId", ex);
+            LogHelper.printException(WhitelistRequester.class, "Failed to fetch channelId", ex);
             runOnMainThread(() -> view.setEnabled(true));
         }
     }

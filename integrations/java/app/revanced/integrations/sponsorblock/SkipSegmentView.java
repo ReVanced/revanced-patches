@@ -12,7 +12,6 @@ import app.revanced.integrations.utils.ReVancedUtils;
 
 import static app.revanced.integrations.sponsorblock.player.ui.SponsorBlockView.hideSkipButton;
 import static app.revanced.integrations.sponsorblock.player.ui.SponsorBlockView.showSkipButton;
-import static app.revanced.integrations.sponsorblock.PlayerController.VERBOSE;
 
 @SuppressLint({"RtlHardcoded", "SetTextI18n", "LongLogTag", "AppCompatCustomView"})
 public class SkipSegmentView {
@@ -29,15 +28,13 @@ public class SkipSegmentView {
 
     public static void notifySkipped(SponsorSegment segment) {
         if (segment == lastNotifiedSegment) {
-            if (VERBOSE)
-                LogHelper.debug("SkipSegmentView", "notifySkipped; segment == lastNotifiedSegment");
+            LogHelper.debug(SkipSegmentView.class, "notifySkipped; segment == lastNotifiedSegment");
             return;
         }
         lastNotifiedSegment = segment;
         String skipMessage = segment.category.skipMessage.toString();
         Context context = ReVancedUtils.getContext();
-        if (VERBOSE)
-            LogHelper.debug("SkipSegmentView", String.format("notifySkipped; message=%s", skipMessage));
+        LogHelper.debug(SkipSegmentView.class, String.format("notifySkipped; message=%s", skipMessage));
 
         if (context != null)
             Toast.makeText(context, skipMessage, Toast.LENGTH_SHORT).show();

@@ -71,7 +71,7 @@ public enum SettingsEnum {
                 } else if (setting.name().endsWith(("FLOAT"))) {
                     value = SharedPrefHelper.getFloat(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, setting.getPath());
                 } else {
-                    LogHelper.printException("SettingsEnum", "Setting does not end with a valid Type. Name is: " + setting.name());
+                    LogHelper.printException(SettingsEnum.class, "Setting does not end with a valid Type. Name is: " + setting.name());
                     continue;
                 }
 
@@ -106,24 +106,24 @@ public enum SettingsEnum {
             } else if (name().endsWith(("FLOAT"))) {
                 SharedPrefHelper.saveFloat(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, getPath(), (Float) newValue);
             } else {
-                LogHelper.printException("SettingsEnum", "Setting does not end with a valid Type. Name is: " + name());
+                LogHelper.printException(SettingsEnum.class, "Setting does not end with a valid Type. Name is: " + name());
             }
             value = newValue;
         } else {
-            LogHelper.printException("SettingsEnum", "Context on SaveValue is null!");
+            LogHelper.printException(SettingsEnum.class, "Context on SaveValue is null!");
         }
     }
 
     public int getInt() {
         SettingsEnum.loadSettings();
         if (value == null) value = -1;
-        LogHelper.debug("SettingsEnum", "Variable " + name() + " is " + value);
+        LogHelper.debug(SettingsEnum.class, "Variable " + name() + " is " + value);
         return (int) value;
     }
 
     public String getString() {
         SettingsEnum.loadSettings();
-        LogHelper.debug("SettingsEnum", "Variable " + name() + " is " + value);
+        LogHelper.debug(SettingsEnum.class, "Variable " + name() + " is " + value);
         return (String) value;
     }
 
@@ -136,14 +136,14 @@ public enum SettingsEnum {
     public Long getLong() {
         SettingsEnum.loadSettings();
         if (value == null) value = -1L;
-        LogHelper.debug("SettingsEnum", "Variable " + name() + " is " + value);
+        LogHelper.debug(SettingsEnum.class, "Variable " + name() + " is " + value);
         return (Long) value;
     }
 
     public Float getFloat() {
         SettingsEnum.loadSettings();
         if (value == null) value = -1.0f;
-        LogHelper.debug("SettingsEnum", "Variable " + name() + " is " + value);
+        LogHelper.debug(SettingsEnum.class, "Variable " + name() + " is " + value);
         return (Float) value;
     }
 

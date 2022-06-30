@@ -14,7 +14,7 @@ import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.ThemeHelper;
 
 /* loaded from: classes6.dex */
-public class XSettingActivity extends Activity {
+public class ReVancedSettingActivity extends Activity {
     private static Context context;
     private boolean currentTheme;
 
@@ -22,10 +22,10 @@ public class XSettingActivity extends Activity {
     protected void onCreate(Bundle bundle) {
         this.currentTheme = ThemeHelper.isDarkTheme();
         if (currentTheme) {
-            LogHelper.debug("XSettingsActivity", "set Theme.YouTube.Settings.Dark");
+            LogHelper.debug(ReVancedSettingActivity.class, "set Theme.YouTube.Settings.Dark");
             setTheme(getIdentifier("Theme.YouTube.Settings.Dark", "style"));
         } else {
-            LogHelper.debug("XSettingsActivity", "set Theme.YouTube.Settings");
+            LogHelper.debug(ReVancedSettingActivity.class, "set Theme.YouTube.Settings");
             setTheme(getIdentifier("Theme.YouTube.Settings", "style"));
         }
         super.onCreate(bundle);
@@ -82,7 +82,7 @@ public class XSettingActivity extends Activity {
         try {
             getTextView((ViewGroup) findViewById(getIdentifier("toolbar", "id"))).setText(i);
         } catch (Exception e) {
-            LogHelper.printException("XSettingsActivity", "Couldn't set Toolbar title", e);
+            LogHelper.printException(ReVancedSettingActivity.class, "Couldn't set Toolbar title", e);
         }
     }
 
@@ -90,22 +90,22 @@ public class XSettingActivity extends Activity {
         try {
             getTextView((ViewGroup) findViewById(getIdentifier("toolbar", "id"))).setText(str);
         } catch (Exception e) {
-            LogHelper.printException("XSettingsActivity", "Couldn't set Toolbar title", e);
+            LogHelper.printException(ReVancedSettingActivity.class, "Couldn't set Toolbar title", e);
         }
     }
 
     private void initImageButton(boolean z) {
         try {
             ImageButton imageButton = getImageButton((ViewGroup) findViewById(getIdentifier("toolbar", "id")));
-            imageButton.setOnClickListener(new View.OnClickListener() { // from class: app.revanced.integrations.theme.XSettingActivity.1
+            imageButton.setOnClickListener(new View.OnClickListener() { // from class: app.revanced.integrations.theme.ReVancedSettingActivity.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    XSettingActivity.this.onBackPressed();
+                    ReVancedSettingActivity.this.onBackPressed();
                 }
             });
-            imageButton.setImageDrawable(getResources().getDrawable(getIdentifier(z ? "quantum_ic_arrow_back_white_24" : "quantum_ic_arrow_back_grey600_24", "drawable")));
+            imageButton.setImageDrawable(getResources().getDrawable(getIdentifier(z ? "quantum_ic_arrow_back_white_24" : "quantum_ic_arrow_back_grey600_24", "drawable"), null));
         } catch (Exception e) {
-            LogHelper.printException("XSettingsActivity", "Couldn't set Toolbar click handler", e);
+            LogHelper.printException(ReVancedSettingActivity.class, "Couldn't set Toolbar click handler", e);
         }
     }
 

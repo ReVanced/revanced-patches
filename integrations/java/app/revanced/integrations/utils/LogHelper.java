@@ -7,25 +7,23 @@ import app.revanced.integrations.settings.SettingsEnum;
 
 public class LogHelper {
 
-    public static void debug(String tag, String message) {
+    //ToDo: Get Calling classname using Reflection
+
+    public static void debug(Class clazz, String message) {
         if (SettingsEnum.DEBUG_BOOLEAN.getBoolean()) {
-            Log.d(tag, message);
+            Log.d("ReVanced: " + clazz != null ? clazz.getSimpleName() : "", message);
         }
     }
 
-    public static void printException(String tag, String message, Throwable ex) {
-        Log.e(tag, message, ex);
+    public static void printException(Class clazz, String message, Throwable ex) {
+        Log.e("ReVanced: " + clazz != null ? clazz.getName() : "", message, ex);
     }
 
-    public static void printException(String tag, String message) {
-        Log.e(tag, message);
+    public static void printException(Class clazz, String message) {
+        Log.e("ReVanced: " + clazz != null ? clazz.getName() : "", message);
     }
 
-    public static void info(String tag, String message) {
-        Log.i(tag, message);
-    }
-
-    public static void info(String message) {
-        info("ReVanced", message);
+    public static void info(Class clazz, String message) {
+        Log.i("ReVanced: " + clazz != null ? clazz.getSimpleName() : "", message);
     }
 }

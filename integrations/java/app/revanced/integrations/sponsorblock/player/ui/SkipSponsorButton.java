@@ -90,7 +90,7 @@ public class SkipSponsorButton extends FrameLayout {
         this.skipSponsorBtnContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LogHelper.debug("SkipSponsorButton", "Skip button clicked");
+                LogHelper.debug(SkipSponsorButton.class, "Skip button clicked");
                 PlayerController.onSkipSponsorClicked();
             }
         });

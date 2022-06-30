@@ -31,21 +31,21 @@ public class AutoRepeat {
 
     public static void initializeAutoRepeat(Object constraintLayout) {
         try {
-            LogHelper.debug("AutoRepeat", "initializing auto repeat");
+            LogHelper.debug(AutoRepeat.class, "initializing auto repeat");
             CopyWithTimeStamp.initializeCopyButtonWithTimeStamp(constraintLayout);
             Copy.initializeCopyButton(constraintLayout);
             _constraintLayout = (ConstraintLayout) constraintLayout;
             isAutoRepeatBtnEnabled = shouldBeShown();
             ImageView imageView = _constraintLayout.findViewById(getIdentifier("autoreplay_button", "id"));
             if (imageView == null) {
-                LogHelper.debug("AutoRepeat", "Couldn't find imageView with tag \"autoreplay_button\"");
+                LogHelper.debug(AutoRepeat.class, "Couldn't find imageView with tag \"autoreplay_button\"");
             }
             if (imageView != null) {
                 imageView.setSelected(shouldBeSelected());
                 imageView.setOnClickListener(new View.OnClickListener() { // from class: app.revanced.integrations.videoplayer.Autorepeat.AutoRepeat.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View v) {
-                        LogHelper.debug("AutoRepeat", "Auto repeat button clicked");
+                        LogHelper.debug(AutoRepeat.class, "Auto repeat button clicked");
                         AutoRepeat.changeSelected(!v.isSelected());
                     }
                 });
@@ -60,7 +60,7 @@ public class AutoRepeat {
                 changeVisibility(false);
             }
         } catch (Exception ex) {
-            LogHelper.printException("XError", "Unable to set FrameLayout", ex);
+            LogHelper.printException(AutoRepeat.class, "Unable to set FrameLayout", ex);
         }
     }
 
@@ -72,11 +72,11 @@ public class AutoRepeat {
             ImageView iView = _autoRepeatBtn.get();
             if (_constraintLayout != null && iView != null) {
                 if (visible && isAutoRepeatBtnEnabled) {
-                    LogHelper.debug("AutoRepeat", "Fading in");
+                    LogHelper.debug(AutoRepeat.class, "Fading in");
                     iView.setVisibility(View.VISIBLE);
                     iView.startAnimation(fadeIn);
                 } else if (iView.getVisibility() == View.VISIBLE) {
-                    LogHelper.debug("AutoRepeat", "Fading out");
+                    LogHelper.debug(AutoRepeat.class, "Fading out");
                     iView.startAnimation(fadeOut);
                     iView.setVisibility(View.GONE);
                 }
@@ -95,7 +95,7 @@ public class AutoRepeat {
                 StringBuilder sb = new StringBuilder();
                 sb.append("Changing selected state to: ");
                 sb.append(selected ? "SELECTED" : "NONE");
-                LogHelper.debug("AutoRepeat", sb.toString());
+                LogHelper.debug(AutoRepeat.class, sb.toString());
             }
             iView.setSelected(selected);
             if (!onlyView) {
@@ -107,7 +107,7 @@ public class AutoRepeat {
     private static boolean shouldBeSelected() {
         Context context = ReVancedUtils.getContext();
         if (context == null) {
-            LogHelper.printException("AutoRepeat", "ChangeSelected - context is null!");
+            LogHelper.printException(AutoRepeat.class, "ChangeSelected - context is null!");
             return false;
         }
         return SharedPrefHelper.getBoolean(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, "pref_auto_repeat", false);
@@ -121,7 +121,7 @@ public class AutoRepeat {
     private static boolean shouldBeShown() {
         Context context = ReVancedUtils.getContext();
         if (context == null) {
-            LogHelper.printException("AutoRepeat", "ChangeSelected - context is null!");
+            LogHelper.printException(AutoRepeat.class, "ChangeSelected - context is null!");
             return false;
         }
         return SharedPrefHelper.getBoolean(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, "pref_auto_repeat_button", false);

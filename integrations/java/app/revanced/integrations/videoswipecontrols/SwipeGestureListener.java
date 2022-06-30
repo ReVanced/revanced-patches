@@ -27,22 +27,22 @@ public class SwipeGestureListener implements GestureDetector.OnGestureListener {
 
     @Override // android.view.GestureDetector.OnGestureListener
     public void onLongPress(MotionEvent e) {
-        LogHelper.debug("FensterGestureListener", "Long Press");
+        LogHelper.debug(SwipeGestureListener.class, "Long Press");
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-        LogHelper.debug("FensterGestureListener", "Scroll");
+        LogHelper.debug(SwipeGestureListener.class, "Scroll");
         if (e1 == null || e2 == null) {
             if (e1 == null) {
-                LogHelper.debug("XDebug", "e1 is null");
+                LogHelper.debug(SwipeGestureListener.class, "e1 is null");
             }
             if (e2 == null) {
-                LogHelper.debug("XDebug", "e2 is null");
+                LogHelper.debug(SwipeGestureListener.class, "e2 is null");
             }
             return false;
         } else if (this.ignoreScroll) {
-            LogHelper.debug("FensterGestureListener", "Scroll ignored");
+            LogHelper.debug(SwipeGestureListener.class, "Scroll ignored");
             return false;
         } else {
             float deltaY = e2.getY() - e1.getY();
@@ -51,12 +51,12 @@ public class SwipeGestureListener implements GestureDetector.OnGestureListener {
                 if (Math.abs(deltaX) > SWIPE_THRESHOLD) {
                     this.listener.onHorizontalScroll(e2, deltaX);
                     String message = deltaX > 0.0f ? "Slide right" : "Slide left";
-                    LogHelper.debug("FensterGestureListener", message);
+                    LogHelper.debug(SwipeGestureListener.class, message);
                 }
             } else if (Math.abs(deltaY) > SWIPE_THRESHOLD) {
                 this.listener.onVerticalScroll(e2, deltaY);
                 String message = deltaY > 0.0f ? "Slide down" : "Slide up";
-                LogHelper.debug("FensterGestureListener", message);
+                LogHelper.debug(SwipeGestureListener.class, message);
             }
             return false;
         }
@@ -64,7 +64,7 @@ public class SwipeGestureListener implements GestureDetector.OnGestureListener {
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-        LogHelper.debug("FensterGestureListener", "Fling");
+        LogHelper.debug(SwipeGestureListener.class, "Fling");
         try {
             float diffY = e2.getY() - e1.getY();
             float diffX = e2.getX() - e1.getX();
@@ -92,12 +92,12 @@ public class SwipeGestureListener implements GestureDetector.OnGestureListener {
 
     @Override // android.view.GestureDetector.OnGestureListener
     public void onShowPress(MotionEvent e) {
-        LogHelper.debug("FensterGestureListener", "Show Press");
+        LogHelper.debug(SwipeGestureListener.class, "Show Press");
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onDown(MotionEvent e) {
-        LogHelper.debug("FensterGestureListener", "Down - x: " + e.getX() + " y: " + e.getY());
+        LogHelper.debug(SwipeGestureListener.class, "Down - x: " + e.getX() + " y: " + e.getY());
         this.ignoreScroll = e.getY() <= TOP_PADDING;
         this.listener.onDown(e);
         return false;

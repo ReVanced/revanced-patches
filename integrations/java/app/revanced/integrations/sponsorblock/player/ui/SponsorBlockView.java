@@ -23,13 +23,13 @@ public class SponsorBlockView {
 
     public static void initialize(Object viewGroup) {
         try {
-            LogHelper.debug("SponsorblockView", "initializing");
+            LogHelper.debug(SponsorBlockView.class, "initializing");
 
             _youtubeOverlaysLayout = (ViewGroup) viewGroup;
 
             addView();
         } catch (Exception ex) {
-            LogHelper.printException("SponsorblockView", "Unable to set ViewGroup", ex);
+            LogHelper.printException(SponsorBlockView.class, "Unable to set ViewGroup", ex);
         }
     }
 
@@ -62,7 +62,7 @@ public class SponsorBlockView {
             setSkipBtnMargins(false);
             setNewSegmentLayoutMargins(false);
         } catch (Exception ex) {
-            LogHelper.printException("SponsorblockView", "Player type changed caused a crash.", ex);
+            LogHelper.printException(SponsorBlockView.class, "Player type changed caused a crash.", ex);
         }
     }
 
@@ -87,13 +87,13 @@ public class SponsorBlockView {
     private static void setSkipBtnMargins(boolean fullScreen) {
         SkipSponsorButton skipSponsorButton = _skipSponsorButton.get();
         if (skipSponsorButton == null) {
-            LogHelper.printException("SponsorblockView", "Unable to setSkipBtnMargins");
+            LogHelper.printException(SponsorBlockView.class, "Unable to setSkipBtnMargins");
             return;
         }
 
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) skipSponsorButton.getLayoutParams();
         if (params == null) {
-            LogHelper.printException("SponsorblockView", "Unable to setSkipBtnMargins");
+            LogHelper.printException(SponsorBlockView.class, "Unable to setSkipBtnMargins");
             return;
         }
         params.bottomMargin = fullScreen ? skipSponsorButton.ctaBottomMargin : skipSponsorButton.defaultBottomMargin;
@@ -103,7 +103,7 @@ public class SponsorBlockView {
     private static void skipSponsorButtonVisibility(boolean visible) {
         SkipSponsorButton skipSponsorButton = _skipSponsorButton.get();
         if (skipSponsorButton == null) {
-            LogHelper.printException("SponsorblockView", "Unable to skipSponsorButtonVisibility");
+            LogHelper.printException(SponsorBlockView.class, "Unable to skipSponsorButtonVisibility");
             return;
         }
 
@@ -116,13 +116,13 @@ public class SponsorBlockView {
     private static void setNewSegmentLayoutMargins(boolean fullScreen) {
         NewSegmentLayout newSegmentLayout = _newSegmentLayout.get();
         if (newSegmentLayout == null) {
-            LogHelper.printException("SponsorblockView", "Unable to setNewSegmentLayoutMargins");
+            LogHelper.printException(SponsorBlockView.class, "Unable to setNewSegmentLayoutMargins");
             return;
         }
 
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) newSegmentLayout.getLayoutParams();
         if (params == null) {
-            LogHelper.printException("SponsorblockView", "Unable to setNewSegmentLayoutMargins");
+            LogHelper.printException(SponsorBlockView.class, "Unable to setNewSegmentLayoutMargins");
             return;
         }
         params.bottomMargin = fullScreen ? newSegmentLayout.ctaBottomMargin : newSegmentLayout.defaultBottomMargin;
@@ -132,7 +132,7 @@ public class SponsorBlockView {
     private static void newSegmentLayoutVisibility(boolean visible) {
         NewSegmentLayout newSegmentLayout = _newSegmentLayout.get();
         if (newSegmentLayout == null) {
-            LogHelper.printException("SponsorblockView", "Unable to newSegmentLayoutVisibility");
+            LogHelper.printException(SponsorBlockView.class, "Unable to newSegmentLayoutVisibility");
             return;
         }
 
@@ -154,12 +154,12 @@ public class SponsorBlockView {
             View layout = SwipeHelper.nextGenWatchLayout.findViewById(getIdentifier("player_overlays", "id"));
 
             if (layout == null) {
-                LogHelper.debug("Settings", "player_overlays was not found for SB");
+                LogHelper.debug(SponsorBlockView.class, "player_overlays was not found for SB");
                 return;
             }
 
             initialize(layout);
-            LogHelper.debug("Settings", "player_overlays refreshed for SB");
+            LogHelper.debug(SponsorBlockView.class, "player_overlays refreshed for SB");
         }
     }
 

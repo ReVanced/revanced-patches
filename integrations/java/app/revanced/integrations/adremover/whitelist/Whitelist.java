@@ -27,7 +27,7 @@ import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
 
 public class Whitelist {
-    private static final String TAG = "VI - Whitelisting";
+
     private static final Map<WhitelistType, ArrayList<ChannelModel>> whitelistMap = parseWhitelist(ReVancedUtils.getContext());
     private static final Map<WhitelistType, Boolean> enabledMap = parseEnabledMap(ReVancedUtils.getContext());
 
@@ -41,7 +41,7 @@ public class Whitelist {
     }
 
     public static void setChannelName(String channelName) {
-        LogHelper.debug(TAG, "channel name set to " + channelName);
+        LogHelper.debug(Whitelist.class, "channel name set to " + channelName);
         VideoInformation.channelName = channelName;
 
         if (enabledMap.get(WhitelistType.ADS) && adBlockButton != null) {
@@ -69,16 +69,16 @@ public class Whitelist {
             SharedPreferences preferences = SharedPrefHelper.getPreferences(context, whitelistType.getPreferencesName());
             String serializedChannels = preferences.getString("channels", null);
             if (serializedChannels == null) {
-                LogHelper.debug(TAG, String.format("channels string was null for %s whitelisting", whitelistType));
+                LogHelper.debug(Whitelist.class, String.format("channels string was null for %s whitelisting", whitelistType));
                 whitelistMap.put(whitelistType, new ArrayList<>());
                 continue;
             }
             try {
                 ArrayList<ChannelModel> deserializedChannels = (ArrayList<ChannelModel>) ObjectSerializer.deserialize(serializedChannels);
                 if (SettingsEnum.DEBUG_BOOLEAN.getBoolean()) {
-                    LogHelper.debug(TAG, serializedChannels);
+                    LogHelper.debug(Whitelist.class, serializedChannels);
                     for (ChannelModel channel : deserializedChannels) {
-                        LogHelper.debug(TAG, String.format("Whitelisted channel %s (%s) for type %s", channel.getAuthor(), channel.getChannelId(), whitelistType));
+                        LogHelper.debug(Whitelist.class, String.format("Whitelisted channel %s (%s) for type %s", channel.getAuthor(), channel.getChannelId(), whitelistType));
                     }
                 }
                 whitelistMap.put(whitelistType, deserializedChannels);
@@ -106,14 +106,14 @@ public class Whitelist {
             return false;
         }
         if (channelName == null || channelName.trim().isEmpty()) {
-            LogHelper.debug(TAG, String.format("Can't check whitelist status for %s because channel name was missing", whitelistType));
+            LogHelper.debug(Whitelist.class, String.format("Can't check whitelist status for %s because channel name was missing", whitelistType));
 
             return false;
         }
         List<ChannelModel> whitelistedChannels = whitelistMap.get(whitelistType);
         for (ChannelModel channel : whitelistedChannels) {
             if (channel.getAuthor().equals(channelName)) {
-                LogHelper.debug(TAG, String.format("Whitelist for channel %s for type %s", channelName, whitelistType));
+                LogHelper.debug(Whitelist.class, String.format("Whitelist for channel %s for type %s", channelName, whitelistType));
                 return true;
             }
         }
@@ -125,7 +125,7 @@ public class Whitelist {
         for (ChannelModel whitelistedChannel : whitelisted) {
             String channelId = channel.getChannelId();
             if (whitelistedChannel.getChannelId().equals(channelId)) {
-                LogHelper.debug(TAG, String.format("Tried whitelisting an existing channel again. Old info (%1$s | %2$s) - New info (%3$s | %4$s)",
+                LogHelper.debug(Whitelist.class, String.format("Tried whitelisting an existing channel again. Old info (%1$s | %2$s) - New info (%3$s | %4$s)",
                         whitelistedChannel.getAuthor(), channelId, channelName, channelId));
                 return true;
             }

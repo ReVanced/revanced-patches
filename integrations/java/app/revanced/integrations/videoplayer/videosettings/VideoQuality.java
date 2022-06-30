@@ -29,26 +29,26 @@ public class VideoQuality {
         Field[] fields;
         if (!newVideo || userChangedQuality || qInterface == null) {
             if (SettingsEnum.DEBUG_BOOLEAN.getBoolean() && userChangedQuality) {
-                LogHelper.debug("VideoQuality", "Skipping quality change because user changed it: " + quality);
+                LogHelper.debug(VideoQuality.class, "Skipping quality change because user changed it: " + quality);
             }
             userChangedQuality = false;
             return quality;
         }
         newVideo = false;
-        LogHelper.debug("VideoQuality", "Quality: " + quality);
+        LogHelper.debug(VideoQuality.class, "Quality: " + quality);
         Context context = ReVancedUtils.getContext();
         if (context == null) {
-            LogHelper.printException("VideoQuality", "Context is null or settings not initialized, returning quality: " + quality);
+            LogHelper.printException(VideoQuality.class, "Context is null or settings not initialized, returning quality: " + quality);
             return quality;
         }
         if (Connectivity.isConnectedWifi(context)) {
             preferredQuality = SettingsEnum.PREFERRED_RESOLUTION_WIFI_INTEGER.getInt();
-            LogHelper.debug("VideoQuality", "Wi-Fi connection detected, preferred quality: " + preferredQuality);
+            LogHelper.debug(VideoQuality.class, "Wi-Fi connection detected, preferred quality: " + preferredQuality);
         } else if (Connectivity.isConnectedMobile(context)) {
             preferredQuality = SettingsEnum.PREFERRED_RESOLUTION_MOBILE_INTEGER.getInt();
-            LogHelper.debug("VideoQuality", "Mobile data connection detected, preferred quality: " + preferredQuality);
+            LogHelper.debug(VideoQuality.class, "Mobile data connection detected, preferred quality: " + preferredQuality);
         } else {
-            LogHelper.debug("VideoQuality", "No Internet connection!");
+            LogHelper.debug(VideoQuality.class, "No Internet connection!");
             return quality;
         }
         if (preferredQuality == -2) {
@@ -72,7 +72,7 @@ public class VideoQuality {
         Collections.sort(iStreamQualities);
         int index = 0;
         for (int streamQuality2 : iStreamQualities) {
-            LogHelper.debug("VideoQuality", "Quality at index " + index + ": " + streamQuality2);
+            LogHelper.debug(VideoQuality.class, "Quality at index " + index + ": " + streamQuality2);
             index++;
         }
         for (Integer iStreamQuality : iStreamQualities) {
@@ -85,15 +85,15 @@ public class VideoQuality {
             return quality;
         }
         int qualityIndex = iStreamQualities.indexOf(quality);
-        LogHelper.debug("VideoQuality", "Index of quality " + quality + " is " + qualityIndex);
+        LogHelper.debug(VideoQuality.class, "Index of quality " + quality + " is " + qualityIndex);
         try {
             Class<?> cl = qInterface.getClass();
             Method m = cl.getMethod("x", Integer.TYPE);
             m.invoke(qInterface, iStreamQualities.get(qualityIndex));
-            LogHelper.debug("VideoQuality", "Quality changed to: " + qualityIndex);
+            LogHelper.debug(VideoQuality.class, "Quality changed to: " + qualityIndex);
             return qualityIndex;
         } catch (Exception ex) {
-            LogHelper.printException("VideoQuality", "Failed to set quality", ex);
+            LogHelper.printException(VideoQuality.class, "Failed to set quality", ex);
             return qualityIndex;
         }
     }

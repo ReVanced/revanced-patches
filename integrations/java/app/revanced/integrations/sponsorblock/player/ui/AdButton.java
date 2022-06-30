@@ -32,7 +32,7 @@ public class AdButton extends SlimButton {
     }
 
     public void changeEnabled(boolean enabled) {
-        LogHelper.debug("AdButton", "changeEnabled " + enabled);
+        LogHelper.debug(AdButton.class, "changeEnabled " + enabled);
         this.button_icon.setEnabled(enabled);
     }
 
@@ -53,7 +53,7 @@ public class AdButton extends SlimButton {
             Whitelist.removeFromWhitelist(WhitelistType.ADS, this.context, VideoInformation.channelName);
             changeEnabled(false);
         } catch (Exception ex) {
-            LogHelper.printException("AdButton", "Failed to remove from whitelist", ex);
+            LogHelper.printException(AdButton.class, "Failed to remove from whitelist", ex);
             return;
         }
 
@@ -62,7 +62,7 @@ public class AdButton extends SlimButton {
 
     private void addToWhiteList(View view, ImageView buttonIcon) {
         new Thread(() -> {
-            LogHelper.debug("AdButton", "Fetching channelId for " + currentVideoId);
+            LogHelper.debug(AdButton.class, "Fetching channelId for " + currentVideoId);
             WhitelistRequester.addChannelToWhitelist(WhitelistType.ADS, view, buttonIcon, this.context);
         }).start();
     }

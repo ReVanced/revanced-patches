@@ -27,14 +27,14 @@ public class VotingButton {
 
     public static void initialize(Object viewStub) {
         try {
-            LogHelper.debug("VotingButton", "initializing voting button");
+            LogHelper.debug(VotingButton.class, "initializing voting button");
             _youtubeControlsLayout = (RelativeLayout) viewStub;
 
             ImageView imageView = (ImageView) _youtubeControlsLayout
                     .findViewById(getIdentifier("voting_button", "id"));
 
             if (imageView == null) {
-                LogHelper.debug("VotingButton", "Couldn't find imageView with  \"voting_button\"");
+                LogHelper.debug(VotingButton.class, "Couldn't find imageView with  \"voting_button\"");
             }
             if (imageView == null) return;
             imageView.setOnClickListener(SponsorBlockUtils.voteButtonListener);
@@ -50,7 +50,7 @@ public class VotingButton {
             isShowing = true;
             changeVisibilityImmediate(false);
         } catch (Exception ex) {
-            LogHelper.printException("VotingButton", "Unable to set RelativeLayout", ex);
+            LogHelper.printException(VotingButton.class, "Unable to set RelativeLayout", ex);
         }
     }
 
@@ -77,7 +77,7 @@ public class VotingButton {
             if (getLastKnownVideoTime() >= getCurrentVideoLength()) {
                 return;
             }
-            LogHelper.debug("VotingButton", "Fading in");
+            LogHelper.debug(VotingButton.class, "Fading in");
             iView.setVisibility(View.VISIBLE);
             if (!immediate)
                 iView.startAnimation(fadeIn);
@@ -85,7 +85,7 @@ public class VotingButton {
         }
 
         if (iView.getVisibility() == View.VISIBLE) {
-            LogHelper.debug("VotingButton", "Fading out");
+            LogHelper.debug(VotingButton.class, "Fading out");
             if (!immediate)
                 iView.startAnimation(fadeOut);
             iView.setVisibility(shouldBeShown() ? View.INVISIBLE : View.GONE);

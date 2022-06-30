@@ -306,7 +306,7 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             this.sharedPreferences.edit().putBoolean("revanced_initialized", true);
             this.settingsInitialized = true;
         } catch (Throwable th) {
-            LogHelper.printException("ReVancedSettingsFragment", "Unable to retrieve resourceId for revanced_prefs", th);
+            LogHelper.printException(ReVancedSettingsFragment.class, "Unable to retrieve resourceId for xfile_prefs", th);
         }
     }
 
@@ -362,11 +362,11 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
     private String getPackageName() {
         Context context = YouTubeTikTokRoot_Application.getAppContext();
         if (context == null) {
-            LogHelper.printException("Settings", "Context is null, returning com.google.android.youtube!");
+            LogHelper.printException(ReVancedSettingsFragment.class, "Context is null, returning com.google.android.youtube!");
             return "com.google.android.youtube";
         }
         String PACKAGE_NAME = context.getPackageName();
-        LogHelper.debug("Settings", "getPackageName: " + PACKAGE_NAME);
+        LogHelper.debug(ReVancedSettingsFragment.class, "getPackageName: " + PACKAGE_NAME);
 
         return PACKAGE_NAME;
     }

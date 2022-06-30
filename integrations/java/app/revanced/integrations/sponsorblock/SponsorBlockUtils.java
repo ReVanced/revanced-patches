@@ -74,7 +74,6 @@ import app.revanced.integrations.sponsorblock.requests.SBRequester;
 
 @SuppressWarnings({"LongLogTag"})
 public abstract class SponsorBlockUtils {
-    public static final String TAG = "revanced.SponsorBlockUtils";
     public static final String DATE_FORMAT = "HH:mm:ss.SSS";
     @SuppressLint("SimpleDateFormat")
     public static final SimpleDateFormat dateFormatter = new SimpleDateFormat(DATE_FORMAT);
@@ -83,11 +82,11 @@ public abstract class SponsorBlockUtils {
     private static final int sponsorBtnId = 1234;
     private static final String LOCKED_COLOR = "#FFC83D";
     public static final View.OnClickListener sponsorBlockBtnListener = v -> {
-        LogHelper.debug(TAG, "Shield button clicked");
+        LogHelper.debug(SponsorBlockUtils.class, "Shield button clicked");
         NewSegmentHelperLayout.toggle();
     };
     public static final View.OnClickListener voteButtonListener = v -> {
-        LogHelper.debug(TAG, "Vote button clicked");
+        LogHelper.debug(SponsorBlockUtils.class, "Vote button clicked");
         SponsorBlockUtils.onVotingClicked(v.getContext());
     };
     private static int shareBtnId = -1;
@@ -255,13 +254,13 @@ public abstract class SponsorBlockUtils {
         final SponsorBlockSettings.SegmentInfo segmentType = SponsorBlockUtils.newSponsorBlockSegmentType;
         try {
             if (start < 0 || end < 0 || start >= end || segmentType == null || videoId == null || uuid == null) {
-                LogHelper.printException(TAG, "Unable to submit times, invalid parameters");
+                LogHelper.printException(SponsorBlockUtils.class, "Unable to submit times, invalid parameters");
                 return;
             }
             SBRequester.submitSegments(videoId, uuid, ((float) start) / 1000f, ((float) end) / 1000f, segmentType.key, toastRunnable);
             newSponsorSegmentEndMillis = newSponsorSegmentStartMillis = -1;
         } catch (Exception e) {
-            LogHelper.printException(TAG, "Unable to submit segment", e);
+            LogHelper.printException(SponsorBlockUtils.class, "Unable to submit segment", e);
         }
 
         if (videoId != null)
@@ -458,7 +457,7 @@ public abstract class SponsorBlockUtils {
                 PlayerController.setCurrentVideoId(null);
             }
         } catch (Exception ex) {
-            LogHelper.printException(TAG, "Player type changed caused a crash.", ex);
+            LogHelper.printException(SponsorBlockUtils.class, "Player type changed caused a crash.", ex);
         }
     }
 

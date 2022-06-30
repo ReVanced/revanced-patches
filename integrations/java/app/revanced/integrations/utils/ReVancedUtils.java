@@ -25,7 +25,7 @@ public class ReVancedUtils {
         if (context != null) {
             return context;
         }
-        LogHelper.printException("Globals", "Context is null!");
+        LogHelper.printException(ReVancedUtils.class, "Context is null!");
         return null;
     }
 
@@ -34,7 +34,7 @@ public class ReVancedUtils {
             Resources res = context.getResources();
             return res.getString(res.getIdentifier(name, "string", context.getPackageName()));
         } catch (Throwable exception) {
-            LogHelper.printException("Settings", "Resource not found.", exception);
+            LogHelper.printException(ReVancedUtils.class, "Resource not found.", exception);
             return "";
         }
     }
@@ -59,7 +59,7 @@ public class ReVancedUtils {
     public static void CheckForMicroG(Activity activity) {
         AlertDialog.Builder builder;
         if (!appInstalledOrNot("com.mgoogle.android.gms")) {
-            LogHelper.debug("XDebug", "Custom MicroG installation undetected");
+            LogHelper.debug(ReVancedUtils.class, "Custom MicroG installation undetected");
             if (Build.VERSION.SDK_INT >= 21) {
                 builder = new AlertDialog.Builder(activity, 16974374);
             } else {
@@ -71,7 +71,7 @@ public class ReVancedUtils {
                 }
             }).show();
         } else {
-            LogHelper.debug("XDebug", "Custom MicroG installation detected");
+            LogHelper.debug(ReVancedUtils.class, "Custom MicroG installation detected");
         }
     }
 
@@ -90,7 +90,7 @@ public class ReVancedUtils {
         if (context != null) {
             return context;
         } else {
-            LogHelper.printException("Settings", "Context is null, returning null!");
+            LogHelper.printException(ReVancedUtils.class, "Context is null, returning null!");
             return null;
         }
     }

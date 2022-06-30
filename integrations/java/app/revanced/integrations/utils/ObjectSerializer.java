@@ -19,7 +19,7 @@ public class ObjectSerializer {
             objStream.close();
             return encodeBytes(serialObj.toByteArray());
         } catch (Exception e) {
-            LogHelper.printException("ObjectSerializer", "Serialization error: " + e.getMessage(), e);
+            LogHelper.printException(ObjectSerializer.class, "Serialization error: " + e.getMessage(), e);
             throw new IOException(e);
         }
     }
@@ -31,7 +31,7 @@ public class ObjectSerializer {
             ObjectInputStream objStream = new ObjectInputStream(serialObj);
             return objStream.readObject();
         } catch (Exception e) {
-            LogHelper.printException("ObjectSerializer", "Deserialization error: " + e.getMessage(), e);
+            LogHelper.printException(ObjectSerializer.class, "Deserialization error: " + e.getMessage(), e);
             throw new IOException(e);
         }
     }

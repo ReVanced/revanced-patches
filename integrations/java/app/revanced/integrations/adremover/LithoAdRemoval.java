@@ -163,20 +163,20 @@ public class LithoAdRemoval {
             )) return false;
 
             if (blockList.stream().anyMatch(value::contains)) {
-                LogHelper.debug("TemplateBlocked", value);
+                LogHelper.debug(LithoAdRemoval.class, value);
                 return true;
             }
 
             if (!SettingsEnum.DEBUG_BOOLEAN.getBoolean()) return false;
             if (value.contains("related_video_with_context")) {
-                LogHelper.debug("Template", value + " | " + bytesToHex(buffer.array()));
+                LogHelper.debug(LithoAdRemoval.class, value + " | " + bytesToHex(buffer.array()));
                 return false;
             }
-            LogHelper.debug("Template", value);
+            LogHelper.debug(LithoAdRemoval.class, value);
             return false;
         } catch (
                 Exception ex) {
-            LogHelper.printException("Template", ex.getMessage(), ex);
+            LogHelper.printException(LithoAdRemoval.class, ex.getMessage(), ex);
             return false;
         }
 

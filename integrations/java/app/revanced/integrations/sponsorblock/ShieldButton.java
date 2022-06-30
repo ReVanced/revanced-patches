@@ -27,7 +27,7 @@ public class ShieldButton {
 
     public static void initialize(Object viewStub) {
         try {
-            LogHelper.debug("ShieldButton", "initializing shield button");
+            LogHelper.debug(ShieldButton.class, "initializing shield button");
 
             _youtubeControlsLayout = (RelativeLayout) viewStub;
 
@@ -35,7 +35,7 @@ public class ShieldButton {
                     .findViewById(getIdentifier("sponsorblock_button", "id"));
 
             if (imageView == null) {
-                LogHelper.debug("ShieldButton", "Couldn't find imageView with \"sponsorblock_button\"");
+                LogHelper.debug(ShieldButton.class, "Couldn't find imageView with \"sponsorblock_button\"");
             }
             if (imageView == null) return;
             imageView.setOnClickListener(SponsorBlockUtils.sponsorBlockBtnListener);
@@ -51,7 +51,7 @@ public class ShieldButton {
             isShowing = true;
             changeVisibilityImmediate(false);
         } catch (Exception ex) {
-            LogHelper.printException("ShieldButton", "Unable to set RelativeLayout", ex);
+            LogHelper.printException(ShieldButton.class, "Unable to set RelativeLayout", ex);
         }
     }
 
@@ -78,7 +78,7 @@ public class ShieldButton {
             if (getLastKnownVideoTime() >= getCurrentVideoLength()) {
                 return;
             }
-            LogHelper.debug("ShieldButton", "Fading in");
+            LogHelper.debug(ShieldButton.class, "Fading in");
 
             iView.setVisibility(View.VISIBLE);
             if (!immediate)
@@ -87,7 +87,7 @@ public class ShieldButton {
         }
 
         if (iView.getVisibility() == View.VISIBLE) {
-            LogHelper.debug("ShieldButton", "Fading out");
+            LogHelper.debug(ShieldButton.class, "Fading out");
             if (!immediate)
                 iView.startAnimation(fadeOut);
             iView.setVisibility(shouldBeShown() ? View.INVISIBLE : View.GONE);

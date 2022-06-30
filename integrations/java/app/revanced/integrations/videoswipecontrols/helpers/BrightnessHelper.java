@@ -26,7 +26,7 @@ public class BrightnessHelper {
     }
 
     public static void setBrightness(Context context, int brightness) {
-        LogHelper.debug("XDebug", "Setting brightness: " + brightness);
+        LogHelper.debug(BrightnessHelper.class, "Setting brightness: " + brightness);
         float bright = brightness / 100.0f;
         WindowManager.LayoutParams lp = ((Activity) context).getWindow().getAttributes();
         lp.screenBrightness = bright;
@@ -34,7 +34,7 @@ public class BrightnessHelper {
     }
 
     public static void setBrightness2(Context context, int brightness) {
-        LogHelper.debug("XDebug", "Setting brightness: " + brightness);
+        LogHelper.debug(BrightnessHelper.class, "Setting brightness: " + brightness);
         ContentResolver cResolver = context.getContentResolver();
         android.provider.Settings.System.putInt(cResolver, "screen_brightness", brightness);
     }

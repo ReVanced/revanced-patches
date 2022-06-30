@@ -62,7 +62,6 @@
 
         Default: 5000"</string>
     <string name="revanced_rebuffer_title">Rebuffer</string>
-    <string name="revanced_settings">Vanced settings</string>
     <string name="revanced_software_hdr_summary">Tap to enable software HDR</string>
     <string name="revanced_software_hdr_title" translatable="false">Google Pixel XL</string>
     <string name="revanced_suggestion_summary_off">End screens are hidden</string>

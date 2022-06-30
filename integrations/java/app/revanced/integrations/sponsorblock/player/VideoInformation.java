@@ -16,7 +16,7 @@ public class VideoInformation {
     // Call hook in the YT code when the video changes
     public static void setCurrentVideoId(final String videoId) {
         if (videoId == null) {
-            LogHelper.debug("VideoInformation", "setCurrentVideoId - new id was null - currentVideoId was" + currentVideoId);
+            LogHelper.debug(VideoInformation.class, "setCurrentVideoId - new id was null - currentVideoId was" + currentVideoId);
             clearInformation(true);
             return;
         }
@@ -27,11 +27,11 @@ public class VideoInformation {
         }
 
         if (videoId.equals(currentVideoId)) {
-            LogHelper.debug("VideoInformation", "setCurrentVideoId - new and current video were equal - " + videoId);
+            LogHelper.debug(VideoInformation.class, "setCurrentVideoId - new and current video were equal - " + videoId);
             return;
         }
 
-        LogHelper.debug("VideoInformation", "setCurrentVideoId - video id updated from " + currentVideoId + " to " + videoId);
+        LogHelper.debug(VideoInformation.class, "setCurrentVideoId - video id updated from " + currentVideoId + " to " + videoId);
 
         currentVideoId = videoId;
 

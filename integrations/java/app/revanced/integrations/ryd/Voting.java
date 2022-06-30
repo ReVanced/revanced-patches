@@ -17,7 +17,7 @@ public class Voting {
 
     public boolean sendVote(String videoId, int vote) {
         String userId = registration.getUserId();
-        LogHelper.debug("Voting", "Trying to vote the following video: " + videoId + " with vote " + vote + " and userId: " + userId);
+        LogHelper.debug(Voting.class, "Trying to vote the following video: " + videoId + " with vote " + vote + " and userId: " + userId);
         return RYDRequester.sendVote(videoId, userId, vote);
     }
 }

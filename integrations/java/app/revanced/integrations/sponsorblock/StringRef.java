@@ -105,7 +105,7 @@ public class StringRef {
             if (resources != null) {
                 final int identifier = resources.getIdentifier(value, "string", packageName);
                 if (identifier == 0)
-                    LogHelper.printException("StringRef", "Resource not found: " + value);
+                    LogHelper.printException(StringRef.class, "Resource not found: " + value);
                 else
                     value = resources.getString(identifier);
             }

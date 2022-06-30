@@ -60,12 +60,6 @@ public class SponsorBlockSettings {
     public static int skippedSegments;
     public static long skippedTime;
 
-    @SuppressWarnings("unused")
-    @Deprecated
-    public SponsorBlockSettings(Context ignored) {
-        LogHelper.printException("revanced.Settings", "Do not call SponsorBlockSettings constructor!");
-    }
-
     public static void setSeenGuidelines(Context context) {
         SponsorBlockSettings.seenGuidelinesPopup = true;
         SharedPrefHelper.getPreferences(context, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK).edit().putBoolean(PREFERENCES_KEY_SEEN_GUIDELINES, true).apply();

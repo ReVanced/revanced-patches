@@ -39,7 +39,7 @@ public class AdRemoverAPI {
             ViewGroup.LayoutParams layoutParams5 = new ViewGroup.LayoutParams(1, 1);
             view.setLayoutParams(layoutParams5);
         } else {
-            LogHelper.debug("XAdRemover", "HideViewWithLayout1dp - Id: " + view.getId() + " Type: " + view.getClass().getName());
+            LogHelper.debug(AdRemoverAPI.class, "HideViewWithLayout1dp - Id: " + view.getId() + " Type: " + view.getClass().getName());
         }
     }
 
@@ -50,7 +50,7 @@ public class AdRemoverAPI {
      */
     public static void hideCreateButton(View view) {
         String message = SettingsEnum.CREATE_BUTTON_SHOWN_BOOLEAN.getBoolean() ? "Create button: Shown" : "Create button: Hidden";
-        LogHelper.debug("HideCreateButton", message);
+        LogHelper.debug(AdRemoverAPI.class, message);
         if (SettingsEnum.CREATE_BUTTON_SHOWN_BOOLEAN.getBoolean()) {
             view.setVisibility(View.VISIBLE);
         } else {
@@ -66,7 +66,7 @@ public class AdRemoverAPI {
     public static void hideShortsButton(View view) {
         if (HideShortsButtonPatch.lastPivotTab != null && HideShortsButtonPatch.lastPivotTab.name() == "TAB_SHORTS") {
             String message = SettingsEnum.SHORTS_BUTTON_SHOWN_BOOLEAN.getBoolean() ? "Shorts button: shown" : "Shorts button: hidden";
-            LogHelper.debug("HideShortsButton", message);
+            LogHelper.debug(AdRemoverAPI.class, message);
             if (!SettingsEnum.SHORTS_BUTTON_SHOWN_BOOLEAN.getBoolean()) {
                 view.setVisibility(View.GONE);
             }
@@ -82,7 +82,7 @@ public class AdRemoverAPI {
     public static Object removeInfoCardSuggestions(Object InfoCardOverlayPresenter) {
         if (!SettingsEnum.INFO_CARDS_SHOWN_BOOLEAN.getBoolean()) InfoCardOverlayPresenter = null;
         String message = InfoCardOverlayPresenter == null ? "RemoveInfoCardSuggestions: true" : "RemoveInfoCardSuggestions: false";
-        LogHelper.debug("AdRemoverAPI", message);
+        LogHelper.debug(AdRemoverAPI.class, message);
         return InfoCardOverlayPresenter;
     }
 
@@ -95,18 +95,8 @@ public class AdRemoverAPI {
     public static Boolean removeSuggestions(Boolean showSuggestions) {
         if (!SettingsEnum.SUGGESTIONS_SHOWN_BOOLEAN.getBoolean()) showSuggestions = false;
         String message = showSuggestions ? "RemoveSuggestions: true" : "RemoveSuggestions: false";
-        LogHelper.debug("AdRemoverAPI", message);
+        LogHelper.debug(AdRemoverAPI.class, message);
         return showSuggestions;
-    }
-
-
-    public static int BrandingWatermark(int defaultValue) {
-        if (defaultValue == 0 && !SettingsEnum.BRANDING_SHOWN_BOOLEAN.getBoolean()) {
-            defaultValue = 8;
-        }
-        String message = defaultValue == 8 ? "BrandingWatermark: Removed" : "BrandingWatermark: Shown";
-        LogHelper.debug("AdRemoverAPI", message);
-        return defaultValue;
     }
 
     /*

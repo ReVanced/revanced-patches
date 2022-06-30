@@ -29,18 +29,18 @@ public class CopyWithTimeStamp {
 
     public static void initializeCopyButtonWithTimeStamp(Object obj) {
         try {
-            LogHelper.debug("CopyButtonWithTimeStamp", "initializing");
+            LogHelper.debug(CopyWithTimeStamp.class, "initializing");
             _constraintLayout = (ConstraintLayout) obj;
             isCopyButtonWithTimeStampEnabled = shouldBeShown();
             ImageView imageView = (ImageView) _constraintLayout.findViewById(getIdentifier("copy_with_timestamp_button", "id"));
             if (imageView == null) {
-                LogHelper.debug("CopyButtonWithTimeStamp", "Couldn't find imageView with id \"copy_with_timestamp_button\"");
+                LogHelper.debug(CopyWithTimeStamp.class, "Couldn't find imageView with id \"copy_with_timestamp_button\"");
             }
             if (imageView != null) {
                 imageView.setOnClickListener(new View.OnClickListener() { // from class: app.revanced.integrations.videoplayer.VideoUrl.CopyWithTimeStamp.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        LogHelper.debug("CopyButtonWithTimeStamp", "Button clicked");
+                        LogHelper.debug(CopyWithTimeStamp.class, "Button clicked");
                         VideoHelpers.copyVideoUrlWithTimeStampToClipboard();
                     }
                 });
@@ -57,7 +57,7 @@ public class CopyWithTimeStamp {
                 changeVisibility(false);
             }
         } catch (Exception e) {
-            LogHelper.printException("CopyButtonWithTimeStamp", "Unable to set FrameLayout", e);
+            LogHelper.printException(CopyWithTimeStamp.class, "Unable to set FrameLayout", e);
         }
     }
 
@@ -67,11 +67,11 @@ public class CopyWithTimeStamp {
             ImageView imageView = _button.get();
             if (_constraintLayout != null && imageView != null) {
                 if (z && isCopyButtonWithTimeStampEnabled) {
-                    LogHelper.debug("CopyButtonWithTimeStamp", "Fading in");
+                    LogHelper.debug(CopyWithTimeStamp.class, "Fading in");
                     imageView.setVisibility(View.VISIBLE);
                     imageView.startAnimation(fadeIn);
                 } else if (imageView.getVisibility() == View.VISIBLE) {
-                    LogHelper.debug("CopyButtonWithTimeStamp", "Fading out");
+                    LogHelper.debug(CopyWithTimeStamp.class, "Fading out");
                     imageView.startAnimation(fadeOut);
                     imageView.setVisibility(View.GONE);
                 }
@@ -86,7 +86,7 @@ public class CopyWithTimeStamp {
     private static boolean shouldBeShown() {
         Context appContext = ReVancedUtils.getContext();
         if (appContext == null) {
-            LogHelper.printException("CopyButtonWithTimeStamp", "shouldBeShown - context is null!");
+            LogHelper.printException(CopyWithTimeStamp.class, "shouldBeShown - context is null!");
             return false;
         }
 

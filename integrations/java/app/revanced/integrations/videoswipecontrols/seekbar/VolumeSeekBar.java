@@ -63,7 +63,7 @@ public class VolumeSeekBar {
                 this.mTextView.setVisibility(View.VISIBLE);
             }
         }
-        LogHelper.debug("XDebug", "updateVolumeProgress: " + this.Progress);
+        LogHelper.debug(VolumeSeekBar.class, "updateVolumeProgress: " + this.Progress);
     }
 
     private void setVolume(int volume) {

@@ -22,7 +22,7 @@ public class VideoHelpers {
         try {
             String videoId = VideoInformation.currentVideoId;
             if (videoId == null || videoId.isEmpty()) {
-                LogHelper.debug("VideoHelpers", "VideoId was empty");
+                LogHelper.debug(VideoHelpers.class, "VideoId was empty");
                 return;
             }
 
@@ -32,13 +32,13 @@ public class VideoHelpers {
                 videoUrl += String.format("?t=%s", (videoTime / 1000));
             }
 
-            LogHelper.debug("VideoHelpers", "Video URL: " + videoUrl);
+            LogHelper.debug(VideoHelpers.class, "Video URL: " + videoUrl);
 
             setClipboard(ReVancedUtils.getContext(), videoUrl);
 
             Toast.makeText(ReVancedUtils.getContext(), str("share_copy_url_success"), Toast.LENGTH_SHORT).show();
         } catch (Exception ex) {
-            LogHelper.printException("VideoHelpers", "Couldn't generate video url", ex);
+            LogHelper.printException(VideoHelpers.class, "Couldn't generate video url", ex);
         }
     }
 

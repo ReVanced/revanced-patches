@@ -59,7 +59,7 @@ public class BrightnessSeekBar {
                 this.mTextView.setVisibility(View.VISIBLE);
             }
         }
-        LogHelper.debug("XDebug", "updateBrightnessProgress: " + this.Progress);
+        LogHelper.debug(BrightnessSeekBar.class, "updateBrightnessProgress: " + this.Progress);
     }
 
     private void disableBrightness() {
@@ -113,7 +113,7 @@ public class BrightnessSeekBar {
         this.enabled = false;
         SharedPrefHelper.saveInt(this.mContext, SharedPrefHelper.SharedPrefNames.YOUTUBE,"revanced_brightness_value", Integer.valueOf(this.Progress));
         disableBrightness();
-        LogHelper.debug("XDebug", "Brightness swipe disabled");
+        LogHelper.debug(BrightnessSeekBar.class, "Brightness swipe disabled");
     }
 
     public void enable() {
@@ -127,6 +127,6 @@ public class BrightnessSeekBar {
             brightness = 100;
         }
         BrightnessHelper.setBrightness(this.mContext, brightness);
-        LogHelper.debug("XDebug", "Brightness swipe enabled");
+        LogHelper.debug(BrightnessSeekBar.class, "Brightness swipe enabled");
     }
 }
