@@ -12,7 +12,7 @@ import org.jf.dexlib2.Opcode
 
 @Name("autonav-informer-fingerprint")
 @MatchingMethod(
-    "com/google/android/libraries/youtube/player/features/prefetch/WillAutonavInformer;", "k"
+    "LWillAutonavInformer;", "k"
 )
 @FuzzyPatternScanMethod(2)
 @AutoplayButtonCompatibility

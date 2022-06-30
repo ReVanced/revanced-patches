@@ -26,7 +26,7 @@ import kotlin.io.path.exists
 @Version("0.0.1")
 class PremiumHeadingPatch : ResourcePatch() {
     override fun execute(data: ResourceData): PatchResult {
-        val resDirectory = data.get("res")
+        val resDirectory = data["res"]
         if (!resDirectory.isDirectory) return PatchResultError("The res folder can not be found.")
 
         val (original, replacement) = "yt_premium_wordmark_header" to "yt_wordmark_header"

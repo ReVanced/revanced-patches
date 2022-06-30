@@ -12,7 +12,7 @@ import org.jf.dexlib2.Opcode
 
 @Name("layout-constructor-fingerprint")
 @MatchingMethod(
-    "Lcom/google/android/apps/youtube/app/player/overlay/YouTubeControlsOverlay;", "F"
+    "LYouTubeControlsOverlay;", "F"
 )
 @FuzzyPatternScanMethod(2)
 @AutoplayButtonCompatibility

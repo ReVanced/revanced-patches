@@ -19,11 +19,11 @@ import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
 @Patch
 @Dependencies(dependencies = [ResourceIdMappingProviderResourcePatch::class])
-@Name("disable-autoplay-button")
+@Name("hide-autoplay-button")
 @Description("Disable the autoplay button.")
 @AutoplayButtonCompatibility
 @Version("0.0.1")
-class AutoplayButtonRemoverPatch : BytecodePatch(
+class HideAutoplayButton : BytecodePatch(
     listOf(
         LayoutConstructorFingerprint, AutonavInformerFingerprint
     )
@@ -51,8 +51,8 @@ class AutoplayButtonRemoverPatch : BytecodePatch(
         autonavInformerMethod.replaceInstructions(
         0,
         """
-        const/4 v0, 0x0
-        return v0
+            const/4 v0, 0x0
+            return v0
         """
         )
 
