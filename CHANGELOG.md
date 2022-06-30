@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/revanced/revanced-patches/compare/v2.3.1...v2.4.0) (2022-06-30)
+
+
+### Features
+
+* add youtube version 17.25.34 ([#85](https://github.com/revanced/revanced-patches/issues/85)) ([889c9d5](https://github.com/revanced/revanced-patches/commit/889c9d564d16c6e68a52095a4fc8e6d04346c9e9))
+
 ## [2.3.1](https://github.com/revanced/revanced-patches/compare/v2.3.0...v2.3.1) (2022-06-30)
 
 
