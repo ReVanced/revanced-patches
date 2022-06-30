@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/revanced/revanced-patches/compare/v2.4.0...v2.5.0) (2022-06-30)
+
+
+### Features
+
+* hide watermark support for 17.25.34 ([#87](https://github.com/revanced/revanced-patches/issues/87)) ([0cdb65b](https://github.com/revanced/revanced-patches/commit/0cdb65bbb3e7b9d75eb393ee87e3718bcd6af4b3))
+
 # [2.4.0](https://github.com/revanced/revanced-patches/compare/v2.3.1...v2.4.0) (2022-06-30)
 
 
