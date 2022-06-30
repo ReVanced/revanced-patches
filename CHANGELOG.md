@@ -1,3 +1,11 @@
+## [2.5.1-dev.1](https://github.com/revanced/revanced-patches/compare/v2.5.0...v2.5.1-dev.1) (2022-06-30)
+
+
+### Bug Fixes
+
+* freezing panels when watching video in fullscreen ([#89](https://github.com/revanced/revanced-patches/issues/89)) ([f5d4f6c](https://github.com/revanced/revanced-patches/commit/f5d4f6c3419916c6a9cf67babc6be8a64c854d3b))
+* invalid version in compatibility annotation ([#90](https://github.com/revanced/revanced-patches/issues/90)) ([df43547](https://github.com/revanced/revanced-patches/commit/df435475cdd0494a1e4ea9e2980c2998c9bc7048))
+
 # [2.5.0](https://github.com/revanced/revanced-patches/compare/v2.4.0...v2.5.0) (2022-06-30)
 
 
