@@ -22,10 +22,6 @@ object AutonavInformerFingerprint : MethodFingerprint(
     AccessFlags.PUBLIC or AccessFlags.FINAL,
     null,
     listOf(
-        Opcode.IGET_BOOLEAN,
-        Opcode.IF_EQZ,
-        Opcode.IGET_BOOLEAN,
-        Opcode.RETURN,
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT_OBJECT,
