@@ -1,3 +1,10 @@
+## [2.3.1](https://github.com/revanced/revanced-patches/compare/v2.3.0...v2.3.1) (2022-06-30)
+
+
+### Bug Fixes
+
+* change fingerprint to work on latest youtube ([#80](https://github.com/revanced/revanced-patches/issues/80)) ([4dba323](https://github.com/revanced/revanced-patches/commit/4dba323ddf8980cd2b0908a0de41c4b4dea6b0d7))
+
 # [2.3.0](https://github.com/revanced/revanced-patches/compare/v2.2.0...v2.3.0) (2022-06-30)
 
 
