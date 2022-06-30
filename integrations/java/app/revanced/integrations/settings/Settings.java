@@ -60,7 +60,7 @@ public class Settings {
     }
 
     public static void setOldLayout(SharedPreferences sharedPreferences, String config, long timeStamp) {
-        if (!SettingsEnum.OLD_LAYOUT_XFILE_ENABLED_BOOLEAN.getBoolean()) {
+        if (!SettingsEnum.OLD_LAYOUT_ENABLED_BOOLEAN.getBoolean()) {
             sharedPreferences.edit().putString("com.google.android.libraries.youtube.innertube.cold_config_group", config).putLong("com.google.android.libraries.youtube.innertube.cold_stored_timestamp", timeStamp).apply();
             LogHelper.debug("Settings", "setOldLayout: true");
             return;

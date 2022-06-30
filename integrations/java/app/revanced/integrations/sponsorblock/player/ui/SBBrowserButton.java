@@ -24,7 +24,7 @@ public class SBBrowserButton extends SlimButton {
     }
 
     private void initialize() {
-        this.button_icon.setImageResource(ReVancedUtils.getIdentifier("vanced_sb_browser", "drawable"));
+        this.button_icon.setImageResource(ReVancedUtils.getIdentifier("revanced_sb_browser", "drawable"));
         this.button_text.setText(str("action_browser"));
     }
 

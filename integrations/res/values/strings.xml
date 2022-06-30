@@ -1,128 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="xfile_about_summary">"
-- xfileFIN (Mods, Theming, Support)
-- Laura (Theming, Support)
-- ZaneZam (Publishing, Support)
-- KevinX8 (Overlord, Support)"</string>
-    <string name="xfile_about_title">About</string>
-    <string name="xfile_auto_repeat_button_summary_off">"Doesn't show auto repeat button in the player overlay. Use the toggle below to control auto repeat"</string>
-    <string name="xfile_auto_repeat_button_summary_on">Auto repeat button is shown in the player overlay</string>
-    <string name="xfile_auto_repeat_button_title">Auto repeat button</string>
-    <string name="xfile_auto_repeat_summary_off">Auto repeat is off</string>
-    <string name="xfile_auto_repeat_summary_on">Auto repeat is on</string>
-    <string name="xfile_auto_repeat_title">Auto repeat</string>
-    <string name="xfile_branding_watermark_summary_off">Video watermark is hidden</string>
-    <string name="xfile_branding_watermark_summary_on">Video watermark is shown</string>
-    <string name="xfile_branding_watermark_title">Video watermark</string>
-    <string name="xfile_buffer_summary">ExoPlayer v2 has to be enabled for buffer settings</string>
-    <string name="xfile_buffer_title">Buffer settings</string>
-    <string name="xfile_cast_button_summary_off">Cast button is hidden</string>
-    <string name="xfile_cast_button_summary_on">Cast button is shown</string>
-    <string name="xfile_cast_button_title">Cast button</string>
-    <string name="xfile_codec_override_title">Codec override</string>
-    <string name="xfile_current_override_manufacturer">Override manufacturer</string>
-    <string name="xfile_current_override_model">Override model</string>
-    <string name="xfile_debug_summary_off">Extra debug logging is disabled</string>
-    <string name="xfile_debug_summary_on">Extra debug logging is enabled</string>
-    <string name="xfile_debug_title">Debug mode</string>
-    <string name="xfile_default_codec_summary">Tap to set your device\'s default codec</string>
-    <string name="xfile_default_codec_title">Default codec</string>
-    <string name="xfile_discord_summary">Tap to join Vanced on Discord</string>
-    <string name="xfile_discord_title">Discord Server</string>
-    <string name="xfile_exoplayerv2_warning_summary">ExoPlayer v2 is experimental. DO NOT report errors that occur when ExoPlayer v2 is enabled</string>
-    <string name="xfile_exoplayerv2_warning_title">Warning</string>
-    <string name="xfile_hardware_hdr_summary">Tap to enable hardware HDR</string>
-    <string name="xfile_hardware_hdr_title" translatable="false">Samsung Galaxy S8+</string>
-    <string name="xfile_hdr_full_brightness_summary_off">Video brightness will follow your device\'s brightness on HDR landscape videos</string>
-    <string name="xfile_hdr_full_brightness_summary_on">Video brightness is set to max on HDR landscape videos</string>
-    <string name="xfile_hdr_full_brightness_title">HDR Max brightness</string>
-    <string name="xfile_hiddenmenu_needed">taps needed to enable hidden settings</string>
-    <string name="xfile_hiddenmenu_open">No need, hidden settings are already enabled</string>
-    <string name="xfile_hiddenmenu_opened">Hidden settings have been enabled</string>
-    <string name="xfile_info_cards_summary_off">Info cards are hidden</string>
-    <string name="xfile_info_cards_summary_on">Info cards are shown</string>
-    <string name="xfile_info_cards_title">Info cards</string>
-    <string name="xfile_layout_settings_title">Layout settings</string>
-    <string name="xfile_maximum_buffer_summary">"The maximum duration of media that the player will attempt to buffer (in milliseconds)
+    <string name="revanced_about_summary">"
+- xfileFIN (First creator)
+- oSumAtrIX (Mods, Patcher, Support)
+- TheJeterLP (Integrations)
+- bogadana (Mods, Support)
+- Sculas (Manager, Patcher)
+- baiorett (Manager)"</string>
+    <string name="revanced_about_title">About</string>
+    <string name="revanced_auto_repeat_button_summary_off">"Doesn't show auto-repeat button in the player overlay. Use the toggle below to control auto-repeat"</string>
+    <string name="revanced_auto_repeat_button_summary_on">Auto-repeat button is shown in the player overlay</string>
+    <string name="revanced_auto_repeat_button_title">Auto-repeat button</string>
+    <string name="revanced_auto_repeat_summary_off">Auto-repeat is off</string>
+    <string name="revanced_auto_repeat_summary_on">Auto-repeat is on</string>
+    <string name="revanced_auto_repeat_title">Auto-repeat</string>
+    <string name="revanced_branding_watermark_summary_off">Video watermark is hidden</string>
+    <string name="revanced_branding_watermark_summary_on">Video watermark is shown</string>
+    <string name="revanced_branding_watermark_title">Video watermark</string>
+    <string name="revanced_buffer_title">Buffer settings</string>
+    <string name="revanced_cast_button_summary_off">Cast button is hidden</string>
+    <string name="revanced_cast_button_summary_on">Cast button is shown</string>
+    <string name="revanced_cast_button_title">Cast button</string>
+    <string name="revanced_codec_override_title">Codec override</string>
+    <string name="revanced_current_override_manufacturer">Manufacturer override</string>
+    <string name="revanced_current_override_model">Model override</string>
+    <string name="revanced_debug_summary_off">Extra debug logging is disabled</string>
+    <string name="revanced_debug_summary_on">Extra Debug logging is enabled</string>
+    <string name="revanced_debug_title">Debug mode</string>
+    <string name="revanced_default_codec_summary">Tap to set your device\'s default codec</string>
+    <string name="revanced_default_codec_title">Default codec</string>
+    <string name="revanced_discord_summary">Tap to join ReVanced on Discord</string>
+    <string name="revanced_discord_title">Discord server</string>
+    <string name="revanced_hardware_hdr_summary">Tap to enable hardware HDR</string>
+    <string name="revanced_hardware_hdr_title" translatable="false">Samsung Galaxy S8+</string>
+    <string name="revanced_hdr_full_brightness_summary_off">Video brightness will follow your device\'s brightness on HDR landscape videos</string>
+    <string name="revanced_hdr_full_brightness_summary_on">Video brightness is set to max on HDR landscape videos</string>
+    <string name="revanced_hdr_full_brightness_title">HDR max brightness</string>
+    <string name="revanced_info_cards_summary_off">Info cards are hidden</string>
+    <string name="revanced_info_cards_summary_on">Info cards are shown</string>
+    <string name="revanced_info_cards_title">Info cards</string>
+    <string name="revanced_layout_settings_title">Layout settings</string>
+    <string name="revanced_maximum_buffer_summary">"The maximum duration of media that the player will attempt to buffer (in milliseconds)
 
         Default: 120000"</string>
-    <string name="xfile_maximum_buffer_title">Maximum buffer</string>
-    <string name="xfile_minimized_video_type_summary">Select the preferred minimized video type</string>
-    <string name="xfile_minimized_video_type_title">Minimized video type</string>
-    <string name="xfile_miniplayer_style_video">Video only</string>
-    <string name="xfile_miniplayer_style_video_controls">Video with media controls</string>
-    <string name="xfile_misc_title">Misc</string>
-    <string name="xfile_override_resolution_summary_off">Video resolution is following your device screen resolution</string>
-    <string name="xfile_override_resolution_summary_on">Video resolution is being overridden to max</string>
-    <string name="xfile_override_resolution_title">Max resolution</string>
-    <string name="xfile_playback_start_summary">"The duration of media that must be buffered for playback to start or resume following a user action such as seeking (in milliseconds)
+    <string name="revanced_maximum_buffer_title">Maximum buffer</string>
+    <string name="revanced_misc_title">Misc.</string>
+    <string name="revanced_override_resolution_summary_off">Video resolution is following your device screen resolution</string>
+    <string name="revanced_override_resolution_summary_on">Video resolution is being overridden to max</string>
+    <string name="revanced_override_resolution_title">Max resolution</string>
+    <string name="revanced_playback_start_summary">"The duration of media that must be buffered for playback to start or resume following a user action such as seeking (in milliseconds)
 
         Default: 2500"</string>
-    <string name="xfile_playback_start_title">Playback start</string>
-    <string name="xfile_preferred_video_quality_mobile_summary">Select preferred video resolution on Cellular Network</string>
-    <string name="xfile_preferred_video_quality_mobile_title">Preferred video quality Cellular</string>
-    <string name="xfile_preferred_video_quality_wifi_summary">Select preferred video resolution on Wi-Fi Network</string>
-    <string name="xfile_preferred_video_quality_wifi_title">Preferred video quality Wi-Fi</string>
-    <string name="xfile_preferred_video_speed_summary">Select preferred video speed</string>
-    <string name="xfile_preferred_video_speed_title">Preferred video speed</string>
-    <string name="xfile_rebuffer_summary">"The duration of media that must be buffered for playback to resume after a rebuffer (in milliseconds). A rebuffer is defined to be caused by buffer depletion rather than a user action
+    <string name="revanced_playback_start_title">Playback start</string>
+    <string name="revanced_preferred_video_quality_mobile_summary">Select preferred video resolution on Cellular Network</string>
+    <string name="revanced_preferred_video_quality_mobile_title">Preferred video quality Cellular</string>
+    <string name="revanced_preferred_video_quality_wifi_summary">Select preferred video resolution on Wi-Fi Network</string>
+    <string name="revanced_preferred_video_quality_wifi_title">Preferred video quality Wi-Fi</string>
+    <string name="revanced_preferred_video_speed_summary">Select preferred video speed</string>
+    <string name="revanced_preferred_video_speed_title">Preferred video speed</string>
+    <string name="revanced_rebuffer_summary">"The duration of media that must be buffered for playback to resume after a rebuffer (in milliseconds). A rebuffer is defined to be caused by buffer depletion rather than a user action
 
         Default: 5000"</string>
-    <string name="xfile_rebuffer_title">Rebuffer</string>
-    <string name="xfile_settings">Vanced settings</string>
-    <string name="xfile_software_hdr_summary">Tap to enable software HDR</string>
-    <string name="xfile_software_hdr_title" translatable="false">Google Pixel XL</string>
-    <string name="xfile_suggestion_summary_off">End screens are hidden</string>
-    <string name="xfile_suggestion_summary_on">End screens are shown</string>
-    <string name="xfile_suggestion_title">End screens</string>
-    <string name="xfile_support_summary">Support links</string>
-    <string name="xfile_support_title">Support</string>
-    <string name="xfile_video_settings_title">Video settings</string>
-    <string name="xfile_vp9_summary">Tap to force usage of the VP9 codec</string>
-    <string name="xfile_vp9_summary_off">VP9 codec not forced</string>
-    <string name="xfile_vp9_summary_on">VP9 codec is enabled by default for supported devices, disable if you encounter stuttering/slowness in videos</string>
-    <string name="xfile_vp9_title">VP9 codec</string>
-    <string name="xfile_xda_summary">Tap to open the XDA post</string>
-    <string name="xfile_xda_title">XDA thread</string>
-    <string name="xfile_new_actionbar_title">Wide search bar</string>
-    <string name="xfile_new_actionbar_summary_off">Search bar style is defined by the app</string>
-    <string name="xfile_new_actionbar_summary_on">Forcing wide search bar</string>
-    <string name="xfile_zoom_to_fit_vertical_title">Dynamic player</string>
-    <string name="xfile_zoom_to_fit_vertical_summary_off">Dynamic player is defined automatically</string>
-    <string name="xfile_zoom_to_fit_vertical_summary_on">Dynamic player is forced on square and vertical videos</string>
-    <string name="xfile_about_theme_summary">New official theme toggle is in the General settings. This theme toggle is \"Developer\" toggle</string>
-    <string name="xfile_about_theme_title">Theme info</string>
-    <string name="xfile_accessibility_seek_buttons_summary_off">Accessibility controls aren\'t displayed in the player</string>
-    <string name="xfile_accessibility_seek_buttons_summary_on">Accessibility controls are displayed in the player</string>
-    <string name="xfile_accessibility_seek_buttons_title">Accessibility player</string>
-    <string name="xfile_auto_captions_summary_off">Captions aren\'t enabled automatically at 0% volume </string>
-    <string name="xfile_auto_captions_summary_on">Captions are enabled automatically at 0% volume</string>
-    <string name="xfile_auto_captions_title">Auto captions</string>
-    <string name="xfile_swipe_padding_top_summary">Amount of pixels excluded from swiping at the top of the display to prevent swipe controls when dragging down notifications</string>
-    <string name="xfile_swipe_padding_top_title">Swipe padding</string>
-    <string name="xfile_swipe_threshold_summary">Amount of pixels you have to swipe until detecting starts to prevent unintended swiping</string>
-    <string name="xfile_swipe_threshold_title">Swipe threshold</string>
-    <string name="xfile_xfenster_brightness_summary_off">Swipe controls for brightness are disabled</string>
-    <string name="xfile_xfenster_brightness_summary_on">Swipe controls for brightness are enabled</string>
-    <string name="xfile_xfenster_brightness_title">Swipe controls for Brightness</string>
-    <string name="xfile_xfenster_screen_summary">Swipe controls for Brightness and Volume</string>
-    <string name="xfile_xfenster_title">Swipe controls</string>
-    <string name="xfile_xfenster_volume_summary_off">Swipe controls for volume are disabled</string>
-    <string name="xfile_xfenster_volume_summary_on">Swipe controls for volume are enabled</string>
-    <string name="xfile_xfenster_volume_title">Swipe controls for Volume</string>
-    <string name="xfile_website_summary">Tap to open our website</string>
-    <string name="xfile_website_title">Vanced website</string>
-    <string name="xfile_home_ads_summary_off">Home ads are hidden</string>
-    <string name="xfile_home_ads_summary_on">Home ads are shown</string>
-    <string name="xfile_home_ads_title">Home ads (Experimental)</string>
-    <string name="xfile_reel_summary_off">Stories are hidden</string>
-    <string name="xfile_reel_summary_on">Stories are shown</string>
-    <string name="xfile_reel_title">YouTube stories (Experimental)</string>
-    <string name="xfile_ad_settings_title">Ad settings</string>
-    <string name="xfile_credit_summary">Credits for people who have contributed</string>
-    <string name="xfile_credit_title">Credits</string>
-    <string name="souramoo_summary">Home ads removing enhancement and showed other kinds of debugging methods</string>
+    <string name="revanced_rebuffer_title">Rebuffer</string>
+    <string name="revanced_settings">Vanced settings</string>
+    <string name="revanced_software_hdr_summary">Tap to enable software HDR</string>
+    <string name="revanced_software_hdr_title" translatable="false">Google Pixel XL</string>
+    <string name="revanced_suggestion_summary_off">End screens are hidden</string>
+    <string name="revanced_suggestion_summary_on">End screens are shown</string>
+    <string name="revanced_suggestion_title">End screens</string>
+    <string name="revanced_support_summary">Support links</string>
+    <string name="revanced_support_title">Support</string>
+    <string name="revanced_video_settings_title">Video settings</string>
+    <string name="revanced_vp9_summary">Tap to force usage of the VP9 codec</string>
+    <string name="revanced_vp9_summary_off">VP9 codec not forced</string>
+    <string name="revanced_vp9_summary_on">VP9 codec is enabled by default for supported devices, disable if you encounter stuttering/slowness in videos</string>
+    <string name="revanced_vp9_title">VP9 codec</string>
+    <string name="revanced_new_actionbar_title">Wide search bar</string>
+    <string name="revanced_new_actionbar_summary_off">Search bar style is defined by the app</string>
+    <string name="revanced_new_actionbar_summary_on">Forcing wide search bar</string>
+    <string name="revanced_zoom_to_fit_vertical_title">Dynamic player</string>
+    <string name="revanced_zoom_to_fit_vertical_summary_off">Dynamic player is defined automatically</string>
+    <string name="revanced_zoom_to_fit_vertical_summary_on">Dynamic player is forced on square and vertical videos</string>
+    <string name="revanced_about_theme_summary">New official theme toggle is in the General settings. This theme toggle is \"Developer\" toggle</string>
+    <string name="revanced_about_theme_title">Theme info</string>
+    <string name="revanced_accessibility_seek_buttons_summary_off">Accessibility controls aren\'t displayed in the player</string>
+    <string name="revanced_accessibility_seek_buttons_summary_on">Accessibility controls are displayed in the player</string>
+    <string name="revanced_accessibility_seek_buttons_title">Accessibility player</string>
+    <string name="revanced_auto_captions_summary_off">Captions aren\'t enabled automatically at 0% volume </string>
+    <string name="revanced_auto_captions_summary_on">Captions are enabled automatically at 0% volume</string>
+    <string name="revanced_auto_captions_title">Auto captions</string>
+    <string name="revanced_swipe_padding_top_summary">Amount of pixels excluded from swiping at the top of the display to prevent swipe controls when dragging down notifications</string>
+    <string name="revanced_swipe_padding_top_title">Swipe padding</string>
+    <string name="revanced_swipe_threshold_summary">Amount of pixels you have to swipe until detecting starts to prevent unintended swiping</string>
+    <string name="revanced_swipe_threshold_title">Swipe threshold</string>
+    <string name="revanced_xfenster_brightness_summary_off">Swipe controls for brightness are disabled</string>
+    <string name="revanced_xfenster_brightness_summary_on">Swipe controls for brightness are enabled</string>
+    <string name="revanced_xfenster_brightness_title">Swipe controls for Brightness</string>
+    <string name="revanced_xfenster_screen_summary">Swipe controls for Brightness and Volume</string>
+    <string name="revanced_xfenster_title">Swipe controls</string>
+    <string name="revanced_xfenster_volume_summary_off">Swipe controls for volume are disabled</string>
+    <string name="revanced_xfenster_volume_summary_on">Swipe controls for volume are enabled</string>
+    <string name="revanced_xfenster_volume_title">Swipe controls for Volume</string>
+    <string name="revanced_website_summary">Tap to open our website</string>
+    <string name="revanced_website_title">Vanced website</string>
+    <string name="revanced_home_ads_summary_off">Home ADS are hidden</string>
+    <string name="revanced_home_ads_summary_on">Home ADS are shown</string>
+    <string name="revanced_home_ads_title">Home ADS (Experimental)</string>
+    <string name="revanced_reel_summary_off">Stories are hidden</string>
+    <string name="revanced_reel_summary_on">Stories are shown</string>
+    <string name="revanced_reel_title">YouTube stories (Experimental)</string>
+    <string name="revanced_ad_settings_title">AD settings</string>
+    <string name="revanced_credit_summary">Credits for people who have contributed</string>
+    <string name="revanced_credit_title">Credits</string>
+    <string name="souramoo_summary">Home ADS removing enhancement and showed other kinds of debugging methods</string>
     <string name="souramoo_title" translatable="false">souramoo</string>
     <string name="bawm_summary">SponsorBlock implementation</string>
     <string name="bawm_title" translatable="false">JakubWeg</string>
@@ -130,14 +120,11 @@
     <string name="cane_title" translatable="false">cane</string>
     <string name="oizaro_summary">Bug fixing/helping out</string>
     <string name="oizaro_title" translatable="false">Oizaro</string>
-    <string name="xfile_comments_location_summary_off">Comments are shown at the top (new place)</string>
-    <string name="xfile_comments_location_summary_on">Comments are shown at the bottom (old place). This feature can break things. For example swipe features will not work</string>
-    <string name="xfile_comments_location_title">Comments location (Alpha)</string>
-    <string name="xfile_tablet_miniplayer_summary_off">Tablet miniplayer is not being used</string>
-    <string name="xfile_tablet_miniplayer_summary_on">Tablet miniplayer is being used</string>
-    <string name="xfile_tablet_miniplayer_title">Tablet miniplayer</string>
-    <string name="vanced_translators_title">Vanced translators</string>
-    <string name="vanced_translators_summary">Link to Crowdin where you can contribute by translating Vanced to your language</string>
+    <string name="revanced_tablet_miniplayer_summary_off">Tablet miniplayer is not being used</string>
+    <string name="revanced_tablet_miniplayer_summary_on">Tablet miniplayer is being used</string>
+    <string name="revanced_tablet_miniplayer_title">Tablet miniplayer</string>
+    <string name="revanced_translators_title">ReVanced translators</string>
+    <string name="revanced_translators_summary">Link to Crowdin where you can contribute by translating ReVanced to your language</string>
 
     <string name="enable_sb">Enable SponsorBlock</string>
     <string name="enable_sb_sum">SponsorBlock is a crowd-sourced system for skipping annoying parts in YouTube videos</string>
@@ -277,44 +264,39 @@
     <string name="sb_summary">Uses the sponsor.ajay.app API</string>
 
     <string name="microg_notification_settings">Notification settings</string>
-    <string name="microg_notification_settings_summary">"1. Google device registration and Google Cloud Messaging need to be enabled for notifications.
-2. Vanced needs to be shown as registered under GCM.
-3. Current State in GCM must not be Disconnected.
-4. GCM -> Advanced (three dots top right) and switch Wi-Fi ping interval back and forth once to connect."</string>
+    <string name="microg_notification_settings_summary">"1. Google device registration and Cloud Messaging need to be enabled for notifications.
+2. ReVanced needs to be shown as registered under Cloud Messaging.
+3. Current State in Cloud Messaging must be Connected."</string>
     <string name="microg_settings">MicroG settings</string>
-    <string name="vanced_settings">Vanced settings</string>
+    <string name="revanced_settings">ReVanced settings</string>
 
-    <string name="xfile_seekbar_tapping">Tapping on seek bar</string>
-    <string name="xfile_seekbar_tapping_off">Tapping on seek bar (video progress bar) is disabled</string>
-    <string name="xfile_seekbar_tapping_on">Tapping on seek bar (video progress bar) is enabled</string>
+    <string name="revanced_seekbar_tapping">Seekbar Tapping</string>
+    <string name="revanced_seekbar_tapping_off">Seekbar Tapping (video progress bar) is disabled</string>
+    <string name="revanced_seekbar_tapping_on">Seekbar Tapping (video progress bar) is enabled</string>
     <string name="pref_subtitles_scale_normal">Normal</string>
 
-    <string name="xfile_exoplayer_v2">ExoPlayer V2</string>
-    <string name="xfile_exoplayer_v2_off">ExoPlayer V2 is disabled (ExoPlayer V1 is being used)</string>
-    <string name="xfile_exoplayer_v2_on">ExoPlayer V2 is enabled (Default). ExoPlayer V1 might have a better performance</string>
+    <string name="litho_shorts_shelf">Shorts Shelf</string>
+    <string name="litho_shorts_shelf_off">Shorts Shelf removal is turned off</string>
+    <string name="litho_shorts_shelf_on">Shorts Shelf removal is turned on</string>
 
-    <string name="litho_shorts_shelf">Shorts shelf</string>
-    <string name="litho_shorts_shelf_off">Shorts shelf removal is turned off</string>
-    <string name="litho_shorts_shelf_on">Shorts shelf removal is turned on</string>
+    <string name="revanced_create_button_summary_off">Create Button has default visibility</string>
+    <string name="revanced_create_button_summary_on">Create Button is forcefully disabled</string>
+    <string name="revanced_create_button_title">Create Button</string>
 
-    <string name="xfile_create_button_summary_off">Create button has default visibility</string>
-    <string name="xfile_create_button_summary_on">Create button is forcefully disabled</string>
-    <string name="xfile_create_button_title">Create button</string>
+    <string name="litho_community_guidelines">Community Guidelines</string>
+    <string name="litho_community_guidelines_off">Community Guidelines removal is turned off</string>
+    <string name="litho_community_guidelines_on">Community Guidelines removal is turned on</string>
 
-    <string name="litho_community_guidelines">Community guidelines</string>
-    <string name="litho_community_guidelines_off">Community guidelines removal is turned off</string>
-    <string name="litho_community_guidelines_on">Community guidelines removal is turned on</string>
+    <string name="revanced_copy_video_url_summary_off">Copy Link Button is hidden from the player overlay</string>
+    <string name="revanced_copy_video_url_summary_on">Copy Link Button is shown in the player overlay</string>
+    <string name="revanced_copy_video_url_timestamp_summary_off">Copy Link Button With Timestamp is hidden from the player overlay</string>
+    <string name="revanced_copy_video_url_timestamp_summary_on">Copy Link Button With Timestamp is shown in the player overlay</string>
+    <string name="revanced_copy_video_url_timestamp_title">Copy Link Button With Timestamp</string>
+    <string name="revanced_copy_video_url_title">Copy Link Button</string>
 
-    <string name="xfile_copy_video_url_summary_off">Button to copy link is hidden from the player overlay</string>
-    <string name="xfile_copy_video_url_summary_on">Button to copy link is shown in the player overlay</string>
-    <string name="xfile_copy_video_url_timestamp_summary_off">Button to copy link with timestamp is hidden from the player overlay</string>
-    <string name="xfile_copy_video_url_timestamp_summary_on">Button to copy link with timestamp is shown in the player overlay</string>
-    <string name="xfile_copy_video_url_timestamp_title">Copy link (with timestamp)</string>
-    <string name="xfile_copy_video_url_title">Copy link</string>
-
-    <string name="xfile_old_style_quality_settings_title">Quality settings style</string>
-    <string name="xfile_old_style_quality_settings_summary_off">Using default style video quality settings</string>
-    <string name="xfile_old_style_quality_settings_summary_on">Using old style video quality settings</string>
+    <string name="revanced_old_style_quality_settings_title">Quality Settings style</string>
+    <string name="revanced_old_style_quality_settings_summary_off">Using default style video quality settings</string>
+    <string name="revanced_old_style_quality_settings_summary_on">Using old style video quality settings</string>
 
     <string name="general_time_without_sb">Show time without segments</string>
     <string name="general_time_without_sb_sum">This time appears in brackets next to the current time. This shows the total video duration minus any segments.</string>
@@ -348,7 +330,7 @@
 
     <string name="action_copy">Copy link</string>
     <string name="action_tcopy">Timestamp</string>
-    <string name="action_ads">Ads</string>
+    <string name="action_ads">ADS</string>
     <string name="action_segments">Segments</string>
     <string name="action_browser">SB Browser</string>
 
@@ -356,37 +338,37 @@
     <string name="api_url_reset">API URL reset</string>
     <string name="api_url_invalid">Provided API URL is invalid</string>
 
-    <string name="vanced_video_ad_settings_title">Video ad settings</string>
-    <string name="vanced_videoadwhitelisting_title">Video ad whitelisting</string>
-    <string name="vanced_videoadwhitelisting_summary_off">Video ad whitelisting is turned off</string>
-    <string name="vanced_videoadwhitelisting_summary_on">Video ad whitelisting is turned on. Use the Ads button under the player to whitelist a channel</string>
-    <string name="vanced_whitelisting_ads">Ads</string>
-    <string name="vanced_whitelisting_sponsorblock">SponsorBlock</string>
-    <string name="vanced_whitelisting_added" formatted="false">Channel %s was added to the %s whitelist</string>
-    <string name="vanced_whitelisting_removed" formatted="false">Channel %s was removed from the %s whitelist</string>
-    <string name="vanced_whitelisting_add_failed" formatted="false">Failed to add channel %s to the %s whitelist</string>
-    <string name="vanced_whitelisting_remove_failed" formatted="false">Failed to remove channel %s from the %s whitelist</string>
-    <string name="vanced_whitelisting_fetch_failed" formatted="false">Failed to retrieve channel details, received code %d</string>
-    <string name="vanced_button_location_entry_none">Hidden</string>
-    <string name="vanced_button_location_entry_player">In player</string>
-    <string name="vanced_button_location_entry_buttoncontainer">Under player (ALPHA)</string>
-    <string name="vanced_button_location_entry_both">Both</string>
-    <string name="vanced_ryd_settings_title">Return YouTube Dislike settings</string>
-    <string name="vanced_ryd_settings_summary">Uses the RYD API</string>
-    <string name="vanced_ryd_title">Enable RYD (ALPHA)</string>
-    <string name="vanced_ryd_summary">Switch this on to see the dislike counts again</string>
-    <string name="vanced_ryd_attribution_title">Return YouTube Dislike Integration</string>
-    <string name="vanced_ryd_attribution_summary">This integration uses the RYD API from https://returnyoutubedislike.com. Tap to learn more</string>
+    <string name="revanced_video_ad_settings_title">Video ad settings</string>
+    <string name="revanced_videoadwhitelisting_title">Video ad whitelisting</string>
+    <string name="revanced_videoadwhitelisting_summary_off">Video ad whitelisting is turned off</string>
+    <string name="revanced_videoadwhitelisting_summary_on">Video ad whitelisting is turned on. Use the ADS button under the player to whitelist a channel</string>
+    <string name="revanced_whitelisting_ads">ADS</string>
+    <string name="revanced_whitelisting_sponsorblock">SponsorBlock</string>
+    <string name="revanced_whitelisting_added" formatted="false">Channel %s was added to the %s whitelist</string>
+    <string name="revanced_whitelisting_removed" formatted="false">Channel %s was removed from the %s whitelist</string>
+    <string name="revanced_whitelisting_add_failed" formatted="false">Failed to add channel %s to the %s whitelist</string>
+    <string name="revanced_whitelisting_remove_failed" formatted="false">Failed to remove channel %s from the %s whitelist</string>
+    <string name="revanced_whitelisting_fetch_failed" formatted="false">Failed to retrieve channel details, received code %d</string>
+    <string name="revanced_button_location_entry_none">Hidden</string>
+    <string name="revanced_button_location_entry_player">In player</string>
+    <string name="revanced_button_location_entry_buttoncontainer">Under player</string>
+    <string name="revanced_button_location_entry_both">Both</string>
+    <string name="revanced_ryd_settings_title">Return YouTube Dislike settings</string>
+    <string name="revanced_ryd_settings_summary">Uses the RYD API</string>
+    <string name="revanced_ryd_title">Enable RYD</string>
+    <string name="revanced_ryd_summary">Switch this on to see the dislike counts again</string>
+    <string name="revanced_ryd_attribution_title">Return YouTube Dislike Integration</string>
+    <string name="revanced_ryd_attribution_summary">This integration uses the RYD API from https://returnyoutubedislike.com. Tap to learn more</string>
 
-    <string name="xfile_xfenster_tablet_title">Tablet style</string>
-    <string name="xfile_xfenster_tablet_summary_on">Tablet style is turned on. For example suggested videos are only partially working</string>
-    <string name="xfile_xfenster_tablet_summary_off">Tablet style is turned off</string>
+    <string name="revanced_xfenster_tablet_title">Tablet style</string>
+    <string name="revanced_xfenster_tablet_summary_on">Tablet style is turned on. For example suggested videos are only partially working</string>
+    <string name="revanced_xfenster_tablet_summary_off">Tablet style is turned off</string>
 
-    <string name="vanced_ryd">Return YouTube Dislike</string>
-    <string name="vanced_ryd_firstrun">Want to enable Return YouTube Dislikes to see dislikes again? Your likes/dislikes will be sent to RYD API (anonymously) after enabling RYD integration. You can enable/disable this in the settings at any time.</string>
-    <string name="vanced_sb">SponsorBlock</string>
-    <string name="vanced_sb_firstrun">Are you aware of the SponsorBlock integration in Vanced? With it you can skip sponsored segments in the videos. You can enable/disable this in the settings at any time.</string>
-    <string name="vanced_learnmore">Learn more</string>
-    <string name="vanced_disable">Disable</string>
-    <string name="vanced_enable">Enable</string>
+    <string name="revanced_ryd">Return YouTube Dislike</string>
+    <string name="revanced_ryd_firstrun">Want to enable Return YouTube Dislikes to see dislikes again? Your likes/dislikes will be sent to RYD API (anonymously) after enabling RYD integration. You can enable/disable this in the settings at any time.</string>
+    <string name="revanced_sb">SponsorBlock</string>
+    <string name="revanced_sb_firstrun">Are you aware of the SponsorBlock integration in Vanced? With it you can skip sponsored segments in the videos. You can enable/disable this in the settings at any time.</string>
+    <string name="revanced_learnmore">Learn more</string>
+    <string name="revanced_disable">Disable</string>
+    <string name="revanced_enable">Enable</string>
 </resources>

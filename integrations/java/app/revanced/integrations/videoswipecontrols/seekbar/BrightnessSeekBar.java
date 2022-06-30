@@ -19,7 +19,7 @@ public class BrightnessSeekBar {
     public int Progress;
     private boolean enabled;
     Handler handler;
-    private final String mBrightnessKey = "xfile_brightness_value";
+    private final String mBrightnessKey = "revanced_brightness_value";
     Context mContext;
     TextView mTextView;
     ViewGroup mViewGroup;
@@ -30,7 +30,7 @@ public class BrightnessSeekBar {
         this.mContext = context;
         float systemBrightness = android.provider.Settings.System.getFloat(this.mContext.getContentResolver(), "screen_brightness", -1.0f);
         int _systemBrightness = (int) ((systemBrightness / 255.0f) * 100.0f);
-        this.Progress = SharedPrefHelper.getInt(this.mContext, SharedPrefHelper.SharedPrefNames.YOUTUBE, "xfile_brightness_value", Integer.valueOf(_systemBrightness)).intValue();
+        this.Progress = SharedPrefHelper.getInt(this.mContext, SharedPrefHelper.SharedPrefNames.YOUTUBE, "revanced_brightness_value", Integer.valueOf(_systemBrightness)).intValue();
         this.Max = 100;
         this.mTextView = new TextView(context);
         this.mTextView.setTextSize(24.0f);
@@ -111,7 +111,7 @@ public class BrightnessSeekBar {
 
     public void disable() {
         this.enabled = false;
-        SharedPrefHelper.saveInt(this.mContext, SharedPrefHelper.SharedPrefNames.YOUTUBE,"xfile_brightness_value", Integer.valueOf(this.Progress));
+        SharedPrefHelper.saveInt(this.mContext, SharedPrefHelper.SharedPrefNames.YOUTUBE,"revanced_brightness_value", Integer.valueOf(this.Progress));
         disableBrightness();
         LogHelper.debug("XDebug", "Brightness swipe disabled");
     }
@@ -120,7 +120,7 @@ public class BrightnessSeekBar {
         this.enabled = true;
         float systemBrightness = android.provider.Settings.System.getFloat(this.mContext.getContentResolver(), "screen_brightness", -1.0f);
         int _systemBrightness = (int) ((systemBrightness / 255.0f) * 100.0f);
-        int brightness = SharedPrefHelper.getInt(this.mContext, SharedPrefHelper.SharedPrefNames.YOUTUBE,"xfile_brightness_value", Integer.valueOf(_systemBrightness)).intValue();
+        int brightness = SharedPrefHelper.getInt(this.mContext, SharedPrefHelper.SharedPrefNames.YOUTUBE,"revanced_brightness_value", Integer.valueOf(_systemBrightness)).intValue();
         if (brightness < 0) {
             brightness = 0;
         } else if (brightness > 100) {

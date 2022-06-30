@@ -15,7 +15,7 @@ public class SponsorBlockVoting extends SlimButton {
     }
 
     private void initialize() {
-        this.button_icon.setImageResource(ReVancedUtils.getIdentifier("vanced_sb_voting", "drawable"));
+        this.button_icon.setImageResource(ReVancedUtils.getIdentifier("revanced_sb_voting", "drawable"));
         this.button_text.setText("SB Voting");
     }
 

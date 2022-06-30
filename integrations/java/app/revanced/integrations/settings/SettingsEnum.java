@@ -8,10 +8,10 @@ import app.revanced.integrations.utils.SharedPrefHelper;
 
 public enum SettingsEnum {
 
-    DEBUG_BOOLEAN("debug_xfile_enabled", false),
+    DEBUG_BOOLEAN("debug_revanced_enabled", false),
     MANUFACTURER_OVERRIDE_STRING("override_manufacturer", null),
     MODEL_OVERRIDE_STRING("override_model", null),
-    CODEC_OVERRIDE_BOOLEAN("override_resolution_xfile_enabled", true),
+    CODEC_OVERRIDE_BOOLEAN("revanced_vp9_enabled", true),
     PREFERRED_RESOLUTION_WIFI_INTEGER("pref_video_quality_wifi", -2),
     PREFERRED_RESOLUTION_MOBILE_INTEGER("pref_video_quality_mobile", -2),
     PREFERRED_VIDEO_SPEED_FLOAT("pref_video_speed", -2.0f),
@@ -22,12 +22,12 @@ public enum SettingsEnum {
     REEL_BUTTON_SHOWN_BOOLEAN("reel_button_enabled", false),
     SHORTS_BUTTON_SHOWN_BOOLEAN("shorts_button_enabled", false),
     CAST_BUTTON_SHOWN_BOOLEAN("cast_button_enabled", false),
-    CREATE_BUTTON_SHOWN_BOOLEAN("xfile_create_button_enabled", false),
+    CREATE_BUTTON_SHOWN_BOOLEAN("revanced_create_button_enabled", false),
     SUGGESTIONS_SHOWN_BOOLEAN("info_card_suggestions_enabled", false),
     INFO_CARDS_SHOWN_BOOLEAN("info_cards_enabled", false),
     BRANDING_SHOWN_BOOLEAN("branding_watermark_enabled", false),
     USE_TABLET_MINIPLAYER_BOOLEAN("tablet_miniplayer", false),
-    USE_NEW_ACTIONBAR_BOOLEAN("xfile_new_actionbar", false),
+    USE_NEW_ACTIONBAR_BOOLEAN("revanced_new_actionbar", false),
     USE_DARK_THEME_BOOLEAN("app_theme_dark", false),
     USE_HDR_BRIGHTNESS_BOOLEAN("pref_hdr_autobrightness", true),
     ENABLE_SWIPE_BRIGHTNESS_BOOLEAN("pref_xfenster_brightness", true),
@@ -39,7 +39,7 @@ public enum SettingsEnum {
     PLAYBACK_MAX_BUFFER_INTEGER("pref_buffer_for_playback_ms", 2500),
     MAX_PLAYBACK_BUFFER_AFTER_REBUFFER_INTEGER("pref_buffer_for_playback_after_rebuffer_ms", 5000),
     OLD_STYLE_QUALITY_SETTINGS_BOOLEAN("old_style_quality_settings", true),
-    TAP_SEEKING_ENABLED_BOOLEAN("xfile_enable_tap_seeking", true),
+    TAP_SEEKING_ENABLED_BOOLEAN("revanced_enable_tap_seeking", true),
     ;
 
     private final String path;

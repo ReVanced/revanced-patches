@@ -58,17 +58,17 @@ public class WhitelistRequester {
                 runOnMainThread(() -> {
                     if (success) {
                         buttonIcon.setEnabled(whitelistType != WhitelistType.SPONSORBLOCK);
-                        Toast.makeText(context, str("vanced_whitelisting_added", author, whitelistTypeName), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, str("revanced_whitelisting_added", author, whitelistTypeName), Toast.LENGTH_SHORT).show();
                     } else {
                         buttonIcon.setEnabled(whitelistType == WhitelistType.SPONSORBLOCK);
-                        Toast.makeText(context, str("vanced_whitelisting_add_failed", author, whitelistTypeName), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, str("revanced_whitelisting_add_failed", author, whitelistTypeName), Toast.LENGTH_SHORT).show();
                     }
                     view.setEnabled(true);
                 });
             } else {
                 LogHelper.debug("WhitelistRequester", "player fetch response was " + responseCode);
                 runOnMainThread(() -> {
-                    Toast.makeText(context, str("vanced_whitelisting_fetch_failed", responseCode), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, str("revanced_whitelisting_fetch_failed", responseCode), Toast.LENGTH_SHORT).show();
                     buttonIcon.setEnabled(true);
                     view.setEnabled(true);
                 });

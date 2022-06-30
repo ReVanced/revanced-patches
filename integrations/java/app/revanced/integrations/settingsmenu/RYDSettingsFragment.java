@@ -38,8 +38,8 @@ public class RYDSettingsFragment extends PreferenceFragment {
             preference.setKey(PREFERENCES_KEY_RYD_ENABLED);
             preference.setDefaultValue(false);
             preference.setChecked(SharedPrefHelper.getBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_RYD_ENABLED));
-            preference.setTitle(str("vanced_ryd_title"));
-            preference.setSummary(str("vanced_ryd_summary"));
+            preference.setTitle(str("revanced_ryd_title"));
+            preference.setSummary(str("revanced_ryd_summary"));
             preference.setOnPreferenceChangeListener((pref, newValue) -> {
                 final boolean value = (Boolean) newValue;
                 ReturnYouTubeDislikes.onEnabledChange(value);
@@ -71,8 +71,8 @@ public class RYDSettingsFragment extends PreferenceFragment {
         {
             Preference preference = new Preference(context);
             screen.addPreference(preference);
-            preference.setTitle(str("vanced_ryd_attribution_title"));
-            preference.setSummary(str("vanced_ryd_attribution_summary"));
+            preference.setTitle(str("revanced_ryd_attribution_title"));
+            preference.setSummary(str("revanced_ryd_attribution_summary"));
             preference.setOnPreferenceClickListener(pref -> {
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse("https://returnyoutubedislike.com"));

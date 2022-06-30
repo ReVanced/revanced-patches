@@ -26,7 +26,7 @@ public class AdButton extends SlimButton {
     }
 
     private void initialize() {
-        this.button_icon.setImageResource(ReVancedUtils.getIdentifier("vanced_yt_ad_button", "drawable"));
+        this.button_icon.setImageResource(ReVancedUtils.getIdentifier("revanced_yt_ad_button", "drawable"));
         this.button_text.setText(str("action_ads"));
         changeEnabled(Whitelist.shouldShowAds());
     }

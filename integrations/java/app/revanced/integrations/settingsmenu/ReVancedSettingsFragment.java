@@ -205,7 +205,7 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
                 SwipeGestureListener.TOP_PADDING = val;
                 SettingsEnum.SWIPE_PADDING_TOP_INTEGER.setValue(val);
             }
-        } else if ("vanced_ryd_enabled".equals(str) && ReVancedUtils.getContext() != null && settingsInitialized) {
+        } else if ("revanced_ryd_enabled".equals(str) && ReVancedUtils.getContext() != null && settingsInitialized) {
             rebootDialog(ReVancedSettingsFragment.this.getActivity());
         } else if (str.equals("pref_auto_repeat_button")) {
             AutoRepeatLinks();
@@ -224,7 +224,7 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
         super.onCreate(bundle);
         getPreferenceManager().setSharedPreferencesName("youtube");
         try {
-            int identifier = getResources().getIdentifier("xfile_prefs", "xml", getPackageName());
+            int identifier = getResources().getIdentifier("revanced_prefs", "xml", getPackageName());
 
             addPreferencesFromResource(identifier);
             String stringByName = ReVancedUtils.getStringByName(getActivity(), "quality_auto");
@@ -237,11 +237,11 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             } else {
                 this.videoSpeedEntries[4] = stringByName2;
             }
-            this.minimizedVideoEntries[1] = ReVancedUtils.getStringByName(getActivity(), "xfile_miniplayer_style_video");
-            this.minimizedVideoEntries[2] = ReVancedUtils.getStringByName(getActivity(), "xfile_miniplayer_style_video_controls");
+            this.minimizedVideoEntries[1] = ReVancedUtils.getStringByName(getActivity(), "revanced_miniplayer_style_video");
+            this.minimizedVideoEntries[2] = ReVancedUtils.getStringByName(getActivity(), "revanced_miniplayer_style_video_controls");
             SharedPreferences sharedPreferences = getPreferenceManager().getSharedPreferences();
             this.sharedPreferences = sharedPreferences;
-            this.settingsInitialized = sharedPreferences.getBoolean("xfile_initialized", false);
+            this.settingsInitialized = sharedPreferences.getBoolean("revanced_initialized", false);
             this.sharedPreferences.registerOnSharedPreferenceChangeListener(this.listener);
             this.Registered = true;
             this.codecPreferenceScreen = (PreferenceScreen) getPreferenceScreen().findPreference("codec_override");
@@ -252,7 +252,7 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             this.bufferSettingsPreferenceScreen = (PreferenceScreen) getPreferenceScreen().findPreference("buffer_screen");
             this.miscsPreferenceScreen = (PreferenceScreen) getPreferenceScreen().findPreference("misc_screen");
             this.xSwipeControlPreferenceScreen = (PreferenceScreen) getPreferenceScreen().findPreference("xfenster_screen");
-            this.vp9Override = (SwitchPreference) this.codecPreferenceScreen.findPreference("vp9_xfile_enabled");
+            this.vp9Override = (SwitchPreference) this.codecPreferenceScreen.findPreference("revanced_vp9_enabled");
             this.manufacturerOverride = (EditTextPreference) this.codecPreferenceScreen.findPreference("override_manufacturer");
             this.modelOverride = (EditTextPreference) this.codecPreferenceScreen.findPreference("override_model");
             this.codecDefault = this.codecPreferenceScreen.findPreference("pref_default_override");
@@ -303,10 +303,10 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             }
 
 
-            this.sharedPreferences.edit().putBoolean("xfile_initialized", true);
+            this.sharedPreferences.edit().putBoolean("revanced_initialized", true);
             this.settingsInitialized = true;
         } catch (Throwable th) {
-            LogHelper.printException("XSettingsFragment", "Unable to retrieve resourceId for xfile_prefs", th);
+            LogHelper.printException("ReVancedSettingsFragment", "Unable to retrieve resourceId for revanced_prefs", th);
         }
     }
 

@@ -17,7 +17,7 @@ public class CopyWithTimestamp extends SlimButton {
     }
 
     private void initialize() {
-        this.button_icon.setImageResource(ReVancedUtils.getIdentifier("vanced_yt_copy_icon_with_time", "drawable"));
+        this.button_icon.setImageResource(ReVancedUtils.getIdentifier("revanced_yt_copy_icon_with_time", "drawable"));
         this.button_text.setText(str("action_tcopy"));
     }
 

@@ -36,10 +36,10 @@ public class XSettingActivity extends Activity {
             trySetTitle(getIdentifier("sb_settings", "string"));
             getFragmentManager().beginTransaction().replace(getIdentifier("xsettings_fragments", "id"), new SponsorBlockSettingsFragment()).commit();
         } else if (dataString.equalsIgnoreCase("ryd_settings")) {
-            trySetTitle(getIdentifier("vanced_ryd_settings_title", "string"));
+            trySetTitle(getIdentifier("revanced_ryd_settings_title", "string"));
             getFragmentManager().beginTransaction().replace(getIdentifier("xsettings_fragments", "id"), new RYDSettingsFragment()).commit();
         } else {
-            trySetTitle(getIdentifier("xfile_settings", "string"));
+            trySetTitle(getIdentifier("revanced_settings", "string"));
             getFragmentManager().beginTransaction().replace(getIdentifier("xsettings_fragments", "id"), new ReVancedSettingsFragment()).commit();
         }
         context = getApplicationContext();

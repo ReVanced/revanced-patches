@@ -44,25 +44,25 @@ public class Dialogs {
         } else {
             builder = new AlertDialog.Builder(activity);
         }
-        builder.setTitle(str("vanced_ryd"));
+        builder.setTitle(str("revanced_ryd"));
         builder.setIcon(ReVancedUtils.getIdentifier("reel_dislike_icon", "drawable"));
         builder.setCancelable(false);
-        builder.setMessage(str("vanced_ryd_firstrun"));
-        builder.setPositiveButton(str("vanced_enable"),
+        builder.setMessage(str("revanced_ryd_firstrun"));
+        builder.setPositiveButton(str("revanced_enable"),
                 (dialog, id) -> {
                     SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_RYD_HINT_SHOWN, true);
                     SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_RYD_ENABLED, true);
                     dialog.dismiss();
                 });
 
-        builder.setNegativeButton(str("vanced_disable"),
+        builder.setNegativeButton(str("revanced_disable"),
                 (dialog, id) -> {
                     SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_RYD_HINT_SHOWN, true);
                     SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_RYD_ENABLED, false);
                     dialog.dismiss();
                 });
 
-        builder.setNeutralButton(str("vanced_learnmore"), null);
+        builder.setNeutralButton(str("revanced_learnmore"), null);
 
         AlertDialog dialog = builder.create();
         dialog.show();

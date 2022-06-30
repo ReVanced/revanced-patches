@@ -1,0 +1,9 @@
+    <Preference android:title="@string/revanced_ryd_settings_title" android:summary="@string/revanced_ryd_settings_summary">
+        <intent android:targetPackage="com.revanced.android.youtube" android:data="ryd_settings" android:targetClass="app.revanced.integrations.settingsmenu.XSettingActivity" />
+    </Preference>
+    <Preference android:title="@string/sb_settings" android:summary="@string/sb_summary">
+        <intent android:targetPackage="com.revanced.android.youtube" android:data="sponsorblock_settings" android:targetClass="app.revanced.integrations.settingsmenu.XSettingActivity" />
+    </Preference>
+    <Preference android:title="@string/revanced_settings">
+        <intent android:targetPackage="com.revanced.android.youtube" android:data="revanced_settings" android:targetClass="app.revanced.integrations.settingsmenu.XSettingActivity" />
+    </Preference>

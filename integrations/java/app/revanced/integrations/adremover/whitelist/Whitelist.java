@@ -147,9 +147,9 @@ public class Whitelist {
         boolean success = updateWhitelist(whitelistType, channels, context);
         String friendlyName = whitelistType.getFriendlyName();
         if (success) {
-            Toast.makeText(context, str("vanced_whitelisting_removed", channelName, friendlyName), Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, str("revanced_whitelisting_removed", channelName, friendlyName), Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(context, str("vanced_whitelisting_remove_failed", channelName, friendlyName), Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, str("revanced_whitelisting_remove_failed", channelName, friendlyName), Toast.LENGTH_SHORT).show();
         }
     }
 
