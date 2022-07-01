@@ -1,13 +1,13 @@
 package app.revanced.integrations.patches;
 
+import android.view.View;
+
 import app.revanced.integrations.adremover.AdRemoverAPI;
 
 public class HideSuggestionsPatch {
 
-    //TODO: Create Patch
-    //Not used yet
-    public static void HideSuggestions(boolean showSuggestions) {
-        AdRemoverAPI.removeSuggestions(showSuggestions);
+    public static void hideSuggestions(View view) {
+        AdRemoverAPI.hideSuggestions(view);
     }
 
 }
