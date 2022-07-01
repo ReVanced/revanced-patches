@@ -73,19 +73,6 @@ public class AdRemoverAPI {
         }
     }
 
-    /**
-     * Removes the Suggestions
-     *
-     * @return
-     */
-    public static void hideSuggestions(View view) {
-        String message = SettingsEnum.SUGGESTIONS_SHOWN_BOOLEAN.getBoolean() ? "Infocard suggestions: shown" : "Infocards: hidden";
-        LogHelper.debug(AdRemoverAPI.class, message);
-        if (!SettingsEnum.SUGGESTIONS_SHOWN_BOOLEAN.getBoolean()) {
-            view.setVisibility(View.GONE);
-        }
-    }
-
     /*
     private static void inspectComponentHost(Object item) {
         StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();

@@ -98,8 +98,6 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             if (ReVancedUtils.getContext() != null && settingsInitialized) {
                 rebootDialog(getActivity());
             }
-        } else if (str.equals(SettingsEnum.SUGGESTIONS_SHOWN_BOOLEAN.getPath())) {
-            SettingsEnum.SUGGESTIONS_SHOWN_BOOLEAN.setValue(((SwitchPreference) layoutSettingsPreferenceScreen.findPreference(str)).isChecked());
         } else if (str.equals(SettingsEnum.INFO_CARDS_SHOWN_BOOLEAN.getPath())) {
             SettingsEnum.INFO_CARDS_SHOWN_BOOLEAN.setValue(((SwitchPreference) layoutSettingsPreferenceScreen.findPreference(str)).isChecked());
         } else if (str.equals(SettingsEnum.BRANDING_SHOWN_BOOLEAN.getPath())) {

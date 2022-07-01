@@ -23,7 +23,6 @@ public enum SettingsEnum {
     SHORTS_BUTTON_SHOWN_BOOLEAN("shorts_button_enabled", false),
     CAST_BUTTON_SHOWN_BOOLEAN("cast_button_enabled", false),
     CREATE_BUTTON_SHOWN_BOOLEAN("revanced_create_button_enabled", false),
-    SUGGESTIONS_SHOWN_BOOLEAN("info_card_suggestions_enabled", false),
     INFO_CARDS_SHOWN_BOOLEAN("info_cards_enabled", false),
     BRANDING_SHOWN_BOOLEAN("branding_watermark_enabled", false),
     USE_TABLET_MINIPLAYER_BOOLEAN("tablet_miniplayer", false),
