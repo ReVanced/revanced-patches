@@ -1,3 +1,10 @@
+# [2.6.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.6.0-dev.1...v2.6.0-dev.2) (2022-07-02)
+
+
+### Bug Fixes
+
+* remove refreshing home screen not working ([ec7ae90](https://github.com/revanced/revanced-patches/commit/ec7ae900181b6456c692adb3b5bb337e81bc5fea))
+
 # [2.6.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.5.1-dev.1...v2.6.0-dev.1) (2022-07-02)
 
 
