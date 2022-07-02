@@ -1,3 +1,17 @@
+# [2.6.0](https://github.com/revanced/revanced-patches/compare/v2.5.0...v2.6.0) (2022-07-02)
+
+
+### Bug Fixes
+
+* freezing panels when watching video in fullscreen ([#89](https://github.com/revanced/revanced-patches/issues/89)) ([f5d4f6c](https://github.com/revanced/revanced-patches/commit/f5d4f6c3419916c6a9cf67babc6be8a64c854d3b))
+* invalid version in compatibility annotation ([#90](https://github.com/revanced/revanced-patches/issues/90)) ([df43547](https://github.com/revanced/revanced-patches/commit/df435475cdd0494a1e4ea9e2980c2998c9bc7048))
+* remove refreshing home screen not working ([6c24ebe](https://github.com/revanced/revanced-patches/commit/6c24ebef2fb4f0d58e369ac5bf63e4cab6ca0e80))
+
+
+### Features
+
+* migrate to breaking changes of patcher ([d9147cd](https://github.com/revanced/revanced-patches/commit/d9147cd60c0c25d0c5cc05409b8889dfacd89af9))
+
 # [2.6.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.6.0-dev.1...v2.6.0-dev.2) (2022-07-02)
 
 
