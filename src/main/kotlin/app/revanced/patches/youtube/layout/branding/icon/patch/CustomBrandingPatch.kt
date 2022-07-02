@@ -4,12 +4,12 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.impl.ResourceData
-import app.revanced.patcher.patch.annotations.Dependencies
-import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.Dependencies
+import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.youtube.layout.branding.icon.annotations.CustomBrandingCompatibility
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import java.nio.file.Files
@@ -24,7 +24,7 @@ import java.nio.file.Files
 @Version("0.0.1")
 class CustomBrandingPatch : ResourcePatch() {
     override fun execute(data: ResourceData): PatchResult {
-        val resDirectory = data.get("res")
+        val resDirectory = data["res"]
         if (!resDirectory.isDirectory) return PatchResultError("The res folder can not be found.")
 
         val iconNames = arrayOf(

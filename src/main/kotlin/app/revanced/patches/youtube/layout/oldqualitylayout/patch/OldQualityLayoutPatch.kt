@@ -1,19 +1,19 @@
 package app.revanced.patches.youtube.layout.oldqualitylayout.patch
 
-import OldQualityFingerprint
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.impl.BytecodeData
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.fingerprint.method.utils.MethodFingerprintUtils.resolve
-import app.revanced.patcher.patch.annotations.Dependencies
-import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.Dependencies
+import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.layout.oldqualitylayout.annotations.OldQualityLayoutCompatibility
+import app.revanced.patches.youtube.layout.oldqualitylayout.fingerprints.OldQualityFingerprint
 import app.revanced.patches.youtube.layout.oldqualitylayout.fingerprints.OldQualityParentFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import org.jf.dexlib2.Opcode
