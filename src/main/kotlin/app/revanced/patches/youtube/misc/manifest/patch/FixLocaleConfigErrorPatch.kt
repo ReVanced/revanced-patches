@@ -4,9 +4,9 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.impl.ResourceData
-import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.youtube.misc.manifest.annotations.FixLocaleConfigErrorCompatibility
 import org.w3c.dom.Element
 
@@ -17,7 +17,7 @@ import org.w3c.dom.Element
 class FixLocaleConfigErrorPatch : ResourcePatch() {
     override fun execute(data: ResourceData): PatchResult {
         // create an xml editor instance
-        data.getXmlEditor("AndroidManifest.xml").use {
+        data.xmlEditor["AndroidManifest.xml"].use {
             // edit the application nodes attribute...
             val applicationNode = it
                 .file

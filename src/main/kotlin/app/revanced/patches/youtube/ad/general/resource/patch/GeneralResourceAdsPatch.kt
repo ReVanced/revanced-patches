@@ -6,10 +6,10 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.impl.ResourceData
-import app.revanced.patcher.patch.annotations.Dependencies
-import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.Dependencies
+import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.youtube.ad.general.annotation.GeneralAdsCompatibility
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import org.w3c.dom.Element
@@ -43,7 +43,7 @@ class GeneralResourceAdsPatch : ResourcePatch() {
             if (!it.name.startsWithAny(*resourceFileNames)) return@forEach
 
             // for each file in the "layouts" directory replace all necessary attributes content
-            data.getXmlEditor(it.absolutePath).use { editor ->
+            data.xmlEditor[it.absolutePath].use { editor ->
                 editor.file.doRecursively { node ->
                     replacements.forEach replacement@{ replacement ->
                         if (node !is Element) return@replacement

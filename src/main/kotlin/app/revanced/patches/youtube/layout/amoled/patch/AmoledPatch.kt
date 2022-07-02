@@ -4,11 +4,11 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.impl.ResourceData
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Dependencies
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.ResourcePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.youtube.layout.amoled.annotations.AmoledCompatibility
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import org.w3c.dom.Element
@@ -26,7 +26,7 @@ import java.io.File
 @Version("0.0.1")
 class AmoledPatch : ResourcePatch() {
     override fun execute(data: ResourceData): PatchResult {
-        data.getXmlEditor("res${File.separator}values${File.separator}colors.xml").use { editor ->
+        data.xmlEditor["res${File.separator}values${File.separator}colors.xml"].use { editor ->
             val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
 
             for (i in 0 until resourcesNode.childNodes.length) {
