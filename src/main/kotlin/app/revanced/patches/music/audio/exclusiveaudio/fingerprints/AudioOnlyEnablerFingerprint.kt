@@ -1,3 +1,5 @@
+package app.revanced.patches.music.audio.exclusiveaudio.fingerprints
+
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.extensions.or
