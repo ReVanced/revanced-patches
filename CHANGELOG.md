@@ -1,3 +1,10 @@
+# [2.6.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.5.1-dev.1...v2.6.0-dev.1) (2022-07-02)
+
+
+### Features
+
+* migrate to breaking changes of patcher ([a116852](https://github.com/revanced/revanced-patches/commit/a11685263fb2274c67684258e73c5247502cb010))
+
 ## [2.5.1-dev.1](https://github.com/revanced/revanced-patches/compare/v2.5.0...v2.5.1-dev.1) (2022-06-30)
 
 
