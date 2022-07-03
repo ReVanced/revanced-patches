@@ -1,3 +1,11 @@
+# [2.7.0](https://github.com/revanced/revanced-patches/compare/v2.6.0...v2.7.0) (2022-07-03)
+
+
+### Features
+
+* `hdr-max-brightness` patch ([#105](https://github.com/revanced/revanced-patches/issues/105)) ([1310573](https://github.com/revanced/revanced-patches/commit/131057366a777786d6016d3385584b4e17bc4a8b))
+* `hide-infocard-suggestions` patch ([#107](https://github.com/revanced/revanced-patches/issues/107)) ([31a767a](https://github.com/revanced/revanced-patches/commit/31a767adbb152906303ab0ae5250769fc38d0625))
+
 # [2.6.0](https://github.com/revanced/revanced-patches/compare/v2.5.0...v2.6.0) (2022-07-02)
 
 
