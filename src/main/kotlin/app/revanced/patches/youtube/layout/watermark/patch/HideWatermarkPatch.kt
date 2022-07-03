@@ -22,7 +22,7 @@ import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 @Patch
 @Dependencies(dependencies = [IntegrationsPatch::class])
 @Name("hide-watermark")
-@Description("Hide Watermark on the page.")
+@Description("Hide the creator's watermark on video's.")
 @HideWatermarkCompatibility
 @Version("0.0.1")
 class HideWatermarkPatch : BytecodePatch(
