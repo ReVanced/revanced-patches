@@ -1,3 +1,10 @@
+# [2.8.0](https://github.com/revanced/revanced-patches/compare/v2.7.0...v2.8.0) (2022-07-04)
+
+
+### Features
+
+* `enable-debugging` patch ([#116](https://github.com/revanced/revanced-patches/issues/116)) ([bb355e7](https://github.com/revanced/revanced-patches/commit/bb355e7b7e78e602a10b346fe7e5795463615a81))
+
 # [2.7.0](https://github.com/revanced/revanced-patches/compare/v2.6.0...v2.7.0) (2022-07-03)
 
 
