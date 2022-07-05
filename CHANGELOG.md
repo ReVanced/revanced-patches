@@ -1,3 +1,10 @@
+## [2.8.2](https://github.com/revanced/revanced-patches/compare/v2.8.1...v2.8.2) (2022-07-05)
+
+
+### Bug Fixes
+
+* show minimized playback options in settings ([#118](https://github.com/revanced/revanced-patches/issues/118)) ([6e1a538](https://github.com/revanced/revanced-patches/commit/6e1a538d34291d75f19bf66a188bc69241de3a7a))
+
 ## [2.8.1](https://github.com/revanced/revanced-patches/compare/v2.8.0...v2.8.1) (2022-07-05)
 
 
