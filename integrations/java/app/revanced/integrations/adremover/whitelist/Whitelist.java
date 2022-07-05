@@ -101,7 +101,10 @@ public class Whitelist {
     }
 
     private static boolean isWhitelisted(WhitelistType whitelistType) {
-        boolean isEnabled = enabledMap.get(whitelistType);
+        boolean isEnabled = false;
+        if(enabledMap.containsKey(whitelistType) && enabledMap.get(whitelistType) != null) {
+            isEnabled = enabledMap.get(whitelistType);
+        }
         if (!isEnabled) {
             return false;
         }
