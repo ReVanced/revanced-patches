@@ -19,7 +19,7 @@ import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 @Description("Patch to hide the cast button.")
 @CastButtonCompatibility
 @Version("0.0.1")
-class HideCastButtonPatch : BytecodePatch(listOf()) {
+class HideCastButtonPatch : BytecodePatch() {
     override fun execute(data: BytecodeData): PatchResult {
         data.classes.forEach { classDef ->
             classDef.methods.forEach { method ->
