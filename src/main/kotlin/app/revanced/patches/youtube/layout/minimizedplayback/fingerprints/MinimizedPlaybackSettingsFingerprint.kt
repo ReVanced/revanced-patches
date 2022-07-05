@@ -29,12 +29,9 @@ object MinimizedPlaybackSettingsFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
         Opcode.IF_EQZ,
+        Opcode.IF_NEZ,
+        Opcode.GOTO,
+        Opcode.IGET_OBJECT,
+        Opcode.CHECK_CAST
     ),
-    customFingerprint = {
-        it.implementation!!.instructions.any {
-            (it as? WideLiteralInstruction)?.wideLiteral == resourceId 
-        }
-    }
 )
-
-val resourceId = ResourceIdMappingProviderResourcePatch.resourceMappings.first { it.type == "string" && it.name == "pref_background_category" }.id

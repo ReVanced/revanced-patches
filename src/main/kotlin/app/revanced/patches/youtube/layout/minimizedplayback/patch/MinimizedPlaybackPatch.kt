@@ -8,7 +8,6 @@ import app.revanced.patcher.data.impl.toMethodWalker
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.Dependencies
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -21,7 +20,6 @@ import org.jf.dexlib2.iface.reference.MethodReference
 
 
 @Patch
-@Dependencies(dependencies = [ResourceIdMappingProviderResourcePatch::class])
 @Name("minimized-playback")
 @Description("Enable minimized and background playback.")
 @MinimizedPlaybackCompatibility
