@@ -1,3 +1,10 @@
+## [2.9.1](https://github.com/revanced/revanced-patches/compare/v2.9.0...v2.9.1) (2022-07-05)
+
+
+### Bug Fixes
+
+* make `minimized-playback-manager-fingerprint` unique ([#120](https://github.com/revanced/revanced-patches/issues/120)) ([cd5e911](https://github.com/revanced/revanced-patches/commit/cd5e911f4ed9ad95b02c13c30cd9466d250e8904))
+
 # [2.9.0](https://github.com/revanced/revanced-patches/compare/v2.8.2...v2.9.0) (2022-07-05)
 
 
