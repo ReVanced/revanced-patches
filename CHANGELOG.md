@@ -1,3 +1,10 @@
+## [2.8.1](https://github.com/revanced/revanced-patches/compare/v2.8.0...v2.8.1) (2022-07-05)
+
+
+### Bug Fixes
+
+* remove unnecessary version constraints ([#117](https://github.com/revanced/revanced-patches/issues/117)) ([1cddf8d](https://github.com/revanced/revanced-patches/commit/1cddf8d9063da3bbdba0fd7080c8c93768b83a4c))
+
 # [2.8.0](https://github.com/revanced/revanced-patches/compare/v2.7.0...v2.8.0) (2022-07-04)
 
 
