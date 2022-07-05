@@ -23,7 +23,6 @@ import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.videoplayer.autorepeat.AutoRepeat;
-import app.revanced.integrations.videoswipecontrols.SwipeGestureListener;
 import app.revanced.integrations.utils.ScreenSizeHelper;
 import app.revanced.integrations.videoplayer.videourl.Copy;
 import app.revanced.integrations.videoplayer.videourl.CopyWithTimeStamp;
@@ -175,34 +174,6 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             SettingsEnum.ENABLE_SWIPE_BRIGHTNESS_BOOLEAN.setValue(((SwitchPreference) xSwipeControlPreferenceScreen.findPreference(str)).isChecked());
         } else if (str.equals(SettingsEnum.ENABLE_SWIPE_VOLUME_BOOLEAN.getPath())) {
             SettingsEnum.ENABLE_SWIPE_VOLUME_BOOLEAN.setValue(((SwitchPreference) xSwipeControlPreferenceScreen.findPreference(str)).isChecked());
-        } else if (str.equals(SettingsEnum.SWIPE_USE_TABLET_MODE.getPath())) {
-            SettingsEnum.SWIPE_USE_TABLET_MODE.setValue(((SwitchPreference) xSwipeControlPreferenceScreen.findPreference(str)).isChecked());
-        } else if (str.equals(SettingsEnum.SWIPE_THRESHOLD_INTEGER.getPath())) {
-            EditTextPreference editTextPreference6 = (EditTextPreference) xSwipeControlPreferenceScreen.findPreference(str);
-            if (editTextPreference6 != null) {
-                int val = 0;
-                editTextPreference6.setSummary(editTextPreference6.getText());
-                try {
-                    val = Integer.parseInt(editTextPreference6.getText());
-                } catch (NumberFormatException unused) {
-                    val = 0;
-                }
-                SwipeGestureListener.SWIPE_THRESHOLD = val;
-                SettingsEnum.SWIPE_THRESHOLD_INTEGER.setValue(val);
-            }
-        } else if (str.equals(SettingsEnum.SWIPE_PADDING_TOP_INTEGER.getPath())) {
-            EditTextPreference editTextPreference6 = (EditTextPreference) xSwipeControlPreferenceScreen.findPreference(str);
-            if (editTextPreference6 != null) {
-                int val = 0;
-                editTextPreference6.setSummary(editTextPreference6.getText());
-                try {
-                    val = Integer.parseInt(editTextPreference6.getText());
-                } catch (NumberFormatException unused) {
-                    val = 0;
-                }
-                SwipeGestureListener.TOP_PADDING = val;
-                SettingsEnum.SWIPE_PADDING_TOP_INTEGER.setValue(val);
-            }
         } else if ("revanced_ryd_enabled".equals(str) && ReVancedUtils.getContext() != null && settingsInitialized) {
             rebootDialog(ReVancedSettingsFragment.this.getActivity());
         } else if (str.equals("pref_auto_repeat_button")) {

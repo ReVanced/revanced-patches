@@ -31,9 +31,14 @@ public enum SettingsEnum {
     USE_HDR_BRIGHTNESS_BOOLEAN("pref_hdr_autobrightness", true),
     ENABLE_SWIPE_BRIGHTNESS_BOOLEAN("pref_xfenster_brightness", true),
     ENABLE_SWIPE_VOLUME_BOOLEAN("pref_xfenster_volume", true),
+
+    @Deprecated
     SWIPE_THRESHOLD_INTEGER("pref_xfenster_swipe_threshold", 30),
+    @Deprecated
     SWIPE_PADDING_TOP_INTEGER("pref_xfenster_swipe_padding_top", 50),
+    @Deprecated
     SWIPE_USE_TABLET_MODE("pref_xfenster_tablet", false),
+
     MAX_BUFFER_INTEGER("pref_max_buffer_ms", 120000),
     PLAYBACK_MAX_BUFFER_INTEGER("pref_buffer_for_playback_ms", 2500),
     MAX_PLAYBACK_BUFFER_AFTER_REBUFFER_INTEGER("pref_buffer_for_playback_after_rebuffer_ms", 5000),
@@ -58,17 +63,17 @@ public enum SettingsEnum {
         Context context = ReVancedUtils.getContext();
         if (context != null) {
             for (SettingsEnum setting : values()) {
-                Object value = null;
+                Object value;
                 if (setting.name().endsWith("BOOLEAN")) {
-                    value = SharedPrefHelper.getBoolean(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, setting.getPath());
+                    value = SharedPrefHelper.getBoolean(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, setting.getPath(), (boolean)setting.getDefaultValue());
                 } else if (setting.name().endsWith("INTEGER")) {
-                    value = SharedPrefHelper.getInt(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, setting.getPath());
+                    value = SharedPrefHelper.getInt(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, setting.getPath(), (int)setting.getDefaultValue());
                 } else if (setting.name().endsWith("STRING")) {
-                    value = SharedPrefHelper.getString(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, setting.getPath());
+                    value = SharedPrefHelper.getString(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, setting.getPath(), (String)setting.getDefaultValue());
                 } else if (setting.name().endsWith("LONG")) {
-                    value = SharedPrefHelper.getLong(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, setting.getPath());
+                    value = SharedPrefHelper.getLong(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, setting.getPath(), (long)setting.getDefaultValue());
                 } else if (setting.name().endsWith(("FLOAT"))) {
-                    value = SharedPrefHelper.getFloat(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, setting.getPath());
+                    value = SharedPrefHelper.getFloat(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, setting.getPath(), (float)setting.getDefaultValue());
                 } else {
                     LogHelper.printException(SettingsEnum.class, "Setting does not end with a valid Type. Name is: " + setting.name());
                     continue;

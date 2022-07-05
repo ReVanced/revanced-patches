@@ -60,9 +60,12 @@
     <PreferenceScreen android:title="@string/revanced_xfenster_title" android:key="xfenster_screen" android:summary="@string/revanced_xfenster_screen_summary">
         <SwitchPreference android:title="@string/revanced_xfenster_brightness_title" android:key="pref_xfenster_brightness" android:defaultValue="false" android:summaryOn="@string/revanced_xfenster_brightness_summary_on" android:summaryOff="@string/revanced_xfenster_brightness_summary_off" />
         <SwitchPreference android:title="@string/revanced_xfenster_volume_title" android:key="pref_xfenster_volume" android:defaultValue="false" android:summaryOn="@string/revanced_xfenster_volume_summary_on" android:summaryOff="@string/revanced_xfenster_volume_summary_off" />
+
+        <!--
         <SwitchPreference android:title="@string/revanced_xfenster_tablet_title" android:key="pref_xfenster_tablet" android:defaultValue="false" android:summaryOn="@string/revanced_xfenster_tablet_summary_on" android:summaryOff="@string/revanced_xfenster_tablet_summary_off" />
         <EditTextPreference android:numeric="integer" android:title="@string/revanced_swipe_threshold_title" android:key="pref_xfenster_swipe_threshold" android:summary="@string/revanced_swipe_threshold_summary" android:defaultValue="0" />
         <EditTextPreference android:numeric="integer" android:title="@string/revanced_swipe_padding_top_title" android:key="pref_xfenster_swipe_padding_top" android:summary="@string/revanced_swipe_padding_top_summary" android:defaultValue="20" />
+        -->
     </PreferenceScreen>
     <PreferenceScreen android:title="@string/revanced_buffer_title" android:key="buffer_screen">
         <EditTextPreference android:numeric="integer" android:title="@string/revanced_maximum_buffer_title" android:key="pref_max_buffer_ms" android:summary="@string/revanced_maximum_buffer_summary" android:defaultValue="120000" />
