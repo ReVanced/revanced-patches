@@ -1,3 +1,10 @@
+# [2.9.0](https://github.com/revanced/revanced-patches/compare/v2.8.2...v2.9.0) (2022-07-05)
+
+
+### Features
+
+* `swipe-controls` patch ([#115](https://github.com/revanced/revanced-patches/issues/115)) ([1d0a7dc](https://github.com/revanced/revanced-patches/commit/1d0a7dcc0cc3ea2bcd8ce0221d5e2f53d6eb0ae5))
+
 ## [2.8.2](https://github.com/revanced/revanced-patches/compare/v2.8.1...v2.8.2) (2022-07-05)
 
 
