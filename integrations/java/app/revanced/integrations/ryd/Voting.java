@@ -1,17 +1,12 @@
 package app.revanced.integrations.ryd;
 
-import android.content.Context;
-
-
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.ryd.requests.RYDRequester;
 
 public class Voting {
     private Registration registration;
-    private Context context;
 
-    public Voting(Context context, Registration registration) {
-        this.context = context;
+    public Voting(Registration registration) {
         this.registration = registration;
     }
 

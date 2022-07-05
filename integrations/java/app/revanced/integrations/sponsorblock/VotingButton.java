@@ -13,6 +13,7 @@ import java.lang.ref.WeakReference;
 import static app.revanced.integrations.sponsorblock.PlayerController.getCurrentVideoLength;
 import static app.revanced.integrations.sponsorblock.PlayerController.getLastKnownVideoTime;
 
+import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 
@@ -93,7 +94,7 @@ public class VotingButton {
     }
 
     static boolean shouldBeShown() {
-        return SponsorBlockUtils.isSettingEnabled(SponsorBlockSettings.isVotingEnabled);
+        return SettingsEnum.SB_ENABLED_BOOLEAN.getBoolean() && SettingsEnum.SB_VOTING_ENABLED_BOOLEAN.getBoolean();
     }
 
     //region Helpers

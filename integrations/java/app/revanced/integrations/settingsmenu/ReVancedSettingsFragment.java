@@ -8,6 +8,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Process;
 import android.preference.EditTextPreference;
@@ -52,8 +53,6 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
 
     private final CharSequence[] videoQualityEntries = {"Auto", "144p", "240p", "360p", "480p", "720p", "1080p", "1440p", "2160p"};
     private final CharSequence[] videoQualityentryValues = {"-2", "144", "240", "360", "480", "720", "1080", "1440", "2160"};
-    private final CharSequence[] minimizedVideoEntries = {"Auto", "Video only", "Video with controls"};
-    private final CharSequence[] minimizedVideoentryValues = {"-2", "0", "1"};
     private final CharSequence[] videoSpeedEntries = {"Auto", "0.25x", "0.5x", "0.75x", "Normal", "1.25x", "1.5x", "1.75x", "2x", "3x", "4x", "5x"};
     private final CharSequence[] videoSpeedentryValues = {"-2", "0.25", "0.5", "0.75", "1.0", "1.25", "1.5", "1.75", "2.0", "3.0", "4.0", "5.0"};
     private final CharSequence[] buttonLocationEntries = {"None", "In player", "Under player", "Both"};
@@ -116,14 +115,6 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             }
         } else if (str.equals(SettingsEnum.USE_NEW_ACTIONBAR_BOOLEAN.getPath())) {
             SettingsEnum.USE_NEW_ACTIONBAR_BOOLEAN.setValue(((SwitchPreference) layoutSettingsPreferenceScreen.findPreference(str)).isChecked());
-            if (ReVancedUtils.getContext() != null && settingsInitialized) {
-                rebootDialog(getActivity());
-            }
-        } else if (str.equals(SettingsEnum.PREFERRED_MINIMIZED_VIDEO_PREVIEW_INTEGER.getPath())) {
-            ListPreference listPreference = (ListPreference) layoutSettingsPreferenceScreen.findPreference(str);
-            int index = SettingsEnum.PREFERRED_MINIMIZED_VIDEO_PREVIEW_INTEGER.getInt();
-            listPreference.setDefaultValue(SettingsEnum.PREFERRED_MINIMIZED_VIDEO_PREVIEW_INTEGER.getDefaultValue());
-            listPreference.setSummary(minimizedVideoEntries[listPreference.findIndexOfValue(String.valueOf(index))]);
             if (ReVancedUtils.getContext() != null && settingsInitialized) {
                 rebootDialog(getActivity());
             }
@@ -198,7 +189,6 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             addPreferencesFromResource(identifier);
             String stringByName = ReVancedUtils.getStringByName(getActivity(), "quality_auto");
             this.videoQualityEntries[0] = stringByName;
-            this.minimizedVideoEntries[0] = stringByName;
             this.videoSpeedEntries[0] = stringByName;
             String stringByName2 = ReVancedUtils.getStringByName(getActivity(), "pref_subtitles_scale_normal");
             if (stringByName2.equals("")) {
@@ -206,8 +196,6 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             } else {
                 this.videoSpeedEntries[4] = stringByName2;
             }
-            this.minimizedVideoEntries[1] = ReVancedUtils.getStringByName(getActivity(), "revanced_miniplayer_style_video");
-            this.minimizedVideoEntries[2] = ReVancedUtils.getStringByName(getActivity(), "revanced_miniplayer_style_video_controls");
             SharedPreferences sharedPreferences = getPreferenceManager().getSharedPreferences();
             this.sharedPreferences = sharedPreferences;
             this.settingsInitialized = sharedPreferences.getBoolean("revanced_initialized", false);
@@ -256,12 +244,12 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             Preference findPreference = findPreference("pref_about_field");
 
             this.codecDefault.setOnPreferenceClickListener(preference -> {
-                ReVancedSettingsFragment.this.ChangeCodec(preference);
+                ReVancedSettingsFragment.this.changeCodec();
                 return false;
             });
 
             this.codecVP9.setOnPreferenceClickListener(preference -> {
-                ReVancedSettingsFragment.this.ChangeCodec(preference);
+                ReVancedSettingsFragment.this.changeCodec();
                 return false;
             });
 
@@ -298,16 +286,6 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
         listPreference.setSummary(this.videoQualityEntries[listPreference.findIndexOfValue(string)]);
     }
 
-    protected void setMinimizedListPreferenceData(ListPreference listPreference) {
-        listPreference.setEntries(this.minimizedVideoEntries);
-        listPreference.setEntryValues(this.minimizedVideoentryValues);
-        String string = this.sharedPreferences.getString("pref_minimized_video_preview", "-2");
-        if (listPreference.getValue() == null) {
-            listPreference.setValue(string);
-        }
-        listPreference.setSummary(this.minimizedVideoEntries[listPreference.findIndexOfValue(string)]);
-    }
-
     protected void setSpeedListPreferenceData(ListPreference listPreference) {
         listPreference.setEntries(this.videoSpeedEntries);
         listPreference.setEntryValues(this.videoSpeedentryValues);
@@ -340,14 +318,16 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
         return PACKAGE_NAME;
     }
 
-    private void ChangeCodec(Preference preference) {
+    private void changeCodec() {
         String manufacturer = null;
         String model = null;
 
-        String key = preference.getKey();
-        if (key.equals("pref_vp9_override")) {
+        if (SettingsEnum.CODEC_OVERRIDE_BOOLEAN.getBoolean()) {
             manufacturer = "samsung";
             model = "SM-G920F";
+        } else {
+            manufacturer = Build.MANUFACTURER;
+            model = Build.MODEL;
         }
 
         SettingsEnum.MANUFACTURER_OVERRIDE_STRING.saveValue(manufacturer);

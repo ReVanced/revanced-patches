@@ -1,40 +1,28 @@
 package app.revanced.integrations.ryd;
 
 
-import android.content.Context;
 import android.util.Base64;
 
 import java.security.MessageDigest;
 import java.security.SecureRandom;
 
+import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.ryd.requests.RYDRequester;
-import app.revanced.integrations.utils.SharedPrefHelper;
 
 public class Registration {
-    private String userId;
-    private Context context;
-
-    public Registration(Context context) {
-        this.context = context;
-    }
 
     // https://stackoverflow.com/a/157202
     private final String AB = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     private SecureRandom rnd = new SecureRandom();
+    private String userId;
 
     public String getUserId() {
         return userId != null ? userId : fetchUserId();
     }
 
     public void saveUserId(String userId) {
-        try {
-            if (this.context == null)
-                throw new Exception("Unable to save userId because context was null");
-            SharedPrefHelper.saveString(context, SharedPrefHelper.SharedPrefNames.RYD, RYDSettings.PREFERENCES_KEY_USERID, userId);
-        } catch (Exception ex) {
-            LogHelper.printException(Registration.class, "Unable to save the userId in shared preferences", ex);
-        }
+        SettingsEnum.RYD_USER_ID_STRING.saveValue(userId);
     }
 
     public static String solvePuzzle(String challenge, int difficulty) {
@@ -81,17 +69,9 @@ public class Registration {
     }
 
     private String fetchUserId() {
-        try {
-            if (this.context == null)
-                throw new Exception("Unable to fetch userId because context was null");
-
-            this.userId = SharedPrefHelper.getString(context, SharedPrefHelper.SharedPrefNames.RYD, RYDSettings.PREFERENCES_KEY_USERID, null);
-
-            if (this.userId == null) {
-                this.userId = register();
-            }
-        } catch (Exception ex) {
-            LogHelper.printException(Registration.class, "Unable to fetch the userId from shared preferences", ex);
+        this.userId = SettingsEnum.RYD_USER_ID_STRING.getString();
+        if (this.userId == null) {
+            this.userId = register();
         }
 
         return this.userId;

@@ -9,10 +9,12 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import java.lang.ref.WeakReference;
+import java.util.Set;
 
 import static app.revanced.integrations.sponsorblock.PlayerController.getCurrentVideoLength;
 import static app.revanced.integrations.sponsorblock.PlayerController.getLastKnownVideoTime;
 
+import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 
@@ -95,7 +97,7 @@ public class ShieldButton {
     }
 
     static boolean shouldBeShown() {
-        return SponsorBlockUtils.isSettingEnabled(SponsorBlockSettings.isAddNewSegmentEnabled);
+        return SettingsEnum.SB_ENABLED_BOOLEAN.getBoolean() && SettingsEnum.SB_NEW_SEGMENT_ENABLED_BOOLEAN.getBoolean();
     }
 
     //region Helpers

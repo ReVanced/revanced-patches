@@ -1,7 +1,5 @@
 package app.revanced.integrations.settingsmenu;
 
-import static app.revanced.integrations.ryd.RYDSettings.PREFERENCES_KEY_RYD_ENABLED;
-import static app.revanced.integrations.ryd.RYDSettings.PREFERENCES_KEY_RYD_HINT_SHOWN;
 import static app.revanced.integrations.sponsorblock.StringRef.str;
 
 import android.app.Activity;
@@ -16,7 +14,6 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 
 import app.revanced.integrations.ryd.ReturnYouTubeDislikes;
-import app.revanced.integrations.settings.Settings;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.SharedPrefHelper;
 
@@ -35,9 +32,9 @@ public class RYDSettingsFragment extends PreferenceFragment {
         {
             SwitchPreference preference = new SwitchPreference(context);
             preferenceScreen.addPreference(preference);
-            preference.setKey(PREFERENCES_KEY_RYD_ENABLED);
+            preference.setKey(SettingsEnum.RYD_ENABLED_BOOLEAN.getPath());
             preference.setDefaultValue(false);
-            preference.setChecked(SharedPrefHelper.getBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_RYD_ENABLED));
+            preference.setChecked(SettingsEnum.RYD_ENABLED_BOOLEAN.getBoolean());
             preference.setTitle(str("revanced_ryd_title"));
             preference.setSummary(str("revanced_ryd_summary"));
             preference.setOnPreferenceChangeListener((pref, newValue) -> {
@@ -51,9 +48,9 @@ public class RYDSettingsFragment extends PreferenceFragment {
         if (SettingsEnum.DEBUG_BOOLEAN.getBoolean()) {
             SwitchPreference preference = new SwitchPreference(context);
             preferenceScreen.addPreference(preference);
-            preference.setKey(PREFERENCES_KEY_RYD_HINT_SHOWN);
+            preference.setKey(SettingsEnum.RYD_HINT_SHOWN_BOOLEAN.getPath());
             preference.setDefaultValue(false);
-            preference.setChecked(SharedPrefHelper.getBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_RYD_HINT_SHOWN));
+            preference.setChecked(SettingsEnum.RYD_HINT_SHOWN_BOOLEAN.getBoolean());
             preference.setTitle("Hint debug");
             preference.setSummary("Debug toggle for clearing the hint shown preference");
             preference.setOnPreferenceChangeListener((pref, newValue) -> true);

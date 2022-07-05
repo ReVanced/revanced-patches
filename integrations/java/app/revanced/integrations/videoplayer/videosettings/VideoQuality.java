@@ -16,25 +16,23 @@ import java.util.Collections;
 public class VideoQuality {
     public static final int[] videoResolutions = {0, 144, 240, 360, 480, 720, 1080, 1440, 2160};
     private static Boolean userChangedQuality = false;
-    private static Boolean newVideo = false;
 
 
     public static void userChangedQuality() {
         userChangedQuality = true;
-        newVideo = false;
     }
 
     public static int setVideoQuality(Object[] qualities, int quality, Object qInterface) {
         int preferredQuality;
         Field[] fields;
-        if (!newVideo || userChangedQuality || qInterface == null) {
+        if (!ReVancedUtils.isNewVideoStarted() || userChangedQuality || qInterface == null) {
             if (SettingsEnum.DEBUG_BOOLEAN.getBoolean() && userChangedQuality) {
                 LogHelper.debug(VideoQuality.class, "Skipping quality change because user changed it: " + quality);
             }
             userChangedQuality = false;
             return quality;
         }
-        newVideo = false;
+        ReVancedUtils.setNewVideo(false);
         LogHelper.debug(VideoQuality.class, "Quality: " + quality);
         Context context = ReVancedUtils.getContext();
         if (context == null) {

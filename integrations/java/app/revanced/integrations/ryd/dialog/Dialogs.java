@@ -1,21 +1,16 @@
 package app.revanced.integrations.ryd.dialog;
 
-import static app.revanced.integrations.ryd.RYDSettings.PREFERENCES_KEY_RYD_ENABLED;
-import static app.revanced.integrations.ryd.RYDSettings.PREFERENCES_KEY_RYD_HINT_SHOWN;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.PREFERENCES_KEY_SPONSOR_BLOCK_HINT_SHOWN;
 import static app.revanced.integrations.sponsorblock.StringRef.str;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.LightingColorFilter;
 import android.net.Uri;
 import android.os.Build;
 
-import app.revanced.integrations.utils.SharedPrefHelper;
+import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.ReVancedUtils;
 
 public class Dialogs {
@@ -25,15 +20,14 @@ public class Dialogs {
     }
 
     private static void rydFirstRun(Activity activity) {
-        Context context = ReVancedUtils.getContext();
-        boolean enabled = SharedPrefHelper.getBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_RYD_ENABLED, false);
-        boolean hintShown = SharedPrefHelper.getBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_RYD_HINT_SHOWN, false);
+        boolean enabled = SettingsEnum.RYD_ENABLED_BOOLEAN.getBoolean();
+        boolean hintShown = SettingsEnum.RYD_HINT_SHOWN_BOOLEAN.getBoolean();
 
         // If RYD is enabled or hint has been shown, exit
         if (enabled || hintShown) {
             // If RYD is enabled but hint hasn't been shown, mark it as shown
             if (enabled && !hintShown) {
-                SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_RYD_HINT_SHOWN, true);
+                SettingsEnum.RYD_HINT_SHOWN_BOOLEAN.saveValue(true);
             }
             return;
         }
@@ -50,15 +44,15 @@ public class Dialogs {
         builder.setMessage(str("revanced_ryd_firstrun"));
         builder.setPositiveButton(str("revanced_enable"),
                 (dialog, id) -> {
-                    SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_RYD_HINT_SHOWN, true);
-                    SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_RYD_ENABLED, true);
+                    SettingsEnum.RYD_HINT_SHOWN_BOOLEAN.saveValue(true);
+                    SettingsEnum.RYD_ENABLED_BOOLEAN.saveValue(true);
                     dialog.dismiss();
                 });
 
         builder.setNegativeButton(str("revanced_disable"),
                 (dialog, id) -> {
-                    SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_RYD_HINT_SHOWN, true);
-                    SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_RYD_ENABLED, false);
+                    SettingsEnum.RYD_HINT_SHOWN_BOOLEAN.saveValue(true);
+                    SettingsEnum.RYD_ENABLED_BOOLEAN.saveValue(false);
                     dialog.dismiss();
                 });
 

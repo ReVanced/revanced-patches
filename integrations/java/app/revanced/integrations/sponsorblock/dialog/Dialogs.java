@@ -1,9 +1,5 @@
 package app.revanced.integrations.sponsorblock.dialog;
 
-import static app.revanced.integrations.ryd.RYDSettings.PREFERENCES_KEY_RYD_ENABLED;
-import static app.revanced.integrations.ryd.RYDSettings.PREFERENCES_KEY_RYD_HINT_SHOWN;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.PREFERENCES_KEY_SPONSOR_BLOCK_HINT_SHOWN;
 import static app.revanced.integrations.sponsorblock.StringRef.str;
 
 import android.app.Activity;
@@ -15,6 +11,7 @@ import android.graphics.LightingColorFilter;
 import android.net.Uri;
 import android.os.Build;
 
+import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
 
@@ -26,14 +23,14 @@ public class Dialogs {
 
     private static void sbFirstRun(Activity activity) {
         Context context = ReVancedUtils.getContext();
-        boolean enabled = SharedPrefHelper.getBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED, false);
-        boolean hintShown = SharedPrefHelper.getBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_SPONSOR_BLOCK_HINT_SHOWN, false);
+        boolean enabled = SettingsEnum.SB_ENABLED_BOOLEAN.getBoolean();
+        boolean hintShown = SettingsEnum.SB_SPONSOR_BLOCK_HINT_SHOWN_BOOLEAN.getBoolean();
 
         // If SB is enabled or hint has been shown, exit
         if (enabled || hintShown) {
             // If SB is enabled but hint hasn't been shown, mark it as shown
             if (enabled && !hintShown) {
-                SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_SPONSOR_BLOCK_HINT_SHOWN, true);
+                SettingsEnum.SB_SPONSOR_BLOCK_HINT_SHOWN_BOOLEAN.saveValue(true);
             }
             return;
         }
@@ -50,15 +47,15 @@ public class Dialogs {
         builder.setMessage(str("vanced_sb_firstrun"));
         builder.setPositiveButton(str("vanced_enable"),
                 (dialog, id) -> {
-                    SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_SPONSOR_BLOCK_HINT_SHOWN, true);
-                    SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED, true);
+                    SettingsEnum.SB_SPONSOR_BLOCK_HINT_SHOWN_BOOLEAN.saveValue(true);
+                    SettingsEnum.SB_ENABLED_BOOLEAN.saveValue(true);
                     dialog.dismiss();
                 });
 
         builder.setNegativeButton(str("vanced_disable"),
                 (dialog, id) -> {
-                    SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_SPONSOR_BLOCK_HINT_SHOWN, true);
-                    SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED, false);
+                    SettingsEnum.SB_SPONSOR_BLOCK_HINT_SHOWN_BOOLEAN.saveValue(true);
+                    SettingsEnum.SB_ENABLED_BOOLEAN.saveValue(false);
                     dialog.dismiss();
                 });
 

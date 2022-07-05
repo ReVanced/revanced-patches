@@ -13,6 +13,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.sponsorblock.NewSegmentHelperLayout;
 import app.revanced.integrations.sponsorblock.PlayerController;
@@ -69,7 +70,7 @@ public class NewSegmentLayout extends FrameLayout {
                 @Override
                 public void onClick(View v) {
                     LogHelper.debug(NewSegmentLayout.class, "Rewind button clicked");
-                    PlayerController.skipRelativeMilliseconds(-SponsorBlockSettings.adjustNewSegmentMillis);
+                    PlayerController.skipRelativeMilliseconds(-SettingsEnum.SB_ADJUST_NEW_SEGMENT_STEP_INTEGER.getInt());
                 }
             });
         }
@@ -80,7 +81,7 @@ public class NewSegmentLayout extends FrameLayout {
                 @Override
                 public void onClick(View v) {
                     LogHelper.debug(NewSegmentLayout.class, "Forward button clicked");
-                    PlayerController.skipRelativeMilliseconds(SponsorBlockSettings.adjustNewSegmentMillis);
+                    PlayerController.skipRelativeMilliseconds(SettingsEnum.SB_ADJUST_NEW_SEGMENT_STEP_INTEGER.getInt());
                 }
             });
         }

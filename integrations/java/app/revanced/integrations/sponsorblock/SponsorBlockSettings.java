@@ -15,65 +15,22 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.SharedPrefHelper;
 
 public class SponsorBlockSettings {
 
-    public static final String PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP = "show-toast";
-    public static final String PREFERENCES_KEY_COUNT_SKIPS = "count-skips";
-    public static final String PREFERENCES_KEY_UUID = "uuid";
-    public static final String PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP = "new-segment-step-accuracy";
-    public static final String PREFERENCES_KEY_MIN_DURATION = "sb-min-duration";
-    public static final String PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED = "sb-enabled";
-    public static final String PREFERENCES_KEY_SPONSOR_BLOCK_HINT_SHOWN = "sb_hint_shown";
-    public static final String PREFERENCES_KEY_SEEN_GUIDELINES = "sb-seen-gl";
-    public static final String PREFERENCES_KEY_NEW_SEGMENT_ENABLED = "sb-new-segment-enabled";
-    public static final String PREFERENCES_KEY_VOTING_ENABLED = "sb-voting-enabled";
-    public static final String PREFERENCES_KEY_SKIPPED_SEGMENTS = "sb-skipped-segments";
-    public static final String PREFERENCES_KEY_SKIPPED_SEGMENTS_TIME = "sb-skipped-segments-time";
-    public static final String PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS = "sb-length-without-segments";
-    public static final String PREFERENCES_KEY_CATEGORY_COLOR_SUFFIX = "_color";
-    public static final String PREFERENCES_KEY_BROWSER_BUTTON = "sb-browser-button";
-    public static final String PREFERENCES_KEY_IS_VIP = "sb-is-vip";
-    public static final String PREFERENCES_KEY_LAST_VIP_CHECK = "sb-last-vip-check";
-    public static final String PREFERENCES_KEY_API_URL = "sb-api-url";
-
+    public static final String CATEGORY_COLOR_SUFFIX = "_color";
     public static final SegmentBehaviour DefaultBehaviour = SegmentBehaviour.IGNORE;
-    public static final String DEFAULT_SERVER_URL = "https://sponsor.ajay.app";
-    public static final String DEFAULT_API_URL = DEFAULT_SERVER_URL + "/api/";
-
-    public static boolean isSponsorBlockEnabled = false;
-    public static boolean seenGuidelinesPopup = false;
-    public static boolean isAddNewSegmentEnabled = false;
-    public static boolean isVotingEnabled = true;
-    public static boolean showToastWhenSkippedAutomatically = true;
-    public static boolean countSkips = true;
-    public static boolean showTimeWithoutSegments = true;
-    public static boolean vip = false;
-    public static long lastVipCheck = 0;
-    public static int adjustNewSegmentMillis = 150;
-    public static float minDuration = 0f;
-    public static String uuid = "<invalid>";
-    public static String apiUrl = DEFAULT_API_URL;
     public static String sponsorBlockUrlCategories = "[]";
-    public static int skippedSegments;
-    public static long skippedTime;
-
-    public static void setSeenGuidelines(Context context) {
-        SponsorBlockSettings.seenGuidelinesPopup = true;
-        SharedPrefHelper.getPreferences(context, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK).edit().putBoolean(PREFERENCES_KEY_SEEN_GUIDELINES, true).apply();
-    }
 
     public static void update(Context context) {
         if (context == null) return;
 
         SharedPreferences preferences = SharedPrefHelper.getPreferences(context, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK);
 
-        isSponsorBlockEnabled = preferences.getBoolean(PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED, isSponsorBlockEnabled);
-        seenGuidelinesPopup = preferences.getBoolean(PREFERENCES_KEY_SEEN_GUIDELINES, seenGuidelinesPopup);
-
-        if (!isSponsorBlockEnabled) {
+        if (!SettingsEnum.SB_ENABLED_BOOLEAN.getBoolean()) {
             SkipSegmentView.hide();
             NewSegmentHelperLayout.hide();
             SponsorBlockUtils.hideShieldButton();
@@ -83,16 +40,15 @@ public class SponsorBlockSettings {
             SponsorBlockUtils.showShieldButton();
         }
 
-        isAddNewSegmentEnabled = preferences.getBoolean(PREFERENCES_KEY_NEW_SEGMENT_ENABLED, isAddNewSegmentEnabled);
-        if (!isAddNewSegmentEnabled) {
+        if (!SettingsEnum.SB_NEW_SEGMENT_ENABLED_BOOLEAN.getBoolean()) {
             NewSegmentHelperLayout.hide();
             SponsorBlockUtils.hideShieldButton();
         } else {
             SponsorBlockUtils.showShieldButton();
         }
 
-        isVotingEnabled = preferences.getBoolean(PREFERENCES_KEY_VOTING_ENABLED, isVotingEnabled);
-        if (!isVotingEnabled)
+
+        if (!SettingsEnum.SB_VOTING_ENABLED_BOOLEAN.getBoolean())
             SponsorBlockUtils.hideVoteButton();
         else
             SponsorBlockUtils.showVoteButton();
@@ -100,7 +56,7 @@ public class SponsorBlockSettings {
         SegmentBehaviour[] possibleBehaviours = SegmentBehaviour.values();
         final ArrayList<String> enabledCategories = new ArrayList<>(possibleBehaviours.length);
         for (SegmentInfo segment : SegmentInfo.values()) {
-            String categoryColor = preferences.getString(segment.key + PREFERENCES_KEY_CATEGORY_COLOR_SUFFIX, SponsorBlockUtils.formatColorString(segment.defaultColor));
+            String categoryColor = preferences.getString(segment.key + CATEGORY_COLOR_SUFFIX, SponsorBlockUtils.formatColorString(segment.defaultColor));
             segment.setColor(Color.parseColor(categoryColor));
 
             SegmentBehaviour behaviour = null;
@@ -129,35 +85,13 @@ public class SponsorBlockSettings {
         else
             sponsorBlockUrlCategories = "[%22" + TextUtils.join("%22,%22", enabledCategories) + "%22]";
 
-        skippedSegments = preferences.getInt(PREFERENCES_KEY_SKIPPED_SEGMENTS, skippedSegments);
-        skippedTime = preferences.getLong(PREFERENCES_KEY_SKIPPED_SEGMENTS_TIME, skippedTime);
-
-        showToastWhenSkippedAutomatically = preferences.getBoolean(PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP, showToastWhenSkippedAutomatically);
-        String tmp1 = preferences.getString(PREFERENCES_KEY_ADJUST_NEW_SEGMENT_STEP, null);
-        if (tmp1 != null)
-            adjustNewSegmentMillis = Integer.parseInt(tmp1);
-
-        String minTmp = preferences.getString(PREFERENCES_KEY_MIN_DURATION, null);
-        if (minTmp != null)
-            minDuration = Float.parseFloat(minTmp);
-
-        countSkips = preferences.getBoolean(PREFERENCES_KEY_COUNT_SKIPS, countSkips);
-        showTimeWithoutSegments = preferences.getBoolean(PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS, showTimeWithoutSegments);
-        vip = preferences.getBoolean(PREFERENCES_KEY_IS_VIP, false);
-
-        String vipCheckTmp = preferences.getString(PREFERENCES_KEY_LAST_VIP_CHECK, null);
-        if (vipCheckTmp != null)
-            lastVipCheck = Long.parseLong(vipCheckTmp);
-
-        apiUrl = preferences.getString(PREFERENCES_KEY_API_URL, DEFAULT_API_URL);
-
-        uuid = preferences.getString(PREFERENCES_KEY_UUID, null);
+        String uuid = SettingsEnum.SB_UUID_STRING.getString();
         if (uuid == null) {
             uuid = (UUID.randomUUID().toString() +
                     UUID.randomUUID().toString() +
                     UUID.randomUUID().toString())
                     .replace("-", "");
-            preferences.edit().putString(PREFERENCES_KEY_UUID, uuid).apply();
+            SettingsEnum.SB_UUID_STRING.saveValue(uuid);
         }
     }
 

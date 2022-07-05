@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="revanced_about_summary">"
-- xfileFIN (First creator)
-- oSumAtrIX (Mods, Patcher, Support)
-- TheJeterLP (Integrations)
-- bogadana (Mods, Support)
-- Sculas (Manager, Patcher)
-- baiorett (Manager)"</string>
+    <string name="revanced_about_summary">" - xfileFIN (First creator) - oSumAtrIX (Patches, Patcher, Support) - TheJeterLP (Patches, Integrations) - bogadana (Patches, Support) - Sculas (Manager, Patcher) - baiorett (Manager)"</string>
     <string name="revanced_about_title">About</string>
     <string name="revanced_auto_repeat_button_summary_off">"Doesn't show auto-repeat button in the player overlay. Use the toggle below to control auto-repeat"</string>
     <string name="revanced_auto_repeat_button_summary_on">Auto-repeat button is shown in the player overlay</string>
@@ -31,8 +25,6 @@
     <string name="revanced_default_codec_title">Default codec</string>
     <string name="revanced_discord_summary">Tap to join ReVanced on Discord</string>
     <string name="revanced_discord_title">Discord server</string>
-    <string name="revanced_hardware_hdr_summary">Tap to enable hardware HDR</string>
-    <string name="revanced_hardware_hdr_title" translatable="false">Samsung Galaxy S8+</string>
     <string name="revanced_hdr_full_brightness_summary_off">Video brightness will follow your device\'s brightness on HDR landscape videos</string>
     <string name="revanced_hdr_full_brightness_summary_on">Video brightness is set to max on HDR landscape videos</string>
     <string name="revanced_hdr_full_brightness_title">HDR max brightness</string>
@@ -62,8 +54,6 @@
 
         Default: 5000"</string>
     <string name="revanced_rebuffer_title">Rebuffer</string>
-    <string name="revanced_software_hdr_summary">Tap to enable software HDR</string>
-    <string name="revanced_software_hdr_title" translatable="false">Google Pixel XL</string>
     <string name="revanced_suggestion_summary_off">End screens are hidden</string>
     <string name="revanced_suggestion_summary_on">End screens are shown</string>
     <string name="revanced_suggestion_title">End screens</string>
@@ -77,6 +67,9 @@
     <string name="revanced_new_actionbar_title">Wide search bar</string>
     <string name="revanced_new_actionbar_summary_off">Search bar style is defined by the app</string>
     <string name="revanced_new_actionbar_summary_on">Forcing wide search bar</string>
+    <string name="revanced_shorts_button_title">Show shorts button</string>
+    <string name="revanced_shorts_button_summary_off">Shorts button is hidden</string>
+    <string name="revanced_shorts_button_summary_on">Shorts button is shown</string>
     <string name="revanced_zoom_to_fit_vertical_title">Dynamic player</string>
     <string name="revanced_zoom_to_fit_vertical_summary_off">Dynamic player is defined automatically</string>
     <string name="revanced_zoom_to_fit_vertical_summary_on">Dynamic player is forced on square and vertical videos</string>
@@ -101,13 +94,16 @@
     <string name="revanced_xfenster_volume_summary_on">Swipe controls for volume are enabled</string>
     <string name="revanced_xfenster_volume_title">Swipe controls for Volume</string>
     <string name="revanced_website_summary">Tap to open our website</string>
-    <string name="revanced_website_title">Vanced website</string>
+    <string name="revanced_website_title">ReVanced website</string>
     <string name="revanced_home_ads_summary_off">Home ADS are hidden</string>
     <string name="revanced_home_ads_summary_on">Home ADS are shown</string>
-    <string name="revanced_home_ads_title">Home ADS (Experimental)</string>
+    <string name="revanced_home_ads_title">Home ADS</string>
+    <string name="revanced_video_ads_title">Video ADS</string>
+    <string name="revanced_video_ads_summary_off">Video ADS are hidden</string>
+    <string name="revanced_video_ads_summary_on">Video ADS are shown</string>
     <string name="revanced_reel_summary_off">Stories are hidden</string>
     <string name="revanced_reel_summary_on">Stories are shown</string>
-    <string name="revanced_reel_title">YouTube stories (Experimental)</string>
+    <string name="revanced_reel_title">YouTube stories</string>
     <string name="revanced_ad_settings_title">AD settings</string>
     <string name="revanced_credit_summary">Credits for people who have contributed</string>
     <string name="revanced_credit_title">Credits</string>

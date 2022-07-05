@@ -2,52 +2,107 @@ package app.revanced.integrations.settings;
 
 import android.content.Context;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
 
 public enum SettingsEnum {
 
-    DEBUG_BOOLEAN("debug_revanced_enabled", false),
-    MANUFACTURER_OVERRIDE_STRING("override_manufacturer", null),
-    MODEL_OVERRIDE_STRING("override_model", null),
-    CODEC_OVERRIDE_BOOLEAN("revanced_vp9_enabled", true),
-    PREFERRED_RESOLUTION_WIFI_INTEGER("pref_video_quality_wifi", -2),
-    PREFERRED_RESOLUTION_MOBILE_INTEGER("pref_video_quality_mobile", -2),
-    PREFERRED_VIDEO_SPEED_FLOAT("pref_video_speed", -2.0f),
-    PREFERRED_MINIMIZED_VIDEO_PREVIEW_INTEGER("pref_minimized_video_preview", -2),
-    PREFERRED_AUTO_REPEAT_BOOLEAN("pref_auto_repeat", true),
-    HOME_ADS_SHOWN_BOOLEAN("home_ads_enabled", false),
-    VIDEO_ADS_SHOWN_BOOLEAN("video_ads_enabled", false),
-    REEL_BUTTON_SHOWN_BOOLEAN("reel_button_enabled", false),
-    SHORTS_BUTTON_SHOWN_BOOLEAN("shorts_button_enabled", false),
-    CAST_BUTTON_SHOWN_BOOLEAN("cast_button_enabled", false),
+    //Codec Override
+    CODEC_OVERRIDE_BOOLEAN("revanced_override_codec_enabled", true),
+    MANUFACTURER_OVERRIDE_STRING("revanced_override_codec_manufacturer", null),
+    MODEL_OVERRIDE_STRING("revanced_override_codec_model", null),
+
+    //Video Settings
+    OLD_STYLE_QUALITY_SETTINGS_BOOLEAN("revanced_use_old_style_quality_settings", true),
+    OVERRIDE_RESOLUTION_TO_MAX_BOOLEAN("revanced_override_resolution_max", false),
+    PREFERRED_RESOLUTION_WIFI_INTEGER("revanced_pref_video_quality_wifi", -2),
+    PREFERRED_RESOLUTION_MOBILE_INTEGER("revanced_pref_video_quality_mobile", -2),
+    PREFERRED_VIDEO_SPEED_FLOAT("revanced_pref_video_speed", -2.0f),
+
+    //Whitelist Settings
+    ENABLE_WHITELIST_BOOLEAN("revanced_whitelist_ads_enabled", false),
+
+    //Ad settings
+    HOME_ADS_SHOWN_BOOLEAN("revanced_home_ads_enabled", false),
+    VIDEO_ADS_SHOWN_BOOLEAN("revanced_video_ads_enabled", false),
+    ADREMOVER_AD_REMOVAL_BOOLEAN("revanced_adremover_ad_removal", true),
+    ADREMOVER_MERCHANDISE_REMOVAL_BOOLEAN("revanced_adremover_merchandise", true),
+    ADREMOVER_COMMUNITY_POSTS_REMOVAL_BOOLEAN("revanced_adremover_community_posts_removal", false),
+    ADREMOVER_COMPACT_BANNER_REMOVAL_BOOLEAN("revanced_adremover_compact_banner_removal", true),
+    ADREMOVER_COMMENTS_REMOVAL_BOOLEAN("revanced_adremover_comments_removal", false),
+    ADREMOVER_MOVIE_REMOVAL_BOOLEAN("revanced_adremover_movie", true),
+    ADREMOVER_FEED_SURVEY_REMOVAL_BOOLEAN("revanced_adremover_feed_survey", true),
+    ADREMOVER_SHORTS_SHELF_BOOLEAN("revanced_adremover_shorts_shelf", true),
+    ADREMOVER_COMMUNITY_GUIDELINES_BOOLEAN("revanced_adremover_community_guidelines", true),
+    //ToDo: These Settings have to be added to revanced_prefs.xml
+    ADREMOVER_EMERGENCY_BOX_REMOVAL_BOOLEAN("revanced_adremover_emergency_box_removal", true),
+    ADREMOVER_INFO_PANEL_REMOVAL_BOOLEAN("revanced_adremover_info_panel", true),
+    ADREMOVER_MEDICAL_PANEL_REMOVAL_BOOLEAN("revanced_adremover_medical_panel", true),
+    ADREMOVER_PAID_CONTECT_REMOVAL_BOOLEAN("revanced_adremover_paid_content", true),
+    ADREMOVER_SUGGESTED_FOR_YOU_REMOVAL_BOOLEAN("revanced_adremover_suggested", true),
+    ADREMOVER_HIDE_SUGGESTIONS_BOOLEAN("revanced_adremover_hide_suggestions", true),
+    ADREMOVER_HIDE_LATEST_POSTS_BOOLEAN("revanced_adremover_hide_latest_posts", true),
+
+    //Layout settings
+    REEL_BUTTON_SHOWN_BOOLEAN("revanced_reel_button_enabled", false),
+    INFO_CARDS_SHOWN_BOOLEAN("revanced_info_cards_enabled", false),
+    BRANDING_SHOWN_BOOLEAN("revanced_branding_watermark_enabled", false),
+    CAST_BUTTON_SHOWN_BOOLEAN("revanced_cast_button_enabled", false),
+    USE_TABLET_MINIPLAYER_BOOLEAN("revanced_tablet_miniplayer", false),
     CREATE_BUTTON_SHOWN_BOOLEAN("revanced_create_button_enabled", false),
-    INFO_CARDS_SHOWN_BOOLEAN("info_cards_enabled", false),
-    BRANDING_SHOWN_BOOLEAN("branding_watermark_enabled", false),
-    USE_TABLET_MINIPLAYER_BOOLEAN("tablet_miniplayer", false),
     USE_NEW_ACTIONBAR_BOOLEAN("revanced_new_actionbar", false),
-    USE_DARK_THEME_BOOLEAN("app_theme_dark", false),
-    USE_HDR_BRIGHTNESS_BOOLEAN("pref_hdr_autobrightness", true),
-    ENABLE_SWIPE_BRIGHTNESS_BOOLEAN("pref_xfenster_brightness", true),
-    ENABLE_SWIPE_VOLUME_BOOLEAN("pref_xfenster_volume", true),
+    SHORTS_BUTTON_SHOWN_BOOLEAN("revanced_shorts_button_enabled", false),
 
-    @Deprecated
-    SWIPE_THRESHOLD_INTEGER("pref_xfenster_swipe_threshold", 30),
-    @Deprecated
-    SWIPE_PADDING_TOP_INTEGER("pref_xfenster_swipe_padding_top", 50),
-    @Deprecated
-    SWIPE_USE_TABLET_MODE("pref_xfenster_tablet", false),
-
-    MAX_BUFFER_INTEGER("pref_max_buffer_ms", 120000),
-    PLAYBACK_MAX_BUFFER_INTEGER("pref_buffer_for_playback_ms", 2500),
-    MAX_PLAYBACK_BUFFER_AFTER_REBUFFER_INTEGER("pref_buffer_for_playback_after_rebuffer_ms", 5000),
-    OLD_STYLE_QUALITY_SETTINGS_BOOLEAN("old_style_quality_settings", true),
+    //Misc. Settings
+    AUTOREPEAT_BUTTON_SHOWN_BOOLEAN("revanced_pref_auto_repeat_button", false),
+    PREFERRED_AUTO_REPEAT_BOOLEAN("revanced_pref_auto_repeat", true),
+    USE_HDR_BRIGHTNESS_BOOLEAN("revanced_pref_hdr_autobrightness", true),
     TAP_SEEKING_ENABLED_BOOLEAN("revanced_enable_tap_seeking", true),
-    ;
+
+    //Swipe controls
+    ENABLE_SWIPE_BRIGHTNESS_BOOLEAN("revanced_enable_swipe_brightness", true),
+    ENABLE_SWIPE_VOLUME_BOOLEAN("revanced_enable_swipe_volume", true),
+
+    //Buffer Settings
+    MAX_BUFFER_INTEGER("revanced_pref_max_buffer_ms", 120000),
+    PLAYBACK_MAX_BUFFER_INTEGER("revanced_pref_buffer_for_playback_ms", 2500),
+    MAX_PLAYBACK_BUFFER_AFTER_REBUFFER_INTEGER("revanced_pref_buffer_for_playback_after_rebuffer_ms", 5000),
+
+    //ReVanced General Settings
+    DEBUG_BOOLEAN("revanced_debug_enabled", true),
+    USE_DARK_THEME_BOOLEAN("app_theme_dark", false),
+
+    //RYD Settings
+    RYD_USER_ID_STRING("ryd_userId", null, SharedPrefHelper.SharedPrefNames.RYD),
+    RYD_ENABLED_BOOLEAN("ryd_enabled", true, SharedPrefHelper.SharedPrefNames.RYD),
+    RYD_HINT_SHOWN_BOOLEAN("ryd_hint_shown", false, SharedPrefHelper.SharedPrefNames.RYD),
+
+    //SponsorBlock Settings
+    SB_ENABLED_BOOLEAN("sb-enabled", true, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK),
+    SB_SHOW_TOAST_WHEN_SKIP_BOOLEAN("show-toast", true, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK),
+    SB_COUNT_SKIPS_BOOLEAN("count-skips", true, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK),
+    SB_UUID_STRING("uuid", null, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK),
+    SB_ADJUST_NEW_SEGMENT_STEP_INTEGER("new-segment-step-accuracy", 150, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK),
+    SB_MIN_DURATION_FLOAT("sb-min-duration", 0F, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK),
+    SB_SPONSOR_BLOCK_HINT_SHOWN_BOOLEAN("sb_hint_shown", false, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK),
+    SB_SEEN_GUIDELINES_BOOLEAN("sb-seen-gl", false, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK),
+    SB_NEW_SEGMENT_ENABLED_BOOLEAN("sb-new-segment-enabled", false, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK),
+    SB_VOTING_ENABLED_BOOLEAN("sb-voting-enabled", true, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK),
+    SB_SKIPPED_SEGMENTS_INTEGER("sb-skipped-segments", 0, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK),
+    SB_SKIPPED_SEGMENTS_TIME_LONG("sb-skipped-segments-time", 0L, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK),
+    SB_SHOW_TIME_WITHOUT_SEGMENTS_BOOLEAN("sb-length-without-segments", true, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK),
+    SB_IS_VIP_BOOLEAN("sb-is-vip", false, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK),
+    SB_LAST_VIP_CHECK_LONG("sb-last-vip-check", 0L, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK),
+    SB_SHOW_BROWSER_BUTTON_BOOLEAN("sb-browser-button", false, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK),
+    SB_API_URL_STRING("sb-api-url", "https://sponsor.ajay.app/api/", SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK);
 
     private final String path;
     private final Object defaultValue;
+    private final SharedPrefHelper.SharedPrefNames sharedPref;
 
     private Object value = null;
     private static boolean loaded = false;
@@ -55,6 +110,13 @@ public enum SettingsEnum {
     SettingsEnum(String path, Object defaultValue) {
         this.path = path;
         this.defaultValue = defaultValue;
+        this.sharedPref = SharedPrefHelper.SharedPrefNames.YOUTUBE;
+    }
+
+    SettingsEnum(String path, Object defaultValue, SharedPrefHelper.SharedPrefNames prefName) {
+        this.path = path;
+        this.defaultValue = defaultValue;
+        this.sharedPref = prefName;
     }
 
     public static void loadSettings() {
@@ -91,6 +153,16 @@ public enum SettingsEnum {
         return loaded;
     }
 
+    public static List<SettingsEnum> getAdRemovalSettings() {
+        List<SettingsEnum> list = new ArrayList<>();
+        for (SettingsEnum var : SettingsEnum.values()) {
+            if (var.toString().startsWith("ADREMOVER")) {
+                list.add(var);
+            }
+        }
+        return list;
+    }
+
     public void setValue(Object newValue) {
         this.value = newValue;
     }
@@ -100,15 +172,15 @@ public enum SettingsEnum {
         Context context = ReVancedUtils.getContext();
         if (context != null) {
             if (name().endsWith("BOOLEAN")) {
-                SharedPrefHelper.saveBoolean(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, getPath(), (Boolean) newValue);
+                SharedPrefHelper.saveBoolean(context, sharedPref, getPath(), (Boolean) newValue);
             } else if (name().endsWith("INTEGER")) {
-                SharedPrefHelper.saveInt(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, getPath(), (int) newValue);
+                SharedPrefHelper.saveInt(context, sharedPref, getPath(), (int) newValue);
             } else if (name().endsWith("STRING")) {
-                SharedPrefHelper.saveString(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, getPath(), (String) newValue);
+                SharedPrefHelper.saveString(context, sharedPref, getPath(), (String) newValue);
             } else if (name().endsWith("LONG")) {
-                SharedPrefHelper.saveLong(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, getPath(), (Long) newValue);
+                SharedPrefHelper.saveLong(context, sharedPref, getPath(), (Long) newValue);
             } else if (name().endsWith(("FLOAT"))) {
-                SharedPrefHelper.saveFloat(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, getPath(), (Float) newValue);
+                SharedPrefHelper.saveFloat(context, sharedPref, getPath(), (Float) newValue);
             } else {
                 LogHelper.printException(SettingsEnum.class, "Setting does not end with a valid Type. Name is: " + name());
             }
@@ -133,7 +205,8 @@ public enum SettingsEnum {
 
     public boolean getBoolean() {
         SettingsEnum.loadSettings();
-        //LogHelper.debug("SettingsEnum", "Variable " + name() + " is " + value);
+        if (this != DEBUG_BOOLEAN)
+            LogHelper.debug(SettingsEnum.class, "Variable " + name() + " is " + value);
         return (Boolean) value;
     }
 

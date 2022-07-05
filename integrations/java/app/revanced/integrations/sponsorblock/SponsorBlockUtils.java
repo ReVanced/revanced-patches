@@ -9,28 +9,6 @@ import static app.revanced.integrations.sponsorblock.PlayerController.getLastKno
 import static app.revanced.integrations.sponsorblock.PlayerController.sponsorSegmentsOfCurrentVideo;
 import static app.revanced.integrations.settingsmenu.SponsorBlockSettingsFragment.FORMATTER;
 import static app.revanced.integrations.settingsmenu.SponsorBlockSettingsFragment.SAVED_TEMPLATE;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.DEFAULT_API_URL;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.DEFAULT_SERVER_URL;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.PREFERENCES_KEY_API_URL;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.PREFERENCES_KEY_CATEGORY_COLOR_SUFFIX;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.PREFERENCES_KEY_COUNT_SKIPS;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.PREFERENCES_KEY_IS_VIP;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.PREFERENCES_KEY_LAST_VIP_CHECK;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.PREFERENCES_KEY_MIN_DURATION;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.PREFERENCES_KEY_UUID;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.apiUrl;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.countSkips;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.isSponsorBlockEnabled;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.lastVipCheck;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.minDuration;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.showTimeWithoutSegments;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.showToastWhenSkippedAutomatically;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.skippedSegments;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.skippedTime;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.uuid;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.vip;
 import static app.revanced.integrations.sponsorblock.StringRef.str;
 import static app.revanced.integrations.sponsorblock.requests.SBRequester.voteForSegment;
 
@@ -65,6 +43,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.TimeZone;
 
+import app.revanced.integrations.settings.Settings;
+import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.sponsorblock.player.PlayerType;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.SharedPrefHelper;
@@ -222,7 +202,7 @@ public abstract class SponsorBlockUtils {
         for (int i = 0; i < voteOptions.length; i++) {
             VoteOption voteOption = voteOptions[i];
             String title = voteOption.title;
-            if (vip && segment.isLocked && voteOption.shouldHighlight) {
+            if (SettingsEnum.SB_IS_VIP_BOOLEAN.getBoolean() && segment.isLocked && voteOption.shouldHighlight) {
                 items[i] = Html.fromHtml(String.format("<font color=\"%s\">%s</font>", LOCKED_COLOR, title));
             } else {
                 items[i] = title;
@@ -247,7 +227,7 @@ public abstract class SponsorBlockUtils {
     };
     private static final Runnable submitRunnable = () -> {
         messageToToast = null;
-        final String uuid = SponsorBlockSettings.uuid;
+        final String uuid = SettingsEnum.SB_UUID_STRING.getString();
         final long start = newSponsorSegmentStartMillis;
         final long end = newSponsorSegmentEndMillis;
         final String videoId = getCurrentVideoId();
@@ -424,7 +404,7 @@ public abstract class SponsorBlockUtils {
     }
 
     public static String appendTimeWithoutSegments(String totalTime) {
-        if (videoHasSegments && isSettingEnabled(showTimeWithoutSegments) && !TextUtils.isEmpty(totalTime) && getCurrentVideoLength() > 1) {
+        if (videoHasSegments && (SettingsEnum.SB_ENABLED_BOOLEAN.getBoolean() && SettingsEnum.SB_SHOW_TIME_WITHOUT_SEGMENTS_BOOLEAN.getBoolean()) && !TextUtils.isEmpty(totalTime) && getCurrentVideoLength() > 1) {
             if (timeWithoutSegments.isEmpty()) {
                 timeWithoutSegments = getTimeWithoutSegments(sponsorSegmentsOfCurrentVideo);
             }
@@ -436,7 +416,7 @@ public abstract class SponsorBlockUtils {
 
     public static String getTimeWithoutSegments(SponsorSegment[] sponsorSegmentsOfCurrentVideo) {
         long currentVideoLength = getCurrentVideoLength();
-        if (!isSettingEnabled(showTimeWithoutSegments) || sponsorSegmentsOfCurrentVideo == null || currentVideoLength <= 1) {
+        if (!(SettingsEnum.SB_ENABLED_BOOLEAN.getBoolean() && SettingsEnum.SB_SHOW_TIME_WITHOUT_SEGMENTS_BOOLEAN.getBoolean()) || sponsorSegmentsOfCurrentVideo == null || currentVideoLength <= 1) {
             return "";
         }
         long timeWithoutSegments = currentVideoLength + 500; // YouTube:tm:
@@ -516,10 +496,10 @@ public abstract class SponsorBlockUtils {
         {
             Preference preference = new Preference(context);
             category.addPreference(preference);
-            String formatted = FORMATTER.format(skippedSegments);
+            String formatted = FORMATTER.format(SettingsEnum.SB_SKIPPED_SEGMENTS_INTEGER.getInt());
 
-            long hoursSaved = skippedTime / 3600000;
-            double minutesSaved = (skippedTime / 60000d) % 60;
+            long hoursSaved = SettingsEnum.SB_SKIPPED_SEGMENTS_TIME_LONG.getLong() / 3600000;
+            double minutesSaved = (SettingsEnum.SB_SKIPPED_SEGMENTS_TIME_LONG.getLong() / 60000d) % 60;
             String formattedSaved = String.format(SAVED_TEMPLATE, hoursSaved, minutesSaved, minutesStr);
 
             preference.setTitle(fromHtml(str("stats_self_saved", formatted)));
@@ -543,7 +523,7 @@ public abstract class SponsorBlockUtils {
                 JSONObject categoryObject = barTypesObject.getJSONObject(categoryKey);
                 String color = categoryObject.getString("color");
 
-                editor.putString(categoryKey + PREFERENCES_KEY_CATEGORY_COLOR_SUFFIX, color);
+                editor.putString(categoryKey + SponsorBlockSettings.CATEGORY_COLOR_SUFFIX, color);
                 editor.putString(categoryKey, SponsorBlockSettings.SegmentBehaviour.IGNORE.key);
             }
 
@@ -562,21 +542,20 @@ public abstract class SponsorBlockUtils {
                 editor.putString(category.key, behaviour.key);
             }
 
-            editor.putBoolean(PREFERENCES_KEY_SHOW_TOAST_WHEN_SKIP, !settingsJson.getBoolean("dontShowNotice"));
-            editor.putBoolean(PREFERENCES_KEY_SHOW_TIME_WITHOUT_SEGMENTS, settingsJson.getBoolean("showTimeWithSkips"));
-            editor.putBoolean(PREFERENCES_KEY_COUNT_SKIPS, settingsJson.getBoolean("trackViewCount"));
-            editor.putBoolean(PREFERENCES_KEY_IS_VIP, settingsJson.getBoolean("isVip"));
-            editor.putString(PREFERENCES_KEY_MIN_DURATION, settingsJson.getString("minDuration"));
-            editor.putString(PREFERENCES_KEY_UUID, settingsJson.getString("userID"));
-            editor.putString(PREFERENCES_KEY_LAST_VIP_CHECK, settingsJson.getString("lastIsVipUpdate"));
+            SettingsEnum.SB_SHOW_TOAST_WHEN_SKIP_BOOLEAN.saveValue(!settingsJson.getBoolean("dontShowNotice"));
+            SettingsEnum.SB_SHOW_TIME_WITHOUT_SEGMENTS_BOOLEAN.saveValue(settingsJson.getBoolean("showTimeWithSkips"));
+            SettingsEnum.SB_COUNT_SKIPS_BOOLEAN.saveValue(settingsJson.getBoolean("trackViewCount"));
+            SettingsEnum.SB_IS_VIP_BOOLEAN.saveValue(settingsJson.getBoolean("isVip"));
+            SettingsEnum.SB_MIN_DURATION_FLOAT.saveValue(Float.valueOf(settingsJson.getString("minDuration")));
+            SettingsEnum.SB_UUID_STRING.saveValue(settingsJson.getString("userID"));
+            SettingsEnum.SB_LAST_VIP_CHECK_LONG.saveValue(settingsJson.getLong("lastIsVipUpdate"));
+
 
             String serverAddress = settingsJson.getString("serverAddress");
-            if (serverAddress.equalsIgnoreCase(DEFAULT_SERVER_URL)) {
-                serverAddress = DEFAULT_API_URL;
+            if (serverAddress.equalsIgnoreCase("https://sponsor.ajay.app")) {
+                serverAddress = (String) SettingsEnum.SB_API_URL_STRING.getDefaultValue();
             }
-            editor.putString(PREFERENCES_KEY_API_URL, serverAddress);
-
-            editor.apply();
+            SettingsEnum.SB_API_URL_STRING.saveValue(serverAddress);
 
             Toast.makeText(context, str("settings_import_successful"), Toast.LENGTH_SHORT).show();
         } catch (Exception ex) {
@@ -607,21 +586,16 @@ public abstract class SponsorBlockUtils {
                     categorySelectionsArray.put(behaviorObject);
                 }
             }
-            json.put("dontShowNotice", !showToastWhenSkippedAutomatically);
+            json.put("dontShowNotice", !SettingsEnum.SB_SHOW_TOAST_WHEN_SKIP_BOOLEAN.getBoolean());
             json.put("barTypes", barTypesObject);
-            json.put("showTimeWithSkips", showTimeWithoutSegments);
-            json.put("minDuration", minDuration);
-            json.put("trackViewCount", countSkips);
+            json.put("showTimeWithSkips", SettingsEnum.SB_SHOW_TIME_WITHOUT_SEGMENTS_BOOLEAN.getBoolean());
+            json.put("minDuration", SettingsEnum.SB_MIN_DURATION_FLOAT.getFloat());
+            json.put("trackViewCount", SettingsEnum.SB_COUNT_SKIPS_BOOLEAN.getBoolean());
             json.put("categorySelections", categorySelectionsArray);
-            json.put("userID", uuid);
-            json.put("isVip", vip);
-            json.put("lastIsVipUpdate", lastVipCheck);
-
-            String apiAddress = apiUrl;
-            if (apiAddress.equalsIgnoreCase(DEFAULT_API_URL)) {
-                apiAddress = DEFAULT_SERVER_URL;
-            }
-            json.put("serverAddress", apiAddress);
+            json.put("userID", SettingsEnum.SB_UUID_STRING.getString());
+            json.put("isVip", SettingsEnum.SB_IS_VIP_BOOLEAN.getBoolean());
+            json.put("lastIsVipUpdate", SettingsEnum.SB_LAST_VIP_CHECK_LONG.getLong());
+            json.put("serverAddress", SettingsEnum.SB_API_URL_STRING.getString());
 
             return json.toString();
         } catch (Exception ex) {
@@ -631,12 +605,8 @@ public abstract class SponsorBlockUtils {
         }
     }
 
-    public static boolean isSettingEnabled(boolean setting) {
-        return isSponsorBlockEnabled && setting;
-    }
-
     public static boolean isSBButtonEnabled(Context context, String key) {
-        return isSettingEnabled(SharedPrefHelper.getBoolean(context, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, key, false));
+        return SettingsEnum.SB_ENABLED_BOOLEAN.getBoolean() && SharedPrefHelper.getBoolean(context, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, key, false);
     }
 
     public enum VoteOption {

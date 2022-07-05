@@ -115,7 +115,7 @@ public class EditTextListPreference extends ListPreference {
     }
 
     private String getColorPreferenceKey() {
-        return getKey() + SponsorBlockSettings.PREFERENCES_KEY_CATEGORY_COLOR_SUFFIX;
+        return getKey() + SponsorBlockSettings.CATEGORY_COLOR_SUFFIX;
     }
 
     private void reformatTitle() {

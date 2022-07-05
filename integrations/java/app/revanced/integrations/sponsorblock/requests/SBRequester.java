@@ -25,6 +25,7 @@ import java.util.concurrent.TimeUnit;
 
 import app.revanced.integrations.adremover.whitelist.requests.Requester;
 import app.revanced.integrations.adremover.whitelist.requests.Route;
+import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.sponsorblock.PlayerController;
 import app.revanced.integrations.sponsorblock.SponsorBlockSettings;
 import app.revanced.integrations.sponsorblock.SponsorBlockUtils;
@@ -56,7 +57,7 @@ public class SBRequester {
                     long start = (long) (segment.getDouble(0) * 1000);
                     long end = (long) (segment.getDouble(1) * 1000);
 
-                    long minDuration = (long) (SponsorBlockSettings.minDuration * 1000);
+                    long minDuration = (long) (SettingsEnum.SB_MIN_DURATION_FLOAT.getFloat() * 1000);
                     if ((end - start) < minDuration)
                         continue;
 
@@ -127,7 +128,7 @@ public class SBRequester {
         new Thread(() -> {
             try {
                 String segmentUuid = segment.UUID;
-                String uuid = SponsorBlockSettings.uuid;
+                String uuid = SettingsEnum.SB_UUID_STRING.getString();
                 String vote = Integer.toString(voteOption == VoteOption.UPVOTE ? 1 : 0);
 
                 runOnMainThread(() -> Toast.makeText(context, str("vote_started"), Toast.LENGTH_SHORT).show());
@@ -157,14 +158,14 @@ public class SBRequester {
     }
 
     public static void retrieveUserStats(PreferenceCategory category, Preference loadingPreference) {
-        if (!SponsorBlockSettings.isSponsorBlockEnabled) {
+        if (!SettingsEnum.SB_ENABLED_BOOLEAN.getBoolean()) {
             loadingPreference.setTitle(str("stats_sb_disabled"));
             return;
         }
 
         new Thread(() -> {
             try {
-                JSONObject json = getJSONObject(SBRoutes.GET_USER_STATS, SponsorBlockSettings.uuid);
+                JSONObject json = getJSONObject(SBRoutes.GET_USER_STATS, SettingsEnum.SB_UUID_STRING.getString());
                 UserStats stats = new UserStats(json.getString("userName"), json.getDouble("minutesSaved"), json.getInt("segmentCount"),
                         json.getInt("viewCount"));
                 SponsorBlockUtils.addUserStats(category, loadingPreference, stats);
@@ -177,7 +178,7 @@ public class SBRequester {
     public static void setUsername(String username, EditTextPreference preference, Runnable toastRunnable) {
         new Thread(() -> {
             try {
-                HttpURLConnection connection = getConnectionFromRoute(SBRoutes.CHANGE_USERNAME, SponsorBlockSettings.uuid, username);
+                HttpURLConnection connection = getConnectionFromRoute(SBRoutes.CHANGE_USERNAME, SettingsEnum.SB_UUID_STRING.getString(), username);
                 int responseCode = connection.getResponseCode();
 
                 if (responseCode == 200) {
@@ -199,19 +200,14 @@ public class SBRequester {
 
     public static void runVipCheck() {
         long now = System.currentTimeMillis();
-        if (now < (SponsorBlockSettings.lastVipCheck + TimeUnit.DAYS.toMillis(3))) {
+        if (now < (SettingsEnum.SB_LAST_VIP_CHECK_LONG.getFloat() + TimeUnit.DAYS.toMillis(3))) {
             return;
         }
         try {
-            JSONObject json = getJSONObject(SBRoutes.IS_USER_VIP, SponsorBlockSettings.uuid);
+            JSONObject json = getJSONObject(SBRoutes.IS_USER_VIP, SettingsEnum.SB_UUID_STRING.getString());
             boolean vip = json.getBoolean("vip");
-            SponsorBlockSettings.vip = vip;
-            SponsorBlockSettings.lastVipCheck = now;
-
-            SharedPreferences.Editor edit = SharedPrefHelper.getPreferences(ReVancedUtils.getContext(), SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK).edit();
-            edit.putString(SponsorBlockSettings.PREFERENCES_KEY_LAST_VIP_CHECK, String.valueOf(now));
-            edit.putBoolean(SponsorBlockSettings.PREFERENCES_KEY_IS_VIP, vip);
-            edit.apply();
+            SettingsEnum.SB_IS_VIP_BOOLEAN.saveValue(vip);
+            SettingsEnum.SB_LAST_VIP_CHECK_LONG.saveValue(now);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -220,7 +216,7 @@ public class SBRequester {
     // helpers
 
     private static HttpURLConnection getConnectionFromRoute(Route route, String... params) throws IOException {
-        return Requester.getConnectionFromRoute(SponsorBlockSettings.apiUrl, route, params);
+        return Requester.getConnectionFromRoute(SettingsEnum.SB_API_URL_STRING.getString(), route, params);
     }
 
     private static JSONObject getJSONObject(Route route, String... params) throws Exception {

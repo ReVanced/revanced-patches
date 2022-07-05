@@ -2,7 +2,6 @@ package app.revanced.integrations.ryd;
 
 import static app.revanced.integrations.sponsorblock.player.VideoInformation.currentVideoId;
 import static app.revanced.integrations.sponsorblock.player.VideoInformation.dislikeCount;
-import static app.revanced.integrations.ryd.RYDSettings.PREFERENCES_KEY_RYD_ENABLED;
 import static app.revanced.integrations.utils.ReVancedUtils.getIdentifier;
 
 import android.content.Context;
@@ -15,6 +14,7 @@ import android.widget.TextView;
 import java.util.Locale;
 import java.util.Objects;
 
+import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.ryd.requests.RYDRequester;
 import app.revanced.integrations.utils.ReVancedUtils;
@@ -34,10 +34,10 @@ public class ReturnYouTubeDislikes {
 
     static {
         Context context = ReVancedUtils.getContext();
-        isEnabled = SharedPrefHelper.getBoolean(Objects.requireNonNull(context), SharedPrefHelper.SharedPrefNames.RYD, PREFERENCES_KEY_RYD_ENABLED, false);
+        isEnabled = SettingsEnum.RYD_ENABLED_BOOLEAN.getBoolean();
         if (isEnabled) {
-            registration = new Registration(context);
-            voting = new Voting(context, registration);
+            registration = new Registration();
+            voting = new Voting(registration);
         }
 
         Locale locale = context.getResources().getConfiguration().locale;
@@ -53,10 +53,10 @@ public class ReturnYouTubeDislikes {
     public static void onEnabledChange(boolean enabled) {
         isEnabled = enabled;
         if (registration == null) {
-            registration = new Registration(ReVancedUtils.getContext());
+            registration = new Registration();
         }
         if (voting == null) {
-            voting = new Voting(ReVancedUtils.getContext(), registration);
+            voting = new Voting(registration);
         }
     }
 

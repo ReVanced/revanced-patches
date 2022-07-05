@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
 
+import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.sponsorblock.player.VideoInformation;
 import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.sponsorblock.SponsorBlockSettings;
@@ -18,7 +19,7 @@ public class SBBrowserButton extends SlimButton {
 
     public SBBrowserButton(Context context, ViewGroup container) {
         super(context, container, SLIM_METADATA_BUTTON_ID,
-                SponsorBlockUtils.isSBButtonEnabled(context, SponsorBlockSettings.PREFERENCES_KEY_BROWSER_BUTTON));
+                SponsorBlockUtils.isSBButtonEnabled(context, SettingsEnum.SB_SHOW_BROWSER_BUTTON_BOOLEAN.getPath()));
 
         initialize();
     }

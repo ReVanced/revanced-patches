@@ -1,7 +1,5 @@
 package app.revanced.integrations.sponsorblock.player.ui;
 
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.PREFERENCES_KEY_BROWSER_BUTTON;
-import static app.revanced.integrations.sponsorblock.SponsorBlockSettings.PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -13,10 +11,10 @@ import com.google.android.apps.youtube.app.ui.SlimMetadataScrollableButtonContai
 
 import app.revanced.integrations.adremover.whitelist.Whitelist;
 import app.revanced.integrations.adremover.whitelist.WhitelistType;
+import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.SharedPrefHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
-import app.revanced.integrations.sponsorblock.SponsorBlockSettings;
 
 public class SlimButtonContainer extends SlimMetadataScrollableButtonContainerLayout {
 
@@ -78,9 +76,9 @@ public class SlimButtonContainer extends SlimMetadataScrollableButtonContainerLa
                     copyWithTimestampButton.setVisible(ButtonVisibility.isVisibleInContainer(context, "pref_copy_video_url_timestamp_button_list"));
                     return;
                 }
-                if (PREFERENCES_KEY_SPONSOR_BLOCK_ENABLED.equals(key)) {
+                if (SettingsEnum.SB_ENABLED_BOOLEAN.getPath().equals(key)) {
                     if (sbWhitelistButton != null) {
-                        if (SponsorBlockSettings.isSponsorBlockEnabled) {
+                        if (SettingsEnum.SB_ENABLED_BOOLEAN.getBoolean()) {
                             toggleWhitelistButton();
                         } else {
                             Whitelist.setEnabled(WhitelistType.SPONSORBLOCK, false);
@@ -88,14 +86,14 @@ public class SlimButtonContainer extends SlimMetadataScrollableButtonContainerLa
                         }
                     }
                     if (sbBrowserButton != null) {
-                        if (SponsorBlockSettings.isSponsorBlockEnabled) {
+                        if (SettingsEnum.SB_ENABLED_BOOLEAN.getBoolean()) {
                             toggleBrowserButton();
                         } else {
                             sbBrowserButton.setVisible(false);
                         }
                     }
                 }
-                if (PREFERENCES_KEY_BROWSER_BUTTON.equals(key) && sbBrowserButton != null) {
+                if (SettingsEnum.SB_SHOW_BROWSER_BUTTON_BOOLEAN.getPath().equals(key) && sbBrowserButton != null) {
                     toggleBrowserButton();
                     return;
                 }
@@ -131,6 +129,6 @@ public class SlimButtonContainer extends SlimMetadataScrollableButtonContainerLa
     }
 
     private void toggleBrowserButton() {
-        sbBrowserButton.setVisible(SharedPrefHelper.getBoolean(context, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, PREFERENCES_KEY_BROWSER_BUTTON, false));
+        sbBrowserButton.setVisible(SettingsEnum.SB_SHOW_BROWSER_BUTTON_BOOLEAN.getBoolean());
     }
 }
