@@ -1,3 +1,10 @@
+## [2.9.4](https://github.com/revanced/revanced-patches/compare/v2.9.3...v2.9.4) (2022-07-06)
+
+
+### Bug Fixes
+
+* add 17.25.34 as supported version for swipe-controls patch ([4d84c19](https://github.com/revanced/revanced-patches/commit/4d84c1914f8ecf51cee25667219bc6cf635a6c1c))
+
 ## [2.9.3](https://github.com/revanced/revanced-patches/compare/v2.9.2...v2.9.3) (2022-07-06)
 
 
