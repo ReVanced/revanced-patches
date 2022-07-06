@@ -38,7 +38,7 @@ fun MotionEvent.getSwipeControlZone(context: Context): SwipeControlZone {
     // check in what detection zone the event is in
     val _40dp = 40.applyDimension(context, TypedValue.COMPLEX_UNIT_DIP).toFloat()
     val _80dp = 80.applyDimension(context, TypedValue.COMPLEX_UNIT_DIP).toFloat()
-    val _220dp = 220.applyDimension(context, TypedValue.COMPLEX_UNIT_DIP).toFloat()
+    val _200dp = 200.applyDimension(context, TypedValue.COMPLEX_UNIT_DIP).toFloat()
 
     // Y- Axis:
     // -------- 0
@@ -60,13 +60,13 @@ fun MotionEvent.getSwipeControlZone(context: Context): SwipeControlZone {
     // X- Axis:
     //  0    xBrigStart    xBrigEnd    xVolStart     xVolEnd   screenWidth
     //  |          |            |          |            |          |
-    //  |   40dp   |   220dp    |          |   220dp    |   40dp   |
+    //  |   40dp   |   200dp    |          |   200dp    |   40dp   |
     //  | <------> |  <------>  | <------> |  <------>  | <------> |
     //  |   dead   | brightness |   dead   |   volume   |   dead   |
     val xBrightStart = _40dp
-    val xBrightEnd = xBrightStart + _220dp
+    val xBrightEnd = xBrightStart + _200dp
     val xVolEnd = screenWidth - _40dp
-    val xVolStart = xVolEnd - _220dp
+    val xVolStart = xVolEnd - _200dp
 
     // test detection zone
     if (y in yDeadTop..yDeadBtm) {
