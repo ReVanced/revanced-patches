@@ -134,10 +134,8 @@ class FensterController {
         private val context: Context
     ) : GestureDetector.SimpleOnGestureListener() {
 
-        /**
-         * to enable swipe controls, users must first long- press. this flags monitors that long- press
-         */
-        private var inSwipeSession = false
+
+        private var inSwipeSession = true
 
         /**
          * scroller for volume adjustment
@@ -176,24 +174,11 @@ class FensterController {
          */
         fun onUp(e: MotionEvent) {
             LogHelper.debug(this.javaClass, "onUp(${e.x}, ${e.y}, ${e.action})")
-            inSwipeSession = false
+            inSwipeSession = true
             volumeScroller.reset()
             brightnessScroller.reset()
         }
 
-        override fun onLongPress(e: MotionEvent?) {
-            if (e == null) return
-            LogHelper.debug(this.javaClass, "onLongPress(${e.x}, ${e.y}, ${e.action})")
-
-            // enter swipe session with feedback
-            inSwipeSession = true
-            overlayController?.notifyEnterSwipeSession()
-
-            // make the GestureDetector believe there was a ACTION_UP event
-            // so it will handle further events
-            e.action = MotionEvent.ACTION_UP
-            gestureDetector?.onTouchEvent(e)
-        }
 
         override fun onScroll(
             eFrom: MotionEvent?,
