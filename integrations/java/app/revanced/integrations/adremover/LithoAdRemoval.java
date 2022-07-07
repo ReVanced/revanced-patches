@@ -29,7 +29,7 @@ public class LithoAdRemoval {
 
         try {
             if (value == null || value.isEmpty() || !enabled) return false;
-            LogHelper.printException(LithoAdRemoval.class, "Searching for AD: " + value);
+            LogHelper.debug(LithoAdRemoval.class, "Searching for AD: " + value);
 
             List<String> blockList = new ArrayList<>();
             List<String> bufferBlockList = new ArrayList<>();

@@ -193,34 +193,28 @@ public enum SettingsEnum {
     public int getInt() {
         SettingsEnum.loadSettings();
         if (value == null) value = -1;
-        LogHelper.debug(SettingsEnum.class, "Variable " + name() + " is " + value);
         return (int) value;
     }
 
     public String getString() {
         SettingsEnum.loadSettings();
-        LogHelper.debug(SettingsEnum.class, "Variable " + name() + " is " + value);
         return (String) value;
     }
 
     public boolean getBoolean() {
         SettingsEnum.loadSettings();
-        if (this != DEBUG_BOOLEAN)
-            LogHelper.debug(SettingsEnum.class, "Variable " + name() + " is " + value);
         return (Boolean) value;
     }
 
     public Long getLong() {
         SettingsEnum.loadSettings();
         if (value == null) value = -1L;
-        LogHelper.debug(SettingsEnum.class, "Variable " + name() + " is " + value);
         return (Long) value;
     }
 
     public Float getFloat() {
         SettingsEnum.loadSettings();
         if (value == null) value = -1.0f;
-        LogHelper.debug(SettingsEnum.class, "Variable " + name() + " is " + value);
         return (Float) value;
     }
 

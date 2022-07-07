@@ -11,7 +11,7 @@ public class LogHelper {
 
     public static void debug(Class clazz, String message) {
         if (SettingsEnum.DEBUG_BOOLEAN.getBoolean()) {
-            Log.e("ReVanced: " + (clazz != null ? clazz.getSimpleName() : ""), message);
+            Log.d("ReVanced: " + (clazz != null ? clazz.getSimpleName() : ""), message);
         }
     }
 
