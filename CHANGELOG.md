@@ -1,3 +1,10 @@
+# [2.10.0](https://github.com/revanced/revanced-patches/compare/v2.9.4...v2.10.0) (2022-07-07)
+
+
+### Features
+
+* implement `wide-searchbar` Patch ([#130](https://github.com/revanced/revanced-patches/issues/130)) ([332f4d1](https://github.com/revanced/revanced-patches/commit/332f4d12d06316d65db252a280fe1f263e65c3a8))
+
 ## [2.9.4](https://github.com/revanced/revanced-patches/compare/v2.9.3...v2.9.4) (2022-07-06)
 
 
