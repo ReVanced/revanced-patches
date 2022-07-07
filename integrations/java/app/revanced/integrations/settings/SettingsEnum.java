@@ -54,7 +54,7 @@ public enum SettingsEnum {
     CAST_BUTTON_SHOWN_BOOLEAN("revanced_cast_button_enabled", false),
     USE_TABLET_MINIPLAYER_BOOLEAN("revanced_tablet_miniplayer", false),
     CREATE_BUTTON_SHOWN_BOOLEAN("revanced_create_button_enabled", false),
-    USE_NEW_ACTIONBAR_BOOLEAN("revanced_new_actionbar", false),
+    USE_NEW_ACTIONBAR_BOOLEAN("revanced_new_actionbar", true),
     SHORTS_BUTTON_SHOWN_BOOLEAN("revanced_shorts_button_enabled", false),
 
     //Misc. Settings
