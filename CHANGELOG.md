@@ -1,3 +1,10 @@
+## [2.10.2](https://github.com/revanced/revanced-patches/compare/v2.10.1...v2.10.2) (2022-07-08)
+
+
+### Bug Fixes
+
+* trigger release on `build` commits ([be8bd1b](https://github.com/revanced/revanced-patches/commit/be8bd1b2a4b91f9763448661a802a5dc4a6b1d1d))
+
 ## [2.10.1](https://github.com/revanced/revanced-patches/compare/v2.10.0...v2.10.1) (2022-07-08)
 
 
