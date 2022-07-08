@@ -1,3 +1,10 @@
+## [2.10.1](https://github.com/revanced/revanced-patches/compare/v2.10.0...v2.10.1) (2022-07-08)
+
+
+### Bug Fixes
+
+* patch description consistency ([#134](https://github.com/revanced/revanced-patches/issues/134)) ([da5896d](https://github.com/revanced/revanced-patches/commit/da5896dde0a2b2b9ffe65e486402e4ef92ec1ce9))
+
 # [2.10.0](https://github.com/revanced/revanced-patches/compare/v2.9.4...v2.10.0) (2022-07-07)
 
 
