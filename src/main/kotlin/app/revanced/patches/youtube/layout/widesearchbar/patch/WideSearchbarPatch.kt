@@ -14,10 +14,10 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.layout.widesearchbar.annotations.WideSearchbarCompatibility
-import app.revanced.patches.youtube.layout.widesearchbar.fingerprints.methodone.WideSearchbarOneFingerprint
-import app.revanced.patches.youtube.layout.widesearchbar.fingerprints.methodone.WideSearchbarOneParentFingerprint
-import app.revanced.patches.youtube.layout.widesearchbar.fingerprints.methodtwo.WideSearchbarTwoFingerprint
-import app.revanced.patches.youtube.layout.widesearchbar.fingerprints.methodtwo.WideSearchbarTwoParentFingerprint
+import app.revanced.patches.youtube.layout.widesearchbar.fingerprints.WideSearchbarOneFingerprint
+import app.revanced.patches.youtube.layout.widesearchbar.fingerprints.WideSearchbarOneParentFingerprint
+import app.revanced.patches.youtube.layout.widesearchbar.fingerprints.WideSearchbarTwoFingerprint
+import app.revanced.patches.youtube.layout.widesearchbar.fingerprints.WideSearchbarTwoParentFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 
 @Patch(include = false)
@@ -39,7 +39,7 @@ class WideSearchbarPatch : BytecodePatch(
 
         //This should be the method aF in class fbn
         val targetMethodOne =
-            data.toMethodWalker(resultOne!!.method).nextMethod(resultOne!!.patternScanResult!!.endIndex, true).getMethod() as MutableMethod
+            data.toMethodWalker(resultOne!!.method).nextMethod(resultOne.patternScanResult!!.endIndex, true).getMethod() as MutableMethod
 
         //Since both methods have the same smali code, inject instructions using a method.
         addInstructions(targetMethodOne)
@@ -48,7 +48,7 @@ class WideSearchbarPatch : BytecodePatch(
 
         //This should be the method aB in class fbn
         val targetMethodTwo =
-            data.toMethodWalker(resultTwo!!.method).nextMethod(resultTwo!!.patternScanResult!!.startIndex, true).getMethod() as MutableMethod
+            data.toMethodWalker(resultTwo!!.method).nextMethod(resultTwo.patternScanResult!!.startIndex, true).getMethod() as MutableMethod
 
         //Since both methods have the same smali code, inject instructions using a method.
         addInstructions(targetMethodTwo)

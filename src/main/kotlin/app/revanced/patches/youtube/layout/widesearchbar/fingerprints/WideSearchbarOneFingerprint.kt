@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.widesearchbar.fingerprints.methodone
+package app.revanced.patches.youtube.layout.widesearchbar.fingerprints
 
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -7,6 +7,7 @@ import app.revanced.patcher.fingerprint.method.annotation.DirectPatternScanMetho
 import app.revanced.patcher.fingerprint.method.annotation.MatchingMethod
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.youtube.layout.reels.annotations.HideReelsCompatibility
+import app.revanced.patches.youtube.layout.widesearchbar.annotations.WideSearchbarCompatibility
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
@@ -15,7 +16,7 @@ import org.jf.dexlib2.Opcode
     "Ljkg;", "i"
 )
 @DirectPatternScanMethod
-@HideReelsCompatibility
+@WideSearchbarCompatibility
 @Version("0.0.1")
 
 /*

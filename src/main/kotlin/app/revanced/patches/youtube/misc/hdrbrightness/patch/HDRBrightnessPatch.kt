@@ -1,20 +1,17 @@
-package app.revanced.patches.youtube.misc.hdrbrightness.patch;
+package app.revanced.patches.youtube.misc.hdrbrightness.patch
 
-import app.revanced.patcher.annotation.Description;
-import app.revanced.patcher.annotation.Name;
-import app.revanced.patcher.annotation.Version;
+import app.revanced.patcher.annotation.Description
+import app.revanced.patcher.annotation.Name
+import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.impl.BytecodeData
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.removeInstruction
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.Patch;
-import app.revanced.patcher.patch.impl.BytecodePatch;
-import app.revanced.patcher.util.smali.toBuilderInstruction
-import app.revanced.patches.youtube.misc.hdrbrightness.annotations.HDRBrightnessCompatibility;
+import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patcher.patch.impl.BytecodePatch
+import app.revanced.patches.youtube.misc.hdrbrightness.annotations.HDRBrightnessCompatibility
 import app.revanced.patches.youtube.misc.hdrbrightness.fingerprints.HDRBrightnessFingerprint
-import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -35,7 +32,7 @@ class HDRBrightnessPatch : BytecodePatch(
 
         val method = result.mutableMethod
 
-        //Get the index here so we know where to inject our code to override -1.0f
+        //Get the index here, so we know where to inject our code to override -1.0f
         val index = method.implementation!!.instructions.indexOfFirst { ((it as? NarrowLiteralInstruction)?.narrowLiteral == (-1.0f).toRawBits()) }
         val register = (method.implementation!!.instructions.get(index) as OneRegisterInstruction).registerA
 
