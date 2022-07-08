@@ -20,7 +20,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch
 @Name("upgrade-button-remover")
-@Description("Remove the upgrade tab from the pivot bar in YouTube music.")
+@Description("Removes the upgrade tab from the pivot bar in YouTube music.")
 @RemoveUpgradeButtonCompatibility
 @Version("0.0.1")
 class RemoveUpgradeButtonPatch : BytecodePatch(

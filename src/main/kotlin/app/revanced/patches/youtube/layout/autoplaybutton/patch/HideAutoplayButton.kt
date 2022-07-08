@@ -20,7 +20,7 @@ import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 @Patch
 @Dependencies(dependencies = [ResourceIdMappingProviderResourcePatch::class])
 @Name("hide-autoplay-button")
-@Description("Disable the autoplay button.")
+@Description("Disables the autoplay button.")
 @AutoplayButtonCompatibility
 @Version("0.0.1")
 class HideAutoplayButton : BytecodePatch(

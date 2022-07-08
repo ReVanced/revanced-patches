@@ -13,7 +13,7 @@ import org.w3c.dom.Element
 
 @Patch(false)
 @Name("enable-debugging")
-@Description("Enable app debugging by patching the manifest file")
+@Description("Enables app debugging by patching the manifest file.")
 @EnableDebuggingCompatibility
 @Version("0.0.1")
 class EnableDebuggingPatch : ResourcePatch() {

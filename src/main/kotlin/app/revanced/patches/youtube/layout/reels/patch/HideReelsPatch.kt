@@ -13,7 +13,7 @@ import app.revanced.patches.youtube.layout.reels.fingerprints.HideReelsFingerpri
 
 //@Patch TODO: this is currently in the general-bytecode-ads patch due to the integrations having a preference for including reels or not. Move it here.
 @Name("hide-reels")
-@Description("Hide reels on the page.")
+@Description("Hides reels on the page.")
 @HideReelsCompatibility
 @Version("0.0.1")
 class HideReelsPatch : BytecodePatch(

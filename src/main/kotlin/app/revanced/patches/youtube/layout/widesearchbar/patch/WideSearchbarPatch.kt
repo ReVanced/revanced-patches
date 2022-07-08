@@ -23,7 +23,7 @@ import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 @Patch(include = false)
 @Dependencies(dependencies = [IntegrationsPatch::class])
 @Name("enable-wide-searchbar")
-@Description("Replaces the search-icon with a wide searchbar. This will hide the youtube logo when this is active.")
+@Description("Replaces the search icon with a wide search bar. This will hide the YouTube logo when active.")
 @WideSearchbarCompatibility
 @Version("0.0.1")
 class WideSearchbarPatch : BytecodePatch(

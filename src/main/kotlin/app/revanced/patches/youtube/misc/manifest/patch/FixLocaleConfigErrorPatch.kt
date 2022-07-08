@@ -11,7 +11,7 @@ import app.revanced.patches.youtube.misc.manifest.annotations.FixLocaleConfigErr
 import org.w3c.dom.Element
 
 @Name("locale-config-fix")
-@Description("Fix an error when building the resources by patching the manifest file.")
+@Description("Fixes an error when building the resources by patching the manifest file.")
 @FixLocaleConfigErrorCompatibility
 @Version("0.0.1")
 class FixLocaleConfigErrorPatch : ResourcePatch() {

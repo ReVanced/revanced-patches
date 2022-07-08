@@ -21,7 +21,7 @@ import org.jf.dexlib2.immutable.reference.ImmutableMethodReference
 
 @Patch
 @Name("fenster-swipe-controls")
-@Description("volume and brightness swipe controls")
+@Description("Adds volume and brightness swipe controls.")
 @FensterCompatibility
 @Version("0.0.1")
 @Dependencies(dependencies = [IntegrationsPatch::class])

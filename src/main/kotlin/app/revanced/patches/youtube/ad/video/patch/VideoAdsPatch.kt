@@ -19,7 +19,7 @@ import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 @Patch
 @Dependencies(dependencies = [IntegrationsPatch::class])
 @Name("video-ads")
-@Description("Patch to remove ads in the YouTube video player.")
+@Description("Removes ads in the YouTube video player.")
 @VideoAdsCompatibility
 @Version("0.0.1")
 class VideoAdsPatch : BytecodePatch(
