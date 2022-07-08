@@ -1,3 +1,5 @@
+import org.apache.tools.ant.taskdefs.ExecTask
+
 plugins {
     kotlin("jvm") version "1.7.0"
 }
@@ -49,12 +51,19 @@ tasks {
             }
         }
     }
+    register<JavaExec>("generateReadme") {
+        description = "Generate README.md"
+        dependsOn(build)
+
+        classpath = sourceSets["main"].runtimeClasspath
+        mainClass.set("app.revanced.patches.meta.ReadmeGenerator")
+    }
     // Dummy task to fix the Gradle semantic-release plugin.
     // Remove this if you forked it to support building only.
     // Tracking issue: https://github.com/KengoTODA/gradle-semantic-release-plugin/issues/435
     register<DefaultTask>("publish") {
         group = "publish"
         description = "Dummy task"
-        dependsOn(named("generateDex"))
+        dependsOn(named("generateDex"), named("generateReadme"))
     }
 }

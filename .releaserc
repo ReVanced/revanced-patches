@@ -15,6 +15,7 @@
       "@semantic-release/git",
       {
         "assets": [
+          "README.md",
           "CHANGELOG.md",
           "gradle.properties"
         ]
