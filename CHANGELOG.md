@@ -1,3 +1,10 @@
+# [2.11.0](https://github.com/revanced/revanced-patches/compare/v2.10.2...v2.11.0) (2022-07-09)
+
+
+### Features
+
+* `autorepeat-by-default` patch ([#106](https://github.com/revanced/revanced-patches/issues/106)) ([e0ac9f3](https://github.com/revanced/revanced-patches/commit/e0ac9f385fc360f4dd2451e26676633120356c10))
+
 ## [2.10.2](https://github.com/revanced/revanced-patches/compare/v2.10.1...v2.10.2) (2022-07-08)
 
 
