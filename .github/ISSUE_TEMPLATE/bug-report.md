@@ -3,7 +3,6 @@ name: Bug report
 about: Create a bug report on patches
 title: 'problem: `some-patch`'
 labels: bug
-assignees: TheJeterLP, oSumAtrIX, Sculas
 
 ---
 
