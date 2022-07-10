@@ -3,7 +3,6 @@ name: Feature request
 about: Suggest a change to some patch. Do not submit suggestions for patches here.
 title: 'feat: some feature'
 labels: feature-request
-assignees: TheJeterLP, oSumAtrIX, Sculas
 
 ---
 
