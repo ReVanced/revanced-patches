@@ -1,3 +1,12 @@
+## [2.12.2](https://github.com/revanced/revanced-patches/compare/v2.12.1...v2.12.2) (2022-07-10)
+
+
+### Bug Fixes
+
+* display codename for patch names ([10c53f7](https://github.com/revanced/revanced-patches/commit/10c53f720df3e70b9d59e8bc3219d56b996f03db))
+* incorrect package name in gradle task ([152b2c9](https://github.com/revanced/revanced-patches/commit/152b2c90cf102170648fcc168da10f46743bdc63))
+* invalid regex ([26bf1d8](https://github.com/revanced/revanced-patches/commit/26bf1d818f953abc061126d8b91f17cd9008ba1d))
+
 ## [2.12.1](https://github.com/revanced/revanced-patches/compare/v2.12.0...v2.12.1) (2022-07-10)
 
 # [2.12.0](https://github.com/revanced/revanced-patches/compare/v2.11.0...v2.12.0) (2022-07-10)
