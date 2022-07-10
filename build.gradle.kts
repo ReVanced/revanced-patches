@@ -54,7 +54,7 @@ tasks {
         dependsOn(build)
 
         classpath = sourceSets["main"].runtimeClasspath
-        mainClass.set("app.revanced.patches.meta.ReadmeGenerator")
+        mainClass.set("app.revanced.patches.meta.readme.Generator")
     }
     // Dummy task to fix the Gradle semantic-release plugin.
     // Remove this if you forked it to support building only.
