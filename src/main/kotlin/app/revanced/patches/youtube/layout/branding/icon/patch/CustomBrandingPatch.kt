@@ -19,7 +19,7 @@ import java.nio.file.Files
     dependencies = [FixLocaleConfigErrorPatch::class]
 )
 @Name("custom-branding")
-@Description("Change the branding of YouTube.")
+@Description("Changes the branding of YouTube.")
 @CustomBrandingCompatibility
 @Version("0.0.1")
 class CustomBrandingPatch : ResourcePatch() {

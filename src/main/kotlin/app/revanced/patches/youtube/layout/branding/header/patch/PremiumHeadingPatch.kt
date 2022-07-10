@@ -21,7 +21,7 @@ import kotlin.io.path.exists
     dependencies = [FixLocaleConfigErrorPatch::class]
 )
 @Name("premium-heading")
-@Description("Show the premium branding on the the YouTube home screen.")
+@Description("Shows premium branding on the YouTube home screen.")
 @PremiumHeadingCompatibility
 @Version("0.0.1")
 class PremiumHeadingPatch : ResourcePatch() {
