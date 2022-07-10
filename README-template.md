@@ -1,7 +1,8 @@
 # ReVanced Patches
+
 🧩 Official patches by ReVanced
 
-# Patch list
+# List of available patches
 
 | 💊 Patch | 📜 Description | 🎯 Target Package | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|:-----------------:|
