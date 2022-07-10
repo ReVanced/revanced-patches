@@ -23,7 +23,7 @@ class Generator {
                 val compatiblePackage = patch.compatiblePackages?.first()
                 val latestVersion = compatiblePackage?.versions?.maxByOrNull { it.replace(".", "").toInt() } ?: "all"
 
-                patches.appendLine("| `$patchName` | ${patch.description} | `${compatiblePackage?.name}`| $latestVersion |")
+                patches.appendLine("| `$patchName` | ${patch.description} | `${compatiblePackage?.name}` | $latestVersion |")
             }
 
             val readMeTemplateFile = File("README-template.md")
