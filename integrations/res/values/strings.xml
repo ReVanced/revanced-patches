@@ -25,9 +25,9 @@
     <string name="revanced_default_codec_title">Default codec</string>
     <string name="revanced_discord_summary">Tap to join ReVanced on Discord</string>
     <string name="revanced_discord_title">Discord server</string>
-    <string name="revanced_hdr_full_brightness_summary_off">Video brightness will follow your device\'s brightness on HDR landscape videos</string>
-    <string name="revanced_hdr_full_brightness_summary_on">Video brightness is set to max on HDR landscape videos</string>
-    <string name="revanced_hdr_full_brightness_title">HDR max brightness</string>
+    <string name="revanced_hdr_full_brightness_summary_on">Video brightness will follow your device\'s brightness on HDR landscape videos</string>
+    <string name="revanced_hdr_full_brightness_summary_off">Video brightness is set to max on HDR landscape videos</string>
+    <string name="revanced_hdr_full_brightness_title">Override HDR Video Brightness</string>
     <string name="revanced_info_cards_summary_off">Info cards are hidden</string>
     <string name="revanced_info_cards_summary_on">Info cards are shown</string>
     <string name="revanced_info_cards_title">Info cards</string>

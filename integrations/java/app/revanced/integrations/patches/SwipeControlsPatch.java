@@ -2,7 +2,10 @@ package app.revanced.integrations.patches;
 
 import android.app.Activity;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import java.lang.ref.WeakReference;
 
 import app.revanced.integrations.swipecontrols.views.SwipeControlsHostLayout;
 
@@ -14,6 +17,14 @@ import app.revanced.integrations.swipecontrols.views.SwipeControlsHostLayout;
  */
 @SuppressWarnings("unused")
 public class SwipeControlsPatch {
+
+    /**
+     * the currently active swipe controls host.
+     * the reference may be null!
+     */
+    @NonNull
+    public static WeakReference<SwipeControlsHostLayout> CURRENT_HOST = new WeakReference<>(null);
+
     /**
      * Hook into the main activity lifecycle
      * (using onStart here, but really anything up until onResume should be fine)
@@ -24,7 +35,8 @@ public class SwipeControlsPatch {
     public static void WatchWhileActivity_onStartHookEX(@Nullable Object thisRef) {
         if (thisRef == null) return;
         if (thisRef instanceof Activity) {
-            SwipeControlsHostLayout.attachTo((Activity) thisRef, false);
+            SwipeControlsHostLayout swipeControlsHost = SwipeControlsHostLayout.attachTo((Activity) thisRef, false);
+            CURRENT_HOST = new WeakReference<>(swipeControlsHost);
         }
     }
 }

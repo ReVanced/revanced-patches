@@ -34,10 +34,16 @@ class ScreenBrightnessController(
     }
 
     /**
+     * is the screen brightness set to device- default?
+     */
+    val isDefaultBrightness
+        get() = (rawScreenBrightness == WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_NONE)
+
+    /**
      * save the current screen brightness, to be brought back using [restore]
      */
     fun save() {
-        if(savedScreenBrightness == null) {
+        if (savedScreenBrightness == null) {
             savedScreenBrightness = rawScreenBrightness
         }
     }
@@ -55,9 +61,9 @@ class ScreenBrightnessController(
     /**
      * wrapper for the raw screen brightness in [WindowManager.LayoutParams.screenBrightness]
      */
-    private var rawScreenBrightness: Float
+    var rawScreenBrightness: Float
         get() = host.window.attributes.screenBrightness
-        set(value) {
+        private set(value) {
             val attr = host.window.attributes
             attr.screenBrightness = value
             host.window.attributes = attr

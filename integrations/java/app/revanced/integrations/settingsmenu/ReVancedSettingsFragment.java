@@ -159,8 +159,8 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
                 editTextPreference5.setSummary(editTextPreference5.getText());
                 SettingsEnum.MAX_PLAYBACK_BUFFER_AFTER_REBUFFER_INTEGER.setValue(Integer.parseInt(editTextPreference5.getText()));
             }
-        } else if (str.equals(SettingsEnum.USE_HDR_BRIGHTNESS_BOOLEAN.getPath())) {
-            SettingsEnum.USE_HDR_BRIGHTNESS_BOOLEAN.setValue(((SwitchPreference) miscsPreferenceScreen.findPreference(str)).isChecked());
+        } else if (str.equals(SettingsEnum.USE_HDR_AUTO_BRIGHTNESS_BOOLEAN.getPath())) {
+            SettingsEnum.USE_HDR_AUTO_BRIGHTNESS_BOOLEAN.setValue(((SwitchPreference) miscsPreferenceScreen.findPreference(str)).isChecked());
         } else if (str.equals(SettingsEnum.ENABLE_SWIPE_BRIGHTNESS_BOOLEAN.getPath())) {
             SettingsEnum.ENABLE_SWIPE_BRIGHTNESS_BOOLEAN.setValue(((SwitchPreference) xSwipeControlPreferenceScreen.findPreference(str)).isChecked());
         } else if (str.equals(SettingsEnum.ENABLE_SWIPE_VOLUME_BOOLEAN.getPath())) {

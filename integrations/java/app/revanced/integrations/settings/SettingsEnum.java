@@ -60,7 +60,7 @@ public enum SettingsEnum {
     //Misc. Settings
     AUTOREPEAT_BUTTON_SHOWN_BOOLEAN("revanced_pref_auto_repeat_button", false),
     PREFERRED_AUTO_REPEAT_BOOLEAN("revanced_pref_auto_repeat", true),
-    USE_HDR_BRIGHTNESS_BOOLEAN("revanced_pref_hdr_autobrightness", true),
+    USE_HDR_AUTO_BRIGHTNESS_BOOLEAN("revanced_pref_hdr_autobrightness", true),
     TAP_SEEKING_ENABLED_BOOLEAN("revanced_enable_tap_seeking", true),
 
     //Swipe controls
