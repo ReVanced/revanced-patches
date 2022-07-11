@@ -66,6 +66,12 @@ public enum SettingsEnum {
     //Swipe controls
     ENABLE_SWIPE_BRIGHTNESS_BOOLEAN("revanced_enable_swipe_brightness", true),
     ENABLE_SWIPE_VOLUME_BOOLEAN("revanced_enable_swipe_volume", true),
+    ENABLE_PRESS_TO_SWIPE_BOOLEAN("revanced_enable_press_to_swipe", false),
+    ENABLE_SWIPE_HAPTIC_FEEDBACK_BOOLEAN("revanced_enable_swipe_haptic_feedback", true),
+    SWIPE_OVERLAY_TIMEOUT_LONG("revanced_swipe_overlay_timeout", 500L),
+    SWIPE_OVERLAY_TEXT_SIZE_FLOAT("revanced_swipe_overlay_text_size", 22f),
+    SWIPE_OVERLAY_BACKGROUND_ALPHA_INTEGER("revanced_swipe_overlay_background_alpha", 127),
+    SWIPE_MAGNITUDE_THRESHOLD_FLOAT("revanced_swipe_magnitude_threshold", 30f),
 
     //Buffer Settings
     MAX_BUFFER_INTEGER("revanced_pref_max_buffer_ms", 120000),

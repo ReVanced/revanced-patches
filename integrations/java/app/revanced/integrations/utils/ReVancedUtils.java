@@ -51,6 +51,16 @@ public class ReVancedUtils {
         }
     }
 
+    public static Integer getResourceIdByName(Context context, String type, String name) {
+        try {
+            Resources res = context.getResources();
+            return res.getIdentifier(name, type, context.getPackageName());
+        } catch (Throwable exception) {
+            LogHelper.printException(ReVancedUtils.class, "Resource not found.", exception);
+            return null;
+        }
+    }
+
     public static void setPlayerType(PlayerType type) {
         env = type;
     }

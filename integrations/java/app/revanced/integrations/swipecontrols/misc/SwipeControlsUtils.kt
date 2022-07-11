@@ -1,4 +1,4 @@
-package app.revanced.integrations.fenster.util
+package app.revanced.integrations.swipecontrols.misc
 
 import android.content.Context
 import android.util.TypedValue
