@@ -1,3 +1,10 @@
+## [2.12.3](https://github.com/revanced/revanced-patches/compare/v2.12.2...v2.12.3) (2022-07-11)
+
+
+### Bug Fixes
+
+* listing of wrong fingerprint class ([#147](https://github.com/revanced/revanced-patches/issues/147)) ([95c2bbd](https://github.com/revanced/revanced-patches/commit/95c2bbdd1deb1d76f1177b48286fa6a3bc9f7663))
+
 ## [2.12.2](https://github.com/revanced/revanced-patches/compare/v2.12.1...v2.12.2) (2022-07-10)
 
 
