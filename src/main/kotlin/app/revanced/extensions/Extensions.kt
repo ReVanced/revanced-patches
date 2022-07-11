@@ -1,6 +1,6 @@
 package app.revanced.extensions
 
-import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.data.impl.ResourceData
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -14,6 +14,8 @@ import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
 import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
 import org.jf.dexlib2.immutable.reference.ImmutableMethodReference
 import org.w3c.dom.Node
+import java.io.OutputStream
+import java.nio.file.Files
 
 internal fun MutableMethodImplementation.injectHideCall(
     index: Int,
@@ -100,37 +102,65 @@ internal fun MutableMethod.injectConsumableEventHook(hookRef: ImmutableMethodRef
 }
 
 /**
- * Insert instructions into a named method
+ * inject resources into the patched app
  *
- * @param targetClass the name of the class of which the method is a member
- * @param targetMethod the name of the method to insert into
- * @param index index to insert the instructions at. If the index is negative, it is used as an offset to the last method (so -1 inserts at the end of the method)
- * @param instructions the smali instructions to insert (they'll be compiled by MutableMethod.addInstructions)
+ * @param classLoader classloader to use for loading the resources
+ * @param patchDirectoryPath path to the files. this will be the directory you created under the 'resources' source folder
+ * @param resourceType the resource type, for example 'drawable'. this has to match both the source and the target
+ * @param resourceFileNames names of all resources of this type to inject
  */
-internal fun BytecodeData.injectIntoNamedMethod(
-    targetClass: String,
-    targetMethod: String,
-    index: Int,
-    instructions: String
+fun ResourceData.injectResources(
+    classLoader: ClassLoader,
+    patchDirectoryPath: String,
+    resourceType: String,
+    resourceFileNames: List<String>
 ) {
-    var injections = 0
-    this.classes.filter { it.type.endsWith("$targetClass;") }.forEach { classDef ->
-        this.proxy(classDef).resolve().methods.filter { it.name == targetMethod }.forEach { methodDef ->
-            // if index is negative, interpret as an offset from the back
-            var insertIndex = index
-            if (insertIndex < 0) {
-                insertIndex += methodDef.implementation!!.instructions.size
-            }
+    resourceFileNames.forEach { name ->
+        val relativePath = "$resourceType/$name"
+        val sourceRes = classLoader.getResourceAsStream("$patchDirectoryPath/$relativePath")
+            ?: throw PatchResultError("could not open resource '$patchDirectoryPath/$relativePath'")
 
-            // insert instructions
-            methodDef.addInstructions(insertIndex, instructions)
-            injections++
-        }
+        Files.copy(
+            sourceRes,
+            this["res"].resolve(relativePath).toPath()
+        )
     }
+}
 
-    // fail if nothing was injected
-    if (injections <= 0) {
-        throw PatchResultError("failed to inject into $targetClass.$targetMethod: no targets were found")
+/**
+ * inject strings into the patched app
+ *
+ * @param classLoader classloader to use for loading the resources
+ * @param patchDirectoryPath path to the files. this will be the directory you created under the 'resources' source folder
+ * @param languageIdentifier ISO 639-2 two- letter language code identifier (aka the one android uses for values directory)
+ */
+fun ResourceData.injectStrings(
+    classLoader: ClassLoader,
+    patchDirectoryPath: String,
+    languageIdentifier: String? = null,
+) {
+    val relativePath =
+        if (languageIdentifier.isNullOrBlank()) "values/strings.xml" else "values/strings-$languageIdentifier.xml"
+
+    // open source strings.xml
+    val sourceInputStream = classLoader.getResourceAsStream("$patchDirectoryPath/$relativePath")
+        ?: throw PatchResultError("failed to open '$patchDirectoryPath/$relativePath'")
+    xmlEditor[sourceInputStream, OutputStream.nullOutputStream()].use { sourceStringsXml ->
+        val strings = sourceStringsXml.file.getElementsByTagName("resources").item(0).childNodes
+
+        // open target strings.xml
+        xmlEditor["res/$relativePath"].use { targetStringsXml ->
+            val targetFile = targetStringsXml.file
+            val targetRootNode = targetFile.getElementsByTagName("resources").item(0)
+
+            // process all children strings in the source
+            for (i in 0 until strings.length) {
+                // clone the node from source to target
+                val node = strings.item(i).cloneNode(true)
+                targetFile.adoptNode(node)
+                targetRootNode.appendChild(node)
+            }
+        }
     }
 }
 
