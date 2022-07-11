@@ -22,7 +22,7 @@ import app.revanced.patches.music.audio.exclusiveaudio.fingerprints.ExclusiveAud
 @Version("0.0.1")
 class ExclusiveAudioPatch : BytecodePatch(
     listOf(
-        ExclusiveAudioFingerprint
+        AudioOnlyEnablerFingerprint
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
