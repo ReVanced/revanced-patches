@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.autorepeat.annotations
+package app.revanced.patches.youtube.misc.autorepeat.annotations
 
 import app.revanced.patcher.annotation.Compatibility
 import app.revanced.patcher.annotation.Package

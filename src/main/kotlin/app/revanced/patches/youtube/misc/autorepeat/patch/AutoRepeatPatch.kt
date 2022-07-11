@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.autorepeat.patch
+package app.revanced.patches.youtube.misc.autorepeat.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
@@ -13,9 +13,9 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Dependencies
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
-import app.revanced.patches.youtube.layout.autorepeat.annotations.AutoRepeatCompatibility
-import app.revanced.patches.youtube.layout.autorepeat.fingerprints.AutoRepeatFingerprint
-import app.revanced.patches.youtube.layout.autorepeat.fingerprints.AutoRepeatParentFingerprint
+import app.revanced.patches.youtube.misc.autorepeat.annotations.AutoRepeatCompatibility
+import app.revanced.patches.youtube.misc.autorepeat.fingerprints.AutoRepeatFingerprint
+import app.revanced.patches.youtube.misc.autorepeat.fingerprints.AutoRepeatParentFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 
 @Patch(include = false)
@@ -50,8 +50,7 @@ class AutoRepeatPatch : BytecodePatch(
             invoke-static {}, Lapp/revanced/integrations/patches/AutoRepeatPatch;->shouldAutoRepeat()Z
             move-result v0
             if-eqz v0, :noautorepeat
-            const/4 v0, 0x0
-            invoke-virtual {}, $methodToCall
+            invoke-virtual {p0}, $methodToCall
             :noautorepeat
             return-void
         """
