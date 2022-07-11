@@ -1,3 +1,10 @@
+# [2.13.0](https://github.com/revanced/revanced-patches/compare/v2.12.4...v2.13.0) (2022-07-11)
+
+
+### Features
+
+* `swipe-controls` rewrite ([#131](https://github.com/revanced/revanced-patches/issues/131)) ([b7dba09](https://github.com/revanced/revanced-patches/commit/b7dba09927ba15a9eacb06dcb4bf1f268560c96e))
+
 ## [2.12.4](https://github.com/revanced/revanced-patches/compare/v2.12.3...v2.12.4) (2022-07-11)
 
 
