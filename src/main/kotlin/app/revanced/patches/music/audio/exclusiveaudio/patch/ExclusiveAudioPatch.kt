@@ -26,9 +26,7 @@ class ExclusiveAudioPatch : BytecodePatch(
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        ExclusiveAudioFingerprint.resolve(data, AudioOnlyEnablerFingerprint.result!!.classDef)
-
-        val method = ExclusiveAudioFingerprint.result!!.mutableMethod
+        val method = AudioOnlyEnablerFingerprint.result!!.mutableMethod
         method.replaceInstruction(method.implementation!!.instructions.count() - 1, "const/4 v0, 0x1")
         method.addInstruction("return v0")
 
