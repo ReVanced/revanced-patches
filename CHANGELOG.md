@@ -1,3 +1,10 @@
+## [2.13.2](https://github.com/revanced/revanced-patches/compare/v2.13.1...v2.13.2) (2022-07-11)
+
+
+### Bug Fixes
+
+* `hrd-auto-brightness` ([#152](https://github.com/revanced/revanced-patches/issues/152)) ([5f2e9ba](https://github.com/revanced/revanced-patches/commit/5f2e9ba30b7432be04bdc9f9f7ec7ac75fdc4b34))
+
 ## [2.13.1](https://github.com/revanced/revanced-patches/compare/v2.13.0...v2.13.1) (2022-07-11)
 
 
