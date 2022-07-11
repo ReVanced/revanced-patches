@@ -1,3 +1,5 @@
+package app.revanced.meta.readme
+
 data class SemanticVersion(val major: Int, val minor: Int, val patch: Int) {
     companion object {
         fun fromString(version: String): SemanticVersion {

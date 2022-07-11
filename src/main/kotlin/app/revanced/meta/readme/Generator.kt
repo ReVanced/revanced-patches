@@ -1,7 +1,5 @@
 package app.revanced.meta.readme
 
-import SemanticVersion
-import SemanticVersionComparator
 import app.revanced.patcher.extensions.PatchExtensions.compatiblePackages
 import app.revanced.patcher.extensions.PatchExtensions.description
 import app.revanced.patcher.extensions.PatchExtensions.patchName
@@ -24,7 +22,9 @@ class Generator {
                 val patchName = patch.patchName
                 val compatiblePackage = patch.compatiblePackages?.first()
                 val latestVersion =
-                    compatiblePackage?.versions?.map { SemanticVersion.fromString(it) }?.maxWithOrNull(SemanticVersionComparator) ?: "all"
+                    compatiblePackage?.versions?.map { SemanticVersion.fromString(it) }?.maxWithOrNull(
+                        SemanticVersionComparator
+                    ) ?: "all"
 
                 patches.appendLine("| `$patchName` | ${patch.description} | `${compatiblePackage?.name}` | $latestVersion |")
             }
