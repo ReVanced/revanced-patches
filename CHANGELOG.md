@@ -1,3 +1,10 @@
+## [2.13.1](https://github.com/revanced/revanced-patches/compare/v2.13.0...v2.13.1) (2022-07-11)
+
+
+### Bug Fixes
+
+* bump youtube version for swipe-controls patch ([ff207a5](https://github.com/revanced/revanced-patches/commit/ff207a57af7d3c15a8127f4465e97da23878b0d6))
+
 # [2.13.0](https://github.com/revanced/revanced-patches/compare/v2.12.4...v2.13.0) (2022-07-11)
 
 

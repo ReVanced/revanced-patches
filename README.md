@@ -6,7 +6,7 @@
 
 | 💊 Patch | 📜 Description | 🎯 Target Package | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|:-----------------:|
-| `swipe-controls` | Adds volume and brightness swipe controls. | `com.google.android.youtube` | 17.25.34 |
+| `swipe-controls` | Adds volume and brightness swipe controls. | `com.google.android.youtube` | 17.26.35 |
 | `seekbar-tapping` | Enables tapping on the seekbar of the YouTube player. | `com.google.android.youtube` | 17.26.35 |
 | `general-ads` | Removes general ads in bytecode. | `com.google.android.youtube` | 17.26.35 |
 | `video-ads` | Removes ads in the YouTube video player. | `com.google.android.youtube` | 17.26.35 |
