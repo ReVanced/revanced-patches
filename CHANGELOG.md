@@ -1,3 +1,10 @@
+## [2.13.3](https://github.com/revanced/revanced-patches/compare/v2.13.2...v2.13.3) (2022-07-11)
+
+
+### Bug Fixes
+
+* `exclusive-audio-playback` patch ([#153](https://github.com/revanced/revanced-patches/issues/153)) ([9beff95](https://github.com/revanced/revanced-patches/commit/9beff9567f1586e5c58690c1f1d2f7f204025ab7))
+
 ## [2.13.2](https://github.com/revanced/revanced-patches/compare/v2.13.1...v2.13.2) (2022-07-11)
 
 
