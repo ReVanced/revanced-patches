@@ -11,7 +11,6 @@
 | `general-ads` | Removes general ads in bytecode. | `com.google.android.youtube` | 17.26.35 |
 | `video-ads` | Removes ads in the YouTube video player. | `com.google.android.youtube` | 17.26.35 |
 | `hide-infocard-suggestions` | Hides infocards in videos. | `com.google.android.youtube` | 17.26.35 |
-| `autorepeat-by-default` | Enables auto repeating of videos by default. | `com.google.android.youtube` | 17.26.35 |
 | `custom-branding` | Changes the branding of YouTube. | `com.google.android.youtube` | all |
 | `premium-heading` | Shows premium branding on the YouTube home screen. | `com.google.android.youtube` | all |
 | `minimized-playback` | Enables minimized and background playback. | `com.google.android.youtube` | 17.26.35 |
@@ -25,6 +24,7 @@
 | `hide-cast-button` | Hides the cast button. | `com.google.android.youtube` | all |
 | `hide-watermark` | Hides the creator's watermark on videos. | `com.google.android.youtube` | 17.26.35 |
 | `microg-support` | Allows YouTube ReVanced to run without root and under a different package name. | `com.google.android.youtube` | 17.26.35 |
+| `autorepeat-by-default` | Enables auto repeating of videos by default. | `com.google.android.youtube` | 17.26.35 |
 | `custom-playback-speed` | Allows to change the default playback speed options. | `com.google.android.youtube` | 17.26.35 |
 | `hdr-max-brightness` | Sets brightness to max for HDR videos in fullscreen mode. | `com.google.android.youtube` | 17.26.35 |
 | `enable-debugging` | Enables app debugging by patching the manifest file. | `com.google.android.youtube` | all |
