@@ -8,41 +8,49 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.Dependencies
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.misc.hdrbrightness.annotations.HDRBrightnessCompatibility
-import app.revanced.patches.youtube.misc.hdrbrightness.fingerprints.HDRBrightnessFingerprint
-import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import app.revanced.patches.youtube.misc.hdrbrightness.fingerprints.HDRBrightnessFingerprintXXZ
+import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
+import org.jf.dexlib2.iface.instruction.ReferenceInstruction
+import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
+import org.jf.dexlib2.iface.reference.FieldReference
 
-@Patch
-@Name("hdr-max-brightness")
-@Description("Sets brightness to max for HDR videos in fullscreen mode.")
+@Patch(false)
+@Name("hdr-auto-brightness")
+@Description("Makes the brightness of HDR videos follow the system default.")
 @HDRBrightnessCompatibility
-@Version("0.0.1")
+@Version("0.0.2")
+@Dependencies([IntegrationsPatch::class])
 class HDRBrightnessPatch : BytecodePatch(
     listOf(
-        HDRBrightnessFingerprint
+        HDRBrightnessFingerprintXXZ
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        val result = HDRBrightnessFingerprint.result
+        val method = HDRBrightnessFingerprintXXZ.result?.mutableMethod
             ?: return PatchResultError("HDRBrightnessFingerprint could not resolve the method!")
 
+        method.implementation!!.instructions.filter {
+            ((it as? ReferenceInstruction)?.reference as? FieldReference)?.let { field ->
+                // iput vx, vy, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
+                field.definingClass == "Landroid/view/WindowManager\$LayoutParams;" && field.name == "screenBrightness"
+            } == true
+        }.forEach { instruction ->
+            // inject right before the call that sets 'screenBrightness'
+            val index = method.implementation!!.instructions.indexOf(instruction)
+            val register = (instruction as TwoRegisterInstruction).registerA
 
-        val method = result.mutableMethod
-
-        //Get the index here, so we know where to inject our code to override -1.0f
-        val index = method.implementation!!.instructions.indexOfFirst { ((it as? NarrowLiteralInstruction)?.narrowLiteral == (-1.0f).toRawBits()) }
-        val register = (method.implementation!!.instructions.get(index) as OneRegisterInstruction).registerA
-
-        method.addInstructions(
-            index + 1, """
+            // inject the call to
+            method.addInstructions(
+                index, """
            invoke-static {v$register}, Lapp/revanced/integrations/patches/HDRMaxBrightnessPatch;->getHDRBrightness(F)F
            move-result v$register
         """
-        )
-
+            )
+        }
         return PatchResultSuccess()
     }
 }
