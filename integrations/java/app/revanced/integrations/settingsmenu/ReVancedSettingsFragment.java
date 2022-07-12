@@ -8,7 +8,6 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Process;
 import android.preference.EditTextPreference;
@@ -23,8 +22,8 @@ import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
-import app.revanced.integrations.videoplayer.autorepeat.AutoRepeat;
 import app.revanced.integrations.utils.ScreenSizeHelper;
+import app.revanced.integrations.videoplayer.autorepeat.AutoRepeat;
 import app.revanced.integrations.videoplayer.videourl.Copy;
 import app.revanced.integrations.videoplayer.videourl.CopyWithTimeStamp;
 
@@ -40,9 +39,7 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
     private PreferenceScreen codecPreferenceScreen;
     private Preference codecVP9;
     private PreferenceScreen layoutSettingsPreferenceScreen;
-    private EditTextPreference manufacturerOverride;
     private PreferenceScreen miscsPreferenceScreen;
-    private EditTextPreference modelOverride;
     private SwitchPreference tabletMiniplayer;
     private PreferenceScreen videoAdSettingsPreferenceScreen;
     private PreferenceScreen videoSettingsPreferenceScreen;
@@ -61,26 +58,6 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
     SharedPreferences.OnSharedPreferenceChangeListener listener = (sharedPreferences, str) -> {
         if (str.equals(SettingsEnum.DEBUG_BOOLEAN.getPath())) {
             SettingsEnum.DEBUG_BOOLEAN.setValue(((SwitchPreference) findPreference(str)).isChecked());
-        } else if (str.equals(SettingsEnum.CODEC_OVERRIDE_BOOLEAN.getPath())) {
-            if (((SwitchPreference) codecPreferenceScreen.findPreference(str)).isChecked()) {
-                SettingsEnum.MANUFACTURER_OVERRIDE_STRING.saveValue("samsung");
-                SettingsEnum.MODEL_OVERRIDE_STRING.saveValue("SM-G920F");
-            } else {
-                SettingsEnum.MANUFACTURER_OVERRIDE_STRING.saveValue(null);
-                SettingsEnum.MODEL_OVERRIDE_STRING.saveValue(null);
-            }
-        } else if (str.equals(SettingsEnum.MANUFACTURER_OVERRIDE_STRING.getPath())) {
-            EditTextPreference editTextPreference = (EditTextPreference) codecPreferenceScreen.findPreference(str);
-            if (editTextPreference != null) {
-                editTextPreference.setSummary(editTextPreference.getText());
-                SettingsEnum.MANUFACTURER_OVERRIDE_STRING.setValue(editTextPreference.getText());
-            }
-        } else if (str.equals(SettingsEnum.MODEL_OVERRIDE_STRING.getPath())) {
-            EditTextPreference editTextPreference2 = (EditTextPreference) codecPreferenceScreen.findPreference(str);
-            if (editTextPreference2 != null) {
-                editTextPreference2.setSummary(editTextPreference2.getText());
-                SettingsEnum.MODEL_OVERRIDE_STRING.setValue(editTextPreference2.getText());
-            }
         } else if (str.equals(SettingsEnum.HOME_ADS_SHOWN_BOOLEAN.getPath())) {
             SettingsEnum.HOME_ADS_SHOWN_BOOLEAN.setValue(((SwitchPreference) adsSettingsPreferenceScreen.findPreference(str)).isChecked());
             if (ReVancedUtils.getContext() != null && settingsInitialized) {
@@ -210,16 +187,10 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             this.miscsPreferenceScreen = (PreferenceScreen) getPreferenceScreen().findPreference("misc_screen");
             this.xSwipeControlPreferenceScreen = (PreferenceScreen) getPreferenceScreen().findPreference("xfenster_screen");
             this.vp9Override = (SwitchPreference) this.codecPreferenceScreen.findPreference("revanced_vp9_enabled");
-            this.manufacturerOverride = (EditTextPreference) this.codecPreferenceScreen.findPreference("override_manufacturer");
-            this.modelOverride = (EditTextPreference) this.codecPreferenceScreen.findPreference("override_model");
             this.codecDefault = this.codecPreferenceScreen.findPreference("pref_default_override");
             this.codecVP9 = this.codecPreferenceScreen.findPreference("pref_vp9_override");
             this.tabletMiniplayer = (SwitchPreference) this.layoutSettingsPreferenceScreen.findPreference("tablet_miniplayer");
             AutoRepeatLinks();
-            EditTextPreference editTextPreference = this.manufacturerOverride;
-            editTextPreference.setSummary(editTextPreference.getText());
-            EditTextPreference editTextPreference2 = this.modelOverride;
-            editTextPreference2.setSummary(editTextPreference2.getText());
             final ListPreference listPreference = (ListPreference) this.videoSettingsPreferenceScreen.findPreference("pref_preferred_video_quality_wifi");
             final ListPreference listPreference2 = (ListPreference) this.videoSettingsPreferenceScreen.findPreference("pref_preferred_video_quality_mobile");
             setListPreferenceData(listPreference, true);
@@ -244,12 +215,12 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             Preference findPreference = findPreference("pref_about_field");
 
             this.codecDefault.setOnPreferenceClickListener(preference -> {
-                ReVancedSettingsFragment.this.changeCodec();
+                SettingsEnum.CODEC_OVERRIDE_BOOLEAN.saveValue(false);
                 return false;
             });
 
             this.codecVP9.setOnPreferenceClickListener(preference -> {
-                ReVancedSettingsFragment.this.changeCodec();
+                SettingsEnum.CODEC_OVERRIDE_BOOLEAN.saveValue(true);
                 return false;
             });
 
@@ -316,29 +287,6 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
         LogHelper.debug(ReVancedSettingsFragment.class, "getPackageName: " + PACKAGE_NAME);
 
         return PACKAGE_NAME;
-    }
-
-    private void changeCodec() {
-        String manufacturer = null;
-        String model = null;
-
-        if (SettingsEnum.CODEC_OVERRIDE_BOOLEAN.getBoolean()) {
-            manufacturer = "samsung";
-            model = "SM-G920F";
-        } else {
-            manufacturer = Build.MANUFACTURER;
-            model = Build.MODEL;
-        }
-
-        SettingsEnum.MANUFACTURER_OVERRIDE_STRING.saveValue(manufacturer);
-        SettingsEnum.MODEL_OVERRIDE_STRING.saveValue(model);
-
-        manufacturerOverride.setText(manufacturer);
-        modelOverride.setText(model);
-        EditTextPreference editTextPreference = this.manufacturerOverride;
-        editTextPreference.setSummary(editTextPreference.getText());
-        EditTextPreference editTextPreference2 = this.modelOverride;
-        editTextPreference2.setSummary(editTextPreference2.getText());
     }
 
     private void AutoRepeatLinks() {

@@ -13,8 +13,6 @@ public enum SettingsEnum {
 
     //Codec Override
     CODEC_OVERRIDE_BOOLEAN("revanced_override_codec_enabled", true),
-    MANUFACTURER_OVERRIDE_STRING("revanced_override_codec_manufacturer", null),
-    MODEL_OVERRIDE_STRING("revanced_override_codec_model", null),
 
     //Video Settings
     OLD_STYLE_QUALITY_SETTINGS_BOOLEAN("revanced_use_old_style_quality_settings", true),

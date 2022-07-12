@@ -71,5 +71,22 @@ public class Settings {
         }
         LogHelper.debug("Settings", "setOldLayout: false");
     }
+
+    public static boolean autoCaptions(boolean original) {
+        ReadSettings();
+        if (!settingsInitialized.booleanValue()) {
+            Log.e("XGlobals", "Context is null, returning " + original + "!");
+            return original;
+        }
+        Boolean captions = Boolean.valueOf(original);
+        if (prefAutoCaptions.booleanValue()) {
+            captions = true;
+        }
+        if (debug.booleanValue()) {
+            Log.d("XGlobals", "autoCaptions: " + captions);
+        }
+        return captions.booleanValue();
+    }
+
     */
 }

@@ -10,8 +10,6 @@
     <PreferenceScreen android:title="@string/revanced_codec_override_title" android:key="revanced_override_codec">
         <SwitchPreference android:title="@string/revanced_vp9_title" android:key="revanced_override_codec_enabled" android:defaultValue="true" android:summaryOn="@string/revanced_vp9_summary_on" android:summaryOff="@string/revanced_vp9_summary_off" />
         <Preference android:persistent="false" android:title="@string/revanced_default_codec_title" android:selectable="true" android:key="revanced_override_codec_default" android:summary="@string/revanced_default_codec_summary" />
-        <EditTextPreference android:singleLine="true" android:title="@string/revanced_current_override_manufacturer" android:key="revanced_override_codec_manufacturer" />
-        <EditTextPreference android:singleLine="true" android:title="@string/revanced_current_override_model" android:key="revanced_override_codec_model" />
     </PreferenceScreen>
     <PreferenceScreen android:title="@string/revanced_video_settings_title" android:key="video_settings">
         <SwitchPreference android:title="@string/revanced_old_style_quality_settings_title" android:key="revanced_use_old_style_quality_settings" android:defaultValue="true" android:summaryOn="@string/revanced_old_style_quality_settings_summary_on" android:summaryOff="@string/revanced_old_style_quality_settings_summary_off" />
