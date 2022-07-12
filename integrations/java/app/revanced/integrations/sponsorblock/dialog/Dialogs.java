@@ -13,7 +13,6 @@ import android.os.Build;
 
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.ReVancedUtils;
-import app.revanced.integrations.utils.SharedPrefHelper;
 
 public class Dialogs {
     // Inject call from YT to this

@@ -1,7 +1,6 @@
 package app.revanced.integrations.sponsorblock.player;
 
 import app.revanced.integrations.utils.LogHelper;
-import app.revanced.integrations.ryd.ReturnYouTubeDislikes;
 
 public class VideoInformation {
     public static String currentVideoId;
@@ -34,9 +33,6 @@ public class VideoInformation {
         LogHelper.debug(VideoInformation.class, "setCurrentVideoId - video id updated from " + currentVideoId + " to " + videoId);
 
         currentVideoId = videoId;
-
-        // New video
-        ReturnYouTubeDislikes.newVideoLoaded(videoId);
     }
 
     // Call hook in the YT code when the video ends

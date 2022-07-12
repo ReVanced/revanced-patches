@@ -60,6 +60,7 @@ public class ReturnYouTubeDislikes {
         }
     }
 
+    //Was called in SB->player->VideoInformation->setCurrentVideoId(final String videoId) before, has to be called on its own at the same place now.
     public static void newVideoLoaded(String videoId) {
         LogHelper.debug(ReturnYouTubeDislikes.class, "newVideoLoaded - " + videoId);
 
