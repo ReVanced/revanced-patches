@@ -1,13 +1,12 @@
 package app.revanced.integrations.sponsorblock.requests;
 
 import static android.text.Html.fromHtml;
-import static app.revanced.integrations.utils.ReVancedUtils.runOnMainThread;
 import static app.revanced.integrations.sponsorblock.SponsorBlockUtils.timeWithoutSegments;
 import static app.revanced.integrations.sponsorblock.SponsorBlockUtils.videoHasSegments;
 import static app.revanced.integrations.sponsorblock.StringRef.str;
+import static app.revanced.integrations.utils.ReVancedUtils.runOnMainThread;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
@@ -17,6 +16,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
@@ -200,7 +201,7 @@ public class SBRequester {
 
     public static void runVipCheck() {
         long now = System.currentTimeMillis();
-        if (now < (SettingsEnum.SB_LAST_VIP_CHECK_LONG.getFloat() + TimeUnit.DAYS.toMillis(3))) {
+        if (now < (SettingsEnum.SB_LAST_VIP_CHECK_LONG.getLong() + TimeUnit.DAYS.toMillis(3))) {
             return;
         }
         try {
