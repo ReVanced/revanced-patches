@@ -37,15 +37,23 @@ class OldQualityLayoutPatch : BytecodePatch(
 
         val implementation = result.mutableMethod.implementation!!
 
+        // use this register because it is free
+        val containerRegister = 5
+
         // if useOldStyleQualitySettings == true, jump over all instructions
-        val jmpInstruction = BuilderInstruction21t(
-            Opcode.IF_NEZ, 0, implementation.instructions[result.patternScanResult!!.endIndex].location.labels.first()
+        implementation.addInstruction(
+            4, BuilderInstruction21t(
+                Opcode.IF_NEZ,
+                containerRegister,
+                implementation.instructions[result.patternScanResult!!.endIndex].location.labels.first()
+            )
         )
-        implementation.addInstruction(5, jmpInstruction)
+
+        // insert the new condition
         result.mutableMethod.addInstructions(
             0, """
                 invoke-static { }, Lapp/revanced/integrations/patches/OldStyleQualityPatch;->useOldStyleQualitySettings()Z
-                move-result v0
+                move-result v$containerRegister
             """
         )
 
