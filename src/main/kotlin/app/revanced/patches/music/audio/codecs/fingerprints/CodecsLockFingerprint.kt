@@ -20,8 +20,9 @@ import org.jf.dexlib2.Opcode
 @Version("0.0.1")
 object CodecsLockFingerprint : MethodFingerprint(
     "L", AccessFlags.PUBLIC or AccessFlags.STATIC, listOf("L", "L", "L", "L"), listOf(
-        Opcode.INVOKE_STATIC,
+        Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
+        Opcode.CHECK_CAST,
         Opcode.INVOKE_DIRECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
@@ -29,17 +30,10 @@ object CodecsLockFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
         Opcode.IF_NEZ,
-        Opcode.SGET,
+        Opcode.SGET_OBJECT,
+        Opcode.IGET_OBJECT,
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
-        Opcode.IF_NEZ,
-        Opcode.SGET_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST,
         Opcode.INVOKE_INTERFACE,
         Opcode.INVOKE_DIRECT,
         Opcode.RETURN_OBJECT
