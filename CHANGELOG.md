@@ -1,3 +1,10 @@
+## [2.13.4](https://github.com/revanced/revanced-patches/compare/v2.13.3...v2.13.4) (2022-07-13)
+
+
+### Bug Fixes
+
+* constrain `old-quality-layout` to older version ([add7232](https://github.com/revanced/revanced-patches/commit/add72326199e90f677b450b553b9d88c0bb4c490))
+
 ## [2.13.3](https://github.com/revanced/revanced-patches/compare/v2.13.2...v2.13.3) (2022-07-11)
 
 
