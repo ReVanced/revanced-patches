@@ -1,3 +1,10 @@
+## [2.13.5](https://github.com/revanced/revanced-patches/compare/v2.13.4...v2.13.5) (2022-07-14)
+
+
+### Bug Fixes
+
+* `swipe-controls` with active engagement panel ([#177](https://github.com/revanced/revanced-patches/issues/177)) ([000ec6d](https://github.com/revanced/revanced-patches/commit/000ec6d8f6ecbb910a06ec852564ee9e5f03dcf8))
+
 ## [2.13.4](https://github.com/revanced/revanced-patches/compare/v2.13.3...v2.13.4) (2022-07-13)
 
 
