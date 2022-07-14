@@ -13,6 +13,7 @@ import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.interaction.swipecontrols.annotation.SwipeControlsCompatibility
 import app.revanced.patches.youtube.interaction.swipecontrols.fingerprints.WatchWhileOnStartFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
+import app.revanced.patches.youtube.misc.playeroverlay.patch.PlayerOverlaysHookPatch
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 
 @Patch
@@ -24,6 +25,7 @@ import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
     dependencies = [
         IntegrationsPatch::class,
         PlayerTypeHookPatch::class,
+        PlayerOverlaysHookPatch::class,
         SwipeControlsResourcesPatch::class
     ]
 )
