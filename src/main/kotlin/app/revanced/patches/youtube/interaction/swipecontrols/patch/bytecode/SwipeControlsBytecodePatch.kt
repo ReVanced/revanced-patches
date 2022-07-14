@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.interaction.swipecontrols.patch
+package app.revanced.patches.youtube.interaction.swipecontrols.patch.bytecode
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
@@ -12,6 +12,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.interaction.swipecontrols.annotation.SwipeControlsCompatibility
 import app.revanced.patches.youtube.interaction.swipecontrols.fingerprints.WatchWhileOnStartFingerprint
+import app.revanced.patches.youtube.interaction.swipecontrols.patch.resource.SwipeControlsResourcePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playeroverlay.patch.PlayerOverlaysHookPatch
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
@@ -26,10 +27,10 @@ import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
         IntegrationsPatch::class,
         PlayerTypeHookPatch::class,
         PlayerOverlaysHookPatch::class,
-        SwipeControlsResourcesPatch::class
+        SwipeControlsResourcePatch::class
     ]
 )
-class SwipeControlsPatch : BytecodePatch(
+class SwipeControlsBytecodePatch : BytecodePatch(
     listOf(
         WatchWhileOnStartFingerprint
     )

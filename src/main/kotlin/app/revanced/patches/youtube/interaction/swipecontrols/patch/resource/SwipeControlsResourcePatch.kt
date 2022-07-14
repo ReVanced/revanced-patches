@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.interaction.swipecontrols.patch
+package app.revanced.patches.youtube.interaction.swipecontrols.patch.resource
 
 import app.revanced.extensions.injectResources
 import app.revanced.patcher.annotation.Name
@@ -12,7 +12,7 @@ import app.revanced.patches.youtube.interaction.swipecontrols.annotation.SwipeCo
 @Name("swipe-controls-resource-patch")
 @SwipeControlsCompatibility
 @Version("0.0.1")
-class SwipeControlsResourcesPatch : ResourcePatch() {
+class SwipeControlsResourcePatch : ResourcePatch() {
     override fun execute(data: ResourceData): PatchResult {
         val resourcesDir = "swipecontrols"
 
