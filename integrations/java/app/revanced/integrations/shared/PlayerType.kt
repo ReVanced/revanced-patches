@@ -1,4 +1,6 @@
-package app.revanced.integrations.utils
+package app.revanced.integrations.shared
+
+import app.revanced.integrations.utils.Event
 
 /**
  * WatchWhile player type

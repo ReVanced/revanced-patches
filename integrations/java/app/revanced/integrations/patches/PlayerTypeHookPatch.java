@@ -3,7 +3,7 @@ package app.revanced.integrations.patches;
 import androidx.annotation.Nullable;
 
 import app.revanced.integrations.utils.LogHelper;
-import app.revanced.integrations.utils.PlayerType;
+import app.revanced.integrations.shared.PlayerType;
 
 /**
  * Hook receiver class for 'player-type-hook' patch

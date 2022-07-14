@@ -4,11 +4,11 @@ import android.content.Context
 import android.util.TypedValue
 import android.view.GestureDetector
 import android.view.MotionEvent
-import app.revanced.integrations.swipecontrols.views.SwipeControlsHostLayout
 import app.revanced.integrations.swipecontrols.misc.ScrollDistanceHelper
 import app.revanced.integrations.swipecontrols.misc.applyDimension
 import app.revanced.integrations.swipecontrols.misc.contains
 import app.revanced.integrations.swipecontrols.misc.toPoint
+import app.revanced.integrations.swipecontrols.views.SwipeControlsHostLayout
 import app.revanced.integrations.utils.LogHelper
 import kotlin.math.abs
 import kotlin.math.pow
@@ -98,7 +98,24 @@ open class SwipeGestureController(
             onUp(motionEvent)
         }
 
-        return detector.onTouchEvent(motionEvent) or shouldForceInterceptEvents
+        return if (shouldForceInterceptEvents || inSwipeZone(motionEvent)) {
+            detector.onTouchEvent(motionEvent) or shouldForceInterceptEvents
+        } else false
+    }
+
+    /**
+     * check if provided motion event is in any active swipe zone?
+     *
+     * @param e the event to check
+     * @return is the event in any active swipe zone?
+     */
+    open fun inSwipeZone(e: MotionEvent): Boolean {
+        val inVolumeZone = if (controller.config.enableVolumeControls)
+            (e.toPoint() in controller.zones.volume) else false
+        val inBrightnessZone = if (controller.config.enableBrightnessControl)
+            (e.toPoint() in controller.zones.brightness) else false
+
+        return inVolumeZone || inBrightnessZone
     }
 
     /**
@@ -183,8 +200,8 @@ open class SwipeGestureController(
 
                 // then, process the event
                 when (eFrom.toPoint()) {
-                    in controller.volumeZone -> volumeScroller.add(disY.toDouble())
-                    in controller.brightnessZone -> brightnessScroller.add(disY.toDouble())
+                    in controller.zones.volume -> volumeScroller.add(disY.toDouble())
+                    in controller.zones.brightness -> brightnessScroller.add(disY.toDouble())
                 }
                 return true
             }

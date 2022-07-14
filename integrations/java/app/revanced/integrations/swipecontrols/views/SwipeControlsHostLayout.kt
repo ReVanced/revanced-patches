@@ -7,16 +7,16 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import app.revanced.integrations.shared.PlayerType
 import app.revanced.integrations.swipecontrols.SwipeControlsConfigurationProvider
 import app.revanced.integrations.swipecontrols.controller.AudioVolumeController
 import app.revanced.integrations.swipecontrols.controller.ScreenBrightnessController
+import app.revanced.integrations.swipecontrols.controller.SwipeZonesController
 import app.revanced.integrations.swipecontrols.controller.gesture.NoPtSSwipeGestureController
 import app.revanced.integrations.swipecontrols.controller.gesture.SwipeGestureController
 import app.revanced.integrations.swipecontrols.misc.Rectangle
 import app.revanced.integrations.swipecontrols.misc.SwipeControlsOverlay
-import app.revanced.integrations.swipecontrols.misc.SwipeZonesHelper
 import app.revanced.integrations.utils.LogHelper
-import app.revanced.integrations.utils.PlayerType
 
 /**
  * The main controller for volume and brightness swipe controls
@@ -65,6 +65,11 @@ class SwipeControlsHostLayout(
     val overlay: SwipeControlsOverlay
 
     /**
+     * current instance of [SwipeZonesController]
+     */
+    val zones: SwipeZonesController
+
+    /**
      * main gesture controller
      */
     private val gesture: SwipeGestureController
@@ -82,6 +87,9 @@ class SwipeControlsHostLayout(
             overlay = it
             addView(it)
         }
+
+        // create swipe zone controller
+        zones = SwipeZonesController(context) { Rectangle(x.toInt(), y.toInt(), width, height) }
 
         // listen for changes in the player type
         PlayerType.onChange += this::onPlayerTypeChanged
@@ -147,24 +155,6 @@ class SwipeControlsHostLayout(
         if (config.shouldEnablePressToSwipe)
             SwipeGestureController(hostActivity, this)
         else NoPtSSwipeGestureController(hostActivity, this)
-
-    /**
-     * the current screen rectangle
-     */
-    private val screenRect: Rectangle
-        get() = Rectangle(x.toInt(), y.toInt(), width, height)
-
-    /**
-     * the rectangle of the volume control zone
-     */
-    val volumeZone: Rectangle
-        get() = SwipeZonesHelper.getVolumeControlZone(hostActivity, screenRect)
-
-    /**
-     * the rectangle of the screen brightness control zone
-     */
-    val brightnessZone: Rectangle
-        get() = SwipeZonesHelper.getBrightnessControlZone(hostActivity, screenRect)
 
 
     interface TouchEventListener {

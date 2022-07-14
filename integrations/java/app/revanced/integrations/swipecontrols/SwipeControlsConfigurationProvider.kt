@@ -3,7 +3,7 @@ package app.revanced.integrations.swipecontrols
 import android.content.Context
 import android.graphics.Color
 import app.revanced.integrations.settings.SettingsEnum
-import app.revanced.integrations.utils.PlayerType
+import app.revanced.integrations.shared.PlayerType
 
 /**
  * provider for configuration for volume and brightness swipe controls
