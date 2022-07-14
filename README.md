@@ -1,4 +1,4 @@
-# ReVanced Patches 
+# ReVanced Patches
 
 🧩 Official patches by ReVanced
 
@@ -10,7 +10,7 @@
 | `codecs-unlock` | Enables more audio codecs. Usually results in better audio quality but may depend on song and device. | `com.google.android.apps.youtube.music` | 5.3.50 |
 | `background-play` | Enables playing music in the background. | `com.google.android.apps.youtube.music` | 5.3.50 |
 | `tasteBuilder-remover` | Removes the "Tell us which artists you like" card from the Home screen. The same functionality can be triggered from the settings anyway. | `com.google.android.apps.youtube.music` | 5.3.50 |
-| `upgrade-button-remover` | Removes the upgrade tab from the pivot bar in YouTube music. | `com.google.android.apps.youtube.music` | 5.3.50 |
+| `upgrade-button-remover` | Removes the upgrade tab from the pivot bar in YouTube Music. | `com.google.android.apps.youtube.music` | 5.3.50 |
 | `hide-infocard-suggestions` | Hides infocards in videos. | `com.google.android.youtube` | 17.26.35 |
 | `video-ads` | Removes ads in the YouTube video player. | `com.google.android.youtube` | 17.26.35 |
 | `general-ads` | Removes general ads in bytecode. | `com.google.android.youtube` | 17.26.35 |
