@@ -1,4 +1,4 @@
-package app.revanced.integrations.adremover.whitelist.requests;
+package app.revanced.integrations.whitelist.requests;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

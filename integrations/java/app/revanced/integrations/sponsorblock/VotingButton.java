@@ -94,7 +94,7 @@ public class VotingButton {
     }
 
     static boolean shouldBeShown() {
-        return SettingsEnum.SB_ENABLED_BOOLEAN.getBoolean() && SettingsEnum.SB_VOTING_ENABLED_BOOLEAN.getBoolean();
+        return SettingsEnum.SB_ENABLED.getBoolean() && SettingsEnum.SB_VOTING_ENABLED.getBoolean();
     }
 
     //region Helpers

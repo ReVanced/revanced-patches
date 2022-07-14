@@ -34,7 +34,7 @@ public class ReturnYouTubeDislikes {
 
     static {
         Context context = ReVancedUtils.getContext();
-        isEnabled = SettingsEnum.RYD_ENABLED_BOOLEAN.getBoolean();
+        isEnabled = SettingsEnum.RYD_ENABLED.getBoolean();
         if (isEnabled) {
             registration = new Registration();
             voting = new Voting(registration);

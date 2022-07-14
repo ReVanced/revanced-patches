@@ -97,7 +97,7 @@ public class ShieldButton {
     }
 
     static boolean shouldBeShown() {
-        return SettingsEnum.SB_ENABLED_BOOLEAN.getBoolean() && SettingsEnum.SB_NEW_SEGMENT_ENABLED_BOOLEAN.getBoolean();
+        return SettingsEnum.SB_ENABLED.getBoolean() && SettingsEnum.SB_NEW_SEGMENT_ENABLED.getBoolean();
     }
 
     //region Helpers

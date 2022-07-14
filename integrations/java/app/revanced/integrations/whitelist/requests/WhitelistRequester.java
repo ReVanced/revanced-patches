@@ -1,4 +1,4 @@
-package app.revanced.integrations.adremover.whitelist.requests;
+package app.revanced.integrations.whitelist.requests;
 
 import static app.revanced.integrations.sponsorblock.player.VideoInformation.currentVideoId;
 import static app.revanced.integrations.utils.ReVancedUtils.runOnMainThread;
@@ -21,8 +21,8 @@ import java.nio.charset.StandardCharsets;
 
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.sponsorblock.player.ChannelModel;
-import app.revanced.integrations.adremover.whitelist.Whitelist;
-import app.revanced.integrations.adremover.whitelist.WhitelistType;
+import app.revanced.integrations.whitelist.Whitelist;
+import app.revanced.integrations.whitelist.WhitelistType;
 import app.revanced.integrations.BuildConfig;
 
 public class WhitelistRequester {

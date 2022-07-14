@@ -7,15 +7,15 @@ import app.revanced.integrations.settings.SettingsEnum;
 public class ForceCodecPatch {
 
     public static String getManufacturer() {
-        return SettingsEnum.CODEC_OVERRIDE_BOOLEAN.getBoolean() ? "samsung" : Build.MANUFACTURER;
+        return SettingsEnum.CODEC_OVERRIDE.getBoolean() ? "samsung" : Build.MANUFACTURER;
     }
 
     public static String getModel() {
-        return SettingsEnum.CODEC_OVERRIDE_BOOLEAN.getBoolean() ? "SM-G920F" : Build.MODEL;
+        return SettingsEnum.CODEC_OVERRIDE.getBoolean() ? "SM-G920F" : Build.MODEL;
     }
 
     public static boolean shouldForceVP9() {
-        return SettingsEnum.CODEC_OVERRIDE_BOOLEAN.getBoolean();
+        return SettingsEnum.CODEC_OVERRIDE.getBoolean();
     }
 
 

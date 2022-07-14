@@ -12,9 +12,7 @@ import android.os.Looper;
 
 import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
 
-import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.sponsorblock.player.PlayerType;
-import app.revanced.integrations.videoplayer.videosettings.VideoSpeed;
 
 public class ReVancedUtils {
 
@@ -39,16 +37,6 @@ public class ReVancedUtils {
 
     public static boolean isNewVideoStarted() {
         return newVideo;
-    }
-
-    public static String getStringByName(Context context, String name) {
-        try {
-            Resources res = context.getResources();
-            return res.getString(res.getIdentifier(name, "string", context.getPackageName()));
-        } catch (Throwable exception) {
-            LogHelper.printException(ReVancedUtils.class, "Resource not found.", exception);
-            return "";
-        }
     }
 
     public static Integer getResourceIdByName(Context context, String type, String name) {
@@ -78,35 +66,6 @@ public class ReVancedUtils {
         new Handler(Looper.getMainLooper()).post(runnable);
     }
 
-    public static void CheckForMicroG(Activity activity) {
-        AlertDialog.Builder builder;
-        if (!appInstalledOrNot("com.mgoogle.android.gms")) {
-            LogHelper.debug(ReVancedUtils.class, "Custom MicroG installation undetected");
-            if (Build.VERSION.SDK_INT >= 21) {
-                builder = new AlertDialog.Builder(activity, 16974374);
-            } else {
-                builder = new AlertDialog.Builder(activity);
-            }
-            builder.setTitle("Someone is not reading...").setMessage("You didn't install the MicroG as instructed, you can't login without it.\n\nInstall it and try again.").setPositiveButton("Close", new DialogInterface.OnClickListener() { // from class: app.revanced.integrations.settings.Settings.1
-                @Override // android.content.DialogInterface.OnClickListener
-                public void onClick(DialogInterface dialog, int id) {
-                }
-            }).show();
-        } else {
-            LogHelper.debug(ReVancedUtils.class, "Custom MicroG installation detected");
-        }
-    }
-
-    private static boolean appInstalledOrNot(String uri) {
-        try {
-            PackageManager pm = getContext().getPackageManager();
-            pm.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
-            return true;
-        } catch (PackageManager.NameNotFoundException e) {
-            return false;
-        }
-    }
-
     public static Context getContext() {
         Context context = YouTubeTikTokRoot_Application.getAppContext();
         if (context != null) {
@@ -115,5 +74,9 @@ public class ReVancedUtils {
             LogHelper.printException(ReVancedUtils.class, "Context is null, returning null!");
             return null;
         }
+    }
+
+    public static boolean isTablet(Context context) {
+        return context.getResources().getConfiguration().smallestScreenWidthDp >= 600;
     }
 }

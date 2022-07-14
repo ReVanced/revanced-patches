@@ -11,7 +11,7 @@ import java.lang.ref.WeakReference;
 import app.revanced.integrations.sponsorblock.player.PlayerType;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
-import app.revanced.integrations.utils.SwipeHelper;
+import app.revanced.integrations.sponsorblock.SwipeHelper;
 
 public class SponsorBlockView {
 

@@ -1,9 +1,9 @@
 package app.revanced.integrations.ryd.requests;
 
-import static app.revanced.integrations.adremover.whitelist.requests.Route.Method.GET;
-import static app.revanced.integrations.adremover.whitelist.requests.Route.Method.POST;
+import static app.revanced.integrations.whitelist.requests.Route.Method.GET;
+import static app.revanced.integrations.whitelist.requests.Route.Method.POST;
 
-import app.revanced.integrations.adremover.whitelist.requests.Route;
+import app.revanced.integrations.whitelist.requests.Route;
 
 public class RYDRoutes {
     public static final Route SEND_VOTE = new Route(POST, "interact/vote");

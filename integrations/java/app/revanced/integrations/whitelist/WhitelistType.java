@@ -1,4 +1,4 @@
-package app.revanced.integrations.adremover.whitelist;
+package app.revanced.integrations.whitelist;
 
 import static app.revanced.integrations.sponsorblock.StringRef.str;
 

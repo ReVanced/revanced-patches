@@ -21,7 +21,7 @@ public class HDRMaxBrightnessPatch {
      */
     public static float getHDRBrightness(float original) {
         // do nothing if disabled
-        if (!SettingsEnum.USE_HDR_AUTO_BRIGHTNESS_BOOLEAN.getBoolean()) {
+        if (!SettingsEnum.USE_HDR_AUTO_BRIGHTNESS.getBoolean()) {
             return original;
         }
 

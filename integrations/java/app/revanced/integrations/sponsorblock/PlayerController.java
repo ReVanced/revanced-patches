@@ -24,11 +24,10 @@ import java.util.TimerTask;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.sponsorblock.player.VideoInformation;
-import app.revanced.integrations.adremover.whitelist.Whitelist;
+import app.revanced.integrations.whitelist.Whitelist;
 import app.revanced.integrations.sponsorblock.objects.SponsorSegment;
 import app.revanced.integrations.sponsorblock.requests.SBRequester;
 import app.revanced.integrations.utils.ReVancedUtils;
-import app.revanced.integrations.utils.SharedPrefHelper;
 
 @SuppressLint({"LongLogTag"})
 public class PlayerController {
@@ -64,7 +63,7 @@ public class PlayerController {
         Context context = ReVancedUtils.getContext();
         SponsorBlockSettings.update(context);
 
-        if (!SettingsEnum.SB_ENABLED_BOOLEAN.getBoolean()) {
+        if (!SettingsEnum.SB_ENABLED.getBoolean()) {
             currentVideoId = null;
             return;
         }
@@ -135,7 +134,7 @@ public class PlayerController {
     public static void setCurrentVideoTime(long millis) {
         LogHelper.debug(PlayerController.class, "setCurrentVideoTime: current video time: " + millis);
         VideoInformation.lastKnownVideoTime = millis;
-        if (!SettingsEnum.SB_ENABLED_BOOLEAN.getBoolean()) return;
+        if (!SettingsEnum.SB_ENABLED.getBoolean()) return;
         lastKnownVideoTime = millis;
         if (millis <= 0) return;
         //findAndSkipSegment(false);
@@ -198,13 +197,13 @@ public class PlayerController {
         if (segment.category != SponsorBlockSettings.SegmentInfo.UNSUBMITTED) {
             Context context = ReVancedUtils.getContext();
             if (context != null) {
-                long newSkippedTime = SettingsEnum.SB_SKIPPED_SEGMENTS_TIME_LONG.getLong() + (segment.end - segment.start);
-                SettingsEnum.SB_SKIPPED_SEGMENTS_INTEGER.saveValue(SettingsEnum.SB_SKIPPED_SEGMENTS_INTEGER.getInt() + 1);
-                SettingsEnum.SB_SKIPPED_SEGMENTS_TIME_LONG.saveValue(newSkippedTime);
+                long newSkippedTime = SettingsEnum.SB_SKIPPED_SEGMENTS_TIME.getLong() + (segment.end - segment.start);
+                SettingsEnum.SB_SKIPPED_SEGMENTS.saveValue(SettingsEnum.SB_SKIPPED_SEGMENTS.getInt() + 1);
+                SettingsEnum.SB_SKIPPED_SEGMENTS_TIME.saveValue(newSkippedTime);
             }
         }
         new Thread(() -> {
-            if (SettingsEnum.SB_COUNT_SKIPS_BOOLEAN.getBoolean() &&
+            if (SettingsEnum.SB_COUNT_SKIPS.getBoolean() &&
                     segment.category != SponsorBlockSettings.SegmentInfo.UNSUBMITTED &&
                     millis - segment.start < 2000) {
                 // Only skips from the start should count as a view
@@ -417,7 +416,7 @@ public class PlayerController {
 //        lastSkippedSegment = segment;
         LogHelper.debug(PlayerController.class, "Skipping segment: " + segment.toString());
 
-        if (SettingsEnum.SB_SHOW_TOAST_WHEN_SKIP_BOOLEAN.getBoolean() && !wasClicked)
+        if (SettingsEnum.SB_SHOW_TOAST_WHEN_SKIP.getBoolean() && !wasClicked)
             SkipSegmentView.notifySkipped(segment);
 
         skipToMillisecond(segment.end + 2);

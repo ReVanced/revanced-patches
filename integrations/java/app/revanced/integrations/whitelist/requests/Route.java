@@ -1,4 +1,4 @@
-package app.revanced.integrations.adremover.whitelist.requests;
+package app.revanced.integrations.whitelist.requests;
 
 public class Route {
     private final String route;

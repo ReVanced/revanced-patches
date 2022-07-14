@@ -1,4 +1,4 @@
-package app.revanced.integrations.utils;
+package app.revanced.integrations.sponsorblock;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import app.revanced.integrations.sponsorblock.player.PlayerType;
+import app.revanced.integrations.utils.LogHelper;
+import app.revanced.integrations.utils.ReVancedUtils;
+import app.revanced.integrations.utils.SharedPrefHelper;
 
 /* loaded from: classes6.dex */
 public class SwipeHelper {
@@ -19,7 +22,7 @@ public class SwipeHelper {
         try {
             _frameLayout = (FrameLayout) obj;
             Context appContext = ReVancedUtils.getContext();
-            if (ScreenSizeHelper.isTablet(appContext) || SharedPrefHelper.getBoolean(appContext, SharedPrefHelper.SharedPrefNames.YOUTUBE,"pref_xfenster_tablet", false)) {
+            if (ReVancedUtils.isTablet(appContext) || SharedPrefHelper.getBoolean(appContext, SharedPrefHelper.SharedPrefNames.YOUTUBE,"pref_xfenster_tablet", false)) {
                 isTabletMode = true;
             }
         } catch (Exception e) {

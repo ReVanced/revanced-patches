@@ -70,7 +70,7 @@ public class NewSegmentLayout extends FrameLayout {
                 @Override
                 public void onClick(View v) {
                     LogHelper.debug(NewSegmentLayout.class, "Rewind button clicked");
-                    PlayerController.skipRelativeMilliseconds(-SettingsEnum.SB_ADJUST_NEW_SEGMENT_STEP_INTEGER.getInt());
+                    PlayerController.skipRelativeMilliseconds(-SettingsEnum.SB_ADJUST_NEW_SEGMENT_STEP.getInt());
                 }
             });
         }
@@ -81,7 +81,7 @@ public class NewSegmentLayout extends FrameLayout {
                 @Override
                 public void onClick(View v) {
                     LogHelper.debug(NewSegmentLayout.class, "Forward button clicked");
-                    PlayerController.skipRelativeMilliseconds(SettingsEnum.SB_ADJUST_NEW_SEGMENT_STEP_INTEGER.getInt());
+                    PlayerController.skipRelativeMilliseconds(SettingsEnum.SB_ADJUST_NEW_SEGMENT_STEP.getInt());
                 }
             });
         }

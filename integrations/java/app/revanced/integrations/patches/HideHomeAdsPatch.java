@@ -3,7 +3,6 @@ package app.revanced.integrations.patches;
 import android.view.View;
 
 import app.revanced.integrations.adremover.AdRemoverAPI;
-import app.revanced.integrations.settings.Settings;
 import app.revanced.integrations.settings.SettingsEnum;
 
 public class HideHomeAdsPatch {
@@ -13,7 +12,7 @@ public class HideHomeAdsPatch {
      * @param view
      */
     public static void HideHomeAds(View view) {
-        if (!SettingsEnum.HOME_ADS_SHOWN_BOOLEAN.getBoolean()) {
+        if (!SettingsEnum.HOME_ADS_SHOWN.getBoolean()) {
             AdRemoverAPI.HideViewWithLayout1dp(view);
         }
     }

@@ -20,14 +20,14 @@ public class Dialogs {
     }
 
     private static void rydFirstRun(Activity activity) {
-        boolean enabled = SettingsEnum.RYD_ENABLED_BOOLEAN.getBoolean();
-        boolean hintShown = SettingsEnum.RYD_HINT_SHOWN_BOOLEAN.getBoolean();
+        boolean enabled = SettingsEnum.RYD_ENABLED.getBoolean();
+        boolean hintShown = SettingsEnum.RYD_HINT_SHOWN.getBoolean();
 
         // If RYD is enabled or hint has been shown, exit
         if (enabled || hintShown) {
             // If RYD is enabled but hint hasn't been shown, mark it as shown
             if (enabled && !hintShown) {
-                SettingsEnum.RYD_HINT_SHOWN_BOOLEAN.saveValue(true);
+                SettingsEnum.RYD_HINT_SHOWN.saveValue(true);
             }
             return;
         }
@@ -44,15 +44,15 @@ public class Dialogs {
         builder.setMessage(str("revanced_ryd_firstrun"));
         builder.setPositiveButton(str("revanced_enable"),
                 (dialog, id) -> {
-                    SettingsEnum.RYD_HINT_SHOWN_BOOLEAN.saveValue(true);
-                    SettingsEnum.RYD_ENABLED_BOOLEAN.saveValue(true);
+                    SettingsEnum.RYD_HINT_SHOWN.saveValue(true);
+                    SettingsEnum.RYD_ENABLED.saveValue(true);
                     dialog.dismiss();
                 });
 
         builder.setNegativeButton(str("revanced_disable"),
                 (dialog, id) -> {
-                    SettingsEnum.RYD_HINT_SHOWN_BOOLEAN.saveValue(true);
-                    SettingsEnum.RYD_ENABLED_BOOLEAN.saveValue(false);
+                    SettingsEnum.RYD_HINT_SHOWN.saveValue(true);
+                    SettingsEnum.RYD_ENABLED.saveValue(false);
                     dialog.dismiss();
                 });
 

@@ -1,6 +1,6 @@
-package app.revanced.integrations.adremover.whitelist.requests;
+package app.revanced.integrations.whitelist.requests;
 
-import static app.revanced.integrations.adremover.whitelist.requests.Route.Method.POST;
+import static app.revanced.integrations.whitelist.requests.Route.Method.POST;
 
 public class WhitelistRoutes {
     public static final Route GET_CHANNEL_DETAILS = new Route(POST, "player?key={api_key}");

@@ -17,6 +17,7 @@
         <ListPreference android:title="@string/revanced_preferred_video_quality_wifi_title" android:key="revanced_pref_video_quality_wifi" android:summary="@string/revanced_preferred_video_quality_wifi_summary" />
         <ListPreference android:title="@string/revanced_preferred_video_quality_mobile_title" android:key="revanced_pref_video_quality_mobile" android:summary="@string/revanced_preferred_video_quality_mobile_summary" />
         <ListPreference android:title="@string/revanced_preferred_video_speed_title" android:key="revanced_pref_video_speed" android:summary="@string/revanced_preferred_video_speed_summary" />
+        <SwitchPreference android:title="Auto captions" android:key="revanced_pref_auto_captions" android:defaultValue="false" android:summaryOn="Auto captions are turned on" android:summaryOff="Auto captions are turned off" />
     </PreferenceScreen>
     <PreferenceScreen android:title="@string/revanced_video_ad_settings_title" android:key="video_ad_settings">
         <SwitchPreference android:title="@string/revanced_videoadwhitelisting_title" android:key="revanced_whitelist_ads_enabled" android:defaultValue="false" android:summaryOn="@string/revanced_videoadwhitelisting_summary_on" android:summaryOff="@string/revanced_videoadwhitelisting_summary_off" />

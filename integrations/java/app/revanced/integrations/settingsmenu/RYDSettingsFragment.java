@@ -32,9 +32,9 @@ public class RYDSettingsFragment extends PreferenceFragment {
         {
             SwitchPreference preference = new SwitchPreference(context);
             preferenceScreen.addPreference(preference);
-            preference.setKey(SettingsEnum.RYD_ENABLED_BOOLEAN.getPath());
+            preference.setKey(SettingsEnum.RYD_ENABLED.getPath());
             preference.setDefaultValue(false);
-            preference.setChecked(SettingsEnum.RYD_ENABLED_BOOLEAN.getBoolean());
+            preference.setChecked(SettingsEnum.RYD_ENABLED.getBoolean());
             preference.setTitle(str("revanced_ryd_title"));
             preference.setSummary(str("revanced_ryd_summary"));
             preference.setOnPreferenceChangeListener((pref, newValue) -> {
@@ -45,12 +45,12 @@ public class RYDSettingsFragment extends PreferenceFragment {
         }
 
         // Clear hint
-        if (SettingsEnum.DEBUG_BOOLEAN.getBoolean()) {
+        if (SettingsEnum.DEBUG.getBoolean()) {
             SwitchPreference preference = new SwitchPreference(context);
             preferenceScreen.addPreference(preference);
-            preference.setKey(SettingsEnum.RYD_HINT_SHOWN_BOOLEAN.getPath());
+            preference.setKey(SettingsEnum.RYD_HINT_SHOWN.getPath());
             preference.setDefaultValue(false);
-            preference.setChecked(SettingsEnum.RYD_HINT_SHOWN_BOOLEAN.getBoolean());
+            preference.setChecked(SettingsEnum.RYD_HINT_SHOWN.getBoolean());
             preference.setTitle("Hint debug");
             preference.setSummary("Debug toggle for clearing the hint shown preference");
             preference.setOnPreferenceChangeListener((pref, newValue) -> true);

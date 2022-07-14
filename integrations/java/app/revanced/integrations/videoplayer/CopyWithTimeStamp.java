@@ -1,4 +1,4 @@
-package app.revanced.integrations.videoplayer.videourl;
+package app.revanced.integrations.videoplayer;
 
 import android.content.Context;
 
@@ -17,6 +17,7 @@ import app.revanced.integrations.utils.SharedPrefHelper;
 import java.lang.ref.WeakReference;
 
 /* loaded from: classes6.dex */
+//ToDo: Refactor
 public class CopyWithTimeStamp {
     static WeakReference<ImageView> _button = new WeakReference<>(null);
     static ConstraintLayout _constraintLayout;

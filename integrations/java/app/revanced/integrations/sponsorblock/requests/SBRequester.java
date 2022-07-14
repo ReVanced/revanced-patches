@@ -16,16 +16,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
-import app.revanced.integrations.adremover.whitelist.requests.Requester;
-import app.revanced.integrations.adremover.whitelist.requests.Route;
+import app.revanced.integrations.whitelist.requests.Requester;
+import app.revanced.integrations.whitelist.requests.Route;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.sponsorblock.PlayerController;
 import app.revanced.integrations.sponsorblock.SponsorBlockSettings;
@@ -33,8 +31,6 @@ import app.revanced.integrations.sponsorblock.SponsorBlockUtils;
 import app.revanced.integrations.sponsorblock.SponsorBlockUtils.VoteOption;
 import app.revanced.integrations.sponsorblock.objects.SponsorSegment;
 import app.revanced.integrations.sponsorblock.objects.UserStats;
-import app.revanced.integrations.utils.ReVancedUtils;
-import app.revanced.integrations.utils.SharedPrefHelper;
 
 public class SBRequester {
     private static final String TIME_TEMPLATE = "%.3f";
@@ -58,7 +54,7 @@ public class SBRequester {
                     long start = (long) (segment.getDouble(0) * 1000);
                     long end = (long) (segment.getDouble(1) * 1000);
 
-                    long minDuration = (long) (SettingsEnum.SB_MIN_DURATION_FLOAT.getFloat() * 1000);
+                    long minDuration = (long) (SettingsEnum.SB_MIN_DURATION.getFloat() * 1000);
                     if ((end - start) < minDuration)
                         continue;
 
@@ -129,7 +125,7 @@ public class SBRequester {
         new Thread(() -> {
             try {
                 String segmentUuid = segment.UUID;
-                String uuid = SettingsEnum.SB_UUID_STRING.getString();
+                String uuid = SettingsEnum.SB_UUID.getString();
                 String vote = Integer.toString(voteOption == VoteOption.UPVOTE ? 1 : 0);
 
                 runOnMainThread(() -> Toast.makeText(context, str("vote_started"), Toast.LENGTH_SHORT).show());
@@ -159,14 +155,14 @@ public class SBRequester {
     }
 
     public static void retrieveUserStats(PreferenceCategory category, Preference loadingPreference) {
-        if (!SettingsEnum.SB_ENABLED_BOOLEAN.getBoolean()) {
+        if (!SettingsEnum.SB_ENABLED.getBoolean()) {
             loadingPreference.setTitle(str("stats_sb_disabled"));
             return;
         }
 
         new Thread(() -> {
             try {
-                JSONObject json = getJSONObject(SBRoutes.GET_USER_STATS, SettingsEnum.SB_UUID_STRING.getString());
+                JSONObject json = getJSONObject(SBRoutes.GET_USER_STATS, SettingsEnum.SB_UUID.getString());
                 UserStats stats = new UserStats(json.getString("userName"), json.getDouble("minutesSaved"), json.getInt("segmentCount"),
                         json.getInt("viewCount"));
                 SponsorBlockUtils.addUserStats(category, loadingPreference, stats);
@@ -179,7 +175,7 @@ public class SBRequester {
     public static void setUsername(String username, EditTextPreference preference, Runnable toastRunnable) {
         new Thread(() -> {
             try {
-                HttpURLConnection connection = getConnectionFromRoute(SBRoutes.CHANGE_USERNAME, SettingsEnum.SB_UUID_STRING.getString(), username);
+                HttpURLConnection connection = getConnectionFromRoute(SBRoutes.CHANGE_USERNAME, SettingsEnum.SB_UUID.getString(), username);
                 int responseCode = connection.getResponseCode();
 
                 if (responseCode == 200) {
@@ -201,14 +197,14 @@ public class SBRequester {
 
     public static void runVipCheck() {
         long now = System.currentTimeMillis();
-        if (now < (SettingsEnum.SB_LAST_VIP_CHECK_LONG.getLong() + TimeUnit.DAYS.toMillis(3))) {
+        if (now < (SettingsEnum.SB_LAST_VIP_CHECK.getLong() + TimeUnit.DAYS.toMillis(3))) {
             return;
         }
         try {
-            JSONObject json = getJSONObject(SBRoutes.IS_USER_VIP, SettingsEnum.SB_UUID_STRING.getString());
+            JSONObject json = getJSONObject(SBRoutes.IS_USER_VIP, SettingsEnum.SB_UUID.getString());
             boolean vip = json.getBoolean("vip");
-            SettingsEnum.SB_IS_VIP_BOOLEAN.saveValue(vip);
-            SettingsEnum.SB_LAST_VIP_CHECK_LONG.saveValue(now);
+            SettingsEnum.SB_IS_VIP.saveValue(vip);
+            SettingsEnum.SB_LAST_VIP_CHECK.saveValue(now);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -217,7 +213,7 @@ public class SBRequester {
     // helpers
 
     private static HttpURLConnection getConnectionFromRoute(Route route, String... params) throws IOException {
-        return Requester.getConnectionFromRoute(SettingsEnum.SB_API_URL_STRING.getString(), route, params);
+        return Requester.getConnectionFromRoute(SettingsEnum.SB_API_URL.getString(), route, params);
     }
 
     private static JSONObject getJSONObject(Route route, String... params) throws Exception {

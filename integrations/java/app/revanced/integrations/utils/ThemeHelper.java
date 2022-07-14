@@ -1,9 +1,5 @@
 package app.revanced.integrations.utils;
 
-import android.os.Build;
-
-import java.util.Objects;
-
 /* loaded from: classes6.dex */
 public class ThemeHelper {
     private static int themeValue;

@@ -19,7 +19,7 @@ public class SBBrowserButton extends SlimButton {
 
     public SBBrowserButton(Context context, ViewGroup container) {
         super(context, container, SLIM_METADATA_BUTTON_ID,
-                SponsorBlockUtils.isSBButtonEnabled(context, SettingsEnum.SB_SHOW_BROWSER_BUTTON_BOOLEAN.getPath()));
+                SponsorBlockUtils.isSBButtonEnabled(context, SettingsEnum.SB_SHOW_BROWSER_BUTTON.getPath()));
 
         initialize();
     }

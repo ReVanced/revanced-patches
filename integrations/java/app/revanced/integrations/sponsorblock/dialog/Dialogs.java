@@ -22,14 +22,14 @@ public class Dialogs {
 
     private static void sbFirstRun(Activity activity) {
         Context context = ReVancedUtils.getContext();
-        boolean enabled = SettingsEnum.SB_ENABLED_BOOLEAN.getBoolean();
-        boolean hintShown = SettingsEnum.SB_SPONSOR_BLOCK_HINT_SHOWN_BOOLEAN.getBoolean();
+        boolean enabled = SettingsEnum.SB_ENABLED.getBoolean();
+        boolean hintShown = SettingsEnum.SB_SPONSOR_BLOCK_HINT_SHOWN.getBoolean();
 
         // If SB is enabled or hint has been shown, exit
         if (enabled || hintShown) {
             // If SB is enabled but hint hasn't been shown, mark it as shown
             if (enabled && !hintShown) {
-                SettingsEnum.SB_SPONSOR_BLOCK_HINT_SHOWN_BOOLEAN.saveValue(true);
+                SettingsEnum.SB_SPONSOR_BLOCK_HINT_SHOWN.saveValue(true);
             }
             return;
         }
@@ -46,15 +46,15 @@ public class Dialogs {
         builder.setMessage(str("vanced_sb_firstrun"));
         builder.setPositiveButton(str("vanced_enable"),
                 (dialog, id) -> {
-                    SettingsEnum.SB_SPONSOR_BLOCK_HINT_SHOWN_BOOLEAN.saveValue(true);
-                    SettingsEnum.SB_ENABLED_BOOLEAN.saveValue(true);
+                    SettingsEnum.SB_SPONSOR_BLOCK_HINT_SHOWN.saveValue(true);
+                    SettingsEnum.SB_ENABLED.saveValue(true);
                     dialog.dismiss();
                 });
 
         builder.setNegativeButton(str("vanced_disable"),
                 (dialog, id) -> {
-                    SettingsEnum.SB_SPONSOR_BLOCK_HINT_SHOWN_BOOLEAN.saveValue(true);
-                    SettingsEnum.SB_ENABLED_BOOLEAN.saveValue(false);
+                    SettingsEnum.SB_SPONSOR_BLOCK_HINT_SHOWN.saveValue(true);
+                    SettingsEnum.SB_ENABLED.saveValue(false);
                     dialog.dismiss();
                 });
 

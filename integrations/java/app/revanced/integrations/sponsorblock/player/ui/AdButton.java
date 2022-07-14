@@ -11,9 +11,9 @@ import android.widget.ImageView;
 
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.sponsorblock.player.VideoInformation;
-import app.revanced.integrations.adremover.whitelist.Whitelist;
-import app.revanced.integrations.adremover.whitelist.WhitelistType;
-import app.revanced.integrations.adremover.whitelist.requests.WhitelistRequester;
+import app.revanced.integrations.whitelist.Whitelist;
+import app.revanced.integrations.whitelist.WhitelistType;
+import app.revanced.integrations.whitelist.requests.WhitelistRequester;
 import app.revanced.integrations.utils.SharedPrefHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 

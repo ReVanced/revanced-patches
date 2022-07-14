@@ -7,6 +7,6 @@ public class AutoRepeatPatch {
 
     //Used by app.revanced.patches.youtube.layout.autorepeat.patch.AutoRepeatPatch
     public static boolean shouldAutoRepeat() {
-        return SettingsEnum.PREFERRED_AUTO_REPEAT_BOOLEAN.getBoolean();
+        return SettingsEnum.PREFERRED_AUTO_REPEAT.getBoolean();
     }
 }

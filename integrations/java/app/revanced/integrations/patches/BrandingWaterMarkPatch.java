@@ -7,6 +7,6 @@ public class BrandingWaterMarkPatch {
 
     //Used by: app.revanced.patches.youtube.layout.watermark.patch.HideWatermarkPatch
     public static boolean isBrandingWatermarkShown() {
-        return SettingsEnum.BRANDING_SHOWN_BOOLEAN.getBoolean();
+        return SettingsEnum.BRANDING_SHOWN.getBoolean();
     }
 }

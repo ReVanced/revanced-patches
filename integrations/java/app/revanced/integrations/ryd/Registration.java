@@ -22,7 +22,7 @@ public class Registration {
     }
 
     public void saveUserId(String userId) {
-        SettingsEnum.RYD_USER_ID_STRING.saveValue(userId);
+        SettingsEnum.RYD_USER_ID.saveValue(userId);
     }
 
     public static String solvePuzzle(String challenge, int difficulty) {
@@ -69,7 +69,7 @@ public class Registration {
     }
 
     private String fetchUserId() {
-        this.userId = SettingsEnum.RYD_USER_ID_STRING.getString();
+        this.userId = SettingsEnum.RYD_USER_ID.getString();
         if (this.userId == null) {
             this.userId = register();
         }

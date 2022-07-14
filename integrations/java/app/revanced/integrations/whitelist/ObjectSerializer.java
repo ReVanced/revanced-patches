@@ -1,4 +1,4 @@
-package app.revanced.integrations.utils;
+package app.revanced.integrations.whitelist;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

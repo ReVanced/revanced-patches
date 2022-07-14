@@ -1,4 +1,4 @@
-package app.revanced.integrations.videoplayer.autorepeat;
+package app.revanced.integrations.videoplayer;
 
 import android.content.Context;
 
@@ -13,12 +13,11 @@ import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
-import app.revanced.integrations.videoplayer.videourl.Copy;
-import app.revanced.integrations.videoplayer.videourl.CopyWithTimeStamp;
 
 import java.lang.ref.WeakReference;
 
 /* loaded from: classes6.dex */
+//ToDo: Refactor
 public class AutoRepeat {
     static WeakReference<ImageView> _autoRepeatBtn = new WeakReference<>(null);
     static ConstraintLayout _constraintLayout;
@@ -91,7 +90,7 @@ public class AutoRepeat {
     public static void changeSelected(boolean selected, boolean onlyView) {
         ImageView iView = _autoRepeatBtn.get();
         if (_constraintLayout != null && iView != null) {
-            if (SettingsEnum.DEBUG_BOOLEAN.getBoolean()) {
+            if (SettingsEnum.DEBUG.getBoolean()) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("Changing selected state to: ");
                 sb.append(selected ? "SELECTED" : "NONE");
