@@ -6,6 +6,7 @@
 
 | 💊 Patch | 📜 Description | 🎯 Target Package | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|:-----------------:|
+| `music-video-ads` | Removes ads in the YouTube Music player. | `com.google.android.apps.youtube.music` | 5.3.50 |
 | `exclusive-audio-playback` | Adds the option to play music without video. | `com.google.android.apps.youtube.music` | 5.3.50 |
 | `codecs-unlock` | Enables more audio codecs. Usually results in better audio quality but may depend on song and device. | `com.google.android.apps.youtube.music` | 5.3.50 |
 | `background-play` | Enables playing music in the background. | `com.google.android.apps.youtube.music` | 5.3.50 |

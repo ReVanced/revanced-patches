@@ -1,3 +1,10 @@
+# [2.14.0](https://github.com/revanced/revanced-patches/compare/v2.13.6...v2.14.0) (2022-07-15)
+
+
+### Features
+
+* `music-video-ads` patch ([#172](https://github.com/revanced/revanced-patches/issues/172)) ([cbb71b5](https://github.com/revanced/revanced-patches/commit/cbb71b5faf1386ed31dd9e0387f6cf0509d92d31))
+
 ## [2.13.6](https://github.com/revanced/revanced-patches/compare/v2.13.5...v2.13.6) (2022-07-14)
 
 ## [2.13.5](https://github.com/revanced/revanced-patches/compare/v2.13.4...v2.13.5) (2022-07-14)
