@@ -6,12 +6,12 @@
 
 | 💊 Patch | 📜 Description | 🎯 Target Package | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|:-----------------:|
-| `music-video-ads` | Removes ads in the YouTube Music player. | `com.google.android.apps.youtube.music` | 5.3.50 |
-| `exclusive-audio-playback` | Adds the option to play music without video. | `com.google.android.apps.youtube.music` | 5.3.50 |
-| `codecs-unlock` | Enables more audio codecs. Usually results in better audio quality but may depend on song and device. | `com.google.android.apps.youtube.music` | 5.3.50 |
-| `background-play` | Enables playing music in the background. | `com.google.android.apps.youtube.music` | 5.3.50 |
-| `tasteBuilder-remover` | Removes the "Tell us which artists you like" card from the Home screen. The same functionality can be triggered from the settings anyway. | `com.google.android.apps.youtube.music` | 5.3.50 |
-| `upgrade-button-remover` | Removes the upgrade tab from the pivot bar in YouTube Music. | `com.google.android.apps.youtube.music` | 5.3.50 |
+| `music-video-ads` | Removes ads in the YouTube Music player. | `com.google.android.apps.youtube.music` | 5.14.53 |
+| `exclusive-audio-playback` | Adds the option to play music without video. | `com.google.android.apps.youtube.music` | 5.14.53 |
+| `codecs-unlock` | Enables more audio codecs. Usually results in better audio quality but may depend on song and device. | `com.google.android.apps.youtube.music` | 5.14.53 |
+| `background-play` | Enables playing music in the background. | `com.google.android.apps.youtube.music` | 5.14.53 |
+| `tasteBuilder-remover` | Removes the "Tell us which artists you like" card from the Home screen. The same functionality can be triggered from the settings anyway. | `com.google.android.apps.youtube.music` | 5.14.53 |
+| `upgrade-button-remover` | Removes the upgrade tab from the pivot bar in YouTube Music. | `com.google.android.apps.youtube.music` | 5.14.53 |
 | `hide-infocard-suggestions` | Hides infocards in videos. | `com.google.android.youtube` | 17.26.35 |
 | `video-ads` | Removes ads in the YouTube video player. | `com.google.android.youtube` | 17.26.35 |
 | `general-ads` | Removes general ads in bytecode. | `com.google.android.youtube` | 17.26.35 |

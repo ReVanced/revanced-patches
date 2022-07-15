@@ -1,3 +1,10 @@
+## [2.14.1](https://github.com/revanced/revanced-patches/compare/v2.14.0...v2.14.1) (2022-07-15)
+
+
+### Bug Fixes
+
+* `codecs-unlock` patch and update Music patches to `5.14.53` ([2437d30](https://github.com/revanced/revanced-patches/commit/2437d3070f6a630d353619f642cefebd47abee20))
+
 # [2.14.0](https://github.com/revanced/revanced-patches/compare/v2.13.6...v2.14.0) (2022-07-15)
 
 
