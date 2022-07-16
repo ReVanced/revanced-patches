@@ -1,4 +1,4 @@
-package app.revanced.integrations.ryd;
+package app.revanced.integrations.returnyoutubedislike;
 
 import static app.revanced.integrations.videoplayer.VideoInformation.currentVideoId;
 import static app.revanced.integrations.videoplayer.VideoInformation.dislikeCount;
@@ -12,13 +12,13 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicReference;
 
-import app.revanced.integrations.ryd.requests.RYDRequester;
+import app.revanced.integrations.returnyoutubedislike.requests.ReturnYouTubeDislikeApi;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
 
-public class ReturnYouTubeDislikes {
+public class ReturnYouTubeDislike {
     private static boolean isEnabled;
     private static Thread _dislikeFetchThread = null;
     private static Thread _votingThread = null;
@@ -35,7 +35,7 @@ public class ReturnYouTubeDislikes {
         }
 
         Locale locale = context.getResources().getConfiguration().locale;
-        LogHelper.debug(ReturnYouTubeDislikes.class, "locale - " + locale);
+        LogHelper.debug(ReturnYouTubeDislike.class, "locale - " + locale);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             compactNumberFormatter = CompactDecimalFormat.getInstance(
                     locale,
@@ -55,21 +55,21 @@ public class ReturnYouTubeDislikes {
     }
 
     public static void newVideoLoaded(String videoId) {
-        LogHelper.debug(ReturnYouTubeDislikes.class, "newVideoLoaded - " + videoId);
+        LogHelper.debug(ReturnYouTubeDislike.class, "newVideoLoaded - " + videoId);
 
         dislikeCount = null;
         if (!isEnabled) return;
 
         try {
             if (_dislikeFetchThread != null && _dislikeFetchThread.getState() != Thread.State.TERMINATED) {
-                LogHelper.debug(ReturnYouTubeDislikes.class, "Interrupting the thread. Current state " + _dislikeFetchThread.getState());
+                LogHelper.debug(ReturnYouTubeDislike.class, "Interrupting the thread. Current state " + _dislikeFetchThread.getState());
                 _dislikeFetchThread.interrupt();
             }
         } catch (Exception ex) {
-            LogHelper.printException(ReturnYouTubeDislikes.class, "Error in the dislike fetch thread", ex);
+            LogHelper.printException(ReturnYouTubeDislike.class, "Error in the dislike fetch thread", ex);
         }
 
-        _dislikeFetchThread = new Thread(() -> RYDRequester.fetchDislikes(videoId));
+        _dislikeFetchThread = new Thread(() -> ReturnYouTubeDislikeApi.fetchDislikes(videoId));
         _dislikeFetchThread.start();
     }
 
@@ -80,7 +80,7 @@ public class ReturnYouTubeDislikes {
             // Contains a pathBuilder string, used to distinguish from other litho components
             if (!conversionContext.toString().contains("dislike_button")) return;
 
-            LogHelper.debug(ReturnYouTubeDislikes.class, "dislike button was created");
+            LogHelper.debug(ReturnYouTubeDislike.class, "dislike button was created");
 
             // Have to block the current thread until fetching is done
             // There's no known way to edit the text after creation yet
@@ -90,7 +90,7 @@ public class ReturnYouTubeDislikes {
                 updateDislikeText(textRef, formatDislikes(dislikeCount));
             }
         } catch (Exception ex) {
-            LogHelper.printException(ReturnYouTubeDislikes.class, "Error while trying to set dislikes text", ex);
+            LogHelper.printException(ReturnYouTubeDislike.class, "Error while trying to set dislikes text", ex);
         }
     }
 
@@ -101,22 +101,22 @@ public class ReturnYouTubeDislikes {
         if (SharedPrefHelper.getBoolean(Objects.requireNonNull(context), SharedPrefHelper.SharedPrefNames.YOUTUBE, "user_signed_out", true))
             return;
 
-        LogHelper.debug(ReturnYouTubeDislikes.class, "sending vote - " + vote + " for video " + currentVideoId);
+        LogHelper.debug(ReturnYouTubeDislike.class, "sending vote - " + vote + " for video " + currentVideoId);
         try {
             if (_votingThread != null && _votingThread.getState() != Thread.State.TERMINATED) {
-                LogHelper.debug(ReturnYouTubeDislikes.class, "Interrupting the thread. Current state " + _votingThread.getState());
+                LogHelper.debug(ReturnYouTubeDislike.class, "Interrupting the thread. Current state " + _votingThread.getState());
                 _votingThread.interrupt();
             }
         } catch (Exception ex) {
-            LogHelper.printException(ReturnYouTubeDislikes.class, "Error in the voting thread", ex);
+            LogHelper.printException(ReturnYouTubeDislike.class, "Error in the voting thread", ex);
         }
 
         _votingThread = new Thread(() -> {
             try {
                 boolean result = voting.sendVote(currentVideoId, vote);
-                LogHelper.debug(ReturnYouTubeDislikes.class, "sendVote status " + result);
+                LogHelper.debug(ReturnYouTubeDislike.class, "sendVote status " + result);
             } catch (Exception ex) {
-                LogHelper.printException(ReturnYouTubeDislikes.class, "Failed to send vote", ex);
+                LogHelper.printException(ReturnYouTubeDislike.class, "Failed to send vote", ex);
             }
         });
         _votingThread.start();
@@ -139,10 +139,10 @@ public class ReturnYouTubeDislikes {
     private static String formatDislikes(int dislikes) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && compactNumberFormatter != null) {
             final String formatted = compactNumberFormatter.format(dislikes);
-            LogHelper.debug(ReturnYouTubeDislikes.class, "Formatting dislikes - " + dislikes + " - " + formatted);
+            LogHelper.debug(ReturnYouTubeDislike.class, "Formatting dislikes - " + dislikes + " - " + formatted);
             return formatted;
         }
-        LogHelper.debug(ReturnYouTubeDislikes.class, "Couldn't format dislikes, using the unformatted count - " + dislikes);
+        LogHelper.debug(ReturnYouTubeDislike.class, "Couldn't format dislikes, using the unformatted count - " + dislikes);
         return String.valueOf(dislikes);
     }
 }

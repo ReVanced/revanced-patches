@@ -37,7 +37,7 @@ public class ReVancedSettingActivity extends Activity {
             getFragmentManager().beginTransaction().replace(getIdentifier("xsettings_fragments", "id"), new SponsorBlockSettingsFragment()).commit();
         } else if (dataString.equalsIgnoreCase("ryd_settings")) {
             trySetTitle(getIdentifier("revanced_ryd_settings_title", "string"));
-            getFragmentManager().beginTransaction().replace(getIdentifier("xsettings_fragments", "id"), new RYDSettingsFragment()).commit();
+            getFragmentManager().beginTransaction().replace(getIdentifier("xsettings_fragments", "id"), new ReturnYouTubeDislikeSettingsFragment()).commit();
         } else {
             trySetTitle(getIdentifier("revanced_settings", "string"));
             getFragmentManager().beginTransaction().replace(getIdentifier("xsettings_fragments", "id"), new ReVancedSettingsFragment()).commit();

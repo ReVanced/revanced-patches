@@ -13,11 +13,11 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 
-import app.revanced.integrations.ryd.ReturnYouTubeDislikes;
+import app.revanced.integrations.returnyoutubedislike.ReturnYouTubeDislike;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.SharedPrefHelper;
 
-public class RYDSettingsFragment extends PreferenceFragment {
+public class ReturnYouTubeDislikeSettingsFragment extends PreferenceFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +39,7 @@ public class RYDSettingsFragment extends PreferenceFragment {
             preference.setSummary(str("revanced_ryd_summary"));
             preference.setOnPreferenceChangeListener((pref, newValue) -> {
                 final boolean value = (Boolean) newValue;
-                ReturnYouTubeDislikes.onEnabledChange(value);
+                ReturnYouTubeDislike.onEnabledChange(value);
                 return true;
             });
         }

@@ -1,7 +1,7 @@
-package app.revanced.integrations.ryd;
+package app.revanced.integrations.returnyoutubedislike;
 
 import app.revanced.integrations.utils.LogHelper;
-import app.revanced.integrations.ryd.requests.RYDRequester;
+import app.revanced.integrations.returnyoutubedislike.requests.ReturnYouTubeDislikeApi;
 
 public class Voting {
     private Registration registration;
@@ -13,6 +13,6 @@ public class Voting {
     public boolean sendVote(String videoId, int vote) {
         String userId = registration.getUserId();
         LogHelper.debug(Voting.class, "Trying to vote the following video: " + videoId + " with vote " + vote + " and userId: " + userId);
-        return RYDRequester.sendVote(videoId, userId, vote);
+        return ReturnYouTubeDislikeApi.sendVote(videoId, userId, vote);
     }
 }

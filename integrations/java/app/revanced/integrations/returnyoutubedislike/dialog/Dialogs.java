@@ -1,4 +1,4 @@
-package app.revanced.integrations.ryd.dialog;
+package app.revanced.integrations.returnyoutubedislike.dialog;
 
 import static app.revanced.integrations.sponsorblock.StringRef.str;
 

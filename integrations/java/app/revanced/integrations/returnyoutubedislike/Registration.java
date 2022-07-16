@@ -1,4 +1,4 @@
-package app.revanced.integrations.ryd;
+package app.revanced.integrations.returnyoutubedislike;
 
 
 import android.util.Base64;
@@ -8,7 +8,7 @@ import java.security.SecureRandom;
 
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
-import app.revanced.integrations.ryd.requests.RYDRequester;
+import app.revanced.integrations.returnyoutubedislike.requests.ReturnYouTubeDislikeApi;
 
 public class Registration {
 
@@ -58,7 +58,7 @@ public class Registration {
     private String register() {
         String userId = randomString(36);
         LogHelper.debug(Registration.class, "Trying to register the following userId: " + userId);
-        return RYDRequester.register(userId, this);
+        return ReturnYouTubeDislikeApi.register(userId, this);
     }
 
     private String randomString(int len) {
