@@ -21,7 +21,7 @@ import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch
-@Dependencies(dependencies = [IntegrationsPatch::class])
+@Dependencies([IntegrationsPatch::class])
 @Name("hide-infocard-suggestions")
 @Description("Hides infocards in videos.")
 @HideInfocardSuggestionsCompatibility

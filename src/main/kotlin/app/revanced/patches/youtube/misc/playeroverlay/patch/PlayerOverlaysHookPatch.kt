@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.misc.playeroverlay.fingerprint.PlayerOverlay
 @Description("hook for adding custom overlays to the video player.")
 @PlayerOverlaysHookCompatibility
 @Version("0.0.1")
-@Dependencies(dependencies = [IntegrationsPatch::class])
+@Dependencies([IntegrationsPatch::class])
 class PlayerOverlaysHookPatch : BytecodePatch(
     listOf(
         PlayerOverlaysOnFinishInflateFingerprint

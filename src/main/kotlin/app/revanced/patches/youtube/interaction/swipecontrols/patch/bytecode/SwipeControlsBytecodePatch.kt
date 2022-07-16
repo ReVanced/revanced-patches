@@ -23,7 +23,7 @@ import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 @SwipeControlsCompatibility
 @Version("0.0.2")
 @Dependencies(
-    dependencies = [
+    [
         IntegrationsPatch::class,
         PlayerTypeHookPatch::class,
         PlayerOverlaysHookPatch::class,

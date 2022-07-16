@@ -18,7 +18,7 @@ import app.revanced.patches.youtube.misc.mapping.patch.ResourceIdMappingProvider
 import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
 @Patch
-@Dependencies(dependencies = [ResourceIdMappingProviderResourcePatch::class])
+@Dependencies([ResourceIdMappingProviderResourcePatch::class])
 @Name("hide-autoplay-button")
 @Description("Disables the autoplay button.")
 @AutoplayButtonCompatibility

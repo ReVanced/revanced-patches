@@ -25,7 +25,7 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @Patch
 @Name("custom-playback-speed")
 @Description("Allows to change the default playback speed options.")
-@Dependencies(dependencies = [IntegrationsPatch::class])
+@Dependencies([IntegrationsPatch::class])
 @CustomPlaybackSpeedCompatibility
 @Version("0.0.1")
 class CustomPlaybackSpeedPatch : BytecodePatch(

@@ -22,7 +22,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction11n
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch
-@Dependencies(dependencies = [IntegrationsPatch::class])
+@Dependencies([IntegrationsPatch::class])
 @Name("seekbar-tapping")
 @Description("Enables tapping on the seekbar of the YouTube player.")
 @SeekbarTappingCompatibility

@@ -15,9 +15,7 @@ import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatc
 import java.nio.file.Files
 
 @Patch
-@Dependencies(
-    dependencies = [FixLocaleConfigErrorPatch::class]
-)
+@Dependencies([FixLocaleConfigErrorPatch::class])
 @Name("custom-branding")
 @Description("Changes the branding of YouTube.")
 @CustomBrandingCompatibility

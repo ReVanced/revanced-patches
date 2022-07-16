@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.ad.video.fingerprints.ShowVideoAdsFingerprin
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 
 @Patch
-@Dependencies(dependencies = [IntegrationsPatch::class])
+@Dependencies([IntegrationsPatch::class])
 @Name("video-ads")
 @Description("Removes ads in the YouTube video player.")
 @VideoAdsCompatibility

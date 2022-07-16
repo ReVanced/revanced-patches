@@ -15,11 +15,7 @@ import org.w3c.dom.Element
 import java.io.File
 
 @Patch
-@Dependencies(
-    dependencies = [
-        FixLocaleConfigErrorPatch::class
-    ]
-)
+@Dependencies([FixLocaleConfigErrorPatch::class])
 @Name("amoled")
 @Description("Enables pure black theme.")
 @AmoledCompatibility

@@ -20,7 +20,7 @@ import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
 
 @Patch
-@Dependencies(dependencies = [IntegrationsPatch::class])
+@Dependencies([IntegrationsPatch::class])
 @Name("old-quality-layout")
 @Description("Enables the original quality flyout menu.")
 @OldQualityLayoutCompatibility

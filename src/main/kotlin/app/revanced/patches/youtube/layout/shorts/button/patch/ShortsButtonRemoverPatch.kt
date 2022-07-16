@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Dependencies(dependencies = [IntegrationsPatch::class])
+@Dependencies([IntegrationsPatch::class])
 @Name("hide-shorts-button")
 @Description("Hides the shorts button.")
 @ShortsButtonCompatibility

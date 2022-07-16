@@ -22,7 +22,7 @@ import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 import org.jf.dexlib2.iface.reference.MethodReference
 
 @Patch
-@Dependencies(dependencies = [IntegrationsPatch::class, ResourceIdMappingProviderResourcePatch::class])
+@Dependencies([IntegrationsPatch::class, ResourceIdMappingProviderResourcePatch::class])
 @Name("disable-create-button")
 @Description("Disables the create button.")
 @CreateButtonCompatibility

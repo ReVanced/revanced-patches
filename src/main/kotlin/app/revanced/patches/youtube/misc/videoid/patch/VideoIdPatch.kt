@@ -18,7 +18,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction11x
 @Description("hook to detect when the video id changes")
 @VideoIdCompatibility
 @Version("0.0.1")
-@Dependencies(dependencies = [IntegrationsPatch::class])
+@Dependencies([IntegrationsPatch::class])
 class VideoIdPatch : BytecodePatch(
     listOf(
         VideoIdFingerprint

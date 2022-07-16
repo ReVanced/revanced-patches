@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.layout.castbutton.annotations.CastButtonComp
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 
 @Patch
-@Dependencies(dependencies = [IntegrationsPatch::class])
+@Dependencies([IntegrationsPatch::class])
 @Name("hide-cast-button")
 @Description("Hides the cast button.")
 @CastButtonCompatibility

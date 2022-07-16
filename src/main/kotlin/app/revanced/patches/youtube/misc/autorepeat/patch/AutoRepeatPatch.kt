@@ -19,7 +19,7 @@ import app.revanced.patches.youtube.misc.autorepeat.fingerprints.AutoRepeatParen
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 
 @Patch(include = false)
-@Dependencies(dependencies = [IntegrationsPatch::class])
+@Dependencies([IntegrationsPatch::class])
 @Name("autorepeat-by-default")
 @Description("Enables auto repeating of videos by default.")
 @AutoRepeatCompatibility
@@ -61,7 +61,7 @@ class AutoRepeatPatch : BytecodePatch(
 
         //Since addInstructions needs an index which starts counting at 0 and size starts counting at 1,
         //we have to remove 1 to get the latest instruction
-        val index = implementation.instructions.size-1
+        val index = implementation.instructions.size - 1
 
 
         //remove last instruction which is return-void
