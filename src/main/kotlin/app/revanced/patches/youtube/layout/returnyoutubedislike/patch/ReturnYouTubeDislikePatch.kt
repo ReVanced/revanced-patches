@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.returnyoutubedislikes.patch
+package app.revanced.patches.youtube.layout.returnyoutubedislike.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
@@ -11,21 +11,21 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Dependencies
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
-import app.revanced.patches.youtube.layout.returnyoutubedislikes.annotations.RYDCompatibility
-import app.revanced.patches.youtube.layout.returnyoutubedislikes.fingerprints.TextComponentSpecParentFingerprint
-import app.revanced.patches.youtube.layout.returnyoutubedislikes.fingerprints.DislikeFingerprint
-import app.revanced.patches.youtube.layout.returnyoutubedislikes.fingerprints.LikeFingerprint
-import app.revanced.patches.youtube.layout.returnyoutubedislikes.fingerprints.RemoveLikeFingerprint
+import app.revanced.patches.youtube.layout.returnyoutubedislike.annotations.ReturnYouTubeDislikeCompatibility
+import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.TextComponentSpecParentFingerprint
+import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.DislikeFingerprint
+import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.LikeFingerprint
+import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.RemoveLikeFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.videoid.patch.VideoIdPatch
 
 @Patch
-@Dependencies(dependencies = [IntegrationsPatch::class, VideoIdPatch::class])
-@Name("return-youtube-dislikes")
+@Dependencies([IntegrationsPatch::class, VideoIdPatch::class])
+@Name("return-youtube-dislike")
 @Description("Shows the dislike count of videos.")
-@RYDCompatibility
+@ReturnYouTubeDislikeCompatibility
 @Version("0.0.1")
-class RYDPatch : BytecodePatch(
+class ReturnYouTubeDislikePatch : BytecodePatch(
     listOf(
         TextComponentSpecParentFingerprint, LikeFingerprint, DislikeFingerprint, RemoveLikeFingerprint
     )
