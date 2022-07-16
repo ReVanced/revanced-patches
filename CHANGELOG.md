@@ -1,3 +1,10 @@
+# [2.15.0](https://github.com/revanced/revanced-patches/compare/v2.14.1...v2.15.0) (2022-07-16)
+
+
+### Features
+
+* `return-youtube-dislikes` patch ([#175](https://github.com/revanced/revanced-patches/issues/175)) ([18a66d8](https://github.com/revanced/revanced-patches/commit/18a66d8454cf6e7cfdd4183631a6870c80d16b90))
+
 ## [2.14.1](https://github.com/revanced/revanced-patches/compare/v2.14.0...v2.14.1) (2022-07-15)
 
 

@@ -30,6 +30,7 @@
 | `premium-heading` | Shows premium branding on the YouTube home screen. | `com.google.android.youtube` | all |
 | `custom-branding` | Changes the branding of YouTube. | `com.google.android.youtube` | all |
 | `enable-wide-searchbar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | `com.google.android.youtube` | 17.26.35 |
+| `return-youtube-dislikes` | Shows the dislike count of videos. | `com.google.android.youtube` | 17.26.35 |
 | `disable-fullscreen-panels` | Disables comments panel in fullscreen view. | `com.google.android.youtube` | 17.26.35 |
 | `hide-shorts-button` | Hides the shorts button. | `com.google.android.youtube` | 17.26.35 |
 | `disable-create-button` | Disables the create button. | `com.google.android.youtube` | 17.26.35 |
