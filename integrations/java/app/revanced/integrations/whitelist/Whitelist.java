@@ -1,6 +1,6 @@
 package app.revanced.integrations.whitelist;
 
-import static app.revanced.integrations.sponsorblock.player.VideoInformation.channelName;
+import static app.revanced.integrations.videoplayer.VideoInformation.channelName;
 import static app.revanced.integrations.sponsorblock.player.ui.SlimButtonContainer.adBlockButton;
 import static app.revanced.integrations.sponsorblock.player.ui.SlimButtonContainer.sbWhitelistButton;
 import static app.revanced.integrations.sponsorblock.StringRef.str;
@@ -21,7 +21,7 @@ import java.util.Map;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.sponsorblock.player.ChannelModel;
-import app.revanced.integrations.sponsorblock.player.VideoInformation;
+import app.revanced.integrations.videoplayer.VideoInformation;
 import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
 

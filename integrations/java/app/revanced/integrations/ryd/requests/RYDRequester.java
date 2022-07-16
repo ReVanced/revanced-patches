@@ -1,10 +1,7 @@
 package app.revanced.integrations.ryd.requests;
 
-import static app.revanced.integrations.sponsorblock.player.VideoInformation.dislikeCount;
+import static app.revanced.integrations.videoplayer.VideoInformation.dislikeCount;
 import static app.revanced.integrations.whitelist.requests.Requester.parseJson;
-
-import android.os.Handler;
-import android.os.Looper;
 
 
 import org.json.JSONObject;
@@ -16,7 +13,6 @@ import java.nio.charset.StandardCharsets;
 
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.ryd.Registration;
-import app.revanced.integrations.ryd.ReturnYouTubeDislikes;
 import app.revanced.integrations.whitelist.requests.Requester;
 import app.revanced.integrations.whitelist.requests.Route;
 
@@ -33,13 +29,8 @@ public class RYDRequester {
             connection.setConnectTimeout(5 * 1000);
             if (connection.getResponseCode() == 200) {
                 JSONObject json = getJSONObject(connection);
-                int dislikes = json.getInt("dislikes");
-                dislikeCount = dislikes;
+                dislikeCount = json.getInt("dislikes");
                 LogHelper.debug(RYDRequester.class, "dislikes fetched - " + dislikeCount);
-
-
-                // Set the dislikes
-                new Handler(Looper.getMainLooper()).post(() -> ReturnYouTubeDislikes.trySetDislikes(ReturnYouTubeDislikes.formatDislikes(dislikes)));
             } else {
                 LogHelper.debug(RYDRequester.class, "dislikes fetch response was " + connection.getResponseCode());
             }

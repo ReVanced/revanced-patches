@@ -1,6 +1,6 @@
 package app.revanced.integrations.whitelist.requests;
 
-import static app.revanced.integrations.sponsorblock.player.VideoInformation.currentVideoId;
+import static app.revanced.integrations.videoplayer.VideoInformation.currentVideoId;
 import static app.revanced.integrations.utils.ReVancedUtils.runOnMainThread;
 import static app.revanced.integrations.sponsorblock.StringRef.str;
 

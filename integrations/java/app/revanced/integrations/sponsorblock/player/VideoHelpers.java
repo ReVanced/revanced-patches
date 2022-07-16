@@ -7,6 +7,7 @@ import static app.revanced.integrations.sponsorblock.StringRef.str;
 
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
+import app.revanced.integrations.videoplayer.VideoInformation;
 
 public class VideoHelpers {
 

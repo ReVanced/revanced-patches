@@ -1,6 +1,6 @@
 package app.revanced.integrations.sponsorblock.player.ui;
 
-import static app.revanced.integrations.sponsorblock.player.VideoInformation.currentVideoId;
+import static app.revanced.integrations.videoplayer.VideoInformation.currentVideoId;
 import static app.revanced.integrations.sponsorblock.StringRef.str;
 
 import android.content.Context;
@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import app.revanced.integrations.utils.LogHelper;
-import app.revanced.integrations.sponsorblock.player.VideoInformation;
+import app.revanced.integrations.videoplayer.VideoInformation;
 import app.revanced.integrations.whitelist.Whitelist;
 import app.revanced.integrations.whitelist.WhitelistType;
 import app.revanced.integrations.whitelist.requests.WhitelistRequester;

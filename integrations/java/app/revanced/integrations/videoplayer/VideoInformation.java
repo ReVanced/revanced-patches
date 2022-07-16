@@ -1,4 +1,4 @@
-package app.revanced.integrations.sponsorblock.player;
+package app.revanced.integrations.videoplayer;
 
 import app.revanced.integrations.utils.LogHelper;
 

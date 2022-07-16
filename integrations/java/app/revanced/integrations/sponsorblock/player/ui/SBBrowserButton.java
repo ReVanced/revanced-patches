@@ -9,9 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import app.revanced.integrations.settings.SettingsEnum;
-import app.revanced.integrations.sponsorblock.player.VideoInformation;
+import app.revanced.integrations.videoplayer.VideoInformation;
 import app.revanced.integrations.utils.ReVancedUtils;
-import app.revanced.integrations.sponsorblock.SponsorBlockSettings;
 import app.revanced.integrations.sponsorblock.SponsorBlockUtils;
 
 public class SBBrowserButton extends SlimButton {
