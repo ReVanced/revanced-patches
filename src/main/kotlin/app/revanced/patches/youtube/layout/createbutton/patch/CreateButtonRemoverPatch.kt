@@ -39,7 +39,7 @@ class CreateButtonRemoverPatch : BytecodePatch(
         val implementation = result.mutableMethod.implementation!!
 
         val imageOnlyLayout =
-            ResourceIdMappingProviderResourcePatch.resourceMappings.first { it.type == "layout" && it.name == "image_only_tab" }
+            ResourceIdMappingProviderResourcePatch.resourceMappings.single { it.type == "layout" && it.name == "image_only_tab" }
 
         val imageOnlyLayoutConstIndex =
             implementation.instructions.indexOfFirst { (it as? WideLiteralInstruction)?.wideLiteral == imageOnlyLayout.id }
