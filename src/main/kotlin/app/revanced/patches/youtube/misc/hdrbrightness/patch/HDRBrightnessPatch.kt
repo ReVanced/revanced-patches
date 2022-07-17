@@ -46,7 +46,7 @@ class HDRBrightnessPatch : BytecodePatch(
             // inject the call to
             method.addInstructions(
                 index, """
-           invoke-static {v$register}, Lapp/revanced/integrations/patches/HDRMaxBrightnessPatch;->getHDRBrightness(F)F
+           invoke-static {v$register}, Lapp/revanced/integrations/patches/HDRAutoBrightnessPatch;->getHDRBrightness(F)F
            move-result v$register
         """
             )
