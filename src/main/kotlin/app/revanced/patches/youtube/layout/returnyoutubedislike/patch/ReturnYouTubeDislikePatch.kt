@@ -35,25 +35,25 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
             0,
             """
             const/4 v0, 1
-            invoke-static {v0}, Lapp/revanced/integrations/patches/ReturnYouTubeDislikesPatch;->sendVote(I)V
+            invoke-static {v0}, Lapp/revanced/integrations/patches/ReturnYouTubeDislikePatch;->sendVote(I)V
             """
         )
         DislikeFingerprint.result!!.mutableMethod.addInstructions(
             0,
             """
             const/4 v0, -1
-            invoke-static {v0}, Lapp/revanced/integrations/patches/ReturnYouTubeDislikesPatch;->sendVote(I)V
+            invoke-static {v0}, Lapp/revanced/integrations/patches/ReturnYouTubeDislikePatch;->sendVote(I)V
             """
         )
         RemoveLikeFingerprint.result!!.mutableMethod.addInstructions(
             0,
             """
             const/4 v0, 0
-            invoke-static {v0}, Lapp/revanced/integrations/patches/ReturnYouTubeDislikesPatch;->sendVote(I)V
+            invoke-static {v0}, Lapp/revanced/integrations/patches/ReturnYouTubeDislikePatch;->sendVote(I)V
             """
         )
 
-        VideoIdPatch.injectCall("Lapp/revanced/integrations/patches/ReturnYouTubeDislikesPatch;->newVideoLoaded(Ljava/lang/String;)V")
+        VideoIdPatch.injectCall("Lapp/revanced/integrations/patches/ReturnYouTubeDislikePatch;->newVideoLoaded(Ljava/lang/String;)V")
 
         val parentResult = TextComponentSpecParentFingerprint.result!!
         val createComponentMethod = parentResult.mutableClass.methods.find { method ->
@@ -70,7 +70,7 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
             """
             move-object/from16 v0, p$conversionContextParam
             move-object/from16 v1, p$textRefParam
-            invoke-static {v0, v1}, Lapp/revanced/integrations/patches/ReturnYouTubeDislikesPatch;->onComponentCreated(Ljava/lang/Object;Ljava/util/concurrent/atomic/AtomicReference;)V
+            invoke-static {v0, v1}, Lapp/revanced/integrations/patches/ReturnYouTubeDislikePatch;->onComponentCreated(Ljava/lang/Object;Ljava/util/concurrent/atomic/AtomicReference;)V
             """
         )
 
