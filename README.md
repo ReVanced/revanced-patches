@@ -23,6 +23,7 @@
 | `custom-playback-speed` | Adds more video playback speed options. | `com.google.android.youtube` | 17.27.39 |
 | `enable-debugging` | Enables app debugging by patching the manifest file. | `com.google.android.youtube` | all |
 | `force-vp9-codec` | Forces the VP9 codec for videos. | `com.google.android.youtube` | 17.27.39 |
+| `sponsorblock` | Integrate SponsorBlock. | `com.google.android.youtube` | 17.27.39 |
 | `old-quality-layout` | Enables the original quality flyout menu. | `com.google.android.youtube` | 17.27.39 |
 | `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | `com.google.android.youtube` | 17.27.39 |
 | `hide-cast-button` | Hides the cast button in the video player. | `com.google.android.youtube` | all |

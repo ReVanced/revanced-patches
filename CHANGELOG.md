@@ -1,3 +1,15 @@
+# [2.17.0](https://github.com/revanced/revanced-patches/compare/v2.16.1...v2.17.0) (2022-07-17)
+
+
+### Bug Fixes
+
+* check if node has attributes before accessing them ([2d2ed87](https://github.com/revanced/revanced-patches/commit/2d2ed870dacfe092eb6acbcaae5e51775c611322))
+
+
+### Features
+
+* `sponsorblock` patch ([#101](https://github.com/revanced/revanced-patches/issues/101)) ([36af4cc](https://github.com/revanced/revanced-patches/commit/36af4cc14ff8057c10b99019cb23acc6e5aec3f2)), closes [#89](https://github.com/revanced/revanced-patches/issues/89) [#90](https://github.com/revanced/revanced-patches/issues/90)
+
 ## [2.16.1](https://github.com/revanced/revanced-patches/compare/v2.16.0...v2.16.1) (2022-07-17)
 
 
