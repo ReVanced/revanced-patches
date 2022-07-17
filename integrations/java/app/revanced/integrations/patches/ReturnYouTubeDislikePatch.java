@@ -5,9 +5,9 @@ import java.util.concurrent.atomic.AtomicReference;
 import app.revanced.integrations.returnyoutubedislike.ReturnYouTubeDislike;
 
 /**
- * Used by app.revanced.patches.youtube.layout.returnyoutubedislikes.patch.RYDPatch
+ * Used by app.revanced.patches.youtube.layout.returnyoutubedislike.patch.ReturnYouTubeDislikePatch
  */
-public class ReturnYouTubeDislikesPatch {
+public class ReturnYouTubeDislikePatch {
 
     /**
      * Called when the video id changes
