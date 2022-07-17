@@ -15,7 +15,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction22c
 
 @Patch
 @Name("tasteBuilder-remover")
-@Description("Removes the \"Tell us which artists you like\" card from the Home screen. The same functionality can be triggered from the settings anyway.")
+@Description("Removes the \"Tell us which artists you like\" card from the home screen.")
 @RemoveTasteBuilderCompatibility
 @Version("0.0.1")
 class RemoveTasteBuilderPatch : BytecodePatch(

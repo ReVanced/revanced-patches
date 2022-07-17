@@ -16,7 +16,7 @@ import app.revanced.patches.music.ad.video.fingerprints.ShowMusicVideoAdsFingerp
 
 @Patch
 @Name("music-video-ads")
-@Description("Removes ads in the YouTube Music player.")
+@Description("Removes ads in the music player.")
 @MusicVideoAdsCompatibility
 @Version("0.0.1")
 class MusicVideoAdsPatch : BytecodePatch(

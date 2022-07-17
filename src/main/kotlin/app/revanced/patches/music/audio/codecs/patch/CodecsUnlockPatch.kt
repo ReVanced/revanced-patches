@@ -16,7 +16,7 @@ import app.revanced.patches.music.audio.codecs.fingerprints.CodecsLockFingerprin
 
 @Patch
 @Name("codecs-unlock")
-@Description("Enables more audio codecs. Usually results in better audio quality but may depend on song and device.")
+@Description("Adds more audio codec options. The new audio codecs usually result in better audio quality.")
 @CodecsUnlockCompatibility
 @Version("0.0.1")
 class CodecsUnlockPatch : BytecodePatch(

@@ -19,7 +19,7 @@ import org.jf.dexlib2.iface.reference.MethodReference
 
 @Patch
 @Name("disable-fullscreen-panels")
-@Description("Disables comments panel in fullscreen view.")
+@Description("Disables video description and comments panel in fullscreen view.")
 @FullscreenPanelsCompatibility
 @Version("0.0.1")
 class FullscreenPanelsRemovalPatch : BytecodePatch(

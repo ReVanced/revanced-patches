@@ -22,7 +22,7 @@ import app.revanced.patches.youtube.misc.videoid.patch.VideoIdPatch
 @Patch
 @Dependencies([IntegrationsPatch::class, VideoIdPatch::class])
 @Name("return-youtube-dislike")
-@Description("Shows the dislike count of videos.")
+@Description("Shows the dislike count of videos using the Return YouTube Dislike API.")
 @ReturnYouTubeDislikeCompatibility
 @Version("0.0.1")
 class ReturnYouTubeDislikePatch : BytecodePatch(

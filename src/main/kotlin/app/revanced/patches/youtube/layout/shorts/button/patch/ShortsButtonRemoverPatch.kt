@@ -19,7 +19,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Patch
 @Dependencies([IntegrationsPatch::class])
 @Name("hide-shorts-button")
-@Description("Hides the shorts button.")
+@Description("Hides the shorts button on the navigation bar.")
 @ShortsButtonCompatibility
 @Version("0.0.1")
 class ShortsButtonRemoverPatch : BytecodePatch(
