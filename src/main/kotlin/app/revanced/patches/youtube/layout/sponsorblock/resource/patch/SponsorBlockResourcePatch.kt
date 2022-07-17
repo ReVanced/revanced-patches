@@ -88,7 +88,7 @@ class SponsorBlockResourcePatch : ResourcePatch() {
                         val view = children.item(i)
 
                         // Replace the attribute for a specific node only
-                        if (!view.attributes.getNamedItem("android:id").nodeValue.endsWith("live_chat_overlay_button")) continue
+                        if (!(view.hasAttributes() && view.attributes.getNamedItem("android:id").nodeValue.endsWith("live_chat_overlay_button"))) continue
 
                         // voting button id from the voting button view from the youtube_controls_layout.xml host file
                         val votingButtonId = "@+id/voting_button"
