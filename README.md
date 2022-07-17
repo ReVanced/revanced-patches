@@ -22,6 +22,7 @@
 | `autorepeat-by-default` | Enables auto repeating of videos by default. | `com.google.android.youtube` | 17.26.35 |
 | `custom-playback-speed` | Adds more video playback speed options. | `com.google.android.youtube` | 17.26.35 |
 | `enable-debugging` | Enables app debugging by patching the manifest file. | `com.google.android.youtube` | all |
+| `force-vp9-codec` | Forces the VP9 codec for videos. | `com.google.android.youtube` | 17.26.35 |
 | `old-quality-layout` | Enables the original quality flyout menu. | `com.google.android.youtube` | 17.26.35 |
 | `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | `com.google.android.youtube` | 17.26.35 |
 | `hide-cast-button` | Hides the cast button in the video player. | `com.google.android.youtube` | all |

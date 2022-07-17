@@ -1,3 +1,10 @@
+# [2.16.0](https://github.com/revanced/revanced-patches/compare/v2.15.1...v2.16.0) (2022-07-17)
+
+
+### Features
+
+* `force-vp9-codec` patch ([#157](https://github.com/revanced/revanced-patches/issues/157)) ([07806a1](https://github.com/revanced/revanced-patches/commit/07806a16e5368118949e0e476e901987433ad403))
+
 ## [2.15.1](https://github.com/revanced/revanced-patches/compare/v2.15.0...v2.15.1) (2022-07-17)
 
 
