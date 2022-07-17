@@ -6,12 +6,12 @@ import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.swipecontrols.views.SwipeControlsHostLayout;
 
 /**
- * Patch class for 'hdr-max-brightness' patch
+ * Patch class for 'hdr-auto-brightness' patch
  *
  * @usedBy app/revanced/patches/youtube/misc/hdrbrightness/patch/HDRBrightnessPatch
- * @smali app/revanced/integrations/patches/HDRMaxBrightnessPatch
+ * @smali app/revanced/integrations/patches/HDRAutoBrightnessPatch
  */
-public class HDRMaxBrightnessPatch {
+public class HDRAutoBrightnessPatch {
     /**
      * get brightness override for HDR brightness
      *
