@@ -104,6 +104,9 @@ public class GeneralBytecodeAdsPatch {
             if (SettingsEnum.ADREMOVER_HIDE_LATEST_POSTS.getBoolean()) {
                 blockList.add("post_shelf");
             }
+            if (SettingsEnum.ADREMOVER_HIDE_CHANNEL_GUIDELINES.getBoolean()) {
+                blockList.add("channel_guidelines_entry_banner");
+            }
 
             if (containsAny(value,
                     "home_video_with_context",

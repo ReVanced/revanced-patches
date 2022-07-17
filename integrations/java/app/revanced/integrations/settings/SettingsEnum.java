@@ -45,6 +45,7 @@ public enum SettingsEnum {
     ADREMOVER_SUGGESTED_FOR_YOU_REMOVAL("revanced_adremover_suggested", true, ReturnType.BOOLEAN),
     ADREMOVER_HIDE_SUGGESTIONS("revanced_adremover_hide_suggestions", true, ReturnType.BOOLEAN),
     ADREMOVER_HIDE_LATEST_POSTS("revanced_adremover_hide_latest_posts", true, ReturnType.BOOLEAN),
+    ADREMOVER_HIDE_CHANNEL_GUIDELINES("revanced_adremover_hide_channel_guidelines", true, ReturnType.BOOLEAN),
 
     //Layout settings
     REEL_BUTTON_SHOWN("revanced_reel_button_enabled", false, ReturnType.BOOLEAN),
