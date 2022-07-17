@@ -1,3 +1,10 @@
+## [2.16.1](https://github.com/revanced/revanced-patches/compare/v2.16.0...v2.16.1) (2022-07-17)
+
+
+### Bug Fixes
+
+* bump youtube version to 17.27.39 ([b93401a](https://github.com/revanced/revanced-patches/commit/b93401a391c0ed4887dd1376ac253f74f98a8d7e))
+
 # [2.16.0](https://github.com/revanced/revanced-patches/compare/v2.15.1...v2.16.0) (2022-07-17)
 
 
