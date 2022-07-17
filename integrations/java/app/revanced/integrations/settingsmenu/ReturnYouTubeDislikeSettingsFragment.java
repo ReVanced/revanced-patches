@@ -44,18 +44,6 @@ public class ReturnYouTubeDislikeSettingsFragment extends PreferenceFragment {
             });
         }
 
-        // Clear hint
-        if (SettingsEnum.DEBUG.getBoolean()) {
-            SwitchPreference preference = new SwitchPreference(context);
-            preferenceScreen.addPreference(preference);
-            preference.setKey(SettingsEnum.RYD_HINT_SHOWN.getPath());
-            preference.setDefaultValue(false);
-            preference.setChecked(SettingsEnum.RYD_HINT_SHOWN.getBoolean());
-            preference.setTitle("Hint debug");
-            preference.setSummary("Debug toggle for clearing the hint shown preference");
-            preference.setOnPreferenceChangeListener((pref, newValue) -> true);
-        }
-
         // About category
         addAboutCategory(context, preferenceScreen);
     }
