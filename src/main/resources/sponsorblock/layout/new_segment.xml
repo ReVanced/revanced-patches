@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yt="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:gravity="start|center"
+        android:orientation="vertical"
+        android:id="@+id/new_segment_container"
+        android:background="#66000000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="36.0dip">
+
+            <ImageButton
+                android:layout_gravity="start|center"
+                android:id="@+id/new_segment_rewind"
+                android:background="@android:color/transparent"
+                android:paddingTop="3.0dip"
+                android:paddingBottom="3.0dip"
+                android:layout_width="45.0dip"
+                android:layout_height="36.0dip"
+                android:src="@drawable/player_fast_rewind"
+                android:contentDescription="@null"
+                android:alpha="1.0"
+                android:paddingStart="10.0dip"
+                android:paddingEnd="5.0dip" />
+
+            <ImageButton
+                android:layout_gravity="start|center"
+                android:id="@+id/new_segment_forward"
+                android:background="@android:color/transparent"
+                android:paddingTop="3.0dip"
+                android:paddingBottom="3.0dip"
+                android:layout_width="45.0dip"
+                android:layout_height="36.0dip"
+                android:src="@drawable/player_fast_forward"
+                android:contentDescription="@null"
+                android:alpha="1.0"
+                android:paddingStart="5.0dip"
+                android:paddingEnd="5.0dip" />
+
+            <ImageButton
+                android:layout_gravity="start|center"
+                android:id="@+id/new_segment_adjust"
+                android:background="@android:color/transparent"
+                android:paddingTop="3.0dip"
+                android:paddingBottom="3.0dip"
+                android:layout_width="45.0dip"
+                android:layout_height="36.0dip"
+                android:src="@drawable/ic_sb_adjust"
+                android:contentDescription="@null"
+                android:alpha="1.0"
+                android:paddingStart="5.0dip"
+                android:paddingEnd="10.0dip" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="36.0dip">
+
+            <ImageButton
+                android:layout_gravity="start|center"
+                android:id="@+id/new_segment_compare"
+                android:background="@android:color/transparent"
+                android:paddingTop="3.0dip"
+                android:paddingBottom="3.0dip"
+                android:layout_width="45.0dip"
+                android:layout_height="36.0dip"
+                android:src="@drawable/ic_sb_compare"
+                android:contentDescription="@null"
+                android:alpha="1.0"
+                android:paddingStart="10.0dip"
+                android:paddingEnd="5.0dip" />
+
+            <ImageButton
+                android:layout_gravity="start|center"
+                android:id="@+id/new_segment_edit"
+                android:background="@android:color/transparent"
+                android:paddingTop="3.0dip"
+                android:paddingBottom="3.0dip"
+                android:layout_width="45.0dip"
+                android:layout_height="36.0dip"
+                android:src="@drawable/ic_sb_edit"
+                android:contentDescription="@null"
+                android:alpha="1.0"
+                android:paddingStart="5.0dip"
+                android:paddingEnd="5.0dip" />
+
+            <ImageButton
+                android:layout_gravity="start|center"
+                android:id="@+id/new_segment_publish"
+                android:background="@android:color/transparent"
+                android:paddingTop="3.0dip"
+                android:paddingBottom="3.0dip"
+                android:layout_width="45.0dip"
+                android:layout_height="36.0dip"
+                android:src="@drawable/ic_sb_publish"
+                android:contentDescription="@null"
+                android:alpha="1.0"
+                android:paddingStart="5.0dip"
+                android:paddingEnd="10.0dip" />
+        </LinearLayout>
+    </LinearLayout>
+</merge>

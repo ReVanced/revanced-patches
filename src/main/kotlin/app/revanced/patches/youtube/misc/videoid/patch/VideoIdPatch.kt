@@ -5,14 +5,16 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.impl.BytecodeData
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Dependencies
 import app.revanced.patcher.patch.impl.BytecodePatch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.videoid.annotation.VideoIdCompatibility
 import app.revanced.patches.youtube.misc.videoid.fingerprint.VideoIdFingerprint
-import org.jf.dexlib2.iface.instruction.formats.Instruction11x
+import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Name("video-id-hook")
 @Description("hook to detect when the video id changes")
@@ -25,12 +27,21 @@ class VideoIdPatch : BytecodePatch(
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
+        result = VideoIdFingerprint.result!!
+
+        insertMethod = result.mutableMethod
+        videoIdRegister =
+            (insertMethod.implementation!!.instructions[result.patternScanResult!!.endIndex + 1] as OneRegisterInstruction).registerA
+
         injectCall("Lapp/revanced/integrations/videoplayer/VideoInformation;->setCurrentVideoId(Ljava/lang/String;)V")
 
         return PatchResultSuccess()
     }
 
     companion object {
+        private lateinit var result: MethodFingerprintResult
+        private var videoIdRegister: Int = 0
+        private lateinit var insertMethod: MutableMethod
         private var offset = 2
 
         /**
@@ -40,12 +51,7 @@ class VideoIdPatch : BytecodePatch(
         fun injectCall(
             methodDescriptor: String
         ) {
-            val result = VideoIdFingerprint.result!!
-
-            val method = result.mutableMethod
-            val videoIdRegister =
-                (method.implementation!!.instructions[result.patternScanResult!!.endIndex + 1] as Instruction11x).registerA
-            method.addInstructions(
+            insertMethod.addInstructions(
                 result.patternScanResult!!.endIndex + offset, // after the move-result-object
                 "invoke-static {v$videoIdRegister}, $methodDescriptor"
             )

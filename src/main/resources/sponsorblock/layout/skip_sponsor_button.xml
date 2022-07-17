@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yt="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@+id/skip_sponsor_button_container" android:padding="8dp" android:layout_width="wrap_content" android:layout_height="32dp" android:contentDescription="@string/skip_sponsor">
+        <com.google.android.libraries.youtube.common.ui.YouTubeTextView android:textSize="@dimen/extra_small_font_size" android:textColor="@color/skip_ad_button_foreground_color" android:layout_gravity="center_vertical" android:id="@+id/skip_sponsor_button_text" android:paddingRight="@dimen/ad_overlay_ad_text_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/skip_sponsor" android:singleLine="true" android:includeFontPadding="false" yt:robotoFont="light"/>
+        <ImageView android:layout_gravity="center_vertical" android:id="@+id/skip_sponsor_button_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/quantum_ic_skip_next_white_24" android:contentDescription="@null" android:alpha="0.8"/>
+    </LinearLayout>
+</merge>

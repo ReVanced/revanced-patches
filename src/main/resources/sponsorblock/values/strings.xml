@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="enable_sb">Enable SponsorBlock</string>
+    <string name="enable_sb_sum">SponsorBlock is a crowd-sourced system for skipping annoying parts in YouTube videos</string>
+    <string name="enable_segmadding">Enable new segment adding</string>
+    <string name="enable_segmadding_sum">Switch this on to enable experimental segment adding (has button visibility issues)</string>
+    <string name="diff_segments">What to do with different segments</string>
+    <string name="general">General</string>
+    <string name="general_skiptoast">Show a toast when skipping segment automatically</string>
+    <string name="general_skiptoast_sum">Click to see an example toast</string>
+    <string name="general_skipcount">Skip count tracking</string>
+    <string name="general_skipcount_sum">This lets SponsorBlock leaderboard system know how much time people have saved. The extension sends a message to the server each time you skip a segment</string>
+    <string name="general_adjusting">Adjusting new segment step</string>
+    <string name="general_adjusting_sum">This is the number of milliseconds you can move when you use the time adjustment buttons while adding new segment</string>
+    <string name="general_min_duration">Minimum segment duration</string>
+    <string name="general_min_duration_sum">Segments shorter than the set value (in seconds) will not be skipped or shown in the player</string>
+    <string name="general_uuid">Your unique user id</string>
+    <string name="general_uuid_sum">This should be kept private. This is like a password and should not be shared with anyone. If someone has this, they can impersonate you</string>
+    <string name="settings_ie">Import/Export settings</string>
+    <string name="settings_ie_sum">This is your entire configuration that is applicable in the desktop extension in JSON. This includes your userID, so be sure to share this wisely.</string>
+    <string name="general_api_url">Change API URL</string>
+    <string name="general_api_url_sum">The address SponsorBlock uses to make calls to the server. &lt;b>Don\'t change this unless you know what you\'re doing.&lt;/b></string>
+    <string name="settings_import_successful">Settings were successfully imported</string>
+    <string name="settings_import_failed">Failed to import settings</string>
+    <string name="settings_export_failed">Failed to export settings</string>
+    <string name="general_cache">Cache segments locally</string>
+    <string name="general_cache_sum">Frequently watched videos (eg. music videos) may store segments in app cache to make skipping segments faster</string>
+    <string name="general_cache_clear">Clear SponsorBlock segments cache</string>
+    <string name="segments_sponsor">Sponsor</string>
+    <string name="segments_sponsor_sum">Paid promotion, paid referrals and direct advertisements</string>
+    <string name="segments_intermission">Intermission/Intro Animation</string>
+    <string name="segments_intermission_sum">An interval without actual content. Could be a pause, static frame, repeating animation</string>
+    <string name="segments_endcards">Endcards/Credits</string>
+    <string name="segments_endcards_sum">Credits or when the YouTube endcards appear. Not for spoken conclusions</string>
+    <string name="segments_subscribe">Interaction Reminder (Subscribe)</string>
+    <string name="segments_subscribe_sum">When there is a short reminder to like, subscribe or follow them in the middle of content</string>
+    <string name="segments_selfpromo">Unpaid/Self Promotion</string>
+    <string name="segments_selfpromo_sum">When there is unpaid or self promotion. This includes specific sections about merchandise, donations, or information about who they collaborated with</string>
+    <string name="segments_nomusic">Music: Non-Music Section</string>
+    <string name="segments_nomusic_sum">Only for use in music videos. This includes introductions or outros in music videos</string>
+    <string name="segments_filler">Filler Tangent/Jokes</string>
+    <string name="segments_filler_sum">Tangential scenes added only for filler or humor that are not required to understand the main content of the video. This should not include context or background details</string>
+    <string name="skipped_segment">Skipped a sponsor segment</string>
+    <string name="skipped_sponsor">Skipped sponsor</string>
+    <string name="skipped_intermission">Skipped intro</string>
+    <string name="skipped_endcard">Skipped outro</string>
+    <string name="skipped_subscribe">Skipped annoying reminder</string>
+    <string name="skipped_selfpromo">Skipped self promotion</string>
+    <string name="skipped_nomusic">Skipped a non-music section</string>
+    <string name="skipped_preview">Skipped preview</string>
+    <string name="skipped_filler">Skipped filler</string>
+    <string name="skipped_unsubmitted">Skipped unsubmitted segment</string>
+    <string name="skip_automatically">Skip automatically</string>
+    <string name="skip_showbutton">Show a skip button</string>
+    <string name="skip_ignore">Don\'t do anything</string>
+    <string name="skip_sponsor">Skip segment</string>
+    <string name="about">About</string>
+    <string name="about_api">This app uses the API from SponsorBlock</string>
+    <string name="about_api_sum">Tap to learn more, and see downloads for other platforms at: sponsor.ajay.app</string>
+    <string name="about_madeby">Integration made by JakubWeg</string>
+    <string name="tap_skip">Tap to skip</string>
+
+    <string name="submit_failed_unknown_error" formatted="false">Unable to submit segments: Status: %d %s</string>
+    <string name="submit_failed_rate_limit">Can\'t submit the segment.\nRate Limited (Too many from the same user or IP)</string>
+    <string name="submit_failed_forbidden" formatted="false">Can\'t submit the segment.\n\n%s</string>
+    <string name="submit_failed_duplicate">Can\'t submit the segment.\nAlready exists</string>
+    <string name="submit_succeeded">Segment submitted successfully</string>
+    <string name="submit_started">Submitting segment…</string>
+
+    <string name="vote_failed_unknown_error" formatted="false">Unable to vote for segment: Status: %d %s</string>
+    <string name="vote_failed_rate_limit">Can\'t vote for segment.\nRate Limited (Too many from the same user or IP)</string>
+    <string name="vote_failed_forbidden" formatted="false">Can\'t vote for segment.\n\n%s</string>
+    <string name="vote_succeeded">Voted successfully</string>
+    <string name="vote_started">Voting for segment…</string>
+    <string name="vote_upvote">Upvote</string>
+    <string name="vote_downvote">Downvote</string>
+    <string name="vote_category">Change category</string>
+    <string name="vote_no_segments">There are no segments to vote for</string>
+    <string name="enable_voting">Enable voting</string>
+    <string name="enable_voting_sum">Switch this on to enable voting.</string>
+
+    <string name="new_segment_choose_category">Choose the segment category</string>
+    <string name="new_segment_disabled_category">You\'ve disabled this category in the settings, enable it to be able to submit</string>
+    <string name="new_segment_title">New SponsorBlock segment</string>
+    <string name="new_segment_mark_time_as_question" formatted="false">Set %02d:%02d:%04d as the start or end of a new segment?</string>
+    <string name="new_segment_mark_start">start</string>
+    <string name="new_segment_mark_end">end</string>
+    <string name="new_segment_now">now</string>
+    <string name="new_segment_time_start">Time the segment begins at</string>
+    <string name="new_segment_time_end">Time the segment ends at</string>
+    <string name="new_segment_time_start_set">Beginning of segment set</string>
+    <string name="new_segment_time_end_set">End of segment set</string>
+    <string name="new_segment_confirm_title">Are the times correct?</string>
+    <string name="new_segment_confirm_content" formatted="false">The segment lasts from %02d:%02d to %02d:%02d (%d minutes %02d seconds)\nIs it ready to submit?</string>
+    <string name="new_segment_mark_locations_first">Mark two locations on the time bar first</string>
+    <string name="new_segment_edit_by_hand_title">Edit timing of segment manually</string>
+    <string name="new_segment_edit_by_hand_content">Do you want to edit the timing for the start or end of the segment?</string>
+    <string name="new_segment_edit_by_hand_saved">Done</string>
+    <string name="new_segment_edit_by_hand_parse_error">Invalid time given</string>
+
+    <string name="sb_guidelines_preference_title">View guidelines</string>
+    <string name="sb_guidelines_preference_sum">Guidelines contain tips and rules about submitting segments</string>
+    <string name="sb_guidelines_popup_title">There are guidelines</string>
+    <string name="sb_guidelines_popup_content">It\'s recommended to read the SponsorBlock guidelines before submitting any segment</string>
+    <string name="sb_guidelines_popup_already_read">Already read</string>
+    <string name="sb_guidelines_popup_open">Show me</string>
+
+    <string name="sb_settings">SponsorBlock settings</string>
+    <string name="sb_summary">Uses the sponsor.ajay.app API</string>
+
+    <string name="microg_notification_settings">Notification settings</string>
+    <string name="microg_notification_settings_summary">"1. Google device registration and Cloud Messaging need to be enabled for notifications.
+2. ReVanced needs to be shown as registered under Cloud Messaging.
+3. Current State in Cloud Messaging must be Connected."</string>
+    <string name="microg_settings">MicroG settings</string>
+    <string name="revanced_settings">ReVanced settings</string>
+
+    <string name="revanced_seekbar_tapping">Seekbar Tapping</string>
+    <string name="revanced_seekbar_tapping_off">Seekbar Tapping (video progress bar) is disabled</string>
+    <string name="revanced_seekbar_tapping_on">Seekbar Tapping (video progress bar) is enabled</string>
+    <string name="pref_subtitles_scale_normal">Normal</string>
+
+    <string name="litho_shorts_shelf">Shorts Shelf</string>
+    <string name="litho_shorts_shelf_off">Shorts Shelf removal is turned off</string>
+    <string name="litho_shorts_shelf_on">Shorts Shelf removal is turned on</string>
+
+    <string name="revanced_create_button_summary_off">Create Button has default visibility</string>
+    <string name="revanced_create_button_summary_on">Create Button is forcefully disabled</string>
+    <string name="revanced_create_button_title">Create Button</string>
+
+    <string name="litho_community_guidelines">Community Guidelines</string>
+    <string name="litho_community_guidelines_off">Community Guidelines removal is turned off</string>
+    <string name="litho_community_guidelines_on">Community Guidelines removal is turned on</string>
+
+    <string name="revanced_copy_video_url_summary_off">Copy Link Button is hidden from the player overlay</string>
+    <string name="revanced_copy_video_url_summary_on">Copy Link Button is shown in the player overlay</string>
+    <string name="revanced_copy_video_url_timestamp_summary_off">Copy Link Button With Timestamp is hidden from the player overlay</string>
+    <string name="revanced_copy_video_url_timestamp_summary_on">Copy Link Button With Timestamp is shown in the player overlay</string>
+    <string name="revanced_copy_video_url_timestamp_title">Copy Link Button With Timestamp</string>
+    <string name="revanced_copy_video_url_title">Copy Link Button</string>
+
+    <string name="revanced_old_style_quality_settings_title">Quality Settings style</string>
+    <string name="revanced_old_style_quality_settings_summary_off">Using default style video quality settings</string>
+    <string name="revanced_old_style_quality_settings_summary_on">Using old style video quality settings</string>
+
+    <string name="general_time_without_sb">Show time without segments</string>
+    <string name="general_time_without_sb_sum">This time appears in brackets next to the current time. This shows the total video duration minus any segments.</string>
+    <string name="general_whitelisting">Channel whitelisting</string>
+    <string name="general_whitelisting_sum">Use the Segments button under the player to whitelist a channel</string>
+    <string name="general_browser_button">Enable SB Browser button</string>
+    <string name="general_browser_button_sum">Clicking this button under the player will open sb.ltn.fi where you can see all the segments on the video.</string>
+    <string name="segments_preview">Preview/Recap</string>
+    <string name="segments_preview_sum">Recap of previous episodes, or a preview of what\'s coming up later in the current video or future videos in the same series. Intended for edited together clips that do not provide additional information.</string>
+    <string name="stats">Stats</string>
+    <string name="stats_loading">Loading..</string>
+    <string name="stats_sb_disabled">SponsorBlock is disabled</string>
+    <string name="stats_username" formatted="false">Your username: &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="stats_username_change">Click to change your username</string>
+    <string name="stats_username_change_unknown_error" formatted="false">Unable to change username: Status: %d %s</string>
+    <string name="stats_username_changed">Username successfully changed</string>
+    <string name="stats_submissions">Submissions: &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="stats_saved">You\'ve saved people from &lt;b&gt;%s&lt;/b&gt; segments.</string>
+    <string name="stats_saved_sum">That\'s &lt;b&gt;%s&lt;/b&gt; of their lives. Click to see the leaderboard</string>
+    <string name="stats_self_saved">You\'ve skipped &lt;b&gt;%s&lt;/b&gt; segments.</string>
+    <string name="stats_self_saved_sum">That\'s &lt;b&gt;%s&lt;/b&gt;.</string>
+    <string name="minutes">minutes</string>
+    <string name="color_change">Are you looking for changing colors?</string>
+    <string name="color_change_sum">You can now change a category\'s color by clicking on it above.</string>
+    <string name="color_choose_category">Choose the category</string>
+    <string name="color_changed">Color changed</string>
+    <string name="color_reset">Color reset</string>
+    <string name="color_invalid">Invalid hex code</string>
+    <string name="change">Change</string>
+    <string name="reset">Reset</string>
+
+    <string name="action_segments">Segments</string>
+    <string name="action_browser">SB Browser</string>
+
+    <string name="api_url_changed">API URL changed</string>
+    <string name="api_url_reset">API URL reset</string>
+    <string name="api_url_invalid">Provided API URL is invalid</string>
+</resources>
