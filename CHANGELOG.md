@@ -1,3 +1,11 @@
+## [2.15.1](https://github.com/revanced/revanced-patches/compare/v2.15.0...v2.15.1) (2022-07-17)
+
+
+### Bug Fixes
+
+* `old-quality-layout` patch ([2497425](https://github.com/revanced/revanced-patches/commit/2497425c9f11b8b14c861c2f0f34ff47bdbfac53))
+* references to integrations in `return-youtube-dislike` patch ([5824c2c](https://github.com/revanced/revanced-patches/commit/5824c2cdfb1a2d7b8d68044388e5e0746ef2ca09))
+
 # [2.15.0](https://github.com/revanced/revanced-patches/compare/v2.14.1...v2.15.0) (2022-07-16)
 
 
