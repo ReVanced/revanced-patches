@@ -4,20 +4,16 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.impl.BytecodeData
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.fingerprint.method.utils.MethodFingerprintUtils.resolve
+import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Dependencies
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.layout.oldqualitylayout.annotations.OldQualityLayoutCompatibility
-import app.revanced.patches.youtube.layout.oldqualitylayout.fingerprints.OldQualityFingerprint
-import app.revanced.patches.youtube.layout.oldqualitylayout.fingerprints.OldQualityParentFingerprint
+import app.revanced.patches.youtube.layout.oldqualitylayout.fingerprints.QualityMenuViewInflateFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
+import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch
 @Dependencies([IntegrationsPatch::class])
@@ -26,35 +22,23 @@ import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
 @OldQualityLayoutCompatibility
 @Version("0.0.1")
 class OldQualityLayoutPatch : BytecodePatch(
-    listOf(
-        OldQualityParentFingerprint
-    )
+    listOf(QualityMenuViewInflateFingerprint)
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        OldQualityFingerprint.resolve(data, OldQualityParentFingerprint.result!!.classDef)
-        val result = OldQualityFingerprint.result
-            ?: return PatchResultError("Required parent method could not be found.")
+        val inflateFingerprintResult = QualityMenuViewInflateFingerprint.result!!
+        val method = inflateFingerprintResult.mutableMethod
+        val instructions = method.implementation!!.instructions
 
-        val implementation = result.mutableMethod.implementation!!
+        // at this index the listener is added to the list view
+        val listenerInvokeRegister = instructions.size - 1 - 1
 
-        // use this register because it is free
-        val containerRegister = 5
+        // get the register which stores the quality menu list view
+        val onItemClickViewRegister = (instructions[listenerInvokeRegister] as FiveRegisterInstruction).registerC
 
-        // if useOldStyleQualitySettings == true, jump over all instructions
-        implementation.addInstruction(
-            4, BuilderInstruction21t(
-                Opcode.IF_NEZ,
-                containerRegister,
-                implementation.instructions[result.patternScanResult!!.endIndex].location.labels.first()
-            )
-        )
-
-        // insert the new condition
-        result.mutableMethod.addInstructions(
-            0, """
-                invoke-static { }, Lapp/revanced/integrations/patches/OldStyleQualityPatch;->useOldStyleQualitySettings()Z
-                move-result v$containerRegister
-            """
+        // insert the integrations method
+        method.addInstruction(
+            listenerInvokeRegister, // insert the integrations instructions right before the listener
+            "invoke-static { v$onItemClickViewRegister }, Lapp/revanced/integrations/patches/OldQualityLayoutPatch;->showOldQualityMenu(Landroid/widget/ListView;)V"
         )
 
         return PatchResultSuccess()

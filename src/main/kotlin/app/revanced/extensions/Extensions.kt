@@ -17,6 +17,7 @@ import org.w3c.dom.Node
 import java.io.OutputStream
 import java.nio.file.Files
 
+// TODO: this method does not make sense here
 internal fun MutableMethodImplementation.injectHideCall(
     index: Int,
     register: Int
