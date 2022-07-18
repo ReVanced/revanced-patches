@@ -1,3 +1,10 @@
+# [2.18.0](https://github.com/revanced/revanced-patches/compare/v2.17.0...v2.18.0) (2022-07-18)
+
+
+### Features
+
+* `hide-get-premium` patch ([#195](https://github.com/revanced/revanced-patches/issues/195)) ([639aab4](https://github.com/revanced/revanced-patches/commit/639aab411ee514b50840c15c8e9a1a889854403f))
+
 # [2.17.0](https://github.com/revanced/revanced-patches/compare/v2.16.1...v2.17.0) (2022-07-17)
 
 

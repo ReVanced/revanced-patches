@@ -12,6 +12,7 @@
 | `background-play` | Enables playing music in the background. | `com.google.android.apps.youtube.music` | 5.14.53 |
 | `tasteBuilder-remover` | Removes the "Tell us which artists you like" card from the home screen. | `com.google.android.apps.youtube.music` | 5.14.53 |
 | `upgrade-button-remover` | Removes the upgrade tab from the pivot bar. | `com.google.android.apps.youtube.music` | 5.14.53 |
+| `hide-get-premium` | Removes all "Get Premium" evidences from the avatar menu. | `com.google.android.apps.youtube.music` | 5.14.53 |
 | `hide-infocard-suggestions` | Hides infocards in videos. | `com.google.android.youtube` | 17.27.39 |
 | `video-ads` | Removes ads in the video player. | `com.google.android.youtube` | 17.27.39 |
 | `general-ads` | Removes general ads. | `com.google.android.youtube` | 17.27.39 |
