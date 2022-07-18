@@ -11,14 +11,14 @@ import org.jf.dexlib2.AccessFlags
 
 @Name("force-vp9-codec-parent-fingerprint")
 @MatchingMethod(
-    "Lpzs;", "Y"
+    "Lqaa;", "U"
 )
 @DirectPatternScanMethod
 @ForceVP9Compatibility
 @Version("0.0.1")
 object ForceVP9ParentFingerprint : MethodFingerprint(
-    "V", AccessFlags.PUBLIC or AccessFlags.STATIC, listOf("L", "L", "L"), null,
+    "L", AccessFlags.PUBLIC or AccessFlags.STATIC, listOf(), null,
     listOf(
-        "Share video error: null watch uri"
+        "sys.display-size", "x"
     )
 )
