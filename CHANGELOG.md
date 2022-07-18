@@ -1,3 +1,10 @@
+## [2.18.3](https://github.com/revanced/revanced-patches/compare/v2.18.2...v2.18.3) (2022-07-18)
+
+
+### Bug Fixes
+
+* compatibility of `force-vp9-codec-parent-fingerprint` fingerprint with version `17.27.39` ([523fd86](https://github.com/revanced/revanced-patches/commit/523fd8627bc965a724267f725c28fba5e7a25a04))
+
 ## [2.18.2](https://github.com/revanced/revanced-patches/compare/v2.18.1...v2.18.2) (2022-07-18)
 
 
