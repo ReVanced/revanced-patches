@@ -11,6 +11,7 @@
 | `codecs-unlock` | Adds more audio codec options. The new audio codecs usually result in better audio quality. | `com.google.android.apps.youtube.music` | 5.14.53 |
 | `background-play` | Enables playing music in the background. | `com.google.android.apps.youtube.music` | 5.14.53 |
 | `compact-header` | Hides the music category bar at the top of the homepage. | `com.google.android.apps.youtube.music` | 5.14.53 |
+| `minimized-playback-music` | Enables minimized playback on Kids music. | `com.google.android.apps.youtube.music` | 5.14.53 |
 | `tasteBuilder-remover` | Removes the "Tell us which artists you like" card from the home screen. | `com.google.android.apps.youtube.music` | 5.14.53 |
 | `upgrade-button-remover` | Removes the upgrade tab from the pivot bar. | `com.google.android.apps.youtube.music` | 5.14.53 |
 | `hide-get-premium` | Removes all "Get Premium" evidences from the avatar menu. | `com.google.android.apps.youtube.music` | 5.14.53 |

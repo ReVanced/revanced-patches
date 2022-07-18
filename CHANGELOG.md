@@ -1,3 +1,10 @@
+# [2.20.0](https://github.com/revanced/revanced-patches/compare/v2.19.0...v2.20.0) (2022-07-18)
+
+
+### Features
+
+* `minimize-playback-music` patch ([#200](https://github.com/revanced/revanced-patches/issues/200)) ([d4fd18b](https://github.com/revanced/revanced-patches/commit/d4fd18bc74c92e17cdfb21b627b2f6a8919ff2dc))
+
 # [2.19.0](https://github.com/revanced/revanced-patches/compare/v2.18.3...v2.19.0) (2022-07-18)
 
 
