@@ -89,7 +89,9 @@ class SwipeControlsHostLayout(
         }
 
         // create swipe zone controller
-        zones = SwipeZonesController(context) { Rectangle(x.toInt(), y.toInt(), width, height) }
+        zones = SwipeZonesController(context, this) {
+            Rectangle(x.toInt(), y.toInt(), width, height)
+        }
 
         // listen for changes in the player type
         PlayerType.onChange += this::onPlayerTypeChanged

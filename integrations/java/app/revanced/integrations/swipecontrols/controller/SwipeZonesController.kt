@@ -2,14 +2,13 @@ package app.revanced.integrations.swipecontrols.controller
 
 import android.content.Context
 import android.util.TypedValue
-import android.view.View
-import app.revanced.integrations.shared.LayoutChangeEventArgs
-import app.revanced.integrations.shared.PlayerOverlays
+import android.view.ViewGroup
 import app.revanced.integrations.swipecontrols.misc.Rectangle
 import app.revanced.integrations.swipecontrols.misc.applyDimension
 import app.revanced.integrations.utils.ReVancedUtils
+import kotlin.math.min
 
-/**
+/** 
  * Y- Axis:
  * -------- 0
  *        ^
@@ -37,6 +36,7 @@ import app.revanced.integrations.utils.ReVancedUtils
 @Suppress("PrivatePropertyName")
 class SwipeZonesController(
     context: Context,
+    private val parentView: ViewGroup,
     private val fallbackScreenRect: () -> Rectangle
 ) {
     /**
@@ -55,57 +55,26 @@ class SwipeZonesController(
     private val _80dp = 80.applyDimension(context, TypedValue.COMPLEX_UNIT_DIP)
 
     /**
-     * id for R.id.engagement_panel
+     * id for R.id.player_view
      */
-    private val engagementPanelId =
-        ReVancedUtils.getResourceIdByName(context, "id", "engagement_panel")
+    private val playerViewId = ReVancedUtils.getResourceIdByName(context, "id", "player_view")
 
     /**
-     * current bounding rectangle of the player overlays
+     * current bounding rectangle of the player
      */
     private var playerRect: Rectangle? = null
-
-    /**
-     * current bounding rectangle of the engagement_panel
-     */
-    private var engagementPanelRect = Rectangle(0, 0, 0, 0)
-
-    /**
-     * listener for player overlays layout change
-     */
-    private fun onOverlaysLayoutChanged(args: LayoutChangeEventArgs) {
-        // update engagement panel bounds
-        val engagementPanel = args.overlaysLayout.findViewById<View>(engagementPanelId)
-        engagementPanelRect =
-            if (engagementPanel == null || engagementPanel.visibility != View.VISIBLE) {
-                Rectangle(0, 0, 0, 0)
-            } else {
-                Rectangle(
-                    engagementPanel.x.toInt(),
-                    engagementPanel.y.toInt(),
-                    engagementPanel.width,
-                    engagementPanel.height
-                )
-            }
-
-        // update player bounds
-        playerRect = args.newRect
-    }
-
-    init {
-        PlayerOverlays.onLayoutChange += this::onOverlaysLayoutChanged
-    }
 
     /**
      * rectangle of the area that is effectively usable for swipe controls
      */
     private val effectiveSwipeRect: Rectangle
         get() {
+            maybeAttachPlayerBoundsListener()
             val p = if (playerRect != null) playerRect!! else fallbackScreenRect()
             return Rectangle(
                 p.x + _20dp,
                 p.y + _40dp,
-                p.width - engagementPanelRect.width - _20dp,
+                p.width - _20dp,
                 p.height - _20dp - _80dp
             )
         }
@@ -115,12 +84,13 @@ class SwipeZonesController(
      */
     val volume: Rectangle
         get() {
-            val zoneWidth = (effectiveSwipeRect.width * 3) / 8
+            val eRect = effectiveSwipeRect
+            val zoneWidth = (eRect.width * 3) / 8
             return Rectangle(
-                effectiveSwipeRect.right - zoneWidth,
-                effectiveSwipeRect.top,
+                eRect.right - zoneWidth,
+                eRect.top,
                 zoneWidth,
-                effectiveSwipeRect.height
+                eRect.height
             )
         }
 
@@ -137,4 +107,39 @@ class SwipeZonesController(
                 effectiveSwipeRect.height
             )
         }
+
+    /**
+     * try to attach a listener to the player_view and update the player rectangle.
+     * once a listener is attached, this function does nothing
+     */
+    private fun maybeAttachPlayerBoundsListener() {
+        if (playerRect != null) return
+        parentView.findViewById<ViewGroup>(playerViewId)?.let {
+            onPlayerViewLayout(it)
+            it.addOnLayoutChangeListener { _, _, _, _, _, _, _, _, _ ->
+                onPlayerViewLayout(it)
+            }
+        }
+    }
+
+    /**
+     * update the player rectangle on player_view layout
+     *
+     * @param playerView the player view
+     */
+    private fun onPlayerViewLayout(playerView: ViewGroup) {
+        playerView.getChildAt(0)?.let { playerSurface ->
+            // the player surface is centered in the player view
+            // figure out the width of the surface including the padding (same on the left and right side)
+            // and use that width for the player rectangle size
+            // this automatically excludes any engagement panel from the rect
+            val playerWidthWithPadding = playerSurface.width + (playerSurface.x.toInt() * 2)
+            playerRect = Rectangle(
+                playerView.x.toInt(),
+                playerView.y.toInt(),
+                min(playerView.width, playerWidthWithPadding),
+                playerView.height
+            )
+        }
+    }
 }
