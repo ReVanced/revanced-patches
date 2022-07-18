@@ -1,3 +1,10 @@
+# [2.19.0](https://github.com/revanced/revanced-patches/compare/v2.18.3...v2.19.0) (2022-07-18)
+
+
+### Features
+
+* `compact-header` patch ([83753ba](https://github.com/revanced/revanced-patches/commit/83753bacf8f56ad16f8abafc02034f1595c12532))
+
 ## [2.18.3](https://github.com/revanced/revanced-patches/compare/v2.18.2...v2.18.3) (2022-07-18)
 
 
