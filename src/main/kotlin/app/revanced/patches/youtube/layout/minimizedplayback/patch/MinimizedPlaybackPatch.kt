@@ -12,9 +12,9 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.layout.minimizedplayback.annotations.MinimizedPlaybackCompatibility
+import app.revanced.patches.youtube.layout.minimizedplayback.fingerprints.MinimizedPlaybackKidsFingerprint
 import app.revanced.patches.youtube.layout.minimizedplayback.fingerprints.MinimizedPlaybackManagerFingerprint
 import app.revanced.patches.youtube.layout.minimizedplayback.fingerprints.MinimizedPlaybackSettingsFingerprint
-import app.revanced.patches.youtube.misc.mapping.patch.ResourceIdMappingProviderResourcePatch
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.MethodReference
 
@@ -26,7 +26,7 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @Version("0.0.1")
 class MinimizedPlaybackPatch : BytecodePatch(
     listOf(
-        MinimizedPlaybackManagerFingerprint, MinimizedPlaybackSettingsFingerprint
+        MinimizedPlaybackKidsFingerprint, MinimizedPlaybackManagerFingerprint, MinimizedPlaybackSettingsFingerprint
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
@@ -51,6 +51,12 @@ class MinimizedPlaybackPatch : BytecodePatch(
             0, """
                 const/4 v0, 0x1
                 return v0
+                """
+        )
+
+        MinimizedPlaybackKidsFingerprint.result!!.mutableMethod.addInstructions(
+            0, """
+                return-void
                 """
         )
 
