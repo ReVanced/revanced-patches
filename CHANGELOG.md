@@ -1,3 +1,10 @@
+## [2.18.1](https://github.com/revanced/revanced-patches/compare/v2.18.0...v2.18.1) (2022-07-18)
+
+
+### Bug Fixes
+
+* `minimized-playback` patch for YouTube Kids videos ([#201](https://github.com/revanced/revanced-patches/issues/201)) ([31e3b42](https://github.com/revanced/revanced-patches/commit/31e3b42c6bbce0d00f049b8a69bafc94900bb3b4))
+
 # [2.18.0](https://github.com/revanced/revanced-patches/compare/v2.17.0...v2.18.0) (2022-07-18)
 
 
