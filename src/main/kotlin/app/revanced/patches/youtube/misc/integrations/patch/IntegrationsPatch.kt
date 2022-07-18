@@ -4,7 +4,7 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.impl.BytecodeData
-import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
@@ -37,11 +37,8 @@ class IntegrationsPatch : BytecodePatch(
         val implementation = method.implementation!!
         val count = implementation.registerCount - 1
 
-        method.addInstructions(
-            0, """
-                  invoke-static {v$count}, Lapp/revanced/integrations/sponsorblock/StringRef;->setContext(Landroid/content/Context;)V
-                  sput-object v$count, Lapp/revanced/integrations/utils/ReVancedUtils;->context:Landroid/content/Context;
-            """
+        method.addInstruction(
+            0, "sput-object v$count, Lapp/revanced/integrations/utils/ReVancedUtils;->context:Landroid/content/Context;"
         )
 
         val classDef = result.mutableClass

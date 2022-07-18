@@ -8,6 +8,7 @@ import app.revanced.patcher.data.impl.toMethodWalker
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.Dependencies
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -15,6 +16,7 @@ import app.revanced.patches.youtube.layout.minimizedplayback.annotations.Minimiz
 import app.revanced.patches.youtube.layout.minimizedplayback.fingerprints.MinimizedPlaybackKidsFingerprint
 import app.revanced.patches.youtube.layout.minimizedplayback.fingerprints.MinimizedPlaybackManagerFingerprint
 import app.revanced.patches.youtube.layout.minimizedplayback.fingerprints.MinimizedPlaybackSettingsFingerprint
+import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.MethodReference
 
@@ -22,6 +24,7 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @Patch
 @Name("minimized-playback")
 @Description("Enables minimized and background playback.")
+@Dependencies([IntegrationsPatch::class])
 @MinimizedPlaybackCompatibility
 @Version("0.0.1")
 class MinimizedPlaybackPatch : BytecodePatch(
@@ -34,7 +37,8 @@ class MinimizedPlaybackPatch : BytecodePatch(
         // we return the method at the beginning instead
         MinimizedPlaybackManagerFingerprint.result!!.mutableMethod.addInstructions(
             0, """
-                const/4 v0, 0x1
+                invoke-static {}, Lapp/revanced/integrations/patches/MinimizedPlaybackPatch;->isMinimizedPlaybackEnabled()Z
+                move-result v0
                 return v0
                 """
         )
@@ -49,14 +53,20 @@ class MinimizedPlaybackPatch : BytecodePatch(
 
         settingsBooleanMethod.addInstructions(
             0, """
-                const/4 v0, 0x1
+                invoke-static {}, Lapp/revanced/integrations/patches/MinimizedPlaybackPatch;->isMinimizedPlaybackEnabled()Z
+                move-result v0
                 return v0
                 """
         )
 
         MinimizedPlaybackKidsFingerprint.result!!.mutableMethod.addInstructions(
             0, """
+                invoke-static {}, Lapp/revanced/integrations/patches/MinimizedPlaybackPatch;->isMinimizedPlaybackEnabled()Z
+                move-result v0
+                if-eqz v0, :enable
                 return-void
+                :enable
+                nop
                 """
         )
 

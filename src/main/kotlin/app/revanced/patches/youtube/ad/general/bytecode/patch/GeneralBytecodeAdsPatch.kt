@@ -127,6 +127,7 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
                                     if (mutableMethod == null) mutableMethod =
                                         mutableClass!!.findMutableMethodOf(method)
 
+                                    //ToDo: Add Settings toggle for whatever this is
                                     mutableMethod!!.implementation!!.removeInstruction(removeIndex)
                                 }
 
@@ -186,6 +187,7 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
 
                                     // return the method
                                     val insertIndex = 1 // after super constructor
+                                    //ToDo: Add setting here
                                     mutableMethod!!.implementation!!.addInstruction(
                                         insertIndex, BuilderInstruction10x(Opcode.RETURN_VOID)
                                     )
