@@ -1,3 +1,10 @@
+## [2.18.2](https://github.com/revanced/revanced-patches/compare/v2.18.1...v2.18.2) (2022-07-18)
+
+
+### Bug Fixes
+
+* make all patches toggleable with settings ([#202](https://github.com/revanced/revanced-patches/issues/202)) ([7e1d82f](https://github.com/revanced/revanced-patches/commit/7e1d82f1161237632c3a57f109db6b8903006b33))
+
 ## [2.18.1](https://github.com/revanced/revanced-patches/compare/v2.18.0...v2.18.1) (2022-07-18)
 
 
