@@ -52,10 +52,12 @@ public enum SettingsEnum {
     INFO_CARDS_SHOWN("revanced_info_cards_enabled", false, ReturnType.BOOLEAN),
     BRANDING_SHOWN("revanced_branding_watermark_enabled", false, ReturnType.BOOLEAN),
     CAST_BUTTON_SHOWN("revanced_cast_button_enabled", false, ReturnType.BOOLEAN),
+    AUTOPLAY_BUTTON_SHOWN("revanced_autoplay_button_enabled", false, ReturnType.BOOLEAN), //ToDo: Add to prefs
     USE_TABLET_MINIPLAYER("revanced_tablet_miniplayer", false, ReturnType.BOOLEAN),
     CREATE_BUTTON_SHOWN("revanced_create_button_enabled", false, ReturnType.BOOLEAN),
     USE_NEW_ACTIONBAR("revanced_new_actionbar", true, ReturnType.BOOLEAN),
     SHORTS_BUTTON_SHOWN("revanced_shorts_button_enabled", false, ReturnType.BOOLEAN),
+    FULLSCREEN_PANELS_SHOWN("revanced_fullscreen_panels_enabled", false, ReturnType.BOOLEAN), //ToDo: Add to prefs
 
     //Misc. Settings
     AUTOREPEAT_BUTTON_SHOWN("revanced_pref_auto_repeat_button", false, ReturnType.BOOLEAN),
@@ -63,6 +65,7 @@ public enum SettingsEnum {
     PREFERRED_AUTO_REPEAT("revanced_pref_auto_repeat", true, ReturnType.BOOLEAN),
     USE_HDR_AUTO_BRIGHTNESS("revanced_pref_hdr_autobrightness", true, ReturnType.BOOLEAN),
     TAP_SEEKING_ENABLED("revanced_enable_tap_seeking", true, ReturnType.BOOLEAN),
+    ENABLE_MINIMIZED_PLAYBACK("revanced_enable_minimized_playback", true, ReturnType.BOOLEAN),
 
     //Swipe controls
     ENABLE_SWIPE_BRIGHTNESS("revanced_enable_swipe_brightness", true, ReturnType.BOOLEAN),

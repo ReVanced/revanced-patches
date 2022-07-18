@@ -1,8 +1,6 @@
 package app.revanced.integrations.sponsorblock;
 
-import android.content.Context;
 import android.content.res.Resources;
-
 
 import androidx.annotation.NonNull;
 
@@ -13,17 +11,6 @@ import app.revanced.integrations.utils.LogHelper;
 public class StringRef {
     private static Resources resources;
     private static String packageName;
-
-    /**
-     * Called in Application onCreate, should be called as soon as possible when after application startup
-     *
-     * @param context Any context, it will be used to obtain string resources
-     */
-    public static void setContext(Context context) {
-        if (context == null) return;
-        resources = context.getApplicationContext().getResources();
-        packageName = context.getPackageName();
-    }
 
     private static final HashMap<String, StringRef> strings = new HashMap<>();
 

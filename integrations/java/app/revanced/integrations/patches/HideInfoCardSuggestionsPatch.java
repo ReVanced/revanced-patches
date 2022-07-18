@@ -6,7 +6,9 @@ import app.revanced.integrations.settings.SettingsEnum;
 
 public class HideInfoCardSuggestionsPatch {
 
-    public static int hideInfoCardSuggestions() {
-        return SettingsEnum.INFO_CARDS_SHOWN.getBoolean() ? View.VISIBLE : View.GONE;
+    public static void hideInfoCardSuggestions(View view) {
+        if (!SettingsEnum.INFO_CARDS_SHOWN.getBoolean()) {
+            view.setVisibility(View.GONE);
+        }
     }
 }
