@@ -8,18 +8,25 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.youtube.layout.shorts.button.annotations.ShortsButtonCompatibility
 import org.jf.dexlib2.Opcode
 
-@Name("fullscreen-view-adder-fingerprint")
+@Name("fullscreen-view-adder-parent-fingerprint")
 @MatchingMethod(
     "LFullscreenEngagementPanelOverlay;", "e"
 )
 @DirectPatternScanMethod
 @ShortsButtonCompatibility
 @Version("0.0.1")
-object FullscreenViewAdderFingerprint : MethodFingerprint(
+object FullscreenViewAdderParentFingerprint : MethodFingerprint(
     null,
     null,
-    null,
+    listOf("L", "L"),
     listOf(
-        Opcode.IGET_BOOLEAN
-    )
+        Opcode.GOTO,
+        Opcode.IGET_BOOLEAN,
+        Opcode.IF_EQ,
+        Opcode.GOTO,
+        Opcode.CONST_4,
+        Opcode.INVOKE_VIRTUAL,
+    ),
+    null,
+    { it.definingClass.endsWith("FullscreenEngagementPanelOverlay;") }
 )
