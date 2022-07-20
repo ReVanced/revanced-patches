@@ -1,3 +1,10 @@
+## [2.20.2](https://github.com/revanced/revanced-patches/compare/v2.20.1...v2.20.2) (2022-07-20)
+
+
+### Bug Fixes
+
+* autoplay not working. ([586eed5](https://github.com/revanced/revanced-patches/commit/586eed515fc7ff8e3b1b150b0d34610b39480bb5))
+
 ## [2.20.1](https://github.com/revanced/revanced-patches/compare/v2.20.0...v2.20.1) (2022-07-20)
 
 
