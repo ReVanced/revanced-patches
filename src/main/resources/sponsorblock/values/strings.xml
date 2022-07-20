@@ -108,41 +108,6 @@
     <string name="sb_settings">SponsorBlock settings</string>
     <string name="sb_summary">Uses the sponsor.ajay.app API</string>
 
-    <string name="microg_notification_settings">Notification settings</string>
-    <string name="microg_notification_settings_summary">"1. Google device registration and Cloud Messaging need to be enabled for notifications.
-2. ReVanced needs to be shown as registered under Cloud Messaging.
-3. Current State in Cloud Messaging must be Connected."</string>
-    <string name="microg_settings">MicroG settings</string>
-    <string name="revanced_settings">ReVanced settings</string>
-
-    <string name="revanced_seekbar_tapping">Seekbar Tapping</string>
-    <string name="revanced_seekbar_tapping_off">Seekbar Tapping (video progress bar) is disabled</string>
-    <string name="revanced_seekbar_tapping_on">Seekbar Tapping (video progress bar) is enabled</string>
-    <string name="pref_subtitles_scale_normal">Normal</string>
-
-    <string name="litho_shorts_shelf">Shorts Shelf</string>
-    <string name="litho_shorts_shelf_off">Shorts Shelf removal is turned off</string>
-    <string name="litho_shorts_shelf_on">Shorts Shelf removal is turned on</string>
-
-    <string name="revanced_create_button_summary_off">Create Button has default visibility</string>
-    <string name="revanced_create_button_summary_on">Create Button is forcefully disabled</string>
-    <string name="revanced_create_button_title">Create Button</string>
-
-    <string name="litho_community_guidelines">Community Guidelines</string>
-    <string name="litho_community_guidelines_off">Community Guidelines removal is turned off</string>
-    <string name="litho_community_guidelines_on">Community Guidelines removal is turned on</string>
-
-    <string name="revanced_copy_video_url_summary_off">Copy Link Button is hidden from the player overlay</string>
-    <string name="revanced_copy_video_url_summary_on">Copy Link Button is shown in the player overlay</string>
-    <string name="revanced_copy_video_url_timestamp_summary_off">Copy Link Button With Timestamp is hidden from the player overlay</string>
-    <string name="revanced_copy_video_url_timestamp_summary_on">Copy Link Button With Timestamp is shown in the player overlay</string>
-    <string name="revanced_copy_video_url_timestamp_title">Copy Link Button With Timestamp</string>
-    <string name="revanced_copy_video_url_title">Copy Link Button</string>
-
-    <string name="revanced_old_style_quality_settings_title">Quality Settings style</string>
-    <string name="revanced_old_style_quality_settings_summary_off">Using default style video quality settings</string>
-    <string name="revanced_old_style_quality_settings_summary_on">Using old style video quality settings</string>
-
     <string name="general_time_without_sb">Show time without segments</string>
     <string name="general_time_without_sb_sum">This time appears in brackets next to the current time. This shows the total video duration minus any segments.</string>
     <string name="general_whitelisting">Channel whitelisting</string>
