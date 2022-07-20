@@ -7,20 +7,19 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.impl.BytecodeData
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Dependencies
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patches.youtube.layout.castbutton.patch.HideCastButtonPatch
-import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import app.revanced.patches.youtube.misc.microg.annotations.MicroGPatchCompatibility
+import app.revanced.patches.youtube.misc.microg.fingerprints.*
 import app.revanced.patches.youtube.misc.microg.patch.resource.MicroGResourcePatch
 import app.revanced.patches.youtube.misc.microg.patch.resource.enum.StringReplaceMode
 import app.revanced.patches.youtube.misc.microg.shared.Constants.BASE_MICROG_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.microg.shared.Constants.REVANCED_PACKAGE_NAME
-import app.revanced.patches.youtube.misc.microg.fingerprints.*
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.MutableMethodImplementation
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
@@ -33,7 +32,6 @@ import org.jf.dexlib2.immutable.reference.ImmutableStringReference
     [
         MicroGResourcePatch::class,
         HideCastButtonPatch::class,
-        FixLocaleConfigErrorPatch::class
     ]
 )
 @Name("microg-support")
