@@ -1,3 +1,10 @@
+## [2.20.1](https://github.com/revanced/revanced-patches/compare/v2.20.0...v2.20.1) (2022-07-20)
+
+
+### Bug Fixes
+
+* autoplay still enabled when using patch ([4f96129](https://github.com/revanced/revanced-patches/commit/4f961298f6cb6417ee3f3d6f8ac7ce96594ed03b))
+
 # [2.20.0](https://github.com/revanced/revanced-patches/compare/v2.19.0...v2.20.0) (2022-07-18)
 
 
