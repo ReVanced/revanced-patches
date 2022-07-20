@@ -1,3 +1,10 @@
+## [2.20.3](https://github.com/revanced/revanced-patches/compare/v2.20.2...v2.20.3) (2022-07-20)
+
+
+### Bug Fixes
+
+* disable-fullscreen-panels patch not working ([#213](https://github.com/revanced/revanced-patches/issues/213)) ([5372105](https://github.com/revanced/revanced-patches/commit/5372105e72607f289b779e4c2a3c13f3458842ce))
+
 ## [2.20.2](https://github.com/revanced/revanced-patches/compare/v2.20.1...v2.20.2) (2022-07-20)
 
 
