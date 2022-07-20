@@ -54,9 +54,9 @@ class HideAutoplayButton : BytecodePatch(
         //force disable autoplay since it's hard to do without the button
         autonavInformerMethod.addInstructions(
             0, """
-            invoke-static {}, Lapp/revanced/integrations/patches/HideAutoplayButtonPatch;->isButtonHidden()Z
+            invoke-static {}, Lapp/revanced/integrations/patches/HideAutoplayButtonPatch;->isButtonShown()Z
             move-result v0
-            if-eqz v0, :hidden
+            if-nez v0, :hidden
             const/4 v0, 0x0
             return v0
             :hidden
