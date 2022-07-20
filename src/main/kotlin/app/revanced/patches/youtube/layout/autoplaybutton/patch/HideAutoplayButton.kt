@@ -73,7 +73,7 @@ class HideAutoplayButton : BytecodePatch(
         method.removeInstruction(index)
         method.addInstructions(
             index, """
-            invoke-static {}, Lapp/revanced/integrations/patches/HideAutoplayButtonPatch;->isButtonShown()Z
+            invoke-static {}, Lapp/revanced/integrations/patches/HideAutoplayButtonPatch;->isButtonHidden()Z
             move-result v11
             if-eqz v11, :hidebutton
             invoke-virtual {v${insn.registerC}, v${insn.registerD}, v${insn.registerE}}, $methodToCall
