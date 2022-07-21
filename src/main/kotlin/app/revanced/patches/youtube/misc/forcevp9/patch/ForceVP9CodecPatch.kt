@@ -78,8 +78,8 @@ class ForceVP9CodecPatch : BytecodePatch(
             method.removeInstruction(index)
             method.addInstructions(
                 index, """
-                invoke-static {v$register}, Lapp/revanced/integrations/patches/ForceCodecPatch;->get$name()Ljava/lang/String;
-                move-result v$register
+                invoke-static {}, Lapp/revanced/integrations/patches/ForceCodecPatch;->get$name()Ljava/lang/String;
+                move-result-object v$register
             """
             )
         }
