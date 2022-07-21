@@ -11,6 +11,14 @@
 
 ### Bug Fixes
 
+* crash when using force-vp9-codec patch ([7a35e5c](https://github.com/revanced/revanced-patches/commit/7a35e5c985b412d5a84083d1416d3207a40b3e97))
+* use dependency in correct patch ([a2a1ee8](https://github.com/revanced/revanced-patches/commit/a2a1ee8eb5e059b30fe58c918a80976ef4d7b637))
+
+## [2.20.4](https://github.com/revanced/revanced-patches/compare/v2.20.3...v2.20.4) (2022-07-21)
+
+
+### Bug Fixes
+
 * use dependency in correct patch ([a2a1ee8](https://github.com/revanced/revanced-patches/commit/a2a1ee8eb5e059b30fe58c918a80976ef4d7b637))
 
 ## [2.20.3](https://github.com/revanced/revanced-patches/compare/v2.20.2...v2.20.3) (2022-07-20)

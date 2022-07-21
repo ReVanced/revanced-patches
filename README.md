@@ -39,5 +39,5 @@
 | `hdr-auto-brightness` | Makes the brightness of HDR videos follow the system default. | `com.google.android.youtube` | 17.27.39 |
 | `video-ads` | Removes ads in the video player. | `com.google.android.youtube` | 17.27.39 |
 | `general-ads` | Removes general ads. | `com.google.android.youtube` | 17.27.39 |
-| `hide-infocard-suggestions` | Hides infocards in videos. | `com.google.android.youtube` | 17.27.39 | 
+| `hide-infocard-suggestions` | Hides infocards in videos. | `com.google.android.youtube` | 17.27.39 |
 
