@@ -1,3 +1,10 @@
+## [2.20.5](https://github.com/revanced/revanced-patches/compare/v2.20.4...v2.20.5) (2022-07-22)
+
+
+### Bug Fixes
+
+* exclude `swipe-controls` by default due to instability ([bdeb8e0](https://github.com/revanced/revanced-patches/commit/bdeb8e04609a0ca94d9e2921bf7d486b9e229cec))
+
 ## [2.20.4](https://github.com/revanced/revanced-patches/compare/v2.20.3...v2.20.4) (2022-07-21)
 
 
