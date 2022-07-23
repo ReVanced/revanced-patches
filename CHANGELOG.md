@@ -1,3 +1,10 @@
+## [2.21.1](https://github.com/revanced/revanced-patches/compare/v2.21.0...v2.21.1) (2022-07-23)
+
+
+### Bug Fixes
+
+* add v17.28.34 compatiblity for the `hide-shorts-button` patch ([#224](https://github.com/revanced/revanced-patches/issues/224)) ([76166bb](https://github.com/revanced/revanced-patches/commit/76166bb35f940ef661e2802f5bf93ed91f2e2913))
+
 # [2.21.0](https://github.com/revanced/revanced-patches/compare/v2.20.5...v2.21.0) (2022-07-23)
 
 
