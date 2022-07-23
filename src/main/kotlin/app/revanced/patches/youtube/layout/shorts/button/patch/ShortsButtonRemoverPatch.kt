@@ -35,7 +35,7 @@ class ShortsButtonRemoverPatch : BytecodePatch(
 
         val buttonsViewResult = PivotBarButtonsViewFingerprint.result!!
         val buttonsViewImplementation = buttonsViewResult.mutableMethod.implementation!!
-        val moveViewInstruction = buttonsViewImplementation.instructions[buttonsViewResult.patternScanResult!!.endIndex]
+        val moveViewInstruction = buttonsViewImplementation.instructions[buttonsViewResult.patternScanResult!!.startIndex + 1]
         val viewRegister = (moveViewInstruction as OneRegisterInstruction).registerA
 
 
@@ -48,7 +48,7 @@ class ShortsButtonRemoverPatch : BytecodePatch(
         // Hide the button view via proxy by passing it to the hideShortsButton method
         // It only hides it if the last tab name is "TAB_SHORTS"
         buttonsViewResult.mutableMethod.addInstruction(
-            buttonsViewResult.patternScanResult!!.endIndex + 2,
+            buttonsViewResult.patternScanResult!!.startIndex + 3,
             "invoke-static { v$viewRegister }, Lapp/revanced/integrations/patches/HideShortsButtonPatch;->hideShortsButton(Landroid/view/View;)V"
         )
 
