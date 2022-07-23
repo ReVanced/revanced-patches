@@ -1,3 +1,10 @@
+# [2.21.0](https://github.com/revanced/revanced-patches/compare/v2.20.5...v2.21.0) (2022-07-23)
+
+
+### Features
+
+* twitter `timeline-ads` patch ([#222](https://github.com/revanced/revanced-patches/issues/222)) ([f16e67f](https://github.com/revanced/revanced-patches/commit/f16e67fc75c9c3505ff875a216ce7e868022075e))
+
 ## [2.20.5](https://github.com/revanced/revanced-patches/compare/v2.20.4...v2.20.5) (2022-07-22)
 
 

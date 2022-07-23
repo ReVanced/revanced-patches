@@ -6,6 +6,7 @@
 
 | 💊 Patch | 📜 Description | 🎯 Target Package | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|:-----------------:|
+| `timeline-ads` | Removes ads from the Twitter timeline. | `com.twitter.android` | all |
 | `minimized-playback-music` | Enables minimized playback on Kids music. | `com.google.android.apps.youtube.music` | 5.14.53 |
 | `tasteBuilder-remover` | Removes the "Tell us which artists you like" card from the home screen. | `com.google.android.apps.youtube.music` | 5.14.53 |
 | `hide-get-premium` | Removes all "Get Premium" evidences from the avatar menu. | `com.google.android.apps.youtube.music` | 5.14.53 |
