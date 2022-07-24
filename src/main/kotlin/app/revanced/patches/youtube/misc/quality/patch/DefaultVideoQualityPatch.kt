@@ -21,7 +21,6 @@ import app.revanced.patches.youtube.misc.videoid.fingerprint.VideoIdFingerprint
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
 
-@Patch(false)
 @Dependencies(
     dependencies = [IntegrationsPatch::class]
 )
