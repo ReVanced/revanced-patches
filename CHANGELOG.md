@@ -1,3 +1,10 @@
+# [2.22.0](https://github.com/revanced/revanced-patches/compare/v2.21.3...v2.22.0) (2022-07-24)
+
+
+### Features
+
+* `default-video-quality` patch ([#141](https://github.com/revanced/revanced-patches/issues/141)) ([609ad7d](https://github.com/revanced/revanced-patches/commit/609ad7dee7e29b2ecc4e95a93e9dab1646b4b050))
+
 # [2.12.0](https://github.com/Canny1913/revanced-patches/compare/v2.11.0...v2.12.0) (2022-07-24)
 
 
