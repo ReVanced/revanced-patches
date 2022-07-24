@@ -1,3 +1,10 @@
+## [2.21.3](https://github.com/revanced/revanced-patches/compare/v2.21.2...v2.21.3) (2022-07-24)
+
+
+### Bug Fixes
+
+* rename autorepeat-by-default patch to always-autorepeat ([3606015](https://github.com/revanced/revanced-patches/commit/3606015d715f150cc51fbb29adf3be252b96faab))
+
 ## [2.21.2](https://github.com/revanced/revanced-patches/compare/v2.21.1...v2.21.2) (2022-07-23)
 
 

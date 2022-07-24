@@ -33,7 +33,7 @@
 | `sponsorblock` | Integrate SponsorBlock. | `com.google.android.youtube` | 17.28.34 |
 | `enable-wide-searchbar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | `com.google.android.youtube` | 17.28.34 |
 | `force-vp9-codec` | Forces the VP9 codec for videos. | `com.google.android.youtube` | 17.28.34 |
-| `autorepeat-by-default` | Enables auto repeating of videos by default. | `com.google.android.youtube` | 17.28.34 |
+| `always-autorepeat` | Always repeats the playing video again. | `com.google.android.youtube` | 17.28.34 |
 | `microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG | `com.google.android.youtube` | 17.28.34 |
 | `enable-debugging` | Enables app debugging by patching the manifest file. | `com.google.android.youtube` | all |
 | `custom-playback-speed` | Adds more video playback speed options. | `com.google.android.youtube` | 17.28.34 |
