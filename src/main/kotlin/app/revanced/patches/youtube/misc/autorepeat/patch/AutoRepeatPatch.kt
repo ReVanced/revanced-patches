@@ -20,8 +20,8 @@ import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 
 @Patch(include = false)
 @Dependencies([IntegrationsPatch::class])
-@Name("autorepeat-by-default")
-@Description("Enables auto repeating of videos by default.")
+@Name("always-autorepeat")
+@Description("Always repeats the playing video again.")
 @AutoRepeatCompatibility
 @Version("0.0.1")
 class AutoRepeatPatch : BytecodePatch(
