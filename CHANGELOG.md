@@ -1,3 +1,59 @@
+# [2.12.0](https://github.com/Canny1913/revanced-patches/compare/v2.11.0...v2.12.0) (2022-07-24)
+
+
+### Bug Fixes
+
+*  `autorepeat-by-default` patch ([#148](https://github.com/Canny1913/revanced-patches/issues/148)) ([fe628ba](https://github.com/Canny1913/revanced-patches/commit/fe628ba909d89ea0bf3d95fe94ca78ef819677da))
+* `codecs-unlock` patch and update Music patches to `5.14.53` ([2437d30](https://github.com/Canny1913/revanced-patches/commit/2437d3070f6a630d353619f642cefebd47abee20))
+* `exclusive-audio-playback` patch ([#153](https://github.com/Canny1913/revanced-patches/issues/153)) ([9beff95](https://github.com/Canny1913/revanced-patches/commit/9beff9567f1586e5c58690c1f1d2f7f204025ab7))
+* `hrd-auto-brightness` ([#152](https://github.com/Canny1913/revanced-patches/issues/152)) ([5f2e9ba](https://github.com/Canny1913/revanced-patches/commit/5f2e9ba30b7432be04bdc9f9f7ec7ac75fdc4b34))
+* `minimized-playback` patch for YouTube Kids videos ([#201](https://github.com/Canny1913/revanced-patches/issues/201)) ([31e3b42](https://github.com/Canny1913/revanced-patches/commit/31e3b42c6bbce0d00f049b8a69bafc94900bb3b4))
+* `old-quality-layout` patch ([2497425](https://github.com/Canny1913/revanced-patches/commit/2497425c9f11b8b14c861c2f0f34ff47bdbfac53))
+* `swipe-controls` with active engagement panel ([#177](https://github.com/Canny1913/revanced-patches/issues/177)) ([000ec6d](https://github.com/Canny1913/revanced-patches/commit/000ec6d8f6ecbb910a06ec852564ee9e5f03dcf8))
+* add v17.28.34 compatiblity for the `hide-shorts-button` patch ([#224](https://github.com/Canny1913/revanced-patches/issues/224)) ([76166bb](https://github.com/Canny1913/revanced-patches/commit/76166bb35f940ef661e2802f5bf93ed91f2e2913))
+* autoplay not working. ([586eed5](https://github.com/Canny1913/revanced-patches/commit/586eed515fc7ff8e3b1b150b0d34610b39480bb5))
+* autoplay still enabled when using patch ([4f96129](https://github.com/Canny1913/revanced-patches/commit/4f961298f6cb6417ee3f3d6f8ac7ce96594ed03b))
+* bump youtube version for swipe-controls patch ([ff207a5](https://github.com/Canny1913/revanced-patches/commit/ff207a57af7d3c15a8127f4465e97da23878b0d6))
+* bump youtube version to 17.27.39 ([b93401a](https://github.com/Canny1913/revanced-patches/commit/b93401a391c0ed4887dd1376ac253f74f98a8d7e))
+* bump youtube version to 17.28.34 ([#225](https://github.com/Canny1913/revanced-patches/issues/225)) ([738cb6a](https://github.com/Canny1913/revanced-patches/commit/738cb6af177e92bbff8c02d6808fe416c0ad2582))
+* check if node has attributes before accessing them ([2d2ed87](https://github.com/Canny1913/revanced-patches/commit/2d2ed870dacfe092eb6acbcaae5e51775c611322))
+* compatibility of `force-vp9-codec-parent-fingerprint` fingerprint with version `17.27.39` ([523fd86](https://github.com/Canny1913/revanced-patches/commit/523fd8627bc965a724267f725c28fba5e7a25a04))
+* constrain `old-quality-layout` to older version ([add7232](https://github.com/Canny1913/revanced-patches/commit/add72326199e90f677b450b553b9d88c0bb4c490))
+* crash when using force-vp9-codec patch ([7a35e5c](https://github.com/Canny1913/revanced-patches/commit/7a35e5c985b412d5a84083d1416d3207a40b3e97))
+* disable-fullscreen-panels patch not working ([#213](https://github.com/Canny1913/revanced-patches/issues/213)) ([5372105](https://github.com/Canny1913/revanced-patches/commit/5372105e72607f289b779e4c2a3c13f3458842ce))
+* display codename for patch names ([10c53f7](https://github.com/Canny1913/revanced-patches/commit/10c53f720df3e70b9d59e8bc3219d56b996f03db))
+* exclude `swipe-controls` by default due to instability ([bdeb8e0](https://github.com/Canny1913/revanced-patches/commit/bdeb8e04609a0ca94d9e2921bf7d486b9e229cec))
+* incorrect package name in gradle task ([152b2c9](https://github.com/Canny1913/revanced-patches/commit/152b2c90cf102170648fcc168da10f46743bdc63))
+* invalid regex ([26bf1d8](https://github.com/Canny1913/revanced-patches/commit/26bf1d818f953abc061126d8b91f17cd9008ba1d))
+* listing of wrong fingerprint class ([#147](https://github.com/Canny1913/revanced-patches/issues/147)) ([95c2bbd](https://github.com/Canny1913/revanced-patches/commit/95c2bbdd1deb1d76f1177b48286fa6a3bc9f7663))
+* make all patches toggleable with settings ([#202](https://github.com/Canny1913/revanced-patches/issues/202)) ([7e1d82f](https://github.com/Canny1913/revanced-patches/commit/7e1d82f1161237632c3a57f109db6b8903006b33))
+* make the patch work w/o settings ([7f0be5c](https://github.com/Canny1913/revanced-patches/commit/7f0be5c08b738d7baeef7ad3e167aab623c2d08e))
+* references to integrations in `return-youtube-dislike` patch ([5824c2c](https://github.com/Canny1913/revanced-patches/commit/5824c2cdfb1a2d7b8d68044388e5e0746ef2ca09))
+* remove "dependency" ([b93cb9b](https://github.com/Canny1913/revanced-patches/commit/b93cb9b8dd4b78c53bbf0298db0f532a42d46f7d))
+* rename autorepeat-by-default patch to always-autorepeat ([3606015](https://github.com/Canny1913/revanced-patches/commit/3606015d715f150cc51fbb29adf3be252b96faab))
+* stop using manually entered index ([ed0520d](https://github.com/Canny1913/revanced-patches/commit/ed0520d85c74729d7daabbfbd6cb77ad8cd62f15))
+* update patches to `17.26.35` ([#142](https://github.com/Canny1913/revanced-patches/issues/142)) ([b04112c](https://github.com/Canny1913/revanced-patches/commit/b04112c8562a7b95e7555e894b665913094b33eb))
+* use dependency in correct patch ([a2a1ee8](https://github.com/Canny1913/revanced-patches/commit/a2a1ee8eb5e059b30fe58c918a80976ef4d7b637))
+* wording [skip ci] ([ba64d9e](https://github.com/Canny1913/revanced-patches/commit/ba64d9efc3ee606e9bda30ad7f8017af34b1dc3f))
+
+
+### Features
+
+* `compact-header` patch ([83753ba](https://github.com/Canny1913/revanced-patches/commit/83753bacf8f56ad16f8abafc02034f1595c12532))
+* `default-video-quality` patch ([9d30d37](https://github.com/Canny1913/revanced-patches/commit/9d30d372dd13663564286820f3e7685c0a0cee8a))
+* `force-vp9-codec` patch ([#157](https://github.com/Canny1913/revanced-patches/issues/157)) ([07806a1](https://github.com/Canny1913/revanced-patches/commit/07806a16e5368118949e0e476e901987433ad403))
+* `hide-get-premium` patch ([#195](https://github.com/Canny1913/revanced-patches/issues/195)) ([639aab4](https://github.com/Canny1913/revanced-patches/commit/639aab411ee514b50840c15c8e9a1a889854403f))
+* `minimize-playback-music` patch ([#200](https://github.com/Canny1913/revanced-patches/issues/200)) ([d4fd18b](https://github.com/Canny1913/revanced-patches/commit/d4fd18bc74c92e17cdfb21b627b2f6a8919ff2dc))
+* `music-video-ads` patch ([#172](https://github.com/Canny1913/revanced-patches/issues/172)) ([cbb71b5](https://github.com/Canny1913/revanced-patches/commit/cbb71b5faf1386ed31dd9e0387f6cf0509d92d31))
+* `return-youtube-dislikes` patch ([#175](https://github.com/Canny1913/revanced-patches/issues/175)) ([18a66d8](https://github.com/Canny1913/revanced-patches/commit/18a66d8454cf6e7cfdd4183631a6870c80d16b90))
+* `sponsorblock` patch ([#101](https://github.com/Canny1913/revanced-patches/issues/101)) ([36af4cc](https://github.com/Canny1913/revanced-patches/commit/36af4cc14ff8057c10b99019cb23acc6e5aec3f2)), closes [#89](https://github.com/Canny1913/revanced-patches/issues/89) [#90](https://github.com/Canny1913/revanced-patches/issues/90)
+* `swipe-controls` rewrite ([#131](https://github.com/Canny1913/revanced-patches/issues/131)) ([b7dba09](https://github.com/Canny1913/revanced-patches/commit/b7dba09927ba15a9eacb06dcb4bf1f268560c96e))
+* 1 line of code ([e2d28bd](https://github.com/Canny1913/revanced-patches/commit/e2d28bd576f74f1792dc959b8ed3064ec6a4cb68))
+* add version 17.26.35 ([25cd66c](https://github.com/Canny1913/revanced-patches/commit/25cd66cc6d2cd56a4170c5c69a708011fe7eab1d))
+* complete `default-video-quality` patch ([f7e153b](https://github.com/Canny1913/revanced-patches/commit/f7e153bd08b6dfe07591678195bfa6b06606f6a2))
+* issue templates ([b82b0aa](https://github.com/Canny1913/revanced-patches/commit/b82b0aad88b7ab9d86f1bcc8e007f6a76a9aa1a5))
+* twitter `timeline-ads` patch ([#222](https://github.com/Canny1913/revanced-patches/issues/222)) ([f16e67f](https://github.com/Canny1913/revanced-patches/commit/f16e67fc75c9c3505ff875a216ce7e868022075e))
+
 ## [2.21.3](https://github.com/revanced/revanced-patches/compare/v2.21.2...v2.21.3) (2022-07-24)
 
 

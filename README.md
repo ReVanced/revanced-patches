@@ -38,6 +38,7 @@
 | `enable-debugging` | Enables app debugging by patching the manifest file. | `com.google.android.youtube` | all |
 | `custom-playback-speed` | Adds more video playback speed options. | `com.google.android.youtube` | 17.28.34 |
 | `hdr-auto-brightness` | Makes the brightness of HDR videos follow the system default. | `com.google.android.youtube` | 17.28.34 |
+| `default-video-quality` | Adds the ability to select preferred video quality. | `com.google.android.youtube` | 17.27.39 |
 | `video-ads` | Removes ads in the video player. | `com.google.android.youtube` | 17.28.34 |
 | `general-ads` | Removes general ads. | `com.google.android.youtube` | 17.28.34 |
 | `hide-infocard-suggestions` | Hides infocards in videos. | `com.google.android.youtube` | 17.28.34 |
