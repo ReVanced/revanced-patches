@@ -1,3 +1,10 @@
+## [2.22.1](https://github.com/revanced/revanced-patches/compare/v2.22.0...v2.22.1) (2022-07-24)
+
+
+### Bug Fixes
+
+* remove broken video-quality patch ([e8d516a](https://github.com/revanced/revanced-patches/commit/e8d516af896971a09bb9aca8b00e7b7bb57c3dd9))
+
 # [2.22.0](https://github.com/revanced/revanced-patches/compare/v2.21.3...v2.22.0) (2022-07-24)
 
 
