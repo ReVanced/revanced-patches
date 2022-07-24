@@ -1,12 +1,7 @@
 package app.revanced.integrations.utils;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.pm.PackageManager;
 import android.content.res.Resources;
-import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 
@@ -17,7 +12,7 @@ import app.revanced.integrations.sponsorblock.player.PlayerType;
 public class ReVancedUtils {
 
     private static PlayerType env;
-    private static boolean newVideo = false;
+    public static boolean newVideo = false;
 
     //Used by Integrations patch
     public static Context context;
@@ -34,7 +29,6 @@ public class ReVancedUtils {
         LogHelper.debug(ReVancedUtils.class, "New video started: " + started);
         newVideo = started;
     }
-
     public static boolean isNewVideoStarted() {
         return newVideo;
     }
