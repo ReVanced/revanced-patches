@@ -1,41 +1,51 @@
 package app.revanced.meta.readme
 
+import app.revanced.patcher.data.Data
 import app.revanced.patcher.extensions.PatchExtensions.compatiblePackages
 import app.revanced.patcher.extensions.PatchExtensions.description
 import app.revanced.patcher.extensions.PatchExtensions.patchName
+import app.revanced.patcher.patch.Patch
 import app.revanced.patcher.util.patch.implementation.JarPatchBundle
 import java.io.File
 
-class Generator {
-    companion object {
-        @JvmStatic
-        fun main(args: Array<String>) {
-            val buildDir = File("build/libs/")
-            val buildJar =
-                buildDir.listFiles()?.first { it.name.startsWith("revanced-patches-") && it.name.endsWith(".jar") }!!
+object Generator {
+    private const val TABLE_HEADER =
+        "| \uD83D\uDC8A Patch | \uD83D\uDCDC Description | \uD83C\uDFF9 Target Version |\n" +
+                "|:--------:|:--------------:|:-----------------:|"
 
-            val bundle = JarPatchBundle(buildJar.absolutePath).loadPatches()
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val buildDir = File("build/libs/")
+        val buildJar =
+            buildDir.listFiles()?.first { it.name.startsWith("revanced-patches-") && it.name.endsWith(".jar") }!!
 
-            val patches = StringBuilder()
+        val bundle = JarPatchBundle(buildJar.absolutePath).loadPatches()
 
-            for (patch in bundle) {
-                val patchName = patch.patchName
-                val compatiblePackage = patch.compatiblePackages?.first()
-                val latestVersion =
-                    compatiblePackage?.versions?.map { SemanticVersion.fromString(it) }?.maxWithOrNull(
-                        SemanticVersionComparator
-                    ) ?: "all"
+        val output = StringBuilder()
 
-                patches.appendLine("| `$patchName` | ${patch.description} | `${compatiblePackage?.name}` | $latestVersion |")
-            }
+        val packages = mutableMapOf<String, MutableList<Class<out Patch<Data>>>>()
 
-            val readMeTemplateFile = File("README-template.md")
-            val readmeTemplate = Template(readMeTemplateFile.readText())
-
-            readmeTemplate.replaceVariable("table", patches.toString())
-
-            val readme = File("README.md")
-            readme.writeText(readmeTemplate.toString())
+        bundle.map {
+            val packageName = it.compatiblePackages?.first()?.name!!
+            packages.getOrElse(packageName) { packages.put(packageName, mutableListOf()) }?.add(it)
         }
+
+        for (pkg in packages) {
+            output.appendLine("### \uD83D\uDCE6 `${pkg.key}`")
+            output.appendLine("<details>\n")
+
+            output.appendLine(TABLE_HEADER)
+            pkg.value.forEach { output.appendLine("| `${it.patchName}` | ${it.description} | ${it.getLatestVersion() ?: "all"} |") }
+
+            output.appendLine("</details>\n")
+        }
+
+        val readMeTemplateFile = File("README-template.md")
+        val readmeTemplate = Template(readMeTemplateFile.readText())
+
+        readmeTemplate.replaceVariable("table", output.toString())
+
+        val readme = File("README.md")
+        readme.writeText(readmeTemplate.toString())
     }
 }
