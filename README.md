@@ -9,6 +9,7 @@ Official patches by ReVanced
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
+| `timeline-ads` | Removes ads from the Twitter timeline. | all |
 </details>
 
 ### 📦 `com.google.android.apps.youtube.music`
@@ -16,14 +17,15 @@ Official patches by ReVanced
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `tasteBuilder-remover` | Removes the "Tell us which artists you like" card from the home screen. | 5.14.53 |
-| `hide-get-premium` | Removes all "Get Premium" evidences from the avatar menu. | 5.14.53 |
-| `compact-header` | Hides the music category bar at the top of the homepage. | 5.14.53 |
-| `upgrade-button-remover` | Removes the upgrade tab from the pivot bar. | 5.14.53 |
-| `background-play` | Enables playing music in the background. | 5.14.53 |
-| `music-video-ads` | Removes ads in the music player. | 5.14.53 |
-| `codecs-unlock` | Adds more audio codec options. The new audio codecs usually result in better audio quality. | 5.14.53 |
-| `exclusive-audio-playback` | Enables the option to play music without video. | 5.14.53 |
+| `minimized-playback-music` | Enables minimized playback on Kids music. | 5.16.51 |
+| `tasteBuilder-remover` | Removes the "Tell us which artists you like" card from the home screen. | 5.16.51 |
+| `hide-get-premium` | Removes all "Get Premium" evidences from the avatar menu. | 5.16.51 |
+| `compact-header` | Hides the music category bar at the top of the homepage. | 5.16.51 |
+| `upgrade-button-remover` | Removes the upgrade tab from the pivot bar. | 5.16.51 |
+| `background-play` | Enables playing music in the background. | 5.16.51 |
+| `music-video-ads` | Removes ads in the music player. | 5.16.51 |
+| `codecs-unlock` | Adds more audio codec options. The new audio codecs usually result in better audio quality. | 5.16.51 |
+| `exclusive-audio-playback` | Enables the option to play music without video. | 5.16.51 |
 </details>
 
 ### 📦 `com.google.android.youtube`
@@ -31,6 +33,7 @@ Official patches by ReVanced
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
+| `swipe-controls` | Adds volume and brightness swipe controls. | 17.29.34 |
 | `seekbar-tapping` | Enables tap-to-seek on the seekbar of the video player. | 17.29.34 |
 | `minimized-playback` | Enables minimized and background playback. | 17.29.34 |
 | `amoled` | Enables pure black theme. | 17.29.34 |
