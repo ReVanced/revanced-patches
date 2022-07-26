@@ -8,7 +8,7 @@ body:
       value: |
         # ReVanced bug report
 
-        Important to note that your issue may have already been reported before. Please check for existing issues [here](https://github.com/revanced/revanced-patches/labels/bug)
+        Important to note that your issue may have already been reported before. Please check for existing issues [here](https://github.com/revanced/revanced-patches/labels/bug).
 
   - type: dropdown
     attributes:
