@@ -29,7 +29,7 @@ import org.jf.dexlib2.immutable.reference.ImmutableStringReference
 @Patch
 @Dependencies([MusicMicroGResourcePatch::class])
 @Name("music-microg-support")
-@Description("Patch to allow YouTube Music ReVanced to run without root and under a different package name.")
+@Description("Allows YouTube Music ReVanced to run without root and under a different package name.")
 @MusicMicroGPatchCompatibility
 @Version("0.0.1")
 class MusicMicroGBytecodePatch : BytecodePatch(
