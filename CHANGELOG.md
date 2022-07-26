@@ -1,3 +1,10 @@
+# [2.24.0](https://github.com/revanced/revanced-patches/compare/v2.23.0...v2.24.0) (2022-07-26)
+
+
+### Features
+
+* `music-microg-support` patch ([#208](https://github.com/revanced/revanced-patches/issues/208)) ([50863e9](https://github.com/revanced/revanced-patches/commit/50863e97cc8eba7e1ad6d11b4821baa45fdd29c4))
+
 # [2.23.0](https://github.com/revanced/revanced-patches/compare/v2.22.2...v2.23.0) (2022-07-26)
 
 
