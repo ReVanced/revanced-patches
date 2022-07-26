@@ -17,26 +17,22 @@ import app.revanced.patches.youtube.misc.quality.annotations.DefaultVideoQuality
 import app.revanced.patches.youtube.misc.quality.fingerprints.VideoQualityReferenceFingerprint
 import app.revanced.patches.youtube.misc.quality.fingerprints.VideoQualitySetterFingerprint
 import app.revanced.patches.youtube.misc.quality.fingerprints.VideoUserQualityChangeFingerprint
-import app.revanced.patches.youtube.misc.videoid.fingerprint.VideoIdFingerprint
+import app.revanced.patches.youtube.misc.videoid.patch.VideoIdPatch
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
 
-@Dependencies(
-    dependencies = [IntegrationsPatch::class]
-)
+@Patch
+@Dependencies([IntegrationsPatch::class, VideoIdPatch::class])
 @Name("default-video-quality")
 @Description("Adds the ability to select preferred video quality.")
 @DefaultVideoQualityCompatibility
 @Version("0.0.1")
 class DefaultVideoQualityPatch : BytecodePatch(
     listOf(
-        VideoQualitySetterFingerprint,
-        VideoIdFingerprint
+        VideoQualitySetterFingerprint
     )
-
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        val offset = 4
         val setterMethod = VideoQualitySetterFingerprint.result!!
 
         VideoUserQualityChangeFingerprint.resolve(data, setterMethod.classDef)
@@ -47,6 +43,8 @@ class DefaultVideoQualityPatch : BytecodePatch(
             VideoQualityReferenceFingerprint.result!!.method.let { method ->
                 (method.implementation!!.instructions.elementAt(0) as ReferenceInstruction).reference as FieldReference
             }
+
+        VideoIdPatch.injectCall("Lapp/revanced/integrations/patches/VideoQualityPatch;->newVideoStarted(Ljava/lang/String;)V")
 
         val qIndexMethodName =
             data.classes.single { it.type == qualityFieldReference.type }.methods.single { it.parameterTypes.first() == "I" }.name
@@ -59,15 +57,6 @@ class DefaultVideoQualityPatch : BytecodePatch(
 		        invoke-static {p1, p2, v0, v1}, Lapp/revanced/integrations/patches/VideoQualityPatch;->setVideoQuality([Ljava/lang/Object;ILjava/lang/Object;Ljava/lang/String;)I
    		        move-result p2
             """,
-        )
-
-        val newVideoMethod = VideoIdFingerprint.result!!
-        val newVideoIndex = newVideoMethod.patternScanResult!!.endIndex + offset
-        newVideoMethod.mutableMethod.addInstructions(
-            newVideoIndex, """
-                const/4 v6, 0x1 
-                invoke-static {v6}, Lapp/revanced/integrations/utils/ReVancedUtils;->setNewVideo(Z)V
-            """
         )
 
         userQualityMethod.mutableMethod.addInstruction(
