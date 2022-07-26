@@ -27,7 +27,11 @@ object Generator {
 
         bundle.map {
             val packageName = it.compatiblePackages?.first()?.name!!
-            packages.getOrElse(packageName) { packages.put(packageName, mutableListOf()) }?.add(it)
+            if (!packages.contains(packageName)) {
+                packages[packageName] = mutableListOf()
+            }
+
+            packages[packageName]?.add(it)
         }
 
         for (pkg in packages) {
