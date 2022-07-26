@@ -64,7 +64,7 @@ Official patches by ReVanced
 | `enable-debugging` | Enables app debugging by patching the manifest file. | all |
 | `custom-playback-speed` | Adds more video playback speed options. | 17.29.34 |
 | `hdr-auto-brightness` | Makes the brightness of HDR videos follow the system default. | 17.29.34 |
-| `default-video-quality` | Adds the ability to select preferred video quality. | 17.29.34 |
+| `remember-video-quality` | Adds the ability to remember the video quality you chose in the video quality flyout. | 17.29.34 |
 | `video-ads` | Removes ads in the video player. | 17.29.34 |
 | `general-ads` | Removes general ads. | 17.29.34 |
 | `hide-infocard-suggestions` | Hides infocards in videos. | 17.29.34 |

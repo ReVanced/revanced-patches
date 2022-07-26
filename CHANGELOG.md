@@ -1,3 +1,10 @@
+## [2.25.2](https://github.com/revanced/revanced-patches/compare/v2.25.1...v2.25.2) (2022-07-26)
+
+
+### Bug Fixes
+
+* rename `default-video-quality` to `remember-video-quality` ([7f6cdfd](https://github.com/revanced/revanced-patches/commit/7f6cdfd7c2b5e72742bbb92e4d584f722cb82cae))
+
 ## [2.25.1](https://github.com/revanced/revanced-patches/compare/v2.25.0...v2.25.1) (2022-07-26)
 
 
