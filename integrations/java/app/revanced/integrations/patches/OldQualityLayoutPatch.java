@@ -1,28 +1,16 @@
 package app.revanced.integrations.patches;
 
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-
-import java.util.Arrays;
 
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 
 public class OldQualityLayoutPatch {
-    public static Window window;
-    private static boolean hideWindow = true;
-    
     public static void showOldQualityMenu(ListView listView)
     {
         if (!SettingsEnum.OLD_STYLE_QUALITY_SETTINGS.getBoolean()) return;
-
-        hideWindow = true;
 
         listView.setOnHierarchyChangeListener(new ViewGroup.OnHierarchyChangeListener() {
             @Override
@@ -30,11 +18,6 @@ public class OldQualityLayoutPatch {
                 LogHelper.debug(OldQualityLayoutPatch.class, "Added: " + child);
 
                 parent.setVisibility(View.GONE);
-                if (window != null && hideWindow) {
-                    window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-                    hideWindow = false;
-                }
 
                 final var indexOfAdvancedQualityMenuItem = 4;
                 if (listView.indexOfChild(child) != indexOfAdvancedQualityMenuItem) return;
