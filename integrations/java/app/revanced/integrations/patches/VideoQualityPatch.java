@@ -14,22 +14,23 @@ import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 
 public class VideoQualityPatch {
-    public static final int[] videoResolutions = {0, 144, 240, 360, 480, 720, 1080, 1440, 2160};
-    private static Boolean userChangedQuality = false;
+    public static final int[] videoResolutions = {0, 144, 240, 360, 480, 720, 1080, 1440, 2160, 4320};
     public static int selectedQuality1 = -2;
+    private static Boolean newVideo = false;
+    private static Boolean userChangedQuality = false;
 
     public static void changeDefaultQuality(int defaultQuality) {
         Context context = ReVancedUtils.getContext();
         if (isConnectedWifi(context)) {
             SharedPreferences wifi = context.getSharedPreferences("revanced_prefs", 0);
             SharedPreferences.Editor wifieditor = wifi.edit();
-            wifieditor.putInt("wifi_quality",defaultQuality);
+            wifieditor.putInt("wifi_quality", defaultQuality);
             wifieditor.apply();
             LogHelper.debug(VideoQualityPatch.class, "Changing default Wi-Fi quality to: " + defaultQuality);
         } else if (isConnectedMobile(context)) {
             SharedPreferences mobile = context.getSharedPreferences("revanced_prefs", 0);
             SharedPreferences.Editor mobileeditor = mobile.edit();
-            mobileeditor.putInt("mobile_quality",defaultQuality);
+            mobileeditor.putInt("mobile_quality", defaultQuality);
             mobileeditor.apply();
             LogHelper.debug(VideoQualityPatch.class, "Changing default mobile data quality to: " + defaultQuality);
         } else {
@@ -41,7 +42,7 @@ public class VideoQualityPatch {
     public static int setVideoQuality(Object[] qualities, int quality, Object qInterface, String qIndexMethod) {
         int preferredQuality;
         Field[] fields;
-        if (!ReVancedUtils.isNewVideoStarted() && !userChangedQuality || qInterface == null) {
+        if (!(newVideo || userChangedQuality) || qInterface == null) {
             return quality;
         }
         Class<?> intType = Integer.TYPE;
@@ -72,7 +73,7 @@ public class VideoQualityPatch {
                 }
             }
         }
-        ReVancedUtils.setNewVideo(false);
+        newVideo = false;
         LogHelper.debug(VideoQualityPatch.class, "Quality: " + quality);
         Context context = ReVancedUtils.getContext();
         if (context == null) {
@@ -127,6 +128,9 @@ public class VideoQualityPatch {
         userChangedQuality = true;
     }
 
+    public static void newVideoStarted(String videoId) {
+        newVideo = true;
+    }
 
     private static NetworkInfo getNetworkInfo(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
