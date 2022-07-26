@@ -1,3 +1,10 @@
+# [2.25.0](https://github.com/revanced/revanced-patches/compare/v2.24.0...v2.25.0) (2022-07-26)
+
+
+### Features
+
+* `general-reddit-ads` patch ([#235](https://github.com/revanced/revanced-patches/issues/235)) ([d63c016](https://github.com/revanced/revanced-patches/commit/d63c016d38d2a5b1d152abccdb582990987a1911))
+
 # [2.24.0](https://github.com/revanced/revanced-patches/compare/v2.23.0...v2.24.0) (2022-07-26)
 
 
