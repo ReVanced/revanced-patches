@@ -1,3 +1,10 @@
+## [2.25.1](https://github.com/revanced/revanced-patches/compare/v2.25.0...v2.25.1) (2022-07-26)
+
+
+### Bug Fixes
+
+* `default-video-quality` patch crashing ([#227](https://github.com/revanced/revanced-patches/issues/227)) ([379327a](https://github.com/revanced/revanced-patches/commit/379327a6b2325ef93c7107472343dd9fd85a0f56))
+
 # [2.25.0](https://github.com/revanced/revanced-patches/compare/v2.24.0...v2.25.0) (2022-07-26)
 
 
