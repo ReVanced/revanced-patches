@@ -68,7 +68,8 @@ public class SharedPrefHelper {
 
         YOUTUBE("youtube"),
         RYD("ryd"),
-        SPONSOR_BLOCK("sponsor-block");
+        SPONSOR_BLOCK("sponsor-block"),
+        REVANCED_PREFS("revanced_prefs");
 
         private final String name;
 
