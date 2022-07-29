@@ -35,11 +35,13 @@ class VideoIdPatch : BytecodePatch(
 
         injectCall("Lapp/revanced/integrations/videoplayer/VideoInformation;->setCurrentVideoId(Ljava/lang/String;)V")
 
+        offset++ // offset so setCurrentVideoId is called before any injected call
+
         return PatchResultSuccess()
     }
 
     companion object {
-        private const val offset = 3 // offset so setCurrentVideoId is called before any injected call
+        private var offset = 2
 
         private var videoIdRegister: Int = 0
         private lateinit var result: MethodFingerprintResult
