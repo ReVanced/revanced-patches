@@ -44,7 +44,7 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
         for (SettingsEnum setting : SettingsEnum.values()) {
             if (!setting.getPath().equals(str)) continue;
             Preference pref = this.findPreferenceOnScreen(str);
-            
+
             LogHelper.debug(ReVancedSettingsFragment.class, "Setting " + setting.name() + " was changed. Preference " + str + ": " + pref.toString());
 
             if (pref instanceof SwitchPreference) {
