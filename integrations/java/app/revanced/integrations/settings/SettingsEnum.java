@@ -17,12 +17,10 @@ public enum SettingsEnum {
 
     //Video Settings
     OLD_STYLE_QUALITY_SETTINGS("revanced_use_old_style_quality_settings", true, ReturnType.BOOLEAN),
-    OVERRIDE_RESOLUTION_TO_MAX("revanced_override_resolution_max", false, ReturnType.BOOLEAN),
-    PREFERRED_RESOLUTION_WIFI("revanced_pref_video_quality_wifi", -2, ReturnType.INTEGER),
-    PREFERRED_RESOLUTION_MOBILE("revanced_pref_video_quality_mobile", -2, ReturnType.INTEGER),
     PREFERRED_VIDEO_SPEED("revanced_pref_video_speed", -2.0f, ReturnType.FLOAT),
 
     //Whitelist Settings
+    //ToDo: Not used atm, Patch missing
     ENABLE_WHITELIST("revanced_whitelist_ads_enabled", false, ReturnType.BOOLEAN),
 
     //Ad settings
@@ -30,14 +28,13 @@ public enum SettingsEnum {
     VIDEO_ADS_SHOWN("revanced_video_ads_enabled", false, ReturnType.BOOLEAN),
     ADREMOVER_AD_REMOVAL("revanced_adremover_ad_removal", true, ReturnType.BOOLEAN),
     ADREMOVER_MERCHANDISE_REMOVAL("revanced_adremover_merchandise", true, ReturnType.BOOLEAN),
-    ADREMOVER_COMMUNITY_POSTS_REMOVAL("revanced_adremover_community_posts_removal", false, ReturnType.BOOLEAN),
+    ADREMOVER_COMMUNITY_POSTS_REMOVAL("revanced_adremover_community_posts_removal", true, ReturnType.BOOLEAN),
     ADREMOVER_COMPACT_BANNER_REMOVAL("revanced_adremover_compact_banner_removal", true, ReturnType.BOOLEAN),
     ADREMOVER_COMMENTS_REMOVAL("revanced_adremover_comments_removal", false, ReturnType.BOOLEAN),
     ADREMOVER_MOVIE_REMOVAL("revanced_adremover_movie", true, ReturnType.BOOLEAN),
     ADREMOVER_FEED_SURVEY_REMOVAL("revanced_adremover_feed_survey", true, ReturnType.BOOLEAN),
     ADREMOVER_SHORTS_SHELF("revanced_adremover_shorts_shelf", true, ReturnType.BOOLEAN),
     ADREMOVER_COMMUNITY_GUIDELINES("revanced_adremover_community_guidelines", true, ReturnType.BOOLEAN),
-    //ToDo: These Settings have to be added to revanced_prefs.xml
     ADREMOVER_EMERGENCY_BOX_REMOVAL("revanced_adremover_emergency_box_removal", true, ReturnType.BOOLEAN),
     ADREMOVER_INFO_PANEL_REMOVAL("revanced_adremover_info_panel", true, ReturnType.BOOLEAN),
     ADREMOVER_MEDICAL_PANEL_REMOVAL("revanced_adremover_medical_panel", true, ReturnType.BOOLEAN),
@@ -52,7 +49,8 @@ public enum SettingsEnum {
     INFO_CARDS_SHOWN("revanced_info_cards_enabled", false, ReturnType.BOOLEAN),
     BRANDING_SHOWN("revanced_branding_watermark_enabled", false, ReturnType.BOOLEAN),
     CAST_BUTTON_SHOWN("revanced_cast_button_enabled", false, ReturnType.BOOLEAN),
-    AUTOPLAY_BUTTON_SHOWN("revanced_autoplay_button_enabled", false, ReturnType.BOOLEAN), //ToDo: Add to prefs
+    AUTOPLAY_BUTTON_SHOWN("revanced_autoplay_button_enabled", false, ReturnType.BOOLEAN),
+    //ToDo: Not used atm, Patch missing
     USE_TABLET_MINIPLAYER("revanced_tablet_miniplayer", false, ReturnType.BOOLEAN),
     CREATE_BUTTON_SHOWN("revanced_create_button_enabled", false, ReturnType.BOOLEAN),
     USE_NEW_ACTIONBAR("revanced_new_actionbar", true, ReturnType.BOOLEAN),
@@ -60,7 +58,7 @@ public enum SettingsEnum {
     FULLSCREEN_PANELS_SHOWN("revanced_fullscreen_panels_enabled", false, ReturnType.BOOLEAN), //ToDo: Add to prefs
 
     //Misc. Settings
-    AUTOREPEAT_BUTTON_SHOWN("revanced_pref_auto_repeat_button", false, ReturnType.BOOLEAN),
+    //ToDo: Not used atm, Patch missing
     CAPTIONS_ENABLED("revanced_pref_captions", false, ReturnType.BOOLEAN),
     PREFERRED_AUTO_REPEAT("revanced_pref_auto_repeat", true, ReturnType.BOOLEAN),
     USE_HDR_AUTO_BRIGHTNESS("revanced_pref_hdr_autobrightness", true, ReturnType.BOOLEAN),
@@ -243,7 +241,7 @@ public enum SettingsEnum {
         return path;
     }
 
-    private ReturnType getReturnType() {
+    public ReturnType getReturnType() {
         return returnType;
     }
 
