@@ -66,6 +66,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment implements 
             preference.setOnPreferenceChangeListener((preference1, newValue) -> {
                 final boolean value = (Boolean) newValue;
                 enableCategoriesIfNeeded(value);
+                SettingsEnum.SB_ENABLED.saveValue(newValue);
                 return true;
             });
         }

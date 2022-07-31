@@ -33,13 +33,14 @@ public class ReturnYouTubeDislikeSettingsFragment extends PreferenceFragment {
             SwitchPreference preference = new SwitchPreference(context);
             preferenceScreen.addPreference(preference);
             preference.setKey(SettingsEnum.RYD_ENABLED.getPath());
-            preference.setDefaultValue(false);
+            preference.setDefaultValue(SettingsEnum.RYD_ENABLED.getDefaultValue());
             preference.setChecked(SettingsEnum.RYD_ENABLED.getBoolean());
             preference.setTitle(str("revanced_ryd_title"));
             preference.setSummary(str("revanced_ryd_summary"));
             preference.setOnPreferenceChangeListener((pref, newValue) -> {
                 final boolean value = (Boolean) newValue;
                 ReturnYouTubeDislike.onEnabledChange(value);
+                SettingsEnum.RYD_ENABLED.saveValue(value);
                 return true;
             });
         }
