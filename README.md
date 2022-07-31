@@ -61,6 +61,7 @@ Official patches by ReVanced
 | `force-vp9-codec` | Forces the VP9 codec for videos. | 17.29.34 |
 | `always-autorepeat` | Always repeats the playing video again. | 17.29.34 |
 | `microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG | 17.29.34 |
+| `settings` | Adds settings for ReVanced to YouTube. | all |
 | `enable-debugging` | Enables app debugging by patching the manifest file. | all |
 | `custom-playback-speed` | Adds more video playback speed options. | 17.29.34 |
 | `hdr-auto-brightness` | Makes the brightness of HDR videos follow the system default. | 17.29.34 |

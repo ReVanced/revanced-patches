@@ -1,3 +1,10 @@
+# [2.27.0](https://github.com/revanced/revanced-patches/compare/v2.26.0...v2.27.0) (2022-07-31)
+
+
+### Features
+
+* `settings` patch ([0e229a4](https://github.com/revanced/revanced-patches/commit/0e229a46cb5b8b74183c47a6eae08d667f941406))
+
 # [2.26.0](https://github.com/revanced/revanced-patches/compare/v2.25.3...v2.26.0) (2022-07-31)
 
 
