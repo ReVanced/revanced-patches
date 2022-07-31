@@ -1,3 +1,10 @@
+# [2.28.0](https://github.com/revanced/revanced-patches/compare/v2.27.0...v2.28.0) (2022-07-31)
+
+
+### Features
+
+* add `custom-video-buffer` patch ([9f117c7](https://github.com/revanced/revanced-patches/commit/9f117c74cdbdcf98eae97cf4c37f0baca451d695))
+
 # [2.27.0](https://github.com/revanced/revanced-patches/compare/v2.26.0...v2.27.0) (2022-07-31)
 
 
