@@ -26,17 +26,29 @@ public class SharedPrefHelper {
 
     public static Long getLong(Context context, SharedPrefNames prefName, String key, Long _default) {
         SharedPreferences sharedPreferences = getPreferences(context, prefName);
-        return Long.valueOf(sharedPreferences.getString(key, _default + ""));
+        try {
+            return Long.valueOf(sharedPreferences.getString(key, _default + ""));
+        } catch (ClassCastException ex) {
+            return sharedPreferences.getLong(key, _default);
+        }
     }
 
     public static Float getFloat(Context context, SharedPrefNames prefName, String key, Float _default) {
         SharedPreferences sharedPreferences = getPreferences(context, prefName);
-        return Float.valueOf(sharedPreferences.getString(key, _default + ""));
+        try {
+            return Float.valueOf(sharedPreferences.getString(key, _default + ""));
+        } catch (ClassCastException ex) {
+            return sharedPreferences.getFloat(key, _default);
+        }
     }
 
     public static Integer getInt(Context context, SharedPrefNames prefName, String key, Integer _default) {
         SharedPreferences sharedPreferences = getPreferences(context, prefName);
-        return Integer.valueOf(sharedPreferences.getString(key, _default + ""));
+        try {
+            return Integer.valueOf(sharedPreferences.getString(key, _default + ""));
+        } catch (ClassCastException ex) {
+            return sharedPreferences.getInt(key, _default);
+        }
     }
 
     public static SharedPreferences getPreferences(Context context, SharedPrefNames name) {
