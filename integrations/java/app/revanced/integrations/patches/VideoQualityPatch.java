@@ -15,7 +15,7 @@ import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
 
 public class VideoQualityPatch {
-    public static final int[] videoResolutions = {0, 144, 240, 360, 480, 720, 1080, 1440, 2160, 4320};
+
     public static int selectedQuality1 = -2;
     private static Boolean newVideo = false;
     private static Boolean userChangedQuality = false;
@@ -24,7 +24,7 @@ public class VideoQualityPatch {
         Context context = ReVancedUtils.getContext();
         if (isConnectedWifi(context)) {
             try {
-                SharedPrefHelper.saveInt(context, SharedPrefHelper.SharedPrefNames.REVANCED_PREFS, "wifi_quality", defaultQuality);
+                SharedPrefHelper.saveString(context, SharedPrefHelper.SharedPrefNames.REVANCED_PREFS, "wifi_quality", defaultQuality + "");
             } catch (Exception ex) {
                 LogHelper.printException(VideoQualityPatch.class, "Failed to change default WI-FI quality:" + ex);
                 Toast.makeText(context, "Failed to change default WI-FI quality:", Toast.LENGTH_SHORT).show();
@@ -33,7 +33,7 @@ public class VideoQualityPatch {
             Toast.makeText(context, "Changing default Wi-Fi quality to: " + defaultQuality, Toast.LENGTH_SHORT).show();
         } else if (isConnectedMobile(context)) {
             try {
-                SharedPrefHelper.saveInt(context, SharedPrefHelper.SharedPrefNames.REVANCED_PREFS, "mobile_quality", defaultQuality);
+                SharedPrefHelper.saveString(context, SharedPrefHelper.SharedPrefNames.REVANCED_PREFS, "mobile_quality", defaultQuality + "");
             } catch (Exception ex) {
                 LogHelper.debug(VideoQualityPatch.class, "Failed to change default mobile data quality" + ex);
                 Toast.makeText(context, "Failed to change default mobile data quality", Toast.LENGTH_SHORT).show();

@@ -1,5 +1,6 @@
 package app.revanced.integrations.sponsorblock;
 
+import android.content.Context;
 import android.content.res.Resources;
 
 import androidx.annotation.NonNull;
@@ -7,6 +8,7 @@ import androidx.annotation.NonNull;
 import java.util.HashMap;
 
 import app.revanced.integrations.utils.LogHelper;
+import app.revanced.integrations.utils.ReVancedUtils;
 
 public class StringRef {
     private static Resources resources;
@@ -88,6 +90,9 @@ public class StringRef {
     @NonNull
     public String toString() {
         if (!resolved) {
+            Context context = ReVancedUtils.getContext();
+            resources = context.getResources();
+            packageName = context.getPackageName();
             resolved = true;
             if (resources != null) {
                 final int identifier = resources.getIdentifier(value, "string", packageName);
@@ -95,6 +100,8 @@ public class StringRef {
                     LogHelper.printException(StringRef.class, "Resource not found: " + value);
                 else
                     value = resources.getString(identifier);
+            } else {
+                LogHelper.printException(StringRef.class, "Could not resolve resources!");
             }
         }
         return value;

@@ -74,7 +74,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment implements 
             SwitchPreference preference = new SwitchPreference(context);
             preferenceScreen.addPreference(preference);
             preference.setKey(SettingsEnum.SB_NEW_SEGMENT_ENABLED.getPath());
-            preference.setDefaultValue(SettingsEnum.SB_NEW_SEGMENT_ENABLED.getBoolean());
+            preference.setDefaultValue(SettingsEnum.SB_NEW_SEGMENT_ENABLED.getDefaultValue());
             preference.setChecked(SettingsEnum.SB_NEW_SEGMENT_ENABLED.getBoolean());
             preference.setTitle(str("enable_segmadding"));
             preference.setSummary(str("enable_segmadding_sum"));
@@ -99,7 +99,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment implements 
             preference.setTitle(str("enable_voting"));
             preference.setSummary(str("enable_voting_sum"));
             preference.setKey(SettingsEnum.SB_VOTING_ENABLED.getPath());
-            preference.setDefaultValue(SettingsEnum.SB_VOTING_ENABLED.getBoolean());
+            preference.setDefaultValue(SettingsEnum.SB_VOTING_ENABLED.getDefaultValue());
             preference.setChecked(SettingsEnum.SB_VOTING_ENABLED.getBoolean());
             preferencesToDisableWhenSBDisabled.add(preference);
         }
@@ -231,7 +231,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment implements 
             preference.setTitle(str("general_skiptoast"));
             preference.setSummary(str("general_skiptoast_sum"));
             preference.setKey(SettingsEnum.SB_SHOW_TOAST_WHEN_SKIP.getPath());
-            preference.setDefaultValue(SettingsEnum.SB_SHOW_TOAST_WHEN_SKIP.getBoolean());
+            preference.setDefaultValue(SettingsEnum.SB_SHOW_TOAST_WHEN_SKIP.getDefaultValue());
             preference.setOnPreferenceClickListener(preference12 -> {
                 Toast.makeText(preference12.getContext(), str("skipped_sponsor"), Toast.LENGTH_SHORT).show();
                 return false;
@@ -245,7 +245,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment implements 
             preference.setTitle(str("general_skipcount"));
             preference.setSummary(str("general_skipcount_sum"));
             preference.setKey(SettingsEnum.SB_COUNT_SKIPS.getPath());
-            preference.setDefaultValue(SettingsEnum.SB_COUNT_SKIPS.getBoolean());
+            preference.setDefaultValue(SettingsEnum.SB_COUNT_SKIPS.getDefaultValue());
             preferencesToDisableWhenSBDisabled.add(preference);
             screen.addPreference(preference);
         }
@@ -255,7 +255,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment implements 
             preference.setTitle(str("general_time_without_sb"));
             preference.setSummary(str("general_time_without_sb_sum"));
             preference.setKey(SettingsEnum.SB_SHOW_TIME_WITHOUT_SEGMENTS.getPath());
-            preference.setDefaultValue(SettingsEnum.SB_SHOW_TIME_WITHOUT_SEGMENTS.getBoolean());
+            preference.setDefaultValue(SettingsEnum.SB_SHOW_TIME_WITHOUT_SEGMENTS.getDefaultValue());
             preferencesToDisableWhenSBDisabled.add(preference);
             screen.addPreference(preference);
         }
@@ -274,7 +274,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment implements 
             preference.setTitle(str("general_browser_button"));
             preference.setSummary(str("general_browser_button_sum"));
             preference.setKey(SettingsEnum.SB_SHOW_BROWSER_BUTTON.getPath());
-            preference.setDefaultValue(SettingsEnum.SB_SHOW_BROWSER_BUTTON.getBoolean());
+            preference.setDefaultValue(SettingsEnum.SB_SHOW_BROWSER_BUTTON.getDefaultValue());
             preferencesToDisableWhenSBDisabled.add(preference);
             screen.addPreference(preference);
         }
@@ -285,7 +285,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment implements 
             preference.setTitle(str("general_adjusting"));
             preference.setSummary(str("general_adjusting_sum"));
             preference.setKey(SettingsEnum.SB_ADJUST_NEW_SEGMENT_STEP.getPath());
-            preference.setDefaultValue(SettingsEnum.SB_ADJUST_NEW_SEGMENT_STEP.getInt());
+            preference.setDefaultValue(SettingsEnum.SB_ADJUST_NEW_SEGMENT_STEP.getDefaultValue() + "");
             screen.addPreference(preference);
             preferencesToDisableWhenSBDisabled.add(preference);
         }
@@ -296,7 +296,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment implements 
             preference.setTitle(str("general_min_duration"));
             preference.setSummary(str("general_min_duration_sum"));
             preference.setKey(SettingsEnum.SB_MIN_DURATION.getPath());
-            preference.setDefaultValue(SettingsEnum.SB_MIN_DURATION.getFloat());
+            preference.setDefaultValue(SettingsEnum.SB_MIN_DURATION.getDefaultValue() + "");
             screen.addPreference(preference);
             preferencesToDisableWhenSBDisabled.add(preference);
         }
@@ -306,7 +306,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment implements 
             preference.setTitle(str("general_uuid"));
             preference.setSummary(str("general_uuid_sum"));
             preference.setKey(SettingsEnum.SB_UUID.getPath());
-            preference.setDefaultValue(SettingsEnum.SB_UUID.getString());
+            preference.setDefaultValue(SettingsEnum.SB_UUID.getDefaultValue() + "");
             screen.addPreference(preference);
             preferencesToDisableWhenSBDisabled.add(preference);
         }

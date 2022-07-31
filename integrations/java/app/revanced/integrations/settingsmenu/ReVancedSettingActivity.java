@@ -1,112 +1,91 @@
 package app.revanced.integrations.settingsmenu;
 
-import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
-
+import android.preference.PreferenceFragment;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.android.libraries.social.licenses.LicenseActivity;
+
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.ThemeHelper;
 
-/* loaded from: classes6.dex */
-public class ReVancedSettingActivity extends Activity {
-    private static Context context;
-    private boolean currentTheme;
+public class ReVancedSettingActivity {
 
-    @Override // android.app.Activity
-    protected void onCreate(Bundle bundle) {
-        this.currentTheme = ThemeHelper.isDarkTheme();
-        if (currentTheme) {
-            LogHelper.debug(ReVancedSettingActivity.class, "set Theme.YouTube.Settings.Dark");
-            setTheme(getIdentifier("Theme.YouTube.Settings.Dark", "style"));
-        } else {
-            LogHelper.debug(ReVancedSettingActivity.class, "set Theme.YouTube.Settings");
-            setTheme(getIdentifier("Theme.YouTube.Settings", "style"));
-        }
-        super.onCreate(bundle);
-        setContentView(getIdentifier("xsettings_with_toolbar", "layout"));
-        initImageButton(this.currentTheme);
-        String dataString = getIntent().getDataString();
-        if (dataString.equalsIgnoreCase("sponsorblock_settings")) {
-            trySetTitle(getIdentifier("sb_settings", "string"));
-            getFragmentManager().beginTransaction().replace(getIdentifier("xsettings_fragments", "id"), new SponsorBlockSettingsFragment()).commit();
-        } else if (dataString.equalsIgnoreCase("ryd_settings")) {
-            trySetTitle(getIdentifier("revanced_ryd_settings_title", "string"));
-            getFragmentManager().beginTransaction().replace(getIdentifier("xsettings_fragments", "id"), new ReturnYouTubeDislikeSettingsFragment()).commit();
-        } else {
-            trySetTitle(getIdentifier("revanced_settings", "string"));
-            getFragmentManager().beginTransaction().replace(getIdentifier("xsettings_fragments", "id"), new ReVancedSettingsFragment()).commit();
-        }
-        context = getApplicationContext();
+    public static void setTheme(LicenseActivity base) {
+        final var whiteTheme = "Theme.YouTube.Settings";
+        final var darkTheme = "Theme.YouTube.Settings.Dark";
+
+        final var theme = ThemeHelper.isDarkTheme() ? darkTheme : whiteTheme;
+
+        LogHelper.debug(ReVancedSettingActivity.class, "Using theme: " + theme);
+        base.setTheme(getIdentifier(theme, "style"));
     }
 
-    public static ImageButton getImageButton(ViewGroup viewGroup) {
-        if (viewGroup == null) {
-            return null;
-        }
-        int childCount = viewGroup.getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            View childAt = viewGroup.getChildAt(i);
-            if (childAt instanceof ImageButton) {
-                return (ImageButton) childAt;
-            }
-        }
-        return null;
-    }
+    public static void initializeSettings(LicenseActivity base) {
+        base.setContentView(getIdentifier("xsettings_with_toolbar", "layout"));
 
-    public static TextView getTextView(ViewGroup viewGroup) {
-        if (viewGroup == null) {
-            return null;
-        }
-        int childCount = viewGroup.getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            View childAt = viewGroup.getChildAt(i);
-            if (childAt instanceof TextView) {
-                return (TextView) childAt;
-            }
-        }
-        return null;
-    }
-
-    private static int getIdentifier(String str, String str2) {
-        Context appContext = ReVancedUtils.getContext();
-        return appContext.getResources().getIdentifier(str, str2, appContext.getPackageName());
-    }
-
-    private void trySetTitle(int i) {
         try {
-            getTextView((ViewGroup) findViewById(getIdentifier("toolbar", "id"))).setText(i);
-        } catch (Exception e) {
-            LogHelper.printException(ReVancedSettingActivity.class, "Couldn't set Toolbar title", e);
-        }
-    }
-
-    private void trySetTitle(String str) {
-        try {
-            getTextView((ViewGroup) findViewById(getIdentifier("toolbar", "id"))).setText(str);
-        } catch (Exception e) {
-            LogHelper.printException(ReVancedSettingActivity.class, "Couldn't set Toolbar title", e);
-        }
-    }
-
-    private void initImageButton(boolean z) {
-        try {
-            ImageButton imageButton = getImageButton((ViewGroup) findViewById(getIdentifier("toolbar", "id")));
-            imageButton.setOnClickListener(new View.OnClickListener() { // from class: app.revanced.integrations.theme.ReVancedSettingActivity.1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    ReVancedSettingActivity.this.onBackPressed();
-                }
-            });
-            imageButton.setImageDrawable(getResources().getDrawable(getIdentifier(z ? "quantum_ic_arrow_back_white_24" : "quantum_ic_arrow_back_grey600_24", "drawable"), null));
+            ImageButton imageButton = getImageButton(base.findViewById(getIdentifier("toolbar", "id")));
+            imageButton.setOnClickListener(view -> base.onBackPressed());
+            imageButton.setImageDrawable(base.getResources().getDrawable(getIdentifier(ThemeHelper.isDarkTheme() ? "quantum_ic_arrow_back_white_24" : "quantum_ic_arrow_back_grey600_24", "drawable"), null));
         } catch (Exception e) {
             LogHelper.printException(ReVancedSettingActivity.class, "Couldn't set Toolbar click handler", e);
         }
+
+        PreferenceFragment preferenceFragment;
+        String preferenceIdentifier;
+
+        String dataString = base.getIntent().getDataString();
+        if (dataString.equalsIgnoreCase("sponsorblock_settings")) {
+            preferenceIdentifier = "sb_settings";
+            preferenceFragment = new SponsorBlockSettingsFragment();
+        } else if (dataString.equalsIgnoreCase("ryd_settings")) {
+            preferenceIdentifier = "revanced_ryd_settings_title";
+            preferenceFragment = new ReturnYouTubeDislikeSettingsFragment();
+        } else {
+            preferenceIdentifier = "revanced_settings";
+            preferenceFragment = new ReVancedSettingsFragment();
+        }
+
+        try {
+            var resourceIdentifier = getIdentifier(preferenceIdentifier, "string");
+            getTextView(base.findViewById(getIdentifier("toolbar", "id"))).setText(resourceIdentifier);
+        } catch (Exception e) {
+            LogHelper.printException(ReVancedSettingActivity.class, "Couldn't set Toolbar title", e);
+        }
+
+        base.getFragmentManager().beginTransaction().replace(getIdentifier("xsettings_fragments", "id"), preferenceFragment).commit();
     }
 
+    public static <T extends View> T getView(Class<T> typeClass, ViewGroup viewGroup) {
+        if (viewGroup == null) {
+            return null;
+        }
+        int childCount = viewGroup.getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View childAt = viewGroup.getChildAt(i);
+            if (childAt.getClass() == typeClass) {
+                return (T) childAt;
+            }
+        }
+        return null;
+    }
+
+    public static ImageButton getImageButton(ViewGroup viewGroup) {
+        return getView(ImageButton.class, viewGroup);
+    }
+
+    public static TextView getTextView(ViewGroup viewGroup) {
+        return getView(TextView.class, viewGroup);
+    }
+
+    private static int getIdentifier(String name, String defType) {
+        Context appContext = ReVancedUtils.getContext();
+        assert appContext != null;
+        return appContext.getResources().getIdentifier(name, defType, appContext.getPackageName());
+    }
 }

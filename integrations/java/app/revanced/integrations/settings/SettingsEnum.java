@@ -13,7 +13,7 @@ import app.revanced.integrations.utils.SharedPrefHelper;
 public enum SettingsEnum {
 
     //Codec Override
-    CODEC_OVERRIDE("revanced_override_codec_enabled", true, ReturnType.BOOLEAN),
+    CODEC_OVERRIDE("revanced_override_codec_enabled", false, ReturnType.BOOLEAN),
 
     //Video Settings
     OLD_STYLE_QUALITY_SETTINGS("revanced_use_old_style_quality_settings", true, ReturnType.BOOLEAN),
@@ -24,37 +24,37 @@ public enum SettingsEnum {
     ENABLE_WHITELIST("revanced_whitelist_ads_enabled", false, ReturnType.BOOLEAN),
 
     //Ad settings
-    HOME_ADS_SHOWN("revanced_home_ads_enabled", false, ReturnType.BOOLEAN),
-    VIDEO_ADS_SHOWN("revanced_video_ads_enabled", false, ReturnType.BOOLEAN),
-    ADREMOVER_AD_REMOVAL("revanced_adremover_ad_removal", true, ReturnType.BOOLEAN),
-    ADREMOVER_MERCHANDISE_REMOVAL("revanced_adremover_merchandise", true, ReturnType.BOOLEAN),
-    ADREMOVER_COMMUNITY_POSTS_REMOVAL("revanced_adremover_community_posts_removal", true, ReturnType.BOOLEAN),
-    ADREMOVER_COMPACT_BANNER_REMOVAL("revanced_adremover_compact_banner_removal", true, ReturnType.BOOLEAN),
-    ADREMOVER_COMMENTS_REMOVAL("revanced_adremover_comments_removal", false, ReturnType.BOOLEAN),
-    ADREMOVER_MOVIE_REMOVAL("revanced_adremover_movie", true, ReturnType.BOOLEAN),
-    ADREMOVER_FEED_SURVEY_REMOVAL("revanced_adremover_feed_survey", true, ReturnType.BOOLEAN),
-    ADREMOVER_SHORTS_SHELF("revanced_adremover_shorts_shelf", true, ReturnType.BOOLEAN),
-    ADREMOVER_COMMUNITY_GUIDELINES("revanced_adremover_community_guidelines", true, ReturnType.BOOLEAN),
-    ADREMOVER_EMERGENCY_BOX_REMOVAL("revanced_adremover_emergency_box_removal", true, ReturnType.BOOLEAN),
-    ADREMOVER_INFO_PANEL_REMOVAL("revanced_adremover_info_panel", true, ReturnType.BOOLEAN),
-    ADREMOVER_MEDICAL_PANEL_REMOVAL("revanced_adremover_medical_panel", true, ReturnType.BOOLEAN),
-    ADREMOVER_PAID_CONTECT_REMOVAL("revanced_adremover_paid_content", true, ReturnType.BOOLEAN),
-    ADREMOVER_SUGGESTED_FOR_YOU_REMOVAL("revanced_adremover_suggested", true, ReturnType.BOOLEAN),
-    ADREMOVER_HIDE_SUGGESTIONS("revanced_adremover_hide_suggestions", true, ReturnType.BOOLEAN),
-    ADREMOVER_HIDE_LATEST_POSTS("revanced_adremover_hide_latest_posts", true, ReturnType.BOOLEAN),
-    ADREMOVER_HIDE_CHANNEL_GUIDELINES("revanced_adremover_hide_channel_guidelines", true, ReturnType.BOOLEAN),
+    HOME_ADS_SHOWN("revanced_home_ads_enabled", false, ReturnType.BOOLEAN, true),
+    VIDEO_ADS_SHOWN("revanced_video_ads_enabled", false, ReturnType.BOOLEAN, true),
+    ADREMOVER_AD_REMOVAL("revanced_adremover_ad_removal", true, ReturnType.BOOLEAN, true),
+    ADREMOVER_MERCHANDISE_REMOVAL("revanced_adremover_merchandise", true, ReturnType.BOOLEAN, true),
+    ADREMOVER_COMMUNITY_POSTS_REMOVAL("revanced_adremover_community_posts_removal", true, ReturnType.BOOLEAN, true),
+    ADREMOVER_COMPACT_BANNER_REMOVAL("revanced_adremover_compact_banner_removal", true, ReturnType.BOOLEAN, true),
+    ADREMOVER_COMMENTS_REMOVAL("revanced_adremover_comments_removal", false, ReturnType.BOOLEAN, true),
+    ADREMOVER_MOVIE_REMOVAL("revanced_adremover_movie", true, ReturnType.BOOLEAN, true),
+    ADREMOVER_FEED_SURVEY_REMOVAL("revanced_adremover_feed_survey", true, ReturnType.BOOLEAN, true),
+    ADREMOVER_SHORTS_SHELF("revanced_adremover_shorts_shelf", true, ReturnType.BOOLEAN, true),
+    ADREMOVER_COMMUNITY_GUIDELINES("revanced_adremover_community_guidelines", true, ReturnType.BOOLEAN, true),
+    ADREMOVER_EMERGENCY_BOX_REMOVAL("revanced_adremover_emergency_box_removal", true, ReturnType.BOOLEAN, true),
+    ADREMOVER_INFO_PANEL_REMOVAL("revanced_adremover_info_panel", true, ReturnType.BOOLEAN, true),
+    ADREMOVER_MEDICAL_PANEL_REMOVAL("revanced_adremover_medical_panel", true, ReturnType.BOOLEAN, true),
+    ADREMOVER_PAID_CONTECT_REMOVAL("revanced_adremover_paid_content", true, ReturnType.BOOLEAN, true),
+    ADREMOVER_SUGGESTED_FOR_YOU_REMOVAL("revanced_adremover_suggested", true, ReturnType.BOOLEAN, true),
+    ADREMOVER_HIDE_SUGGESTIONS("revanced_adremover_hide_suggestions", true, ReturnType.BOOLEAN, true),
+    ADREMOVER_HIDE_LATEST_POSTS("revanced_adremover_hide_latest_posts", true, ReturnType.BOOLEAN, true),
+    ADREMOVER_HIDE_CHANNEL_GUIDELINES("revanced_adremover_hide_channel_guidelines", true, ReturnType.BOOLEAN, true),
 
     //Layout settings
-    REEL_BUTTON_SHOWN("revanced_reel_button_enabled", false, ReturnType.BOOLEAN),
+    REEL_BUTTON_SHOWN("revanced_reel_button_enabled", false, ReturnType.BOOLEAN, true),
     INFO_CARDS_SHOWN("revanced_info_cards_enabled", false, ReturnType.BOOLEAN),
     BRANDING_SHOWN("revanced_branding_watermark_enabled", false, ReturnType.BOOLEAN),
-    CAST_BUTTON_SHOWN("revanced_cast_button_enabled", false, ReturnType.BOOLEAN),
-    AUTOPLAY_BUTTON_SHOWN("revanced_autoplay_button_enabled", false, ReturnType.BOOLEAN),
+    CAST_BUTTON_SHOWN("revanced_cast_button_enabled", false, ReturnType.BOOLEAN, true),
+    AUTOPLAY_BUTTON_SHOWN("revanced_autoplay_button_enabled", false, ReturnType.BOOLEAN, true),
     //ToDo: Not used atm, Patch missing
     USE_TABLET_MINIPLAYER("revanced_tablet_miniplayer", false, ReturnType.BOOLEAN),
-    CREATE_BUTTON_SHOWN("revanced_create_button_enabled", false, ReturnType.BOOLEAN),
-    USE_NEW_ACTIONBAR("revanced_new_actionbar", true, ReturnType.BOOLEAN),
-    SHORTS_BUTTON_SHOWN("revanced_shorts_button_enabled", false, ReturnType.BOOLEAN),
+    CREATE_BUTTON_SHOWN("revanced_create_button_enabled", false, ReturnType.BOOLEAN, true),
+    USE_NEW_ACTIONBAR("revanced_new_actionbar", false, ReturnType.BOOLEAN, true),
+    SHORTS_BUTTON_SHOWN("revanced_shorts_button_enabled", false, ReturnType.BOOLEAN, true),
     FULLSCREEN_PANELS_SHOWN("revanced_fullscreen_panels_enabled", false, ReturnType.BOOLEAN), //ToDo: Add to prefs
 
     //Misc. Settings
@@ -81,7 +81,7 @@ public enum SettingsEnum {
     MAX_PLAYBACK_BUFFER_AFTER_REBUFFER("revanced_pref_buffer_for_playback_after_rebuffer_ms", 5000, ReturnType.INTEGER),
 
     //ReVanced General Settings
-    DEBUG("revanced_debug_enabled", false, ReturnType.BOOLEAN),
+    DEBUG("revanced_debug_enabled", false, ReturnType.BOOLEAN, true),
     USE_DARK_THEME("app_theme_dark", false, ReturnType.BOOLEAN),
 
     //RYD Settings
@@ -92,7 +92,7 @@ public enum SettingsEnum {
     SB_ENABLED("sb-enabled", true, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
     SB_SHOW_TOAST_WHEN_SKIP("show-toast", true, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
     SB_COUNT_SKIPS("count-skips", true, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
-    SB_UUID("uuid", null, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.STRING),
+    SB_UUID("uuid", "", SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.STRING),
     SB_ADJUST_NEW_SEGMENT_STEP("new-segment-step-accuracy", 150, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.INTEGER),
     SB_MIN_DURATION("sb-min-duration", 0F, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.FLOAT),
     SB_SEEN_GUIDELINES("sb-seen-gl", false, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
@@ -110,6 +110,7 @@ public enum SettingsEnum {
     private final Object defaultValue;
     private final SharedPrefHelper.SharedPrefNames sharedPref;
     private final ReturnType returnType;
+    private final boolean rebootApp;
 
     private Object value = null;
 
@@ -118,6 +119,7 @@ public enum SettingsEnum {
         this.defaultValue = defaultValue;
         this.sharedPref = SharedPrefHelper.SharedPrefNames.YOUTUBE;
         this.returnType = returnType;
+        this.rebootApp = false;
     }
 
     SettingsEnum(String path, Object defaultValue, SharedPrefHelper.SharedPrefNames prefName, ReturnType returnType) {
@@ -125,6 +127,15 @@ public enum SettingsEnum {
         this.defaultValue = defaultValue;
         this.sharedPref = prefName;
         this.returnType = returnType;
+        this.rebootApp = false;
+    }
+
+    SettingsEnum(String path, Object defaultValue, ReturnType returnType, Boolean rebootApp) {
+        this.path = path;
+        this.defaultValue = defaultValue;
+        this.sharedPref = SharedPrefHelper.SharedPrefNames.YOUTUBE;
+        this.returnType = returnType;
+        this.rebootApp = rebootApp;
     }
 
     static {
@@ -136,36 +147,40 @@ public enum SettingsEnum {
         if (context == null) {
             Log.e("revanced: SettingsEnum", "Context returned null! Setings NOT initialized");
         } else {
-            for (SettingsEnum setting : values()) {
-                Object value = setting.getDefaultValue();
+            try {
+                for (SettingsEnum setting : values()) {
+                    Object value = setting.getDefaultValue();
 
-                //LogHelper is not initialized here
-                Log.d("revanced: SettingsEnum", "Loading Setting: " + setting.name());
+                    //LogHelper is not initialized here
+                    Log.d("revanced: SettingsEnum", "Loading Setting: " + setting.name());
 
-                switch (setting.getReturnType()) {
-                    case FLOAT:
-                        value = SharedPrefHelper.getFloat(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, setting.getPath(), (float) setting.getDefaultValue());
-                        break;
-                    case LONG:
-                        value = SharedPrefHelper.getLong(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, setting.getPath(), (long) setting.getDefaultValue());
-                        break;
-                    case BOOLEAN:
-                        value = SharedPrefHelper.getBoolean(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, setting.getPath(), (boolean) setting.getDefaultValue());
-                        break;
-                    case INTEGER:
-                        value = SharedPrefHelper.getInt(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, setting.getPath(), (int) setting.getDefaultValue());
-                        break;
-                    case STRING:
-                        value = SharedPrefHelper.getString(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, setting.getPath(), (String) setting.getDefaultValue());
-                        break;
-                    default:
-                        LogHelper.printException(SettingsEnum.class, "Setting does not have a valid Type. Name is: " + setting.name());
-                        break;
+                    switch (setting.getReturnType()) {
+                        case FLOAT:
+                            value = SharedPrefHelper.getFloat(context, setting.sharedPref, setting.getPath(), (float) setting.getDefaultValue());
+                            break;
+                        case LONG:
+                            value = SharedPrefHelper.getLong(context, setting.sharedPref, setting.getPath(), (long) setting.getDefaultValue());
+                            break;
+                        case BOOLEAN:
+                            value = SharedPrefHelper.getBoolean(context, setting.sharedPref, setting.getPath(), (boolean) setting.getDefaultValue());
+                            break;
+                        case INTEGER:
+                            value = SharedPrefHelper.getInt(context, setting.sharedPref, setting.getPath(), (int) setting.getDefaultValue());
+                            break;
+                        case STRING:
+                            value = SharedPrefHelper.getString(context, setting.sharedPref, setting.getPath(), (String) setting.getDefaultValue());
+                            break;
+                        default:
+                            LogHelper.printException(SettingsEnum.class, "Setting does not have a valid Type. Name is: " + setting.name());
+                            break;
+                    }
+                    setting.setValue(value);
+
+                    //LogHelper is not initialized here
+                    Log.d("revanced: SettingsEnum", "Loaded Setting: " + setting.name() + " Value: " + value);
                 }
-                setting.setValue(value);
-
-                //LogHelper is not initialized here
-                Log.d("revanced: SettingsEnum", "Loaded Setting: " + setting.name() + " Value: " + value);
+            } catch (Throwable th) {
+                LogHelper.printException(SettingsEnum.class, "Error during load()!", th);
             }
         }
     }
@@ -187,25 +202,10 @@ public enum SettingsEnum {
     public void saveValue(Object newValue) {
         Context context = ReVancedUtils.getContext();
         if (context != null) {
-            switch (getReturnType()) {
-                case BOOLEAN:
-                    SharedPrefHelper.saveBoolean(context, sharedPref, getPath(), (Boolean) newValue);
-                    break;
-                case INTEGER:
-                    SharedPrefHelper.saveInt(context, sharedPref, getPath(), (int) newValue);
-                    break;
-                case STRING:
-                    SharedPrefHelper.saveString(context, sharedPref, getPath(), (String) newValue);
-                    break;
-                case LONG:
-                    SharedPrefHelper.saveLong(context, sharedPref, getPath(), (Long) newValue);
-                    break;
-                case FLOAT:
-                    SharedPrefHelper.saveFloat(context, sharedPref, getPath(), (Float) newValue);
-                    break;
-                default:
-                    LogHelper.printException(SettingsEnum.class, "Setting does not have with a valid Type. Name is: " + name());
-                    break;
+            if (returnType == ReturnType.BOOLEAN) {
+                SharedPrefHelper.saveBoolean(context, sharedPref, path, (Boolean) newValue);
+            } else {
+                SharedPrefHelper.saveString(context, sharedPref, path, newValue + "");
             }
             value = newValue;
         } else {
@@ -243,6 +243,10 @@ public enum SettingsEnum {
 
     public ReturnType getReturnType() {
         return returnType;
+    }
+
+    public boolean shouldRebootOnChange() {
+        return rebootApp;
     }
 
 }

@@ -1,6 +1,5 @@
 package app.revanced.integrations.utils;
 
-/* loaded from: classes6.dex */
 public class ThemeHelper {
     private static int themeValue;
 

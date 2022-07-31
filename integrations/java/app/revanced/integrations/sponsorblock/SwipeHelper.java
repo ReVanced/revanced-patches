@@ -12,7 +12,6 @@ import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
 
-/* loaded from: classes6.dex */
 public class SwipeHelper {
     static FrameLayout _frameLayout;
     public static boolean isTabletMode;

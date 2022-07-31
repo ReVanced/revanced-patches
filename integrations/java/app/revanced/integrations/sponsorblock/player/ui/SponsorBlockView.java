@@ -151,7 +151,12 @@ public class SponsorBlockView {
 
     private static void checkLayout() {
         if (inlineSponsorOverlay.getHeight() == 0) {
-            View layout = SwipeHelper.nextGenWatchLayout.findViewById(getIdentifier("player_overlays", "id"));
+            ViewGroup watchLayout = SwipeHelper.nextGenWatchLayout;
+            if (watchLayout == null) {
+                LogHelper.debug(SponsorBlockView.class, "nextGenWatchLayout is null!");
+                return;
+            }
+            View layout = watchLayout.findViewById(getIdentifier("player_overlays", "id"));
 
             if (layout == null) {
                 LogHelper.debug(SponsorBlockView.class, "player_overlays was not found for SB");
