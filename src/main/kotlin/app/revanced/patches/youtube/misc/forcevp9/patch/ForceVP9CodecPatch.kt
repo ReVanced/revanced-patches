@@ -22,7 +22,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
 
-@Patch(include = false)
+@Patch
 @Dependencies([IntegrationsPatch::class])
 @Name("force-vp9-codec")
 @Description("Forces the VP9 codec for videos.")

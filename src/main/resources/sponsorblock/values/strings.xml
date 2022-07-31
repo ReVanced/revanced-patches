@@ -57,7 +57,7 @@
     <string name="about">About</string>
     <string name="about_api">This app uses the API from SponsorBlock</string>
     <string name="about_api_sum">Tap to learn more, and see downloads for other platforms at: sponsor.ajay.app</string>
-    <string name="about_madeby">Integration made by JakubWeg</string>
+    <string name="about_madeby">Integration made by JakubWeg, recoded by oSumAtrIX</string>
     <string name="tap_skip">Tap to skip</string>
 
     <string name="submit_failed_unknown_error" formatted="false">Unable to submit segments: Status: %d %s</string>
@@ -104,9 +104,6 @@
     <string name="sb_guidelines_popup_content">It\'s recommended to read the SponsorBlock guidelines before submitting any segment</string>
     <string name="sb_guidelines_popup_already_read">Already read</string>
     <string name="sb_guidelines_popup_open">Show me</string>
-
-    <string name="sb_settings">SponsorBlock settings</string>
-    <string name="sb_summary">Uses the sponsor.ajay.app API</string>
 
     <string name="general_time_without_sb">Show time without segments</string>
     <string name="general_time_without_sb_sum">This time appears in brackets next to the current time. This shows the total video duration minus any segments.</string>

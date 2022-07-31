@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playeroverlay.patch.PlayerOverlaysHookPatch
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 
-@Patch(include = false)
+@Patch
 @Name("swipe-controls")
 @Description("Adds volume and brightness swipe controls.")
 @SwipeControlsCompatibility

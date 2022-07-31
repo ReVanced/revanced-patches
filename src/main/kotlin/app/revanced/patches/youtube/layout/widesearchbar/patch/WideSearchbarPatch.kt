@@ -20,7 +20,7 @@ import app.revanced.patches.youtube.layout.widesearchbar.fingerprints.WideSearch
 import app.revanced.patches.youtube.layout.widesearchbar.fingerprints.WideSearchbarTwoParentFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 
-@Patch(include = false)
+@Patch
 @Dependencies([IntegrationsPatch::class])
 @Name("enable-wide-searchbar")
 @Description("Replaces the search icon with a wide search bar. This will hide the YouTube logo when active.")

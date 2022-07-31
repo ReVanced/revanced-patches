@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:background="@color/yt_white1" android:layout_width="match_parent" android:layout_height="wrap_content" android:elevation="4dp">
+    <android.support.v7.widget.Toolbar android:id="@+id/toolbar" android:background="?attr/ytBrandBackgroundSolid" android:layout_width="match_parent" android:layout_height="?attr/actionBarSize" app:navigationIcon="@drawable/quantum_ic_arrow_back_white_24" app:title="ReVanced settings"/>
+</FrameLayout>

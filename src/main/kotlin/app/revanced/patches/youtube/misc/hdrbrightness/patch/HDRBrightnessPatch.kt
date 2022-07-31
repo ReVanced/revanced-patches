@@ -18,7 +18,7 @@ import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
 
-@Patch(false)
+@Patch
 @Name("hdr-auto-brightness")
 @Description("Makes the brightness of HDR videos follow the system default.")
 @HDRBrightnessCompatibility

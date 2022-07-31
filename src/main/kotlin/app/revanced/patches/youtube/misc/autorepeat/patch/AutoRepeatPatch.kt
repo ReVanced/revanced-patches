@@ -18,7 +18,7 @@ import app.revanced.patches.youtube.misc.autorepeat.fingerprints.AutoRepeatFinge
 import app.revanced.patches.youtube.misc.autorepeat.fingerprints.AutoRepeatParentFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 
-@Patch(include = false)
+@Patch
 @Dependencies([IntegrationsPatch::class])
 @Name("always-autorepeat")
 @Description("Always repeats the playing video again.")
