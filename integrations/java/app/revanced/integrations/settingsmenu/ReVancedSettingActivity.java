@@ -28,14 +28,6 @@ public class ReVancedSettingActivity {
     public static void initializeSettings(LicenseActivity base) {
         base.setContentView(getIdentifier("xsettings_with_toolbar", "layout"));
 
-        try {
-            ImageButton imageButton = getImageButton(base.findViewById(getIdentifier("toolbar", "id")));
-            imageButton.setOnClickListener(view -> base.onBackPressed());
-            imageButton.setImageDrawable(base.getResources().getDrawable(getIdentifier(ThemeHelper.isDarkTheme() ? "quantum_ic_arrow_back_white_24" : "quantum_ic_arrow_back_grey600_24", "drawable"), null));
-        } catch (Exception e) {
-            LogHelper.printException(ReVancedSettingActivity.class, "Couldn't set Toolbar click handler", e);
-        }
-
         PreferenceFragment preferenceFragment;
         String preferenceIdentifier;
 
@@ -50,14 +42,7 @@ public class ReVancedSettingActivity {
             preferenceIdentifier = "revanced_settings";
             preferenceFragment = new ReVancedSettingsFragment();
         }
-
-        try {
-            var resourceIdentifier = getIdentifier(preferenceIdentifier, "string");
-            getTextView(base.findViewById(getIdentifier("toolbar", "id"))).setText(resourceIdentifier);
-        } catch (Exception e) {
-            LogHelper.printException(ReVancedSettingActivity.class, "Couldn't set Toolbar title", e);
-        }
-
+        
         base.getFragmentManager().beginTransaction().replace(getIdentifier("xsettings_fragments", "id"), preferenceFragment).commit();
     }
 

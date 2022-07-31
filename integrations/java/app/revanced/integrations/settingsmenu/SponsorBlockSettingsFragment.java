@@ -90,6 +90,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment implements 
                             .setPositiveButton(str("sb_guidelines_popup_open"), (dialogInterface, i) -> openGuidelines())
                             .show();
                 }
+                SettingsEnum.SB_NEW_SEGMENT_ENABLED.saveValue(value);
                 return true;
             });
         }
@@ -103,6 +104,11 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment implements 
             preference.setDefaultValue(SettingsEnum.SB_VOTING_ENABLED.getDefaultValue());
             preference.setChecked(SettingsEnum.SB_VOTING_ENABLED.getBoolean());
             preferencesToDisableWhenSBDisabled.add(preference);
+            preference.setOnPreferenceChangeListener((preference12, o) -> {
+                final boolean value = (Boolean) o;
+                SettingsEnum.SB_VOTING_ENABLED.saveValue(value);
+                return true;
+            });
         }
 
         addGeneralCategory(context, preferenceScreen);
