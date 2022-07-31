@@ -19,6 +19,7 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 
 import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
+import com.google.android.apps.youtube.app.application.Shell_HomeActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +31,6 @@ import app.revanced.integrations.utils.SharedPrefHelper;
 import app.revanced.integrations.videoplayer.AutoRepeat;
 
 public class ReVancedSettingsFragment extends PreferenceFragment {
-
-    public static Class homeActivityClass;
 
     private List<PreferenceScreen> screens;
 
@@ -210,12 +209,12 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
     private void reboot(Activity activity, Class homeActivityClass) {
         int intent;
         intent = PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE;
-        ((AlarmManager) activity.getSystemService(Context.ALARM_SERVICE)).setExact(AlarmManager.ELAPSED_REALTIME, 1500L, PendingIntent.getActivity(activity, 0, new Intent(activity, homeActivityClass), intent));
+        ((AlarmManager) activity.getSystemService(Context.ALARM_SERVICE)).setExact(AlarmManager.ELAPSED_REALTIME, 1500L, PendingIntent.getActivity(activity, 0, new Intent(activity, Shell_HomeActivity.class), intent));
         Process.killProcess(Process.myPid());
     }
 
     private void rebootDialog(final Activity activity) {
-        new AlertDialog.Builder(activity).setMessage(getStringByName(activity, "pref_refresh_config")).setPositiveButton(getStringByName(activity, "in_app_update_restart_button"), (dialog, id) -> reboot(activity, ReVancedSettingsFragment.homeActivityClass)).setNegativeButton(getStringByName(activity, "sign_in_cancel"), null).show();
+        new AlertDialog.Builder(activity).setMessage(getStringByName(activity, "pref_refresh_config")).setPositiveButton(getStringByName(activity, "in_app_update_restart_button"), (dialog, id) -> reboot(activity, Shell_HomeActivity.class)).setNegativeButton(getStringByName(activity, "sign_in_cancel"), null).show();
     }
 
     private String getStringByName(Context context, String name) {
