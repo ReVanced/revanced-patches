@@ -12,6 +12,7 @@ import app.revanced.patches.youtube.misc.settings.annotations.SettingsCompatibil
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 import app.revanced.util.resources.ResourceUtils.copyXmlNode
+import org.w3c.dom.Element
 
 @Name("settings-resource-patch")
 @SettingsCompatibility
@@ -53,6 +54,17 @@ class SettingsResourcePatch : ResourcePatch() {
             )
         ).forEach { resourceGroup ->
             data.copyResources("settings", resourceGroup)
+        }
+
+        data.xmlEditor["AndroidManifest.xml"].use {
+            val manifestNode = it
+                .file
+                .getElementsByTagName("manifest")
+                .item(0) as Element
+
+            val element = it.file.createElement("uses-permission")
+            element.setAttribute("android:name", "android.permission.SCHEDULE_EXACT_ALARM")
+            manifestNode.appendChild(element)
         }
 
         return PatchResultSuccess()
