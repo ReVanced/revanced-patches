@@ -1,3 +1,10 @@
+## [2.28.1](https://github.com/revanced/revanced-patches/compare/v2.28.0...v2.28.1) (2022-07-31)
+
+
+### Bug Fixes
+
+* add missing permission to reboot app ([#260](https://github.com/revanced/revanced-patches/issues/260)) ([6ced6df](https://github.com/revanced/revanced-patches/commit/6ced6df8ed7642dea51e1acd1c12f4de4874b972))
+
 # [2.28.0](https://github.com/revanced/revanced-patches/compare/v2.27.0...v2.28.0) (2022-07-31)
 
 
