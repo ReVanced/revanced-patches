@@ -1,3 +1,10 @@
+# [2.26.0](https://github.com/revanced/revanced-patches/compare/v2.25.3...v2.26.0) (2022-07-31)
+
+
+### Features
+
+* `ResourceUtils` helper class ([e0e1144](https://github.com/revanced/revanced-patches/commit/e0e11447a7ac184d43c75955854c52c6992ff667))
+
 ## [2.25.3](https://github.com/revanced/revanced-patches/compare/v2.25.2...v2.25.3) (2022-07-29)
 
 
