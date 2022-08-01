@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.layout.sponsorblock.resource.patch
 
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.DomFileEditor
 import app.revanced.patcher.data.impl.ResourceData
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -10,6 +9,7 @@ import app.revanced.patcher.patch.annotations.Dependencies
 import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.youtube.layout.sponsorblock.annotations.SponsorBlockCompatibility
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
+import app.revanced.util.resources.ResourceUtils.copyXmlNode
 import java.io.OutputStream
 import java.nio.file.Files
 
@@ -101,28 +101,5 @@ class SponsorBlockResourcePatch : ResourcePatch() {
             }
         }
         return PatchResultSuccess()
-    }
-
-    /**
-     * Copies the specified node of the source [DomFileEditor] to the target [DomFileEditor].
-     * @param source the source [DomFileEditor].
-     * @param target the target [DomFileEditor]-
-     */
-    private fun String.copyXmlNode(source: DomFileEditor, target: DomFileEditor): AutoCloseable {
-        val hostNodes = source.file.getElementsByTagName(this).item(0).childNodes
-
-        val destinationResourceFile = target.file
-        val destinationNode = destinationResourceFile.getElementsByTagName(this).item(0)
-
-        for (index in 0 until hostNodes.length) {
-            val node = hostNodes.item(index).cloneNode(true)
-            destinationResourceFile.adoptNode(node)
-            destinationNode.appendChild(node)
-        }
-
-        return AutoCloseable {
-            source.close()
-            target.close()
-        }
     }
 }
