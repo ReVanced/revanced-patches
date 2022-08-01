@@ -52,7 +52,7 @@ body:
       label: Solution
       description: If applicable, add a possible solution.
     validations:
-      required: true
+      required: false
   - type: textarea
     attributes:
       label: Additional context
