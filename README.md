@@ -51,7 +51,7 @@ Official patches by ReVanced
 | `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 17.29.34 |
 | `hide-autoplay-button` | Hides the autoplay button in the video player. | 17.29.34 |
 | `premium-heading` | Shows premium branding on the home screen. | all |
-| `custom-branding` | Changes the YouTube launcher icon to be ReVanced's. | all |
+| `custom-branding` | Changes the YouTube launcher icon and name to your choice (defaults to ReVanced). | all |
 | `disable-fullscreen-panels` | Disables video description and comments panel in fullscreen view. | 17.29.34 |
 | `old-quality-layout` | Enables the original quality flyout menu. | 17.29.34 |
 | `hide-shorts-button` | Hides the shorts button on the navigation bar. | 17.29.34 |

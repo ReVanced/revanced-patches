@@ -1,3 +1,11 @@
+# [2.29.0](https://github.com/revanced/revanced-patches/compare/v2.28.2...v2.29.0) (2022-08-02)
+
+
+### Features
+
+* add "Application Icon Path" option to branding ([1748d1e](https://github.com/revanced/revanced-patches/commit/1748d1e5badf61213d793ff7ae1d090ea2ea82f0))
+* add "Application Name" option to branding and move renaming to CustomBrandingPatch.kt ([8dafe05](https://github.com/revanced/revanced-patches/commit/8dafe05b2c5e2b0291d46b02717d910721673712))
+
 ## [2.28.2](https://github.com/revanced/revanced-patches/compare/v2.28.1...v2.28.2) (2022-08-02)
 
 
