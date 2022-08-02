@@ -10,6 +10,9 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.youtube.layout.branding.icon.annotations.CustomBrandingCompatibility
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
+import java.io.File
+import java.io.FileInputStream
+import java.io.InputStream
 import java.nio.file.Files
 
 @Patch
@@ -39,7 +42,7 @@ class CustomBrandingPatch : ResourcePatch() {
             "mdpi" to 48
         ).forEach { (iconDirectory, size) ->
             iconNames.forEach iconLoop@{ iconName ->
-                val iconFile = this.javaClass.classLoader.getResourceAsStream("branding/$size/$iconName.png")
+                val iconFile = getIconStream("branding/$size/$iconName.png")
                     ?: return PatchResultError("The icon $iconName can not be found.")
 
                 Files.write(
@@ -50,7 +53,7 @@ class CustomBrandingPatch : ResourcePatch() {
         }
 
         // Name branding
-        val appName = options[keyAppName].value
+        val appName: String by options[keyAppName]
 
         val manifest = data["AndroidManifest.xml"]
         manifest.writeText(
@@ -71,10 +74,27 @@ class CustomBrandingPatch : ResourcePatch() {
             title = "Application Name",
             description = "The name of the application it will show on your home screen.",
             required = true
+        ),
+        PatchOption.StringOption(
+            key = keyAppIconPath,
+            default = null,
+            title = "Application Icon Path",
+            description = "A path to the icon of the application."
         )
     )
 
+    private fun getIconStream(iconPath: String): InputStream? {
+        val appIconPath: String? by options[keyAppIconPath]
+        if (appIconPath == null) {
+            return this.javaClass.classLoader.getResourceAsStream(iconPath)
+        }
+        val file = File(appIconPath!!).resolve(iconPath)
+        if (!file.exists()) return null
+        return FileInputStream(file)
+    }
+
     private companion object {
         private const val keyAppName = "appName"
+        private const val keyAppIconPath = "appIconPath"
     }
 }
