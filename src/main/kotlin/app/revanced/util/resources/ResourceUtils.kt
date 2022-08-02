@@ -2,7 +2,6 @@ package app.revanced.util.resources
 
 import app.revanced.patcher.data.impl.DomFileEditor
 import app.revanced.patcher.data.impl.ResourceData
-import java.io.OutputStream
 import java.nio.file.Files
 
 internal object ResourceUtils {
@@ -44,7 +43,7 @@ internal object ResourceUtils {
 
         // Copy nodes from the resources node to the real resource node
         elementTag.copyXmlNode(
-            this.xmlEditor[stringsResourceInputStream, OutputStream.nullOutputStream()],
+            this.xmlEditor[stringsResourceInputStream],
             this.xmlEditor["res/$targetResource"]
         ).close()
     }

@@ -14,7 +14,6 @@ import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
 import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
 import org.jf.dexlib2.immutable.reference.ImmutableMethodReference
 import org.w3c.dom.Node
-import java.io.OutputStream
 import java.nio.file.Files
 
 // TODO: this method does not make sense here
@@ -146,7 +145,7 @@ fun ResourceData.injectStrings(
     // open source strings.xml
     val sourceInputStream = classLoader.getResourceAsStream("$patchDirectoryPath/$relativePath")
         ?: throw PatchResultError("failed to open '$patchDirectoryPath/$relativePath'")
-    xmlEditor[sourceInputStream, OutputStream.nullOutputStream()].use { sourceStringsXml ->
+    xmlEditor[sourceInputStream].use { sourceStringsXml ->
         val strings = sourceStringsXml.file.getElementsByTagName("resources").item(0).childNodes
 
         // open target strings.xml

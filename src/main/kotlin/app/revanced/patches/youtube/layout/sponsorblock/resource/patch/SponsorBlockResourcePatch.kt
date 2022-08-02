@@ -10,7 +10,6 @@ import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.youtube.layout.sponsorblock.annotations.SponsorBlockCompatibility
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import app.revanced.util.resources.ResourceUtils.copyXmlNode
-import java.io.OutputStream
 import java.nio.file.Files
 
 @Name("sponsorblock-resource-patch")
@@ -29,7 +28,7 @@ class SponsorBlockResourcePatch : ResourcePatch() {
 
         // copy nodes from the resources node to the real resource node
         "resources".copyXmlNode(
-            data.xmlEditor[stringsResourceInputStream, OutputStream.nullOutputStream()],
+            data.xmlEditor[stringsResourceInputStream],
             data.xmlEditor["res/$stringsResourcePath"]
         ).close() // close afterwards
 
@@ -78,7 +77,7 @@ class SponsorBlockResourcePatch : ResourcePatch() {
 
                 val targetXmlEditor = data.xmlEditor["res/$path/$resource.xml"]
                 "RelativeLayout".copyXmlNode(
-                    data.xmlEditor[hostingResourceStream, OutputStream.nullOutputStream()],
+                    data.xmlEditor[hostingResourceStream],
                     targetXmlEditor
                 ).also {
                     val children = targetXmlEditor.file.getElementsByTagName("RelativeLayout").item(0).childNodes
