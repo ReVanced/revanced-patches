@@ -34,32 +34,34 @@ class MicroGResourcePatch : ResourcePatch() {
             it.file.firstChild.appendChild(settingsElement)
         }
 
-        val settings_fragment = data.get("res/xml/settings_fragment.xml")
-        val text = settings_fragment.readText()
-        settings_fragment.writeText(
-            text.replace("android:targetPackage=\"com.google.android.youtube", "android:targetPackage=\"$REVANCED_PACKAGE_NAME")
+        val settingsFragment = data["res/xml/settings_fragment.xml"]
+        settingsFragment.writeText(
+            settingsFragment.readText().replace(
+                "android:targetPackage=\"com.google.android.youtube",
+                "android:targetPackage=\"$REVANCED_PACKAGE_NAME"
+            )
         )
 
-        val manifest = data.get("AndroidManifest.xml").readText()
-
-        data.get("AndroidManifest.xml").writeText(
-            manifest.replace(
-                "package=\"com.google.android.youtube", "package=\"$REVANCED_PACKAGE_NAME"
-            ).replace(
-                "android:label=\"@string/application_name", "android:label=\"$REVANCED_APP_NAME"
-            ).replace(
-                "android:authorities=\"com.google.android.youtube", "android:authorities=\"$REVANCED_PACKAGE_NAME"
-            ).replace(
-                "com.google.android.youtube.permission.C2D_MESSAGE", "$REVANCED_PACKAGE_NAME.permission.C2D_MESSAGE"
-            ).replace( // TODO: might not be needed
-                "com.google.android.youtube.lifecycle-trojan", "$REVANCED_PACKAGE_NAME.lifecycle-trojan"
-            ).replace( // TODO: might not be needed
-                "com.google.android.youtube.photopicker_images", "$REVANCED_PACKAGE_NAME.photopicker_images"
-            ).replace(
-                "com.google.android.c2dm", "$BASE_MICROG_PACKAGE_NAME.android.c2dm"
-            ).replace(
-                "</queries>", "<package android:name=\"$BASE_MICROG_PACKAGE_NAME.android.gms\"/></queries>"
-            )
+        val manifest = data["AndroidManifest.xml"]
+        manifest.writeText(
+            manifest.readText()
+                .replace(
+                    "package=\"com.google.android.youtube", "package=\"$REVANCED_PACKAGE_NAME"
+                ).replace(
+                    "android:label=\"@string/application_name", "android:label=\"$REVANCED_APP_NAME"
+                ).replace(
+                    "android:authorities=\"com.google.android.youtube", "android:authorities=\"$REVANCED_PACKAGE_NAME"
+                ).replace(
+                    "com.google.android.youtube.permission.C2D_MESSAGE", "$REVANCED_PACKAGE_NAME.permission.C2D_MESSAGE"
+                ).replace( // TODO: might not be needed
+                    "com.google.android.youtube.lifecycle-trojan", "$REVANCED_PACKAGE_NAME.lifecycle-trojan"
+                ).replace( // TODO: might not be needed
+                    "com.google.android.youtube.photopicker_images", "$REVANCED_PACKAGE_NAME.photopicker_images"
+                ).replace(
+                    "com.google.android.c2dm", "$BASE_MICROG_PACKAGE_NAME.android.c2dm"
+                ).replace(
+                    "</queries>", "<package android:name=\"$BASE_MICROG_PACKAGE_NAME.android.gms\"/></queries>"
+                )
         )
 
         return PatchResultSuccess()
