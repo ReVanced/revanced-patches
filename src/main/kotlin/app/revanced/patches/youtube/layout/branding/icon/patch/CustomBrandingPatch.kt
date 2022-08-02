@@ -7,7 +7,7 @@ import app.revanced.patcher.data.impl.ResourceData
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.Dependencies
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.youtube.layout.branding.icon.annotations.CustomBrandingCompatibility
@@ -15,7 +15,7 @@ import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatc
 import java.nio.file.Files
 
 @Patch
-@Dependencies([FixLocaleConfigErrorPatch::class])
+@DependsOn(FixLocaleConfigErrorPatch::class)
 @Name("custom-branding")
 @Description("Changes the YouTube launcher icon to be ReVanced's.")
 @CustomBrandingCompatibility
@@ -44,7 +44,8 @@ class CustomBrandingPatch : ResourcePatch() {
                     ?: return PatchResultError("The icon $iconName can not be found.")
 
                 Files.write(
-                    resDirectory.resolve("mipmap-$iconDirectory").resolve("$iconName.png").toPath(), iconFile.readAllBytes()
+                    resDirectory.resolve("mipmap-$iconDirectory").resolve("$iconName.png").toPath(),
+                    iconFile.readAllBytes()
                 )
             }
         }
