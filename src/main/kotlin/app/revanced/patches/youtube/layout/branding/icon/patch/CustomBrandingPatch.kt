@@ -4,9 +4,7 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.impl.ResourceData
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.*
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.ResourcePatch
@@ -17,7 +15,7 @@ import java.nio.file.Files
 @Patch
 @DependsOn(FixLocaleConfigErrorPatch::class)
 @Name("custom-branding")
-@Description("Changes the YouTube launcher icon to be ReVanced's.")
+@Description("Changes the YouTube launcher icon and name to your choice (defaults to ReVanced).")
 @CustomBrandingCompatibility
 @Version("0.0.1")
 class CustomBrandingPatch : ResourcePatch() {
@@ -25,6 +23,7 @@ class CustomBrandingPatch : ResourcePatch() {
         val resDirectory = data["res"]
         if (!resDirectory.isDirectory) return PatchResultError("The res folder can not be found.")
 
+        // Icon branding
         val iconNames = arrayOf(
             "adaptiveproduct_youtube_background_color_108",
             "adaptiveproduct_youtube_foreground_color_108",
@@ -50,6 +49,32 @@ class CustomBrandingPatch : ResourcePatch() {
             }
         }
 
+        // Name branding
+        val appName = options[keyAppName].value
+
+        val manifest = data["AndroidManifest.xml"]
+        manifest.writeText(
+            manifest.readText()
+                .replace(
+                    "android:label=\"@string/application_name",
+                    "android:label=\"$appName"
+                )
+        )
+
         return PatchResultSuccess()
+    }
+
+    override val options = PatchOptions(
+        PatchOption.StringOption(
+            key = keyAppName,
+            default = "YouTube ReVanced",
+            title = "Application Name",
+            description = "The name of the application it will show on your home screen.",
+            required = true
+        )
+    )
+
+    private companion object {
+        private const val keyAppName = "appName"
     }
 }

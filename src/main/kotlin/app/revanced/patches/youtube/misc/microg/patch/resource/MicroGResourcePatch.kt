@@ -11,7 +11,6 @@ import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import app.revanced.patches.youtube.misc.microg.annotations.MicroGPatchCompatibility
 import app.revanced.patches.youtube.misc.microg.shared.Constants.BASE_MICROG_PACKAGE_NAME
-import app.revanced.patches.youtube.misc.microg.shared.Constants.REVANCED_APP_NAME
 import app.revanced.patches.youtube.misc.microg.shared.Constants.REVANCED_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsResourcePatch
 
@@ -48,8 +47,6 @@ class MicroGResourcePatch : ResourcePatch() {
             manifest.readText()
                 .replace(
                     "package=\"com.google.android.youtube", "package=\"$REVANCED_PACKAGE_NAME"
-                ).replace(
-                    "android:label=\"@string/application_name", "android:label=\"$REVANCED_APP_NAME"
                 ).replace(
                     "android:authorities=\"com.google.android.youtube", "android:authorities=\"$REVANCED_PACKAGE_NAME"
                 ).replace(
