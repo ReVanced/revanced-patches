@@ -1,3 +1,10 @@
+## [2.30.1](https://github.com/revanced/revanced-patches/compare/v2.30.0...v2.30.1) (2022-08-03)
+
+
+### Bug Fixes
+
+* migrate to new patcher api ([f43446e](https://github.com/revanced/revanced-patches/commit/f43446ed189e583302fcd899f5eb7517f2a77144))
+
 # [2.30.0](https://github.com/revanced/revanced-patches/compare/v2.29.0...v2.30.0) (2022-08-03)
 
 
