@@ -1,3 +1,10 @@
+# [2.31.0](https://github.com/revanced/revanced-patches/compare/v2.30.1...v2.31.0) (2022-08-03)
+
+
+### Features
+
+* remove `force-vp9-codec` patch ([#287](https://github.com/revanced/revanced-patches/issues/287)) ([e428978](https://github.com/revanced/revanced-patches/commit/e42897801b20e7439969954753e2c15c85eb41b5))
+
 ## [2.30.1](https://github.com/revanced/revanced-patches/compare/v2.30.0...v2.30.1) (2022-08-03)
 
 

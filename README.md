@@ -58,7 +58,6 @@ Official patches by ReVanced
 | `hide-watermark` | Hides creator's watermarks on videos. | 17.29.34 |
 | `sponsorblock` | Integrate SponsorBlock. | 17.29.34 |
 | `enable-wide-searchbar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 17.29.34 |
-| `force-vp9-codec` | Forces the VP9 codec for videos. | 17.29.34 |
 | `custom-video-buffer` | Lets you change the buffers of videos. Has no use without settings yet. | 17.29.34 |
 | `always-autorepeat` | Always repeats the playing video again. | 17.29.34 |
 | `microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG | 17.29.34 |
