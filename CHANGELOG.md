@@ -1,3 +1,16 @@
+# [2.30.0](https://github.com/revanced/revanced-patches/compare/v2.29.0...v2.30.0) (2022-08-03)
+
+
+### Bug Fixes
+
+* incorrect fingerprint version [skip ci] ([f8c62ae](https://github.com/revanced/revanced-patches/commit/f8c62ae16b088ff6d0e96a4ef62dc707cd83beb9))
+* rollback to `Dependencies` annotation ([36a2ae8](https://github.com/revanced/revanced-patches/commit/36a2ae886c63f1d22bb1cca9e7110af6c3f6f2d3))
+
+
+### Features
+
+* set the correct theme of the settings screen ([70d850c](https://github.com/revanced/revanced-patches/commit/70d850cf295d306b0de9419efe6a4bbf3857d3a0))
+
 # [2.29.0](https://github.com/revanced/revanced-patches/compare/v2.28.2...v2.29.0) (2022-08-02)
 
 
