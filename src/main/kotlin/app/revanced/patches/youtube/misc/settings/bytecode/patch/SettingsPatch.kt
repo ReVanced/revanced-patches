@@ -18,7 +18,7 @@ import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.ReVanced
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsResourcePatch
 
 @Patch
-@Dependencies([IntegrationsPatch::class, SettingsResourcePatch::class])
+@Dependencies([IntegrationsPatch::class, SettingsResourcePatch::class, ResourceIdMappingProviderResourcePatch::class])
 @Name("settings")
 @Description("Adds settings for ReVanced to YouTube.")
 @SettingsCompatibility
