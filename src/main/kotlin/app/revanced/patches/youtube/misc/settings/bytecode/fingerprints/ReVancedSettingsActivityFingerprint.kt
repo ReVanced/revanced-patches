@@ -13,7 +13,6 @@ import app.revanced.patches.youtube.layout.returnyoutubedislike.annotations.Retu
 @MatchingMethod(
     "Lapp/revanced/integrations/settingsmenu/ReVancedSettingActivity;", "initializeSettings"
 )
-@FuzzyPatternScanMethod(2)
 @ReturnYouTubeDislikeCompatibility
 @Version("0.0.1")
 object ReVancedSettingsActivityFingerprint : MethodFingerprint(

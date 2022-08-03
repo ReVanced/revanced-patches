@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.misc.settings.bytecode.fingerprints
 
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.fingerprint.method.annotation.FuzzyPatternScanMethod
 import app.revanced.patcher.fingerprint.method.annotation.MatchingMethod
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.youtube.layout.returnyoutubedislike.annotations.ReturnYouTubeDislikeCompatibility
@@ -13,7 +12,6 @@ import app.revanced.patches.youtube.layout.returnyoutubedislike.annotations.Retu
 @MatchingMethod(
     "Lcom/google/android/libraries/social/licenses/LicenseActivity;", "onCreate"
 )
-@FuzzyPatternScanMethod(2)
 @ReturnYouTubeDislikeCompatibility
 @Version("0.0.1")
 object LicenseActivityFingerprint : MethodFingerprint(
