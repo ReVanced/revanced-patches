@@ -5,7 +5,7 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.impl.BytecodeData
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.annotations.Dependencies
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.layout.castbutton.annotations.CastButtonComp
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 
 @Patch
-@Dependencies([IntegrationsPatch::class])
+@DependsOn([IntegrationsPatch::class])
 @Name("hide-cast-button")
 @Description("Hides the cast button in the video player.")
 @CastButtonCompatibility

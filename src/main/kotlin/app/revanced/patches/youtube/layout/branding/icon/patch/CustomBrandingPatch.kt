@@ -16,7 +16,7 @@ import java.io.InputStream
 import java.nio.file.Files
 
 @Patch
-@DependsOn(FixLocaleConfigErrorPatch::class)
+@DependsOn([FixLocaleConfigErrorPatch::class])
 @Name("custom-branding")
 @Description("Changes the YouTube launcher icon and name to your choice (defaults to ReVanced).")
 @CustomBrandingCompatibility

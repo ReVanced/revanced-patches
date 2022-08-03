@@ -5,7 +5,7 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.impl.ResourceData
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.Dependencies
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.youtube.layout.sponsorblock.annotations.SponsorBlockCompatibility
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
@@ -14,7 +14,7 @@ import java.nio.file.Files
 
 @Name("sponsorblock-resource-patch")
 @SponsorBlockCompatibility
-@Dependencies([FixLocaleConfigErrorPatch::class])
+@DependsOn([FixLocaleConfigErrorPatch::class])
 @Version("0.0.1")
 class SponsorBlockResourcePatch : ResourcePatch() {
     override fun execute(data: ResourceData): PatchResult {

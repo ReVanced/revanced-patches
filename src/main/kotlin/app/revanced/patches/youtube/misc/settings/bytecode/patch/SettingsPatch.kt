@@ -8,7 +8,7 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.Dependencies
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patcher.util.smali.toInstruction
@@ -21,7 +21,13 @@ import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.ThemeSet
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsResourcePatch
 
 @Patch
-@Dependencies([IntegrationsPatch::class, SettingsResourcePatch::class, ResourceIdMappingProviderResourcePatch::class])
+@DependsOn(
+    [
+        IntegrationsPatch::class,
+        SettingsResourcePatch::class,
+        ResourceIdMappingProviderResourcePatch::class
+    ]
+)
 @Name("settings")
 @Description("Adds settings for ReVanced to YouTube.")
 @SettingsCompatibility

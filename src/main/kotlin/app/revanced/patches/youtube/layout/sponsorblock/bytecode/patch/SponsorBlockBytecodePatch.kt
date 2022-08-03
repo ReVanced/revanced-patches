@@ -13,7 +13,7 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.utils.MethodFingerprintUtils.resolve
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.Dependencies
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -37,7 +37,7 @@ import org.jf.dexlib2.immutable.ImmutableMethodParameter
 import org.jf.dexlib2.util.MethodUtil
 
 @Patch
-@Dependencies(
+@DependsOn(
     dependencies = [IntegrationsPatch::class, ResourceIdMappingProviderResourcePatch::class, SponsorBlockResourcePatch::class, VideoIdPatch::class]
 )
 @Name("sponsorblock")

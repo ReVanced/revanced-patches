@@ -9,7 +9,7 @@ import app.revanced.patcher.fingerprint.method.utils.MethodFingerprintUtils.reso
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.Dependencies
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.ad.infocardsuggestions.annotations.HideInfocardSuggestionsCompatibility
@@ -19,7 +19,7 @@ import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
 
 @Patch
-@Dependencies([IntegrationsPatch::class])
+@DependsOn([IntegrationsPatch::class])
 @Name("hide-infocard-suggestions")
 @Description("Hides infocards in videos.")
 @HideInfocardSuggestionsCompatibility

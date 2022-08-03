@@ -5,7 +5,7 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.impl.ResourceData
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.Dependencies
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import app.revanced.patches.youtube.misc.settings.annotations.SettingsCompatibility
@@ -16,7 +16,7 @@ import org.w3c.dom.Element
 
 @Name("settings-resource-patch")
 @SettingsCompatibility
-@Dependencies([FixLocaleConfigErrorPatch::class])
+@DependsOn([FixLocaleConfigErrorPatch::class])
 @Version("0.0.1")
 class SettingsResourcePatch : ResourcePatch() {
     override fun execute(data: ResourceData): PatchResult {

@@ -8,7 +8,7 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.removeInstruction
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.Dependencies
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -21,7 +21,7 @@ import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch
-@Dependencies([ResourceIdMappingProviderResourcePatch::class, IntegrationsPatch::class])
+@DependsOn([ResourceIdMappingProviderResourcePatch::class, IntegrationsPatch::class])
 @Name("hide-autoplay-button")
 @Description("Hides the autoplay button in the video player.")
 @AutoplayButtonCompatibility

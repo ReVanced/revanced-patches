@@ -7,7 +7,7 @@ import app.revanced.patcher.data.impl.BytecodeData
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.Dependencies
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.interaction.swipecontrols.annotation.SwipeControlsCompatibility
@@ -22,7 +22,7 @@ import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 @Description("Adds volume and brightness swipe controls.")
 @SwipeControlsCompatibility
 @Version("0.0.2")
-@Dependencies(
+@DependsOn(
     [
         IntegrationsPatch::class,
         PlayerTypeHookPatch::class,

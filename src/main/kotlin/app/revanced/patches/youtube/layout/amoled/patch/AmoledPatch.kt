@@ -6,7 +6,7 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.impl.ResourceData
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.Dependencies
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.youtube.layout.amoled.annotations.AmoledCompatibility
@@ -15,7 +15,7 @@ import org.w3c.dom.Element
 import java.io.File
 
 @Patch
-@Dependencies([FixLocaleConfigErrorPatch::class])
+@DependsOn([FixLocaleConfigErrorPatch::class])
 @Name("amoled")
 @Description("Enables pure black theme.")
 @AmoledCompatibility

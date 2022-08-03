@@ -8,7 +8,7 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.Dependencies
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.interaction.seekbar.annotation.SeekbarTappingCompatibility
@@ -22,7 +22,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction11n
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch
-@Dependencies([IntegrationsPatch::class])
+@DependsOn([IntegrationsPatch::class])
 @Name("seekbar-tapping")
 @Description("Enables tap-to-seek on the seekbar of the video player.")
 @SeekbarTappingCompatibility

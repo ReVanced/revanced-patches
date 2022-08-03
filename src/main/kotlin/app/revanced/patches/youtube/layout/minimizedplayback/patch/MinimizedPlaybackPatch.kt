@@ -8,7 +8,7 @@ import app.revanced.patcher.data.impl.toMethodWalker
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.Dependencies
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -24,7 +24,7 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @Patch
 @Name("minimized-playback")
 @Description("Enables minimized and background playback.")
-@Dependencies([IntegrationsPatch::class])
+@DependsOn([IntegrationsPatch::class])
 @MinimizedPlaybackCompatibility
 @Version("0.0.1")
 class MinimizedPlaybackPatch : BytecodePatch(

@@ -10,7 +10,7 @@ import app.revanced.patcher.fingerprint.method.utils.MethodFingerprintUtils.reso
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.Dependencies
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.layout.watermark.annotations.HideWatermarkCompatibility
@@ -19,7 +19,7 @@ import app.revanced.patches.youtube.layout.watermark.fingerprints.HideWatermarkF
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 
 @Patch
-@Dependencies([IntegrationsPatch::class])
+@DependsOn([IntegrationsPatch::class])
 @Name("hide-watermark")
 @Description("Hides creator's watermarks on videos.")
 @HideWatermarkCompatibility

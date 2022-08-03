@@ -8,7 +8,7 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.Dependencies
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
@@ -20,7 +20,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Description("Hook to detect when the video id changes")
 @VideoIdCompatibility
 @Version("0.0.1")
-@Dependencies([IntegrationsPatch::class])
+@DependsOn([IntegrationsPatch::class])
 class VideoIdPatch : BytecodePatch(
     listOf(
         VideoIdFingerprint

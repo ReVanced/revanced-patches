@@ -7,7 +7,7 @@ import app.revanced.patcher.data.impl.BytecodeData
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.Dependencies
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.layout.shorts.button.annotations.ShortsButtonCompatibility
@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Dependencies([IntegrationsPatch::class])
+@DependsOn([IntegrationsPatch::class])
 @Name("hide-shorts-button")
 @Description("Hides the shorts button on the navigation bar.")
 @ShortsButtonCompatibility

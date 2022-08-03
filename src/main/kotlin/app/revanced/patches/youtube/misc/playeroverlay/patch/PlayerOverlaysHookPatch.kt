@@ -7,7 +7,7 @@ import app.revanced.patcher.data.impl.BytecodeData
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.Dependencies
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playeroverlay.annotation.PlayerOverlaysHookCompatibility
@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.misc.playeroverlay.fingerprint.PlayerOverlay
 @Description("Hook for adding custom overlays to the video player.")
 @PlayerOverlaysHookCompatibility
 @Version("0.0.1")
-@Dependencies([IntegrationsPatch::class])
+@DependsOn([IntegrationsPatch::class])
 class PlayerOverlaysHookPatch : BytecodePatch(
     listOf(
         PlayerOverlaysOnFinishInflateFingerprint

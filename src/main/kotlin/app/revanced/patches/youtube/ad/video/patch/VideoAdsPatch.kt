@@ -8,7 +8,7 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.fingerprint.method.utils.MethodFingerprintUtils.resolve
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.Dependencies
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.ad.video.annotations.VideoAdsCompatibility
@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.ad.video.fingerprints.ShowVideoAdsFingerprin
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 
 @Patch
-@Dependencies([IntegrationsPatch::class])
+@DependsOn([IntegrationsPatch::class])
 @Name("video-ads")
 @Description("Removes ads in the video player.")
 @VideoAdsCompatibility

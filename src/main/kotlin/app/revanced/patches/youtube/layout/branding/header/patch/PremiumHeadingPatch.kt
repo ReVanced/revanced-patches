@@ -7,7 +7,7 @@ import app.revanced.patcher.data.impl.ResourceData
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.Dependencies
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.youtube.layout.branding.header.annotations.PremiumHeadingCompatibility
@@ -17,7 +17,7 @@ import java.nio.file.StandardCopyOption
 import kotlin.io.path.exists
 
 @Patch
-@Dependencies([FixLocaleConfigErrorPatch::class])
+@DependsOn([FixLocaleConfigErrorPatch::class])
 @Name("premium-heading")
 @Description("Shows premium branding on the home screen.")
 @PremiumHeadingCompatibility

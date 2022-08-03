@@ -9,7 +9,7 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.fingerprint.method.utils.MethodFingerprintUtils.resolve
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.Dependencies
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
@@ -22,7 +22,7 @@ import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
 
 @Patch
-@Dependencies([IntegrationsPatch::class, VideoIdPatch::class])
+@DependsOn([IntegrationsPatch::class, VideoIdPatch::class])
 @Name("remember-video-quality")
 @Description("Adds the ability to remember the video quality you chose in the video quality flyout.")
 @DefaultVideoQualityCompatibility
