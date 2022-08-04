@@ -123,7 +123,6 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             sharedPreferences.registerOnSharedPreferenceChangeListener(this.listener);
             this.Registered = true;
             this.screens = new ArrayList<>();
-            this.screens.add((PreferenceScreen) getPreferenceScreen().findPreference("codec_override"));
             this.screens.add((PreferenceScreen) getPreferenceScreen().findPreference("video_settings"));
             this.screens.add((PreferenceScreen) getPreferenceScreen().findPreference("video_ad_settings"));
             this.screens.add((PreferenceScreen) getPreferenceScreen().findPreference("ad_settings"));

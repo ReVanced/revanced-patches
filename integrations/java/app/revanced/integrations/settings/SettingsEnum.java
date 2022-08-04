@@ -12,9 +12,6 @@ import app.revanced.integrations.utils.SharedPrefHelper;
 
 public enum SettingsEnum {
 
-    //Codec Override
-    CODEC_OVERRIDE("revanced_override_codec_enabled", false, ReturnType.BOOLEAN),
-
     //Video Settings
     OLD_STYLE_QUALITY_SETTINGS("revanced_use_old_style_quality_settings", true, ReturnType.BOOLEAN),
     PREFERRED_VIDEO_SPEED("revanced_pref_video_speed", -2.0f, ReturnType.FLOAT),
