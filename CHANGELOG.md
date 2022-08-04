@@ -1,3 +1,10 @@
+# [2.32.0](https://github.com/revanced/revanced-patches/compare/v2.31.0...v2.32.0) (2022-08-04)
+
+
+### Features
+
+* `promo-code-unlock` patch ([#292](https://github.com/revanced/revanced-patches/issues/292)) ([d5df2e6](https://github.com/revanced/revanced-patches/commit/d5df2e68f47cbb3d374b8ce24769872959014051))
+
 # [2.31.0](https://github.com/revanced/revanced-patches/compare/v2.30.1...v2.31.0) (2022-08-03)
 
 

@@ -37,6 +37,14 @@ Official patches by ReVanced
 | `exclusive-audio-playback` | Enables the option to play music without video. | 5.16.51 |
 </details>
 
+### 📦 `de.dwd.warnapp`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `promo-code-unlock` | Disables the validation of promo code. Any code will work to unlock all features. | all |
+</details>
+
 ### 📦 `com.google.android.youtube`
 <details>
 
