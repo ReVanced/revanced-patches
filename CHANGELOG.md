@@ -1,3 +1,10 @@
+## [2.32.1](https://github.com/revanced/revanced-patches/compare/v2.32.0...v2.32.1) (2022-08-04)
+
+
+### Bug Fixes
+
+* incorrect compatibilty attribute ([#296](https://github.com/revanced/revanced-patches/issues/296)) ([0ab3e97](https://github.com/revanced/revanced-patches/commit/0ab3e9724157c628555964273c6b65f9f48f9664))
+
 # [2.32.0](https://github.com/revanced/revanced-patches/compare/v2.31.0...v2.32.0) (2022-08-04)
 
 
