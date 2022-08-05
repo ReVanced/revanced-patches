@@ -17,7 +17,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @Name("custom-video-buffer")
-@Description("Lets you change the buffers of videos. Has no use without settings yet.")
+@Description("Lets you change the buffers of videos.")
 @CustomVideoBufferCompatibility
 @Version("0.0.1")
 class CustomVideoBufferPatch : BytecodePatch(
