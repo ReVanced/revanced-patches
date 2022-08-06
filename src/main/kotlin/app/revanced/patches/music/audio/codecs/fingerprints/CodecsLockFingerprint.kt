@@ -12,17 +12,14 @@ import org.jf.dexlib2.Opcode
 
 @Name("codec-lock-fingerprint")
 @MatchingMethod(
-    "Labwj;",
+    "Lacfr;",
     "a",
 )
 @FuzzyPatternScanMethod(2) // FIXME: Test this threshold and find the best value.
 @CodecsUnlockCompatibility
 @Version("0.0.1")
 object CodecsLockFingerprint : MethodFingerprint(
-    "L", AccessFlags.PUBLIC or AccessFlags.STATIC, listOf("L", "L", "L", "L"), listOf(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST,
+    "L", AccessFlags.PUBLIC or AccessFlags.STATIC, null, listOf(
         Opcode.INVOKE_DIRECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
@@ -37,5 +34,6 @@ object CodecsLockFingerprint : MethodFingerprint(
         Opcode.INVOKE_INTERFACE,
         Opcode.INVOKE_DIRECT,
         Opcode.RETURN_OBJECT
-    )
+    ),
+    listOf("eac3_supported")
 )
