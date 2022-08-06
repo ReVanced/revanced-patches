@@ -1,3 +1,10 @@
+# [2.33.0](https://github.com/revanced/revanced-patches/compare/v2.32.1...v2.33.0) (2022-08-06)
+
+
+### Features
+
+* bump music patches to 5.17.51 ([#307](https://github.com/revanced/revanced-patches/issues/307)) ([c303589](https://github.com/revanced/revanced-patches/commit/c303589bd8d1956ce2e3c4c285d45a648b5db30f))
+
 ## [2.32.1](https://github.com/revanced/revanced-patches/compare/v2.32.0...v2.32.1) (2022-08-04)
 
 
