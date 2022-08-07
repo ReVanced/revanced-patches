@@ -5,7 +5,7 @@ import app.revanced.patcher.extensions.PatchExtensions.compatiblePackages
 import app.revanced.patcher.extensions.PatchExtensions.description
 import app.revanced.patcher.extensions.PatchExtensions.patchName
 import app.revanced.patcher.patch.Patch
-import app.revanced.patcher.util.patch.implementation.JarPatchBundle
+import app.revanced.patcher.util.patch.impl.JarPatchBundle
 import java.io.File
 
 object Generator {
