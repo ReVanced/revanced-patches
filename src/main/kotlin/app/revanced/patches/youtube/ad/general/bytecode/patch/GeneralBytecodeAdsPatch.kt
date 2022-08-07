@@ -174,7 +174,6 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
                         }
 
                         Opcode.CONST_STRING -> {
-
                             when (((instruction as Instruction21c).reference as StringReference).string) {
                                 stringReferences[0] -> {
                                     val stringInstruction = instructions.elementAt(3)
@@ -200,23 +199,23 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
                                 stringReferences[2] -> { // Litho ads
                                     // create proxied method.
                                     val proxy = data.proxy(classDef)
-                                    val mutableClass = proxy.resolve()
+                                    val proxiedClass = proxy.resolve()
 
                                     // add getIsEmpty method
-                                    mutableClass.addGetIsEmptyMethod()
+                                    proxiedClass.addGetIsEmptyMethod()
 
                                     // get required method to patch and get references from
-                                    val lithoMethod = getLithoMethod(mutableClass)
+                                    val lithoMethod = getLithoMethod(proxiedClass)
                                         ?: return PatchResultError("Could not find required litho method to patch.")
                                     val lithoMethodImplementation = lithoMethod.implementation!!
 
                                     // create and add getTemplateName method
                                     val getTemplateMethod =
-                                        mutableClass.createGetTemplateNameMethod(lithoMethodImplementation)
-                                    mutableClass.addMethod(getTemplateMethod)
+                                        proxiedClass.createGetTemplateNameMethod(lithoMethodImplementation)
+                                    proxiedClass.addMethod(getTemplateMethod)
 
                                     val lithoInstructions = lithoMethodImplementation.instructions
-                                    val thisType = mutableClass.type
+                                    val thisType = proxiedClass.type
                                     val templateNameParameterType = getTemplateMethod.parameterTypes.first()
 
                                     // get reference descriptors
