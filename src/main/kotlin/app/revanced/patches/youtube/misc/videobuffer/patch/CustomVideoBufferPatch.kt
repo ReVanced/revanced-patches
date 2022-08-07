@@ -26,13 +26,13 @@ class CustomVideoBufferPatch : BytecodePatch(
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        execMaxBuffer(data)
+        execMaxBuffer()
         execPlaybackBuffer(data)
         execReBuffer(data)
         return PatchResultSuccess()
     }
 
-    private fun execMaxBuffer(data: BytecodeData) {
+    private fun execMaxBuffer() {
         val result = MaxBufferFingerprint.result!!
         val method = result.mutableMethod
         val index = result.patternScanResult!!.endIndex - 1
