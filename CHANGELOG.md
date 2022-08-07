@@ -1,3 +1,10 @@
+## [2.33.1](https://github.com/revanced/revanced-patches/compare/v2.33.0...v2.33.1) (2022-08-07)
+
+
+### Bug Fixes
+
+* spoof `X-Android-Cert` of Firebase `authToken` api request ([#315](https://github.com/revanced/revanced-patches/issues/315)) ([c81d61f](https://github.com/revanced/revanced-patches/commit/c81d61f685449590473fa5205e7709f81872a9b9))
+
 # [2.33.0](https://github.com/revanced/revanced-patches/compare/v2.32.1...v2.33.0) (2022-08-06)
 
 
