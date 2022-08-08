@@ -77,8 +77,15 @@ public class ReturnYouTubeDislike {
         if (!isEnabled) return;
 
         try {
-            // Contains a pathBuilder string, used to distinguish from other litho components
-            if (!conversionContext.toString().contains("dislike_button")) return;
+            // Contains a pathBuilder string, used to distinguish from other litho components:
+            // video_action_bar.eml|27b56b54d5dcba20|video_action_bar_unwrapper.eml|c5a1d399b660e52e|CellType
+            // |ScrollableContainerType|ContainerType|ContainerType|dislike_button.eml|966ee2cd7db5e29f
+            // |video_actipathBuilder=video_action_bar.eml|27b56b54d5dcba20|video_action_bar_unwrapper.eml
+            // |c5a1d399b660e52e|CellType|ScrollableContainerType|ContainerType|ContainerType|dislike_button.eml
+            // |966ee2cd7db5e29f|video_action_toggle_button.eml|8fd9d44a8e3c9162|video_action_button.eml
+            // |9dd3b4b44979c3af|ContainerType|TextType|on_toggle_button.eml|8fd9d44a8e3c9162|video_action_button.eml
+            // |9dd3b4b44979c3af|ContainerType|TextType|
+            if (!conversionContext.toString().contains("|dislike_button.eml|")) return;
 
             LogHelper.debug(ReturnYouTubeDislike.class, "dislike button was created");
 
