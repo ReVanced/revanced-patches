@@ -36,6 +36,9 @@ class MusicMicroGBytecodePatch : BytecodePatch(
     listOf(
         ServiceCheckFingerprint,
         GooglePlayUtilityFingerprint,
+        CastDynamiteModuleFingerprint,
+        CastDynamiteModuleV2Fingerprint,
+        CastContextFetchFingerprint,
         PrimeFingerprint,
     )
 ) {
@@ -122,9 +125,17 @@ class MusicMicroGBytecodePatch : BytecodePatch(
         listOf(
             ServiceCheckFingerprint,
             GooglePlayUtilityFingerprint,
+            CastDynamiteModuleFingerprint,
+            CastDynamiteModuleV2Fingerprint,
+            CastContextFetchFingerprint,
         ).forEach { fingerprint ->
             val result = fingerprint.result!!
             val stringInstructions = when (result.method.returnType.first()) {
+                'L' -> """
+                        const/4 v0, 0x0
+                        return-object v0
+                        """
+
                 'V' -> "return-void"
                 'I' -> """
                         const/4 v0, 0x0
