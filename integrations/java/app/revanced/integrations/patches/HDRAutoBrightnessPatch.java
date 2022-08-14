@@ -3,7 +3,7 @@ package app.revanced.integrations.patches;
 import android.view.WindowManager;
 
 import app.revanced.integrations.settings.SettingsEnum;
-import app.revanced.integrations.swipecontrols.views.SwipeControlsHostLayout;
+import app.revanced.integrations.swipecontrols.SwipeControlsHostActivity;
 
 /**
  * Patch class for 'hdr-auto-brightness' patch
@@ -27,7 +27,7 @@ public class HDRAutoBrightnessPatch {
 
         // override with brightness set by swipe-controls
         // only when swipe-controls is active and has overridden the brightness
-        final SwipeControlsHostLayout swipeControlsHost = SwipeControlsPatch.CURRENT_HOST.get();
+        final SwipeControlsHostActivity swipeControlsHost = SwipeControlsHostActivity.getCurrentHost().get();
         if (swipeControlsHost != null
                 && swipeControlsHost.getScreen() != null
                 && swipeControlsHost.getConfig().getEnableBrightnessControl()

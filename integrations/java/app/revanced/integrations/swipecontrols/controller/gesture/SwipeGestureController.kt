@@ -1,14 +1,13 @@
 package app.revanced.integrations.swipecontrols.controller.gesture
 
-import android.content.Context
 import android.util.TypedValue
 import android.view.GestureDetector
 import android.view.MotionEvent
+import app.revanced.integrations.swipecontrols.SwipeControlsHostActivity
 import app.revanced.integrations.swipecontrols.misc.ScrollDistanceHelper
 import app.revanced.integrations.swipecontrols.misc.applyDimension
 import app.revanced.integrations.swipecontrols.misc.contains
 import app.revanced.integrations.swipecontrols.misc.toPoint
-import app.revanced.integrations.swipecontrols.views.SwipeControlsHostLayout
 import app.revanced.integrations.utils.LogHelper
 import kotlin.math.abs
 import kotlin.math.pow
@@ -17,21 +16,18 @@ import kotlin.math.pow
  * base gesture controller for volume and brightness swipe controls controls, with press-to-swipe enabled
  * for the controller without press-to-swipe, see [NoPtSSwipeGestureController]
  *
- * @param context the context to create in
  * @param controller reference to main controller instance
  */
 @Suppress("LeakingThis")
 open class SwipeGestureController(
-    context: Context,
-    private val controller: SwipeControlsHostLayout
+    private val controller: SwipeControlsHostActivity
 ) :
-    GestureDetector.SimpleOnGestureListener(),
-    SwipeControlsHostLayout.TouchEventListener {
+    GestureDetector.SimpleOnGestureListener() {
 
     /**
      * the main gesture detector that powers everything
      */
-    protected open val detector = GestureDetector(context, this)
+    protected open val detector = GestureDetector(controller, this)
 
     /**
      * to enable swipe controls, users must first long- press. this flags monitors that long- press
@@ -60,7 +56,7 @@ open class SwipeGestureController(
      */
     protected open val volumeScroller = ScrollDistanceHelper(
         10.applyDimension(
-            context,
+            controller,
             TypedValue.COMPLEX_UNIT_DIP
         )
     ) { _, _, direction ->
@@ -75,7 +71,7 @@ open class SwipeGestureController(
      */
     protected open val brightnessScroller = ScrollDistanceHelper(
         1.applyDimension(
-            context,
+            controller,
             TypedValue.COMPLEX_UNIT_DIP
         )
     ) { _, _, direction ->
@@ -90,7 +86,13 @@ open class SwipeGestureController(
         }
     }
 
-    override fun onTouchEvent(motionEvent: MotionEvent): Boolean {
+    /**
+     * touch event callback
+     *
+     * @param motionEvent the motion event that was received
+     * @return intercept the event? if true, child views will not receive the event
+     */
+    fun onTouchEvent(motionEvent: MotionEvent): Boolean {
         if (!controller.config.enableSwipeControls) {
             return false
         }

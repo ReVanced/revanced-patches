@@ -1,6 +1,6 @@
 package app.revanced.integrations.swipecontrols.controller
 
-import android.content.Context
+import android.app.Activity
 import android.util.TypedValue
 import android.view.ViewGroup
 import app.revanced.integrations.swipecontrols.misc.Rectangle
@@ -35,29 +35,28 @@ import kotlin.math.min
  */
 @Suppress("PrivatePropertyName")
 class SwipeZonesController(
-    context: Context,
-    private val parentView: ViewGroup,
+    private val host: Activity,
     private val fallbackScreenRect: () -> Rectangle
 ) {
     /**
      * 20dp, in pixels
      */
-    private val _20dp = 20.applyDimension(context, TypedValue.COMPLEX_UNIT_DIP)
+    private val _20dp = 20.applyDimension(host, TypedValue.COMPLEX_UNIT_DIP)
 
     /**
      * 40dp, in pixels
      */
-    private val _40dp = 40.applyDimension(context, TypedValue.COMPLEX_UNIT_DIP)
+    private val _40dp = 40.applyDimension(host, TypedValue.COMPLEX_UNIT_DIP)
 
     /**
      * 80dp, in pixels
      */
-    private val _80dp = 80.applyDimension(context, TypedValue.COMPLEX_UNIT_DIP)
+    private val _80dp = 80.applyDimension(host, TypedValue.COMPLEX_UNIT_DIP)
 
     /**
      * id for R.id.player_view
      */
-    private val playerViewId = ReVancedUtils.getResourceIdByName(context, "id", "player_view")
+    private val playerViewId = ReVancedUtils.getResourceIdByName(host, "id", "player_view")
 
     /**
      * current bounding rectangle of the player
@@ -114,7 +113,7 @@ class SwipeZonesController(
      */
     private fun maybeAttachPlayerBoundsListener() {
         if (playerRect != null) return
-        parentView.findViewById<ViewGroup>(playerViewId)?.let {
+        host.findViewById<ViewGroup>(playerViewId)?.let {
             onPlayerViewLayout(it)
             it.addOnLayoutChangeListener { _, _, _, _, _, _, _, _, _ ->
                 onPlayerViewLayout(it)
