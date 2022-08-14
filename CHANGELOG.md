@@ -1,3 +1,10 @@
+# [2.34.0](https://github.com/revanced/revanced-patches/compare/v2.33.2...v2.34.0) (2022-08-14)
+
+
+### Features
+
+* `tablet-mini-player` patch ([dae41f1](https://github.com/revanced/revanced-patches/commit/dae41f1c59d26d00b1ba821dbe1521e68226f47c))
+
 ## [2.33.2](https://github.com/revanced/revanced-patches/compare/v2.33.1...v2.33.2) (2022-08-07)
 
 ## [2.33.1](https://github.com/revanced/revanced-patches/compare/v2.33.0...v2.33.1) (2022-08-07)
