@@ -7,15 +7,15 @@ import app.revanced.patcher.fingerprint.method.annotation.MatchingMethod
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.youtube.interaction.swipecontrols.annotation.SwipeControlsCompatibility
 
-@Name("watch-while-onStart-fingerprint")
+@Name("swipe-controls-host-activity-fingerprint")
 @MatchingMethod(
-    "LWatchWhileActivity;", "onCreate"
+    "Lapp/revanced/integrations/swipecontrols/SwipeControlsHostActivity;", "<init>"
 )
 @DirectPatternScanMethod
 @SwipeControlsCompatibility
 @Version("0.0.1")
-object WatchWhileOnStartFingerprint : MethodFingerprint(
+object SwipeControlsHostActivityFingerprint : MethodFingerprint(
     null, null, null, null, null, { methodDef ->
-        methodDef.definingClass.endsWith("WatchWhileActivity;") && methodDef.name == "onStart"
+        methodDef.definingClass == "Lapp/revanced/integrations/swipecontrols/SwipeControlsHostActivity;" && methodDef.name == "<init>"
     }
 )
