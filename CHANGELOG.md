@@ -1,3 +1,10 @@
+# [2.36.0](https://github.com/revanced/revanced-patches/compare/v2.35.0...v2.36.0) (2022-08-14)
+
+
+### Features
+
+* `swipe-controls` override volume button behaviour ([#285](https://github.com/revanced/revanced-patches/issues/285)) ([69465f3](https://github.com/revanced/revanced-patches/commit/69465f3a9934973a2449605a248a462510e10ff6))
+
 # [2.35.0](https://github.com/revanced/revanced-patches/compare/v2.34.0...v2.35.0) (2022-08-14)
 
 
