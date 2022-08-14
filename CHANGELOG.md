@@ -1,3 +1,10 @@
+## [2.36.2](https://github.com/revanced/revanced-patches/compare/v2.36.1...v2.36.2) (2022-08-14)
+
+
+### Bug Fixes
+
+* disable cast modules in YouTube Music ([#337](https://github.com/revanced/revanced-patches/issues/337)) ([86eaba8](https://github.com/revanced/revanced-patches/commit/86eaba8248100987f46540a224956099bcf9da2c))
+
 ## [2.36.1](https://github.com/revanced/revanced-patches/compare/v2.36.0...v2.36.1) (2022-08-14)
 
 
