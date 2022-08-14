@@ -45,6 +45,14 @@ Official patches by ReVanced
 | `promo-code-unlock` | Disables the validation of promo code. Any code will work to unlock all features. | all |
 </details>
 
+### 📦 `com.ss.android.ugc.trill`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `tiktok-ads` | Removes ads from TikTok. | all |
+</details>
+
 ### 📦 `com.google.android.youtube`
 <details>
 

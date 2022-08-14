@@ -1,3 +1,10 @@
+# [2.35.0](https://github.com/revanced/revanced-patches/compare/v2.34.0...v2.35.0) (2022-08-14)
+
+
+### Features
+
+* `tiktok-ads` patch ([#335](https://github.com/revanced/revanced-patches/issues/335)) ([81bef57](https://github.com/revanced/revanced-patches/commit/81bef57742bfaefcdfe02fd290cca6923341149a))
+
 # [2.34.0](https://github.com/revanced/revanced-patches/compare/v2.33.2...v2.34.0) (2022-08-14)
 
 
