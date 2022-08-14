@@ -1,3 +1,10 @@
+## [2.36.1](https://github.com/revanced/revanced-patches/compare/v2.36.0...v2.36.1) (2022-08-14)
+
+
+### Bug Fixes
+
+* add missing switch for tablet mini-player ([b824d35](https://github.com/revanced/revanced-patches/commit/b824d35960df9e99c2a2d248356c3c9342cfe130))
+
 # [2.36.0](https://github.com/revanced/revanced-patches/compare/v2.35.0...v2.36.0) (2022-08-14)
 
 
