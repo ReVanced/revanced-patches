@@ -1,3 +1,10 @@
+# [2.37.0](https://github.com/revanced/revanced-patches/compare/v2.36.2...v2.37.0) (2022-08-15)
+
+
+### Features
+
+* ˋpflotsh-ecmwf-subscription-unlockˋ patch ([#332](https://github.com/revanced/revanced-patches/issues/332)) ([ae2a1d8](https://github.com/revanced/revanced-patches/commit/ae2a1d8362e388032c3521101ff60698c4af1583))
+
 ## [2.36.2](https://github.com/revanced/revanced-patches/compare/v2.36.1...v2.36.2) (2022-08-14)
 
 

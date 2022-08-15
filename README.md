@@ -20,6 +20,14 @@ Official patches by ReVanced
 | `general-reddit-ads` | Removes general ads from the Reddit frontpage and subreddits. | all |
 </details>
 
+### 📦 `com.garzotto.pflotsh.ecmwf_a`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `pflotsh-ecmwf-subscription-unlock` | Unlocks all subscription features. | 3.5.4 |
+</details>
+
 ### 📦 `com.google.android.apps.youtube.music`
 <details>
 
