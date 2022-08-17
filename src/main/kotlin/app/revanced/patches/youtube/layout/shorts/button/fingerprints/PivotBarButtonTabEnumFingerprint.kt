@@ -22,9 +22,6 @@ object PivotBarButtonTabEnumFingerprint : MethodFingerprint(
     AccessFlags.PUBLIC or AccessFlags.FINAL,
     listOf("Z"),
     listOf(
-        Opcode.CHECK_CAST,
-        Opcode.IGET_OBJECT,
-        Opcode.IF_NEZ,
         Opcode.SGET_OBJECT,
         Opcode.IGET,
         Opcode.INVOKE_STATIC,
@@ -35,11 +32,5 @@ object PivotBarButtonTabEnumFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT,
         Opcode.IGET_OBJECT,
         Opcode.CHECK_CAST,
-        Opcode.IGET_OBJECT,
-        Opcode.IF_NEZ,
-        Opcode.SGET_OBJECT,
-        Opcode.IGET,
-        Opcode.INVOKE_STATIC, // SomeEnum.fromValue(tabOrdinal)
-        Opcode.MOVE_RESULT_OBJECT
     )
 )

@@ -147,7 +147,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             it.registerC to it.registerE
         }
         seekbarMethod.addInstruction(
-            drawSegmentInstructionInsertIndex - 1,
+            drawSegmentInstructionInsertIndex,
             "invoke-static {v$canvasInstance, v$centerY}, Lapp/revanced/integrations/sponsorblock/PlayerController;->drawSponsorTimeBars(Landroid/graphics/Canvas;F)V"
         )
 

@@ -42,7 +42,7 @@ See:
  */
 
 object WideSearchbarTwoFingerprint : MethodFingerprint(
-    "L", AccessFlags.PUBLIC or AccessFlags.STATIC, listOf("L", "L", "L", "L"), listOf(
+    "L", AccessFlags.PUBLIC or AccessFlags.STATIC, null, listOf(
         Opcode.INVOKE_STATIC, Opcode.MOVE_RESULT, Opcode.IF_EQZ, Opcode.NEW_INSTANCE
     ),
     null, null
