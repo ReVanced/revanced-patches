@@ -20,11 +20,6 @@ object PivotBarButtonsViewFingerprint : MethodFingerprint(
     AccessFlags.PUBLIC or AccessFlags.FINAL,
     listOf("Z"),
     listOf(
-        Opcode.INVOKE_VIRTUAL_RANGE,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.GOTO,
-        Opcode.IGET_OBJECT,
-        Opcode.IF_NEZ,
         Opcode.SGET_OBJECT,
         Opcode.IGET,
         Opcode.INVOKE_STATIC,

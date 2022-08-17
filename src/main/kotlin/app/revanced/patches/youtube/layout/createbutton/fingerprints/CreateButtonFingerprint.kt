@@ -50,8 +50,5 @@ object CreateButtonFingerprint : MethodFingerprint(
         Opcode.MOVE_OBJECT,
         Opcode.MOVE_OBJECT,
         Opcode.INVOKE_DIRECT_RANGE,
-        Opcode.CONST_4,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
     )
 )
