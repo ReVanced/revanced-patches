@@ -1,3 +1,10 @@
+# [2.39.0](https://github.com/revanced/revanced-patches/compare/v2.38.0...v2.39.0) (2022-08-19)
+
+
+### Features
+
+* bundle `dex` file into `jar` file ([#359](https://github.com/revanced/revanced-patches/issues/359)) ([f419252](https://github.com/revanced/revanced-patches/commit/f4192526eab1e3e0208e7460847b892e077fcf5a))
+
 # [2.38.0](https://github.com/revanced/revanced-patches/compare/v2.37.0...v2.38.0) (2022-08-17)
 
 
