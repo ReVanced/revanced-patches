@@ -17,6 +17,9 @@ import app.revanced.patches.youtube.misc.autorepeat.annotations.AutoRepeatCompat
 import app.revanced.patches.youtube.misc.autorepeat.fingerprints.AutoRepeatFingerprint
 import app.revanced.patches.youtube.misc.autorepeat.fingerprints.AutoRepeatParentFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
+import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
+import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
+import app.revanced.patches.youtube.misc.settings.framework.components.impl.SwitchPreference
 
 @Patch
 @DependsOn([IntegrationsPatch::class])
@@ -30,6 +33,16 @@ class AutoRepeatPatch : BytecodePatch(
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
+        SettingsPatch.PreferenceScreen.MISC.addPreferences(
+            SwitchPreference(
+                "revanced_pref_auto_repeat",
+                StringResource("revanced_auto_repeat_enabled_title", "Enable auto-repeat"),
+                true,
+                StringResource("revanced_auto_repeat_summary_on", "Auto-repeat is enabled"),
+                StringResource("revanced_auto_repeat_summary_off", "Auto-repeat is disabled")
+            )
+        )
+
         //Get Result from the ParentFingerprint which is the playMethod we need to get.
         val parentResult = AutoRepeatParentFingerprint.result
             ?: return PatchResultError("ParentFingerprint did not resolve.")

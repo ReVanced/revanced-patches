@@ -14,10 +14,9 @@ import org.jf.dexlib2.Opcode
 @MatchingMethod(
     "LWillAutonavInformer;", "k"
 )
-@FuzzyPatternScanMethod(2)
 @AutoplayButtonCompatibility
 @Version("0.0.1")
-object AutonavInformerFingerprint : MethodFingerprint(
+object AutoNavInformerFingerprint : MethodFingerprint(
     "Z",
     AccessFlags.PUBLIC or AccessFlags.FINAL,
     null,

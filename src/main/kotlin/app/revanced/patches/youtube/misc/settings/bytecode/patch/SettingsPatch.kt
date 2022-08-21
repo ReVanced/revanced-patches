@@ -18,14 +18,20 @@ import app.revanced.patches.youtube.misc.settings.annotations.SettingsCompatibil
 import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.LicenseActivityFingerprint
 import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.ReVancedSettingsActivityFingerprint
 import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.ThemeSetterFingerprint
+import app.revanced.patches.youtube.misc.settings.framework.components.BasePreference
+import app.revanced.patches.youtube.misc.settings.framework.components.impl.ArrayResource
+import app.revanced.patches.youtube.misc.settings.framework.components.impl.Preference
+import app.revanced.patches.youtube.misc.settings.framework.components.impl.PreferenceScreen
+import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsResourcePatch
+import org.jf.dexlib2.util.MethodUtil
+import java.io.Closeable
 
 @Patch
 @DependsOn(
     [
         IntegrationsPatch::class,
         SettingsResourcePatch::class,
-        ResourceIdMappingProviderResourcePatch::class
     ]
 )
 @Name("settings")
@@ -34,7 +40,7 @@ import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsResourc
 @Version("0.0.1")
 class SettingsPatch : BytecodePatch(
     listOf(LicenseActivityFingerprint, ReVancedSettingsActivityFingerprint, ThemeSetterFingerprint)
-) {
+), Closeable {
     override fun execute(data: BytecodeData): PatchResult {
         val licenseActivityResult = LicenseActivityFingerprint.result!!
         val settingsResult = ReVancedSettingsActivityFingerprint.result!!
@@ -65,7 +71,7 @@ class SettingsPatch : BytecodePatch(
             )
         }
 
-        // add the setTheme call to the onCreate method to not affect the offsets.
+        // add the setTheme call to the onCreate method to not affect the offsets
         onCreate.addInstructions(
             1,
             """
@@ -74,18 +80,76 @@ class SettingsPatch : BytecodePatch(
             """
         )
 
-        // add the initializeSettings call to the onCreate method.
+        // add the initializeSettings call to the onCreate method
         onCreate.addInstruction(
             0,
             "invoke-static { p0 }, ${settingsClass.type}->$setThemeMethodName(${licenseActivityClass.type})V"
         )
 
+        // get rid of, now, useless overridden methods
+        licenseActivityResult.mutableClass.methods.removeIf { it.name != "onCreate" && !MethodUtil.isConstructor(it) }
+
         return PatchResultSuccess()
     }
 
     internal companion object {
-        val appearanceStringId = ResourceIdMappingProviderResourcePatch.resourceMappings.find {
+        // TODO: hide this somehow
+        var appearanceStringId: Long = ResourceIdMappingProviderResourcePatch.resourceMappings.find {
             it.type == "string" && it.name == "app_theme_appearance_dark"
         }!!.id
+
+        fun addString(identifier: String, value: String, formatted: Boolean = true) =
+            SettingsResourcePatch.addString(identifier, value, formatted)
+
+        fun addPreferenceScreen(preferenceScreen: app.revanced.patches.youtube.misc.settings.framework.components.impl.PreferenceScreen) =
+            SettingsResourcePatch.addPreferenceScreen(preferenceScreen)
+
+        fun addPreference(preference: Preference) =
+            SettingsResourcePatch.addPreference(preference)
+
+        fun addArray(arrayResource: ArrayResource) =
+            SettingsResourcePatch.addArray(arrayResource)
+
+        fun renameIntentsTargetPackage(newPackage: String) {
+            SettingsResourcePatch.overrideIntentsTargetPackage = newPackage
+        }
     }
+
+    /**
+     * Preference screens patches should add their settings to.
+     */
+    internal enum class PreferenceScreen(
+        private val key: String,
+        private val title: String,
+        private val summary: String? = null,
+        private val preferences: MutableList<BasePreference> = mutableListOf()
+    ) : Closeable {
+        ADS("ads", "Ads", "Ad related settings"),
+        INTERACTIONS("interactions", "Interaction", "Settings related to interactions"),
+        LAYOUT("layout", "Layout", "Settings related to the layout"),
+        MISC("misc", "Miscellaneous", "Miscellaneous patches");
+
+        override fun close() {
+            if (preferences.size == 0) return
+
+            addPreferenceScreen(
+                PreferenceScreen(
+                    key,
+                    StringResource("${key}_title", title),
+                    preferences,
+                    summary?.let { summary ->
+                        StringResource("${key}_summary", summary)
+                    }
+                )
+            )
+        }
+
+        /**
+         * Add preferences to the preference screen.
+         */
+        fun addPreferences(vararg preferences: BasePreference) = this.preferences.addAll(preferences)
+    }
+
+    override fun close() = PreferenceScreen.values().forEach(PreferenceScreen::close)
+
 }

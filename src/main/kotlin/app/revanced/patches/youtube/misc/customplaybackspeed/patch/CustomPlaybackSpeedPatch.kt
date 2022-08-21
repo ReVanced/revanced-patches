@@ -35,6 +35,8 @@ class CustomPlaybackSpeedPatch : BytecodePatch(
 ) {
 
     override fun execute(data: BytecodeData): PatchResult {
+        //TODO: include setting to skip remembering the new speed
+
         val arrayGenMethod = SpeedArrayGeneratorFingerprint.result?.mutableMethod!!
         val arrayGenMethodImpl = arrayGenMethod.implementation!!
 

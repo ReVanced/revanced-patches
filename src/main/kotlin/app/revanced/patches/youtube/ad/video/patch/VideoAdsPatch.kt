@@ -15,9 +15,12 @@ import app.revanced.patches.youtube.ad.video.annotations.VideoAdsCompatibility
 import app.revanced.patches.youtube.ad.video.fingerprints.ShowVideoAdsConstructorFingerprint
 import app.revanced.patches.youtube.ad.video.fingerprints.ShowVideoAdsFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
+import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
+import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
+import app.revanced.patches.youtube.misc.settings.framework.components.impl.SwitchPreference
 
 @Patch
-@DependsOn([IntegrationsPatch::class])
+@DependsOn([IntegrationsPatch::class, SettingsPatch::class])
 @Name("video-ads")
 @Description("Removes ads in the video player.")
 @VideoAdsCompatibility
@@ -28,7 +31,19 @@ class VideoAdsPatch : BytecodePatch(
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        ShowVideoAdsFingerprint.resolve(data, ShowVideoAdsConstructorFingerprint.result!!.classDef)
+        SettingsPatch.PreferenceScreen.ADS.addPreferences(
+            SwitchPreference(
+                "revanced_video_ads_enabled",
+                StringResource("revanced_video_ads_enabled_title", "Hide video ads"),
+                true,
+                StringResource("revanced_video_ads_enabled_summary_on", "Video ads are hidden"),
+                StringResource("revanced_video_ads_enabled_summary_off", "Video ads are shown")
+            )
+        )
+
+        ShowVideoAdsFingerprint.resolve(
+            data, ShowVideoAdsConstructorFingerprint.result!!.classDef
+        )
 
         // Override the parameter by calling shouldShowAds and setting the parameter to the result
         ShowVideoAdsFingerprint.result!!.mutableMethod.addInstructions(

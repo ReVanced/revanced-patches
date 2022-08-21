@@ -14,11 +14,14 @@ import app.revanced.patches.youtube.layout.shorts.button.annotations.ShortsButto
 import app.revanced.patches.youtube.layout.shorts.button.fingerprints.PivotBarButtonTabEnumFingerprint
 import app.revanced.patches.youtube.layout.shorts.button.fingerprints.PivotBarButtonsViewFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
+import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
+import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
+import app.revanced.patches.youtube.misc.settings.framework.components.impl.SwitchPreference
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.Opcode
 
 @Patch
-@DependsOn([IntegrationsPatch::class])
+@DependsOn([IntegrationsPatch::class, SettingsPatch::class])
 @Name("hide-shorts-button")
 @Description("Hides the shorts button on the navigation bar.")
 @ShortsButtonCompatibility
@@ -29,6 +32,16 @@ class ShortsButtonRemoverPatch : BytecodePatch(
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
+        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
+            SwitchPreference(
+                "revanced_shorts_button_enabled",
+                StringResource("revanced_shorts_button_enabled_title", "Show shorts button"),
+                false,
+                StringResource("revanced_shorts_button_summary_on", "Shorts button is shown"),
+                StringResource("revanced_shorts_button_summary_off", "Shorts button is hidden")
+            )
+        )
+
         val tabEnumResult = PivotBarButtonTabEnumFingerprint.result!!
         val tabEnumImplementation = tabEnumResult.mutableMethod.implementation!!
         val scanResultEndIndex = tabEnumResult.patternScanResult!!.endIndex

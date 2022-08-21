@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.minimizedplayback.patch
+package app.revanced.patches.youtube.misc.minimizedplayback.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
@@ -12,11 +12,14 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.youtube.layout.minimizedplayback.annotations.MinimizedPlaybackCompatibility
-import app.revanced.patches.youtube.layout.minimizedplayback.fingerprints.MinimizedPlaybackKidsFingerprint
-import app.revanced.patches.youtube.layout.minimizedplayback.fingerprints.MinimizedPlaybackManagerFingerprint
-import app.revanced.patches.youtube.layout.minimizedplayback.fingerprints.MinimizedPlaybackSettingsFingerprint
+import app.revanced.patches.youtube.misc.minimizedplayback.annotations.MinimizedPlaybackCompatibility
+import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackKidsFingerprint
+import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackManagerFingerprint
+import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackSettingsFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
+import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
+import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
+import app.revanced.patches.youtube.misc.settings.framework.components.impl.SwitchPreference
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.MethodReference
 
@@ -24,7 +27,7 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @Patch
 @Name("minimized-playback")
 @Description("Enables minimized and background playback.")
-@DependsOn([IntegrationsPatch::class])
+@DependsOn([IntegrationsPatch::class, SettingsPatch::class])
 @MinimizedPlaybackCompatibility
 @Version("0.0.1")
 class MinimizedPlaybackPatch : BytecodePatch(
@@ -33,6 +36,16 @@ class MinimizedPlaybackPatch : BytecodePatch(
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
+        SettingsPatch.PreferenceScreen.MISC.addPreferences(
+            SwitchPreference(
+                "revanced_enable_minimized_playback",
+                StringResource("revanced_minimized_playback_enabled_title", "Enable minimized playback"),
+                true,
+                StringResource("revanced_minimized_playback_summary_on", "Minimized playback is enabled"),
+                StringResource("revanced_minimized_playback_summary_off", "Minimized playback is disabled")
+            )
+        )
+
         // Instead of removing all instructions like Vanced,
         // we return the method at the beginning instead
         MinimizedPlaybackManagerFingerprint.result!!.mutableMethod.addInstructions(

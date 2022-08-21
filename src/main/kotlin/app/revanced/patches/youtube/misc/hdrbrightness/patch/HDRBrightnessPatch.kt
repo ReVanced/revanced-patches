@@ -14,6 +14,9 @@ import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.misc.hdrbrightness.annotations.HDRBrightnessCompatibility
 import app.revanced.patches.youtube.misc.hdrbrightness.fingerprints.HDRBrightnessFingerprintXXZ
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
+import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
+import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
+import app.revanced.patches.youtube.misc.settings.framework.components.impl.SwitchPreference
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
@@ -23,13 +26,23 @@ import org.jf.dexlib2.iface.reference.FieldReference
 @Description("Makes the brightness of HDR videos follow the system default.")
 @HDRBrightnessCompatibility
 @Version("0.0.2")
-@DependsOn([IntegrationsPatch::class])
+@DependsOn([IntegrationsPatch::class, SettingsPatch::class])
 class HDRBrightnessPatch : BytecodePatch(
     listOf(
         HDRBrightnessFingerprintXXZ
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
+        SettingsPatch.PreferenceScreen.MISC.addPreferences(
+            SwitchPreference(
+                "revanced_pref_hdr_autobrightness",
+                StringResource("revanced_hdr_autobrightness_enabled_title", "Enable auto HDR brightness"),
+                true,
+                StringResource("revanced_hdr_autobrightness_summary_on", "Auto HDR brightness is enabled"),
+                StringResource("revanced_hdr_autobrightness_summary_off", "Auto HDR brightness is disabled")
+            )
+        )
+
         val method = HDRBrightnessFingerprintXXZ.result?.mutableMethod
             ?: return PatchResultError("HDRBrightnessFingerprint could not resolve the method!")
 
