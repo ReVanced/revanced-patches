@@ -21,7 +21,6 @@ import android.preference.SwitchPreference;
 import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
 import com.google.android.apps.youtube.app.application.Shell_HomeActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import app.revanced.integrations.settings.SettingsEnum;
@@ -122,25 +121,7 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             this.settingsInitialized = sharedPreferences.getBoolean("revanced_initialized", false);
             sharedPreferences.registerOnSharedPreferenceChangeListener(this.listener);
             this.Registered = true;
-            this.screens = new ArrayList<>();
-            this.screens.add((PreferenceScreen) getPreferenceScreen().findPreference("video_settings"));
-            this.screens.add((PreferenceScreen) getPreferenceScreen().findPreference("video_ad_settings"));
-            this.screens.add((PreferenceScreen) getPreferenceScreen().findPreference("ad_settings"));
-            this.screens.add((PreferenceScreen) getPreferenceScreen().findPreference("layout_settings"));
-            this.screens.add((PreferenceScreen) getPreferenceScreen().findPreference("buffer_screen"));
-            this.screens.add((PreferenceScreen) getPreferenceScreen().findPreference("misc_screen"));
-            this.screens.add((PreferenceScreen) getPreferenceScreen().findPreference("swipe_screen"));
 
-
-            final ListPreference listPreference3 = (ListPreference) screens.get(1).findPreference("revanced_pref_video_speed");
-            setSpeedListPreferenceData(listPreference3);
-
-            listPreference3.setOnPreferenceClickListener(preference -> {
-                setSpeedListPreferenceData(listPreference3);
-                return false;
-            });
-
-            sharedPreferences.edit().putBoolean("revanced_initialized", true);
             this.settingsInitialized = true;
         } catch (Throwable th) {
             LogHelper.printException(ReVancedSettingsFragment.class, "Error during onCreate()", th);
@@ -174,11 +155,6 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
         }
 
         return pref;
-    }
-
-    private void setSpeedListPreferenceData(ListPreference listPreference) {
-        listPreference.setEntries(this.videoSpeedEntries);
-        listPreference.setEntryValues(this.videoSpeedentryValues);
     }
 
     /*

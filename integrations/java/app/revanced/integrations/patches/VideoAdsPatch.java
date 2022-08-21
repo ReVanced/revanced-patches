@@ -8,7 +8,8 @@ public class VideoAdsPatch {
     // Used by app.revanced.patches.youtube.ad.general.video.patch.VideoAdsPatch
     // depends on Whitelist patch (still needs to be written)
     public static boolean shouldShowAds() {
-        return SettingsEnum.VIDEO_ADS_SHOWN.getBoolean() || Whitelist.shouldShowAds();
+        return !SettingsEnum.VIDEO_ADS_HIDDEN.getBoolean(); // TODO && Whitelist.shouldShowAds();
+
     }
 
 }

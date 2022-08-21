@@ -15,12 +15,10 @@ import app.revanced.integrations.utils.LogHelper;
 public class GeneralBytecodeAdsPatch {
 
     //Used by app.revanced.patches.youtube.ad.general.bytecode.patch.GeneralBytecodeAdsPatch
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public static boolean containsAd(String value, ByteBuffer buffer) {
         return containsLithoAd(value, buffer);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     private static boolean containsLithoAd(String value, ByteBuffer buffer) {
         boolean enabled = false;
         for (SettingsEnum setting : SettingsEnum.getAdRemovalSettings()) {
