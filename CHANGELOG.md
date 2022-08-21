@@ -1,3 +1,10 @@
+## [2.39.1](https://github.com/revanced/revanced-patches/compare/v2.39.0...v2.39.1) (2022-08-21)
+
+
+### Bug Fixes
+
+* make `custom-branding` cross-platform ([#366](https://github.com/revanced/revanced-patches/issues/366)) ([02ac62b](https://github.com/revanced/revanced-patches/commit/02ac62b0ea7e47ff3aa5078ce4645421f410b154))
+
 # [2.39.0](https://github.com/revanced/revanced-patches/compare/v2.38.0...v2.39.0) (2022-08-19)
 
 
