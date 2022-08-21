@@ -15,6 +15,9 @@ import app.revanced.patches.youtube.layout.createbutton.annotations.CreateButton
 import app.revanced.patches.youtube.layout.createbutton.fingerprints.CreateButtonFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.mapping.patch.ResourceIdMappingProviderResourcePatch
+import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
+import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
+import app.revanced.patches.youtube.misc.settings.framework.components.impl.SwitchPreference
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
@@ -22,7 +25,7 @@ import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 import org.jf.dexlib2.iface.reference.MethodReference
 
 @Patch
-@DependsOn([IntegrationsPatch::class, ResourceIdMappingProviderResourcePatch::class])
+@DependsOn([IntegrationsPatch::class, ResourceIdMappingProviderResourcePatch::class, SettingsPatch::class])
 @Name("disable-create-button")
 @Description("Hides the create button in the navigation bar.")
 @CreateButtonCompatibility
@@ -33,6 +36,16 @@ class CreateButtonRemoverPatch : BytecodePatch(
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
+        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
+            SwitchPreference(
+                "revanced_create_button_enabled",
+                StringResource("revanced_create_button_enabled_title", "Show create button"),
+                false,
+                StringResource("revanced_create_button_summary_on", "Create button is shown."),
+                StringResource("revanced_create_button_summary_off", "Create button is hidden.")
+            )
+        )
+
         val result = CreateButtonFingerprint.result!!
 
         // Get the required register which holds the view object we need to pass to the method hideCreateButton

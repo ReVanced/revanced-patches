@@ -16,10 +16,13 @@ import app.revanced.patches.youtube.ad.infocardsuggestions.annotations.HideInfoc
 import app.revanced.patches.youtube.ad.infocardsuggestions.fingerprints.HideInfocardSuggestionsFingerprint
 import app.revanced.patches.youtube.ad.infocardsuggestions.fingerprints.HideInfocardSuggestionsParentFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
+import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
+import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
+import app.revanced.patches.youtube.misc.settings.framework.components.impl.SwitchPreference
 import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
 
 @Patch
-@DependsOn([IntegrationsPatch::class])
+@DependsOn([IntegrationsPatch::class, SettingsPatch::class])
 @Name("hide-infocard-suggestions")
 @Description("Hides infocards in videos.")
 @HideInfocardSuggestionsCompatibility
@@ -30,6 +33,16 @@ class HideInfocardSuggestionsPatch : BytecodePatch(
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
+        SettingsPatch.PreferenceScreen.ADS.addPreferences(
+            SwitchPreference(
+                "revanced_info_cards_enabled",
+                StringResource("revanced_info_cards_enabled_title", "Show info-cards"),
+                false,
+                StringResource("revanced_info_cards_enabled_summary_on", "Info-cards are shown"),
+                StringResource("revanced_info_cards_enabled_summary_off", "Info-cards are hidden")
+            )
+        )
+
         val parentResult = HideInfocardSuggestionsParentFingerprint.result
             ?: return PatchResultError("Parent fingerprint not resolved!")
 

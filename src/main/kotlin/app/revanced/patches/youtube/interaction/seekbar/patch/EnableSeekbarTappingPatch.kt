@@ -15,6 +15,9 @@ import app.revanced.patches.youtube.interaction.seekbar.annotation.SeekbarTappin
 import app.revanced.patches.youtube.interaction.seekbar.fingerprints.SeekbarTappingFingerprint
 import app.revanced.patches.youtube.interaction.seekbar.fingerprints.SeekbarTappingParentFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
+import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
+import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
+import app.revanced.patches.youtube.misc.settings.framework.components.impl.SwitchPreference
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
 import org.jf.dexlib2.iface.Method
@@ -22,7 +25,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction11n
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch
-@DependsOn([IntegrationsPatch::class])
+@DependsOn([IntegrationsPatch::class, SettingsPatch::class])
 @Name("seekbar-tapping")
 @Description("Enables tap-to-seek on the seekbar of the video player.")
 @SeekbarTappingCompatibility
@@ -33,6 +36,16 @@ class EnableSeekbarTappingPatch : BytecodePatch(
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
+        SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
+            SwitchPreference(
+                "revanced_enable_tap_seeking",
+                StringResource("revanced_seekbar_tapping_enabled_title", "Enable seekbar tapping"),
+                true,
+                StringResource("revanced_seekbar_tapping_summary_on", "Seekbar tapping is enabled"),
+                StringResource("revanced_seekbar_tapping_summary_off", "Seekbar tapping is disabled")
+            )
+        )
+
         var result = SeekbarTappingParentFingerprint.result!!
 
         val tapSeekMethods = mutableMapOf<String, Method>()
@@ -42,7 +55,7 @@ class EnableSeekbarTappingPatch : BytecodePatch(
             if (it.implementation == null) continue
 
             val instructions = it.implementation!!.instructions
-            // here we make sure we actually find the method because it has more then 7 instructions
+            // here we make sure we actually find the method because it has more than 7 instructions
             if (instructions.count() < 7) continue
 
             // we know that the 7th instruction has the opcode CONST_4

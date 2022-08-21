@@ -12,15 +12,16 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.layout.returnyoutubedislike.annotations.ReturnYouTubeDislikeCompatibility
-import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.TextComponentSpecParentFingerprint
 import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.DislikeFingerprint
 import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.LikeFingerprint
 import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.RemoveLikeFingerprint
+import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.TextComponentSpecParentFingerprint
+import app.revanced.patches.youtube.layout.returnyoutubedislike.resource.patch.ReturnYouTubeDislikeResourcePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.videoid.patch.VideoIdPatch
 
 @Patch
-@DependsOn([IntegrationsPatch::class, VideoIdPatch::class])
+@DependsOn([IntegrationsPatch::class, VideoIdPatch::class, ReturnYouTubeDislikeResourcePatch::class])
 @Name("return-youtube-dislike")
 @Description("Shows the dislike count of videos using the Return YouTube Dislike API.")
 @ReturnYouTubeDislikeCompatibility
@@ -57,9 +58,9 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
 
         val parentResult = TextComponentSpecParentFingerprint.result!!
         val createComponentMethod = parentResult.mutableClass.methods.find { method ->
-                method.parameters.size >= 19 && method.parameterTypes.takeLast(4)
-                    .all { param -> param == "Ljava/util/concurrent/atomic/AtomicReference;" }
-            }
+            method.parameters.size >= 19 && method.parameterTypes.takeLast(4)
+                .all { param -> param == "Ljava/util/concurrent/atomic/AtomicReference;" }
+        }
             ?: return PatchResultError("TextComponentSpec.createComponent not found")
 
         val conversionContextParam = 5

@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.minimizedplayback.annotations
+package app.revanced.patches.youtube.misc.minimizedplayback.annotations
 
 import app.revanced.patcher.annotation.Compatibility
 import app.revanced.patcher.annotation.Package

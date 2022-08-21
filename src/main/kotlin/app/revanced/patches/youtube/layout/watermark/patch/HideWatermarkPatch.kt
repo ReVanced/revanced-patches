@@ -17,9 +17,12 @@ import app.revanced.patches.youtube.layout.watermark.annotations.HideWatermarkCo
 import app.revanced.patches.youtube.layout.watermark.fingerprints.HideWatermarkParentFingerprint
 import app.revanced.patches.youtube.layout.watermark.fingerprints.HideWatermarkFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
+import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
+import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
+import app.revanced.patches.youtube.misc.settings.framework.components.impl.SwitchPreference
 
 @Patch
-@DependsOn([IntegrationsPatch::class])
+@DependsOn([IntegrationsPatch::class, SettingsPatch::class])
 @Name("hide-watermark")
 @Description("Hides creator's watermarks on videos.")
 @HideWatermarkCompatibility
@@ -30,6 +33,16 @@ class HideWatermarkPatch : BytecodePatch(
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
+        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
+            SwitchPreference(
+                "revanced_branding_watermark_enabled",
+                StringResource("revanced_branding_watermark_enabled_title", "Show branding watermark"),
+                false,
+                StringResource("revanced_branding_watermark_summary_on", "Branding watermark is shown"),
+                StringResource("revanced_branding_watermark_summary_off", "Branding watermark is hidden")
+            )
+        )
+
         HideWatermarkFingerprint.resolve(data, HideWatermarkParentFingerprint.result!!.classDef)
         val result = HideWatermarkFingerprint.result
             ?: return PatchResultError("Required parent method could not be found.")
