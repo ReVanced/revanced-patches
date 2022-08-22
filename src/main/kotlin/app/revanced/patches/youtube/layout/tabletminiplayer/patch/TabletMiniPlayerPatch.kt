@@ -39,7 +39,7 @@ class TabletMiniPlayerPatch : BytecodePatch(
     override fun execute(data: BytecodeData): PatchResult {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(SwitchPreference(
             "revanced_tablet_miniplayer",
-            StringResource("revanced_tablet_miniplayer_title", "Remove general ads"),
+            StringResource("revanced_tablet_miniplayer_title", "Enable the tablet Mini-player"),
             false,
             StringResource("revanced_tablet_miniplayer_summary_on", "Tablet Mini-player is enabled"),
             StringResource("revanced_tablet_miniplayer_summary_off", "Tablet Mini-player is disabled")
