@@ -2,12 +2,11 @@ package app.revanced.integrations.videoplayer;
 
 import android.content.Context;
 
+import android.support.constraint.ConstraintLayout;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;

@@ -1,6 +1,7 @@
 package app.revanced.integrations.settings;
 
 import android.content.Context;
+import android.os.Environment;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -11,6 +12,9 @@ import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
 
 public enum SettingsEnum {
+    //Download Settings
+    // TODO: DOWNLOAD_PATH("revanced_download_path", Environment.getExternalStorageDirectory().getPath() + "/Download", ReturnType.STRING),
+    DOWNLOAD_BUTTON_SHOWN("revanced_downloads", true, ReturnType.BOOLEAN),
 
     //Video Settings
     OLD_STYLE_QUALITY_SETTINGS("revanced_use_old_style_quality_settings", true, ReturnType.BOOLEAN),
