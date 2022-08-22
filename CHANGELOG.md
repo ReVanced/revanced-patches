@@ -1,3 +1,10 @@
+## [2.40.2](https://github.com/revanced/revanced-patches/compare/v2.40.1...v2.40.2) (2022-08-22)
+
+
+### Bug Fixes
+
+* correct title for `tablet-miniplayer` setting switch ([6af6c02](https://github.com/revanced/revanced-patches/commit/6af6c02154d170153093bd846dfcb7a6205dd6fa))
+
 ## [2.40.1](https://github.com/revanced/revanced-patches/compare/v2.40.0...v2.40.1) (2022-08-22)
 
 
