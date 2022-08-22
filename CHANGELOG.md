@@ -1,3 +1,16 @@
+# [2.42.0](https://github.com/revanced/revanced-patches/compare/v2.41.0...v2.42.0) (2022-08-22)
+
+
+### Bug Fixes
+
+* default values for settings ([834c4ad](https://github.com/revanced/revanced-patches/commit/834c4add71570d36b645246621ba24da3869d613))
+
+
+### Features
+
+* setting for downloader package name ([965d05c](https://github.com/revanced/revanced-patches/commit/965d05cfa55d7a51f64a11f0219e2867568ba852))
+* v17.29.34 compatibility for `downloads` patch ([#374](https://github.com/revanced/revanced-patches/issues/374)) ([d81f1af](https://github.com/revanced/revanced-patches/commit/d81f1af327e0d7471f410811af46da34ddfb1bb4))
+
 # [2.41.0](https://github.com/revanced/revanced-patches/compare/v2.40.2...v2.41.0) (2022-08-22)
 
 
