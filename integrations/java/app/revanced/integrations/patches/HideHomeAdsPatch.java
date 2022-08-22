@@ -13,7 +13,7 @@ public class HideHomeAdsPatch {
      * @param view
      */
     public static void HideHomeAds(View view) {
-        if (!SettingsEnum.HOME_ADS_HIDDEN.getBoolean()) return;
+        if (!SettingsEnum.HOME_ADS_REMOVAL.getBoolean()) return;
         AdRemoverAPI.HideViewWithLayout1dp(view);
     }
 
