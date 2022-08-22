@@ -1,6 +1,5 @@
 package app.revanced.integrations.videoplayer;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -48,20 +47,19 @@ public class DownloadButton {
                 LogHelper.debug(DownloadButton.class, "Download button clicked");
 
                 final var context = view.getContext();
-                final var powerTubePackageName = "ussr.razar.youtube_dl";
+                var downloaderPackageName = SettingsEnum.DOWNLOADS_PACKAGE_NAME.getString();
 
                 boolean packageEnabled = false;
                 try {
                     assert context != null;
-                    packageEnabled = context.getPackageManager().getApplicationInfo(powerTubePackageName, 0).enabled;
+                    packageEnabled = context.getPackageManager().getApplicationInfo(downloaderPackageName, 0).enabled;
                 } catch (PackageManager.NameNotFoundException error) {
-                    LogHelper.debug(DownloadButton.class, "PowerTube could not be found: " + error);
+                    LogHelper.debug(DownloadButton.class, "Downloader could not be found: " + error);
                 }
 
                 // If the package is not installed, show the toast
                 if (!packageEnabled) {
-                    Toast.makeText(context, StringRef.str("powertube_not_installed_warning"), Toast.LENGTH_SHORT).show();
-                    Toast.makeText(context, StringRef.str("powertube_not_installed_notice"), Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, downloaderPackageName + " " + StringRef.str("downloader_not_installed_warning"), Toast.LENGTH_LONG).show();
                     return;
                 }
 
@@ -71,7 +69,7 @@ public class DownloadButton {
 
                     Intent intent = new Intent("android.intent.action.SEND");
                     intent.setType("text/plain");
-                    intent.setPackage(powerTubePackageName);
+                    intent.setPackage(downloaderPackageName);
                     intent.putExtra("android.intent.extra.TEXT", content);
                     context.startActivity(intent);
 
@@ -129,7 +127,7 @@ public class DownloadButton {
     }
 
     private static boolean shouldBeShown() {
-        if (!SettingsEnum.DOWNLOAD_BUTTON_SHOWN.getBoolean()) {
+        if (!SettingsEnum.DOWNLOADS_BUTTON_SHOWN.getBoolean()) {
             return false;
         }
 
