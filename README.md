@@ -67,6 +67,7 @@ Official patches by ReVanced
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `swipe-controls` | Adds volume and brightness swipe controls. | 17.32.35 |
+| `downloads` | Enables downloading music and videos from YouTube. | 17.32.35 |
 | `seekbar-tapping` | Enables tap-to-seek on the seekbar of the video player. | 17.32.35 |
 | `amoled` | Enables pure black theme. | 17.32.35 |
 | `disable-create-button` | Hides the create button in the navigation bar. | 17.32.35 |

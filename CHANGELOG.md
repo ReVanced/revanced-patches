@@ -1,3 +1,10 @@
+# [2.41.0](https://github.com/revanced/revanced-patches/compare/v2.40.2...v2.41.0) (2022-08-22)
+
+
+### Features
+
+* `downloads` patch ([#215](https://github.com/revanced/revanced-patches/issues/215)) ([304fbac](https://github.com/revanced/revanced-patches/commit/304fbacab22538fb0945f564e061783b47120120))
+
 ## [2.40.2](https://github.com/revanced/revanced-patches/compare/v2.40.1...v2.40.2) (2022-08-22)
 
 
