@@ -1,3 +1,10 @@
+# [2.40.0](https://github.com/revanced/revanced-patches/compare/v2.39.1...v2.40.0) (2022-08-22)
+
+
+### Features
+
+* `settings` patch framework ([#266](https://github.com/revanced/revanced-patches/issues/266)) ([084a99b](https://github.com/revanced/revanced-patches/commit/084a99bc6f5ed67c0b270e219c2dd75a30f302f1))
+
 ## [2.39.1](https://github.com/revanced/revanced-patches/compare/v2.39.0...v2.39.1) (2022-08-21)
 
 
