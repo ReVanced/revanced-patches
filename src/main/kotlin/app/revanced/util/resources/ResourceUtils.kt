@@ -2,11 +2,38 @@ package app.revanced.util.resources
 
 import app.revanced.patcher.data.impl.DomFileEditor
 import app.revanced.patcher.data.impl.ResourceData
+import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
+import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
 import org.w3c.dom.Node
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 
 internal object ResourceUtils {
+
+    /**
+     * Settings related utilities
+     */
+    internal object Settings {
+        /**
+         * Merge strings. This handles [StringResource]s automatically.
+         * @param host The hosting xml resource. Needs to be a valid strings.xml resource.
+         */
+        internal fun ResourceData.mergeStrings(host: String) {
+            this.iterateXmlNodeChildren(host, "resources") {
+                // TODO: figure out why this is needed
+                if (!it.hasAttributes()) return@iterateXmlNodeChildren
+
+                val attributes = it.attributes
+                val key = attributes.getNamedItem("name")!!.nodeValue!!
+                val value = it.textContent!!
+
+                val formatted = attributes.getNamedItem("formatted") == null
+
+                SettingsPatch.addString(key, value, formatted)
+            }
+        }
+    }
+
     /**
      * Copy resources from the current class loader to the resource directory.
      * @param sourceResourceDirectory The source resource directory name.

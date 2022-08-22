@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="powertube_not_installed_warning">PowerTube is not installed</string>
+    <string name="powertube_not_installed_notice">Please install PowerTube from https://github.com/razar-dev/PowerTube.</string>
+</resources>

@@ -13,7 +13,7 @@ import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatc
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.Preference
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
-import app.revanced.util.resources.ResourceUtils.iterateXmlNodeChildren
+import app.revanced.util.resources.ResourceUtils.Settings.mergeStrings
 
 @DependsOn([FixLocaleConfigErrorPatch::class, SettingsPatch::class])
 @Name("return-youtube-dislike-resource-patch")
@@ -35,12 +35,7 @@ class ReturnYouTubeDislikeResourcePatch : ResourcePatch() {
             )
         )
         // merge strings
-        data.iterateXmlNodeChildren("returnyoutubedislike/host/values/strings.xml", "resources") {
-            // TODO: figure out why this is needed
-            if (!it.hasAttributes()) return@iterateXmlNodeChildren
-            val attributes = it.attributes
-            SettingsPatch.addString(attributes.getNamedItem("name")!!.nodeValue!!, it.textContent!!)
-        }
+        data.mergeStrings("returnyoutubedislike/host/values/strings.xml")
 
         return PatchResultSuccess()
     }
