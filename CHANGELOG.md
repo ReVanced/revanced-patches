@@ -1,3 +1,10 @@
+## [2.40.1](https://github.com/revanced/revanced-patches/compare/v2.40.0...v2.40.1) (2022-08-22)
+
+
+### Bug Fixes
+
+* add missing switch for `tablet-mini-player` patch ([244a1b2](https://github.com/revanced/revanced-patches/commit/244a1b2cb9f77272dc62287a4a34a487b0289295))
+
 # [2.40.0](https://github.com/revanced/revanced-patches/compare/v2.39.1...v2.40.0) (2022-08-22)
 
 
