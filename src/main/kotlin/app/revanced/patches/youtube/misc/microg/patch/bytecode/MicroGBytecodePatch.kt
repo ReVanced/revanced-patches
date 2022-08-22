@@ -35,7 +35,7 @@ import org.jf.dexlib2.immutable.reference.ImmutableStringReference
     ]
 )
 @Name("microg-support")
-@Description("Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG")
+@Description("Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG.")
 @MicroGPatchCompatibility
 @Version("0.0.1")
 class MicroGBytecodePatch : BytecodePatch(
