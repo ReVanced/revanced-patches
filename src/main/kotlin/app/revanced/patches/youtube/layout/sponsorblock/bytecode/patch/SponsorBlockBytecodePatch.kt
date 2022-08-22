@@ -23,6 +23,7 @@ import app.revanced.patches.youtube.layout.sponsorblock.bytecode.fingerprints.*
 import app.revanced.patches.youtube.layout.sponsorblock.resource.patch.SponsorBlockResourcePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.mapping.patch.ResourceIdMappingProviderResourcePatch
+import app.revanced.patches.youtube.misc.playercontrols.bytecode.patch.PlayerControlsBytecodePatch
 import app.revanced.patches.youtube.misc.videoid.patch.VideoIdPatch
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
@@ -38,7 +39,7 @@ import org.jf.dexlib2.util.MethodUtil
 
 @Patch
 @DependsOn(
-    dependencies = [IntegrationsPatch::class, ResourceIdMappingProviderResourcePatch::class, SponsorBlockResourcePatch::class, VideoIdPatch::class]
+    dependencies = [PlayerControlsBytecodePatch::class, IntegrationsPatch::class, ResourceIdMappingProviderResourcePatch::class, SponsorBlockResourcePatch::class, VideoIdPatch::class]
 )
 @Name("sponsorblock")
 @Description("Integrate SponsorBlock.")
@@ -171,8 +172,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         /*
         Voting & Shield button
          */
-        ShowPlayerControlsFingerprint.resolve(data, data.classes.find { it.type.endsWith("YouTubeControlsOverlay;") }!!)
-        val controlsMethodResult = ShowPlayerControlsFingerprint.result!!
+        val controlsMethodResult = PlayerControlsBytecodePatch.showPlayerControlsFingerprintResult
 
         val controlsLayoutStubResourceId =
             ResourceIdMappingProviderResourcePatch.resourceMappings.single { it.type == "id" && it.name == "controls_layout_stub" }.id
@@ -217,12 +217,8 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         }
 
         // change visibility of the buttons
-        controlsMethodResult.mutableMethod.addInstructions(
-            0, """
-                invoke-static {p1}, Lapp/revanced/integrations/sponsorblock/ShieldButton;->changeVisibility(Z)V
-                invoke-static {p1}, Lapp/revanced/integrations/sponsorblock/VotingButton;->changeVisibility(Z)V
-            """.trimIndent()
-        )
+        PlayerControlsBytecodePatch.injectVisibilityCheckCall("Lapp/revanced/integrations/sponsorblock/ShieldButton;->changeVisibility(Z)V")
+        PlayerControlsBytecodePatch.injectVisibilityCheckCall("Lapp/revanced/integrations/sponsorblock/VotingButton;->changeVisibility(Z)V")
 
         // set SegmentHelperLayout.context to the player layout instance
         val instanceRegister = 0

@@ -13,9 +13,9 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.Preference
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
 import app.revanced.util.resources.ResourceUtils
+import app.revanced.util.resources.ResourceUtils.Settings.mergeStrings
 import app.revanced.util.resources.ResourceUtils.copyResources
 import app.revanced.util.resources.ResourceUtils.copyXmlNode
-import app.revanced.util.resources.ResourceUtils.iterateXmlNodeChildren
 
 @Name("sponsorblock-resource-patch")
 @SponsorBlockCompatibility
@@ -40,20 +40,7 @@ class SponsorBlockResourcePatch : ResourcePatch() {
         /*
          merge SponsorBlock strings to main strings
          */
-        data.iterateXmlNodeChildren("sponsorblock/host/values/strings.xml", "resources") {
-            // TODO: figure out why this is needed
-            if (!it.hasAttributes()) return@iterateXmlNodeChildren
-
-            val attributes = it.attributes
-            val key = attributes.getNamedItem("name")!!.nodeValue!!
-            val value = it.textContent!!
-
-            // all strings of SponsorBlock which have this attribute have the attribute value false,
-            // hence a null check suffices
-            val formatted = attributes.getNamedItem("formatted") == null
-
-            SettingsPatch.addString(key, value, formatted)
-        }
+        data.mergeStrings("sponsorblock/host/values/strings.xml")
 
         /*
          merge SponsorBlock drawables to main drawables

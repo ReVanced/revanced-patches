@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yt="http://schemas.android.com/apk/res-auto" android:id="@+id/youtube_controls_bottom_ui_container" android:layout_width="match_parent" android:layout_height="wrap_content" android:layoutDirection="ltr">
+    <com.google.android.libraries.youtube.common.ui.TouchImageView android:id="@+id/download_button" android:paddingLeft="12dp" android:paddingTop="22dp" android:paddingRight="12dp" android:paddingBottom="16dp" android:longClickable="false" android:layout_width="60dp" android:layout_height="60dp" android:src="@drawable/revanced_yt_download_button" android:scaleType="center" yt:layout_constraintBottom_toTopOf="@+id/quick_actions_container" yt:layout_constraintRight_toLeftOf="@+id/fullscreen_button" style="@style/YouTubePlayerButton"/>
+</android.support.constraint.ConstraintLayout>
