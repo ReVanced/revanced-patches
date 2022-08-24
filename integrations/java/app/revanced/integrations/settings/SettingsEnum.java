@@ -53,7 +53,7 @@ public enum SettingsEnum {
     CAST_BUTTON_SHOWN("revanced_cast_button_enabled", false, ReturnType.BOOLEAN, true),
     AUTOPLAY_BUTTON_SHOWN("revanced_autoplay_button_enabled", false, ReturnType.BOOLEAN, true),
     //ToDo: Not used atm, Patch missing
-    USE_TABLET_MINIPLAYER("revanced_tablet_miniplayer", false, ReturnType.BOOLEAN),
+    USE_TABLET_MINIPLAYER("revanced_tablet_miniplayer", false, ReturnType.BOOLEAN, true),
     CREATE_BUTTON_ENABLED("revanced_create_button_enabled", false, ReturnType.BOOLEAN, true),
     WIDE_SEARCHBAR("revanced_wide_searchbar", false, ReturnType.BOOLEAN, true),
     SHORTS_BUTTON_SHOWN("revanced_shorts_button_enabled", false, ReturnType.BOOLEAN, true),
