@@ -1,3 +1,10 @@
+## [2.43.1](https://github.com/revanced/revanced-patches/compare/v2.43.0...v2.43.1) (2022-08-26)
+
+
+### Bug Fixes
+
+* `Patch` annotation for `client-spoof` patch ([6a8af47](https://github.com/revanced/revanced-patches/commit/6a8af47f2dfb319a53db9b5f9deb0392f10f4185))
+
 # [2.43.0](https://github.com/revanced/revanced-patches/compare/v2.42.1...v2.43.0) (2022-08-26)
 
 
