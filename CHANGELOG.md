@@ -1,3 +1,10 @@
+## [2.42.1](https://github.com/revanced/revanced-patches/compare/v2.42.0...v2.42.1) (2022-08-26)
+
+
+### Bug Fixes
+
+* changed default value for autorepeat setting ([#386](https://github.com/revanced/revanced-patches/issues/386)) ([d43add7](https://github.com/revanced/revanced-patches/commit/d43add7c21f0d9f45830476704985755e37d33ef))
+
 # [2.42.0](https://github.com/revanced/revanced-patches/compare/v2.41.0...v2.42.0) (2022-08-22)
 
 
