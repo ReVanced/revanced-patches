@@ -14,6 +14,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patches.youtube.layout.castbutton.patch.HideCastButtonPatch
+import app.revanced.patches.youtube.misc.clientspoof.patch.ClientSpoofPatch
 import app.revanced.patches.youtube.misc.microg.annotations.MicroGPatchCompatibility
 import app.revanced.patches.youtube.misc.microg.fingerprints.*
 import app.revanced.patches.youtube.misc.microg.patch.resource.MicroGResourcePatch
@@ -32,6 +33,7 @@ import org.jf.dexlib2.immutable.reference.ImmutableStringReference
     [
         MicroGResourcePatch::class,
         HideCastButtonPatch::class,
+        ClientSpoofPatch::class
     ]
 )
 @Name("microg-support")
