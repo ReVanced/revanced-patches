@@ -6,7 +6,7 @@ import app.revanced.patcher.annotation.Package
 @Compatibility(
     [
         Package("com.google.android.youtube", arrayOf()),
-        Package("com.vanced.android", arrayOf())
+        Package("com.vanced.android.youtube", arrayOf())
     ]
 )
 @Target(AnnotationTarget.CLASS)
