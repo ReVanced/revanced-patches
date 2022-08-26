@@ -1,3 +1,10 @@
+# [2.43.0](https://github.com/revanced/revanced-patches/compare/v2.42.1...v2.43.0) (2022-08-26)
+
+
+### Features
+
+* `client-spoof` patch ([5512c07](https://github.com/revanced/revanced-patches/commit/5512c072fa4b047849dbea0d2d382dd85e3a0827))
+
 ## [2.42.1](https://github.com/revanced/revanced-patches/compare/v2.42.0...v2.42.1) (2022-08-26)
 
 
