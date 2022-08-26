@@ -1,3 +1,10 @@
+## [2.43.2](https://github.com/revanced/revanced-patches/compare/v2.43.1...v2.43.2) (2022-08-26)
+
+
+### Bug Fixes
+
+* package name for Vanced ([#390](https://github.com/revanced/revanced-patches/issues/390)) ([85206b9](https://github.com/revanced/revanced-patches/commit/85206b99e1399d00e5eaebded8aadc5fb982aaa4))
+
 ## [2.43.1](https://github.com/revanced/revanced-patches/compare/v2.43.0...v2.43.1) (2022-08-26)
 
 
