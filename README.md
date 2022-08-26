@@ -86,7 +86,7 @@ Official patches by ReVanced
 | `minimized-playback` | Enables minimized and background playback. | 17.32.35 |
 | `custom-video-buffer` | Lets you change the buffers of videos. | 17.32.35 |
 | `always-autorepeat` | Always repeats the playing video again. | 17.32.35 |
-| `microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG | 17.32.35 |
+| `microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG. | 17.32.35 |
 | `settings` | Adds settings for ReVanced to YouTube. | all |
 | `enable-debugging` | Enables app debugging by patching the manifest file. | all |
 | `custom-playback-speed` | Adds more video playback speed options. | 17.32.35 |
