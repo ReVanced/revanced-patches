@@ -8,7 +8,6 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.misc.clientspoof.annotations.ClientSpoofCompatibility
@@ -19,7 +18,6 @@ import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 @Patch
 @Name("client-spoof")
 @Description("Spoofs the YouTube or Vanced client to prevent playback issues.")
-@DependsOn([IntegrationsPatch::class])
 @ClientSpoofCompatibility
 @Version("0.0.1")
 class ClientSpoofPatch : BytecodePatch(
