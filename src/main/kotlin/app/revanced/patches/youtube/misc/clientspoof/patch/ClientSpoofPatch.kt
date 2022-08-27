@@ -4,7 +4,7 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.impl.BytecodeData
-import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -33,7 +33,7 @@ class ClientSpoofPatch : BytecodePatch(
         val packageNameRegister = (method.instruction(insertIndex) as FiveRegisterInstruction).registerD
 
         val originalPackageName = "com.google.android.youtube"
-        method.addInstructions(insertIndex, "const-string v$packageNameRegister, \"$originalPackageName\"")
+        method.addInstruction(insertIndex, "const-string v$packageNameRegister, \"$originalPackageName\"")
 
         return PatchResultSuccess()
     }
