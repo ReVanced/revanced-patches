@@ -1,3 +1,10 @@
+# [2.44.0](https://github.com/revanced/revanced-patches/compare/v2.43.2...v2.44.0) (2022-08-27)
+
+
+### Features
+
+* add debug switch ([#391](https://github.com/revanced/revanced-patches/issues/391)) ([ee4b776](https://github.com/revanced/revanced-patches/commit/ee4b7761d8bb4549f2f100f721c90c664eedfe4a))
+
 ## [2.43.2](https://github.com/revanced/revanced-patches/compare/v2.43.1...v2.43.2) (2022-08-26)
 
 
