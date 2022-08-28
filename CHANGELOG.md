@@ -1,3 +1,10 @@
+## [2.45.2](https://github.com/revanced/revanced-patches/compare/v2.45.1...v2.45.2) (2022-08-28)
+
+
+### Bug Fixes
+
+* add `patches.json` as a release asset ([a0b2c89](https://github.com/revanced/revanced-patches/commit/a0b2c89071d64efa7629a8d6d6bc0492c9772aa9))
+
 ## [2.45.1](https://github.com/revanced/revanced-patches/compare/v2.45.0...v2.45.1) (2022-08-28)
 
 
