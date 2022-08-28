@@ -29,7 +29,7 @@ jobs:
       - name: Build with Gradle
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./gradlew build clean
+        run: ./gradlew build clean generateMeta
       - name: Install Android build-tools
         run: sdkmanager "build-tools;32.0.0"
       - name: Setup semantic-release
