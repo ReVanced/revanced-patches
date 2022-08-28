@@ -1,12 +1,10 @@
 package app.revanced.meta.readme
 
 class Template(template: String) {
-    val result: StringBuilder = StringBuilder(template)
+    val result = StringBuilder(template)
 
-    fun replaceVariable(name: String, value: String) {
-        val regex = Regex("\\{\\{\\s?$name\\s?}}")
+    fun replaceVariable(regex: Regex, value: String) {
         val range = regex.find(result)!!.range
-
         result.replace(range.first, range.last + 1, value)
     }
 

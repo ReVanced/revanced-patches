@@ -24,6 +24,9 @@ dependencies {
 
     implementation("app.revanced:revanced-patcher:3.3.3")
     implementation("app.revanced:multidexlib2:2.5.2.r2")
+
+    // Required for meta
+    implementation("com.google.code.gson:gson:2.9.1")
 }
 
 tasks {
@@ -48,12 +51,12 @@ tasks {
             }
         }
     }
-    register<JavaExec>("generateReadme") {
-        description = "Generate README.md"
+    register<JavaExec>("generateMeta") {
+        description = "Generate metadata for this bundle"
         dependsOn(build)
 
         classpath = sourceSets["main"].runtimeClasspath
-        mainClass.set("app.revanced.meta.readme.Generator")
+        mainClass.set("app.revanced.meta.Meta")
     }
     // Dummy task to fix the Gradle semantic-release plugin.
     // Remove this if you forked it to support building only.
@@ -61,6 +64,6 @@ tasks {
     register<DefaultTask>("publish") {
         group = "publish"
         description = "Dummy task"
-        dependsOn(named("generateBundle"), named("generateReadme"))
+        dependsOn(named("generateBundle"), named("generateMeta"))
     }
 }
