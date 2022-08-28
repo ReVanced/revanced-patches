@@ -1,3 +1,10 @@
+# [2.45.0](https://github.com/revanced/revanced-patches/compare/v2.44.0...v2.45.0) (2022-08-28)
+
+
+### Features
+
+* Add JSON meta ([4c229d3](https://github.com/revanced/revanced-patches/commit/4c229d350859903a782c43b13457628739572f09))
+
 # [2.44.0](https://github.com/revanced/revanced-patches/compare/v2.43.2...v2.44.0) (2022-08-27)
 
 
