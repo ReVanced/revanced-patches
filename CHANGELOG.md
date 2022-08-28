@@ -1,3 +1,10 @@
+## [2.45.1](https://github.com/revanced/revanced-patches/compare/v2.45.0...v2.45.1) (2022-08-28)
+
+
+### Bug Fixes
+
+* run meta generator ([70a2b45](https://github.com/revanced/revanced-patches/commit/70a2b456b4031b3da38a18a71ede7bf84099acd0))
+
 # [2.45.0](https://github.com/revanced/revanced-patches/compare/v2.44.0...v2.45.0) (2022-08-28)
 
 
