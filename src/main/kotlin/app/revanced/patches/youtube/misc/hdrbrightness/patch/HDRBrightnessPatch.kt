@@ -6,13 +6,13 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.impl.BytecodeData
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.misc.hdrbrightness.annotations.HDRBrightnessCompatibility
-import app.revanced.patches.youtube.misc.hdrbrightness.fingerprints.HDRBrightnessFingerprintXXZ
+import app.revanced.patches.youtube.misc.hdrbrightness.fingerprints.HDRBrightnessFingerprintYEL
+import app.revanced.patches.youtube.misc.hdrbrightness.fingerprints.HDRBrightnessFingerprintYJK
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
@@ -29,7 +29,8 @@ import org.jf.dexlib2.iface.reference.FieldReference
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
 class HDRBrightnessPatch : BytecodePatch(
     listOf(
-        HDRBrightnessFingerprintXXZ
+        HDRBrightnessFingerprintYEL,
+        HDRBrightnessFingerprintYJK
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
@@ -43,8 +44,13 @@ class HDRBrightnessPatch : BytecodePatch(
             )
         )
 
-        val method = HDRBrightnessFingerprintXXZ.result?.mutableMethod
-            ?: return PatchResultError("HDRBrightnessFingerprint could not resolve the method!")
+        val result = try {
+            HDRBrightnessFingerprintYEL.result!!
+        } catch (e: Exception) {
+            HDRBrightnessFingerprintYJK.result!!
+        }
+
+        val method = result.mutableMethod
 
         method.implementation!!.instructions.filter {
             ((it as? ReferenceInstruction)?.reference as? FieldReference)?.let { field ->

@@ -14,12 +14,12 @@ import org.jf.dexlib2.iface.reference.FieldReference
 
 @Name("hdr-brightness-fingerprint-xxz")
 @MatchingMethod(
-    "Lxxz;", "G"
+    "Lyel;", "G"
 )
 @FuzzyPatternScanMethod(3)
 @HDRBrightnessCompatibility
 @Version("0.0.1")
-object HDRBrightnessFingerprintXXZ : MethodFingerprint(
+object HDRBrightnessFingerprintYEL : MethodFingerprint(
     "V", AccessFlags.PUBLIC or AccessFlags.FINAL,
     listOf("I", "I", "I", "I"),
     listOf(
