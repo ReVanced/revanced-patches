@@ -37,7 +37,7 @@ class WideSearchbarPatch : BytecodePatch(
     override fun execute(data: BytecodeData): PatchResult {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
-                "revanced_wide_searchbar_enabled",
+                "revanced_wide_searchbar",
                 StringResource("revanced_wide_searchbar_enabled_title", "Enable wide search bar"),
                 false,
                 StringResource("revanced_wide_searchbar_summary_on", "Wide search bar is enabled"),

@@ -60,12 +60,12 @@ class ShortsButtonRemoverPatch : BytecodePatch(
         val buttonsViewImplementation = buttonsViewResult.mutableMethod.implementation!!
         val scanResultStartIndex = buttonsViewResult.patternScanResult!!.startIndex
         val buttonsViewIndex = scanResultStartIndex +
-                if (buttonsViewImplementation.instructions[scanResultStartIndex - 1].opcode == Opcode.IF_NEZ) {
+                if (buttonsViewImplementation.instructions[scanResultStartIndex - 1].opcode == Opcode.GOTO) {
+                    // since 17.32.xx
+                    -7
+                } else {
                     // for 17.31.xx and lower
                     -3
-                } else {
-                    // since 17.32.xx
-                    -6
                 }
         val moveViewInstruction = buttonsViewImplementation.instructions[buttonsViewIndex - 1]
         val viewRegister = (moveViewInstruction as OneRegisterInstruction).registerA
