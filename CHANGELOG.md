@@ -1,3 +1,10 @@
+## [2.45.3](https://github.com/revanced/revanced-patches/compare/v2.45.2...v2.45.3) (2022-08-29)
+
+
+### Bug Fixes
+
+* release `patches.json` file ([#402](https://github.com/revanced/revanced-patches/issues/402)) ([17e351c](https://github.com/revanced/revanced-patches/commit/17e351c99a69652f20d89e579f43c1ce110cd81d))
+
 ## [2.45.2](https://github.com/revanced/revanced-patches/compare/v2.45.1...v2.45.2) (2022-08-28)
 
 
