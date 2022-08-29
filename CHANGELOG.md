@@ -1,3 +1,16 @@
+# [2.46.0](https://github.com/revanced/revanced-patches/compare/v2.45.3...v2.46.0) (2022-08-29)
+
+
+### Bug Fixes
+
+* `seekbar-tapping` toggling ([#401](https://github.com/revanced/revanced-patches/issues/401)) ([5550244](https://github.com/revanced/revanced-patches/commit/55502446ce5967922f2e9711a5fea2758fe31e83))
+
+
+### Features
+
+* `premium-icon-reddit` patch ([#333](https://github.com/revanced/revanced-patches/issues/333)) ([6739e7b](https://github.com/revanced/revanced-patches/commit/6739e7b94c18200bb3afbc9a8465d97bd18d1945))
+* blacklist `.vsc` folder in `.gitignore` ([#331](https://github.com/revanced/revanced-patches/issues/331)) ([1922253](https://github.com/revanced/revanced-patches/commit/1922253118e670aa66b33186f5cee2ffb3c55718))
+
 ## [2.45.3](https://github.com/revanced/revanced-patches/compare/v2.45.2...v2.45.3) (2022-08-29)
 
 
