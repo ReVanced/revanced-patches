@@ -17,6 +17,7 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
+| `premium-icon-reddit` | Unlocking Premium Icons in reddit app. | all |
 | `general-reddit-ads` | Removes general ads from the Reddit frontpage and subreddits. | all |
 </details>
 
