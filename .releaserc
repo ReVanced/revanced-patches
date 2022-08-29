@@ -32,6 +32,9 @@
         "assets": [
           {
             "path": "build/libs/*.jar"
+          },
+          {
+            "path": "patches.json"
           }
         ]
       }
