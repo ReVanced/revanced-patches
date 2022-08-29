@@ -20,8 +20,6 @@ public class GeneralBytecodeAdsPatch {
     }
 
     private static boolean containsLithoAd(String value, ByteBuffer buffer) {
-        String readableBuffer = new String(buffer.array(), StandardCharsets.UTF_8);
-        
         boolean enabled = false;
         for (SettingsEnum setting : SettingsEnum.getAdRemovalSettings()) {
             if (setting.getBoolean()) {
@@ -60,8 +58,8 @@ public class GeneralBytecodeAdsPatch {
 
                 bufferBlockList.add("YouTube Movies");
             }
-            if (containsAny(readableBuffer, "home_video_with_context", "related_video_with_context") &&
-                    bufferBlockList.stream().anyMatch(readableBuffer::contains)
+            if (containsAny(value, "home_video_with_context", "related_video_with_context") &&
+                    bufferBlockList.stream().anyMatch(new String(buffer.array(), StandardCharsets.UTF_8)::contains)
             ) return true;
 
             if (SettingsEnum.ADREMOVER_COMMENTS_REMOVAL.getBoolean()) {
