@@ -67,36 +67,36 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `swipe-controls` | Adds volume and brightness swipe controls. | 17.32.35 |
-| `downloads` | Enables downloading music and videos from YouTube. | 17.32.35 |
-| `seekbar-tapping` | Enables tap-to-seek on the seekbar of the video player. | 17.32.35 |
-| `amoled` | Enables pure black theme. | 17.32.35 |
-| `disable-create-button` | Hides the create button in the navigation bar. | 17.32.35 |
+| `swipe-controls` | Adds volume and brightness swipe controls. | 17.33.42 |
+| `downloads` | Enables downloading music and videos from YouTube. | 17.33.42 |
+| `seekbar-tapping` | Enables tap-to-seek on the seekbar of the video player. | 17.33.42 |
+| `amoled` | Enables pure black theme. | 17.33.42 |
+| `disable-create-button` | Hides the create button in the navigation bar. | 17.33.42 |
 | `hide-cast-button` | Hides the cast button in the video player. | all |
-| `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 17.32.35 |
-| `hide-autoplay-button` | Hides the autoplay button in the video player. | 17.32.35 |
+| `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 17.33.42 |
+| `hide-autoplay-button` | Hides the autoplay button in the video player. | 17.33.42 |
 | `premium-heading` | Shows premium branding on the home screen. | all |
 | `custom-branding` | Changes the YouTube launcher icon and name to your choice (defaults to ReVanced). | all |
-| `disable-fullscreen-panels` | Disables video description and comments panel in fullscreen view. | 17.32.35 |
-| `old-quality-layout` | Enables the original quality flyout menu. | 17.32.35 |
-| `hide-shorts-button` | Hides the shorts button on the navigation bar. | 17.32.35 |
-| `hide-watermark` | Hides creator's watermarks on videos. | 17.32.35 |
-| `sponsorblock` | Integrate SponsorBlock. | 17.32.35 |
-| `enable-wide-searchbar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 17.32.35 |
-| `tablet-mini-player` | Enables the tablet mini player layout. | 17.32.35 |
-| `minimized-playback` | Enables minimized and background playback. | 17.32.35 |
+| `disable-fullscreen-panels` | Disables video description and comments panel in fullscreen view. | 17.33.42 |
+| `old-quality-layout` | Enables the original quality flyout menu. | 17.33.42 |
+| `hide-shorts-button` | Hides the shorts button on the navigation bar. | 17.33.42 |
+| `hide-watermark` | Hides creator's watermarks on videos. | 17.33.42 |
+| `sponsorblock` | Integrate SponsorBlock. | 17.33.42 |
+| `enable-wide-searchbar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 17.33.42 |
+| `tablet-mini-player` | Enables the tablet mini player layout. | 17.33.42 |
+| `minimized-playback` | Enables minimized and background playback. | 17.33.42 |
 | `client-spoof` | Spoofs the YouTube or Vanced client to prevent playback issues. | all |
-| `custom-video-buffer` | Lets you change the buffers of videos. | 17.32.35 |
-| `always-autorepeat` | Always repeats the playing video again. | 17.32.35 |
-| `microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG. | 17.32.35 |
+| `custom-video-buffer` | Lets you change the buffers of videos. | 17.33.42 |
+| `always-autorepeat` | Always repeats the playing video again. | 17.33.42 |
+| `microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG. | 17.33.42 |
 | `settings` | Adds settings for ReVanced to YouTube. | all |
 | `enable-debugging` | Enables app debugging by patching the manifest file. | all |
-| `custom-playback-speed` | Adds more video playback speed options. | 17.32.35 |
-| `hdr-auto-brightness` | Makes the brightness of HDR videos follow the system default. | 17.32.35 |
-| `remember-video-quality` | Adds the ability to remember the video quality you chose in the video quality flyout. | 17.32.35 |
-| `video-ads` | Removes ads in the video player. | 17.32.35 |
-| `general-ads` | Removes general ads. | 17.32.35 |
-| `hide-infocard-suggestions` | Hides infocards in videos. | 17.32.35 |
+| `custom-playback-speed` | Adds more video playback speed options. | 17.33.42 |
+| `hdr-auto-brightness` | Makes the brightness of HDR videos follow the system default. | 17.33.42 |
+| `remember-video-quality` | Adds the ability to remember the video quality you chose in the video quality flyout. | 17.33.42 |
+| `video-ads` | Removes ads in the video player. | 17.33.42 |
+| `general-ads` | Removes general ads. | 17.33.42 |
+| `hide-infocard-suggestions` | Hides infocards in videos. | 17.33.42 |
 </details>
 
 
