@@ -115,3 +115,6 @@ gradle-app.setting
 
 # Potentially copyrighted test APK
 *.apk
+
+# Ignore vscode config
+.vscode/
