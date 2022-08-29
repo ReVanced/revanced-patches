@@ -84,6 +84,7 @@ class EnableSeekbarTappingPatch : BytecodePatch(
         if (instruction.opcode != Opcode.INVOKE_VIRTUAL) return PatchResultError("Could not find the correct register")
         val register = (instruction as Instruction35c).registerC
 
+        val elseLabel = implementation.newLabelForIndex(result.patternScanResult!!.endIndex + 1)
         // the instructions are written in reverse order.
         result.mutableMethod.addInstructions(
             result.patternScanResult!!.endIndex + 1, """
@@ -93,7 +94,6 @@ class EnableSeekbarTappingPatch : BytecodePatch(
         )
 
         // if tap-seeking is disabled, do not invoke the two methods above by jumping to the else label
-        val elseLabel = implementation.newLabelForIndex(result.patternScanResult!!.endIndex + 1)
         implementation.addInstruction(
             result.patternScanResult!!.endIndex + 1, BuilderInstruction21t(Opcode.IF_EQZ, 0, elseLabel)
         )
