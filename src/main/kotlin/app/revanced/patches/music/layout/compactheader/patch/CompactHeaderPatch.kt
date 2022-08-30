@@ -31,8 +31,8 @@ class CompactHeaderPatch : BytecodePatch(
         val register = (method.implementation!!.instructions[insertIndex - 1] as BuilderInstruction11x).registerA
         method.addInstructions(
             insertIndex, """
-                const/16 v0, 0x8
-                invoke-virtual {v${register}, v0}, Landroid/view/View;->setVisibility(I)V
+                const/16 v2, 0x8
+                invoke-virtual {v${register}, v2}, Landroid/view/View;->setVisibility(I)V
             """
         )
 
