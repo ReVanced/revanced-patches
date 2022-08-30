@@ -1,3 +1,10 @@
+## [2.48.1](https://github.com/revanced/revanced-patches/compare/v2.48.0...v2.48.1) (2022-08-30)
+
+
+### Bug Fixes
+
+* don't overwrite register in `compact-header` patch ([#406](https://github.com/revanced/revanced-patches/issues/406)) ([3da8ab5](https://github.com/revanced/revanced-patches/commit/3da8ab5702f5c2a0384ce85fcb3df3b837cdc90e))
+
 # [2.48.0](https://github.com/revanced/revanced-patches/compare/v2.47.0...v2.48.0) (2022-08-30)
 
 
