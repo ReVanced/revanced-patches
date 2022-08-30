@@ -1,3 +1,10 @@
+## [2.48.2](https://github.com/revanced/revanced-patches/compare/v2.48.1...v2.48.2) (2022-08-30)
+
+
+### Bug Fixes
+
+* do not constrain `amoled` patch to versions ([#408](https://github.com/revanced/revanced-patches/issues/408)) ([4af1714](https://github.com/revanced/revanced-patches/commit/4af1714dae4da40fe7488e8b734da91c978f1bdf))
+
 ## [2.48.1](https://github.com/revanced/revanced-patches/compare/v2.48.0...v2.48.1) (2022-08-30)
 
 

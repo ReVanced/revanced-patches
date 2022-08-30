@@ -70,7 +70,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `swipe-controls` | Adds volume and brightness swipe controls. | 17.33.42 |
 | `downloads` | Enables downloading music and videos from YouTube. | 17.33.42 |
 | `seekbar-tapping` | Enables tap-to-seek on the seekbar of the video player. | 17.33.42 |
-| `amoled` | Enables pure black theme. | 17.33.42 |
+| `amoled` | Enables pure black theme. | all |
 | `disable-create-button` | Hides the create button in the navigation bar. | 17.33.42 |
 | `hide-cast-button` | Hides the cast button in the video player. | all |
 | `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 17.33.42 |
