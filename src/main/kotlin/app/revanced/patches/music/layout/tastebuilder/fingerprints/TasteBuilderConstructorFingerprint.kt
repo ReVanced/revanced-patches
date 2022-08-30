@@ -18,7 +18,7 @@ import org.jf.dexlib2.Opcode
 @RemoveTasteBuilderCompatibility
 @Version("0.0.1")
 object TasteBuilderConstructorFingerprint : MethodFingerprint(
-    "V", AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR, listOf("L", "L", "L", "L"), listOf(
+    "V", AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR, listOf("L", "L", "L"), listOf(
         Opcode.INVOKE_DIRECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.NEW_INSTANCE,
@@ -35,9 +35,9 @@ object TasteBuilderConstructorFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,
-        Opcode.IPUT_OBJECT,
         Opcode.NEW_INSTANCE,
         Opcode.INVOKE_DIRECT,
-        Opcode.IPUT_OBJECT
+        Opcode.IPUT_OBJECT,
+        Opcode.CONST
     )
 )
