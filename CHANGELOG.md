@@ -1,3 +1,10 @@
+## [2.50.1](https://github.com/revanced/revanced-patches/compare/v2.50.0...v2.50.1) (2022-08-31)
+
+
+### Bug Fixes
+
+* resolve fingerprint in `premium-icon-reddit` patch ([#413](https://github.com/revanced/revanced-patches/issues/413)) ([60ec2c6](https://github.com/revanced/revanced-patches/commit/60ec2c6f8a29cfc36313617a92e976f01213ce00))
+
 # [2.50.0](https://github.com/revanced/revanced-patches/compare/v2.49.0...v2.50.0) (2022-08-31)
 
 
