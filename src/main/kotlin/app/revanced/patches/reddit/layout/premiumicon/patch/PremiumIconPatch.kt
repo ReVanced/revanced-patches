@@ -17,7 +17,11 @@ import app.revanced.patches.reddit.layout.premiumicon.fingerprints.PremiumIconFi
 @Description("Unlocking Premium Icons in reddit app.")
 @PremiumIconCompatibility
 @Version("0.0.1")
-class PremiumIconPatch : BytecodePatch() {
+class PremiumIconPatch : BytecodePatch(
+    listOf(
+        PremiumIconFingerprint
+    )
+) {
     override fun execute(data: BytecodeData): PatchResult {
         val method = PremiumIconFingerprint.result!!.mutableMethod
         method.addInstructions(
