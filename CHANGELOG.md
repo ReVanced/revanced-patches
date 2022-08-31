@@ -1,3 +1,10 @@
+## [2.50.2](https://github.com/revanced/revanced-patches/compare/v2.50.1...v2.50.2) (2022-08-31)
+
+
+### Bug Fixes
+
+* wrong dependency version ([1e63a57](https://github.com/revanced/revanced-patches/commit/1e63a57b86475670442e6a24a7f24c02dabee239))
+
 ## [2.50.1](https://github.com/revanced/revanced-patches/compare/v2.50.0...v2.50.1) (2022-08-31)
 
 
