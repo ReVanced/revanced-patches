@@ -16,8 +16,7 @@ import org.jf.dexlib2.Opcode
 @SponsorBlockCompatibility
 @Version("0.0.1")
 object VideoLengthFingerprint : MethodFingerprint(
-    null, null, null,
-    listOf(
+    opcodes = listOf(
         Opcode.MOVE_RESULT_WIDE,
         Opcode.CMP_LONG,
         Opcode.IF_LEZ,

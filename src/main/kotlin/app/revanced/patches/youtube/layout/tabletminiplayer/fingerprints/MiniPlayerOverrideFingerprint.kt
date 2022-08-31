@@ -16,6 +16,6 @@ import org.jf.dexlib2.Opcode
 @TabletMiniPlayerCompatibility
 @Version("0.0.1")
 object MiniPlayerOverrideFingerprint : MethodFingerprint(
-    "Z", AccessFlags.STATIC or AccessFlags.PUBLIC ,null,
-    listOf(Opcode.RETURN), // anchor to insert the instruction
+    "Z", AccessFlags.STATIC or AccessFlags.PUBLIC,
+    opcodes = listOf(Opcode.RETURN), // anchor to insert the instruction
 )

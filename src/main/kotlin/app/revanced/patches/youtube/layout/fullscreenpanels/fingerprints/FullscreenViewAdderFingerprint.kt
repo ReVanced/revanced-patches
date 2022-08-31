@@ -16,10 +16,7 @@ import org.jf.dexlib2.Opcode
 @ShortsButtonCompatibility
 @Version("0.0.1")
 object FullscreenViewAdderFingerprint : MethodFingerprint(
-    null,
-    null,
-    null,
-    listOf(
+    opcodes = listOf(
         Opcode.IGET_BOOLEAN
     )
 )

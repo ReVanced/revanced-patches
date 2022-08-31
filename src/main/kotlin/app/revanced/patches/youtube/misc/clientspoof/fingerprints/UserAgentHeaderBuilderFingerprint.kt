@@ -12,9 +12,7 @@ import org.jf.dexlib2.Opcode
 @DirectPatternScanMethod
 @Version("0.0.1")
 object UserAgentHeaderBuilderFingerprint : MethodFingerprint(
-    null,
-    null,
-    listOf("L", "L", "L"),
-    listOf(Opcode.MOVE_RESULT_OBJECT, Opcode.INVOKE_VIRTUAL),
-    listOf("(Linux; U; Android "),
+    parameters = listOf("L", "L", "L"),
+    opcodes = listOf(Opcode.MOVE_RESULT_OBJECT, Opcode.INVOKE_VIRTUAL),
+    strings = listOf("(Linux; U; Android "),
 )

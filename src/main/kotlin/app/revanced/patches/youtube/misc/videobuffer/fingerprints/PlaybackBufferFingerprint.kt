@@ -21,9 +21,8 @@ import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
 object PlaybackBufferFingerprint : MethodFingerprint(
     "I", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf(),
     listOf(Opcode.IF_LEZ, Opcode.RETURN),
-    null,
     customFingerprint = { methodDef ->
-        methodDef.definingClass.equals("Lcom/google/android/libraries/youtube/innertube/model/media/PlayerConfigModel;")
+        methodDef.definingClass == "Lcom/google/android/libraries/youtube/innertube/model/media/PlayerConfigModel;"
                 && methodDef.implementation!!.instructions.any {
             ((it as? NarrowLiteralInstruction)?.narrowLiteral == 1600)
         }

@@ -16,8 +16,8 @@ import org.jf.dexlib2.Opcode
 @HDRBrightnessCompatibility
 @Version("0.0.1")
 object HDRBrightnessFingerprintYJK : MethodFingerprint(
-    "V", null, null,
-    listOf(
+    "V",
+    opcodes = listOf(
         Opcode.SGET_OBJECT,
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
@@ -27,5 +27,5 @@ object HDRBrightnessFingerprintYJK : MethodFingerprint(
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL
     ),
-    listOf("c.SettingNotFound;", "screen_brightness", "android.mediaview"),
+    strings = listOf("c.SettingNotFound;", "screen_brightness", "android.mediaview"),
 )

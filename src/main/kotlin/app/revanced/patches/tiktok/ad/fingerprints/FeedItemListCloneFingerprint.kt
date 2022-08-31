@@ -14,7 +14,7 @@ import app.revanced.patches.tiktok.ad.annotations.TiktokAdsCompatibility
 @TiktokAdsCompatibility
 @Version("0.0.1")
 object FeedItemListCloneFingerprint : MethodFingerprint(
-    null, null, null, null,null, { methodDef ->
+    customFingerprint = { methodDef ->
         methodDef.definingClass.endsWith("/FeedItemList;") && methodDef.name == "clone"
     }
 )

@@ -15,7 +15,7 @@ import app.revanced.patches.youtube.misc.playeroverlay.annotation.PlayerOverlays
 @PlayerOverlaysHookCompatibility
 @Version("0.0.1")
 object PlayerOverlaysOnFinishInflateFingerprint : MethodFingerprint(
-    null, null, null, null, null, { methodDef ->
+    customFingerprint = { methodDef ->
         methodDef.definingClass.endsWith("YouTubePlayerOverlaysLayout;") && methodDef.name == "onFinishInflate"
     }
 )

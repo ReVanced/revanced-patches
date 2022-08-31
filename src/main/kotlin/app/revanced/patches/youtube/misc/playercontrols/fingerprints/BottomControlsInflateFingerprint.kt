@@ -18,12 +18,12 @@ import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 @PlayerControlsCompatibility
 @Version("0.0.1")
 object BottomControlsInflateFingerprint : MethodFingerprint(
-    null, null, null, listOf(
+    opcodes = listOf(
         Opcode.CHECK_CAST,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT
-    ), null,
-    { methodDef ->
+    ),
+    customFingerprint = { methodDef ->
         methodDef.implementation?.instructions?.any { instruction ->
             (instruction as? WideLiteralInstruction)?.wideLiteral == PlayerControlsBytecodePatch.bottomUiContainerResourceId
         } == true

@@ -21,12 +21,11 @@ import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
 object MaxBufferFingerprint : MethodFingerprint(
     "I", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf(),
     listOf(Opcode.SGET_OBJECT, Opcode.IGET, Opcode.IF_EQZ, Opcode.RETURN),
-    null,
     customFingerprint = { methodDef ->
-        methodDef.definingClass.equals("Lcom/google/android/libraries/youtube/innertube/model/media/PlayerConfigModel;")
+        methodDef.definingClass == "Lcom/google/android/libraries/youtube/innertube/model/media/PlayerConfigModel;"
                 && methodDef.implementation!!.instructions.any {
             ((it as? NarrowLiteralInstruction)?.narrowLiteral == 120000)
-                    && methodDef.name.equals("r")
+                    && methodDef.name == "r"
         }
     }
 )

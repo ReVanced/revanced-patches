@@ -15,8 +15,6 @@ import app.revanced.patches.youtube.layout.sponsorblock.annotations.SponsorBlock
 @SponsorBlockCompatibility
 @Version("0.0.1")
 object PlayerOverlaysLayoutInitFingerprint : MethodFingerprint(
-    null, null, null,
-    null,
-    null,
-    { methodDef -> methodDef.returnType.endsWith("YouTubePlayerOverlaysLayout;") }
+
+    customFingerprint = { methodDef -> methodDef.returnType.endsWith("YouTubePlayerOverlaysLayout;") }
 )

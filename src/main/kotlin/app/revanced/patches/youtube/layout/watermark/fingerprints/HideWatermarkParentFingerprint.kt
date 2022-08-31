@@ -17,5 +17,5 @@ import org.jf.dexlib2.AccessFlags
 @HideWatermarkCompatibility
 @Version("0.0.1")
 object HideWatermarkParentFingerprint : MethodFingerprint (
-    "L", AccessFlags.PUBLIC or AccessFlags.FINAL, null, null, listOf("player_overlay_in_video_programming"), null
+    "L", AccessFlags.PUBLIC or AccessFlags.FINAL, strings = listOf("player_overlay_in_video_programming")
 )

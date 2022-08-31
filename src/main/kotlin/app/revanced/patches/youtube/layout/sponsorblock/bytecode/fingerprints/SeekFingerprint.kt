@@ -15,9 +15,5 @@ import app.revanced.patches.youtube.layout.sponsorblock.annotations.SponsorBlock
 @SponsorBlockCompatibility
 @Version("0.0.1")
 object SeekFingerprint : MethodFingerprint(
-    null,
-    null,
-    null,
-    null,
-    listOf("Attempting to seek during an ad")
+    strings = listOf("Attempting to seek during an ad")
 )

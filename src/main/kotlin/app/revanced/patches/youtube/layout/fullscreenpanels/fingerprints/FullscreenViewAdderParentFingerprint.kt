@@ -16,10 +16,8 @@ import org.jf.dexlib2.Opcode
 @ShortsButtonCompatibility
 @Version("0.0.1")
 object FullscreenViewAdderParentFingerprint : MethodFingerprint(
-    null,
-    null,
-    listOf("L", "L"),
-    listOf(
+    parameters = listOf("L", "L"),
+    opcodes = listOf(
         Opcode.GOTO,
         Opcode.IGET_BOOLEAN,
         Opcode.IF_EQ,
@@ -27,6 +25,5 @@ object FullscreenViewAdderParentFingerprint : MethodFingerprint(
         Opcode.CONST_4,
         Opcode.INVOKE_VIRTUAL,
     ),
-    null,
-    { it.definingClass.endsWith("FullscreenEngagementPanelOverlay;") }
+    customFingerprint = { it.definingClass.endsWith("FullscreenEngagementPanelOverlay;") }
 )
