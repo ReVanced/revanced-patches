@@ -1,3 +1,10 @@
+# [2.50.0](https://github.com/revanced/revanced-patches/compare/v2.49.0...v2.50.0) (2022-08-31)
+
+
+### Features
+
+* `tiktok-download` and `tiktok-seekbar` patch ([#405](https://github.com/revanced/revanced-patches/issues/405)) ([f36e000](https://github.com/revanced/revanced-patches/commit/f36e0007c52f4e925a3a2370cdb51bd45ee00a1b))
+
 # [2.49.0](https://github.com/revanced/revanced-patches/compare/v2.48.2...v2.49.0) (2022-08-31)
 
 
