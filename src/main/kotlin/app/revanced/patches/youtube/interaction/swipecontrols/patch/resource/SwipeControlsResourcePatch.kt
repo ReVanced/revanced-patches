@@ -92,8 +92,6 @@ class SwipeControlsResourcePatch : ResourcePatch() {
             )
         )
 
-        val resourcesDir = "swipecontrols"
-
         data.copyResources(
             "swipecontrols",
             ResourceUtils.ResourceGroup(

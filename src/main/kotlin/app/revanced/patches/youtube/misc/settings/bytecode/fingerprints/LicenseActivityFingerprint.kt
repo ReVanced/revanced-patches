@@ -15,12 +15,7 @@ import app.revanced.patches.youtube.misc.settings.annotations.SettingsCompatibil
 @SettingsCompatibility
 @Version("0.0.1")
 object LicenseActivityFingerprint : MethodFingerprint(
-    null,
-    null,
-    null,
-    null,
-    null,
-    { methodDef ->
+    customFingerprint = { methodDef ->
         methodDef.definingClass.endsWith("LicenseActivity;") && methodDef.name == "onCreate"
     }
 )

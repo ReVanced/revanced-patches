@@ -5,8 +5,8 @@ import app.revanced.patcher.annotation.Package
 
 @Compatibility(
     [
-        Package("com.ss.android.ugc.trill", arrayOf()),
-        Package("com.zhiliaoapp.musically", arrayOf())
+        Package("com.ss.android.ugc.trill"),
+        Package("com.zhiliaoapp.musically")
     ]
 )
 @Target(AnnotationTarget.CLASS)

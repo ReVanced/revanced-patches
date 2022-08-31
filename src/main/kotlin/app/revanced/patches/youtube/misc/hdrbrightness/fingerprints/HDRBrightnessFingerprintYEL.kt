@@ -32,7 +32,6 @@ object HDRBrightnessFingerprintYEL : MethodFingerprint(
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL
     ),
-    null,
     customFingerprint = { methodDef ->
         methodDef.implementation!!.instructions.any {
             ((it as? ReferenceInstruction)?.reference as? FieldReference)?.let { field ->

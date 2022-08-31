@@ -12,7 +12,6 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.misc.clientspoof.annotations.ClientSpoofCompatibility
 import app.revanced.patches.youtube.misc.clientspoof.fingerprints.UserAgentHeaderBuilderFingerprint
-import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch

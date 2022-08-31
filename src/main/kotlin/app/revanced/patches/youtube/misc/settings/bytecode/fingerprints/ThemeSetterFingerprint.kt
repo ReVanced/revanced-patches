@@ -17,11 +17,8 @@ import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 @Version("0.0.1")
 object ThemeSetterFingerprint : MethodFingerprint(
     "L",
-    null,
-    null,
-    listOf(Opcode.RETURN_OBJECT),
-    null,
-    { methodDef ->
+    opcodes = listOf(Opcode.RETURN_OBJECT),
+    customFingerprint = { methodDef ->
         methodDef.implementation?.instructions?.any {
             it.opcode.ordinal == Opcode.CONST.ordinal && (it as WideLiteralInstruction).wideLiteral == SettingsPatch.appearanceStringId
         } == true

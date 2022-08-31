@@ -17,5 +17,5 @@ import org.jf.dexlib2.AccessFlags
 @VideoAdsCompatibility
 @Version("0.0.1")
 object ShowVideoAdsFingerprint : MethodFingerprint(
-    "V", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf("Z"), null
+    "V", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf("Z")
 )

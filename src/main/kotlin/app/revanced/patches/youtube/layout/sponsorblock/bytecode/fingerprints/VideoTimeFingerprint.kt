@@ -15,6 +15,5 @@ import app.revanced.patches.youtube.layout.sponsorblock.annotations.SponsorBlock
 @SponsorBlockCompatibility
 @Version("0.0.1")
 object VideoTimeFingerprint : MethodFingerprint(
-    null, null, null, null,
-    listOf("MedialibPlayerTimeInfo{currentPositionMillis=")
+    strings = listOf("MedialibPlayerTimeInfo{currentPositionMillis=")
 )

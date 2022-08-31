@@ -17,5 +17,6 @@ import org.jf.dexlib2.AccessFlags
 @MicroGPatchCompatibility
 @Version("0.0.1")
 object IntegrityCheckFingerprint : MethodFingerprint(
-    "L", AccessFlags.PUBLIC or AccessFlags.STATIC, listOf("L", "L"), null, listOf("This should never happen.", "GooglePlayServicesUtil", "Google Play Store signature invalid.")
+    "L", AccessFlags.PUBLIC or AccessFlags.STATIC, listOf("L", "L"),
+    strings = listOf("This should never happen.", "GooglePlayServicesUtil", "Google Play Store signature invalid.")
 )

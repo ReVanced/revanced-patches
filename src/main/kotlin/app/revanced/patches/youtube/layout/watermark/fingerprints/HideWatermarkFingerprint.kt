@@ -17,5 +17,5 @@ import org.jf.dexlib2.AccessFlags
 @HideWatermarkCompatibility
 @Version("0.0.1")
 object HideWatermarkFingerprint : MethodFingerprint (
-    "V", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf("L", "L"), null ,null, null
+    "V", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf("L", "L")
 )

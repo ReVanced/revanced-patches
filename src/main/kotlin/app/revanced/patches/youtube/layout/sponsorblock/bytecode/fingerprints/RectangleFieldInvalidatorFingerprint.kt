@@ -18,11 +18,7 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @Version("0.0.1")
 object RectangleFieldInvalidatorFingerprint : MethodFingerprint(
     "V",
-    null,
-    null,
-    null,
-    null,
-    custom@{ methodDef ->
+    customFingerprint = custom@{ methodDef ->
         val instructions = methodDef.implementation?.instructions!!
         val instructionCount = instructions.count()
 

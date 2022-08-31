@@ -17,6 +17,6 @@ import org.jf.dexlib2.AccessFlags
 @MicroGPatchCompatibility
 @Version("0.0.1")
 object ServiceCheckFingerprint : MethodFingerprint(
-    "V", AccessFlags.PUBLIC or AccessFlags.STATIC, listOf("L", "I"), null
-    , listOf("Google Play Services not available", "GooglePlayServices not available due to error ")
+    "V", AccessFlags.PUBLIC or AccessFlags.STATIC, listOf("L", "I"),
+    strings = listOf("Google Play Services not available", "GooglePlayServices not available due to error ")
 )

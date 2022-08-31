@@ -12,7 +12,7 @@ import org.jf.dexlib2.Opcode
 @TimelineAdsCompatibility
 @Version("0.0.1")
 object TimelineTweetJsonParserFingerprint : MethodFingerprint(
-    null, null, null, listOf(
+    opcodes = listOf(
         Opcode.IPUT_OBJECT,
         Opcode.GOTO,
         Opcode.SGET_OBJECT,
@@ -21,6 +21,6 @@ object TimelineTweetJsonParserFingerprint : MethodFingerprint(
         Opcode.CHECK_CAST,
         Opcode.IPUT_OBJECT,
         Opcode.RETURN_VOID,
-    ), listOf("tweetPromotedMetadata", "promotedMetadata", "hasModeratedReplies", "conversationAnnotation"),
-    { methodDef -> methodDef.name == "parseField" }
+    ), strings = listOf("tweetPromotedMetadata", "promotedMetadata", "hasModeratedReplies", "conversationAnnotation"),
+    customFingerprint = { methodDef -> methodDef.name == "parseField" }
 )

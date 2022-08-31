@@ -14,10 +14,7 @@ import app.revanced.patches.warnwetter.misc.firebasegetcert.annotations.Firebase
 @Version("0.0.1")
 object GetMessagingCertFingerprint : MethodFingerprint(
     "Ljava/lang/String;",
-    null,
-    null,
-    null,
-    listOf(
+    strings = listOf(
         "ContentValues",
         "Could not get fingerprint hash for package: ",
         "No such package: "

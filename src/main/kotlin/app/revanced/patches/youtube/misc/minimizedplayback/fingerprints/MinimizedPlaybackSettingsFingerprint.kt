@@ -20,8 +20,7 @@ import org.jf.dexlib2.Opcode
 object MinimizedPlaybackSettingsFingerprint : MethodFingerprint(
     "L",
     AccessFlags.PUBLIC or AccessFlags.FINAL,
-    null,
-    listOf(
+    opcodes = listOf(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
         Opcode.INVOKE_VIRTUAL,

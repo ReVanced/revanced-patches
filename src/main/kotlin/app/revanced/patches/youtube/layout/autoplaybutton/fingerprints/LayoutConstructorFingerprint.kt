@@ -13,8 +13,8 @@ import app.revanced.patches.youtube.layout.autoplaybutton.annotations.AutoplayBu
 @AutoplayButtonCompatibility
 @Version("0.0.1")
 object LayoutConstructorFingerprint : MethodFingerprint(
-    null, null, null, null, listOf("1.0x"),
-    { methodDef ->
+    strings = listOf("1.0x"),
+    customFingerprint = { methodDef ->
         methodDef.definingClass.endsWith("YouTubeControlsOverlay;")
     }
 )

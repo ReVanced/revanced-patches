@@ -15,7 +15,9 @@ import app.revanced.patches.youtube.misc.playercontrols.annotation.PlayerControl
 @PlayerControlsCompatibility
 @Version("0.0.1")
 object PlayerControlsVisibilityFingerprint : MethodFingerprint(
-    "V", null, listOf("Z", "Z"), null, null, { methodDef ->
+    "V",
+    parameters = listOf("Z", "Z"),
+    customFingerprint = { methodDef ->
         methodDef.definingClass.endsWith("YouTubeControlsOverlay;")
     }
 )

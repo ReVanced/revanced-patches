@@ -17,8 +17,5 @@ import org.jf.dexlib2.AccessFlags
 object HideInfocardSuggestionsFingerprint : MethodFingerprint(
     "Ljava/lang/Boolean;",
     AccessFlags.PUBLIC or AccessFlags.FINAL,
-    null,
-    null,
-    listOf("vibrator"),
-    null
+    strings = listOf("vibrator")
 )

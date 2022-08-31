@@ -15,8 +15,6 @@ import app.revanced.patches.youtube.layout.sponsorblock.annotations.SponsorBlock
 @SponsorBlockCompatibility
 @Version("0.0.1")
 object PlayerInitFingerprint : MethodFingerprint(
-    null, null, null,
-    null,
     strings = listOf(
         "playVideo called on player response with no videoStreamingData."
     ),

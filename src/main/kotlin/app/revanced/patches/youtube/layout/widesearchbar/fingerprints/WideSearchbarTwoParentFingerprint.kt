@@ -14,19 +14,7 @@ import org.jf.dexlib2.AccessFlags
 )
 @WideSearchbarCompatibility
 @Version("0.0.1")
-
-/*
-This finds following method:
-public static ies i(br brVar) {
-        bp f = brVar.getSupportFragmentManager().f("VIDEO_QUALITIES_QUICK_MENU_BOTTOM_SHEET_FRAGMENT");
-        if (f != null) {
-            return (kga) f;
-        }
-        return new kga();
-    }
- */
-
 object WideSearchbarTwoParentFingerprint : MethodFingerprint(
-    "L", AccessFlags.PUBLIC or AccessFlags.STATIC, listOf("L"), null,
-    listOf("VIDEO_QUALITIES_QUICK_MENU_BOTTOM_SHEET_FRAGMENT")
+    "L", AccessFlags.PUBLIC or AccessFlags.STATIC, listOf("L"),
+    strings = listOf("VIDEO_QUALITIES_QUICK_MENU_BOTTOM_SHEET_FRAGMENT")
 )

@@ -17,5 +17,8 @@ import org.jf.dexlib2.AccessFlags
 @MicroGPatchCompatibility
 @Version("0.0.1")
 object GooglePlayUtilityFingerprint : MethodFingerprint(
-    "I", AccessFlags.PUBLIC or AccessFlags.STATIC, listOf("L", "L"), null, listOf("This should never happen.", "MetadataValueReader", "com.google.android.gms")
+    "I",
+    AccessFlags.PUBLIC or AccessFlags.STATIC,
+    listOf("L", "L"),
+    strings = listOf("This should never happen.", "MetadataValueReader", "com.google.android.gms")
 )

@@ -3,9 +3,9 @@ package app.revanced.patches.youtube.ad.infocardsuggestions.fingerprints
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.annotation.FuzzyPatternScanMethod
 import app.revanced.patcher.fingerprint.method.annotation.MatchingMethod
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.youtube.ad.infocardsuggestions.annotations.HideInfocardSuggestionsCompatibility
 import org.jf.dexlib2.AccessFlags
 
@@ -17,8 +17,5 @@ import org.jf.dexlib2.AccessFlags
 object HideInfocardSuggestionsParentFingerprint : MethodFingerprint(
     "Ljava/lang/String;",
     AccessFlags.PUBLIC or AccessFlags.FINAL,
-    listOf(),
-    null,
-    listOf("player_overlay_info_card_teaser"),
-    null
+    strings = listOf("player_overlay_info_card_teaser"),
 )

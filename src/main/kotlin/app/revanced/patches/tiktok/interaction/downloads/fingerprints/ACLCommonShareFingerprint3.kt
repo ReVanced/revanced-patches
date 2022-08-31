@@ -15,10 +15,7 @@ import org.jf.dexlib2.AccessFlags
 object ACLCommonShareFingerprint3 : MethodFingerprint(
     "I",
     AccessFlags.PUBLIC or AccessFlags.FINAL,
-    null,
-    null,
-    null,
-    { methodDef ->
+    customFingerprint = { methodDef ->
         methodDef.definingClass.endsWith("/ACLCommonShare;") &&
                 methodDef.name == "getTranscode"
     }

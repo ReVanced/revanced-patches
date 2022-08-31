@@ -15,7 +15,6 @@ import app.revanced.patches.youtube.layout.sponsorblock.annotations.SponsorBlock
 @SponsorBlockCompatibility
 @Version("0.0.1")
 object CreateVideoPlayerSeekbarFingerprint : MethodFingerprint(
-    "V", null, null,
-    null,
-    listOf("timed_markers_width")
+    "V",
+    strings = listOf("timed_markers_width")
 )

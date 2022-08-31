@@ -19,7 +19,5 @@ import org.jf.dexlib2.AccessFlags
 object RemoveLikeFingerprint : MethodFingerprint(
     "V",
     AccessFlags.PROTECTED or AccessFlags.CONSTRUCTOR,
-    null,
-    null,
-    listOf("like/removelike")
+    strings = listOf("like/removelike")
 )

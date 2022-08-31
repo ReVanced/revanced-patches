@@ -16,7 +16,6 @@ import org.jf.dexlib2.Opcode
 @SponsorBlockCompatibility
 @Version("0.0.1")
 object PlayerControllerSetTimeReferenceFingerprint : MethodFingerprint(
-    null, null, null,
-    listOf(Opcode.INVOKE_DIRECT_RANGE, Opcode.IGET_OBJECT),
-    listOf("Media progress reported outside media playback: ")
+    opcodes = listOf(Opcode.INVOKE_DIRECT_RANGE, Opcode.IGET_OBJECT),
+    strings = listOf("Media progress reported outside media playback: ")
 )
