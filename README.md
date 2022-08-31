@@ -34,16 +34,16 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `minimized-playback-music` | Enables minimized playback on Kids music. | 5.21.52 |
-| `tasteBuilder-remover` | Removes the "Tell us which artists you like" card from the home screen. | 5.21.52 |
-| `hide-get-premium` | Removes all "Get Premium" evidences from the avatar menu. | 5.21.52 |
-| `compact-header` | Hides the music category bar at the top of the homepage. | 5.21.52 |
-| `upgrade-button-remover` | Removes the upgrade tab from the pivot bar. | 5.21.52 |
-| `background-play` | Enables playing music in the background. | 5.21.52 |
-| `music-microg-support` | Allows YouTube Music ReVanced to run without root and under a different package name. | 5.21.52 |
-| `music-video-ads` | Removes ads in the music player. | 5.21.52 |
-| `codecs-unlock` | Adds more audio codec options. The new audio codecs usually result in better audio quality. | 5.21.52 |
-| `exclusive-audio-playback` | Enables the option to play music without video. | 5.21.52 |
+| `minimized-playback-music` | Enables minimized playback on Kids music. | 5.22.54 |
+| `tasteBuilder-remover` | Removes the "Tell us which artists you like" card from the home screen. | 5.22.54 |
+| `hide-get-premium` | Removes all "Get Premium" evidences from the avatar menu. | 5.22.54 |
+| `compact-header` | Hides the music category bar at the top of the homepage. | 5.22.54 |
+| `upgrade-button-remover` | Removes the upgrade tab from the pivot bar. | 5.22.54 |
+| `background-play` | Enables playing music in the background. | 5.22.54 |
+| `music-microg-support` | Allows YouTube Music ReVanced to run without root and under a different package name. | 5.22.54 |
+| `music-video-ads` | Removes ads in the music player. | 5.22.54 |
+| `codecs-unlock` | Adds more audio codec options. The new audio codecs usually result in better audio quality. | 5.22.54 |
+| `exclusive-audio-playback` | Enables the option to play music without video. | 5.22.54 |
 </details>
 
 ### 📦 `de.dwd.warnapp`
