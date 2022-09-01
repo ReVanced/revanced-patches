@@ -11,6 +11,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.tiktok.ad.annotations.TiktokAdsCompatibility
+import app.revanced.patches.tiktok.ad.fingerprints.ConvertHelpFeedItemListFingerprint
 import app.revanced.patches.tiktok.ad.fingerprints.FeedItemListCloneFingerprint
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
@@ -23,26 +24,34 @@ import org.jf.dexlib2.iface.reference.FieldReference
 @TiktokAdsCompatibility
 @Version("0.0.1")
 class TiktokAdsPatch : BytecodePatch(
-    listOf(FeedItemListCloneFingerprint)
+    listOf(
+        FeedItemListCloneFingerprint,
+        ConvertHelpFeedItemListFingerprint
+    )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        val method = FeedItemListCloneFingerprint.result!!.mutableMethod
-        // iterate all instructions in the clone method
-        for ((index, instruction) in method.implementation!!.instructions.withIndex()) {
-            // conditions for the instruction we need
-            if (instruction.opcode.ordinal != Opcode.IPUT_OBJECT.ordinal) continue
-            val clonePreloadAdsFieldInstruction = (instruction as? ReferenceInstruction)
-            if ((clonePreloadAdsFieldInstruction?.reference as? FieldReference)?.name != "preloadAds") continue
+        listOf(
+            FeedItemListCloneFingerprint,
+            ConvertHelpFeedItemListFingerprint
+        ).forEach { fingerprint ->
+            val method = fingerprint.result!!.mutableMethod
+            // iterate all instructions in the clone method
+            for ((index, instruction) in method.implementation!!.instructions.withIndex()) {
+                // conditions for the instruction we need
+                if (instruction.opcode.ordinal != Opcode.IPUT_OBJECT.ordinal) continue
+                val preloadAdsFieldInstruction = (instruction as? ReferenceInstruction)
+                if ((preloadAdsFieldInstruction?.reference as? FieldReference)?.name != "preloadAds") continue
 
-            // set null instead of the field "preloadAds"
-            val overrideRegister = (clonePreloadAdsFieldInstruction as TwoRegisterInstruction).registerA
-            method.addInstruction(
-                index,
-                "const/4 v$overrideRegister, 0x0"
-            )
-            return PatchResultSuccess()
+                // set null instead of the field "preloadAds"
+                val overrideRegister = (preloadAdsFieldInstruction as TwoRegisterInstruction).registerA
+                method.addInstruction(
+                    index,
+                    "const/4 v$overrideRegister, 0x0"
+                )
+                return@forEach
+            }
+            return PatchResultError("Can not find required instruction.")
         }
-
-        return PatchResultError("Could not find required instruction.")
+        return PatchResultSuccess()
     }
 }
