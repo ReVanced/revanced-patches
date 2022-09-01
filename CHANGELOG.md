@@ -1,3 +1,10 @@
+## [2.50.3](https://github.com/revanced/revanced-patches/compare/v2.50.2...v2.50.3) (2022-09-01)
+
+
+### Bug Fixes
+
+* partial ad blockage in `tiktok-ads` patch ([#420](https://github.com/revanced/revanced-patches/issues/420)) ([bc6d192](https://github.com/revanced/revanced-patches/commit/bc6d19205940e3b4b228a9b5de627a2260abd00e))
+
 ## [2.50.2](https://github.com/revanced/revanced-patches/compare/v2.50.1...v2.50.2) (2022-08-31)
 
 
