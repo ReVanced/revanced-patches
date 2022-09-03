@@ -1,3 +1,10 @@
+## [2.50.4](https://github.com/revanced/revanced-patches/compare/v2.50.3...v2.50.4) (2022-09-03)
+
+
+### Bug Fixes
+
+* don't respect primary color for the download button icon ([#424](https://github.com/revanced/revanced-patches/issues/424)) ([3fa70f4](https://github.com/revanced/revanced-patches/commit/3fa70f48a206c56f6ca8aed88baed722e76281e2))
+
 ## [2.50.3](https://github.com/revanced/revanced-patches/compare/v2.50.2...v2.50.3) (2022-09-01)
 
 
