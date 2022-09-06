@@ -22,7 +22,7 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib"))
 
-    implementation("app.revanced:revanced-patcher:3.4.0")
+    implementation("app.revanced:revanced-patcher:3.5.1")
     implementation("app.revanced:multidexlib2:2.5.2.r2")
 
     // Required for meta
