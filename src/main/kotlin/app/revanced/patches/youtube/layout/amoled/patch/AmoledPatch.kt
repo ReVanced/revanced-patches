@@ -12,7 +12,6 @@ import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.youtube.layout.amoled.annotations.AmoledCompatibility
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import org.w3c.dom.Element
-import java.io.File
 
 @Patch
 @DependsOn([FixLocaleConfigErrorPatch::class])
@@ -22,7 +21,7 @@ import java.io.File
 @Version("0.0.1")
 class AmoledPatch : ResourcePatch() {
     override fun execute(data: ResourceData): PatchResult {
-        data.xmlEditor["res${File.separator}values${File.separator}colors.xml"].use { editor ->
+        data.xmlEditor["res/values/colors.xml"].use { editor ->
             val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
 
             for (i in 0 until resourcesNode.childNodes.length) {
