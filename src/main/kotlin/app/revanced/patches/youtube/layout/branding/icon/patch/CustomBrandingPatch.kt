@@ -10,7 +10,6 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.youtube.layout.branding.icon.annotations.CustomBrandingCompatibility
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
-import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileInputStream
 import java.io.InputStream
@@ -42,20 +41,13 @@ class CustomBrandingPatch : ResourcePatch() {
             "hdpi" to 72,
             "mdpi" to 48
         ).forEach { (iconDirectory, size) ->
-            iconNames.forEach iconLoop@{ iconName ->
+            iconNames.forEach { iconName ->
                 val iconFile = getIconStream("branding/$size/$iconName.png")
                     ?: return PatchResultError("The icon $iconName can not be found.")
 
-                val outputStream = ByteArrayOutputStream()
-                iconFile.use { input ->
-                    outputStream.use { output ->
-                        input.copyTo(output)
-                    }
-                }
-
                 Files.write(
                     resDirectory.resolve("mipmap-$iconDirectory").resolve("$iconName.png").toPath(),
-                    outputStream.toByteArray()
+                    iconFile.readBytes()
                 )
             }
         }
