@@ -17,13 +17,11 @@ fun generateText(bundle: Bundle) {
     val output = StringBuilder()
     val packages = mutableMapOf<String, MutableList<Class<out Patch<Data>>>>()
 
-    bundle.map {
-        val packageName = it.compatiblePackages?.first()?.name!!
-        if (!packages.contains(packageName)) {
-            packages[packageName] = mutableListOf()
+    for (patch in bundle) {
+        patch.compatiblePackages?.forEach { pkg ->
+            if (!packages.contains(pkg.name)) packages[pkg.name] = mutableListOf()
+            packages[pkg.name]!!.add(patch)
         }
-
-        packages[packageName]?.add(it)
     }
 
     for (pkg in packages) {
