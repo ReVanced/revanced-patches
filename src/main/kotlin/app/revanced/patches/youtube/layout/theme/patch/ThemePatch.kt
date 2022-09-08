@@ -35,13 +35,15 @@ class ThemePatch : ResourcePatch() {
     }
 
     companion object : OptionsContainer() {
-        var theme: String by PatchOption.StringListOption(
-            key = "theme",
-            default = null,
-            options = Themes.names,
-            title = "Theme",
-            description = "Select a theme.",
-            required = true
+        var theme: String by option(
+            PatchOption.StringListOption(
+                key = "theme",
+                default = null,
+                options = Themes.names,
+                title = "Theme",
+                description = "Select a theme.",
+                required = true
+            )
         )
     }
 
