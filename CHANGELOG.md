@@ -1,3 +1,10 @@
+# [2.51.0](https://github.com/revanced/revanced-patches/compare/v2.50.8...v2.51.0) (2022-09-08)
+
+
+### Features
+
+* Theme Patch ([#440](https://github.com/revanced/revanced-patches/issues/440)) ([f3b92ca](https://github.com/revanced/revanced-patches/commit/f3b92cab5a057ce605b6d9e75e3b99161bf1422c))
+
 ## [2.50.8](https://github.com/revanced/revanced-patches/compare/v2.50.7...v2.50.8) (2022-09-08)
 
 ## [2.50.7](https://github.com/revanced/revanced-patches/compare/v2.50.6...v2.50.7) (2022-09-08)
