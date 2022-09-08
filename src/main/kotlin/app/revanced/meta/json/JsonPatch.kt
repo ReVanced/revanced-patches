@@ -7,6 +7,8 @@ data class JsonPatch(
     val description: String,
     val version: String,
     val excluded: Boolean,
+    val deprecated: Boolean,
+    val options: Array<Option>,
     val dependencies: Array<String>,
     val compatiblePackages: Array<CompatiblePackage>,
 )
@@ -14,4 +16,12 @@ data class JsonPatch(
 data class CompatiblePackage(
     val name: String,
     val versions: Array<String>,
+)
+
+data class Option(
+    val key: String,
+    val title: String,
+    val description: String,
+    val required: Boolean,
+    val choices: Array<*>?,
 )
