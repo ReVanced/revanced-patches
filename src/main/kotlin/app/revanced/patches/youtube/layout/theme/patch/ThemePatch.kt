@@ -38,7 +38,7 @@ class ThemePatch : ResourcePatch() {
         var theme: String? by option(
             PatchOption.StringListOption(
                 key = "theme",
-                default = null,
+                default = Themes.Amoled.name,
                 options = Themes.names,
                 title = "Theme",
                 description = "Select a theme.",
