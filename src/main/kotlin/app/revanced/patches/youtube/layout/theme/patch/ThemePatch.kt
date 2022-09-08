@@ -20,7 +20,7 @@ import org.w3c.dom.Element
 @Version("0.0.1")
 class ThemePatch : ResourcePatch() {
     override fun execute(data: ResourceData): PatchResult {
-        val theme = Themes.of(theme) ?: return PatchResultError("Theme '$theme' not found.")
+        val theme = Themes.of(theme!!) ?: return PatchResultError("Theme '$theme' not found.")
 
         data.xmlEditor["res/values/colors.xml"].use { editor ->
             val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
@@ -35,7 +35,7 @@ class ThemePatch : ResourcePatch() {
     }
 
     companion object : OptionsContainer() {
-        var theme: String by option(
+        var theme: String? by option(
             PatchOption.StringListOption(
                 key = "theme",
                 default = null,

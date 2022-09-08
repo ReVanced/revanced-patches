@@ -75,7 +75,7 @@ class CustomBrandingPatch : ResourcePatch() {
     }
 
     companion object : OptionsContainer() {
-        private var appName: String by option(
+        private var appName: String? by option(
             PatchOption.StringOption(
                 key = "appName",
                 default = "YouTube ReVanced",
