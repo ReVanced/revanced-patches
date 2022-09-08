@@ -1,16 +1,12 @@
 package app.revanced.integrations.patches;
 
-import android.os.Build;
-
-import androidx.annotation.RequiresApi;
+import app.revanced.integrations.settings.SettingsEnum;
+import app.revanced.integrations.utils.LogHelper;
 
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-
-import app.revanced.integrations.settings.SettingsEnum;
-import app.revanced.integrations.utils.LogHelper;
 
 public class GeneralBytecodeAdsPatch {
 
@@ -59,7 +55,7 @@ public class GeneralBytecodeAdsPatch {
                 bufferBlockList.add("YouTube Movies");
             }
             if (containsAny(value, "home_video_with_context", "related_video_with_context") &&
-                    bufferBlockList.stream().anyMatch(new String(buffer.array(), StandardCharsets.UTF_8)::contains)
+                    anyMatch(bufferBlockList, new String(buffer.array(), StandardCharsets.UTF_8)::contains)
             ) return true;
 
             if (SettingsEnum.ADREMOVER_COMMENTS_REMOVAL.getBoolean()) {
@@ -117,7 +113,7 @@ public class GeneralBytecodeAdsPatch {
                     "-button"
             )) return false;
 
-            if (blockList.stream().anyMatch(value::contains)) {
+            if (anyMatch(blockList, value::contains)) {
                 LogHelper.debug(GeneralBytecodeAdsPatch.class, "Blocking ad: " + value);
                 return true;
             }
@@ -149,4 +145,15 @@ public class GeneralBytecodeAdsPatch {
         return builder.toString();
     }
 
+    private static <T> boolean anyMatch(List<T> value, APredicate<? super T> predicate) {
+        for (T t : value) {
+            if (predicate.test(t)) return true;
+        }
+        return false;
+    }
+
+    @FunctionalInterface
+    public interface APredicate<T> {
+        boolean test(T t);
+    }
 }
