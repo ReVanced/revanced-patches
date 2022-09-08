@@ -1,3 +1,10 @@
+## [2.52.1](https://github.com/revanced/revanced-patches/compare/v2.52.0...v2.52.1) (2022-09-08)
+
+
+### Bug Fixes
+
+* multiple compatible pkgs on readme ([3f82a13](https://github.com/revanced/revanced-patches/commit/3f82a1349fb11b1152ac10d76deb930f7325b7c9))
+
 # [2.52.0](https://github.com/revanced/revanced-patches/compare/v2.51.3...v2.52.0) (2022-09-08)
 
 
