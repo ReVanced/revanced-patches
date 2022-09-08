@@ -1,3 +1,10 @@
+## [2.51.1](https://github.com/revanced/revanced-patches/compare/v2.51.0...v2.51.1) (2022-09-08)
+
+
+### Bug Fixes
+
+* wrap theme option ([150c173](https://github.com/revanced/revanced-patches/commit/150c173adce31d9984d6feca694b472649233056))
+
 # [2.51.0](https://github.com/revanced/revanced-patches/compare/v2.50.8...v2.51.0) (2022-09-08)
 
 
