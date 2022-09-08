@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-    implementation("app.revanced:revanced-patcher:4.1.5")
+    implementation("app.revanced:revanced-patcher:4.2.2")
     implementation("app.revanced:multidexlib2:2.5.2.r2")
 
     // Required for meta
