@@ -1,3 +1,10 @@
+## [2.51.3](https://github.com/revanced/revanced-patches/compare/v2.51.2...v2.51.3) (2022-09-08)
+
+
+### Bug Fixes
+
+* cleanup & trigger release for ThemePatch ([8d25b21](https://github.com/revanced/revanced-patches/commit/8d25b214e297797092432b5fe1a4ede1f42115c8)), closes [#447](https://github.com/revanced/revanced-patches/issues/447) [revanced/revanced-patcher#99](https://github.com/revanced/revanced-patcher/issues/99)
+
 ## [2.51.2](https://github.com/revanced/revanced-patches/compare/v2.51.1...v2.51.2) (2022-09-08)
 
 ## [2.51.1](https://github.com/revanced/revanced-patches/compare/v2.51.0...v2.51.1) (2022-09-08)
