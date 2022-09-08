@@ -1,3 +1,10 @@
+# [2.52.0](https://github.com/revanced/revanced-patches/compare/v2.51.3...v2.52.0) (2022-09-08)
+
+
+### Features
+
+* add deprecated & options to patches.json ([759315b](https://github.com/revanced/revanced-patches/commit/759315be1b23a6b3655fc87b56a8974ebac648cc))
+
 ## [2.51.3](https://github.com/revanced/revanced-patches/compare/v2.51.2...v2.51.3) (2022-09-08)
 
 
