@@ -3,14 +3,17 @@ package app.revanced.meta.json
 import app.revanced.meta.Bundle
 import app.revanced.patcher.extensions.PatchExtensions.compatiblePackages
 import app.revanced.patcher.extensions.PatchExtensions.dependencies
+import app.revanced.patcher.extensions.PatchExtensions.deprecated
 import app.revanced.patcher.extensions.PatchExtensions.description
 import app.revanced.patcher.extensions.PatchExtensions.include
+import app.revanced.patcher.extensions.PatchExtensions.options
 import app.revanced.patcher.extensions.PatchExtensions.patchName
 import app.revanced.patcher.extensions.PatchExtensions.version
-import com.google.gson.Gson
+import app.revanced.patcher.patch.PatchOption
+import com.google.gson.GsonBuilder
 import java.io.File
 
-private val gson = Gson()
+private val gson = GsonBuilder().serializeNulls().create()
 
 fun generateJson(bundle: Bundle) {
     val patches = bundle.map {
@@ -19,6 +22,20 @@ fun generateJson(bundle: Bundle) {
             it.description ?: "This patch has no description.",
             it.version ?: "0.0.0",
             !it.include,
+            it.deprecated != null,
+            it.options?.map { option ->
+                Option(
+                    option.key,
+                    option.title,
+                    option.description,
+                    option.required,
+                    option.let { lo ->
+                        if (lo is PatchOption.ListOption<*>) {
+                            lo.options.toMutableList().toTypedArray()
+                        } else null
+                    }
+                )
+            }?.toTypedArray() ?: emptyArray(),
             it.dependencies?.map { dep ->
                 dep.java.patchName
             }?.toTypedArray() ?: emptyArray(),
