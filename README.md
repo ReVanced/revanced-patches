@@ -81,6 +81,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `custom-branding` | Changes the YouTube launcher icon and name to your choice (defaults to ReVanced). | all |
 | `disable-fullscreen-panels` | Disables video description and comments panel in fullscreen view. | 17.33.42 |
 | `old-quality-layout` | Enables the original quality flyout menu. | 17.33.42 |
+| `theme` | Enables a custom theme. | all |
 | `hide-shorts-button` | Hides the shorts button on the navigation bar. | 17.33.42 |
 | `hide-watermark` | Hides creator's watermarks on videos. | 17.33.42 |
 | `sponsorblock` | Integrate SponsorBlock. | 17.33.42 |
