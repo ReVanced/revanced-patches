@@ -10,10 +10,11 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.youtube.layout.branding.icon.annotations.CustomBrandingCompatibility
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
-import java.io.File
-import java.io.FileInputStream
 import java.io.InputStream
 import java.nio.file.Files
+import java.nio.file.Path
+import kotlin.io.path.exists
+import kotlin.io.path.inputStream
 
 @Patch
 @DependsOn([FixLocaleConfigErrorPatch::class])
@@ -66,29 +67,28 @@ class CustomBrandingPatch : ResourcePatch() {
     }
 
     private fun getIconStream(iconPath: String): InputStream? {
-        if (appIconPath == null) {
-            return this.javaClass.classLoader.getResourceAsStream(iconPath)
-        }
-        val file = File(appIconPath!!).resolve(iconPath)
-        if (!file.exists()) return null
-        return FileInputStream(file)
+        val path = Path.of(appIconPath.value ?: return this.javaClass.classLoader.getResourceAsStream(iconPath))
+
+        return if (path.exists())
+             path.inputStream()
+        else
+            null
     }
 
     companion object : OptionsContainer() {
-        private var appName: String? by option(
+        private var appName = option(
             PatchOption.StringOption(
                 key = "appName",
-                default = "YouTube ReVanced",
                 title = "Application Name",
                 description = "The name of the application it will show on your home screen.",
+                default = "YouTube ReVanced",
                 required = true
             )
         )
 
-        private var appIconPath: String? by option(
+        private var appIconPath = option(
             PatchOption.StringOption(
                 key = "appIconPath",
-                default = null,
                 title = "Application Icon Path",
                 description = "A path to the icon of the application."
             )

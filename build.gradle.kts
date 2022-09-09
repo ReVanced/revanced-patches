@@ -11,7 +11,14 @@ repositories {
     mavenCentral()
     mavenLocal()
     maven {
-        url = uri("https://maven.pkg.github.com/revanced/revanced-patcher")
+        url = uri("https://maven.pkg.github.com/osumatrix/revanced-patcher")
+        credentials {
+            username = githubUsername
+            password = githubPassword
+        }
+    }
+    maven {
+        url = uri("https://maven.pkg.github.com/revanced/multidexlib2")
         credentials {
             username = githubUsername
             password = githubPassword

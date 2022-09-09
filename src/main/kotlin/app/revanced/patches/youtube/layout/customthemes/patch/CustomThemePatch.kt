@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.theme.patch
+package app.revanced.patches.youtube.layout.customthemes.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
@@ -8,19 +8,20 @@ import app.revanced.patcher.patch.*
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.ResourcePatch
-import app.revanced.patches.youtube.layout.theme.annotations.ThemeCompatibility
+import app.revanced.patches.youtube.layout.customthemes.annotations.CustomThemeCompatibility
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import org.w3c.dom.Element
 
 @Patch
 @DependsOn([FixLocaleConfigErrorPatch::class])
-@Name("theme")
+@Name("custom-theme")
 @Description("Enables a custom theme.")
-@ThemeCompatibility
+@CustomThemeCompatibility
 @Version("0.0.1")
-class ThemePatch : ResourcePatch() {
+class CustomThemePatch : ResourcePatch() {
     override fun execute(data: ResourceData): PatchResult {
-        val theme = Themes.of(theme!!) ?: return PatchResultError("Theme '$theme' not found.")
+        val theme =
+            Themes.of(themeOption.value!!) ?: return PatchResultError("The theme '$themeOption' does not exist.")
 
         data.xmlEditor["res/values/colors.xml"].use { editor ->
             val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
@@ -35,10 +36,10 @@ class ThemePatch : ResourcePatch() {
     }
 
     companion object : OptionsContainer() {
-        var theme: String? by option(
+        var themeOption = option(
             PatchOption.StringListOption(
                 key = "theme",
-                default = Themes.Amoled.name,
+                default = Themes.AMOLED.name,
                 options = Themes.names,
                 title = "Theme",
                 description = "Select a theme.",
@@ -48,11 +49,10 @@ class ThemePatch : ResourcePatch() {
     }
 
     enum class Themes(val apply: (String) -> String?) {
-        Amoled({ attr ->
-            when (attr) {
+        AMOLED({ nodeName ->
+            when (nodeName) {
                 "yt_black1", "yt_black1_opacity95", "yt_black2", "yt_black3", "yt_black4",
                 "yt_status_bar_background_dark" -> "@android:color/black"
-
                 "yt_selected_nav_label_dark" -> "#ffdf0000"
                 else -> null
             }
