@@ -8,6 +8,8 @@ Patch bundle provided by ReVanced and the community.
 - Minor QoL refactoring
 - Several additional patches
 
+### 💊 Patches
+
 {{ table }}
 
 ### 📝 JSON Format
