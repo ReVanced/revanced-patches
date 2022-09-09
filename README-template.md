@@ -1,12 +1,16 @@
 ## 🧩 Patches
 
-The official Patch bundle provided by ReVanced and the community.
+Patch bundle provided by ReVanced and the community.
 
-> Looking for the JSON variant of this? [Click here](patches.json).
+### ⛏ Differences to [revanced/revanced-patches](https://github.com/revanced/revanced-patches)
+
+- Based on [osumatrix/revanced-patcher](https://github.com/osumatrix/revanced-patcher)
+- Minor QoL refactoring
+- Several additional patches
 
 {{ table }}
 
-## 📝 JSON Format
+### 📝 JSON Format
 
 This section explains the JSON format for the [patches.json](patches.json) file.
 
