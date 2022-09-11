@@ -1,3 +1,10 @@
+## [2.52.2](https://github.com/revanced/revanced-patches/compare/v2.52.1...v2.52.2) (2022-09-11)
+
+
+### Bug Fixes
+
+* design language for download icon ([#464](https://github.com/revanced/revanced-patches/issues/464)) ([c24dc17](https://github.com/revanced/revanced-patches/commit/c24dc175f705fd5364b8bcf01f27f3ac8ecc0e64))
+
 ## [2.52.1](https://github.com/revanced/revanced-patches/compare/v2.52.0...v2.52.1) (2022-09-08)
 
 
