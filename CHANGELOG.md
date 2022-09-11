@@ -1,3 +1,10 @@
+## [2.52.3](https://github.com/revanced/revanced-patches/compare/v2.52.2...v2.52.3) (2022-09-11)
+
+
+### Bug Fixes
+
+* path for download icon ([#465](https://github.com/revanced/revanced-patches/issues/465)) ([bff22c3](https://github.com/revanced/revanced-patches/commit/bff22c3a154fd8059f4f8995a303354633a50517))
+
 ## [2.52.2](https://github.com/revanced/revanced-patches/compare/v2.52.1...v2.52.2) (2022-09-11)
 
 
