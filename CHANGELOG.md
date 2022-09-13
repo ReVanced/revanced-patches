@@ -1,3 +1,10 @@
+# [2.53.0](https://github.com/revanced/revanced-patches/compare/v2.52.3...v2.53.0) (2022-09-13)
+
+
+### Features
+
+* patch requests issue template ([#467](https://github.com/revanced/revanced-patches/issues/467)) ([d8bb354](https://github.com/revanced/revanced-patches/commit/d8bb35472258c0634599102f4f4bf4cea587a817)), closes [revanced/revanced-patches#463](https://github.com/revanced/revanced-patches/issues/463)
+
 ## [2.52.3](https://github.com/revanced/revanced-patches/compare/v2.52.2...v2.52.3) (2022-09-11)
 
 
