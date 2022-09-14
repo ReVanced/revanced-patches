@@ -1,3 +1,10 @@
+# [2.54.0](https://github.com/revanced/revanced-patches/compare/v2.53.0...v2.54.0) (2022-09-14)
+
+
+### Features
+
+* bump YouTube Music patches to v5.23.50 ([#462](https://github.com/revanced/revanced-patches/issues/462)) ([15c10b1](https://github.com/revanced/revanced-patches/commit/15c10b1e0368a021b0f2ec46bc2e9ea84a5d5afd))
+
 # [2.53.0](https://github.com/revanced/revanced-patches/compare/v2.52.3...v2.53.0) (2022-09-13)
 
 
