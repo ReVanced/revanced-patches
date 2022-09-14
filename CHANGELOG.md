@@ -1,3 +1,10 @@
+## [2.54.1](https://github.com/revanced/revanced-patches/compare/v2.54.0...v2.54.1) (2022-09-14)
+
+
+### Bug Fixes
+
+* alignment of download button icon ([#477](https://github.com/revanced/revanced-patches/issues/477)) ([2093f11](https://github.com/revanced/revanced-patches/commit/2093f11e762c471a0987fb57f03c7f48d565fdce))
+
 # [2.54.0](https://github.com/revanced/revanced-patches/compare/v2.53.0...v2.54.0) (2022-09-14)
 
 
