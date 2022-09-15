@@ -1,3 +1,10 @@
+# [2.55.0](https://github.com/revanced/revanced-patches/compare/v2.54.1...v2.55.0) (2022-09-15)
+
+
+### Features
+
+* `disable-auto-captions` patch ([#435](https://github.com/revanced/revanced-patches/issues/435)) ([8ee12d0](https://github.com/revanced/revanced-patches/commit/8ee12d0beadfd0a8fdce0a331646e8786527e84d))
+
 ## [2.54.1](https://github.com/revanced/revanced-patches/compare/v2.54.0...v2.54.1) (2022-09-14)
 
 

@@ -97,6 +97,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `sponsorblock` | Integrate SponsorBlock. | 17.33.42 |
 | `enable-wide-searchbar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 17.33.42 |
 | `tablet-mini-player` | Enables the tablet mini player layout. | 17.33.42 |
+| `disable-auto-captions` | Disable forced captions from being automatically enabled. | 17.33.42 |
 | `minimized-playback` | Enables minimized and background playback. | 17.33.42 |
 | `client-spoof` | Spoofs the YouTube or Vanced client to prevent playback issues. | all |
 | `custom-video-buffer` | Lets you change the buffers of videos. | 17.33.42 |
