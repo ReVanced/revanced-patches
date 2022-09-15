@@ -40,6 +40,7 @@ public class GeneralBytecodeAdsPatch {
                 blockList.add("shelf_header");
                 blockList.add("text_search_ad_with_description_first");
                 blockList.add("watch_metadata_app_promo");
+                blockList.add("video_display_full_layout");
 
                 bufferBlockList.add("ad_cpn");
             }
