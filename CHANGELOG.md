@@ -1,3 +1,10 @@
+# [2.56.0](https://github.com/revanced/revanced-patches/compare/v2.55.0...v2.56.0) (2022-09-15)
+
+
+### Features
+
+* **tiktok-download:** custom download path ([#479](https://github.com/revanced/revanced-patches/issues/479)) ([944aa48](https://github.com/revanced/revanced-patches/commit/944aa485cec513faa30a21b91887dcacf9d70b45))
+
 # [2.55.0](https://github.com/revanced/revanced-patches/compare/v2.54.1...v2.55.0) (2022-09-15)
 
 

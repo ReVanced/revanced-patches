@@ -59,7 +59,7 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `tiktok-download` | Remove restrictions on downloads video. | all |
+| `tiktok-download` | Removes download restrictions and changes the default path to download to. | all |
 | `tiktok-seekbar` | Show progress bar for all video. | all |
 | `tiktok-ads` | Removes ads from TikTok. | all |
 </details>
@@ -69,7 +69,7 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `tiktok-download` | Remove restrictions on downloads video. | all |
+| `tiktok-download` | Removes download restrictions and changes the default path to download to. | all |
 | `tiktok-seekbar` | Show progress bar for all video. | all |
 | `tiktok-ads` | Removes ads from TikTok. | all |
 </details>
