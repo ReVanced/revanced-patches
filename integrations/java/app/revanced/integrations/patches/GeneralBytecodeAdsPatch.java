@@ -32,17 +32,14 @@ public class GeneralBytecodeAdsPatch {
             List<String> bufferBlockList = new ArrayList<>();
 
             if (SettingsEnum.ADREMOVER_AD_REMOVAL.getBoolean()) {
-                blockList.add("_ad");
-                blockList.add("ad_badge");
-                blockList.add("ads_video_with_context");
+                bufferBlockList.add("/ads.");
+                bufferBlockList.add("/googleads.");
+                bufferBlockList.add("/pagead/");
+
                 blockList.add("cell_divider");
                 blockList.add("reels_player_overlay");
                 blockList.add("shelf_header");
-                blockList.add("text_search_ad_with_description_first");
                 blockList.add("watch_metadata_app_promo");
-                blockList.add("video_display_full_layout");
-
-                bufferBlockList.add("ad_cpn");
             }
             if (SettingsEnum.ADREMOVER_SUGGESTED_FOR_YOU_REMOVAL.getBoolean()) {
                 bufferBlockList.add("watch-vrecH");
