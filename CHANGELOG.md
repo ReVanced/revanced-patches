@@ -1,3 +1,11 @@
+# [2.57.0](https://github.com/revanced/revanced-patches/compare/v2.56.1...v2.57.0) (2022-09-16)
+
+
+### Features
+
+* **amoled:** remove in favour of `theme` patch ([0032301](https://github.com/revanced/revanced-patches/commit/00323010ed7356a639e4e86916dcbae96a53f7f6))
+* **theme:** arbitrary background color for dark theme ([afd5502](https://github.com/revanced/revanced-patches/commit/afd5502afdb207d5f52516653869b26fae7e5d21))
+
 ## [2.56.1](https://github.com/revanced/revanced-patches/compare/v2.56.0...v2.56.1) (2022-09-15)
 
 
