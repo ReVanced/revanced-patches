@@ -18,7 +18,7 @@ import org.w3c.dom.Element
 @Patch
 @DependsOn([FixLocaleConfigErrorPatch::class])
 @Name("theme")
-@Description("Enables a custom theme.")
+@Description("Applies a custom theme.")
 @ThemeCompatibility
 @Version("0.0.1")
 class ThemePatch : ResourcePatch() {
