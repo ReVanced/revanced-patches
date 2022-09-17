@@ -67,7 +67,7 @@ class CustomBrandingPatch : ResourcePatch() {
     }
 
     private fun getIconStream(iconPath: String): InputStream? {
-        val path = Path.of(appIconPath.value ?: return this.javaClass.classLoader.getResourceAsStream(iconPath))
+        val path = Path.of(appIconPath ?: return this.javaClass.classLoader.getResourceAsStream(iconPath))
 
         return if (path.exists())
              path.inputStream()
@@ -76,7 +76,7 @@ class CustomBrandingPatch : ResourcePatch() {
     }
 
     companion object : OptionsContainer() {
-        private var appName = option(
+        private var appName: String? by option(
             PatchOption.StringOption(
                 key = "appName",
                 title = "Application Name",
@@ -86,7 +86,7 @@ class CustomBrandingPatch : ResourcePatch() {
             )
         )
 
-        private var appIconPath = option(
+        private var appIconPath: String? by option(
             PatchOption.StringOption(
                 key = "appIconPath",
                 title = "Application Icon Path",
