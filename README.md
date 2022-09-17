@@ -34,16 +34,16 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `minimized-playback-music` | Enables minimized playback on Kids music. | 5.22.54 |
-| `tasteBuilder-remover` | Removes the "Tell us which artists you like" card from the home screen. | 5.22.54 |
-| `hide-get-premium` | Removes all "Get Premium" evidences from the avatar menu. | 5.22.54 |
-| `compact-header` | Hides the music category bar at the top of the homepage. | 5.22.54 |
-| `upgrade-button-remover` | Removes the upgrade tab from the pivot bar. | 5.22.54 |
-| `background-play` | Enables playing music in the background. | 5.22.54 |
-| `music-microg-support` | Allows YouTube Music ReVanced to run without root and under a different package name. | 5.22.54 |
-| `music-video-ads` | Removes ads in the music player. | 5.22.54 |
-| `codecs-unlock` | Adds more audio codec options. The new audio codecs usually result in better audio quality. | 5.22.54 |
-| `exclusive-audio-playback` | Enables the option to play music without video. | 5.22.54 |
+| `minimized-playback-music` | Enables minimized playback on Kids music. | 5.23.50 |
+| `tasteBuilder-remover` | Removes the "Tell us which artists you like" card from the home screen. | 5.23.50 |
+| `hide-get-premium` | Removes all "Get Premium" evidences from the avatar menu. | 5.23.50 |
+| `compact-header` | Hides the music category bar at the top of the homepage. | 5.23.50 |
+| `upgrade-button-remover` | Removes the upgrade tab from the pivot bar. | 5.23.50 |
+| `background-play` | Enables playing music in the background. | 5.23.50 |
+| `music-microg-support` | Allows YouTube Music ReVanced to run without root and under a different package name. | 5.23.50 |
+| `music-video-ads` | Removes ads in the music player. | 5.23.50 |
+| `codecs-unlock` | Adds more audio codec options. The new audio codecs usually result in better audio quality. | 5.23.50 |
+| `exclusive-audio-playback` | Enables the option to play music without video. | 5.23.50 |
 </details>
 
 ### 📦 `de.dwd.warnapp`
@@ -59,7 +59,7 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `tiktok-download` | Remove restrictions on downloads video. | all |
+| `tiktok-download` | Removes download restrictions and changes the default path to download to. | all |
 | `tiktok-seekbar` | Show progress bar for all video. | all |
 | `tiktok-ads` | Removes ads from TikTok. | all |
 </details>
@@ -69,7 +69,7 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `tiktok-download` | Remove restrictions on downloads video. | all |
+| `tiktok-download` | Removes download restrictions and changes the default path to download to. | all |
 | `tiktok-seekbar` | Show progress bar for all video. | all |
 | `tiktok-ads` | Removes ads from TikTok. | all |
 </details>
@@ -82,7 +82,6 @@ The official Patch bundle provided by ReVanced and the community.
 | `swipe-controls` | Adds volume and brightness swipe controls. | 17.33.42 |
 | `downloads` | Enables downloading music and videos from YouTube. | 17.33.42 |
 | `seekbar-tapping` | Enables tap-to-seek on the seekbar of the video player. | 17.33.42 |
-| `amoled` | Enables pure black theme. | all |
 | `disable-create-button` | Hides the create button in the navigation bar. | 17.33.42 |
 | `hide-cast-button` | Hides the cast button in the video player. | all |
 | `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 17.33.42 |
@@ -91,12 +90,13 @@ The official Patch bundle provided by ReVanced and the community.
 | `custom-branding` | Changes the YouTube launcher icon and name to your choice (defaults to ReVanced). | all |
 | `disable-fullscreen-panels` | Disables video description and comments panel in fullscreen view. | 17.33.42 |
 | `old-quality-layout` | Enables the original quality flyout menu. | 17.33.42 |
-| `theme` | Enables a custom theme. | all |
+| `theme` | Applies a custom theme. | all |
 | `hide-shorts-button` | Hides the shorts button on the navigation bar. | 17.33.42 |
 | `hide-watermark` | Hides creator's watermarks on videos. | 17.33.42 |
 | `sponsorblock` | Integrate SponsorBlock. | 17.33.42 |
 | `enable-wide-searchbar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 17.33.42 |
 | `tablet-mini-player` | Enables the tablet mini player layout. | 17.33.42 |
+| `disable-auto-captions` | Disable forced captions from being automatically enabled. | 17.33.42 |
 | `minimized-playback` | Enables minimized and background playback. | 17.33.42 |
 | `client-spoof` | Spoofs the YouTube or Vanced client to prevent playback issues. | all |
 | `custom-video-buffer` | Lets you change the buffers of videos. | 17.33.42 |

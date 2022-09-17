@@ -1,3 +1,53 @@
+# [2.57.0](https://github.com/revanced/revanced-patches/compare/v2.56.1...v2.57.0) (2022-09-16)
+
+
+### Features
+
+* **amoled:** remove in favour of `theme` patch ([0032301](https://github.com/revanced/revanced-patches/commit/00323010ed7356a639e4e86916dcbae96a53f7f6))
+* **theme:** arbitrary background color for dark theme ([afd5502](https://github.com/revanced/revanced-patches/commit/afd5502afdb207d5f52516653869b26fae7e5d21))
+
+## [2.56.1](https://github.com/revanced/revanced-patches/compare/v2.56.0...v2.56.1) (2022-09-15)
+
+
+### Bug Fixes
+
+* `auto-captions` patch switch description ([#488](https://github.com/revanced/revanced-patches/issues/488)) ([57824fb](https://github.com/revanced/revanced-patches/commit/57824fb16c56889d8f18299e9bab2563bb13e5c2))
+
+# [2.56.0](https://github.com/revanced/revanced-patches/compare/v2.55.0...v2.56.0) (2022-09-15)
+
+
+### Features
+
+* **tiktok-download:** custom download path ([#479](https://github.com/revanced/revanced-patches/issues/479)) ([944aa48](https://github.com/revanced/revanced-patches/commit/944aa485cec513faa30a21b91887dcacf9d70b45))
+
+# [2.55.0](https://github.com/revanced/revanced-patches/compare/v2.54.1...v2.55.0) (2022-09-15)
+
+
+### Features
+
+* `disable-auto-captions` patch ([#435](https://github.com/revanced/revanced-patches/issues/435)) ([8ee12d0](https://github.com/revanced/revanced-patches/commit/8ee12d0beadfd0a8fdce0a331646e8786527e84d))
+
+## [2.54.1](https://github.com/revanced/revanced-patches/compare/v2.54.0...v2.54.1) (2022-09-14)
+
+
+### Bug Fixes
+
+* alignment of download button icon ([#477](https://github.com/revanced/revanced-patches/issues/477)) ([2093f11](https://github.com/revanced/revanced-patches/commit/2093f11e762c471a0987fb57f03c7f48d565fdce))
+
+# [2.54.0](https://github.com/revanced/revanced-patches/compare/v2.53.0...v2.54.0) (2022-09-14)
+
+
+### Features
+
+* bump YouTube Music patches to v5.23.50 ([#462](https://github.com/revanced/revanced-patches/issues/462)) ([15c10b1](https://github.com/revanced/revanced-patches/commit/15c10b1e0368a021b0f2ec46bc2e9ea84a5d5afd))
+
+# [2.53.0](https://github.com/revanced/revanced-patches/compare/v2.52.3...v2.53.0) (2022-09-13)
+
+
+### Features
+
+* patch requests issue template ([#467](https://github.com/revanced/revanced-patches/issues/467)) ([d8bb354](https://github.com/revanced/revanced-patches/commit/d8bb35472258c0634599102f4f4bf4cea587a817)), closes [revanced/revanced-patches#463](https://github.com/revanced/revanced-patches/issues/463)
+
 ## [2.52.3](https://github.com/revanced/revanced-patches/compare/v2.52.2...v2.52.3) (2022-09-11)
 
 
