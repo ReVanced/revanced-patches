@@ -1,3 +1,10 @@
+# [2.58.0](https://github.com/oSumAtrIX/revanced-patches/compare/v2.57.0...v2.58.0) (2022-09-17)
+
+
+### Features
+
+* migrate to `osumatrix/revanced-patcher` dependency ([d20a2d9](https://github.com/oSumAtrIX/revanced-patches/commit/d20a2d961896d84180d4573aae0aa8128cce5a22))
+
 # [2.57.0](https://github.com/revanced/revanced-patches/compare/v2.56.1...v2.57.0) (2022-09-16)
 
 

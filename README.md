@@ -1,8 +1,14 @@
 ## 🧩 Patches
 
-The official Patch bundle provided by ReVanced and the community.
+Patch bundle provided by ReVanced and the community.
 
-> Looking for the JSON variant of this? [Click here](patches.json).
+### ⛏ Differences to [revanced/revanced-patches](https://github.com/revanced/revanced-patches)
+
+- Based on [osumatrix/revanced-patcher](https://github.com/osumatrix/revanced-patcher)
+- Minor QoL refactoring
+- Several additional patches
+
+### 💊 Patches
 
 ### 📦 `com.twitter.android`
 <details>
@@ -90,11 +96,11 @@ The official Patch bundle provided by ReVanced and the community.
 | `custom-branding` | Changes the YouTube launcher icon and name to your choice (defaults to ReVanced). | all |
 | `disable-fullscreen-panels` | Disables video description and comments panel in fullscreen view. | 17.33.42 |
 | `old-quality-layout` | Enables the original quality flyout menu. | 17.33.42 |
-| `theme` | Applies a custom theme. | all |
 | `hide-shorts-button` | Hides the shorts button on the navigation bar. | 17.33.42 |
 | `hide-watermark` | Hides creator's watermarks on videos. | 17.33.42 |
 | `sponsorblock` | Integrate SponsorBlock. | 17.33.42 |
 | `enable-wide-searchbar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 17.33.42 |
+| `custom-theme` | Applies a custom theme. | all |
 | `tablet-mini-player` | Enables the tablet mini player layout. | 17.33.42 |
 | `disable-auto-captions` | Disable forced captions from being automatically enabled. | 17.33.42 |
 | `minimized-playback` | Enables minimized and background playback. | 17.33.42 |
@@ -122,7 +128,7 @@ The official Patch bundle provided by ReVanced and the community.
 
 
 
-## 📝 JSON Format
+### 📝 JSON Format
 
 This section explains the JSON format for the [patches.json](patches.json) file.
 
