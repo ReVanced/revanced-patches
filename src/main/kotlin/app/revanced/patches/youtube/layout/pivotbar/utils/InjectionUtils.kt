@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.pivotbar
+package app.revanced.patches.youtube.layout.pivotbar.utils
 
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.instruction
