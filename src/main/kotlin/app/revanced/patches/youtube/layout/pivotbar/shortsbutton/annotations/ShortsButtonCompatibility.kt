@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.shorts.button.annotations
+package app.revanced.patches.youtube.layout.pivotbar.shortsbutton.annotations
 
 import app.revanced.patcher.annotation.Compatibility
 import app.revanced.patcher.annotation.Package
