@@ -20,9 +20,8 @@ repositories {
 }
 
 dependencies {
-    implementation("app.revanced:revanced-patcher:4.2.3")
+    implementation("app.revanced:revanced-patcher:4.4.2")
     implementation("app.revanced:multidexlib2:2.5.2.r2")
-
     // Required for meta
     implementation("com.google.code.gson:gson:2.9.1")
 }
