@@ -1,23 +1,23 @@
-package app.revanced.patches.youtube.layout.createbutton.fingerprints
+package app.revanced.patches.youtube.layout.pivotbar.fingerprints
 
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.annotation.FuzzyPatternScanMethod
 import app.revanced.patcher.fingerprint.method.annotation.MatchingMethod
-import app.revanced.patches.youtube.layout.createbutton.annotations.CreateButtonCompatibility
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
-@Name("create-button-fingerprint")
+@Name("pivot-bar-fingerprint")
 @MatchingMethod(
     "Lknw", "z"
 )
-@FuzzyPatternScanMethod(2) // FIXME: Test this threshold and find the best value.
-@CreateButtonCompatibility
+@FuzzyPatternScanMethod(2)
+// TODO: This fingerprint is used in multiple patches, so technically two compatibilities are needed
+// @CreateButtonCompatibility
 @Version("0.0.1")
-object CreateButtonFingerprint : MethodFingerprint(
+object PivotBarFingerprint : MethodFingerprint(
     "V",
     AccessFlags.PUBLIC or AccessFlags.FINAL,
     listOf("Z"),
