@@ -11,8 +11,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.misc.hdrbrightness.annotations.HDRBrightnessCompatibility
-import app.revanced.patches.youtube.misc.hdrbrightness.fingerprints.HDRBrightnessFingerprintYEL
-import app.revanced.patches.youtube.misc.hdrbrightness.fingerprints.HDRBrightnessFingerprintYJK
+import app.revanced.patches.youtube.misc.hdrbrightness.fingerprints.HDRBrightnessFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
@@ -28,10 +27,7 @@ import org.jf.dexlib2.iface.reference.FieldReference
 @Version("0.0.2")
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
 class HDRBrightnessPatch : BytecodePatch(
-    listOf(
-        HDRBrightnessFingerprintYEL,
-        HDRBrightnessFingerprintYJK
-    )
+    listOf(HDRBrightnessFingerprint)
 ) {
     override fun execute(data: BytecodeData): PatchResult {
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
@@ -44,32 +40,25 @@ class HDRBrightnessPatch : BytecodePatch(
             )
         )
 
-        val result = try {
-            HDRBrightnessFingerprintYEL.result!!
-        } catch (e: Exception) {
-            HDRBrightnessFingerprintYJK.result!!
-        }
+        val method = HDRBrightnessFingerprint.result!!.mutableMethod
 
-        val method = result.mutableMethod
-
-        method.implementation!!.instructions.filter {
-            ((it as? ReferenceInstruction)?.reference as? FieldReference)?.let { field ->
-                // iput vx, vy, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
-                field.definingClass == "Landroid/view/WindowManager\$LayoutParams;" && field.name == "screenBrightness"
-            } == true
+        method.implementation!!.instructions.filter { instruction ->
+            val fieldReference = (instruction as? ReferenceInstruction)?.reference as? FieldReference
+            fieldReference?.let { it.name == "screenBrightness" } == true
         }.forEach { instruction ->
-            // inject right before the call that sets 'screenBrightness'
-            val index = method.implementation!!.instructions.indexOf(instruction)
+            val brightnessRegisterIndex = method.implementation!!.instructions.indexOf(instruction)
             val register = (instruction as TwoRegisterInstruction).registerA
 
-            // inject the call to
+            val insertIndex = brightnessRegisterIndex + 1
             method.addInstructions(
-                index, """
-           invoke-static {v$register}, Lapp/revanced/integrations/patches/HDRAutoBrightnessPatch;->getHDRBrightness(F)F
-           move-result v$register
-        """
+                insertIndex,
+                """
+                   invoke-static {v$register}, Lapp/revanced/integrations/patches/HDRAutoBrightnessPatch;->getHDRBrightness(F)F
+                   move-result v$register
+                """
             )
         }
+
         return PatchResultSuccess()
     }
 }
