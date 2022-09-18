@@ -1,3 +1,17 @@
+# [2.58.0](https://github.com/revanced/revanced-patches/compare/v2.57.0...v2.58.0) (2022-09-18)
+
+
+### Bug Fixes
+
+* **hdr-auto-brightness:** increase patching compatibility across versions ([bc5c8c1](https://github.com/revanced/revanced-patches/commit/bc5c8c118d5f95905fb7f0fb6afaf97bdcb753bf))
+* **hide-create-button:** increase patching compatibility across versions ([b217a1e](https://github.com/revanced/revanced-patches/commit/b217a1e89f4b9e3ad030ece08a1b81e507c7cc02))
+* **hide-shorts-button:** increase patching compatibility across versions ([7f17934](https://github.com/revanced/revanced-patches/commit/7f1793490f25b9fa16539e80cdc417b3b3e0e639))
+
+
+### Features
+
+* bump patches compatibility to v17.36.37 ([4493d7e](https://github.com/revanced/revanced-patches/commit/4493d7e6c7d76760cf4bc93968bf425b23c994de))
+
 # [2.57.0](https://github.com/revanced/revanced-patches/compare/v2.56.1...v2.57.0) (2022-09-16)
 
 
