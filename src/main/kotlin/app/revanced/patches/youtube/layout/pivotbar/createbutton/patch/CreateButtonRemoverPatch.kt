@@ -12,8 +12,8 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
-import app.revanced.patches.youtube.layout.pivotbar.InjectionUtils.REGISTER_TEMPLATE_REPLACEMENT
-import app.revanced.patches.youtube.layout.pivotbar.InjectionUtils.injectHook
+import app.revanced.patches.youtube.layout.pivotbar.utils.InjectionUtils.REGISTER_TEMPLATE_REPLACEMENT
+import app.revanced.patches.youtube.layout.pivotbar.utils.InjectionUtils.injectHook
 import app.revanced.patches.youtube.layout.pivotbar.createbutton.annotations.CreateButtonCompatibility
 import app.revanced.patches.youtube.layout.pivotbar.createbutton.fingerprints.PivotBarCreateButtonViewFingerprint
 import app.revanced.patches.youtube.layout.pivotbar.fingerprints.PivotBarFingerprint
