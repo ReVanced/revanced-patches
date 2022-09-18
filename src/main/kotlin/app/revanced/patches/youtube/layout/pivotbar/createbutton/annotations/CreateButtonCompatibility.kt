@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.createbutton.annotations
+package app.revanced.patches.youtube.layout.pivotbar.createbutton.annotations
 
 import app.revanced.patcher.annotation.Compatibility
 import app.revanced.patcher.annotation.Package
