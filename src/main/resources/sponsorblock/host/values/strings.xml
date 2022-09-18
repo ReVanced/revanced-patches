@@ -60,6 +60,7 @@
     <string name="about_madeby">Integration made by JakubWeg, recoded by oSumAtrIX</string>
     <string name="tap_skip">Tap to skip</string>
 
+    <string name="submit_failed_invalid">Can\'t submit the segment: %s</string>
     <string name="submit_failed_unknown_error" formatted="false">Unable to submit segments: Status: %d %s</string>
     <string name="submit_failed_rate_limit">Can\'t submit the segment.\nRate Limited (Too many from the same user or IP)</string>
     <string name="submit_failed_forbidden" formatted="false">Can\'t submit the segment.\n\n%s</string>
