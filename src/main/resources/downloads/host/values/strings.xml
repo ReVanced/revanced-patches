@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="downloader_not_installed_warning">is not installed</string>
+    <string name="downloader_not_installed_warning">is not installed. Please install it.</string>
 </resources>
