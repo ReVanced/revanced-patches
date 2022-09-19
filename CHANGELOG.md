@@ -1,3 +1,10 @@
+# [2.60.0](https://github.com/revanced/revanced-patches/compare/v2.59.0...v2.60.0) (2022-09-19)
+
+
+### Features
+
+* **downloads:** missing package installation request ([bc9e81a](https://github.com/revanced/revanced-patches/commit/bc9e81a6c343a912cab6fe3c2560d759fbf1be8a))
+
 # [2.59.0](https://github.com/revanced/revanced-patches/compare/v2.58.0...v2.59.0) (2022-09-18)
 
 
