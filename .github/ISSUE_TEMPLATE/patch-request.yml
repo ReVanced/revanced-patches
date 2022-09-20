@@ -27,3 +27,15 @@ body:
       description: Why should your patch request should be considered? What makes it valuable to the community?
     validations:
       required: true
+  - type: checkboxes
+    id: acknowledgements
+    attributes:
+      label: Acknowledgements
+      description: Your issue will be closed if you haven't done these steps.
+      options:
+        - label: I have searched the existing issues and this is a new and no duplicate or related to another open issue.
+          required: true
+        - label: I have written a short but informative title.
+          required: true
+        - label: I filled out all of the requested information in this issue properly.
+          required: true
