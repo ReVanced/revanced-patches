@@ -10,8 +10,9 @@ import app.revanced.integrations.swipecontrols.controller.AudioVolumeController
 import app.revanced.integrations.swipecontrols.controller.ScreenBrightnessController
 import app.revanced.integrations.swipecontrols.controller.SwipeZonesController
 import app.revanced.integrations.swipecontrols.controller.VolumeKeysController
-import app.revanced.integrations.swipecontrols.controller.gesture.NoPtSSwipeGestureController
-import app.revanced.integrations.swipecontrols.controller.gesture.SwipeGestureController
+import app.revanced.integrations.swipecontrols.controller.gesture.ClassicSwipeController
+import app.revanced.integrations.swipecontrols.controller.gesture.PressToSwipeController
+import app.revanced.integrations.swipecontrols.controller.gesture.core.GestureController
 import app.revanced.integrations.swipecontrols.misc.Rectangle
 import app.revanced.integrations.swipecontrols.views.SwipeControlsOverlayLayout
 import app.revanced.integrations.utils.LogHelper
@@ -52,7 +53,7 @@ class SwipeControlsHostActivity : Activity() {
     /**
      * main gesture controller
      */
-    private lateinit var gesture: SwipeGestureController
+    private lateinit var gesture: GestureController
 
     /**
      * main volume keys controller
@@ -71,13 +72,12 @@ class SwipeControlsHostActivity : Activity() {
         // create controllers
         LogHelper.info(this.javaClass, "initializing swipe controls controllers")
         config = SwipeControlsConfigurationProvider(this)
-        gesture = createGestureController()
         keys = VolumeKeysController(this)
         audio = createAudioController()
         screen = createScreenController()
 
         // create overlay
-        SwipeControlsOverlayLayout(this).let {
+        SwipeControlsOverlayLayout(this, config).let {
             overlay = it
             contentRoot.addView(it)
         }
@@ -91,6 +91,9 @@ class SwipeControlsHostActivity : Activity() {
                 contentRoot.height
             )
         }
+
+        // create the gesture controller
+        gesture = createGestureController()
 
         // listen for changes in the player type
         PlayerType.onChange += this::onPlayerTypeChanged
@@ -109,13 +112,13 @@ class SwipeControlsHostActivity : Activity() {
     }
 
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
-        return if ((ev != null) && gesture.onTouchEvent(ev)) true else {
+        return if ((ev != null) && gesture.submitTouchEvent(ev)) true else {
             super.dispatchTouchEvent(ev)
         }
     }
 
     override fun dispatchKeyEvent(ev: KeyEvent?): Boolean {
-        return if((ev != null) && keys.onKeyEvent(ev)) true else {
+        return if ((ev != null) && keys.onKeyEvent(ev)) true else {
             super.dispatchKeyEvent(ev)
         }
     }
@@ -163,8 +166,8 @@ class SwipeControlsHostActivity : Activity() {
      */
     private fun createGestureController() =
         if (config.shouldEnablePressToSwipe)
-            SwipeGestureController(this)
-        else NoPtSSwipeGestureController(this)
+            PressToSwipeController(this)
+        else ClassicSwipeController(this)
 
     companion object {
         /**
