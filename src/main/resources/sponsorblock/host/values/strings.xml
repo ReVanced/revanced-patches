@@ -33,11 +33,11 @@
     <string name="segments_endcards">Endcards/Credits</string>
     <string name="segments_endcards_sum">Credits or when the YouTube endcards appear. Not for spoken conclusions</string>
     <string name="segments_subscribe">Interaction Reminder (Subscribe)</string>
-    <string name="segments_subscribe_sum">When there is a short reminder to like, subscribe or follow them in the middle of content</string>
+    <string name="segments_subscribe_sum">When there is a short reminder to like, subscribe, follow or interact with them on any free or paid platform</string>
     <string name="segments_selfpromo">Unpaid/Self Promotion</string>
     <string name="segments_selfpromo_sum">When there is unpaid or self promotion. This includes specific sections about merchandise, donations, or information about who they collaborated with</string>
     <string name="segments_nomusic">Music: Non-Music Section</string>
-    <string name="segments_nomusic_sum">Only for use in music videos. This includes introductions or outros in music videos</string>
+    <string name="segments_nomusic_sum">Only for use in music videos. Skips parts of the video not in official mixes</string>
     <string name="segments_filler">Filler Tangent/Jokes</string>
     <string name="segments_filler_sum">Tangential scenes added only for filler or humor that are not required to understand the main content of the video. This should not include context or background details</string>
     <string name="skipped_segment">Skipped a sponsor segment</string>
@@ -113,7 +113,7 @@
     <string name="general_browser_button">Enable SB Browser button</string>
     <string name="general_browser_button_sum">Clicking this button under the player will open sb.ltn.fi where you can see all the segments on the video.</string>
     <string name="segments_preview">Preview/Recap</string>
-    <string name="segments_preview_sum">Recap of previous episodes, or a preview of what\'s coming up later in the current video or future videos in the same series. Intended for edited together clips that do not provide additional information.</string>
+    <string name="segments_preview_sum">Recap of previous episodes, or a preview of what\'s coming up later in the current video or future videos in the same series. Clips should not provide additional information.</string>
     <string name="stats">Stats</string>
     <string name="stats_loading">Loading..</string>
     <string name="stats_sb_disabled">SponsorBlock is disabled</string>
