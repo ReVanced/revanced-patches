@@ -1,3 +1,10 @@
+# [2.61.0](https://github.com/revanced/revanced-patches/compare/v2.60.0...v2.61.0) (2022-09-20)
+
+
+### Features
+
+* section `acknowledgements` for issue templates ([f663935](https://github.com/revanced/revanced-patches/commit/f663935382036cfdccf04627ca77306c5f951b4c))
+
 # [2.60.0](https://github.com/revanced/revanced-patches/compare/v2.59.0...v2.60.0) (2022-09-19)
 
 
