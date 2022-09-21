@@ -27,7 +27,7 @@ class RemoveTasteBuilderPatch : BytecodePatch(
         val result = TasteBuilderConstructorFingerprint.result!!
         val method = result.mutableMethod
 
-        val insertIndex = result.patternScanResult!!.endIndex - 8
+        val insertIndex = result.scanResult.patternScanResult!!.endIndex - 8
         val register = (method.implementation!!.instructions[insertIndex] as Instruction22c).registerA
         method.addInstructions(
             insertIndex, """

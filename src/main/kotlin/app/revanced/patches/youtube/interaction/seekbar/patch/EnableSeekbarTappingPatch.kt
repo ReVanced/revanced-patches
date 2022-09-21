@@ -79,15 +79,17 @@ class EnableSeekbarTappingPatch : BytecodePatch(
         val pMethod = tapSeekMethods["P"]!!
         val oMethod = tapSeekMethods["O"]!!
 
+        val insertIndex = result.scanResult.patternScanResult!!.endIndex + 1
+
         // get the required register
-        val instruction = implementation.instructions[result.patternScanResult!!.endIndex]
+        val instruction = implementation.instructions[insertIndex - 1]
         if (instruction.opcode != Opcode.INVOKE_VIRTUAL) return PatchResultError("Could not find the correct register")
         val register = (instruction as Instruction35c).registerC
 
-        val elseLabel = implementation.newLabelForIndex(result.patternScanResult!!.endIndex + 1)
+        val elseLabel = implementation.newLabelForIndex(insertIndex)
         // the instructions are written in reverse order.
         result.mutableMethod.addInstructions(
-            result.patternScanResult!!.endIndex + 1, """
+            insertIndex, """
                invoke-virtual { v$register, v2 }, ${oMethod.definingClass}->${oMethod.name}(I)V
                invoke-virtual { v$register, v2 }, ${pMethod.definingClass}->${pMethod.name}(I)V
             """
@@ -95,10 +97,10 @@ class EnableSeekbarTappingPatch : BytecodePatch(
 
         // if tap-seeking is disabled, do not invoke the two methods above by jumping to the else label
         implementation.addInstruction(
-            result.patternScanResult!!.endIndex + 1, BuilderInstruction21t(Opcode.IF_EQZ, 0, elseLabel)
+            insertIndex, BuilderInstruction21t(Opcode.IF_EQZ, 0, elseLabel)
         )
         result.mutableMethod.addInstructions(
-            result.patternScanResult!!.endIndex + 1, """
+            insertIndex, """
                 invoke-static { }, Lapp/revanced/integrations/patches/SeekbarTappingPatch;->isTapSeekingEnabled()Z
                 move-result v0
             """

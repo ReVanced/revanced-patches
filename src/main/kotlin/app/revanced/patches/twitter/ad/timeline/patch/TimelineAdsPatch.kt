@@ -58,7 +58,7 @@ class TimelineAdsPatch : BytecodePatch(
         // Set the tweetId field to null
         // This will cause twitter to not show the promoted ads, because we set it to null, when the tweet is promoted
         parserFingerprintResult.mutableMethod.addInstructions(
-            parserFingerprintResult.patternScanResult!!.startIndex + 1,
+            parserFingerprintResult.scanResult.patternScanResult!!.startIndex + 1,
             """
                     const/4 v2, 0x0
                     iput-object v2, p0, Lcom/twitter/model/json/timeline/urt/JsonTimelineTweet;->${tweetIdFieldReference.name}:Ljava/lang/String;

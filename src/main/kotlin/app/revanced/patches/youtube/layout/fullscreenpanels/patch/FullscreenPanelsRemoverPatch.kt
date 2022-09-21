@@ -6,7 +6,7 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.impl.BytecodeData
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.removeInstruction
-import app.revanced.patcher.fingerprint.method.utils.MethodFingerprintUtils.resolve
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -50,7 +50,7 @@ class FullscreenPanelsRemoverPatch : BytecodePatch(
 
         val method = result.mutableMethod
 
-        val ifIndex = result.patternScanResult!!.startIndex + 2
+        val ifIndex = result.scanResult.patternScanResult!!.startIndex + 2
 
         method.removeInstruction(ifIndex)
         method.addInstructions(

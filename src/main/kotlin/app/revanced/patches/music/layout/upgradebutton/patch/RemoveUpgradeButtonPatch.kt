@@ -33,7 +33,7 @@ class RemoveUpgradeButtonPatch : BytecodePatch(
         val implementation = result.mutableMethod.implementation!!
 
         val pivotBarElementFieldRef =
-            (implementation.instructions[result.patternScanResult!!.endIndex - 1] as Instruction22c).reference
+            (implementation.instructions[result.scanResult.patternScanResult!!.endIndex - 1] as Instruction22c).reference
 
         val register = (implementation.instructions.first() as Instruction35c).registerC
         // first compile all the needed instructions
@@ -46,16 +46,18 @@ class RemoveUpgradeButtonPatch : BytecodePatch(
             """.toInstructions().toMutableList()
 
 
+        val endIndex = result.scanResult.patternScanResult!!.endIndex
+
         // replace the instruction to retain the label at given index
         implementation.replaceInstruction(
-            result.patternScanResult!!.endIndex - 1, instructionList[0] // invoke-interface
+            endIndex - 1, instructionList[0] // invoke-interface
         )
         // do not forget to remove this instruction since we added it already
         instructionList.removeFirst()
 
         val exitInstruction = instructionList.last() // iput-object
         implementation.addInstruction(
-            result.patternScanResult!!.endIndex, exitInstruction
+            endIndex, exitInstruction
         )
         // do not forget to remove this instruction since we added it already
         instructionList.removeLast()
@@ -64,12 +66,12 @@ class RemoveUpgradeButtonPatch : BytecodePatch(
         instructionList.add(
             2, // if-le
             BuilderInstruction22t(
-                Opcode.IF_LE, 1, 2, implementation.newLabelForIndex(result.patternScanResult!!.endIndex)
+                Opcode.IF_LE, 1, 2, implementation.newLabelForIndex(endIndex)
             )
         )
 
         implementation.addInstructions(
-            result.patternScanResult!!.endIndex, instructionList
+            endIndex, instructionList
         )
         return PatchResultSuccess()
     }

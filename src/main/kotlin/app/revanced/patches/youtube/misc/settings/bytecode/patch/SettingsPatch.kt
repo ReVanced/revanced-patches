@@ -61,7 +61,7 @@ class SettingsPatch : BytecodePatch(
         // add instructions to set the theme of the settings activity
         themeSetterResult.mutableMethod.implementation!!.let {
             it.addInstruction(
-                themeSetterResult.patternScanResult!!.startIndex,
+                themeSetterResult.scanResult.patternScanResult!!.startIndex,
                 setThemeInstruction
             )
 

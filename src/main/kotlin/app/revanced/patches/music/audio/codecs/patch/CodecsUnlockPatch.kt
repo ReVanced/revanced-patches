@@ -30,7 +30,7 @@ class CodecsUnlockPatch : BytecodePatch(
 
         val implementation = codecsLockResult.mutableMethod.implementation!!
 
-        val scanResultStartIndex = codecsLockResult.patternScanResult!!.startIndex
+        val scanResultStartIndex = codecsLockResult.scanResult.patternScanResult!!.startIndex
         val instructionIndex = scanResultStartIndex +
                 if (implementation.instructions[scanResultStartIndex - 1].opcode == Opcode.CHECK_CAST) {
                     // for 5.16.xx and lower
@@ -43,7 +43,7 @@ class CodecsUnlockPatch : BytecodePatch(
         val allCodecsResult = AllCodecsReferenceFingerprint.result!!
         val allCodecsMethod =
             data.toMethodWalker(allCodecsResult.method)
-                .nextMethod(allCodecsResult.patternScanResult!!.startIndex)
+                .nextMethod(allCodecsResult.scanResult.patternScanResult!!.startIndex)
                 .getMethod()
 
         implementation.replaceInstruction(

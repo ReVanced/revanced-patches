@@ -31,7 +31,7 @@ class VideoIdPatch : BytecodePatch(
 
         insertMethod = result.mutableMethod
         videoIdRegister =
-            (insertMethod.implementation!!.instructions[result.patternScanResult!!.endIndex + 1] as OneRegisterInstruction).registerA
+            (insertMethod.implementation!!.instructions[result.scanResult.patternScanResult!!.endIndex + 1] as OneRegisterInstruction).registerA
 
         injectCall("Lapp/revanced/integrations/videoplayer/VideoInformation;->setCurrentVideoId(Ljava/lang/String;)V")
 
@@ -55,7 +55,7 @@ class VideoIdPatch : BytecodePatch(
             methodDescriptor: String
         ) {
             insertMethod.addInstructions(
-                result.patternScanResult!!.endIndex + offset, // move-result-object offset
+                result.scanResult.patternScanResult!!.endIndex + offset, // move-result-object offset
                 "invoke-static {v$videoIdRegister}, $methodDescriptor"
             )
         }

@@ -6,14 +6,12 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.impl.BytecodeData
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.fingerprint.method.utils.MethodFingerprintUtils.resolve
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.music.audio.exclusiveaudio.annotations.ExclusiveAudioCompatibility
 import app.revanced.patches.music.audio.exclusiveaudio.fingerprints.AudioOnlyEnablerFingerprint
-import app.revanced.patches.music.audio.exclusiveaudio.fingerprints.ExclusiveAudioFingerprint
 
 @Patch
 @Name("exclusive-audio-playback")
