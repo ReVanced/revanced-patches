@@ -1,3 +1,10 @@
+## [2.61.1](https://github.com/revanced/revanced-patches/compare/v2.61.0...v2.61.1) (2022-09-21)
+
+
+### Bug Fixes
+
+* **sponsorblock:** reflect strings from official guidelines ([#523](https://github.com/revanced/revanced-patches/issues/523)) ([1c83959](https://github.com/revanced/revanced-patches/commit/1c83959e69bfbf5140edbf7ef4d2c8901975bfd4))
+
 # [2.61.0](https://github.com/revanced/revanced-patches/compare/v2.60.0...v2.61.0) (2022-09-20)
 
 
