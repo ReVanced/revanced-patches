@@ -1,3 +1,11 @@
+# [2.65.0](https://github.com/revanced/revanced-patches/compare/v2.64.2...v2.65.0) (2022-09-21)
+
+
+### Features
+
+* `tiktok-feed-filter` , `tiktok-settings` and `tiktok-force-login` patch ([#501](https://github.com/revanced/revanced-patches/issues/501)) ([10e0286](https://github.com/revanced/revanced-patches/commit/10e028626f2b9d9d01279682198daf135bc82c20))
+* **theme:** arbitrary background color for light theme  ([#565](https://github.com/revanced/revanced-patches/issues/565)) ([da40e7e](https://github.com/revanced/revanced-patches/commit/da40e7e0cf266edc89353e62b9821b450f8f0295))
+
 ## [2.64.2](https://github.com/revanced/revanced-patches/compare/v2.64.1...v2.64.2) (2022-09-21)
 
 
