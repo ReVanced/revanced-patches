@@ -8,6 +8,7 @@ import android.widget.RelativeLayout;
 
 import java.lang.ref.WeakReference;
 
+import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.sponsorblock.player.PlayerType;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
@@ -22,6 +23,8 @@ public class SponsorBlockView {
     static boolean shouldShowOnPlayerType = true;
 
     public static void initialize(Object viewGroup) {
+        if (SettingsEnum.shorts_playing) return;
+
         try {
             LogHelper.debug(SponsorBlockView.class, "initializing");
 
