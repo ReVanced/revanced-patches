@@ -1,3 +1,11 @@
+# [2.63.0](https://github.com/revanced/revanced-patches/compare/v2.62.0...v2.63.0) (2022-09-21)
+
+
+### Features
+
+* `disable-auto-player-popup-panels` ([#543](https://github.com/revanced/revanced-patches/issues/543)) ([d1fa2c3](https://github.com/revanced/revanced-patches/commit/d1fa2c3bc359018146f1f90b1ed4448b7f19b247))
+* disable sponsorblock on shorts ([#439](https://github.com/revanced/revanced-patches/issues/439)) ([47fbcba](https://github.com/revanced/revanced-patches/commit/47fbcba3f845b5c3ef35c4dded8d6f9ffafc5d9e))
+
 # [2.62.0](https://github.com/revanced/revanced-patches/compare/v2.61.1...v2.62.0) (2022-09-21)
 
 

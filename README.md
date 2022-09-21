@@ -96,6 +96,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `sponsorblock` | Integrate SponsorBlock. | 17.36.37 |
 | `enable-wide-searchbar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 17.36.37 |
 | `hide-time-and-seekbar` | Hides progress bar and time counter on videos. | 17.36.37 |
+| `disable-auto-player-popup-panels` | Disable automatic popup panels (playlist or live chat) on video player. | 17.36.37 |
 | `tablet-mini-player` | Enables the tablet mini player layout. | 17.36.37 |
 | `disable-auto-captions` | Disable forced captions from being automatically enabled. | 17.36.37 |
 | `minimized-playback` | Enables minimized and background playback. | 17.36.37 |
