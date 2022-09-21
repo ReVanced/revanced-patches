@@ -86,7 +86,7 @@ class CustomVideoBufferPatch : BytecodePatch(
     }
 
     private fun execMaxBuffer() {
-        val (method, result) = MaxBufferFingerprint.unwrap()
+        val (method, result) = MaxBufferFingerprint.unwrap(true, -1)
         val (index, register) = result
 
         method.addInstructions(
@@ -121,10 +121,15 @@ class CustomVideoBufferPatch : BytecodePatch(
         )
     }
 
-    private fun MethodFingerprint.unwrap(): Pair<MutableMethod, Pair<Int, Int>> {
+    private fun MethodFingerprint.unwrap(
+        forEndIndex: Boolean = false,
+        offset: Int = 0
+    ): Pair<MutableMethod, Pair<Int, Int>> {
         val result = this.result!!
         val method = result.mutableMethod
-        val index = result.scanResult.patternScanResult!!.startIndex
+        val scanResult = result.scanResult.patternScanResult!!
+        val index = (if (forEndIndex) scanResult.endIndex else scanResult.startIndex) + offset
+
         val register = (method.instruction(index) as OneRegisterInstruction).registerA
 
         return method to (index to register)
