@@ -6,7 +6,7 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.impl.BytecodeData
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.fingerprint.method.utils.MethodFingerprintUtils.resolve
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -29,9 +29,11 @@ class HideGetPremiumPatch : BytecodePatch(
         val parentResult = HideGetPremiumParentFingerprint.result!!
         HideGetPremiumFingerprint.resolve(data, parentResult.classDef)
 
+        val startIndex = parentResult.scanResult.patternScanResult!!.startIndex
+
         val parentMethod = parentResult.mutableMethod
         parentMethod.replaceInstruction(
-            parentResult.patternScanResult!!.startIndex, """
+            startIndex, """
             const/4 v1, 0x0
         """
         )
@@ -39,7 +41,7 @@ class HideGetPremiumPatch : BytecodePatch(
         val result = HideGetPremiumFingerprint.result!!
         val method = result.mutableMethod
         method.addInstructions(
-            result.patternScanResult!!.startIndex, """
+            startIndex, """
             const/16 v0, 0x8
         """
         )

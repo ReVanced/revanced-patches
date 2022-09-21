@@ -5,7 +5,7 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.impl.BytecodeData
 import app.revanced.patcher.extensions.MethodFingerprintExtensions.name
-import app.revanced.patcher.fingerprint.method.utils.MethodFingerprintUtils.resolve
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -58,7 +58,7 @@ class ShortsButtonRemoverPatch : BytecodePatch(
 
                 if (!resolutionSucceeded) return PatchResultError("${it.name} failed")
             }
-            .map { it.result!!.patternScanResult!! }
+            .map { it.result!!.scanResult.patternScanResult!! }
 
         val enumScanResult = fingerprintResults[0]
         val buttonViewResult = fingerprintResults[1]

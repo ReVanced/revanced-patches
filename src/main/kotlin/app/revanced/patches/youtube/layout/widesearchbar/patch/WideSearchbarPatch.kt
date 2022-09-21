@@ -6,7 +6,7 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.impl.BytecodeData
 import app.revanced.patcher.data.impl.toMethodWalker
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.fingerprint.method.utils.MethodFingerprintUtils.resolve
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
@@ -52,7 +52,7 @@ class WideSearchbarPatch : BytecodePatch(
 
         //This should be the method aF in class fbn
         val targetMethodOne =
-            data.toMethodWalker(resultOne!!.method).nextMethod(resultOne.patternScanResult!!.endIndex, true).getMethod() as MutableMethod
+            data.toMethodWalker(resultOne!!.method).nextMethod(resultOne.scanResult.patternScanResult!!.endIndex, true).getMethod() as MutableMethod
 
         //Since both methods have the same smali code, inject instructions using a method.
         addInstructions(targetMethodOne)
@@ -61,7 +61,7 @@ class WideSearchbarPatch : BytecodePatch(
 
         //This should be the method aB in class fbn
         val targetMethodTwo =
-            data.toMethodWalker(resultTwo!!.method).nextMethod(resultTwo.patternScanResult!!.startIndex, true).getMethod() as MutableMethod
+            data.toMethodWalker(resultTwo!!.method).nextMethod(resultTwo.scanResult.patternScanResult!!.startIndex, true).getMethod() as MutableMethod
 
         //Since both methods have the same smali code, inject instructions using a method.
         addInstructions(targetMethodTwo)

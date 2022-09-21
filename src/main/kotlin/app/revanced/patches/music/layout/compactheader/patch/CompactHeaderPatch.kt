@@ -27,7 +27,7 @@ class CompactHeaderPatch : BytecodePatch(
         val result = CompactHeaderConstructorFingerprint.result!!
         val method = result.mutableMethod
 
-        val insertIndex = result.patternScanResult!!.endIndex
+        val insertIndex = result.scanResult.patternScanResult!!.endIndex
         val register = (method.implementation!!.instructions[insertIndex - 1] as BuilderInstruction11x).registerA
         method.addInstructions(
             insertIndex, """

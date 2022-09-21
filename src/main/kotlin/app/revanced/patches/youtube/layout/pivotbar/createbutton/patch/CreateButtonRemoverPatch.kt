@@ -5,7 +5,7 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.impl.BytecodeData
 import app.revanced.patcher.extensions.MethodFingerprintExtensions.name
-import app.revanced.patcher.fingerprint.method.utils.MethodFingerprintUtils.resolve
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -55,7 +55,7 @@ class CreateButtonRemoverPatch : BytecodePatch(
             return PatchResultError("${PivotBarCreateButtonViewFingerprint.name} failed")
 
         val createButtonResult = PivotBarCreateButtonViewFingerprint.result!!
-        val insertIndex = createButtonResult.patternScanResult!!.endIndex
+        val insertIndex = createButtonResult.scanResult.patternScanResult!!.endIndex
 
         /*
          * Inject hooks

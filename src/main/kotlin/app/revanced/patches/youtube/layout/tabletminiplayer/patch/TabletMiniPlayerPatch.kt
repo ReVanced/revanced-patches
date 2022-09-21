@@ -6,7 +6,7 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.impl.BytecodeData
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patcher.fingerprint.method.utils.MethodFingerprintUtils.resolve
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
@@ -92,7 +92,7 @@ class TabletMiniPlayerPatch : BytecodePatch(
 
         fun MethodFingerprint.unwrap(): Triple<MutableMethod, Int, Int> {
             val result = this.result!!
-            val scanIndex = result.patternScanResult!!.endIndex
+            val scanIndex = result.scanResult.patternScanResult!!.endIndex
             val method = result.mutableMethod
             val instructions = method.implementation!!.instructions
             val parameterRegister = (instructions[scanIndex] as OneRegisterInstruction).registerA

@@ -26,7 +26,7 @@ class ClientSpoofPatch : BytecodePatch(
         val result = UserAgentHeaderBuilderFingerprint.result!!
         val method = result.mutableMethod
 
-        val insertIndex = result.patternScanResult!!.endIndex
+        val insertIndex = result.scanResult.patternScanResult!!.endIndex
         val packageNameRegister = (method.instruction(insertIndex) as FiveRegisterInstruction).registerD
 
         val originalPackageName = "com.google.android.youtube"
