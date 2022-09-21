@@ -25,6 +25,7 @@ import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.mapping.patch.ResourceIdMappingProviderResourcePatch
 import app.revanced.patches.youtube.misc.playercontrols.bytecode.patch.PlayerControlsBytecodePatch
 import app.revanced.patches.youtube.misc.videoid.patch.VideoIdPatch
+import app.revanced.patches.youtube.layout.autocaptions.fingerprints.StartVideoInformerFingerprint
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.MutableMethodImplementation
@@ -53,7 +54,8 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         NextGenWatchLayoutFingerprint,
         AppendTimeFingerprint,
         PlayerInitFingerprint,
-        PlayerOverlaysLayoutInitFingerprint
+        PlayerOverlaysLayoutInitFingerprint,
+        ShortsPlayerConstructorFingerprint
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {/*
@@ -323,6 +325,23 @@ class SponsorBlockBytecodePatch : BytecodePatch(
                 }
             }
         }
+
+        val startVideoInformerMethod = StartVideoInformerFingerprint.result!!.mutableMethod
+        startVideoInformerMethod.addInstructions(
+            0, """
+            const/4 v0, 0x1
+            sput-boolean v0, Lapp/revanced/integrations/settings/SettingsEnum;->shorts_playing:Z
+        """
+        )
+
+        val shortsPlayerConstructorMethod = ShortsPlayerConstructorFingerprint.result!!.mutableMethod
+
+        shortsPlayerConstructorMethod.addInstructions(
+            0, """
+            const/4 v0, 0x0
+            sput-boolean v0, Lapp/revanced/integrations/settings/SettingsEnum;->shorts_playing:Z
+        """
+        )
 
         // TODO: isSBChannelWhitelisting implementation
 
