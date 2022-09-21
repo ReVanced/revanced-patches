@@ -1,3 +1,10 @@
+# [2.62.0](https://github.com/revanced/revanced-patches/compare/v2.61.1...v2.62.0) (2022-09-21)
+
+
+### Features
+
+* `hide-time-and-seekbar` patch ([#544](https://github.com/revanced/revanced-patches/issues/544)) ([ef7afc7](https://github.com/revanced/revanced-patches/commit/ef7afc7231f8fa6b9b7f84c2b5b9a9fda80aa0f4))
+
 ## [2.61.1](https://github.com/revanced/revanced-patches/compare/v2.61.0...v2.61.1) (2022-09-21)
 
 
