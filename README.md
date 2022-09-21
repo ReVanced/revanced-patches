@@ -59,8 +59,11 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
+| `tiktok-feed-filter` | Filters tiktok videos: removing ads, removing livestreams. | all |
 | `tiktok-download` | Removes download restrictions and changes the default path to download to. | all |
 | `tiktok-seekbar` | Show progress bar for all video. | all |
+| `tiktok-force-login` | Do not force login. | all |
+| `tiktok-settings` | Add settings menu to TikTok. | all |
 | `tiktok-ads` | Removes ads from TikTok. | all |
 </details>
 
@@ -69,8 +72,11 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
+| `tiktok-feed-filter` | Filters tiktok videos: removing ads, removing livestreams. | all |
 | `tiktok-download` | Removes download restrictions and changes the default path to download to. | all |
 | `tiktok-seekbar` | Show progress bar for all video. | all |
+| `tiktok-force-login` | Do not force login. | all |
+| `tiktok-settings` | Add settings menu to TikTok. | all |
 | `tiktok-ads` | Removes ads from TikTok. | all |
 </details>
 
