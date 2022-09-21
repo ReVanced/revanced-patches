@@ -1,3 +1,10 @@
+# [2.64.0](https://github.com/revanced/revanced-patches/compare/v2.63.0...v2.64.0) (2022-09-21)
+
+
+### Features
+
+* explicit support for YouTube v17.34.35 and v17.34.36 ([#527](https://github.com/revanced/revanced-patches/issues/527)) ([1b6a64b](https://github.com/revanced/revanced-patches/commit/1b6a64b49c54ab53df463981a9ad7ec67729939f))
+
 # [2.63.0](https://github.com/revanced/revanced-patches/compare/v2.62.0...v2.63.0) (2022-09-21)
 
 
