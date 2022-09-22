@@ -1,3 +1,10 @@
+# [2.66.0](https://github.com/revanced/revanced-patches/compare/v2.65.0...v2.66.0) (2022-09-22)
+
+
+### Features
+
+* **custom-playback-speed:** max, min, granularity option ([b1e423d](https://github.com/revanced/revanced-patches/commit/b1e423d9cdca51e54c154cc39a24c508ca322f60))
+
 # [2.65.0](https://github.com/revanced/revanced-patches/compare/v2.64.2...v2.65.0) (2022-09-21)
 
 
