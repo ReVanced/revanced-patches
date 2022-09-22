@@ -1,3 +1,10 @@
+## [2.66.2](https://github.com/revanced/revanced-patches/compare/v2.66.1...v2.66.2) (2022-09-22)
+
+
+### Bug Fixes
+
+* **custom-playback-speed:** implement own method instead of `takeWhile` ([8522d4c](https://github.com/revanced/revanced-patches/commit/8522d4cd705118bf1108ec88bbed542a0cb15943))
+
 ## [2.66.1](https://github.com/revanced/revanced-patches/compare/v2.66.0...v2.66.1) (2022-09-22)
 
 
