@@ -12,7 +12,7 @@ import app.revanced.integrations.utils.ReVancedUtils;
 
 public class VideoSpeedPatch {
 
-    public static final float[] videoSpeeds = {0.25f, 0.5f, 0.75f, 1.0f, 1.25f, 1.5f, 1.75f, 2.0f, 3.0f, 4.0f, 5.0f};
+    public static final float[] videoSpeeds = { 0 }; // Values are useless as they are being overridden by the respective patch
     private static Boolean userChangedSpeed = false;
 
     public static int getDefaultSpeed(Object[] speeds, int speed, Object qInterface) {
