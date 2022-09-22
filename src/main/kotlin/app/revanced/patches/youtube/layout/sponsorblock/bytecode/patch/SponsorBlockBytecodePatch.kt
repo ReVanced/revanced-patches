@@ -40,7 +40,7 @@ import org.jf.dexlib2.util.MethodUtil
 
 @Patch
 @DependsOn(
-    dependencies = [PlayerControlsBytecodePatch::class, IntegrationsPatch::class, ResourceIdMappingProviderResourcePatch::class, SponsorBlockResourcePatch::class, VideoIdPatch::class]
+    dependencies = [PlayerControlsBytecodePatch::class, IntegrationsPatch::class, SponsorBlockResourcePatch::class, VideoIdPatch::class]
 )
 @Name("sponsorblock")
 @Description("Integrate SponsorBlock.")
@@ -329,7 +329,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         val startVideoInformerMethod = StartVideoInformerFingerprint.result!!.mutableMethod
         startVideoInformerMethod.addInstructions(
             0, """
-            const/4 v0, 0x1
+            const/4 v0, 0x0
             sput-boolean v0, Lapp/revanced/integrations/settings/SettingsEnum;->shorts_playing:Z
         """
         )
@@ -338,7 +338,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
 
         shortsPlayerConstructorMethod.addInstructions(
             0, """
-            const/4 v0, 0x0
+            const/4 v0, 0x1
             sput-boolean v0, Lapp/revanced/integrations/settings/SettingsEnum;->shorts_playing:Z
         """
         )

@@ -9,6 +9,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.youtube.layout.sponsorblock.annotations.SponsorBlockCompatibility
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
+import app.revanced.patches.youtube.misc.mapping.patch.ResourceIdMappingProviderResourcePatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.Preference
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
@@ -19,9 +20,13 @@ import app.revanced.util.resources.ResourceUtils.copyXmlNode
 
 @Name("sponsorblock-resource-patch")
 @SponsorBlockCompatibility
-@DependsOn([FixLocaleConfigErrorPatch::class, SettingsPatch::class])
+@DependsOn([FixLocaleConfigErrorPatch::class, SettingsPatch::class, ResourceIdMappingProviderResourcePatch::class])
 @Version("0.0.1")
 class SponsorBlockResourcePatch : ResourcePatch() {
+    companion object {
+        internal var reelButtonGroupResourceId: Long = 0
+    }
+
     override fun execute(data: ResourceData): PatchResult {
         val youtubePackage = "com.google.android.youtube"
         SettingsPatch.addPreference(
@@ -101,6 +106,10 @@ class SponsorBlockResourcePatch : ResourcePatch() {
                 break
             }
         }.close() // close afterwards
+
+        reelButtonGroupResourceId = ResourceIdMappingProviderResourcePatch.resourceMappings.single {
+            it.type == "id" && it.name == "reel_persistent_edu_button_group"
+        }.id
 
         return PatchResultSuccess()
     }
