@@ -88,7 +88,7 @@ class CustomPlaybackSpeedPatch : BytecodePatch(
             "sget-object v$originalArrayFetchDestination, $videoSpeedsArrayType"
         )
 
-        val limiterMethod = SpeedLimiterFingerprint.result?.mutableMethod!!;
+        val limiterMethod = SpeedLimiterFingerprint.result?.mutableMethod!!
         val limiterMethodImpl = limiterMethod.implementation!!
 
         val (limiterMinConstIndex, limiterMinConst) = limiterMethodImpl.instructions.withIndex()
@@ -123,11 +123,16 @@ class CustomPlaybackSpeedPatch : BytecodePatch(
             .div(stepsGranularity)// round to nearest multiple of stepsGranularity
             .coerceAtLeast(1 / stepsGranularity) // ensure steps are at least 1/8th of the step granularity
 
-        val videoSpeedsArray = DoubleStream
-            .iterate(speedLimitMin.toDouble()) { it + step } // create a stream of speeds
-            .takeWhile { it <= speedLimitMax } // limit the stream to the max speed
-            .mapToObj { it.toFloat().toRawBits() }
-            .toList() as List<Number>
+        val videoSpeedsArray = buildList<Number> {
+            DoubleStream
+                .iterate(speedLimitMin.toDouble()) { it + step } // create a stream of speeds
+                .let { speedStream ->
+                    for (speed in speedStream) {
+                        if (speed > speedLimitMax) break
+                        add(speed.toFloat().toRawBits())
+                    }
+                }
+        }
 
         // adjust the new array of speeds size
         constructor.replaceInstruction(
