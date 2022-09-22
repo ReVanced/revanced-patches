@@ -6,21 +6,23 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.impl.BytecodeData
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.*
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.misc.customplaybackspeed.annotations.CustomPlaybackSpeedCompatibility
 import app.revanced.patches.youtube.misc.customplaybackspeed.fingerprints.SpeedArrayGeneratorFingerprint
 import app.revanced.patches.youtube.misc.customplaybackspeed.fingerprints.SpeedLimiterFingerprint
+import app.revanced.patches.youtube.misc.customplaybackspeed.fingerprints.VideoSpeedPatchFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
+import org.jf.dexlib2.builder.instruction.BuilderArrayPayload
 import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
 import org.jf.dexlib2.iface.reference.MethodReference
+import java.util.stream.DoubleStream
+import kotlin.math.roundToInt
 
 @Patch
 @Name("custom-playback-speed")
@@ -30,12 +32,16 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @Version("0.0.1")
 class CustomPlaybackSpeedPatch : BytecodePatch(
     listOf(
-        SpeedArrayGeneratorFingerprint, SpeedLimiterFingerprint
+        SpeedArrayGeneratorFingerprint, SpeedLimiterFingerprint, VideoSpeedPatchFingerprint
     )
 ) {
 
     override fun execute(data: BytecodeData): PatchResult {
         //TODO: include setting to skip remembering the new speed
+
+        val speedLimitMin = minVideoSpeed!!.toFloat()
+        val speedLimitMax = maxVideoSpeed!!.toFloat().coerceAtLeast(speedLimitMin)
+        val speedsGranularity = videoSpeedsGranularity!!.toFloat()
 
         val arrayGenMethod = SpeedArrayGeneratorFingerprint.result?.mutableMethod!!
         val arrayGenMethodImpl = arrayGenMethod.implementation!!
@@ -85,9 +91,6 @@ class CustomPlaybackSpeedPatch : BytecodePatch(
         val limiterMethod = SpeedLimiterFingerprint.result?.mutableMethod!!;
         val limiterMethodImpl = limiterMethod.implementation!!
 
-        val speedLimitMin = 0.25f
-        val speedLimitMax = 100f
-
         val (limiterMinConstIndex, limiterMinConst) = limiterMethodImpl.instructions.withIndex()
             .first { (it.value as? NarrowLiteralInstruction)?.narrowLiteral == 0.25f.toRawBits() }
         val (limiterMaxConstIndex, limiterMaxConst) = limiterMethodImpl.instructions.withIndex()
@@ -107,6 +110,84 @@ class CustomPlaybackSpeedPatch : BytecodePatch(
             "const/high16 v$limiterMaxConstDestination, ${hexFloat(speedLimitMax)}"
         )
 
+        val constructorResult = VideoSpeedPatchFingerprint.result!!
+        val constructor = constructorResult.mutableMethod
+        val implementation = constructor.implementation!!
+
+        val stepsGranularity = 8F
+        val step = speedLimitMax
+            .minus(speedLimitMin) // calculate the range of the speeds
+            .div(speedsGranularity)
+            .times(stepsGranularity)
+            .roundToInt()
+            .div(stepsGranularity)// round to nearest multiple of stepsGranularity
+            .coerceAtLeast(1 / stepsGranularity) // ensure steps are at least 1/8th of the step granularity
+
+        val videoSpeedsArray = DoubleStream
+            .iterate(speedLimitMin.toDouble()) { it + step } // create a stream of speeds
+            .takeWhile { it <= speedLimitMax } // limit the stream to the max speed
+            .mapToObj { it.toFloat().toRawBits() }
+            .toList() as List<Number>
+
+        // adjust the new array of speeds size
+        constructor.replaceInstruction(
+            0,
+            "const/16 v0, ${videoSpeedsArray.size}"
+        )
+
+        // create the payload with the new speeds
+        val arrayPayloadIndex = implementation.instructions.size - 1
+        implementation.replaceInstruction(
+            arrayPayloadIndex,
+            BuilderArrayPayload(
+                4,
+                videoSpeedsArray
+            )
+        )
+
         return PatchResultSuccess()
+    }
+
+    companion object : OptionsContainer() {
+        private fun String?.validate(max: Int? = null) = this?.toFloatOrNull() != null &&
+                toFloat().let { float ->
+                    float > 0 && max?.let { max -> float <= max } ?: true
+                }
+
+        val videoSpeedsGranularity by option(
+            PatchOption.StringOption(
+                "granularity",
+                "16",
+                "Video speed granularity",
+                "The granularity of the video speeds. The higher the value, the more speeds will be available.",
+                true
+            ) {
+                it.validate()
+            }
+        )
+
+        val minVideoSpeed by option(
+            PatchOption.StringOption(
+                "min",
+                "0.25",
+                "Minimum video speed",
+                "The minimum video speed.",
+                true
+            ) {
+                it.validate()
+            }
+        )
+
+        val maxVideoSpeed by option(
+            PatchOption.StringOption(
+                "max",
+                "5.0",
+                "Maximum video speed",
+                "The maximum video speed. Must be greater than the minimum video speed and smaller than 5.",
+                true
+            ) {
+                it.validate(5)
+            }
+        )
     }
 }
