@@ -1,3 +1,10 @@
+## [2.66.1](https://github.com/revanced/revanced-patches/compare/v2.66.0...v2.66.1) (2022-09-22)
+
+
+### Bug Fixes
+
+* **sponsorblock:** broken fingerprint and invert setting `shorts_playing` ([#579](https://github.com/revanced/revanced-patches/issues/579)) ([59fb674](https://github.com/revanced/revanced-patches/commit/59fb674437207aeabed5b92ba32bda120820fb8f))
+
 # [2.66.0](https://github.com/revanced/revanced-patches/compare/v2.65.0...v2.66.0) (2022-09-22)
 
 
