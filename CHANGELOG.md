@@ -1,3 +1,10 @@
+## [2.68.2](https://github.com/revanced/revanced-patches/compare/v2.68.1...v2.68.2) (2022-09-23)
+
+
+### Bug Fixes
+
+* **hide-time-and-seekbar:** don't draw the seekbar ([#594](https://github.com/revanced/revanced-patches/issues/594)) ([46e0195](https://github.com/revanced/revanced-patches/commit/46e0195f760dc11ec8d2068ffb57997eccab1aff))
+
 ## [2.68.1](https://github.com/revanced/revanced-patches/compare/v2.68.0...v2.68.1) (2022-09-23)
 
 
