@@ -1,3 +1,10 @@
+## [2.68.3](https://github.com/revanced/revanced-patches/compare/v2.68.2...v2.68.3) (2022-09-23)
+
+
+### Bug Fixes
+
+* **seekbar-tapping:** do not disable seekbar when hiding it ([#600](https://github.com/revanced/revanced-patches/issues/600)) ([68a9457](https://github.com/revanced/revanced-patches/commit/68a9457464c786a61b756eb18ca5f1ce05316636))
+
 ## [2.68.2](https://github.com/revanced/revanced-patches/compare/v2.68.1...v2.68.2) (2022-09-23)
 
 
