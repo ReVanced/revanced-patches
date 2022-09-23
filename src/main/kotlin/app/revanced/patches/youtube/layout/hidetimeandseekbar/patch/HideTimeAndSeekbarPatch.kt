@@ -10,7 +10,6 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
-import app.revanced.patches.youtube.interaction.seekbar.fingerprints.SeekbarTappingFingerprint
 import app.revanced.patches.youtube.layout.hidetimeandseekbar.fingerprints.TimeCounterFingerprint
 import app.revanced.patches.youtube.layout.hidetimeandseekbar.annotations.HideTimeAndSeekbarCompatibility
 import app.revanced.patches.youtube.layout.sponsorblock.bytecode.fingerprints.CreateVideoPlayerSeekbarFingerprint
@@ -27,7 +26,7 @@ import app.revanced.patches.youtube.misc.settings.framework.components.impl.Swit
 @Version("0.0.1")
 class HideTimeAndSeekbarPatch : BytecodePatch(
     listOf(
-        CreateVideoPlayerSeekbarFingerprint, SeekbarTappingFingerprint, TimeCounterFingerprint
+        CreateVideoPlayerSeekbarFingerprint, TimeCounterFingerprint
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
@@ -50,20 +49,6 @@ class HideTimeAndSeekbarPatch : BytecodePatch(
             move-result v0
             if-eqz v0, :hide_time_and_seekbar
             return-void
-            :hide_time_and_seekbar
-            nop
-        """
-        )
-
-        val seekbarTappingMethod = SeekbarTappingFingerprint.result!!.mutableMethod
-
-        seekbarTappingMethod.addInstructions(
-            0, """
-            invoke-static { }, Lapp/revanced/integrations/patches/HideTimeAndSeekbarPatch;->hideTimeAndSeekbar()Z
-            move-result v0
-            if-eqz v0, :hide_time_and_seekbar
-            const/4 v0, 0x0
-            return v0
             :hide_time_and_seekbar
             nop
         """
