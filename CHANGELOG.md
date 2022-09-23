@@ -1,3 +1,15 @@
+# [2.67.0](https://github.com/revanced/revanced-patches/compare/v2.66.2...v2.67.0) (2022-09-23)
+
+
+### Bug Fixes
+
+* **hide-premium-nav-bar:** invalid import ([#590](https://github.com/revanced/revanced-patches/issues/590)) ([37ad223](https://github.com/revanced/revanced-patches/commit/37ad22360e6ac5e1b1dce474fe6a4e3813e03330))
+
+
+### Features
+
+* `hide-premium-nav-bar` patch ([#589](https://github.com/revanced/revanced-patches/issues/589)) ([1811416](https://github.com/revanced/revanced-patches/commit/18114168d7f8c3dd41d1f124c3524c7ca850d33d))
+
 ## [2.66.2](https://github.com/revanced/revanced-patches/compare/v2.66.1...v2.66.2) (2022-09-22)
 
 
