@@ -5,10 +5,9 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.spotify.premium_navbar_tab.annotations.PremiumNavbarTabCompatibility
 
-@Name("debug-menu-activity-fingerprint")
+@Name("add-premium-navbar-tab-parent-fingerprint")
 @Version("0.0.1")
 @PremiumNavbarTabCompatibility
-object DebugMenuActivityFingerprint : MethodFingerprint(
-     strings = listOf("com.spotify.app.music.debugtools.menu.DebugMenuActivity"),
-     parameters = listOf("L", "L"),
+object AddPremiumNavbarTabParentFingerprint : MethodFingerprint(
+     strings = listOf("com.samsung.android.samsungaccount.action.REQUEST_AUTHCODE")
 )
