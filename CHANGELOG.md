@@ -1,3 +1,15 @@
+# [2.68.0](https://github.com/revanced/revanced-patches/compare/v2.67.1...v2.68.0) (2022-09-23)
+
+
+### Bug Fixes
+
+* **hide-premium-navbar:** remove the correct instructions ([#591](https://github.com/revanced/revanced-patches/issues/591)) ([b4b0c97](https://github.com/revanced/revanced-patches/commit/b4b0c972d28cf7591ece04d154d1183c8431cb77))
+
+
+### Features
+
+* **tiktok:** adapt `tiktok-download` with `tiktok-settings`. ([#586](https://github.com/revanced/revanced-patches/issues/586)) ([876b726](https://github.com/revanced/revanced-patches/commit/876b7266109b099597dd19d6ed3fa3dac098b73b))
+
 ## [2.67.1](https://github.com/revanced/revanced-patches/compare/v2.67.0...v2.67.1) (2022-09-23)
 
 # [2.67.0](https://github.com/revanced/revanced-patches/compare/v2.66.2...v2.67.0) (2022-09-23)

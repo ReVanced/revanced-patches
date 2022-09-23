@@ -9,7 +9,7 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `hide-premium-nav-bar` | Removes the premium tab from the navbar. | all |
+| `hide-premium-navbar` | Removes the premium tab from the navbar. | all |
 </details>
 
 ### 📦 `com.twitter.android`
