@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Process;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
@@ -19,6 +20,7 @@ import androidx.annotation.Nullable;
 import com.ss.android.ugc.aweme.splash.SplashActivity;
 
 import app.revanced.tiktok.settings.SettingsEnum;
+import app.revanced.tiktok.settingsmenu.preference.DownloadPathPreference;
 import app.revanced.tiktok.utils.ReVancedUtils;
 import app.revanced.tiktok.utils.SharedPrefHelper;
 
@@ -81,6 +83,42 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
                 preference.setOnPreferenceChangeListener((pref, newValue) -> {
                     final boolean value = (Boolean) newValue;
                     SettingsEnum.TIK_HIDE_LIVE.saveValue(value);
+                    return true;
+                });
+            }
+        }
+
+        //Download
+        if (SettingsStatus.download) {
+            PreferenceCategory download = new PreferenceCategory(context);
+            download.setTitle("Download");
+            preferenceScreen.addPreference(download);
+            //Download path
+            {
+                DownloadPathPreference preference = new DownloadPathPreference(context);
+                download.addPreference(preference);
+                preference.setKey(SettingsEnum.TIK_DOWN_PATH.getPath());
+                preference.setDefaultValue(SettingsEnum.TIK_DOWN_PATH.getDefaultValue());
+                preference.setValue(SettingsEnum.TIK_DOWN_PATH.getString());
+                preference.setTitle("Download path");
+                preference.setSummary(Environment.getExternalStorageDirectory().getPath() + "/" + preference.getValue());
+                preference.setOnPreferenceChangeListener((pref, newValue) -> {
+                    final String value = (String) newValue;
+                    SettingsEnum.TIK_DOWN_PATH.saveValue(value);
+                    return true;
+                });
+            }
+            //Download watermark
+            {
+                SwitchPreference preference = new SwitchPreference(context);
+                download.addPreference(preference);
+                preference.setKey(SettingsEnum.TIK_DOWN_WATERMARK.getPath());
+                preference.setDefaultValue(SettingsEnum.TIK_DOWN_WATERMARK.getDefaultValue());
+                preference.setChecked(SettingsEnum.TIK_DOWN_WATERMARK.getBoolean());
+                preference.setTitle("Remove watermark");
+                preference.setOnPreferenceChangeListener((pref, newValue) -> {
+                    final boolean value = (Boolean) newValue;
+                    SettingsEnum.TIK_DOWN_WATERMARK.saveValue(value);
                     return true;
                 });
             }

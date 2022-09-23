@@ -11,6 +11,8 @@ public enum SettingsEnum {
     //TikTok Settings
     TIK_REMOVE_ADS("tik-remove-ads", true, SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.BOOLEAN, true),
     TIK_HIDE_LIVE("tik-hide-live", false, SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.BOOLEAN, true),
+    TIK_DOWN_PATH("tik-down-path", "DCIM/TikTok", SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.STRING),
+    TIK_DOWN_WATERMARK("tik-down-watermark", true, SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.BOOLEAN),
     TIK_DEBUG("tik_debug", false, SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.BOOLEAN);
 
     static {
