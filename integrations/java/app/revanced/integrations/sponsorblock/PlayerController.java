@@ -265,7 +265,7 @@ public class PlayerController {
     }
 
     public static void setSponsorBarRect(final Object self) {
-        if (SettingsEnum.shorts_playing) return;
+        if (SettingsEnum.shorts_playing || self == null) return;
 
         try {
             Field field = self.getClass().getDeclaredField("replaceMeWithsetSponsorBarRect");
