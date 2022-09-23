@@ -13,40 +13,48 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.spotify.premium_navbar_tab.annotations.PremiumNavbarTabCompatibility
 import app.revanced.patches.spotify.premium_navbar_tab.fingerprints.AddPremiumNavbarTabFingerprint
-import app.revanced.patches.spotify.premium_navbar_tab.fingerprints.DebugMenuActivityFingerprint
+import app.revanced.patches.spotify.premium_navbar_tab.fingerprints.AddPremiumNavbarTabParentFingerprint
 import app.revanced.patches.youtube.misc.mapping.patch.ResourceIdMappingProviderResourcePatch
 import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
 @Patch
-@Name("hide-premium-nav-bar")
+@Name("hide-premium-navbar")
 @Description("Removes the premium tab from the navbar.")
 @PremiumNavbarTabCompatibility
 @Version("0.0.1")
 @DependsOn([ResourceIdMappingProviderResourcePatch::class])
 class PremiumNavbarTabPatch : BytecodePatch(
     listOf(
-        DebugMenuActivityFingerprint
+        AddPremiumNavbarTabParentFingerprint
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        val parentResult = DebugMenuActivityFingerprint.result!!
+        val parentResult = AddPremiumNavbarTabParentFingerprint.result!!
         AddPremiumNavbarTabFingerprint.resolve(data, parentResult.classDef)
 
         val result = AddPremiumNavbarTabFingerprint.result!!
+
         val method = result.mutableMethod
-
-        val premiumTabId = ResourceIdMappingProviderResourcePatch.resourceMappings.single{it.type == "id" && it.name == "premium_tab"}.id.toInt()
-
         val methodInstructions = method.implementation!!.instructions
+        val lastInstructionIdx = methodInstructions.size - 1
 
+        val premiumTabId = ResourceIdMappingProviderResourcePatch.resourceMappings.single{it.type == "id" && it.name == "premium_tab"}.id
+
+        var removeAmount = 2
+        // 2nd const remove method
         for ((i, instruction) in methodInstructions.asReversed().withIndex()) {
             if (instruction.opcode.ordinal != Opcode.CONST.ordinal) continue
-            if ((instruction as OneRegisterInstruction).registerA != premiumTabId) continue
-            val constIdx = methodInstructions.size - i
-            val methodIdx = constIdx + 8
-            method.removeInstruction(methodIdx)
-            break
+            if ((instruction as WideLiteralInstruction).wideLiteral != premiumTabId) continue
+
+            val findThreshold = 10
+            val constIndex = lastInstructionIdx - i
+            val invokeInstruction = methodInstructions.subList(constIndex, constIndex + findThreshold).first {
+                it.opcode.ordinal == Opcode.INVOKE_VIRTUAL_RANGE.ordinal
+            }
+            method.removeInstruction(methodInstructions.indexOf(invokeInstruction))
+
+            if (--removeAmount == 0) break
         }
 
         return PatchResultSuccess()
