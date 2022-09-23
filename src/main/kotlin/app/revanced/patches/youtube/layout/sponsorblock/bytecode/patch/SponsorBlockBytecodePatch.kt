@@ -55,7 +55,8 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         AppendTimeFingerprint,
         PlayerInitFingerprint,
         PlayerOverlaysLayoutInitFingerprint,
-        ShortsPlayerConstructorFingerprint
+        ShortsPlayerConstructorFingerprint,
+        StartVideoInformerFingerprint
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {/*
