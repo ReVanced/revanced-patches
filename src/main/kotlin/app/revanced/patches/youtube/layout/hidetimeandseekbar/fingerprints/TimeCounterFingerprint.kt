@@ -11,16 +11,22 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 @Name("time-counter-fingerprint")
-@MatchingMethod("Lfez", "a")
+@MatchingMethod("Lfga", "pk")
 @FuzzyPatternScanMethod(3)
 @HideTimeAndSeekbarCompatibility
 @Version("0.0.1")
 object TimeCounterFingerprint : MethodFingerprint(
-    "L", AccessFlags.PUBLIC or AccessFlags.STATIC, listOf("J"), listOf(
-        Opcode.SGET_OBJECT,
+    "V", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf(), listOf(
+        Opcode.IGET_OBJECT,
+        Opcode.IGET_WIDE,
         Opcode.CONST_WIDE_16,
-        Opcode.ADD_LONG_2ADDR,
+        Opcode.CMP_LONG,
+        Opcode.IF_LEZ,
+        Opcode.IGET_OBJECT,
+        Opcode.IF_EQZ,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_WIDE,
+        Opcode.MOVE_RESULT,
+        Opcode.IF_EQZ,
+        Opcode.GOTO,
     )
 )
