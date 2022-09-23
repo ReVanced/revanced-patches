@@ -1,3 +1,10 @@
+## [2.68.1](https://github.com/revanced/revanced-patches/compare/v2.68.0...v2.68.1) (2022-09-23)
+
+
+### Bug Fixes
+
+* **sponsorblock:** resolve unresolved fingerprint ([e7296f3](https://github.com/revanced/revanced-patches/commit/e7296f3424bed78a0149cca9bf6e29243e962150))
+
 # [2.68.0](https://github.com/revanced/revanced-patches/compare/v2.67.1...v2.68.0) (2022-09-23)
 
 
