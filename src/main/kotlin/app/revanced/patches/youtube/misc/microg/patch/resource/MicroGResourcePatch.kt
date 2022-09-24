@@ -8,14 +8,21 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.impl.ResourcePatch
+import app.revanced.patches.music.misc.microg.shared.Constants
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import app.revanced.patches.youtube.misc.microg.annotations.MicroGPatchCompatibility
-import app.revanced.patches.youtube.misc.microg.shared.Constants.BASE_MICROG_PACKAGE_NAME
+import app.revanced.patches.youtube.misc.microg.shared.Constants.PACKAGE_NAME
+import app.revanced.patches.youtube.misc.microg.shared.Constants.REVANCED_APP_NAME
 import app.revanced.patches.youtube.misc.microg.shared.Constants.REVANCED_PACKAGE_NAME
-import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsResourcePatch
+import app.revanced.patches.youtube.misc.microg.shared.Constants.SPOOFED_PACKAGE_NAME
+import app.revanced.patches.youtube.misc.microg.shared.Constants.SPOOFED_PACKAGE_SIGNATURE
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.Preference
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
+import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsResourcePatch
+import app.revanced.util.microg.Constants.MICROG_VENDOR
+import app.revanced.util.microg.MicroGManifestHelper
+import app.revanced.util.microg.MicroGResourceHelper
 
 @Name("microg-resource-patch")
 @DependsOn([FixLocaleConfigErrorPatch::class, SettingsResourcePatch::class])
@@ -27,32 +34,26 @@ class MicroGResourcePatch : ResourcePatch() {
         SettingsPatch.addPreference(
             Preference(
                 StringResource("microg_settings", "MicroG Settings"),
-                Preference.Intent("$BASE_MICROG_PACKAGE_NAME.android.gms", "", "org.microg.gms.ui.SettingsActivity"),
+                Preference.Intent("$MICROG_VENDOR.android.gms", "", "org.microg.gms.ui.SettingsActivity"),
                 StringResource("microg_settings_summary", "Settings for MicroG"),
             )
         )
         SettingsPatch.renameIntentsTargetPackage(REVANCED_PACKAGE_NAME)
 
-        val manifest = data["AndroidManifest.xml"]
-        manifest.writeText(
-            manifest.readText()
-                .replace(
-                    "package=\"com.google.android.youtube", "package=\"$REVANCED_PACKAGE_NAME"
-                ).replace(
-                    "android:authorities=\"com.google.android.youtube", "android:authorities=\"$REVANCED_PACKAGE_NAME"
-                ).replace(
-                    "com.google.android.youtube.permission.C2D_MESSAGE", "$REVANCED_PACKAGE_NAME.permission.C2D_MESSAGE"
-                ).replace( // might not be needed
-                    "com.google.android.youtube.lifecycle-trojan", "$REVANCED_PACKAGE_NAME.lifecycle-trojan"
-                ).replace( // might not be needed
-                    "com.google.android.youtube.photopicker_images", "$REVANCED_PACKAGE_NAME.photopicker_images"
-                ).replace(
-                    "com.google.android.c2dm", "$BASE_MICROG_PACKAGE_NAME.android.c2dm"
-                ).replace(
-                    "</queries>", "<package android:name=\"$BASE_MICROG_PACKAGE_NAME.android.gms\"/></queries>"
-                )
+        // update manifest
+        MicroGResourceHelper.patchManifest(
+            data,
+            PACKAGE_NAME,
+            REVANCED_PACKAGE_NAME,
+            REVANCED_APP_NAME
         )
 
+        // add metadata to manifest
+        MicroGManifestHelper.addSpoofingMetadata(
+            data,
+            SPOOFED_PACKAGE_NAME,
+            SPOOFED_PACKAGE_SIGNATURE
+        )
         return PatchResultSuccess()
     }
 }
