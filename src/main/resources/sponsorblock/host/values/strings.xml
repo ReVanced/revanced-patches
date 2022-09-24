@@ -14,10 +14,10 @@
     <string name="general_adjusting_sum">This is the number of milliseconds you can move when you use the time adjustment buttons while adding new segment</string>
     <string name="general_min_duration">Minimum segment duration</string>
     <string name="general_min_duration_sum">Segments shorter than the set value (in seconds) will not be skipped or shown in the player</string>
-    <string name="general_uuid">Your unique user id</string>
+    <string name="general_uuid">Your private user id</string>
     <string name="general_uuid_sum">This should be kept private. This is like a password and should not be shared with anyone. If someone has this, they can impersonate you</string>
     <string name="settings_ie">Import/Export settings</string>
-    <string name="settings_ie_sum">This is your entire configuration that is applicable in the desktop extension in JSON. This includes your userID, so be sure to share this wisely.</string>
+    <string name="settings_ie_sum">This is your entire configuration that is applicable in the desktop extension in JSON. This includes your Private userID, so be sure to share this wisely.</string>
     <string name="general_api_url">Change API URL</string>
     <string name="general_api_url_sum">The address SponsorBlock uses to make calls to the server. &lt;b>Don\'t change this unless you know what you\'re doing.&lt;/b></string>
     <string name="settings_import_successful">Settings were successfully imported</string>
