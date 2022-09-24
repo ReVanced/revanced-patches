@@ -1,3 +1,10 @@
+## [2.69.1](https://github.com/revanced/revanced-patches/compare/v2.69.0...v2.69.1) (2022-09-24)
+
+
+### Bug Fixes
+
+* **sponsorblock:** reflect changes to strings ([#585](https://github.com/revanced/revanced-patches/issues/585)) ([d03568a](https://github.com/revanced/revanced-patches/commit/d03568aa39195a07bec62f43d929923825c67d3f))
+
 # [2.69.0](https://github.com/revanced/revanced-patches/compare/v2.68.3...v2.69.0) (2022-09-24)
 
 
