@@ -10,6 +10,7 @@ The official Patch bundle provided by ReVanced and the community.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `hide-premium-navbar` | Removes the premium tab from the navbar. | all |
+| `spotify-theme` | Applies a custom theme. | all |
 </details>
 
 ### 📦 `com.twitter.android`
