@@ -1,3 +1,10 @@
+# [2.69.0](https://github.com/revanced/revanced-patches/compare/v2.68.3...v2.69.0) (2022-09-24)
+
+
+### Features
+
+* `spotify-theme` patch ([#608](https://github.com/revanced/revanced-patches/issues/608)) ([7ee1b78](https://github.com/revanced/revanced-patches/commit/7ee1b78e8048698ef6490445dd012e2d88b4d332))
+
 ## [2.68.3](https://github.com/revanced/revanced-patches/compare/v2.68.2...v2.68.3) (2022-09-23)
 
 
