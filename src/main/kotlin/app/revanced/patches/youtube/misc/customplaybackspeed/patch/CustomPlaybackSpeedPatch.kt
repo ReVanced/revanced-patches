@@ -15,6 +15,7 @@ import app.revanced.patches.youtube.misc.customplaybackspeed.fingerprints.SpeedA
 import app.revanced.patches.youtube.misc.customplaybackspeed.fingerprints.SpeedLimiterFingerprint
 import app.revanced.patches.youtube.misc.customplaybackspeed.fingerprints.VideoSpeedPatchFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
+import app.revanced.patches.youtube.misc.mapping.patch.ResourceMappingResourcePatch
 import org.jf.dexlib2.builder.instruction.BuilderArrayPayload
 import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
@@ -27,7 +28,7 @@ import kotlin.math.roundToInt
 @Patch
 @Name("custom-playback-speed")
 @Description("Adds more video playback speed options.")
-@DependsOn([IntegrationsPatch::class])
+@DependsOn([IntegrationsPatch::class, ResourceMappingResourcePatch::class])
 @CustomPlaybackSpeedCompatibility
 @Version("0.0.1")
 class CustomPlaybackSpeedPatch : BytecodePatch(

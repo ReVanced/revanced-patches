@@ -9,7 +9,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
-import app.revanced.patches.youtube.misc.mapping.patch.ResourceIdMappingProviderResourcePatch
+import app.revanced.patches.youtube.misc.mapping.patch.ResourceMappingResourcePatch
 import app.revanced.patches.youtube.misc.settings.annotations.SettingsCompatibility
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.framework.components.BasePreference
@@ -22,7 +22,7 @@ import java.io.Closeable
 
 @Name("settings-resource-patch")
 @SettingsCompatibility
-@DependsOn([FixLocaleConfigErrorPatch::class, ResourceIdMappingProviderResourcePatch::class])
+@DependsOn([FixLocaleConfigErrorPatch::class, ResourceMappingResourcePatch::class])
 @Version("0.0.1")
 class SettingsResourcePatch : ResourcePatch(), Closeable {
 

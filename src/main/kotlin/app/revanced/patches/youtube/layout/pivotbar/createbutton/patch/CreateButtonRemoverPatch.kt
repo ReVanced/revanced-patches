@@ -18,13 +18,13 @@ import app.revanced.patches.youtube.layout.pivotbar.createbutton.annotations.Cre
 import app.revanced.patches.youtube.layout.pivotbar.createbutton.fingerprints.PivotBarCreateButtonViewFingerprint
 import app.revanced.patches.youtube.layout.pivotbar.fingerprints.PivotBarFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import app.revanced.patches.youtube.misc.mapping.patch.ResourceIdMappingProviderResourcePatch
+import app.revanced.patches.youtube.misc.mapping.patch.ResourceMappingResourcePatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.SwitchPreference
 
 @Patch
-@DependsOn([IntegrationsPatch::class, ResourceIdMappingProviderResourcePatch::class, SettingsPatch::class])
+@DependsOn([IntegrationsPatch::class, ResourceMappingResourcePatch::class, SettingsPatch::class])
 @Name("hide-create-button")
 @Description("Hides the create button in the navigation bar.")
 @CreateButtonCompatibility
