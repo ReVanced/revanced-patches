@@ -22,7 +22,7 @@ import app.revanced.patches.youtube.layout.sponsorblock.annotations.SponsorBlock
 import app.revanced.patches.youtube.layout.sponsorblock.bytecode.fingerprints.*
 import app.revanced.patches.youtube.layout.sponsorblock.resource.patch.SponsorBlockResourcePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import app.revanced.patches.youtube.misc.mapping.patch.ResourceIdMappingProviderResourcePatch
+import app.revanced.patches.youtube.misc.mapping.patch.ResourceMappingResourcePatch
 import app.revanced.patches.youtube.misc.playercontrols.bytecode.patch.PlayerControlsBytecodePatch
 import app.revanced.patches.youtube.misc.videoid.patch.VideoIdPatch
 import app.revanced.patches.youtube.layout.autocaptions.fingerprints.StartVideoInformerFingerprint
@@ -178,9 +178,9 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         val controlsMethodResult = PlayerControlsBytecodePatch.showPlayerControlsFingerprintResult
 
         val controlsLayoutStubResourceId =
-            ResourceIdMappingProviderResourcePatch.resourceMappings.single { it.type == "id" && it.name == "controls_layout_stub" }.id
+            ResourceMappingResourcePatch.resourceMappings.single { it.type == "id" && it.name == "controls_layout_stub" }.id
         val zoomOverlayResourceId =
-            ResourceIdMappingProviderResourcePatch.resourceMappings.single { it.type == "id" && it.name == "video_zoom_overlay_stub" }.id
+            ResourceMappingResourcePatch.resourceMappings.single { it.type == "id" && it.name == "video_zoom_overlay_stub" }.id
 
         methods@ for (method in controlsMethodResult.mutableClass.methods) {
             val instructions = method.implementation?.instructions!!

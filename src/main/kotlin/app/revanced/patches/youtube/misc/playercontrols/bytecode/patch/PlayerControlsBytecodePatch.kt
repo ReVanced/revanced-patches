@@ -11,14 +11,14 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.impl.BytecodePatch
-import app.revanced.patches.youtube.misc.mapping.patch.ResourceIdMappingProviderResourcePatch
+import app.revanced.patches.youtube.misc.mapping.patch.ResourceMappingResourcePatch
 import app.revanced.patches.youtube.misc.playercontrols.annotation.PlayerControlsCompatibility
 import app.revanced.patches.youtube.misc.playercontrols.fingerprints.BottomControlsInflateFingerprint
 import app.revanced.patches.youtube.misc.playercontrols.fingerprints.PlayerControlsVisibilityFingerprint
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Name("player-controls-bytecode-patch")
-@DependsOn([ResourceIdMappingProviderResourcePatch::class])
+@DependsOn([ResourceMappingResourcePatch::class])
 @Description("Manages the code for the player controls of the YouTube player.")
 @PlayerControlsCompatibility
 @Version("0.0.1")
@@ -28,7 +28,7 @@ class PlayerControlsBytecodePatch : BytecodePatch(
     override fun execute(data: BytecodeData): PatchResult {
         showPlayerControlsFingerprintResult = PlayerControlsVisibilityFingerprint.result!!
 
-        bottomUiContainerResourceId = ResourceIdMappingProviderResourcePatch
+        bottomUiContainerResourceId = ResourceMappingResourcePatch
             .resourceMappings
             .single { it.type == "id" && it.name == "bottom_ui_container_stub" }.id
 
