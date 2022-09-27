@@ -403,8 +403,6 @@ public abstract class SponsorBlockUtils {
     }
 
     public static String appendTimeWithoutSegments(String totalTime) {
-        if (SettingsEnum.shorts_playing) return totalTime;
-
         if (videoHasSegments && (SettingsEnum.SB_ENABLED.getBoolean() && SettingsEnum.SB_SHOW_TIME_WITHOUT_SEGMENTS.getBoolean()) && !TextUtils.isEmpty(totalTime) && getCurrentVideoLength() > 1) {
             if (timeWithoutSegments.isEmpty()) {
                 timeWithoutSegments = getTimeWithoutSegments(sponsorSegmentsOfCurrentVideo);

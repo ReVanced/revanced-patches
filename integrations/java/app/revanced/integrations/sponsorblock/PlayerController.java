@@ -49,6 +49,8 @@ public class PlayerController {
     private static float sponsorBarThickness = 2f;
     private static TimerTask skipSponsorTask = null;
 
+    public static boolean shorts_playing = false;
+
     public static String getCurrentVideoId() {
         return currentVideoId;
     }
@@ -87,9 +89,6 @@ public class PlayerController {
      * Called when creating some kind of youtube internal player controlled, every time when new video starts to play
      */
     public static void onCreate(final Object o) {
-        if (SettingsEnum.shorts_playing) return;
-
-//      "Plugin.printStackTrace();
 
         if (o == null) {
             LogHelper.printException(PlayerController.class, "onCreate called with null object");
@@ -117,8 +116,9 @@ public class PlayerController {
     public static void executeDownloadSegments(String videoId) {
         videoHasSegments = false;
         timeWithoutSegments = "";
-        if (Whitelist.isChannelSBWhitelisted())
+        if (Whitelist.isChannelSBWhitelisted() || shorts_playing) {
             return;
+        }
         SponsorSegment[] segments = SBRequester.getSegments(videoId);
         Arrays.sort(segments);
 
@@ -134,8 +134,6 @@ public class PlayerController {
      * Called when it's time to update the UI with new second, about once per second, only when playing, also in background
      */
     public static void setCurrentVideoTime(long millis) {
-        if (SettingsEnum.shorts_playing) return;
-
         LogHelper.debug(PlayerController.class, "setCurrentVideoTime: current video time: " + millis);
         VideoInformation.lastKnownVideoTime = millis;
         if (!SettingsEnum.SB_ENABLED.getBoolean()) return;
@@ -220,8 +218,6 @@ public class PlayerController {
      * Called very high frequency (once every about 100ms), also in background. It sometimes triggers when a video is paused (couple times in the row with the same value)
      */
     public static void setCurrentVideoTimeHighPrecision(final long millis) {
-        if (SettingsEnum.shorts_playing) return;
-
         if ((millis < lastKnownVideoTime && lastKnownVideoTime >= currentVideoLength) || millis == 0) {
             SponsorBlockUtils.showShieldButton(); // skipping from end to the video will show the buttons again
             SponsorBlockUtils.showVoteButton();
@@ -245,16 +241,12 @@ public class PlayerController {
      * Called before onDraw method on time bar object, sets video length in millis
      */
     public static void setVideoLength(final long length) {
-        if (SettingsEnum.shorts_playing) return;
-
         LogHelper.debug(PlayerController.class, "setVideoLength: length=" + length);
         currentVideoLength = length;
     }
 
 
     public static void setSponsorBarAbsoluteLeft(final Rect rect) {
-        if (SettingsEnum.shorts_playing) return;
-
         setSponsorBarAbsoluteLeft(rect.left);
     }
 
@@ -265,8 +257,6 @@ public class PlayerController {
     }
 
     public static void setSponsorBarRect(final Object self) {
-        if (SettingsEnum.shorts_playing || self == null) return;
-
         try {
             Field field = self.getClass().getDeclaredField("replaceMeWithsetSponsorBarRect");
             field.setAccessible(true);
@@ -281,8 +271,6 @@ public class PlayerController {
     }
 
     public static void setSponsorBarAbsoluteRight(final Rect rect) {
-        if (SettingsEnum.shorts_playing) return;
-
         setSponsorBarAbsoluteRight(rect.right);
     }
 
@@ -293,8 +281,6 @@ public class PlayerController {
     }
 
     public static void setSponsorBarThickness(final int thickness) {
-        if (SettingsEnum.shorts_playing) return;
-
         setSponsorBarThickness((float) thickness);
     }
 
@@ -312,8 +298,6 @@ public class PlayerController {
 
 
     public static void addSkipSponsorView15(final View view) {
-        if (SettingsEnum.shorts_playing) return;
-
         playerActivity = new WeakReference<>((Activity) view.getContext());
         LogHelper.debug(PlayerController.class, "addSkipSponsorView15: view=" + view.toString());
 
@@ -339,8 +323,6 @@ public class PlayerController {
      * Called when it's time to draw time bar
      */
     public static void drawSponsorTimeBars(final Canvas canvas, final float posY) {
-        if (SettingsEnum.shorts_playing) return;
-
         if (sponsorBarThickness < 0.1) return;
         if (sponsorSegmentsOfCurrentVideo == null) return;
 

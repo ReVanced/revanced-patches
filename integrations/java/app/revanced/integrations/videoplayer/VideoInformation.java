@@ -1,6 +1,5 @@
 package app.revanced.integrations.videoplayer;
 
-import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 
 public class VideoInformation {
@@ -15,8 +14,6 @@ public class VideoInformation {
 
     // Call hook in the YT code when the video changes
     public static void setCurrentVideoId(final String videoId) {
-        if (SettingsEnum.shorts_playing) return;
-
         if (videoId == null) {
             LogHelper.debug(VideoInformation.class, "setCurrentVideoId - new id was null - currentVideoId was" + currentVideoId);
             clearInformation(true);

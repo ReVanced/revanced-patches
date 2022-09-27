@@ -28,8 +28,6 @@ public class ShieldButton {
     static boolean isShowing;
 
     public static void initialize(Object viewStub) {
-        if (SettingsEnum.shorts_playing) return;
-
         try {
             LogHelper.debug(ShieldButton.class, "initializing shield button");
 
@@ -64,14 +62,10 @@ public class ShieldButton {
     }
 
     public static void changeVisibilityNegatedImmediate(boolean visible) {
-        if (SettingsEnum.shorts_playing) return;
-
         changeVisibility(!visible, true);
     }
 
     public static void changeVisibility(boolean visible) {
-        if (SettingsEnum.shorts_playing) return;
-
         changeVisibility(visible, false);
     }
 

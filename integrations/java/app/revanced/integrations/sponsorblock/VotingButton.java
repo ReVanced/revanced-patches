@@ -27,8 +27,6 @@ public class VotingButton {
     static boolean isShowing;
 
     public static void initialize(Object viewStub) {
-        if (SettingsEnum.shorts_playing) return;
-
         try {
             LogHelper.debug(VotingButton.class, "initializing voting button");
             _youtubeControlsLayout = (RelativeLayout) viewStub;
@@ -62,14 +60,10 @@ public class VotingButton {
     }
 
     public static void changeVisibilityNegatedImmediate(boolean visible) {
-        if (SettingsEnum.shorts_playing) return;
-
         changeVisibility(!visible, true);
     }
 
     public static void changeVisibility(boolean visible) {
-        if (SettingsEnum.shorts_playing) return;
-
         changeVisibility(visible, false);
     }
 

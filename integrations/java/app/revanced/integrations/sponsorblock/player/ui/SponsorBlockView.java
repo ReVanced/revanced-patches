@@ -23,8 +23,6 @@ public class SponsorBlockView {
     static boolean shouldShowOnPlayerType = true;
 
     public static void initialize(Object viewGroup) {
-        if (SettingsEnum.shorts_playing) return;
-
         try {
             LogHelper.debug(SponsorBlockView.class, "initializing");
 

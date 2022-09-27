@@ -108,7 +108,6 @@ public enum SettingsEnum {
     SB_SHOW_BROWSER_BUTTON("sb-browser-button", false, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
     SB_API_URL("sb-api-url", "https://sponsor.ajay.app/api/", SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.STRING);
 
-    public static boolean shorts_playing = false;
     private final String path;
     private final Object defaultValue;
     private final SharedPrefHelper.SharedPrefNames sharedPref;
