@@ -99,10 +99,14 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         /*
          Get the instance of the seekbar rectangle
          */
-        seekbarMethod.addInstruction(
-            1,
-            "invoke-static {v0}, Lapp/revanced/integrations/sponsorblock/PlayerController;->setSponsorBarRect(Ljava/lang/Object;)V"
-        )
+        for ((index, instruction) in seekbarMethodInstructions.withIndex()) {
+            if (instruction.opcode != Opcode.MOVE_OBJECT_FROM16) continue
+            seekbarMethod.addInstruction(
+                index + 1,
+                "invoke-static {v0}, Lapp/revanced/integrations/sponsorblock/PlayerController;->setSponsorBarRect(Ljava/lang/Object;)V"
+            )
+            break
+        }
 
         for ((index, instruction) in seekbarMethodInstructions.withIndex()) {
             if (instruction.opcode != Opcode.INVOKE_STATIC) continue
