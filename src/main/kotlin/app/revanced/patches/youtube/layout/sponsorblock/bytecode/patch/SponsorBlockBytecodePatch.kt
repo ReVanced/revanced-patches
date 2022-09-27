@@ -331,7 +331,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         startVideoInformerMethod.addInstructions(
             0, """
             const/4 v0, 0x0
-            sput-boolean v0, Lapp/revanced/integrations/settings/SettingsEnum;->shorts_playing:Z
+            sput-boolean v0, Lapp/revanced/integrations/sponsorblock/PlayerController;->shorts_playing:Z
         """
         )
 
@@ -340,7 +340,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         shortsPlayerConstructorMethod.addInstructions(
             0, """
             const/4 v0, 0x1
-            sput-boolean v0, Lapp/revanced/integrations/settings/SettingsEnum;->shorts_playing:Z
+            sput-boolean v0, Lapp/revanced/integrations/sponsorblock/PlayerController;->shorts_playing:Z
         """
         )
 
