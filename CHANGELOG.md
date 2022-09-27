@@ -1,3 +1,10 @@
+## [2.69.4](https://github.com/revanced/revanced-patches/compare/v2.69.3...v2.69.4) (2022-09-27)
+
+
+### Bug Fixes
+
+* **sponsorblock:** dynamically insert `setSponsorBarRect` call ([#644](https://github.com/revanced/revanced-patches/issues/644)) ([998a249](https://github.com/revanced/revanced-patches/commit/998a249a23d09eb752b35c4da731f4223be40a3b))
+
 ## [2.69.3](https://github.com/revanced/revanced-patches/compare/v2.69.2...v2.69.3) (2022-09-27)
 
 
