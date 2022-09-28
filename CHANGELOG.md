@@ -1,3 +1,10 @@
+# [2.71.0](https://github.com/revanced/revanced-patches/compare/v2.70.0...v2.71.0) (2022-09-28)
+
+
+### Features
+
+* `hide-email-address` patch ([#578](https://github.com/revanced/revanced-patches/issues/578)) ([82cb632](https://github.com/revanced/revanced-patches/commit/82cb6321beace1e5feed248d3f3d6ae56cf0d96b))
+
 # [2.70.0](https://github.com/revanced/revanced-patches/compare/v2.69.4...v2.70.0) (2022-09-28)
 
 
