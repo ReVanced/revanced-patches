@@ -55,10 +55,10 @@ class HideEmailAddressPatch : BytecodePatch(
 
         val setVisibilityConstIndex = accountSwitcherAccessibilityLabelInstruction.indexOfFirst {
             (it as? WideLiteralInstruction)?.wideLiteral == accountSwitcherAccessibilityLabelId
-        } - 2
+        } - 1
 
         val setVisibilityConstRegister = (accountSwitcherAccessibilityLabelInstruction[setVisibilityConstIndex] as OneRegisterInstruction).registerA
-        val toggleRegister = (setVisibilityConstRegister - 3)
+        val toggleRegister = (setVisibilityConstRegister + 1)
 
         accountSwitcherAccessibilityLabelMethod.addInstructions(
             setVisibilityConstIndex + 1, """
