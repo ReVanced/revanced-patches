@@ -1,3 +1,10 @@
+# [2.70.0](https://github.com/revanced/revanced-patches/compare/v2.69.4...v2.70.0) (2022-09-28)
+
+
+### Features
+
+* `monochrome-icon` patch ([#643](https://github.com/revanced/revanced-patches/issues/643)) ([127c8e5](https://github.com/revanced/revanced-patches/commit/127c8e54e54709c2716029044ae337ad53daafad))
+
 ## [2.69.4](https://github.com/revanced/revanced-patches/compare/v2.69.3...v2.69.4) (2022-09-27)
 
 
