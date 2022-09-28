@@ -34,8 +34,8 @@ class PlayerPopupPanelsPatch : BytecodePatch(
                 "revanced_player_popup_panels_enabled",
                 StringResource("revanced_player_popup_panels_title", "Disable player popup panels"),
                 false,
-                StringResource("revanced_player_popup_panels_summary_on", "Player popup panels are enabled"),
-                StringResource("revanced_player_popup_panels_summary_off", "Player popup panels are disabled")
+                StringResource("revanced_player_popup_panels_summary_on", "Player popup panels are disabled"),
+                StringResource("revanced_player_popup_panels_summary_off", "Player popup panels are enabled")
             )
         )
 
