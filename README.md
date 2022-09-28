@@ -121,6 +121,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-create-button` | Hides the create button in the navigation bar. | 17.36.37 |
 | `hide-shorts-button` | Hides the shorts button on the navigation bar. | 17.36.37 |
 | `theme` | Applies a custom theme. | all |
+| `hide-email-address` | Hides the email address in the account switcher. | 17.36.37 |
 | `sponsorblock` | Integrate SponsorBlock. | 17.36.37 |
 | `hide-cast-button` | Hides the cast button in the video player. | all |
 | `tablet-mini-player` | Enables the tablet mini player layout. | 17.36.37 |
