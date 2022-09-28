@@ -69,6 +69,7 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
+| `monochrome-icon` | Adds a monochrome icon. | all |
 | `timeline-ads` | Removes ads from the Twitter timeline. | all |
 </details>
 
