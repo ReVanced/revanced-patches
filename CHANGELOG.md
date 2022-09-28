@@ -1,3 +1,10 @@
+## [2.71.1](https://github.com/revanced/revanced-patches/compare/v2.71.0...v2.71.1) (2022-09-28)
+
+
+### Bug Fixes
+
+* **disable-auto-player-popup-panels:** swap switch toggle state description ([#653](https://github.com/revanced/revanced-patches/issues/653)) ([f881301](https://github.com/revanced/revanced-patches/commit/f88130143689c7a63fd67df3dff37caec5db9548))
+
 # [2.71.0](https://github.com/revanced/revanced-patches/compare/v2.70.0...v2.71.0) (2022-09-28)
 
 
