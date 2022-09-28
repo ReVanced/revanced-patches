@@ -1,3 +1,10 @@
+## [2.71.2](https://github.com/revanced/revanced-patches/compare/v2.71.1...v2.71.2) (2022-09-28)
+
+
+### Bug Fixes
+
+* **hide-email-address:** invalid instruction offsets ([#654](https://github.com/revanced/revanced-patches/issues/654)) ([1a3db44](https://github.com/revanced/revanced-patches/commit/1a3db44b5bd9628b7b25cc113a3a53bf8a85bd2b))
+
 ## [2.71.1](https://github.com/revanced/revanced-patches/compare/v2.71.0...v2.71.1) (2022-09-28)
 
 
