@@ -46,8 +46,8 @@ class DisableShortsOnStartupPatch : BytecodePatch(
         val actionOpenShortsMethod = actionOpenShortsResult!!.mutableMethod
         val actionOpenShortsInstructions = actionOpenShortsMethod.implementation!!.instructions
 
-        val moveResultIndex = actionOpenShortsResult.scanResult.stringsScanResult!!.matches.first().index + 5
-        val iPutBooleanIndex = moveResultIndex + 6
+        val moveResultIndex = actionOpenShortsResult.scanResult.stringsScanResult!!.matches.first().index + 4
+        val iPutBooleanIndex = moveResultIndex + 2
 
         val moveResultRegister = (actionOpenShortsInstructions[moveResultIndex] as OneRegisterInstruction).registerA
         val iPutBooleanRegister = (actionOpenShortsInstructions[iPutBooleanIndex] as TwoRegisterInstruction).registerA
@@ -56,7 +56,7 @@ class DisableShortsOnStartupPatch : BytecodePatch(
             moveResultIndex + 1, """
             invoke-static { }, Lapp/revanced/integrations/patches/DisableStartupShortsPlayerPatch;->disableStartupShortsPlayer()Z
             move-result v$moveResultRegister
-            if-nez v$moveResultRegister, :cond_startup_shorts_reset
+            if-eqz v$moveResultRegister, :cond_startup_shorts_reset
             const/4 v$iPutBooleanRegister, 0x0
             :cond_startup_shorts_reset
             nop
