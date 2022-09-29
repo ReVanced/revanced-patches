@@ -1,3 +1,10 @@
+# [2.73.0](https://github.com/revanced/revanced-patches/compare/v2.72.1...v2.73.0) (2022-09-29)
+
+
+### Features
+
+* `dynamic-color` patch ([#652](https://github.com/revanced/revanced-patches/issues/652)) ([a16575b](https://github.com/revanced/revanced-patches/commit/a16575b984354138b9ab175307be8d15de60b6a6))
+
 ## [2.72.1](https://github.com/revanced/revanced-patches/compare/v2.72.0...v2.72.1) (2022-09-29)
 
 
