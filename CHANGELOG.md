@@ -1,3 +1,10 @@
+## [2.72.1](https://github.com/revanced/revanced-patches/compare/v2.72.0...v2.72.1) (2022-09-29)
+
+
+### Bug Fixes
+
+* **hdr-brightness:** trim list of compatible versions ([#602](https://github.com/revanced/revanced-patches/issues/602)) ([3209d90](https://github.com/revanced/revanced-patches/commit/3209d902e4d1aa73b59ce059cf3f76ef2095af70))
+
 # [2.72.0](https://github.com/revanced/revanced-patches/compare/v2.71.2...v2.72.0) (2022-09-29)
 
 
