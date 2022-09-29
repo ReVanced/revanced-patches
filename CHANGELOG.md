@@ -1,3 +1,10 @@
+# [2.75.0](https://github.com/revanced/revanced-patches/compare/v2.74.0...v2.75.0) (2022-09-29)
+
+
+### Features
+
+* `disable-capture-restriction` patch ([#655](https://github.com/revanced/revanced-patches/issues/655)) ([3cc26c3](https://github.com/revanced/revanced-patches/commit/3cc26c31d378c27ca7f768f777daa00e3f849dff))
+
 # [2.74.0](https://github.com/revanced/revanced-patches/compare/v2.73.0...v2.74.0) (2022-09-29)
 
 
