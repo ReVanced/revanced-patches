@@ -1,3 +1,10 @@
+## [2.75.1](https://github.com/revanced/revanced-patches/compare/v2.75.0...v2.75.1) (2022-09-29)
+
+
+### Bug Fixes
+
+* **disable-startup-shorts-player:** incorrect offsets, invert branch condition ([#672](https://github.com/revanced/revanced-patches/issues/672)) ([bfe1e38](https://github.com/revanced/revanced-patches/commit/bfe1e3808ece85fbb0785a4378ee95591115ac33))
+
 # [2.75.0](https://github.com/revanced/revanced-patches/compare/v2.74.0...v2.75.0) (2022-09-29)
 
 
