@@ -5,6 +5,7 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.fingerprint.method.annotation.MatchingMethod
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.youtube.misc.hdrbrightness.annotations.HDRBrightnessCompatibility
+import org.jf.dexlib2.AccessFlags
 
 @Name("hdr-brightness-fingerprint")
 @MatchingMethod(
@@ -13,6 +14,6 @@ import app.revanced.patches.youtube.misc.hdrbrightness.annotations.HDRBrightness
 @HDRBrightnessCompatibility
 @Version("0.0.1")
 object HDRBrightnessFingerprint : MethodFingerprint(
-    "V",
-    strings = listOf("c.SettingNotFound;", "screen_brightness", "android.mediaview", "lux"),
+    "V", AccessFlags.FINAL.value,
+    strings = listOf("c.SettingNotFound;", "screen_brightness", "android.mediaview"),
 )
