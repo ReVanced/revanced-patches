@@ -119,6 +119,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `enable-wide-searchbar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 17.36.37 |
 | `disable-fullscreen-panels` | Disables video description and comments panel in fullscreen view. | 17.36.37 |
 | `hide-autoplay-button` | Hides the autoplay button in the video player. | 17.36.37 |
+| `disable-startup-shorts-player` | Disables playing YouTube Shorts when launching YouTube. | 17.36.37 |
 | `premium-heading` | Shows premium branding on the home screen. | all |
 | `custom-branding` | Changes the YouTube launcher icon and name to your choice (defaults to ReVanced). | all |
 | `hide-create-button` | Hides the create button in the navigation bar. | 17.36.37 |

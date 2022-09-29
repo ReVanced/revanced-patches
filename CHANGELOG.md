@@ -1,3 +1,10 @@
+# [2.74.0](https://github.com/revanced/revanced-patches/compare/v2.73.0...v2.74.0) (2022-09-29)
+
+
+### Features
+
+* `disable-startup-shorts-player` patch ([#670](https://github.com/revanced/revanced-patches/issues/670)) ([feb3bd0](https://github.com/revanced/revanced-patches/commit/feb3bd02aaf67379733d10988fd58b0c3924f88e))
+
 # [2.73.0](https://github.com/revanced/revanced-patches/compare/v2.72.1...v2.73.0) (2022-09-29)
 
 
