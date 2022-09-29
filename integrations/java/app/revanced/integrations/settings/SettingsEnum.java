@@ -59,7 +59,7 @@ public enum SettingsEnum {
     FULLSCREEN_PANELS_SHOWN("revanced_fullscreen_panels_enabled", false, ReturnType.BOOLEAN), //ToDo: Add to prefs
     PLAYER_POPUP_PANELS("revanced_player_popup_panels_enabled", false, ReturnType.BOOLEAN),
     HIDE_TIME_AND_SEEKBAR("revanced_hide_time_and_seekbar", false, ReturnType.BOOLEAN),
-    HIDE_EMAIL_ADDRESS("revanced_hide_email_address", true, ReturnType.BOOLEAN),
+    HIDE_EMAIL_ADDRESS("revanced_hide_email_address", false, ReturnType.BOOLEAN),
 
     //Misc. Settings
     CAPTIONS_ENABLED("revanced_autocaptions_enabled", false, ReturnType.BOOLEAN, false),
