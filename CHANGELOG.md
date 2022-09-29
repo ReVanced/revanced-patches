@@ -1,3 +1,11 @@
+# [2.72.0](https://github.com/revanced/revanced-patches/compare/v2.71.2...v2.72.0) (2022-09-29)
+
+
+### Features
+
+* `tiktok-speed` patch ([#668](https://github.com/revanced/revanced-patches/issues/668)) ([23fff16](https://github.com/revanced/revanced-patches/commit/23fff16e6ab02bf281d46d8b5f93788425d8b525))
+* bump YouTube Music patches to v5.25.51 ([#669](https://github.com/revanced/revanced-patches/issues/669)) ([563c846](https://github.com/revanced/revanced-patches/commit/563c8466568d578de7c8a8e869fb1aa74370784a))
+
 ## [2.71.2](https://github.com/revanced/revanced-patches/compare/v2.71.1...v2.71.2) (2022-09-28)
 
 
