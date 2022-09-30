@@ -26,28 +26,28 @@ class MonochromeIconPatch : ResourcePatch() {
         val mipmapV33Directory = resDirectory.resolve("mipmap-anydpi-v33")
         if (!mipmapV33Directory.isDirectory) Files.createDirectories(mipmapV33Directory.toPath())
 
-        FileWriter(
-            mipmapV33Directory.resolve("ic_launcher_twitter.xml"),
-        ).use {
-            "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
-                    "<adaptive-icon\n" +
-                    "  xmlns:android=\"http://schemas.android.com/apk/res/android\">\n" +
-                    "    <background android:drawable=\"@color/ic_launcher_background\" />\n" +
-                    "    <foreground android:drawable=\"@mipmap/ic_launcher_twitter_foreground\" />\n" +
-                    "    <monochrome android:drawable=\"@mipmap/ic_launcher_twitter_foreground\" />\n" +
-                    "</adaptive-icon>"
+        FileWriter(mipmapV33Directory.resolve("ic_launcher_twitter.xml")).use {
+            it.write(
+                "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
+                        "<adaptive-icon\n" +
+                        "  xmlns:android=\"http://schemas.android.com/apk/res/android\">\n" +
+                        "    <background android:drawable=\"@color/ic_launcher_background\" />\n" +
+                        "    <foreground android:drawable=\"@mipmap/ic_launcher_twitter_foreground\" />\n" +
+                        "    <monochrome android:drawable=\"@mipmap/ic_launcher_twitter_foreground\" />\n" +
+                        "</adaptive-icon>"
+            )
         }
 
-        FileWriter(
-            mipmapV33Directory.resolve("ic_launcher_twitter_round.xml"),
-        ).use {
-            "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
-                    "<adaptive-icon\n" +
-                    "  xmlns:android=\"http://schemas.android.com/apk/res/android\">\n" +
-                    "    <background android:drawable=\"@color/ic_launcher_background\" />\n" +
-                    "    <foreground android:drawable=\"@mipmap/ic_launcher_twitter_foreground\" />\n" +
-                    "    <monochrome android:drawable=\"@mipmap/ic_launcher_twitter_foreground\" />\n" +
-                    "</adaptive-icon>"
+        FileWriter(mipmapV33Directory.resolve("ic_launcher_twitter_round.xml")).use {
+            it.write(
+                "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
+                        "<adaptive-icon\n" +
+                        "  xmlns:android=\"http://schemas.android.com/apk/res/android\">\n" +
+                        "    <background android:drawable=\"@color/ic_launcher_background\" />\n" +
+                        "    <foreground android:drawable=\"@mipmap/ic_launcher_twitter_foreground\" />\n" +
+                        "    <monochrome android:drawable=\"@mipmap/ic_launcher_twitter_foreground\" />\n" +
+                        "</adaptive-icon>"
+            )
         }
 
         return PatchResultSuccess()
