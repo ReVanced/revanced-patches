@@ -33,14 +33,8 @@ class DynamicColorPatch : ResourcePatch() {
             val colorsXml = it.resolve("colors.xml")
 
             if(!colorsXml.exists()) {
-                FileWriter(
-                    colorsXml,
-                ).use {
-                    it.write(
-                        "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
-                                "<resources>\n" +
-                                "</resources>".trimIndent()
-                    )
+                FileWriter(colorsXml).use {
+                    it.write("<?xml version=\"1.0\" encoding=\"utf-8\"?><resources></resources>")
                 }
             }
         }
