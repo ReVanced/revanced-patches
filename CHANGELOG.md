@@ -1,3 +1,10 @@
+## [2.75.2](https://github.com/revanced/revanced-patches/compare/v2.75.1...v2.75.2) (2022-09-30)
+
+
+### Bug Fixes
+
+* **twitter patches.:** use wider compatible Java API for writing to file ([#678](https://github.com/revanced/revanced-patches/issues/678)) ([4448de8](https://github.com/revanced/revanced-patches/commit/4448de80a6277862d81c7a29b9489e4fbec48496))
+
 ## [2.75.1](https://github.com/revanced/revanced-patches/compare/v2.75.0...v2.75.1) (2022-09-29)
 
 
