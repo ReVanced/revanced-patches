@@ -1,3 +1,10 @@
+## [2.76.2](https://github.com/revanced/revanced-patches/compare/v2.76.1...v2.76.2) (2022-09-30)
+
+
+### Bug Fixes
+
+* **twitter/monochrome-icon:** add missing `File.write` call ([#682](https://github.com/revanced/revanced-patches/issues/682)) ([de22e3f](https://github.com/revanced/revanced-patches/commit/de22e3f03ef1d6db08f9446f02e687721d9017d7))
+
 ## [2.76.1](https://github.com/revanced/revanced-patches/compare/v2.76.0...v2.76.1) (2022-09-30)
 
 
