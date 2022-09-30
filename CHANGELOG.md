@@ -1,3 +1,10 @@
+## [2.76.1](https://github.com/revanced/revanced-patches/compare/v2.76.0...v2.76.1) (2022-09-30)
+
+
+### Bug Fixes
+
+* **disable-startup-shorts-player:** remove redundant opcode pattern ([#679](https://github.com/revanced/revanced-patches/issues/679)) ([5197a24](https://github.com/revanced/revanced-patches/commit/5197a24cc5ecc1b51cdc5c00c77c873b86394994))
+
 # [2.76.0](https://github.com/revanced/revanced-patches/compare/v2.75.2...v2.76.0) (2022-09-30)
 
 
