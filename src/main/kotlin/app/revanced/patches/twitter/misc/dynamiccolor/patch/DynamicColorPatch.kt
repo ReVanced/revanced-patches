@@ -10,6 +10,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.twitter.misc.dynamiccolor.annotations.DynamicColorCompatibility
+import java.io.FileWriter
 import java.nio.file.Files
 
 @Patch
@@ -28,16 +29,19 @@ class DynamicColorPatch : ResourcePatch() {
         val valuesNightV31Directory = resDirectory.resolve("values-night-v31")
         if (!valuesNightV31Directory.isDirectory) Files.createDirectories(valuesNightV31Directory.toPath())
 
-        listOf(valuesV31Directory, valuesNightV31Directory).forEach {
+        listOf(valuesV31Directory, valuesNightV31Directory).forEach { it ->
             val colorsXml = it.resolve("colors.xml")
 
             if(!colorsXml.exists()) {
-                Files.writeString(
-                    colorsXml.toPath(),
-                    "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
-                            "<resources>\n" +
-                            "</resources>"
-                )
+                FileWriter(
+                    colorsXml,
+                ).use {
+                    it.write(
+                        "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
+                                "<resources>\n" +
+                                "</resources>".trimIndent()
+                    )
+                }
             }
         }
 
