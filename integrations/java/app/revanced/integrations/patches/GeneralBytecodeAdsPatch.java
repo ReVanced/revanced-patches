@@ -41,6 +41,8 @@ public class GeneralBytecodeAdsPatch {
                 blockList.add("text_search_ad_with_description_first");
                 blockList.add("watch_metadata_app_promo");
                 blockList.add("video_display_full_layout");
+                blockList.add("text_display_ad_with_themed_cta_banner_image");
+                blockList.add("ads_video_with_context");
 
                 bufferBlockList.add("ad_cpn");
             }
