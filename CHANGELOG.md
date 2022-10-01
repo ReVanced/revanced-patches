@@ -1,3 +1,10 @@
+## [2.76.3](https://github.com/revanced/revanced-patches/compare/v2.76.2...v2.76.3) (2022-10-01)
+
+
+### Performance Improvements
+
+* **general-ads:** hook pathBuilder ([b9bad0b](https://github.com/revanced/revanced-patches/commit/b9bad0bb922bbd44ddf2acbfae87243beb28851a))
+
 ## [2.76.2](https://github.com/revanced/revanced-patches/compare/v2.76.1...v2.76.2) (2022-09-30)
 
 
