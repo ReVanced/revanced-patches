@@ -1,3 +1,10 @@
+## [2.77.1](https://github.com/revanced/revanced-patches/compare/v2.77.0...v2.77.1) (2022-10-01)
+
+
+### Bug Fixes
+
+* **tiktok/tiktok-downloads:** add missing patch dependencies ([#686](https://github.com/revanced/revanced-patches/issues/686)) ([5c3b4ed](https://github.com/revanced/revanced-patches/commit/5c3b4ed0530e89d50db3b5bb9893e1ef4b463bae))
+
 # [2.77.0](https://github.com/revanced/revanced-patches/compare/v2.76.3...v2.77.0) (2022-10-01)
 
 
