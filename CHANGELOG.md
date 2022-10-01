@@ -1,3 +1,10 @@
+# [2.77.0](https://github.com/revanced/revanced-patches/compare/v2.76.3...v2.77.0) (2022-10-01)
+
+
+### Features
+
+* **youtube/hdr-auto-brightness:** increase strength of fingerprint ([2379b58](https://github.com/revanced/revanced-patches/commit/2379b5892b3505c8780f475bbc56f520613fa31d))
+
 ## [2.76.3](https://github.com/revanced/revanced-patches/compare/v2.76.2...v2.76.3) (2022-10-01)
 
 
