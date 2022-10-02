@@ -357,7 +357,7 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
                                     lithoMethod.addInstructions(
                                         insertIndex, // right after setting the component.pathBuilder field,
                                         """
-                                                invoke-static {v5}, Lapp/revanced/integrations/patches/GeneralBytecodeAdsPatch;->isAdComponent(Ljava/lang/StringBuilder;)Z
+                                                invoke-static {v5, v2}, Lapp/revanced/integrations/patches/GeneralBytecodeAdsPatch;->isAdComponent(Ljava/lang/StringBuilder;Ljava/lang/String;)Z
                                                 move-result v$clobberedRegister
                                                 if-eqz v$clobberedRegister, :not_an_ad
                                                 move-object/from16 v2, p1
