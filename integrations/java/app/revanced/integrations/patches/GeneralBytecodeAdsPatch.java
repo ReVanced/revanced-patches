@@ -7,22 +7,47 @@ import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 
 public class GeneralBytecodeAdsPatch {
-
     //Used by app.revanced.patches.youtube.ad.general.bytecode.patch.GeneralBytecodeAdsPatch
-    public static boolean isAdComponent(StringBuilder pathBuilder) {
+    public static boolean isAdComponent(StringBuilder pathBuilder, String identifier) {
         var path = pathBuilder.toString();
         if (path.isEmpty()) return false;
 
-        LogHelper.debug(GeneralBytecodeAdsPatch.class, "Searching for an ad in: " + path);
+        LogHelper.debug(GeneralBytecodeAdsPatch.class, String.format("Searching (ID: %s): %s", identifier, path));
+
+        if (containsAny(path,
+                "home_video_with_context",
+                "related_video_with_context",
+                "search_video_with_context",
+                "menu",
+                "root",
+                "-count",
+                "-space",
+                "-button",
+                "library_recent_shelf",
+                "download_button"
+        )) return false;
 
         List<String> blockList = new ArrayList<>();
 
-        if (SettingsEnum.ADREMOVER_AD_REMOVAL.getBoolean()) {
+        for (var ad : SettingsEnum.ADREMOVER_CUSTOM.getString().split(",")) {
+            if (ad.isEmpty()) continue;
+            blockList.add(ad);
+        }
+
+        if (SettingsEnum.ADREMOVER_GENERAL_ADS_REMOVAL.getBoolean()) {
+            if (identifier != null && identifier.contains("carousel_ad")) {
+                LogHelper.debug(GeneralBytecodeAdsPatch.class, "Blocking: " + identifier);
+                return true;
+            }
+
             blockList.add("video_display_full_buttoned_layout");
+            blockList.add("_ad");
             blockList.add("ad_");
             blockList.add("ads_video_with_context");
             blockList.add("cell_divider");
             blockList.add("reels_player_overlay");
+            // could be required
+            // blockList.add("full_width_square_image_layout");
             blockList.add("shelf_header");
             blockList.add("watch_metadata_app_promo");
             blockList.add("video_display_full_layout");
@@ -79,19 +104,8 @@ public class GeneralBytecodeAdsPatch {
             blockList.add("channel_guidelines_entry_banner");
         }
 
-        if (containsAny(path,
-                "home_video_with_context",
-                "related_video_with_context",
-                "search_video_with_context",
-                "menu",
-                "root",
-                "-count",
-                "-space",
-                "-button"
-        )) return false;
-
         if (anyMatch(blockList, path::contains)) {
-            LogHelper.debug(GeneralBytecodeAdsPatch.class, "Blocking ad: " + path);
+            LogHelper.debug(GeneralBytecodeAdsPatch.class, "Blocking: " + path);
             return true;
         }
 
