@@ -1,3 +1,10 @@
+# [2.78.0](https://github.com/revanced/revanced-patches/compare/v2.77.1...v2.78.0) (2022-10-02)
+
+
+### Features
+
+* **youtube/general-ads:** check for ad in identifier ([fd0506e](https://github.com/revanced/revanced-patches/commit/fd0506eb95dbf398eb7d6bfa8732f517b9867545))
+
 ## [2.77.1](https://github.com/revanced/revanced-patches/compare/v2.77.0...v2.77.1) (2022-10-01)
 
 
