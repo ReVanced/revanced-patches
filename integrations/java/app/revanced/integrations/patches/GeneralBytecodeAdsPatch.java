@@ -1,5 +1,7 @@
 package app.revanced.integrations.patches;
 
+import android.util.Log;
+
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 
@@ -57,6 +59,7 @@ final class LithoBlockRegister {
 
 public class GeneralBytecodeAdsPatch {
     private final static LithoBlockRegister pathBlockRegister = new LithoBlockRegister();
+    private final static ComponentRule identifierBlock;
 
     static {
         var comments = new ComponentRule(SettingsEnum.ADREMOVER_COMMENTS_REMOVAL, "comments_");
@@ -80,7 +83,6 @@ public class GeneralBytecodeAdsPatch {
                 "_ad",
                 "ad_",
                 "ads_video_with_context",
-                "carousel_ad_with_detailed_metadata",
                 "cell_divider",
                 "reels_player_overlay",
                 "shelf_header",
@@ -114,14 +116,17 @@ public class GeneralBytecodeAdsPatch {
                 channelGuidelines
         };
         for (var block : blocks) pathBlockRegister.addBlock(block);
+
+        // Block for the ComponentContext.identifier field
+        identifierBlock = new ComponentRule(SettingsEnum.ADREMOVER_GENERAL_ADS_REMOVAL, "carousel_ad");
     }
 
     //Used by app.revanced.patches.youtube.ad.general.bytecode.patch.GeneralBytecodeAdsPatch
-    public static boolean isAdComponent(StringBuilder pathBuilder) {
+    public static boolean isAdComponent(StringBuilder pathBuilder, String identifier) {
         var path = pathBuilder.toString();
         if (path.isEmpty()) return false;
 
-        LogHelper.debug(GeneralBytecodeAdsPatch.class, String.format("Searching: %s", path));
+        LogHelper.debug(GeneralBytecodeAdsPatch.class, String.format("Searching (ID: %s): %s", identifier, path));
         // Do not block on these
         if (Extensions.containsAny(path,
                 "home_video_with_context",
@@ -138,6 +143,11 @@ public class GeneralBytecodeAdsPatch {
 
         if (pathBlockRegister.isBlocked(path)) {
             LogHelper.debug(GeneralBytecodeAdsPatch.class, "Blocked: " + path);
+            return true;
+        }
+
+        if (identifierBlock.isBlocked(identifier)){
+            LogHelper.debug(GeneralBytecodeAdsPatch.class, "Blocked: " + identifier);
             return true;
         }
 
