@@ -11,14 +11,11 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.layout.startupshortsreset.annotations.StartupShortsResetCompatibility
-import app.revanced.patches.youtube.layout.startupshortsreset.fingerprints.ActionOpenShortsFingerprint
+import app.revanced.patches.youtube.layout.startupshortsreset.fingerprints.UserWasInShortsFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.SwitchPreference
-import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
@@ -28,7 +25,7 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 @Version("0.0.1")
 class DisableShortsOnStartupPatch : BytecodePatch(
     listOf(
-        ActionOpenShortsFingerprint
+        UserWasInShortsFingerprint
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
@@ -42,22 +39,14 @@ class DisableShortsOnStartupPatch : BytecodePatch(
             )
         )
 
-        val actionOpenShortsResult = ActionOpenShortsFingerprint.result
-        val actionOpenShortsMethod = actionOpenShortsResult!!.mutableMethod
-        val actionOpenShortsInstructions = actionOpenShortsMethod.implementation!!.instructions
+        val userWasInShortsMethod = UserWasInShortsFingerprint.result!!.mutableMethod
 
-        val moveResultIndex = actionOpenShortsResult.scanResult.stringsScanResult!!.matches.first().index + 4
-        val iPutBooleanIndex = moveResultIndex + 2
-
-        val moveResultRegister = (actionOpenShortsInstructions[moveResultIndex] as OneRegisterInstruction).registerA
-        val iPutBooleanRegister = (actionOpenShortsInstructions[iPutBooleanIndex] as TwoRegisterInstruction).registerA
-
-        actionOpenShortsMethod.addInstructions(
-            moveResultIndex + 1, """
+        userWasInShortsMethod.addInstructions(
+            0, """
             invoke-static { }, Lapp/revanced/integrations/patches/DisableStartupShortsPlayerPatch;->disableStartupShortsPlayer()Z
-            move-result v$moveResultRegister
-            if-eqz v$moveResultRegister, :cond_startup_shorts_reset
-            const/4 v$iPutBooleanRegister, 0x0
+            move-result v0
+            if-eqz v0, :cond_startup_shorts_reset
+            return-void
             :cond_startup_shorts_reset
             nop
         """
