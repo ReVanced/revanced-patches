@@ -1,3 +1,10 @@
+# [2.79.0](https://github.com/revanced/revanced-patches/compare/v2.78.0...v2.79.0) (2022-10-03)
+
+
+### Features
+
+* `hide-video-buttons` patch ([584803a](https://github.com/revanced/revanced-patches/commit/584803aa900f94de1b2b2a0c41fb0884fa9270d3))
+
 # [2.78.0](https://github.com/revanced/revanced-patches/compare/v2.77.1...v2.78.0) (2022-10-02)
 
 

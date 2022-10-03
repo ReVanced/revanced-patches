@@ -125,6 +125,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `custom-branding` | Changes the YouTube launcher icon and name to your choice (defaults to ReVanced). | all |
 | `hide-create-button` | Hides the create button in the navigation bar. | 17.36.37 |
 | `hide-shorts-button` | Hides the shorts button on the navigation bar. | 17.36.37 |
+| `hide-video-buttons` | Adds options to hide action buttons under a video. | 17.36.37 |
 | `theme` | Applies a custom theme. | all |
 | `hide-email-address` | Hides the email address in the account switcher. | 17.36.37 |
 | `sponsorblock` | Integrate SponsorBlock. | 17.36.37 |
