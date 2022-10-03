@@ -9,11 +9,11 @@ import app.revanced.patches.youtube.layout.startupshortsreset.annotations.Startu
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
-@Name("action-open-shorts-fingerprint")
-@MatchingMethod("Lkyt;", "l")
+@Name("user-was-in-shorts-fingerprint")
+@MatchingMethod("Lkzb;", "e")
 @StartupShortsResetCompatibility
 @Version("0.0.1")
-object ActionOpenShortsFingerprint : MethodFingerprint(
-    "V", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf("L", "L"),
-    strings = listOf("com.google.android.youtube.action.open.shorts"),
+object UserWasInShortsFingerprint : MethodFingerprint(
+    "V", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf("L"),
+    strings = listOf("Failed to read user_was_in_shorts proto after successful warmup"),
 )
