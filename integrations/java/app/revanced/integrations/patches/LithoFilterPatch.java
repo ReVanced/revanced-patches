@@ -199,7 +199,7 @@ class GeneralBytecodeAdsPatch extends Filter {
                 "home_video_with_context",
                 "related_video_with_context",
                 "search_video_with_context",
-                "download_button",
+                "download_",
                 "library_recent_shelf",
                 "menu",
                 "root",
