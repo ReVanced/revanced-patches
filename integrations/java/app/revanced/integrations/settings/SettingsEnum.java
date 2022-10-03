@@ -45,6 +45,13 @@ public enum SettingsEnum {
     ADREMOVER_SUGGESTIONS_REMOVAL("revanced_adremover_hide_suggestions", true, ReturnType.BOOLEAN, true),
     ADREMOVER_HIDE_LATEST_POSTS("revanced_adremover_hide_latest_posts", true, ReturnType.BOOLEAN, true),
     ADREMOVER_HIDE_CHANNEL_GUIDELINES("revanced_adremover_hide_channel_guidelines", true, ReturnType.BOOLEAN, true),
+    // Buttons
+    HIDE_LIKE_BUTTON("revanced_like_button", false, ReturnType.BOOLEAN, false),
+    HIDE_DISLIKE_BUTTON("revanced_dislike_button", false, ReturnType.BOOLEAN, false),
+    HIDE_DOWNLOAD_BUTTON("revanced_download_button", false, ReturnType.BOOLEAN, false),
+    HIDE_PLAYLIST_BUTTON("revanced_playlist_button", false, ReturnType.BOOLEAN, false),
+    HIDE_ACTION_BUTTON("revanced_action_button", false, ReturnType.BOOLEAN, false),
+    HIDE_SHARE_BUTTON("revanced_share_button", false, ReturnType.BOOLEAN, false),
 
     //Layout settings
     REEL_BUTTON_SHOWN("revanced_reel_button_enabled", false, ReturnType.BOOLEAN, true),
