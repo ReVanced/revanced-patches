@@ -1,3 +1,10 @@
+## [2.79.1](https://github.com/revanced/revanced-patches/compare/v2.79.0...v2.79.1) (2022-10-03)
+
+
+### Bug Fixes
+
+* **youtube/disable-startup-shorts-player:** do not prevent playing videos on startup ([#714](https://github.com/revanced/revanced-patches/issues/714)) ([9a0d379](https://github.com/revanced/revanced-patches/commit/9a0d3798afd75bba5c63e1b8803dc25814586be9))
+
 # [2.79.0](https://github.com/revanced/revanced-patches/compare/v2.78.0...v2.79.0) (2022-10-03)
 
 
