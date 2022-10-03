@@ -146,7 +146,7 @@ public class GeneralBytecodeAdsPatch {
             return true;
         }
 
-        if (identifierBlock.isBlocked(identifier)){
+        if (identifier != null && identifierBlock.isBlocked(identifier)){
             LogHelper.debug(GeneralBytecodeAdsPatch.class, "Blocked: " + identifier);
             return true;
         }
