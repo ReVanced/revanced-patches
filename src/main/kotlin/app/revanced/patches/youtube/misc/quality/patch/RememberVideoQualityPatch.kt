@@ -17,12 +17,17 @@ import app.revanced.patches.youtube.misc.quality.annotations.DefaultVideoQuality
 import app.revanced.patches.youtube.misc.quality.fingerprints.VideoQualityReferenceFingerprint
 import app.revanced.patches.youtube.misc.quality.fingerprints.VideoQualitySetterFingerprint
 import app.revanced.patches.youtube.misc.quality.fingerprints.VideoUserQualityChangeFingerprint
+import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
+import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
+import app.revanced.patches.youtube.misc.settings.framework.components.impl.SwitchPreference
+import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsResourcePatch
 import app.revanced.patches.youtube.misc.videoid.patch.VideoIdPatch
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
+import org.jf.dexlib2.iface.instruction.SwitchPayload
 import org.jf.dexlib2.iface.reference.FieldReference
 
 @Patch
-@DependsOn([IntegrationsPatch::class, VideoIdPatch::class])
+@DependsOn([IntegrationsPatch::class, VideoIdPatch::class, SettingsPatch::class])
 @Name("remember-video-quality")
 @Description("Adds the ability to remember the video quality you chose in the video quality flyout.")
 @DefaultVideoQualityCompatibility
@@ -33,7 +38,15 @@ class RememberVideoQualityPatch : BytecodePatch(
     )
 ) {
     override fun execute(data: BytecodeData): PatchResult {
-        //TODO: include setting to skip remembering the new quality
+        SettingsPatch.PreferenceScreen.MISC.addPreferences(
+            SwitchPreference(
+                "revanced_remember_video_quality_selection",
+                StringResource("revanced_remember_video_quality_selection_title", "Remember current video quality"),
+                true,
+                StringResource("revanced_remember_video_quality_selection_summary_on", "The current video quality will not change"),
+                StringResource("revanced_remember_video_quality_selection_summary_off", "Video quality will be remembered until a new quality is chosen")
+            )
+        )
 
         val setterMethod = VideoQualitySetterFingerprint.result!!
 
