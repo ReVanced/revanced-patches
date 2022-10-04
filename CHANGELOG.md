@@ -1,3 +1,10 @@
+# [2.80.0](https://github.com/revanced/revanced-patches/compare/v2.79.2...v2.80.0) (2022-10-04)
+
+
+### Features
+
+* **youtube/remember-video-quality:** remember current quality option ([9c510d4](https://github.com/revanced/revanced-patches/commit/9c510d472048f5bce127eb0329e53aaf259e9b1b))
+
 ## [2.79.2](https://github.com/revanced/revanced-patches/compare/v2.79.1...v2.79.2) (2022-10-04)
 
 
