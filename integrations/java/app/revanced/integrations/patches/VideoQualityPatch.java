@@ -10,6 +10,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
@@ -131,6 +132,9 @@ public class VideoQualityPatch {
     }
 
     public static void userChangedQuality(int selectedQuality) {
+        // Do not remember a **new** quality if REMEMBER_VIDEO_QUALITY is true
+        if (SettingsEnum.REMEMBER_VIDEO_QUALITY.getBoolean()) return;
+
         selectedQuality1 = selectedQuality;
         userChangedQuality = true;
     }
