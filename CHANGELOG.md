@@ -1,3 +1,10 @@
+## [2.79.2](https://github.com/revanced/revanced-patches/compare/v2.79.1...v2.79.2) (2022-10-04)
+
+
+### Bug Fixes
+
+* **youtube/disable-startup-shorts-player:** don't affect functionality of navigation bar  ([#716](https://github.com/revanced/revanced-patches/issues/716)) ([05f5cc1](https://github.com/revanced/revanced-patches/commit/05f5cc17e3fcbf255c6fe5b503c9fd20c218f5a1))
+
 ## [2.79.1](https://github.com/revanced/revanced-patches/compare/v2.79.0...v2.79.1) (2022-10-03)
 
 
