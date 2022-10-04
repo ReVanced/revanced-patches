@@ -16,6 +16,7 @@ import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.SwitchPreference
+import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
@@ -39,15 +40,17 @@ class DisableShortsOnStartupPatch : BytecodePatch(
             )
         )
 
-        val userWasInShortsMethod = UserWasInShortsFingerprint.result!!.mutableMethod
+        val userWasInShortsResult = UserWasInShortsFingerprint.result!!
+        val userWasInShortsMethod = userWasInShortsResult.mutableMethod
+        val moveResultIndex = userWasInShortsResult.scanResult.patternScanResult!!.endIndex
 
         userWasInShortsMethod.addInstructions(
-            0, """
+            moveResultIndex + 1, """
             invoke-static { }, Lapp/revanced/integrations/patches/DisableStartupShortsPlayerPatch;->disableStartupShortsPlayer()Z
-            move-result v0
-            if-eqz v0, :cond_startup_shorts_reset
+            move-result v5
+            if-eqz v5, :disable_shorts_player
             return-void
-            :cond_startup_shorts_reset
+            :disable_shorts_player
             nop
         """
         )
