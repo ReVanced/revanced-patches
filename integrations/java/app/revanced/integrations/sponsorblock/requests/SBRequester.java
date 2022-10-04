@@ -102,7 +102,7 @@ public class SBRequester {
                     SponsorBlockUtils.messageToToast = str("submit_failed_rate_limit");
                     break;
                 case 400:
-                    SponsorBlockUtils.messageToToast = str("submit_failed_invalid", connection.getErrorStream());
+                    SponsorBlockUtils.messageToToast = str("submit_failed_invalid", Requester.parseErrorJson(connection));
                     break;
                 default:
                     SponsorBlockUtils.messageToToast = str("submit_failed_unknown_error", responseCode, connection.getResponseMessage());
