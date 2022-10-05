@@ -3,15 +3,15 @@ package app.revanced.patches.youtube.misc.quality.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.quality.annotations.DefaultVideoQualityCompatibility
 import app.revanced.patches.youtube.misc.quality.fingerprints.VideoQualityReferenceFingerprint
@@ -20,10 +20,8 @@ import app.revanced.patches.youtube.misc.quality.fingerprints.VideoUserQualityCh
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.SwitchPreference
-import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsResourcePatch
 import app.revanced.patches.youtube.misc.videoid.patch.VideoIdPatch
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.instruction.SwitchPayload
 import org.jf.dexlib2.iface.reference.FieldReference
 
 @Patch
@@ -37,23 +35,29 @@ class RememberVideoQualityPatch : BytecodePatch(
         VideoQualitySetterFingerprint
     )
 ) {
-    override fun execute(data: BytecodeData): PatchResult {
+    override fun execute(context: BytecodeContext): PatchResult {
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             SwitchPreference(
                 "revanced_remember_video_quality_selection",
                 StringResource("revanced_remember_video_quality_selection_title", "Remember current video quality"),
                 true,
-                StringResource("revanced_remember_video_quality_selection_summary_on", "The current video quality will not change"),
-                StringResource("revanced_remember_video_quality_selection_summary_off", "Video quality will be remembered until a new quality is chosen")
+                StringResource(
+                    "revanced_remember_video_quality_selection_summary_on",
+                    "The current video quality will not change"
+                ),
+                StringResource(
+                    "revanced_remember_video_quality_selection_summary_off",
+                    "Video quality will be remembered until a new quality is chosen"
+                )
             )
         )
 
         val setterMethod = VideoQualitySetterFingerprint.result!!
 
-        VideoUserQualityChangeFingerprint.resolve(data, setterMethod.classDef)
+        VideoUserQualityChangeFingerprint.resolve(context, setterMethod.classDef)
         val userQualityMethod = VideoUserQualityChangeFingerprint.result!!
 
-        VideoQualityReferenceFingerprint.resolve(data, setterMethod.classDef)
+        VideoQualityReferenceFingerprint.resolve(context, setterMethod.classDef)
         val qualityFieldReference =
             VideoQualityReferenceFingerprint.result!!.method.let { method ->
                 (method.implementation!!.instructions.elementAt(0) as ReferenceInstruction).reference as FieldReference
@@ -62,7 +66,7 @@ class RememberVideoQualityPatch : BytecodePatch(
         VideoIdPatch.injectCall("Lapp/revanced/integrations/patches/VideoQualityPatch;->newVideoStarted(Ljava/lang/String;)V")
 
         val qIndexMethodName =
-            data.classes.single { it.type == qualityFieldReference.type }.methods.single { it.parameterTypes.first() == "I" }.name
+            context.classes.single { it.type == qualityFieldReference.type }.methods.single { it.parameterTypes.first() == "I" }.name
 
         setterMethod.mutableMethod.addInstructions(
             0,

@@ -3,20 +3,20 @@ package app.revanced.patches.youtube.misc.minimizedplayback.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.BytecodeData
-import app.revanced.patcher.data.impl.toMethodWalker
+import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.minimizedplayback.annotations.MinimizedPlaybackCompatibility
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackKidsFingerprint
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackManagerFingerprint
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackSettingsFingerprint
-import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.SwitchPreference
@@ -35,7 +35,7 @@ class MinimizedPlaybackPatch : BytecodePatch(
         MinimizedPlaybackKidsFingerprint, MinimizedPlaybackManagerFingerprint, MinimizedPlaybackSettingsFingerprint
     )
 ) {
-    override fun execute(data: BytecodeData): PatchResult {
+    override fun execute(context: BytecodeContext): PatchResult {
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             SwitchPreference(
                 "revanced_enable_minimized_playback",
@@ -62,7 +62,7 @@ class MinimizedPlaybackPatch : BytecodePatch(
 
         val settingsBooleanIndex = booleanCalls.elementAt(1).index
         val settingsBooleanMethod =
-            data.toMethodWalker(method).nextMethod(settingsBooleanIndex, true).getMethod() as MutableMethod
+            context.toMethodWalker(method).nextMethod(settingsBooleanIndex, true).getMethod() as MutableMethod
 
         settingsBooleanMethod.addInstructions(
             0, """

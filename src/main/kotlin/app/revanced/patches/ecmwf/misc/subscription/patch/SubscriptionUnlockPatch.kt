@@ -3,13 +3,13 @@ package app.revanced.patches.ecmwf.misc.subscription.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.removeInstruction
-import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.BytecodePatch
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.ecmwf.misc.subscription.annotations.SubscriptionUnlockCompatibility
 import app.revanced.patches.ecmwf.misc.subscription.fingerprints.SubscriptionUnlockFingerprint
 
@@ -23,7 +23,7 @@ class SubscriptionUnlockPatch : BytecodePatch(
         SubscriptionUnlockFingerprint
     )
 ) {
-    override fun execute(data: BytecodeData): PatchResult {
+    override fun execute(context: BytecodeContext): PatchResult {
         val result = SubscriptionUnlockFingerprint.result!!
         val method = result.mutableMethod
 

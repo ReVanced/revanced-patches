@@ -1,7 +1,7 @@
 package app.revanced.util.resources
 
-import app.revanced.patcher.data.impl.DomFileEditor
-import app.revanced.patcher.data.impl.ResourceData
+import app.revanced.patcher.data.DomFileEditor
+import app.revanced.patcher.data.ResourceContext
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
 import org.w3c.dom.Node
@@ -18,7 +18,7 @@ internal object ResourceUtils {
          * Merge strings. This handles [StringResource]s automatically.
          * @param host The hosting xml resource. Needs to be a valid strings.xml resource.
          */
-        internal fun ResourceData.mergeStrings(host: String) {
+        internal fun ResourceContext.mergeStrings(host: String) {
             this.iterateXmlNodeChildren(host, "resources") {
                 // TODO: figure out why this is needed
                 if (!it.hasAttributes()) return@iterateXmlNodeChildren
@@ -39,7 +39,7 @@ internal object ResourceUtils {
      * @param sourceResourceDirectory The source resource directory name.
      * @param resources The resources to copy.
      */
-    internal fun ResourceData.copyResources(sourceResourceDirectory: String, vararg resources: ResourceGroup) {
+    internal fun ResourceContext.copyResources(sourceResourceDirectory: String, vararg resources: ResourceGroup) {
         val classLoader = ResourceUtils.javaClass.classLoader
         val targetResourceDirectory = this["res"]
 
@@ -67,7 +67,11 @@ internal object ResourceUtils {
      * @param targetTag The target xml node.
      * @param callback The callback to call when iterating over the nodes.
      */
-    internal fun ResourceData.iterateXmlNodeChildren(resource: String, targetTag: String, callback: (node: Node) -> Unit) =
+    internal fun ResourceContext.iterateXmlNodeChildren(
+        resource: String,
+        targetTag: String,
+        callback: (node: Node) -> Unit
+    ) =
         xmlEditor[ResourceUtils.javaClass.classLoader.getResourceAsStream(resource)!!].use {
             val stringsNode = it.file.getElementsByTagName(targetTag).item(0).childNodes
             for (i in 1 until stringsNode.length - 1) callback(stringsNode.item(i))

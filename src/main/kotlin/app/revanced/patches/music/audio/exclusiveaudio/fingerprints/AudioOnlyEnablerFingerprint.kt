@@ -3,19 +3,14 @@ package app.revanced.patches.music.audio.exclusiveaudio.fingerprints
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.method.annotation.DirectPatternScanMethod
-import app.revanced.patcher.fingerprint.method.annotation.MatchingMethod
+
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.music.audio.exclusiveaudio.annotations.ExclusiveAudioCompatibility
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 @Name("audio-only-enabler-fingerprint")
-@MatchingMethod(
-    "Lgmd;",
-    "d"
-)
-@DirectPatternScanMethod
+
 @ExclusiveAudioCompatibility
 @Version(
     "0.0.1"

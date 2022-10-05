@@ -3,12 +3,12 @@ package app.revanced.patches.youtube.misc.playertype.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playertype.annotation.PlayerTypeHookCompatibility
 import app.revanced.patches.youtube.misc.playertype.fingerprint.UpdatePlayerTypeFingerprint
@@ -23,7 +23,7 @@ class PlayerTypeHookPatch : BytecodePatch(
         UpdatePlayerTypeFingerprint
     )
 ) {
-    override fun execute(data: BytecodeData): PatchResult {
+    override fun execute(context: BytecodeContext): PatchResult {
         // hook YouTubePlayerOverlaysLayout.updatePlayerLayout()
         UpdatePlayerTypeFingerprint.result!!.mutableMethod.addInstruction(
             0,

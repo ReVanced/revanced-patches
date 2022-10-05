@@ -1,6 +1,6 @@
 package app.revanced.util.microg
 
-import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
@@ -78,13 +78,13 @@ internal object MicroGBytecodeHelper {
      * Note: this only handles string constants to gms (intent actions, authorities, ...).
      * If the app employs additional checks to validate the installed gms package, you'll have to handle those in the app- specific patch
      *
-     * @param data Bytecode data instance.
+     * @param context The context.
      * @param additionalStringTransforms Additional transformations applied to all const-string references.
      * @param primeMethodTransformationData Data to patch the prime method.
      * @param earlyReturns List of [MethodFingerprint] to return the resolved methods early.
      */
     fun patchBytecode(
-        data: BytecodeData,
+        context: BytecodeContext,
         additionalStringTransforms: Array<(str: String) -> String?>,
         primeMethodTransformationData: PrimeMethodTransformationData,
         earlyReturns: List<MethodFingerprint>
@@ -99,7 +99,7 @@ internal object MicroGBytecodeHelper {
         )
 
         // transform all strings using all provided transforms, first match wins
-        data.transformStringReferences transform@{
+        context.transformStringReferences transform@{
             for (transformFn in allTransforms) {
                 val s = transformFn(it)
                 if (s != null) return@transform s
@@ -160,7 +160,7 @@ internal object MicroGBytecodeHelper {
      *
      * @param transformFn string transformation function. if null, string is not changed.
      */
-    private fun BytecodeData.transformStringReferences(transformFn: (str: String) -> String?) {
+    private fun BytecodeContext.transformStringReferences(transformFn: (str: String) -> String?) {
         classes.forEach { classDef ->
             var mutableClass: MutableClass? = null
 
@@ -179,7 +179,7 @@ internal object MicroGBytecodeHelper {
                     val transformedStr = transformFn(str)
                     if (transformedStr != null) {
                         // make class and method mutable, if not already
-                        mutableClass = mutableClass ?: proxy(classDef).resolve()
+                        mutableClass = mutableClass ?: proxy(classDef).mutableClass
                         mutableMethod = mutableMethod ?: mutableClass!!.methods.first {
                             it.name == methodDef.name && it.parameterTypes.containsAll(methodDef.parameterTypes)
                         }

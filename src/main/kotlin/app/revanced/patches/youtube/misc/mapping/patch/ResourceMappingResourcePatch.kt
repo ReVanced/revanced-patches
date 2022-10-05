@@ -3,10 +3,10 @@ package app.revanced.patches.youtube.misc.mapping.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.ResourceData
+import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.impl.ResourcePatch
+import app.revanced.patcher.patch.ResourcePatch
 import org.w3c.dom.Element
 import java.util.*
 import java.util.concurrent.Executors
@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit
 @Name("resource-mapping")
 @Description("Creates a map of public resources.")
 @Version("0.0.1")
-class ResourceMappingResourcePatch : ResourcePatch() {
+class ResourceMappingResourcePatch : ResourcePatch {
     companion object {
         internal lateinit var resourceMappings: List<ResourceElement>
             private set
@@ -25,16 +25,16 @@ class ResourceMappingResourcePatch : ResourcePatch() {
         private val threadPoolExecutor = Executors.newFixedThreadPool(THREAD_COUNT)
     }
 
-    override fun execute(data: ResourceData): PatchResult {
+    override fun execute(context: ResourceContext): PatchResult {
         // save the file in memory to concurrently read from
-        val resourceXmlFile = data["res/values/public.xml"].readBytes()
+        val resourceXmlFile = context["res/values/public.xml"].readBytes()
 
         // create a synchronized list to store the resource mappings
         val mappings = Collections.synchronizedList(mutableListOf<ResourceElement>())
 
         for (threadIndex in 0 until THREAD_COUNT) {
             threadPoolExecutor.execute thread@{
-                data.xmlEditor[resourceXmlFile.inputStream()].use { editor ->
+                context.xmlEditor[resourceXmlFile.inputStream()].use { editor ->
                     val resources = editor.file.documentElement.childNodes
                     val resourcesLength = resources.length
                     val jobSize = resourcesLength / THREAD_COUNT

@@ -3,18 +3,18 @@ package app.revanced.patches.tiktok.interaction.downloads.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.BytecodeData
-import app.revanced.patcher.data.impl.toMethodWalker
+import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.extensions.replaceInstructions
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.tiktok.interaction.downloads.annotations.DownloadsCompatibility
 import app.revanced.patches.tiktok.interaction.downloads.fingerprints.ACLCommonShareFingerprint
@@ -44,7 +44,7 @@ class DownloadsPatch : BytecodePatch(
         SettingsStatusLoadFingerprint
     )
 ) {
-    override fun execute(data: BytecodeData): PatchResult {
+    override fun execute(context: BytecodeContext): PatchResult {
         val method1 = ACLCommonShareFingerprint.result!!.mutableMethod
         method1.replaceInstructions(
             0,
@@ -92,7 +92,7 @@ class DownloadsPatch : BytecodePatch(
         }
         if (targetOffset == -1) return PatchResultError("Can not find download path uri method.")
         //Change videos' download path.
-        val downloadUriMethod = data
+        val downloadUriMethod = context
             .toMethodWalker(DownloadPathParentFingerprint.result!!.method)
             .nextMethod(targetOffset, true)
             .getMethod() as MutableMethod

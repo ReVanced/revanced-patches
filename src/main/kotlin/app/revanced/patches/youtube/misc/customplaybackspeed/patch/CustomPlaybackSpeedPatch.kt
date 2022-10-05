@@ -3,13 +3,12 @@ package app.revanced.patches.youtube.misc.customplaybackspeed.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.*
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.misc.customplaybackspeed.annotations.CustomPlaybackSpeedCompatibility
 import app.revanced.patches.youtube.misc.customplaybackspeed.fingerprints.SpeedArrayGeneratorFingerprint
 import app.revanced.patches.youtube.misc.customplaybackspeed.fingerprints.SpeedLimiterFingerprint
@@ -37,7 +36,7 @@ class CustomPlaybackSpeedPatch : BytecodePatch(
     )
 ) {
 
-    override fun execute(data: BytecodeData): PatchResult {
+    override fun execute(context: BytecodeContext): PatchResult {
         //TODO: include setting to skip remembering the new speed
 
         val speedLimitMin = minVideoSpeed!!.toFloat()

@@ -5,12 +5,12 @@ import app.revanced.extensions.traverseClassHierarchy
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.youtube.interaction.swipecontrols.annotation.SwipeControlsCompatibility
 import app.revanced.patches.youtube.interaction.swipecontrols.fingerprints.SwipeControlsHostActivityFingerprint
@@ -39,7 +39,7 @@ class SwipeControlsBytecodePatch : BytecodePatch(
         SwipeControlsHostActivityFingerprint
     )
 ) {
-    override fun execute(data: BytecodeData): PatchResult {
+    override fun execute(context: BytecodeContext): PatchResult {
         val wrapperClass = SwipeControlsHostActivityFingerprint.result!!.mutableClass
         val targetClass = WatchWhileActivityFingerprint.result!!.mutableClass
 
@@ -48,7 +48,7 @@ class SwipeControlsBytecodePatch : BytecodePatch(
         targetClass.setSuperClass(wrapperClass.type)
 
         // ensure all classes and methods in the hierarchy are non-final, so we can override them in integrations
-        data.traverseClassHierarchy(targetClass) {
+        context.traverseClassHierarchy(targetClass) {
             accessFlags = accessFlags and AccessFlags.FINAL.value.inv()
             transformMethods {
                 ImmutableMethod(

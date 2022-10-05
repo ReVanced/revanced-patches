@@ -4,17 +4,12 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.annotation.FuzzyPatternScanMethod
-import app.revanced.patcher.fingerprint.method.annotation.MatchingMethod
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.music.audio.codecs.annotations.CodecsUnlockCompatibility
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 @Name("codec-lock-fingerprint")
-@MatchingMethod(
-    "Lacfr;",
-    "a",
-)
 @FuzzyPatternScanMethod(2) // FIXME: Test this threshold and find the best value.
 @CodecsUnlockCompatibility
 @Version("0.0.1")

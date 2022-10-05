@@ -3,21 +3,21 @@ package app.revanced.patches.youtube.layout.pivotbar.shortsbutton.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.MethodFingerprintExtensions.name
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.BytecodePatch
-import app.revanced.patches.youtube.layout.pivotbar.utils.InjectionUtils.REGISTER_TEMPLATE_REPLACEMENT
-import app.revanced.patches.youtube.layout.pivotbar.utils.InjectionUtils.injectHook
 import app.revanced.patches.youtube.layout.pivotbar.fingerprints.PivotBarFingerprint
 import app.revanced.patches.youtube.layout.pivotbar.shortsbutton.annotations.ShortsButtonCompatibility
 import app.revanced.patches.youtube.layout.pivotbar.shortsbutton.fingerprints.PivotBarEnumFingerprint
 import app.revanced.patches.youtube.layout.pivotbar.shortsbutton.fingerprints.PivotBarShortsButtonViewFingerprint
+import app.revanced.patches.youtube.layout.pivotbar.utils.InjectionUtils.REGISTER_TEMPLATE_REPLACEMENT
+import app.revanced.patches.youtube.layout.pivotbar.utils.InjectionUtils.injectHook
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
@@ -32,7 +32,7 @@ import app.revanced.patches.youtube.misc.settings.framework.components.impl.Swit
 class ShortsButtonRemoverPatch : BytecodePatch(
     listOf(PivotBarFingerprint)
 ) {
-    override fun execute(data: BytecodeData): PatchResult {
+    override fun execute(context: BytecodeContext): PatchResult {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_shorts_button_enabled",
@@ -51,7 +51,7 @@ class ShortsButtonRemoverPatch : BytecodePatch(
         val fingerprintResults = arrayOf(PivotBarEnumFingerprint, PivotBarShortsButtonViewFingerprint)
             .onEach {
                 val resolutionSucceeded = it.resolve(
-                    data,
+                    context,
                     pivotBarResult.method,
                     pivotBarResult.classDef
                 )

@@ -3,13 +3,13 @@ package app.revanced.patches.youtube.misc.integrations.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.or
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.youtube.misc.integrations.annotations.IntegrationsCompatibility
@@ -27,8 +27,8 @@ class IntegrationsPatch : BytecodePatch(
         InitFingerprint
     )
 ) {
-    override fun execute(data: BytecodeData): PatchResult {
-        if (data.findClass("Lapp/revanced/integrations/utils/ReVancedUtils") == null)
+    override fun execute(context: BytecodeContext): PatchResult {
+        if (context.findClass("Lapp/revanced/integrations/utils/ReVancedUtils") == null)
             return PatchResultError("Integrations have not been merged yet. This patch can not succeed without the integrations.")
 
         val result = InitFingerprint.result!!

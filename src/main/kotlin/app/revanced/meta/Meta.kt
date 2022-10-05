@@ -2,12 +2,12 @@ package app.revanced.meta
 
 import app.revanced.meta.json.generateJson
 import app.revanced.meta.readme.generateText
-import app.revanced.patcher.data.Data
+import app.revanced.patcher.data.Context
 import app.revanced.patcher.patch.Patch
-import app.revanced.patcher.util.patch.impl.JarPatchBundle
+import app.revanced.patcher.util.patch.PatchBundle
 import java.io.File
 
-typealias Bundle = List<Class<out Patch<Data>>>
+typealias Bundle = List<Class<out Patch<Context>>>
 
 object Meta {
     @JvmStatic
@@ -20,7 +20,7 @@ object Meta {
     }
 }
 
-fun accumulatePatches() = JarPatchBundle(
+fun accumulatePatches() = PatchBundle.Jar(
     File("build/libs/").listFiles()!!.first {
         it.name.startsWith("revanced-patches-") && it.name.endsWith(".jar")
     }.absolutePath

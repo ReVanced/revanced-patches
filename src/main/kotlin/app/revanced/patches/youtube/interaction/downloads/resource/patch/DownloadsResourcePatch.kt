@@ -3,11 +3,11 @@ package app.revanced.patches.youtube.interaction.downloads.resource.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.ResourceData
+import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.youtube.interaction.downloads.annotation.DownloadsCompatibility
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import app.revanced.patches.youtube.misc.playercontrols.resource.patch.BottomControlsResourcePatch
@@ -22,8 +22,8 @@ import app.revanced.util.resources.ResourceUtils.copyResources
 @Description("Makes necessary changes to resources for the download button.")
 @DownloadsCompatibility
 @Version("0.0.1")
-class DownloadsResourcePatch : ResourcePatch() {
-    override fun execute(data: ResourceData): PatchResult {
+class DownloadsResourcePatch : ResourcePatch {
+    override fun execute(context: ResourceContext): PatchResult {
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
             PreferenceScreen(
                 "revanced_downloads",
@@ -53,13 +53,13 @@ class DownloadsResourcePatch : ResourcePatch() {
          * Copy strings
          */
 
-        data.mergeStrings("downloads/host/values/strings.xml")
+        context.mergeStrings("downloads/host/values/strings.xml")
 
         /*
          * Copy resources
          */
 
-        data.copyResources("downloads", ResourceUtils.ResourceGroup("drawable", "revanced_yt_download_button.xml"))
+        context.copyResources("downloads", ResourceUtils.ResourceGroup("drawable", "revanced_yt_download_button.xml"))
 
         /*
         * Add download button node

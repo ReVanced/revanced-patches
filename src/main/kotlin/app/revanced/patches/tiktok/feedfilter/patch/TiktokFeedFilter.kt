@@ -3,13 +3,13 @@ package app.revanced.patches.tiktok.feedfilter.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.tiktok.feedfilter.annotations.FeedFilterCompatibility
 import app.revanced.patches.tiktok.feedfilter.fingerprints.FeedApiServiceLIZFingerprint
 import app.revanced.patches.tiktok.misc.integrations.patch.TikTokIntegrationsPatch
@@ -30,7 +30,7 @@ class TiktokFeedFilter : BytecodePatch(
         SettingsStatusLoadFingerprint
     )
 ) {
-    override fun execute(data: BytecodeData): PatchResult {
+    override fun execute(context: BytecodeContext): PatchResult {
         val method = FeedApiServiceLIZFingerprint.result!!.mutableMethod
         for ((index, instruction) in method.implementation!!.instructions.withIndex()) {
             if (instruction.opcode != Opcode.RETURN_OBJECT) continue

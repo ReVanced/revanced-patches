@@ -2,12 +2,12 @@ package app.revanced.patches.youtube.misc.settings.resource.patch
 
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.DomFileEditor
-import app.revanced.patcher.data.impl.ResourceData
+import app.revanced.patcher.data.DomFileEditor
+import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import app.revanced.patches.youtube.misc.mapping.patch.ResourceMappingResourcePatch
 import app.revanced.patches.youtube.misc.settings.annotations.SettingsCompatibility
@@ -18,19 +18,18 @@ import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 import org.w3c.dom.Element
 import org.w3c.dom.Node
-import java.io.Closeable
 
 @Name("settings-resource-patch")
 @SettingsCompatibility
 @DependsOn([FixLocaleConfigErrorPatch::class, ResourceMappingResourcePatch::class])
 @Version("0.0.1")
-class SettingsResourcePatch : ResourcePatch(), Closeable {
+class SettingsResourcePatch : ResourcePatch {
 
-    override fun execute(data: ResourceData): PatchResult {
+    override fun execute(context: ResourceContext): PatchResult {
         /*
          * create missing directory for the resources
          */
-        data["res/drawable-ldrtl-xxxhdpi"].mkdirs()
+        context["res/drawable-ldrtl-xxxhdpi"].mkdirs()
 
         /*
          * copy layout resources
@@ -51,10 +50,10 @@ class SettingsResourcePatch : ResourcePatch(), Closeable {
                 "drawable-ldrtl-xxxhdpi", "quantum_ic_arrow_back_white_24.png"
             )
         ).forEach { resourceGroup ->
-            data.copyResources("settings", resourceGroup)
+            context.copyResources("settings", resourceGroup)
         }
 
-        data.xmlEditor["AndroidManifest.xml"].use { editor ->
+        context.xmlEditor["AndroidManifest.xml"].use { editor ->
             editor.file.getElementsByTagName("manifest").item(0).also {
                 it.appendChild(it.ownerDocument.createElement("uses-permission").also { element ->
                     element.setAttribute("android:name", "android.permission.SCHEDULE_EXACT_ALARM")
@@ -62,11 +61,11 @@ class SettingsResourcePatch : ResourcePatch(), Closeable {
             }
         }
 
-        revancedPreferencesEditor = data.xmlEditor["res/xml/revanced_prefs.xml"]
-        preferencesEditor = data.xmlEditor["res/xml/settings_fragment.xml"]
+        revancedPreferencesEditor = context.xmlEditor["res/xml/revanced_prefs.xml"]
+        preferencesEditor = context.xmlEditor["res/xml/settings_fragment.xml"]
 
-        stringsEditor = data.xmlEditor["res/values/strings.xml"]
-        arraysEditor = data.xmlEditor["res/values/arrays.xml"]
+        stringsEditor = context.xmlEditor["res/values/strings.xml"]
+        arraysEditor = context.xmlEditor["res/values/arrays.xml"]
 
         // Add the ReVanced settings to the YouTube settings
         val youtubePackage = "com.google.android.youtube"

@@ -3,14 +3,14 @@ package app.revanced.patches.youtube.ad.video.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.ad.video.annotations.VideoAdsCompatibility
 import app.revanced.patches.youtube.ad.video.fingerprints.ShowVideoAdsConstructorFingerprint
 import app.revanced.patches.youtube.ad.video.fingerprints.ShowVideoAdsFingerprint
@@ -30,7 +30,7 @@ class VideoAdsPatch : BytecodePatch(
         ShowVideoAdsConstructorFingerprint
     )
 ) {
-    override fun execute(data: BytecodeData): PatchResult {
+    override fun execute(context: BytecodeContext): PatchResult {
         SettingsPatch.PreferenceScreen.ADS.addPreferences(
             SwitchPreference(
                 "revanced_video_ads_removal",
@@ -42,7 +42,7 @@ class VideoAdsPatch : BytecodePatch(
         )
 
         ShowVideoAdsFingerprint.resolve(
-            data, ShowVideoAdsConstructorFingerprint.result!!.classDef
+            context, ShowVideoAdsConstructorFingerprint.result!!.classDef
         )
 
         // Override the parameter by calling shouldShowAds and setting the parameter to the result

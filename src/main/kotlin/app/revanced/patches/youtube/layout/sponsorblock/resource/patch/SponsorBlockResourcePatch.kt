@@ -2,11 +2,11 @@ package app.revanced.patches.youtube.layout.sponsorblock.resource.patch
 
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.ResourceData
+import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.youtube.layout.sponsorblock.annotations.SponsorBlockCompatibility
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import app.revanced.patches.youtube.misc.mapping.patch.ResourceMappingResourcePatch
@@ -22,12 +22,12 @@ import app.revanced.util.resources.ResourceUtils.copyXmlNode
 @SponsorBlockCompatibility
 @DependsOn([FixLocaleConfigErrorPatch::class, SettingsPatch::class, ResourceMappingResourcePatch::class])
 @Version("0.0.1")
-class SponsorBlockResourcePatch : ResourcePatch() {
+class SponsorBlockResourcePatch : ResourcePatch {
     companion object {
         internal var reelButtonGroupResourceId: Long = 0
     }
 
-    override fun execute(data: ResourceData): PatchResult {
+    override fun execute(context: ResourceContext): PatchResult {
         val youtubePackage = "com.google.android.youtube"
         SettingsPatch.addPreference(
             Preference(
@@ -45,7 +45,7 @@ class SponsorBlockResourcePatch : ResourcePatch() {
         /*
          merge SponsorBlock strings to main strings
          */
-        data.mergeStrings("sponsorblock/host/values/strings.xml")
+        context.mergeStrings("sponsorblock/host/values/strings.xml")
 
         /*
          merge SponsorBlock drawables to main drawables
@@ -73,7 +73,7 @@ class SponsorBlockResourcePatch : ResourcePatch() {
                 "drawable-xxxhdpi", "quantum_ic_skip_next_white_24.png"
             )
         ).forEach { resourceGroup ->
-            data.copyResources("sponsorblock", resourceGroup)
+            context.copyResources("sponsorblock", resourceGroup)
         }
 
         /*
@@ -84,9 +84,9 @@ class SponsorBlockResourcePatch : ResourcePatch() {
         val hostingResourceStream =
             classLoader.getResourceAsStream("sponsorblock/host/layout/youtube_controls_layout.xml")!!
 
-        val targetXmlEditor = data.xmlEditor["res/layout/youtube_controls_layout.xml"]
+        val targetXmlEditor = context.xmlEditor["res/layout/youtube_controls_layout.xml"]
         "RelativeLayout".copyXmlNode(
-            data.xmlEditor[hostingResourceStream],
+            context.xmlEditor[hostingResourceStream],
             targetXmlEditor
         ).also {
             val children = targetXmlEditor.file.getElementsByTagName("RelativeLayout").item(0).childNodes

@@ -4,14 +4,12 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.annotation.FuzzyPatternScanMethod
-import app.revanced.patcher.fingerprint.method.annotation.MatchingMethod
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.youtube.layout.personalinformation.annotations.HideEmailAddressCompatibility
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 @Name("account-switcher-accessibility-label-fingerprint")
-@MatchingMethod("Lqvs;", "mH")
 @FuzzyPatternScanMethod(3)
 @HideEmailAddressCompatibility
 @Version("0.0.1")

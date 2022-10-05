@@ -1,6 +1,6 @@
 package app.revanced.util.microg
 
-import app.revanced.patcher.data.impl.ResourceData
+import app.revanced.patcher.data.ResourceContext
 import app.revanced.util.microg.Constants.META_GMS_PACKAGE_NAME
 import app.revanced.util.microg.Constants.META_SPOOFED_PACKAGE_NAME
 import app.revanced.util.microg.Constants.META_SPOOFED_PACKAGE_SIGNATURE
@@ -17,16 +17,16 @@ internal object MicroGManifestHelper {
      * Add manifest entries needed for package and signature spoofing when using MicroG.
      * Note: this only adds metadata entries for signature spoofing, other changes may still be required to make a microG patch work.
      *
-     * @param data Resource data.
+     * @param context Resource context.
      * @param spoofedPackage The package to spoof.
      * @param spoofedSignature The signature to spoof.
      */
     fun addSpoofingMetadata(
-        data: ResourceData,
+        context: ResourceContext,
         spoofedPackage: String,
         spoofedSignature: String
     ) {
-        data.xmlEditor["AndroidManifest.xml"].use {
+        context.xmlEditor["AndroidManifest.xml"].use {
             val applicationNode = it
                 .file
                 .getElementsByTagName("application")

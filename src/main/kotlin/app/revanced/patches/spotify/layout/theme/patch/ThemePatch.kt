@@ -3,14 +3,10 @@ package app.revanced.patches.spotify.layout.theme.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.ResourceData
-import app.revanced.patcher.patch.OptionsContainer
-import app.revanced.patcher.patch.PatchOption
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.*
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.spotify.layout.theme.annotations.ThemeCompatibility
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import org.w3c.dom.Element
@@ -21,9 +17,9 @@ import org.w3c.dom.Element
 @Description("Applies a custom theme.")
 @ThemeCompatibility
 @Version("0.0.1")
-class ThemePatch : ResourcePatch() {
-    override fun execute(data: ResourceData): PatchResult {
-        data.xmlEditor["res/values/colors.xml"].use { editor ->
+class ThemePatch : ResourcePatch {
+    override fun execute(context: ResourceContext): PatchResult {
+        context.xmlEditor["res/values/colors.xml"].use { editor ->
             val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
 
             for (i in 0 until resourcesNode.childNodes.length) {

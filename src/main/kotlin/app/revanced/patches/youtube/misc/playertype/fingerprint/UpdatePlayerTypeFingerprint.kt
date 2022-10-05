@@ -4,7 +4,6 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.annotation.FuzzyPatternScanMethod
-import app.revanced.patcher.fingerprint.method.annotation.MatchingMethod
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.youtube.interaction.swipecontrols.annotation.SwipeControlsCompatibility
 import org.jf.dexlib2.AccessFlags
@@ -12,10 +11,6 @@ import org.jf.dexlib2.Opcode
 
 //TODO constrain to only match in YoutubePlayerOverlaysLayout?
 @Name("update-player-type-fingerprint")
-@MatchingMethod(
-    "LYoutubePlayerOverlaysLayout;",
-    "nM"
-)
 @FuzzyPatternScanMethod(2)
 @SwipeControlsCompatibility
 @Version("0.0.1")

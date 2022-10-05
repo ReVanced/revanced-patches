@@ -4,15 +4,11 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.annotation.FuzzyPatternScanMethod
-import app.revanced.patcher.fingerprint.method.annotation.MatchingMethod
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 @Name("pivot-bar-fingerprint")
-@MatchingMethod(
-    "Lknw", "z"
-)
 @FuzzyPatternScanMethod(2)
 // TODO: This fingerprint is used in multiple patches, so technically two compatibilities are needed
 // @CreateButtonCompatibility

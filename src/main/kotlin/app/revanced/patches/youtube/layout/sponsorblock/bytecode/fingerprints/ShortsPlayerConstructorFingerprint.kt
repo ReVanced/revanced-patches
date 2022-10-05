@@ -4,7 +4,6 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.annotation.FuzzyPatternScanMethod
-import app.revanced.patcher.fingerprint.method.annotation.MatchingMethod
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.youtube.layout.sponsorblock.annotations.SponsorBlockCompatibility
 import app.revanced.patches.youtube.layout.sponsorblock.resource.patch.SponsorBlockResourcePatch
@@ -13,7 +12,6 @@ import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
 @Name("shorts-player-constructor-fingerprint")
-@MatchingMethod("Lhgp;", "<init>")
 @FuzzyPatternScanMethod(3)
 @SponsorBlockCompatibility
 @Version("0.0.1")

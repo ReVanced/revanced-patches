@@ -3,14 +3,14 @@ package app.revanced.patches.youtube.misc.playercontrols.bytecode.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.misc.mapping.patch.ResourceMappingResourcePatch
 import app.revanced.patches.youtube.misc.playercontrols.annotation.PlayerControlsCompatibility
 import app.revanced.patches.youtube.misc.playercontrols.fingerprints.BottomControlsInflateFingerprint
@@ -25,7 +25,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 class PlayerControlsBytecodePatch : BytecodePatch(
     listOf(PlayerControlsVisibilityFingerprint)
 ) {
-    override fun execute(data: BytecodeData): PatchResult {
+    override fun execute(context: BytecodeContext): PatchResult {
         showPlayerControlsFingerprintResult = PlayerControlsVisibilityFingerprint.result!!
 
         bottomUiContainerResourceId = ResourceMappingResourcePatch
@@ -33,7 +33,7 @@ class PlayerControlsBytecodePatch : BytecodePatch(
             .single { it.type == "id" && it.name == "bottom_ui_container_stub" }.id
 
         // TODO: another solution is required, this is hacky
-        listOf(BottomControlsInflateFingerprint).resolve(data, data.classes)
+        listOf(BottomControlsInflateFingerprint).resolve(context, context.classes)
         inflateFingerprintResult = BottomControlsInflateFingerprint.result!!
 
         return PatchResultSuccess()

@@ -3,14 +3,14 @@ package app.revanced.patches.spotify.audio.bytecode.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.spotify.audio.annotation.DisableCaptureRestrictionCompatibility
 import app.revanced.patches.spotify.audio.fingerprints.DisableCaptureRestrictionAudioDriverFingerprint
@@ -36,7 +36,7 @@ class DisableCaptureRestrictionBytecodePatch : BytecodePatch(
         )
     }
 
-    override fun execute(data: BytecodeData): PatchResult {
+    override fun execute(context: BytecodeContext): PatchResult {
         val method = DisableCaptureRestrictionAudioDriverFingerprint.result!!.mutableMethod
 
         // Replace constant that contains the capture policy parameter for AudioAttributesBuilder.setAllowedCapturePolicy()

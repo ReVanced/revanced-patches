@@ -3,12 +3,11 @@ package app.revanced.patches.reddit.ad.general.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.BytecodeData
-import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.BytecodePatch
+import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.reddit.ad.general.annotations.GeneralAdsCompatibility
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
@@ -22,8 +21,8 @@ import org.jf.dexlib2.immutable.reference.ImmutableStringReference
 @GeneralAdsCompatibility
 @Version("0.0.1")
 class GeneralAdsPatch : BytecodePatch() {
-    override fun execute(data: BytecodeData): PatchResult {
-        data.classes.forEach { classDef ->
+    override fun execute(context: BytecodeContext): PatchResult {
+        context.classes.forEach { classDef ->
             classDef.methods.forEach methodLoop@{ method ->
                 val implementation = method.implementation ?: return@methodLoop
 
@@ -31,7 +30,7 @@ class GeneralAdsPatch : BytecodePatch() {
                     if (instruction.opcode != Opcode.CONST_STRING) return@forEachIndexed
                     if (((instruction as ReferenceInstruction).reference as StringReference).string != "AdPost") return@forEachIndexed
 
-                    val proxiedClass = data.proxy(classDef).resolve()
+                    val proxiedClass = context.proxy(classDef).mutableClass
 
                     val proxiedImplementation = proxiedClass.methods.first {
                         it.name == method.name && it.parameterTypes.containsAll(method.parameterTypes)

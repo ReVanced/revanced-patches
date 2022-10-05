@@ -3,16 +3,12 @@ package app.revanced.patches.youtube.misc.minimizedplayback.fingerprints
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.method.annotation.MatchingMethod
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.youtube.misc.minimizedplayback.annotations.MinimizedPlaybackCompatibility
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 @Name("minimized-playback-kids-fingerprint")
-@MatchingMethod(
-    "LMinimizedPlaybackPolicyController;", "k"
-)
 @MinimizedPlaybackCompatibility
 @Version("0.0.1")
 object MinimizedPlaybackKidsFingerprint : MethodFingerprint(

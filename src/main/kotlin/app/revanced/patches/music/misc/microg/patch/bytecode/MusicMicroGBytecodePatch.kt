@@ -3,11 +3,11 @@ package app.revanced.patches.music.misc.microg.patch.bytecode
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.music.misc.microg.annotations.MusicMicroGPatchCompatibility
 import app.revanced.patches.music.misc.microg.fingerprints.*
 import app.revanced.patches.music.misc.microg.patch.resource.MusicMicroGResourcePatch
@@ -39,10 +39,10 @@ class MusicMicroGBytecodePatch : BytecodePatch(
     // - "com.google.android.gms.phenotype.PACKAGE_NAME",
     // - "com.google.android.gms.phenotype.UPDATE",
     // - "com.google.android.gms.phenotype",
-    override fun execute(data: BytecodeData) =
+    override fun execute(context: BytecodeContext) =
         // apply common microG patch
         MicroGBytecodeHelper.patchBytecode(
-            data,
+            context,
             arrayOf(
                 MicroGBytecodeHelper.packageNameTransform(
                     Constants.PACKAGE_NAME,
