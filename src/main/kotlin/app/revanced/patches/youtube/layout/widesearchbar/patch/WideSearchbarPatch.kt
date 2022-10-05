@@ -3,15 +3,15 @@ package app.revanced.patches.youtube.layout.widesearchbar.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.BytecodeData
-import app.revanced.patcher.data.impl.toMethodWalker
+import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.layout.widesearchbar.annotations.WideSearchbarCompatibility
 import app.revanced.patches.youtube.layout.widesearchbar.fingerprints.WideSearchbarOneFingerprint
@@ -34,7 +34,7 @@ class WideSearchbarPatch : BytecodePatch(
         WideSearchbarOneParentFingerprint, WideSearchbarTwoParentFingerprint
     )
 ) {
-    override fun execute(data: BytecodeData): PatchResult {
+    override fun execute(context: BytecodeContext): PatchResult {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_wide_searchbar",
@@ -45,14 +45,15 @@ class WideSearchbarPatch : BytecodePatch(
             )
         )
 
-        WideSearchbarOneFingerprint.resolve(data, WideSearchbarOneParentFingerprint.result!!.classDef)
-        WideSearchbarTwoFingerprint.resolve(data, WideSearchbarTwoParentFingerprint.result!!.classDef)
+        WideSearchbarOneFingerprint.resolve(context, WideSearchbarOneParentFingerprint.result!!.classDef)
+        WideSearchbarTwoFingerprint.resolve(context, WideSearchbarTwoParentFingerprint.result!!.classDef)
 
         val resultOne = WideSearchbarOneFingerprint.result
 
         //This should be the method aF in class fbn
         val targetMethodOne =
-            data.toMethodWalker(resultOne!!.method).nextMethod(resultOne.scanResult.patternScanResult!!.endIndex, true).getMethod() as MutableMethod
+            context.toMethodWalker(resultOne!!.method)
+                .nextMethod(resultOne.scanResult.patternScanResult!!.endIndex, true).getMethod() as MutableMethod
 
         //Since both methods have the same smali code, inject instructions using a method.
         addInstructions(targetMethodOne)
@@ -61,7 +62,8 @@ class WideSearchbarPatch : BytecodePatch(
 
         //This should be the method aB in class fbn
         val targetMethodTwo =
-            data.toMethodWalker(resultTwo!!.method).nextMethod(resultTwo.scanResult.patternScanResult!!.startIndex, true).getMethod() as MutableMethod
+            context.toMethodWalker(resultTwo!!.method)
+                .nextMethod(resultTwo.scanResult.patternScanResult!!.startIndex, true).getMethod() as MutableMethod
 
         //Since both methods have the same smali code, inject instructions using a method.
         addInstructions(targetMethodTwo)

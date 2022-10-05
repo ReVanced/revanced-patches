@@ -3,15 +3,15 @@ package app.revanced.patches.youtube.ad.infocardsuggestions.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.ad.infocardsuggestions.annotations.HideInfocardSuggestionsCompatibility
 import app.revanced.patches.youtube.ad.infocardsuggestions.fingerprints.HideInfocardSuggestionsFingerprint
 import app.revanced.patches.youtube.ad.infocardsuggestions.fingerprints.HideInfocardSuggestionsParentFingerprint
@@ -32,7 +32,7 @@ class HideInfocardSuggestionsPatch : BytecodePatch(
         HideInfocardSuggestionsParentFingerprint
     )
 ) {
-    override fun execute(data: BytecodeData): PatchResult {
+    override fun execute(context: BytecodeContext): PatchResult {
         SettingsPatch.PreferenceScreen.ADS.addPreferences(
             SwitchPreference(
                 "revanced_info_cards_enabled",
@@ -47,7 +47,7 @@ class HideInfocardSuggestionsPatch : BytecodePatch(
             ?: return PatchResultError("Parent fingerprint not resolved!")
 
 
-        HideInfocardSuggestionsFingerprint.resolve(data, parentResult.classDef)
+        HideInfocardSuggestionsFingerprint.resolve(context, parentResult.classDef)
         val result = HideInfocardSuggestionsFingerprint.result
             ?: return PatchResultError("Required parent method could not be found.")
 

@@ -3,13 +3,13 @@ package app.revanced.patches.youtube.layout.oldqualitylayout.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.layout.oldqualitylayout.annotations.OldQualityLayoutCompatibility
 import app.revanced.patches.youtube.layout.oldqualitylayout.fingerprints.QualityMenuViewInflateFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
@@ -27,7 +27,7 @@ import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 class OldQualityLayoutPatch : BytecodePatch(
     listOf(QualityMenuViewInflateFingerprint)
 ) {
-    override fun execute(data: BytecodeData): PatchResult {
+    override fun execute(context: BytecodeContext): PatchResult {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_use_old_style_quality_settings",

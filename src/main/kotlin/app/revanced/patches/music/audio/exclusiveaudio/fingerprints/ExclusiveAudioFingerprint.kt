@@ -3,17 +3,13 @@ package app.revanced.patches.music.audio.exclusiveaudio.fingerprints
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.annotation.FuzzyPatternScanMethod
-import app.revanced.patcher.fingerprint.method.annotation.MatchingMethod
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.music.audio.exclusiveaudio.annotations.ExclusiveAudioCompatibility
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 @Name("exclusive-audio-fingerprints")
-@MatchingMethod(
-    "Lgmd;", "c"
-)
 @FuzzyPatternScanMethod(2) // FIXME: Test this threshold and find the best value.
 @ExclusiveAudioCompatibility
 @Version("0.0.1")

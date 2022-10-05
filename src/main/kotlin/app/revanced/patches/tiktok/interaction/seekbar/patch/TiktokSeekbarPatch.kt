@@ -3,15 +3,15 @@ package app.revanced.patches.tiktok.interaction.seekbar.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.tiktok.interaction.seekbar.annotations.SeekbarCompatibility
-import app.revanced.patches.tiktok.interaction.seekbar.fingerprints.*
+import app.revanced.patches.tiktok.interaction.seekbar.fingerprints.AwemeGetVideoControlFingerprint
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction11n
 import org.jf.dexlib2.builder.instruction.BuilderInstruction22c
@@ -26,9 +26,9 @@ class TiktokSeekbarPatch : BytecodePatch(
         AwemeGetVideoControlFingerprint
     )
 ) {
-    override fun execute(data: BytecodeData): PatchResult {
+    override fun execute(context: BytecodeContext): PatchResult {
         //Get VideoControl FieldReference
-        val videoControl = data.findClass { it.type.endsWith("/VideoControl;") }
+        val videoControl = context.findClass { it.type.endsWith("/VideoControl;") }
             ?: return PatchResultError("Can not find target class")
         val fieldList = videoControl.immutableClass.fields.associateBy { field -> field.name }
 

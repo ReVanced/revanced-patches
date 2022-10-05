@@ -3,16 +3,16 @@ package app.revanced.patches.twitter.ad.timeline.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.twitter.ad.timeline.annotations.TimelineAdsCompatibility
 import app.revanced.patches.twitter.ad.timeline.fingerprints.TimelineTweetJsonParserFingerprint
@@ -31,7 +31,7 @@ import org.jf.dexlib2.iface.reference.StringReference
 class TimelineAdsPatch : BytecodePatch(
     listOf(TimelineTweetJsonParserFingerprint)
 ) {
-    override fun execute(data: BytecodeData): PatchResult {
+    override fun execute(context: BytecodeContext): PatchResult {
         if (removePromotedAds())
             return PatchResultError("The instruction for the tweet id field could not be found")
 

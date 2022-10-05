@@ -1,7 +1,7 @@
 package app.revanced.extensions
 
-import app.revanced.patcher.data.impl.BytecodeData
-import app.revanced.patcher.data.impl.ResourceData
+import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
@@ -35,9 +35,9 @@ internal fun MutableMethodImplementation.injectHideCall(
  * @param targetClass the class to start traversing the class hierarchy from
  * @param callback function that is called for every class in the hierarchy
  */
-fun BytecodeData.traverseClassHierarchy(targetClass: MutableClass, callback: MutableClass.() -> Unit) {
+fun BytecodeContext.traverseClassHierarchy(targetClass: MutableClass, callback: MutableClass.() -> Unit) {
     callback(targetClass)
-    this.findClass(targetClass.superclass ?: return)?.resolve()?.let {
+    this.findClass(targetClass.superclass ?: return)?.mutableClass?.let {
         traverseClassHierarchy(it, callback)
     }
 }
@@ -135,7 +135,7 @@ internal fun MutableMethod.injectConsumableEventHook(hookRef: ImmutableMethodRef
  * @param resourceType the resource type, for example 'drawable'. this has to match both the source and the target
  * @param resourceFileNames names of all resources of this type to inject
  */
-fun ResourceData.injectResources(
+fun ResourceContext.injectResources(
     classLoader: ClassLoader,
     patchDirectoryPath: String,
     resourceType: String,
@@ -160,7 +160,7 @@ fun ResourceData.injectResources(
  * @param patchDirectoryPath path to the files. this will be the directory you created under the 'resources' source folder
  * @param languageIdentifier ISO 639-2 two- letter language code identifier (aka the one android uses for values directory)
  */
-fun ResourceData.injectStrings(
+fun ResourceContext.injectStrings(
     classLoader: ClassLoader,
     patchDirectoryPath: String,
     languageIdentifier: String? = null,

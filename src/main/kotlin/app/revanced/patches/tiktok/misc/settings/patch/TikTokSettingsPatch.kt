@@ -3,15 +3,15 @@ package app.revanced.patches.tiktok.misc.settings.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.tiktok.misc.integrations.patch.TikTokIntegrationsPatch
 import app.revanced.patches.tiktok.misc.settings.annotations.TikTokSettingsCompatibility
 import app.revanced.patches.tiktok.misc.settings.fingerprints.AdPersonalizationActivityFingerprint
@@ -35,7 +35,7 @@ class TikTokSettingsPatch : BytecodePatch(
         CopyRightSettingsStringFingerprint
     )
 ) {
-    override fun execute(data: BytecodeData): PatchResult {
+    override fun execute(context: BytecodeContext): PatchResult {
         //Replace string `Copyright Policy` to 'Revanced Settings` in TikTok settings.
         val method1 = CopyRightSettingsStringFingerprint.result!!.mutableMethod
         val implementation1 = method1.implementation!!
@@ -66,7 +66,7 @@ class TikTokSettingsPatch : BytecodePatch(
             if (clickInstruction.opcode != Opcode.INVOKE_DIRECT)
                 return PatchResultError("Can not find click listener.")
             val clickClass = ((clickInstruction as ReferenceInstruction).reference as MethodReference).definingClass
-            val mutableClickClass = data.findClass(clickClass)!!.resolve()
+            val mutableClickClass = context.findClass(clickClass)!!.mutableClass
             val mutableOnClickMethod = mutableClickClass.methods.first {
                 it.name == "onClick"
             }

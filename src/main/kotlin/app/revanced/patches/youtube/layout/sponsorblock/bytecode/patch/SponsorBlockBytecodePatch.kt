@@ -3,21 +3,22 @@ package app.revanced.patches.youtube.layout.sponsorblock.bytecode.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.BytecodeData
-import app.revanced.patcher.data.impl.toMethodWalker
+import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.revanced.patches.youtube.layout.autocaptions.fingerprints.StartVideoInformerFingerprint
 import app.revanced.patches.youtube.layout.sponsorblock.annotations.SponsorBlockCompatibility
 import app.revanced.patches.youtube.layout.sponsorblock.bytecode.fingerprints.*
 import app.revanced.patches.youtube.layout.sponsorblock.resource.patch.SponsorBlockResourcePatch
@@ -25,7 +26,6 @@ import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.mapping.patch.ResourceMappingResourcePatch
 import app.revanced.patches.youtube.misc.playercontrols.bytecode.patch.PlayerControlsBytecodePatch
 import app.revanced.patches.youtube.misc.videoid.patch.VideoIdPatch
-import app.revanced.patches.youtube.layout.autocaptions.fingerprints.StartVideoInformerFingerprint
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.MutableMethodImplementation
@@ -59,12 +59,13 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         StartVideoInformerFingerprint
     )
 ) {
-    override fun execute(data: BytecodeData): PatchResult {/*
+    override fun execute(context: BytecodeContext): PatchResult {/*
         Set current video time
         */
         val referenceResult = PlayerControllerSetTimeReferenceFingerprint.result!!
         val playerControllerSetTimeMethod =
-            data.toMethodWalker(referenceResult.method).nextMethod(referenceResult.scanResult.patternScanResult!!.startIndex, true)
+            context.toMethodWalker(referenceResult.method)
+                .nextMethod(referenceResult.scanResult.patternScanResult!!.startIndex, true)
                 .getMethod() as MutableMethod
         playerControllerSetTimeMethod.addInstruction(
             2,
@@ -76,7 +77,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
          */
         val constructorFingerprint =
             object : MethodFingerprint("V", null, listOf("J", "J", "J", "J", "I", "L"), null) {}
-        constructorFingerprint.resolve(data, VideoTimeFingerprint.result!!.classDef)
+        constructorFingerprint.resolve(context, VideoTimeFingerprint.result!!.classDef)
 
         val constructor = constructorFingerprint.result!!.mutableMethod
         constructor.addInstruction(
@@ -162,7 +163,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         /*
         Set video length
          */
-        VideoLengthFingerprint.resolve(data, seekbarSignatureResult.classDef)
+        VideoLengthFingerprint.resolve(context, seekbarSignatureResult.classDef)
         val videoLengthMethodResult = VideoLengthFingerprint.result!!
         val videoLengthMethod = videoLengthMethodResult.mutableMethod
         val videoLengthMethodInstructions = videoLengthMethod.implementation!!.instructions
@@ -210,7 +211,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
 
                     zoomOverlayResourceId -> {
                         val invertVisibilityMethod =
-                            data.toMethodWalker(method).nextMethod(index - 6, true).getMethod() as MutableMethod
+                            context.toMethodWalker(method).nextMethod(index - 6, true).getMethod() as MutableMethod
                         // change visibility of the buttons
                         invertVisibilityMethod.addInstructions(
                             0, """
@@ -264,7 +265,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         // lastly create hooks for the player controller
 
         // get original seek method
-        SeekFingerprint.resolve(data, initFingerprintResult.classDef)
+        SeekFingerprint.resolve(context, initFingerprintResult.classDef)
         val seekFingerprintResultMethod = SeekFingerprint.result!!.method
         // get enum type for the seek helper method
         val seekSourceEnumType = seekFingerprintResultMethod.parameterTypes[1].toString()
@@ -295,7 +296,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         initFingerprintResult.mutableClass.methods.add(seekHelperMethod)
 
         // get rectangle field name
-        RectangleFieldInvalidatorFingerprint.resolve(data, seekbarSignatureResult.classDef)
+        RectangleFieldInvalidatorFingerprint.resolve(context, seekbarSignatureResult.classDef)
         val rectangleFieldInvalidatorInstructions =
             RectangleFieldInvalidatorFingerprint.result!!.method.implementation!!.instructions
         val rectangleFieldName =
@@ -303,7 +304,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
 
         // get the player controller class from the integrations
         val playerControllerMethods =
-            data.proxy(data.classes.first { it.type.endsWith("PlayerController;") }).resolve().methods
+            context.proxy(context.classes.first { it.type.endsWith("PlayerController;") }).mutableClass.methods
 
         // get the method which contain the "replaceMe" strings
         val replaceMeMethods =

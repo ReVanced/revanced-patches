@@ -3,13 +3,13 @@ package app.revanced.patches.youtube.layout.personalinformation.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.layout.personalinformation.annotations.HideEmailAddressCompatibility
 import app.revanced.patches.youtube.layout.personalinformation.fingerprints.AccountSwitcherAccessibilityLabelFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
@@ -17,11 +17,8 @@ import app.revanced.patches.youtube.misc.mapping.patch.ResourceMappingResourcePa
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.SwitchPreference
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
-import org.jf.dexlib2.iface.reference.MethodReference
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class, ResourceMappingResourcePatch::class])
@@ -34,7 +31,7 @@ class HideEmailAddressPatch : BytecodePatch(
         AccountSwitcherAccessibilityLabelFingerprint
     )
 ) {
-    override fun execute(data: BytecodeData): PatchResult {
+    override fun execute(context: BytecodeContext): PatchResult {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_hide_email_address",

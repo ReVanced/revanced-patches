@@ -3,25 +3,24 @@ package app.revanced.patches.youtube.misc.playercontrols.resource.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.DomFileEditor
-import app.revanced.patcher.data.impl.ResourceData
+import app.revanced.patcher.data.DomFileEditor
+import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import app.revanced.patches.youtube.misc.playercontrols.annotation.PlayerControlsCompatibility
-import java.io.Closeable
 
 @Name("bottom-controls-resource-patch")
 @DependsOn([FixLocaleConfigErrorPatch::class])
 @Description("Manages the resources for the bottom controls of the YouTube player.")
 @PlayerControlsCompatibility
 @Version("0.0.1")
-class BottomControlsResourcePatch : ResourcePatch(), Closeable {
-    override fun execute(data: ResourceData): PatchResult {
-        resourceData = data
-        targetXmlEditor = data.xmlEditor[TARGET_RESOURCE]
+class BottomControlsResourcePatch : ResourcePatch {
+    override fun execute(context: ResourceContext): PatchResult {
+        resourceContext = context
+        targetXmlEditor = context.xmlEditor[TARGET_RESOURCE]
 
         return PatchResultSuccess()
     }
@@ -30,7 +29,7 @@ class BottomControlsResourcePatch : ResourcePatch(), Closeable {
         internal const val TARGET_RESOURCE_NAME = "youtube_controls_bottom_ui_container.xml"
         private const val TARGET_RESOURCE = "res/layout/$TARGET_RESOURCE_NAME"
 
-        private lateinit var resourceData: ResourceData
+        private lateinit var resourceContext: ResourceContext
         private lateinit var targetXmlEditor: DomFileEditor
 
         // The element to which to add the new elements to
@@ -44,7 +43,7 @@ class BottomControlsResourcePatch : ResourcePatch(), Closeable {
          */
         internal fun addControls(hostYouTubeControlsBottomUiResourceName: String) {
             val sourceXmlEditor =
-                resourceData.xmlEditor[this::class.java.classLoader.getResourceAsStream(
+                resourceContext.xmlEditor[this::class.java.classLoader.getResourceAsStream(
                     hostYouTubeControlsBottomUiResourceName
                 )!!]
 

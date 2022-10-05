@@ -3,11 +3,10 @@ package app.revanced.patches.youtube.layout.branding.icon.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.ResourceData
+import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.*
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.youtube.layout.branding.icon.annotations.CustomBrandingCompatibility
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import java.io.File
@@ -21,9 +20,9 @@ import java.nio.file.Files
 @Description("Changes the YouTube launcher icon and name to your choice (defaults to ReVanced).")
 @CustomBrandingCompatibility
 @Version("0.0.1")
-class CustomBrandingPatch : ResourcePatch() {
-    override fun execute(data: ResourceData): PatchResult {
-        val resDirectory = data["res"]
+class CustomBrandingPatch : ResourcePatch {
+    override fun execute(context: ResourceContext): PatchResult {
+        val resDirectory = context["res"]
         if (!resDirectory.isDirectory) return PatchResultError("The res folder can not be found.")
 
         // Icon branding
@@ -53,7 +52,7 @@ class CustomBrandingPatch : ResourcePatch() {
         }
 
         // Name branding
-        val manifest = data["AndroidManifest.xml"]
+        val manifest = context["AndroidManifest.xml"]
         manifest.writeText(
             manifest.readText()
                 .replace(

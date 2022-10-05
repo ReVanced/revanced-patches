@@ -4,17 +4,17 @@ import app.revanced.extensions.injectHideCall
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
@@ -67,7 +67,7 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
         "LoggingProperties are not in proto format"
     )
 
-    override fun execute(data: BytecodeData): PatchResult {
+    override fun execute(context: BytecodeContext): PatchResult {
         SettingsPatch.PreferenceScreen.ADS.addPreferences(
             SwitchPreference(
                 "revanced_home_ads_removal",
@@ -191,7 +191,7 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
         )
 
         // iterating through all classes is expensive
-        for (classDef in data.classes) {
+        for (classDef in context.classes) {
             var mutableClass: MutableClass? = null
 
             method@ for (method in classDef.methods) {
@@ -213,7 +213,7 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
                                     if (invokeInstruction.opcode != Opcode.INVOKE_VIRTUAL) return@forEachIndexed
 
                                     // create proxied method, make sure to not re-resolve() the current class
-                                    if (mutableClass == null) mutableClass = data.proxy(classDef).resolve()
+                                    if (mutableClass == null) mutableClass = context.proxy(classDef).mutableClass
                                     if (mutableMethod == null) mutableMethod =
                                         mutableClass!!.findMutableMethodOf(method)
 
@@ -230,7 +230,7 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
                                     if (iPutInstruction.opcode != Opcode.IPUT_OBJECT) return@forEachIndexed
 
                                     // create proxied method, make sure to not re-resolve() the current class
-                                    if (mutableClass == null) mutableClass = data.proxy(classDef).resolve()
+                                    if (mutableClass == null) mutableClass = context.proxy(classDef).mutableClass
                                     if (mutableMethod == null) mutableMethod =
                                         mutableClass!!.findMutableMethodOf(method)
 
@@ -245,7 +245,7 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
                                     if (invokeInstruction.opcode != Opcode.INVOKE_VIRTUAL) return@forEachIndexed
 
                                     // create proxied method, make sure to not re-resolve() the current class
-                                    if (mutableClass == null) mutableClass = data.proxy(classDef).resolve()
+                                    if (mutableClass == null) mutableClass = context.proxy(classDef).mutableClass
                                     if (mutableMethod == null) mutableMethod =
                                         mutableClass!!.findMutableMethodOf(method)
 
@@ -260,7 +260,7 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
                                     if (invokeInstruction.opcode != Opcode.IPUT_OBJECT) return@forEachIndexed
 
                                     // create proxied method, make sure to not re-resolve() the current class
-                                    if (mutableClass == null) mutableClass = data.proxy(classDef).resolve()
+                                    if (mutableClass == null) mutableClass = context.proxy(classDef).mutableClass
                                     if (mutableMethod == null) mutableMethod =
                                         mutableClass!!.findMutableMethodOf(method)
 
@@ -280,7 +280,7 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
                                     if (invokeInstruction.opcode != Opcode.INVOKE_DIRECT) return@forEachIndexed
 
                                     // create proxied method, make sure to not re-resolve() the current class
-                                    if (mutableClass == null) mutableClass = data.proxy(classDef).resolve()
+                                    if (mutableClass == null) mutableClass = context.proxy(classDef).mutableClass
                                     if (mutableMethod == null) mutableMethod =
                                         mutableClass!!.findMutableMethodOf(method)
 
@@ -302,7 +302,7 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
                                     if (stringInstruction.opcode == Opcode.CONST_STRING) return@forEachIndexed
 
                                     // create proxied method, make sure to not re-resolve() the current class
-                                    if (mutableClass == null) mutableClass = data.proxy(classDef).resolve()
+                                    if (mutableClass == null) mutableClass = context.proxy(classDef).mutableClass
                                     if (mutableMethod == null) mutableMethod =
                                         mutableClass!!.findMutableMethodOf(method)
 
@@ -319,8 +319,8 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
                                 }
 
                                 stringReferences[2] -> { // Litho ads
-                                    val proxy = data.proxy(classDef)
-                                    val proxiedClass = proxy.resolve()
+                                    val proxy = context.proxy(classDef)
+                                    val proxiedClass = proxy.mutableClass
 
                                     val lithoMethod = getLithoMethod(proxiedClass)
                                         ?: return PatchResultError("Could not find required Litho method to patch.")
@@ -347,7 +347,7 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
                                     ) {}
 
                                     val pathBuilderScanResult = pathBuilderAnchorFingerprint.also {
-                                        it.resolve(data, lithoMethod, classDef)
+                                        it.resolve(context, lithoMethod, classDef)
                                     }.result!!.scanResult.patternScanResult!!
 
                                     val clobberedRegister =

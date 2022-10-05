@@ -1,6 +1,6 @@
 package app.revanced.util.microg
 
-import app.revanced.patcher.data.impl.ResourceData
+import app.revanced.patcher.data.ResourceContext
 
 /**
  * Helper class for applying resource patches needed for the microg-support patches.
@@ -9,19 +9,19 @@ internal object MicroGResourceHelper {
     /**
      * Patch the manifest to work with MicroG.
      *
-     * @param data Bytecode data instance.
+     * @param context Bytecode context.
      * @param fromPackageName Original package name.
      * @param toPackageName The package name to accept.
      * @param toName The new name of the app.
      */
     fun patchManifest(
-        data: ResourceData,
+        context: ResourceContext,
         fromPackageName: String,
         toPackageName: String,
         toName: String
     ) {
-        val manifest = data["AndroidManifest.xml"].readText()
-        data["AndroidManifest.xml"].writeText(
+        val manifest = context["AndroidManifest.xml"].readText()
+        context["AndroidManifest.xml"].writeText(
             manifest.replace(
                 "package=\"$fromPackageName",
                 "package=\"$toPackageName"

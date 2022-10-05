@@ -3,12 +3,12 @@ package app.revanced.patches.twitter.misc.monochrome.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.ResourceData
+import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.twitter.misc.monochrome.annotations.MonochromeIconCompatibility
 import java.io.FileWriter
 import java.nio.file.Files
@@ -18,9 +18,9 @@ import java.nio.file.Files
 @Description("Adds a monochrome icon.")
 @MonochromeIconCompatibility
 @Version("0.0.1")
-class MonochromeIconPatch : ResourcePatch() {
-    override fun execute(data: ResourceData): PatchResult {
-        val resDirectory = data["res"]
+class MonochromeIconPatch : ResourcePatch {
+    override fun execute(context: ResourceContext): PatchResult {
+        val resDirectory = context["res"]
         if (!resDirectory.isDirectory) return PatchResultError("The res folder can not be found.")
 
         val mipmapV33Directory = resDirectory.resolve("mipmap-anydpi-v33")

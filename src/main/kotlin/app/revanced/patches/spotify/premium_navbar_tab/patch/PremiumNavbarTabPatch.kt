@@ -3,14 +3,14 @@ package app.revanced.patches.spotify.premium_navbar_tab.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.removeInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.spotify.premium_navbar_tab.annotations.PremiumNavbarTabCompatibility
 import app.revanced.patches.spotify.premium_navbar_tab.fingerprints.AddPremiumNavbarTabFingerprint
 import app.revanced.patches.spotify.premium_navbar_tab.fingerprints.AddPremiumNavbarTabParentFingerprint
@@ -29,9 +29,9 @@ class PremiumNavbarTabPatch : BytecodePatch(
         AddPremiumNavbarTabParentFingerprint
     )
 ) {
-    override fun execute(data: BytecodeData): PatchResult {
+    override fun execute(context: BytecodeContext): PatchResult {
         val parentResult = AddPremiumNavbarTabParentFingerprint.result!!
-        AddPremiumNavbarTabFingerprint.resolve(data, parentResult.classDef)
+        AddPremiumNavbarTabFingerprint.resolve(context, parentResult.classDef)
 
         val result = AddPremiumNavbarTabFingerprint.result!!
 
@@ -39,7 +39,8 @@ class PremiumNavbarTabPatch : BytecodePatch(
         val methodInstructions = method.implementation!!.instructions
         val lastInstructionIdx = methodInstructions.size - 1
 
-        val premiumTabId = ResourceMappingResourcePatch.resourceMappings.single{it.type == "id" && it.name == "premium_tab"}.id
+        val premiumTabId =
+            ResourceMappingResourcePatch.resourceMappings.single { it.type == "id" && it.name == "premium_tab" }.id
 
         var removeAmount = 2
         // 2nd const remove method

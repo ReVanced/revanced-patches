@@ -3,11 +3,11 @@ package app.revanced.patches.youtube.layout.returnyoutubedislike.resource.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.ResourceData
+import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.youtube.layout.returnyoutubedislike.annotations.ReturnYouTubeDislikeCompatibility
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
@@ -20,8 +20,8 @@ import app.revanced.util.resources.ResourceUtils.Settings.mergeStrings
 @Description("Adds the preferences for Return YouTube Dislike.")
 @ReturnYouTubeDislikeCompatibility
 @Version("0.0.1")
-class ReturnYouTubeDislikeResourcePatch : ResourcePatch() {
-    override fun execute(data: ResourceData): PatchResult {
+class ReturnYouTubeDislikeResourcePatch : ResourcePatch {
+    override fun execute(context: ResourceContext): PatchResult {
         val youtubePackage = "com.google.android.youtube"
         SettingsPatch.addPreference(
             Preference(
@@ -35,7 +35,7 @@ class ReturnYouTubeDislikeResourcePatch : ResourcePatch() {
             )
         )
         // merge strings
-        data.mergeStrings("returnyoutubedislike/host/values/strings.xml")
+        context.mergeStrings("returnyoutubedislike/host/values/strings.xml")
 
         return PatchResultSuccess()
     }

@@ -2,11 +2,11 @@ package app.revanced.patches.youtube.interaction.swipecontrols.patch.resource
 
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.ResourceData
+import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patcher.patch.impl.ResourcePatch
 import app.revanced.patches.youtube.interaction.swipecontrols.annotation.SwipeControlsCompatibility
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.*
@@ -17,8 +17,8 @@ import app.revanced.util.resources.ResourceUtils.copyResources
 @DependsOn([SettingsPatch::class])
 @SwipeControlsCompatibility
 @Version("0.0.1")
-class SwipeControlsResourcePatch : ResourcePatch() {
-    override fun execute(data: ResourceData): PatchResult {
+class SwipeControlsResourcePatch : ResourcePatch {
+    override fun execute(context: ResourceContext): PatchResult {
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
             PreferenceScreen(
                 "revanced_swipe_controls", StringResource("revanced_swipe_controls_title", "Swipe controls"), listOf(
@@ -92,7 +92,7 @@ class SwipeControlsResourcePatch : ResourcePatch() {
             )
         )
 
-        data.copyResources(
+        context.copyResources(
             "swipecontrols",
             ResourceUtils.ResourceGroup(
                 "drawable",

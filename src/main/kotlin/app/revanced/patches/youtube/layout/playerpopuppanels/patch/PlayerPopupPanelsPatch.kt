@@ -3,13 +3,13 @@ package app.revanced.patches.youtube.layout.playerpopuppanels.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
-import app.revanced.patcher.data.impl.BytecodeData
+import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.impl.BytecodePatch
 import app.revanced.patches.youtube.layout.playerpopuppanels.annotations.PlayerPopupPanelsCompatibility
 import app.revanced.patches.youtube.layout.playerpopuppanels.fingerprints.EngagementPanelControllerFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
@@ -28,7 +28,7 @@ class PlayerPopupPanelsPatch : BytecodePatch(
         EngagementPanelControllerFingerprint
     )
 ) {
-    override fun execute(data: BytecodeData): PatchResult {
+    override fun execute(context: BytecodeContext): PatchResult {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_player_popup_panels_enabled",
