@@ -26,7 +26,7 @@ public class ReturnYouTubeDislikeApi {
         try {
             LogHelper.debug(ReturnYouTubeDislikeApi.class, "Fetching dislikes for " + videoId);
             HttpURLConnection connection = getConnectionFromRoute(ReturnYouTubeDislikeRoutes.GET_DISLIKES, videoId);
-            connection.setConnectTimeout(5 * 1000);
+            connection.setConnectTimeout(1000);
             if (connection.getResponseCode() == 200) {
                 JSONObject json = getJSONObject(connection);
                 dislikeCount = json.getInt("dislikes");
