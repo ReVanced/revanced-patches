@@ -93,7 +93,7 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
             SwitchPreference(
                 "revanced_adremover_community_posts_removal",
                 StringResource("revanced_adremover_community_posts_enabled_title", "Remove community posts"),
-                true,
+                false,
                 StringResource("revanced_adremover_community_posts_enabled_summary_on", "Community posts are hidden"),
                 StringResource("revanced_adremover_community_posts_enabled_summary_off", "Community posts are shown")
             ),
