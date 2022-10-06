@@ -1,3 +1,10 @@
+# [2.81.0](https://github.com/revanced/revanced-patches/compare/v2.80.0...v2.81.0) (2022-10-06)
+
+
+### Features
+
+* **youtube/general-ads:** do not hide community posts by default ([6269638](https://github.com/revanced/revanced-patches/commit/626963819c183cbfeca4ff4ab0a16fc39ed9d8a8))
+
 # [2.80.0](https://github.com/revanced/revanced-patches/compare/v2.79.2...v2.80.0) (2022-10-04)
 
 
