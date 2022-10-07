@@ -1,3 +1,10 @@
+## [2.81.1](https://github.com/revanced/revanced-patches/compare/v2.81.0...v2.81.1) (2022-10-07)
+
+
+### Bug Fixes
+
+* **video-ads:** block remaining video ads ([fbc83a2](https://github.com/revanced/revanced-patches/commit/fbc83a22d37012394311a87d27202b7cc86e047d))
+
 # [2.81.0](https://github.com/revanced/revanced-patches/compare/v2.80.0...v2.81.0) (2022-10-06)
 
 
