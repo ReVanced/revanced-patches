@@ -1,3 +1,10 @@
+## [2.81.2](https://github.com/revanced/revanced-patches/compare/v2.81.1...v2.81.2) (2022-10-08)
+
+
+### Bug Fixes
+
+* **theme:** include coloring the playlist action bar ([#742](https://github.com/revanced/revanced-patches/issues/742)) ([6766ec8](https://github.com/revanced/revanced-patches/commit/6766ec8f31da6dd71fff0ae4b7044af5ec4a5dfd))
+
 ## [2.81.1](https://github.com/revanced/revanced-patches/compare/v2.81.0...v2.81.1) (2022-10-07)
 
 
