@@ -49,7 +49,7 @@ class VideoAdsPatch : BytecodePatch(
                     """ 
                             invoke-static { }, Lapp/revanced/integrations/patches/VideoAdsPatch;->shouldShowAds()Z
                             move-result v4
-                            if-nez v4, :show_video_ads
+                            if-eqz v4, :show_video_ads
                             return-object v3
                          """,
                     listOf(ExternalLabel("show_video_ads", instruction(insertIndex)))
