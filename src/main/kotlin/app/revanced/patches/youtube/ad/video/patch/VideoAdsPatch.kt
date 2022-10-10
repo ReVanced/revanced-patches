@@ -48,9 +48,9 @@ class VideoAdsPatch : BytecodePatch(
                     invoke-static { }, Lapp/revanced/integrations/patches/VideoAdsPatch;->shouldShowAds()Z
                     move-result v1
                     if-nez v1, :show_video_ads
-                    new-instance v0, Ljava/util/ArrayList;
-                    invoke-direct { v0 }, Ljava/util/ArrayList;-><init>()V
-                    return-object v0
+                    new-instance v3, Ljava/util/ArrayList;
+                    invoke-direct { v3 }, Ljava/util/ArrayList;-><init>()V
+                    return-object v3
                 """,
                 listOf(ExternalLabel("show_video_ads", method.instruction(0)))
             )
