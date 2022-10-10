@@ -1,3 +1,10 @@
+## [2.81.3](https://github.com/revanced/revanced-patches/compare/v2.81.2...v2.81.3) (2022-10-10)
+
+
+### Bug Fixes
+
+* **video-ads:** return empty ad list instead of null ([f6c5027](https://github.com/revanced/revanced-patches/commit/f6c5027981a2b55bbcd2e55d294ebfd5e6f0b527))
+
 ## [2.81.2](https://github.com/revanced/revanced-patches/compare/v2.81.1...v2.81.2) (2022-10-08)
 
 
