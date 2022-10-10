@@ -1,3 +1,10 @@
+## [2.81.5](https://github.com/revanced/revanced-patches/compare/v2.81.4...v2.81.5) (2022-10-10)
+
+
+### Bug Fixes
+
+* **video-ads:** clobber unused register ([0feb607](https://github.com/revanced/revanced-patches/commit/0feb6073dd3de5dc179ffa9fde2da24439986431))
+
 ## [2.81.4](https://github.com/revanced/revanced-patches/compare/v2.81.3...v2.81.4) (2022-10-10)
 
 
