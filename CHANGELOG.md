@@ -1,3 +1,10 @@
+## [2.81.7](https://github.com/revanced/revanced-patches/compare/v2.81.6...v2.81.7) (2022-10-10)
+
+
+### Bug Fixes
+
+* **video-ads:** invert the condition to hide ads ([a32af95](https://github.com/revanced/revanced-patches/commit/a32af951566a7187ae2618ef08f9298f78f8ea8c))
+
 ## [2.81.6](https://github.com/revanced/revanced-patches/compare/v2.81.5...v2.81.6) (2022-10-10)
 
 
