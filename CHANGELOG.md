@@ -1,3 +1,10 @@
+## [2.81.4](https://github.com/revanced/revanced-patches/compare/v2.81.3...v2.81.4) (2022-10-10)
+
+
+### Bug Fixes
+
+* **general-ads:** invalid smali syntax ([86224c1](https://github.com/revanced/revanced-patches/commit/86224c1f601c1bd22c0ce4dcf2a8e79ea3b8b2ae))
+
 ## [2.81.3](https://github.com/revanced/revanced-patches/compare/v2.81.2...v2.81.3) (2022-10-10)
 
 
