@@ -1,3 +1,10 @@
+## [2.81.6](https://github.com/revanced/revanced-patches/compare/v2.81.5...v2.81.6) (2022-10-10)
+
+
+### Bug Fixes
+
+* **video-ads:** return empty list in correct method ([bbcf050](https://github.com/revanced/revanced-patches/commit/bbcf0501d4be0c43eddb7a9b3c32394222efc8f0))
+
 ## [2.81.5](https://github.com/revanced/revanced-patches/compare/v2.81.4...v2.81.5) (2022-10-10)
 
 
