@@ -1,3 +1,10 @@
+## [2.81.10](https://github.com/revanced/revanced-patches/compare/v2.81.9...v2.81.10) (2022-10-11)
+
+
+### Bug Fixes
+
+* **spotify/disable-capture-restriction:** dynamically find indices ([#759](https://github.com/revanced/revanced-patches/issues/759)) ([2cc64c6](https://github.com/revanced/revanced-patches/commit/2cc64c61d1bc18a1717354085ddc60a251173837))
+
 ## [2.81.9](https://github.com/revanced/revanced-patches/compare/v2.81.8...v2.81.9) (2022-10-11)
 
 
