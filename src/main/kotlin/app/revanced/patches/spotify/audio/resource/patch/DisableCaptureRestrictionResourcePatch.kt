@@ -13,7 +13,7 @@ import org.w3c.dom.Element
 @Name("disable-capture-restriction-resource-patch")
 @Description("Sets allowAudioPlaybackCapture in manifest to true.")
 @DisableCaptureRestrictionCompatibility
-@Version("0.0.1")
+@Version("0.0.2")
 class DisableCaptureRestrictionResourcePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
         // create an xml editor instance

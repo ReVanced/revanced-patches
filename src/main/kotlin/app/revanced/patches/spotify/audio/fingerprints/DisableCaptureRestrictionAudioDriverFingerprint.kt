@@ -9,7 +9,7 @@ import app.revanced.patches.spotify.audio.annotation.DisableCaptureRestrictionCo
 @Name("disable-capture-restriction-audio-driver-fingerprint")
 
 @DisableCaptureRestrictionCompatibility
-@Version("0.0.1")
+@Version("0.0.2")
 object DisableCaptureRestrictionAudioDriverFingerprint : MethodFingerprint(
     customFingerprint = { methodDef ->
         methodDef.definingClass == "Lcom/spotify/playback/playbacknative/AudioDriver;" && methodDef.name == "constructAudioAttributes"
