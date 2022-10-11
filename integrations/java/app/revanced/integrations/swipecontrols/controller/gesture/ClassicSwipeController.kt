@@ -70,7 +70,7 @@ class ClassicSwipeController(
         return false
     }
 
-    override fun onDoubleTapEvent(motionEvent: MotionEvent?): Boolean {
+    override fun onDoubleTapEvent(motionEvent: MotionEvent): Boolean {
         MotionEvent.obtain(motionEvent).let {
             controller.dispatchDownstreamTouchEvent(it)
             it.recycle()
@@ -79,7 +79,7 @@ class ClassicSwipeController(
         return super.onDoubleTapEvent(motionEvent)
     }
 
-    override fun onLongPress(motionEvent: MotionEvent?) {
+    override fun onLongPress(motionEvent: MotionEvent) {
         MotionEvent.obtain(motionEvent).let {
             controller.dispatchDownstreamTouchEvent(it)
             it.recycle()
