@@ -1,3 +1,11 @@
+## [2.81.9](https://github.com/revanced/revanced-patches/compare/v2.81.8...v2.81.9) (2022-10-11)
+
+
+### Bug Fixes
+
+* **youtube/general-ads:** hide ads on wide screens ([#765](https://github.com/revanced/revanced-patches/issues/765)) ([f0d2f3e](https://github.com/revanced/revanced-patches/commit/f0d2f3e01b90bbe6d2b55b941eaf96be2295cd3c))
+* **youtube/theme:** colore the comment action bar ([#762](https://github.com/revanced/revanced-patches/issues/762)) ([4b3abe0](https://github.com/revanced/revanced-patches/commit/4b3abe0d45ac8c0c5ae6cf4955681ba76ce10309))
+
 ## [2.81.8](https://github.com/revanced/revanced-patches/compare/v2.81.7...v2.81.8) (2022-10-10)
 
 
