@@ -12,7 +12,7 @@ import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatc
 import org.w3c.dom.Element
 
 @Patch
-@DependsOn([FixLocaleConfigErrorPatch::class])
+@DependsOn([CommentsFilterBarPatch::class, FixLocaleConfigErrorPatch::class])
 @Name("theme")
 @Description("Applies a custom theme.")
 @ThemeCompatibility
