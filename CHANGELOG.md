@@ -1,3 +1,10 @@
+## [2.81.11](https://github.com/revanced/revanced-patches/compare/v2.81.10...v2.81.11) (2022-10-11)
+
+
+### Bug Fixes
+
+* **youtube/theme:** add missing theme condition check ([#771](https://github.com/revanced/revanced-patches/issues/771)) ([40b70b9](https://github.com/revanced/revanced-patches/commit/40b70b9f9a24cfbf76bcd69f562b87e5cfade66f))
+
 ## [2.81.10](https://github.com/revanced/revanced-patches/compare/v2.81.9...v2.81.10) (2022-10-11)
 
 
