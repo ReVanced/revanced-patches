@@ -40,7 +40,7 @@ class RememberVideoQualityPatch : BytecodePatch(
             SwitchPreference(
                 "revanced_remember_video_quality_selection",
                 StringResource("revanced_remember_video_quality_selection_title", "Remember current video quality"),
-                true,
+                false,
                 StringResource(
                     "revanced_remember_video_quality_selection_summary_on",
                     "The current video quality will not change"
