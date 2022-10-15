@@ -14,7 +14,7 @@ import app.revanced.patches.reddit.layout.premiumicon.fingerprints.PremiumIconFi
 
 @Patch
 @Name("premium-icon-reddit")
-@Description("Unlocking Premium Icons in reddit app.")
+@Description("Unlocks premium Reddit app icons.")
 @PremiumIconCompatibility
 @Version("0.0.1")
 class PremiumIconPatch : BytecodePatch(
