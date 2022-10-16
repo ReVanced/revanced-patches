@@ -116,7 +116,7 @@ public class SkipSponsorButton extends FrameLayout {
 
 
     public static int getColor(Context context, int arg3) {
-        return Build.VERSION.SDK_INT < 23 ? context.getResources().getColor(arg3) : context.getColor(arg3);
+        return context.getColor(arg3);
     }
 
     private int getIdentifier(Context context, String name, String defType) {
