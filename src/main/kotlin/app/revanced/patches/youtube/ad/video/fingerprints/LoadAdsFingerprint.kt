@@ -13,7 +13,8 @@ import org.jf.dexlib2.Opcode
 @Version("0.0.1")
 object LoadAdsFingerprint : MethodFingerprint(
     opcodes = listOf(Opcode.INVOKE_INTERFACE_RANGE),
-    customFingerprint = { method ->
-        method.parameterTypes.size > 0 && method.parameterTypes.first().endsWith("InstreamAdBreak;")
-    }
+    strings = listOf(
+        "Received unsupported ad type, this should never happen.",
+        "AdBreakRenderer path ad playerResponse cannot be deserialized."
+    )
 )
