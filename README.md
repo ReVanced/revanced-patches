@@ -10,7 +10,7 @@ The official Patch bundle provided by ReVanced and the community.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `general-reddit-ads` | Removes general ads from the Reddit frontpage and subreddits. | all |
-| `premium-icon-reddit` | Unlocking Premium Icons in reddit app. | all |
+| `premium-icon-reddit` | Unlocks premium Reddit app icons. | all |
 </details>
 
 ### 📦 `com.spotify.music`
