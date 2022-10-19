@@ -1,3 +1,10 @@
+## [2.83.2](https://github.com/revanced/revanced-patches/compare/v2.83.1...v2.83.2) (2022-10-19)
+
+
+### Bug Fixes
+
+* **youtube/video-ads:** add back initial method to block ads ([#818](https://github.com/revanced/revanced-patches/issues/818)) ([8b02acd](https://github.com/revanced/revanced-patches/commit/8b02acd3b33c4702d81ec46dccb35604ec5fbe02))
+
 ## [2.83.1](https://github.com/revanced/revanced-patches/compare/v2.83.0...v2.83.1) (2022-10-19)
 
 
