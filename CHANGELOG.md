@@ -1,3 +1,10 @@
+# [2.85.0](https://github.com/revanced/revanced-patches/compare/v2.84.1...v2.85.0) (2022-10-20)
+
+
+### Features
+
+* **youtube:** `hide-captions-button` patch ([#770](https://github.com/revanced/revanced-patches/issues/770)) ([478af6a](https://github.com/revanced/revanced-patches/commit/478af6ad54ffdf6f99abab35a84a4f50b59d28c8))
+
 ## [2.84.1](https://github.com/revanced/revanced-patches/compare/v2.84.0...v2.84.1) (2022-10-20)
 
 

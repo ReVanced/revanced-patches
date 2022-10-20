@@ -68,6 +68,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-time-and-seekbar` | Hides progress bar and time counter on videos. | 17.36.37 |
 | `hide-video-buttons` | Adds options to hide action buttons under a video. | 17.36.37 |
 | `enable-wide-searchbar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 17.36.37 |
+| `hide-captions-button` | Hides the captions button on video player. | 17.36.37 |
 | `hide-shorts-button` | Hides the shorts button on the navigation bar. | 17.36.37 |
 | `hide-create-button` | Hides the create button in the navigation bar. | 17.36.37 |
 | `disable-startup-shorts-player` | Disables playing YouTube Shorts when launching YouTube. | 17.36.37 |
