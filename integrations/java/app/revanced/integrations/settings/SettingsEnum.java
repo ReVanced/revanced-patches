@@ -17,16 +17,16 @@ public enum SettingsEnum {
     DOWNLOADS_BUTTON_SHOWN("revanced_downloads", true, ReturnType.BOOLEAN, true),
     DOWNLOADS_PACKAGE_NAME("revanced_downloads_package_name", "org.schabi.newpipe" /* NewPipe */, ReturnType.STRING),
 
-    //Video Settings
+    // Video settings
     OLD_STYLE_QUALITY_SETTINGS("revanced_use_old_style_quality_settings", true, ReturnType.BOOLEAN),
     PREFERRED_VIDEO_SPEED("revanced_pref_video_speed", -2.0f, ReturnType.FLOAT),
     REMEMBER_VIDEO_QUALITY("revanced_remember_video_quality_selection", false, ReturnType.BOOLEAN),
 
-    //Whitelist Settings
+    // Whitelist settings
     //ToDo: Not used atm, Patch missing
     ENABLE_WHITELIST("revanced_whitelist_ads_enabled", false, ReturnType.BOOLEAN),
 
-    //Ad settings
+    // Ad settings
     ADREMOVER_CUSTOM("revanced_adremover_custom_removal", "", ReturnType.STRING, false),
     HOME_ADS_REMOVAL("revanced_home_ads_removal", true, ReturnType.BOOLEAN, true),
     VIDEO_ADS_REMOVAL("revanced_video_ads_removal", true, ReturnType.BOOLEAN, true),
@@ -46,7 +46,8 @@ public enum SettingsEnum {
     ADREMOVER_SUGGESTIONS_REMOVAL("revanced_adremover_hide_suggestions", true, ReturnType.BOOLEAN, true),
     ADREMOVER_HIDE_LATEST_POSTS("revanced_adremover_hide_latest_posts", true, ReturnType.BOOLEAN, true),
     ADREMOVER_HIDE_CHANNEL_GUIDELINES("revanced_adremover_hide_channel_guidelines", true, ReturnType.BOOLEAN, true),
-    // Buttons
+
+    // Action buttons
     HIDE_LIKE_BUTTON("revanced_like_button", false, ReturnType.BOOLEAN, false),
     HIDE_DISLIKE_BUTTON("revanced_dislike_button", false, ReturnType.BOOLEAN, false),
     HIDE_DOWNLOAD_BUTTON("revanced_download_button", false, ReturnType.BOOLEAN, false),
@@ -54,7 +55,7 @@ public enum SettingsEnum {
     HIDE_ACTION_BUTTON("revanced_action_button", false, ReturnType.BOOLEAN, false),
     HIDE_SHARE_BUTTON("revanced_share_button", false, ReturnType.BOOLEAN, false),
 
-    //Layout settings
+    // Layout settings
     REEL_BUTTON_SHOWN("revanced_reel_button_enabled", false, ReturnType.BOOLEAN, true),
     INFO_CARDS_SHOWN("revanced_info_cards_enabled", false, ReturnType.BOOLEAN),
     BRANDING_SHOWN("revanced_branding_watermark_enabled", false, ReturnType.BOOLEAN),
@@ -69,15 +70,16 @@ public enum SettingsEnum {
     HIDE_TIME_AND_SEEKBAR("revanced_hide_time_and_seekbar", false, ReturnType.BOOLEAN),
     HIDE_EMAIL_ADDRESS("revanced_hide_email_address", false, ReturnType.BOOLEAN),
     DISABLE_STARTUP_SHORTS_PLAYER("revanced_startup_shorts_player_enabled", false, ReturnType.BOOLEAN),
+    HIDE_MIX_PLAYLISTS("revanced_mix_playlists_hidden", false, ReturnType.BOOLEAN, true),
 
-    //Misc. Settings
+    // Misc. Settings
     CAPTIONS_ENABLED("revanced_autocaptions_enabled", false, ReturnType.BOOLEAN, false),
     PREFERRED_AUTO_REPEAT("revanced_pref_auto_repeat", false, ReturnType.BOOLEAN),
     USE_HDR_AUTO_BRIGHTNESS("revanced_pref_hdr_autobrightness", true, ReturnType.BOOLEAN),
     TAP_SEEKING_ENABLED("revanced_enable_tap_seeking", true, ReturnType.BOOLEAN),
     ENABLE_MINIMIZED_PLAYBACK("revanced_enable_minimized_playback", true, ReturnType.BOOLEAN),
 
-    //Swipe controls
+    // Swipe controls
     ENABLE_SWIPE_BRIGHTNESS("revanced_enable_swipe_brightness", true, ReturnType.BOOLEAN),
     ENABLE_SWIPE_VOLUME("revanced_enable_swipe_volume", true, ReturnType.BOOLEAN),
     ENABLE_PRESS_TO_SWIPE("revanced_enable_press_to_swipe", false, ReturnType.BOOLEAN),
@@ -87,20 +89,20 @@ public enum SettingsEnum {
     SWIPE_OVERLAY_BACKGROUND_ALPHA("revanced_swipe_overlay_background_alpha", 127, ReturnType.INTEGER),
     SWIPE_MAGNITUDE_THRESHOLD("revanced_swipe_magnitude_threshold", 30f, ReturnType.FLOAT),
 
-    //Buffer Settings
+    // Buffer settings
     MAX_BUFFER("revanced_pref_max_buffer_ms", 120000, ReturnType.INTEGER),
     PLAYBACK_MAX_BUFFER("revanced_pref_buffer_for_playback_ms", 2500, ReturnType.INTEGER),
     MAX_PLAYBACK_BUFFER_AFTER_REBUFFER("revanced_pref_buffer_for_playback_after_rebuffer_ms", 5000, ReturnType.INTEGER),
 
-    //ReVanced General Settings
+    // ReVanced settings
     DEBUG("revanced_debug_enabled", false, ReturnType.BOOLEAN, true),
     USE_DARK_THEME("app_theme_dark", false, ReturnType.BOOLEAN),
 
-    //RYD Settings
+    // RYD settings
     RYD_USER_ID("ryd_userId", null, SharedPrefHelper.SharedPrefNames.RYD, ReturnType.STRING),
     RYD_ENABLED("ryd_enabled", true, SharedPrefHelper.SharedPrefNames.RYD, ReturnType.BOOLEAN),
 
-    //SponsorBlock Settings
+    // SponsorBlock settings
     SB_ENABLED("sb-enabled", true, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
     SB_SHOW_TOAST_WHEN_SKIP("show-toast", true, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
     SB_COUNT_SKIPS("count-skips", true, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
