@@ -1,3 +1,10 @@
+## [2.84.1](https://github.com/revanced/revanced-patches/compare/v2.84.0...v2.84.1) (2022-10-20)
+
+
+### Bug Fixes
+
+* **youtube/hide-mix-playlists:** correct switch title, summary and defaults ([#821](https://github.com/revanced/revanced-patches/issues/821)) ([f9eea33](https://github.com/revanced/revanced-patches/commit/f9eea332cea0b8c3d5c3dfff645b60861e925b5a))
+
 # [2.84.0](https://github.com/revanced/revanced-patches/compare/v2.83.3...v2.84.0) (2022-10-20)
 
 
