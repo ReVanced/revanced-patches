@@ -33,10 +33,10 @@ class MixPlaylistsPatch : BytecodePatch(
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_mix_playlists_hidden",
-                StringResource("revanced_mix_playlists_title", "Show mix playlists"),
-                true,
-                StringResource("revanced_mix_playlists_summary_on", "Mix playlists are shown"),
-                StringResource("revanced_mix_playlists_summary_off", "Mix playlists are hidden")
+                StringResource("revanced_mix_playlists_title", "Hide mix playlists"),
+                false,
+                StringResource("revanced_mix_playlists_summary_on", "Mix playlists are hidden"),
+                StringResource("revanced_mix_playlists_summary_off", "Mix playlists are shown")
             )
         )
 
