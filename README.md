@@ -82,6 +82,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-email-address` | Hides the email address in the account switcher. | 17.36.37 |
 | `tablet-mini-player` | Enables the tablet mini player layout. | 17.36.37 |
 | `hide-watermark` | Hides creator's watermarks on videos. | 17.36.37 |
+| `hide-my-mix` | Removes mix playlists from the feed. | 17.40.41 |
 | `custom-branding` | Changes the YouTube launcher icon and name to your choice (defaults to ReVanced). | all |
 | `premium-heading` | Shows premium branding on the home screen. | all |
 | `old-quality-layout` | Enables the original quality flyout menu. | 17.36.37 |
