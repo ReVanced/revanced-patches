@@ -1,3 +1,10 @@
+## [2.85.1](https://github.com/revanced/revanced-patches/compare/v2.85.0...v2.85.1) (2022-10-21)
+
+
+### Bug Fixes
+
+* **youtube/theme:** extend dark mode theming ([#827](https://github.com/revanced/revanced-patches/issues/827)) ([6d803c5](https://github.com/revanced/revanced-patches/commit/6d803c5386e1f6f6fb6a7fa0a9f0bb81ee1022ac))
+
 # [2.85.0](https://github.com/revanced/revanced-patches/compare/v2.84.1...v2.85.0) (2022-10-20)
 
 
