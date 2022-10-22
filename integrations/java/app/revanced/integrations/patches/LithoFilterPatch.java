@@ -214,6 +214,7 @@ class GeneralBytecodeAdsPatch extends Filter {
                 "_ad",
                 "ad_",
                 "ads_video_with_context",
+                "banner_text_icon",
                 "cell_divider",
                 "reels_player_overlay",
                 "shelf_header",
