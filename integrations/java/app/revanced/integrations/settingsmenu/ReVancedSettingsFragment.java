@@ -18,7 +18,6 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 
-import com.google.android.apps.youtube.app.YouTubeTikTokRoot_Application;
 import com.google.android.apps.youtube.app.application.Shell_HomeActivity;
 
 import java.util.List;
@@ -174,7 +173,7 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
     */
 
     private String getPackageName() {
-        Context context = YouTubeTikTokRoot_Application.getAppContext();
+        Context context = ReVancedUtils.getContext();
         if (context == null) {
             LogHelper.printException(ReVancedSettingsFragment.class, "Context is null, returning com.google.android.youtube!");
             return "com.google.android.youtube";
