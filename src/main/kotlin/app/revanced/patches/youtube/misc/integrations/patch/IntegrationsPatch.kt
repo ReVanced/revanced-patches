@@ -4,6 +4,7 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.MethodFingerprintExtensions.name
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.BytecodePatch
@@ -14,6 +15,8 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMu
 import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.youtube.misc.integrations.annotations.IntegrationsCompatibility
 import app.revanced.patches.youtube.misc.integrations.fingerprints.InitFingerprint
+import app.revanced.patches.youtube.misc.integrations.fingerprints.ServiceFingerprint
+import app.revanced.patches.youtube.misc.integrations.fingerprints.StandalonePlayerFingerprint
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.immutable.ImmutableMethod
 import org.jf.dexlib2.immutable.ImmutableMethodImplementation
@@ -24,42 +27,33 @@ import org.jf.dexlib2.immutable.ImmutableMethodImplementation
 @Version("0.0.1")
 class IntegrationsPatch : BytecodePatch(
     listOf(
-        InitFingerprint
+        InitFingerprint, StandalonePlayerFingerprint, ServiceFingerprint
     )
 ) {
+    companion object {
+        private const val INTEGRATIONS_DESCRIPTOR = "Lapp/revanced/integrations/utils/ReVancedUtils;"
+    }
+
     override fun execute(context: BytecodeContext): PatchResult {
-        if (context.findClass("Lapp/revanced/integrations/utils/ReVancedUtils") == null)
-            return PatchResultError("Integrations have not been merged yet. This patch can not succeed without the integrations.")
+        if (context.findClass(INTEGRATIONS_DESCRIPTOR) == null)
+            return PatchResultError("Integrations have not been merged yet. This patch can not succeed without merging the integrations.")
 
-        val result = InitFingerprint.result!!
+        arrayOf(InitFingerprint, StandalonePlayerFingerprint, ServiceFingerprint).map {
+            it to (it.result ?: return PatchResultError("${it.name} failed to resolve"))
+        }.forEach { (fingerprint, result) ->
+            with(result.mutableMethod) {
+                // parameter which holds the context
+                val contextParameter = if (fingerprint == ServiceFingerprint) parameters.size else 1
+                // register which holds the context
+                val contextRegister = implementation!!.registerCount - contextParameter
 
-        val method = result.mutableMethod
-        val implementation = method.implementation!!
-        val count = implementation.registerCount - 1
-
-        method.addInstruction(
-            0, "sput-object v$count, Lapp/revanced/integrations/utils/ReVancedUtils;->context:Landroid/content/Context;"
-        )
-
-        val classDef = result.mutableClass
-        classDef.methods.add(
-            ImmutableMethod(
-                classDef.type,
-                "getAppContext",
-                null,
-                "Landroid/content/Context;",
-                AccessFlags.PUBLIC or AccessFlags.STATIC,
-                null,
-                null,
-                ImmutableMethodImplementation(
-                    1, """
-                        invoke-static { }, Lapp/revanced/integrations/utils/ReVancedUtils;->getAppContext()Landroid/content/Context;
-                        move-result-object v0
-                        return-object v0
-                    """.toInstructions(), null, null
+                addInstruction(
+                    0,
+                    "sput-object v$contextRegister, $INTEGRATIONS_DESCRIPTOR->context:Landroid/content/Context;"
                 )
-            ).toMutable()
-        )
+            }
+        }
+
         return PatchResultSuccess()
     }
 }
