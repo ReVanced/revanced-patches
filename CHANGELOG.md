@@ -1,3 +1,10 @@
+# [2.88.0](https://github.com/revanced/revanced-patches/compare/v2.87.0...v2.88.0) (2022-10-25)
+
+
+### Features
+
+* `hide-artist-card` patch ([#859](https://github.com/revanced/revanced-patches/issues/859)) ([1f76246](https://github.com/revanced/revanced-patches/commit/1f7624680b86e3a7afd45521bfef86f88f52c976))
+
 # [2.87.0](https://github.com/revanced/revanced-patches/compare/v2.86.0...v2.87.0) (2022-10-25)
 
 
