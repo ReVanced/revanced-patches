@@ -11,36 +11,27 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.layout.theme.annotations.ThemeCompatibility
-import app.revanced.patches.youtube.layout.theme.fingerprints.CommentsFilterBarFingerprint
+import app.revanced.patches.youtube.layout.theme.fingerprints.LithoThemeFingerprint
 
-@Name("comment-filter-bar-theme")
-@Description("Applies custom theming to comments filter action bar.")
+@Name("litho-components-theme")
+@Description("Applies a custom theme to litho components.")
 @ThemeCompatibility
 @Version("0.0.1")
-class CommentsFilterBarPatch : BytecodePatch(
+class LithoThemePatch : BytecodePatch(
     listOf(
-        CommentsFilterBarFingerprint
+        LithoThemeFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        val result = CommentsFilterBarFingerprint.result!!
+        val result = LithoThemeFingerprint.result!!
         val method = result.mutableMethod
         val patchIndex = result.scanResult.patternScanResult!!.endIndex - 1
 
         method.addInstructions(
             patchIndex, """
-                invoke-static {}, Lapp/revanced/integrations/utils/ThemeHelper;->isDarkTheme()Z
-                move-result v2
-                if-nez v2, :comments_filter_white
-                const v1, -0x1
-                if-ne v1, p1, :comments_filter_white
-                const/4 p1, 0x0
-                :comments_filter_white
-                if-eqz v2, :comments_filter_dark
-                const v1, -0xdededf
-                if-ne v1, p1, :comments_filter_dark
-                const/4 p1, 0x0
-            """, listOf(ExternalLabel("comments_filter_dark", method.instruction(patchIndex)))
+                invoke-static {p1}, Lapp/revanced/integrations/patches/LithoThemePatch;->applyLithoTheme(I)I
+                move-result p1
+            """
         )
         return PatchResultSuccess()
     }

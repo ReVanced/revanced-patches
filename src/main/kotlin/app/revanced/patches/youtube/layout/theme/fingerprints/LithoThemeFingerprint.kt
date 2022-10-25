@@ -8,10 +8,10 @@ import app.revanced.patches.youtube.layout.theme.annotations.ThemeCompatibility
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
-@Name("comment-actionbar-fingerprint")
+@Name("litho-ui-fingerprint")
 @ThemeCompatibility
 @Version("0.0.1")
-object CommentsFilterBarFingerprint : MethodFingerprint(
+object LithoThemeFingerprint : MethodFingerprint(
     "V", AccessFlags.PROTECTED or AccessFlags.FINAL, listOf("L"), listOf(
         Opcode.APUT,
         Opcode.NEW_INSTANCE,
