@@ -1,3 +1,10 @@
+# [2.90.0](https://github.com/revanced/revanced-patches/compare/v2.89.0...v2.90.0) (2022-10-25)
+
+
+### Features
+
+* `comment` patch ([#858](https://github.com/revanced/revanced-patches/issues/858)) ([472fb4f](https://github.com/revanced/revanced-patches/commit/472fb4f3747c835be2c5069a0f65017ab42f8d7e))
+
 # [2.89.0](https://github.com/revanced/revanced-patches/compare/v2.88.0...v2.89.0) (2022-10-25)
 
 
