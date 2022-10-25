@@ -9,6 +9,8 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.layout.theme.annotations.ThemeCompatibility
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
+import app.revanced.util.resources.ResourceUtils
+import app.revanced.util.resources.ResourceUtils.copyResources
 import org.w3c.dom.Element
 
 @Patch
@@ -31,15 +33,21 @@ class ThemePatch : ResourcePatch {
                 node.textContent = when (node.getAttribute("name")) {
                     "yt_black1", "yt_black1_opacity95", "yt_black1_opacity98", "yt_black2", "yt_black3", "yt_black4",
                     "yt_status_bar_background_dark", "material_grey_100", "material_grey_50", "material_grey_600",
-                    "material_grey_800", "material_grey_850", "material_grey_900", "material_grey_white_1000" -> darkThemeBackgroundColor
+                    "material_grey_800", "material_grey_850", "material_grey_900", "material_grey_white_1000",
+                    "sud_glif_v3_dialog_background_color_dark" -> darkThemeBackgroundColor
 
                     "yt_white1", "yt_white1_opacity95", "yt_white1_opacity98", "yt_white2", "yt_white3",
-                    "yt_white4" -> lightThemeBackgroundColor
+                    "yt_white4", "sud_glif_v3_dialog_background_color_light" -> lightThemeBackgroundColor
 
                     else -> continue
                 }
             }
         }
+
+        // copies the resource file to change the splash screen color
+        context.copyResources("theme",
+            ResourceUtils.ResourceGroup("values-night-v31", "styles.xml")
+        )
 
         return PatchResultSuccess()
     }
