@@ -1,3 +1,10 @@
+# [2.89.0](https://github.com/revanced/revanced-patches/compare/v2.88.0...v2.89.0) (2022-10-25)
+
+
+### Features
+
+* `hide-album-cards` patch ([#857](https://github.com/revanced/revanced-patches/issues/857)) ([bce9d0c](https://github.com/revanced/revanced-patches/commit/bce9d0c9405d7afd5c51c2a9c2c247f3ff7581f5))
+
 # [2.88.0](https://github.com/revanced/revanced-patches/compare/v2.87.0...v2.88.0) (2022-10-25)
 
 
