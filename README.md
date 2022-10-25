@@ -4,6 +4,14 @@ The official Patch bundle provided by ReVanced and the community.
 
 > Looking for the JSON variant of this? [Click here](patches.json).
 
+### 📦 `com.metanav`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `fix-scaling` | Scales the content properly. | 0.1.0 |
+</details>
+
 ### 📦 `com.ss.android.ugc.trill`
 <details>
 
@@ -65,6 +73,7 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
+| `hide-crowdfunding-box` | Hides the crowdfunding box between the player and video description. | 17.36.37 |
 | `hide-time-and-seekbar` | Hides progress bar and time counter on videos. | 17.36.37 |
 | `hide-video-buttons` | Adds options to hide action buttons under a video. | 17.36.37 |
 | `enable-wide-searchbar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 17.36.37 |
