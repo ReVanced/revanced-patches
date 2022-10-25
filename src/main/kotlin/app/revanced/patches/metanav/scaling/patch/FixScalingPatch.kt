@@ -11,13 +11,8 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.metanav.scaling.annotations.FixScalingCompatibility
 import org.w3c.dom.Element
 
-/**
- * Fixes the scaling in the Metaverse Navigator app for Persona 5, aka "metaNav"
- *
- * @author halotroop2288
- */
 @Patch
-@Name("fix-metanav-scaling")
+@Name("fix-scaling")
 @Description("Scales the content properly.")
 @FixScalingCompatibility
 @Version("0.0.1")
