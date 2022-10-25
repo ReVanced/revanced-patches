@@ -252,7 +252,7 @@ class GeneralBytecodeAdsPatch extends Filter {
                 merchandise,
                 infoPanel,
                 channelGuidelines,
-                previewComment
+                previewComment,
                 artistCard
         );
 
