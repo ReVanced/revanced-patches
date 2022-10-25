@@ -106,13 +106,6 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
                 StringResource("revanced_adremover_compact_banner_enabled_summary_off", "Compact banners are shown")
             ),
             SwitchPreference(
-                "revanced_adremover_comments_removal",
-                StringResource("revanced_adremover_comments_enabled_title", "Remove comments section"),
-                false,
-                StringResource("revanced_adremover_comments_enabled_summary_on", "Comment section is hidden"),
-                StringResource("revanced_adremover_comments_enabled_summary_off", "Comment section is shown")
-            ),
-            SwitchPreference(
                 "revanced_adremover_movie",
                 StringResource("revanced_adremover_movie_enabled_title", "Remove movies section"),
                 true,
