@@ -1,3 +1,10 @@
+# [2.86.0](https://github.com/revanced/revanced-patches/compare/v2.85.2...v2.86.0) (2022-10-25)
+
+
+### Features
+
+* **youtube/theme:** extend theming to splash screen ([#769](https://github.com/revanced/revanced-patches/issues/769)) ([f7bb937](https://github.com/revanced/revanced-patches/commit/f7bb937ef2374d1042ea3772f03627d7f0111b78))
+
 ## [2.85.2](https://github.com/revanced/revanced-patches/compare/v2.85.1...v2.85.2) (2022-10-22)
 
 
