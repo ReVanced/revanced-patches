@@ -1,3 +1,17 @@
+# [2.87.0](https://github.com/revanced/revanced-patches/compare/v2.86.0...v2.87.0) (2022-10-25)
+
+
+### Bug Fixes
+
+* **metanav/fix-scaling:** use semantic versioning in package versions ([a9445a8](https://github.com/revanced/revanced-patches/commit/a9445a823e3a4885764cea9d08b51a1584d3238f))
+* **youtube/theme:** theme litho ui components & use correct theme for settings ([#791](https://github.com/revanced/revanced-patches/issues/791)) ([91c03c5](https://github.com/revanced/revanced-patches/commit/91c03c5624ca28ac13ee761261dea423f0ac42d7))
+
+
+### Features
+
+* `fix-metanav-scaling` patch ([#831](https://github.com/revanced/revanced-patches/issues/831)) ([4808e09](https://github.com/revanced/revanced-patches/commit/4808e099856e50a6f7e66834a92e2210cc84c8bc))
+* `hide-crowdfunding-box` patch ([#856](https://github.com/revanced/revanced-patches/issues/856)) ([3704ce2](https://github.com/revanced/revanced-patches/commit/3704ce22dbbff02b2e2d6dbdf9a74254a2511d3c))
+
 # [2.86.0](https://github.com/revanced/revanced-patches/compare/v2.85.2...v2.86.0) (2022-10-25)
 
 
