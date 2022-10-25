@@ -14,7 +14,7 @@ import app.revanced.util.resources.ResourceUtils.copyResources
 import org.w3c.dom.Element
 
 @Patch
-@DependsOn([CommentsFilterBarPatch::class, FixLocaleConfigErrorPatch::class])
+@DependsOn([LithoThemePatch::class, FixLocaleConfigErrorPatch::class])
 @Name("theme")
 @Description("Applies a custom theme.")
 @ThemeCompatibility
