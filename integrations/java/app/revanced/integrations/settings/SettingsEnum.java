@@ -34,7 +34,6 @@ public enum SettingsEnum {
     ADREMOVER_MERCHANDISE_REMOVAL("revanced_adremover_merchandise", true, ReturnType.BOOLEAN, true),
     ADREMOVER_COMMUNITY_POSTS_REMOVAL("revanced_adremover_community_posts_removal", false, ReturnType.BOOLEAN, true),
     ADREMOVER_COMPACT_BANNER_REMOVAL("revanced_adremover_compact_banner_removal", true, ReturnType.BOOLEAN, true),
-    ADREMOVER_COMMENTS_REMOVAL("revanced_adremover_comments_removal", false, ReturnType.BOOLEAN, true),
     ADREMOVER_MOVIE_REMOVAL("revanced_adremover_movie", true, ReturnType.BOOLEAN, true),
     ADREMOVER_FEED_SURVEY_REMOVAL("revanced_adremover_feed_survey", true, ReturnType.BOOLEAN, true),
     ADREMOVER_SHORTS_SHELF_REMOVAL("revanced_adremover_shorts_shelf", true, ReturnType.BOOLEAN, true),
@@ -73,6 +72,8 @@ public enum SettingsEnum {
     HIDE_CAPTIONS_BUTTON("revanced_hide_captions_button", false, ReturnType.BOOLEAN),
     HIDE_MIX_PLAYLISTS("revanced_mix_playlists_hidden", false, ReturnType.BOOLEAN, true),
     HIDE_CROWDFUNDING_BOX("revanced_hide_crowdfunding_box", false, ReturnType.BOOLEAN, true),
+    HIDE_COMMENTS_SECTION("revanced_hide_comments_section", false, ReturnType.BOOLEAN, true),
+    HIDE_PREVIEW_COMMENT("revanced_hide_preview_comment", false, ReturnType.BOOLEAN, true),
     HIDE_ALBUM_CARDS("revanced_hide_album_cards", false, ReturnType.BOOLEAN, true),
     HIDE_ARTIST_CARD("revanced_hide_artist_card", false, ReturnType.BOOLEAN),
 

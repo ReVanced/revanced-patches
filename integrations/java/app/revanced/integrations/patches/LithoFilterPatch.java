@@ -193,7 +193,6 @@ class GeneralBytecodeAdsPatch extends Filter {
     private final BlockRule identifierBlock;
 
     public GeneralBytecodeAdsPatch() {
-        var comments = new BlockRule(SettingsEnum.ADREMOVER_COMMENTS_REMOVAL, "comments_");
         var communityPosts = new BlockRule(SettingsEnum.ADREMOVER_COMMUNITY_POSTS_REMOVAL, "post_base_wrapper");
         var communityGuidelines = new BlockRule(SettingsEnum.ADREMOVER_COMMUNITY_GUIDELINES_REMOVAL, "community_guidelines");
         var compactBanner = new BlockRule(SettingsEnum.ADREMOVER_COMPACT_BANNER_REMOVAL, "compact_banner");
@@ -206,6 +205,13 @@ class GeneralBytecodeAdsPatch extends Filter {
         var suggestions = new BlockRule(SettingsEnum.ADREMOVER_SUGGESTIONS_REMOVAL, "horizontal_video_shelf");
         var latestPosts = new BlockRule(SettingsEnum.ADREMOVER_HIDE_LATEST_POSTS, "post_shelf");
         var channelGuidelines = new BlockRule(SettingsEnum.ADREMOVER_HIDE_CHANNEL_GUIDELINES, "channel_guidelines_entry_banner");
+        var comments = new BlockRule(SettingsEnum.HIDE_COMMENTS_SECTION, "comments_");
+        var previewComment = new BlockRule(
+                SettingsEnum.HIDE_PREVIEW_COMMENT,
+                "carousel_item",
+                "comments_entry_point_teaser",
+                "comments_entry_point_simplebox"
+        );
         var artistCard = new BlockRule(SettingsEnum.HIDE_ARTIST_CARD, "official_card");
         var generalAds = new BlockRule(
                 SettingsEnum.ADREMOVER_GENERAL_ADS_REMOVAL,
@@ -246,6 +252,7 @@ class GeneralBytecodeAdsPatch extends Filter {
                 merchandise,
                 infoPanel,
                 channelGuidelines,
+                previewComment
                 artistCard
         );
 
