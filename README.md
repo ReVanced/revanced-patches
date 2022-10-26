@@ -4,14 +4,6 @@ The official Patch bundle provided by ReVanced and the community.
 
 > Looking for the JSON variant of this? [Click here](patches.json).
 
-### 📦 `com.metanav`
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `fix-scaling` | Scales the content properly. | 0.1.0 |
-</details>
-
 ### 📦 `com.ss.android.ugc.trill`
 <details>
 

@@ -1,3 +1,10 @@
+# [2.91.0](https://github.com/revanced/revanced-patches/compare/v2.90.0...v2.91.0) (2022-10-26)
+
+
+### Features
+
+* remove partially complete patch ([d212e19](https://github.com/revanced/revanced-patches/commit/d212e19c3276c2ba6550f03dfd9bba47b7773524))
+
 # [2.90.0](https://github.com/revanced/revanced-patches/compare/v2.89.0...v2.90.0) (2022-10-25)
 
 
