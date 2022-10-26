@@ -1,3 +1,10 @@
+# [2.92.0](https://github.com/revanced/revanced-patches/compare/v2.91.0...v2.92.0) (2022-10-26)
+
+
+### Features
+
+* **youtube/hide-mix-playlists:** hide in video suggestions ([#854](https://github.com/revanced/revanced-patches/issues/854)) ([acde5f0](https://github.com/revanced/revanced-patches/commit/acde5f066053ca3d58ca09fc2a6a1381ba27d84b))
+
 # [2.91.0](https://github.com/revanced/revanced-patches/compare/v2.90.0...v2.91.0) (2022-10-26)
 
 
