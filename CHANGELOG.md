@@ -1,3 +1,10 @@
+## [2.92.1](https://github.com/revanced/revanced-patches/compare/v2.92.0...v2.92.1) (2022-10-26)
+
+
+### Bug Fixes
+
+* **youtube/custom-branding:** use proper scaled icons ([24b5bcd](https://github.com/revanced/revanced-patches/commit/24b5bcdd703474c940fd436a37f0ae924d8b8c74))
+
 # [2.92.0](https://github.com/revanced/revanced-patches/compare/v2.91.0...v2.92.0) (2022-10-26)
 
 
