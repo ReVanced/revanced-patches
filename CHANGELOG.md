@@ -1,3 +1,10 @@
+## [2.92.3](https://github.com/revanced/revanced-patches/compare/v2.92.2...v2.92.3) (2022-10-27)
+
+
+### Bug Fixes
+
+* **youtube:** resolve fingerprints on mutable methods ([10e4af3](https://github.com/revanced/revanced-patches/commit/10e4af386652d51c621519f7a67aac8c22ed8c18))
+
 ## [2.92.2](https://github.com/revanced/revanced-patches/compare/v2.92.1...v2.92.2) (2022-10-27)
 
 
