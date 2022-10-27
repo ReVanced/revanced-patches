@@ -1,3 +1,10 @@
+## [2.92.2](https://github.com/revanced/revanced-patches/compare/v2.92.1...v2.92.2) (2022-10-27)
+
+
+### Bug Fixes
+
+* **youtube/theme:** theme missing gray color ([#873](https://github.com/revanced/revanced-patches/issues/873)) ([5267d56](https://github.com/revanced/revanced-patches/commit/5267d56a05b4053d556171ffd2d2870f3f932e8e))
+
 ## [2.92.1](https://github.com/revanced/revanced-patches/compare/v2.92.0...v2.92.1) (2022-10-26)
 
 
