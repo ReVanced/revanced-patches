@@ -1,3 +1,10 @@
+# [2.93.0](https://github.com/revanced/revanced-patches/compare/v2.92.3...v2.93.0) (2022-10-27)
+
+
+### Features
+
+* bump YouTube patches to v17.41.37 ([#878](https://github.com/revanced/revanced-patches/issues/878)) ([9072986](https://github.com/revanced/revanced-patches/commit/9072986f99e624386ff51c7eeb1d65158bd9249a))
+
 ## [2.92.3](https://github.com/revanced/revanced-patches/compare/v2.92.2...v2.92.3) (2022-10-27)
 
 
