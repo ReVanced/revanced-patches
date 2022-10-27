@@ -52,8 +52,8 @@ class ShortsButtonRemoverPatch : BytecodePatch(
             .onEach {
                 val resolutionSucceeded = it.resolve(
                     context,
-                    pivotBarResult.method,
-                    pivotBarResult.classDef
+                    pivotBarResult.mutableMethod,
+                    pivotBarResult.mutableClass
                 )
 
                 if (!resolutionSucceeded) return PatchResultError("${it.name} failed")

@@ -51,7 +51,7 @@ class CreateButtonRemoverPatch : BytecodePatch(
 
         val pivotBarResult = PivotBarFingerprint.result ?: return PatchResultError("PivotBarFingerprint failed")
 
-        if (!PivotBarCreateButtonViewFingerprint.resolve(context, pivotBarResult.method, pivotBarResult.classDef))
+        if (!PivotBarCreateButtonViewFingerprint.resolve(context, pivotBarResult.mutableMethod, pivotBarResult.mutableClass))
             return PatchResultError("${PivotBarCreateButtonViewFingerprint.name} failed")
 
         val createButtonResult = PivotBarCreateButtonViewFingerprint.result!!
