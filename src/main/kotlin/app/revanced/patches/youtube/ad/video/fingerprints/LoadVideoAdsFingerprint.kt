@@ -11,8 +11,8 @@ import app.revanced.patches.youtube.ad.video.annotations.VideoAdsCompatibility
 @Version("0.0.1")
 object LoadVideoAdsFingerprint : MethodFingerprint(
     strings = listOf(
-        "OnFulfillmentTriggersActivated has non registered slot",
-        "markFillRequested",
+        "TriggerBundle doesn't have the required metadata specified by the trigger ",
+        "Tried to enter slot with no assigned slotAdapter",
         "Trying to enter a slot when a slot of same type and physical position is already active. Its status: ",
     )
 )
