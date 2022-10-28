@@ -1,3 +1,10 @@
+# [2.96.0](https://github.com/revanced/revanced-patches/compare/v2.95.0...v2.96.0) (2022-10-28)
+
+
+### Features
+
+* **youtube/return-youtube-dislike:** compatibility for old and new button layout ([6629bd7](https://github.com/revanced/revanced-patches/commit/6629bd71716a753be06617724e536b8ab4c3b69a))
+
 # [2.95.0](https://github.com/revanced/revanced-patches/compare/v2.94.0...v2.95.0) (2022-10-28)
 
 
