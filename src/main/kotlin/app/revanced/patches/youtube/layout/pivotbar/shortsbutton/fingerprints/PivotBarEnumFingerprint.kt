@@ -11,11 +11,11 @@ import org.jf.dexlib2.Opcode
 @Version("0.0.1")
 object PivotBarEnumFingerprint : MethodFingerprint(
     opcodes = listOf(
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IF_NEZ, // target reference
+        Opcode.IF_NEZ,
         Opcode.SGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
+        Opcode.IGET,
+        Opcode.AND_INT_LIT8, // unique instruction anchor
     )
 )
