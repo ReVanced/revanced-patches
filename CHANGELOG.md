@@ -1,3 +1,10 @@
+# [2.94.0](https://github.com/revanced/revanced-patches/compare/v2.93.0...v2.94.0) (2022-10-28)
+
+
+### Features
+
+* remove compatibility for YouTube  v17.41.37 ([#886](https://github.com/revanced/revanced-patches/issues/886)) ([0f4bc19](https://github.com/revanced/revanced-patches/commit/0f4bc197455574b84dd1cb1a43f03af90858bc39))
+
 # [2.93.0](https://github.com/revanced/revanced-patches/compare/v2.92.3...v2.93.0) (2022-10-27)
 
 
