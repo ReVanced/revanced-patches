@@ -4,7 +4,10 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.MethodFingerprintExtensions.name
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
@@ -12,10 +15,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.layout.returnyoutubedislike.annotations.ReturnYouTubeDislikeCompatibility
-import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.DislikeFingerprint
-import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.LikeFingerprint
-import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.RemoveLikeFingerprint
-import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.TextComponentSpecParentFingerprint
+import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.*
 import app.revanced.patches.youtube.layout.returnyoutubedislike.resource.patch.ReturnYouTubeDislikeResourcePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.videoid.patch.VideoIdPatch
@@ -32,49 +32,53 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        LikeFingerprint.result!!.mutableMethod.addInstructions(
-            0,
-            """
-            const/4 v0, 1
-            invoke-static {v0}, Lapp/revanced/integrations/patches/ReturnYouTubeDislikePatch;->sendVote(I)V
-            """
-        )
-        DislikeFingerprint.result!!.mutableMethod.addInstructions(
-            0,
-            """
-            const/4 v0, -1
-            invoke-static {v0}, Lapp/revanced/integrations/patches/ReturnYouTubeDislikePatch;->sendVote(I)V
-            """
-        )
-        RemoveLikeFingerprint.result!!.mutableMethod.addInstructions(
-            0,
-            """
-            const/4 v0, 0
-            invoke-static {v0}, Lapp/revanced/integrations/patches/ReturnYouTubeDislikePatch;->sendVote(I)V
-            """
-        )
+        listOf(
+            LikeFingerprint.toPatch(Vote.LIKE),
+            DislikeFingerprint.toPatch(Vote.DISLIKE),
+            RemoveLikeFingerprint.toPatch(Vote.REMOVE_LIKE)
+        ).forEach { (fingerprint, vote) ->
+            with(fingerprint.result ?: return PatchResultError("Failed to find ${fingerprint.name} method.")) {
+                mutableMethod.addInstructions(
+                    0,
+                    """
+                    const/4 v0, ${vote.value}
+                    invoke-static {v0}, Lapp/revanced/integrations/patches/ReturnYouTubeDislikePatch;->sendVote(I)V
+                    """
+                )
+            }
+        }
 
         VideoIdPatch.injectCall("Lapp/revanced/integrations/patches/ReturnYouTubeDislikePatch;->newVideoLoaded(Ljava/lang/String;)V")
 
-        val parentResult = TextComponentSpecParentFingerprint.result!!
-        val createComponentMethod = parentResult.mutableClass.methods.find { method ->
-            method.parameters.size >= 19 && method.parameterTypes.takeLast(4)
-                .all { param -> param == "Ljava/util/concurrent/atomic/AtomicReference;" }
+        with(TextComponentFingerprint
+            .also { it.resolve(context, TextComponentSpecParentFingerprint.result!!.classDef) }
+            .result ?: return PatchResultError("Could not find createComponent method")
+        ) {
+            val createComponentMethod = mutableMethod
+
+            val conversionContextParam = 5
+            val textRefParam = createComponentMethod.parameters.size - 2
+            val insertIndex = scanResult.stringsScanResult!!.matches.first().index - 2
+
+            createComponentMethod.addInstructions(
+                insertIndex,
+                """
+                    move-object/from16 v7, p$conversionContextParam
+                    move-object/from16 v8, p$textRefParam
+                    invoke-static {v7, v8}, Lapp/revanced/integrations/patches/ReturnYouTubeDislikePatch;->onComponentCreated(Ljava/lang/Object;Ljava/util/concurrent/atomic/AtomicReference;)V
+                """
+            )
         }
-            ?: return PatchResultError("TextComponentSpec.createComponent not found")
-
-        val conversionContextParam = 5
-        val textRefParam = createComponentMethod.parameters.size - 2
-
-        createComponentMethod.addInstructions(
-            0,
-            """
-            move-object/from16 v0, p$conversionContextParam
-            move-object/from16 v1, p$textRefParam
-            invoke-static {v0, v1}, Lapp/revanced/integrations/patches/ReturnYouTubeDislikePatch;->onComponentCreated(Ljava/lang/Object;Ljava/util/concurrent/atomic/AtomicReference;)V
-            """
-        )
-
         return PatchResultSuccess()
+    }
+
+    private fun MethodFingerprint.toPatch(voteKind: Vote) = VotePatch(this, voteKind)
+
+    private data class VotePatch(val fingerprint: MethodFingerprint, val voteKind: Vote)
+
+    private enum class Vote(val value: Int) {
+        LIKE(1),
+        DISLIKE(-1),
+        REMOVE_LIKE(0)
     }
 }
