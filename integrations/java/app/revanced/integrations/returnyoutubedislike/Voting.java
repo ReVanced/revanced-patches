@@ -10,9 +10,9 @@ public class Voting {
         this.registration = registration;
     }
 
-    public boolean sendVote(String videoId, int vote) {
+    public boolean sendVote(String videoId, ReturnYouTubeDislike.Vote vote) {
         String userId = registration.getUserId();
         LogHelper.debug(Voting.class, "Trying to vote the following video: " + videoId + " with vote " + vote + " and userId: " + userId);
-        return ReturnYouTubeDislikeApi.sendVote(videoId, userId, vote);
+        return ReturnYouTubeDislikeApi.sendVote(videoId, userId, vote.value);
     }
 }

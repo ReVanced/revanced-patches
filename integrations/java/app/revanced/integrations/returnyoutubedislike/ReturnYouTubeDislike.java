@@ -20,6 +20,20 @@ import app.revanced.integrations.utils.SharedPrefHelper;
 
 public class ReturnYouTubeDislike {
     private static boolean isEnabled;
+    private static boolean segmentedButton;
+
+    public enum Vote {
+        LIKE(1),
+        DISLIKE(-1),
+        LIKE_REMOVE(0);
+
+        public int value;
+
+        Vote(int value) {
+            this.value = value;
+        }
+    }
+
     private static Thread _dislikeFetchThread = null;
     private static Thread _votingThread = null;
     private static Registration registration;
@@ -77,31 +91,29 @@ public class ReturnYouTubeDislike {
         if (!isEnabled) return;
 
         try {
-            // Contains a pathBuilder string, used to distinguish from other litho components:
-            // video_action_bar.eml|27b56b54d5dcba20|video_action_bar_unwrapper.eml|c5a1d399b660e52e|CellType
-            // |ScrollableContainerType|ContainerType|ContainerType|dislike_button.eml|966ee2cd7db5e29f
-            // |video_actipathBuilder=video_action_bar.eml|27b56b54d5dcba20|video_action_bar_unwrapper.eml
-            // |c5a1d399b660e52e|CellType|ScrollableContainerType|ContainerType|ContainerType|dislike_button.eml
-            // |966ee2cd7db5e29f|video_action_toggle_button.eml|8fd9d44a8e3c9162|video_action_button.eml
-            // |9dd3b4b44979c3af|ContainerType|TextType|on_toggle_button.eml|8fd9d44a8e3c9162|video_action_button.eml
-            // |9dd3b4b44979c3af|ContainerType|TextType|
-            if (!conversionContext.toString().contains("|dislike_button.eml|")) return;
+            var conversionContextString = conversionContext.toString();
 
-            LogHelper.debug(ReturnYouTubeDislike.class, "dislike button was created");
+            // Check for new component
+            if (conversionContextString.contains("|segmented_like_dislike_button.eml|"))
+                segmentedButton = true;
+            else if (!conversionContextString.contains("|dislike_button.eml|"))
+                return;
+
 
             // Have to block the current thread until fetching is done
             // There's no known way to edit the text after creation yet
             if (_dislikeFetchThread != null) _dislikeFetchThread.join();
 
-            if (dislikeCount != null) {
-                updateDislikeText(textRef, formatDislikes(dislikeCount));
-            }
+            if (dislikeCount == null) return;
+
+            updateDislike(textRef, dislikeCount);
+            LogHelper.debug(ReturnYouTubeDislike.class, "Updated text on component" + conversionContextString);
         } catch (Exception ex) {
             LogHelper.printException(ReturnYouTubeDislike.class, "Error while trying to set dislikes text", ex);
         }
     }
 
-    public static void sendVote(int vote) {
+    public static void sendVote(Vote vote) {
         if (!isEnabled) return;
 
         Context context = ReVancedUtils.getContext();
@@ -129,16 +141,23 @@ public class ReturnYouTubeDislike {
         _votingThread.start();
     }
 
-    private static void updateDislikeText(AtomicReference<Object> textRef, String text) {
-        SpannableString oldString = (SpannableString) textRef.get();
-        SpannableString newString = new SpannableString(text);
+    private static void updateDislike(AtomicReference<Object> textRef, Integer dislikeCount) {
+        SpannableString oldSpannableString = (SpannableString) textRef.get();
+
+        // parse the buttons string
+        // if the button is segmented, only get the like count as a string
+        var oldButtonString = oldSpannableString.toString();
+        if (segmentedButton) oldButtonString = oldButtonString.split(" \\| ")[0];
+
+        var dislikeString = formatDislikes(dislikeCount);
+        SpannableString newString = new SpannableString(
+                segmentedButton ? (oldButtonString + " | " + dislikeString) : dislikeString
+        );
 
         // Copy style (foreground color, etc) to new string
-        Object[] spans = oldString.getSpans(0, oldString.length(), Object.class);
-        for (Object span : spans) {
-            int flags = oldString.getSpanFlags(span);
-            newString.setSpan(span, 0, newString.length(), flags);
-        }
+        Object[] spans = oldSpannableString.getSpans(0, oldSpannableString.length(), Object.class);
+        for (Object span : spans)
+            newString.setSpan(span, 0, newString.length(), oldSpannableString.getSpanFlags(span));
 
         textRef.set(newString);
     }

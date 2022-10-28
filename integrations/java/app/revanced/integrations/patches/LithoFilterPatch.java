@@ -13,17 +13,12 @@ import java.util.function.Consumer;
 
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
+import app.revanced.integrations.utils.ReVancedUtils;
 
 /**
  * Helper functions.
  */
 final class Extensions {
-    static boolean containsAny(final String value, final String... targets) {
-        for (String string : targets)
-            if (value.contains(string)) return true;
-        return false;
-    }
-
     static boolean any(LithoBlockRegister register, String path) {
         for (var rule : register) {
             if (!rule.isEnabled()) continue;
@@ -76,7 +71,7 @@ final class BlockRule {
     }
 
     public BlockResult check(final String string) {
-        return new BlockResult(setting, string != null && Extensions.containsAny(string, blocks));
+        return new BlockResult(setting, string != null && ReVancedUtils.containsAny(string, blocks));
     }
 }
 
@@ -262,7 +257,7 @@ class GeneralBytecodeAdsPatch extends Filter {
 
     public boolean filter(final String path, final String identifier) {
         // Do not block on these
-        if (Extensions.containsAny(path,
+        if (ReVancedUtils.containsAny(path,
                 "home_video_with_context",
                 "related_video_with_context",
                 "search_video_with_context",

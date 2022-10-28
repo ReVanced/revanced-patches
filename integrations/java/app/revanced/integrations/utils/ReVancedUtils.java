@@ -12,14 +12,19 @@ public class ReVancedUtils {
     private static PlayerType env;
     public static boolean newVideo = false;
 
-    //Used by Integrations patch
     public static Context context;
-    //Used by Integrations patch
+
+    public static boolean containsAny(final String value, final String... targets) {
+        for (String string : targets)
+            if (value.contains(string)) return true;
+        return false;
+    }
 
     public static void setNewVideo(boolean started) {
         LogHelper.debug(ReVancedUtils.class, "New video started: " + started);
         newVideo = started;
     }
+
     public static boolean isNewVideoStarted() {
         return newVideo;
     }
