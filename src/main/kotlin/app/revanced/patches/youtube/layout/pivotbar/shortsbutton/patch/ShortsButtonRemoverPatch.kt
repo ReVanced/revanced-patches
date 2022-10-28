@@ -63,7 +63,7 @@ class ShortsButtonRemoverPatch : BytecodePatch(
         val enumScanResult = fingerprintResults[0]
         val buttonViewResult = fingerprintResults[1]
 
-        val enumHookInsertIndex = enumScanResult.startIndex
+        val enumHookInsertIndex = enumScanResult.startIndex + 2
         val buttonHookInsertIndex = buttonViewResult.endIndex
 
         /*
