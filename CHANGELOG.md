@@ -1,3 +1,10 @@
+# [2.97.0](https://github.com/revanced/revanced-patches/compare/v2.96.0...v2.97.0) (2022-10-29)
+
+
+### Features
+
+* **youtube/microg-support:** handle availability of Vanced MicroG ([bfd0d14](https://github.com/revanced/revanced-patches/commit/bfd0d1418fb68f1d37687ec2072d3b64a9c3c6ee))
+
 # [2.96.0](https://github.com/revanced/revanced-patches/compare/v2.95.0...v2.96.0) (2022-10-28)
 
 
