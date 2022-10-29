@@ -51,6 +51,7 @@
     <string name="skipped_filler">Skipped filler</string>
     <string name="skipped_unsubmitted">Skipped unsubmitted segment</string>
     <string name="skip_automatically">Skip automatically</string>
+    <string name="skip_automatically_once">Skip automatically once</string>
     <string name="skip_showbutton">Show a skip button</string>
     <string name="skip_ignore">Don\'t do anything</string>
     <string name="skip_sponsor">Skip segment</string>
