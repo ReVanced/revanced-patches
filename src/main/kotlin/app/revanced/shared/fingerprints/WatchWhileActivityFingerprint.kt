@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.interaction.swipecontrols.fingerprints
+package app.revanced.shared.fingerprints
 
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version

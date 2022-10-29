@@ -53,6 +53,10 @@ class MicroGResourcePatch : ResourcePatch {
             SPOOFED_PACKAGE_NAME,
             SPOOFED_PACKAGE_SIGNATURE
         )
+
+        // add strings
+        MicroGResourceHelper.addStrings(context)
+
         return PatchResultSuccess()
     }
 }

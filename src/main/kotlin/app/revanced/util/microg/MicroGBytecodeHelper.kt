@@ -1,6 +1,7 @@
 package app.revanced.util.microg
 
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
@@ -20,6 +21,17 @@ import org.jf.dexlib2.immutable.reference.ImmutableStringReference
  * Helper class for applying bytecode patches needed for the microg-support patches.
  */
 internal object MicroGBytecodeHelper {
+    /**
+     * Hook a method to check the availability of MicroG.
+     *
+     * @param fingerprint The fingerprint of the method to add the call for the notice in.
+     */
+    fun injectNotice(fingerprint: MethodFingerprint) {
+        fingerprint.result!!.mutableMethod.addInstruction(
+            0,
+            "invoke-static {}, Lapp/revanced/integrations/patches/MicroGSupport;->checkAvailability()V"
+        )
+    }
 
     /**
      * Transform strings with package name out of [fromPackageName] and [toPackageName].

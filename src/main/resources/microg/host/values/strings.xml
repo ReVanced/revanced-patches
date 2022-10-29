@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="microg_not_installed_warning">Vanced MicroG is not installed. Please install it.</string>
+</resources>

@@ -1,16 +1,26 @@
 package app.revanced.util.microg
 
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.util.resources.ResourceUtils.Settings.mergeStrings
 
 /**
  * Helper class for applying resource patches needed for the microg-support patches.
  */
 internal object MicroGResourceHelper {
+
+    /**
+     * Add necessary strings to the strings.xml file.
+     *
+     * @param context The resource context.
+     * @param stringsHost The file which hosts the strings.
+     */
+    fun addStrings(context: ResourceContext, stringsHost: String = "microg/host/values/strings.xml") = context.mergeStrings(stringsHost)
+
     /**
      * Patch the manifest to work with MicroG.
      *
-     * @param context Bytecode context.
-     * @param fromPackageName Original package name.
+     * @param context The resource context.
+     * @param fromPackageName The original package name.
      * @param toPackageName The package name to accept.
      * @param toName The new name of the app.
      */
