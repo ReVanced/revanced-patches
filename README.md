@@ -82,7 +82,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `disable-fullscreen-panels` | Disables video description and comments panel in fullscreen view. | 17.41.37 |
 | `hide-artist-card` | Hides the artist card below the searchbar. | 17.41.37 |
 | `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 17.41.37 |
-| `comments` | Hides comments components below the video player. | 17.41.37 |
+| `comments` | Hides components related to comments. | 17.41.37 |
 | `theme` | Applies a custom theme. | all |
 | `hide-email-address` | Hides the email address in the account switcher. | 17.41.37 |
 | `tablet-mini-player` | Enables the tablet mini player layout. | 17.41.37 |

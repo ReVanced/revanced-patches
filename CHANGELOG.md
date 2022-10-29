@@ -1,3 +1,10 @@
+# [2.98.0](https://github.com/revanced/revanced-patches/compare/v2.97.0...v2.98.0) (2022-10-29)
+
+
+### Features
+
+* **youtube/comments:** hide shorts comments button ([#866](https://github.com/revanced/revanced-patches/issues/866)) ([c78a74e](https://github.com/revanced/revanced-patches/commit/c78a74e21b4521034f44e9bfd226c5a362c21e6c))
+
 # [2.97.0](https://github.com/revanced/revanced-patches/compare/v2.96.0...v2.97.0) (2022-10-29)
 
 
