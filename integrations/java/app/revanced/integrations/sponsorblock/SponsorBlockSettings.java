@@ -96,6 +96,7 @@ public class SponsorBlockSettings {
     }
 
     public enum SegmentBehaviour {
+        SKIP_AUTOMATICALLY_ONCE("skip-once", 3, sf("skip_automatically_once"), true, true),
         SKIP_AUTOMATICALLY("skip", 2, sf("skip_automatically"), true, true),
         MANUAL_SKIP("manual-skip", 1, sf("skip_showbutton"), false, true),
         IGNORE("ignore", -1, sf("skip_ignore"), false, false);

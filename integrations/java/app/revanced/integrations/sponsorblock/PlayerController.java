@@ -183,7 +183,7 @@ public class PlayerController {
                 continue;
 
             // we are in the segment!
-            if (segment.category.behaviour.skip) {
+            if (segment.category.behaviour.skip && !(segment.category.behaviour.key.equals("skip-once") && segment.didAutoSkipped)) {
                 sendViewRequestAsync(millis, segment);
                 skipSegment(segment, false);
                 break;
@@ -350,26 +350,26 @@ public class PlayerController {
         skipToMillisecond(lastKnownVideoTime + millisRelative);
     }
 
-    public static void skipToMillisecond(long millisecond) {
+    public static boolean skipToMillisecond(long millisecond) {
         // in 15.x if sponsor clip hits the end, then it crashes the app, because of too many function invocations
         // I put this block so that skip can be made only once per some time
         long now = System.currentTimeMillis();
         if (now < allowNextSkipRequestTime) {
             LogHelper.debug(PlayerController.class, "skipToMillisecond: to fast, slow down, because you'll fail");
-            return;
+            return false;
         }
         allowNextSkipRequestTime = now + 100;
 
         if (setMillisecondMethod == null) {
             LogHelper.printException(PlayerController.class, "setMillisecondMethod is null");
-            return;
+            return false;
         }
 
 
         final Object currentObj = currentPlayerController.get();
         if (currentObj == null) {
             LogHelper.printException(PlayerController.class, "currentObj is null (might have been collected by GC)");
-            return;
+            return false;
         }
 
         LogHelper.debug(PlayerController.class, String.format("Requesting skip to millis=%d on thread %s", millisecond, Thread.currentThread().toString()));
@@ -385,6 +385,7 @@ public class PlayerController {
                 LogHelper.printException(PlayerController.class, "Cannot skip to millisecond", e);
             }
         });
+        return true;
     }
 
 
@@ -402,7 +403,7 @@ public class PlayerController {
                 continue;
 
             SkipSegmentView.show();
-            if (!(segment.category.behaviour.skip || wasClicked))
+            if (!((segment.category.behaviour.skip && !(segment.category.behaviour.key.equals("skip-once") && segment.didAutoSkipped)) || wasClicked))
                 return;
 
             sendViewRequestAsync(millis, segment);
@@ -421,7 +422,10 @@ public class PlayerController {
         if (SettingsEnum.SB_SHOW_TOAST_WHEN_SKIP.getBoolean() && !wasClicked)
             SkipSegmentView.notifySkipped(segment);
 
-        skipToMillisecond(segment.end + 2);
+        boolean didSucceed = skipToMillisecond(segment.end + 2);
+        if(didSucceed && !wasClicked) {
+            segment.didAutoSkipped = true;
+        }
         SkipSegmentView.hide();
         if (segment.category == SponsorBlockSettings.SegmentInfo.UNSUBMITTED) {
             SponsorSegment[] newSegments = new SponsorSegment[sponsorSegmentsOfCurrentVideo.length - 1];
