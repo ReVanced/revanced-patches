@@ -1,3 +1,10 @@
+# [2.99.0](https://github.com/revanced/revanced-patches/compare/v2.98.0...v2.99.0) (2022-10-29)
+
+
+### Features
+
+* **youtube/sponsorblock:** skip segments once automatically ([#907](https://github.com/revanced/revanced-patches/issues/907)) ([afc7588](https://github.com/revanced/revanced-patches/commit/afc75882062a9316dbc28a9dc4f990cf88b52654))
+
 # [2.98.0](https://github.com/revanced/revanced-patches/compare/v2.97.0...v2.98.0) (2022-10-29)
 
 
