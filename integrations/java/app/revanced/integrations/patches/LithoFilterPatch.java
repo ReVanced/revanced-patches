@@ -200,7 +200,7 @@ class GeneralBytecodeAdsPatch extends Filter {
         var suggestions = new BlockRule(SettingsEnum.ADREMOVER_SUGGESTIONS_REMOVAL, "horizontal_video_shelf");
         var latestPosts = new BlockRule(SettingsEnum.ADREMOVER_HIDE_LATEST_POSTS, "post_shelf");
         var channelGuidelines = new BlockRule(SettingsEnum.ADREMOVER_HIDE_CHANNEL_GUIDELINES, "channel_guidelines_entry_banner");
-        var comments = new BlockRule(SettingsEnum.HIDE_COMMENTS_SECTION, "comments_");
+        var comments = new BlockRule(SettingsEnum.HIDE_COMMENTS_SECTION, "video_metadata_carousel", "_comments");
         var previewComment = new BlockRule(
                 SettingsEnum.HIDE_PREVIEW_COMMENT,
                 "carousel_item",
