@@ -1,3 +1,10 @@
+# [2.100.0](https://github.com/revanced/revanced-patches/compare/v2.99.0...v2.100.0) (2022-10-30)
+
+
+### Features
+
+* `hide-watch-in-vr` patch ([#911](https://github.com/revanced/revanced-patches/issues/911)) ([8ea0b20](https://github.com/revanced/revanced-patches/commit/8ea0b20e96df53211039df0468b2d4a735a381f1))
+
 # [2.99.0](https://github.com/revanced/revanced-patches/compare/v2.98.0...v2.99.0) (2022-10-29)
 
 
