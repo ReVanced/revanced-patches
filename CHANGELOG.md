@@ -1,3 +1,10 @@
+## [2.100.2](https://github.com/revanced/revanced-patches/compare/v2.100.1...v2.100.2) (2022-10-31)
+
+
+### Bug Fixes
+
+* **youtube/theme-patch:** respect app specific theme ([#946](https://github.com/revanced/revanced-patches/issues/946)) ([fe8d6c7](https://github.com/revanced/revanced-patches/commit/fe8d6c7b2c10be5cca0717b6a03cfa1bef10e2c0))
+
 ## [2.100.1](https://github.com/revanced/revanced-patches/compare/v2.100.0...v2.100.1) (2022-10-31)
 
 # [2.100.0](https://github.com/revanced/revanced-patches/compare/v2.99.0...v2.100.0) (2022-10-30)
