@@ -24,9 +24,9 @@ object ThemeSetterAppFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.SGET_OBJECT,
         Opcode.IF_NE,
-        Opcode.CONST,
+        Opcode.CONST, //target reference
         Opcode.GOTO,
-        Opcode.CONST,
+        Opcode.CONST, //target reference
         Opcode.INVOKE_DIRECT,
         Opcode.RETURN_OBJECT,
         Opcode.NEW_INSTANCE,
@@ -34,6 +34,6 @@ object ThemeSetterAppFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.SGET_OBJECT,
         Opcode.IF_NE,
-        Opcode.CONST,
+        Opcode.CONST, //target reference
     )
 )

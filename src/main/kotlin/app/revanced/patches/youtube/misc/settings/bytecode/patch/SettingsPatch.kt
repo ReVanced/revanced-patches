@@ -75,7 +75,15 @@ class SettingsPatch : BytecodePatch(
                     scanResult.patternScanResult!!.endIndex + 1,
                     buildInstructionsString(1)
                 )
+                addInstructions(
+                    scanResult.patternScanResult!!.endIndex - 7,
+                    buildInstructionsString(0)
+                )
 
+                addInstructions(
+                    scanResult.patternScanResult!!.endIndex - 9,
+                    buildInstructionsString(1)
+                )
                 addInstructions(
                     mutableMethod.implementation!!.instructions.size - 2,
                     buildInstructionsString(0)
