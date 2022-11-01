@@ -10,24 +10,23 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.os.Handler;
 import android.os.Looper;
-
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import app.revanced.integrations.patches.PlayerControllerPatch;
 import app.revanced.integrations.settings.SettingsEnum;
-import app.revanced.integrations.utils.LogHelper;
-import app.revanced.integrations.videoplayer.VideoInformation;
-import app.revanced.integrations.whitelist.Whitelist;
 import app.revanced.integrations.sponsorblock.objects.SponsorSegment;
 import app.revanced.integrations.sponsorblock.requests.SBRequester;
+import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
+import app.revanced.integrations.videoplayer.VideoInformation;
+import app.revanced.integrations.whitelist.Whitelist;
 
 @SuppressLint({"LongLogTag"})
 public class PlayerController {
@@ -35,11 +34,8 @@ public class PlayerController {
     private static final Timer sponsorTimer = new Timer("sponsor-skip-timer");
     public static WeakReference<Activity> playerActivity = new WeakReference<>(null);
     public static SponsorSegment[] sponsorSegmentsOfCurrentVideo;
-    private static WeakReference<Object> currentPlayerController = new WeakReference<>(null);
-    private static Method setMillisecondMethod;
     private static long allowNextSkipRequestTime = 0L;
     private static String currentVideoId;
-    private static long currentVideoLength = 1L;
     private static long lastKnownVideoTime = -1L;
     private static final Runnable findAndSkipSegmentRunnable = () -> {
         findAndSkipSegment(false);
@@ -88,29 +84,11 @@ public class PlayerController {
     /**
      * Called when creating some kind of youtube internal player controlled, every time when new video starts to play
      */
-    public static void onCreate(final Object o) {
-
-        if (o == null) {
-            LogHelper.printException(PlayerController.class, "onCreate called with null object");
-            return;
-        }
-
-        LogHelper.debug(PlayerController.class, String.format("onCreate called with object %s on thread %s", o.toString(), Thread.currentThread().toString()));
-
-        try {
-            setMillisecondMethod = o.getClass().getMethod("replaceMeWithsetMillisecondMethod", Long.TYPE);
-            setMillisecondMethod.setAccessible(true);
-
-            lastKnownVideoTime = 0;
-            VideoInformation.lastKnownVideoTime = 0;
-            currentVideoLength = 1;
-            currentPlayerController = new WeakReference<>(o);
-
-            SkipSegmentView.hide();
-            NewSegmentHelperLayout.hide();
-        } catch (Exception e) {
-            LogHelper.printException(PlayerController.class, "Exception while initializing skip method", e);
-        }
+    public static void initialize(Object _o) {
+        lastKnownVideoTime = 0;
+        VideoInformation.lastKnownVideoTime = 0;
+        SkipSegmentView.hide();
+        NewSegmentHelperLayout.hide();
     }
 
     public static void executeDownloadSegments(String videoId) {
@@ -141,7 +119,7 @@ public class PlayerController {
         if (millis <= 0) return;
         //findAndSkipSegment(false);
 
-        if (millis == currentVideoLength) {
+        if (millis == PlayerControllerPatch.getCurrentVideoLength()) {
             SponsorBlockUtils.hideShieldButton();
             SponsorBlockUtils.hideVoteButton();
             return;
@@ -218,7 +196,7 @@ public class PlayerController {
      * Called very high frequency (once every about 100ms), also in background. It sometimes triggers when a video is paused (couple times in the row with the same value)
      */
     public static void setCurrentVideoTimeHighPrecision(final long millis) {
-        if ((millis < lastKnownVideoTime && lastKnownVideoTime >= currentVideoLength) || millis == 0) {
+        if ((millis < lastKnownVideoTime && lastKnownVideoTime >= PlayerControllerPatch.getCurrentVideoLength()) || millis == 0) {
             SponsorBlockUtils.showShieldButton(); // skipping from end to the video will show the buttons again
             SponsorBlockUtils.showVoteButton();
         }
@@ -230,21 +208,12 @@ public class PlayerController {
     }
 
     public static long getCurrentVideoLength() {
-        return currentVideoLength;
+        return PlayerControllerPatch.getCurrentVideoLength();
     }
 
     public static long getLastKnownVideoTime() {
         return lastKnownVideoTime;
     }
-
-    /**
-     * Called before onDraw method on time bar object, sets video length in millis
-     */
-    public static void setVideoLength(final long length) {
-        LogHelper.debug(PlayerController.class, "setVideoLength: length=" + length);
-        currentVideoLength = length;
-    }
-
 
     public static void setSponsorBarAbsoluteLeft(final Rect rect) {
         setSponsorBarAbsoluteLeft(rect.left);
@@ -333,7 +302,7 @@ public class PlayerController {
         final float absoluteLeft = sponsorBarLeft;
         final float absoluteRight = sponsorBarRight;
 
-        final float tmp1 = 1f / (float) currentVideoLength * (absoluteRight - absoluteLeft);
+        final float tmp1 = 1f / (float) PlayerControllerPatch.getCurrentVideoLength() * (absoluteRight - absoluteLeft);
         for (SponsorSegment segment : sponsorSegmentsOfCurrentVideo) {
             float left = segment.start * tmp1 + absoluteLeft;
             float right = segment.end * tmp1 + absoluteLeft;
@@ -360,31 +329,19 @@ public class PlayerController {
         }
         allowNextSkipRequestTime = now + 100;
 
-        if (setMillisecondMethod == null) {
-            LogHelper.printException(PlayerController.class, "setMillisecondMethod is null");
-            return false;
-        }
-
-
-        final Object currentObj = currentPlayerController.get();
-        if (currentObj == null) {
-            LogHelper.printException(PlayerController.class, "currentObj is null (might have been collected by GC)");
-            return false;
-        }
-
         LogHelper.debug(PlayerController.class, String.format("Requesting skip to millis=%d on thread %s", millisecond, Thread.currentThread().toString()));
 
         final long finalMillisecond = millisecond;
-        new Handler(Looper.getMainLooper()).post(() -> {
-            try {
-                LogHelper.debug(PlayerController.class, "Skipping to millis=" + finalMillisecond);
-                lastKnownVideoTime = finalMillisecond;
-                VideoInformation.lastKnownVideoTime = lastKnownVideoTime;
-                setMillisecondMethod.invoke(currentObj, finalMillisecond);
-            } catch (Exception e) {
-                LogHelper.printException(PlayerController.class, "Cannot skip to millisecond", e);
-            }
-        });
+
+        try {
+            LogHelper.debug(PlayerController.class, "Skipping to millis=" + finalMillisecond);
+            lastKnownVideoTime = finalMillisecond;
+            VideoInformation.lastKnownVideoTime = lastKnownVideoTime;
+            PlayerControllerPatch.seekTo(finalMillisecond);
+        } catch (Exception e) {
+            LogHelper.printException(PlayerController.class, "Cannot skip to millisecond", e);
+        }
+
         return true;
     }
 
@@ -423,7 +380,7 @@ public class PlayerController {
             SkipSegmentView.notifySkipped(segment);
 
         boolean didSucceed = skipToMillisecond(segment.end + 2);
-        if(didSucceed && !wasClicked) {
+        if (didSucceed && !wasClicked) {
             segment.didAutoSkipped = true;
         }
         SkipSegmentView.hide();
