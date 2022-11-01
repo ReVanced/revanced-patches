@@ -20,6 +20,7 @@ object BottomControlsInflateFingerprint : MethodFingerprint(
     ),
     customFingerprint = { methodDef ->
         methodDef.implementation?.instructions?.any { instruction ->
+            instruction.opcode.ordinal == Opcode.CONST.ordinal &&
             (instruction as? WideLiteralInstruction)?.wideLiteral == PlayerControlsBytecodePatch.bottomUiContainerResourceId
         } == true
     }
