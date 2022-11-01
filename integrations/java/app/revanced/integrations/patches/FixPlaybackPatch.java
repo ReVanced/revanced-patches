@@ -24,7 +24,7 @@ public final class FixPlaybackPatch {
                 }
 
                 try {
-                    Thread.sleep(200);
+                    Thread.sleep(10);
                 } catch (InterruptedException e) {
                     LogHelper.debug(FixPlaybackPatch.class, "Thread was interrupted");
                 }
