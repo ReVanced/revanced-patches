@@ -16,17 +16,11 @@ object MiniPlayerResponseModelSizeCheckFingerprint : MethodFingerprint(
     AccessFlags.PUBLIC or AccessFlags.FINAL,
     listOf("L", "L"),
     listOf(
-        Opcode.OR_INT_LIT8,
-        Opcode.IPUT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST,
-        Opcode.RETURN_OBJECT,
         Opcode.RETURN_OBJECT,
         Opcode.CHECK_CAST,
         Opcode.CHECK_CAST,
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT,
         Opcode.IF_NEZ,
-        )
+    )
 )
