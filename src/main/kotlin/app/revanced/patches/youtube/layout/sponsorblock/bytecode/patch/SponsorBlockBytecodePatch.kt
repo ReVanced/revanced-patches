@@ -7,40 +7,41 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.or
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.youtube.layout.autocaptions.fingerprints.StartVideoInformerFingerprint
 import app.revanced.patches.youtube.layout.sponsorblock.annotations.SponsorBlockCompatibility
 import app.revanced.patches.youtube.layout.sponsorblock.bytecode.fingerprints.*
 import app.revanced.patches.youtube.layout.sponsorblock.resource.patch.SponsorBlockResourcePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.mapping.patch.ResourceMappingResourcePatch
+import app.revanced.patches.youtube.misc.playercontroller.patch.PlayerControllerPatch
 import app.revanced.patches.youtube.misc.playercontrols.bytecode.patch.PlayerControlsBytecodePatch
 import app.revanced.patches.youtube.misc.videoid.patch.VideoIdPatch
-import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.builder.MutableMethodImplementation
 import org.jf.dexlib2.iface.instruction.*
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 import org.jf.dexlib2.iface.reference.FieldReference
 import org.jf.dexlib2.iface.reference.MethodReference
 import org.jf.dexlib2.iface.reference.StringReference
-import org.jf.dexlib2.immutable.ImmutableMethod
-import org.jf.dexlib2.immutable.ImmutableMethodParameter
-import org.jf.dexlib2.util.MethodUtil
 
 @Patch
 @DependsOn(
-    dependencies = [PlayerControlsBytecodePatch::class, IntegrationsPatch::class, SponsorBlockResourcePatch::class, VideoIdPatch::class]
+    dependencies = [
+        PlayerControllerPatch::class, // updates video length and adds method to seek in video
+        PlayerControlsBytecodePatch::class,
+        IntegrationsPatch::class,
+        SponsorBlockResourcePatch::class,
+        VideoIdPatch::class
+    ]
 )
 @Name("sponsorblock")
 @Description("Integrate SponsorBlock.")
@@ -53,7 +54,6 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         VideoTimeFingerprint,
         NextGenWatchLayoutFingerprint,
         AppendTimeFingerprint,
-        PlayerInitFingerprint,
         PlayerOverlaysLayoutInitFingerprint,
         ShortsPlayerConstructorFingerprint,
         StartVideoInformerFingerprint
@@ -161,23 +161,6 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         )
 
         /*
-        Set video length
-         */
-        VideoLengthFingerprint.resolve(context, seekbarSignatureResult.classDef)
-        val videoLengthMethodResult = VideoLengthFingerprint.result!!
-        val videoLengthMethod = videoLengthMethodResult.mutableMethod
-        val videoLengthMethodInstructions = videoLengthMethod.implementation!!.instructions
-
-        val videoLengthRegister =
-            (videoLengthMethodInstructions[videoLengthMethodResult.scanResult.patternScanResult!!.endIndex - 2] as OneRegisterInstruction).registerA
-        val dummyRegisterForLong =
-            videoLengthRegister + 1 // this is required for long values since they are 64 bit wide
-        videoLengthMethod.addInstruction(
-            videoLengthMethodResult.scanResult.patternScanResult!!.endIndex,
-            "invoke-static {v$videoLengthRegister, v$dummyRegisterForLong}, Lapp/revanced/integrations/sponsorblock/PlayerController;->setVideoLength(J)V"
-        )
-
-        /*
         Voting & Shield button
          */
         val controlsMethodResult = PlayerControlsBytecodePatch.showPlayerControlsFingerprintResult
@@ -249,51 +232,13 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         )
 
         // initialize the player controller
-        val initFingerprintResult = PlayerInitFingerprint.result!!
-        val initInstanceRegister = 0
-        initFingerprintResult.mutableClass.methods.first { MethodUtil.isConstructor(it) }.addInstruction(
-            4, // after super class invoke
-            "invoke-static {v$initInstanceRegister}, Lapp/revanced/integrations/sponsorblock/PlayerController;->onCreate(Ljava/lang/Object;)V"
-        )
+        PlayerControllerPatch.onCreateHook("Lapp/revanced/integrations/sponsorblock/PlayerController;", "initialize")
 
         // initialize the sponsorblock view
         PlayerOverlaysLayoutInitFingerprint.result!!.mutableMethod.addInstruction(
             6, // after inflating the view
             "invoke-static {p0}, Lapp/revanced/integrations/sponsorblock/player/ui/SponsorBlockView;->initialize(Ljava/lang/Object;)V"
         )
-
-        // lastly create hooks for the player controller
-
-        // get original seek method
-        SeekFingerprint.resolve(context, initFingerprintResult.classDef)
-        val seekFingerprintResultMethod = SeekFingerprint.result!!.method
-        // get enum type for the seek helper method
-        val seekSourceEnumType = seekFingerprintResultMethod.parameterTypes[1].toString()
-
-        // create helper method
-        val seekHelperMethod = ImmutableMethod(
-            seekFingerprintResultMethod.definingClass,
-            "seekHelper",
-            listOf(ImmutableMethodParameter("J", null, "time")),
-            "Z",
-            AccessFlags.PUBLIC or AccessFlags.FINAL,
-            null, null,
-            MutableMethodImplementation(4)
-        ).toMutable()
-
-        // insert helper method instructions
-        seekHelperMethod.addInstructions(
-            0,
-            """
-                sget-object v0, $seekSourceEnumType->a:$seekSourceEnumType
-                invoke-virtual {p0, p1, p2, v0}, ${seekFingerprintResultMethod.definingClass}->${seekFingerprintResultMethod.name}(J$seekSourceEnumType)Z
-                move-result p1
-                return p1
-            """
-        )
-
-        // add the helper method to the original class
-        initFingerprintResult.mutableClass.methods.add(seekHelperMethod)
 
         // get rectangle field name
         RectangleFieldInvalidatorFingerprint.resolve(context, seekbarSignatureResult.classDef)
@@ -302,35 +247,31 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         val rectangleFieldName =
             ((rectangleFieldInvalidatorInstructions.elementAt(rectangleFieldInvalidatorInstructions.count() - 3) as ReferenceInstruction).reference as FieldReference).name
 
-        // get the player controller class from the integrations
-        val playerControllerMethods =
-            context.proxy(context.classes.first { it.type.endsWith("PlayerController;") }).mutableClass.methods
-
-        // get the method which contain the "replaceMe" strings
-        val replaceMeMethods =
-            playerControllerMethods.filter { it.name == "onCreate" || it.name == "setSponsorBarRect" }
-
-        fun MutableMethod.replaceStringInstruction(index: Int, instruction: Instruction, with: String) {
-            val register = (instruction as OneRegisterInstruction).registerA
-            this.replaceInstruction(
-                index, "const-string v$register, \"$with\""
-            )
-        }
-
         // replace the "replaceMeWith*" strings
-        for (method in replaceMeMethods) {
-            for ((index, it) in method.implementation!!.instructions.withIndex()) {
-                if (it.opcode.ordinal != Opcode.CONST_STRING.ordinal) continue
-
-                when (((it as ReferenceInstruction).reference as StringReference).string) {
-                    "replaceMeWithsetSponsorBarRect" ->
-                        method.replaceStringInstruction(index, it, rectangleFieldName)
-
-                    "replaceMeWithsetMillisecondMethod" ->
-                        method.replaceStringInstruction(index, it, "seekHelper")
+        context
+            .proxy(context.classes.first { it.type.endsWith("PlayerController;") })
+            .mutableClass
+            .methods
+            .find { it.name == "setSponsorBarRect" }
+            ?.let { method ->
+                fun MutableMethod.replaceStringInstruction(index: Int, instruction: Instruction, with: String) {
+                    val register = (instruction as OneRegisterInstruction).registerA
+                    this.replaceInstruction(
+                        index, "const-string v$register, \"$with\""
+                    )
                 }
-            }
-        }
+                for ((index, it) in method.implementation!!.instructions.withIndex()) {
+                    if (it.opcode.ordinal != Opcode.CONST_STRING.ordinal) continue
+
+                    when (((it as ReferenceInstruction).reference as StringReference).string) {
+                        "replaceMeWithsetSponsorBarRect" ->
+                            method.replaceStringInstruction(index, it, rectangleFieldName)
+
+                        "replaceMeWithsetMillisecondMethod" ->
+                            method.replaceStringInstruction(index, it, "seekHelper")
+                    }
+                }
+            } ?: return PatchResultError("Could not find the method which contains the replaceMeWith* strings")
 
         val startVideoInformerMethod = StartVideoInformerFingerprint.result!!.mutableMethod
         startVideoInformerMethod.addInstructions(
