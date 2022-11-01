@@ -65,49 +65,49 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `hide-crowdfunding-box` | Hides the crowdfunding box between the player and video description. | 17.41.37 |
-| `hide-time-and-seekbar` | Hides progress bar and time counter on videos. | 17.41.37 |
-| `hide-video-buttons` | Adds options to hide action buttons under a video. | 17.41.37 |
-| `enable-wide-searchbar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 17.41.37 |
-| `hide-captions-button` | Hides the captions button on video player. | 17.41.37 |
-| `hide-shorts-button` | Hides the shorts button on the navigation bar. | 17.41.37 |
-| `hide-create-button` | Hides the create button in the navigation bar. | 17.41.37 |
-| `disable-startup-shorts-player` | Disables playing YouTube Shorts when launching YouTube. | 17.41.37 |
+| `hide-crowdfunding-box` | Hides the crowdfunding box between the player and video description. | 17.43.36 |
+| `hide-time-and-seekbar` | Hides progress bar and time counter on videos. | 17.43.36 |
+| `hide-video-buttons` | Adds options to hide action buttons under a video. | 17.43.36 |
+| `enable-wide-searchbar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 17.43.36 |
+| `hide-captions-button` | Hides the captions button on video player. | 17.43.36 |
+| `hide-shorts-button` | Hides the shorts button on the navigation bar. | 17.43.36 |
+| `hide-create-button` | Hides the create button in the navigation bar. | 17.43.36 |
+| `disable-startup-shorts-player` | Disables playing YouTube Shorts when launching YouTube. | 17.43.36 |
 | `hide-cast-button` | Hides the cast button in the video player. | all |
-| `sponsorblock` | Integrate SponsorBlock. | 17.41.37 |
-| `hide-autoplay-button` | Hides the autoplay button in the video player. | 17.41.37 |
-| `hide-watch-in-vr` | Hides the Watch in VR option from the player settings flyout panel. | 17.41.37 |
-| `hide-album-cards` | Hides the album cards below the artist description. | 17.41.37 |
-| `disable-auto-player-popup-panels` | Disable automatic popup panels (playlist or live chat) on video player. | 17.41.37 |
-| `disable-auto-captions` | Disable forced captions from being automatically enabled. | 17.41.37 |
-| `disable-fullscreen-panels` | Disables video description and comments panel in fullscreen view. | 17.41.37 |
-| `hide-artist-card` | Hides the artist card below the searchbar. | 17.41.37 |
-| `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 17.41.37 |
-| `comments` | Hides components related to comments. | 17.41.37 |
+| `sponsorblock` | Integrate SponsorBlock. | 17.43.36 |
+| `hide-autoplay-button` | Hides the autoplay button in the video player. | 17.43.36 |
+| `hide-watch-in-vr` | Hides the Watch in VR option from the player settings flyout panel. | 17.43.36 |
+| `hide-album-cards` | Hides the album cards below the artist description. | 17.43.36 |
+| `disable-auto-player-popup-panels` | Disable automatic popup panels (playlist or live chat) on video player. | 17.43.36 |
+| `disable-auto-captions` | Disable forced captions from being automatically enabled. | 17.43.36 |
+| `disable-fullscreen-panels` | Disables video description and comments panel in fullscreen view. | 17.43.36 |
+| `hide-artist-card` | Hides the artist card below the searchbar. | 17.43.36 |
+| `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 17.43.36 |
+| `comments` | Hides components related to comments. | 17.43.36 |
 | `theme` | Applies a custom theme. | all |
-| `hide-email-address` | Hides the email address in the account switcher. | 17.41.37 |
-| `tablet-mini-player` | Enables the tablet mini player layout. | 17.41.37 |
-| `hide-watermark` | Hides creator's watermarks on videos. | 17.41.37 |
-| `hide-my-mix` | Hides mix playlists. | 17.41.37 |
+| `hide-email-address` | Hides the email address in the account switcher. | 17.43.36 |
+| `tablet-mini-player` | Enables the tablet mini player layout. | 17.43.36 |
+| `hide-watermark` | Hides creator's watermarks on videos. | 17.43.36 |
+| `hide-my-mix` | Hides mix playlists. | 17.43.36 |
 | `custom-branding` | Changes the YouTube launcher icon and name to your choice (defaults to ReVanced). | all |
 | `premium-heading` | Shows premium branding on the home screen. | all |
-| `old-quality-layout` | Enables the original quality flyout menu. | 17.41.37 |
-| `general-ads` | Removes general ads. | 17.41.37 |
-| `video-ads` | Removes ads in the video player. | 17.41.37 |
-| `hide-infocard-suggestions` | Hides infocards in videos. | 17.41.37 |
-| `swipe-controls` | Adds volume and brightness swipe controls. | 17.41.37 |
-| `downloads` | Enables downloading music and videos from YouTube. | 17.41.37 |
-| `seekbar-tapping` | Enables tap-to-seek on the seekbar of the video player. | 17.41.37 |
+| `old-quality-layout` | Enables the original quality flyout menu. | 17.43.36 |
+| `general-ads` | Removes general ads. | 17.43.36 |
+| `video-ads` | Removes ads in the video player. | 17.43.36 |
+| `hide-infocard-suggestions` | Hides infocards in videos. | 17.43.36 |
+| `swipe-controls` | Adds volume and brightness swipe controls. | 17.43.36 |
+| `downloads` | Enables downloading music and videos from YouTube. | 17.43.36 |
+| `seekbar-tapping` | Enables tap-to-seek on the seekbar of the video player. | 17.43.36 |
 | `settings` | Adds settings for ReVanced to YouTube. | all |
-| `microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG. | 17.41.37 |
-| `custom-video-buffer` | Lets you change the buffers of videos. | 17.41.37 |
+| `microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG. | 17.43.36 |
+| `custom-video-buffer` | Lets you change the buffers of videos. | 17.43.36 |
 | `client-spoof` | Spoofs the YouTube or Vanced client to prevent playback issues. | all |
-| `always-autorepeat` | Always repeats the playing video again. | 17.41.37 |
+| `always-autorepeat` | Always repeats the playing video again. | 17.43.36 |
 | `enable-debugging` | Enables app debugging by patching the manifest file. | all |
-| `remember-video-quality` | Adds the ability to remember the video quality you chose in the video quality flyout. | 17.41.37 |
-| `minimized-playback` | Enables minimized and background playback. | 17.41.37 |
-| `custom-playback-speed` | Adds more video playback speed options. | 17.41.37 |
-| `hdr-auto-brightness` | Makes the brightness of HDR videos follow the system default. | 17.41.37 |
+| `remember-video-quality` | Adds the ability to remember the video quality you chose in the video quality flyout. | 17.43.36 |
+| `minimized-playback` | Enables minimized and background playback. | 17.43.36 |
+| `custom-playback-speed` | Adds more video playback speed options. | 17.43.36 |
+| `hdr-auto-brightness` | Makes the brightness of HDR videos follow the system default. | 17.43.36 |
 </details>
 
 ### 📦 `com.vanced.android.youtube`
