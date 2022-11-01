@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.sponsorblock.bytecode.fingerprints
+package app.revanced.patches.youtube.misc.playercontroller.fingerprint
 
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
