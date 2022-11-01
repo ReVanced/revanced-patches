@@ -4,7 +4,9 @@ import app.revanced.integrations.settings.SettingsEnum;
 
 public class HideEmailAddressPatch {
     //Used by app.revanced.patches.youtube.layout.personalinformation.patch.HideEmailAddressPatch
-    public static boolean hideEmailAddress() {
-        return SettingsEnum.HIDE_EMAIL_ADDRESS.getBoolean();
+    public static int hideEmailAddress(int originalValue) {
+        if (SettingsEnum.HIDE_EMAIL_ADDRESS.getBoolean())
+            return 8;
+        return originalValue;
     }
 }
