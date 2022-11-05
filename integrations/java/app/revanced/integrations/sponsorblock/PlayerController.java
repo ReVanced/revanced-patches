@@ -25,8 +25,6 @@ import app.revanced.integrations.sponsorblock.objects.SponsorSegment;
 import app.revanced.integrations.sponsorblock.requests.SBRequester;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
-import app.revanced.integrations.videoplayer.VideoInformation;
-import app.revanced.integrations.whitelist.Whitelist;
 
 @SuppressLint({"LongLogTag"})
 public class PlayerController {
@@ -86,7 +84,6 @@ public class PlayerController {
      */
     public static void initialize(Object _o) {
         lastKnownVideoTime = 0;
-        VideoInformation.lastKnownVideoTime = 0;
         SkipSegmentView.hide();
         NewSegmentHelperLayout.hide();
     }
@@ -94,7 +91,7 @@ public class PlayerController {
     public static void executeDownloadSegments(String videoId) {
         videoHasSegments = false;
         timeWithoutSegments = "";
-        if (Whitelist.isChannelSBWhitelisted() || shorts_playing) {
+        if (shorts_playing) {
             return;
         }
         SponsorSegment[] segments = SBRequester.getSegments(videoId);
@@ -113,7 +110,6 @@ public class PlayerController {
      */
     public static void setCurrentVideoTime(long millis) {
         LogHelper.debug(PlayerController.class, "setCurrentVideoTime: current video time: " + millis);
-        VideoInformation.lastKnownVideoTime = millis;
         if (!SettingsEnum.SB_ENABLED.getBoolean()) return;
         lastKnownVideoTime = millis;
         if (millis <= 0) return;
@@ -145,7 +141,6 @@ public class PlayerController {
                         public void run() {
                             skipSponsorTask = null;
                             lastKnownVideoTime = segment.start + 1;
-                            VideoInformation.lastKnownVideoTime = lastKnownVideoTime;
                             new Handler(Looper.getMainLooper()).post(findAndSkipSegmentRunnable);
                         }
                     };
@@ -202,7 +197,6 @@ public class PlayerController {
         }
         if (lastKnownVideoTime > 0) {
             lastKnownVideoTime = millis;
-            VideoInformation.lastKnownVideoTime = lastKnownVideoTime;
         } else
             setCurrentVideoTime(millis);
     }
@@ -336,7 +330,6 @@ public class PlayerController {
         try {
             LogHelper.debug(PlayerController.class, "Skipping to millis=" + finalMillisecond);
             lastKnownVideoTime = finalMillisecond;
-            VideoInformation.lastKnownVideoTime = lastKnownVideoTime;
             PlayerControllerPatch.seekTo(finalMillisecond);
         } catch (Exception e) {
             LogHelper.printException(PlayerController.class, "Cannot skip to millisecond", e);

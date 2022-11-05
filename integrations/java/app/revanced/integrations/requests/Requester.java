@@ -1,4 +1,4 @@
-package app.revanced.integrations.whitelist.requests;
+package app.revanced.integrations.requests;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -18,9 +18,9 @@ public class Requester {
         String url = apiUrl + route.compile(params).getCompiledRoute();
         HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
         connection.setRequestMethod(route.getMethod().name());
-        if (route != WhitelistRoutes.GET_CHANNEL_DETAILS) {
-            connection.setRequestProperty("User-agent", System.getProperty("http.agent") + ";vanced");
-        }
+        // TODO: change the user agent string
+        connection.setRequestProperty("User-agent", System.getProperty("http.agent") + ";vanced");
+
         return connection;
     }
 

@@ -22,8 +22,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
-import app.revanced.integrations.whitelist.requests.Requester;
-import app.revanced.integrations.whitelist.requests.Route;
+import app.revanced.integrations.requests.Requester;
+import app.revanced.integrations.requests.Route;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.sponsorblock.PlayerController;
 import app.revanced.integrations.sponsorblock.SponsorBlockSettings;

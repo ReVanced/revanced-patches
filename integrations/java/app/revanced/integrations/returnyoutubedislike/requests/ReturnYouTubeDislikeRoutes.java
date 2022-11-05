@@ -1,9 +1,9 @@
 package app.revanced.integrations.returnyoutubedislike.requests;
 
-import static app.revanced.integrations.whitelist.requests.Route.Method.GET;
-import static app.revanced.integrations.whitelist.requests.Route.Method.POST;
+import static app.revanced.integrations.requests.Route.Method.GET;
+import static app.revanced.integrations.requests.Route.Method.POST;
 
-import app.revanced.integrations.whitelist.requests.Route;
+import app.revanced.integrations.requests.Route;
 
 public class ReturnYouTubeDislikeRoutes {
     public static final Route SEND_VOTE = new Route(POST, "interact/vote");

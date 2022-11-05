@@ -1,9 +1,9 @@
 package app.revanced.integrations.sponsorblock.requests;
 
-import static app.revanced.integrations.whitelist.requests.Route.Method.GET;
-import static app.revanced.integrations.whitelist.requests.Route.Method.POST;
+import static app.revanced.integrations.requests.Route.Method.GET;
+import static app.revanced.integrations.requests.Route.Method.POST;
 
-import app.revanced.integrations.whitelist.requests.Route;
+import app.revanced.integrations.requests.Route;
 
 public class SBRoutes {
     public static final Route IS_USER_VIP = new Route(GET, "isUserVIP?userID={user_id}");

@@ -1,8 +1,5 @@
 package app.revanced.integrations.returnyoutubedislike;
 
-import static app.revanced.integrations.videoplayer.VideoInformation.currentVideoId;
-import static app.revanced.integrations.videoplayer.VideoInformation.dislikeCount;
-
 import android.content.Context;
 import android.icu.text.CompactDecimalFormat;
 import android.os.Build;
@@ -19,6 +16,9 @@ import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
 
 public class ReturnYouTubeDislike {
+    private static String currentVideoId;
+    public static Integer dislikeCount;
+
     private static boolean isEnabled;
     private static boolean segmentedButton;
 
@@ -73,6 +73,8 @@ public class ReturnYouTubeDislike {
 
         dislikeCount = null;
         if (!isEnabled) return;
+
+        currentVideoId = videoId;
 
         try {
             if (_dislikeFetchThread != null && _dislikeFetchThread.getState() != Thread.State.TERMINATED) {

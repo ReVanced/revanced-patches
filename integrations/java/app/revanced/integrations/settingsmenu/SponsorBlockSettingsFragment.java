@@ -27,7 +27,6 @@ import java.lang.ref.WeakReference;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-import app.revanced.integrations.whitelist.WhitelistType;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.sponsorblock.SponsorBlockSettings;
 import app.revanced.integrations.sponsorblock.SponsorBlockUtils;
@@ -263,25 +262,6 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment implements 
             preference.setSummary(str("general_time_without_sb_sum"));
             preference.setKey(SettingsEnum.SB_SHOW_TIME_WITHOUT_SEGMENTS.getPath());
             preference.setDefaultValue(SettingsEnum.SB_SHOW_TIME_WITHOUT_SEGMENTS.getDefaultValue());
-            preferencesToDisableWhenSBDisabled.add(preference);
-            screen.addPreference(preference);
-        }
-
-        {
-            Preference preference = new SwitchPreference(context);
-            preference.setTitle(str("general_whitelisting"));
-            preference.setSummary(str("general_whitelisting_sum"));
-            preference.setKey(WhitelistType.SPONSORBLOCK.getPreferenceEnabledName());
-            preferencesToDisableWhenSBDisabled.add(preference);
-            screen.addPreference(preference);
-        }
-
-        {
-            Preference preference = new SwitchPreference(context);
-            preference.setTitle(str("general_browser_button"));
-            preference.setSummary(str("general_browser_button_sum"));
-            preference.setKey(SettingsEnum.SB_SHOW_BROWSER_BUTTON.getPath());
-            preference.setDefaultValue(SettingsEnum.SB_SHOW_BROWSER_BUTTON.getDefaultValue());
             preferencesToDisableWhenSBDisabled.add(preference);
             screen.addPreference(preference);
         }

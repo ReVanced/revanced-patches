@@ -1,7 +1,6 @@
 package app.revanced.integrations.returnyoutubedislike.requests;
 
-import static app.revanced.integrations.videoplayer.VideoInformation.dislikeCount;
-import static app.revanced.integrations.whitelist.requests.Requester.parseJson;
+import static app.revanced.integrations.requests.Requester.parseJson;
 
 
 import org.json.JSONObject;
@@ -11,10 +10,11 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.nio.charset.StandardCharsets;
 
+import app.revanced.integrations.returnyoutubedislike.ReturnYouTubeDislike;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.returnyoutubedislike.Registration;
-import app.revanced.integrations.whitelist.requests.Requester;
-import app.revanced.integrations.whitelist.requests.Route;
+import app.revanced.integrations.requests.Requester;
+import app.revanced.integrations.requests.Route;
 
 public class ReturnYouTubeDislikeApi {
     private static final String RYD_API_URL = "https://returnyoutubedislikeapi.com/";
@@ -29,14 +29,13 @@ public class ReturnYouTubeDislikeApi {
             connection.setConnectTimeout(1000);
             if (connection.getResponseCode() == 200) {
                 JSONObject json = getJSONObject(connection);
-                dislikeCount = json.getInt("dislikes");
-                LogHelper.debug(ReturnYouTubeDislikeApi.class, "dislikes fetched - " + dislikeCount);
+                ReturnYouTubeDislike.dislikeCount = json.getInt("dislikes");
+                LogHelper.debug(ReturnYouTubeDislikeApi.class, "dislikes fetched - " + ReturnYouTubeDislike.dislikeCount);
             } else {
                 LogHelper.debug(ReturnYouTubeDislikeApi.class, "dislikes fetch response was " + connection.getResponseCode());
             }
             connection.disconnect();
         } catch (Exception ex) {
-            dislikeCount = null;
             LogHelper.printException(ReturnYouTubeDislikeApi.class, "Failed to fetch dislikes", ex);
         }
     }
