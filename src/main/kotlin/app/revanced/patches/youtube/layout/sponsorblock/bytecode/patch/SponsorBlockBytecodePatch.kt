@@ -8,7 +8,6 @@ import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -23,9 +22,9 @@ import app.revanced.patches.youtube.layout.sponsorblock.bytecode.fingerprints.*
 import app.revanced.patches.youtube.layout.sponsorblock.resource.patch.SponsorBlockResourcePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.mapping.patch.ResourceMappingResourcePatch
-import app.revanced.patches.youtube.misc.playercontroller.patch.PlayerControllerPatch
 import app.revanced.patches.youtube.misc.playercontrols.bytecode.patch.PlayerControlsBytecodePatch
-import app.revanced.patches.youtube.misc.videoid.patch.VideoIdPatch
+import app.revanced.patches.youtube.misc.video.information.patch.VideoInformationPatch
+import app.revanced.patches.youtube.misc.video.videoid.patch.VideoIdPatch
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.*
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
@@ -36,7 +35,7 @@ import org.jf.dexlib2.iface.reference.StringReference
 @Patch
 @DependsOn(
     dependencies = [
-        PlayerControllerPatch::class, // updates video length and adds method to seek in video
+        VideoInformationPatch::class, // updates video information and adds method to seek in video
         PlayerControlsBytecodePatch::class,
         IntegrationsPatch::class,
         SponsorBlockResourcePatch::class,
@@ -49,9 +48,7 @@ import org.jf.dexlib2.iface.reference.StringReference
 @Version("0.0.1")
 class SponsorBlockBytecodePatch : BytecodePatch(
     listOf(
-        PlayerControllerSetTimeReferenceFingerprint,
         CreateVideoPlayerSeekbarFingerprint,
-        VideoTimeFingerprint,
         NextGenWatchLayoutFingerprint,
         AppendTimeFingerprint,
         PlayerOverlaysLayoutInitFingerprint,
@@ -59,36 +56,31 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         StartVideoInformerFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {/*
-        Set current video time
-        */
-        val referenceResult = PlayerControllerSetTimeReferenceFingerprint.result!!
-        val playerControllerSetTimeMethod =
-            context.toMethodWalker(referenceResult.method)
-                .nextMethod(referenceResult.scanResult.patternScanResult!!.startIndex, true)
-                .getMethod() as MutableMethod
-        playerControllerSetTimeMethod.addInstruction(
-            2,
-            "invoke-static {p1, p2}, Lapp/revanced/integrations/sponsorblock/PlayerController;->setCurrentVideoTime(J)V"
-        )
 
+    private companion object {
+        const val INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR =
+            "Lapp/revanced/integrations/sponsorblock/PlayerController;"
+    }
+
+    override fun execute(context: BytecodeContext): PatchResult {
         /*
-        Set current video time high precision
+        Hook the video time methods
          */
-        val constructorFingerprint =
-            object : MethodFingerprint("V", null, listOf("J", "J", "J", "J", "I", "L"), null) {}
-        constructorFingerprint.resolve(context, VideoTimeFingerprint.result!!.classDef)
-
-        val constructor = constructorFingerprint.result!!.mutableMethod
-        constructor.addInstruction(
-            0,
-            "invoke-static {p1, p2}, Lapp/revanced/integrations/sponsorblock/PlayerController;->setCurrentVideoTimeHighPrecision(J)V"
-        )
+        with(VideoInformationPatch) {
+            videoTimeHook(
+                INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR,
+                "setVideoTime"
+            )
+            highPrecisionTimeHook(
+                INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR,
+                "setHighPrecisionVideoTime"
+            )
+        }
 
         /*
          Set current video id
          */
-        VideoIdPatch.injectCall("Lapp/revanced/integrations/sponsorblock/PlayerController;->setCurrentVideoId(Ljava/lang/String;)V")
+        VideoIdPatch.injectCall("$INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
 
         /*
          Seekbar drawing
@@ -104,7 +96,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             if (instruction.opcode != Opcode.MOVE_OBJECT_FROM16) continue
             seekbarMethod.addInstruction(
                 index + 1,
-                "invoke-static {v0}, Lapp/revanced/integrations/sponsorblock/PlayerController;->setSponsorBarRect(Ljava/lang/Object;)V"
+                "invoke-static {v0}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarRect(Ljava/lang/Object;)V"
             )
             break
         }
@@ -120,7 +112,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             // set the thickness of the segment
             seekbarMethod.addInstruction(
                 insertIndex,
-                "invoke-static {v${invokeInstruction.registerC}}, Lapp/revanced/integrations/sponsorblock/PlayerController;->setSponsorBarThickness(I)V"
+                "invoke-static {v${invokeInstruction.registerC}}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarThickness(I)V"
             )
             break
         }
@@ -141,11 +133,11 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         // the reason for that is that we get the index, add instructions and then the offset would be wrong
         seekbarMethod.addInstruction(
             indexLeft + 1,
-            "invoke-static {v$rectangleLeftRegister}, Lapp/revanced/integrations/sponsorblock/PlayerController;->setSponsorBarAbsoluteLeft(Landroid/graphics/Rect;)V"
+            "invoke-static {v$rectangleLeftRegister}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarAbsoluteLeft(Landroid/graphics/Rect;)V"
         )
         seekbarMethod.addInstruction(
             indexRight + 1,
-            "invoke-static {v$rectangleRightRegister}, Lapp/revanced/integrations/sponsorblock/PlayerController;->setSponsorBarAbsoluteRight(Landroid/graphics/Rect;)V"
+            "invoke-static {v$rectangleRightRegister}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarAbsoluteRight(Landroid/graphics/Rect;)V"
         )
 
         /*
@@ -157,7 +149,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         }
         seekbarMethod.addInstruction(
             drawSegmentInstructionInsertIndex,
-            "invoke-static {v$canvasInstance, v$centerY}, Lapp/revanced/integrations/sponsorblock/PlayerController;->drawSponsorTimeBars(Landroid/graphics/Canvas;F)V"
+            "invoke-static {v$canvasInstance, v$centerY}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->drawSponsorTimeBars(Landroid/graphics/Canvas;F)V"
         )
 
         /*
@@ -215,7 +207,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         val instanceRegister = 0
         NextGenWatchLayoutFingerprint.result!!.mutableMethod.addInstruction(
             3, // after super call
-            "invoke-static/range {p$instanceRegister}, Lapp/revanced/integrations/sponsorblock/PlayerController;->addSkipSponsorView15(Landroid/view/View;)V"
+            "invoke-static/range {p$instanceRegister}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->addSkipSponsorView15(Landroid/view/View;)V"
         )
 
         // append the new time to the player layout
@@ -232,7 +224,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         )
 
         // initialize the player controller
-        PlayerControllerPatch.onCreateHook("Lapp/revanced/integrations/sponsorblock/PlayerController;", "initialize")
+        VideoInformationPatch.onCreateHook(INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR, "initialize")
 
         // initialize the sponsorblock view
         PlayerOverlaysLayoutInitFingerprint.result!!.mutableMethod.addInstruction(
@@ -277,7 +269,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         startVideoInformerMethod.addInstructions(
             0, """
             const/4 v0, 0x0
-            sput-boolean v0, Lapp/revanced/integrations/sponsorblock/PlayerController;->shorts_playing:Z
+            sput-boolean v0, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->shorts_playing:Z
         """
         )
 
@@ -286,7 +278,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         shortsPlayerConstructorMethod.addInstructions(
             0, """
             const/4 v0, 0x1
-            sput-boolean v0, Lapp/revanced/integrations/sponsorblock/PlayerController;->shorts_playing:Z
+            sput-boolean v0, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->shorts_playing:Z
         """
         )
 

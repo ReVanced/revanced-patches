@@ -51,7 +51,7 @@ class OldQualityLayoutPatch : BytecodePatch(
         // insert the integrations method
         method.addInstruction(
             listenerInvokeRegister, // insert the integrations instructions right before the listener
-            "invoke-static { v$onItemClickViewRegister }, Lapp/revanced/integrations/patches/OldQualityLayoutPatch;->showOldQualityMenu(Landroid/widget/ListView;)V"
+            "invoke-static { v$onItemClickViewRegister }, Lapp/revanced/integrations/patches/playback/quality/OldQualityLayoutPatch;->showOldQualityMenu(Landroid/widget/ListView;)V"
         )
 
         return PatchResultSuccess()
