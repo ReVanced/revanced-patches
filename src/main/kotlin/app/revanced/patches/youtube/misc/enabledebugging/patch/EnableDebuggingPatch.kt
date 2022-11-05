@@ -17,9 +17,9 @@ import app.revanced.patches.youtube.misc.settings.framework.components.impl.Swit
 import org.w3c.dom.Element
 
 @Patch(false)
-@Name("enable-debugging")
+@Name("debugging")
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
-@Description("Enables app debugging by patching the manifest file.")
+@Description("Adds debugging options.")
 @EnableDebuggingCompatibility
 @Version("0.0.1")
 class EnableDebuggingPatch : ResourcePatch {
