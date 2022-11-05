@@ -26,9 +26,6 @@ import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
-import app.revanced.integrations.videoplayer.AutoRepeat;
-import app.revanced.integrations.videoplayer.Copy;
-import app.revanced.integrations.videoplayer.CopyWithTimeStamp;
 import app.revanced.integrations.videoplayer.DownloadButton;
 
 public class ReVancedSettingsFragment extends PreferenceFragment {
@@ -53,11 +50,6 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             if (pref instanceof SwitchPreference) {
                 SwitchPreference switchPref = (SwitchPreference) pref;
                 setting.setValue(switchPref.isChecked());
-
-                if (setting == SettingsEnum.PREFERRED_AUTO_REPEAT) {
-                    AutoRepeat.changeSelected(setting.getBoolean(), true);
-                }
-
             } else if (pref instanceof EditTextPreference) {
                 EditTextPreference editPref = (EditTextPreference) pref;
                 Object value = null;
@@ -94,11 +86,7 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
                     LogHelper.printException(ReVancedSettingsFragment.class, "No valid setting found: " + setting.toString());
                 }
 
-                if ("pref_copy_video_url_timestamp_button_list".equals(str)) {
-                    CopyWithTimeStamp.refreshShouldBeShown();
-                } else if ("pref_copy_video_url_button_list".equals(str)) {
-                    Copy.refreshShouldBeShown();
-                } else if ("pref_download_button_list".equals(str)) {
+                if ("pref_download_button_list".equals(str)) {
                     DownloadButton.refreshShouldBeShown();
                 }
             } else {
