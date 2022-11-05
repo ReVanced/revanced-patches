@@ -1,4 +1,4 @@
-package app.revanced.integrations.patches;
+package app.revanced.integrations.patches.playback.quality;
 
 import android.view.View;
 import android.view.ViewGroup;
