@@ -103,10 +103,10 @@ The official Patch bundle provided by ReVanced and the community.
 | `custom-video-buffer` | Lets you change the buffers of videos. | 17.43.36 |
 | `client-spoof` | Spoofs the YouTube or Vanced client to prevent playback issues. | all |
 | `always-autorepeat` | Always repeats the playing video again. | 17.43.36 |
-| `enable-debugging` | Enables app debugging by patching the manifest file. | all |
-| `remember-video-quality` | Adds the ability to remember the video quality you chose in the video quality flyout. | 17.43.36 |
+| `debugging` | Adds debugging options. | all |
 | `minimized-playback` | Enables minimized and background playback. | 17.43.36 |
-| `custom-playback-speed` | Adds more video playback speed options. | 17.43.36 |
+| `custom-video-speed` | Adds more video speed options. | 17.43.36 |
+| `remember-video-quality` | Adds the ability to remember the video quality you chose in the video quality flyout. | 17.43.36 |
 | `hdr-auto-brightness` | Makes the brightness of HDR videos follow the system default. | 17.43.36 |
 </details>
 
