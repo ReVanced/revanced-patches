@@ -9,14 +9,17 @@ import java.lang.reflect.Method;
 import app.revanced.integrations.utils.LogHelper;
 
 /**
- * Hooking class for the player controller.
+ * Hooking class for the current playing video.
  */
-public final class PlayerControllerPatch {
+public final class VideoInformation {
     private static final String SEEK_METHOD_NAME = "seekTo";
 
     private static WeakReference<Object> playerController;
     private static Method seekMethod;
+
     private static long videoLength = 1;
+    private static long videoTime = -1;
+
 
     /**
      * Hook into PlayerController.onCreate() method.
@@ -26,24 +29,34 @@ public final class PlayerControllerPatch {
     public static void playerController_onCreateHook(final Object thisRef) {
         playerController = new WeakReference<>(thisRef);
         videoLength = 1;
+        videoTime = -1;
 
         try {
             seekMethod = thisRef.getClass().getMethod(SEEK_METHOD_NAME, Long.TYPE);
             seekMethod.setAccessible(true);
         } catch (NoSuchMethodException ex) {
-            LogHelper.debug(PlayerControllerPatch.class, "Failed to initialize: " + ex.getMessage());
+            LogHelper.debug(VideoInformation.class, "Failed to initialize: " + ex.getMessage());
         }
     }
 
     /**
-     * Set the current video length.
+     * Set the video length.
      *
      * @param length The length of the video in milliseconds.
      */
-    public static void setCurrentVideoLength(final long length) {
-        LogHelper.debug(PlayerControllerPatch.class, "Setting current video length to " + length);
-
+    public static void setVideoLength(final long length) {
+        LogHelper.debug(VideoInformation.class, "Setting current video length to " + length);
         videoLength = length;
+    }
+
+    /**
+     * Set the video time.
+     *
+     * @param time The time of the video in milliseconds.
+     */
+    public static void setVideoTime(final long time) {
+        LogHelper.debug(VideoInformation.class, "Current video time " + time);
+        videoTime = time;
     }
 
     /**
@@ -54,15 +67,15 @@ public final class PlayerControllerPatch {
     public static void seekTo(final long millisecond) {
         new Handler(Looper.getMainLooper()).post(() -> {
             if (seekMethod == null) {
-                LogHelper.debug(PlayerControllerPatch.class, "seekMethod was null");
+                LogHelper.debug(VideoInformation.class, "seekMethod was null");
                 return;
             }
 
             try {
-                LogHelper.debug(PlayerControllerPatch.class, "Seeking to " + millisecond);
+                LogHelper.debug(VideoInformation.class, "Seeking to " + millisecond);
                 seekMethod.invoke(playerController.get(), millisecond);
             } catch (Exception ex) {
-                LogHelper.debug(PlayerControllerPatch.class, "Failed to seek: " + ex.getMessage());
+                LogHelper.debug(VideoInformation.class, "Failed to seek: " + ex.getMessage());
             }
         });
     }
@@ -70,9 +83,18 @@ public final class PlayerControllerPatch {
     /**
      * Get the length of the current video playing.
      *
-     * @return The length of the video in milliseconds.
+     * @return The length of the video in milliseconds. 1 if not set yet.
      */
     public static long getCurrentVideoLength() {
-        return videoLength;
+       return videoLength;
+    }
+
+    /**
+     * Get the time of the current video playing.
+     *
+     * @return The time of the video in milliseconds. -1 if not set yet.
+     */
+    public static long getVideoTime() {
+        return videoTime;
     }
 }

@@ -19,7 +19,7 @@ import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import app.revanced.integrations.patches.PlayerControllerPatch;
+import app.revanced.integrations.patches.VideoInformation;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.sponsorblock.objects.SponsorSegment;
 import app.revanced.integrations.sponsorblock.requests.SBRequester;
@@ -102,20 +102,18 @@ public class PlayerController {
         }
 
         sponsorSegmentsOfCurrentVideo = segments;
-//        new Handler(Looper.getMainLooper()).post(findAndSkipSegmentRunnable);
+        // new Handler(Looper.getMainLooper()).post(findAndSkipSegmentRunnable);
     }
 
-    /**
-     * Called when it's time to update the UI with new second, about once per second, only when playing, also in background
-     */
-    public static void setCurrentVideoTime(long millis) {
+
+    public static void setVideoTime(long millis) {
         LogHelper.debug(PlayerController.class, "setCurrentVideoTime: current video time: " + millis);
         if (!SettingsEnum.SB_ENABLED.getBoolean()) return;
         lastKnownVideoTime = millis;
         if (millis <= 0) return;
         //findAndSkipSegment(false);
 
-        if (millis == PlayerControllerPatch.getCurrentVideoLength()) {
+        if (millis == VideoInformation.getCurrentVideoLength()) {
             SponsorBlockUtils.hideShieldButton();
             SponsorBlockUtils.hideVoteButton();
             return;
@@ -187,22 +185,19 @@ public class PlayerController {
         }).start();
     }
 
-    /**
-     * Called very high frequency (once every about 100ms), also in background. It sometimes triggers when a video is paused (couple times in the row with the same value)
-     */
-    public static void setCurrentVideoTimeHighPrecision(final long millis) {
-        if ((millis < lastKnownVideoTime && lastKnownVideoTime >= PlayerControllerPatch.getCurrentVideoLength()) || millis == 0) {
+    public static void setHighPrecisionVideoTime(final long millis) {
+        if ((millis < lastKnownVideoTime && lastKnownVideoTime >= VideoInformation.getCurrentVideoLength()) || millis == 0) {
             SponsorBlockUtils.showShieldButton(); // skipping from end to the video will show the buttons again
             SponsorBlockUtils.showVoteButton();
         }
         if (lastKnownVideoTime > 0) {
             lastKnownVideoTime = millis;
         } else
-            setCurrentVideoTime(millis);
+            setVideoTime(millis);
     }
 
     public static long getCurrentVideoLength() {
-        return PlayerControllerPatch.getCurrentVideoLength();
+        return VideoInformation.getCurrentVideoLength();
     }
 
     public static long getLastKnownVideoTime() {
@@ -296,7 +291,7 @@ public class PlayerController {
         final float absoluteLeft = sponsorBarLeft;
         final float absoluteRight = sponsorBarRight;
 
-        final float tmp1 = 1f / (float) PlayerControllerPatch.getCurrentVideoLength() * (absoluteRight - absoluteLeft);
+        final float tmp1 = 1f / (float) VideoInformation.getCurrentVideoLength() * (absoluteRight - absoluteLeft);
         for (SponsorSegment segment : sponsorSegmentsOfCurrentVideo) {
             float left = segment.start * tmp1 + absoluteLeft;
             float right = segment.end * tmp1 + absoluteLeft;
@@ -330,7 +325,7 @@ public class PlayerController {
         try {
             LogHelper.debug(PlayerController.class, "Skipping to millis=" + finalMillisecond);
             lastKnownVideoTime = finalMillisecond;
-            PlayerControllerPatch.seekTo(finalMillisecond);
+            VideoInformation.seekTo(finalMillisecond);
         } catch (Exception e) {
             LogHelper.printException(PlayerController.class, "Cannot skip to millisecond", e);
         }
