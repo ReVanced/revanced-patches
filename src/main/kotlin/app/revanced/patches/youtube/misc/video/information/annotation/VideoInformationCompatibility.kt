@@ -10,4 +10,4 @@ import app.revanced.patcher.annotation.Package
 )
 @Target(AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.RUNTIME)
-internal annotation class PlayerControllerCompatibility
+internal annotation class VideoInformationCompatibility

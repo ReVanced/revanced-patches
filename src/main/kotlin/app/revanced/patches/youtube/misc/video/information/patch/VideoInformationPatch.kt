@@ -18,7 +18,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import app.revanced.patches.youtube.misc.video.speed.remember.annotation.RememberPlaybackSpeedCompatibility
+import app.revanced.patches.youtube.misc.video.information.annotation.VideoInformationCompatibility
 import app.revanced.patches.youtube.misc.video.information.fingerprints.*
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.builder.MutableMethodImplementation
@@ -29,7 +29,7 @@ import org.jf.dexlib2.util.MethodUtil
 
 @Name("video-information")
 @Description("Hooks YouTube to get information about the current playing video.")
-@RememberPlaybackSpeedCompatibility
+@VideoInformationCompatibility
 @Version("0.0.1")
 @DependsOn([IntegrationsPatch::class])
 class VideoInformationPatch : BytecodePatch(
