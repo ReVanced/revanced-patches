@@ -109,10 +109,6 @@
 
     <string name="general_time_without_sb">Show time without segments</string>
     <string name="general_time_without_sb_sum">This time appears in brackets next to the current time. This shows the total video duration minus any segments.</string>
-    <string name="general_whitelisting">Channel whitelisting</string>
-    <string name="general_whitelisting_sum">Use the Segments button under the player to whitelist a channel</string>
-    <string name="general_browser_button">Enable SB Browser button</string>
-    <string name="general_browser_button_sum">Clicking this button under the player will open sb.ltn.fi where you can see all the segments on the video.</string>
     <string name="segments_preview">Preview/Recap</string>
     <string name="segments_preview_sum">Recap of previous episodes, or a preview of what\'s coming up later in the current video or future videos in the same series. Clips should not provide additional information.</string>
     <string name="stats">Stats</string>
