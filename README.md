@@ -50,6 +50,14 @@ The official Patch bundle provided by ReVanced and the community.
 | `promo-code-unlock` | Disables the validation of promo code. Any code will work to unlock all features. | all |
 </details>
 
+### 📦 `com.myprog.hexedit`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `disable-ads` | Disables ads in HexEditor. | all |
+</details>
+
 ### 📦 `com.spotify.music`
 <details>
 
