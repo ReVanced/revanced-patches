@@ -140,8 +140,8 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
                 "revanced_adremover_info_panel",
                 StringResource("revanced_adremover_info_panel_enabled_title", "Remove info panels"),
                 true,
-                StringResource("revanced_adremover_info_panel_enabled_summary_on", "Merchandise banners are hidden"),
-                StringResource("revanced_adremover_info_panel_enabled_summary_off", "Merchandise banners are shown")
+                StringResource("revanced_adremover_info_panel_enabled_summary_on", "Info panels are hidden"),
+                StringResource("revanced_adremover_info_panel_enabled_summary_off", "Info panels are shown")
             ),
             SwitchPreference(
                 "revanced_adremover_medical_panel",
