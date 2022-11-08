@@ -1,3 +1,10 @@
+## [2.104.2](https://github.com/revanced/revanced-patches/compare/v2.104.1...v2.104.2) (2022-11-08)
+
+
+### Bug Fixes
+
+* **youtube/hide-endscreen-cards:** restore functionality ([#993](https://github.com/revanced/revanced-patches/issues/993)) ([eb1bae2](https://github.com/revanced/revanced-patches/commit/eb1bae2c55e65ad29030dce6746a18662dd0fe25))
+
 ## [2.104.1](https://github.com/revanced/revanced-patches/compare/v2.104.0...v2.104.1) (2022-11-07)
 
 

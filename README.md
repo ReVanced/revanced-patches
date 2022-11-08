@@ -81,6 +81,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-shorts-button` | Hides the shorts button on the navigation bar. | 17.43.36 |
 | `hide-create-button` | Hides the create button in the navigation bar. | 17.43.36 |
 | `disable-startup-shorts-player` | Disables playing YouTube Shorts when launching YouTube. | 17.43.36 |
+| `hide-endscreen-cards` | Hides the suggested video cards at the end of a video in fullscreen. | 17.43.36 |
 | `hide-cast-button` | Hides the cast button in the video player. | all |
 | `sponsorblock` | Integrate SponsorBlock. | 17.43.36 |
 | `hide-autoplay-button` | Hides the autoplay button in the video player. | 17.43.36 |
