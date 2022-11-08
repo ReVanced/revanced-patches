@@ -50,7 +50,6 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
     private val resourceIds = arrayOf(
         "ad_attribution",
         "reel_multiple_items_shelf",
-        "info_cards_drawer_header",
     ).map { name ->
         ResourceMappingResourcePatch.resourceMappings.single { it.name == name }.id
     }
@@ -223,21 +222,6 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
 
                                     val viewRegister = (iPutInstruction as Instruction22c).registerA
                                     mutableMethod!!.implementation!!.injectHideCall(insertIndex, viewRegister)
-                                }
-
-                                resourceIds[2] -> { // info cards ads
-                                    //  and is followed by an instruction with the mnemonic INVOKE_VIRTUAL
-                                    val removeIndex = index - 1
-                                    val invokeInstruction = instructions.elementAt(removeIndex)
-                                    if (invokeInstruction.opcode != Opcode.INVOKE_VIRTUAL) return@forEachIndexed
-
-                                    // create proxied method, make sure to not re-resolve() the current class
-                                    if (mutableClass == null) mutableClass = context.proxy(classDef).mutableClass
-                                    if (mutableMethod == null) mutableMethod =
-                                        mutableClass!!.findMutableMethodOf(method)
-
-                                    //ToDo: Add Settings toggle for whatever this is
-                                    mutableMethod!!.implementation!!.removeInstruction(removeIndex)
                                 }
                             }
                         }
