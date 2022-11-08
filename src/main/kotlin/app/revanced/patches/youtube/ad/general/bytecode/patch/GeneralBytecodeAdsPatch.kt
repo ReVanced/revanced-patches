@@ -51,9 +51,6 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
         "ad_attribution",
         "reel_multiple_items_shelf",
         "info_cards_drawer_header",
-        "endscreen_element_layout_video",
-        "endscreen_element_layout_circle",
-        "endscreen_element_layout_icon",
     ).map { name ->
         ResourceMappingResourcePatch.resourceMappings.single { it.name == name }.id
     }
@@ -241,26 +238,6 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
 
                                     //ToDo: Add Settings toggle for whatever this is
                                     mutableMethod!!.implementation!!.removeInstruction(removeIndex)
-                                }
-
-                                resourceIds[3], resourceIds[4], resourceIds[5] -> { // end screen ads
-                                    //  and is followed by an instruction with the mnemonic IPUT_OBJECT
-                                    val insertIndex = index + 7
-                                    val invokeInstruction = instructions.elementAt(insertIndex)
-                                    if (invokeInstruction.opcode != Opcode.IPUT_OBJECT) return@forEachIndexed
-
-                                    // create proxied method, make sure to not re-resolve() the current class
-                                    if (mutableClass == null) mutableClass = context.proxy(classDef).mutableClass
-                                    if (mutableMethod == null) mutableMethod =
-                                        mutableClass!!.findMutableMethodOf(method)
-
-                                    // TODO: dynamically get registers
-                                    mutableMethod!!.addInstructions(
-                                        insertIndex, """
-                                                const/16 v1, 0x8
-                                                invoke-virtual {v0,v1}, Landroid/widget/FrameLayout;->setVisibility(I)V
-                                            """
-                                    )
                                 }
                             }
                         }
