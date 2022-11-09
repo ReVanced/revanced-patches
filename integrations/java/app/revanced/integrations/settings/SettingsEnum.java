@@ -87,6 +87,7 @@ public enum SettingsEnum {
     USE_HDR_AUTO_BRIGHTNESS("revanced_pref_hdr_autobrightness", true, ReturnType.BOOLEAN),
     TAP_SEEKING_ENABLED("revanced_enable_tap_seeking", true, ReturnType.BOOLEAN),
     ENABLE_MINIMIZED_PLAYBACK("revanced_enable_minimized_playback", true, ReturnType.BOOLEAN),
+    OPEN_LINKS_DIRECTLY("revanced_uri_redirect", true, ReturnType.BOOLEAN, true),
 
     // Swipe controls
     ENABLE_SWIPE_BRIGHTNESS("revanced_enable_swipe_brightness", true, ReturnType.BOOLEAN),
