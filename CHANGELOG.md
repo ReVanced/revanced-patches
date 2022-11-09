@@ -1,3 +1,10 @@
+# [2.105.0](https://github.com/revanced/revanced-patches/compare/v2.104.2...v2.105.0) (2022-11-09)
+
+
+### Features
+
+* **nyx:** `unlock-pro` patch ([#1004](https://github.com/revanced/revanced-patches/issues/1004)) ([9dd8239](https://github.com/revanced/revanced-patches/commit/9dd82391f3f97247224e09e0143b2272a3d47053))
+
 ## [2.104.2](https://github.com/revanced/revanced-patches/compare/v2.104.1...v2.104.2) (2022-11-08)
 
 
