@@ -1,3 +1,10 @@
+# [2.106.0](https://github.com/revanced/revanced-patches/compare/v2.105.0...v2.106.0) (2022-11-09)
+
+
+### Features
+
+* **youtube:** `open-links-directly` patch ([#999](https://github.com/revanced/revanced-patches/issues/999)) ([bf85f62](https://github.com/revanced/revanced-patches/commit/bf85f62f30242f91bdaf53b44ae6a9a2b3b6e1b4))
+
 # [2.105.0](https://github.com/revanced/revanced-patches/compare/v2.104.2...v2.105.0) (2022-11-09)
 
 
