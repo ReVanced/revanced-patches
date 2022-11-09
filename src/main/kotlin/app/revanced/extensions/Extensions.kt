@@ -18,17 +18,6 @@ import org.jf.dexlib2.immutable.reference.ImmutableMethodReference
 import org.w3c.dom.Node
 import java.nio.file.Files
 
-// TODO: this method does not make sense here
-internal fun MutableMethodImplementation.injectHideCall(
-    index: Int,
-    register: Int
-) {
-    this.addInstruction(
-        index,
-        "invoke-static { v$register }, Lapp/revanced/integrations/patches/HideHomeAdsPatch;->HideHomeAds(Landroid/view/View;)V".toInstruction()
-    )
-}
-
 /**
  * traverse the class hierarchy starting from the given root class
  *
