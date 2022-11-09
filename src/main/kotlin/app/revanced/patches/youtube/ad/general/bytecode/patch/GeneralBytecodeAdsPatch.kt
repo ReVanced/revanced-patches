@@ -1,12 +1,12 @@
 package app.revanced.patches.youtube.ad.general.bytecode.patch
 
-import app.revanced.extensions.injectHideCall
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.softCompareTo
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
@@ -18,9 +18,8 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patcher.util.smali.toInstruction
 import app.revanced.patches.youtube.ad.general.annotation.GeneralAdsCompatibility
-import app.revanced.patches.youtube.ad.general.bytecode.extensions.MethodExtensions.findMutableMethodOf
-import app.revanced.patches.youtube.ad.general.bytecode.extensions.MethodExtensions.toDescriptor
 import app.revanced.patches.youtube.ad.general.resource.patch.GeneralResourceAdsPatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.mapping.patch.ResourceMappingResourcePatch
@@ -28,13 +27,18 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.SwitchPreference
 import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.builder.MutableMethodImplementation
 import org.jf.dexlib2.builder.instruction.BuilderInstruction10x
-import org.jf.dexlib2.dexbacked.instruction.DexBackedInstruction21c
+import org.jf.dexlib2.iface.Method
+import org.jf.dexlib2.iface.instruction.Instruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.formats.*
 import org.jf.dexlib2.iface.reference.FieldReference
 import org.jf.dexlib2.iface.reference.MethodReference
+import org.jf.dexlib2.iface.reference.Reference
 import org.jf.dexlib2.iface.reference.StringReference
+import org.jf.dexlib2.immutable.reference.ImmutableMethodReference
 
 @Patch
 @DependsOn([ResourceMappingResourcePatch::class, IntegrationsPatch::class, SettingsPatch::class, GeneralResourceAdsPatch::class])
@@ -205,7 +209,6 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
                                     // insert hide call to hide the view corresponding to the resource
                                     val viewRegister = (invokeInstruction as Instruction35c).registerC
                                     mutableMethod!!.implementation!!.injectHideCall(insertIndex, viewRegister)
-
                                 }
 
                                 resourceIds[1] -> { // reel ads
@@ -311,5 +314,46 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
         it.implementation?.instructions?.any { instruction ->
             instruction.opcode == Opcode.CONST && (instruction as Instruction31i).narrowLiteral == lithoConstant
         } ?: false
+    }
+
+    private fun MutableClass.findMutableMethodOf(
+        method: Method
+    ) = this.methods.first {
+        it.softCompareTo(
+            ImmutableMethodReference(
+                method.definingClass, method.name, method.parameters, method.returnType
+            )
+        )
+    }
+
+    private inline fun <reified T : Reference> Instruction.toDescriptor(): String {
+        val reference = (this as ReferenceInstruction).reference
+        return when (T::class) {
+            MethodReference::class -> {
+                val methodReference = reference as MethodReference
+                "${methodReference.definingClass}->${methodReference.name}(${
+                    methodReference.parameterTypes.joinToString(
+                        ""
+                    ) { it }
+                })${methodReference.returnType}"
+            }
+
+            FieldReference::class -> {
+                val fieldReference = reference as FieldReference
+                "${fieldReference.definingClass}->${fieldReference.name}:${fieldReference.type}"
+            }
+
+            else -> throw PatchResultError("Unsupported reference type")
+        }
+    }
+
+    private fun MutableMethodImplementation.injectHideCall(
+        index: Int,
+        register: Int
+    ) {
+        this.addInstruction(
+            index,
+            "invoke-static { v$register }, Lapp/revanced/integrations/patches/HideHomeAdsPatch;->HideHomeAds(Landroid/view/View;)V".toInstruction()
+        )
     }
 }
