@@ -1,3 +1,10 @@
+## [2.106.1](https://github.com/revanced/revanced-patches/compare/v2.106.0...v2.106.1) (2022-11-11)
+
+
+### Bug Fixes
+
+* **youtube/custom-branding:** use high resolution icons ([#1018](https://github.com/revanced/revanced-patches/issues/1018)) ([1c9d1ac](https://github.com/revanced/revanced-patches/commit/1c9d1acf2b7aff4cd52d17009ff01246f74d2214))
+
 # [2.106.0](https://github.com/revanced/revanced-patches/compare/v2.105.0...v2.106.0) (2022-11-09)
 
 
