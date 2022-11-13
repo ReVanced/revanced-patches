@@ -141,6 +141,7 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
+| `debug-mode` | Enables Twitch's internal debugging mode. | all |
 | `show-deleted-messages` | Shows deleted chat messages behind a clickable spoiler. | all |
 </details>
 
