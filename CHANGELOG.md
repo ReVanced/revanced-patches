@@ -1,3 +1,10 @@
+# [2.108.0](https://github.com/revanced/revanced-patches/compare/v2.107.0...v2.108.0) (2022-11-13)
+
+
+### Features
+
+* **twitch:** `debug-mode` patch ([#1031](https://github.com/revanced/revanced-patches/issues/1031)) ([c514860](https://github.com/revanced/revanced-patches/commit/c514860bc4a46295b11f09df9ffc1c556b798eb3))
+
 # [2.107.0](https://github.com/revanced/revanced-patches/compare/v2.106.1...v2.107.0) (2022-11-13)
 
 
