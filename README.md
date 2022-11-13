@@ -128,6 +128,22 @@ The official Patch bundle provided by ReVanced and the community.
 | `client-spoof` | Spoofs the YouTube or Vanced client to prevent playback issues. | all |
 </details>
 
+### 📦 `com.ticktick.task`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-themes` | Unlocks all themes. | all |
+</details>
+
+### 📦 `tv.twitch.android.app`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `show-deleted-messages` | Shows deleted chat messages behind a clickable spoiler. | all |
+</details>
+
 ### 📦 `com.garzotto.pflotsh.ecmwf_a`
 <details>
 
