@@ -214,7 +214,7 @@ class GeneralBytecodeAdsPatch extends Filter {
                 //"full_width_square_image_layout",
                 "video_display_full_buttoned_layout",
                 "_ad",
-                "ad_",
+                "ad_badge",
                 "ads_video_with_context",
                 "banner_text_icon",
                 "cell_divider",
@@ -258,16 +258,11 @@ class GeneralBytecodeAdsPatch extends Filter {
     public boolean filter(final String path, final String identifier) {
         // Do not block on these
         if (ReVancedUtils.containsAny(path,
+                "comment_thread",
                 "home_video_with_context",
                 "related_video_with_context",
                 "search_video_with_context",
-                "download_",
-                "library_recent_shelf",
-                "menu",
-                "root",
-                "-count",
-                "-space",
-                "-button"
+                "horizontal_shelf"
         )) return false;
 
         for (var rule : register) {
