@@ -262,7 +262,8 @@ class GeneralBytecodeAdsPatch extends Filter {
                 "home_video_with_context",
                 "related_video_with_context",
                 "search_video_with_context",
-                "horizontal_shelf"
+                "horizontal_shelf",
+                "playlist_add_to_option_wrapper"
         )) return false;
 
         for (var rule : register) {
