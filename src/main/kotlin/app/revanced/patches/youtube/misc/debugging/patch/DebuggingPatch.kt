@@ -25,7 +25,7 @@ class DebuggingPatch : ResourcePatch {
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             SwitchPreference(
                 "revanced_debug_enabled",
-                StringResource("revanced_debug_title", "Debug"),
+                StringResource("revanced_debug_title", "Debugging"),
                 false,
                 StringResource("revanced_debug_on", "Debug logs are enabled"),
                 StringResource("revanced_debug_off", "Debug logs are disabled")
