@@ -207,6 +207,7 @@ class GeneralBytecodeAdsPatch extends Filter {
                 "comments_entry_point_teaser",
                 "comments_entry_point_simplebox"
         );
+
         var artistCard = new BlockRule(SettingsEnum.HIDE_ARTIST_CARD, "official_card");
         var generalAds = new BlockRule(
                 SettingsEnum.ADREMOVER_GENERAL_ADS_REMOVAL,
