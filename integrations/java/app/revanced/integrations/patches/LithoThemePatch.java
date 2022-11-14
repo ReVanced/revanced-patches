@@ -25,7 +25,7 @@ public class LithoThemePatch {
         var isDarkTheme = ThemeHelper.isDarkTheme();
         
         if ((isDarkTheme && anyEquals(originalValue, DARKCONSTANTS)) || (!isDarkTheme  && anyEquals(originalValue, WHITECONSTANTS)))
-                return -16777215;
+                return 0;
         return originalValue;
     }
 
