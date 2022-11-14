@@ -111,7 +111,8 @@ final class LithoBlockRegister implements Iterable<BlockRule> {
 public final class LithoFilterPatch {
     private static final Filter[] filters = new Filter[]{
             new GeneralBytecodeAdsPatch(),
-            new ButtonsPatch()
+            new ButtonsPatch(),
+            new CommentsPatch(),
     };
 
     public static boolean filter(final StringBuilder pathBuilder, final String identifier) {
@@ -125,6 +126,33 @@ public final class LithoFilterPatch {
         }
 
         return false;
+    }
+}
+
+final class CommentsPatch extends Filter {
+
+    public CommentsPatch() {
+        var comments = new BlockRule(SettingsEnum.HIDE_COMMENTS_SECTION, "video_metadata_carousel", "_comments");
+        var previewComment = new BlockRule(
+                SettingsEnum.HIDE_PREVIEW_COMMENT,
+                "carousel_item",
+                "comments_entry_point_teaser",
+                "comments_entry_point_simplebox"
+        );
+
+        this.register.registerAll(
+                comments,
+                previewComment
+        );
+    }
+
+    @Override
+    boolean filter(String path, String _identifier) {
+        if (!Extensions.any(register, path)) return false;
+
+        LogHelper.debug(CommentsPatch.class, "Blocked: " + path);
+
+        return true;
     }
 }
 
@@ -184,7 +212,7 @@ final class ButtonsPatch extends Filter {
     }
 }
 
-class GeneralBytecodeAdsPatch extends Filter {
+final class GeneralBytecodeAdsPatch extends Filter {
     private final BlockRule identifierBlock;
 
     public GeneralBytecodeAdsPatch() {
@@ -200,13 +228,6 @@ class GeneralBytecodeAdsPatch extends Filter {
         var suggestions = new BlockRule(SettingsEnum.ADREMOVER_SUGGESTIONS_REMOVAL, "horizontal_video_shelf");
         var latestPosts = new BlockRule(SettingsEnum.ADREMOVER_HIDE_LATEST_POSTS, "post_shelf");
         var channelGuidelines = new BlockRule(SettingsEnum.ADREMOVER_HIDE_CHANNEL_GUIDELINES, "channel_guidelines_entry_banner");
-        var comments = new BlockRule(SettingsEnum.HIDE_COMMENTS_SECTION, "video_metadata_carousel", "_comments");
-        var previewComment = new BlockRule(
-                SettingsEnum.HIDE_PREVIEW_COMMENT,
-                "carousel_item",
-                "comments_entry_point_teaser",
-                "comments_entry_point_simplebox"
-        );
 
         var artistCard = new BlockRule(SettingsEnum.HIDE_ARTIST_CARD, "official_card");
         var generalAds = new BlockRule(
@@ -240,7 +261,6 @@ class GeneralBytecodeAdsPatch extends Filter {
                 suggestions,
                 latestPosts,
                 movieAds,
-                comments,
                 communityGuidelines,
                 compactBanner,
                 inFeedSurvey,
@@ -248,7 +268,6 @@ class GeneralBytecodeAdsPatch extends Filter {
                 merchandise,
                 infoPanel,
                 channelGuidelines,
-                previewComment,
                 artistCard
         );
 
@@ -273,20 +292,11 @@ class GeneralBytecodeAdsPatch extends Filter {
                 "playlist_add_to_option_wrapper" // do not block on "add to playlist" flyout menu
         )) return false;
 
-        for (var rule : register) {
-            if (!rule.isEnabled()) continue;
+        if (!Extensions.any(register, path) && !identifierBlock.check(identifier).isBlocked())
+            return false;
 
-            var result = rule.check(path);
-            if (result.isBlocked()) {
-                LogHelper.debug(GeneralBytecodeAdsPatch.class, "Blocked: " + path);
-                return true;
-            }
-        }
+        LogHelper.debug(GeneralBytecodeAdsPatch.class, "Blocked: " + path);
 
-        if (identifierBlock.check(identifier).isBlocked()) {
-            LogHelper.debug(GeneralBytecodeAdsPatch.class, "Blocked: " + identifier);
-            return true;
-        }
-        return false;
+        return true;
     }
 }
