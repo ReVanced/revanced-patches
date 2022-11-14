@@ -214,7 +214,7 @@ class GeneralBytecodeAdsPatch extends Filter {
                 //"full_width_square_image_layout",
                 "video_display_full_buttoned_layout",
                 "_ad",
-                "ad_badge",
+                "ad_",
                 "ads_video_with_context",
                 "banner_text_icon",
                 "cell_divider",
@@ -258,12 +258,18 @@ class GeneralBytecodeAdsPatch extends Filter {
     public boolean filter(final String path, final String identifier) {
         // Do not block on these
         if (ReVancedUtils.containsAny(path,
-                "comment_thread",
                 "home_video_with_context",
                 "related_video_with_context",
                 "search_video_with_context",
-                "horizontal_shelf",
-                "playlist_add_to_option_wrapper"
+                "comment_thread", // skip blocking anything in the comments
+                "download_",
+                "library_recent_shelf",
+                "menu",
+                "root",
+                "-count",
+                "-space",
+                "-button",
+                "playlist_add_to_option_wrapper" // do not block on "add to playlist" flyout menu
         )) return false;
 
         for (var rule : register) {
