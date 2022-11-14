@@ -177,6 +177,13 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
                 StringResource("revanced_adremover_hide_channel_guidelines_enabled_summary_on", "Channel guidelines are hidden"),
                 StringResource("revanced_adremover_hide_channel_guidelines_enabled_summary_off", "Channel guidelines are shown")
             ),
+            SwitchPreference(
+                "revanced_adremover_self_sponsor",
+                StringResource("revanced_adremover_self_sponsor_enabled_title", "Hide self sponsored cards"),
+                true,
+                StringResource("revanced_adremover_self_sponsor_enabled_summary_on", "Self sponsored cards are hidden"),
+                StringResource("revanced_adremover_self_sponsor_enabled_summary_off", "Self sponsored cards are shown")
+            )
         )
 
         // iterating through all classes is expensive
