@@ -118,11 +118,11 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
                 StringResource("revanced_adremover_feed_survey_enabled_summary_off", "Feed surveys are shown")
             ),
             SwitchPreference(
-                "revanced_adremover_shorts_shelf",
-                StringResource("revanced_adremover_shorts_shelf_enabled_title", "Remove shorts shelf"),
+                "revanced_adremover_shorts",
+                StringResource("revanced_adremover_shorts_enabled_title", "Remove shorts"),
                 true,
-                StringResource("revanced_adremover_shorts_shelf_enabled_summary_on", "Shorts shelves are hidden"),
-                StringResource("revanced_adremover_shorts_shelf_enabled_summary_off", "Shorts shelves are shown")
+                StringResource("revanced_adremover_shorts_enabled_summary_on", "Shorts are hidden"),
+                StringResource("revanced_adremover_shorts_enabled_summary_off", "Shorts are shown")
             ),
             SwitchPreference(
                 "revanced_adremover_community_guidelines",
