@@ -177,8 +177,14 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
                 "revanced_adremover_hide_channel_guidelines",
                 StringResource("revanced_adremover_hide_channel_guidelines_enabled_title", "Hide channel guidelines"),
                 true,
-                StringResource("revanced_adremover_hide_channel_guidelines_enabled_summary_on", "Channel guidelines are hidden"),
-                StringResource("revanced_adremover_hide_channel_guidelines_enabled_summary_off", "Channel guidelines are shown")
+                StringResource(
+                    "revanced_adremover_hide_channel_guidelines_enabled_summary_on",
+                    "Channel guidelines are hidden"
+                ),
+                StringResource(
+                    "revanced_adremover_hide_channel_guidelines_enabled_summary_off",
+                    "Channel guidelines are shown"
+                )
             ),
             SwitchPreference(
                 "revanced_adremover_self_sponsor",
@@ -186,6 +192,22 @@ class GeneralBytecodeAdsPatch : BytecodePatch() {
                 true,
                 StringResource("revanced_adremover_self_sponsor_enabled_summary_on", "Self sponsored cards are hidden"),
                 StringResource("revanced_adremover_self_sponsor_enabled_summary_off", "Self sponsored cards are shown")
+            ),
+            SwitchPreference(
+                "revanced_adremover_chapter_teaser",
+                StringResource(
+                    "revanced_adremover_chapter_teaser_enabled_title",
+                    "Hide chapter teaser under videos"
+                ),
+                true,
+                StringResource(
+                    "revanced_adremover_chapter_teaser_enabled_summary_on",
+                    "Chapter teasers are hidden"
+                ),
+                StringResource(
+                    "revanced_adremover_chapter_teaser_enabled_summary_off",
+                    "Chapter teasers are shown"
+                )
             )
         )
 
