@@ -1,3 +1,10 @@
+# [2.111.0](https://github.com/revanced/revanced-patches/compare/v2.110.0...v2.111.0) (2022-11-15)
+
+
+### Features
+
+* **iconpackstudio:** `unlock-pro` patch ([#1047](https://github.com/revanced/revanced-patches/issues/1047)) ([fcbca9c](https://github.com/revanced/revanced-patches/commit/fcbca9cf0ff3940c48df53a9e5e4d06d65f9a1b1))
+
 # [2.110.0](https://github.com/revanced/revanced-patches/compare/v2.109.0...v2.110.0) (2022-11-15)
 
 
