@@ -1,3 +1,14 @@
+# [2.110.0](https://github.com/revanced/revanced-patches/compare/v2.109.0...v2.110.0) (2022-11-15)
+
+
+### Features
+
+* **youtube/debugging:** include by default & add option to debug on Android ([9d6d5b2](https://github.com/revanced/revanced-patches/commit/9d6d5b29227980aacb4c1331161afb3fa265bbe4))
+* **youtube/debugging:** use more suitable preference title ([d182351](https://github.com/revanced/revanced-patches/commit/d182351e789bcbfb7982774406449e8d973765b2))
+* **youtube/general-ads:** hide chapter teaser under videos ([9cf415a](https://github.com/revanced/revanced-patches/commit/9cf415a894ab5458134ef1cd5a4c5bf7579e592c))
+* **youtube/general-ads:** hide self sponsored cards ([b627d75](https://github.com/revanced/revanced-patches/commit/b627d751b49c228e52f7f9fb5d2bcacb9d243a64))
+* **youtube/general-ads:** hide shorts in search ([c01ba5c](https://github.com/revanced/revanced-patches/commit/c01ba5cbcc694f8c9ee83a4e9eb081cf5b45753c))
+
 # [2.109.0](https://github.com/revanced/revanced-patches/compare/v2.108.0...v2.109.0) (2022-11-13)
 
 
