@@ -76,7 +76,8 @@ final class BlockRule {
 }
 
 abstract class Filter {
-    final LithoBlockRegister register = new LithoBlockRegister();
+    final LithoBlockRegister pathRegister = new LithoBlockRegister();
+    final LithoBlockRegister identifierRegister = new LithoBlockRegister();
 
     abstract boolean filter(final String path, final String identifier);
 }
@@ -140,7 +141,7 @@ final class CommentsPatch extends Filter {
                 "comments_entry_point_simplebox"
         );
 
-        this.register.registerAll(
+        this.pathRegister.registerAll(
                 comments,
                 previewComment
         );
@@ -148,7 +149,7 @@ final class CommentsPatch extends Filter {
 
     @Override
     boolean filter(String path, String _identifier) {
-        if (!Extensions.any(register, path)) return false;
+        if (!Extensions.any(pathRegister, path)) return false;
 
         LogHelper.debug(CommentsPatch.class, "Blocked: " + path);
 
@@ -173,7 +174,7 @@ final class ButtonsPatch extends Filter {
 
         actionBarRule = new BlockRule(null, "video_action_bar");
 
-        this.register.registerAll(
+        this.pathRegister.registerAll(
                 like,
                 dislikeRule,
                 download,
@@ -201,7 +202,7 @@ final class ButtonsPatch extends Filter {
             } else return false;
         }
 
-        if ((currentIsActionButton && ActionButton.doNotBlockCounter <= 0 && actionButtonsRule.isEnabled()) || Extensions.any(register, path)) {
+        if ((currentIsActionButton && ActionButton.doNotBlockCounter <= 0 && actionButtonsRule.isEnabled()) || Extensions.any(pathRegister, path)) {
             LogHelper.debug(ButtonsPatch.class, "Blocked: " + path);
             return true;
         } else return false;
@@ -213,8 +214,6 @@ final class ButtonsPatch extends Filter {
 }
 
 final class GeneralBytecodeAdsPatch extends Filter {
-    private final BlockRule identifierBlock;
-
     public GeneralBytecodeAdsPatch() {
         var communityPosts = new BlockRule(SettingsEnum.ADREMOVER_COMMUNITY_POSTS_REMOVAL, "post_base_wrapper");
         var communityGuidelines = new BlockRule(SettingsEnum.ADREMOVER_COMMUNITY_GUIDELINES_REMOVAL, "community_guidelines");
@@ -223,7 +222,6 @@ final class GeneralBytecodeAdsPatch extends Filter {
         var medicalPanel = new BlockRule(SettingsEnum.ADREMOVER_MEDICAL_PANEL_REMOVAL, "medical_panel");
         var paidContent = new BlockRule(SettingsEnum.ADREMOVER_PAID_CONTENT_REMOVAL, "paid_content_overlay");
         var merchandise = new BlockRule(SettingsEnum.ADREMOVER_MERCHANDISE_REMOVAL, "product_carousel");
-        var shorts = new BlockRule(SettingsEnum.ADREMOVER_SHORTS_SHELF_REMOVAL, "shorts_shelf");
         var infoPanel = new BlockRule(SettingsEnum.ADREMOVER_INFO_PANEL_REMOVAL, "publisher_transparency_panel", "single_item_information_panel");
         var suggestions = new BlockRule(SettingsEnum.ADREMOVER_SUGGESTIONS_REMOVAL, "horizontal_video_shelf");
         var latestPosts = new BlockRule(SettingsEnum.ADREMOVER_HIDE_LATEST_POSTS, "post_shelf");
@@ -241,7 +239,6 @@ final class GeneralBytecodeAdsPatch extends Filter {
                 "banner_text_icon",
                 "cell_divider",
                 "reels_player_overlay",
-                "shelf_header",
                 "watch_metadata_app_promo",
                 "video_display_full_layout"
         );
@@ -253,11 +250,10 @@ final class GeneralBytecodeAdsPatch extends Filter {
                 "movie_and_show_upsell_card"
         );
 
-        this.register.registerAll(
+        this.pathRegister.registerAll(
                 generalAds,
                 communityPosts,
                 paidContent,
-                shorts,
                 suggestions,
                 latestPosts,
                 movieAds,
@@ -272,8 +268,13 @@ final class GeneralBytecodeAdsPatch extends Filter {
                 selfSponsor
         );
 
-        // Block for the ComponentContext.identifier field
-        identifierBlock = new BlockRule(SettingsEnum.ADREMOVER_GENERAL_ADS_REMOVAL, "carousel_ad");
+        var carouselAd = new BlockRule(SettingsEnum.ADREMOVER_GENERAL_ADS_REMOVAL, "carousel_ad");
+        var shorts = new BlockRule(SettingsEnum.ADREMOVER_SHORTS_REMOVAL, "shorts_shelf", "inline_shorts");
+
+        this.identifierRegister.registerAll(
+                shorts,
+                carouselAd
+        );
     }
 
     public boolean filter(final String path, final String identifier) {
@@ -293,10 +294,10 @@ final class GeneralBytecodeAdsPatch extends Filter {
                 "playlist_add_to_option_wrapper" // do not block on "add to playlist" flyout menu
         )) return false;
 
-        if (!Extensions.any(register, path) && !identifierBlock.check(identifier).isBlocked())
+        if (!(Extensions.any(pathRegister, path) || Extensions.any(identifierRegister, identifier)))
             return false;
 
-        LogHelper.debug(GeneralBytecodeAdsPatch.class, "Blocked: " + path);
+        LogHelper.debug(GeneralBytecodeAdsPatch.class, String.format("Blocked (ID: %s): %s", identifier, path));
 
         return true;
     }

@@ -35,7 +35,7 @@ public enum SettingsEnum {
     ADREMOVER_COMPACT_BANNER_REMOVAL("revanced_adremover_compact_banner_removal", true, ReturnType.BOOLEAN),
     ADREMOVER_MOVIE_REMOVAL("revanced_adremover_movie", true, ReturnType.BOOLEAN),
     ADREMOVER_FEED_SURVEY_REMOVAL("revanced_adremover_feed_survey", true, ReturnType.BOOLEAN),
-    ADREMOVER_SHORTS_SHELF_REMOVAL("revanced_adremover_shorts_shelf", true, ReturnType.BOOLEAN),
+    ADREMOVER_SHORTS_REMOVAL("revanced_adremover_shorts", true, ReturnType.BOOLEAN),
     ADREMOVER_COMMUNITY_GUIDELINES_REMOVAL("revanced_adremover_community_guidelines", true, ReturnType.BOOLEAN),
     ADREMOVER_EMERGENCY_BOX_REMOVAL("revanced_adremover_emergency_box_removal", true, ReturnType.BOOLEAN),
     ADREMOVER_INFO_PANEL_REMOVAL("revanced_adremover_info_panel", true, ReturnType.BOOLEAN),
