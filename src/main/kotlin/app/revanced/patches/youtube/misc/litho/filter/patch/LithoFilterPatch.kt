@@ -47,15 +47,15 @@ class LithoFilterPatch : BytecodePatch(
                 addInstructions(
                     insertHookIndex, // right after setting the component.pathBuilder field,
                     """
-                             invoke-static {v5, v2}, Lapp/revanced/integrations/patches/LithoFilterPatch;->filter(Ljava/lang/StringBuilder;Ljava/lang/String;)Z
-                             move-result v$clobberedRegister
-                             if-eqz v$clobberedRegister, :not_an_ad
-                             move-object/from16 v2, p1
-                             invoke-static {v2}, $builderMethodDescriptor
-                             move-result-object v0
-                             iget-object v0, v0, $emptyComponentFieldDescriptor
-                             return-object v0
-                         """,
+                        invoke-static {v5, v2}, Lapp/revanced/integrations/patches/LithoFilterPatch;->filter(Ljava/lang/StringBuilder;Ljava/lang/String;)Z
+                        move-result v$clobberedRegister
+                        if-eqz v$clobberedRegister, :not_an_ad
+                        move-object/from16 v2, p1
+                        invoke-static {v2}, $builderMethodDescriptor
+                        move-result-object v0
+                        iget-object v0, v0, $emptyComponentFieldDescriptor
+                        return-object v0
+                    """,
                     listOf(ExternalLabel("not_an_ad", instruction(insertHookIndex)))
                 )
             }
@@ -65,21 +65,13 @@ class LithoFilterPatch : BytecodePatch(
     }
 
     private companion object {
-        fun Instruction.toDescriptor() = when (val reference = (this as ReferenceInstruction).reference) {
-            MethodReference::class -> {
-                val methodReference = reference as MethodReference
-                "${methodReference.definingClass}->${methodReference.name}(${
-                    methodReference.parameterTypes.joinToString(
-                        ""
-                    ) { it }
-                })${methodReference.returnType}"
-            }
-
-            FieldReference::class -> {
-                val fieldReference = reference as FieldReference
-                "${fieldReference.definingClass}->${fieldReference.name}:${fieldReference.type}"
-            }
-
+        fun Instruction.toDescriptor() = when (val reference = (this as? ReferenceInstruction)?.reference) {
+            is MethodReference -> "${reference.definingClass}->${reference.name}(${
+                reference.parameterTypes.joinToString(
+                    ""
+                ) { it }
+            })${reference.returnType}"
+            is FieldReference -> "${reference.definingClass}->${reference.name}:${reference.type}"
             else -> throw PatchResultError("Unsupported reference type")
         }
     }
