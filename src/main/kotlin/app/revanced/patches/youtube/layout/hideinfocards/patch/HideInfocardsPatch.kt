@@ -16,8 +16,8 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.layout.hideinfocards.annotations.HideInfocardsCompatibility
 import app.revanced.patches.youtube.layout.hideinfocards.fingerprints.InfocardsIncognitoFingerprint
-import app.revanced.patches.youtube.layout.hideinfocards.fingerprints.InfocardsMethodCallFingerprint
 import app.revanced.patches.youtube.layout.hideinfocards.fingerprints.InfocardsIncognitoParentFingerprint
+import app.revanced.patches.youtube.layout.hideinfocards.fingerprints.InfocardsMethodCallFingerprint
 import app.revanced.patches.youtube.layout.hideinfocards.resource.patch.HideInfocardsResourcePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import org.jf.dexlib2.Opcode
@@ -39,16 +39,17 @@ class HideInfocardsPatch : BytecodePatch(
         with(InfocardsIncognitoFingerprint.also {
             it.resolve(context, InfocardsIncognitoParentFingerprint.result!!.classDef)
         }.result!!.mutableMethod) {
-                val invokeInstructionIndex = implementation!!.instructions.indexOfFirst {
-                    it.opcode.ordinal == Opcode.INVOKE_VIRTUAL.ordinal &&
-                    ((it as? BuilderInstruction35c)?.reference.toString() ==
-                        "Landroid/view/View;->setVisibility(I)V")
-                }
+            val invokeInstructionIndex = implementation!!.instructions.indexOfFirst {
+                it.opcode.ordinal == Opcode.INVOKE_VIRTUAL.ordinal &&
+                        ((it as? BuilderInstruction35c)?.reference.toString() ==
+                                "Landroid/view/View;->setVisibility(I)V")
+            }
 
-                replaceInstruction(invokeInstructionIndex, """
-                    invoke-static {v${(instruction(invokeInstructionIndex) as? BuilderInstruction35c)?.registerC}}, Lapp/revanced/integrations/patches/HideInfocardsPatch;->hideInfocardsIncognito(Landroid/view/View;)V
-                    """
-                )
+            replaceInstruction(
+                invokeInstructionIndex,
+                "invoke-static {v${(instruction(invokeInstructionIndex) as? BuilderInstruction35c)?.registerC}}," +
+                        " Lapp/revanced/integrations/patches/HideInfocardsPatch;->hideInfocardsIncognito(Landroid/view/View;)V"
+            )
         }
 
         with(InfocardsMethodCallFingerprint.result!!) {
@@ -62,7 +63,12 @@ class HideInfocardsPatch : BytecodePatch(
                     invoke-static {}, Lapp/revanced/integrations/patches/HideInfocardsPatch;->hideInfocardsMethodCall()Z
                     move-result v$toggleRegister
                     if-nez v$toggleRegister, :hide_info_cards
-                """, listOf(ExternalLabel("hide_info_cards", hideInfocardsCallMethod.instruction(invokeInterfaceIndex + 1)))
+                """,
+                listOf(
+                    ExternalLabel(
+                        "hide_info_cards", hideInfocardsCallMethod.instruction(invokeInterfaceIndex + 1)
+                    )
+                )
             )
         }
 
