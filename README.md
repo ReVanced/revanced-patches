@@ -110,6 +110,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `custom-branding` | Changes the YouTube launcher icon and name to your choice (defaults to ReVanced). | all |
 | `premium-heading` | Shows premium branding on the home screen. | all |
 | `old-quality-layout` | Enables the original quality flyout menu. | 17.43.36 |
+| `general-ads` | Removes general ads. | 17.43.36 |
 | `video-ads` | Removes ads in the video player. | 17.43.36 |
 | `swipe-controls` | Adds volume and brightness swipe controls. | 17.43.36 |
 | `downloads` | Enables downloading music and videos from YouTube. | 17.43.36 |
@@ -125,16 +126,6 @@ The official Patch bundle provided by ReVanced and the community.
 | `custom-video-speed` | Adds more video speed options. | 17.43.36 |
 | `remember-video-quality` | Adds the ability to remember the video quality you chose in the video quality flyout. | 17.43.36 |
 | `hdr-auto-brightness` | Makes the brightness of HDR videos follow the system default. | 17.43.36 |
-</details>
-
-### 📦 `com.reddit.frontpage`
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `general-ads` | Removes general ads. | all |
-| `premium-icon-reddit` | Unlocks premium Reddit app icons. | all |
-| `general-reddit-ads` | Removes general ads from the Reddit frontpage and subreddits. | all |
 </details>
 
 ### 📦 `com.vanced.android.youtube`
@@ -187,6 +178,15 @@ The official Patch bundle provided by ReVanced and the community.
 | `exclusive-audio-playback` | Enables the option to play music without video. | 5.31.50 |
 | `codecs-unlock` | Adds more audio codec options. The new audio codecs usually result in better audio quality. | 5.31.50 |
 | `music-microg-support` | Allows YouTube Music ReVanced to run without root and under a different package name. | 5.31.50 |
+</details>
+
+### 📦 `com.reddit.frontpage`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `premium-icon-reddit` | Unlocks premium Reddit app icons. | all |
+| `general-reddit-ads` | Removes general ads from the Reddit frontpage and subreddits. | all |
 </details>
 
 ### 📦 `com.awedea.nyx`
