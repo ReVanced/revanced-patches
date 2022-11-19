@@ -1,3 +1,10 @@
+# [2.112.0](https://github.com/revanced/revanced-patches/compare/v2.111.3...v2.112.0) (2022-11-19)
+
+
+### Features
+
+* **anytracker:** `unlock-premium` patch ([#1076](https://github.com/revanced/revanced-patches/issues/1076)) ([52b3d90](https://github.com/revanced/revanced-patches/commit/52b3d909bbe59dafaea0cb9da1c27bdd0cda502f))
+
 ## [2.111.3](https://github.com/revanced/revanced-patches/compare/v2.111.2...v2.111.3) (2022-11-18)
 
 
