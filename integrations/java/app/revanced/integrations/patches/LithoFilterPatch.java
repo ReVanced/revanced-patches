@@ -15,25 +15,7 @@ import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 
-/**
- * Helper functions.
- */
-final class Extensions {
-    static boolean any(LithoBlockRegister register, String path) {
-        for (var rule : register) {
-            if (!rule.isEnabled()) continue;
-
-            var result = rule.check(path);
-            if (result.isBlocked()) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-}
-
-final class BlockRule {
+class BlockRule {
     final static class BlockResult {
         private final boolean blocked;
         private final SettingsEnum setting;
@@ -120,6 +102,19 @@ final class LithoBlockRegister implements Iterable<BlockRule> {
     public Spliterator<BlockRule> spliterator() {
         return blocks.spliterator();
     }
+
+    public boolean contains(String path) {
+        for (var rule : this) {
+            if (!rule.isEnabled()) continue;
+
+            var result = rule.check(path);
+            if (result.isBlocked()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
 
 public final class LithoFilterPatch {
@@ -162,7 +157,7 @@ final class CommentsPatch extends Filter {
 
     @Override
     boolean filter(String path, String _identifier) {
-        if (!Extensions.any(pathRegister, path)) return false;
+        if (!pathRegister.contains(path)) return false;
 
         LogHelper.debug(CommentsPatch.class, "Blocked: " + path);
 
@@ -215,7 +210,7 @@ final class ButtonsPatch extends Filter {
             } else return false;
         }
 
-        if ((currentIsActionButton && ActionButton.doNotBlockCounter <= 0 && actionButtonsRule.isEnabled()) || Extensions.any(pathRegister, path)) {
+        if ((currentIsActionButton && ActionButton.doNotBlockCounter <= 0 && actionButtonsRule.isEnabled()) || pathRegister.contains(path)) {
             LogHelper.debug(ButtonsPatch.class, "Blocked: " + path);
             return true;
         } else return false;
