@@ -43,6 +43,7 @@ public enum SettingsEnum {
     ADREMOVER_PAID_CONTENT_REMOVAL("revanced_adremover_paid_content", true, ReturnType.BOOLEAN),
     ADREMOVER_SUGGESTIONS_REMOVAL("revanced_adremover_hide_suggestions", true, ReturnType.BOOLEAN),
     ADREMOVER_HIDE_LATEST_POSTS("revanced_adremover_hide_latest_posts", true, ReturnType.BOOLEAN),
+    ADREMOVER_GRAY_SEPARATOR("revanced_adremover_separator", true, ReturnType.BOOLEAN),
     ADREMOVER_HIDE_CHANNEL_GUIDELINES("revanced_adremover_hide_channel_guidelines", true, ReturnType.BOOLEAN),
     ADREMOVER_SELF_SPONSOR_REMOVAL("revanced_adremover_self_sponsor", true, ReturnType.BOOLEAN),
     ADREMOVER_CHAPTER_TEASER_REMOVAL("revanced_adremover_chapter_teaser", true, ReturnType.BOOLEAN),

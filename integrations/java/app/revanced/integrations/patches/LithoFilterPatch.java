@@ -237,6 +237,9 @@ final class GeneralBytecodeAdsPatch extends Filter {
         var artistCard = new BlockRule(SettingsEnum.HIDE_ARTIST_CARD, "official_card");
         var selfSponsor = new BlockRule(SettingsEnum.ADREMOVER_SELF_SPONSOR_REMOVAL, "cta_shelf_card");
         var chapterTeaser = new BlockRule(SettingsEnum.ADREMOVER_CHAPTER_TEASER_REMOVAL, "expandable_metadata");
+        var graySeparator = new BlockRule(SettingsEnum.ADREMOVER_GRAY_SEPARATOR,
+                "cell_divider" // layout residue (gray line above the buttoned ad),
+        );
 
         var generalAds = new BlockRule(
                 SettingsEnum.ADREMOVER_GENERAL_ADS_REMOVAL,
@@ -265,6 +268,7 @@ final class GeneralBytecodeAdsPatch extends Filter {
                 communityPosts,
                 paidContent,
                 suggestions,
+                graySeparator,
                 latestPosts,
                 movieAds,
                 chapterTeaser,
