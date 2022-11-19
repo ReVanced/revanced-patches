@@ -77,7 +77,7 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
                     try {
                         String value = sharedPreferences.getString(setting.getPath(), setting.getDefaultValue() + "");
                         listPref.setDefaultValue(value);
-                        listPref.setSummary(videoSpeedEntries[listPref.findIndexOfValue(String.valueOf(value))]);
+                        listPref.setSummary(videoSpeedEntries[listPref.findIndexOfValue(value)]);
                         SettingsEnum.PREFERRED_VIDEO_SPEED.saveValue(value);
                     } catch (Throwable th) {
                         LogHelper.printException(ReVancedSettingsFragment.class, "Error setting value of speed" + th);
