@@ -16,7 +16,7 @@ public class ReVancedUtils {
 
     public static boolean containsAny(final String value, final String... targets) {
         for (String string : targets)
-            if (value.contains(string)) return true;
+            if (!string.isEmpty() && value.contains(string)) return true;
         return false;
     }
 
