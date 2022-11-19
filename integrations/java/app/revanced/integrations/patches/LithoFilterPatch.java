@@ -52,7 +52,7 @@ final class BlockRule {
         }
     }
 
-    private final SettingsEnum setting;
+    protected final SettingsEnum setting;
     private final String[] blocks;
 
     /**
@@ -74,6 +74,19 @@ final class BlockRule {
         return new BlockResult(setting, string != null && ReVancedUtils.containsAny(string, blocks));
     }
 }
+
+final class CustomBlockRule extends BlockRule {
+    /**
+     * Initialize a new rule for components.
+     *
+     * @param setting The setting which controls the blocking of the components.
+     * @param filter  The setting which contains the list of component names.
+     */
+    public CustomBlockRule(final SettingsEnum setting, final SettingsEnum filter) {
+        super(setting, filter.getString().split(","));
+    }
+}
+
 
 abstract class Filter {
     final LithoBlockRegister pathRegister = new LithoBlockRegister();
