@@ -8,8 +8,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toolbar;
 
-import app.revanced.integrations.patches.HideShortsButtonPatch;
-import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 
 public class AdRemoverAPI {
