@@ -164,6 +164,13 @@ class GeneralAdsPatch : ResourcePatch {
                 StringResource("revanced_adremover_self_sponsor_enabled_summary_off", "Self sponsored cards are shown")
             ),
             SwitchPreference(
+                "revanced_adremover_separator",
+                StringResource("revanced_adremover_separator_title", "Hide gray separator"),
+                true,
+                StringResource("revanced_adremover_separator_summary_on", "Gray separators are hidden"),
+                StringResource("revanced_adremover_separator_summary_off", "Gray separators are shown")
+            ),
+            SwitchPreference(
                 "revanced_adremover_chapter_teaser",
                 StringResource(
                     "revanced_adremover_chapter_teaser_enabled_title",
