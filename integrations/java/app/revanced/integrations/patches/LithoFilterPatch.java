@@ -89,8 +89,8 @@ final class CustomBlockRule extends BlockRule {
 
 
 abstract class Filter {
-    final LithoBlockRegister pathRegister = new LithoBlockRegister();
-    final LithoBlockRegister identifierRegister = new LithoBlockRegister();
+    final protected LithoBlockRegister pathRegister = new LithoBlockRegister();
+    final protected LithoBlockRegister identifierRegister = new LithoBlockRegister();
 
     abstract boolean filter(final String path, final String identifier);
 }
