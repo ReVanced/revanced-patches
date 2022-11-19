@@ -48,6 +48,7 @@ public enum SettingsEnum {
     ADREMOVER_HIDE_CHANNEL_GUIDELINES("revanced_adremover_hide_channel_guidelines", true, ReturnType.BOOLEAN),
     ADREMOVER_SELF_SPONSOR_REMOVAL("revanced_adremover_self_sponsor", true, ReturnType.BOOLEAN),
     ADREMOVER_CHAPTER_TEASER_REMOVAL("revanced_adremover_chapter_teaser", true, ReturnType.BOOLEAN),
+    ADREMOVER_BUTTONED_REMOVAL("revanced_adremover_buttoned", true, ReturnType.BOOLEAN),
 
     // Action buttons
     HIDE_LIKE_BUTTON("revanced_like_button", false, ReturnType.BOOLEAN, false),

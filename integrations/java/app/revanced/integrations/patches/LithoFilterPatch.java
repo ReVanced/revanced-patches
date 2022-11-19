@@ -234,7 +234,11 @@ final class GeneralBytecodeAdsPatch extends Filter {
         var suggestions = new BlockRule(SettingsEnum.ADREMOVER_SUGGESTIONS_REMOVAL, "horizontal_video_shelf");
         var latestPosts = new BlockRule(SettingsEnum.ADREMOVER_HIDE_LATEST_POSTS, "post_shelf");
         var channelGuidelines = new BlockRule(SettingsEnum.ADREMOVER_HIDE_CHANNEL_GUIDELINES, "channel_guidelines_entry_banner");
-        var artistCard = new BlockRule(SettingsEnum.HIDE_ARTIST_CARD, "official_card");
+        var buttonedAd = new BlockRule(SettingsEnum.ADREMOVER_BUTTONED_REMOVAL,
+                "video_display_full_buttoned_layout",
+                "full_width_square_image_layout",
+                "_ad_with"
+        );       var artistCard = new BlockRule(SettingsEnum.HIDE_ARTIST_CARD, "official_card");
         var selfSponsor = new BlockRule(SettingsEnum.ADREMOVER_SELF_SPONSOR_REMOVAL, "cta_shelf_card");
         var chapterTeaser = new BlockRule(SettingsEnum.ADREMOVER_CHAPTER_TEASER_REMOVAL, "expandable_metadata");
         var graySeparator = new BlockRule(SettingsEnum.ADREMOVER_GRAY_SEPARATOR,
@@ -265,6 +269,7 @@ final class GeneralBytecodeAdsPatch extends Filter {
 
         this.pathRegister.registerAll(
                 generalAds,
+                buttonedAd,
                 communityPosts,
                 paidContent,
                 suggestions,
