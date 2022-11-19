@@ -27,7 +27,8 @@ public enum SettingsEnum {
     ENABLE_WHITELIST("revanced_whitelist_ads_enabled", false, ReturnType.BOOLEAN),
 
     // Ad settings
-    HOME_ADS_REMOVAL("revanced_home_ads_removal", true, ReturnType.BOOLEAN, true),
+    ADREMOVER_CUSTOM_ENABLED("revanced_adremover_custom_enabled", false, ReturnType.BOOLEAN),
+    ADREMOVER_CUSTOM_REMOVAL("revanced_adremover_custom_strings", "", ReturnType.STRING, true),
     VIDEO_ADS_REMOVAL("revanced_video_ads_removal", true, ReturnType.BOOLEAN, true),
     ADREMOVER_GENERAL_ADS_REMOVAL("revanced_adremover_ad_removal", true, ReturnType.BOOLEAN),
     ADREMOVER_MERCHANDISE_REMOVAL("revanced_adremover_merchandise", true, ReturnType.BOOLEAN),

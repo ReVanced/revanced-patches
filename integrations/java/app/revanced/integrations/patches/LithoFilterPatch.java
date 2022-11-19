@@ -292,6 +292,11 @@ final class GeneralBytecodeAdsPatch extends Filter {
         );
     }
 
+    private final BlockRule custom = new CustomBlockRule(
+            SettingsEnum.ADREMOVER_CUSTOM_ENABLED,
+            SettingsEnum.ADREMOVER_CUSTOM_REMOVAL
+    );
+
     public boolean filter(final String path, final String identifier) {
         // Do not block on these
         if (ReVancedUtils.containsAny(path,
