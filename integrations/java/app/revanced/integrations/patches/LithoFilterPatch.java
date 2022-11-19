@@ -119,7 +119,7 @@ final class LithoBlockRegister implements Iterable<BlockRule> {
 
 public final class LithoFilterPatch {
     private static final Filter[] filters = new Filter[]{
-            new GeneralBytecodeAdsPatch(),
+            new GeneralAdsPatch(),
             new ButtonsPatch(),
             new CommentsPatch(),
     };
@@ -221,8 +221,27 @@ final class ButtonsPatch extends Filter {
     }
 }
 
-final class GeneralBytecodeAdsPatch extends Filter {
-    public GeneralBytecodeAdsPatch() {
+final class GeneralAdsPatch extends Filter {
+    private final String[] IGNORE = {
+            "home_video_with_context",
+            "related_video_with_context",
+            "comment_thread", // skip blocking anything in the comments
+            "download_",
+            "library_recent_shelf",
+            "menu",
+            "root",
+            "-count",
+            "-space",
+            "-button",
+            "playlist_add_to_option_wrapper" // do not block on "add to playlist" flyout menu
+    };
+
+    private final BlockRule custom = new CustomBlockRule(
+            SettingsEnum.ADREMOVER_CUSTOM_ENABLED,
+            SettingsEnum.ADREMOVER_CUSTOM_REMOVAL
+    );
+
+    public GeneralAdsPatch() {
         var communityPosts = new BlockRule(SettingsEnum.ADREMOVER_COMMUNITY_POSTS_REMOVAL, "post_base_wrapper");
         var communityGuidelines = new BlockRule(SettingsEnum.ADREMOVER_COMMUNITY_GUIDELINES_REMOVAL, "community_guidelines");
         var compactBanner = new BlockRule(SettingsEnum.ADREMOVER_COMPACT_BANNER_REMOVAL, "compact_banner");
@@ -234,28 +253,21 @@ final class GeneralBytecodeAdsPatch extends Filter {
         var suggestions = new BlockRule(SettingsEnum.ADREMOVER_SUGGESTIONS_REMOVAL, "horizontal_video_shelf");
         var latestPosts = new BlockRule(SettingsEnum.ADREMOVER_HIDE_LATEST_POSTS, "post_shelf");
         var channelGuidelines = new BlockRule(SettingsEnum.ADREMOVER_HIDE_CHANNEL_GUIDELINES, "channel_guidelines_entry_banner");
-        var buttonedAd = new BlockRule(SettingsEnum.ADREMOVER_BUTTONED_REMOVAL,
-                "video_display_full_buttoned_layout",
-                "full_width_square_image_layout",
-                "_ad_with"
-        );       var artistCard = new BlockRule(SettingsEnum.HIDE_ARTIST_CARD, "official_card");
+        var artistCard = new BlockRule(SettingsEnum.HIDE_ARTIST_CARD, "official_card");
         var selfSponsor = new BlockRule(SettingsEnum.ADREMOVER_SELF_SPONSOR_REMOVAL, "cta_shelf_card");
         var chapterTeaser = new BlockRule(SettingsEnum.ADREMOVER_CHAPTER_TEASER_REMOVAL, "expandable_metadata");
         var graySeparator = new BlockRule(SettingsEnum.ADREMOVER_GRAY_SEPARATOR,
                 "cell_divider" // layout residue (gray line above the buttoned ad),
         );
-
+        var buttonedAd = new BlockRule(SettingsEnum.ADREMOVER_BUTTONED_REMOVAL,
+                "video_display_full_buttoned_layout",
+                "full_width_square_image_layout",
+                "_ad_with"
+        );
         var generalAds = new BlockRule(
                 SettingsEnum.ADREMOVER_GENERAL_ADS_REMOVAL,
-                // could be required
-                //"full_width_square_image_layout",
-                "video_display_full_buttoned_layout",
-                "_ad",
-                "ad_",
                 "ads_video_with_context",
                 "banner_text_icon",
-                "cell_divider",
-                "reels_player_overlay",
                 "watch_metadata_app_promo",
                 "video_display_full_layout"
         );
@@ -288,8 +300,14 @@ final class GeneralBytecodeAdsPatch extends Filter {
                 selfSponsor
         );
 
-        var carouselAd = new BlockRule(SettingsEnum.ADREMOVER_GENERAL_ADS_REMOVAL, "carousel_ad");
-        var shorts = new BlockRule(SettingsEnum.ADREMOVER_SHORTS_REMOVAL, "shorts_shelf", "inline_shorts");
+        var carouselAd = new BlockRule(SettingsEnum.ADREMOVER_GENERAL_ADS_REMOVAL,
+                "carousel_ad"
+        );
+        var shorts = new BlockRule(SettingsEnum.ADREMOVER_SHORTS_REMOVAL,
+                "reels_player_overlay",
+                "shorts_shelf",
+                "inline_shorts"
+        );
 
         this.identifierRegister.registerAll(
                 shorts,
@@ -297,32 +315,38 @@ final class GeneralBytecodeAdsPatch extends Filter {
         );
     }
 
-    private final BlockRule custom = new CustomBlockRule(
-            SettingsEnum.ADREMOVER_CUSTOM_ENABLED,
-            SettingsEnum.ADREMOVER_CUSTOM_REMOVAL
-    );
-
     public boolean filter(final String path, final String identifier) {
-        // Do not block on these
-        if (ReVancedUtils.containsAny(path,
-                "home_video_with_context",
-                "related_video_with_context",
-                "comment_thread", // skip blocking anything in the comments
-                "download_",
-                "library_recent_shelf",
-                "menu",
-                "root",
-                "-count",
-                "-space",
-                "-button",
-                "playlist_add_to_option_wrapper" // do not block on "add to playlist" flyout menu
-        )) return false;
+        BlockResult result;
 
-        if (!(Extensions.any(pathRegister, path) || Extensions.any(identifierRegister, identifier)))
-            return false;
+        if (custom.isEnabled() && custom.check(path).isBlocked())
+            result = BlockResult.CUSTOM;
+        else if (ReVancedUtils.containsAny(path, IGNORE))
+            result = BlockResult.IGNORED;
+        else if (pathRegister.contains(path) || identifierRegister.contains(identifier))
+            result = BlockResult.DEFINED;
+        else
+            result = BlockResult.UNBLOCKED;
 
-        LogHelper.debug(GeneralBytecodeAdsPatch.class, String.format("Blocked (ID: %s): %s", identifier, path));
+        LogHelper.debug(
+                GeneralAdsPatch.class,
+                String.format("%s (ID: %s): %s", result.message, identifier, path)
+        );
 
-        return true;
+        return result.filter;
+    }
+
+    private enum BlockResult {
+        UNBLOCKED(false, "Unblocked"),
+        IGNORED(false, "Ignored"),
+        DEFINED(true, "Blocked"),
+        CUSTOM(true, "Custom");
+
+        final Boolean filter;
+        final String message;
+
+        BlockResult(boolean filter, String message) {
+            this.filter = filter;
+            this.message = message;
+        }
     }
 }
