@@ -13,8 +13,8 @@ import app.revanced.patches.youtube.ad.general.annotation.GeneralAdsCompatibilit
 import app.revanced.patches.youtube.misc.litho.filter.patch.LithoFilterPatch
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
-import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
-import app.revanced.patches.youtube.misc.settings.framework.components.impl.SwitchPreference
+import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch.PreferenceScreen
+import app.revanced.patches.youtube.misc.settings.framework.components.impl.*
 
 @Patch
 @DependsOn(dependencies = [FixLocaleConfigErrorPatch::class, LithoFilterPatch::class, SettingsPatch::class])
@@ -24,7 +24,7 @@ import app.revanced.patches.youtube.misc.settings.framework.components.impl.Swit
 @Version("0.0.1")
 class GeneralAdsPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
-        SettingsPatch.PreferenceScreen.ADS.addPreferences(
+        PreferenceScreen.ADS.addPreferences(
             SwitchPreference(
                 "revanced_home_ads_removal",
                 StringResource("revanced_home_ads_removal_title", "Remove home ads"),
@@ -38,6 +38,13 @@ class GeneralAdsPatch : ResourcePatch {
                 true,
                 StringResource("revanced_adremover_ad_removal_enabled_summary_on", "General ads are hidden"),
                 StringResource("revanced_adremover_ad_removal_enabled_summary_off", "General ads are shown")
+            ),
+            SwitchPreference(
+                "revanced_adremover_buttoned",
+                StringResource("revanced_adremover_buttoned_enabled_title", "Remove buttoned ad"),
+                true,
+                StringResource("revanced_adremover_buttoned_enabled_summary_on", "Buttoned ads are hidden"),
+                StringResource("revanced_adremover_buttoned_enabled_summary_off", "Buttoned ads are shown")
             ),
             SwitchPreference(
                 "revanced_adremover_merchandise",
