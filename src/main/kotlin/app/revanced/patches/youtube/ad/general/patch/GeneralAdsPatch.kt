@@ -185,6 +185,39 @@ class GeneralAdsPatch : ResourcePatch {
                     "revanced_adremover_chapter_teaser_enabled_summary_off",
                     "Chapter teasers are shown"
                 )
+            ),
+            PreferenceScreen(
+                "revanced_adremover_custom",
+                StringResource("revanced_adremover_custom_title", "Custom filter"),
+                listOf(
+                    SwitchPreference(
+                        "revanced_adremover_custom_enabled",
+                        StringResource(
+                            "revanced_adremover_custom_enabled_title",
+                            "Enable custom filter"
+                        ),
+                        false,
+                        StringResource(
+                            "revanced_adremover_custom_enabled_summary_on",
+                            "Custom filter is enabled"
+                        ),
+                        StringResource(
+                            "revanced_adremover_custom_enabled_summary_off",
+                            "Custom filter is disabled"
+                        )
+                    ),
+                    // TODO: This should be a ListPreference, which does not exist yet
+                    TextPreference(
+                        "revanced_adremover_custom_strings",
+                        StringResource("revanced_adremover_custom_strings_title", "Custom filter"),
+                        InputType.STRING,
+                        "",
+                        StringResource(
+                            "revanced_adremover_custom_strings_summary",
+                            "Filter components by their name separated by a comma"
+                        )
+                    )
+                )
             )
         )
 
