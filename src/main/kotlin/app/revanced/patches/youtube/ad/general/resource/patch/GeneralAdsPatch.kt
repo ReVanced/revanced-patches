@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch.P
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.*
 
 @Patch
-@DependsOn(dependencies = [FixLocaleConfigErrorPatch::class, LithoFilterPatch::class, SettingsPatch::class])
+@DependsOn(dependencies = [FixLocaleConfigErrorPatch::class, LithoFilterPatch::class, SettingsPatch::class, ResourceMappingPatch::class])
 @Name("general-ads")
 @Description("Removes general ads.")
 @GeneralAdsCompatibility

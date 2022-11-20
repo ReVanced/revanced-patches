@@ -9,7 +9,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
-import app.revanced.patches.youtube.misc.mapping.patch.ResourceMappingResourcePatch
+import app.revanced.patches.youtube.misc.mapping.patch.ResourceMappingPatch
 import app.revanced.patches.youtube.misc.settings.annotations.SettingsCompatibility
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.framework.components.BasePreference
@@ -21,14 +21,14 @@ import org.w3c.dom.Node
 
 @Name("settings-resource-patch")
 @SettingsCompatibility
-@DependsOn([FixLocaleConfigErrorPatch::class, ResourceMappingResourcePatch::class])
+@DependsOn([FixLocaleConfigErrorPatch::class, ResourceMappingPatch::class])
 @Version("0.0.1")
 class SettingsResourcePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
         /*
          * used by a fingerprint of SettingsPatch
          */
-        appearanceStringId = ResourceMappingResourcePatch.resourceMappings.find {
+        appearanceStringId = ResourceMappingPatch.resourceMappings.find {
             it.type == "string" && it.name == "app_theme_appearance_dark"
         }!!.id
 

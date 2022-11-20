@@ -8,7 +8,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.youtube.layout.comments.annotations.CommentsCompatibility
-import app.revanced.patches.youtube.misc.mapping.patch.ResourceMappingResourcePatch
+import app.revanced.patches.youtube.misc.mapping.patch.ResourceMappingPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
@@ -16,7 +16,7 @@ import app.revanced.patches.youtube.misc.settings.framework.components.impl.Swit
 
 @Name("comments-resource-patch")
 @CommentsCompatibility
-@DependsOn([SettingsPatch::class, ResourceMappingResourcePatch::class])
+@DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
 @Version("0.0.1")
 class CommentsResourcePatch : ResourcePatch {
     companion object {
@@ -55,7 +55,7 @@ class CommentsResourcePatch : ResourcePatch {
             )
         )
 
-        shortsCommentsButtonId = ResourceMappingResourcePatch.resourceMappings.single {
+        shortsCommentsButtonId = ResourceMappingPatch.resourceMappings.single {
             it.type == "drawable" && it.name == "ic_right_comment_32c"
         }.id
 

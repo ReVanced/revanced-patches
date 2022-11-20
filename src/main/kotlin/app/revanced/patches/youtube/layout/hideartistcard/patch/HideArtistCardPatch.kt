@@ -11,13 +11,13 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.misc.litho.filter.patch.LithoFilterPatch
 import app.revanced.patches.youtube.layout.buttons.annotations.HideArtistCardCompatibility
-import app.revanced.patches.youtube.misc.mapping.patch.ResourceMappingResourcePatch
+import app.revanced.patches.youtube.misc.mapping.patch.ResourceMappingPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.SwitchPreference
 
 @Patch
-@DependsOn([ResourceMappingResourcePatch::class, LithoFilterPatch::class])
+@DependsOn([ResourceMappingPatch::class, LithoFilterPatch::class])
 @Name("hide-artist-card")
 @Description("Hides the artist card below the searchbar.")
 @HideArtistCardCompatibility
