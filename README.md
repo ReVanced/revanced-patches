@@ -115,6 +115,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `swipe-controls` | Adds volume and brightness swipe controls. | 17.43.36 |
 | `downloads` | Enables downloading music and videos from YouTube. | 17.43.36 |
 | `seekbar-tapping` | Enables tap-to-seek on the seekbar of the video player. | 17.43.36 |
+| `disable-zoom-haptics` | Disables haptics when zooming. | all |
 | `settings` | Adds settings for ReVanced to YouTube. | all |
 | `open-links-directly` | Bypasses redirect links and allows opening links directly. | 17.43.36 |
 | `microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG. | 17.43.36 |
