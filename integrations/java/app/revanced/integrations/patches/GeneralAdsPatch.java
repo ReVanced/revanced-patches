@@ -49,7 +49,7 @@ public final class GeneralAdsPatch extends Filter {
                 "video_display_full_buttoned_layout",
                 "full_width_square_image_layout",
                 "_ad_with",
-                "landscape_image_wide_button_layout" // add with "open outside button"
+                "landscape_image_wide_button_layout"
         );
         var generalAds = new BlockRule(
                 SettingsEnum.ADREMOVER_GENERAL_ADS_REMOVAL,
