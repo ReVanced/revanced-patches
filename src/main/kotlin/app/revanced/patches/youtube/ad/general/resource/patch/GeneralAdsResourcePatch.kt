@@ -30,13 +30,6 @@ class GeneralAdsResourcePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
         PreferenceScreen.ADS.addPreferences(
             SwitchPreference(
-                "revanced_home_ads_removal",
-                StringResource("revanced_home_ads_removal_title", "Remove home ads"),
-                true,
-                StringResource("revanced_home_ads_removal_summary_on", "Home ads are hidden"),
-                StringResource("revanced_home_ads_removal_summary_off", "Home ads are shown")
-            ),
-            SwitchPreference(
                 "revanced_adremover_ad_removal",
                 StringResource("revanced_adremover_ad_removal_enabled_title", "Remove general ads"),
                 true,
