@@ -285,7 +285,6 @@ final class GeneralAdsPatch extends Filter {
                 communityPosts,
                 paidContent,
                 suggestions,
-                graySeparator,
                 latestPosts,
                 movieAds,
                 chapterTeaser,
@@ -311,6 +310,7 @@ final class GeneralAdsPatch extends Filter {
 
         this.identifierRegister.registerAll(
                 shorts,
+                graySeparator,
                 carouselAd
         );
     }
