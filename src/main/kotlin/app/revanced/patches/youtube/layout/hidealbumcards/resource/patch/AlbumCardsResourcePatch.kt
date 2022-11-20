@@ -8,14 +8,14 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.youtube.layout.hidealbumcards.annotations.AlbumCardsCompatibility
-import app.revanced.patches.youtube.misc.mapping.patch.ResourceMappingResourcePatch
+import app.revanced.patches.youtube.misc.mapping.patch.ResourceMappingPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.SwitchPreference
 
 @Name("hide-album-cards-resource-patch")
 @AlbumCardsCompatibility
-@DependsOn([SettingsPatch::class, ResourceMappingResourcePatch::class])
+@DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
 @Version("0.0.1")
 class AlbumCardsResourcePatch : ResourcePatch {
     companion object {
@@ -33,7 +33,7 @@ class AlbumCardsResourcePatch : ResourcePatch {
             )
         )
 
-        albumCardId = ResourceMappingResourcePatch.resourceMappings.single {
+        albumCardId = ResourceMappingPatch.resourceMappings.single {
             it.type == "layout" && it.name == "album_card"
         }.id
 

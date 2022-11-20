@@ -8,14 +8,14 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.youtube.layout.hideendscreencards.annotations.HideEndscreenCardsCompatibility
-import app.revanced.patches.youtube.misc.mapping.patch.ResourceMappingResourcePatch
+import app.revanced.patches.youtube.misc.mapping.patch.ResourceMappingPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.SwitchPreference
 
 @Name("hide-endscreen-cards-resource-patch")
 @HideEndscreenCardsCompatibility
-@DependsOn([SettingsPatch::class, ResourceMappingResourcePatch::class])
+@DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
 @Version("0.0.1")
 class HideEndscreenCardsResourcePatch : ResourcePatch {
     internal companion object {
@@ -35,7 +35,7 @@ class HideEndscreenCardsResourcePatch : ResourcePatch {
             ),
         )
 
-        fun findEndscreenResourceId(name: String) = ResourceMappingResourcePatch.resourceMappings.single {
+        fun findEndscreenResourceId(name: String) = ResourceMappingPatch.resourceMappings.single {
             it.type == "layout" && it.name == "endscreen_element_layout_$name"
         }.id
 
