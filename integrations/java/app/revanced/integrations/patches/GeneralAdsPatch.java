@@ -136,4 +136,14 @@ public final class GeneralAdsPatch extends Filter {
             this.message = message;
         }
     }
+
+    /**
+     * Hide the specific view, which shows ads in the homepage.
+     *
+     * @param view The view, which shows ads.
+     */
+    public static void hideAdAttributionView(View view) {
+        if (!SettingsEnum.ADREMOVER_GENERAL_ADS_REMOVAL.getBoolean()) return;
+        AdRemoverAPI.HideViewWithLayout1dp(view);
+    }
 }
