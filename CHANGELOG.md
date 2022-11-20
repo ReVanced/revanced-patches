@@ -1,3 +1,11 @@
+## [2.114.2](https://github.com/revanced/revanced-patches/compare/v2.114.1...v2.114.2) (2022-11-20)
+
+
+### Bug Fixes
+
+* **youtube/general-ads:** hide bytecode home ad view ([4976ad4](https://github.com/revanced/revanced-patches/commit/4976ad44b1867c93e976d91075b5bcead8d69c90))
+* **youtube/general-ads:** remove unused switch ([43cddcc](https://github.com/revanced/revanced-patches/commit/43cddcc85830524cd88d87ae1178f11451f158d8))
+
 ## [2.114.1](https://github.com/revanced/revanced-patches/compare/v2.114.0...v2.114.1) (2022-11-20)
 
 
