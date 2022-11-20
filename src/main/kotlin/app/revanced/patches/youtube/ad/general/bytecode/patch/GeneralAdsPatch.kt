@@ -49,7 +49,7 @@ class GeneralAdsPatch : BytecodePatch() {
                         if (instruction.opcode != org.jf.dexlib2.Opcode.CONST)
                             return@forEachIndexed
                         // Instruction to store the id adAttribution into a register
-                        if ((instruction as Instruction31i).wideLiteral != app.revanced.patches.youtube.ad.general.resource.patch.GeneralAdsResourcePatch.adAttributionId)
+                        if ((instruction as Instruction31i).wideLiteral != GeneralAdsResourcePatch.adAttributionId)
                             return@forEachIndexed
 
                         val insertIndex = index + 1
