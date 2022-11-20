@@ -91,6 +91,7 @@ public enum SettingsEnum {
     TAP_SEEKING_ENABLED("revanced_enable_tap_seeking", true, ReturnType.BOOLEAN),
     ENABLE_MINIMIZED_PLAYBACK("revanced_enable_minimized_playback", true, ReturnType.BOOLEAN),
     OPEN_LINKS_DIRECTLY("revanced_uri_redirect", true, ReturnType.BOOLEAN, true),
+    DISABLE_ZOOM_HAPTICS("revanced_disable_zoom_haptics", true, ReturnType.BOOLEAN, false),
 
     // Swipe controls
     ENABLE_SWIPE_BRIGHTNESS("revanced_enable_swipe_brightness", true, ReturnType.BOOLEAN),
