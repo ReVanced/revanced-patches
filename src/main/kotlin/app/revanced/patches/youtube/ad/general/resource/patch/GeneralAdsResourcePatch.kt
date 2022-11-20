@@ -1,14 +1,11 @@
-package app.revanced.patches.youtube.ad.general.patch
+package app.revanced.patches.youtube.ad.general.resource.patch
 
-import app.revanced.patcher.annotation.Description
-import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.ad.general.annotation.GeneralAdsCompatibility
 import app.revanced.patches.youtube.misc.litho.filter.patch.LithoFilterPatch
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
@@ -17,13 +14,19 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.*
 
-@Patch
-@DependsOn(dependencies = [FixLocaleConfigErrorPatch::class, LithoFilterPatch::class, SettingsPatch::class, ResourceMappingPatch::class])
-@Name("general-ads")
-@Description("Removes general ads.")
+@DependsOn(dependencies = [
+    FixLocaleConfigErrorPatch::class,
+    LithoFilterPatch::class,
+    SettingsPatch::class,
+    ResourceMappingPatch::class
+])
 @GeneralAdsCompatibility
 @Version("0.0.1")
-class GeneralAdsPatch : ResourcePatch {
+class GeneralAdsResourcePatch : ResourcePatch {
+    internal companion object {
+        var adAttributionId: Long = -1
+    }
+
     override fun execute(context: ResourceContext): PatchResult {
         PreferenceScreen.ADS.addPreferences(
             SwitchPreference(
@@ -222,6 +225,7 @@ class GeneralAdsPatch : ResourcePatch {
             )
         )
 
+        adAttributionId = ResourceMappingPatch.resourceMappings.single { it.name == "ad_attribution" }.id
         return PatchResultSuccess()
     }
 }
