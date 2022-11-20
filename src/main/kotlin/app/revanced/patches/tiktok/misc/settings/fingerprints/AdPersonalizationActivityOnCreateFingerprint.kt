@@ -5,12 +5,12 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.tiktok.misc.settings.annotations.TikTokSettingsCompatibility
 
-@Name("copyright-settings-string-fingerprint")
+@Name("ad-personalization-activity-on-create-fingerprint")
 @TikTokSettingsCompatibility
 @Version("0.0.1")
-object CopyRightSettingsStringFingerprint : MethodFingerprint(
+object AdPersonalizationActivityOnCreateFingerprint : MethodFingerprint(
     customFingerprint = { methodDef ->
-        methodDef.definingClass.endsWith("/SettingNewVersionFragment;") &&
-                methodDef.name == "onViewCreated"
+        methodDef.definingClass.endsWith("/AdPersonalizationActivity;") &&
+                methodDef.name == "onCreate"
     }
 )
