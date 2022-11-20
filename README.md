@@ -21,7 +21,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `tiktok-speed` | Enables the playback speed option for all videos. | all |
 | `tiktok-download` | Removes download restrictions and changes the default path to download to. | all |
 | `tiktok-seekbar` | Show progress bar for all video. | all |
-| `tiktok-settings` | Add settings menu to TikTok. | all |
+| `settings` | Adds settings for ReVanced to TikTok. | all |
 | `tiktok-force-login` | Do not force login. | all |
 | `tiktok-feed-filter` | Filters tiktok videos: removing ads, removing livestreams. | all |
 </details>
@@ -35,7 +35,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `tiktok-speed` | Enables the playback speed option for all videos. | all |
 | `tiktok-download` | Removes download restrictions and changes the default path to download to. | all |
 | `tiktok-seekbar` | Show progress bar for all video. | all |
-| `tiktok-settings` | Add settings menu to TikTok. | all |
+| `settings` | Adds settings for ReVanced to TikTok. | all |
 | `tiktok-force-login` | Do not force login. | all |
 | `tiktok-feed-filter` | Filters tiktok videos: removing ads, removing livestreams. | all |
 </details>
