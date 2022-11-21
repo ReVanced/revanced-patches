@@ -1,3 +1,12 @@
+# [2.115.0](https://github.com/revanced/revanced-patches/compare/v2.114.2...v2.115.0) (2022-11-21)
+
+
+### Features
+
+* **youtube/general-ads:** normalize switch names ([7636180](https://github.com/revanced/revanced-patches/commit/763618002ab6ccd9cd23889275c0e9b23642763e))
+* **youtube/theme:** exclude the patch by default ([57358ed](https://github.com/revanced/revanced-patches/commit/57358edc4cf3ae6b05cfb51359f66fc94c71cb5c))
+* **youtube/theme:** make dark the default color for dark theme background ([db44fa6](https://github.com/revanced/revanced-patches/commit/db44fa6f5adad19384970dad58784b2bf5fe1007))
+
 ## [2.114.2](https://github.com/revanced/revanced-patches/compare/v2.114.1...v2.114.2) (2022-11-20)
 
 
