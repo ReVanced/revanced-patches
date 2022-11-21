@@ -56,7 +56,7 @@ class ThemePatch : ResourcePatch {
         var darkThemeBackgroundColor: String? by option(
             PatchOption.StringOption(
                 key = "darkThemeBackgroundColor",
-                default = "#FF282828",
+                default = "@android:color/black",
                 title = "Background color for the dark theme",
                 description = "The background color of the dark theme. Can be a hex color or a resource reference.",
             )
