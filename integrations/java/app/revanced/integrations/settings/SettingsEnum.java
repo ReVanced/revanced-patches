@@ -109,7 +109,7 @@ public enum SettingsEnum {
     MAX_PLAYBACK_BUFFER_AFTER_REBUFFER("revanced_pref_buffer_for_playback_after_rebuffer_ms", 5000, ReturnType.INTEGER),
 
     // ReVanced settings
-    DEBUG("revanced_debug_enabled", false, ReturnType.BOOLEAN, true),
+    DEBUG("revanced_debug_enabled", false, ReturnType.BOOLEAN),
     USE_DARK_THEME("app_theme_dark", false, ReturnType.BOOLEAN),
 
     // RYD settings
