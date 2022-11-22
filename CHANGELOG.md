@@ -1,3 +1,10 @@
+## [2.117.1](https://github.com/revanced/revanced-patches/compare/v2.117.0...v2.117.1) (2022-11-22)
+
+
+### Bug Fixes
+
+* **youtube/general-ads:** hide reels shelf ([a436663](https://github.com/revanced/revanced-patches/commit/a436663e7755fc714c735df626d39bbd94f83dbb))
+
 # [2.117.0](https://github.com/revanced/revanced-patches/compare/v2.116.0...v2.117.0) (2022-11-21)
 
 
