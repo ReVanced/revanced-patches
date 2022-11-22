@@ -114,10 +114,7 @@ public final class GeneralAdsPatch extends Filter {
         else
             result = BlockResult.UNBLOCKED;
 
-        LogHelper.debug(
-                GeneralAdsPatch.class,
-                String.format("%s (ID: %s): %s", result.message, identifier, path)
-        );
+        log(String.format("%s (ID: %s): %s", result.message, identifier, path));
 
         return result.filter;
     }
@@ -138,12 +135,38 @@ public final class GeneralAdsPatch extends Filter {
     }
 
     /**
-     * Hide the specific view, which shows ads in the homepage.
+     * Hide a view.
+     *
+     * @param condition The setting to check for hiding the view.
+     * @param view      The view to hide.
+     */
+    private static void hideView(SettingsEnum condition, View view) {
+        if (!condition.getBoolean()) return;
+
+        log("Hiding view with setting: " + condition);
+
+        AdRemoverAPI.HideViewWithLayout1dp(view);
+    }
+
+    /**
+     * Hide the view, which shows ads in the homepage.
      *
      * @param view The view, which shows ads.
      */
     public static void hideAdAttributionView(View view) {
-        if (!SettingsEnum.ADREMOVER_GENERAL_ADS_REMOVAL.getBoolean()) return;
-        AdRemoverAPI.HideViewWithLayout1dp(view);
+        hideView(SettingsEnum.ADREMOVER_GENERAL_ADS_REMOVAL, view);
+    }
+
+    /**
+     * Hide the view, which shows reels in the homepage.
+     *
+     * @param view The view, which shows reels.
+     */
+    public static void hideReelView(View view) {
+        hideView(SettingsEnum.ADREMOVER_SHORTS_REMOVAL, view);
+    }
+
+    private static void log(String message) {
+        LogHelper.debug(GeneralAdsPatch.class, message);
     }
 }
