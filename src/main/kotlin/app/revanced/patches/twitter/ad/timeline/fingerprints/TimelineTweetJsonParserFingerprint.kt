@@ -1,14 +1,8 @@
 package app.revanced.patches.twitter.ad.timeline.fingerprints
 
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patches.twitter.ad.timeline.annotations.TimelineAdsCompatibility
 import org.jf.dexlib2.Opcode
 
-@Name("timeline-tweet-json-parser-fingerprint")
-@TimelineAdsCompatibility
-@Version("0.0.1")
 object TimelineTweetJsonParserFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.IPUT_OBJECT,
