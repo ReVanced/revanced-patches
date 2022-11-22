@@ -1,3 +1,10 @@
+# [2.118.0](https://github.com/revanced/revanced-patches/compare/v2.117.1...v2.118.0) (2022-11-22)
+
+
+### Features
+
+* **youtube:** bump patches compatibility to v17.45.36 ([ab7dfd8](https://github.com/revanced/revanced-patches/commit/ab7dfd8ee1d902095811ed91b80aa0ed362ee9c5))
+
 ## [2.117.1](https://github.com/revanced/revanced-patches/compare/v2.117.0...v2.117.1) (2022-11-22)
 
 
