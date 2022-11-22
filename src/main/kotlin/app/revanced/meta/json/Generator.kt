@@ -3,7 +3,6 @@ package app.revanced.meta.json
 import app.revanced.meta.Bundle
 import app.revanced.patcher.extensions.PatchExtensions.compatiblePackages
 import app.revanced.patcher.extensions.PatchExtensions.dependencies
-import app.revanced.patcher.extensions.PatchExtensions.deprecated
 import app.revanced.patcher.extensions.PatchExtensions.description
 import app.revanced.patcher.extensions.PatchExtensions.include
 import app.revanced.patcher.extensions.PatchExtensions.options
@@ -22,7 +21,6 @@ fun generateJson(bundle: Bundle) {
             it.description ?: "This patch has no description.",
             it.version ?: "0.0.0",
             !it.include,
-            it.deprecated != null,
             it.options?.map { option ->
                 Option(
                     option.key,

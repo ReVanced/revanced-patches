@@ -1,14 +1,8 @@
 package app.revanced.patches.youtube.misc.litho.filter.fingerprints
 
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patches.youtube.misc.litho.filter.annotation.LithoFilterCompatibility
 import org.jf.dexlib2.Opcode
 
-@Name("component-context-parser-fingerprint")
-@LithoFilterCompatibility
-@Version("0.0.1")
 object ComponentContextParserFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.INVOKE_INTERFACE,

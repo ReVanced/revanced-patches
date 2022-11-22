@@ -18,7 +18,6 @@ The file contains an array of objects, each object representing a patch. The obj
 | `description`                 | The description of the patch.                                                                                                                                                         |
 | `version`                     | The version of the patch.                                                                                                                                                             |
 | `excluded`                    | Whether the patch is excluded by default. If `true`, the patch must never be included by default.                                                                                     |
-| `deprecated`                  | Whether the patch is deprecated.                                                                                                                                                      |
 | `options`                     | An array of options for this patch.                                                                                                                                                   |
 | `options.key`                 | The key of the option.                                                                                                                                                                |
 | `options.title`               | The title of the option.                                                                                                                                                              |
@@ -39,7 +38,6 @@ Example:
     "description": "Adds the ability to remember the video quality you chose in the video quality flyout.",
     "version": "0.0.1",
     "excluded": false,
-    "deprecated": false,
     "options": [],
     "dependencies": [
       "integrations",
