@@ -5,17 +5,22 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.extensions.softCompareTo
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.ad.general.annotation.GeneralAdsCompatibility
+import app.revanced.patches.youtube.ad.general.bytecode.fingerprints.ReelConstructorFingerprint
 import app.revanced.patches.youtube.ad.general.resource.patch.GeneralAdsResourcePatch
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.*
 import org.jf.dexlib2.iface.Method
+import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 import org.jf.dexlib2.immutable.reference.ImmutableMethodReference
@@ -28,7 +33,9 @@ import java.util.*
 @Description("Removes general ads.")
 @GeneralAdsCompatibility
 @Version("0.0.1")
-class GeneralAdsPatch : BytecodePatch() {
+class GeneralAdsPatch : BytecodePatch(
+    listOf(ReelConstructorFingerprint)
+) {
     internal companion object {
         private fun MutableClass.findMutableMethodOf(
             method: Method
@@ -42,6 +49,14 @@ class GeneralAdsPatch : BytecodePatch() {
     }
 
     override fun execute(context: BytecodeContext): PatchResult {
+        fun String.buildHideCall(viewRegister: Int) = "invoke-static { v$viewRegister }, " +
+                "Lapp/revanced/integrations/patches/GeneralAdsPatch;" +
+                "->" +
+                "$this(Landroid/view/View;)V"
+
+        fun MutableMethod.injectHideCall(insertIndex: Int, viewRegister: Int, method: String) =
+            this.addInstruction(insertIndex, method.buildHideCall(viewRegister))
+
         context.classes.forEach { classDef ->
             classDef.methods.forEach { method ->
                 with(method.implementation) {
@@ -61,17 +76,29 @@ class GeneralAdsPatch : BytecodePatch() {
 
                             // Hide the view
                             val viewRegister = (this as Instruction35c).registerC
-                            context.proxy(classDef).mutableClass.findMutableMethodOf(method).addInstruction(
-                                insertIndex,
-                                "invoke-static { v$viewRegister }, " +
-                                        "Lapp/revanced/integrations/patches/GeneralAdsPatch;" +
-                                        "->" +
-                                        "hideAdAttributionView(Landroid/view/View;)V"
-                            )
+                            context.proxy(classDef)
+                                .mutableClass
+                                .findMutableMethodOf(method)
+                                .injectHideCall(insertIndex, viewRegister, "hideAdAttributionView")
                         }
                     }
                 }
             }
+        }
+
+        with(
+            ReelConstructorFingerprint.result
+                ?: return PatchResultError("Could not resolve fingerprint")
+        ) {
+            // iput-object v$viewRegister, ...
+            val insertIndex = this.scanResult.patternScanResult!!.startIndex + 2
+
+            with(this.mutableMethod) {
+                val viewRegister = (instruction(insertIndex) as TwoRegisterInstruction).registerA
+
+                injectHideCall(insertIndex, viewRegister, "hideReelView")
+            }
+
         }
 
         return PatchResultSuccess()

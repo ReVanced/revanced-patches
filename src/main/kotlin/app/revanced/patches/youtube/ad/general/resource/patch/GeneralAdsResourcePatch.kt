@@ -6,10 +6,10 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patches.shared.mapping.patch.ResourceMappingPatch
 import app.revanced.patches.youtube.ad.general.annotation.GeneralAdsCompatibility
 import app.revanced.patches.youtube.misc.litho.filter.patch.LithoFilterPatch
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
-import app.revanced.patches.shared.mapping.patch.ResourceMappingPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.framework.components.impl.*
@@ -25,6 +25,7 @@ import app.revanced.patches.youtube.misc.settings.framework.components.impl.*
 class GeneralAdsResourcePatch : ResourcePatch {
     internal companion object {
         var adAttributionId: Long = -1
+        var reelMultipleItemShelfId: Long = -1
     }
 
     override fun execute(context: ResourceContext): PatchResult {
@@ -218,7 +219,11 @@ class GeneralAdsResourcePatch : ResourcePatch {
             )
         )
 
-        adAttributionId = ResourceMappingPatch.resourceMappings.single { it.name == "ad_attribution" }.id
+        fun String.getId() = ResourceMappingPatch.resourceMappings.single { it.name == this }.id
+
+        adAttributionId = "ad_attribution".getId()
+        reelMultipleItemShelfId = "reel_multiple_items_shelf".getId()
+
         return PatchResultSuccess()
     }
 }
