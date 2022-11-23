@@ -1,3 +1,10 @@
+# [2.119.0](https://github.com/revanced/revanced-patches/compare/v2.118.1...v2.119.0) (2022-11-23)
+
+
+### Features
+
+* **twitch:** ˋintegrationsˋ  dependency patch ([#1074](https://github.com/revanced/revanced-patches/issues/1074)) ([a84ca7e](https://github.com/revanced/revanced-patches/commit/a84ca7ec04389c3665358a7d239c615214fd327d))
+
 ## [2.118.1](https://github.com/revanced/revanced-patches/compare/v2.118.0...v2.118.1) (2022-11-22)
 
 # [2.118.0](https://github.com/revanced/revanced-patches/compare/v2.117.1...v2.118.0) (2022-11-22)
