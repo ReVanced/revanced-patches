@@ -1,3 +1,10 @@
+# [2.120.0](https://github.com/revanced/revanced-patches/compare/v2.119.0...v2.120.0) (2022-11-23)
+
+
+### Features
+
+* **youtube:** `remove-player-button-background` patch ([#855](https://github.com/revanced/revanced-patches/issues/855)) ([9e14817](https://github.com/revanced/revanced-patches/commit/9e14817fd2ef29b9f3ec161d74ab972ba19066b0))
+
 # [2.119.0](https://github.com/revanced/revanced-patches/compare/v2.118.1...v2.119.0) (2022-11-23)
 
 
