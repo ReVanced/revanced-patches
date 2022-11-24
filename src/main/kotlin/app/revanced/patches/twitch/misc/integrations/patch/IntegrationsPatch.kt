@@ -3,7 +3,7 @@ package app.revanced.patches.twitch.misc.integrations.patch
 import app.revanced.patcher.annotation.Name
 import app.revanced.patches.twitch.misc.integrations.fingerprints.InitFingerprint
 import app.revanced.patches.twitch.misc.integrations.annotations.IntegrationsCompatibility
-import app.revanced.shared.patches.AbstractIntegrationsPatch
+import app.revanced.patches.shared.integrations.patch.AbstractIntegrationsPatch
 
 @Name("integrations")
 @IntegrationsCompatibility

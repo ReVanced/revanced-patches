@@ -8,11 +8,14 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patches.shared.settings.impl.*
+import app.revanced.patches.shared.settings.impl.StringResource
+import app.revanced.patches.shared.settings.impl.SwitchPreference
+import app.revanced.patches.shared.settings.impl.TextPreference
 import app.revanced.patches.youtube.interaction.downloads.annotation.DownloadsCompatibility
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import app.revanced.patches.youtube.misc.playercontrols.resource.patch.BottomControlsResourcePatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
-import app.revanced.patches.youtube.misc.settings.framework.components.impl.*
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.Settings.mergeStrings
 import app.revanced.util.resources.ResourceUtils.copyResources

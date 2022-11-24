@@ -1,4 +1,4 @@
-package app.revanced.patches.shared.mapping.patch
+package app.revanced.patches.shared.mapping.misc.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name

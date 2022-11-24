@@ -18,7 +18,6 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.ad.general.annotation.GeneralAdsCompatibility
 import app.revanced.patches.youtube.ad.general.bytecode.fingerprints.ReelConstructorFingerprint
 import app.revanced.patches.youtube.ad.general.resource.patch.GeneralAdsResourcePatch
-import app.revanced.patches.youtube.misc.settings.framework.components.impl.*
 import org.jf.dexlib2.iface.Method
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i

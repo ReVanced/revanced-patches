@@ -17,8 +17,8 @@ import app.revanced.patches.youtube.ad.video.fingerprints.LoadVideoAdsFingerprin
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playback.fix.patch.FixPlaybackPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
-import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
-import app.revanced.patches.youtube.misc.settings.framework.components.impl.SwitchPreference
+import app.revanced.patches.shared.settings.impl.StringResource
+import app.revanced.patches.shared.settings.impl.SwitchPreference
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class, FixPlaybackPatch::class])

@@ -12,8 +12,8 @@ import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playback.fix.annotations.FixPlaybackCompatibility
 import app.revanced.patches.youtube.misc.video.information.patch.VideoInformationPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
-import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
-import app.revanced.patches.youtube.misc.settings.framework.components.impl.SwitchPreference
+import app.revanced.patches.shared.settings.impl.StringResource
+import app.revanced.patches.shared.settings.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.video.videoid.patch.VideoIdPatch
 
 @DependsOn([

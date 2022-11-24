@@ -11,15 +11,15 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patches.shared.settings.BasePreference
+import app.revanced.patches.shared.settings.impl.Preference
+import app.revanced.patches.shared.settings.impl.PreferenceScreen
+import app.revanced.patches.shared.settings.impl.StringResource
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.annotations.SettingsCompatibility
 import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.LicenseActivityFingerprint
 import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.ThemeSetterAppFingerprint
 import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.ThemeSetterSystemFingerprint
-import app.revanced.patches.youtube.misc.settings.framework.components.BasePreference
-import app.revanced.patches.youtube.misc.settings.framework.components.impl.Preference
-import app.revanced.patches.youtube.misc.settings.framework.components.impl.PreferenceScreen
-import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsResourcePatch
 import org.jf.dexlib2.util.MethodUtil
 import java.io.Closeable
@@ -134,7 +134,7 @@ class SettingsPatch : BytecodePatch(
         fun addString(identifier: String, value: String, formatted: Boolean = true) =
             SettingsResourcePatch.addString(identifier, value, formatted)
 
-        fun addPreferenceScreen(preferenceScreen: app.revanced.patches.youtube.misc.settings.framework.components.impl.PreferenceScreen) =
+        fun addPreferenceScreen(preferenceScreen: app.revanced.patches.shared.settings.impl.PreferenceScreen) =
             SettingsResourcePatch.addPreferenceScreen(preferenceScreen)
 
         fun addPreference(preference: Preference) =

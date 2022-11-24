@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.shared.fingerprints.WatchWhileActivityFingerprint
+import app.revanced.patches.shared.fingerprints.WatchWhileActivityFingerprint
 import app.revanced.patches.youtube.layout.castbutton.patch.HideCastButtonPatch
 import app.revanced.patches.youtube.misc.clientspoof.patch.ClientSpoofPatch
 import app.revanced.patches.youtube.misc.microg.annotations.MicroGPatchCompatibility

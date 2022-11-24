@@ -5,7 +5,7 @@ import app.revanced.patches.youtube.misc.integrations.annotations.IntegrationsCo
 import app.revanced.patches.youtube.misc.integrations.fingerprints.InitFingerprint
 import app.revanced.patches.youtube.misc.integrations.fingerprints.ServiceFingerprint
 import app.revanced.patches.youtube.misc.integrations.fingerprints.StandalonePlayerFingerprint
-import app.revanced.shared.patches.AbstractIntegrationsPatch
+import app.revanced.patches.shared.integrations.patch.AbstractIntegrationsPatch
 
 @Name("integrations")
 @IntegrationsCompatibility

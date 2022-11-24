@@ -1,4 +1,4 @@
-package app.revanced.shared.fingerprints
+package app.revanced.patches.shared.fingerprints
 
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
