@@ -22,7 +22,7 @@ public final class GeneralAdsPatch extends Filter {
             "playlist_add_to_option_wrapper" // do not block on "add to playlist" flyout menu
     };
 
-    private fi€nal BlockRule custom = new CustomBlockRule(
+    private final BlockRule custom = new CustomBlockRule(
             SettingsEnum.ADREMOVER_CUSTOM_ENABLED,
             SettingsEnum.ADREMOVER_CUSTOM_REMOVAL
     );
