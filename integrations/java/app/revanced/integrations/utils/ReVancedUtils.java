@@ -1,5 +1,6 @@
 package app.revanced.integrations.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Handler;
@@ -10,9 +11,13 @@ import app.revanced.integrations.sponsorblock.player.PlayerType;
 public class ReVancedUtils {
 
     private static PlayerType env;
-    public static boolean newVideo = false;
+    private static boolean newVideo = false;
 
+    @SuppressLint("StaticFieldLeak")
     public static Context context;
+
+    private ReVancedUtils() {
+    } // utility class
 
     public static boolean containsAny(final String value, final String... targets) {
         for (String string : targets)
@@ -52,10 +57,6 @@ public class ReVancedUtils {
         return context.getResources().getIdentifier(name, defType, context.getPackageName());
     }
 
-    public static void runOnMainThread(Runnable runnable) {
-        new Handler(Looper.getMainLooper()).post(runnable);
-    }
-
     public static Context getContext() {
         if (context != null) {
             return context;
@@ -67,5 +68,34 @@ public class ReVancedUtils {
 
     public static boolean isTablet(Context context) {
         return context.getResources().getConfiguration().smallestScreenWidthDp >= 600;
+    }
+
+    public static void runOnMainThread(Runnable runnable) {
+        new Handler(Looper.getMainLooper()).post(runnable);
+    }
+
+    /**
+     * @return if the calling thread is on the main thread
+     */
+    public static boolean currentIsOnMainThread() {
+        return Looper.getMainLooper().isCurrentThread();
+    }
+
+    /**
+     * @throws IllegalStateException if the calling thread is _not_ on the main thread
+     */
+    public static void verifyOnMainThread() throws IllegalStateException {
+        if (!currentIsOnMainThread()) {
+            throw new IllegalStateException("Must call _on_ the main thread");
+        }
+    }
+
+    /**
+     * @throws IllegalStateException if the calling thread _is_ on the main thread
+     */
+    public static void verifyOffMainThread() throws IllegalStateException {
+        if (currentIsOnMainThread()) {
+            throw new IllegalStateException("Must call _off_ the main thread");
+        }
     }
 }

@@ -140,7 +140,9 @@ public enum SettingsEnum {
     private final ReturnType returnType;
     private final boolean rebootApp;
 
-    private Object value = null;
+    // must be volatile, as some settings are changed from non-main threads
+    // of note, the object value is persistently stored using SharedPreferences (which is thread safe)
+    private volatile Object value;
 
     SettingsEnum(String path, Object defaultValue, ReturnType returnType) {
         this.path = path;
