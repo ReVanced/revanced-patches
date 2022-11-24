@@ -9,14 +9,18 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
-import app.revanced.patches.shared.mapping.patch.ResourceMappingPatch
+import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
 import app.revanced.patches.youtube.misc.settings.annotations.SettingsCompatibility
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
-import app.revanced.patches.youtube.misc.settings.framework.components.BasePreference
-import app.revanced.patches.youtube.misc.settings.framework.components.impl.*
+import app.revanced.patches.shared.settings.IResource
+import app.revanced.patches.shared.settings.addPreference
+import app.revanced.patches.shared.settings.addResource
+import app.revanced.patches.shared.settings.impl.ArrayResource
+import app.revanced.patches.shared.settings.impl.Preference
+import app.revanced.patches.shared.settings.impl.PreferenceScreen
+import app.revanced.patches.shared.settings.impl.StringResource
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
-import org.w3c.dom.Element
 import org.w3c.dom.Node
 
 @Name("settings-resource-patch")
@@ -145,17 +149,7 @@ class SettingsResourcePatch : ResourcePatch {
          * @param arrayResource The array resource to add.
          */
         fun addArray(arrayResource: ArrayResource) {
-            arraysNode!!.appendChild(arraysNode!!.ownerDocument.createElement("string-array").also { arrayNode ->
-                arrayResource.items.forEach { item ->
-                    item.include()
-
-                    arrayNode.setAttribute("name", item.name)
-
-                    arrayNode.appendChild(arrayNode.ownerDocument.createElement("item").also { itemNode ->
-                        itemNode.textContent = item.value
-                    })
-                }
-            })
+            arraysNode!!.appendChild(arrayResource.serialize(arraysNode!!.ownerDocument) { it.include() })
         }
 
         /**
@@ -164,7 +158,7 @@ class SettingsResourcePatch : ResourcePatch {
          * @param preferenceScreen The name of the preference screen.
          */
         fun addPreferenceScreen(preferenceScreen: PreferenceScreen) =
-            revancedPreferenceNode!!.addPreference(preferenceScreen)
+            revancedPreferenceNode!!.addPreference(preferenceScreen) { it.include() }
 
         /**
          * Add a preference fragment to the preferences.
@@ -172,101 +166,34 @@ class SettingsResourcePatch : ResourcePatch {
          * @param preference The preference to add.
          */
         fun addPreference(preference: Preference) {
-            preferencesNode!!.appendChild(preferencesNode.createElement(preference.tag).also { preferenceNode ->
-                preferenceNode.setAttribute(
-                    "android:title", "@string/${preference.title.also { it.include() }.name}"
-                )
-                preference.summary?.let { summary ->
-                    preferenceNode.setAttribute("android:summary", "@string/${summary.also { it.include() }.name}")
-                }
-
-                preferenceNode.appendChild(preferenceNode.createElement("intent").also { intentNode ->
-                    intentNode.setAttribute("android:targetPackage", preference.intent.targetPackage)
-                    intentNode.setAttribute("android:data", preference.intent.data)
-                    intentNode.setAttribute("android:targetClass", preference.intent.targetClass)
-                })
-            })
-        }
-
-
-        /**
-         * Add a preference to the settings.
-         *
-         * @param preference The preference to add.
-         */
-        private fun Node.addPreference(preference: BasePreference) {
-            // add a summary to the element
-            fun Element.addSummary(summaryResource: StringResource?, summaryType: SummaryType = SummaryType.DEFAULT) =
-                summaryResource?.let { summary ->
-                    setAttribute("android:${summaryType.type}", "@string/${summary.also { it.include() }.name}")
-                }
-
-            fun <T> Element.addDefault(default: T) {
-                default?.let {
-                    setAttribute(
-                        "android:defaultValue", when (it) {
-                            is Boolean -> if (it) "true" else "false"
-                            is String -> it
-                            else -> throw IllegalArgumentException("Unsupported default value type: ${it::class.java.name}")
-                        }
-                    )
-                }
-            }
-
-            val preferenceElement = ownerDocument.createElement(preference.tag)
-            preferenceElement.setAttribute("android:key", preference.key)
-            preferenceElement.setAttribute("android:title", "@string/${preference.title.also { it.include() }.name}")
-
-            when (preference) {
-                is PreferenceScreen -> {
-                    for (childPreference in preference.preferences) preferenceElement.addPreference(childPreference)
-                    preferenceElement.addSummary(preference.summary)
-                }
-                is SwitchPreference -> {
-                    preferenceElement.addDefault(preference.default)
-                    preferenceElement.addSummary(preference.summaryOn, SummaryType.ON)
-                    preferenceElement.addSummary(preference.summaryOff, SummaryType.OFF)
-                }
-                is TextPreference -> {
-                    preferenceElement.setAttribute("android:inputType", preference.inputType.type)
-                    preferenceElement.addDefault(preference.default)
-                    preferenceElement.addSummary(preference.summary)
-                }
-            }
-
-            appendChild(preferenceElement)
+            preferencesNode!!.addPreference(preference) { it.include() }
         }
 
         /**
-         * Add a new string to the resources.
+         * Add a new resource to the resources.
          *
-         * @throws IllegalArgumentException if the string already exists.
+         * @throws IllegalArgumentException if the resource already exists.
          */
-        private fun StringResource.include() {
-            if (strings.any { it.name == name }) return
-            strings.add(this)
+        private fun IResource.include() {
+            when(this) {
+                is StringResource -> {
+                    if (strings.any { it.name == name }) return
+                    strings.add(this)
+                }
+                is ArrayResource -> addArray(this)
+                else -> throw NotImplementedError("Unsupported resource type")
+            }
         }
 
         private fun DomFileEditor?.getNode(tagName: String) = this!!.file.getElementsByTagName(tagName).item(0)
 
         private fun Node?.createElement(tagName: String) = this!!.ownerDocument.createElement(tagName)
-
-        private enum class SummaryType(val type: String) {
-            DEFAULT("summary"), ON("summaryOn"), OFF("summaryOff")
-        }
     }
 
     override fun close() {
         // merge all strings, skip duplicates
-        strings.forEach { stringResource ->
-            stringsNode!!.appendChild(stringsNode!!.ownerDocument.createElement("string").also { stringElement ->
-                stringElement.setAttribute("name", stringResource.name)
-
-                // if the string is un-formatted, explicitly add the formatted attribute
-                if (!stringResource.formatted) stringElement.setAttribute("formatted", "false")
-
-                stringElement.textContent = stringResource.value
-            })
+        strings.forEach {
+            stringsNode!!.addResource(it)
         }
 
         // rename the intent package names if it was set

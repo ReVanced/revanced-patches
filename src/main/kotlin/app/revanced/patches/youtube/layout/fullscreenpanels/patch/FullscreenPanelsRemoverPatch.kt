@@ -18,8 +18,8 @@ import app.revanced.patches.youtube.layout.fullscreenpanels.fingerprints.Fullscr
 import app.revanced.patches.youtube.layout.fullscreenpanels.fingerprints.FullscreenViewAdderParentFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
-import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
-import app.revanced.patches.youtube.misc.settings.framework.components.impl.SwitchPreference
+import app.revanced.patches.shared.settings.impl.StringResource
+import app.revanced.patches.shared.settings.impl.SwitchPreference
 
 @Patch
 @Name("disable-fullscreen-panels")

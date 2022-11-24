@@ -1,6 +1,6 @@
 package app.revanced.patches.tiktok.misc.integrations.fingerprints
 
-import app.revanced.shared.patches.AbstractIntegrationsPatch.IntegrationsFingerprint
+import app.revanced.patches.shared.integrations.patch.AbstractIntegrationsPatch.IntegrationsFingerprint
 
 object InitFingerprint : IntegrationsFingerprint(
     customFingerprint = { methodDef ->

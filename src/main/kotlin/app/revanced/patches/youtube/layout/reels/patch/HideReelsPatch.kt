@@ -12,8 +12,8 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.youtube.layout.reels.annotations.HideReelsCompatibility
 import app.revanced.patches.youtube.layout.reels.fingerprints.HideReelsFingerprint
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
-import app.revanced.patches.youtube.misc.settings.framework.components.impl.StringResource
-import app.revanced.patches.youtube.misc.settings.framework.components.impl.SwitchPreference
+import app.revanced.patches.shared.settings.impl.StringResource
+import app.revanced.patches.shared.settings.impl.SwitchPreference
 
 //@Patch TODO: this is currently in the general-bytecode-ads patch due to the integrations having a preference for including reels or not. Move it here.
 @Name("hide-reels")

@@ -1,4 +1,4 @@
-package app.revanced.shared.patches
+package app.revanced.patches.shared.integrations.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Version
@@ -9,7 +9,6 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.shared.patches.AbstractIntegrationsPatch.IntegrationsFingerprint.RegisterResolver
 import org.jf.dexlib2.iface.Method
 
 @Description("Applies mandatory patches to implement the ReVanced integrations into the application.")

@@ -3,7 +3,7 @@ package app.revanced.patches.tiktok.misc.integrations.patch
 import app.revanced.patcher.annotation.Name
 import app.revanced.patches.tiktok.misc.integrations.annotations.TikTokIntegrationsCompatibility
 import app.revanced.patches.tiktok.misc.integrations.fingerprints.InitFingerprint
-import app.revanced.shared.patches.AbstractIntegrationsPatch
+import app.revanced.patches.shared.integrations.patch.AbstractIntegrationsPatch
 
 @Name("tiktok-integrations")
 @TikTokIntegrationsCompatibility

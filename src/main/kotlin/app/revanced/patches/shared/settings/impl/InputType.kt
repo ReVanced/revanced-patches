@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.settings.framework.components.impl
+package app.revanced.patches.shared.settings.impl
 
 enum class InputType(val type: String) {
     STRING("text"),
