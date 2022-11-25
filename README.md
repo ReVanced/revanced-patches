@@ -24,6 +24,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `tiktok-settings` | Adds settings for ReVanced to TikTok. | all |
 | `tiktok-force-login` | Do not force login. | all |
 | `tiktok-web-login` | Allows logging in with a Google account. | all |
+| `sim-spoof` | Spoofs the information which is retrieved from the sim-card. | all |
 | `tiktok-feed-filter` | Filters tiktok videos: removing ads, removing livestreams. | all |
 </details>
 
@@ -39,6 +40,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `tiktok-settings` | Adds settings for ReVanced to TikTok. | all |
 | `tiktok-force-login` | Do not force login. | all |
 | `tiktok-web-login` | Allows logging in with a Google account. | all |
+| `sim-spoof` | Spoofs the information which is retrieved from the sim-card. | all |
 | `tiktok-feed-filter` | Filters tiktok videos: removing ads, removing livestreams. | all |
 </details>
 
