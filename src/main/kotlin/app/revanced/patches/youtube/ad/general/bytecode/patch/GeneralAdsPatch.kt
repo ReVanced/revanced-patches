@@ -1,28 +1,25 @@
 package app.revanced.patches.youtube.ad.general.bytecode.patch
 
+import app.revanced.extensions.findMutableMethodOf
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.extensions.softCompareTo
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.ad.general.annotation.GeneralAdsCompatibility
 import app.revanced.patches.youtube.ad.general.bytecode.fingerprints.ReelConstructorFingerprint
 import app.revanced.patches.youtube.ad.general.resource.patch.GeneralAdsResourcePatch
-import org.jf.dexlib2.iface.Method
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
-import org.jf.dexlib2.immutable.reference.ImmutableMethodReference
 import java.util.*
 
 
@@ -35,18 +32,6 @@ import java.util.*
 class GeneralAdsPatch : BytecodePatch(
     listOf(ReelConstructorFingerprint)
 ) {
-    internal companion object {
-        private fun MutableClass.findMutableMethodOf(
-            method: Method
-        ) = this.methods.first {
-            it.softCompareTo(
-                ImmutableMethodReference(
-                    method.definingClass, method.name, method.parameters, method.returnType
-                )
-            )
-        }
-    }
-
     override fun execute(context: BytecodeContext): PatchResult {
         fun String.buildHideCall(viewRegister: Int) = "invoke-static { v$viewRegister }, " +
                 "Lapp/revanced/integrations/patches/GeneralAdsPatch;" +
