@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Process;
+import android.preference.EditTextPreference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
@@ -119,6 +120,73 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
                 preference.setOnPreferenceChangeListener((pref, newValue) -> {
                     final boolean value = (Boolean) newValue;
                     SettingsEnum.TIK_DOWN_WATERMARK.saveValue(value);
+                    return true;
+                });
+            }
+        }
+
+        // SpoofSimPatch
+        if(SettingsStatus.simSpoof) {
+            PreferenceCategory simSpoof = new PreferenceCategory(context);
+            simSpoof.setTitle("Bypass regional restriction");
+            preferenceScreen.addPreference(simSpoof);
+            //Global Switch
+            {
+                SwitchPreference preference = new SwitchPreference(context);
+                simSpoof.addPreference(preference);
+                preference.setKey(SettingsEnum.TIK_SIMSPOOF.getPath());
+                preference.setDefaultValue(SettingsEnum.TIK_SIMSPOOF.getDefaultValue());
+                preference.setChecked(SettingsEnum.TIK_SIMSPOOF.getBoolean());
+                preference.setTitle("Fake sim card info");
+                preference.setSummary("Bypass regional restriction by fake sim card information.");
+                preference.setOnPreferenceChangeListener((pref, newValue) -> {
+                    final boolean value = (Boolean) newValue;
+                    SettingsEnum.TIK_SIMSPOOF.saveValue(value);
+                    return true;
+                });
+            }
+            //Country ISO
+            {
+                EditTextPreference preference = new EditTextPreference(context);
+                simSpoof.addPreference(preference);
+                preference.setKey(SettingsEnum.TIK_SIMSPOOF_ISO.getPath());
+                preference.setDefaultValue(SettingsEnum.TIK_SIMSPOOF_ISO.getDefaultValue());
+                preference.setText(SettingsEnum.TIK_SIMSPOOF_ISO.getString());
+                preference.setTitle("Country ISO");
+                preference.setSummary("us, uk, jp, ...");
+                preference.setOnPreferenceChangeListener((pref, newValue) -> {
+                    final String value = (String) newValue;
+                    SettingsEnum.TIK_SIMSPOOF_ISO.saveValue(value);
+                    return true;
+                });
+            }
+            //Operator mcc+mnc
+            {
+                EditTextPreference preference = new EditTextPreference(context);
+                simSpoof.addPreference(preference);
+                preference.setKey(SettingsEnum.TIK_SIMSPOOF_MCCMNC.getPath());
+                preference.setDefaultValue(SettingsEnum.TIK_SIMSPOOF_MCCMNC.getDefaultValue());
+                preference.setText(SettingsEnum.TIK_SIMSPOOF_MCCMNC.getString());
+                preference.setTitle("Operator mcc+mnc");
+                preference.setSummary("mcc+mnc");
+                preference.setOnPreferenceChangeListener((pref, newValue) -> {
+                    final String value = (String) newValue;
+                    SettingsEnum.TIK_SIMSPOOF_MCCMNC.saveValue(value);
+                    return true;
+                });
+            }
+            //Operator name
+            {
+                EditTextPreference preference = new EditTextPreference(context);
+                simSpoof.addPreference(preference);
+                preference.setKey(SettingsEnum.TIK_SIMSPOOF_OP_NAME.getPath());
+                preference.setDefaultValue(SettingsEnum.TIK_SIMSPOOF_OP_NAME.getDefaultValue());
+                preference.setText(SettingsEnum.TIK_SIMSPOOF_OP_NAME.getString());
+                preference.setTitle("Operator name");
+                preference.setSummary("Name of the operator");
+                preference.setOnPreferenceChangeListener((pref, newValue) -> {
+                    final String value = (String) newValue;
+                    SettingsEnum.TIK_SIMSPOOF_OP_NAME.saveValue(value);
                     return true;
                 });
             }

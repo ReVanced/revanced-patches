@@ -9,10 +9,14 @@ import app.revanced.tiktok.utils.SharedPrefHelper;
 
 public enum SettingsEnum {
     //TikTok Settings
-    TIK_REMOVE_ADS("tik-remove-ads", true, SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.BOOLEAN, true),
-    TIK_HIDE_LIVE("tik-hide-live", false, SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.BOOLEAN, true),
-    TIK_DOWN_PATH("tik-down-path", "DCIM/TikTok", SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.STRING),
-    TIK_DOWN_WATERMARK("tik-down-watermark", true, SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.BOOLEAN),
+    TIK_REMOVE_ADS("tik_remove_ads", true, SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.BOOLEAN, true),
+    TIK_HIDE_LIVE("tik_hide_live", false, SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.BOOLEAN, true),
+    TIK_DOWN_PATH("tik_down_path", "DCIM/TikTok", SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.STRING),
+    TIK_DOWN_WATERMARK("tik_down_watermark", true, SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.BOOLEAN),
+    TIK_SIMSPOOF("tik_simspoof", true, SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.BOOLEAN, true),
+    TIK_SIMSPOOF_ISO("tik_simspoof_iso", "us", SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.STRING),
+    TIK_SIMSPOOF_MCCMNC("tik_simspoof_mccmnc", "310160", SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.STRING),
+    TIK_SIMSPOOF_OP_NAME("tik_simspoof_op_name", "T-Mobile", SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.STRING),
     TIK_DEBUG("tik_debug", false, SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.BOOLEAN);
 
     static {
