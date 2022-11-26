@@ -166,6 +166,14 @@ The official Patch bundle provided by ReVanced and the community.
 | `enable-downloads` | Enables downloads for Crunchyroll. | all |
 </details>
 
+### 📦 `org.totschnig.myexpenses`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-pro` | Unlocks all professional features. | all |
+</details>
+
 ### 📦 `tv.twitch.android.app`
 <details>
 
