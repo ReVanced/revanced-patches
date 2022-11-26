@@ -12,6 +12,14 @@ The official Patch bundle provided by ReVanced and the community.
 | `unlock-pro` | Unlocks all pro features. | all |
 </details>
 
+### 📦 `org.citra.citra_emu`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `premium-unlock` | Unlocks premium functions. | all |
+</details>
+
 ### 📦 `com.ss.android.ugc.trill`
 <details>
 
@@ -148,6 +156,14 @@ The official Patch bundle provided by ReVanced and the community.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `unlock-themes` | Unlocks all themes. | all |
+</details>
+
+### 📦 `com.crunchyroll.crunchyroid`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `enable-downloads` | Enables downloads for Crunchyroll. | all |
 </details>
 
 ### 📦 `tv.twitch.android.app`
