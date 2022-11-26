@@ -161,6 +161,14 @@ The official Patch bundle provided by ReVanced and the community.
 | `show-deleted-messages` | Shows deleted chat messages behind a clickable spoiler. | all |
 </details>
 
+### 📦 `co.windyapp.android`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-pro` | Unlocks all pro features. | all |
+</details>
+
 ### 📦 `com.garzotto.pflotsh.ecmwf_a`
 <details>
 

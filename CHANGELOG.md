@@ -1,3 +1,10 @@
+# [2.123.0](https://github.com/revanced/revanced-patches/compare/v2.122.0...v2.123.0) (2022-11-26)
+
+
+### Features
+
+* **windyapp:** `unlock-pro` patch ([#1118](https://github.com/revanced/revanced-patches/issues/1118)) ([d866634](https://github.com/revanced/revanced-patches/commit/d866634f83976df44b26848e0b70e9952d5d06ae))
+
 # [2.122.0](https://github.com/revanced/revanced-patches/compare/v2.121.0...v2.122.0) (2022-11-25)
 
 
