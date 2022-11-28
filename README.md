@@ -25,15 +25,15 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `tiktok-ads` | Removes ads from TikTok. | all |
-| `tiktok-speed` | Enables the playback speed option for all videos. | all |
-| `tiktok-download` | Removes download restrictions and changes the default path to download to. | all |
-| `tiktok-seekbar` | Show progress bar for all video. | all |
-| `tiktok-settings` | Adds settings for ReVanced to TikTok. | all |
-| `tiktok-force-login` | Do not force login. | all |
-| `tiktok-web-login` | Allows logging in with a Google account. | all |
+| `hide-ads` | Removes ads from TikTok. | all |
+| `playback-speed` | Enables the playback speed option for all videos. | all |
+| `downloads` | Removes download restrictions and changes the default path to download to. | all |
+| `show-seekbar` | Shows progress bar for all video. | all |
+| `settings` | Adds settings for ReVanced to TikTok. | all |
+| `fix-google-login` | Allows logging in with a Google account. | all |
+| `disable-login-requirement` | Do not force login. | all |
 | `sim-spoof` | Spoofs the information which is retrieved from the sim-card. | all |
-| `tiktok-feed-filter` | Filters tiktok videos: removing ads, removing livestreams. | all |
+| `feed-filter` | Filters tiktok videos: removing ads, removing livestreams. | all |
 </details>
 
 ### 📦 `com.zhiliaoapp.musically`
@@ -41,15 +41,15 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `tiktok-ads` | Removes ads from TikTok. | all |
-| `tiktok-speed` | Enables the playback speed option for all videos. | all |
-| `tiktok-download` | Removes download restrictions and changes the default path to download to. | all |
-| `tiktok-seekbar` | Show progress bar for all video. | all |
-| `tiktok-settings` | Adds settings for ReVanced to TikTok. | all |
-| `tiktok-force-login` | Do not force login. | all |
-| `tiktok-web-login` | Allows logging in with a Google account. | all |
+| `hide-ads` | Removes ads from TikTok. | all |
+| `playback-speed` | Enables the playback speed option for all videos. | all |
+| `downloads` | Removes download restrictions and changes the default path to download to. | all |
+| `show-seekbar` | Shows progress bar for all video. | all |
+| `settings` | Adds settings for ReVanced to TikTok. | all |
+| `fix-google-login` | Allows logging in with a Google account. | all |
+| `disable-login-requirement` | Do not force login. | all |
 | `sim-spoof` | Spoofs the information which is retrieved from the sim-card. | all |
-| `tiktok-feed-filter` | Filters tiktok videos: removing ads, removing livestreams. | all |
+| `feed-filter` | Filters tiktok videos: removing ads, removing livestreams. | all |
 </details>
 
 ### 📦 `com.twitter.android`
