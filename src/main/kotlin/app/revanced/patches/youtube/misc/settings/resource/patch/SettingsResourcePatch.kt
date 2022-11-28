@@ -1,34 +1,49 @@
 package app.revanced.patches.youtube.misc.settings.resource.patch
 
+import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.DomFileEditor
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
+import app.revanced.patches.shared.settings.preference.addPreference
+import app.revanced.patches.shared.settings.preference.impl.ArrayResource
+import app.revanced.patches.shared.settings.preference.impl.Preference
+import app.revanced.patches.shared.settings.preference.impl.PreferenceScreen
+import app.revanced.patches.shared.settings.preference.impl.StringResource
+import app.revanced.patches.shared.settings.resource.patch.AbstractSettingsResourcePatch
 import app.revanced.patches.youtube.misc.settings.annotations.SettingsCompatibility
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
-import app.revanced.patches.shared.settings.IResource
-import app.revanced.patches.shared.settings.addPreference
-import app.revanced.patches.shared.settings.addResource
-import app.revanced.patches.shared.settings.impl.ArrayResource
-import app.revanced.patches.shared.settings.impl.Preference
-import app.revanced.patches.shared.settings.impl.PreferenceScreen
-import app.revanced.patches.shared.settings.impl.StringResource
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 import org.w3c.dom.Node
 
 @Name("settings-resource-patch")
+@DependsOn([ResourceMappingPatch::class])
 @SettingsCompatibility
-@DependsOn([FixLocaleConfigErrorPatch::class, ResourceMappingPatch::class])
+@Description("Applies mandatory patches to implement ReVanced settings into the application.")
 @Version("0.0.1")
-class SettingsResourcePatch : ResourcePatch {
+class SettingsResourcePatch : AbstractSettingsResourcePatch(
+    "revanced_prefs",
+    "settings"
+) {
     override fun execute(context: ResourceContext): PatchResult {
+        super.execute(context)
+
+        /*
+         * used for self-restart
+         */
+        context.xmlEditor["AndroidManifest.xml"].use { editor ->
+            editor.file.getElementsByTagName("manifest").item(0).also {
+                it.appendChild(it.ownerDocument.createElement("uses-permission").also { element ->
+                    element.setAttribute("android:name", "android.permission.SCHEDULE_EXACT_ALARM")
+                })
+            }
+        }
+
         /*
          * used by a fingerprint of SettingsPatch
          */
@@ -51,8 +66,6 @@ class SettingsResourcePatch : ResourcePatch {
                 "revanced_settings_with_toolbar.xml",
                 "revanced_settings_with_toolbar_layout.xml"
             ), ResourceUtils.ResourceGroup(
-                "xml", "revanced_prefs.xml" // template for new preferences
-            ), ResourceUtils.ResourceGroup(
                 // required resource for back button, because when the base APK is used, this resource will not exist
                 "drawable-xxxhdpi", "quantum_ic_arrow_back_white_24.png"
             ), ResourceUtils.ResourceGroup(
@@ -63,19 +76,7 @@ class SettingsResourcePatch : ResourcePatch {
             context.copyResources("settings", resourceGroup)
         }
 
-        context.xmlEditor["AndroidManifest.xml"].use { editor ->
-            editor.file.getElementsByTagName("manifest").item(0).also {
-                it.appendChild(it.ownerDocument.createElement("uses-permission").also { element ->
-                    element.setAttribute("android:name", "android.permission.SCHEDULE_EXACT_ALARM")
-                })
-            }
-        }
-
-        revancedPreferencesEditor = context.xmlEditor["res/xml/revanced_prefs.xml"]
         preferencesEditor = context.xmlEditor["res/xml/settings_fragment.xml"]
-
-        stringsEditor = context.xmlEditor["res/values/strings.xml"]
-        arraysEditor = context.xmlEditor["res/values/arrays.xml"]
 
         // Add the ReVanced settings to the YouTube settings
         val youtubePackage = "com.google.android.youtube"
@@ -103,35 +104,23 @@ class SettingsResourcePatch : ResourcePatch {
         // if this is not null, all intents will be renamed to this
         var overrideIntentsTargetPackage: String? = null
 
-        private var revancedPreferenceNode: Node? = null
         private var preferencesNode: Node? = null
 
-        private var stringsNode: Node? = null
-        private var arraysNode: Node? = null
-
-        private var strings = mutableListOf<StringResource>()
-
-        private var revancedPreferencesEditor: DomFileEditor? = null
-            set(value) {
-                field = value
-                revancedPreferenceNode = value.getNode("PreferenceScreen")
-            }
         private var preferencesEditor: DomFileEditor? = null
             set(value) {
                 field = value
                 preferencesNode = value.getNode("PreferenceScreen")
             }
 
-        private var stringsEditor: DomFileEditor? = null
-            set(value) {
-                field = value
-                stringsNode = value.getNode("resources")
-            }
-        private var arraysEditor: DomFileEditor? = null
-            set(value) {
-                field = value
-                arraysNode = value.getNode("resources")
-            }
+        /* Companion delegates */
+
+        /**
+         * Add a preference fragment to the main preferences.
+         *
+         * @param preference The preference to add.
+         */
+        fun addPreference(preference: Preference) =
+            preferencesNode!!.addPreference(preference) { it.include() }
 
         /**
          * Add a new string to the resources.
@@ -141,60 +130,25 @@ class SettingsResourcePatch : ResourcePatch {
          * @throws IllegalArgumentException if the string already exists.
          */
         fun addString(identifier: String, value: String, formatted: Boolean) =
-            StringResource(identifier, value, formatted).include()
+            AbstractSettingsResourcePatch.addString(identifier, value, formatted)
 
         /**
          * Add an array to the resources.
          *
          * @param arrayResource The array resource to add.
          */
-        fun addArray(arrayResource: ArrayResource) {
-            arraysNode!!.appendChild(arrayResource.serialize(arraysNode!!.ownerDocument) { it.include() })
-        }
+        fun addArray(arrayResource: ArrayResource) = AbstractSettingsResourcePatch.addArray(arrayResource)
 
         /**
-         * Add a preference screen to the settings.
+         * Add a preference to the settings.
          *
          * @param preferenceScreen The name of the preference screen.
          */
-        fun addPreferenceScreen(preferenceScreen: PreferenceScreen) =
-            revancedPreferenceNode!!.addPreference(preferenceScreen) { it.include() }
-
-        /**
-         * Add a preference fragment to the preferences.
-         *
-         * @param preference The preference to add.
-         */
-        fun addPreference(preference: Preference) {
-            preferencesNode!!.addPreference(preference) { it.include() }
-        }
-
-        /**
-         * Add a new resource to the resources.
-         *
-         * @throws IllegalArgumentException if the resource already exists.
-         */
-        private fun IResource.include() {
-            when(this) {
-                is StringResource -> {
-                    if (strings.any { it.name == name }) return
-                    strings.add(this)
-                }
-                is ArrayResource -> addArray(this)
-                else -> throw NotImplementedError("Unsupported resource type")
-            }
-        }
-
-        private fun DomFileEditor?.getNode(tagName: String) = this!!.file.getElementsByTagName(tagName).item(0)
-
-        private fun Node?.createElement(tagName: String) = this!!.ownerDocument.createElement(tagName)
+        fun addPreferenceScreen(preferenceScreen: PreferenceScreen) = addPreference(preferenceScreen)
     }
 
     override fun close() {
-        // merge all strings, skip duplicates
-        strings.forEach {
-            stringsNode!!.addResource(it)
-        }
+        super.close()
 
         // rename the intent package names if it was set
         overrideIntentsTargetPackage?.let { packageName ->
@@ -221,9 +175,6 @@ class SettingsResourcePatch : ResourcePatch {
             }
         }
 
-        revancedPreferencesEditor?.close()
         preferencesEditor?.close()
-        stringsEditor?.close()
-        arraysEditor?.close()
     }
 }

@@ -11,8 +11,8 @@ import app.revanced.patches.youtube.layout.sponsorblock.annotations.SponsorBlock
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
-import app.revanced.patches.shared.settings.impl.Preference
-import app.revanced.patches.shared.settings.impl.StringResource
+import app.revanced.patches.shared.settings.preference.impl.Preference
+import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.Settings.mergeStrings
 import app.revanced.util.resources.ResourceUtils.copyResources

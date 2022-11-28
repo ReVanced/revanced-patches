@@ -1,10 +1,10 @@
-package app.revanced.patches.shared.settings.impl
+package app.revanced.patches.shared.settings.preference.impl
 
-import app.revanced.patches.shared.settings.*
-import app.revanced.patches.shared.settings.BasePreference
-import app.revanced.patches.shared.settings.IResource
-import app.revanced.patches.shared.settings.addDefault
-import app.revanced.patches.shared.settings.addSummary
+import app.revanced.patches.shared.settings.preference.BasePreference
+import app.revanced.patches.shared.settings.preference.IResource
+import app.revanced.patches.shared.settings.preference.addDefault
+import app.revanced.patches.shared.settings.preference.addSummary
+import app.revanced.patches.shared.settings.preference.SummaryType
 import org.w3c.dom.Document
 import org.w3c.dom.Element
 
