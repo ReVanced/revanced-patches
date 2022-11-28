@@ -17,7 +17,7 @@ import org.w3c.dom.Element
 internal open class PreferenceScreen(
     key: String,
     title: StringResource,
-    val preferences: List<BasePreference>,
+    var preferences: List<BasePreference>,
     val summary: StringResource? = null
 ) : BasePreference(key, title) {
     override val tag: String = "PreferenceScreen"
