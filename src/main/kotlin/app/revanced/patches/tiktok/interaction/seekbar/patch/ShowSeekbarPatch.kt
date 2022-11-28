@@ -10,18 +10,18 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.tiktok.interaction.seekbar.annotations.SeekbarCompatibility
+import app.revanced.patches.tiktok.interaction.seekbar.annotations.ShowSeekbarCompatibility
 import app.revanced.patches.tiktok.interaction.seekbar.fingerprints.AwemeGetVideoControlFingerprint
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction11n
 import org.jf.dexlib2.builder.instruction.BuilderInstruction22c
 
 @Patch
-@Name("tiktok-seekbar")
-@Description("Show progress bar for all video.")
-@SeekbarCompatibility
+@Name("show-seekbar")
+@Description("Shows progress bar for all video.")
+@ShowSeekbarCompatibility
 @Version("0.0.1")
-class TiktokSeekbarPatch : BytecodePatch(
+class ShowSeekbarPatch : BytecodePatch(
     listOf(
         AwemeGetVideoControlFingerprint
     )

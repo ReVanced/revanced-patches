@@ -1,4 +1,4 @@
-package app.revanced.patches.tiktok.misc.loginfallback.fingerprints
+package app.revanced.patches.tiktok.misc.login.fixgoogle.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
