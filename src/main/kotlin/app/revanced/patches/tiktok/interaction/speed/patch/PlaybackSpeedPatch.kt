@@ -11,16 +11,16 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.tiktok.interaction.speed.annotations.SpeedCompatibility
+import app.revanced.patches.tiktok.interaction.speed.annotations.PlaybackSpeedCompatibility
 import app.revanced.patches.tiktok.interaction.speed.fingerprints.SpeedControlParentFingerprint
 import org.jf.dexlib2.Opcode
 
 @Patch
-@Name("tiktok-speed")
+@Name("playback-speed")
 @Description("Enables the playback speed option for all videos.")
-@SpeedCompatibility
+@PlaybackSpeedCompatibility
 @Version("0.0.1")
-class SpeedPatch : BytecodePatch(
+class PlaybackSpeedPatch : BytecodePatch(
     listOf(
         SpeedControlParentFingerprint
     )

@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.tiktok.ad.annotations.TiktokAdsCompatibility
+import app.revanced.patches.tiktok.ad.annotations.HideAdsCompatibility
 import app.revanced.patches.tiktok.ad.fingerprints.ConvertHelpFeedItemListFingerprint
 import app.revanced.patches.tiktok.ad.fingerprints.FeedItemListCloneFingerprint
 import org.jf.dexlib2.Opcode
@@ -19,11 +19,11 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
 
 @Patch
-@Name("tiktok-ads")
+@Name("hide-ads")
 @Description("Removes ads from TikTok.")
-@TiktokAdsCompatibility
+@HideAdsCompatibility
 @Version("0.0.1")
-class TiktokAdsPatch : BytecodePatch(
+class HideAdsPatch : BytecodePatch(
     listOf(
         FeedItemListCloneFingerprint,
         ConvertHelpFeedItemListFingerprint

@@ -21,17 +21,17 @@ import app.revanced.patches.tiktok.interaction.downloads.fingerprints.ACLCommonS
 import app.revanced.patches.tiktok.interaction.downloads.fingerprints.ACLCommonShareFingerprint2
 import app.revanced.patches.tiktok.interaction.downloads.fingerprints.ACLCommonShareFingerprint3
 import app.revanced.patches.tiktok.interaction.downloads.fingerprints.DownloadPathParentFingerprint
-import app.revanced.patches.tiktok.misc.integrations.patch.TikTokIntegrationsPatch
+import app.revanced.patches.tiktok.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.tiktok.misc.settings.fingerprints.SettingsStatusLoadFingerprint
-import app.revanced.patches.tiktok.misc.settings.patch.TikTokSettingsPatch
+import app.revanced.patches.tiktok.misc.settings.patch.SettingsPatch
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.StringReference
 
 @Patch
-@DependsOn([TikTokIntegrationsPatch::class, TikTokSettingsPatch::class])
-@Name("tiktok-download")
+@DependsOn([IntegrationsPatch::class, SettingsPatch::class])
+@Name("downloads")
 @Description("Removes download restrictions and changes the default path to download to.")
 @DownloadsCompatibility
 @Version("0.0.1")

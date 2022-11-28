@@ -13,8 +13,8 @@ import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.tiktok.misc.integrations.patch.TikTokIntegrationsPatch
-import app.revanced.patches.tiktok.misc.settings.annotations.TikTokSettingsCompatibility
+import app.revanced.patches.tiktok.misc.integrations.patch.IntegrationsPatch
+import app.revanced.patches.tiktok.misc.settings.annotations.SettingsCompatibility
 import app.revanced.patches.tiktok.misc.settings.fingerprints.AboutOnClickMethodFingerprint
 import app.revanced.patches.tiktok.misc.settings.fingerprints.AdPersonalizationActivityOnCreateFingerprint
 import app.revanced.patches.tiktok.misc.settings.fingerprints.SettingsOnViewCreatedFingerprint
@@ -27,12 +27,12 @@ import org.jf.dexlib2.iface.reference.StringReference
 import org.jf.dexlib2.iface.reference.TypeReference
 
 @Patch
-@DependsOn([TikTokIntegrationsPatch::class])
-@Name("tiktok-settings")
+@DependsOn([IntegrationsPatch::class])
+@Name("settings")
 @Description("Adds settings for ReVanced to TikTok.")
-@TikTokSettingsCompatibility
+@SettingsCompatibility
 @Version("0.0.1")
-class TikTokSettingsPatch : BytecodePatch(
+class SettingsPatch : BytecodePatch(
     listOf(
         AdPersonalizationActivityOnCreateFingerprint,
         SettingsOnViewCreatedFingerprint,

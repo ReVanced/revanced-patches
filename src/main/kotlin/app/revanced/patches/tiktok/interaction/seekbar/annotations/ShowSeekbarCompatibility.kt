@@ -1,4 +1,4 @@
-package app.revanced.patches.tiktok.misc.loginfallback.annotations
+package app.revanced.patches.tiktok.interaction.seekbar.annotations
 
 import app.revanced.patcher.annotation.Compatibility
 import app.revanced.patcher.annotation.Package
@@ -11,4 +11,4 @@ import app.revanced.patcher.annotation.Package
 )
 @Target(AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.RUNTIME)
-internal annotation class TikTokWebLoginCompatibility
+internal annotation class ShowSeekbarCompatibility
