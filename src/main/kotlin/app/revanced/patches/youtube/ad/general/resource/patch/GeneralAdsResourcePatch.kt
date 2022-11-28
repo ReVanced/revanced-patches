@@ -7,10 +7,10 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
-import app.revanced.patches.shared.settings.impl.InputType
-import app.revanced.patches.shared.settings.impl.StringResource
-import app.revanced.patches.shared.settings.impl.SwitchPreference
-import app.revanced.patches.shared.settings.impl.TextPreference
+import app.revanced.patches.shared.settings.preference.impl.InputType
+import app.revanced.patches.shared.settings.preference.impl.StringResource
+import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.shared.settings.preference.impl.TextPreference
 import app.revanced.patches.youtube.ad.general.annotation.GeneralAdsCompatibility
 import app.revanced.patches.youtube.misc.litho.filter.patch.LithoFilterPatch
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
@@ -187,7 +187,7 @@ class GeneralAdsResourcePatch : ResourcePatch {
                     "Chapter teasers are shown"
                 )
             ),
-            app.revanced.patches.shared.settings.impl.PreferenceScreen(
+            app.revanced.patches.shared.settings.preference.impl.PreferenceScreen(
                 "revanced_adremover_custom",
                 StringResource("revanced_adremover_custom_title", "Custom filter"),
                 listOf(

@@ -1,4 +1,4 @@
-package app.revanced.patches.shared.settings
+package app.revanced.patches.shared.settings.preference
 
 import org.w3c.dom.Document
 import org.w3c.dom.Element

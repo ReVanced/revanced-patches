@@ -20,8 +20,8 @@ import app.revanced.patches.youtube.layout.widesearchbar.fingerprints.WideSearch
 import app.revanced.patches.youtube.layout.widesearchbar.fingerprints.WideSearchbarTwoParentFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
-import app.revanced.patches.shared.settings.impl.StringResource
-import app.revanced.patches.shared.settings.impl.SwitchPreference
+import app.revanced.patches.shared.settings.preference.impl.StringResource
+import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])

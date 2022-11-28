@@ -13,9 +13,9 @@ import app.revanced.patches.youtube.misc.litho.filter.patch.LithoFilterPatch
 import app.revanced.patches.youtube.layout.buttons.annotations.HideButtonsCompatibility
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
-import app.revanced.patches.shared.settings.impl.PreferenceScreen
-import app.revanced.patches.shared.settings.impl.StringResource
-import app.revanced.patches.shared.settings.impl.SwitchPreference
+import app.revanced.patches.shared.settings.preference.impl.PreferenceScreen
+import app.revanced.patches.shared.settings.preference.impl.StringResource
+import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 
 @Patch
 @DependsOn([ResourceMappingPatch::class, LithoFilterPatch::class])

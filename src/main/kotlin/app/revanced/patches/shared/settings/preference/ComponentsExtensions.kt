@@ -1,6 +1,6 @@
-package app.revanced.patches.shared.settings
+package app.revanced.patches.shared.settings.preference
 
-import app.revanced.patches.shared.settings.impl.StringResource
+import app.revanced.patches.shared.settings.preference.impl.StringResource
 import org.w3c.dom.Element
 import org.w3c.dom.Node
 

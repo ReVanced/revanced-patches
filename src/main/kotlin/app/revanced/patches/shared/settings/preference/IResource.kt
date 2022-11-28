@@ -1,4 +1,4 @@
-package app.revanced.patches.shared.settings
+package app.revanced.patches.shared.settings.preference
 
 /**
  * Resource

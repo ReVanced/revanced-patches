@@ -1,7 +1,7 @@
-package app.revanced.patches.shared.settings.impl
+package app.revanced.patches.shared.settings.preference.impl
 
-import app.revanced.patches.shared.settings.BaseResource
-import app.revanced.patches.shared.settings.IResource
+import app.revanced.patches.shared.settings.preference.BaseResource
+import app.revanced.patches.shared.settings.preference.IResource
 import org.w3c.dom.Document
 import org.w3c.dom.Element
 

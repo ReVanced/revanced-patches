@@ -11,10 +11,8 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.settings.BasePreference
-import app.revanced.patches.shared.settings.impl.Preference
-import app.revanced.patches.shared.settings.impl.PreferenceScreen
-import app.revanced.patches.shared.settings.impl.StringResource
+import app.revanced.patches.shared.settings.preference.impl.Preference
+import app.revanced.patches.shared.settings.util.AbstractPreferenceScreen
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.annotations.SettingsCompatibility
 import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.LicenseActivityFingerprint
@@ -22,7 +20,6 @@ import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.ThemeSet
 import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.ThemeSetterSystemFingerprint
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsResourcePatch
 import org.jf.dexlib2.util.MethodUtil
-import java.io.Closeable
 
 @Patch
 @DependsOn(
@@ -134,7 +131,7 @@ class SettingsPatch : BytecodePatch(
         fun addString(identifier: String, value: String, formatted: Boolean = true) =
             SettingsResourcePatch.addString(identifier, value, formatted)
 
-        fun addPreferenceScreen(preferenceScreen: app.revanced.patches.shared.settings.impl.PreferenceScreen) =
+        fun addPreferenceScreen(preferenceScreen: app.revanced.patches.shared.settings.preference.impl.PreferenceScreen) =
             SettingsResourcePatch.addPreferenceScreen(preferenceScreen)
 
         fun addPreference(preference: Preference) =
@@ -148,38 +145,16 @@ class SettingsPatch : BytecodePatch(
     /**
      * Preference screens patches should add their settings to.
      */
-    internal enum class PreferenceScreen(
-        private val key: String,
-        private val title: String,
-        private val summary: String? = null,
-        private val preferences: MutableList<BasePreference> = mutableListOf()
-    ) : Closeable {
-        ADS("ads", "Ads", "Ad related settings"),
-        INTERACTIONS("interactions", "Interaction", "Settings related to interactions"),
-        LAYOUT("layout", "Layout", "Settings related to the layout"),
-        MISC("misc", "Miscellaneous", "Miscellaneous patches");
+    internal object PreferenceScreen : AbstractPreferenceScreen() {
+        val ADS = Screen("ads", "Ads", "Ad related settings")
+        val INTERACTIONS = Screen("interactions", "Interaction", "Settings related to interactions")
+        val LAYOUT = Screen("layout", "Layout", "Settings related to the layout")
+        val MISC = Screen("misc", "Misc", "Miscellaneous patches")
 
-        override fun close() {
-            if (preferences.size == 0) return
-
-            addPreferenceScreen(
-                PreferenceScreen(
-                    key,
-                    StringResource("${key}_title", title),
-                    preferences,
-                    summary?.let { summary ->
-                        StringResource("${key}_summary", summary)
-                    }
-                )
-            )
+        override fun commit(screen: app.revanced.patches.shared.settings.preference.impl.PreferenceScreen) {
+            addPreferenceScreen(screen)
         }
-
-        /**
-         * Add preferences to the preference screen.
-         */
-        fun addPreferences(vararg preferences: BasePreference) = this.preferences.addAll(preferences)
     }
 
-    override fun close() = PreferenceScreen.values().forEach(PreferenceScreen::close)
-
+    override fun close() = PreferenceScreen.close()
 }
