@@ -98,8 +98,8 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-video-buttons` | Adds options to hide action buttons under a video. | 17.45.36 |
 | `enable-wide-searchbar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 17.43.36 |
 | `hide-captions-button` | Hides the captions button on video player. | 17.45.36 |
-| `hide-shorts-button` | Hides the shorts button on the navigation bar. | 17.43.36 |
-| `hide-create-button` | Hides the create button in the navigation bar. | 17.43.36 |
+| `hide-shorts-button` | Hides the shorts button on the navigation bar. | 17.45.36 |
+| `hide-create-button` | Hides the create button in the navigation bar. | 17.45.36 |
 | `disable-startup-shorts-player` | Disables playing YouTube Shorts when launching YouTube. | 17.45.36 |
 | `remove-player-button-background` | Removes the background from the video player buttons. | 17.45.36 |
 | `hide-endscreen-cards` | Hides the suggested video cards at the end of a video in fullscreen. | 17.45.36 |
