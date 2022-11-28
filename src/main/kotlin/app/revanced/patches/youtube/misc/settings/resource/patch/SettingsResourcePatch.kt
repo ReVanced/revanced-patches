@@ -34,17 +34,6 @@ class SettingsResourcePatch : AbstractSettingsResourcePatch(
         super.execute(context)
 
         /*
-         * used for self-restart
-         */
-        context.xmlEditor["AndroidManifest.xml"].use { editor ->
-            editor.file.getElementsByTagName("manifest").item(0).also {
-                it.appendChild(it.ownerDocument.createElement("uses-permission").also { element ->
-                    element.setAttribute("android:name", "android.permission.SCHEDULE_EXACT_ALARM")
-                })
-            }
-        }
-
-        /*
          * used by a fingerprint of SettingsPatch
          */
         appearanceStringId = ResourceMappingPatch.resourceMappings.find {

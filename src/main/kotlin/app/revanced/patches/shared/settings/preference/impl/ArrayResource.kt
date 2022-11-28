@@ -19,8 +19,10 @@ internal data class ArrayResource(
 
     override fun serialize(ownerDocument: Document, resourceCallback: ((IResource) -> Unit)?): Element {
         return super.serialize(ownerDocument, resourceCallback).apply {
+            setAttribute("name", name)
+
             items.forEach { item ->
-                setAttribute("name", item.also { resourceCallback?.invoke(it) }.name)
+                resourceCallback?.invoke(item)
 
                 this.appendChild(ownerDocument.createElement("item").also { itemNode ->
                     itemNode.textContent = item.value
