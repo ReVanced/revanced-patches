@@ -235,6 +235,14 @@ The official Patch bundle provided by ReVanced and the community.
 | `unlock-pro` | Unlocks all pro features. | all |
 </details>
 
+### 📦 `com.backdrops.wallpapers`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `pro-unlock` | Unlocks pro-only functions. | all |
+</details>
+
 
 
 ## 📝 JSON Format
