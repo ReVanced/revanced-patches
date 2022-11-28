@@ -182,6 +182,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `debug-mode` | Enables Twitch's internal debugging mode. | all |
 | `block-audio-ads` | Blocks audio ads in streams and VODs. | all |
 | `block-video-ads` | Blocks video ads in streams and VODs. | all |
+| `settings` | Adds settings menu to Twitch. | all |
 | `show-deleted-messages` | Shows deleted chat messages behind a clickable spoiler. | all |
 </details>
 

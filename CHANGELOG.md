@@ -1,3 +1,10 @@
+# [2.127.0](https://github.com/revanced/revanced-patches/compare/v2.126.1...v2.127.0) (2022-11-28)
+
+
+### Features
+
+* **twitch:** `settings` patch ([#1075](https://github.com/revanced/revanced-patches/issues/1075)) ([6e95b86](https://github.com/revanced/revanced-patches/commit/6e95b86e50cb09b60d82b456d4650218436ed154))
+
 ## [2.126.1](https://github.com/revanced/revanced-patches/compare/v2.126.0...v2.126.1) (2022-11-28)
 
 
