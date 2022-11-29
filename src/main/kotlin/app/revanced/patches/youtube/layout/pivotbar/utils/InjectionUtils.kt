@@ -1,10 +1,7 @@
 package app.revanced.patches.youtube.layout.pivotbar.utils
 
-import app.revanced.patcher.extensions.MethodFingerprintExtensions.name
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import org.jf.dexlib2.Opcode.MOVE_RESULT_OBJECT
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
@@ -30,7 +27,4 @@ internal object InjectionUtils {
             hook.replace("REGISTER_INDEX", register.toString()),
         )
     }
-
-    // TODO: move this to a global extension class and use it in all patches
-    fun MethodFingerprint.toErrorResult() = PatchResultError("Failed to resolve $name")
 }

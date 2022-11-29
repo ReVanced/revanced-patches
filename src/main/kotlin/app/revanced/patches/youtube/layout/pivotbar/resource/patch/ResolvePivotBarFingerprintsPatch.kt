@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.pivotbar.resource.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
@@ -13,7 +14,6 @@ import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
 import app.revanced.patches.youtube.layout.pivotbar.annotations.PivotBarCompatibility
 import app.revanced.patches.youtube.layout.pivotbar.fingerprints.InitializeButtonsFingerprint
 import app.revanced.patches.youtube.layout.pivotbar.fingerprints.PivotBarConstructorFingerprint
-import app.revanced.patches.youtube.layout.pivotbar.utils.InjectionUtils.toErrorResult
 
 @DependsOn([ResourceMappingPatch::class])
 @PivotBarCompatibility
