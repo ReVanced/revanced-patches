@@ -96,7 +96,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-crowdfunding-box` | Hides the crowdfunding box between the player and video description. | 17.45.36 |
 | `hide-time-and-seekbar` | Hides progress bar and time counter on videos. | 17.45.36 |
 | `hide-video-buttons` | Adds options to hide action buttons under a video. | 17.45.36 |
-| `enable-wide-searchbar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 17.43.36 |
+| `enable-wide-searchbar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 17.45.36 |
 | `hide-captions-button` | Hides the captions button on video player. | 17.45.36 |
 | `hide-shorts-button` | Hides the shorts button on the navigation bar. | 17.45.36 |
 | `hide-create-button` | Hides the create button in the navigation bar. | 17.45.36 |
