@@ -128,7 +128,7 @@ public final class LithoFilterPatch {
         var path = pathBuilder.toString();
         if (path.isEmpty()) return false;
 
-        LogHelper.debug(LithoFilterPatch.class, String.format("Searching (ID: %s): %s", identifier, path));
+        LogHelper.printDebug(() -> String.format("Searching (ID: %s): %s", identifier, path));
 
         for (var filter : filters) {
             if (filter.filter(path, identifier)) return true;

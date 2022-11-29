@@ -43,13 +43,13 @@ final class ButtonsPatch extends Filter {
 
         if (currentIsActionButton && ActionButton.doNotBlockCounter-- > 0) {
             if (SettingsEnum.HIDE_SHARE_BUTTON.getBoolean()) {
-                LogHelper.debug(ButtonsPatch.class, "Hiding share button");
+                LogHelper.printDebug(() -> "Hiding share button");
                 return true;
             } else return false;
         }
 
         if ((currentIsActionButton && ActionButton.doNotBlockCounter <= 0 && actionButtonsRule.isEnabled()) || pathRegister.contains(path)) {
-            LogHelper.debug(ButtonsPatch.class, "Blocked: " + path);
+            LogHelper.printDebug(() -> "Blocked: " + path);
             return true;
         } else return false;
     }

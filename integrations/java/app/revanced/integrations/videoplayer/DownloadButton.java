@@ -34,17 +34,17 @@ public class DownloadButton {
 
     public static void initializeDownloadButton(Object obj) {
         try {
-            LogHelper.debug(DownloadButton.class, "initializing");
+            LogHelper.printDebug(() -> "initializing");
             _constraintLayout = (ConstraintLayout) obj;
             isDownloadButtonEnabled = shouldBeShown();
             ImageView imageView = _constraintLayout.findViewById(getIdentifier("download_button", "id"));
             if (imageView == null) {
-                LogHelper.debug(DownloadButton.class, "Couldn't find imageView with id \"download_button\"");
+                LogHelper.printDebug(() -> "Couldn't find imageView with id \"download_button\"");
                 return;
             }
 
             imageView.setOnClickListener(view -> {
-                LogHelper.debug(DownloadButton.class, "Download button clicked");
+                LogHelper.printDebug(() -> "Download button clicked");
 
                 final var context = view.getContext();
                 var downloaderPackageName = SettingsEnum.DOWNLOADS_PACKAGE_NAME.getString();
@@ -54,7 +54,7 @@ public class DownloadButton {
                     assert context != null;
                     packageEnabled = context.getPackageManager().getApplicationInfo(downloaderPackageName, 0).enabled;
                 } catch (PackageManager.NameNotFoundException error) {
-                    LogHelper.debug(DownloadButton.class, "Downloader could not be found: " + error);
+                    LogHelper.printDebug(() -> "Downloader could not be found: " + error);
                 }
 
                 // If the package is not installed, show the toast
@@ -73,9 +73,9 @@ public class DownloadButton {
                     intent.putExtra("android.intent.extra.TEXT", content);
                     context.startActivity(intent);
 
-                    LogHelper.debug(DownloadButton.class, "Launched the intent with the content: " + content);
+                    LogHelper.printDebug(() -> "Launched the intent with the content: " + content);
                 } catch (Exception error) {
-                    LogHelper.debug(DownloadButton.class, "Failed to launch the intent: " + error);
+                    LogHelper.printDebug(() -> "Failed to launch the intent: " + error);
                 }
 
                 //var options = Arrays.asList("Video", "Audio").toArray(new CharSequence[0]);
@@ -100,7 +100,7 @@ public class DownloadButton {
             changeVisibility(false);
 
         } catch (Exception e) {
-            LogHelper.printException(DownloadButton.class, "Unable to set FrameLayout", e);
+            LogHelper.printException(() -> ("Unable to set FrameLayout"), e);
         }
     }
 
@@ -111,11 +111,11 @@ public class DownloadButton {
         ImageView imageView = _button.get();
         if (_constraintLayout != null && imageView != null) {
             if (z && isDownloadButtonEnabled) {
-                LogHelper.debug(DownloadButton.class, "Fading in");
+                LogHelper.printDebug(() -> "Fading in");
                 imageView.setVisibility(View.VISIBLE);
                 imageView.startAnimation(fadeIn);
             } else if (imageView.getVisibility() == View.VISIBLE) {
-                LogHelper.debug(DownloadButton.class, "Fading out");
+                LogHelper.printDebug(() -> "Fading out");
                 imageView.startAnimation(fadeOut);
                 imageView.setVisibility(View.GONE);
             }
@@ -133,7 +133,7 @@ public class DownloadButton {
 
         Context appContext = ReVancedUtils.getContext();
         if (appContext == null) {
-            LogHelper.printException(DownloadButton.class, "shouldBeShown - context is null!");
+            LogHelper.printException(() -> ("shouldBeShown - context is null!"));
             return false;
         }
         String string = SharedPrefHelper.getString(appContext, SharedPrefHelper.SharedPrefNames.YOUTUBE, "pref_download_button_list", "PLAYER" /* TODO: set the default to null, as this will be set by the settings page later */);

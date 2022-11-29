@@ -4,7 +4,7 @@ import android.content.Context
 import android.media.AudioManager
 import android.os.Build
 import app.revanced.integrations.swipecontrols.misc.clamp
-import app.revanced.integrations.utils.LogHelper
+import app.revanced.integrations.utils.LogHelper.printDebug
 import kotlin.properties.Delegates
 
 /**
@@ -29,7 +29,7 @@ class AudioVolumeController(
         // bind audio service
         val mgr = context.getSystemService(Context.AUDIO_SERVICE) as? AudioManager
         if (mgr == null) {
-            LogHelper.debug(this.javaClass, "failed to acquire AUDIO_SERVICE")
+            printDebug { "failed to acquire AUDIO_SERVICE" }
         } else {
             audioManager = mgr
             maximumVolumeIndex = audioManager.getStreamMaxVolume(targetStream)

@@ -45,7 +45,7 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             if (!setting.getPath().equals(str)) continue;
             Preference pref = this.findPreferenceOnScreen(str);
 
-            LogHelper.debug(ReVancedSettingsFragment.class, "Setting " + setting.name() + " was changed. Preference " + str + ": " + pref.toString());
+            LogHelper.printDebug(() -> "Setting " + setting.name() + " was changed. Preference " + str + ": " + pref.toString());
 
             if (pref instanceof SwitchPreference) {
                 SwitchPreference switchPref = (SwitchPreference) pref;
@@ -67,7 +67,7 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
                         value = Integer.parseInt(editPref.getText());
                         break;
                     default:
-                        LogHelper.printException(ReVancedSettingsFragment.class, "Setting has no valid return type! " + setting.getReturnType());
+                        LogHelper.printException(() -> ("Setting has no valid return type! " + setting.getReturnType()));
                         break;
                 }
                 setting.setValue(value);
@@ -80,17 +80,17 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
                         listPref.setSummary(videoSpeedEntries[listPref.findIndexOfValue(value)]);
                         SettingsEnum.PREFERRED_VIDEO_SPEED.saveValue(value);
                     } catch (Throwable th) {
-                        LogHelper.printException(ReVancedSettingsFragment.class, "Error setting value of speed" + th);
+                        LogHelper.printException(() -> ("Error setting value of speed" + th));
                     }
                 } else {
-                    LogHelper.printException(ReVancedSettingsFragment.class, "No valid setting found: " + setting.toString());
+                    LogHelper.printException(() -> ("No valid setting found: " + setting.toString()));
                 }
 
                 if ("pref_download_button_list".equals(str)) {
                     DownloadButton.refreshShouldBeShown();
                 }
             } else {
-                LogHelper.printException(ReVancedSettingsFragment.class, "Setting cannot be handled! " + pref.toString());
+                LogHelper.printException(() -> ("Setting cannot be handled! " + pref.toString()));
             }
 
             if (ReVancedUtils.getContext() != null && settingsInitialized && setting.shouldRebootOnChange()) {
@@ -115,7 +115,7 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
 
             this.settingsInitialized = true;
         } catch (Throwable th) {
-            LogHelper.printException(ReVancedSettingsFragment.class, "Error during onCreate()", th);
+            LogHelper.printException(() -> ("Error during onCreate()"), th);
         }
     }
 
@@ -130,7 +130,7 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
 
     private Preference findPreferenceOnScreen(CharSequence key) {
         if (key == null) {
-            LogHelper.printException(ReVancedSettingsFragment.class, "Key cannot be null!");
+            LogHelper.printException(() -> ("Key cannot be null!"));
             return null;
         }
         Preference pref = null;
@@ -141,7 +141,7 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
                 Preference toCheck = screen.findPreference(key);
                 if (toCheck == null) continue;
                 pref = toCheck;
-                LogHelper.debug(ReVancedSettingsFragment.class, "Found preference " + key + " on screen: " + screen.getTitle());
+                LogHelper.printDebug(() -> "Found preference " + key + " on screen: " + screen.getTitle());
             }
         }
 
@@ -163,11 +163,11 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
     private String getPackageName() {
         Context context = ReVancedUtils.getContext();
         if (context == null) {
-            LogHelper.printException(ReVancedSettingsFragment.class, "Context is null, returning com.google.android.youtube!");
+            LogHelper.printException(() -> ("Context is null, returning com.google.android.youtube!"));
             return "com.google.android.youtube";
         }
         String PACKAGE_NAME = context.getPackageName();
-        LogHelper.debug(ReVancedSettingsFragment.class, "getPackageName: " + PACKAGE_NAME);
+        LogHelper.printDebug(() -> "getPackageName: " + PACKAGE_NAME);
 
         return PACKAGE_NAME;
     }
@@ -188,7 +188,7 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             Resources res = context.getResources();
             return res.getString(res.getIdentifier(name, "string", context.getPackageName()));
         } catch (Throwable exception) {
-            LogHelper.printException(ReVancedUtils.class, "Resource not found.", exception);
+            LogHelper.printException(() -> ("Resource not found."), exception);
             return "";
         }
     }

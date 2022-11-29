@@ -5,12 +5,12 @@ public class ThemeHelper {
 
     public static void setTheme(int value) {
         themeValue = value;
-        LogHelper.debug(ThemeHelper.class, "Theme value: " + themeValue);
+        LogHelper.printDebug(() -> "Theme value: " + themeValue);
     }
 
     public static void setTheme(Object value) {
         themeValue = ((Enum) value).ordinal();
-        LogHelper.debug(ThemeHelper.class, "Theme value: " + themeValue);
+        LogHelper.printDebug(() -> "Theme value: " + themeValue);
     }
 
     public static boolean isDarkTheme() {

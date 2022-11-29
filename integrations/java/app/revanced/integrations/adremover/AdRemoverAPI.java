@@ -35,7 +35,7 @@ public class AdRemoverAPI {
             ViewGroup.LayoutParams layoutParams5 = new ViewGroup.LayoutParams(1, 1);
             view.setLayoutParams(layoutParams5);
         } else {
-            LogHelper.debug(AdRemoverAPI.class, "HideViewWithLayout1dp - Id: " + view.getId() + " Type: " + view.getClass().getName());
+            LogHelper.printDebug(() -> "HideViewWithLayout1dp - Id: " + view.getId() + " Type: " + view.getClass().getName());
         }
     }
 

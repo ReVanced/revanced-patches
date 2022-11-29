@@ -25,7 +25,7 @@ public abstract class SlimButton implements View.OnClickListener {
     }
 
     public SlimButton(Context context, ViewGroup container, int id, boolean visible) {
-        LogHelper.debug(SlimButton.class, "Adding button with id " + id + " and visibility of " + visible);
+        LogHelper.printDebug(() -> "Adding button with id " + id + " and visibility of " + visible);
         this.context = context;
         this.container = container;
         view = LayoutInflater.from(context).inflate(id, container, false);
@@ -48,7 +48,7 @@ public abstract class SlimButton implements View.OnClickListener {
             }
             setContainerVisibility();
         } catch (Exception ex) {
-            LogHelper.printException(SlimButton.class, "Error while changing button visibility", ex);
+            LogHelper.printException(() -> ("Error while changing button visibility"), ex);
         }
     }
 

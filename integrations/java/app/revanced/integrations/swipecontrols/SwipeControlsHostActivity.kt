@@ -16,7 +16,8 @@ import app.revanced.integrations.swipecontrols.controller.gesture.PressToSwipeCo
 import app.revanced.integrations.swipecontrols.controller.gesture.core.GestureController
 import app.revanced.integrations.swipecontrols.misc.Rectangle
 import app.revanced.integrations.swipecontrols.views.SwipeControlsOverlayLayout
-import app.revanced.integrations.utils.LogHelper
+import app.revanced.integrations.utils.LogHelper.printException
+import app.revanced.integrations.utils.LogHelper.printInfo
 import java.lang.ref.WeakReference
 
 /**
@@ -107,10 +108,9 @@ class SwipeControlsHostActivity : Activity() {
      */
     private fun ensureInitialized() {
         if (!this::config.isInitialized) {
-            LogHelper.printException(
-                this.javaClass,
+            printException {
                 "swipe controls were not initialized in onCreate, initializing on-the-fly (SDK is ${Build.VERSION.SDK_INT})"
-            )
+            }
             initialize()
             reAttachOverlays()
         }
@@ -121,7 +121,7 @@ class SwipeControlsHostActivity : Activity() {
      */
     private fun initialize() {
         // create controllers
-        LogHelper.info(this.javaClass, "initializing swipe controls controllers")
+        printInfo { "initializing swipe controls controllers" }
         config = SwipeControlsConfigurationProvider(this)
         keys = VolumeKeysController(this)
         audio = createAudioController()
@@ -157,7 +157,7 @@ class SwipeControlsHostActivity : Activity() {
      * (re) attaches swipe overlays
      */
     private fun reAttachOverlays() {
-        LogHelper.info(this.javaClass, "attaching swipe controls overlay")
+        printInfo { "attaching swipe controls overlay" }
         contentRoot.removeView(overlay)
         contentRoot.addView(overlay)
     }

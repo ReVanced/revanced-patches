@@ -26,7 +26,7 @@ public class PlayerTypeHookPatch {
         final PlayerType newType = PlayerType.safeParseFromString(type.toString());
         if (newType != null) {
             PlayerType.setCurrent(newType);
-            LogHelper.debug(PlayerTypeHookPatch.class, "YouTubePlayerOverlaysLayout player type was updated to " + newType);
+            LogHelper.printDebug(() -> "YouTubePlayerOverlaysLayout player type was updated to " + newType);
         }
     }
 }

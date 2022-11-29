@@ -21,7 +21,7 @@ public class ReVancedSettingActivity {
 
         final var theme = ThemeHelper.isDarkTheme() ? darkTheme : whiteTheme;
 
-        LogHelper.debug(ReVancedSettingActivity.class, "Using theme: " + theme);
+        LogHelper.printDebug(() -> "Using theme: " + theme);
         base.setTheme(getIdentifier(theme, "style"));
     }
 
@@ -46,7 +46,7 @@ public class ReVancedSettingActivity {
         try {
             getTextView((ViewGroup) base.findViewById(getIdentifier("toolbar", "id"))).setText(preferenceIdentifier);
         } catch (Exception e) {
-            LogHelper.printException(ReVancedSettingActivity.class, "Couldn't set Toolbar title", e);
+            LogHelper.printException(() -> ("Couldn't set Toolbar title"), e);
         }
 
         base.getFragmentManager().beginTransaction().replace(getIdentifier("revanced_settings_fragments", "id"), preferenceFragment).commit();

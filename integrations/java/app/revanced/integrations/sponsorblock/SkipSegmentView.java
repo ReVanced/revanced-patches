@@ -28,13 +28,13 @@ public class SkipSegmentView {
 
     public static void notifySkipped(SponsorSegment segment) {
         if (segment == lastNotifiedSegment) {
-            LogHelper.debug(SkipSegmentView.class, "notifySkipped; segment == lastNotifiedSegment");
+            LogHelper.printDebug(() -> "notifySkipped; segment == lastNotifiedSegment");
             return;
         }
         lastNotifiedSegment = segment;
         String skipMessage = segment.category.skipMessage.toString();
         Context context = ReVancedUtils.getContext();
-        LogHelper.debug(SkipSegmentView.class, String.format("notifySkipped; message=%s", skipMessage));
+        LogHelper.printDebug(() -> String.format("notifySkipped; message=%s", skipMessage));
 
         if (context != null)
             Toast.makeText(context, skipMessage, Toast.LENGTH_SHORT).show();

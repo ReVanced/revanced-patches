@@ -20,9 +20,9 @@ public class MicroGSupport {
         assert context != null;
         try {
             context.getPackageManager().getPackageInfo(MICROG_PACKAGE_NAME, PackageManager.GET_ACTIVITIES);
-            LogHelper.debug(ReVancedUtils.class, "MicroG is installed on the device");
+            LogHelper.printDebug(() -> "MicroG is installed on the device");
         } catch (PackageManager.NameNotFoundException exception) {
-            LogHelper.printException(ReVancedUtils.class, "MicroG was not found", exception);
+            LogHelper.printException(() -> ("MicroG was not found"), exception);
             Toast.makeText(context, str("microg_not_installed_warning"), Toast.LENGTH_LONG).show();
 
             var intent = new Intent(Intent.ACTION_VIEW);

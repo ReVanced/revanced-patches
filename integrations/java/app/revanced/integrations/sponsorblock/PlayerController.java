@@ -69,7 +69,7 @@ public class PlayerController {
 
         currentVideoId = videoId;
         sponsorSegmentsOfCurrentVideo = null;
-        LogHelper.debug(PlayerController.class, "setCurrentVideoId: videoId=" + videoId);
+        LogHelper.printDebug(() -> "setCurrentVideoId: videoId=" + videoId);
 
         sponsorTimer.schedule(new TimerTask() {
             @Override
@@ -98,7 +98,7 @@ public class PlayerController {
         Arrays.sort(segments);
 
         for (SponsorSegment segment : segments) {
-            LogHelper.debug(PlayerController.class, "Detected segment: " + segment.toString());
+            LogHelper.printDebug(() -> "Detected segment: " + segment.toString());
         }
 
         sponsorSegmentsOfCurrentVideo = segments;
@@ -107,7 +107,7 @@ public class PlayerController {
 
 
     public static void setVideoTime(long millis) {
-        LogHelper.debug(PlayerController.class, "setCurrentVideoTime: current video time: " + millis);
+        LogHelper.printDebug(() -> "setCurrentVideoTime: current video time: " + millis);
         if (!SettingsEnum.SB_ENABLED.getBoolean()) return;
         lastKnownVideoTime = millis;
         if (millis <= 0) return;
@@ -133,7 +133,7 @@ public class PlayerController {
                     break;
 
                 if (skipSponsorTask == null) {
-                    LogHelper.debug(PlayerController.class, "Scheduling skipSponsorTask");
+                    LogHelper.printDebug(() -> "Scheduling skipSponsorTask");
                     skipSponsorTask = new TimerTask() {
                         @Override
                         public void run() {
@@ -144,7 +144,7 @@ public class PlayerController {
                     };
                     sponsorTimer.schedule(skipSponsorTask, segment.start - millis);
                 } else {
-                    LogHelper.debug(PlayerController.class, "skipSponsorTask is already scheduled...");
+                    LogHelper.printDebug(() -> "skipSponsorTask is already scheduled...");
                 }
 
                 break;
@@ -209,7 +209,7 @@ public class PlayerController {
     }
 
     public static void setSponsorBarAbsoluteLeft(final float left) {
-        LogHelper.debug(PlayerController.class, String.format("setSponsorBarLeft: left=%.2f", left));
+        LogHelper.printDebug(() -> String.format("setSponsorBarLeft: left=%.2f", left));
 
         sponsorBarLeft = left;
     }
@@ -233,7 +233,7 @@ public class PlayerController {
     }
 
     public static void setSponsorBarAbsoluteRight(final float right) {
-        LogHelper.debug(PlayerController.class, String.format("setSponsorBarRight: right=%.2f", right));
+        LogHelper.printDebug(() -> String.format("setSponsorBarRight: right=%.2f", right));
 
         sponsorBarRight = right;
     }
@@ -250,14 +250,14 @@ public class PlayerController {
     }
 
     public static void onSkipSponsorClicked() {
-        LogHelper.debug(PlayerController.class, "Skip segment clicked");
+        LogHelper.printDebug(() -> "Skip segment clicked");
         findAndSkipSegment(true);
     }
 
 
     public static void addSkipSponsorView15(final View view) {
         playerActivity = new WeakReference<>((Activity) view.getContext());
-        LogHelper.debug(PlayerController.class, "addSkipSponsorView15: view=" + view.toString());
+        LogHelper.printDebug(() -> "addSkipSponsorView15: view=" + view.toString());
 
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             final ViewGroup viewGroup = (ViewGroup) ((ViewGroup) view).getChildAt(2);
@@ -268,7 +268,7 @@ public class PlayerController {
 
     public static void addSkipSponsorView14(final View view) {
         playerActivity = new WeakReference<>((Activity) view.getContext());
-        LogHelper.debug(PlayerController.class, "addSkipSponsorView14: view=" + view.toString());
+        LogHelper.printDebug(() -> "addSkipSponsorView14: view=" + view.toString());
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             final ViewGroup viewGroup = (ViewGroup) view.getParent();
             Activity activity = (Activity) viewGroup.getContext();
@@ -313,21 +313,21 @@ public class PlayerController {
         // I put this block so that skip can be made only once per some time
         long now = System.currentTimeMillis();
         if (now < allowNextSkipRequestTime) {
-            LogHelper.debug(PlayerController.class, "skipToMillisecond: to fast, slow down, because you'll fail");
+            LogHelper.printDebug(() -> "skipToMillisecond: to fast, slow down, because you'll fail");
             return false;
         }
         allowNextSkipRequestTime = now + 100;
 
-        LogHelper.debug(PlayerController.class, String.format("Requesting skip to millis=%d on thread %s", millisecond, Thread.currentThread().toString()));
+        LogHelper.printDebug(() -> String.format("Requesting skip to millis=%d on thread %s", millisecond, Thread.currentThread().toString()));
 
         final long finalMillisecond = millisecond;
 
         try {
-            LogHelper.debug(PlayerController.class, "Skipping to millis=" + finalMillisecond);
+            LogHelper.printDebug(() -> "Skipping to millis=" + finalMillisecond);
             lastKnownVideoTime = finalMillisecond;
             VideoInformation.seekTo(finalMillisecond);
         } catch (Exception e) {
-            LogHelper.printException(PlayerController.class, "Cannot skip to millisecond", e);
+            LogHelper.printException(() -> ("Cannot skip to millisecond"), e);
         }
 
         return true;
@@ -362,7 +362,7 @@ public class PlayerController {
     private static void skipSegment(SponsorSegment segment, boolean wasClicked) {
 //        if (lastSkippedSegment == segment) return;
 //        lastSkippedSegment = segment;
-        LogHelper.debug(PlayerController.class, "Skipping segment: " + segment.toString());
+        LogHelper.printDebug(() -> "Skipping segment: " + segment.toString());
 
         if (SettingsEnum.SB_SHOW_TOAST_WHEN_SKIP.getBoolean() && !wasClicked)
             SkipSegmentView.notifySkipped(segment);

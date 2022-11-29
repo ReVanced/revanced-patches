@@ -11,7 +11,7 @@ public class HideCreateButtonPatch {
     public static void hideCreateButton(View view) {
         boolean enabled = SettingsEnum.CREATE_BUTTON_ENABLED.getBoolean();
         String message =  "Create button: " + (enabled ? "shown" : "hidden");
-        LogHelper.debug(HideCreateButtonPatch.class, message);
+        LogHelper.printDebug(() -> message);
         view.setVisibility(enabled ? View.VISIBLE : View.GONE);
     }
 }
