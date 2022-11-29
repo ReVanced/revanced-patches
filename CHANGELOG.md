@@ -1,3 +1,10 @@
+# [2.130.0](https://github.com/revanced/revanced-patches/compare/v2.129.0...v2.130.0) (2022-11-29)
+
+
+### Features
+
+* **youtube/enable-wide-searchbar:** bump compatibility to v17.45.36 ([66ce54c](https://github.com/revanced/revanced-patches/commit/66ce54c9921e6fbf5bbe52d73b0182352181f2b8))
+
 # [2.129.0](https://github.com/revanced/revanced-patches/compare/v2.128.0...v2.129.0) (2022-11-28)
 
 
