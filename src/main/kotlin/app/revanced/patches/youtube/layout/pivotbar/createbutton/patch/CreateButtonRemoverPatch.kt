@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.pivotbar.createbutton.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -19,7 +20,6 @@ import app.revanced.patches.youtube.layout.pivotbar.fingerprints.InitializeButto
 import app.revanced.patches.youtube.layout.pivotbar.resource.patch.ResolvePivotBarFingerprintsPatch
 import app.revanced.patches.youtube.layout.pivotbar.utils.InjectionUtils.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.patches.youtube.layout.pivotbar.utils.InjectionUtils.injectHook
-import app.revanced.patches.youtube.layout.pivotbar.utils.InjectionUtils.toErrorResult
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 

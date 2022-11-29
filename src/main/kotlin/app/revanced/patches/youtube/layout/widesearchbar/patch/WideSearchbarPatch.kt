@@ -1,11 +1,13 @@
 package app.revanced.patches.youtube.layout.widesearchbar.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -13,15 +15,14 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.youtube.layout.widesearchbar.annotations.WideSearchbarCompatibility
-import app.revanced.patches.youtube.layout.widesearchbar.fingerprints.WideSearchbarOneFingerprint
-import app.revanced.patches.youtube.layout.widesearchbar.fingerprints.WideSearchbarOneParentFingerprint
-import app.revanced.patches.youtube.layout.widesearchbar.fingerprints.WideSearchbarTwoFingerprint
-import app.revanced.patches.youtube.layout.widesearchbar.fingerprints.WideSearchbarTwoParentFingerprint
-import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.youtube.layout.widesearchbar.annotations.WideSearchbarCompatibility
+import app.revanced.patches.youtube.layout.widesearchbar.fingerprints.IsInOfflineModeCheckFingerprint
+import app.revanced.patches.youtube.layout.widesearchbar.fingerprints.IsInOfflineModeCheckResultFingerprint
+import app.revanced.patches.youtube.layout.widesearchbar.fingerprints.SetWordmarkHeaderFingerprint
+import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
+import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
@@ -31,9 +32,38 @@ import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 @Version("0.0.1")
 class WideSearchbarPatch : BytecodePatch(
     listOf(
-        WideSearchbarOneParentFingerprint, WideSearchbarTwoParentFingerprint
+        SetWordmarkHeaderFingerprint, IsInOfflineModeCheckFingerprint
     )
 ) {
+    private companion object {
+        /**
+         * Walk a fingerprints method at a given index mutably.
+         *
+         * @param index The index to walk at.
+         * @param fromFingerprint The fingerprint to walk the method on.
+         * @return The [MutableMethod] which was walked on.
+         */
+        fun BytecodeContext.walkMutable(index: Int, fromFingerprint: MethodFingerprint) =
+            fromFingerprint.result?.let {
+                toMethodWalker(it.method).nextMethod(index, true).getMethod() as MutableMethod
+            } ?: throw SetWordmarkHeaderFingerprint.toErrorResult()
+
+
+        /**
+         * Injects instructions required for certain methods.
+         *
+         */
+        fun MutableMethod.injectSearchBarHook() {
+            addInstructions(
+                implementation!!.instructions.size - 1,
+                """
+                    invoke-static {}, Lapp/revanced/integrations/patches/NewActionbarPatch;->getNewActionBar()Z
+                    move-result p0
+                """
+            )
+        }
+    }
+
     override fun execute(context: BytecodeContext): PatchResult {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
@@ -45,76 +75,20 @@ class WideSearchbarPatch : BytecodePatch(
             )
         )
 
-        WideSearchbarOneFingerprint.resolve(context, WideSearchbarOneParentFingerprint.result!!.classDef)
-        WideSearchbarTwoFingerprint.resolve(context, WideSearchbarTwoParentFingerprint.result!!.classDef)
+        // resolve fingerprints
+        IsInOfflineModeCheckFingerprint.result?.let {
+            if (!IsInOfflineModeCheckResultFingerprint.resolve(context, it.classDef))
+                return IsInOfflineModeCheckResultFingerprint.toErrorResult()
+        } ?: return IsInOfflineModeCheckFingerprint.toErrorResult()
 
-        val resultOne = WideSearchbarOneFingerprint.result
-
-        //This should be the method aF in class fbn
-        val targetMethodOne =
-            context.toMethodWalker(resultOne!!.method)
-                .nextMethod(resultOne.scanResult.patternScanResult!!.endIndex, true).getMethod() as MutableMethod
-
-        //Since both methods have the same smali code, inject instructions using a method.
-        addInstructions(targetMethodOne)
-
-        val resultTwo = WideSearchbarTwoFingerprint.result
-
-        //This should be the method aB in class fbn
-        val targetMethodTwo =
-            context.toMethodWalker(resultTwo!!.method)
-                .nextMethod(resultTwo.scanResult.patternScanResult!!.startIndex, true).getMethod() as MutableMethod
-
-        //Since both methods have the same smali code, inject instructions using a method.
-        addInstructions(targetMethodTwo)
+        // patch methods
+        mapOf(
+            SetWordmarkHeaderFingerprint to 1,
+            IsInOfflineModeCheckResultFingerprint to 0
+        ).forEach { (fingerprint, callIndex) ->
+            context.walkMutable(callIndex, fingerprint).injectSearchBarHook()
+        }
 
         return PatchResultSuccess()
     }
-
-    private fun addInstructions(method: MutableMethod) {
-        val index = method.implementation!!.instructions.size - 1
-        method.addInstructions(
-            index, """
-            invoke-static {}, Lapp/revanced/integrations/patches/NewActionbarPatch;->getNewActionBar()Z
-            move-result p0
-        """
-        )
-    }
-
-    //targetMethodOne: in class fbn
-    /*
-    .method public static aF(Ltxm;)Z
-        invoke-virtual {p0}, Ltxm;->b()Lahah;
-        move-result-object p0
-        iget-object p0, p0, Lahah;->e:Lakfd;
-        if-nez p0, :cond_a
-        sget-object p0, Lakfd;->a:Lakfd;
-        :cond_a
-        iget-boolean p0, p0, Lakfd;->V:Z
-        //added code here:
-            invoke-static {}, app/revanced/integrations/patches/NewActionbarPatch;->getNewActionBar()Z
-            move-result p0
-        //original code here:
-        return p0
-    .end method
-   */
-
-    //targetMethodTwo: in class fbn
-    /*
-    .method public static aB(Ltxm;)Z
-        invoke-virtual {p0}, Ltxm;->b()Lahah;
-        move-result-object p0
-        iget-object p0, p0, Lahah;->e:Lakfd;
-        if-nez p0, :cond_a
-        sget-object p0, Lakfd;->a:Lakfd;
-        :cond_a
-        iget-boolean p0, p0, Lakfd;->y:Z
-        //added code here:
-            invoke-static {}, app/revanced/integrations/patches/NewActionbarPatch;->getNewActionBar()Z
-            move-result p0
-        //original code here:
-        return p0
-    .end method
-
-    */
 }
