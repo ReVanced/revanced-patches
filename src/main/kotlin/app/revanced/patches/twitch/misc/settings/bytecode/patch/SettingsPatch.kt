@@ -173,6 +173,7 @@ class SettingsPatch : BytecodePatch(
             val GENERAL = CustomCategory("general", "General settings")
             val OTHER = CustomCategory("other", "Other settings")
             val CLIENT_SIDE = CustomCategory("client_ads", "Client-side ads")
+            val SURESTREAM = CustomCategory("surestream_ads", "Server-side surestream ads")
 
             internal inner class CustomCategory(key: String, title: String) : Screen.Category(key, title) {
                 /* For Twitch, we need to load our CustomPreferenceCategory class instead of the default one. */
