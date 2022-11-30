@@ -1,9 +1,10 @@
 package app.revanced.patches.twitch.ad.video.fingerprints
 
+
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 
-object GetReadyToShowAdFingerprint : MethodFingerprint(
+object AdsManagerFingerprint : MethodFingerprint(
     customFingerprint = { method ->
-        method.definingClass.endsWith("/StreamDisplayAdsPresenter;") && method.name == "getReadyToShowAdOrAbort"
+        method.definingClass.endsWith("AdsManagerImpl;") && method.name == "playAds"
     }
 )
