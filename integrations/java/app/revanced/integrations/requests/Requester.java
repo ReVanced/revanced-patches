@@ -1,6 +1,7 @@
 package app.revanced.integrations.requests;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -24,32 +25,58 @@ public class Requester {
         return connection;
     }
 
+    /**
+     * Parse, and then disconnect the {@link HttpURLConnection}
+     *
+     * TODO: rename this to #parseJsonAndDisconnect
+     */
     public static String parseJson(HttpURLConnection connection) throws IOException {
-        return parseJson(connection.getInputStream(), false);
+        String result = parseJson(connection.getInputStream(), false);
+        connection.disconnect();
+        return result;
     }
 
+    /**
+     * Parse, and then close the {@link InputStream}
+     *
+     * TODO: rename this to #parseJsonAndCloseStream
+     */
     public static String parseJson(InputStream inputStream, boolean isError) throws IOException {
-        StringBuilder jsonBuilder = new StringBuilder();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-        String line;
-        while ((line = reader.readLine()) != null) {
-            jsonBuilder.append(line);
-            if (isError)
-                jsonBuilder.append("\n");
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+            StringBuilder jsonBuilder = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                jsonBuilder.append(line);
+                if (isError)
+                    jsonBuilder.append("\n");
+            }
+            return jsonBuilder.toString();
         }
-        inputStream.close();
-        return jsonBuilder.toString();
     }
 
+    /**
+     * Parse, and then do NOT disconnect the {@link HttpURLConnection}
+     */
     public static String parseErrorJson(HttpURLConnection connection) throws IOException {
+        // TODO: make this also disconnect, and rename method to #parseErrorJsonAndDisconnect
         return parseJson(connection.getErrorStream(), true);
     }
 
-    public static JSONObject getJSONObject(HttpURLConnection connection) throws Exception {
+    /**
+     * Parse, and then disconnect the {@link HttpURLConnection}
+     *
+     * TODO: rename this to #getJSONObjectAndDisconnect
+     */
+    public static JSONObject getJSONObject(HttpURLConnection connection) throws JSONException, IOException {
         return new JSONObject(parseJsonAndDisconnect(connection));
     }
 
-    public static JSONArray getJSONArray(HttpURLConnection connection) throws Exception {
+    /**
+     * Parse, and then disconnect the {@link HttpURLConnection}
+     *
+     * TODO: rename this to #getJSONArrayAndDisconnect
+     */
+    public static JSONArray getJSONArray(HttpURLConnection connection) throws JSONException, IOException  {
         return new JSONArray(parseJsonAndDisconnect(connection));
     }
 
