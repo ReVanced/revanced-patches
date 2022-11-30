@@ -180,6 +180,7 @@ The official Patch bundle provided by ReVanced and the community.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `debug-mode` | Enables Twitch's internal debugging mode. | all |
+| `block-embedded-ads` | Blocks embedded steam ads using services like TTV.lol or PurpleAdBlocker. | all |
 | `block-audio-ads` | Blocks audio ads in streams and VODs. | all |
 | `block-video-ads` | Blocks video ads in streams and VODs. | all |
 | `settings` | Adds settings menu to Twitch. | all |
