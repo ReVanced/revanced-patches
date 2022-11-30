@@ -92,7 +92,7 @@ abstract class AbstractSettingsResourcePatch(
          * @param arrayResource The array resource to add.
          */
         fun addArray(arrayResource: ArrayResource) =
-            arraysNode!!.addResource(arrayResource) { it.include() }
+            arraysNode!!.addResource(arrayResource)
 
         /**
          * Add a preference to the settings.
