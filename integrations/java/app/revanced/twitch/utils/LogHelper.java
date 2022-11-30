@@ -43,7 +43,7 @@ public class LogHelper {
 
     private static void showDebugToast(String msg) {
         if(SettingsEnum.DEBUG_MODE.getBoolean()) {
-            ReVancedUtils.toast(msg, false);
+            ReVancedUtils.ifContextAttached((c) -> Toast.makeText(c, msg, Toast.LENGTH_SHORT).show());
         }
     }
 }

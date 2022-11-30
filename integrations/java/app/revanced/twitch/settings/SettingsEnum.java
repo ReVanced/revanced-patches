@@ -10,7 +10,6 @@ public enum SettingsEnum {
     /* Ads */
     BLOCK_VIDEO_ADS("revanced_block_video_ads", true, ReturnType.BOOLEAN),
     BLOCK_AUDIO_ADS("revanced_block_audio_ads", true, ReturnType.BOOLEAN),
-    BLOCK_EMBEDDED_ADS("revanced_block_embedded_ads", "ttv-lol", ReturnType.STRING),
 
     /* Chat */
     SHOW_DELETED_MESSAGES("revanced_show_deleted_messages", "cross-out", ReturnType.STRING),
