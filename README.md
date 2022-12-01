@@ -166,6 +166,14 @@ The official Patch bundle provided by ReVanced and the community.
 | `unlock-themes` | Unlocks all themes. | all |
 </details>
 
+### 📦 `com.ithebk.expensemanager`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-pro` | Unlocks pro features. | all |
+</details>
+
 ### 📦 `com.crunchyroll.crunchyroid`
 <details>
 
