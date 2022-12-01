@@ -150,6 +150,14 @@ The official Patch bundle provided by ReVanced and the community.
 | `client-spoof` | Spoofs the YouTube or Vanced client to prevent playback issues. | all |
 </details>
 
+### 📦 `com.urbandroid.sleep`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-premium` | Unlocks all premium features. | all |
+</details>
+
 ### 📦 `com.ticktick.task`
 <details>
 
@@ -180,7 +188,6 @@ The official Patch bundle provided by ReVanced and the community.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `debug-mode` | Enables Twitch's internal debugging mode. | all |
-| `block-embedded-ads` | Blocks embedded steam ads using services like TTV.lol or PurpleAdBlocker. | all |
 | `block-audio-ads` | Blocks audio ads in streams and VODs. | all |
 | `block-video-ads` | Blocks video ads in streams and VODs. | all |
 | `settings` | Adds settings menu to Twitch. | all |
