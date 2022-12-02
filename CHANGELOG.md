@@ -1,3 +1,10 @@
+# [2.135.0](https://github.com/revanced/revanced-patches/compare/v2.134.1...v2.135.0) (2022-12-02)
+
+
+### Features
+
+* sort README patch table by amount of patches per package ([40cb14e](https://github.com/revanced/revanced-patches/commit/40cb14e1838aee5b49b60094cd134ed7e1726c3f))
+
 ## [2.134.1](https://github.com/revanced/revanced-patches/compare/v2.134.0...v2.134.1) (2022-12-02)
 
 
