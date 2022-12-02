@@ -75,44 +75,6 @@ The official Patch bundle provided by ReVanced and the community.
 | `upgrade-button-remover` | Removes the upgrade tab from the pivot bar. | 5.31.50 |
 </details>
 
-### 📦 `tv.twitch.android.app`
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `block-audio-ads` | Blocks audio ads in streams and VODs. | all |
-| `block-video-ads` | Blocks video ads in streams and VODs. | all |
-| `debug-mode` | Enables Twitch's internal debugging mode. | all |
-| `settings` | Adds settings menu to Twitch. | all |
-| `show-deleted-messages` | Shows deleted chat messages behind a clickable spoiler. | all |
-</details>
-
-### 📦 `com.vanced.android.youtube`
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `client-spoof` | Spoofs the YouTube or Vanced client to prevent playback issues. | all |
-</details>
-
-### 📦 `com.myprog.hexedit`
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `disable-ads` | Disables ads in HexEditor. | all |
-</details>
-
-### 📦 `com.spotify.music`
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `disable-capture-restriction` | Allows capturing Spotify's audio output while screen sharing or screen recording. | all |
-| `hide-premium-navbar` | Removes the premium tab from the navbar. | all |
-| `spotify-theme` | Applies a custom theme. | all |
-</details>
-
 ### 📦 `com.ss.android.ugc.trill`
 <details>
 
@@ -145,6 +107,28 @@ The official Patch bundle provided by ReVanced and the community.
 | `sim-spoof` | Spoofs the information which is retrieved from the sim-card. | all |
 </details>
 
+### 📦 `tv.twitch.android.app`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `block-audio-ads` | Blocks audio ads in streams and VODs. | all |
+| `block-video-ads` | Blocks video ads in streams and VODs. | all |
+| `debug-mode` | Enables Twitch's internal debugging mode. | all |
+| `settings` | Adds settings menu to Twitch. | all |
+| `show-deleted-messages` | Shows deleted chat messages behind a clickable spoiler. | all |
+</details>
+
+### 📦 `com.spotify.music`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `disable-capture-restriction` | Allows capturing Spotify's audio output while screen sharing or screen recording. | all |
+| `hide-premium-navbar` | Removes the premium tab from the navbar. | all |
+| `spotify-theme` | Applies a custom theme. | all |
+</details>
+
 ### 📦 `com.twitter.android`
 <details>
 
@@ -155,14 +139,6 @@ The official Patch bundle provided by ReVanced and the community.
 | `timeline-ads` | Removes ads from the Twitter timeline. | all |
 </details>
 
-### 📦 `com.crunchyroll.crunchyroid`
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `enable-downloads` | Enables downloads for Crunchyroll. | all |
-</details>
-
 ### 📦 `com.reddit.frontpage`
 <details>
 
@@ -170,6 +146,30 @@ The official Patch bundle provided by ReVanced and the community.
 |:--------:|:--------------:|:-----------------:|
 | `general-reddit-ads` | Removes general ads from the Reddit frontpage and subreddits. | all |
 | `premium-icon-reddit` | Unlocks premium Reddit app icons. | all |
+</details>
+
+### 📦 `com.vanced.android.youtube`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `client-spoof` | Spoofs the YouTube or Vanced client to prevent playback issues. | all |
+</details>
+
+### 📦 `com.myprog.hexedit`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `disable-ads` | Disables ads in HexEditor. | all |
+</details>
+
+### 📦 `com.crunchyroll.crunchyroid`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `enable-downloads` | Enables downloads for Crunchyroll. | all |
 </details>
 
 ### 📦 `com.garzotto.pflotsh.ecmwf_a`
