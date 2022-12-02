@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.playback.fix.patch
+package app.revanced.patches.youtube.misc.fix.playback.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
@@ -8,12 +8,12 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import app.revanced.patches.youtube.misc.playback.fix.annotations.FixPlaybackCompatibility
-import app.revanced.patches.youtube.misc.video.information.patch.VideoInformationPatch
-import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.youtube.misc.fix.playback.annotations.FixPlaybackCompatibility
+import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
+import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
+import app.revanced.patches.youtube.misc.video.information.patch.VideoInformationPatch
 import app.revanced.patches.youtube.misc.video.videoid.patch.VideoIdPatch
 
 @DependsOn([

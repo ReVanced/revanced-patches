@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.clientspoof.fingerprints
+package app.revanced.patches.youtube.misc.fix.spoof.fingerprints
 
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
