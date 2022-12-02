@@ -1,3 +1,15 @@
+# [2.134.0](https://github.com/revanced/revanced-patches/compare/v2.133.0...v2.134.0) (2022-12-02)
+
+
+### Bug Fixes
+
+* **anytracker:** syntax error in fingerprint ([#1165](https://github.com/revanced/revanced-patches/issues/1165)) ([46ad786](https://github.com/revanced/revanced-patches/commit/46ad786b1488814494080ca48cff27c361c47ca1))
+
+
+### Features
+
+* **anytracker:** `unlock-premium` patch ([#1165](https://github.com/revanced/revanced-patches/issues/1165)) ([e7ed324](https://github.com/revanced/revanced-patches/commit/e7ed324bb5216037be0646a698e7e808fbf03e4e))
+
 # [2.133.0](https://github.com/revanced/revanced-patches/compare/v2.132.0...v2.133.0) (2022-12-01)
 
 
