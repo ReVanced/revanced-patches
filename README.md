@@ -166,6 +166,14 @@ The official Patch bundle provided by ReVanced and the community.
 | `unlock-themes` | Unlocks all themes. | all |
 </details>
 
+### 📦 `com.shervinkoushan.anyTracker`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-premium` | Unlocks all premium features. | all |
+</details>
+
 ### 📦 `com.ithebk.expensemanager`
 <details>
 
