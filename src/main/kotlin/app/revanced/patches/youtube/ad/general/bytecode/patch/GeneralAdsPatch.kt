@@ -17,10 +17,10 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.ad.general.annotation.GeneralAdsCompatibility
 import app.revanced.patches.youtube.ad.general.bytecode.fingerprints.ReelConstructorFingerprint
 import app.revanced.patches.youtube.ad.general.resource.patch.GeneralAdsResourcePatch
+import app.revanced.patches.youtube.misc.fix.verticalscroll.patch.VerticalScrollPatch
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
-import java.util.*
 
 
 @Patch

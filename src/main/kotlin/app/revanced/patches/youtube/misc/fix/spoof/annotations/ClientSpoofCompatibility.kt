@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.clientspoof.annotations
+package app.revanced.patches.youtube.misc.fix.spoof.annotations
 
 import app.revanced.patcher.annotation.Compatibility
 import app.revanced.patcher.annotation.Package

@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.playback.fix.annotations
+package app.revanced.patches.youtube.misc.fix.playback.annotations
 
 import app.revanced.patcher.annotation.Compatibility
 import app.revanced.patcher.annotation.Package
