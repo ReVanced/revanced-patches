@@ -24,7 +24,7 @@ fun generateText(bundle: Bundle) {
         }
     }
 
-    for (pkg in packages) {
+    for (pkg in packages.entries.sortedByDescending { it.value.size }) {
         output.appendLine("### \uD83D\uDCE6 `${pkg.key}`")
         output.appendLine("<details>\n")
 
