@@ -24,7 +24,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
 
 @Patch
-@DependsOn([GeneralAdsResourcePatch::class])
+@DependsOn([GeneralAdsResourcePatch::class, VerticalScrollPatch::class])
 @Name("general-ads")
 @Description("Removes general ads.")
 @GeneralAdsCompatibility
