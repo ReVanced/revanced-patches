@@ -1,3 +1,10 @@
+# [2.137.0](https://github.com/revanced/revanced-patches/compare/v2.136.0...v2.137.0) (2022-12-03)
+
+
+### Features
+
+* **youtube/return-youtube-dislike:** show dislike as a percentage ([#1185](https://github.com/revanced/revanced-patches/issues/1185)) ([cbbab0b](https://github.com/revanced/revanced-patches/commit/cbbab0b4069534a2032258f9a09e9690fc68c291))
+
 # [2.136.0](https://github.com/revanced/revanced-patches/compare/v2.135.0...v2.136.0) (2022-12-02)
 
 
