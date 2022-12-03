@@ -1,6 +1,12 @@
 <resources>
-    <string name="revanced_ryd_title">Enable Return YouTube Dislike</string>
-    <string name="revanced_ryd_summary">Switch this on to see the dislike counts again</string>
-    <string name="revanced_ryd_attribution_title">Return YouTube Dislike patch</string>
-    <string name="revanced_ryd_attribution_summary">This patch uses the Return YouTube Dislike API from https://returnyoutubedislike.com. Tap to learn more</string>
+    <string name="revanced_ryd_enable_title">Return YouTube Dislike</string>
+    <string name="revanced_ryd_enable_summary_on">Dislikes are shown</string>
+    <string name="revanced_ryd_enable_summary_off">Dislikes are hidden</string>
+
+    <string name="revanced_ryd_dislike_percentage_title">Show dislikes as percentage</string>
+    <string name="revanced_ryd_dislike_percentage_summary_on">Dislikes shown as estimated percentage</string>
+    <string name="revanced_ryd_dislike_percentage_summary_off">Dislikes shown as estimated number</string>
+
+    <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
+    <string name="revanced_ryd_attribution_summary">Dislike data is provided by the Return YouTube Dislike API.  Tap here to learn more.</string>
 </resources>
