@@ -4,6 +4,7 @@ import android.util.Base64;
 
 import androidx.annotation.Nullable;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -26,7 +27,7 @@ public class ReturnYouTubeDislikeApi {
     private static final String RYD_API_URL = "https://returnyoutubedislikeapi.com/";
 
     /**
-     * Default connection and response timeout for {@link #fetchDislikes(String)}
+     * Default connection and response timeout for {@link #fetchVotes(String)}
      */
     private static final int API_GET_DISLIKE_DEFAULT_TIMEOUT_MILLISECONDS = 5000;
 
@@ -128,11 +129,10 @@ public class ReturnYouTubeDislikeApi {
     }
 
     /**
-     * @return The number of dislikes.
-     * Returns NULL if fetch failed, or a rate limit is in effect.
+     * @return NULL if fetch failed, or if a rate limit is in effect.
      */
     @Nullable
-    public static Integer fetchDislikes(String videoId) {
+    public static RYDVoteData fetchVotes(String videoId) {
         ReVancedUtils.verifyOffMainThread();
         Objects.requireNonNull(videoId);
         try {
@@ -161,10 +161,14 @@ public class ReturnYouTubeDislikeApi {
             }
             if (responseCode == SUCCESS_HTTP_STATUS_CODE) {
                 JSONObject json = Requester.getJSONObject(connection); // also disconnects
-                Integer fetchedDislikeCount = json.getInt("dislikes");
-                LogHelper.printDebug(() -> "Fetched video: " + videoId
-                        + " dislikes: " + fetchedDislikeCount);
-                return fetchedDislikeCount;
+                try {
+                    RYDVoteData votingData = new RYDVoteData(json);
+                    LogHelper.printDebug(() -> "Voting data fetched: " + votingData);
+                    return votingData;
+                } catch (JSONException ex) {
+                    LogHelper.printException(() -> "Failed to parse video: " + videoId + " json: " + json, ex);
+                    return null;
+                }
             }
             LogHelper.printDebug(() -> "Failed to fetch dislikes for video: " + videoId
                     + " response code was: " + responseCode);

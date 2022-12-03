@@ -2,6 +2,8 @@ package app.revanced.integrations.returnyoutubedislike;
 
 import android.content.Context;
 import android.icu.text.CompactDecimalFormat;
+import android.icu.text.DecimalFormat;
+import android.icu.text.DecimalFormatSymbols;
 import android.os.Build;
 import android.text.SpannableString;
 
@@ -17,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
 
+import app.revanced.integrations.returnyoutubedislike.requests.RYDVoteData;
 import app.revanced.integrations.returnyoutubedislike.requests.ReturnYouTubeDislikeApi;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
@@ -41,7 +44,7 @@ public class ReturnYouTubeDislike {
     private static volatile boolean isEnabled = SettingsEnum.RYD_ENABLED.getBoolean();
 
     /**
-     * Used to guard {@link #currentVideoId} and {@link #dislikeFetchFuture},
+     * Used to guard {@link #currentVideoId} and {@link #voteFetchFuture},
      * as multiple threads access this class.
      */
     private static final Object videoIdLockObject = new Object();
@@ -50,10 +53,10 @@ public class ReturnYouTubeDislike {
     private static String currentVideoId;
 
     /**
-     * Stores the results of the dislike fetch, and used as a barrier to wait until fetch completes
+     * Stores the results of the vote api fetch, and used as a barrier to wait until fetch completes
      */
     @GuardedBy("videoIdLockObject")
-    private static Future<Integer> dislikeFetchFuture;
+    private static Future<RYDVoteData> voteFetchFuture;
 
     public enum Vote {
         LIKE(1),
@@ -73,8 +76,14 @@ public class ReturnYouTubeDislike {
     /**
      * Used to format like/dislike count.
      */
-    @GuardedBy("ReturnYouTubeDislike.class") // number formatter is not thread safe
-    private static CompactDecimalFormat compactNumberFormatter;
+    @GuardedBy("ReturnYouTubeDislike.class") // not thread safe
+    private static CompactDecimalFormat dislikeCountFormatter;
+
+    /**
+     * Used to format like/dislike count.
+     */
+    @GuardedBy("ReturnYouTubeDislike.class") // not thread safe
+    private static DecimalFormat dislikePercentageFormatter;
 
     public static void onEnabledChange(boolean enabled) {
         isEnabled = enabled;
@@ -86,9 +95,9 @@ public class ReturnYouTubeDislike {
         }
     }
 
-    private static Future<Integer> getDislikeFetchFuture() {
+    private static Future<RYDVoteData> getVoteFetchFuture() {
         synchronized (videoIdLockObject) {
-            return dislikeFetchFuture;
+            return voteFetchFuture;
         }
     }
 
@@ -104,7 +113,7 @@ public class ReturnYouTubeDislike {
                 currentVideoId = videoId;
                 // no need to wrap the fetchDislike call in a try/catch,
                 // as any exceptions are propagated out in the later Future#Get call
-                dislikeFetchFuture = ReVancedUtils.submitOnBackgroundThread(() -> ReturnYouTubeDislikeApi.fetchDislikes(videoId));
+                voteFetchFuture = ReVancedUtils.submitOnBackgroundThread(() -> ReturnYouTubeDislikeApi.fetchVotes(videoId));
             }
         } catch (Exception ex) {
             LogHelper.printException(() -> "Failed to load new video: " + videoId, ex);
@@ -128,19 +137,19 @@ public class ReturnYouTubeDislike {
 
             // Have to block the current thread until fetching is done
             // There's no known way to edit the text after creation yet
-            Integer dislikeCount;
+            RYDVoteData votingData;
             try {
-                dislikeCount = getDislikeFetchFuture().get(MILLISECONDS_TO_BLOCK_UI_WHILE_WAITING_FOR_DISLIKE_FETCH_TO_COMPLETE, TimeUnit.MILLISECONDS);
+                votingData = getVoteFetchFuture().get(MILLISECONDS_TO_BLOCK_UI_WHILE_WAITING_FOR_DISLIKE_FETCH_TO_COMPLETE, TimeUnit.MILLISECONDS);
             } catch (TimeoutException e) {
                 LogHelper.printDebug(() -> "UI timed out waiting for dislike fetch to complete");
                 return;
             }
-            if (dislikeCount == null) {
-                LogHelper.printDebug(() -> "Cannot add dislike count to UI (dislike count not available)");
+            if (votingData == null) {
+                LogHelper.printDebug(() -> "Cannot add dislike count to UI (RYD data not available)");
                 return;
             }
 
-            updateDislike(textRef, isSegmentedButton, dislikeCount);
+            updateDislike(textRef, isSegmentedButton, votingData);
             LogHelper.printDebug(() -> "Updated text on component: " + conversionContextString);
         } catch (Exception ex) {
             LogHelper.printException(() -> "Error while trying to update dislikes text", ex);
@@ -197,9 +206,11 @@ public class ReturnYouTubeDislike {
         return userId;
     }
 
-    private static void updateDislike(AtomicReference<Object> textRef, boolean isSegmentedButton, int dislikeCount) {
+    private static void updateDislike(AtomicReference<Object> textRef, boolean isSegmentedButton, RYDVoteData voteData) {
         SpannableString oldSpannableString = (SpannableString) textRef.get();
-        String newDislikeString = formatDislikeCount(dislikeCount);
+        String newDislikeString = SettingsEnum.RYD_SHOW_DISLIKE_PERCENTAGE.getBoolean()
+                ? formatDislikePercentage(voteData.dislikePercentage)
+                : formatDislikeCount(voteData.dislikeCount);
 
         if (isSegmentedButton) { // both likes and dislikes are on a custom segmented button
             // parse out the like count as a string
@@ -239,16 +250,16 @@ public class ReturnYouTubeDislike {
         textRef.set(newSpannableString);
     }
 
-    private static String formatDislikeCount(int dislikeCount) {
+    private static String formatDislikeCount(long dislikeCount) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             String formatted;
             synchronized (ReturnYouTubeDislike.class) { // number formatter is not thread safe, must synchronize
-                if (compactNumberFormatter == null) {
+                if (dislikeCountFormatter == null) {
                     Locale locale = ReVancedUtils.getContext().getResources().getConfiguration().locale;
                     LogHelper.printDebug(() -> "Locale: " + locale);
-                    compactNumberFormatter = CompactDecimalFormat.getInstance(locale, CompactDecimalFormat.CompactStyle.SHORT);
+                    dislikeCountFormatter = CompactDecimalFormat.getInstance(locale, CompactDecimalFormat.CompactStyle.SHORT);
                 }
-                formatted = compactNumberFormatter.format(dislikeCount);
+                formatted = dislikeCountFormatter.format(dislikeCount);
             }
             LogHelper.printDebug(() -> "Dislike count: " + dislikeCount + " formatted as: " + formatted);
             return formatted;
@@ -256,5 +267,30 @@ public class ReturnYouTubeDislike {
 
         // never will be reached, as the oldest supported YouTube app requires Android N or greater
         return String.valueOf(dislikeCount);
+    }
+
+    private static String formatDislikePercentage(float dislikePercentage) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            String formatted;
+            synchronized (ReturnYouTubeDislike.class) { // number formatter is not thread safe, must synchronize
+                if (dislikePercentageFormatter == null) {
+                    Locale locale = ReVancedUtils.getContext().getResources().getConfiguration().locale;
+                    LogHelper.printDebug(() -> "Locale: " + locale);
+                    dislikePercentageFormatter = new DecimalFormat("", new DecimalFormatSymbols(locale));
+                }
+                if (dislikePercentage == 0 || dislikePercentage >= 0.01) { // zero, or at least 1%
+                    dislikePercentageFormatter.applyLocalizedPattern("0"); // show only whole percentage points
+                } else { // between (0, 1)%
+                    dislikePercentageFormatter.applyLocalizedPattern("0.#"); // show 1 digit precision
+                }
+                final char percentChar = dislikePercentageFormatter.getDecimalFormatSymbols().getPercent();
+                formatted = dislikePercentageFormatter.format(100 * dislikePercentage) + percentChar;
+            }
+            LogHelper.printDebug(() -> "Dislike percentage: " + dislikePercentage + " formatted as: " + formatted);
+            return formatted;
+        }
+
+        // never will be reached, as the oldest supported YouTube app requires Android N or greater
+        return (int) (100 * dislikePercentage) + "%";
     }
 }
