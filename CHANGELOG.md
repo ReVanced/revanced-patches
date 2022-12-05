@@ -1,3 +1,10 @@
+# [2.140.0](https://github.com/revanced/revanced-patches/compare/v2.139.0...v2.140.0) (2022-12-05)
+
+
+### Features
+
+* **music:** bump compatibility to v5.34.51 ([fc0c92e](https://github.com/revanced/revanced-patches/commit/fc0c92e2b68a2d93a02f4577aeb864955b1b5701))
+
 # [2.139.0](https://github.com/revanced/revanced-patches/compare/v2.138.0...v2.139.0) (2022-12-05)
 
 
