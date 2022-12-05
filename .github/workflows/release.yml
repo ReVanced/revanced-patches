@@ -24,6 +24,10 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: gradle
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          cache: 'npm'
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
       - name: Build with Gradle
