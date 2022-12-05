@@ -150,7 +150,7 @@ public class ReturnYouTubeDislike {
             }
 
             updateDislike(textRef, isSegmentedButton, votingData);
-            LogHelper.printDebug(() -> "Updated text on component: " + conversionContextString);
+            LogHelper.printDebug(() -> "Updated text");
         } catch (Exception ex) {
             LogHelper.printException(() -> "Error while trying to update dislikes text", ex);
         }
