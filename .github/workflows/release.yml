@@ -30,13 +30,15 @@ jobs:
           node-version: 'latest'
           cache: 'npm'
       - name: Setup Android SDK
-        uses: android-actions/setup-android@v2
+        uses: amyu/setup-android@v2
+        with:
+          cache-disabled: true
+          sdk-version: '33'
+          build-tools-version: '33.0.1'
       - name: Build with Gradle
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ./gradlew build clean generateMeta
-      - name: Install Android build-tools
-        run: sdkmanager "build-tools;32.0.0"
       - name: Setup semantic-release
         run: npm install -g semantic-release @semantic-release/git @semantic-release/changelog gradle-semantic-release-plugin -D
       - name: Release
