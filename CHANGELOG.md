@@ -1,3 +1,10 @@
+# [2.138.0](https://github.com/revanced/revanced-patches/compare/v2.137.0...v2.138.0) (2022-12-05)
+
+
+### Features
+
+* **youtube/debugging:** print stack traces ([9cea382](https://github.com/revanced/revanced-patches/commit/9cea382750456434d0547351ee7d4013eac9de9c))
+
 # [2.137.0](https://github.com/revanced/revanced-patches/compare/v2.136.0...v2.137.0) (2022-12-03)
 
 
