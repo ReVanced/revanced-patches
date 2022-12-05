@@ -32,7 +32,7 @@ jobs:
       - name: Setup Android SDK
         uses: amyu/setup-android@v2
         with:
-          cache-disabled: true
+          cache-disabled: false
           sdk-version: '33'
           build-tools-version: '33.0.1'
       - name: Build with Gradle
