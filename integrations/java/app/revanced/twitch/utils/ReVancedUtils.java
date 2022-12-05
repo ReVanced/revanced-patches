@@ -2,6 +2,9 @@ package app.revanced.twitch.utils;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.widget.Toast;
 
 public class ReVancedUtils {
     @SuppressLint("StaticFieldLeak")
@@ -53,6 +56,10 @@ public class ReVancedUtils {
         void run(Context ctx);
     }
 
+    public static void runOnMainThread(Runnable runnable) {
+        new Handler(Looper.getMainLooper()).post(runnable);
+    }
+
     /**
      * Get resource id safely
      * @return May return 0 if resource not found or context not attached
@@ -83,5 +90,14 @@ public class ReVancedUtils {
 
     public static String getString(String name) {
         return ifContextAttached((c) -> c.getString(getStringId(name)), "");
+    }
+
+    public static void toast(String message) {
+        toast(message, true);
+    }
+    public static void toast(String message, boolean longLength) {
+        ifContextAttached((c) -> {
+            runOnMainThread(() -> Toast.makeText(c, message, longLength ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT).show());
+        });
     }
 }
