@@ -1,3 +1,10 @@
+# [2.139.0](https://github.com/revanced/revanced-patches/compare/v2.138.0...v2.139.0) (2022-12-05)
+
+
+### Features
+
+* **youtube/return-youtube-dislike:** improve settings labels ([#1203](https://github.com/revanced/revanced-patches/issues/1203)) ([fb4a612](https://github.com/revanced/revanced-patches/commit/fb4a612592d82857b0e892a6f5d135dbd657c44d))
+
 # [2.138.0](https://github.com/revanced/revanced-patches/compare/v2.137.0...v2.138.0) (2022-12-05)
 
 
