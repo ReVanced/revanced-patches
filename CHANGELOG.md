@@ -1,3 +1,5 @@
+# [2.141.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.141.0-dev.1...v2.141.0-dev.2) (2022-12-05)
+
 # [2.141.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.140.1-dev.1...v2.141.0-dev.1) (2022-12-05)
 
 
