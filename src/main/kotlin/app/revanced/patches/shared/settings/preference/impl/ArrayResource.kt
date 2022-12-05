@@ -25,7 +25,7 @@ internal data class ArrayResource(
                 resourceCallback?.invoke(item)
 
                 this.appendChild(ownerDocument.createElement("item").also { itemNode ->
-                    itemNode.textContent = item.value
+                    itemNode.textContent = "@string/${item.name}"
                 })
             }
         }
