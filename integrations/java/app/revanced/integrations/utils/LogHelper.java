@@ -2,6 +2,9 @@ package app.revanced.integrations.utils;
 
 import android.util.Log;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 import app.revanced.integrations.settings.SettingsEnum;
 
 public class LogHelper {
@@ -50,7 +53,16 @@ public class LogHelper {
      */
     public static void printDebug(LogMessage message) {
         if (SettingsEnum.DEBUG.getBoolean()) {
-            Log.d("revanced: " + message.findOuterClassSimpleName(), message.buildMessageString());
+            var log = new StringBuilder(message.buildMessageString());
+
+            if (SettingsEnum.DEBUG_STACKTRACE.getBoolean()) {
+                var sw = new StringWriter();
+                new Throwable().printStackTrace(new PrintWriter(sw));
+
+                log.append(String.format("\n%s", sw));
+            }
+
+            Log.d("revanced: " + message.findOuterClassSimpleName(), log.toString());
         }
     }
 

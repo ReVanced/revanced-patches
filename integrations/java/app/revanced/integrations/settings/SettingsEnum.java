@@ -110,6 +110,8 @@ public enum SettingsEnum {
 
     // ReVanced settings
     DEBUG("revanced_debug_enabled", false, ReturnType.BOOLEAN),
+    DEBUG_STACKTRACE("revanced_debug_stacktrace_enabled", false, ReturnType.BOOLEAN),
+
     USE_DARK_THEME("app_theme_dark", false, ReturnType.BOOLEAN),
 
     // RYD settings
