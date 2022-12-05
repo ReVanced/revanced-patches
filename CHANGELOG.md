@@ -1,3 +1,10 @@
+# [2.141.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.140.1-dev.1...v2.141.0-dev.1) (2022-12-05)
+
+
+### Features
+
+* **twitch/block-embedded-ads:** `block-embedded-ads` patch ([#1166](https://github.com/revanced/revanced-patches/issues/1166)) ([80d7afc](https://github.com/revanced/revanced-patches/commit/80d7afc4b5e725ca5d7a43ceff53efc31a5463d3))
+
 ## [2.140.1-dev.1](https://github.com/revanced/revanced-patches/compare/v2.140.0...v2.140.1-dev.1) (2022-12-05)
 
 # [2.140.0](https://github.com/revanced/revanced-patches/compare/v2.139.0...v2.140.0) (2022-12-05)
