@@ -204,14 +204,6 @@ The official Patch bundle provided by ReVanced and the community.
 | `promo-code-unlock` | Disables the validation of promo code. Any code will work to unlock all features. | all |
 </details>
 
-### 📦 `com.urbandroid.sleep`
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `unlock-premium` | Unlocks all premium features. | all |
-</details>
-
 ### 📦 `com.shervinkoushan.anyTracker`
 <details>
 
@@ -220,28 +212,20 @@ The official Patch bundle provided by ReVanced and the community.
 | `unlock-premium` | Unlocks all premium features. | all |
 </details>
 
-### 📦 `ginlemon.iconpackstudio`
+### 📦 `com.urbandroid.sleep`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-premium` | Unlocks all premium features. | all |
+</details>
+
+### 📦 `com.awedea.nyx`
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `unlock-pro` | Unlocks all pro features. | all |
-</details>
-
-### 📦 `com.ithebk.expensemanager`
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `unlock-pro` | Unlocks pro features. | all |
-</details>
-
-### 📦 `org.totschnig.myexpenses`
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `unlock-pro` | Unlocks all professional features. | all |
 </details>
 
 ### 📦 `co.windyapp.android`
@@ -252,7 +236,23 @@ The official Patch bundle provided by ReVanced and the community.
 | `unlock-pro` | Unlocks all pro features. | all |
 </details>
 
-### 📦 `com.awedea.nyx`
+### 📦 `org.totschnig.myexpenses`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-pro` | Unlocks all professional features. | all |
+</details>
+
+### 📦 `com.ithebk.expensemanager`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-pro` | Unlocks pro features. | all |
+</details>
+
+### 📦 `ginlemon.iconpackstudio`
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
