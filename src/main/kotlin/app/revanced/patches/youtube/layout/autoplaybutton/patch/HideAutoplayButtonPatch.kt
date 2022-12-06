@@ -38,11 +38,11 @@ class HideAutoplayButtonPatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
-                "revanced_autoplay_button_enabled",
-                StringResource("revanced_autoplay_button_enabled_title", "Show autoplay button"),
-                false,
-                StringResource("revanced_autoplay_button_summary_on", "Autoplay button is shown"),
-                StringResource("revanced_autoplay_button_summary_off", "Autoplay button is hidden")
+                "revanced_hide_autoplay_button",
+                StringResource("revanced_hide_autoplay_button_title", "Hide autoplay button"),
+                true,
+                StringResource("revanced_hide_autoplay_button_summary_on", "Autoplay button is hidden"),
+                StringResource("revanced_hide_autoplay_button_summary_off", "Autoplay button is shown")
             )
         )
 

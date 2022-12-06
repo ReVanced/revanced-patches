@@ -37,8 +37,8 @@ class DownloadsResourcePatch : ResourcePatch {
                         "revanced_downloads",
                         StringResource("revanced_downloads_enabled_title", "Show download button"),
                         true,
-                        StringResource("revanced_downloads_enabled_summary_on", "Download button is visible"),
-                        StringResource("revanced_downloads_enabled_summary_off", "Download button is hidden")
+                        StringResource("revanced_downloads_enabled_summary_on", "Download button is shown"),
+                        StringResource("revanced_downloads_enabled_summary_off", "Download button is not shown")
                     ),
                     TextPreference(
                         "revanced_downloads_package_name",

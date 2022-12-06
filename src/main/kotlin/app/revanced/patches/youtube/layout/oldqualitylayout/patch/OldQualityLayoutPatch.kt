@@ -21,9 +21,11 @@ import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
 @Name("old-quality-layout")
-@Description("Enables the original quality flyout menu.")
+@Description("Enables the original video quality flyout in the video player settings")
 @OldQualityLayoutCompatibility
 @Version("0.0.1")
+// new ReVanced users have no idea what it means to use the "old quality layout menu"
+// maybe rename this patch to better describe what it provides (ie: user-selectable-video-resolution )
 class OldQualityLayoutPatch : BytecodePatch(
     listOf(QualityMenuViewInflateFingerprint)
 ) {
@@ -31,10 +33,10 @@ class OldQualityLayoutPatch : BytecodePatch(
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_use_old_style_quality_settings",
-                StringResource("revanced_old_style_quality_settings_enabled_title", "Use old quality layout"),
+                StringResource("revanced_old_style_quality_settings_enabled_title", "Use old video quality player menu"),
                 true,
-                StringResource("revanced_old_style_quality_settings_summary_on", "Old quality settings are shown"),
-                StringResource("revanced_old_style_quality_settings_summary_off", "New quality settings are shown")
+                StringResource("revanced_old_style_quality_settings_summary_on", "Old video quality menu is used"),
+                StringResource("revanced_old_style_quality_settings_summary_off", "Old video quality menu is not used")
             )
         )
 

@@ -36,7 +36,7 @@ class HideTimeAndSeekbarPatch : BytecodePatch(
                 StringResource("revanced_hide_time_and_seekbar_title", "Hide time and seekbar"),
                 false,
                 StringResource("revanced_hide_time_and_seekbar_summary_on", "Time and seekbar are hidden"),
-                StringResource("revanced_hide_time_and_seekbar_summary_off", "Time and seekbar are visible")
+                StringResource("revanced_hide_time_and_seekbar_summary_off", "Time and seekbar are shown")
             )
         )
 

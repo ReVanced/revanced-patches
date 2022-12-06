@@ -31,7 +31,7 @@ class CommentsResourcePatch : ResourcePatch {
                 listOf(
                     SwitchPreference(
                         "revanced_hide_comments_section",
-                        StringResource("revanced_hide_comments_section_title", "Remove comments section"),
+                        StringResource("revanced_hide_comments_section_title", "Hide comments section"),
                         false,
                         StringResource("revanced_hide_comments_section_summary_on", "Comment section is hidden"),
                         StringResource("revanced_hide_comments_section_summary_off", "Comment section is shown")

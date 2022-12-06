@@ -31,46 +31,46 @@ class HideButtonsPatch : ResourcePatch {
                 StringResource("revanced_hide_buttons_title", "Hide action buttons"),
                 listOf(
                     SwitchPreference(
-                        "revanced_like_button",
-                        StringResource("revanced_like_button_title", "Hide like button"),
+                        "revanced_hide_like_button",
+                        StringResource("revanced_hide_like_button_title", "Hide like button"),
                         false,
-                        StringResource("revanced_like_button_on", "Like button is hidden"),
-                        StringResource("revanced_like_button_off", "Like button is shown")
+                        StringResource("revanced_hide_like_button_summary_on", "Like button is hidden"),
+                        StringResource("revanced_hide_like_button_summary_off", "Like button is shown")
                     ),
                     SwitchPreference(
-                        "revanced_dislike_button",
-                        StringResource("revanced_dislike_button_title", "Hide dislike button"),
+                        "revanced_hide_dislike_button",
+                        StringResource("revanced_hide_dislike_button_title", "Hide dislike button"),
                         false,
-                        StringResource("revanced_dislike_button_on", "Dislike button is hidden"),
-                        StringResource("revanced_dislike_button_off", "Dislike button is shown")
+                        StringResource("revanced_hide_dislike_button_summary_on", "Dislike button is hidden"),
+                        StringResource("revanced_hide_dislike_button_summary_off", "Dislike button is shown")
                     ),
                     SwitchPreference(
-                        "revanced_download_button",
-                        StringResource("revanced_download_button_title", "Hide download button"),
+                        "revanced_hide_download_button",
+                        StringResource("revanced_hide_download_button_title", "Hide download button"),
                         false,
-                        StringResource("revanced_download_button_on", "Download button is hidden"),
-                        StringResource("revanced_download_button_off", "Download button is shown")
+                        StringResource("revanced_hide_download_button_summary_on", "Download button is hidden"),
+                        StringResource("revanced_hide_download_button_summary_off", "Download button is shown")
                     ),
                     SwitchPreference(
-                        "revanced_playlist_button",
-                        StringResource("revanced_playlist_button_title", "Hide playlist button"),
+                        "revanced_hide_playlist_button",
+                        StringResource("revanced_hide_playlist_button_title", "Hide playlist button"),
                         false,
-                        StringResource("revanced_playlist_button_on", "Playlist button is hidden"),
-                        StringResource("revanced_playlist_button_off", "Playlist button is shown")
+                        StringResource("revanced_hide_playlist_button_summary_on", "Playlist button is hidden"),
+                        StringResource("revanced_hide_playlist_button_summary_off", "Playlist button is shown")
                     ),
                     SwitchPreference(
-                        "revanced_action_button",
-                        StringResource("revanced_action_button_title", "Hide create, clip and thanks buttons"),
+                        "revanced_hide_action_button",
+                        StringResource("revanced_hide_action_button_title", "Hide create, clip and thanks buttons"),
                         true,
-                        StringResource("revanced_action_button_on", "Buttons are hidden"),
-                        StringResource("revanced_action_button_off", "Buttons are shown")
+                        StringResource("revanced_hide_action_button_summary_on", "Buttons are hidden"),
+                        StringResource("revanced_hide_action_button_summary_off", "Buttons are shown")
                     ),
                     SwitchPreference(
-                        "revanced_share_button",
-                        StringResource("revanced_share_button_title", "Hide share button"),
+                        "revanced_hide_share_button",
+                        StringResource("revanced_hide_share_button_title", "Hide share button"),
                         false,
-                        StringResource("revanced_share_button_on", "Share button is hidden"),
-                        StringResource("revanced_share_button_off", "Share button is shown")
+                        StringResource("revanced_hide_share_button_summary_on", "Share button is hidden"),
+                        StringResource("revanced_hide_share_button_summaryoff", "Share button is shown")
                     ),
                 ),
                 StringResource("revanced_hide_buttons_summary", "Hide or show buttons under videos")
