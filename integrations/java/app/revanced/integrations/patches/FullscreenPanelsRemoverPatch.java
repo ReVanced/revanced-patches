@@ -7,7 +7,7 @@ import app.revanced.integrations.settings.SettingsEnum;
 public class FullscreenPanelsRemoverPatch {
 
     public static int getFullscreenPanelsVisibility() {
-        return SettingsEnum.FULLSCREEN_PANELS_SHOWN.getBoolean() ? View.VISIBLE : View.GONE;
+        return SettingsEnum.HIDE_FULLSCREEN_PANELS.getBoolean() ? View.GONE : View.VISIBLE;
     }
 
 }

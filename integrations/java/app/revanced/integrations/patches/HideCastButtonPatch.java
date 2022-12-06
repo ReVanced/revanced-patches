@@ -6,8 +6,8 @@ import app.revanced.integrations.settings.SettingsEnum;
 
 public class HideCastButtonPatch {
 
-    //Used by app.revanced.patches.youtube.layout.castbutton.patch.HideCastButonPatch
+    // Used by app.revanced.patches.youtube.layout.castbutton.patch.HideCastButonPatch
     public static int getCastButtonOverrideV2(int original) {
-        return SettingsEnum.CAST_BUTTON_SHOWN.getBoolean() ? original : View.GONE;
+        return SettingsEnum.HIDE_CAST_BUTTON.getBoolean() ? View.GONE : original;
     }
 }

@@ -10,7 +10,7 @@ import app.revanced.integrations.utils.LogHelper;
 public class OldQualityLayoutPatch {
     public static void showOldQualityMenu(ListView listView)
     {
-        if (!SettingsEnum.OLD_STYLE_QUALITY_SETTINGS.getBoolean()) return;
+        if (!SettingsEnum.OLD_STYLE_VIDEO_QUALITY_PLAYER_SETTINGS.getBoolean()) return;
 
         listView.setOnHierarchyChangeListener(new ViewGroup.OnHierarchyChangeListener() {
             @Override

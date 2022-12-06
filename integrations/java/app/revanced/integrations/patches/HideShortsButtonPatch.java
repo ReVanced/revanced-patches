@@ -8,14 +8,14 @@ import app.revanced.integrations.utils.LogHelper;
 
 public class HideShortsButtonPatch {
 
-    //Used by app.revanced.patches.youtube.layout.shorts.button.patch.ShortsButtonRemoverPatch
+    // Used by app.revanced.patches.youtube.layout.shorts.button.patch.ShortsButtonRemoverPatch
     public static void hideShortsButton(View view) {
         if (lastPivotTab != null && lastPivotTab.name() == "TAB_SHORTS") {
-            boolean show = SettingsEnum.SHORTS_BUTTON_SHOWN.getBoolean();
-            String message = show ? "Shorts button: shown" : "Shorts button: hidden";
+            boolean hide = SettingsEnum.HIDE_SHORTS_BUTTON.getBoolean();
+            String message = hide ? "Shorts button: hidden" : "Shorts button: shown";
             LogHelper.printDebug(() -> message);
-            if (!show) {
-                view.setVisibility(show ? View.VISIBLE : View.GONE);
+            if (hide) {
+                view.setVisibility(hide ? View.GONE : View.VISIBLE);
             }
         }
     }
