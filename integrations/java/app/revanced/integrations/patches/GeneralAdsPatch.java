@@ -55,6 +55,7 @@ public final class GeneralAdsPatch extends Filter {
                 SettingsEnum.ADREMOVER_GENERAL_ADS_REMOVAL,
                 "ads_video_with_context",
                 "banner_text_icon",
+                "square_image_layout",
                 "watch_metadata_app_promo",
                 "video_display_full_layout"
         );
