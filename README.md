@@ -39,12 +39,12 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-shorts-button` | Hides the shorts button on the navigation bar. | 17.45.36 |
 | `hide-time-and-seekbar` | Hides progress bar and time counter on videos. | 17.45.36 |
 | `hide-video-buttons` | Adds options to hide action buttons under a video. | 17.45.36 |
-| `hide-watch-in-vr` | Hides the Watch in VR option from the player settings flyout panel. | 17.45.36 |
+| `hide-watch-in-vr` | Hides the Watch in VR option in the player settings flyout panel. | 17.45.36 |
 | `hide-watermark` | Hides creator's watermarks on videos. | 17.45.36 |
 | `microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG. | 17.45.36 |
 | `minimized-playback` | Enables minimized and background playback. | 17.45.36 |
-| `old-quality-layout` | Enables the original quality flyout menu. | 17.45.36 |
-| `open-links-directly` | Bypasses redirect links and allows opening links directly. | 17.45.36 |
+| `old-quality-layout` | Enables the original video quality flyout in the video player settings | 17.45.36 |
+| `open-links-directly` | Bypasses URL redirects and opens links directly inside YouTube app. | 17.45.36 |
 | `premium-heading` | Shows premium branding on the home screen. | all |
 | `remember-video-quality` | Adds the ability to remember the video quality you chose in the video quality flyout. | 17.45.36 |
 | `remove-player-button-background` | Removes the background from the video player buttons. | 17.45.36 |
@@ -172,14 +172,6 @@ The official Patch bundle provided by ReVanced and the community.
 | `enable-downloads` | Enables downloads for Crunchyroll. | all |
 </details>
 
-### 📦 `com.garzotto.pflotsh.ecmwf_a`
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `pflotsh-ecmwf-subscription-unlock` | Unlocks all subscription features. | 3.5.4 |
-</details>
-
 ### 📦 `org.citra.citra_emu`
 <details>
 
@@ -205,14 +197,6 @@ The official Patch bundle provided by ReVanced and the community.
 </details>
 
 ### 📦 `com.urbandroid.sleep`
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `unlock-premium` | Unlocks all premium features. | all |
-</details>
-
-### 📦 `com.shervinkoushan.anyTracker`
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
