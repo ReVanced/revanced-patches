@@ -2,8 +2,8 @@ package app.revanced.util.resources
 
 import app.revanced.patcher.data.DomFileEditor
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.shared.settings.preference.impl.StringResource
+import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import org.w3c.dom.Node
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
@@ -11,26 +11,21 @@ import java.nio.file.StandardCopyOption
 internal object ResourceUtils {
 
     /**
-     * Settings related utilities
+     * Merge strings. This manages [StringResource]s automatically.
+     * @param host The hosting xml resource. Needs to be a valid strings.xml resource.
      */
-    internal object Settings {
-        /**
-         * Merge strings. This handles [StringResource]s automatically.
-         * @param host The hosting xml resource. Needs to be a valid strings.xml resource.
-         */
-        internal fun ResourceContext.mergeStrings(host: String) {
-            this.iterateXmlNodeChildren(host, "resources") {
-                // TODO: figure out why this is needed
-                if (!it.hasAttributes()) return@iterateXmlNodeChildren
+    internal fun ResourceContext.mergeStrings(host: String) {
+        this.iterateXmlNodeChildren(host, "resources") {
+            // TODO: figure out why this is needed
+            if (!it.hasAttributes()) return@iterateXmlNodeChildren
 
-                val attributes = it.attributes
-                val key = attributes.getNamedItem("name")!!.nodeValue!!
-                val value = it.textContent!!
+            val attributes = it.attributes
+            val key = attributes.getNamedItem("name")!!.nodeValue!!
+            val value = it.textContent!!
 
-                val formatted = attributes.getNamedItem("formatted") == null
+            val formatted = attributes.getNamedItem("formatted") == null
 
-                SettingsPatch.addString(key, value, formatted)
-            }
+            SettingsPatch.addString(key, value, formatted)
         }
     }
 

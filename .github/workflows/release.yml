@@ -12,7 +12,7 @@ on:
 jobs:
   release:
     name: Release
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -22,18 +22,25 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '17'
-          distribution: 'temurin'
+          distribution: 'zulu'
           cache: gradle
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'latest'
+          cache: 'npm'
       - name: Setup Android SDK
-        uses: android-actions/setup-android@v2
+        uses: amyu/setup-android@v2
+        with:
+          cache-disabled: false
+          sdk-version: '33'
+          build-tools-version: '33.0.1'
       - name: Build with Gradle
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./gradlew build clean generateMeta
-      - name: Install Android build-tools
-        run: sdkmanager "build-tools;32.0.0"
+        run: ./gradlew build generateMeta --no-daemon
       - name: Setup semantic-release
-        run: npm install -g semantic-release @semantic-release/git @semantic-release/changelog gradle-semantic-release-plugin -D
+        run: npm install semantic-release @semantic-release/git @semantic-release/changelog gradle-semantic-release-plugin -D
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
