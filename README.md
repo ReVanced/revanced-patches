@@ -113,6 +113,7 @@ The official Patch bundle provided by ReVanced and the community.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `block-audio-ads` | Blocks audio ads in streams and VODs. | all |
+| `block-embedded-ads` | Blocks embedded steam ads using services like TTV.lol or PurpleAdBlocker. | all |
 | `block-video-ads` | Blocks video ads in streams and VODs. | all |
 | `debug-mode` | Enables Twitch's internal debugging mode. | all |
 | `settings` | Adds settings menu to Twitch. | all |
@@ -204,28 +205,12 @@ The official Patch bundle provided by ReVanced and the community.
 | `unlock-premium` | Unlocks all premium features. | all |
 </details>
 
-### 📦 `ginlemon.iconpackstudio`
+### 📦 `com.awedea.nyx`
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `unlock-pro` | Unlocks all pro features. | all |
-</details>
-
-### 📦 `com.ithebk.expensemanager`
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `unlock-pro` | Unlocks pro features. | all |
-</details>
-
-### 📦 `org.totschnig.myexpenses`
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `unlock-pro` | Unlocks all professional features. | all |
 </details>
 
 ### 📦 `co.windyapp.android`
@@ -236,7 +221,23 @@ The official Patch bundle provided by ReVanced and the community.
 | `unlock-pro` | Unlocks all pro features. | all |
 </details>
 
-### 📦 `com.awedea.nyx`
+### 📦 `org.totschnig.myexpenses`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-pro` | Unlocks all professional features. | all |
+</details>
+
+### 📦 `com.ithebk.expensemanager`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-pro` | Unlocks pro features. | all |
+</details>
+
+### 📦 `ginlemon.iconpackstudio`
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
