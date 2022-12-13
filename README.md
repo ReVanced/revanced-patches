@@ -197,14 +197,6 @@ The official Patch bundle provided by ReVanced and the community.
 | `promo-code-unlock` | Disables the validation of promo code. Any code will work to unlock all features. | all |
 </details>
 
-### 📦 `com.urbandroid.sleep`
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `unlock-premium` | Unlocks all premium features. | all |
-</details>
-
 ### 📦 `com.awedea.nyx`
 <details>
 

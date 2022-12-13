@@ -1,3 +1,10 @@
+# [2.143.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.142.0...v2.143.0-dev.1) (2022-12-13)
+
+
+### Features
+
+* **sleepasandroid:** remove `unlock-premium` patch ([#1253](https://github.com/revanced/revanced-patches/issues/1253)) ([414f503](https://github.com/revanced/revanced-patches/commit/414f503e493f2dc27edf134f5db723da77636d81))
+
 # [2.142.0](https://github.com/revanced/revanced-patches/compare/v2.141.0...v2.142.0) (2022-12-11)
 
 
