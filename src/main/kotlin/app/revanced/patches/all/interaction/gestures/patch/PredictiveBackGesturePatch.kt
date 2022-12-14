@@ -19,11 +19,12 @@ class PredictiveBackGesturePatch : ResourcePatch {
             val document = editor.file
 
             with(document.getElementsByTagName("application").item(0)) {
-                attributes.getNamedItem(FLAG)?.let {
-                    document.createAttribute(FLAG)
-                        .apply { value = "true" }
-                        .let(attributes::setNamedItem)
-                }
+                if (attributes.getNamedItem(FLAG) != null) return@with
+
+                document.createAttribute(FLAG)
+                    .apply { value = "true" }
+                    .let(attributes::setNamedItem)
+
             }
         }
 

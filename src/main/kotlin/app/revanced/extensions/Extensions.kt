@@ -1,6 +1,5 @@
 package app.revanced.extensions
 
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.MethodFingerprintExtensions.name
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.patch.PatchResultError
@@ -26,19 +25,6 @@ fun MethodFingerprint.toErrorResult() = PatchResultError("Failed to resolve $nam
  */
 fun MutableClass.findMutableMethodOf(method: Method) = this.methods.first {
     MethodUtil.methodSignaturesMatch(it, method)
-}
-
-/**
- * traverse the class hierarchy starting from the given root class
- *
- * @param targetClass the class to start traversing the class hierarchy from
- * @param callback function that is called for every class in the hierarchy
- */
-fun BytecodeContext.traverseClassHierarchy(targetClass: MutableClass, callback: MutableClass.() -> Unit) {
-    callback(targetClass)
-    this.findClass(targetClass.superclass ?: return)?.mutableClass?.let {
-        traverseClassHierarchy(it, callback)
-    }
 }
 
 /**
