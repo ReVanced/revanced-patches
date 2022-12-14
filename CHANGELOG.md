@@ -1,3 +1,10 @@
+# [2.143.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.143.0-dev.1...v2.143.0-dev.2) (2022-12-14)
+
+
+### Bug Fixes
+
+* **predictive-back-gesture:** create attribute, if it does not exist ([c00e771](https://github.com/revanced/revanced-patches/commit/c00e7717053f806e3b5b3f0bf0ca9c2da07c289b))
+
 # [2.143.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.142.0...v2.143.0-dev.1) (2022-12-13)
 
 
