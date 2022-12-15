@@ -7,11 +7,7 @@
     }
   ],
   "plugins": [
-    ["@semantic-release/commit-analyzer", {
-      "releaseRules": [
-        {"type": "build", "release": "patch"}
-      ]
-    }],
+    "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
     "@semantic-release/changelog",
     "gradle-semantic-release-plugin",
@@ -21,7 +17,7 @@
         "assets": [
           "README.md",
           "CHANGELOG.md",
-          "gradle.properties",
+          "gradle.properties",X
           "patches.json"
         ]
       }
