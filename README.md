@@ -4,7 +4,7 @@ The official Patch bundle provided by ReVanced and the community.
 
 > Looking for the JSON variant of this? [Click here](patches.json).
 
-### 📦 `com.google.android.youtube`
+### [📦 `com.google.android.youtube`](https://play.google.com/store/apps/details?id=com.google.android.youtube)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -58,7 +58,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `video-ads` | Removes ads in the video player. | 17.45.36 |
 </details>
 
-### 📦 `com.google.android.apps.youtube.music`
+### [📦 `com.google.android.apps.youtube.music`](https://play.google.com/store/apps/details?id=com.google.android.apps.youtube.music)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -75,7 +75,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `upgrade-button-remover` | Removes the upgrade tab from the pivot bar. | 5.34.51 |
 </details>
 
-### 📦 `com.ss.android.ugc.trill`
+### [📦 `com.ss.android.ugc.trill`](https://play.google.com/store/apps/details?id=com.ss.android.ugc.trill)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -91,7 +91,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `sim-spoof` | Spoofs the information which is retrieved from the sim-card. | all |
 </details>
 
-### 📦 `com.zhiliaoapp.musically`
+### [📦 `com.zhiliaoapp.musically`](https://play.google.com/store/apps/details?id=com.zhiliaoapp.musically)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -107,7 +107,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `sim-spoof` | Spoofs the information which is retrieved from the sim-card. | all |
 </details>
 
-### 📦 `tv.twitch.android.app`
+### [📦 `tv.twitch.android.app`](https://play.google.com/store/apps/details?id=tv.twitch.android.app)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -120,7 +120,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `show-deleted-messages` | Shows deleted chat messages behind a clickable spoiler. | all |
 </details>
 
-### 📦 `com.spotify.music`
+### [📦 `com.spotify.music`](https://play.google.com/store/apps/details?id=com.spotify.music)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -130,7 +130,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `spotify-theme` | Applies a custom theme. | all |
 </details>
 
-### 📦 `com.twitter.android`
+### [📦 `com.twitter.android`](https://play.google.com/store/apps/details?id=com.twitter.android)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -140,7 +140,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `timeline-ads` | Removes ads from the Twitter timeline. | all |
 </details>
 
-### 📦 `com.reddit.frontpage`
+### [📦 `com.reddit.frontpage`](https://play.google.com/store/apps/details?id=com.reddit.frontpage)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -149,7 +149,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `premium-icon-reddit` | Unlocks premium Reddit app icons. | all |
 </details>
 
-### 📦 `com.vanced.android.youtube`
+### [📦 `com.vanced.android.youtube`](https://play.google.com/store/apps/details?id=com.vanced.android.youtube)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -157,7 +157,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `client-spoof` | Spoofs the YouTube or Vanced client to prevent playback issues. | all |
 </details>
 
-### 📦 `com.myprog.hexedit`
+### [📦 `com.myprog.hexedit`](https://play.google.com/store/apps/details?id=com.myprog.hexedit)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -165,7 +165,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `disable-ads` | Disables ads in HexEditor. | all |
 </details>
 
-### 📦 `com.crunchyroll.crunchyroid`
+### [📦 `com.crunchyroll.crunchyroid`](https://play.google.com/store/apps/details?id=com.crunchyroll.crunchyroid)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -173,7 +173,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `enable-downloads` | Enables downloads for Crunchyroll. | all |
 </details>
 
-### 📦 `org.citra.citra_emu`
+### [📦 `org.citra.citra_emu`](https://play.google.com/store/apps/details?id=org.citra.citra_emu)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -181,7 +181,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `premium-unlock` | Unlocks premium functions. | all |
 </details>
 
-### 📦 `org.citra.citra_emu.canary`
+### [📦 `org.citra.citra_emu.canary`](https://play.google.com/store/apps/details?id=org.citra.citra_emu.canary)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -189,7 +189,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `premium-unlock` | Unlocks premium functions. | all |
 </details>
 
-### 📦 `com.backdrops.wallpapers`
+### [📦 `com.backdrops.wallpapers`](https://play.google.com/store/apps/details?id=com.backdrops.wallpapers)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -197,7 +197,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `pro-unlock` | Unlocks pro-only functions. | all |
 </details>
 
-### 📦 `de.dwd.warnapp`
+### [📦 `de.dwd.warnapp`](https://play.google.com/store/apps/details?id=de.dwd.warnapp)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -205,7 +205,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `promo-code-unlock` | Disables the validation of promo code. Any code will work to unlock all features. | all |
 </details>
 
-### 📦 `co.windyapp.android`
+### [📦 `co.windyapp.android`](https://play.google.com/store/apps/details?id=co.windyapp.android)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -213,7 +213,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `unlock-pro` | Unlocks all pro features. | all |
 </details>
 
-### 📦 `org.totschnig.myexpenses`
+### [📦 `org.totschnig.myexpenses`](https://play.google.com/store/apps/details?id=org.totschnig.myexpenses)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -221,7 +221,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `unlock-pro` | Unlocks all professional features. | all |
 </details>
 
-### 📦 `com.awedea.nyx`
+### [📦 `com.awedea.nyx`](https://play.google.com/store/apps/details?id=com.awedea.nyx)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -229,7 +229,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `unlock-pro` | Unlocks all pro features. | all |
 </details>
 
-### 📦 `com.ithebk.expensemanager`
+### [📦 `com.ithebk.expensemanager`](https://play.google.com/store/apps/details?id=com.ithebk.expensemanager)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -237,7 +237,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `unlock-pro` | Unlocks pro features. | all |
 </details>
 
-### 📦 `ginlemon.iconpackstudio`
+### [📦 `ginlemon.iconpackstudio`](https://play.google.com/store/apps/details?id=ginlemon.iconpackstudio)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -245,7 +245,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `unlock-pro` | Unlocks all pro features. | all |
 </details>
 
-### 📦 `com.ticktick.task`
+### [📦 `com.ticktick.task`](https://play.google.com/store/apps/details?id=com.ticktick.task)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |

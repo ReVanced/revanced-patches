@@ -1,3 +1,10 @@
+# [2.144.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.144.0-dev.1...v2.144.0-dev.2) (2022-12-15)
+
+
+### Features
+
+* link packages to Google PlayStore ([#1272](https://github.com/revanced/revanced-patches/issues/1272)) ([97892e0](https://github.com/revanced/revanced-patches/commit/97892e01044c74916375aeebcc094d3304e14f4e))
+
 # [2.144.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.143.0...v2.144.0-dev.1) (2022-12-15)
 
 
