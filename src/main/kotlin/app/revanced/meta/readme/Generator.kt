@@ -25,7 +25,7 @@ fun generateText(bundle: Bundle) {
     }
 
     for (pkg in packages.entries.sortedByDescending { it.value.size }) {
-        output.appendLine("### \uD83D\uDCE6 `${pkg.key}`")
+        output.appendLine("### [\uD83D\uDCE6 `${pkg.key}`](https://play.google.com/store/apps/details?id=${pkg.key})")
         output.appendLine("<details>\n")
 
         output.appendLine(TABLE_HEADER)
