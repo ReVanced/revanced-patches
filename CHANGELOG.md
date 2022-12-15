@@ -1,3 +1,10 @@
+# [2.144.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.143.0...v2.144.0-dev.1) (2022-12-15)
+
+
+### Features
+
+* **citra:** add compatibility for canary package ([#1256](https://github.com/revanced/revanced-patches/issues/1256)) ([42ec021](https://github.com/revanced/revanced-patches/commit/42ec0218d829ea15759f83562d24588ce97cb646))
+
 # [2.143.0](https://github.com/revanced/revanced-patches/compare/v2.142.0...v2.143.0) (2022-12-14)
 
 

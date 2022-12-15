@@ -181,6 +181,14 @@ The official Patch bundle provided by ReVanced and the community.
 | `premium-unlock` | Unlocks premium functions. | all |
 </details>
 
+### 📦 `org.citra.citra_emu.canary`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `premium-unlock` | Unlocks premium functions. | all |
+</details>
+
 ### 📦 `com.backdrops.wallpapers`
 <details>
 
@@ -197,14 +205,6 @@ The official Patch bundle provided by ReVanced and the community.
 | `promo-code-unlock` | Disables the validation of promo code. Any code will work to unlock all features. | all |
 </details>
 
-### 📦 `com.awedea.nyx`
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `unlock-pro` | Unlocks all pro features. | all |
-</details>
-
 ### 📦 `co.windyapp.android`
 <details>
 
@@ -219,6 +219,14 @@ The official Patch bundle provided by ReVanced and the community.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `unlock-pro` | Unlocks all professional features. | all |
+</details>
+
+### 📦 `com.awedea.nyx`
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-pro` | Unlocks all pro features. | all |
 </details>
 
 ### 📦 `com.ithebk.expensemanager`
