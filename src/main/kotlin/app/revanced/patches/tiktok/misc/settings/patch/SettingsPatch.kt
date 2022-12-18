@@ -1,5 +1,6 @@
 package app.revanced.patches.tiktok.misc.settings.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -7,6 +8,7 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
@@ -15,13 +17,12 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.tiktok.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.tiktok.misc.settings.annotations.SettingsCompatibility
-import app.revanced.patches.tiktok.misc.settings.fingerprints.AboutOnClickMethodFingerprint
+import app.revanced.patches.tiktok.misc.settings.fingerprints.AboutViewFingerprint
 import app.revanced.patches.tiktok.misc.settings.fingerprints.AdPersonalizationActivityOnCreateFingerprint
 import app.revanced.patches.tiktok.misc.settings.fingerprints.SettingsOnViewCreatedFingerprint
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 import org.jf.dexlib2.iface.reference.StringReference
 import org.jf.dexlib2.iface.reference.TypeReference
@@ -29,17 +30,19 @@ import org.jf.dexlib2.iface.reference.TypeReference
 @Patch
 @DependsOn([IntegrationsPatch::class])
 @Name("settings")
-@Description("Adds settings for ReVanced to TikTok.")
+@Description("Adds ReVanced settings to TikTok.")
 @SettingsCompatibility
 @Version("0.0.1")
 class SettingsPatch : BytecodePatch(
     listOf(
         AdPersonalizationActivityOnCreateFingerprint,
         SettingsOnViewCreatedFingerprint,
-        AboutOnClickMethodFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
+        SettingsOnViewCreatedFingerprint.result?.let {
+            AboutViewFingerprint.resolve(context, it.method, it.classDef)
+        }
         // Patch Settings UI to add 'Revanced Settings'.
         val targetIndexes = findOptionsOnClickIndex()
         with(SettingsOnViewCreatedFingerprint.result!!.mutableMethod) {
@@ -72,29 +75,21 @@ class SettingsPatch : BytecodePatch(
 
     private fun findOptionsOnClickIndex(): IntArray {
         val results = IntArray(2)
-        var found = 0
-        with(SettingsOnViewCreatedFingerprint.result!!.mutableMethod) {
-            for ((index, instruction) in implementation!!.instructions.withIndex()) {
+        SettingsOnViewCreatedFingerprint.result?.apply {
+            for ((index, instruction) in mutableMethod.implementation!!.instructions.withIndex()) {
                 // Old UI settings option to replace to 'Revanced Settings'
                 if (instruction.opcode == Opcode.CONST_STRING) {
                     val string = ((instruction as ReferenceInstruction).reference as StringReference).string
                     if (string == "copyright_policy") {
                         results[0] = index - 2
-                        found++
+                        break
                     }
                 }
-
-                // New UI settings option to replace to 'Revanced Settings'
-                if (instruction.opcode == Opcode.NEW_INSTANCE) {
-                    val onClickClass = ((instruction as Instruction21c).reference as TypeReference).type
-                    if (onClickClass == AboutOnClickMethodFingerprint.result!!.mutableMethod.definingClass) {
-                        results[1] = index
-                        found++
-                    }
-                }
-                if (found > 1) break
             }
-        }
+
+            // New UI settings option to replace to 'Revanced Settings'
+            results[1] = AboutViewFingerprint.result!!.scanResult.patternScanResult!!.startIndex
+        } ?: throw SettingsOnViewCreatedFingerprint.toErrorResult()
         return results
     }
 
