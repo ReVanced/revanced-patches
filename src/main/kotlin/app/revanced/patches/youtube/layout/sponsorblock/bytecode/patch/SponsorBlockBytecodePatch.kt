@@ -16,12 +16,14 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patches.shared.fingerprints.SeekbarFingerprint
+import app.revanced.patches.shared.fingerprints.SeekbarOnDrawFingerprint
+import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
 import app.revanced.patches.youtube.layout.autocaptions.fingerprints.StartVideoInformerFingerprint
 import app.revanced.patches.youtube.layout.sponsorblock.annotations.SponsorBlockCompatibility
 import app.revanced.patches.youtube.layout.sponsorblock.bytecode.fingerprints.*
 import app.revanced.patches.youtube.layout.sponsorblock.resource.patch.SponsorBlockResourcePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
 import app.revanced.patches.youtube.misc.playercontrols.bytecode.patch.PlayerControlsBytecodePatch
 import app.revanced.patches.youtube.misc.video.information.patch.VideoInformationPatch
 import app.revanced.patches.youtube.misc.video.videoid.patch.VideoIdPatch
@@ -48,7 +50,7 @@ import org.jf.dexlib2.iface.reference.StringReference
 @Version("0.0.1")
 class SponsorBlockBytecodePatch : BytecodePatch(
     listOf(
-        CreateVideoPlayerSeekbarFingerprint,
+        SeekbarFingerprint,
         NextGenWatchLayoutFingerprint,
         AppendTimeFingerprint,
         PlayerOverlaysLayoutInitFingerprint,
@@ -85,7 +87,9 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         /*
          Seekbar drawing
          */
-        val seekbarSignatureResult = CreateVideoPlayerSeekbarFingerprint.result!!
+        val seekbarSignatureResult = SeekbarFingerprint.result!!.let {
+            SeekbarOnDrawFingerprint.apply { resolve(context, it.mutableClass) }
+        }.result!!
         val seekbarMethod = seekbarSignatureResult.mutableMethod
         val seekbarMethodInstructions = seekbarMethod.implementation!!.instructions
 
@@ -96,7 +100,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             if (instruction.opcode != Opcode.MOVE_OBJECT_FROM16) continue
             seekbarMethod.addInstruction(
                 index + 1,
-                "invoke-static {v0}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarRect(Ljava/lang/Object;)V"
+                "invoke-static/range {p0 .. p0}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarRect(Ljava/lang/Object;)V"
             )
             break
         }
@@ -120,10 +124,10 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         /*
         Set rectangle absolute left and right positions
         */
-        val drawRectangleInstructions = seekbarMethodInstructions.filter {
-            it is ReferenceInstruction && (it.reference as? MethodReference)?.name == "drawRect" && it is FiveRegisterInstruction
-        }.map { // TODO: improve code
-            seekbarMethodInstructions.indexOf(it) to (it as FiveRegisterInstruction).registerD
+        val drawRectangleInstructions = seekbarMethodInstructions.withIndex().filter { (_, instruction) ->
+            instruction is ReferenceInstruction && (instruction.reference as? MethodReference)?.name == "drawRect"
+        }.map { (index, instruction) -> // TODO: improve code
+            index to (instruction as FiveRegisterInstruction).registerD
         }
 
         val (indexRight, rectangleRightRegister) = drawRectangleInstructions[0]

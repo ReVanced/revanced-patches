@@ -8,7 +8,6 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -18,8 +17,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.layout.widesearchbar.annotations.WideSearchbarCompatibility
-import app.revanced.patches.youtube.layout.widesearchbar.fingerprints.IsInOfflineModeCheckFingerprint
-import app.revanced.patches.youtube.layout.widesearchbar.fingerprints.IsInOfflineModeCheckResultFingerprint
+import app.revanced.patches.youtube.layout.widesearchbar.fingerprints.DrawActionBarFingerprint
 import app.revanced.patches.youtube.layout.widesearchbar.fingerprints.SetWordmarkHeaderFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
@@ -32,7 +30,7 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 @Version("0.0.1")
 class WideSearchbarPatch : BytecodePatch(
     listOf(
-        SetWordmarkHeaderFingerprint, IsInOfflineModeCheckFingerprint
+        SetWordmarkHeaderFingerprint, DrawActionBarFingerprint
     )
 ) {
     private companion object {
@@ -75,16 +73,12 @@ class WideSearchbarPatch : BytecodePatch(
             )
         )
 
-        // resolve fingerprints
-        IsInOfflineModeCheckFingerprint.result?.let {
-            if (!IsInOfflineModeCheckResultFingerprint.resolve(context, it.classDef))
-                return IsInOfflineModeCheckResultFingerprint.toErrorResult()
-        } ?: return IsInOfflineModeCheckFingerprint.toErrorResult()
+        val result = DrawActionBarFingerprint.result ?: return DrawActionBarFingerprint.toErrorResult()
 
         // patch methods
         mapOf(
             SetWordmarkHeaderFingerprint to 1,
-            IsInOfflineModeCheckResultFingerprint to 0
+            DrawActionBarFingerprint to result.scanResult.patternScanResult!!.endIndex
         ).forEach { (fingerprint, callIndex) ->
             context.walkMutable(callIndex, fingerprint).injectSearchBarHook()
         }
