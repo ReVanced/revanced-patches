@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -51,8 +52,8 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
         VideoIdPatch.injectCall("Lapp/revanced/integrations/patches/ReturnYouTubeDislikePatch;->newVideoLoaded(Ljava/lang/String;)V")
 
         with(TextComponentFingerprint
-            .also { it.resolve(context, TextComponentSpecParentFingerprint.result!!.classDef) }
-            .result ?: return PatchResultError("Could not find createComponent method")
+            .apply { resolve(context, TextComponentSpecParentFingerprint.result!!.classDef) }
+            .result ?: return TextComponentFingerprint.toErrorResult()
         ) {
             val createComponentMethod = mutableMethod
 

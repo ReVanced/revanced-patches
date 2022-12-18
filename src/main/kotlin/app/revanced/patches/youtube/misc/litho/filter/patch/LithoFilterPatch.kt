@@ -19,6 +19,7 @@ import app.revanced.patches.youtube.misc.litho.filter.fingerprints.EmptyComponen
 import org.jf.dexlib2.iface.instruction.Instruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
+import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
 import org.jf.dexlib2.iface.reference.MethodReference
 
@@ -44,14 +45,16 @@ class LithoFilterPatch : BytecodePatch(
                 val builderMethodDescriptor = instruction(builderMethodIndex).toDescriptor()
                 val emptyComponentFieldDescriptor = instruction(emptyComponentFieldIndex).toDescriptor()
 
+                val stringBuilderRegister = (instruction(insertHookIndex - 1) as TwoRegisterInstruction).registerA
+
                 addInstructions(
                     insertHookIndex, // right after setting the component.pathBuilder field,
                     """
-                        invoke-static {v5, v2}, Lapp/revanced/integrations/patches/LithoFilterPatch;->filter(Ljava/lang/StringBuilder;Ljava/lang/String;)Z
+                        invoke-static {v$stringBuilderRegister, v0}, Lapp/revanced/integrations/patches/LithoFilterPatch;->filter(Ljava/lang/StringBuilder;Ljava/lang/String;)Z
                         move-result v$clobberedRegister
                         if-eqz v$clobberedRegister, :not_an_ad
-                        move-object/from16 v2, p1
-                        invoke-static {v2}, $builderMethodDescriptor
+                        move-object/from16 v0, p1
+                        invoke-static {v0}, $builderMethodDescriptor
                         move-result-object v0
                         iget-object v0, v0, $emptyComponentFieldDescriptor
                         return-object v0

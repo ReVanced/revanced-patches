@@ -25,7 +25,7 @@ import org.jf.dexlib2.iface.reference.StringReference
 
 @Patch
 @Name("timeline-ads")
-@Description("Removes ads from the Twitter timeline.")
+@Description("Removes ads from the Twitter timeline. Might require clearing app data to remove already cached ads.")
 @TimelineAdsCompatibility
 @Version("0.0.1")
 class TimelineAdsPatch : BytecodePatch(

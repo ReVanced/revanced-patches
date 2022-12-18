@@ -1,11 +1,13 @@
 package app.revanced.patches.youtube.misc.settings.bytecode.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -16,6 +18,7 @@ import app.revanced.patches.shared.settings.util.AbstractPreferenceScreen
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.annotations.SettingsCompatibility
 import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.LicenseActivityFingerprint
+import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.ThemeConstructorFingerprint
 import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.ThemeSetterAppFingerprint
 import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.ThemeSetterSystemFingerprint
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsResourcePatch
@@ -33,7 +36,7 @@ import org.jf.dexlib2.util.MethodUtil
 @SettingsCompatibility
 @Version("0.0.1")
 class SettingsPatch : BytecodePatch(
-    listOf(LicenseActivityFingerprint, ThemeSetterSystemFingerprint, ThemeSetterAppFingerprint)
+    listOf(LicenseActivityFingerprint, ThemeSetterSystemFingerprint, ThemeConstructorFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         fun buildInvokeInstructionsString(
@@ -44,48 +47,47 @@ class SettingsPatch : BytecodePatch(
         ) = "invoke-static {$registers}, $classDescriptor->$methodName($parameters)V"
 
         // apply the current theme of the settings page
-        with(ThemeSetterSystemFingerprint.result!!) {
-            with(mutableMethod) {
-                val call = buildInvokeInstructionsString()
-
+        ThemeSetterSystemFingerprint.result!!.let { result ->
+            val call = buildInvokeInstructionsString()
+            result.mutableMethod.apply {
                 addInstruction(
-                    scanResult.patternScanResult!!.startIndex,
-                    call
+                    result.scanResult.patternScanResult!!.startIndex, call
                 )
-
-                addInstruction(
-                    mutableMethod.implementation!!.instructions.size - 1,
-                    call
+                addInstructions(
+                    implementation!!.instructions.size - 1, call
                 )
             }
         }
 
         // set the theme based on the preference of the app
-        with(ThemeSetterAppFingerprint.result!!) {
-            with(mutableMethod) {
-                fun buildInstructionsString(theme: Int) = """
+        with((ThemeConstructorFingerprint.result?.let {
+            ThemeSetterAppFingerprint.apply {
+                if (!resolve(context, it.classDef)) return ThemeSetterAppFingerprint.toErrorResult()
+            }
+        } ?: return ThemeConstructorFingerprint.toErrorResult()).result!!) {
+            fun buildInstructionsString(theme: Int) = """
                     const/4 v0, 0x$theme
                     ${buildInvokeInstructionsString(parameters = "I")}
                 """
 
+            val patternScanResult = scanResult.patternScanResult!!
+
+            mutableMethod.apply {
                 addInstructions(
-                    scanResult.patternScanResult!!.endIndex + 1,
-                    buildInstructionsString(1)
+                    patternScanResult.endIndex + 1, buildInstructionsString(1)
                 )
                 addInstructions(
-                    scanResult.patternScanResult!!.endIndex - 7,
-                    buildInstructionsString(0)
+                    patternScanResult.endIndex - 7, buildInstructionsString(0)
                 )
 
                 addInstructions(
-                    scanResult.patternScanResult!!.endIndex - 9,
-                    buildInstructionsString(1)
+                    patternScanResult.endIndex - 9, buildInstructionsString(1)
                 )
                 addInstructions(
-                    mutableMethod.implementation!!.instructions.size - 2,
-                    buildInstructionsString(0)
+                    implementation!!.instructions.size - 2, buildInstructionsString(0)
                 )
             }
+
         }
 
         // set the theme based on the preference of the device
@@ -100,8 +102,7 @@ class SettingsPatch : BytecodePatch(
 
                 // initialize the settings
                 addInstructions(
-                    1,
-                    """
+                    1, """
                         ${buildSettingsActivityInvokeString()}
                         return-void
                     """
@@ -134,8 +135,7 @@ class SettingsPatch : BytecodePatch(
         fun addPreferenceScreen(preferenceScreen: app.revanced.patches.shared.settings.preference.impl.PreferenceScreen) =
             SettingsResourcePatch.addPreferenceScreen(preferenceScreen)
 
-        fun addPreference(preference: Preference) =
-            SettingsResourcePatch.addPreference(preference)
+        fun addPreference(preference: Preference) = SettingsResourcePatch.addPreference(preference)
 
         fun renameIntentsTargetPackage(newPackage: String) {
             SettingsResourcePatch.overrideIntentsTargetPackage = newPackage

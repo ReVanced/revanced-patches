@@ -6,18 +6,7 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 object ThemeSetterAppFingerprint : MethodFingerprint(
-    "L", AccessFlags.PUBLIC or AccessFlags.STATIC, listOf("L", "L", "L"), listOf(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
-        Opcode.IF_EQZ,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
-        Opcode.IF_EQZ,
-        Opcode.NEW_INSTANCE,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.SGET_OBJECT,
-        Opcode.IF_NE,
+    "L", AccessFlags.PUBLIC or AccessFlags.STATIC, opcodes = listOf(
         Opcode.CONST, //target reference
         Opcode.GOTO,
         Opcode.CONST, //target reference
