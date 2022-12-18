@@ -14,11 +14,6 @@ public final class GeneralAdsPatch extends Filter {
             "comment_thread", // skip blocking anything in the comments
             "download_",
             "library_recent_shelf",
-            "menu",
-            "root",
-            "-count",
-            "-space",
-            "-button",
             "playlist_add_to_option_wrapper" // do not block on "add to playlist" flyout menu
     };
 
