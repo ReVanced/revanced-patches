@@ -1,3 +1,10 @@
+# [2.145.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.145.0-dev.1...v2.145.0-dev.2) (2022-12-18)
+
+
+### Features
+
+* **twitter/timeline-ads:** add clarifying notice to description ([ed2f1f3](https://github.com/revanced/revanced-patches/commit/ed2f1f307fdad6128dc618815b9f8b24a5b99a66))
+
 # [2.145.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.144.0...v2.145.0-dev.1) (2022-12-18)
 
 
