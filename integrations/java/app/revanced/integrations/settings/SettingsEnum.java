@@ -253,7 +253,7 @@ public enum SettingsEnum {
                 {DEPRECATED_HIDE_ACTION_BUTTON, HIDE_ACTION_BUTTON},
                 {DEPRECATED_HIDE_SHARE_BUTTON, HIDE_SHARE_BUTTON},
         };
-        for (SettingsEnum oldNewSetting[] : invertedSettingsToMigrate) {
+        for (SettingsEnum oldNewSetting[] : renamedSettings) {
             SettingsEnum oldSetting = oldNewSetting[0];
             SettingsEnum newSetting = oldNewSetting[1];
 
