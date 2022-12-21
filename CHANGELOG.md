@@ -1,3 +1,10 @@
+# [2.148.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.147.0...v2.148.0-dev.1) (2022-12-21)
+
+
+### Features
+
+* **tasker:** `unlock-license` patch ([#1339](https://github.com/revanced/revanced-patches/issues/1339)) ([78a43b8](https://github.com/revanced/revanced-patches/commit/78a43b8abd972172eab99519dfa636ce77d9e64f))
+
 # [2.147.0](https://github.com/revanced/revanced-patches/compare/v2.146.0...v2.147.0) (2022-12-21)
 
 
