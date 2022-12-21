@@ -9,6 +9,7 @@ import android.os.Looper;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -32,13 +33,22 @@ public class ReVancedUtils {
 
     /**
      * General purpose pool for network calls and other background tasks.
+     * All tasks run at max thread priority.
      */
     private static final ThreadPoolExecutor backgroundThreadPool = new ThreadPoolExecutor(
-            2, // minimum 2 threads always ready to be used
+            1, // minimum 1 thread always ready to be used
             10, // For any threads over the minimum, keep them alive 10 seconds after they go idle
             SHARED_THREAD_POOL_MAXIMUM_BACKGROUND_THREADS,
             TimeUnit.SECONDS,
-            new LinkedBlockingQueue<Runnable>());
+            new LinkedBlockingQueue<Runnable>(),
+            new ThreadFactory() {
+                @Override
+                public Thread newThread(Runnable r) {
+                    Thread t = new Thread(r);
+                    t.setPriority(Thread.MAX_PRIORITY); // run at max priority
+                    return t;
+                }
+            });
 
     private static void checkIfPoolHasReachedLimit() {
         if (backgroundThreadPool.getActiveCount() >= SHARED_THREAD_POOL_MAXIMUM_BACKGROUND_THREADS) {
@@ -54,13 +64,14 @@ public class ReVancedUtils {
     }
 
     public static void runOnBackgroundThread(Runnable task) {
-        checkIfPoolHasReachedLimit();
         backgroundThreadPool.execute(task);
+        checkIfPoolHasReachedLimit();
     }
 
     public static <T> Future<T> submitOnBackgroundThread(Callable<T> call) {
+        Future<T> future = backgroundThreadPool.submit(call);
         checkIfPoolHasReachedLimit();
-        return backgroundThreadPool.submit(call);
+        return future;
     }
 
     public static boolean containsAny(final String value, final String... targets) {
@@ -114,8 +125,18 @@ public class ReVancedUtils {
         return context.getResources().getConfiguration().smallestScreenWidthDp >= 600;
     }
 
+    /**
+     * Automatically logs any exceptions the runnable throws
+     */
     public static void runOnMainThread(Runnable runnable) {
-        new Handler(Looper.getMainLooper()).post(runnable);
+        Runnable exceptLoggingRunnable = () -> {
+            try {
+                runnable.run();
+            } catch (Exception ex) {
+                LogHelper.printException(() -> "Exception on main thread from runnable: " + runnable.toString(), ex);
+            }
+        };
+        new Handler(Looper.getMainLooper()).post(exceptLoggingRunnable);
     }
 
     /**

@@ -53,16 +53,18 @@ public class LogHelper {
      */
     public static void printDebug(LogMessage message) {
         if (SettingsEnum.DEBUG.getBoolean()) {
-            var log = new StringBuilder(message.buildMessageString());
+            var messageString = message.buildMessageString();
 
             if (SettingsEnum.DEBUG_STACKTRACE.getBoolean()) {
+                var builder = new StringBuilder(messageString);
                 var sw = new StringWriter();
                 new Throwable().printStackTrace(new PrintWriter(sw));
 
-                log.append(String.format("\n%s", sw));
+                builder.append(String.format("\n%s", sw));
+                messageString = builder.toString();
             }
 
-            Log.d("revanced: " + message.findOuterClassSimpleName(), log.toString());
+            Log.d("revanced: " + message.findOuterClassSimpleName(), messageString);
         }
     }
 
