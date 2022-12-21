@@ -32,12 +32,10 @@ class ThemePatch : ResourcePatch {
 
                 node.textContent = when (node.getAttribute("name")) {
                     "yt_black0", "yt_black1", "yt_black1_opacity95", "yt_black1_opacity98", "yt_black2", "yt_black3",
-                    "yt_black4", "yt_status_bar_background_dark", "material_grey_100", "material_grey_50",
-                    "material_grey_600", "material_grey_800", "material_grey_850", "material_grey_900",
-                    "material_grey_white_1000", "sud_glif_v3_dialog_background_color_dark" -> darkThemeBackgroundColor
+                    "yt_black4", "yt_status_bar_background_dark", "material_grey_850" -> darkThemeBackgroundColor
 
                     "yt_white1", "yt_white1_opacity95", "yt_white1_opacity98", "yt_white2", "yt_white3", "yt_white4",
-                    "sud_glif_v3_dialog_background_color_light" -> lightThemeBackgroundColor
+                     -> lightThemeBackgroundColor
 
                     else -> continue
                 }
