@@ -109,16 +109,19 @@ public class DownloadButton {
 
         isShowing = z;
         ImageView imageView = _button.get();
-        if (_constraintLayout != null && imageView != null) {
-            if (z && isDownloadButtonEnabled) {
-                LogHelper.printDebug(() -> "Fading in");
-                imageView.setVisibility(View.VISIBLE);
-                imageView.startAnimation(fadeIn);
-            } else if (imageView.getVisibility() == View.VISIBLE) {
-                LogHelper.printDebug(() -> "Fading out");
-                imageView.startAnimation(fadeOut);
-                imageView.setVisibility(View.GONE);
-            }
+        
+        if (_constraintLayout == null || imageView == null)
+            return;
+
+        if (z && isDownloadButtonEnabled) {
+            LogHelper.printDebug(() -> "Fading in");
+            imageView.setVisibility(View.VISIBLE);
+            imageView.startAnimation(fadeIn);
+        }
+        else if (imageView.getVisibility() == View.VISIBLE) {
+            LogHelper.printDebug(() -> "Fading out");
+            imageView.startAnimation(fadeOut);
+            imageView.setVisibility(View.GONE);
         }
     }
 
