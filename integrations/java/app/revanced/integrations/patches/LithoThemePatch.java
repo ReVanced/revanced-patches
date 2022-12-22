@@ -1,32 +1,70 @@
 package app.revanced.integrations.patches;
 
-import android.util.Log;
+import static app.revanced.integrations.utils.ReVancedUtils.getContext;
+
+import android.content.Context;
 
 import app.revanced.integrations.utils.ThemeHelper;
 
 public class LithoThemePatch {
     // color constants used in relation with litho components
-    private static final int[] WHITECONSTANTS = {
-        -1, // comments chip background
-        -394759, // music related results panel background
-        -83886081, // video chapters list background
+    private static final int[] WHITE_VALUES = {
+            -1, // comments chip background
+            -394759, // music related results panel background
+            -83886081, // video chapters list background
     };
 
-    private static final int[] DARKCONSTANTS = {
-        -14145496, // explore drawer background
-        -14606047, // comments chip background
-        -15198184, // music related results panel background
-        -15790321, // comments chip background (new layout)
-        -98492127 // video chapters list background
+    private static final int[] DARK_VALUES = {
+            -14145496, // explore drawer background
+            -14606047, // comments chip background
+            -15198184, // music related results panel background
+            -15790321, // comments chip background (new layout)
+            -98492127 // video chapters list background
     };
+
+    // background colors
+    private static int whiteColor = 0;
+    private static int blackColor = 0;
 
     // Used by app.revanced.patches.youtube.layout.theme.patch.LithoThemePatch
+    /**
+     * Change the color of Litho components.
+     * If the color of the component matches one of the values, return the background color .
+     *
+     * @param originalValue The original color value.
+     * @return The new or original color value
+     */
     public static int applyLithoTheme(int originalValue) {
-        var isDarkTheme = ThemeHelper.isDarkTheme();
-        
-        if ((isDarkTheme && anyEquals(originalValue, DARKCONSTANTS)) || (!isDarkTheme  && anyEquals(originalValue, WHITECONSTANTS)))
-                return 0;
+        if (ThemeHelper.isDarkTheme()) {
+            if (anyEquals(originalValue, DARK_VALUES)) return getBlackColor();
+        } else {
+            if (anyEquals(originalValue, WHITE_VALUES)) return getWhiteColor();
+        }
         return originalValue;
+    }
+
+    private static int getBlackColor() {
+        if (blackColor == 0) blackColor = getColor("yt_black1");
+        return blackColor;
+    }
+
+    private static int getWhiteColor() {
+        if (whiteColor == 0) whiteColor = getColor("yt_white1");
+        return whiteColor;
+    }
+
+    /**
+     * Determines the color for a color resource.
+     *
+     * @param name The color resource name.
+     * @return The value of the color.
+     */
+    private static int getColor(String name) {
+        Context context = getContext();
+
+        return context != null ? context.getColor(context.getResources()
+                .getIdentifier(name, "color", context.getPackageName())
+        ) : 0;
     }
 
     private static boolean anyEquals(int value, int... of) {
