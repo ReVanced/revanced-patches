@@ -1,3 +1,10 @@
+# [2.148.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.148.0-dev.2...v2.148.0-dev.3) (2022-12-26)
+
+
+### Bug Fixes
+
+* **youtube/general-ads:** don't early return when not necessary ([#1353](https://github.com/revanced/revanced-patches/issues/1353)) ([003a400](https://github.com/revanced/revanced-patches/commit/003a400ce41ff543fb5484c576f5ec2df0a87273))
+
 # [2.148.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.148.0-dev.1...v2.148.0-dev.2) (2022-12-26)
 
 
