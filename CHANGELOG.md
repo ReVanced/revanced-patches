@@ -1,3 +1,10 @@
+# [2.148.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.148.0-dev.1...v2.148.0-dev.2) (2022-12-26)
+
+
+### Features
+
+* **youtube/general-ads-patch:** hide guidelines for subscriber ([#1352](https://github.com/revanced/revanced-patches/issues/1352)) ([2d10932](https://github.com/revanced/revanced-patches/commit/2d1093251d5d50b476ca44f76acb9a8597b37aea))
+
 # [2.148.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.147.0...v2.148.0-dev.1) (2022-12-21)
 
 
