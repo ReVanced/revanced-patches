@@ -1,3 +1,11 @@
+# [2.148.0-dev.6](https://github.com/revanced/revanced-patches/compare/v2.148.0-dev.5...v2.148.0-dev.6) (2022-12-29)
+
+
+### Features
+
+* **youtube/theme:** add option to color the seekbar ([53b91fe](https://github.com/revanced/revanced-patches/commit/53b91fe2b5a41f1a63deec8d919f2a1bc1cae12a))
+* **youtube/theme:** include the patch by default ([c363997](https://github.com/revanced/revanced-patches/commit/c3639975683fb0ca0e271e8fc3ef7fbf79f33414))
+
 # [2.148.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.148.0-dev.4...v2.148.0-dev.5) (2022-12-29)
 
 
