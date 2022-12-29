@@ -1,3 +1,10 @@
+# [2.148.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.148.0-dev.4...v2.148.0-dev.5) (2022-12-29)
+
+
+### Features
+
+* **youtube:** `hide-breaking-news-shelf` patch ([#1381](https://github.com/revanced/revanced-patches/issues/1381)) ([38a9877](https://github.com/revanced/revanced-patches/commit/38a987744fbb49c2b7d5d0e69297e95f5ee405c4))
+
 # [2.148.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.148.0-dev.3...v2.148.0-dev.4) (2022-12-29)
 
 

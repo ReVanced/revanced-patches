@@ -28,6 +28,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-album-cards` | Hides the album cards below the artist description. | 17.49.37 |
 | `hide-artist-card` | Hides the artist card below the searchbar. | 17.49.37 |
 | `hide-autoplay-button` | Hides the autoplay button in the video player. | 17.49.37 |
+| `hide-breaking-news-shelf` | Hides the breaking news shelf on the homepage tab. | 17.49.37 |
 | `hide-captions-button` | Hides the captions button on video player. | 17.49.37 |
 | `hide-cast-button` | Hides the cast button in the video player. | all |
 | `hide-create-button` | Hides the create button in the navigation bar. | 17.49.37 |
