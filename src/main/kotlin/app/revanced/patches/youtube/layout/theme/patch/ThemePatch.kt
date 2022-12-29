@@ -32,8 +32,7 @@ class ThemePatch : ResourcePatch {
                 val node = resourcesNode.childNodes.item(i) as? Element ?: continue
 
                 node.textContent = when (node.getAttribute("name")) {
-                    "yt_black0", "yt_black1", "yt_black1_opacity95", "yt_black1_opacity98", "yt_black2", "yt_black3",
-                    "yt_black4", "yt_status_bar_background_dark", "material_grey_850" -> darkThemeBackgroundColor
+                    "yt_black0", "yt_black1", "yt_black1_opacity95", "yt_black1_opacity98", "yt_black2", "yt_black3", "yt_black4", "yt_status_bar_background_dark", "material_grey_850" -> darkThemeBackgroundColor
 
                     "yt_white1", "yt_white1_opacity95", "yt_white1_opacity98", "yt_white2", "yt_white3", "yt_white4",
                     -> lightThemeBackgroundColor
@@ -46,8 +45,7 @@ class ThemePatch : ResourcePatch {
 
         // copies the resource file to change the splash screen color
         context.copyResources(
-            "theme",
-            ResourceUtils.ResourceGroup("values-night-v31", "styles.xml")
+            "theme", ResourceUtils.ResourceGroup("values-night-v31", "styles.xml")
         )
 
         return PatchResultSuccess()
