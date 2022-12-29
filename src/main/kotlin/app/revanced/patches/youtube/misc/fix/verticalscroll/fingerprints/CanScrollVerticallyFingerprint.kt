@@ -7,6 +7,9 @@ import org.jf.dexlib2.Opcode
 object CanScrollVerticallyFingerprint : MethodFingerprint(
     "Z",
     parameters = emptyList(),
-    opcodes = listOf(Opcode.INSTANCE_OF),
+    opcodes = listOf(
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT,
+    ),
     customFingerprint = { methodDef -> methodDef.definingClass.endsWith("SwipeRefreshLayout;") }
 )

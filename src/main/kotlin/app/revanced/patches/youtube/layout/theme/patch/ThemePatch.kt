@@ -13,7 +13,7 @@ import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 import org.w3c.dom.Element
 
-@Patch(include = false)
+@Patch
 @DependsOn([LithoThemePatch::class, FixLocaleConfigErrorPatch::class])
 @Name("theme")
 @Description("Applies a custom theme.")
@@ -23,6 +23,7 @@ class ThemePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
         val darkThemeBackgroundColor = darkThemeBackgroundColor!!
         val lightThemeBackgroundColor = lightThemeBackgroundColor!!
+        val darkThemeSeekbarColor = darkThemeSeekbarColor!!
 
         context.xmlEditor["res/values/colors.xml"].use { editor ->
             val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
@@ -31,20 +32,20 @@ class ThemePatch : ResourcePatch {
                 val node = resourcesNode.childNodes.item(i) as? Element ?: continue
 
                 node.textContent = when (node.getAttribute("name")) {
-                    "yt_black0", "yt_black1", "yt_black1_opacity95", "yt_black1_opacity98", "yt_black2", "yt_black3",
-                    "yt_black4", "yt_status_bar_background_dark", "material_grey_850" -> darkThemeBackgroundColor
+                    "yt_black0", "yt_black1", "yt_black1_opacity95", "yt_black1_opacity98", "yt_black2", "yt_black3", "yt_black4", "yt_status_bar_background_dark", "material_grey_850" -> darkThemeBackgroundColor
 
                     "yt_white1", "yt_white1_opacity95", "yt_white1_opacity98", "yt_white2", "yt_white3", "yt_white4",
-                     -> lightThemeBackgroundColor
+                    -> lightThemeBackgroundColor
 
+                    "inline_time_bar_colorized_bar_played_color_dark" -> darkThemeSeekbarColor
                     else -> continue
                 }
             }
         }
 
         // copies the resource file to change the splash screen color
-        context.copyResources("theme",
-            ResourceUtils.ResourceGroup("values-night-v31", "styles.xml")
+        context.copyResources(
+            "theme", ResourceUtils.ResourceGroup("values-night-v31", "styles.xml")
         )
 
         return PatchResultSuccess()
@@ -66,6 +67,15 @@ class ThemePatch : ResourcePatch {
                 default = "@android:color/white",
                 title = "Background color for the light theme",
                 description = "The background color of the light theme. Can be a hex color or a resource reference.",
+            )
+        )
+
+        var darkThemeSeekbarColor: String? by option(
+            PatchOption.StringOption(
+                key = "darkThemeSeekbarColor",
+                default = "#ffff0000",
+                title = "Dark theme seekbar color",
+                description = "The background color of the seekbar of the dark theme. Leave empty for default color.",
             )
         )
     }
