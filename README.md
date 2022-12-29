@@ -120,6 +120,17 @@ The official Patch bundle provided by ReVanced and the community.
 | `show-deleted-messages` | Shows deleted chat messages behind a clickable spoiler. | all |
 </details>
 
+### [📦 `com.twitter.android`](https://play.google.com/store/apps/details?id=com.twitter.android)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `dynamic-color` | Replaces the default Twitter Blue with the users Material You palette. | all |
+| `hide-views-stats` | Hides the view stats under tweets. | all |
+| `monochrome-icon` | Adds a monochrome icon. | all |
+| `timeline-ads` | Removes ads from the Twitter timeline. Might require clearing app data to remove already cached ads. | all |
+</details>
+
 ### [📦 `com.spotify.music`](https://play.google.com/store/apps/details?id=com.spotify.music)
 <details>
 
@@ -128,16 +139,6 @@ The official Patch bundle provided by ReVanced and the community.
 | `disable-capture-restriction` | Allows capturing Spotify's audio output while screen sharing or screen recording. | all |
 | `hide-premium-navbar` | Removes the premium tab from the navbar. | all |
 | `spotify-theme` | Applies a custom theme. | all |
-</details>
-
-### [📦 `com.twitter.android`](https://play.google.com/store/apps/details?id=com.twitter.android)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `dynamic-color` | Replaces the default Twitter Blue with the users Material You palette. | all |
-| `monochrome-icon` | Adds a monochrome icon. | all |
-| `timeline-ads` | Removes ads from the Twitter timeline. Might require clearing app data to remove already cached ads. | all |
 </details>
 
 ### [📦 `com.reddit.frontpage`](https://play.google.com/store/apps/details?id=com.reddit.frontpage)

@@ -1,3 +1,10 @@
+# [2.148.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.148.0-dev.3...v2.148.0-dev.4) (2022-12-29)
+
+
+### Features
+
+* **twitter:** `hide-views-stats` patch ([#1371](https://github.com/revanced/revanced-patches/issues/1371)) ([2f04a06](https://github.com/revanced/revanced-patches/commit/2f04a06e3b782931870d973fd0937f8731062f12))
+
 # [2.148.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.148.0-dev.2...v2.148.0-dev.3) (2022-12-26)
 
 
