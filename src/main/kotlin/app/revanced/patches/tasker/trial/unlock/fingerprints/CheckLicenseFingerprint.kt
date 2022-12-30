@@ -1,4 +1,4 @@
-package app.revanced.patches.tasker.license.unlock.fingerprints
+package app.revanced.patches.tasker.trial.unlock.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 
