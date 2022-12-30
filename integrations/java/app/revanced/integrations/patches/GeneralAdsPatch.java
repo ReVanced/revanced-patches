@@ -27,6 +27,7 @@ public final class GeneralAdsPatch extends Filter {
         var communityPosts = new BlockRule(SettingsEnum.ADREMOVER_COMMUNITY_POSTS_REMOVAL, "post_base_wrapper");
         var communityGuidelines = new BlockRule(SettingsEnum.ADREMOVER_COMMUNITY_GUIDELINES_REMOVAL, "community_guidelines");
         var subscribersCommunityGuidelines = new BlockRule(SettingsEnum.ADREMOVER_SUBSCRIBERS_COMMUNITY_GUIDELINES_REMOVAL, "sponsorships_comments_upsell");
+        var channelMemberShelf = new BlockRule(SettingsEnum.ADREMOVER_CHANNEL_MEMBER_SHELF_REMOVAL, "member_recognition_shelf");
         var compactBanner = new BlockRule(SettingsEnum.ADREMOVER_COMPACT_BANNER_REMOVAL, "compact_banner");
         var inFeedSurvey = new BlockRule(SettingsEnum.ADREMOVER_FEED_SURVEY_REMOVAL, "in_feed_survey");
         var medicalPanel = new BlockRule(SettingsEnum.ADREMOVER_MEDICAL_PANEL_REMOVAL, "medical_panel");
@@ -83,7 +84,8 @@ public final class GeneralAdsPatch extends Filter {
                 channelGuidelines,
                 artistCard,
                 selfSponsor,
-                subscribersCommunityGuidelines
+                subscribersCommunityGuidelines,
+                channelMemberShelf
         );
 
         var carouselAd = new BlockRule(SettingsEnum.ADREMOVER_GENERAL_ADS_REMOVAL,
