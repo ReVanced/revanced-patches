@@ -68,7 +68,7 @@ class BottomControlsResourcePatch : ResourcePatch {
                     "$namespace/$lastLeftOf"
 
                 // set lastLeftOf attribute to the the current element
-                val nameSpaceLength = 4
+                val nameSpaceLength = 5
                 lastLeftOf = element.attributes.getNamedItem("android:id").nodeValue.substring(nameSpaceLength)
 
                 // copy the element
