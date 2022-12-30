@@ -1,3 +1,10 @@
+## [2.149.1-dev.1](https://github.com/revanced/revanced-patches/compare/v2.149.0...v2.149.1-dev.1) (2022-12-30)
+
+
+### Bug Fixes
+
+* **youtube/bottom-controls-resource-patch:** use correct length for `nameSpaceLength` ([#1401](https://github.com/revanced/revanced-patches/issues/1401)) ([7190066](https://github.com/revanced/revanced-patches/commit/7190066a8ded8b59970483a81d7902526d552093))
+
 # [2.149.0](https://github.com/revanced/revanced-patches/compare/v2.148.0...v2.149.0) (2022-12-30)
 
 
