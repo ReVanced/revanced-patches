@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  MESSAGE: merge branch \`${{ github.head_ref || github.ref_name }}\` to \`main\`
+  MESSAGE: merge branch `${{ github.head_ref || github.ref_name }}` to `main`
 
 jobs:
   pull-request:
