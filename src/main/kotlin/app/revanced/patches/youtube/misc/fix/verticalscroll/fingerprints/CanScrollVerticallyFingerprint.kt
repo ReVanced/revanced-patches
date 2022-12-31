@@ -8,6 +8,8 @@ object CanScrollVerticallyFingerprint : MethodFingerprint(
     "Z",
     parameters = emptyList(),
     opcodes = listOf(
+        Opcode.MOVE_RESULT,
+        Opcode.RETURN,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
     ),
