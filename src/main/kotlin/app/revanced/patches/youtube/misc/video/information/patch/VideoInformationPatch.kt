@@ -20,6 +20,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMu
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.video.information.annotation.VideoInformationCompatibility
 import app.revanced.patches.youtube.misc.video.information.fingerprints.*
+import app.revanced.patches.youtube.misc.video.videoid.patch.VideoIdPatch
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.builder.MutableMethodImplementation
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
@@ -31,7 +32,7 @@ import org.jf.dexlib2.util.MethodUtil
 @Description("Hooks YouTube to get information about the current playing video.")
 @VideoInformationCompatibility
 @Version("0.0.1")
-@DependsOn([IntegrationsPatch::class])
+@DependsOn([IntegrationsPatch::class, VideoIdPatch::class])
 class VideoInformationPatch : BytecodePatch(
     listOf(
         PlayerInitFingerprint,
@@ -93,6 +94,11 @@ class VideoInformationPatch : BytecodePatch(
                 )
             }
         }
+
+        /*
+        Inject call for video id
+         */
+        VideoIdPatch.injectCall("$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V")
 
         /*
         Set the video time method
