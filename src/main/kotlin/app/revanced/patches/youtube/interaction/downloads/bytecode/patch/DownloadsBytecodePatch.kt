@@ -12,11 +12,11 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.interaction.downloads.annotation.DownloadsCompatibility
 import app.revanced.patches.youtube.interaction.downloads.resource.patch.DownloadsResourcePatch
 import app.revanced.patches.youtube.misc.playercontrols.bytecode.patch.PlayerControlsBytecodePatch
-import app.revanced.patches.youtube.misc.video.videoid.patch.VideoIdPatch
+import app.revanced.patches.youtube.misc.video.information.patch.VideoInformationPatch
 
 @Patch
 @Name("downloads")
-@DependsOn([DownloadsResourcePatch::class, PlayerControlsBytecodePatch::class, VideoIdPatch::class])
+@DependsOn([DownloadsResourcePatch::class, PlayerControlsBytecodePatch::class, VideoInformationPatch::class])
 @Description("Enables downloading music and videos from YouTube.")
 @DownloadsCompatibility
 @Version("0.0.1")
@@ -29,7 +29,7 @@ class DownloadsBytecodePatch : BytecodePatch() {
         initialize the control
          */
 
-        val initializeDownloadsDescriptor = "$classDescriptor->initializeDownloadButton(Ljava/lang/Object;)V"
+        val initializeDownloadsDescriptor = "$classDescriptor->initializeButton(Ljava/lang/Object;)V"
         PlayerControlsBytecodePatch.initializeControl(initializeDownloadsDescriptor)
 
         /*
@@ -38,14 +38,6 @@ class DownloadsBytecodePatch : BytecodePatch() {
 
         val changeVisibilityDescriptor = "$classDescriptor->changeVisibility(Z)V"
         PlayerControlsBytecodePatch.injectVisibilityCheckCall(changeVisibilityDescriptor)
-
-        /*
-         add code to change to update the video id
-         */
-
-        val setVideoIdDescriptor =
-            "L$integrationsPackage/patches/downloads/DownloadsPatch;->setVideoId(Ljava/lang/String;)V"
-        VideoIdPatch.injectCall(setVideoIdDescriptor)
 
         return PatchResultSuccess()
     }

@@ -32,7 +32,8 @@
           {
             "path": "patches.json"
           }
-        ]
+        ],
+        successComment: false
       }
     ],
     [
