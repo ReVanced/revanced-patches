@@ -1,3 +1,10 @@
+## [2.149.1-dev.2](https://github.com/revanced/revanced-patches/compare/v2.149.1-dev.1...v2.149.1-dev.2) (2022-12-31)
+
+
+### Bug Fixes
+
+* **youtube/general-ads:** resolve fingerprint to correct method ([#1404](https://github.com/revanced/revanced-patches/issues/1404)) ([e135485](https://github.com/revanced/revanced-patches/commit/e1354852501cb582549cbf0634b1a15e1d0012d9))
+
 ## [2.149.1-dev.1](https://github.com/revanced/revanced-patches/compare/v2.149.0...v2.149.1-dev.1) (2022-12-30)
 
 
