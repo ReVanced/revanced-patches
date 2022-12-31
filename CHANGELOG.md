@@ -1,3 +1,10 @@
+# [2.150.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.150.0-dev.1...v2.150.0-dev.2) (2022-12-31)
+
+
+### Features
+
+* **youtube:** `copy-video-url` patch ([#1402](https://github.com/revanced/revanced-patches/issues/1402)) ([7e142dd](https://github.com/revanced/revanced-patches/commit/7e142dd7e9021cdb9b3b8d36c601770786e8e64a))
+
 # [2.150.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.149.1-dev.2...v2.150.0-dev.1) (2022-12-31)
 
 
