@@ -12,6 +12,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `always-autorepeat` | Always repeats the playing video again. | 17.49.37 |
 | `client-spoof` | Spoofs the YouTube or Vanced client to prevent playback issues. | all |
 | `comments` | Hides components related to comments. | 17.49.37 |
+| `copy-video-url` | Adds buttons in player to copy video links. | 17.49.37 |
 | `custom-branding` | Changes the YouTube launcher icon and name to your choice (defaults to ReVanced). | all |
 | `custom-video-buffer` | Lets you change the buffers of videos. | 17.49.37 |
 | `custom-video-speed` | Adds more video speed options. | 17.49.37 |
