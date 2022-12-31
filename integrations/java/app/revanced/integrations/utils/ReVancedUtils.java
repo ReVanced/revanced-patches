@@ -123,6 +123,12 @@ public class ReVancedUtils {
         }
     }
 
+    public static void setClipboard(String text) {
+        android.content.ClipboardManager clipboard = (android.content.ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        android.content.ClipData clip = android.content.ClipData.newPlainText("ReVanced", text);
+        clipboard.setPrimaryClip(clip);
+    }
+
     public static boolean isTablet(Context context) {
         return context.getResources().getConfiguration().smallestScreenWidthDp >= 600;
     }

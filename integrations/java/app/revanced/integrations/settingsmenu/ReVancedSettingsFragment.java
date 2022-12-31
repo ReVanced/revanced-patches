@@ -26,7 +26,6 @@ import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
-import app.revanced.integrations.videoplayer.DownloadButton;
 
 public class ReVancedSettingsFragment extends PreferenceFragment {
 
@@ -84,10 +83,6 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
                     }
                 } else {
                     LogHelper.printException(() -> ("No valid setting found: " + setting.toString()));
-                }
-
-                if ("pref_download_button_list".equals(str)) {
-                    DownloadButton.refreshShouldBeShown();
                 }
             } else {
                 LogHelper.printException(() -> ("Setting cannot be handled! " + pref.toString()));
