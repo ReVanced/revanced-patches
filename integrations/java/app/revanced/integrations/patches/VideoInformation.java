@@ -17,6 +17,7 @@ public final class VideoInformation {
     private static WeakReference<Object> playerController;
     private static Method seekMethod;
 
+    private static String videoId = "";
     private static long videoLength = 1;
     private static long videoTime = -1;
 
@@ -37,6 +38,17 @@ public final class VideoInformation {
         } catch (NoSuchMethodException ex) {
             LogHelper.printDebug(() -> "Failed to initialize: " + ex.getMessage());
         }
+    }
+
+    /**
+     * Set the video id.
+     *
+     * @param videoId The id of the video.
+     */
+    public static void setVideoId(String videoId) {
+        LogHelper.printDebug(() -> "Setting current video id to: " + videoId);
+
+        VideoInformation.videoId = videoId;
     }
 
     /**
@@ -78,6 +90,15 @@ public final class VideoInformation {
                 LogHelper.printDebug(() -> "Failed to seek: " + ex.getMessage());
             }
         });
+    }
+
+    /**
+     * Get the id of the current video playing.
+     *
+     * @return The id of the video. Empty string if not set yet.
+     */
+    public static String getCurrentVideoId() {
+        return videoId;
     }
 
     /**
