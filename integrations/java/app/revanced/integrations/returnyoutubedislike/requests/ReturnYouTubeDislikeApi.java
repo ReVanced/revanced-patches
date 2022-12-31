@@ -97,7 +97,7 @@ public class ReturnYouTubeDislikeApi {
     private static volatile long fetchCallResponseTimeMin;
     private static volatile long fetchCallResponseTimeMax;
 
-    public static final int FETCH_CALL_RESPONSE_TIME_VALUE_RATE_LIMIT = -2;
+    public static final int FETCH_CALL_RESPONSE_TIME_VALUE_RATE_LIMIT = -1;
 
     /**
      * If rate limit was hit, this returns {@link #FETCH_CALL_RESPONSE_TIME_VALUE_RATE_LIMIT}
@@ -128,8 +128,8 @@ public class ReturnYouTubeDislikeApi {
     } // utility class
 
     /**
-     * Only to simulate a slow api call, for debugging the app UI with slow url calls.
      * Simulates a slow response by doing meaningless calculations.
+     * Used to debug the app UI and verify UI timeout logic works
      *
      * @param maximumTimeToWait maximum time to wait
      */
