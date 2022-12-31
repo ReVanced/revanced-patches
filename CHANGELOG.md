@@ -1,3 +1,10 @@
+# [2.150.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.149.1-dev.2...v2.150.0-dev.1) (2022-12-31)
+
+
+### Features
+
+* **youtube/return-youtube-dislike:** better formatting and LTR support  ([#1370](https://github.com/revanced/revanced-patches/issues/1370)) ([fd0fe1c](https://github.com/revanced/revanced-patches/commit/fd0fe1c86ca99e395d340e85f4f1eb7b221e90ea))
+
 ## [2.149.1-dev.2](https://github.com/revanced/revanced-patches/compare/v2.149.1-dev.1...v2.149.1-dev.2) (2022-12-31)
 
 
