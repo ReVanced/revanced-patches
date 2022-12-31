@@ -1,3 +1,10 @@
+# [2.150.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.150.0-dev.2...v2.150.0-dev.3) (2022-12-31)
+
+
+### Bug Fixes
+
+* **youtube/general-ads:** restore swipe back to exit gesture ([#1405](https://github.com/revanced/revanced-patches/issues/1405)) ([d076b7e](https://github.com/revanced/revanced-patches/commit/d076b7e896b576e00da2a5f175126e8b787acec3))
+
 # [2.150.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.150.0-dev.1...v2.150.0-dev.2) (2022-12-31)
 
 
