@@ -1,6 +1,5 @@
 package app.revanced.integrations.videoplayer;
 
-import android.content.Context;
 import android.support.constraint.ConstraintLayout;
 import android.view.View;
 import android.view.animation.Animation;
@@ -27,7 +26,7 @@ public abstract class BottomControlButton {
             constraintLayout = (ConstraintLayout) obj;
             isButtonEnabled = isEnabled;
 
-            ImageView imageView = constraintLayout.findViewById(getIdentifier(viewId, "id"));
+            ImageView imageView = constraintLayout.findViewById(ReVancedUtils.getIdentifier(viewId, "id"));
             if (imageView == null) {
                 LogHelper.printDebug(() -> "Couldn't find ImageView with id: " + viewId);
                 return;
@@ -70,17 +69,11 @@ public abstract class BottomControlButton {
             imageView.setVisibility(View.GONE);
         }
     }
-
-    private static int getIdentifier(String str, String str2) {
-        Context appContext = ReVancedUtils.getContext();
-        return appContext.getResources().getIdentifier(str, str2, appContext.getPackageName());
-    }
-
     private static int getInteger(String str) {
-        return ReVancedUtils.getContext().getResources().getInteger(getIdentifier(str, "integer"));
+        return ReVancedUtils.getContext().getResources().getInteger(ReVancedUtils.getIdentifier(str, "integer"));
     }
 
     private static Animation getAnimation(String str) {
-        return AnimationUtils.loadAnimation(ReVancedUtils.getContext(), getIdentifier(str, "anim"));
+        return AnimationUtils.loadAnimation(ReVancedUtils.getContext(), ReVancedUtils.getIdentifier(str, "anim"));
     }
 }
