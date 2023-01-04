@@ -1,3 +1,10 @@
+# [2.152.0](https://github.com/revanced/revanced-patches/compare/v2.151.0...v2.152.0) (2023-01-04)
+
+
+### Features
+
+* **youtube/copy-video-url:** match icon style with native icon ([#1419](https://github.com/revanced/revanced-patches/issues/1419)) ([e89e54c](https://github.com/revanced/revanced-patches/commit/e89e54c316a2d99195d2b79e9176d34f6de0113c))
+
 # [2.152.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.151.0...v2.152.0-dev.1) (2023-01-02)
 
 
