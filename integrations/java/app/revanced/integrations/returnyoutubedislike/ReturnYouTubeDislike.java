@@ -11,9 +11,9 @@ import android.text.SpannableStringBuilder;
 import android.text.TextPaint;
 import android.text.style.CharacterStyle;
 import android.text.style.ForegroundColorSpan;
-import android.text.style.MetricAffectingSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.ScaleXSpan;
+import android.util.DisplayMetrics;
 
 import androidx.annotation.GuardedBy;
 import androidx.annotation.Nullable;
@@ -292,33 +292,26 @@ public class ReturnYouTubeDislike {
                 String middleSegmentedSeparatorString = "  •  ";
                 Spannable leftSeparatorSpan = newSpanUsingStylingOfAnotherSpan(oldSpannable, leftSegmentedSeparatorString);
                 Spannable middleSeparatorSpan = newSpanUsingStylingOfAnotherSpan(oldSpannable, middleSegmentedSeparatorString);
-                // style the separator appearance to mimic the existing layout
                 final int separatorColor = ThemeHelper.isDarkTheme()
-                        ? 0xFF414141  // dark gray
+                        ? 0x37A0A0A0  // transparent dark gray
                         : 0xFFD9D9D9; // light gray
                 addSpanStyling(leftSeparatorSpan, new ForegroundColorSpan(separatorColor));
                 addSpanStyling(middleSeparatorSpan, new ForegroundColorSpan(separatorColor));
-                MetricAffectingSpan separatorStyle = new MetricAffectingSpan() {
-                    final float separatorHorizontalCompression = 0.71f; // horizontally compress the separator and its spacing
-
-                    @Override
-                    public void updateMeasureState(TextPaint tp) {
-                        tp.setTextScaleX(separatorHorizontalCompression);
-                    }
-
+                CharacterStyle noAntiAliasingStyle = new CharacterStyle() {
                     @Override
                     public void updateDrawState(TextPaint tp) {
-                        tp.setTextScaleX(separatorHorizontalCompression);
-                        tp.setAntiAlias(false);
+                        tp.setAntiAlias(false); // draw without anti-aliasing, to give a sharper edge
                     }
                 };
-                addSpanStyling(leftSeparatorSpan, separatorStyle);
-                addSpanStyling(middleSeparatorSpan, separatorStyle);
+                addSpanStyling(leftSeparatorSpan, noAntiAliasingStyle);
+                addSpanStyling(middleSeparatorSpan, noAntiAliasingStyle);
 
                 Spannable dislikeSpan = newSpannableWithDislikes(oldSpannable, voteData);
 
-                // use a larger font size on the left separator, but this causes the entire span (including the like/dislike text)
-                // to move downward.  Use a custom span to adjust the span back upward, at a relative ratio
+                // Increase the size of the left separator, so it better matches the stock separator on the right.
+                // But when using a larger font, the entire span (including the like/dislike text) becomes shifted downward.
+                // To correct this, use additional spans to move the alignment back upward by a relative amount.
+                setSegmentedAdjustmentValues();
                 class RelativeVerticalOffsetSpan extends CharacterStyle {
                     final float relativeVerticalShiftRatio;
 
@@ -331,24 +324,17 @@ public class ReturnYouTubeDislike {
                         tp.baselineShift -= (int) (relativeVerticalShiftRatio * tp.getFontMetrics().top);
                     }
                 }
+                // shift everything up, to compensate for the vertical movement caused by the font change below
+                // each section needs it's own Relative span, otherwise alignment is wrong
+                addSpanStyling(leftSeparatorSpan, new RelativeVerticalOffsetSpan(segmentedLeftSeparatorVerticalShiftRatio));
 
-                // Ratio values tested on Android 13, Samsung, Google and OnePlus branded phones, using screen densities of 300 to 560
-                // On other devices and fonts the left separator may be vertically shifted by a few pixels,
-                // but it's good enough and still visually better than not doing this scaling/shifting
-                final float verticalShiftRatio = -0.38f; // shift up by 38%
-                final float verticalLeftSeparatorShiftRatio = -0.075f; // shift up by 8%
-                final float horizontalStretchRatio = 0.92f; // stretch narrower by 8%
-                final float leftSeparatorFontRatio = 1.87f;  // increase height by 87%
+                addSpanStyling(likesSpan, new RelativeVerticalOffsetSpan(segmentedVerticalShiftRatio));
+                addSpanStyling(middleSeparatorSpan, new RelativeVerticalOffsetSpan(segmentedVerticalShiftRatio));
+                addSpanStyling(dislikeSpan, new RelativeVerticalOffsetSpan(segmentedVerticalShiftRatio));
 
-                addSpanStyling(leftSeparatorSpan, new RelativeSizeSpan(leftSeparatorFontRatio));
-                addSpanStyling(leftSeparatorSpan, new ScaleXSpan(horizontalStretchRatio));
-
-                // shift the left separator up by a smaller amount, to visually align it after changing the size
-                addSpanStyling(leftSeparatorSpan, new RelativeVerticalOffsetSpan(verticalLeftSeparatorShiftRatio));
-                addSpanStyling(likesSpan, new RelativeVerticalOffsetSpan(verticalShiftRatio));
-                addSpanStyling(middleSeparatorSpan, new RelativeVerticalOffsetSpan(verticalShiftRatio));
-                addSpanStyling(dislikeSpan, new RelativeVerticalOffsetSpan(verticalShiftRatio));
-
+                // important: must add size scaling after vertical offset (otherwise alignment gets off)
+                addSpanStyling(leftSeparatorSpan, new RelativeSizeSpan(segmentedLeftSeparatorFontRatio));
+                addSpanStyling(leftSeparatorSpan, new ScaleXSpan(segmentedLeftSeparatorHorizontalScaleRatio));
                 // middle separator does not need resizing
 
                 // put everything together
@@ -363,6 +349,65 @@ public class ReturnYouTubeDislike {
 
         textRef.set(replacementSpannable);
         return true;
+    }
+
+    private static boolean segmentedValuesSet = false;
+    private static float segmentedVerticalShiftRatio;
+    private static float segmentedLeftSeparatorVerticalShiftRatio;
+    private static float segmentedLeftSeparatorFontRatio;
+    private static float segmentedLeftSeparatorHorizontalScaleRatio;
+
+    /**
+     * Set the segmented adjustment values, based on the device.
+     */
+    private static void setSegmentedAdjustmentValues() {
+        if (segmentedValuesSet) {
+            return;
+        }
+
+        String deviceManufacturer = Build.MANUFACTURER;
+        final int deviceSdkVersion = Build.VERSION.SDK_INT;
+        LogHelper.printDebug(() -> "Device manufacturer: '" + deviceManufacturer + "' SDK: " + deviceSdkVersion);
+
+        //
+        // IMPORTANT: configurations must be with the default system font size setting.
+        //
+        // In generally, a single configuration will give perfect layout for all devices of the same manufacturer
+        final String configManufacturer;
+        final int configSdk;
+        switch (deviceManufacturer) {
+            default: // use Google layout by default
+            case "Google":
+                // logging and documentation
+                configManufacturer = "Google";
+                configSdk = 33;
+                // tested on Android 10 thru 13, and works well for all
+                segmentedLeftSeparatorVerticalShiftRatio = segmentedVerticalShiftRatio = -0.18f; // move separators and like/dislike up by 18%
+                segmentedLeftSeparatorFontRatio = 1.8f;  // increase left separator size by 80%
+                segmentedLeftSeparatorHorizontalScaleRatio = 0.65f; // horizontally compress left separator by 35%
+                break;
+            case "samsung":
+                configManufacturer = "samsung";
+                configSdk = 33;
+                // tested on S22
+                segmentedLeftSeparatorVerticalShiftRatio = segmentedVerticalShiftRatio = -0.19f;
+                segmentedLeftSeparatorFontRatio = 1.5f;
+                segmentedLeftSeparatorHorizontalScaleRatio = 0.7f;
+                break;
+            case "OnePlus":
+                configManufacturer = "oneplus";
+                configSdk = 33;
+                // tested on OnePlus 8 Pro
+                segmentedLeftSeparatorVerticalShiftRatio = -0.075f;
+                segmentedVerticalShiftRatio = -0.38f;
+                segmentedLeftSeparatorFontRatio = 1.87f;
+                segmentedLeftSeparatorHorizontalScaleRatio = 0.50f;
+                break;
+
+        }
+
+        LogHelper.printDebug(() -> "Using layout adjustments based on manufacturer: '" + configManufacturer + "' SDK: " + configSdk);
+        segmentedValuesSet = true;
     }
 
     /**
