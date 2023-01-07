@@ -52,7 +52,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment implements 
         PreferenceScreen preferenceScreen = getPreferenceManager().createPreferenceScreen(context);
         setPreferenceScreen(preferenceScreen);
 
-        SponsorBlockSettings.update(context);
+        SponsorBlockSettings.update(getActivity());
 
         {
             SwitchPreference preference = new SwitchPreference(context);
@@ -349,7 +349,6 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment implements 
                 return;
             Context context = ((AlertDialog) dialog).getContext();
             Context applicationContext = context.getApplicationContext();
-            SharedPreferences preferences = SharedPrefHelper.getPreferences(context, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK);
 
             switch (which) {
                 case DialogInterface.BUTTON_NEUTRAL:

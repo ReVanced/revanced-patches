@@ -187,8 +187,7 @@ public class ReturnYouTubeDislike {
         if (!isEnabled) return;
         try {
             Objects.requireNonNull(vote);
-            Context context = Objects.requireNonNull(ReVancedUtils.getContext());
-            if (SharedPrefHelper.getBoolean(context, SharedPrefHelper.SharedPrefNames.YOUTUBE, "user_signed_out", true)) {
+            if (SharedPrefHelper.getBoolean(SharedPrefHelper.SharedPrefNames.YOUTUBE, "user_signed_out", true)) {
                 return;
             }
 
