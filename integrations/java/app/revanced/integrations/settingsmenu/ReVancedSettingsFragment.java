@@ -70,20 +70,6 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
                         break;
                 }
                 setting.setValue(value);
-            } else if (pref instanceof ListPreference) {
-                ListPreference listPref = (ListPreference) pref;
-                if (setting == SettingsEnum.PREFERRED_VIDEO_SPEED) {
-                    try {
-                        String value = sharedPreferences.getString(setting.getPath(), setting.getDefaultValue() + "");
-                        listPref.setDefaultValue(value);
-                        listPref.setSummary(videoSpeedEntries[listPref.findIndexOfValue(value)]);
-                        SettingsEnum.PREFERRED_VIDEO_SPEED.saveValue(value);
-                    } catch (Throwable th) {
-                        LogHelper.printException(() -> ("Error setting value of speed" + th));
-                    }
-                } else {
-                    LogHelper.printException(() -> ("No valid setting found: " + setting.toString()));
-                }
             } else {
                 LogHelper.printException(() -> ("Setting cannot be handled! " + pref.toString()));
             }

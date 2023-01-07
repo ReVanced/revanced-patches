@@ -56,8 +56,7 @@ public class PlayerController {
             return;
         }
 
-        Context context = ReVancedUtils.getContext();
-        SponsorBlockSettings.update(context);
+        SponsorBlockSettings.update(null);
 
         if (!SettingsEnum.SB_ENABLED.getBoolean()) {
             currentVideoId = null;

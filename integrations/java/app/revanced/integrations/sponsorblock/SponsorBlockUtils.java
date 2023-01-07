@@ -514,7 +514,7 @@ public abstract class SponsorBlockUtils {
             JSONArray categorySelectionsArray = settingsJson.getJSONArray("categorySelections");
 
 
-            SharedPreferences.Editor editor = SharedPrefHelper.getPreferences(context, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK).edit();
+            SharedPreferences.Editor editor = SharedPrefHelper.getPreferences(SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK).edit();
 
             SponsorBlockSettings.SegmentInfo[] categories = SponsorBlockSettings.SegmentInfo.valuesWithoutUnsubmitted();
             for (SponsorBlockSettings.SegmentInfo category : categories) {
@@ -605,7 +605,7 @@ public abstract class SponsorBlockUtils {
     }
 
     public static boolean isSBButtonEnabled(Context context, String key) {
-        return SettingsEnum.SB_ENABLED.getBoolean() && SharedPrefHelper.getBoolean(context, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, key, false);
+        return SettingsEnum.SB_ENABLED.getBoolean() && SharedPrefHelper.getBoolean(SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, key, false);
     }
 
     public enum VoteOption {

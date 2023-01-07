@@ -21,7 +21,7 @@ public class SwipeHelper {
         try {
             _frameLayout = (FrameLayout) obj;
             Context appContext = ReVancedUtils.getContext();
-            if (ReVancedUtils.isTablet(appContext) || SharedPrefHelper.getBoolean(appContext, SharedPrefHelper.SharedPrefNames.YOUTUBE,"pref_swipe_tablet", false)) {
+            if (ReVancedUtils.isTablet(appContext) || SharedPrefHelper.getBoolean(SharedPrefHelper.SharedPrefNames.YOUTUBE, "pref_swipe_tablet", false)) {
                 isTabletMode = true;
             }
         } catch (Exception e) {

@@ -22,8 +22,9 @@ public enum SettingsEnum {
 
     // Video settings
     OLD_STYLE_VIDEO_QUALITY_PLAYER_SETTINGS("revanced_use_old_style_quality_settings", true, ReturnType.BOOLEAN),
-    PREFERRED_VIDEO_SPEED("revanced_pref_video_speed", -2.0f, ReturnType.FLOAT),
     REMEMBER_VIDEO_QUALITY_LAST_SELECTED("revanced_remember_video_quality_last_selected", true, ReturnType.BOOLEAN),
+    REMEMBER_PLAYBACK_RATE_SELECTED("revanced_remember_playback_rate_selected", true, ReturnType.BOOLEAN),
+
 
     // Whitelist settings
     //ToDo: Not used atm, Patch missing
@@ -288,21 +289,23 @@ public enum SettingsEnum {
                     //LogHelper is not initialized here
                     Log.d("revanced: SettingsEnum", "Loading Setting: " + setting.name());
 
+                    var path = setting.getPath();
+                    var defaultValue = setting.getDefaultValue();
                     switch (setting.getReturnType()) {
                         case FLOAT:
-                            value = SharedPrefHelper.getFloat(context, setting.sharedPref, setting.getPath(), (float) setting.getDefaultValue());
+                            value = SharedPrefHelper.getFloat(setting.sharedPref, path, (float) defaultValue);
                             break;
                         case LONG:
-                            value = SharedPrefHelper.getLong(context, setting.sharedPref, setting.getPath(), (long) setting.getDefaultValue());
+                            value = SharedPrefHelper.getLong(setting.sharedPref, path, (long) defaultValue);
                             break;
                         case BOOLEAN:
-                            value = SharedPrefHelper.getBoolean(context, setting.sharedPref, setting.getPath(), (boolean) setting.getDefaultValue());
+                            value = SharedPrefHelper.getBoolean(setting.sharedPref, path, (boolean) defaultValue);
                             break;
                         case INTEGER:
-                            value = SharedPrefHelper.getInt(context, setting.sharedPref, setting.getPath(), (int) setting.getDefaultValue());
+                            value = SharedPrefHelper.getInt(setting.sharedPref, path, (int) defaultValue);
                             break;
                         case STRING:
-                            value = SharedPrefHelper.getString(context, setting.sharedPref, setting.getPath(), (String) setting.getDefaultValue());
+                            value = SharedPrefHelper.getString(setting.sharedPref, path, (String) defaultValue);
                             break;
                         default:
                             LogHelper.printException(() -> ("Setting does not have a valid Type. Name is: " + setting.name()));
@@ -345,9 +348,9 @@ public enum SettingsEnum {
         Context context = ReVancedUtils.getContext();
         if (context != null) {
             if (returnType == ReturnType.BOOLEAN) {
-                SharedPrefHelper.saveBoolean(context, sharedPref, path, (Boolean) newValue);
+                SharedPrefHelper.saveBoolean(sharedPref, path, (Boolean) newValue);
             } else {
-                SharedPrefHelper.saveString(context, sharedPref, path, newValue + "");
+                SharedPrefHelper.saveString(sharedPref, path, newValue + "");
             }
             value = newValue;
         } else {
