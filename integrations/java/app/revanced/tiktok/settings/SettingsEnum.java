@@ -103,16 +103,17 @@ public enum SettingsEnum {
 
     public void saveValue(Object newValue) {
         Context context = ReVancedUtils.getAppContext();
-        if (context != null) {
-            if (returnType == ReturnType.BOOLEAN) {
-                SharedPrefHelper.saveBoolean(context, sharedPref, path, (Boolean) newValue);
-            } else {
-                SharedPrefHelper.saveString(context, sharedPref, path, newValue + "");
-            }
-            value = newValue;
-        } else {
+        if (context == null) {
             LogHelper.printException(SettingsEnum.class, "Context on SaveValue is null!");
+            return;
         }
+
+        if (returnType == ReturnType.BOOLEAN) {
+            SharedPrefHelper.saveBoolean(context, sharedPref, path, (Boolean) newValue);
+        } else {
+            SharedPrefHelper.saveString(context, sharedPref, path, newValue + "");
+        }
+        value = newValue;
     }
 
     public int getInt() {
