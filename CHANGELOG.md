@@ -1,3 +1,10 @@
+## [2.152.1-dev.1](https://github.com/revanced/revanced-patches/compare/v2.152.0...v2.152.1-dev.1) (2023-01-07)
+
+
+### Bug Fixes
+
+* **youtube/general-ads:** move settings to correct preference screens ([cde45fc](https://github.com/revanced/revanced-patches/commit/cde45fca769eddea64072f13f836d46560a4a89a))
+
 # [2.152.0](https://github.com/revanced/revanced-patches/compare/v2.151.0...v2.152.0) (2023-01-04)
 
 
