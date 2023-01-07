@@ -34,17 +34,36 @@ public class SharedPrefHelper {
         return getPreferences(prefName).getBoolean(key, _default);
     }
 
-    public static long getLong(SharedPrefNames prefName, String key, long _default) {
-        return getPreferences(prefName).getLong(key, _default);
+    // region Hack, unknown why required
+
+    public static Long getLong(SharedPrefNames prefName, String key, Long _default) {
+        SharedPreferences sharedPreferences = getPreferences(prefName);
+        try {
+            return Long.valueOf(sharedPreferences.getString(key, _default + ""));
+        } catch (ClassCastException ex) {
+            return sharedPreferences.getLong(key, _default);
+        }
     }
 
-    public static float getFloat(SharedPrefNames prefName, String key, float _default) {
-        return getPreferences(prefName).getFloat(key, _default);
+    public static Float getFloat(SharedPrefNames prefName, String key, Float _default) {
+        SharedPreferences sharedPreferences = getPreferences(prefName);
+        try {
+            return Float.valueOf(sharedPreferences.getString(key, _default + ""));
+        } catch (ClassCastException ex) {
+            return sharedPreferences.getFloat(key, _default);
+        }
     }
 
-    public static int getInt(SharedPrefNames prefName, String key, int _default) {
-        return getPreferences(prefName).getInt(key, _default);
+    public static Integer getInt(SharedPrefNames prefName, String key, Integer _default) {
+        SharedPreferences sharedPreferences = getPreferences(prefName);
+        try {
+            return Integer.valueOf(sharedPreferences.getString(key, _default + ""));
+        } catch (ClassCastException ex) {
+            return sharedPreferences.getInt(key, _default);
+        }
     }
+
+    // endregion
 
     public static SharedPreferences getPreferences(SharedPrefNames name) {
         return Objects.requireNonNull(ReVancedUtils.getContext()).getSharedPreferences(name.getName(), Context.MODE_PRIVATE);

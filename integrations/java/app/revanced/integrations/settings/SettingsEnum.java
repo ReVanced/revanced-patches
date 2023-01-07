@@ -280,7 +280,7 @@ public enum SettingsEnum {
     private static void load() {
         Context context = ReVancedUtils.getContext();
         if (context == null) {
-            Log.e("revanced: SettingsEnum", "Context returned null! Setings NOT initialized");
+            LogHelper.printException(() -> "SettingsEnum.load() called before ReVancedUtils.init()");
             return;
         }
         for (SettingsEnum setting : values()) {
