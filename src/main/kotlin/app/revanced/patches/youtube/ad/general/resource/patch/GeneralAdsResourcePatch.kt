@@ -7,22 +7,21 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
-import app.revanced.patches.shared.settings.preference.impl.InputType
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
-import app.revanced.patches.shared.settings.preference.impl.TextPreference
+import app.revanced.patches.shared.settings.preference.impl.*
 import app.revanced.patches.youtube.ad.general.annotation.GeneralAdsCompatibility
 import app.revanced.patches.youtube.misc.litho.filter.patch.LithoFilterPatch
 import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch.PreferenceScreen
 
-@DependsOn(dependencies = [
-    FixLocaleConfigErrorPatch::class,
-    LithoFilterPatch::class,
-    SettingsPatch::class,
-    ResourceMappingPatch::class
-])
+@DependsOn(
+    dependencies = [
+        FixLocaleConfigErrorPatch::class,
+        LithoFilterPatch::class,
+        SettingsPatch::class,
+        ResourceMappingPatch::class
+    ]
+)
 @GeneralAdsCompatibility
 @Version("0.0.1")
 class GeneralAdsResourcePatch : ResourcePatch {
@@ -32,20 +31,42 @@ class GeneralAdsResourcePatch : ResourcePatch {
     }
 
     override fun execute(context: ResourceContext): PatchResult {
-        PreferenceScreen.ADS.addPreferences(
+        PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
-                "revanced_adremover_ad_removal",
-                StringResource("revanced_adremover_ad_removal_enabled_title", "Hide general ads"),
+                "revanced_adremover_separator",
+                StringResource("revanced_adremover_separator_title", "Hide gray separator"),
                 true,
-                StringResource("revanced_adremover_ad_removal_enabled_summary_on", "General ads are hidden"),
-                StringResource("revanced_adremover_ad_removal_enabled_summary_off", "General ads are shown")
+                StringResource("revanced_adremover_separator_summary_on", "Gray separators are hidden"),
+                StringResource("revanced_adremover_separator_summary_off", "Gray separators are shown")
             ),
             SwitchPreference(
-                "revanced_adremover_buttoned",
-                StringResource("revanced_adremover_buttoned_enabled_title", "Hide buttoned ad"),
+                "revanced_adremover_hide_channel_guidelines",
+                StringResource("revanced_adremover_hide_channel_guidelines_enabled_title", "Hide channel guidelines"),
                 true,
-                StringResource("revanced_adremover_buttoned_enabled_summary_on", "Buttoned ads are hidden"),
-                StringResource("revanced_adremover_buttoned_enabled_summary_off", "Buttoned ads are shown")
+                StringResource(
+                    "revanced_adremover_hide_channel_guidelines_enabled_summary_on",
+                    "Channel guidelines are hidden"
+                ),
+                StringResource(
+                    "revanced_adremover_hide_channel_guidelines_enabled_summary_off",
+                    "Channel guidelines are shown"
+                )
+            ),
+            SwitchPreference(
+                "revanced_adremover_chapter_teaser",
+                StringResource(
+                    "revanced_adremover_chapter_teaser_enabled_title",
+                    "Hide chapter teaser under videos"
+                ),
+                true,
+                StringResource(
+                    "revanced_adremover_chapter_teaser_enabled_summary_on",
+                    "Chapter teasers are hidden"
+                ),
+                StringResource(
+                    "revanced_adremover_chapter_teaser_enabled_summary_off",
+                    "Chapter teasers are shown"
+                )
             ),
             SwitchPreference(
                 "revanced_adremover_merchandise",
@@ -104,17 +125,32 @@ class GeneralAdsResourcePatch : ResourcePatch {
             ),
             SwitchPreference(
                 "revanced_adremover_subscribers_community_guidelines_removal",
-                StringResource("revanced_adremover_subscribers_community_guidelines_enabled_title", "Hide subscribers community guidelines"),
+                StringResource(
+                    "revanced_adremover_subscribers_community_guidelines_enabled_title",
+                    "Hide subscribers community guidelines"
+                ),
                 true,
-                StringResource("revanced_adremover_subscribers_community_guidelines_enabled_summary_on", "Subscribers community guidelines are hidden"),
-                StringResource("revanced_adremover_subscribers_community_guidelines_enabled_summary_off", "Subscribers community guidelines are shown")
+                StringResource(
+                    "revanced_adremover_subscribers_community_guidelines_enabled_summary_on",
+                    "Subscribers community guidelines are hidden"
+                ),
+                StringResource(
+                    "revanced_adremover_subscribers_community_guidelines_enabled_summary_off",
+                    "Subscribers community guidelines are shown"
+                )
             ),
             SwitchPreference(
                 "revanced_adremover_channel_member_shelf_removal",
                 StringResource("revanced_adremover_channel_member_shelf_enabled_title", "Hide channel member shelf"),
                 true,
-                StringResource("revanced_adremover_channel_member_shelf_enabled_summary_on", "Channel member shelf is hidden"),
-                StringResource("revanced_adremover_channel_member_shelf_enabled_summary_off", "Channel member shelf is shown")
+                StringResource(
+                    "revanced_adremover_channel_member_shelf_enabled_summary_on",
+                    "Channel member shelf is hidden"
+                ),
+                StringResource(
+                    "revanced_adremover_channel_member_shelf_enabled_summary_off",
+                    "Channel member shelf is shown"
+                )
             ),
             SwitchPreference(
                 "revanced_adremover_emergency_box_removal",
@@ -136,6 +172,23 @@ class GeneralAdsResourcePatch : ResourcePatch {
                 true,
                 StringResource("revanced_adremover_medical_panel_enabled_summary_on", "Medical panels are hidden"),
                 StringResource("revanced_adremover_medical_panel_enabled_summary_off", "Medical panels are shown")
+            ),
+        )
+
+        PreferenceScreen.ADS.addPreferences(
+            SwitchPreference(
+                "revanced_adremover_ad_removal",
+                StringResource("revanced_adremover_ad_removal_enabled_title", "Hide general ads"),
+                true,
+                StringResource("revanced_adremover_ad_removal_enabled_summary_on", "General ads are hidden"),
+                StringResource("revanced_adremover_ad_removal_enabled_summary_off", "General ads are shown")
+            ),
+            SwitchPreference(
+                "revanced_adremover_buttoned",
+                StringResource("revanced_adremover_buttoned_enabled_title", "Hide buttoned ad"),
+                true,
+                StringResource("revanced_adremover_buttoned_enabled_summary_on", "Buttoned ads are hidden"),
+                StringResource("revanced_adremover_buttoned_enabled_summary_off", "Buttoned ads are shown")
             ),
             SwitchPreference(
                 "revanced_adremover_paid_content",
@@ -159,49 +212,13 @@ class GeneralAdsResourcePatch : ResourcePatch {
                 StringResource("revanced_adremover_hide_latest_posts_enabled_summary_off", "Latest posts are shown")
             ),
             SwitchPreference(
-                "revanced_adremover_hide_channel_guidelines",
-                StringResource("revanced_adremover_hide_channel_guidelines_enabled_title", "Hide channel guidelines"),
-                true,
-                StringResource(
-                    "revanced_adremover_hide_channel_guidelines_enabled_summary_on",
-                    "Channel guidelines are hidden"
-                ),
-                StringResource(
-                    "revanced_adremover_hide_channel_guidelines_enabled_summary_off",
-                    "Channel guidelines are shown"
-                )
-            ),
-            SwitchPreference(
                 "revanced_adremover_self_sponsor",
                 StringResource("revanced_adremover_self_sponsor_enabled_title", "Hide self sponsored cards"),
                 true,
                 StringResource("revanced_adremover_self_sponsor_enabled_summary_on", "Self sponsored cards are hidden"),
                 StringResource("revanced_adremover_self_sponsor_enabled_summary_off", "Self sponsored cards are shown")
             ),
-            SwitchPreference(
-                "revanced_adremover_separator",
-                StringResource("revanced_adremover_separator_title", "Hide gray separator"),
-                true,
-                StringResource("revanced_adremover_separator_summary_on", "Gray separators are hidden"),
-                StringResource("revanced_adremover_separator_summary_off", "Gray separators are shown")
-            ),
-            SwitchPreference(
-                "revanced_adremover_chapter_teaser",
-                StringResource(
-                    "revanced_adremover_chapter_teaser_enabled_title",
-                    "Hide chapter teaser under videos"
-                ),
-                true,
-                StringResource(
-                    "revanced_adremover_chapter_teaser_enabled_summary_on",
-                    "Chapter teasers are hidden"
-                ),
-                StringResource(
-                    "revanced_adremover_chapter_teaser_enabled_summary_off",
-                    "Chapter teasers are shown"
-                )
-            ),
-            app.revanced.patches.shared.settings.preference.impl.PreferenceScreen(
+            PreferenceScreen(
                 "revanced_adremover_custom",
                 StringResource("revanced_adremover_custom_title", "Custom filter"),
                 listOf(
@@ -221,7 +238,7 @@ class GeneralAdsResourcePatch : ResourcePatch {
                             "Custom filter is disabled"
                         )
                     ),
-                    // TODO: This should be a ListPreference, which does not exist yet
+                    // TODO: This should be a dynamic ListPreference, which does not exist yet
                     TextPreference(
                         "revanced_adremover_custom_strings",
                         StringResource("revanced_adremover_custom_strings_title", "Custom filter"),

@@ -1,3 +1,18 @@
+# [2.153.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.152.1-dev.1...v2.153.0-dev.1) (2023-01-07)
+
+
+### Features
+
+* **youtube/remember-video-quality:** simplify settings switch state description ([9bd42ec](https://github.com/revanced/revanced-patches/commit/9bd42ec1a1b54b103cd2550211515acdaf90e9de))
+* **youtube:** `remember-playback-rate` patch ([177e908](https://github.com/revanced/revanced-patches/commit/177e908dba260f184a2835b73b834563ca9c29fd))
+
+## [2.152.1-dev.1](https://github.com/revanced/revanced-patches/compare/v2.152.0...v2.152.1-dev.1) (2023-01-07)
+
+
+### Bug Fixes
+
+* **youtube/general-ads:** move settings to correct preference screens ([cde45fc](https://github.com/revanced/revanced-patches/commit/cde45fca769eddea64072f13f836d46560a4a89a))
+
 # [2.152.0](https://github.com/revanced/revanced-patches/compare/v2.151.0...v2.152.0) (2023-01-04)
 
 

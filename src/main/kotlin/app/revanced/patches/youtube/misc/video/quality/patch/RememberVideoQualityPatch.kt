@@ -12,14 +12,14 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patches.shared.settings.preference.impl.StringResource
+import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
+import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.video.quality.annotations.RememberVideoQualityCompatibility
 import app.revanced.patches.youtube.misc.video.quality.fingerprints.VideoQualityReferenceFingerprint
 import app.revanced.patches.youtube.misc.video.quality.fingerprints.VideoQualitySetterFingerprint
 import app.revanced.patches.youtube.misc.video.quality.fingerprints.VideoUserQualityChangeFingerprint
-import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.video.videoid.patch.VideoIdPatch
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
@@ -47,7 +47,7 @@ class RememberVideoQualityPatch : BytecodePatch(
                 ),
                 StringResource(
                     "revanced_remember_video_quality_last_selected_summary_off",
-                    "Quality changes only apply to the current video and are reverted back to the last remembered quality for future playbacks"
+                    "Quality changes only apply to the current video"
                 )
             )
         )
