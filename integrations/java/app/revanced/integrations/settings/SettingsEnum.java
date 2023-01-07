@@ -281,44 +281,32 @@ public enum SettingsEnum {
         Context context = ReVancedUtils.getContext();
         if (context == null) {
             Log.e("revanced: SettingsEnum", "Context returned null! Setings NOT initialized");
-        } else {
-            try {
-                for (SettingsEnum setting : values()) {
-                    Object value = setting.getDefaultValue();
-
-                    //LogHelper is not initialized here
-                    Log.d("revanced: SettingsEnum", "Loading Setting: " + setting.name());
-
-                    var path = setting.getPath();
-                    var defaultValue = setting.getDefaultValue();
-                    switch (setting.getReturnType()) {
-                        case FLOAT:
-                            value = SharedPrefHelper.getFloat(setting.sharedPref, path, (float) defaultValue);
-                            break;
-                        case LONG:
-                            value = SharedPrefHelper.getLong(setting.sharedPref, path, (long) defaultValue);
-                            break;
-                        case BOOLEAN:
-                            value = SharedPrefHelper.getBoolean(setting.sharedPref, path, (boolean) defaultValue);
-                            break;
-                        case INTEGER:
-                            value = SharedPrefHelper.getInt(setting.sharedPref, path, (int) defaultValue);
-                            break;
-                        case STRING:
-                            value = SharedPrefHelper.getString(setting.sharedPref, path, (String) defaultValue);
-                            break;
-                        default:
-                            LogHelper.printException(() -> ("Setting does not have a valid Type. Name is: " + setting.name()));
-                            break;
-                    }
-                    setting.setValue(value);
-
-                    //LogHelper is not initialized here
-                    Log.d("revanced: SettingsEnum", "Loaded Setting: " + setting.name() + " Value: " + value);
-                }
-            } catch (Throwable th) {
-                LogHelper.printException(() -> ("Error during load()!"), th);
+            return;
+        }
+        for (SettingsEnum setting : values()) {
+            var path = setting.getPath();
+            var defaultValue = setting.getDefaultValue();
+            switch (setting.getReturnType()) {
+                case FLOAT:
+                    defaultValue = SharedPrefHelper.getFloat(setting.sharedPref, path, (float) defaultValue);
+                    break;
+                case LONG:
+                    defaultValue = SharedPrefHelper.getLong(setting.sharedPref, path, (long) defaultValue);
+                    break;
+                case BOOLEAN:
+                    defaultValue = SharedPrefHelper.getBoolean(setting.sharedPref, path, (boolean) defaultValue);
+                    break;
+                case INTEGER:
+                    defaultValue = SharedPrefHelper.getInt(setting.sharedPref, path, (int) defaultValue);
+                    break;
+                case STRING:
+                    defaultValue = SharedPrefHelper.getString(setting.sharedPref, path, (String) defaultValue);
+                    break;
+                default:
+                    LogHelper.printException(() -> ("Setting does not have a valid Type. Name is: " + setting.name()));
+                    break;
             }
+            setting.setValue(defaultValue);
         }
     }
 
@@ -346,16 +334,34 @@ public enum SettingsEnum {
      */
     public void saveValue(Object newValue) {
         Context context = ReVancedUtils.getContext();
-        if (context != null) {
-            if (returnType == ReturnType.BOOLEAN) {
-                SharedPrefHelper.saveBoolean(sharedPref, path, (Boolean) newValue);
-            } else {
-                SharedPrefHelper.saveString(sharedPref, path, newValue + "");
-            }
-            value = newValue;
-        } else {
+
+        if (context == null) {
             LogHelper.printException(() -> ("Context on SaveValue is null!"));
+            return;
         }
+
+        switch (getReturnType()) {
+            case FLOAT:
+                SharedPrefHelper.saveFloat(sharedPref, path, (float) defaultValue);
+                break;
+            case LONG:
+                SharedPrefHelper.saveLong(sharedPref, path, (long) defaultValue);
+                break;
+            case BOOLEAN:
+                SharedPrefHelper.saveBoolean(sharedPref, path, (boolean) newValue);
+                break;
+            case INTEGER:
+                SharedPrefHelper.saveInt(sharedPref, path, (int) defaultValue);
+                break;
+            case STRING:
+                SharedPrefHelper.saveString(sharedPref, path, (String) defaultValue);
+                break;
+            default:
+                LogHelper.printException(() -> ("Setting does not have a valid Type. Name is: " + name()));
+                break;
+        }
+
+        value = newValue;
     }
 
     public int getInt() {

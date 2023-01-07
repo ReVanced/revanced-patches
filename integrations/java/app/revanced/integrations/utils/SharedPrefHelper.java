@@ -10,19 +10,19 @@ public class SharedPrefHelper {
         getPreferences(prefName).edit().putString(key, value).apply();
     }
 
-    public static void saveBoolean(SharedPrefNames prefName, String key, Boolean value) {
+    public static void saveBoolean(SharedPrefNames prefName, String key, boolean value) {
         getPreferences(prefName).edit().putBoolean(key, value).apply();
     }
 
-    public static void saveFloat(SharedPrefNames prefName, String key, Float value) {
+    public static void saveFloat(SharedPrefNames prefName, String key, float value) {
         getPreferences(prefName).edit().putFloat(key, value).apply();
     }
 
-    public static void saveInt(SharedPrefNames prefName, String key, Integer value) {
+    public static void saveInt(SharedPrefNames prefName, String key, int value) {
         getPreferences(prefName).edit().putInt(key, value).apply();
     }
 
-    public static void saveLong(SharedPrefNames prefName, String key, Long value) {
+    public static void saveLong(SharedPrefNames prefName, String key, long value) {
         getPreferences(prefName).edit().putLong(key, value).apply();
     }
 
@@ -30,19 +30,19 @@ public class SharedPrefHelper {
         return getPreferences(prefName).getString(key, _default);
     }
 
-    public static Boolean getBoolean(SharedPrefNames prefName, String key, Boolean _default) {
+    public static boolean getBoolean(SharedPrefNames prefName, String key, boolean _default) {
         return getPreferences(prefName).getBoolean(key, _default);
     }
 
-    public static Long getLong(SharedPrefNames prefName, String key, Long _default) {
+    public static long getLong(SharedPrefNames prefName, String key, long _default) {
         return getPreferences(prefName).getLong(key, _default);
     }
 
-    public static Float getFloat(SharedPrefNames prefName, String key, Float _default) {
+    public static float getFloat(SharedPrefNames prefName, String key, float _default) {
         return getPreferences(prefName).getFloat(key, _default);
     }
 
-    public static Integer getInt(SharedPrefNames prefName, String key, Integer _default) {
+    public static int getInt(SharedPrefNames prefName, String key, int _default) {
         return getPreferences(prefName).getInt(key, _default);
     }
 
