@@ -292,7 +292,7 @@ public class ReturnYouTubeDislike {
                 Spannable leftSeparatorSpan = newSpanUsingStylingOfAnotherSpan(oldSpannable, leftSegmentedSeparatorString);
                 Spannable middleSeparatorSpan = newSpanUsingStylingOfAnotherSpan(oldSpannable, middleSegmentedSeparatorString);
                 final int separatorColor = ThemeHelper.isDarkTheme()
-                        ? 0x37A0A0A0  // transparent dark gray
+                        ? 0x29AAAAAA  // transparent dark gray
                         : 0xFFD9D9D9; // light gray
                 addSpanStyling(leftSeparatorSpan, new ForegroundColorSpan(separatorColor));
                 addSpanStyling(middleSeparatorSpan, new ForegroundColorSpan(separatorColor));
