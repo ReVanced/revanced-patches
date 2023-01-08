@@ -59,7 +59,9 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
 
             val conversionContextParam = 5
             val textRefParam = createComponentMethod.parameters.size - 2
-            val insertIndex = scanResult.stringsScanResult!!.matches.first().index - 2
+            // insert index must be 0, otherwise UI does not updated correctly in some situations
+            // such as switching from full screen or when using previous/next overlay buttons.
+            val insertIndex = 0
 
             createComponentMethod.addInstructions(
                 insertIndex,
