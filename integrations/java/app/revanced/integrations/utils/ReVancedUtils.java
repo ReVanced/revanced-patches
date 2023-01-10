@@ -133,12 +133,15 @@ public class ReVancedUtils {
         return context.getResources().getConfiguration().smallestScreenWidthDp >= 600;
     }
 
-    private static final boolean isRightToLeftTextLayout =
-            new Bidi(Locale.getDefault().getDisplayLanguage(), Bidi.DIRECTION_DEFAULT_RIGHT_TO_LEFT).isRightToLeft();
+    private static Boolean isRightToLeftTextLayout;
     /**
      * If the device language uses right to left text layout (hebrew, arabic, etc)
      */
     public static boolean isRightToLeftTextLayout() {
+        if (isRightToLeftTextLayout == null) {
+            String displayLanguage = Locale.getDefault().getDisplayLanguage();
+            isRightToLeftTextLayout = new Bidi(displayLanguage, Bidi.DIRECTION_DEFAULT_LEFT_TO_RIGHT).isRightToLeft();
+        }
         return isRightToLeftTextLayout;
     }
 
