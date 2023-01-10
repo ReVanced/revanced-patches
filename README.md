@@ -55,6 +55,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `seekbar-tapping` | Enables tap-to-seek on the seekbar of the video player. | 17.49.37 |
 | `settings` | Adds settings for ReVanced to YouTube. | all |
 | `sponsorblock` | Integrate SponsorBlock. | 17.49.37 |
+| `spoof-app-version` | Tricks YouTube into thinking, you are running an older version of the app. One of the side effects also includes restoring the old UI. | 17.49.37 |
 | `swipe-controls` | Adds volume and brightness swipe controls. | 17.49.37 |
 | `tablet-mini-player` | Enables the tablet mini player layout. | 17.49.37 |
 | `theme` | Applies a custom theme. | all |
@@ -66,16 +67,16 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `background-play` | Enables playing music in the background. | 5.36.51 |
-| `codecs-unlock` | Adds more audio codec options. The new audio codecs usually result in better audio quality. | 5.36.51 |
-| `compact-header` | Hides the music category bar at the top of the homepage. | 5.36.51 |
-| `exclusive-audio-playback` | Enables the option to play music without video. | 5.36.51 |
-| `hide-get-premium` | Removes all "Get Premium" evidences from the avatar menu. | 5.36.51 |
-| `minimized-playback-music` | Enables minimized playback on Kids music. | 5.36.51 |
-| `music-microg-support` | Allows YouTube Music ReVanced to run without root and under a different package name. | 5.36.51 |
-| `music-video-ads` | Removes ads in the music player. | 5.36.51 |
-| `tasteBuilder-remover` | Removes the "Tell us which artists you like" card from the home screen. | 5.36.51 |
-| `upgrade-button-remover` | Removes the upgrade tab from the pivot bar. | 5.36.51 |
+| `background-play` | Enables playing music in the background. | 5.38.53 |
+| `codecs-unlock` | Adds more audio codec options. The new audio codecs usually result in better audio quality. | 5.38.53 |
+| `compact-header` | Hides the music category bar at the top of the homepage. | 5.38.53 |
+| `exclusive-audio-playback` | Enables the option to play music without video. | 5.38.53 |
+| `hide-get-premium` | Removes all "Get Premium" evidences from the avatar menu. | 5.38.53 |
+| `minimized-playback-music` | Enables minimized playback on Kids music. | 5.38.53 |
+| `music-microg-support` | Allows YouTube Music ReVanced to run without root and under a different package name. | 5.38.53 |
+| `music-video-ads` | Removes ads in the music player. | 5.38.53 |
+| `tasteBuilder-remover` | Removes the "Tell us which artists you like" card from the home screen. | 5.38.53 |
+| `upgrade-button-remover` | Removes the upgrade tab from the pivot bar. | 5.38.53 |
 </details>
 
 ### [📦 `com.ss.android.ugc.trill`](https://play.google.com/store/apps/details?id=com.ss.android.ugc.trill)
