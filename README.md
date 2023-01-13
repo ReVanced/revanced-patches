@@ -67,16 +67,16 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `background-play` | Enables playing music in the background. | 5.38.53 |
-| `codecs-unlock` | Adds more audio codec options. The new audio codecs usually result in better audio quality. | 5.38.53 |
-| `compact-header` | Hides the music category bar at the top of the homepage. | 5.38.53 |
-| `exclusive-audio-playback` | Enables the option to play music without video. | 5.38.53 |
-| `hide-get-premium` | Removes all "Get Premium" evidences from the avatar menu. | 5.38.53 |
-| `minimized-playback-music` | Enables minimized playback on Kids music. | 5.38.53 |
-| `music-microg-support` | Allows YouTube Music ReVanced to run without root and under a different package name. | 5.38.53 |
-| `music-video-ads` | Removes ads in the music player. | 5.38.53 |
-| `tasteBuilder-remover` | Removes the "Tell us which artists you like" card from the home screen. | 5.38.53 |
-| `upgrade-button-remover` | Removes the upgrade tab from the pivot bar. | 5.38.53 |
+| `background-play` | Enables playing music in the background. | 5.39.52 |
+| `codecs-unlock` | Adds more audio codec options. The new audio codecs usually result in better audio quality. | 5.39.52 |
+| `compact-header` | Hides the music category bar at the top of the homepage. | 5.39.52 |
+| `exclusive-audio-playback` | Enables the option to play music without video. | 5.39.52 |
+| `hide-get-premium` | Removes all "Get Premium" evidences from the avatar menu. | 5.39.52 |
+| `minimized-playback-music` | Enables minimized playback on Kids music. | 5.39.52 |
+| `music-microg-support` | Allows YouTube Music ReVanced to run without root and under a different package name. | 5.39.52 |
+| `music-video-ads` | Removes ads in the music player. | 5.39.52 |
+| `tasteBuilder-remover` | Removes the "Tell us which artists you like" card from the home screen. | 5.39.52 |
+| `upgrade-button-remover` | Removes the upgrade tab from the pivot bar. | 5.39.52 |
 </details>
 
 ### [📦 `com.ss.android.ugc.trill`](https://play.google.com/store/apps/details?id=com.ss.android.ugc.trill)
@@ -202,7 +202,23 @@ The official Patch bundle provided by ReVanced and the community.
 | `promo-code-unlock` | Disables the validation of promo code. Any code will work to unlock all features. | all |
 </details>
 
+### [📦 `com.awedea.nyx`](https://play.google.com/store/apps/details?id=com.awedea.nyx)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-pro` | Unlocks all pro features. | all |
+</details>
+
 ### [📦 `co.windyapp.android`](https://play.google.com/store/apps/details?id=co.windyapp.android)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-pro` | Unlocks all pro features. | all |
+</details>
+
+### [📦 `ginlemon.iconpackstudio`](https://play.google.com/store/apps/details?id=ginlemon.iconpackstudio)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -218,28 +234,12 @@ The official Patch bundle provided by ReVanced and the community.
 | `unlock-pro` | Unlocks all professional features. | all |
 </details>
 
-### [📦 `com.awedea.nyx`](https://play.google.com/store/apps/details?id=com.awedea.nyx)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `unlock-pro` | Unlocks all pro features. | all |
-</details>
-
 ### [📦 `com.ithebk.expensemanager`](https://play.google.com/store/apps/details?id=com.ithebk.expensemanager)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `unlock-pro` | Unlocks pro features. | all |
-</details>
-
-### [📦 `ginlemon.iconpackstudio`](https://play.google.com/store/apps/details?id=ginlemon.iconpackstudio)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `unlock-pro` | Unlocks all pro features. | all |
 </details>
 
 ### [📦 `com.ticktick.task`](https://play.google.com/store/apps/details?id=com.ticktick.task)
