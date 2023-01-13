@@ -55,6 +55,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `seekbar-tapping` | Enables tap-to-seek on the seekbar of the video player. | 17.49.37 |
 | `settings` | Adds settings for ReVanced to YouTube. | all |
 | `sponsorblock` | Integrate SponsorBlock. | 17.49.37 |
+| `spoof-app-version` | Tricks YouTube into thinking, you are running an older version of the app. One of the side effects also includes restoring the old UI. | 17.49.37 |
 | `swipe-controls` | Adds volume and brightness swipe controls. | 17.49.37 |
 | `tablet-mini-player` | Enables the tablet mini player layout. | 17.49.37 |
 | `theme` | Applies a custom theme. | all |
@@ -66,16 +67,16 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `background-play` | Enables playing music in the background. | 5.36.51 |
-| `codecs-unlock` | Adds more audio codec options. The new audio codecs usually result in better audio quality. | 5.36.51 |
-| `compact-header` | Hides the music category bar at the top of the homepage. | 5.36.51 |
-| `exclusive-audio-playback` | Enables the option to play music without video. | 5.36.51 |
-| `hide-get-premium` | Removes all "Get Premium" evidences from the avatar menu. | 5.36.51 |
-| `minimized-playback-music` | Enables minimized playback on Kids music. | 5.36.51 |
-| `music-microg-support` | Allows YouTube Music ReVanced to run without root and under a different package name. | 5.36.51 |
-| `music-video-ads` | Removes ads in the music player. | 5.36.51 |
-| `tasteBuilder-remover` | Removes the "Tell us which artists you like" card from the home screen. | 5.36.51 |
-| `upgrade-button-remover` | Removes the upgrade tab from the pivot bar. | 5.36.51 |
+| `background-play` | Enables playing music in the background. | 5.39.52 |
+| `codecs-unlock` | Adds more audio codec options. The new audio codecs usually result in better audio quality. | 5.39.52 |
+| `compact-header` | Hides the music category bar at the top of the homepage. | 5.39.52 |
+| `exclusive-audio-playback` | Enables the option to play music without video. | 5.39.52 |
+| `hide-get-premium` | Removes all "Get Premium" evidences from the avatar menu. | 5.39.52 |
+| `minimized-playback-music` | Enables minimized playback on Kids music. | 5.39.52 |
+| `music-microg-support` | Allows YouTube Music ReVanced to run without root and under a different package name. | 5.39.52 |
+| `music-video-ads` | Removes ads in the music player. | 5.39.52 |
+| `tasteBuilder-remover` | Removes the "Tell us which artists you like" card from the home screen. | 5.39.52 |
+| `upgrade-button-remover` | Removes the upgrade tab from the pivot bar. | 5.39.52 |
 </details>
 
 ### [📦 `com.ss.android.ugc.trill`](https://play.google.com/store/apps/details?id=com.ss.android.ugc.trill)
@@ -84,14 +85,14 @@ The official Patch bundle provided by ReVanced and the community.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `disable-login-requirement` | Do not force login. | all |
-| `downloads` | Removes download restrictions and changes the default path to download to. | all |
-| `feed-filter` | Filters tiktok videos: removing ads, removing livestreams. | all |
+| `downloads` | Removes download restrictions and changes the default path to download to. | 27.8.3 |
+| `feed-filter` | Filters tiktok videos: removing ads, removing livestreams. | 27.8.3 |
 | `fix-google-login` | Allows logging in with a Google account. | all |
 | `hide-ads` | Removes ads from TikTok. | all |
 | `playback-speed` | Enables the playback speed option for all videos. | all |
-| `settings` | Adds ReVanced settings to TikTok. | all |
+| `settings` | Adds ReVanced settings to TikTok. | 27.8.3 |
 | `show-seekbar` | Shows progress bar for all video. | all |
-| `sim-spoof` | Spoofs the information which is retrieved from the sim-card. | all |
+| `sim-spoof` | Spoofs the information which is retrieved from the sim-card. | 27.8.3 |
 </details>
 
 ### [📦 `com.zhiliaoapp.musically`](https://play.google.com/store/apps/details?id=com.zhiliaoapp.musically)
@@ -100,14 +101,14 @@ The official Patch bundle provided by ReVanced and the community.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `disable-login-requirement` | Do not force login. | all |
-| `downloads` | Removes download restrictions and changes the default path to download to. | all |
-| `feed-filter` | Filters tiktok videos: removing ads, removing livestreams. | all |
+| `downloads` | Removes download restrictions and changes the default path to download to. | 27.8.3 |
+| `feed-filter` | Filters tiktok videos: removing ads, removing livestreams. | 27.8.3 |
 | `fix-google-login` | Allows logging in with a Google account. | all |
 | `hide-ads` | Removes ads from TikTok. | all |
 | `playback-speed` | Enables the playback speed option for all videos. | all |
-| `settings` | Adds ReVanced settings to TikTok. | all |
+| `settings` | Adds ReVanced settings to TikTok. | 27.8.3 |
 | `show-seekbar` | Shows progress bar for all video. | all |
-| `sim-spoof` | Spoofs the information which is retrieved from the sim-card. | all |
+| `sim-spoof` | Spoofs the information which is retrieved from the sim-card. | 27.8.3 |
 </details>
 
 ### [📦 `tv.twitch.android.app`](https://play.google.com/store/apps/details?id=tv.twitch.android.app)
@@ -201,7 +202,23 @@ The official Patch bundle provided by ReVanced and the community.
 | `promo-code-unlock` | Disables the validation of promo code. Any code will work to unlock all features. | all |
 </details>
 
+### [📦 `com.awedea.nyx`](https://play.google.com/store/apps/details?id=com.awedea.nyx)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-pro` | Unlocks all pro features. | all |
+</details>
+
 ### [📦 `co.windyapp.android`](https://play.google.com/store/apps/details?id=co.windyapp.android)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-pro` | Unlocks all pro features. | all |
+</details>
+
+### [📦 `ginlemon.iconpackstudio`](https://play.google.com/store/apps/details?id=ginlemon.iconpackstudio)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -217,28 +234,12 @@ The official Patch bundle provided by ReVanced and the community.
 | `unlock-pro` | Unlocks all professional features. | all |
 </details>
 
-### [📦 `com.awedea.nyx`](https://play.google.com/store/apps/details?id=com.awedea.nyx)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `unlock-pro` | Unlocks all pro features. | all |
-</details>
-
 ### [📦 `com.ithebk.expensemanager`](https://play.google.com/store/apps/details?id=com.ithebk.expensemanager)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `unlock-pro` | Unlocks pro features. | all |
-</details>
-
-### [📦 `ginlemon.iconpackstudio`](https://play.google.com/store/apps/details?id=ginlemon.iconpackstudio)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `unlock-pro` | Unlocks all pro features. | all |
 </details>
 
 ### [📦 `com.ticktick.task`](https://play.google.com/store/apps/details?id=com.ticktick.task)

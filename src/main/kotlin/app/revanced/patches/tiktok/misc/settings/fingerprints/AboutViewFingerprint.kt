@@ -9,7 +9,6 @@ object AboutViewFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.NEW_INSTANCE,
         Opcode.INVOKE_DIRECT,
-        Opcode.MOVE,
         Opcode.INVOKE_DIRECT_RANGE,
         Opcode.INVOKE_DIRECT,
         Opcode.IPUT_OBJECT,
@@ -18,8 +17,7 @@ object AboutViewFingerprint : MethodFingerprint(
         Opcode.CONST,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
-        Opcode.NEW_INSTANCE,
-        Opcode.INVOKE_DIRECT,
+        Opcode.SGET_OBJECT,
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.NEW_INSTANCE,

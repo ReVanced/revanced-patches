@@ -45,7 +45,7 @@ class HideInfocardsPatch : BytecodePatch(
                                 "Landroid/view/View;->setVisibility(I)V")
             }
 
-            replaceInstruction(
+            addInstructions(
                 invokeInstructionIndex,
                 "invoke-static {v${(instruction(invokeInstructionIndex) as? BuilderInstruction35c)?.registerC}}," +
                         " Lapp/revanced/integrations/patches/HideInfocardsPatch;->hideInfocardsIncognito(Landroid/view/View;)V"

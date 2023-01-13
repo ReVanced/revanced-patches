@@ -22,7 +22,7 @@ object CodecsLockFingerprint : MethodFingerprint(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_INTERFACE,
-        Opcode.INVOKE_DIRECT,
+        Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_OBJECT
     ),
     strings = listOf("eac3_supported")

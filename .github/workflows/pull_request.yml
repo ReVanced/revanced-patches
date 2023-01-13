@@ -11,6 +11,7 @@ env:
 
 jobs:
   pull-request:
+    name: Open pull request
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
