@@ -1,3 +1,10 @@
+# [2.154.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.154.0-dev.2...v2.154.0-dev.3) (2023-01-13)
+
+
+### Features
+
+* **tiktok:** update patches compatibility to v27.8.3 ([#1483](https://github.com/revanced/revanced-patches/issues/1483)) ([e72b3bd](https://github.com/revanced/revanced-patches/commit/e72b3bd4e22f5ade7193ba6a3cdf61fcd91fba55))
+
 # [2.154.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.154.0-dev.1...v2.154.0-dev.2) (2023-01-13)
 
 
