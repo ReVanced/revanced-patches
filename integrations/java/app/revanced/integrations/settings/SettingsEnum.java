@@ -1,7 +1,6 @@
 package app.revanced.integrations.settings;
 
 import android.content.Context;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,6 +67,7 @@ public enum SettingsEnum {
     DISABLE_STARTUP_SHORTS_PLAYER("revanced_startup_shorts_player_enabled", false, ReturnType.BOOLEAN),
     PLAYER_POPUP_PANELS("revanced_player_popup_panels_enabled", false, ReturnType.BOOLEAN),
     USE_TABLET_MINIPLAYER("revanced_tablet_miniplayer", false, ReturnType.BOOLEAN, true),
+    SPOOF_APP_VERSION("revanced_spoof_app_version", false, ReturnType.BOOLEAN, true),
     WIDE_SEARCHBAR("revanced_wide_searchbar", false, ReturnType.BOOLEAN, true),
     HIDE_ALBUM_CARDS("revanced_hide_album_cards", false, ReturnType.BOOLEAN, true),
     HIDE_ARTIST_CARD("revanced_hide_artist_card", false, ReturnType.BOOLEAN),
@@ -126,6 +126,7 @@ public enum SettingsEnum {
     RYD_USER_ID("ryd_userId", null, SharedPrefHelper.SharedPrefNames.RYD, ReturnType.STRING),
     RYD_ENABLED("ryd_enabled", true, SharedPrefHelper.SharedPrefNames.RYD, ReturnType.BOOLEAN),
     RYD_SHOW_DISLIKE_PERCENTAGE("ryd_show_dislike_percentage", false, SharedPrefHelper.SharedPrefNames.RYD, ReturnType.BOOLEAN),
+    RYD_USE_COMPACT_LAYOUT("ryd_use_compact_layout", false, SharedPrefHelper.SharedPrefNames.RYD, ReturnType.BOOLEAN),
 
     // SponsorBlock settings
     SB_ENABLED("sb-enabled", true, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
