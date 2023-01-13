@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 
 object FeedApiServiceLIZFingerprint : MethodFingerprint(
-    access = AccessFlags.PUBLIC or AccessFlags.STATIC or AccessFlags.FINAL or AccessFlags.SYNTHETIC,
+    access = AccessFlags.PUBLIC or AccessFlags.STATIC or AccessFlags.SYNTHETIC,
     customFingerprint = { methodDef ->
         methodDef.definingClass.endsWith("/FeedApiService;") && methodDef.name == "LIZ"
     }
