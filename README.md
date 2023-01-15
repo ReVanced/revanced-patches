@@ -46,7 +46,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG. | 17.49.37 |
 | `minimized-playback` | Enables minimized and background playback. | 17.49.37 |
 | `old-quality-layout` | Enables the original video quality flyout in the video player settings | 17.49.37 |
-| `open-links-directly` | Bypasses URL redirects and opens links directly inside YouTube app. | 17.49.37 |
+| `open-links-directly` | Bypasses https://youtube.com/redirect URLs. | 17.49.37 |
 | `premium-heading` | Shows premium branding on the home screen. | all |
 | `remember-playback-rate` | Adds the ability to remember the playback rate you chose in the video playback rate flyout. | 17.49.37 |
 | `remember-video-quality` | Adds the ability to remember the video quality you chose in the video quality flyout. | 17.49.37 |
