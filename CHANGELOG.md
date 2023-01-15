@@ -1,3 +1,10 @@
+## [2.155.1-dev.1](https://github.com/revanced/revanced-patches/compare/v2.155.0...v2.155.1-dev.1) (2023-01-15)
+
+
+### Bug Fixes
+
+* **reddit/general-reddit-ads:** specify last version that works correctly ([#1495](https://github.com/revanced/revanced-patches/issues/1495)) ([2a3bedd](https://github.com/revanced/revanced-patches/commit/2a3bedd5608d2f23b174c4227ac167e44e54215e))
+
 # [2.155.0](https://github.com/revanced/revanced-patches/compare/v2.154.0...v2.155.0) (2023-01-15)
 
 
