@@ -1,3 +1,10 @@
+# [2.155.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.154.1-dev.1...v2.155.0-dev.1) (2023-01-15)
+
+
+### Features
+
+* **youtube:** remove `fix-playback` patch ([edcb6cc](https://github.com/revanced/revanced-patches/commit/edcb6cc94961aaebe2df884db3049b2afa79f38f))
+
 ## [2.154.1-dev.1](https://github.com/revanced/revanced-patches/compare/v2.154.0...v2.154.1-dev.1) (2023-01-15)
 
 
