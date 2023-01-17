@@ -26,6 +26,7 @@ public class MicroGSupport {
             Toast.makeText(context, str("microg_not_installed_warning"), Toast.LENGTH_LONG).show();
 
             var intent = new Intent(Intent.ACTION_VIEW);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.setData(Uri.parse(VANCED_MICROG_DOWNLOAD_LINK));
             context.startActivity(intent);
         }
