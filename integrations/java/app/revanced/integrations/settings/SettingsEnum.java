@@ -343,19 +343,19 @@ public enum SettingsEnum {
 
         switch (getReturnType()) {
             case FLOAT:
-                SharedPrefHelper.saveFloat(sharedPref, path, (float) defaultValue);
+                SharedPrefHelper.saveFloat(sharedPref, path, (float) newValue);
                 break;
             case LONG:
-                SharedPrefHelper.saveLong(sharedPref, path, (long) defaultValue);
+                SharedPrefHelper.saveLong(sharedPref, path, (long) newValue);
                 break;
             case BOOLEAN:
                 SharedPrefHelper.saveBoolean(sharedPref, path, (boolean) newValue);
                 break;
             case INTEGER:
-                SharedPrefHelper.saveInt(sharedPref, path, (int) defaultValue);
+                SharedPrefHelper.saveInt(sharedPref, path, (int) newValue);
                 break;
             case STRING:
-                SharedPrefHelper.saveString(sharedPref, path, (String) defaultValue);
+                SharedPrefHelper.saveString(sharedPref, path, (String) newValue);
                 break;
             default:
                 LogHelper.printException(() -> ("Setting does not have a valid Type. Name is: " + name()));
