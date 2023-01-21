@@ -30,7 +30,7 @@ class BootloaderDetectionPatch : BytecodePatch(
                 """
                         const/4 v0, 0x1
                         return v0
-                      """
+                """
             ) ?: return fingerprint.toErrorResult()
         }
         return PatchResultSuccess()
