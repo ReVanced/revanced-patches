@@ -37,6 +37,9 @@ public class MicroGSupport {
         } catch (PackageManager.NameNotFoundException exception) {
             LogHelper.printException(() -> ("Vanced MicroG was not found"), exception);
             startIntent(context, VANCED_MICROG_DOWNLOAD_LINK, str("microg_not_installed_warning"));
+
+            // Gracefully exit the app, so it does not crash.
+            System.exit(0);
         }
 
         try (var client = context.getContentResolver().acquireContentProviderClient(VANCED_MICROG_PROVIDER)) {
