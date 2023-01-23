@@ -1,3 +1,19 @@
+# [2.157.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.156.0...v2.157.0-dev.1) (2023-01-23)
+
+
+### Bug Fixes
+
+* parse any kind of patch version ([66cd88f](https://github.com/revanced/revanced-patches/commit/66cd88f4d8a9161a4c51b70f2384dcee92fe2aea))
+* **twitter/hide-views-stats:** constrain to last working version ([#1522](https://github.com/revanced/revanced-patches/issues/1522)) ([bf45817](https://github.com/revanced/revanced-patches/commit/bf45817677fd058f9b255dbef5c1ca9aaec95531))
+
+
+### Features
+
+* **finanzonline:** `remove-bootloader-detection` patch ([3952138](https://github.com/revanced/revanced-patches/commit/39521386c2296f46479e31c39ab245c2778ebd65))
+* **finanzonline:** `remove-root-detection` patch ([1d46d63](https://github.com/revanced/revanced-patches/commit/1d46d63fdcf3cbce53a7719f4490225368c4d5ae))
+* **youtube/microg-support:** check if Vanced MicroG is running in the background ([#1531](https://github.com/revanced/revanced-patches/issues/1531)) ([81934ef](https://github.com/revanced/revanced-patches/commit/81934efb39b8ed9b0a523ffd7c4d841227ac141f))
+* **youtube:** `open-links-externally` patch ([#1524](https://github.com/revanced/revanced-patches/issues/1524)) ([caf3d70](https://github.com/revanced/revanced-patches/commit/caf3d70c30bc440923c0e76e7331010905f6e729))
+
 # [2.156.0](https://github.com/revanced/revanced-patches/compare/v2.155.0...v2.156.0) (2023-01-17)
 
 

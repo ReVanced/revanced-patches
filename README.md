@@ -47,6 +47,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `minimized-playback` | Enables minimized and background playback. | 17.49.37 |
 | `old-quality-layout` | Enables the original video quality flyout in the video player settings | 17.49.37 |
 | `open-links-directly` | Bypasses https://youtube.com/redirect URLs. | 17.49.37 |
+| `open-links-externally` | Open links outside of the app directly in your browser. | 17.49.37 |
 | `premium-heading` | Shows premium branding on the home screen. | all |
 | `remember-playback-rate` | Adds the ability to remember the playback rate you chose in the video playback rate flyout. | 17.49.37 |
 | `remember-video-quality` | Adds the ability to remember the video quality you chose in the video quality flyout. | 17.49.37 |
@@ -130,7 +131,7 @@ The official Patch bundle provided by ReVanced and the community.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `dynamic-color` | Replaces the default Twitter Blue with the users Material You palette. | all |
-| `hide-views-stats` | Hides the view stats under tweets. | all |
+| `hide-views-stats` | Hides the view stats under tweets. | 9.69.1-release.0 |
 | `monochrome-icon` | Adds a monochrome icon. | all |
 | `timeline-ads` | Removes ads from the Twitter timeline. Might require clearing app data to remove already cached ads. | all |
 </details>
@@ -152,6 +153,15 @@ The official Patch bundle provided by ReVanced and the community.
 |:--------:|:--------------:|:-----------------:|
 | `general-reddit-ads` | Removes general ads from the Reddit frontpage and subreddits. | 2022.43.0 |
 | `premium-icon-reddit` | Unlocks premium Reddit app icons. | all |
+</details>
+
+### [📦 `at.gv.bmf.bmf2go`](https://play.google.com/store/apps/details?id=at.gv.bmf.bmf2go)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `remove-bootloader-detection` | Removes the check for an unlocked bootloader. | 2.2.0 |
+| `remove-root-detection` | Removes the check for root permissions | 2.2.0 |
 </details>
 
 ### [📦 `at.gv.oe.app`](https://play.google.com/store/apps/details?id=at.gv.oe.app)
@@ -219,7 +229,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `unlock-prime` | Unlocks Nova Prime and all functions of the app. | all |
 </details>
 
-### [📦 `com.awedea.nyx`](https://play.google.com/store/apps/details?id=com.awedea.nyx)
+### [📦 `co.windyapp.android`](https://play.google.com/store/apps/details?id=co.windyapp.android)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -227,7 +237,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `unlock-pro` | Unlocks all pro features. | all |
 </details>
 
-### [📦 `co.windyapp.android`](https://play.google.com/store/apps/details?id=co.windyapp.android)
+### [📦 `com.awedea.nyx`](https://play.google.com/store/apps/details?id=com.awedea.nyx)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
