@@ -20,14 +20,14 @@ internal class JsonGenerator : PatchesFileGenerator {
                 it.version ?: "0.0.0",
                 !it.include,
                 it.options?.map { option ->
-                    Option(
+                    JsonPatch.Option(
                         option.key,
                         option.title,
                         option.description,
                         option.required,
-                        option.let { lo ->
-                            if (lo is PatchOption.ListOption<*>) {
-                                lo.options.toMutableList().toTypedArray()
+                        option.let { listOption ->
+                            if (listOption is PatchOption.ListOption<*>) {
+                                listOption.options.toMutableList().toTypedArray()
                             } else null
                         }
                     )
@@ -36,7 +36,7 @@ internal class JsonGenerator : PatchesFileGenerator {
                     dep.java.patchName
                 }?.toTypedArray() ?: emptyArray(),
                 it.compatiblePackages?.map { pkg ->
-                    CompatiblePackage(pkg.name, pkg.versions)
+                    JsonPatch.CompatiblePackage(pkg.name, pkg.versions)
                 }?.toTypedArray() ?: emptyArray()
             )
         }
@@ -45,7 +45,7 @@ internal class JsonGenerator : PatchesFileGenerator {
         json.writeText(GsonBuilder().serializeNulls().create().toJson(patches))
     }
 
-    data class JsonPatch(
+    private class JsonPatch(
         val name: String,
         val description: String,
         val version: String,
@@ -53,18 +53,18 @@ internal class JsonGenerator : PatchesFileGenerator {
         val options: Array<Option>,
         val dependencies: Array<String>,
         val compatiblePackages: Array<CompatiblePackage>,
-    )
+    ) {
+        class CompatiblePackage(
+            val name: String,
+            val versions: Array<String>,
+        )
 
-    data class CompatiblePackage(
-        val name: String,
-        val versions: Array<String>,
-    )
-
-    data class Option(
-        val key: String,
-        val title: String,
-        val description: String,
-        val required: Boolean,
-        val choices: Array<*>?,
-    )
+        class Option(
+            val key: String,
+            val title: String,
+            val description: String,
+            val required: Boolean,
+            val choices: Array<*>?,
+        )
+    }
 }
