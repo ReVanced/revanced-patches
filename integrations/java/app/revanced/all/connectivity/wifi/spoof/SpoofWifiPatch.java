@@ -14,7 +14,7 @@ import androidx.annotation.RequiresApi;
 
 public class SpoofWifiPatch {
 
-    // Used in order to check what the (real or fake) active network is (take a look at `hasTransport`)
+    // Used to check what the (real or fake) active network is (take a look at `hasTransport`).
     private static ConnectivityManager CONNECTIVITY_MANAGER;
 
     // If Wifi is not enabled, these are types that would pretend to be Wifi for android.net.Network (lower index = higher priority).
