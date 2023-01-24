@@ -1,3 +1,10 @@
+# [2.157.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.157.0-dev.1...v2.157.0-dev.2) (2023-01-24)
+
+
+### Features
+
+* **music:** update patches compatibility to v5.40.51 ([#1541](https://github.com/revanced/revanced-patches/issues/1541)) ([13143cb](https://github.com/revanced/revanced-patches/commit/13143cb5260f8793d246633a6a506bdc9f3a3ce7))
+
 # [2.157.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.156.0...v2.157.0-dev.1) (2023-01-23)
 
 
