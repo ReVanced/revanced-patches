@@ -1,3 +1,10 @@
+# [2.157.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.157.0-dev.4...v2.157.0-dev.5) (2023-01-28)
+
+
+### Features
+
+* **youtube:** show toasts along exceptions ([#1511](https://github.com/revanced/revanced-patches/issues/1511)) ([5817e4d](https://github.com/revanced/revanced-patches/commit/5817e4d27fab692c0e95ab4aa2fa8f13005cb780))
+
 # [2.157.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.157.0-dev.3...v2.157.0-dev.4) (2023-01-28)
 
 
