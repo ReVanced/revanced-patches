@@ -1,3 +1,10 @@
+# [2.157.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.157.0-dev.3...v2.157.0-dev.4) (2023-01-28)
+
+
+### Bug Fixes
+
+* **youtube/return-youtube-dislike:** do not fetch voting stats when watching shorts ([#1532](https://github.com/revanced/revanced-patches/issues/1532)) ([f46fcad](https://github.com/revanced/revanced-patches/commit/f46fcadd855a13d9f8916f21980abcf5564e97d7))
+
 # [2.157.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.157.0-dev.2...v2.157.0-dev.3) (2023-01-28)
 
 
