@@ -7,11 +7,9 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
@@ -30,9 +28,7 @@ import app.revanced.patches.youtube.misc.video.videoid.patch.VideoIdPatch
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.*
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
-import org.jf.dexlib2.iface.reference.FieldReference
 import org.jf.dexlib2.iface.reference.MethodReference
-import org.jf.dexlib2.iface.reference.StringReference
 
 @Patch
 @DependsOn(
@@ -235,39 +231,6 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             6, // after inflating the view
             "invoke-static {p0}, Lapp/revanced/integrations/sponsorblock/player/ui/SponsorBlockView;->initialize(Ljava/lang/Object;)V"
         )
-
-        // get rectangle field name
-        RectangleFieldInvalidatorFingerprint.resolve(context, seekbarSignatureResult.classDef)
-        val rectangleFieldInvalidatorInstructions =
-            RectangleFieldInvalidatorFingerprint.result!!.method.implementation!!.instructions
-        val rectangleFieldName =
-            ((rectangleFieldInvalidatorInstructions.elementAt(rectangleFieldInvalidatorInstructions.count() - 3) as ReferenceInstruction).reference as FieldReference).name
-
-        // replace the "replaceMeWith*" strings
-        context
-            .proxy(context.classes.first { it.type.endsWith("PlayerController;") })
-            .mutableClass
-            .methods
-            .find { it.name == "setSponsorBarRect" }
-            ?.let { method ->
-                fun MutableMethod.replaceStringInstruction(index: Int, instruction: Instruction, with: String) {
-                    val register = (instruction as OneRegisterInstruction).registerA
-                    this.replaceInstruction(
-                        index, "const-string v$register, \"$with\""
-                    )
-                }
-                for ((index, it) in method.implementation!!.instructions.withIndex()) {
-                    if (it.opcode.ordinal != Opcode.CONST_STRING.ordinal) continue
-
-                    when (((it as ReferenceInstruction).reference as StringReference).string) {
-                        "replaceMeWithsetSponsorBarRect" ->
-                            method.replaceStringInstruction(index, it, rectangleFieldName)
-
-                        "replaceMeWithsetMillisecondMethod" ->
-                            method.replaceStringInstruction(index, it, "seekHelper")
-                    }
-                }
-            } ?: return PatchResultError("Could not find the method which contains the replaceMeWith* strings")
 
         val startVideoInformerMethod = StartVideoInformerFingerprint.result!!.mutableMethod
         startVideoInformerMethod.addInstructions(
