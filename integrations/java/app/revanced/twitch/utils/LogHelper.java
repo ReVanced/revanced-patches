@@ -5,8 +5,14 @@ import android.widget.Toast;
 
 import app.revanced.twitch.settings.SettingsEnum;
 
+/**
+ * TODO: replace this with the higher performance logging code from {@link app.revanced.integrations.utils.LogHelper}
+ */
 public class LogHelper {
 
+    /**
+     * TODO: replace this with {@link app.revanced.integrations.utils.LogHelper.LogMessage#findOuterClassSimpleName()}
+     */
     public static String getCallOrigin()
     {
         try {

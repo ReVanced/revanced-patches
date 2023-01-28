@@ -2,7 +2,6 @@ package app.revanced.integrations.returnyoutubedislike;
 
 import static app.revanced.integrations.sponsorblock.StringRef.str;
 
-import android.content.Context;
 import android.icu.text.CompactDecimalFormat;
 import android.os.Build;
 import android.text.Spannable;
@@ -13,7 +12,6 @@ import android.text.style.CharacterStyle;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.ScaleXSpan;
-import android.util.DisplayMetrics;
 
 import androidx.annotation.GuardedBy;
 import androidx.annotation.Nullable;
@@ -31,6 +29,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import app.revanced.integrations.returnyoutubedislike.requests.RYDVoteData;
 import app.revanced.integrations.returnyoutubedislike.requests.ReturnYouTubeDislikeApi;
 import app.revanced.integrations.settings.SettingsEnum;
+import app.revanced.integrations.shared.PlayerType;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
@@ -96,7 +95,16 @@ public class ReturnYouTubeDislike {
     private static NumberFormat dislikePercentageFormatter;
 
     public static void onEnabledChange(boolean enabled) {
-        isEnabled = enabled;
+        synchronized (videoIdLockObject) {
+            isEnabled = enabled;
+            if (!enabled) {
+                // must clear old values, to protect against using stale data
+                // if the user re-enables RYD while watching a video
+                LogHelper.printDebug(() -> "Clearing previously fetched RYD vote data");
+                currentVideoId = null;
+                voteFetchFuture = null;
+            }
+        }
     }
 
     private static String getCurrentVideoId() {
@@ -117,8 +125,12 @@ public class ReturnYouTubeDislike {
         if (!isEnabled) return;
         try {
             Objects.requireNonNull(videoId);
-            LogHelper.printDebug(() -> "New video loaded: " + videoId);
-
+            PlayerType currentPlayerType = PlayerType.getCurrent();
+            if (currentPlayerType == PlayerType.INLINE_MINIMAL) {
+                LogHelper.printDebug(() -> "Ignoring inline playback of video: "+ videoId);
+                return;
+            }
+            LogHelper.printDebug(() -> " new video loaded: " + videoId + " playerType: " + currentPlayerType);
             synchronized (videoIdLockObject) {
                 currentVideoId = videoId;
                 // no need to wrap the call in a try/catch,
@@ -157,6 +169,10 @@ public class ReturnYouTubeDislike {
             long fetchStartTime = 0;
             try {
                 Future<RYDVoteData> fetchFuture = getVoteFetchFuture();
+                if (fetchFuture == null) {
+                    LogHelper.printDebug(() -> "fetch future not available (user enabled RYD while video was playing?)");
+                    return;
+                }
                 if (SettingsEnum.DEBUG.getBoolean() && !fetchFuture.isDone()) {
                     fetchStartTime = System.currentTimeMillis();
                 }
@@ -175,8 +191,7 @@ public class ReturnYouTubeDislike {
             if (updateDislike(textRef, isSegmentedButton, votingData)) {
                 LogHelper.printDebug(() -> "Updated dislike span to: " + textRef.get());
             } else {
-                LogHelper.printDebug(() -> "Ignoring dislike span: " + textRef.get()
-                        + " that appears to already show voting data: " + votingData);
+                LogHelper.printDebug(() -> "Ignoring already updated dislike span: " + textRef.get());
             }
         } catch (Exception ex) {
             LogHelper.printException(() -> "Error while trying to update dislikes", ex);
@@ -187,12 +202,24 @@ public class ReturnYouTubeDislike {
         if (!isEnabled) return;
         try {
             Objects.requireNonNull(vote);
+
+            if (PlayerType.getCurrent() == PlayerType.NONE) { // should occur if shorts is playing
+                LogHelper.printDebug(() -> "Ignoring vote during Shorts playback");
+                return;
+            }
             if (SharedPrefHelper.getBoolean(SharedPrefHelper.SharedPrefNames.YOUTUBE, "user_signed_out", true)) {
+                LogHelper.printDebug(() -> "User is logged out, ignoring voting");
                 return;
             }
 
             // Must make a local copy of videoId, since it may change between now and when the vote thread runs
             String videoIdToVoteFor = getCurrentVideoId();
+            if (videoIdToVoteFor == null) {
+                // user enabled RYD after starting playback of a video
+                LogHelper.printException(() -> "Cannot vote, current video is is null (user enabled RYD while video was playing?)",
+                        null, str("revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted"));
+                return;
+            }
 
             voteSerialExecutor.execute(() -> {
                 // must wrap in try/catch to properly log exceptions
@@ -278,9 +305,6 @@ public class ReturnYouTubeDislike {
                 //
                 // Change the "Likes" string to show that likes and dislikes are hidden
                 //
-                LogHelper.printDebug(() -> "Like count is hidden by video creator. "
-                        + "RYD does not provide data for videos with hidden likes.");
-
                 String hiddenMessageString = str("revanced_ryd_video_likes_hidden_by_video_owner");
                 if (hiddenMessageString.equals(oldLikesString)) {
                     return false;
@@ -449,7 +473,6 @@ public class ReturnYouTubeDislike {
 
     private static String formatDislikeCount(long dislikeCount) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            String formatted;
             synchronized (ReturnYouTubeDislike.class) { // number formatter is not thread safe, must synchronize
                 if (dislikeCountFormatter == null) {
                     // Note: Java number formatters will use the locale specific number characters.
@@ -460,18 +483,15 @@ public class ReturnYouTubeDislike {
                     LogHelper.printDebug(() -> "Locale: " + locale);
                     dislikeCountFormatter = CompactDecimalFormat.getInstance(locale, CompactDecimalFormat.CompactStyle.SHORT);
                 }
-                formatted = dislikeCountFormatter.format(dislikeCount);
+                return dislikeCountFormatter.format(dislikeCount);
             }
-            LogHelper.printDebug(() -> "Dislike count: " + dislikeCount + " formatted as: " + formatted);
-            return formatted;
         }
 
-        // never will be reached, as the oldest supported YouTube app requires Android N or greater
+        // will never be reached, as the oldest supported YouTube app requires Android N or greater
         return String.valueOf(dislikeCount);
     }
 
     private static String formatDislikePercentage(float dislikePercentage) {
-        String formatted;
         synchronized (ReturnYouTubeDislike.class) { // number formatter is not thread safe, must synchronize
             if (dislikePercentageFormatter == null) {
                 Locale locale = ReVancedUtils.getContext().getResources().getConfiguration().locale;
@@ -483,10 +503,8 @@ public class ReturnYouTubeDislike {
             } else {
                 dislikePercentageFormatter.setMaximumFractionDigits(1); // show up to 1 digit precision
             }
-            formatted = dislikePercentageFormatter.format(dislikePercentage);
+            return dislikePercentageFormatter.format(dislikePercentage);
         }
-        LogHelper.printDebug(() -> "Dislike percentage: " + dislikePercentage + " formatted as: " + formatted);
-        return formatted;
     }
 
 
@@ -500,6 +518,7 @@ public class ReturnYouTubeDislike {
      */
     private static volatile long totalTimeUIWaitedOnNetworkCalls;
 
+    @SuppressWarnings("NonAtomicOperationOnVolatileField")
     private static void recordTimeUISpentWaitingForNetworkCall(long timeUIWaitStarted) {
         if (timeUIWaitStarted == 0 || !SettingsEnum.DEBUG.getBoolean()) {
             return;

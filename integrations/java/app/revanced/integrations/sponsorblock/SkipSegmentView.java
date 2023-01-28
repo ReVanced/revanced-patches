@@ -13,7 +13,7 @@ import app.revanced.integrations.utils.ReVancedUtils;
 import static app.revanced.integrations.sponsorblock.player.ui.SponsorBlockView.hideSkipButton;
 import static app.revanced.integrations.sponsorblock.player.ui.SponsorBlockView.showSkipButton;
 
-@SuppressLint({"RtlHardcoded", "SetTextI18n", "LongLogTag", "AppCompatCustomView"})
+@SuppressLint({"RtlHardcoded", "SetTextI18n", "AppCompatCustomView"})
 public class SkipSegmentView {
 
     private static SponsorSegment lastNotifiedSegment;

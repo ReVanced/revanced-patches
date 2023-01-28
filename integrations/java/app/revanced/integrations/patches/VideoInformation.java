@@ -36,7 +36,7 @@ public final class VideoInformation {
             seekMethod = thisRef.getClass().getMethod(SEEK_METHOD_NAME, Long.TYPE);
             seekMethod.setAccessible(true);
         } catch (NoSuchMethodException ex) {
-            LogHelper.printDebug(() -> "Failed to initialize: " + ex.getMessage());
+            LogHelper.printException(() -> "Failed to initialize", ex);
         }
     }
 
@@ -87,7 +87,7 @@ public final class VideoInformation {
                 LogHelper.printDebug(() -> "Seeking to " + millisecond);
                 seekMethod.invoke(playerController.get(), millisecond);
             } catch (Exception ex) {
-                LogHelper.printDebug(() -> "Failed to seek: " + ex.getMessage());
+                LogHelper.printException(() -> "Failed to seek", ex);
             }
         });
     }

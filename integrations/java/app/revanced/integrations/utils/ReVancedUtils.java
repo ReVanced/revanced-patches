@@ -6,6 +6,8 @@ import android.content.res.Resources;
 import android.os.Handler;
 import android.os.Looper;
 
+import androidx.annotation.NonNull;
+
 import java.text.Bidi;
 import java.util.Locale;
 import java.util.concurrent.Callable;
@@ -58,10 +60,6 @@ public class ReVancedUtils {
             // or some ReVanced code is submitting an unexpected number of background tasks.
             LogHelper.printException(() -> "Reached maximum background thread count of "
                     + SHARED_THREAD_POOL_MAXIMUM_BACKGROUND_THREADS + " threads");
-
-            // Because this condition will manifest as a slow running app or a memory leak,
-            // it might be best to show the user a toast or some other suggestion to restart the app.
-            // TODO? if debug is enabled, show a toast?
         }
     }
 
@@ -96,7 +94,7 @@ public class ReVancedUtils {
             Resources res = context.getResources();
             return res.getIdentifier(name, type, context.getPackageName());
         } catch (Throwable exception) {
-            LogHelper.printException(() -> ("Resource not found."), exception);
+            LogHelper.printException(() -> "Resource not found.", exception);
             return null;
         }
     }
@@ -118,7 +116,7 @@ public class ReVancedUtils {
         if (context != null) {
             return context;
         } else {
-            LogHelper.printException(() -> ("Context is null, returning null!"));
+            LogHelper.printException(() -> "Context is null, returning null!");
             return null;
         }
     }
@@ -149,37 +147,44 @@ public class ReVancedUtils {
      * Automatically logs any exceptions the runnable throws
      */
     public static void runOnMainThread(Runnable runnable) {
-        Runnable exceptLoggingRunnable = () -> {
+        runOnMainThreadDelayed(runnable, 0);
+    }
+
+    /**
+     * Automatically logs any exceptions the runnable throws
+     */
+    public static void runOnMainThreadDelayed(Runnable runnable, long delayMillis) {
+        Runnable loggingRunnable = () -> {
             try {
                 runnable.run();
             } catch (Exception ex) {
-                LogHelper.printException(() -> "Exception on main thread from runnable: " + runnable.toString(), ex);
+                LogHelper.printException(() -> runnable.getClass() + ": " + ex.getMessage(), ex);
             }
         };
-        new Handler(Looper.getMainLooper()).post(exceptLoggingRunnable);
+        new Handler(Looper.getMainLooper()).postDelayed(loggingRunnable, delayMillis);
     }
 
     /**
      * @return if the calling thread is on the main thread
      */
-    public static boolean currentIsOnMainThread() {
+    public static boolean currentlyIsOnMainThread() {
         return Looper.getMainLooper().isCurrentThread();
     }
 
     /**
-     * @throws IllegalStateException if the calling thread is _not_ on the main thread
+     * @throws IllegalStateException if the calling thread is _off_ the main thread
      */
     public static void verifyOnMainThread() throws IllegalStateException {
-        if (!currentIsOnMainThread()) {
+        if (!currentlyIsOnMainThread()) {
             throw new IllegalStateException("Must call _on_ the main thread");
         }
     }
 
     /**
-     * @throws IllegalStateException if the calling thread _is_ on the main thread
+     * @throws IllegalStateException if the calling thread is _on_ the main thread
      */
     public static void verifyOffMainThread() throws IllegalStateException {
-        if (currentIsOnMainThread()) {
+        if (currentlyIsOnMainThread()) {
             throw new IllegalStateException("Must call _off_ the main thread");
         }
     }

@@ -66,12 +66,12 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
                         value = Integer.parseInt(editPref.getText());
                         break;
                     default:
-                        LogHelper.printException(() -> ("Setting has no valid return type! " + setting.getReturnType()));
+                        LogHelper.printException(() -> "Setting has no valid return type! " + setting.getReturnType());
                         break;
                 }
                 setting.setValue(value);
             } else {
-                LogHelper.printException(() -> ("Setting cannot be handled! " + pref.toString()));
+                LogHelper.printException(() -> "Setting cannot be handled: " +  pref.getClass() + " " + pref.toString());
             }
 
             if (ReVancedUtils.getContext() != null && settingsInitialized && setting.shouldRebootOnChange()) {
@@ -96,7 +96,7 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
 
             this.settingsInitialized = true;
         } catch (Throwable th) {
-            LogHelper.printException(() -> ("Error during onCreate()"), th);
+            LogHelper.printException(() -> "Error during onCreate()", th);
         }
     }
 
@@ -111,7 +111,7 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
 
     private Preference findPreferenceOnScreen(CharSequence key) {
         if (key == null) {
-            LogHelper.printException(() -> ("Key cannot be null!"));
+            LogHelper.printException(() -> "Key cannot be null!");
             return null;
         }
         Preference pref = null;
@@ -144,7 +144,7 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
     private String getPackageName() {
         Context context = ReVancedUtils.getContext();
         if (context == null) {
-            LogHelper.printException(() -> ("Context is null, returning com.google.android.youtube!"));
+            LogHelper.printException(() -> "Context is null, returning com.google.android.youtube!");
             return "com.google.android.youtube";
         }
         String PACKAGE_NAME = context.getPackageName();
@@ -169,7 +169,7 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             Resources res = context.getResources();
             return res.getString(res.getIdentifier(name, "string", context.getPackageName()));
         } catch (Throwable exception) {
-            LogHelper.printException(() -> ("Resource not found."), exception);
+            LogHelper.printException(() -> "Resource not found.", exception);
             return "";
         }
     }

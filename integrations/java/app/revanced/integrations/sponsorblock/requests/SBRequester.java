@@ -31,6 +31,7 @@ import app.revanced.integrations.sponsorblock.SponsorBlockUtils;
 import app.revanced.integrations.sponsorblock.SponsorBlockUtils.VoteOption;
 import app.revanced.integrations.sponsorblock.objects.SponsorSegment;
 import app.revanced.integrations.sponsorblock.objects.UserStats;
+import app.revanced.integrations.utils.LogHelper;
 
 public class SBRequester {
     private static final String TIME_TEMPLATE = "%.3f";
@@ -79,7 +80,7 @@ public class SBRequester {
             }
             connection.disconnect();
         } catch (Exception ex) {
-            ex.printStackTrace();
+            LogHelper.printException(() -> "failed to get segments", ex);
         }
         return segments.toArray(new SponsorSegment[0]);
     }
@@ -115,7 +116,7 @@ public class SBRequester {
             runOnMainThread(toastRunnable);
             connection.disconnect();
         } catch (Exception ex) {
-            ex.printStackTrace();
+            LogHelper.printException(() -> "failed to submit segments", ex);
         }
     }
 
@@ -124,12 +125,12 @@ public class SBRequester {
             HttpURLConnection connection = getConnectionFromRoute(SBRoutes.VIEWED_SEGMENT, segment.UUID);
             connection.disconnect();
         } catch (Exception ex) {
-            ex.printStackTrace();
+            LogHelper.printException(() -> "failed to send view count request", ex);
         }
     }
 
     public static void voteForSegment(SponsorSegment segment, VoteOption voteOption, Context context, String... args) {
-        new Thread(() -> {
+        new Thread(() -> { // fixme: use ReVancedUtils#runOnBackgroundThread
             try {
                 String segmentUuid = segment.UUID;
                 String uuid = SettingsEnum.SB_UUID.getString();
@@ -156,7 +157,7 @@ public class SBRequester {
                 runOnMainThread(() -> Toast.makeText(context, SponsorBlockUtils.messageToToast, Toast.LENGTH_LONG).show());
                 connection.disconnect();
             } catch (Exception ex) {
-                ex.printStackTrace();
+                LogHelper.printException(() -> "failed to vote for segment", ex);
             }
         }).start();
     }
@@ -167,20 +168,20 @@ public class SBRequester {
             return;
         }
 
-        new Thread(() -> {
+        new Thread(() -> { // fixme: use ReVancedUtils#runOnBackgroundThread
             try {
                 JSONObject json = getJSONObject(SBRoutes.GET_USER_STATS, SettingsEnum.SB_UUID.getString());
                 UserStats stats = new UserStats(json.getString("userName"), json.getDouble("minutesSaved"), json.getInt("segmentCount"),
                         json.getInt("viewCount"));
                 SponsorBlockUtils.addUserStats(category, loadingPreference, stats);
             } catch (Exception ex) {
-                ex.printStackTrace();
+                LogHelper.printException(() -> "failed to retrieve user stats", ex);
             }
         }).start();
     }
 
     public static void setUsername(String username, EditTextPreference preference, Runnable toastRunnable) {
-        new Thread(() -> {
+        new Thread(() -> { // fixme: use ReVancedUtils#runOnBackgroundThread
             try {
                 HttpURLConnection connection = getConnectionFromRoute(SBRoutes.CHANGE_USERNAME, SettingsEnum.SB_UUID.getString(), username);
                 int responseCode = connection.getResponseCode();
@@ -197,7 +198,7 @@ public class SBRequester {
                 runOnMainThread(toastRunnable);
                 connection.disconnect();
             } catch (Exception ex) {
-                ex.printStackTrace();
+                LogHelper.printException(() -> "failed to set username", ex);
             }
         }).start();
     }
@@ -213,7 +214,7 @@ public class SBRequester {
             SettingsEnum.SB_IS_VIP.saveValue(vip);
             SettingsEnum.SB_LAST_VIP_CHECK.saveValue(now);
         } catch (Exception ex) {
-            ex.printStackTrace();
+            LogHelper.printException(() -> "failed to check VIP", ex);
         }
     }
 

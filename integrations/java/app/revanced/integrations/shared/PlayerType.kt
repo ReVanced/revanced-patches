@@ -7,7 +7,7 @@ import app.revanced.integrations.utils.Event
  */
 @Suppress("unused")
 enum class PlayerType {
-    NONE,
+    NONE, // this also includes when shorts are playing
     HIDDEN,
     WATCH_WHILE_MINIMIZED,
     WATCH_WHILE_MAXIMIZED,

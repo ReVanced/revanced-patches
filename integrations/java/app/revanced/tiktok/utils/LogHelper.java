@@ -4,9 +4,10 @@ import android.util.Log;
 
 import app.revanced.tiktok.settings.SettingsEnum;
 
+/**
+ * TODO: replace this with the higher performance logging code from {@link app.revanced.integrations.utils.LogHelper}
+ */
 public class LogHelper {
-
-    //ToDo: Get Calling classname using Reflection
 
     public static void debug(Class clazz, String message) {
         if (SettingsEnum.TIK_DEBUG.getBoolean()) {

@@ -51,7 +51,6 @@ import app.revanced.integrations.sponsorblock.objects.SponsorSegment;
 import app.revanced.integrations.sponsorblock.objects.UserStats;
 import app.revanced.integrations.sponsorblock.requests.SBRequester;
 
-@SuppressWarnings({"LongLogTag"})
 public abstract class SponsorBlockUtils {
     public static final String DATE_FORMAT = "HH:mm:ss.SSS";
     @SuppressLint("SimpleDateFormat")
@@ -154,7 +153,7 @@ public abstract class SponsorBlockUtils {
             Toast.makeText(context, str("submit_started"), Toast.LENGTH_SHORT).show();
 
             appContext = new WeakReference<>(context);
-            new Thread(submitRunnable).start();
+            new Thread(submitRunnable).start(); // fixme: use ReVancedUtils#runOnBackgroundThread
         }
     };
     public static String messageToToast = "";
@@ -233,13 +232,13 @@ public abstract class SponsorBlockUtils {
         final SponsorBlockSettings.SegmentInfo segmentType = SponsorBlockUtils.newSponsorBlockSegmentType;
         try {
             if (start < 0 || end < 0 || start >= end || segmentType == null || videoId == null || uuid == null) {
-                LogHelper.printException(() -> ("Unable to submit times, invalid parameters"));
+                LogHelper.printException(() -> "Unable to submit times, invalid parameters");
                 return;
             }
             SBRequester.submitSegments(videoId, uuid, ((float) start) / 1000f, ((float) end) / 1000f, segmentType.key, toastRunnable);
             newSponsorSegmentEndMillis = newSponsorSegmentStartMillis = -1;
         } catch (Exception e) {
-            LogHelper.printException(() -> ("Unable to submit segment"), e);
+            LogHelper.printException(() -> "Unable to submit segment", e);
         }
 
         if (videoId != null)
@@ -403,11 +402,15 @@ public abstract class SponsorBlockUtils {
     }
 
     public static String appendTimeWithoutSegments(String totalTime) {
-        if (videoHasSegments && (SettingsEnum.SB_ENABLED.getBoolean() && SettingsEnum.SB_SHOW_TIME_WITHOUT_SEGMENTS.getBoolean()) && !TextUtils.isEmpty(totalTime) && getCurrentVideoLength() > 1) {
-            if (timeWithoutSegments.isEmpty()) {
-                timeWithoutSegments = getTimeWithoutSegments(sponsorSegmentsOfCurrentVideo);
+        try {
+            if (videoHasSegments && (SettingsEnum.SB_ENABLED.getBoolean() && SettingsEnum.SB_SHOW_TIME_WITHOUT_SEGMENTS.getBoolean()) && !TextUtils.isEmpty(totalTime) && getCurrentVideoLength() > 1) {
+                if (timeWithoutSegments.isEmpty()) {
+                    timeWithoutSegments = getTimeWithoutSegments(sponsorSegmentsOfCurrentVideo);
+                }
+                return totalTime + timeWithoutSegments;
             }
-            return totalTime + timeWithoutSegments;
+        } catch (Exception ex) {
+            LogHelper.printException(() -> "appendTimeWithoutSegments failure", ex);
         }
 
         return totalTime;
@@ -436,7 +439,7 @@ public abstract class SponsorBlockUtils {
                 PlayerController.setCurrentVideoId(null);
             }
         } catch (Exception ex) {
-            LogHelper.printException(() -> ("Player type changed caused a crash."), ex);
+            LogHelper.printException(() -> "Player type changed caused a crash.", ex);
         }
     }
 
@@ -558,8 +561,8 @@ public abstract class SponsorBlockUtils {
 
             Toast.makeText(context, str("settings_import_successful"), Toast.LENGTH_SHORT).show();
         } catch (Exception ex) {
+            LogHelper.printInfo(() -> "failed to import settings", ex); // use info level, as we are showing our own toast
             Toast.makeText(context, str("settings_import_failed"), Toast.LENGTH_SHORT).show();
-            ex.printStackTrace();
         }
     }
 
@@ -598,8 +601,8 @@ public abstract class SponsorBlockUtils {
 
             return json.toString();
         } catch (Exception ex) {
+            LogHelper.printInfo(() -> "failed to export settings", ex); // use info level, as we are showing our own toast
             Toast.makeText(context, str("settings_export_failed"), Toast.LENGTH_SHORT).show();
-            ex.printStackTrace();
             return "";
         }
     }

@@ -1,7 +1,6 @@
 package app.revanced.integrations.patches;
 
 import android.view.View;
-
 import app.revanced.integrations.adremover.AdRemoverAPI;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
@@ -32,7 +31,6 @@ public final class GeneralAdsPatch extends Filter {
         var paidContent = new BlockRule(SettingsEnum.ADREMOVER_PAID_CONTENT_REMOVAL, "paid_content_overlay");
         var merchandise = new BlockRule(SettingsEnum.ADREMOVER_MERCHANDISE_REMOVAL, "product_carousel");
         var infoPanel = new BlockRule(SettingsEnum.ADREMOVER_INFO_PANEL_REMOVAL, "publisher_transparency_panel", "single_item_information_panel");
-        var suggestions = new BlockRule(SettingsEnum.ADREMOVER_SUGGESTIONS_REMOVAL, "horizontal_video_shelf");
         var latestPosts = new BlockRule(SettingsEnum.ADREMOVER_HIDE_LATEST_POSTS, "post_shelf");
         var channelGuidelines = new BlockRule(SettingsEnum.ADREMOVER_HIDE_CHANNEL_GUIDELINES, "channel_guidelines_entry_banner");
         var artistCard = new BlockRule(SettingsEnum.HIDE_ARTIST_CARD, "official_card");
@@ -69,7 +67,6 @@ public final class GeneralAdsPatch extends Filter {
                 buttonedAd,
                 communityPosts,
                 paidContent,
-                suggestions,
                 latestPosts,
                 movieAds,
                 chapterTeaser,
@@ -115,7 +112,7 @@ public final class GeneralAdsPatch extends Filter {
         else
             result = BlockResult.UNBLOCKED;
 
-        log(String.format("%s (ID: %s): %s", result.message, identifier, path));
+        LogHelper.printDebug(() -> String.format("%s (ID: %s): %s", result.message, identifier, path));
 
         return result.filter;
     }
@@ -144,7 +141,7 @@ public final class GeneralAdsPatch extends Filter {
     private static void hideView(SettingsEnum condition, View view) {
         if (!condition.getBoolean()) return;
 
-        log("Hiding view with setting: " + condition);
+        LogHelper.printDebug(() -> "Hiding view with setting: " + condition);
 
         AdRemoverAPI.HideViewWithLayout1dp(view);
     }
@@ -167,7 +164,4 @@ public final class GeneralAdsPatch extends Filter {
         hideView(SettingsEnum.ADREMOVER_SHORTS_REMOVAL, view);
     }
 
-    private static void log(String message) {
-        LogHelper.printDebug(() -> message);
-    }
 }

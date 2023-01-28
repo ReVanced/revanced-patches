@@ -48,7 +48,7 @@ public abstract class SlimButton implements View.OnClickListener {
             }
             setContainerVisibility();
         } catch (Exception ex) {
-            LogHelper.printException(() -> ("Error while changing button visibility"), ex);
+            LogHelper.printException(() -> "Error while changing button visibility", ex);
         }
     }
 
