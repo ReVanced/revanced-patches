@@ -11,12 +11,12 @@ import java.util.List;
 public enum SettingsEnum {
     //Download Settings
     // TODO: DOWNLOAD_PATH("revanced_download_path", Environment.getExternalStorageDirectory().getPath() + "/Download", ReturnType.STRING),
-    DOWNLOADS_BUTTON_SHOWN("revanced_downloads", true, ReturnType.BOOLEAN, true),
+    DOWNLOADS_BUTTON_SHOWN("revanced_downloads_enabled", true, ReturnType.BOOLEAN, true),
     DOWNLOADS_PACKAGE_NAME("revanced_downloads_package_name", "org.schabi.newpipe" /* NewPipe */, ReturnType.STRING),
 
     // Copy video URL settings
-    COPY_VIDEO_URL_BUTTON_SHOWN("revanced_copy_video_url", true, ReturnType.BOOLEAN, true),
-    COPY_VIDEO_URL_TIMESTAMP_BUTTON_SHOWN("revanced_copy_video_url_timestamp", true, ReturnType.BOOLEAN, true),
+    COPY_VIDEO_URL_BUTTON_SHOWN("revanced_copy_video_url_enabled", true, ReturnType.BOOLEAN, true),
+    COPY_VIDEO_URL_TIMESTAMP_BUTTON_SHOWN("revanced_copy_video_url_timestamp_enabled", true, ReturnType.BOOLEAN, true),
 
     // Video settings
     OLD_STYLE_VIDEO_QUALITY_PLAYER_SETTINGS("revanced_use_old_style_quality_settings", true, ReturnType.BOOLEAN),
@@ -179,7 +179,13 @@ public enum SettingsEnum {
     @Deprecated
     DEPRECATED_BRANDING_SHOWN("revanced_branding_watermark_enabled", false, ReturnType.BOOLEAN),
     @Deprecated
-    DEPRECATED_REMEMBER_VIDEO_QUALITY("revanced_remember_video_quality_selection", false, ReturnType.BOOLEAN);
+    DEPRECATED_REMEMBER_VIDEO_QUALITY("revanced_remember_video_quality_selection", false, ReturnType.BOOLEAN),
+    @Deprecated
+    DEPRECATED_DOWNLOADS_BUTTON_SHOWN("revanced_downloads", true, ReturnType.BOOLEAN, true),
+    @Deprecated
+    DEPRECATED_COPY_VIDEO_URL_BUTTON_SHOWN("revanced_copy_video_url", true, ReturnType.BOOLEAN, true),
+    @Deprecated
+    DEPRECATED_COPY_VIDEO_URL_TIMESTAMP_BUTTON_SHOWN("revanced_copy_video_url_timestamp", true, ReturnType.BOOLEAN, true);
     //
     // end deprecated settings
     //
@@ -250,7 +256,7 @@ public enum SettingsEnum {
         }
 
         //
-        // migrate preference of prior 'default off' settings, into replacement setting with different path name but otherwise is identical
+        // renamed settings with new path names, but otherwise the new and old settings are identical
         //
         SettingsEnum[][] renamedSettings = {
                 {DEPRECATED_HIDE_MIX_PLAYLISTS, HIDE_MIX_PLAYLISTS},
@@ -260,16 +266,19 @@ public enum SettingsEnum {
                 {DEPRECATED_HIDE_PLAYLIST_BUTTON, HIDE_PLAYLIST_BUTTON},
                 {DEPRECATED_HIDE_ACTION_BUTTON, HIDE_ACTION_BUTTON},
                 {DEPRECATED_HIDE_SHARE_BUTTON, HIDE_SHARE_BUTTON},
+                {DEPRECATED_DOWNLOADS_BUTTON_SHOWN, DOWNLOADS_BUTTON_SHOWN},
+                {DEPRECATED_COPY_VIDEO_URL_BUTTON_SHOWN, COPY_VIDEO_URL_BUTTON_SHOWN},
+                {DEPRECATED_COPY_VIDEO_URL_TIMESTAMP_BUTTON_SHOWN, COPY_VIDEO_URL_TIMESTAMP_BUTTON_SHOWN},
         };
         for (SettingsEnum[] oldNewSetting : renamedSettings) {
             SettingsEnum oldSetting = oldNewSetting[0];
             SettingsEnum newSetting = oldNewSetting[1];
 
-            if (oldSetting.getBoolean()) {
-                LogHelper.printInfo(() -> "Migrating enabled setting from: " + oldSetting
-                        + " into replacement setting: " + newSetting);
-                newSetting.saveValue(true);
-                oldSetting.saveValue(false);
+            if (!oldSetting.value.equals(oldSetting.defaultValue)) {
+                LogHelper.printInfo(() -> "Migrating old setting of '" + oldSetting.value
+                        + "' from: " + oldSetting + " into replacement setting: " + newSetting);
+                newSetting.saveValue(oldSetting.value);
+                oldSetting.saveValue(oldSetting.getDefaultValue()); // reset old value
             }
         }
         //
