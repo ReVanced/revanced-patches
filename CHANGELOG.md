@@ -1,3 +1,10 @@
+## [2.157.1-dev.2](https://github.com/revanced/revanced-patches/compare/v2.157.1-dev.1...v2.157.1-dev.2) (2023-01-28)
+
+
+### Bug Fixes
+
+* **youtube:** resolve duplicate preference keys ([#1550](https://github.com/revanced/revanced-patches/issues/1550)) ([aafdb89](https://github.com/revanced/revanced-patches/commit/aafdb891b2f0f243cb2d997a38ab3e6a7b46aba8))
+
 ## [2.157.1-dev.1](https://github.com/revanced/revanced-patches/compare/v2.157.0...v2.157.1-dev.1) (2023-01-28)
 
 
