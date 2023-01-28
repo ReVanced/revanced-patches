@@ -1,3 +1,10 @@
+## [2.157.1-dev.1](https://github.com/revanced/revanced-patches/compare/v2.157.0...v2.157.1-dev.1) (2023-01-28)
+
+
+### Bug Fixes
+
+* **youtube/microg-support:** replace new permission ([3d1cce5](https://github.com/revanced/revanced-patches/commit/3d1cce5b4ca54c622b863f24febeb03a6060033c))
+
 # [2.157.0](https://github.com/revanced/revanced-patches/compare/v2.156.0...v2.157.0) (2023-01-28)
 
 
