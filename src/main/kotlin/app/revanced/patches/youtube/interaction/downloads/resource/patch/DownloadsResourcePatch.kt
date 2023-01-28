@@ -30,7 +30,7 @@ class DownloadsResourcePatch : ResourcePatch {
                 StringResource("revanced_downloads_title", "Download settings"),
                 listOf(
                     SwitchPreference(
-                        "revanced_downloads",
+                        "revanced_downloads_enabled",
                         StringResource("revanced_downloads_enabled_title", "Show download button"),
                         true,
                         StringResource("revanced_downloads_enabled_summary_on", "Download button is shown"),

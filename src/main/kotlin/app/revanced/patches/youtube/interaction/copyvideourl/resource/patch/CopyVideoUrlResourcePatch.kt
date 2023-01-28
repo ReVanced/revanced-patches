@@ -31,14 +31,14 @@ class CopyVideoUrlResourcePatch : ResourcePatch {
                 StringResource("revanced_copy_video_url_title", "Copy video URL settings"),
                 listOf(
                     SwitchPreference(
-                        "revanced_copy_video_url",
+                        "revanced_copy_video_url_enabled",
                         StringResource("revanced_copy_video_url_enabled_title", "Show copy video URL button"),
                         true,
                         StringResource("revanced_copy_video_url_enabled_summary_on", "Button is shown, click to copy video URL without timestamp"),
                         StringResource("revanced_copy_video_url_enabled_summary_off", "Button is not shown")
                     ),
                     SwitchPreference(
-                        "revanced_copy_video_url_timestamp",
+                        "revanced_copy_video_url_timestamp_enabled",
                         StringResource("revanced_copy_video_url_timestamp_enabled_title", "Show copy timestamp URL button"),
                         true,
                         StringResource("revanced_copy_video_url_timestamp_enabled_summary_on", "Button is shown, click to copy video URL with timestamp"),
