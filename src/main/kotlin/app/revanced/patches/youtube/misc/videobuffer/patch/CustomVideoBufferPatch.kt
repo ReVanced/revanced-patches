@@ -1,24 +1,28 @@
 package app.revanced.patches.youtube.misc.videobuffer.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.shared.settings.preference.impl.InputType
 import app.revanced.patches.shared.settings.preference.impl.PreferenceScreen
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.TextPreference
+import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.videobuffer.annotations.CustomVideoBufferCompatibility
+import app.revanced.patches.youtube.misc.videobuffer.fingerprints.InvokeMaxBufferFingerprint
 import app.revanced.patches.youtube.misc.videobuffer.fingerprints.MaxBufferFingerprint
 import app.revanced.patches.youtube.misc.videobuffer.fingerprints.PlaybackBufferFingerprint
 import app.revanced.patches.youtube.misc.videobuffer.fingerprints.ReBufferFingerprint
@@ -32,7 +36,9 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Version("0.0.1")
 class CustomVideoBufferPatch : BytecodePatch(
     listOf(
-        MaxBufferFingerprint, PlaybackBufferFingerprint, ReBufferFingerprint
+        InvokeMaxBufferFingerprint,
+        PlaybackBufferFingerprint,
+        ReBufferFingerprint,
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
@@ -78,60 +84,118 @@ class CustomVideoBufferPatch : BytecodePatch(
                 StringResource("revanced_custom_video_buffer_summary", "Custom settings for video buffer")
             )
         )
+        BufferType.values().forEach { type ->
+            type.hook(context)
+        }
 
-        execMaxBuffer()
-        execPlaybackBuffer()
-        execReBuffer()
         return PatchResultSuccess()
     }
 
-    private fun execMaxBuffer() {
-        val (method, result) = MaxBufferFingerprint.unwrap(true, -1)
-        val (index, register) = result
+    /**
+     * The type of buffer.
+     *
+     * @param patchInfo The corresponding information to patch the buffer type.
+     * @param preparation Optional preparation before patching.
+     */
+    private enum class BufferType(
+        private val patchInfo: PatchInfo,
+        private val preparation: (BytecodeContext.() -> Unit)? = null,
+    ) {
 
-        method.addInstructions(
-            index + 1, """
-           invoke-static {}, Lapp/revanced/integrations/patches/VideoBufferPatch;->getMaxBuffer()I
-           move-result v$register
-        """
-        )
-    }
+        PLAYBACK(PatchInfo(PlaybackBufferFingerprint, "getPlaybackBuffer")),
+        RE(PatchInfo(ReBufferFingerprint, "getReBuffer")),
+        MAX(
+            PatchInfo(
+                MaxBufferFingerprint,
+                "getMaxBuffer",
+                PatchInfo.UnwrapInfo(true, -1)
+            ),
+            preparation@{
+                InvokeMaxBufferFingerprint.result?.apply {
+                    val maxBufferMethodCallOffset = 2
 
-    private fun execPlaybackBuffer() {
-        val (method, result) = PlaybackBufferFingerprint.unwrap()
-        val (index, register) = result
+                    val maxBufferMethod = this@preparation.toMethodWalker(method)
+                        .nextMethod(scanResult.patternScanResult!!.endIndex + maxBufferMethodCallOffset)
+                        .getMethod()
 
-        method.addInstructions(
-            index + 1, """
-           invoke-static {}, Lapp/revanced/integrations/patches/VideoBufferPatch;->getPlaybackBuffer()I
-           move-result v$register
-        """
-        )
-    }
+                    if (!MaxBufferFingerprint.resolve(
+                            this@preparation,
+                            maxBufferMethod,
+                            // This is inefficient because toMethodWalker technically already has context about this.
+                            // Alternatively you can iterate manually over all classes
+                            // instead of relying on toMethodWalker.
+                            this@preparation.findClass(maxBufferMethod.definingClass)!!.immutableClass,
+                        )
+                    ) throw MaxBufferFingerprint.toErrorResult()
+                } ?: throw InvokeMaxBufferFingerprint.toErrorResult()
+            });
 
-    private fun execReBuffer() {
-        val (method, result) = ReBufferFingerprint.unwrap()
-        val (index, register) = result
+        /**
+         * Information about a patch.
+         *
+         * @param fingerprint The corresponding [MethodFingerprint] for the patch.
+         * @param integrationsMethodName The corresponding name of the hooking method.
+         * @param unwrapInfo Optional information on how to treat the [MethodFingerprint].
+         */
+        private class PatchInfo(
+            val fingerprint: MethodFingerprint,
+            val integrationsMethodName: String,
+            val unwrapInfo: UnwrapInfo? = null
+        ) {
+            /**
+             * Information on how to treat a [MethodFingerprint].
+             *
+             * @param useEndIndex Whether to retrieve information of the [MethodFingerprint]
+             * from the end index of its pattern scan result.
+             * @param offset An additional offset to [useEndIndex].
+             */
+            class UnwrapInfo(val useEndIndex: Boolean = false, val offset: Int = 0)
+        }
 
-        method.addInstructions(
-            index + 1, """
-           invoke-static {}, Lapp/revanced/integrations/patches/VideoBufferPatch;->getReBuffer()I
-           move-result v$register
-        """
-        )
-    }
+        fun hook(context: BytecodeContext) {
+            /**
+             * The resulting instruction info for unwrapping [MethodFingerprint].
+             *
+             * @param index The index of the instruction.
+             * @param register The register of the instruction.
+             */
+            data class InstructionResult(val index: Int, val register: Int)
 
-    private fun MethodFingerprint.unwrap(
-        forEndIndex: Boolean = false,
-        offset: Int = 0
-    ): Pair<MutableMethod, Pair<Int, Int>> {
-        val result = this.result!!
-        val method = result.mutableMethod
-        val scanResult = result.scanResult.patternScanResult!!
-        val index = (if (forEndIndex) scanResult.endIndex else scanResult.startIndex) + offset
+            /***
+             * The result of unwrapping [MethodFingerprint].
+             *
+             * @param method The method which was retrieved from the [MethodFingerprint].
+             * @param instructionResult The resulting instruction info for unwrapping [MethodFingerprint].
+             */
+            data class UnwrapResult(val method: MutableMethod, val instructionResult: InstructionResult)
 
-        val register = (method.instruction(index) as OneRegisterInstruction).registerA
+            fun MethodFingerprint.unwrap(unwrapInfo: PatchInfo.UnwrapInfo? = null): UnwrapResult {
+                val result = this.result!!
+                val method = result.mutableMethod
+                val scanResult = result.scanResult.patternScanResult!!
+                val index =
+                    if (unwrapInfo?.useEndIndex == true) scanResult.endIndex
+                    else {
+                        scanResult.startIndex
+                    } + (unwrapInfo?.offset ?: 0)
 
-        return method to (index to register)
+                val register = (method.instruction(index) as OneRegisterInstruction).registerA
+
+                return UnwrapResult(method, InstructionResult(index, register))
+            }
+
+            preparation?.invoke(context)
+
+            val (method, result) = patchInfo.fingerprint.unwrap(patchInfo.unwrapInfo)
+            val (index, register) = result
+
+            method.addInstructions(
+                index + 1,
+                """
+                   invoke-static {}, Lapp/revanced/integrations/patches/VideoBufferPatch;->${patchInfo.integrationsMethodName}()I
+                   move-result v$register
+                """
+            )
+        }
     }
 }

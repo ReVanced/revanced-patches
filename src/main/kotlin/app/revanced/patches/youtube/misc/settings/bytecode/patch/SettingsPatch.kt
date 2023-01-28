@@ -7,24 +7,19 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.settings.preference.impl.Preference
 import app.revanced.patches.shared.settings.util.AbstractPreferenceScreen
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import app.revanced.patches.youtube.misc.settings.annotations.SettingsCompatibility
 import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.LicenseActivityFingerprint
-import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.ThemeConstructorFingerprint
 import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.ThemeSetterAppFingerprint
 import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.ThemeSetterSystemFingerprint
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsResourcePatch
 import org.jf.dexlib2.util.MethodUtil
 
-@Patch
 @DependsOn(
     [
         IntegrationsPatch::class,
@@ -33,10 +28,9 @@ import org.jf.dexlib2.util.MethodUtil
 )
 @Name("settings")
 @Description("Adds settings for ReVanced to YouTube.")
-@SettingsCompatibility
 @Version("0.0.1")
 class SettingsPatch : BytecodePatch(
-    listOf(LicenseActivityFingerprint, ThemeSetterSystemFingerprint, ThemeConstructorFingerprint)
+    listOf(LicenseActivityFingerprint, ThemeSetterSystemFingerprint, ThemeSetterAppFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         fun buildInvokeInstructionsString(
@@ -60,11 +54,7 @@ class SettingsPatch : BytecodePatch(
         }
 
         // set the theme based on the preference of the app
-        with((ThemeConstructorFingerprint.result?.let {
-            ThemeSetterAppFingerprint.apply {
-                if (!resolve(context, it.classDef)) return ThemeSetterAppFingerprint.toErrorResult()
-            }
-        } ?: return ThemeConstructorFingerprint.toErrorResult()).result!!) {
+        ThemeSetterAppFingerprint.result?.apply {
             fun buildInstructionsString(theme: Int) = """
                     const/4 v0, 0x$theme
                     ${buildInvokeInstructionsString(parameters = "I")}
@@ -79,7 +69,6 @@ class SettingsPatch : BytecodePatch(
                 addInstructions(
                     patternScanResult.endIndex - 7, buildInstructionsString(0)
                 )
-
                 addInstructions(
                     patternScanResult.endIndex - 9, buildInstructionsString(1)
                 )
@@ -87,12 +76,11 @@ class SettingsPatch : BytecodePatch(
                     implementation!!.instructions.size - 2, buildInstructionsString(0)
                 )
             }
-
-        }
+        } ?: return ThemeSetterAppFingerprint.toErrorResult()
 
         // set the theme based on the preference of the device
-        with(LicenseActivityFingerprint.result!!) licenseActivity@{
-            with(mutableMethod) {
+        LicenseActivityFingerprint.result!!.apply licenseActivity@{
+            mutableMethod.apply {
                 fun buildSettingsActivityInvokeString(
                     registers: String = "p0",
                     classDescriptor: String = SETTINGS_ACTIVITY_DESCRIPTOR,
@@ -113,7 +101,7 @@ class SettingsPatch : BytecodePatch(
             }
 
             // remove method overrides
-            with(mutableClass) {
+            mutableClass.apply {
                 methods.removeIf { it.name != "onCreate" && !MethodUtil.isConstructor(it) }
             }
         }

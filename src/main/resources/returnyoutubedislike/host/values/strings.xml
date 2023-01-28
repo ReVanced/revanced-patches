@@ -3,10 +3,9 @@
 
     <string name="revanced_ryd_failure_connection_timeout">Dislikes temporarily not available (API timed out)</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes not available (client API limit reached)</string>
-    <string name="revanced_ryd_failure_register_user">ReturnYouTubeDislike failed to register as new user</string>
-    <string name="revanced_ryd_failure_confirm_user">ReturnYouTubeDislike failed to confirm new user</string>
-    <string name="revanced_ryd_failure_send_vote_failed">ReturnYouTubeDislike failed to send vote</string>
-    <string name="revanced_ryd_failure_confirm_vote_failed">ReturnYouTubeDislike failed to confirm vote</string>
+
+    <!-- corner case situation, where user enables RYD while video is playing and then tries to vote for the video -->
+    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Reload video to vote using ReturnYouTubeDislike</string>
 
     <string name="revanced_ryd_enable_title">Return YouTube Dislike</string>
     <string name="revanced_ryd_enable_summary_on">Dislikes are shown</string>
@@ -34,16 +33,16 @@
     <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_rate_limit_summary">Dislikes temporarily not available - Client API rate limit in effect</string>
 
     <string name="revanced_ryd_statistics_getFetchCallCount_title">API fetch votes, number of calls</string>
-    <string name="revanced_ryd_statistics_getFetchCallCount_zero_summary">No network calls have been made</string>
-    <string name="revanced_ryd_statistics_getFetchCallCount_non_zero_summary">%d network calls have been made</string>
+    <string name="revanced_ryd_statistics_getFetchCallCount_zero_summary">No network calls made</string>
+    <string name="revanced_ryd_statistics_getFetchCallCount_non_zero_summary">%d network calls made</string>
 
     <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_title">API fetch votes, number of timeouts</string>
-    <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_zero_summary">No network calls have timed out</string>
+    <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_zero_summary">No network calls timed out</string>
     <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_non_zero_summary">%d network calls timed out</string>
 
     <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_title">API client rate limits</string>
-    <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">No client rate limits have been encountered</string>
-    <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Client rate limit was encountered %d times</string>
+    <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">No client rate limits encountered</string>
+    <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Client rate limit encountered %d times</string>
 
     <string name="revanced_ryd_statistics_millisecond_text">%d milliseconds</string>
 </resources>

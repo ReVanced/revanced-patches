@@ -22,6 +22,7 @@ import app.revanced.patches.youtube.layout.pivotbar.utils.InjectionUtils.REGISTE
 import app.revanced.patches.youtube.layout.pivotbar.utils.InjectionUtils.injectHook
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
+import org.jf.dexlib2.Opcode
 
 @Patch
 @DependsOn([IntegrationsPatch::class, ResourceMappingPatch::class, SettingsPatch::class, ResolvePivotBarFingerprintsPatch::class])
@@ -54,17 +55,24 @@ class CreateButtonRemoverPatch : BytecodePatch() {
                 return PivotBarCreateButtonViewFingerprint.toErrorResult()
         }
 
-        val createButtonResult = PivotBarCreateButtonViewFingerprint.result!!
-        val insertIndex = createButtonResult.scanResult.patternScanResult!!.endIndex
+        PivotBarCreateButtonViewFingerprint.result!!.apply {
+            val insertIndex = mutableMethod.implementation!!.instructions.let {
+                val scanStart = scanResult.patternScanResult!!.endIndex
 
-        /*
-         * Inject hooks
-         */
+                scanStart + it.subList(scanStart, it.size - 1).indexOfFirst { instruction ->
+                    instruction.opcode == Opcode.INVOKE_STATIC
+                }
+            }
 
-        val hook = "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, " +
-                "$INTEGRATIONS_CLASS_DESCRIPTOR->hideCreateButton(Landroid/view/View;)V"
+            /*
+             * Inject hooks
+             */
+            val hook = "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, " +
+                    "$INTEGRATIONS_CLASS_DESCRIPTOR->hideCreateButton(Landroid/view/View;)V"
 
-        createButtonResult.mutableMethod.injectHook(hook, insertIndex)
+            mutableMethod.injectHook(hook, insertIndex)
+        }
+
 
         return PatchResultSuccess()
     }

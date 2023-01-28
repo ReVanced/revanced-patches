@@ -19,12 +19,12 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.fingerprints.SeekbarFingerprint
 import app.revanced.patches.shared.fingerprints.SeekbarOnDrawFingerprint
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
-import app.revanced.patches.youtube.layout.autocaptions.fingerprints.StartVideoInformerFingerprint
 import app.revanced.patches.youtube.layout.sponsorblock.annotations.SponsorBlockCompatibility
 import app.revanced.patches.youtube.layout.sponsorblock.bytecode.fingerprints.*
 import app.revanced.patches.youtube.layout.sponsorblock.resource.patch.SponsorBlockResourcePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playercontrols.bytecode.patch.PlayerControlsBytecodePatch
+import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.video.information.patch.VideoInformationPatch
 import app.revanced.patches.youtube.misc.video.videoid.patch.VideoIdPatch
 import org.jf.dexlib2.Opcode
@@ -39,6 +39,7 @@ import org.jf.dexlib2.iface.reference.StringReference
     dependencies = [
         VideoInformationPatch::class, // updates video information and adds method to seek in video
         PlayerControlsBytecodePatch::class,
+        PlayerTypeHookPatch::class,
         IntegrationsPatch::class,
         SponsorBlockResourcePatch::class,
         VideoIdPatch::class
@@ -54,8 +55,6 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         NextGenWatchLayoutFingerprint,
         AppendTimeFingerprint,
         PlayerOverlaysLayoutInitFingerprint,
-        ShortsPlayerConstructorFingerprint,
-        StartVideoInformerFingerprint
     )
 ) {
 
@@ -260,31 +259,14 @@ class SponsorBlockBytecodePatch : BytecodePatch(
                     if (it.opcode.ordinal != Opcode.CONST_STRING.ordinal) continue
 
                     when (((it as ReferenceInstruction).reference as StringReference).string) {
-                        "replaceMeWithsetSponsorBarRect" ->
-                            method.replaceStringInstruction(index, it, rectangleFieldName)
-
-                        "replaceMeWithsetMillisecondMethod" ->
-                            method.replaceStringInstruction(index, it, "seekHelper")
+                        "replaceMeWithsetSponsorBarRect" -> method.replaceStringInstruction(
+                            index,
+                            it,
+                            rectangleFieldName
+                        )
                     }
                 }
             } ?: return PatchResultError("Could not find the method which contains the replaceMeWith* strings")
-
-        val startVideoInformerMethod = StartVideoInformerFingerprint.result!!.mutableMethod
-        startVideoInformerMethod.addInstructions(
-            0, """
-            const/4 v0, 0x0
-            sput-boolean v0, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->shorts_playing:Z
-        """
-        )
-
-        val shortsPlayerConstructorMethod = ShortsPlayerConstructorFingerprint.result!!.mutableMethod
-
-        shortsPlayerConstructorMethod.addInstructions(
-            0, """
-            const/4 v0, 0x1
-            sput-boolean v0, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->shorts_playing:Z
-        """
-        )
 
         // TODO: isSBChannelWhitelisting implementation
 

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="microg_not_installed_warning">Vanced MicroG is not installed. Please install it.</string>
+    <string name="microg_not_running_warning">Vanced MicroG is failing to run. Please follow the "Don't kill my app" guide for Vanced MicroG.</string>
 </resources>
