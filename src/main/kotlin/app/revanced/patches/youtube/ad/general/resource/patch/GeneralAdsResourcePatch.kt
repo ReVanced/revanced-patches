@@ -198,13 +198,6 @@ class GeneralAdsResourcePatch : ResourcePatch {
                 StringResource("revanced_adremover_paid_content_enabled_summary_off", "Paid content is shown")
             ),
             SwitchPreference(
-                "revanced_adremover_hide_suggestions",
-                StringResource("revanced_adremover_hide_suggestions_enabled_title", "Hide suggestions"),
-                true,
-                StringResource("revanced_adremover_hide_suggestions_enabled_summary_on", "Suggestions are hidden"),
-                StringResource("revanced_adremover_hide_suggestions_enabled_summary_off", "Suggestions are shown")
-            ),
-            SwitchPreference(
                 "revanced_adremover_hide_latest_posts",
                 StringResource("revanced_adremover_hide_latest_posts_enabled_title", "Hide latest posts"),
                 true,
