@@ -1,3 +1,10 @@
+# [2.157.0-dev.6](https://github.com/revanced/revanced-patches/compare/v2.157.0-dev.5...v2.157.0-dev.6) (2023-01-28)
+
+
+### Bug Fixes
+
+* **youtube/sponsorblock:** replace missing strings ([7b8f0db](https://github.com/revanced/revanced-patches/commit/7b8f0db2c17da6488db1ec2c21a21a14ff8466aa))
+
 # [2.157.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.157.0-dev.4...v2.157.0-dev.5) (2023-01-28)
 
 
