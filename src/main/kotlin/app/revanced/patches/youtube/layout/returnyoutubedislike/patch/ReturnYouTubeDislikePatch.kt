@@ -19,17 +19,28 @@ import app.revanced.patches.youtube.layout.returnyoutubedislike.annotations.Retu
 import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.*
 import app.revanced.patches.youtube.layout.returnyoutubedislike.resource.patch.ReturnYouTubeDislikeResourcePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
+import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.video.videoid.patch.VideoIdPatch
 
 @Patch
-@DependsOn([IntegrationsPatch::class, VideoIdPatch::class, ReturnYouTubeDislikeResourcePatch::class])
+@DependsOn(
+    [
+        IntegrationsPatch::class,
+        VideoIdPatch::class,
+        ReturnYouTubeDislikeResourcePatch::class,
+        PlayerTypeHookPatch::class,
+    ]
+)
 @Name("return-youtube-dislike")
 @Description("Shows the dislike count of videos using the Return YouTube Dislike API.")
 @ReturnYouTubeDislikeCompatibility
 @Version("0.0.1")
 class ReturnYouTubeDislikePatch : BytecodePatch(
     listOf(
-        TextComponentSpecParentFingerprint, LikeFingerprint, DislikeFingerprint, RemoveLikeFingerprint
+        TextComponentSpecParentFingerprint,
+        LikeFingerprint,
+        DislikeFingerprint,
+        RemoveLikeFingerprint,
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {

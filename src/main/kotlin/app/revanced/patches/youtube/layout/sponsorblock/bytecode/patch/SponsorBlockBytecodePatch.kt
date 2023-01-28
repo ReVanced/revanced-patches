@@ -23,6 +23,7 @@ import app.revanced.patches.youtube.layout.sponsorblock.bytecode.fingerprints.*
 import app.revanced.patches.youtube.layout.sponsorblock.resource.patch.SponsorBlockResourcePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playercontrols.bytecode.patch.PlayerControlsBytecodePatch
+import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.video.information.patch.VideoInformationPatch
 import app.revanced.patches.youtube.misc.video.videoid.patch.VideoIdPatch
 import org.jf.dexlib2.Opcode
@@ -35,6 +36,7 @@ import org.jf.dexlib2.iface.reference.MethodReference
     dependencies = [
         VideoInformationPatch::class, // updates video information and adds method to seek in video
         PlayerControlsBytecodePatch::class,
+        PlayerTypeHookPatch::class,
         IntegrationsPatch::class,
         SponsorBlockResourcePatch::class,
         VideoIdPatch::class
@@ -50,7 +52,6 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         NextGenWatchLayoutFingerprint,
         AppendTimeFingerprint,
         PlayerOverlaysLayoutInitFingerprint,
-        ShortsPlayerConstructorFingerprint,
         StartVideoInformerFingerprint
     )
 ) {
@@ -230,23 +231,6 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         PlayerOverlaysLayoutInitFingerprint.result!!.mutableMethod.addInstruction(
             6, // after inflating the view
             "invoke-static {p0}, Lapp/revanced/integrations/sponsorblock/player/ui/SponsorBlockView;->initialize(Ljava/lang/Object;)V"
-        )
-
-        val startVideoInformerMethod = StartVideoInformerFingerprint.result!!.mutableMethod
-        startVideoInformerMethod.addInstructions(
-            0, """
-            const/4 v0, 0x0
-            sput-boolean v0, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->shorts_playing:Z
-        """
-        )
-
-        val shortsPlayerConstructorMethod = ShortsPlayerConstructorFingerprint.result!!.mutableMethod
-
-        shortsPlayerConstructorMethod.addInstructions(
-            0, """
-            const/4 v0, 0x1
-            sput-boolean v0, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->shorts_playing:Z
-        """
         )
 
         // TODO: isSBChannelWhitelisting implementation
