@@ -40,7 +40,7 @@ public class ReVancedUtils {
      * All tasks run at max thread priority.
      */
     private static final ThreadPoolExecutor backgroundThreadPool = new ThreadPoolExecutor(
-            1, // minimum 1 thread always ready to be used
+            2, // minimum 2 threads always ready to be used
             10, // For any threads over the minimum, keep them alive 10 seconds after they go idle
             SHARED_THREAD_POOL_MAXIMUM_BACKGROUND_THREADS,
             TimeUnit.SECONDS,

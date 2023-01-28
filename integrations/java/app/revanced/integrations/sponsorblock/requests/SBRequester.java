@@ -31,6 +31,7 @@ import app.revanced.integrations.sponsorblock.SponsorBlockUtils;
 import app.revanced.integrations.sponsorblock.SponsorBlockUtils.VoteOption;
 import app.revanced.integrations.sponsorblock.objects.SponsorSegment;
 import app.revanced.integrations.sponsorblock.objects.UserStats;
+import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.LogHelper;
 
 public class SBRequester {
@@ -130,13 +131,11 @@ public class SBRequester {
     }
 
     public static void voteForSegment(SponsorSegment segment, VoteOption voteOption, Context context, String... args) {
-        new Thread(() -> { // fixme: use ReVancedUtils#runOnBackgroundThread
+        ReVancedUtils.runOnBackgroundThread(() -> {
             try {
                 String segmentUuid = segment.UUID;
                 String uuid = SettingsEnum.SB_UUID.getString();
                 String vote = Integer.toString(voteOption == VoteOption.UPVOTE ? 1 : 0);
-
-                runOnMainThread(() -> Toast.makeText(context, str("vote_started"), Toast.LENGTH_SHORT).show());
 
                 HttpURLConnection connection = voteOption == VoteOption.CATEGORY_CHANGE
                         ? getConnectionFromRoute(SBRoutes.VOTE_ON_SEGMENT_CATEGORY, segmentUuid, uuid, args[0])
@@ -159,7 +158,7 @@ public class SBRequester {
             } catch (Exception ex) {
                 LogHelper.printException(() -> "failed to vote for segment", ex);
             }
-        }).start();
+        });
     }
 
     public static void retrieveUserStats(PreferenceCategory category, Preference loadingPreference) {
@@ -168,20 +167,22 @@ public class SBRequester {
             return;
         }
 
-        new Thread(() -> { // fixme: use ReVancedUtils#runOnBackgroundThread
+        ReVancedUtils.runOnBackgroundThread(() -> {
             try {
                 JSONObject json = getJSONObject(SBRoutes.GET_USER_STATS, SettingsEnum.SB_UUID.getString());
                 UserStats stats = new UserStats(json.getString("userName"), json.getDouble("minutesSaved"), json.getInt("segmentCount"),
                         json.getInt("viewCount"));
-                SponsorBlockUtils.addUserStats(category, loadingPreference, stats);
+                runOnMainThread(() -> { // get back on main thread to modify UI elements
+                    SponsorBlockUtils.addUserStats(category, loadingPreference, stats);
+                });
             } catch (Exception ex) {
                 LogHelper.printException(() -> "failed to retrieve user stats", ex);
             }
-        }).start();
+        });
     }
 
     public static void setUsername(String username, EditTextPreference preference, Runnable toastRunnable) {
-        new Thread(() -> { // fixme: use ReVancedUtils#runOnBackgroundThread
+        ReVancedUtils.runOnBackgroundThread(() -> {
             try {
                 HttpURLConnection connection = getConnectionFromRoute(SBRoutes.CHANGE_USERNAME, SettingsEnum.SB_UUID.getString(), username);
                 int responseCode = connection.getResponseCode();
@@ -200,7 +201,7 @@ public class SBRequester {
             } catch (Exception ex) {
                 LogHelper.printException(() -> "failed to set username", ex);
             }
-        }).start();
+        });
     }
 
     public static void runVipCheck() {
