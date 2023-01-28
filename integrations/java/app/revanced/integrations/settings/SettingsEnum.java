@@ -1,13 +1,12 @@
 package app.revanced.integrations.settings;
 
 import android.content.Context;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public enum SettingsEnum {
     //Download Settings
@@ -47,7 +46,6 @@ public enum SettingsEnum {
     ADREMOVER_INFO_PANEL_REMOVAL("revanced_adremover_info_panel", true, ReturnType.BOOLEAN),
     ADREMOVER_MEDICAL_PANEL_REMOVAL("revanced_adremover_medical_panel", true, ReturnType.BOOLEAN),
     ADREMOVER_PAID_CONTENT_REMOVAL("revanced_adremover_paid_content", true, ReturnType.BOOLEAN),
-    ADREMOVER_SUGGESTIONS_REMOVAL("revanced_adremover_hide_suggestions", true, ReturnType.BOOLEAN),
     ADREMOVER_HIDE_LATEST_POSTS("revanced_adremover_hide_latest_posts", true, ReturnType.BOOLEAN),
     ADREMOVER_HIDE_CHANNEL_GUIDELINES("revanced_adremover_hide_channel_guidelines", true, ReturnType.BOOLEAN),
     ADREMOVER_SELF_SPONSOR_REMOVAL("revanced_adremover_self_sponsor", true, ReturnType.BOOLEAN),
@@ -225,7 +223,7 @@ public enum SettingsEnum {
         //
 
         // old/new settings where old is default off, and new has inverted value and is default on
-        SettingsEnum invertedSettingsToMigrate[][] = {
+        SettingsEnum[][] invertedSettingsToMigrate = {
                 {DEPRECATED_FULLSCREEN_PANELS_SHOWN, HIDE_FULLSCREEN_PANELS},
                 {DEPRECATED_CREATE_BUTTON_ENABLED, HIDE_CREATE_BUTTON},
                 {DEPRECATED_SHORTS_BUTTON_SHOWN, HIDE_SHORTS_BUTTON},
@@ -235,7 +233,7 @@ public enum SettingsEnum {
                 {DEPRECATED_BRANDING_SHOWN, HIDE_VIDEO_WATERMARK},
                 {DEPRECATED_REMEMBER_VIDEO_QUALITY, REMEMBER_VIDEO_QUALITY_LAST_SELECTED},
         };
-        for (SettingsEnum oldNewSetting[] : invertedSettingsToMigrate) {
+        for (SettingsEnum[] oldNewSetting : invertedSettingsToMigrate) {
             // by default, old setting was default off
             // migrate to new setting of default on
             SettingsEnum oldSetting = oldNewSetting[0];
@@ -254,7 +252,7 @@ public enum SettingsEnum {
         //
         // migrate preference of prior 'default off' settings, into replacement setting with different path name but otherwise is identical
         //
-        SettingsEnum renamedSettings[][] = {
+        SettingsEnum[][] renamedSettings = {
                 {DEPRECATED_HIDE_MIX_PLAYLISTS, HIDE_MIX_PLAYLISTS},
                 {DEPRECATED_HIDE_LIKE_BUTTON, HIDE_LIKE_BUTTON},
                 {DEPRECATED_HIDE_DISLIKE_BUTTON, HIDE_DISLIKE_BUTTON},
@@ -263,7 +261,7 @@ public enum SettingsEnum {
                 {DEPRECATED_HIDE_ACTION_BUTTON, HIDE_ACTION_BUTTON},
                 {DEPRECATED_HIDE_SHARE_BUTTON, HIDE_SHARE_BUTTON},
         };
-        for (SettingsEnum oldNewSetting[] : renamedSettings) {
+        for (SettingsEnum[] oldNewSetting : renamedSettings) {
             SettingsEnum oldSetting = oldNewSetting[0];
             SettingsEnum newSetting = oldNewSetting[1];
 
