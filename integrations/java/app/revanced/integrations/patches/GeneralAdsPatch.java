@@ -112,7 +112,7 @@ public final class GeneralAdsPatch extends Filter {
         else
             result = BlockResult.UNBLOCKED;
 
-        log(String.format("%s (ID: %s): %s", result.message, identifier, path));
+        LogHelper.printDebug(() -> String.format("%s (ID: %s): %s", result.message, identifier, path));
 
         return result.filter;
     }
@@ -141,7 +141,7 @@ public final class GeneralAdsPatch extends Filter {
     private static void hideView(SettingsEnum condition, View view) {
         if (!condition.getBoolean()) return;
 
-        log("Hiding view with setting: " + condition);
+        LogHelper.printDebug(() -> "Hiding view with setting: " + condition);
 
         AdRemoverAPI.HideViewWithLayout1dp(view);
     }
@@ -164,7 +164,4 @@ public final class GeneralAdsPatch extends Filter {
         hideView(SettingsEnum.ADREMOVER_SHORTS_REMOVAL, view);
     }
 
-    private static void log(String message) {
-        LogHelper.printDebug(() -> message);
-    }
 }

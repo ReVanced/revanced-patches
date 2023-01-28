@@ -1,5 +1,6 @@
 package app.revanced.integrations.patches.playback.quality;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -26,24 +27,25 @@ public class RememberVideoQualityPatch {
         if (isConnectedWifi(context)) {
             try {
                 SharedPrefHelper.saveString(SharedPrefHelper.SharedPrefNames.REVANCED_PREFS, "wifi_quality", defaultQuality + "");
+                String message = "Changing default Wi-Fi quality to: " + defaultQuality;
+                LogHelper.printDebug(() -> message);
+                Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
             } catch (Exception ex) {
-                LogHelper.printException(() -> ("Failed to change default WI-FI quality:" + ex));
-                Toast.makeText(context, "Failed to change default WI-FI quality:", Toast.LENGTH_SHORT).show();
+                LogHelper.printException(() -> "Failed to change default WI-FI quality", ex);
             }
-            LogHelper.printDebug(() -> "Changing default Wi-Fi quality to: " + defaultQuality);
-            Toast.makeText(context, "Changing default Wi-Fi quality to: " + defaultQuality, Toast.LENGTH_SHORT).show();
         } else if (isConnectedMobile(context)) {
             try {
                 SharedPrefHelper.saveString(SharedPrefHelper.SharedPrefNames.REVANCED_PREFS, "mobile_quality", defaultQuality + "");
+                String message = "Changing default mobile data quality to:" + defaultQuality;
+                LogHelper.printDebug(() -> message);
+                Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
             } catch (Exception ex) {
-                LogHelper.printDebug(() -> "Failed to change default mobile data quality" + ex);
-                Toast.makeText(context, "Failed to change default mobile data quality", Toast.LENGTH_SHORT).show();
+                LogHelper.printException(() -> "Failed to change default mobile data quality", ex);
             }
-            LogHelper.printDebug(() -> "Changing default mobile data quality to:" + defaultQuality);
-            Toast.makeText(context, "Changing default mobile data quality to:" + defaultQuality, Toast.LENGTH_SHORT).show();
         } else {
-            LogHelper.printDebug(() -> "No internet connection.");
-            Toast.makeText(context, "No internet connection.", Toast.LENGTH_SHORT).show();
+            String message = "No internet connection.";
+            LogHelper.printDebug(() -> message);
+            Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
         }
         userChangedQuality = false;
     }
@@ -88,7 +90,7 @@ public class RememberVideoQualityPatch {
         LogHelper.printDebug(() -> "Quality: " + qualityToLog);
         Context context = ReVancedUtils.getContext();
         if (context == null) {
-            LogHelper.printException(() -> ("Context is null or settings not initialized, returning quality: " + qualityToLog));
+            LogHelper.printException(() -> "Context is null or settings not initialized, returning quality: " + qualityToLog);
             return quality;
         }
         if (isConnectedWifi(context)) {
@@ -129,8 +131,7 @@ public class RememberVideoQualityPatch {
             LogHelper.printDebug(() -> "Quality changed to: " + qualityIndex);
             return qualityIndex;
         } catch (Exception ex) {
-            LogHelper.printException(() -> ("Failed to set quality"), ex);
-            Toast.makeText(context, "Failed to set quality", Toast.LENGTH_SHORT).show();
+            LogHelper.printException(() -> "Failed to set quality", ex);
             return qualityIndex;
         }
     }
@@ -147,6 +148,7 @@ public class RememberVideoQualityPatch {
         newVideo = true;
     }
 
+    @SuppressLint("MissingPermission")
     private static NetworkInfo getNetworkInfo(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         return cm.getActiveNetworkInfo();

@@ -115,9 +115,10 @@ public enum SettingsEnum {
     PLAYBACK_MAX_BUFFER("revanced_pref_buffer_for_playback_ms", 2500, ReturnType.INTEGER),
     MAX_PLAYBACK_BUFFER_AFTER_REBUFFER("revanced_pref_buffer_for_playback_after_rebuffer_ms", 5000, ReturnType.INTEGER),
 
-    // ReVanced settings
+    // Debug settings
     DEBUG("revanced_debug_enabled", false, ReturnType.BOOLEAN),
     DEBUG_STACKTRACE("revanced_debug_stacktrace_enabled", false, ReturnType.BOOLEAN),
+    DEBUG_SHOW_TOAST_ON_ERROR("revanced_debug_toast_on_error_enabled", true, ReturnType.BOOLEAN),
 
     USE_DARK_THEME("app_theme_dark", false, ReturnType.BOOLEAN),
 
@@ -303,7 +304,7 @@ public enum SettingsEnum {
                     defaultValue = SharedPrefHelper.getString(setting.sharedPref, path, (String) defaultValue);
                     break;
                 default:
-                    LogHelper.printException(() -> ("Setting does not have a valid Type. Name is: " + setting.name()));
+                    LogHelper.printException(() -> "Setting does not have a valid Type. Name is: " + setting.name());
                     break;
             }
             setting.setValue(defaultValue);
@@ -336,7 +337,7 @@ public enum SettingsEnum {
         Context context = ReVancedUtils.getContext();
 
         if (context == null) {
-            LogHelper.printException(() -> ("Context on SaveValue is null!"));
+            LogHelper.printException(() -> "Context on SaveValue is null!");
             return;
         }
 
@@ -357,7 +358,7 @@ public enum SettingsEnum {
                 SharedPrefHelper.saveString(sharedPref, path, (String) newValue);
                 break;
             default:
-                LogHelper.printException(() -> ("Setting does not have a valid Type. Name is: " + name()));
+                LogHelper.printException(() -> "Setting does not have a valid Type. Name is: " + name());
                 break;
         }
 

@@ -62,7 +62,7 @@ public class DownloadButton extends BottomControlButton {
 
             LogHelper.printDebug(() -> "Launched the intent with the content: " + content);
         } catch (Exception error) {
-            LogHelper.printDebug(() -> "Failed to launch the intent: " + error);
+            LogHelper.printException(() -> "Failed to launch the intent: " + error, error);
         }
     }
 }

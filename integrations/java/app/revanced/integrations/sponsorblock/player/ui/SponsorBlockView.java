@@ -29,7 +29,7 @@ public class SponsorBlockView {
 
             addView();
         } catch (Exception ex) {
-            LogHelper.printException(() -> ("Unable to set ViewGroup"), ex);
+            LogHelper.printException(() -> "Unable to set ViewGroup", ex);
         }
     }
 
@@ -62,7 +62,7 @@ public class SponsorBlockView {
             setSkipBtnMargins(false);
             setNewSegmentLayoutMargins(false);
         } catch (Exception ex) {
-            LogHelper.printException(() -> ("Player type changed caused a crash."), ex);
+            LogHelper.printException(() -> "Player type changed caused a crash.", ex);
         }
     }
 
@@ -87,13 +87,13 @@ public class SponsorBlockView {
     private static void setSkipBtnMargins(boolean fullScreen) {
         SkipSponsorButton skipSponsorButton = _skipSponsorButton.get();
         if (skipSponsorButton == null) {
-            LogHelper.printException(() -> ("Unable to setSkipBtnMargins"));
+            LogHelper.printException(() -> "Unable to setSkipBtnMargins");
             return;
         }
 
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) skipSponsorButton.getLayoutParams();
         if (params == null) {
-            LogHelper.printException(() -> ("Unable to setSkipBtnMargins"));
+            LogHelper.printException(() -> "Unable to setSkipBtnMargins");
             return;
         }
         params.bottomMargin = fullScreen ? skipSponsorButton.ctaBottomMargin : skipSponsorButton.defaultBottomMargin;
@@ -103,7 +103,7 @@ public class SponsorBlockView {
     private static void skipSponsorButtonVisibility(boolean visible) {
         SkipSponsorButton skipSponsorButton = _skipSponsorButton.get();
         if (skipSponsorButton == null) {
-            LogHelper.printException(() -> ("Unable to skipSponsorButtonVisibility"));
+            LogHelper.printException(() -> "Unable to skipSponsorButtonVisibility");
             return;
         }
 
@@ -116,13 +116,13 @@ public class SponsorBlockView {
     private static void setNewSegmentLayoutMargins(boolean fullScreen) {
         NewSegmentLayout newSegmentLayout = _newSegmentLayout.get();
         if (newSegmentLayout == null) {
-            LogHelper.printException(() -> ("Unable to setNewSegmentLayoutMargins"));
+            LogHelper.printException(() -> "Unable to setNewSegmentLayoutMargins");
             return;
         }
 
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) newSegmentLayout.getLayoutParams();
         if (params == null) {
-            LogHelper.printException(() -> ("Unable to setNewSegmentLayoutMargins"));
+            LogHelper.printException(() -> "Unable to setNewSegmentLayoutMargins");
             return;
         }
         params.bottomMargin = fullScreen ? newSegmentLayout.ctaBottomMargin : newSegmentLayout.defaultBottomMargin;
@@ -132,7 +132,7 @@ public class SponsorBlockView {
     private static void newSegmentLayoutVisibility(boolean visible) {
         NewSegmentLayout newSegmentLayout = _newSegmentLayout.get();
         if (newSegmentLayout == null) {
-            LogHelper.printException(() -> ("Unable to newSegmentLayoutVisibility"));
+            LogHelper.printException(() -> "Unable to newSegmentLayoutVisibility");
             return;
         }
 

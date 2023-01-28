@@ -25,7 +25,7 @@ public class SwipeHelper {
                 isTabletMode = true;
             }
         } catch (Exception e) {
-            LogHelper.printException(() -> ("Unable to set FrameLayout"), e);
+            LogHelper.printException(() -> "Unable to set FrameLayout", e);
         }
     }
 
@@ -33,7 +33,7 @@ public class SwipeHelper {
         try {
             nextGenWatchLayout = (ViewGroup) obj;
         } catch (Exception e) {
-            LogHelper.printException(() -> ("Unable to set _nextGenWatchLayout"), e);
+            LogHelper.printException(() -> "Unable to set _nextGenWatchLayout", e);
         }
     }
 
@@ -44,7 +44,7 @@ public class SwipeHelper {
         }
         try {
         } catch (Exception e) {
-            LogHelper.printException(() -> ("Unable to get related_endscreen_results visibility"), e);
+            LogHelper.printException(() -> "Unable to get related_endscreen_results visibility", e);
         }
         if (_frameLayout.getChildCount() > 0) {
             return _frameLayout.getChildAt(0).getVisibility() == View.VISIBLE;
@@ -61,7 +61,7 @@ public class SwipeHelper {
                 LogHelper.printDebug(() -> "related_endscreen_results refreshed");
             }
         } catch (Exception e) {
-            LogHelper.printException(() -> ("Unable to refresh related_endscreen_results layout"), e);
+            LogHelper.printException(() -> "Unable to refresh related_endscreen_results layout", e);
         }
     }
 

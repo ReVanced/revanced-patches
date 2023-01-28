@@ -51,7 +51,7 @@ public class VotingButton {
             isShowing = true;
             changeVisibilityImmediate(false);
         } catch (Exception ex) {
-            LogHelper.printException(() -> ("Unable to set RelativeLayout"), ex);
+            LogHelper.printException(() -> "Unable to set RelativeLayout", ex);
         }
     }
 
@@ -68,28 +68,32 @@ public class VotingButton {
     }
 
     public static void changeVisibility(boolean visible, boolean immediate) {
-        if (isShowing == visible) return;
-        isShowing = visible;
+        try {
+            if (isShowing == visible) return;
+            isShowing = visible;
 
-        ImageView iView = _votingButton.get();
-        if (_youtubeControlsLayout == null || iView == null) return;
+            ImageView iView = _votingButton.get();
+            if (_youtubeControlsLayout == null || iView == null) return;
 
-        if (visible && shouldBeShown()) {
-            if (getLastKnownVideoTime() >= getCurrentVideoLength()) {
+            if (visible && shouldBeShown()) {
+                if (getLastKnownVideoTime() >= getCurrentVideoLength()) {
+                    return;
+                }
+                LogHelper.printDebug(() -> "Fading in");
+                iView.setVisibility(View.VISIBLE);
+                if (!immediate)
+                    iView.startAnimation(fadeIn);
                 return;
             }
-            LogHelper.printDebug(() -> "Fading in");
-            iView.setVisibility(View.VISIBLE);
-            if (!immediate)
-                iView.startAnimation(fadeIn);
-            return;
-        }
 
-        if (iView.getVisibility() == View.VISIBLE) {
-            LogHelper.printDebug(() -> "Fading out");
-            if (!immediate)
-                iView.startAnimation(fadeOut);
-            iView.setVisibility(shouldBeShown() ? View.INVISIBLE : View.GONE);
+            if (iView.getVisibility() == View.VISIBLE) {
+                LogHelper.printDebug(() -> "Fading out");
+                if (!immediate)
+                    iView.startAnimation(fadeOut);
+                iView.setVisibility(shouldBeShown() ? View.INVISIBLE : View.GONE);
+            }
+        } catch (Exception ex) {
+            LogHelper.printException(() -> "changeVisibility failure", ex);
         }
     }
 

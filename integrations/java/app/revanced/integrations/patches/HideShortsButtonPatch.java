@@ -12,10 +12,9 @@ public class HideShortsButtonPatch {
     public static void hideShortsButton(View view) {
         if (lastPivotTab != null && lastPivotTab.name() == "TAB_SHORTS") {
             boolean hide = SettingsEnum.HIDE_SHORTS_BUTTON.getBoolean();
-            String message = hide ? "Shorts button: hidden" : "Shorts button: shown";
-            LogHelper.printDebug(() -> message);
+            LogHelper.printDebug(() -> hide ? "Shorts button: hidden" : "Shorts button: shown");
             if (hide) {
-                view.setVisibility(hide ? View.GONE : View.VISIBLE);
+                view.setVisibility(View.GONE);
             }
         }
     }
