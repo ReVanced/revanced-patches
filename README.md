@@ -220,6 +220,14 @@ The official Patch bundle provided by ReVanced and the community.
 | `promo-code-unlock` | Disables the validation of promo code. Any code will work to unlock all features. | all |
 </details>
 
+### [📦 `net.binarymode.android.irplus`](https://play.google.com/store/apps/details?id=net.binarymode.android.irplus)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `remove-ads` | Removes all ads from the app. | all |
+</details>
+
 ### [📦 `com.teslacoilsw.launcher`](https://play.google.com/store/apps/details?id=com.teslacoilsw.launcher)
 <details>
 

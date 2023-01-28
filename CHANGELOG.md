@@ -1,3 +1,24 @@
+# [2.158.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.157.1-dev.2...v2.158.0-dev.1) (2023-01-28)
+
+
+### Features
+
+* **irplus:** `remove-ads` patch ([#1554](https://github.com/revanced/revanced-patches/issues/1554)) ([9943a52](https://github.com/revanced/revanced-patches/commit/9943a520d29ee89598b4aa6aba69ff83cb4768ce))
+
+## [2.157.1-dev.2](https://github.com/revanced/revanced-patches/compare/v2.157.1-dev.1...v2.157.1-dev.2) (2023-01-28)
+
+
+### Bug Fixes
+
+* **youtube:** resolve duplicate preference keys ([#1550](https://github.com/revanced/revanced-patches/issues/1550)) ([aafdb89](https://github.com/revanced/revanced-patches/commit/aafdb891b2f0f243cb2d997a38ab3e6a7b46aba8))
+
+## [2.157.1-dev.1](https://github.com/revanced/revanced-patches/compare/v2.157.0...v2.157.1-dev.1) (2023-01-28)
+
+
+### Bug Fixes
+
+* **youtube/microg-support:** replace new permission ([3d1cce5](https://github.com/revanced/revanced-patches/commit/3d1cce5b4ca54c622b863f24febeb03a6060033c))
+
 # [2.157.0](https://github.com/revanced/revanced-patches/compare/v2.156.0...v2.157.0) (2023-01-28)
 
 
