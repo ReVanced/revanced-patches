@@ -2,7 +2,6 @@ package app.revanced.integrations.returnyoutubedislike;
 
 import static app.revanced.integrations.sponsorblock.StringRef.str;
 
-import android.content.Context;
 import android.icu.text.CompactDecimalFormat;
 import android.os.Build;
 import android.text.Spannable;
@@ -13,7 +12,6 @@ import android.text.style.CharacterStyle;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.ScaleXSpan;
-import android.util.DisplayMetrics;
 
 import androidx.annotation.GuardedBy;
 import androidx.annotation.Nullable;
@@ -31,6 +29,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import app.revanced.integrations.returnyoutubedislike.requests.RYDVoteData;
 import app.revanced.integrations.returnyoutubedislike.requests.ReturnYouTubeDislikeApi;
 import app.revanced.integrations.settings.SettingsEnum;
+import app.revanced.integrations.shared.PlayerType;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
@@ -117,8 +116,12 @@ public class ReturnYouTubeDislike {
         if (!isEnabled) return;
         try {
             Objects.requireNonNull(videoId);
-            LogHelper.printDebug(() -> "New video loaded: " + videoId);
-
+            PlayerType currentPlayerType = PlayerType.getCurrent();
+            if (currentPlayerType == PlayerType.INLINE_MINIMAL) {
+                LogHelper.printDebug(() -> "Ignoring inline playback of video: "+ videoId);
+                return;
+            }
+            LogHelper.printDebug(() -> " new video loaded: " + videoId + " playerType: " + currentPlayerType);
             synchronized (videoIdLockObject) {
                 currentVideoId = videoId;
                 // no need to wrap the call in a try/catch,
@@ -175,8 +178,7 @@ public class ReturnYouTubeDislike {
             if (updateDislike(textRef, isSegmentedButton, votingData)) {
                 LogHelper.printDebug(() -> "Updated dislike span to: " + textRef.get());
             } else {
-                LogHelper.printDebug(() -> "Ignoring dislike span: " + textRef.get()
-                        + " that appears to already show voting data: " + votingData);
+                LogHelper.printDebug(() -> "Ignoring already updated dislike span: " + textRef.get());
             }
         } catch (Exception ex) {
             LogHelper.printException(() -> "Error while trying to update dislikes", ex);
@@ -187,7 +189,13 @@ public class ReturnYouTubeDislike {
         if (!isEnabled) return;
         try {
             Objects.requireNonNull(vote);
+
+            if (PlayerType.getCurrent() == PlayerType.NONE) { // should occur if shorts is playing
+                LogHelper.printDebug(() -> "Ignoring vote during Shorts playback");
+                return;
+            }
             if (SharedPrefHelper.getBoolean(SharedPrefHelper.SharedPrefNames.YOUTUBE, "user_signed_out", true)) {
+                LogHelper.printDebug(() -> "User is logged out, ignoring voting");
                 return;
             }
 
