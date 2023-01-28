@@ -1,3 +1,10 @@
+# [2.158.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.157.1-dev.2...v2.158.0-dev.1) (2023-01-28)
+
+
+### Features
+
+* **irplus:** `remove-ads` patch ([#1554](https://github.com/revanced/revanced-patches/issues/1554)) ([9943a52](https://github.com/revanced/revanced-patches/commit/9943a520d29ee89598b4aa6aba69ff83cb4768ce))
+
 ## [2.157.1-dev.2](https://github.com/revanced/revanced-patches/compare/v2.157.1-dev.1...v2.157.1-dev.2) (2023-01-28)
 
 
