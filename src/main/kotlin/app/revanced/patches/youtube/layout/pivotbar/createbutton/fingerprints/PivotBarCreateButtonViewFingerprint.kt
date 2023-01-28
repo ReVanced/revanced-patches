@@ -5,10 +5,7 @@ import org.jf.dexlib2.Opcode
 
 object PivotBarCreateButtonViewFingerprint : MethodFingerprint(
     opcodes = listOf(
+        Opcode.MOVE_OBJECT,
         Opcode.INVOKE_DIRECT_RANGE, // unique instruction anchor
-        Opcode.CONST_4,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.INVOKE_STATIC
     )
 )

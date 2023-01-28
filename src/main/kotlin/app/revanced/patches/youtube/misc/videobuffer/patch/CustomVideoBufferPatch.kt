@@ -1,12 +1,15 @@
 package app.revanced.patches.youtube.misc.videobuffer.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -19,6 +22,7 @@ import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.TextPreference
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.videobuffer.annotations.CustomVideoBufferCompatibility
+import app.revanced.patches.youtube.misc.videobuffer.fingerprints.InvokeMaxBufferFingerprint
 import app.revanced.patches.youtube.misc.videobuffer.fingerprints.MaxBufferFingerprint
 import app.revanced.patches.youtube.misc.videobuffer.fingerprints.PlaybackBufferFingerprint
 import app.revanced.patches.youtube.misc.videobuffer.fingerprints.ReBufferFingerprint
@@ -32,7 +36,9 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Version("0.0.1")
 class CustomVideoBufferPatch : BytecodePatch(
     listOf(
-        MaxBufferFingerprint, PlaybackBufferFingerprint, ReBufferFingerprint
+        InvokeMaxBufferFingerprint,
+        PlaybackBufferFingerprint,
+        ReBufferFingerprint,
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
@@ -103,8 +109,26 @@ class CustomVideoBufferPatch : BytecodePatch(
                 MaxBufferFingerprint,
                 "getMaxBuffer",
                 PatchInfo.UnwrapInfo(true, -1)
-            )
-        );
+            ),
+            preparation@{
+                InvokeMaxBufferFingerprint.result?.apply {
+                    val maxBufferMethodCallOffset = 2
+
+                    val maxBufferMethod = this@preparation.toMethodWalker(method)
+                        .nextMethod(scanResult.patternScanResult!!.endIndex + maxBufferMethodCallOffset)
+                        .getMethod()
+
+                    if (!MaxBufferFingerprint.resolve(
+                            this@preparation,
+                            maxBufferMethod,
+                            // This is inefficient because toMethodWalker technically already has context about this.
+                            // Alternatively you can iterate manually over all classes
+                            // instead of relying on toMethodWalker.
+                            this@preparation.findClass(maxBufferMethod.definingClass)!!.immutableClass,
+                        )
+                    ) throw MaxBufferFingerprint.toErrorResult()
+                } ?: throw InvokeMaxBufferFingerprint.toErrorResult()
+            });
 
         /**
          * Information about a patch.
@@ -121,11 +145,11 @@ class CustomVideoBufferPatch : BytecodePatch(
             /**
              * Information on how to treat a [MethodFingerprint].
              *
-             * @param forEndIndex Whether to retrieve information from the [MethodFingerprint]
-             * from the end or start index of its pattern scan result.
-             * @param offset An additional offset to [forEndIndex].
+             * @param useEndIndex Whether to retrieve information of the [MethodFingerprint]
+             * from the end index of its pattern scan result.
+             * @param offset An additional offset to [useEndIndex].
              */
-            class UnwrapInfo(val forEndIndex: Boolean = false, val offset: Int = 0)
+            class UnwrapInfo(val useEndIndex: Boolean = false, val offset: Int = 0)
         }
 
         fun hook(context: BytecodeContext) {
@@ -149,12 +173,11 @@ class CustomVideoBufferPatch : BytecodePatch(
                 val result = this.result!!
                 val method = result.mutableMethod
                 val scanResult = result.scanResult.patternScanResult!!
-                val index = (
-                        if (unwrapInfo?.forEndIndex == true)
-                            scanResult.endIndex
-                        else
-                            scanResult.startIndex
-                        ) + (unwrapInfo?.offset ?: 0)
+                val index =
+                    if (unwrapInfo?.useEndIndex == true) scanResult.endIndex
+                    else {
+                        scanResult.startIndex
+                    } + (unwrapInfo?.offset ?: 0)
 
                 val register = (method.instruction(index) as OneRegisterInstruction).registerA
 
