@@ -330,6 +330,22 @@ public class SpoofWifiPatch {
         );
     }
 
+    public static void unregisterNetworkCallback(ConnectivityManager connectivityManager, ConnectivityManager.NetworkCallback networkCallback) {
+        try {
+            connectivityManager.unregisterNetworkCallback(networkCallback);
+        } catch (IllegalArgumentException ignore) {
+            // ignore: NetworkCallback was not registered
+        }
+    }
+
+    public static void unregisterNetworkCallback(ConnectivityManager connectivityManager, PendingIntent operation) {
+        try {
+            connectivityManager.unregisterNetworkCallback(operation);
+        } catch (IllegalArgumentException ignore) {
+            // ignore: PendingIntent was not registered
+        }
+    }
+
     private static class Utils {
         private static class Option<T> {
             private final T value;
