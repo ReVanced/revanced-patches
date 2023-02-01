@@ -5,14 +5,11 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.*
-import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.spotify.layout.theme.annotations.ThemeCompatibility
-import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import org.w3c.dom.Element
 
 @Patch
-@DependsOn([FixLocaleConfigErrorPatch::class])
 @Name("spotify-theme")
 @Description("Applies a custom theme.")
 @ThemeCompatibility

@@ -7,15 +7,12 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.ResourcePatch
+import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.layout.playerbuttonbackground.annotations.PlayerButtonBackgroundCompatibility
-import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import org.w3c.dom.Element
 
 @Patch
-@DependsOn([FixLocaleConfigErrorPatch::class])
 @Name("remove-player-button-background")
 @Description("Removes the background from the video player buttons.")
 @PlayerButtonBackgroundCompatibility

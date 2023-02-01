@@ -8,13 +8,12 @@ import app.revanced.patcher.patch.*
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.layout.theme.annotations.ThemeCompatibility
-import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 import org.w3c.dom.Element
 
 @Patch
-@DependsOn([LithoThemePatch::class, FixLocaleConfigErrorPatch::class])
+@DependsOn([LithoThemePatch::class])
 @Name("theme")
 @Description("Applies a custom theme.")
 @ThemeCompatibility

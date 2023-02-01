@@ -11,7 +11,6 @@ import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
 import app.revanced.patches.shared.settings.preference.impl.Preference
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.youtube.layout.sponsorblock.annotations.SponsorBlockCompatibility
-import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
@@ -20,7 +19,7 @@ import app.revanced.util.resources.ResourceUtils.mergeStrings
 
 @Name("sponsorblock-resource-patch")
 @SponsorBlockCompatibility
-@DependsOn([FixLocaleConfigErrorPatch::class, SettingsPatch::class, ResourceMappingPatch::class])
+@DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
 @Version("0.0.1")
 class SponsorBlockResourcePatch : ResourcePatch {
 

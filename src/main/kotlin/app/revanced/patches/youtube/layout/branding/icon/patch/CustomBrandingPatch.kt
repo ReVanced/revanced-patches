@@ -5,17 +5,14 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.*
-import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.layout.branding.icon.annotations.CustomBrandingCompatibility
-import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 import java.io.File
 import java.nio.file.Files
 
 @Patch
-@DependsOn([FixLocaleConfigErrorPatch::class])
 @Name("custom-branding")
 @Description("Changes the YouTube launcher icon and name to your choice (defaults to ReVanced).")
 @CustomBrandingCompatibility
