@@ -46,7 +46,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG. | 18.03.36 |
 | `minimized-playback` | Enables minimized and background playback. | 18.03.36 |
 | `old-quality-layout` | Enables the original video quality flyout in the video player settings | 18.03.36 |
-| `open-links-directly` | Bypasses https://youtube.com/redirect URLs. | 18.03.36 |
+| `open-links-directly` | Skips over redirection URLs to external links. | 18.03.36 |
 | `open-links-externally` | Open links outside of the app directly in your browser. | 18.03.36 |
 | `premium-heading` | Shows premium branding on the home screen. | all |
 | `remember-playback-rate` | Adds the ability to remember the playback rate you chose in the video playback rate flyout. | 18.03.36 |
@@ -54,7 +54,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `remove-player-button-background` | Removes the background from the video player buttons. | 18.03.36 |
 | `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 18.03.36 |
 | `seekbar-tapping` | Enables tap-to-seek on the seekbar of the video player. | 18.03.36 |
-| `sponsorblock` | Integrate SponsorBlock. | 18.03.36 |
+| `sponsorblock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. | 18.03.36 |
 | `spoof-app-version` | Tricks YouTube into thinking, you are running an older version of the app. One of the side effects also includes restoring the old UI. | 18.03.36 |
 | `swipe-controls` | Adds volume and brightness swipe controls. | 18.03.36 |
 | `tablet-mini-player` | Enables the tablet mini player layout. | 18.03.36 |
@@ -160,7 +160,7 @@ The official Patch bundle provided by ReVanced and the community.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `remove-bootloader-detection` | Removes the check for an unlocked bootloader. | 2.2.0 |
-| `remove-root-detection` | Removes the check for root permissions | 2.2.0 |
+| `remove-root-detection` | Removes the check for root permissions. | 2.2.0 |
 </details>
 
 ### [📦 `at.gv.oe.app`](https://play.google.com/store/apps/details?id=at.gv.oe.app)
@@ -186,6 +186,14 @@ The official Patch bundle provided by ReVanced and the community.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `disable-ads` | Disables ads in HexEditor. | all |
+</details>
+
+### [📦 `com.spotify.lite`](https://play.google.com/store/apps/details?id=com.spotify.lite)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `enable-on-demand` | Enables listening to songs on-demand, allowing to play any song from playlists, albums or artists without limitations. This does not remove ads. | all |
 </details>
 
 ### [📦 `org.citra.citra_emu`](https://play.google.com/store/apps/details?id=org.citra.citra_emu)
