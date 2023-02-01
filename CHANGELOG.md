@@ -1,3 +1,10 @@
+# [2.159.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.159.0-dev.1...v2.159.0-dev.2) (2023-02-01)
+
+
+### Features
+
+* `spoof-wifi-connection` patch ([#1527](https://github.com/revanced/revanced-patches/issues/1527)) ([adce206](https://github.com/revanced/revanced-patches/commit/adce206d66e1f7017328fe68a5818d424f70e588))
+
 # [2.159.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.158.0...v2.159.0-dev.1) (2023-02-01)
 
 
