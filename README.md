@@ -38,6 +38,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-endscreen-cards` | Hides the suggested video cards at the end of a video in fullscreen. | 18.03.36 |
 | `hide-info-cards` | Hides info-cards in videos. | 18.03.36 |
 | `hide-my-mix` | Hides mix playlists. | 18.03.36 |
+| `hide-player-buttons` | Adds the option to hide video player previous and next buttons. | all |
 | `hide-shorts-button` | Hides the shorts button on the navigation bar. | 18.03.36 |
 | `hide-time-and-seekbar` | Hides progress bar and time counter on videos. | 18.03.36 |
 | `hide-video-buttons` | Adds options to hide action buttons under a video. | 18.03.36 |

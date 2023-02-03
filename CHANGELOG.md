@@ -1,3 +1,10 @@
+# [2.159.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.159.0-dev.2...v2.159.0-dev.3) (2023-02-03)
+
+
+### Features
+
+* **youtube:** `hide-player-buttons` patch ([3469d37](https://github.com/revanced/revanced-patches/commit/3469d37bcedfd2dfbe46231b17cd098b591810c1))
+
 # [2.159.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.159.0-dev.1...v2.159.0-dev.2) (2023-02-01)
 
 
