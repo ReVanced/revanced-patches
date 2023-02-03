@@ -1,3 +1,10 @@
+# [2.159.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.159.0-dev.3...v2.159.0-dev.4) (2023-02-03)
+
+
+### Features
+
+* **netguard:** `remove-broadcasts-restriction` patch ([#1581](https://github.com/revanced/revanced-patches/issues/1581)) ([73132e3](https://github.com/revanced/revanced-patches/commit/73132e37cf83f4c1f05cf6a184dfd8e454f7456e))
+
 # [2.159.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.159.0-dev.2...v2.159.0-dev.3) (2023-02-03)
 
 

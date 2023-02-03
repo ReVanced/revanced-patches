@@ -41,7 +41,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-player-buttons` | Adds the option to hide video player previous and next buttons. | all |
 | `hide-shorts-button` | Hides the shorts button on the navigation bar. | 18.03.36 |
 | `hide-time-and-seekbar` | Hides progress bar and time counter on videos. | 18.03.36 |
-| `hide-video-buttons` | Adds options to hide action buttons under a video. | 18.03.36 |
+| `hide-video-action-buttons` | Adds the options to hide action buttons under a video. | 18.03.36 |
 | `hide-watch-in-vr` | Hides the Watch in VR option in the player settings flyout panel. | 18.03.36 |
 | `hide-watermark` | Hides creator's watermarks on videos. | 18.03.36 |
 | `microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG. | 18.03.36 |
@@ -235,6 +235,14 @@ The official Patch bundle provided by ReVanced and the community.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `remove-ads` | Removes all ads from the app. | all |
+</details>
+
+### [📦 `eu.faircode.netguard`](https://play.google.com/store/apps/details?id=eu.faircode.netguard)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `remove-broadcasts-restriction` | Enables starting/stopping NetGuard via broadcasts. | all |
 </details>
 
 ### [📦 `com.teslacoilsw.launcher`](https://play.google.com/store/apps/details?id=com.teslacoilsw.launcher)
