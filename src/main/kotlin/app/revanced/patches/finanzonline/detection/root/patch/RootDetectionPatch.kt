@@ -15,7 +15,7 @@ import app.revanced.patches.finanzonline.detection.shared.annotations.DetectionC
 
 @Patch
 @Name("remove-root-detection")
-@Description("Removes the check for root permissions")
+@Description("Removes the check for root permissions.")
 @DetectionCompatibility
 @Version("0.0.1")
 class RootDetectionPatch : BytecodePatch(

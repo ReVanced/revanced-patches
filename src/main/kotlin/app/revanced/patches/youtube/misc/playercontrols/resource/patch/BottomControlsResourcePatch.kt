@@ -8,12 +8,9 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import app.revanced.patches.youtube.misc.playercontrols.annotation.PlayerControlsCompatibility
 
 @Name("bottom-controls-resource-patch")
-@DependsOn([FixLocaleConfigErrorPatch::class])
 @Description("Manages the resources for the bottom controls of the YouTube player.")
 @PlayerControlsCompatibility
 @Version("0.0.1")

@@ -12,7 +12,6 @@ import app.revanced.patches.shared.settings.preference.impl.PreferenceScreen
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.interaction.copyvideourl.annotation.CopyVideoUrlCompatibility
-import app.revanced.patches.youtube.misc.manifest.patch.FixLocaleConfigErrorPatch
 import app.revanced.patches.youtube.misc.playercontrols.resource.patch.BottomControlsResourcePatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.util.resources.ResourceUtils
@@ -20,7 +19,7 @@ import app.revanced.util.resources.ResourceUtils.copyResources
 
 @Name("copy-video-url-resource")
 @Description("Makes necessary changes to resources for copy video link buttons.")
-@DependsOn([BottomControlsResourcePatch::class, FixLocaleConfigErrorPatch::class, SettingsPatch::class])
+@DependsOn([BottomControlsResourcePatch::class, SettingsPatch::class])
 @CopyVideoUrlCompatibility
 @Version("0.0.1")
 class CopyVideoUrlResourcePatch : ResourcePatch {

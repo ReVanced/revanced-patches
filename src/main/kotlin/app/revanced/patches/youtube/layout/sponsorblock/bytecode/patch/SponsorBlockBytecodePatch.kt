@@ -46,7 +46,7 @@ import org.jf.dexlib2.iface.reference.StringReference
     ]
 )
 @Name("sponsorblock")
-@Description("Integrate SponsorBlock.")
+@Description("Integrates SponsorBlock which allows skipping video segments such as sponsored content.")
 @SponsorBlockCompatibility
 @Version("0.0.1")
 class SponsorBlockBytecodePatch : BytecodePatch(
