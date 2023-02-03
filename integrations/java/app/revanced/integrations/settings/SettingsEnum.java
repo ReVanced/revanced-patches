@@ -88,6 +88,7 @@ public enum SettingsEnum {
     HIDE_TIME_AND_SEEKBAR("revanced_hide_time_and_seekbar", false, ReturnType.BOOLEAN),
     HIDE_WATCH_IN_VR("revanced_hide_watch_in_vr", false, ReturnType.BOOLEAN, true),
     HIDE_BREAKING_NEWS("revanced_hide_breaking_news", true, ReturnType.BOOLEAN, true),
+    HIDE_PLAYER_BUTTONS("revanced_hide_player_buttons", false, ReturnType.BOOLEAN, false),
 
     // Misc. Settings
     FIX_PLAYBACK("revanced_fix_playback", false, ReturnType.BOOLEAN, false),
