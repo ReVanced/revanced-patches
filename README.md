@@ -197,6 +197,14 @@ The official Patch bundle provided by ReVanced and the community.
 | `enable-on-demand` | Enables listening to songs on-demand, allowing to play any song from playlists, albums or artists without limitations. This does not remove ads. | all |
 </details>
 
+### [📦 `com.instagram.android`](https://play.google.com/store/apps/details?id=com.instagram.android)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `hide-timeline-ads` | Removes ads from the timeline. | all |
+</details>
+
 ### [📦 `org.citra.citra_emu`](https://play.google.com/store/apps/details?id=org.citra.citra_emu)
 <details>
 
