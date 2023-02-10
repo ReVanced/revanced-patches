@@ -1,3 +1,10 @@
+# [2.161.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.160.0...v2.161.0-dev.1) (2023-02-10)
+
+
+### Features
+
+* **youtube/general-ads:** hide pill to view products ([7b1bc1a](https://github.com/revanced/revanced-patches/commit/7b1bc1ad50f2b38277b0c19aad735ea65f8333d3))
+
 # [2.160.0](https://github.com/revanced/revanced-patches/compare/v2.159.0...v2.160.0) (2023-02-10)
 
 
