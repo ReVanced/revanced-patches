@@ -1,3 +1,10 @@
+# [2.161.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.161.0-dev.1...v2.161.0-dev.2) (2023-02-10)
+
+
+### Bug Fixes
+
+* **instagram/hide-timeline-ads:** fix compatibility with newer versions ([3d4646a](https://github.com/revanced/revanced-patches/commit/3d4646ae7efe13f9f7e47cf5ba7613aac4d04d66))
+
 # [2.161.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.160.0...v2.161.0-dev.1) (2023-02-10)
 
 
