@@ -151,7 +151,8 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `general-reddit-ads` | Removes general ads from the Reddit frontpage and subreddits. | 2022.43.0 |
+| `general-reddit-ads` | Removes general ads from the Reddit frontpage and subreddits. | 2023.05.0 |
+| `hide-subreddit-banner` | Hides banner ads from comments on subreddits. | 2023.05.0 |
 | `premium-icon-reddit` | Unlocks premium Reddit app icons. | all |
 </details>
 
