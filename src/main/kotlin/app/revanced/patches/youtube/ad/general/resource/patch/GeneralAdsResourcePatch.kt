@@ -88,6 +88,13 @@ class GeneralAdsResourcePatch : ResourcePatch {
                 StringResource("revanced_adremover_compact_banner_enabled_summary_off", "Compact banners are shown")
             ),
             SwitchPreference(
+                "revanced_adremover_view_products",
+                StringResource("revanced_adremover_view_products_title", "Hide pill to view products"),
+                true,
+                StringResource("revanced_adremover_view_products_summary_on", "Pill is hidden"),
+                StringResource("revanced_adremover_view_products_summary_off", "Pill is shown")
+            ),
+            SwitchPreference(
                 "revanced_adremover_movie",
                 StringResource("revanced_adremover_movie_enabled_title", "Hide movies section"),
                 true,
