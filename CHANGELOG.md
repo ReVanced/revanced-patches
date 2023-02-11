@@ -1,3 +1,10 @@
+# [2.162.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.161.1...v2.162.0-dev.1) (2023-02-11)
+
+
+### Features
+
+* **yuka:** `unlock-premium` patch ([#1608](https://github.com/revanced/revanced-patches/issues/1608)) ([71e1594](https://github.com/revanced/revanced-patches/commit/71e15945c1b4019eaa2ff214b4efbfc6b1a67376))
+
 ## [2.161.1](https://github.com/revanced/revanced-patches/compare/v2.161.0...v2.161.1) (2023-02-11)
 
 

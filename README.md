@@ -254,6 +254,14 @@ The official Patch bundle provided by ReVanced and the community.
 | `remove-broadcasts-restriction` | Enables starting/stopping NetGuard via broadcasts. | all |
 </details>
 
+### [📦 `io.yuka.android`](https://play.google.com/store/apps/details?id=io.yuka.android)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-premium` | Unlocks premium features. | all |
+</details>
+
 ### [📦 `com.teslacoilsw.launcher`](https://play.google.com/store/apps/details?id=com.teslacoilsw.launcher)
 <details>
 
