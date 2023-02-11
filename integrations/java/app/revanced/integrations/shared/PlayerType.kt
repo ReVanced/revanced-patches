@@ -49,4 +49,11 @@ enum class PlayerType {
          */
         val onChange = Event<PlayerType>()
     }
+
+    /**
+     * Weather Shorts are being played.
+     */
+    fun isNoneOrHidden(): Boolean {
+        return this == NONE || this == HIDDEN
+    }
 }
