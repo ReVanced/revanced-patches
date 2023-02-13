@@ -36,7 +36,7 @@ public final class GeneralAdsPatch extends Filter {
         var artistCard = new BlockRule(SettingsEnum.HIDE_ARTIST_CARD, "official_card");
         var selfSponsor = new BlockRule(SettingsEnum.ADREMOVER_SELF_SPONSOR_REMOVAL, "cta_shelf_card");
         var chapterTeaser = new BlockRule(SettingsEnum.ADREMOVER_CHAPTER_TEASER_REMOVAL, "expandable_metadata");
-        var viewProducts = new BlockRule(SettingsEnum.ADREMOVER_GRAY_SEPARATOR, "product_item", "products_in_video");
+        var viewProducts = new BlockRule(SettingsEnum.ADREMOVER_VIEW_PRODUCTS, "product_item", "products_in_video");
         var graySeparator = new BlockRule(SettingsEnum.ADREMOVER_GRAY_SEPARATOR,
                 "cell_divider" // layout residue (gray line above the buttoned ad),
         );
