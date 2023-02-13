@@ -9,7 +9,7 @@ final class CommentsPatch extends Filter {
         var comments = new BlockRule(SettingsEnum.HIDE_COMMENTS_SECTION, "video_metadata_carousel", "_comments");
         var previewComment = new BlockRule(
                 SettingsEnum.HIDE_PREVIEW_COMMENT,
-                "carousel_item",
+                "|carousel_item",
                 "comments_entry_point_teaser",
                 "comments_entry_point_simplebox"
         );
