@@ -32,7 +32,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 'latest'
+          node-version: '18'
           cache: 'npm'
       - name: Setup Android SDK
         uses: amyu/setup-android@v2
@@ -45,8 +45,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ./gradlew generateMeta clean --no-daemon
       - name: Setup semantic-release
-        run: npm install semantic-release@19.0.5 @saithodev/semantic-release-backmerge @semantic-release/git @semantic-release/changelog gradle-semantic-release-plugin@1.7.4 -D
+        run: npm install
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.REPOSITORY_PUSH_ACCESS }}
-        run: npx semantic-release
+        run: npm exec semantic-release
