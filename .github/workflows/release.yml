@@ -45,7 +45,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ./gradlew generateMeta clean --no-daemon
       - name: Setup semantic-release
-        run: npm install semantic-release @saithodev/semantic-release-backmerge @semantic-release/git @semantic-release/changelog gradle-semantic-release-plugin -D
+        run: npm install
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.REPOSITORY_PUSH_ACCESS }}
