@@ -95,6 +95,13 @@ class GeneralAdsResourcePatch : ResourcePatch {
                 StringResource("revanced_adremover_view_products_summary_off", "Banner is shown")
             ),
             SwitchPreference(
+                "revanced_adremover_web_search_result",
+                StringResource("revanced_adremover_web_search_result_panel_title", "Hide web search results"),
+                true,
+                StringResource("revanced_adremover_web_search_result_summary_on", "Web search results are hidden"),
+                StringResource("revanced_adremover_web_search_result_summary_off", "Web search results are shown")
+            ),
+            SwitchPreference(
                 "revanced_adremover_movie",
                 StringResource("revanced_adremover_movie_enabled_title", "Hide movies section"),
                 true,
