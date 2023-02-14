@@ -53,6 +53,7 @@ public enum SettingsEnum {
     ADREMOVER_BUTTONED_REMOVAL("revanced_adremover_buttoned", true, ReturnType.BOOLEAN),
     ADREMOVER_GRAY_SEPARATOR("revanced_adremover_separator", true, ReturnType.BOOLEAN),
     ADREMOVER_VIEW_PRODUCTS("revanced_adremover_view_products", true, ReturnType.BOOLEAN),
+    ADREMOVER_WEB_SEARCH_RESULTS("revanced_adremover_web_search_result", true, ReturnType.BOOLEAN),
 
     // Action buttons
     HIDE_LIKE_BUTTON("revanced_hide_like_button", false, ReturnType.BOOLEAN, false),

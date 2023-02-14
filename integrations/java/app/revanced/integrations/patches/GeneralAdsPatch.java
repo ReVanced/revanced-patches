@@ -26,7 +26,7 @@ public final class GeneralAdsPatch extends Filter {
         var subscribersCommunityGuidelines = new BlockRule(SettingsEnum.ADREMOVER_SUBSCRIBERS_COMMUNITY_GUIDELINES_REMOVAL, "sponsorships_comments_upsell");
         var channelMemberShelf = new BlockRule(SettingsEnum.ADREMOVER_CHANNEL_MEMBER_SHELF_REMOVAL, "member_recognition_shelf");
         var compactBanner = new BlockRule(SettingsEnum.ADREMOVER_COMPACT_BANNER_REMOVAL, "compact_banner");
-        var inFeedSurvey = new BlockRule(SettingsEnum.ADREMOVER_FEED_SURVEY_REMOVAL, "in_feed_survey");
+        var inFeedSurvey = new BlockRule(SettingsEnum.ADREMOVER_FEED_SURVEY_REMOVAL, "in_feed_survey", "slimline_survey");
         var medicalPanel = new BlockRule(SettingsEnum.ADREMOVER_MEDICAL_PANEL_REMOVAL, "medical_panel");
         var paidContent = new BlockRule(SettingsEnum.ADREMOVER_PAID_CONTENT_REMOVAL, "paid_content_overlay");
         var merchandise = new BlockRule(SettingsEnum.ADREMOVER_MERCHANDISE_REMOVAL, "product_carousel");
@@ -37,6 +37,7 @@ public final class GeneralAdsPatch extends Filter {
         var selfSponsor = new BlockRule(SettingsEnum.ADREMOVER_SELF_SPONSOR_REMOVAL, "cta_shelf_card");
         var chapterTeaser = new BlockRule(SettingsEnum.ADREMOVER_CHAPTER_TEASER_REMOVAL, "expandable_metadata");
         var viewProducts = new BlockRule(SettingsEnum.ADREMOVER_VIEW_PRODUCTS, "product_item", "products_in_video");
+        var webLinkPanel = new BlockRule(SettingsEnum.ADREMOVER_WEB_SEARCH_RESULTS, "web_link_panel");
         var graySeparator = new BlockRule(SettingsEnum.ADREMOVER_GRAY_SEPARATOR,
                 "cell_divider" // layout residue (gray line above the buttoned ad),
         );
@@ -81,6 +82,7 @@ public final class GeneralAdsPatch extends Filter {
                 channelGuidelines,
                 artistCard,
                 selfSponsor,
+                webLinkPanel,
                 subscribersCommunityGuidelines,
                 channelMemberShelf
         );
