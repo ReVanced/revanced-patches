@@ -37,6 +37,7 @@ public final class GeneralAdsPatch extends Filter {
         var selfSponsor = new BlockRule(SettingsEnum.ADREMOVER_SELF_SPONSOR_REMOVAL, "cta_shelf_card");
         var chapterTeaser = new BlockRule(SettingsEnum.ADREMOVER_CHAPTER_TEASER_REMOVAL, "expandable_metadata");
         var viewProducts = new BlockRule(SettingsEnum.ADREMOVER_VIEW_PRODUCTS, "product_item", "products_in_video");
+        var webLinkPanel = new BlockRule(SettingsEnum.ADREMOVER_WEB_SEARCH_RESULTS, "web_link_panel");
         var graySeparator = new BlockRule(SettingsEnum.ADREMOVER_GRAY_SEPARATOR,
                 "cell_divider" // layout residue (gray line above the buttoned ad),
         );
@@ -81,6 +82,7 @@ public final class GeneralAdsPatch extends Filter {
                 channelGuidelines,
                 artistCard,
                 selfSponsor,
+                webLinkPanel,
                 subscribersCommunityGuidelines,
                 channelMemberShelf
         );
