@@ -1,3 +1,10 @@
+# [2.162.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.162.0-dev.2...v2.162.0-dev.3) (2023-02-14)
+
+
+### Features
+
+* **youtube/general-ads:** hide web search results ([9975981](https://github.com/revanced/revanced-patches/commit/997598109409ec6a096c652dd8b4b4d27daeb8ec))
+
 # [2.162.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.162.0-dev.1...v2.162.0-dev.2) (2023-02-11)
 
 
