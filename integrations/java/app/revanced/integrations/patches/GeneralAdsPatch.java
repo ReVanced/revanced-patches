@@ -53,7 +53,9 @@ public final class GeneralAdsPatch extends Filter {
                 "banner_text_icon",
                 "square_image_layout",
                 "watch_metadata_app_promo",
-                "video_display_full_layout"
+                "video_display_full_layout",
+                "hero_promo_image",
+                "statement_banner"
         );
         var movieAds = new BlockRule(
                 SettingsEnum.ADREMOVER_MOVIE_REMOVAL,
