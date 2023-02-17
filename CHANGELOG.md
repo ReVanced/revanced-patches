@@ -1,3 +1,10 @@
+# [2.162.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.162.0-dev.3...v2.162.0-dev.4) (2023-02-17)
+
+
+### Features
+
+* **music:** remove patches constraint on app version ([#1638](https://github.com/revanced/revanced-patches/issues/1638)) ([fe64881](https://github.com/revanced/revanced-patches/commit/fe64881c83a7dd42761dbd67689fbc0ddcb73d78))
+
 # [2.162.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.162.0-dev.2...v2.162.0-dev.3) (2023-02-14)
 
 

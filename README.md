@@ -68,16 +68,16 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `background-play` | Enables playing music in the background. | 5.39.52 |
-| `codecs-unlock` | Adds more audio codec options. The new audio codecs usually result in better audio quality. | 5.39.52 |
-| `compact-header` | Hides the music category bar at the top of the homepage. | 5.39.52 |
-| `exclusive-audio-playback` | Enables the option to play music without video. | 5.39.52 |
+| `background-play` | Enables playing music in the background. | all |
+| `codecs-unlock` | Adds more audio codec options. The new audio codecs usually result in better audio quality. | all |
+| `compact-header` | Hides the music category bar at the top of the homepage. | all |
+| `exclusive-audio-playback` | Enables the option to play music without video. | all |
 | `hide-get-premium` | Removes all "Get Premium" evidences from the avatar menu. | 5.39.52 |
-| `minimized-playback-music` | Enables minimized playback on Kids music. | 5.39.52 |
-| `music-microg-support` | Allows YouTube Music ReVanced to run without root and under a different package name. | 5.39.52 |
-| `music-video-ads` | Removes ads in the music player. | 5.39.52 |
-| `tasteBuilder-remover` | Removes the "Tell us which artists you like" card from the home screen. | 5.39.52 |
-| `upgrade-button-remover` | Removes the upgrade tab from the pivot bar. | 5.39.52 |
+| `minimized-playback-music` | Enables minimized playback on Kids music. | all |
+| `music-microg-support` | Allows YouTube Music ReVanced to run without root and under a different package name. | all |
+| `music-video-ads` | Removes ads in the music player. | all |
+| `tasteBuilder-remover` | Removes the "Tell us which artists you like" card from the home screen. | all |
+| `upgrade-button-remover` | Removes the upgrade tab from the pivot bar. | all |
 </details>
 
 ### [📦 `com.ss.android.ugc.trill`](https://play.google.com/store/apps/details?id=com.ss.android.ugc.trill)
