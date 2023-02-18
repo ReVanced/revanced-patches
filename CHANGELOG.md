@@ -1,3 +1,10 @@
+# [2.162.0-dev.6](https://github.com/revanced/revanced-patches/compare/v2.162.0-dev.5...v2.162.0-dev.6) (2023-02-18)
+
+
+### Bug Fixes
+
+* **tiktok/show-seekbar:** fix crash when showing seekbar ([#1643](https://github.com/revanced/revanced-patches/issues/1643)) ([c00042f](https://github.com/revanced/revanced-patches/commit/c00042f158b7bac2b21fd3867c526b595d6dfa56))
+
 # [2.162.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.162.0-dev.4...v2.162.0-dev.5) (2023-02-18)
 
 
