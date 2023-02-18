@@ -1,3 +1,10 @@
+# [2.162.0-dev.7](https://github.com/revanced/revanced-patches/compare/v2.162.0-dev.6...v2.162.0-dev.7) (2023-02-18)
+
+
+### Features
+
+* **youtube/open-links-directly:** skip every redirect url ([652c762](https://github.com/revanced/revanced-patches/commit/652c76230049cfeeacb3c3512c1af4b400ffd3a7))
+
 # [2.162.0-dev.6](https://github.com/revanced/revanced-patches/compare/v2.162.0-dev.5...v2.162.0-dev.6) (2023-02-18)
 
 
