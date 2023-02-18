@@ -39,7 +39,7 @@
     [
       "@saithodev/semantic-release-backmerge",
       {
-        branches: [{from: "main", to: "dev"}],
+        backmergeBranches: ["dev"],
         clearWorkspace: true
       }
     ]
