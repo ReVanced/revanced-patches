@@ -6,18 +6,18 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import app.revanced.patches.youtube.misc.openlinksdirectly.annotations.OpenLinksDirectlyCompatibility
-import app.revanced.patches.youtube.misc.openlinksdirectly.fingerprints.OpenLinksDirectlyFingerprintPrimary
-import app.revanced.patches.youtube.misc.openlinksdirectly.fingerprints.OpenLinksDirectlyFingerprintSecondary
-import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
+import app.revanced.patches.youtube.misc.openlinksdirectly.annotations.OpenLinksDirectlyCompatibility
+import app.revanced.patches.youtube.misc.openlinksdirectly.fingerprints.OpenLinksDirectlyPrimaryFingerprint
+import app.revanced.patches.youtube.misc.openlinksdirectly.fingerprints.OpenLinksDirectlySecondaryFingerprint
+import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import org.jf.dexlib2.iface.instruction.Instruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction11x
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
@@ -30,7 +30,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 @Version("0.0.1")
 class OpenLinksDirectlyPatch : BytecodePatch(
     listOf(
-        OpenLinksDirectlyFingerprintPrimary, OpenLinksDirectlyFingerprintSecondary
+        OpenLinksDirectlyPrimaryFingerprint, OpenLinksDirectlySecondaryFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
@@ -44,8 +44,8 @@ class OpenLinksDirectlyPatch : BytecodePatch(
             )
         )
 
-        OpenLinksDirectlyFingerprintPrimary.hookUriParser(true)
-        OpenLinksDirectlyFingerprintSecondary.hookUriParser(false)
+        OpenLinksDirectlyPrimaryFingerprint.hookUriParser(true)
+        OpenLinksDirectlySecondaryFingerprint.hookUriParser(false)
 
         return PatchResultSuccess()
     }
