@@ -254,6 +254,14 @@ The official Patch bundle provided by ReVanced and the community.
 | `remove-broadcasts-restriction` | Enables starting/stopping NetGuard via broadcasts. | all |
 </details>
 
+### [📦 `com.dci.dev.androidtwelvewidgets`](https://play.google.com/store/apps/details?id=com.dci.dev.androidtwelvewidgets)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-paid-widgets` | Unlocks paid widgets of the app | all |
+</details>
+
 ### [📦 `io.yuka.android`](https://play.google.com/store/apps/details?id=io.yuka.android)
 <details>
 
@@ -278,7 +286,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `unlock-pro` | Unlocks all pro features. | all |
 </details>
 
-### [📦 `com.awedea.nyx`](https://play.google.com/store/apps/details?id=com.awedea.nyx)
+### [📦 `ginlemon.iconpackstudio`](https://play.google.com/store/apps/details?id=ginlemon.iconpackstudio)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -286,7 +294,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `unlock-pro` | Unlocks all pro features. | all |
 </details>
 
-### [📦 `ginlemon.iconpackstudio`](https://play.google.com/store/apps/details?id=ginlemon.iconpackstudio)
+### [📦 `com.awedea.nyx`](https://play.google.com/store/apps/details?id=com.awedea.nyx)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |

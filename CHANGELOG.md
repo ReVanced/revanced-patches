@@ -1,3 +1,10 @@
+# [2.162.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.162.0-dev.4...v2.162.0-dev.5) (2023-02-18)
+
+
+### Features
+
+* **androidtwelvewidgets:** `unlock-paid-widgets` patch ([#1641](https://github.com/revanced/revanced-patches/issues/1641)) ([28642d1](https://github.com/revanced/revanced-patches/commit/28642d1f93832c733a34ad77890f70f5a6fe5d51))
+
 # [2.162.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.162.0-dev.3...v2.162.0-dev.4) (2023-02-17)
 
 
