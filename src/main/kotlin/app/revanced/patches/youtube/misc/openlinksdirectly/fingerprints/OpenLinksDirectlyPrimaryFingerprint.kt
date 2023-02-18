@@ -9,11 +9,11 @@ import org.jf.dexlib2.Opcode
 @OpenLinksDirectlyCompatibility
 object OpenLinksDirectlyPrimaryFingerprint : MethodFingerprint(
     "L", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf("L"), listOf(
-        Opcode.CHECK_CAST,
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.RETURN_OBJECT,
         Opcode.CHECK_CAST,
-        Opcode.SGET
+        Opcode.SGET,
+        Opcode.SGET_OBJECT
     )
 )
