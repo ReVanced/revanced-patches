@@ -9,16 +9,6 @@ import org.jf.dexlib2.Opcode
 @OpenLinksDirectlyCompatibility
 object OpenLinksDirectlySecondaryFingerprint : MethodFingerprint(
     "L", AccessFlags.PUBLIC or AccessFlags.STATIC, listOf("L"), listOf(
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
-        Opcode.IF_EQZ,
-        Opcode.RETURN_OBJECT,
-        Opcode.NEW_INSTANCE,
-        Opcode.CONST_STRING
-    ),
-    strings = listOf("Uri must have an absolute scheme")
+        Opcode.INVOKE_STATIC, Opcode.MOVE_RESULT_OBJECT
+    ), listOf("://")
 )
