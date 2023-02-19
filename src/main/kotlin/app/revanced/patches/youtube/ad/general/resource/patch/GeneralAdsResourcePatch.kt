@@ -38,6 +38,13 @@ class GeneralAdsResourcePatch : ResourcePatch {
                 StringResource("revanced_adremover_separator_summary_off", "Gray separators are shown")
             ),
             SwitchPreference(
+                "revanced_horizontal_video_shelf",
+                StringResource("revanced_horizontal_video_shelf_title", "Hide horizontal video shelf"),
+                true,
+                StringResource("revanced_horizontal_video_shelf_summary_on", "Shelf is hidden"),
+                StringResource("revanced_horizontal_video_shelf_summary_off", "Shelf is shown")
+            ),
+            SwitchPreference(
                 "revanced_adremover_hide_channel_guidelines",
                 StringResource("revanced_adremover_hide_channel_guidelines_enabled_title", "Hide channel guidelines"),
                 true,
