@@ -131,9 +131,9 @@ The official Patch bundle provided by ReVanced and the community.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `dynamic-color` | Replaces the default Twitter Blue with the users Material You palette. | all |
-| `hide-views-stats` | Hides the view stats under tweets. | 9.69.1-release.0 |
+| `hide-views-stats` | Hides the view stats under tweets. | 9.71.0-release.0 |
 | `monochrome-icon` | Adds a monochrome icon. | all |
-| `timeline-ads` | Removes ads from the Twitter timeline. Might require clearing app data to remove already cached ads. | all |
+| `timeline-ads` | Removes ads from the Twitter timeline. Might require clearing app data to remove already cached ads. | 9.71.0-release.0 |
 </details>
 
 ### [📦 `com.spotify.music`](https://play.google.com/store/apps/details?id=com.spotify.music)

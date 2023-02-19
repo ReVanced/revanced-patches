@@ -1,3 +1,10 @@
+# [2.163.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.163.0-dev.1...v2.163.0-dev.2) (2023-02-19)
+
+
+### Features
+
+* **twitter:** constrain patches compatibility to working versions ([#1646](https://github.com/revanced/revanced-patches/issues/1646)) ([d984bdc](https://github.com/revanced/revanced-patches/commit/d984bdc8b17dea127880b696ee1bed1503762707))
+
 # [2.163.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.162.0...v2.163.0-dev.1) (2023-02-18)
 
 
