@@ -192,6 +192,13 @@ class GeneralAdsResourcePatch : ResourcePatch {
                 StringResource("revanced_adremover_medical_panel_enabled_summary_on", "Medical panels are hidden"),
                 StringResource("revanced_adremover_medical_panel_enabled_summary_off", "Medical panels are shown")
             ),
+            SwitchPreference(
+                "revanced_hide_channel_bar",
+                StringResource("revanced_hide_channel_bar_title", "Hide channel bar"),
+                false,
+                StringResource("revanced_hide_channel_bar_summary_on", "Channel bar is hidden"),
+                StringResource("revanced_hide_channel_bar_summary_off", "Channel bar is shown")
+            ),
         )
 
         PreferenceScreen.ADS.addPreferences(
