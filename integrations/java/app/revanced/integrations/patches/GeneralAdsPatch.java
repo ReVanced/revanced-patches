@@ -39,6 +39,7 @@ public final class GeneralAdsPatch extends Filter {
         var viewProducts = new BlockRule(SettingsEnum.ADREMOVER_VIEW_PRODUCTS, "product_item", "products_in_video");
         var webLinkPanel = new BlockRule(SettingsEnum.ADREMOVER_WEB_SEARCH_RESULTS, "web_link_panel");
         var horizontalVideoShelf = new BlockRule(SettingsEnum.ADREMOVER_HORIZONTAL_VIDEO_SHELF, "horizontal_video_shelf");
+        var channelBar = new BlockRule(SettingsEnum.ADREMOVER_CHANNEL_BAR, "channel_bar");
         var graySeparator = new BlockRule(SettingsEnum.ADREMOVER_GRAY_SEPARATOR,
                 "cell_divider" // layout residue (gray line above the buttoned ad),
         );
@@ -70,6 +71,7 @@ public final class GeneralAdsPatch extends Filter {
         this.pathRegister.registerAll(
                 generalAds,
                 buttonedAd,
+                channelBar,
                 communityPosts,
                 paidContent,
                 latestPosts,
