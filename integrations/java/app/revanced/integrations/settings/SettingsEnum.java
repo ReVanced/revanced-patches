@@ -72,7 +72,7 @@ public enum SettingsEnum {
     SPOOF_APP_VERSION("revanced_spoof_app_version", false, ReturnType.BOOLEAN, true),
     WIDE_SEARCHBAR("revanced_wide_searchbar", false, ReturnType.BOOLEAN, true),
     HIDE_ALBUM_CARDS("revanced_hide_album_cards", false, ReturnType.BOOLEAN, true),
-    HIDE_ARTIST_CARD("revanced_hide_artist_card", false, ReturnType.BOOLEAN),
+    HIDE_ARTIST_CARDS("revanced_hide_artist_cards", false, ReturnType.BOOLEAN),
     HIDE_AUTOPLAY_BUTTON("revanced_hide_autoplay_button", true, ReturnType.BOOLEAN, true),
     HIDE_VIDEO_WATERMARK("revanced_hide_video_watermark", true, ReturnType.BOOLEAN),
     HIDE_CAPTIONS_BUTTON("revanced_hide_captions_button", false, ReturnType.BOOLEAN),
