@@ -10,38 +10,38 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.youtube.layout.watchinvr.annotations.WatchinVRCompatibility
-import app.revanced.patches.youtube.layout.watchinvr.fingerprints.WatchinVRFingerprint
-import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.youtube.layout.watchinvr.annotations.WatchinVRCompatibility
+import app.revanced.patches.youtube.layout.watchinvr.fingerprints.WatchInVRFingerprint
+import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
+import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
 @Name("hide-watch-in-vr")
-@Description("Hides the Watch in VR option in the player settings flyout panel.")
+@Description("Hides the option to watch in VR from the player settings flyout panel.")
 @WatchinVRCompatibility
 @Version("0.0.1")
-class WatchinVRPatch : BytecodePatch(
+class WatchInVRPatch : BytecodePatch(
     listOf(
-        WatchinVRFingerprint
+        WatchInVRFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_hide_watch_in_vr",
-                StringResource("revanced_hide_watch_in_vr_title", "Hide watch in VR"),
+                StringResource("revanced_hide_watch_in_vr_title", "Hide VR setting"),
                 false,
-                StringResource("revanced_hide_watch_in_vr_summary_on", "Watch in VR player setting is hidden"),
-                StringResource("revanced_hide_watch_in_vr_summary_off", "Watch in VR player setting is shown")
+                StringResource("revanced_hide_watch_in_vr_summary_on", "VR setting is hidden"),
+                StringResource("revanced_hide_watch_in_vr_summary_off", "VR setting is shown")
             )
         )
 
-        WatchinVRFingerprint.result!!.mutableMethod.addInstructions(
+        WatchInVRFingerprint.result!!.mutableMethod.addInstructions(
             0, """
-                invoke-static {}, Lapp/revanced/integrations/patches/HideWatchinVRPatch;->hideWatchinVR()Z
+                invoke-static {}, Lapp/revanced/integrations/patches/HideWatchInVRPatch;->hideWatchInVR()Z
                 move-result v0
                 if-eqz v0, :shown
                 return-void
