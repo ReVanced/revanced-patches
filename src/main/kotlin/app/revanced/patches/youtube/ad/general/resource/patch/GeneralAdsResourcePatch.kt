@@ -173,10 +173,10 @@ class GeneralAdsResourcePatch : ResourcePatch {
             ),
             SwitchPreference(
                 "revanced_adremover_info_panel",
-                StringResource("revanced_adremover_info_panel_enabled_title", "Hide info panels"),
+                StringResource("revanced_adremover_info_panel_enabled_title", "Hide info-panels"),
                 true,
-                StringResource("revanced_adremover_info_panel_enabled_summary_on", "Info panels are hidden"),
-                StringResource("revanced_adremover_info_panel_enabled_summary_off", "Info panels are shown")
+                StringResource("revanced_adremover_info_panel_enabled_summary_on", "Info-panels are hidden"),
+                StringResource("revanced_adremover_info_panel_enabled_summary_off", "Info-panels are shown")
             ),
             SwitchPreference(
                 "revanced_adremover_medical_panel",
