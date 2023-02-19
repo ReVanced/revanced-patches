@@ -20,11 +20,11 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
-@Name("disable-auto-player-popup-panels")
-@Description("Disable automatic popup panels (playlist or live chat) on video player.")
+@Name("disable-fullscreen-panels-auto-popup")
+@Description("Disables fullscreen panels from appearing automatically when going fullscreen (playlist or live chat).")
 @PlayerPopupPanelsCompatibility
 @Version("0.0.1")
-class PlayerPopupPanelsPatch : BytecodePatch(
+class FullscreenPanelsPatch : BytecodePatch(
     listOf(
         EngagementPanelControllerFingerprint
     )
