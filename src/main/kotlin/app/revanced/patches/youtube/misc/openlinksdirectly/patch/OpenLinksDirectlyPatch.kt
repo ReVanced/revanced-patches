@@ -52,7 +52,7 @@ class OpenLinksDirectlyPatch : BytecodePatch(
                         "invoke-static {v$uriRegister}," +
                                 "Lapp/revanced/integrations/patches/OpenLinksDirectlyPatch;" +
                                 "->" +
-                                "transformRedirectUri(Ljava/lang/String;)Landroid/net/Uri;"
+                                "parseRedirectUri(Ljava/lang/String;)Landroid/net/Uri;"
                     )
                 }
             }
