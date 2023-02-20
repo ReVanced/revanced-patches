@@ -1,3 +1,18 @@
+# [2.163.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.163.0-dev.2...v2.163.0-dev.3) (2023-02-20)
+
+
+### Bug Fixes
+
+* **youtube/disable-fullscreen-panels-auto-popup:** use proper descriptions ([4c82487](https://github.com/revanced/revanced-patches/commit/4c824876b45e32c5b79a9817b0a362f31bd13879))
+* **youtube/general-ads:** fix switch description wording ([9003977](https://github.com/revanced/revanced-patches/commit/9003977c00d8056c38fd31476d2e367fb3aa9030))
+* **youtube/hide-watch-in-vr:** fix descriptions ([f261e64](https://github.com/revanced/revanced-patches/commit/f261e64b10db9cddee2a850feab16c8c7092c333))
+
+
+### Features
+
+* **youtube/general-ads:** hide channel bar ([c74c77d](https://github.com/revanced/revanced-patches/commit/c74c77d12568dda54d971d1998f7e73a45543a3b))
+* **youtube/general-ads:** hide horizontal video shelf ([169e2ba](https://github.com/revanced/revanced-patches/commit/169e2ba67024210450ef6cc74e734d3e7f162cbe))
+
 # [2.163.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.163.0-dev.1...v2.163.0-dev.2) (2023-02-19)
 
 

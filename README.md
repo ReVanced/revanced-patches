@@ -18,9 +18,9 @@ The official Patch bundle provided by ReVanced and the community.
 | `custom-video-speed` | Adds more video speed options. | 18.03.36 |
 | `debugging` | Adds debugging options. | all |
 | `disable-auto-captions` | Disable forced captions from being automatically enabled. | 18.03.36 |
-| `disable-auto-player-popup-panels` | Disable automatic popup panels (playlist or live chat) on video player. | 18.03.36 |
 | `disable-fullscreen-panels` | Disables video description and comments panel in fullscreen view. | 18.03.36 |
-| `disable-startup-shorts-player` | Disables playing YouTube Shorts when launching YouTube. | 18.03.36 |
+| `disable-fullscreen-panels-auto-popup` | Disables fullscreen panels from appearing automatically when going fullscreen (playlist or live chat). | 18.03.36 |
+| `disable-shorts-on-startup` | Disables playing YouTube Shorts when launching YouTube. | 18.03.36 |
 | `disable-zoom-haptics` | Disables haptics when zooming. | all |
 | `downloads` | Enables downloading music and videos from YouTube. | 18.03.36 |
 | `enable-wide-searchbar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 18.03.36 |
@@ -39,10 +39,11 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-info-cards` | Hides info-cards in videos. | 18.03.36 |
 | `hide-my-mix` | Hides mix playlists. | 18.03.36 |
 | `hide-player-buttons` | Adds the option to hide video player previous and next buttons. | all |
+| `hide-seekbar` | Hides the seekbar. | 18.03.36 |
 | `hide-shorts-button` | Hides the shorts button on the navigation bar. | 18.03.36 |
-| `hide-time-and-seekbar` | Hides progress bar and time counter on videos. | 18.03.36 |
+| `hide-time` | Hides the videos time. | 18.03.36 |
 | `hide-video-action-buttons` | Adds the options to hide action buttons under a video. | 18.03.36 |
-| `hide-watch-in-vr` | Hides the Watch in VR option in the player settings flyout panel. | 18.03.36 |
+| `hide-watch-in-vr` | Hides the option to watch in VR from the player settings flyout panel. | 18.03.36 |
 | `hide-watermark` | Hides creator's watermarks on videos. | 18.03.36 |
 | `microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG. | 18.03.36 |
 | `minimized-playback` | Enables minimized and background playback. | 18.03.36 |
