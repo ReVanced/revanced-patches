@@ -10,20 +10,20 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.youtube.layout.autocaptions.annotations.AutoCaptionsCompatibility
+import app.revanced.patches.shared.settings.preference.impl.StringResource
+import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.layout.autocaptions.fingerprints.StartVideoInformerFingerprint
 import app.revanced.patches.youtube.layout.autocaptions.fingerprints.SubtitleButtonControllerFingerprint
 import app.revanced.patches.youtube.layout.autocaptions.fingerprints.SubtitleTrackFingerprint
+import app.revanced.patches.youtube.layout.buttons.captions.annotations.HideCaptionsButtonCompatibility
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
 @Name("disable-auto-captions")
 @Description("Disable forced captions from being automatically enabled.")
-@AutoCaptionsCompatibility
+@HideCaptionsButtonCompatibility
 @Version("0.0.1")
 class AutoCaptionsPatch : BytecodePatch(
     listOf(
@@ -34,10 +34,10 @@ class AutoCaptionsPatch : BytecodePatch(
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_autocaptions_enabled",
-                StringResource("revanced_autocaptions_enabled_title", "Disable auto-captions"),
+                StringResource("revanced_autocaptions_enabled_title", "Disable auto captions"),
                 false,
-                StringResource("revanced_autocaptions_summary_on", "Auto-captions are disabled"),
-                StringResource("revanced_autocaptions_summary_off", "Auto-captions are enabled")
+                StringResource("revanced_autocaptions_summary_on", "Auto captions are disabled"),
+                StringResource("revanced_autocaptions_summary_off", "Auto captions are enabled")
             )
         )
 

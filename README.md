@@ -18,9 +18,9 @@ The official Patch bundle provided by ReVanced and the community.
 | `custom-video-speed` | Adds more video speed options. | 18.03.36 |
 | `debugging` | Adds debugging options. | all |
 | `disable-auto-captions` | Disable forced captions from being automatically enabled. | 18.03.36 |
-| `disable-auto-player-popup-panels` | Disable automatic popup panels (playlist or live chat) on video player. | 18.03.36 |
 | `disable-fullscreen-panels` | Disables video description and comments panel in fullscreen view. | 18.03.36 |
-| `disable-startup-shorts-player` | Disables playing YouTube Shorts when launching YouTube. | 18.03.36 |
+| `disable-fullscreen-panels-auto-popup` | Disables fullscreen panels from appearing automatically when going fullscreen (playlist or live chat). | 18.03.36 |
+| `disable-shorts-on-startup` | Disables playing YouTube Shorts when launching YouTube. | 18.03.36 |
 | `disable-zoom-haptics` | Disables haptics when zooming. | all |
 | `downloads` | Enables downloading music and videos from YouTube. | 18.03.36 |
 | `enable-wide-searchbar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 18.03.36 |
@@ -36,13 +36,14 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-crowdfunding-box` | Hides the crowdfunding box between the player and video description. | 18.03.36 |
 | `hide-email-address` | Hides the email address in the account switcher. | 18.03.36 |
 | `hide-endscreen-cards` | Hides the suggested video cards at the end of a video in fullscreen. | 18.03.36 |
-| `hide-info-cards` | Hides info-cards in videos. | 18.03.36 |
+| `hide-info-cards` | Hides info cards in videos. | 18.03.36 |
 | `hide-my-mix` | Hides mix playlists. | 18.03.36 |
 | `hide-player-buttons` | Adds the option to hide video player previous and next buttons. | all |
+| `hide-seekbar` | Hides the seekbar. | 18.03.36 |
 | `hide-shorts-button` | Hides the shorts button on the navigation bar. | 18.03.36 |
-| `hide-time-and-seekbar` | Hides progress bar and time counter on videos. | 18.03.36 |
+| `hide-time` | Hides the videos time. | 18.03.36 |
 | `hide-video-action-buttons` | Adds the options to hide action buttons under a video. | 18.03.36 |
-| `hide-watch-in-vr` | Hides the Watch in VR option in the player settings flyout panel. | 18.03.36 |
+| `hide-watch-in-vr` | Hides the option to watch in VR from the player settings flyout panel. | 18.03.36 |
 | `hide-watermark` | Hides creator's watermarks on videos. | 18.03.36 |
 | `microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG. | 18.03.36 |
 | `minimized-playback` | Enables minimized and background playback. | 18.03.36 |
@@ -68,16 +69,16 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `background-play` | Enables playing music in the background. | 5.39.52 |
-| `codecs-unlock` | Adds more audio codec options. The new audio codecs usually result in better audio quality. | 5.39.52 |
-| `compact-header` | Hides the music category bar at the top of the homepage. | 5.39.52 |
-| `exclusive-audio-playback` | Enables the option to play music without video. | 5.39.52 |
+| `background-play` | Enables playing music in the background. | all |
+| `codecs-unlock` | Adds more audio codec options. The new audio codecs usually result in better audio quality. | all |
+| `compact-header` | Hides the music category bar at the top of the homepage. | all |
+| `exclusive-audio-playback` | Enables the option to play music without video. | all |
 | `hide-get-premium` | Removes all "Get Premium" evidences from the avatar menu. | 5.39.52 |
-| `minimized-playback-music` | Enables minimized playback on Kids music. | 5.39.52 |
-| `music-microg-support` | Allows YouTube Music ReVanced to run without root and under a different package name. | 5.39.52 |
-| `music-video-ads` | Removes ads in the music player. | 5.39.52 |
-| `tasteBuilder-remover` | Removes the "Tell us which artists you like" card from the home screen. | 5.39.52 |
-| `upgrade-button-remover` | Removes the upgrade tab from the pivot bar. | 5.39.52 |
+| `minimized-playback-music` | Enables minimized playback on Kids music. | all |
+| `music-microg-support` | Allows YouTube Music ReVanced to run without root and under a different package name. | all |
+| `music-video-ads` | Removes ads in the music player. | all |
+| `tasteBuilder-remover` | Removes the "Tell us which artists you like" card from the home screen. | all |
+| `upgrade-button-remover` | Removes the upgrade tab from the pivot bar. | all |
 </details>
 
 ### [📦 `com.ss.android.ugc.trill`](https://play.google.com/store/apps/details?id=com.ss.android.ugc.trill)
@@ -131,9 +132,10 @@ The official Patch bundle provided by ReVanced and the community.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `dynamic-color` | Replaces the default Twitter Blue with the users Material You palette. | all |
-| `hide-views-stats` | Hides the view stats under tweets. | 9.69.1-release.0 |
+| `hide-ads` | Hides ads. | all |
+| `hide-recommended-users` | Hides recommended users. | all |
+| `hide-views-stats` | Hides the view stats under tweets. | 9.71.0-release.0 |
 | `monochrome-icon` | Adds a monochrome icon. | all |
-| `timeline-ads` | Removes ads from the Twitter timeline. Might require clearing app data to remove already cached ads. | all |
 </details>
 
 ### [📦 `com.spotify.music`](https://play.google.com/store/apps/details?id=com.spotify.music)
@@ -254,6 +256,14 @@ The official Patch bundle provided by ReVanced and the community.
 | `remove-broadcasts-restriction` | Enables starting/stopping NetGuard via broadcasts. | all |
 </details>
 
+### [📦 `com.dci.dev.androidtwelvewidgets`](https://play.google.com/store/apps/details?id=com.dci.dev.androidtwelvewidgets)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-paid-widgets` | Unlocks paid widgets of the app | all |
+</details>
+
 ### [📦 `io.yuka.android`](https://play.google.com/store/apps/details?id=io.yuka.android)
 <details>
 
@@ -278,7 +288,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `unlock-pro` | Unlocks all pro features. | all |
 </details>
 
-### [📦 `com.awedea.nyx`](https://play.google.com/store/apps/details?id=com.awedea.nyx)
+### [📦 `ginlemon.iconpackstudio`](https://play.google.com/store/apps/details?id=ginlemon.iconpackstudio)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -286,7 +296,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `unlock-pro` | Unlocks all pro features. | all |
 </details>
 
-### [📦 `ginlemon.iconpackstudio`](https://play.google.com/store/apps/details?id=ginlemon.iconpackstudio)
+### [📦 `com.awedea.nyx`](https://play.google.com/store/apps/details?id=com.awedea.nyx)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
