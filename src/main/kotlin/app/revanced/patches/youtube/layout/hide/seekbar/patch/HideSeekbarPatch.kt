@@ -46,9 +46,9 @@ class HideSeekbarPatch : BytecodePatch(
             const/4 v0, 0x0
             invoke-static { }, Lapp/revanced/integrations/patches/HideSeekbarPatch;->hideSeekbar()Z
             move-result v0
-            if-eqz v0, :hide_time_and_seekbar
+            if-eqz v0, :hide_seekbar
             return-void
-            :hide_time_and_seekbar
+            :hide_seekbar
             nop
         """
         )
