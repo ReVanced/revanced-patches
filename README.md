@@ -48,7 +48,6 @@ The official Patch bundle provided by ReVanced and the community.
 | `microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG. | 18.03.36 |
 | `minimized-playback` | Enables minimized and background playback. | 18.03.36 |
 | `old-quality-layout` | Enables the original video quality flyout in the video player settings | 18.03.36 |
-| `open-links-directly` | Skips over redirection URLs to external links. | 18.03.36 |
 | `open-links-externally` | Open links outside of the app directly in your browser. | 18.03.36 |
 | `premium-heading` | Shows premium branding on the home screen. | all |
 | `remember-playback-rate` | Adds the ability to remember the playback rate you chose in the video playback rate flyout. | 18.03.36 |
@@ -262,6 +261,14 @@ The official Patch bundle provided by ReVanced and the community.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `unlock-paid-widgets` | Unlocks paid widgets of the app | all |
+</details>
+
+### [📦 `com.microblink.photomath`](https://play.google.com/store/apps/details?id=com.microblink.photomath)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-plus` | Unlocks plus features. | all |
 </details>
 
 ### [📦 `io.yuka.android`](https://play.google.com/store/apps/details?id=io.yuka.android)
