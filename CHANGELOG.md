@@ -1,3 +1,10 @@
+# [2.163.0-dev.6](https://github.com/revanced/revanced-patches/compare/v2.163.0-dev.5...v2.163.0-dev.6) (2023-02-22)
+
+
+### Features
+
+* **photomath:** `unlock-plus` patch ([#1633](https://github.com/revanced/revanced-patches/issues/1633)) ([a7f5330](https://github.com/revanced/revanced-patches/commit/a7f5330e602c36492e329000dc9f0a1eda218770))
+
 # [2.163.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.163.0-dev.4...v2.163.0-dev.5) (2023-02-22)
 
 

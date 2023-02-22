@@ -264,6 +264,14 @@ The official Patch bundle provided by ReVanced and the community.
 | `unlock-paid-widgets` | Unlocks paid widgets of the app | all |
 </details>
 
+### [📦 `com.microblink.photomath`](https://play.google.com/store/apps/details?id=com.microblink.photomath)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-plus` | Unlocks plus features. | all |
+</details>
+
 ### [📦 `io.yuka.android`](https://play.google.com/store/apps/details?id=io.yuka.android)
 <details>
 
