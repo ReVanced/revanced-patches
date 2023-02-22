@@ -41,7 +41,7 @@ class HideTimePatch : BytecodePatch(
 
         TimeCounterFingerprint.result!!.mutableMethod.addInstructions(
             0, """
-            invoke-static { }, Lapp/revanced/integrations/patches/HideTimeAndSeekbarPatch;->hideTimeAndSeekbar()Z
+            invoke-static { }, Lapp/revanced/integrations/patches/HideTimePatch;->hideTime()Z
             move-result v0
             if-eqz v0, :hide_time
             return-void
