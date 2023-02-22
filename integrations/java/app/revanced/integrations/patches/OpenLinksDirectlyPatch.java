@@ -1,18 +1,25 @@
 package app.revanced.integrations.patches;
 
-import java.net.URLDecoder;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
+import android.net.Uri;
 import app.revanced.integrations.settings.SettingsEnum;
 
 public class OpenLinksDirectlyPatch {
+    private static final String YOUTUBE_REDIRECT_PATH = "redirect";
 
-    public static String parseRedirectUri(String uri) {
+    /**
+     * Parses the given YouTube redirect uri by extracting the redirect query.
+     *
+     * @param uri The YouTube redirect uri.
+     * @return The redirect query.
+     */
+    public static Uri parseRedirectUri(String uri) {
         if (SettingsEnum.OPEN_LINKS_DIRECTLY.getBoolean()) {
-            Matcher matcher = Pattern.compile("&q=(http.+?)&v=").matcher(uri);
-            return matcher.find() ? URLDecoder.decode(matcher.group(1)) : uri;
+            final var parsed = Uri.parse(uri);
+
+            if (parsed.getPath().equals(YOUTUBE_REDIRECT_PATH))
+                Uri.parse(parsed.getQueryParameter("q"));
         }
-        return uri;
+
+        return Uri.parse(uri);
     }
 }
