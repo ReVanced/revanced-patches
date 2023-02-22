@@ -54,6 +54,8 @@ public enum SettingsEnum {
     ADREMOVER_GRAY_SEPARATOR("revanced_adremover_separator", true, ReturnType.BOOLEAN),
     ADREMOVER_VIEW_PRODUCTS("revanced_adremover_view_products", true, ReturnType.BOOLEAN),
     ADREMOVER_WEB_SEARCH_RESULTS("revanced_adremover_web_search_result", true, ReturnType.BOOLEAN),
+    ADREMOVER_HORIZONTAL_VIDEO_SHELF("revanced_horizontal_video_shelf", true, ReturnType.BOOLEAN),
+    ADREMOVER_CHANNEL_BAR("revanced_hide_channel_bar", false, ReturnType.BOOLEAN),
 
     // Action buttons
     HIDE_LIKE_BUTTON("revanced_hide_like_button", false, ReturnType.BOOLEAN, false),
@@ -70,7 +72,7 @@ public enum SettingsEnum {
     SPOOF_APP_VERSION("revanced_spoof_app_version", false, ReturnType.BOOLEAN, true),
     WIDE_SEARCHBAR("revanced_wide_searchbar", false, ReturnType.BOOLEAN, true),
     HIDE_ALBUM_CARDS("revanced_hide_album_cards", false, ReturnType.BOOLEAN, true),
-    HIDE_ARTIST_CARD("revanced_hide_artist_card", false, ReturnType.BOOLEAN),
+    HIDE_ARTIST_CARDS("revanced_hide_artist_cards", false, ReturnType.BOOLEAN),
     HIDE_AUTOPLAY_BUTTON("revanced_hide_autoplay_button", true, ReturnType.BOOLEAN, true),
     HIDE_VIDEO_WATERMARK("revanced_hide_video_watermark", true, ReturnType.BOOLEAN),
     HIDE_CAPTIONS_BUTTON("revanced_hide_captions_button", false, ReturnType.BOOLEAN),
@@ -87,7 +89,8 @@ public enum SettingsEnum {
     HIDE_REEL_BUTTON("revanced_hide_reel_button", true, ReturnType.BOOLEAN, true),
     HIDE_SHORTS_BUTTON("revanced_hide_shorts_button", true, ReturnType.BOOLEAN, true),
     HIDE_SHORTS_COMMENTS_BUTTON("revanced_hide_shorts_comments_button", false, ReturnType.BOOLEAN),
-    HIDE_TIME_AND_SEEKBAR("revanced_hide_time_and_seekbar", false, ReturnType.BOOLEAN),
+    HIDE_TIME("revanced_hide_time", false, ReturnType.BOOLEAN),
+    HIDE_SEEKBAR("revanced_hide_seekbar", false, ReturnType.BOOLEAN),
     HIDE_WATCH_IN_VR("revanced_hide_watch_in_vr", false, ReturnType.BOOLEAN, true),
     HIDE_BREAKING_NEWS("revanced_hide_breaking_news", true, ReturnType.BOOLEAN, true),
     HIDE_PLAYER_BUTTONS("revanced_hide_player_buttons", false, ReturnType.BOOLEAN, false),
