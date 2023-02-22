@@ -36,7 +36,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-crowdfunding-box` | Hides the crowdfunding box between the player and video description. | 18.03.36 |
 | `hide-email-address` | Hides the email address in the account switcher. | 18.03.36 |
 | `hide-endscreen-cards` | Hides the suggested video cards at the end of a video in fullscreen. | 18.03.36 |
-| `hide-info-cards` | Hides info-cards in videos. | 18.03.36 |
+| `hide-info-cards` | Hides info cards in videos. | 18.03.36 |
 | `hide-my-mix` | Hides mix playlists. | 18.03.36 |
 | `hide-player-buttons` | Adds the option to hide video player previous and next buttons. | all |
 | `hide-seekbar` | Hides the seekbar. | 18.03.36 |

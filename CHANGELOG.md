@@ -1,3 +1,16 @@
+# [2.163.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.163.0-dev.4...v2.163.0-dev.5) (2023-02-22)
+
+
+### Bug Fixes
+
+* use correct fingerprint ([84fe9c3](https://github.com/revanced/revanced-patches/commit/84fe9c36461586f25ace146e0e29597e3dfc99ca))
+* **youtube/hide-time:** use correct integrations class ([539ccf4](https://github.com/revanced/revanced-patches/commit/539ccf43a884ab3ff812884279aa75f42ba872d5))
+
+
+### Features
+
+* use better patch descriptions ([931aa0f](https://github.com/revanced/revanced-patches/commit/931aa0fba631d1740986131219eff94c4c1b2306))
+
 # [2.163.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.163.0-dev.3...v2.163.0-dev.4) (2023-02-22)
 
 
