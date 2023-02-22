@@ -44,11 +44,11 @@ class HidePlayerButtonsPatch : BytecodePatch(
                 false,
                 StringResource(
                     "revanced_hide_player_buttons_summary_on",
-                    "The buttons are hidden"
+                    "Buttons are hidden"
                 ),
                 StringResource(
                     "revanced_hide_player_buttons_summary_off",
-                    "The buttons are shown"
+                    "Buttons are shown"
                 )
             )
         )

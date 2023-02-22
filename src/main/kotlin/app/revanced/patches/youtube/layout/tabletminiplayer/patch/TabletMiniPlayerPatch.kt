@@ -13,6 +13,8 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patches.shared.settings.preference.impl.StringResource
+import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.layout.tabletminiplayer.annotations.TabletMiniPlayerCompatibility
 import app.revanced.patches.youtube.layout.tabletminiplayer.fingerprints.MiniPlayerDimensionsCalculatorFingerprint
 import app.revanced.patches.youtube.layout.tabletminiplayer.fingerprints.MiniPlayerOverrideFingerprint
@@ -20,8 +22,6 @@ import app.revanced.patches.youtube.layout.tabletminiplayer.fingerprints.MiniPla
 import app.revanced.patches.youtube.layout.tabletminiplayer.fingerprints.MiniPlayerResponseModelSizeCheckFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
@@ -40,10 +40,10 @@ class TabletMiniPlayerPatch : BytecodePatch(
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_tablet_miniplayer",
-                StringResource("revanced_tablet_miniplayer_title", "Enable the tablet Mini-player"),
+                StringResource("revanced_tablet_miniplayer_title", "Enable tablet mini player"),
                 false,
-                StringResource("revanced_tablet_miniplayer_summary_on", "Tablet Mini-player is enabled"),
-                StringResource("revanced_tablet_miniplayer_summary_off", "Tablet Mini-player is disabled")
+                StringResource("revanced_tablet_miniplayer_summary_on", "Mini player is enabled"),
+                StringResource("revanced_tablet_miniplayer_summary_off", "Mini player is disabled")
             )
         )
 

@@ -34,10 +34,10 @@ class AutoCaptionsPatch : BytecodePatch(
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_autocaptions_enabled",
-                StringResource("revanced_autocaptions_enabled_title", "Disable auto-captions"),
+                StringResource("revanced_autocaptions_enabled_title", "Disable auto captions"),
                 false,
-                StringResource("revanced_autocaptions_summary_on", "Auto-captions are disabled"),
-                StringResource("revanced_autocaptions_summary_off", "Auto-captions are enabled")
+                StringResource("revanced_autocaptions_summary_on", "Auto captions are disabled"),
+                StringResource("revanced_autocaptions_summary_off", "Auto captions are enabled")
             )
         )
 
