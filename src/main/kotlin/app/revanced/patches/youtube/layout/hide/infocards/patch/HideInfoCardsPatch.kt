@@ -25,10 +25,10 @@ import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
 @Patch
 @DependsOn([IntegrationsPatch::class, HideInfocardsResourcePatch::class])
 @Name("hide-info-cards")
-@Description("Hides info-cards in videos.")
+@Description("Hides info cards in videos.")
 @HideInfocardsCompatibility
 @Version("0.0.1")
-class HideInfocardsPatch : BytecodePatch(
+class HideInfoCardsPatch : BytecodePatch(
     listOf(
         InfocardsIncognitoParentFingerprint,
         InfocardsMethodCallFingerprint,
@@ -47,7 +47,7 @@ class HideInfocardsPatch : BytecodePatch(
             addInstructions(
                 invokeInstructionIndex,
                 "invoke-static {v${(instruction(invokeInstructionIndex) as? BuilderInstruction35c)?.registerC}}," +
-                        " Lapp/revanced/integrations/patches/HideInfocardsPatch;->hideInfocardsIncognito(Landroid/view/View;)V"
+                        " Lapp/revanced/integrations/patches/HideInfoCardsPatch;->hideInfoCardsIncognito(Landroid/view/View;)V"
             )
         }
 
@@ -59,7 +59,7 @@ class HideInfocardsPatch : BytecodePatch(
 
             hideInfocardsCallMethod.addInstructions(
                 invokeInterfaceIndex, """
-                    invoke-static {}, Lapp/revanced/integrations/patches/HideInfocardsPatch;->hideInfocardsMethodCall()Z
+                    invoke-static {}, Lapp/revanced/integrations/patches/HideInfoCardsPatch;->hideInfoCardsMethodCall()Z
                     move-result v$toggleRegister
                     if-nez v$toggleRegister, :hide_info_cards
                 """,
