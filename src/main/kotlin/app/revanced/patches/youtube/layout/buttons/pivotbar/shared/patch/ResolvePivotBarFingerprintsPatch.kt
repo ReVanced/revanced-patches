@@ -10,10 +10,10 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patches.music.layout.upgradebutton.fingerprints.PivotBarConstructorFingerprint
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
 import app.revanced.patches.youtube.layout.buttons.pivotbar.shared.annotations.PivotBarCompatibility
 import app.revanced.patches.youtube.layout.buttons.pivotbar.shared.fingerprints.InitializeButtonsFingerprint
+import app.revanced.patches.youtube.layout.buttons.pivotbar.shared.fingerprints.PivotBarConstructorFingerprint
 
 @DependsOn([ResourceMappingPatch::class])
 @PivotBarCompatibility
