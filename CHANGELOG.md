@@ -1,3 +1,16 @@
+# [2.163.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.163.0-dev.3...v2.163.0-dev.4) (2023-02-22)
+
+
+### Bug Fixes
+
+* **twitter:** make `hide-promoted-ads` patch compatible with any version ([3dbc5ff](https://github.com/revanced/revanced-patches/commit/3dbc5ff2722559211232999ae29e7fabafe3b857))
+* **youtube/open-links-directly:** reference correct integrations method ([e14893e](https://github.com/revanced/revanced-patches/commit/e14893ec89d002287123196396946fff557b7ef4))
+
+
+### Features
+
+* **twitter:** `hide-recommended-users` patch ([e8c9a91](https://github.com/revanced/revanced-patches/commit/e8c9a91a92fafcc79ce521f62c3865827df55d0f))
+
 # [2.163.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.163.0-dev.2...v2.163.0-dev.3) (2023-02-20)
 
 
