@@ -207,6 +207,13 @@ class GeneralAdsResourcePatch : ResourcePatch {
                 StringResource("revanced_hide_quick_actions_summary_off", "Quick actions are shown")
             ),
             SwitchPreference(
+                "revanced_hide_related_videos",
+                StringResource("revanced_hide_related_videos_title", "Hide related videos in quick actions"),
+                false,
+                StringResource("revanced_hide_related_videos_summary_on", "Related videos are hidden"),
+                StringResource("revanced_hide_related_videos_summary_off", "Related videos are shown")
+            ),
+            SwitchPreference(
                 "revanced_hide_channel_bar",
                 StringResource("revanced_hide_channel_bar_title", "Hide channel bar"),
                 false,
