@@ -1,3 +1,11 @@
+# [2.164.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.164.0-dev.1...v2.164.0-dev.2) (2023-02-23)
+
+
+### Features
+
+* **youtube/general-ads:** hide quick actions in fullscreen ([fff9670](https://github.com/revanced/revanced-patches/commit/fff9670a81108b8343d0b7913953fc6c2bb4a6f0))
+* **youtube/general-ads:** hide related videos in quick action ([d23c31a](https://github.com/revanced/revanced-patches/commit/d23c31a9ec39189e08474044ac5ca06d974add76))
+
 # [2.164.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.163.0...v2.164.0-dev.1) (2023-02-22)
 
 
