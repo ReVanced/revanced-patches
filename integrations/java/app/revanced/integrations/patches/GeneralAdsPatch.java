@@ -93,6 +93,7 @@ public final class GeneralAdsPatch extends Filter {
                 channelMemberShelf
         );
 
+        var quickActions = new BlockRule(SettingsEnum.ADREMOVER_CHANNEL_BAR, "quick_actions");
         var carouselAd = new BlockRule(SettingsEnum.ADREMOVER_GENERAL_ADS_REMOVAL,
                 "carousel_ad"
         );
@@ -106,6 +107,7 @@ public final class GeneralAdsPatch extends Filter {
         this.identifierRegister.registerAll(
                 shorts,
                 graySeparator,
+                quickActions,
                 carouselAd
         );
     }
