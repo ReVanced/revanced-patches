@@ -40,6 +40,7 @@ public final class GeneralAdsPatch extends Filter {
         var webLinkPanel = new BlockRule(SettingsEnum.ADREMOVER_WEB_SEARCH_RESULTS, "web_link_panel");
         var horizontalVideoShelf = new BlockRule(SettingsEnum.ADREMOVER_HORIZONTAL_VIDEO_SHELF, "horizontal_video_shelf");
         var channelBar = new BlockRule(SettingsEnum.ADREMOVER_CHANNEL_BAR, "channel_bar");
+        var relatedVideos = new BlockRule(SettingsEnum.ADREMOVER_CHANNEL_BAR, "fullscreen_related_videos");
         var graySeparator = new BlockRule(SettingsEnum.ADREMOVER_GRAY_SEPARATOR,
                 "cell_divider" // layout residue (gray line above the buttoned ad),
         );
@@ -78,6 +79,7 @@ public final class GeneralAdsPatch extends Filter {
                 movieAds,
                 chapterTeaser,
                 communityGuidelines,
+                relatedVideos,
                 compactBanner,
                 inFeedSurvey,
                 viewProducts,
