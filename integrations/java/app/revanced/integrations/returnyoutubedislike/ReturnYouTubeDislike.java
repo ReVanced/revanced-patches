@@ -1,15 +1,36 @@
 package app.revanced.integrations.returnyoutubedislike;
 
+import static app.revanced.integrations.sponsorblock.StringRef.str;
+
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
+import android.graphics.drawable.shapes.RectShape;
 import android.icu.text.CompactDecimalFormat;
 import android.os.Build;
-import android.text.*;
-import android.text.style.CharacterStyle;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.RelativeSizeSpan;
-import android.text.style.ScaleXSpan;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.ImageSpan;
+
 import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import java.text.NumberFormat;
+import java.util.Locale;
+import java.util.Objects;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+import java.util.concurrent.atomic.AtomicReference;
+
 import app.revanced.integrations.returnyoutubedislike.requests.RYDVoteData;
 import app.revanced.integrations.returnyoutubedislike.requests.ReturnYouTubeDislikeApi;
 import app.revanced.integrations.settings.SettingsEnum;
@@ -17,14 +38,6 @@ import app.revanced.integrations.shared.PlayerType;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.ThemeHelper;
-
-import java.text.NumberFormat;
-import java.util.Locale;
-import java.util.Objects;
-import java.util.concurrent.*;
-import java.util.concurrent.atomic.AtomicReference;
-
-import static app.revanced.integrations.sponsorblock.StringRef.str;
 
 public class ReturnYouTubeDislike {
     /**
@@ -36,9 +49,10 @@ public class ReturnYouTubeDislike {
     private static final long MAX_MILLISECONDS_TO_BLOCK_UI_WHILE_WAITING_FOR_FETCH_VOTES_TO_COMPLETE = 4000;
 
     /**
-     * Separator character to use for segmented like/dislike
+     * Unique placeholder character, used to detect if a segmented span already has dislikes added to it.
+     * Can be any almost any non-visible character
      */
-    private static final char MIDDLE_SEPARATOR_CHARACTER = '•';
+    private static final char MIDDLE_SEPARATOR_CHARACTER = '\u2009'; // 'narrow space' character
 
     /**
      * Used to send votes, one by one, in the same order the user created them
@@ -177,49 +191,30 @@ public class ReturnYouTubeDislike {
      * This method can be called multiple times for the same UI element (including after dislikes was added)
      */
     public static void onComponentCreated(@NonNull Object conversionContext, @NonNull AtomicReference<Object> textRef) {
-        if (!SettingsEnum.RYD_ENABLED.getBoolean()) return;
-
-        // do not set lastVideoLoadedWasShort to false. It will be cleared when the next regular video is loaded.
-        if (lastVideoLoadedWasShort) {
-            return;
-        }
-        if (PlayerType.getCurrent().isNoneOrHidden()) {
-            return;
-        }
-
-        String conversionContextString = conversionContext.toString();
-        final boolean isSegmentedButton;
-        if (conversionContextString.contains("|segmented_like_dislike_button.eml|")) {
-            isSegmentedButton = true;
-        } else if (conversionContextString.contains("|dislike_button.eml|")) {
-            isSegmentedButton = false;
-        } else {
-            return;
-        }
-
         try {
+            if (!SettingsEnum.RYD_ENABLED.getBoolean()) return;
+
+            // do not set lastVideoLoadedWasShort to false. It will be cleared when the next regular video is loaded.
+            if (lastVideoLoadedWasShort || PlayerType.getCurrent().isNoneOrHidden()) {
+                return;
+            }
+
+            String conversionContextString = conversionContext.toString();
+            final boolean isSegmentedButton;
+            if (conversionContextString.contains("|segmented_like_dislike_button.eml|")) {
+                isSegmentedButton = true;
+            } else if (conversionContextString.contains("|dislike_button.eml|")) {
+                isSegmentedButton = false;
+            } else {
+                return;
+            }
+
             Spanned replacement = waitForFetchAndUpdateReplacementSpan((Spanned) textRef.get(), isSegmentedButton);
             if (replacement != null) {
                 textRef.set(replacement);
             }
         } catch (Exception ex) {
-            LogHelper.printException(() -> "Error while trying to update dislikes", ex);
-        }
-    }
-
-    public static void sendVote(int vote) {
-        if (!SettingsEnum.RYD_ENABLED.getBoolean()) return;
-
-        try {
-            for (ReturnYouTubeDislike.Vote v : ReturnYouTubeDislike.Vote.values()) {
-                if (v.value == vote) {
-                    ReturnYouTubeDislike.sendVote(v);
-                    return;
-                }
-            }
-            LogHelper.printException(() -> "Unknown vote type: " + vote);
-        } catch (Exception ex) {
-            LogHelper.printException(() -> "sendVote failure", ex);
+            LogHelper.printException(() -> "onComponentCreated failure", ex);
         }
     }
 
@@ -238,7 +233,8 @@ public class ReturnYouTubeDislike {
         return span;
     }
 
-    private static boolean isPreviouslyCreatedSegmentedSpan(Spanned span) {
+    // alternatively, this could check if the span contains one of the custom created spans, but this is simple and quick
+    private static boolean isPreviouslyCreatedSegmentedSpan(@NonNull Spanned span) {
         return span.toString().indexOf(MIDDLE_SEPARATOR_CHARACTER) != -1;
     }
 
@@ -246,7 +242,7 @@ public class ReturnYouTubeDislike {
      * @return NULL if the span does not need changing or if RYD is not available
      */
     @Nullable
-    private static Spanned waitForFetchAndUpdateReplacementSpan(Spanned oldSpannable, boolean isSegmentedButton) {
+    private static Spanned waitForFetchAndUpdateReplacementSpan(@Nullable Spanned oldSpannable, boolean isSegmentedButton) {
         if (oldSpannable == null) {
             LogHelper.printDebug(() -> "Cannot add dislikes (injection code was called with null Span)");
             return null;
@@ -256,7 +252,7 @@ public class ReturnYouTubeDislike {
         long fetchStartTime = 0;
         try {
             synchronized (videoIdLockObject) {
-                if (oldSpannable == replacementLikeDislikeSpan) {
+                if (oldSpannable.equals(replacementLikeDislikeSpan)) {
                     LogHelper.printDebug(() -> "Ignoring previously created dislike span");
                     return null;
                 }
@@ -264,6 +260,15 @@ public class ReturnYouTubeDislike {
                     if (isPreviouslyCreatedSegmentedSpan(oldSpannable)) {
                         // need to recreate using original, as oldSpannable has prior outdated dislike values
                         oldSpannable = originalDislikeSpan;
+                        if (oldSpannable == null) {
+                            // Regular video is opened, then a short is opened then closed,
+                            // then the app is closed then reopened (causes a call of NewVideoId() of the original videoId)
+                            // The original video (that was opened the entire time), is still showing the dislikes count
+                            // but the oldSpannable is now null because it was reset when the videoId was set again
+                            LogHelper.printDebug(() -> "Cannot add dislikes - original span is null" +
+                                    " (short was opened/closed, then app was closed/opened?) "); // ignore, with no toast
+                            return null;
+                        }
                     } else {
                         originalDislikeSpan = oldSpannable; // most up to date original
                     }
@@ -301,7 +306,23 @@ public class ReturnYouTubeDislike {
         return null;
     }
 
-    public static void sendVote(@NonNull Vote vote) {
+    public static void sendVote(int vote) {
+        if (!SettingsEnum.RYD_ENABLED.getBoolean()) return;
+
+        try {
+            for (Vote v : Vote.values()) {
+                if (v.value == vote) {
+                    sendVote(v);
+                    return;
+                }
+            }
+            LogHelper.printException(() -> "Unknown vote type: " + vote);
+        } catch (Exception ex) {
+            LogHelper.printException(() -> "sendVote failure", ex);
+        }
+    }
+
+    private static void sendVote(@NonNull Vote vote) {
         ReVancedUtils.verifyOnMainThread();
         Objects.requireNonNull(vote);
         try {
@@ -326,11 +347,11 @@ public class ReturnYouTubeDislike {
                 }
             });
 
-            // update the downloaded vote data
             synchronized (videoIdLockObject) {
                 replacementLikeDislikeSpan = null; // ui values need updating
             }
 
+            // update the downloaded vote data
             Future<RYDVoteData> future = getVoteFetchFuture();
             if (future == null) {
                 LogHelper.printException(() -> "Cannot update UI dislike count - vote fetch is null");
@@ -374,7 +395,7 @@ public class ReturnYouTubeDislike {
     /**
      * @param isSegmentedButton if UI is using the segmented single UI component for both like and dislike
      */
-    private static Spanned createDislikeSpan(Spanned oldSpannable, boolean isSegmentedButton, RYDVoteData voteData) {
+    private static Spanned createDislikeSpan(@NonNull Spanned oldSpannable, boolean isSegmentedButton, @NonNull RYDVoteData voteData) {
         if (!isSegmentedButton) {
             // simple replacement of 'dislike' with a number/percentage
             return newSpannableWithDislikes(oldSpannable, voteData);
@@ -393,142 +414,58 @@ public class ReturnYouTubeDislike {
             // likes are hidden.
             // RYD does not provide usable data for these types of videos,
             // and the API returns bogus data (zero likes and zero dislikes)
+            // discussion about this: https://github.com/Anarios/return-youtube-dislike/discussions/530
             //
             // example video: https://www.youtube.com/watch?v=UnrU5vxCHxw
             // RYD data: https://returnyoutubedislikeapi.com/votes?videoId=UnrU5vxCHxw
             //
-            // discussion about this: https://github.com/Anarios/return-youtube-dislike/discussions/530
-
-            //
             // Change the "Likes" string to show that likes and dislikes are hidden
-            //
             String hiddenMessageString = str("revanced_ryd_video_likes_hidden_by_video_owner");
             return newSpanUsingStylingOfAnotherSpan(oldSpannable, hiddenMessageString);
         }
 
-        Spannable likesSpan = newSpanUsingStylingOfAnotherSpan(oldSpannable, oldLikesString);
-
-        // middle separator
-        final boolean useCompactLayout = SettingsEnum.RYD_USE_COMPACT_LAYOUT.getBoolean();
+        SpannableStringBuilder builder = new SpannableStringBuilder();
+        final boolean compactLayout = SettingsEnum.RYD_USE_COMPACT_LAYOUT.getBoolean();
         final int separatorColor = ThemeHelper.isDarkTheme()
                 ? 0x29AAAAAA  // transparent dark gray
                 : 0xFFD9D9D9; // light gray
 
-        String middleSegmentedSeparatorString = useCompactLayout
-                ? "\u2009 " + MIDDLE_SEPARATOR_CHARACTER + " \u2009"  // u2009 = "half space" character
-                : "  " + MIDDLE_SEPARATOR_CHARACTER + "  ";
-        Spannable middleSeparatorSpan = newSpanUsingStylingOfAnotherSpan(oldSpannable, middleSegmentedSeparatorString);
-        addSpanStyling(middleSeparatorSpan, new ForegroundColorSpan(separatorColor));
-        CharacterStyle noAntiAliasingStyle = new CharacterStyle() {
-            @Override
-            public void updateDrawState(TextPaint tp) {
-                tp.setAntiAlias(false); // draw without anti-aliasing, to give a sharper edge
-            }
-        };
-        addSpanStyling(middleSeparatorSpan, noAntiAliasingStyle);
-
-        Spannable dislikeSpan = newSpannableWithDislikes(oldSpannable, voteData);
-
-        SpannableStringBuilder builder = new SpannableStringBuilder();
-        if (!useCompactLayout) {
-            String leftSegmentedSeparatorString = ReVancedUtils.isRightToLeftTextLayout() ? "\u200F|  " : "|  "; // u200f = right to left character
-            Spannable leftSeparatorSpan = newSpanUsingStylingOfAnotherSpan(oldSpannable, leftSegmentedSeparatorString);
-            addSpanStyling(leftSeparatorSpan, new ForegroundColorSpan(separatorColor));
-            addSpanStyling(leftSeparatorSpan, noAntiAliasingStyle);
-
-            // Use a left separator with a larger font and visually match the stock right separator.
-            // But with a larger font, the entire span (including the like/dislike text) becomes shifted downward.
-            // To correct this, use additional spans to move the alignment back upward by a relative amount.
-            setSegmentedAdjustmentValues();
-            class RelativeVerticalOffsetSpan extends CharacterStyle {
-                final float relativeVerticalShiftRatio;
-
-                RelativeVerticalOffsetSpan(float relativeVerticalShiftRatio) {
-                    this.relativeVerticalShiftRatio = relativeVerticalShiftRatio;
-                }
-
-                @Override
-                public void updateDrawState(TextPaint tp) {
-                    tp.baselineShift -= (int) (relativeVerticalShiftRatio * tp.getFontMetrics().top);
-                }
-            }
-            // each section needs it's own Relative span, otherwise alignment is wrong
-            addSpanStyling(leftSeparatorSpan, new RelativeVerticalOffsetSpan(segmentedLeftSeparatorVerticalShiftRatio));
-
-            addSpanStyling(likesSpan, new RelativeVerticalOffsetSpan(segmentedVerticalShiftRatio));
-            addSpanStyling(middleSeparatorSpan, new RelativeVerticalOffsetSpan(segmentedVerticalShiftRatio));
-            addSpanStyling(dislikeSpan, new RelativeVerticalOffsetSpan(segmentedVerticalShiftRatio));
-
-            // important: must add size scaling after vertical offset (otherwise alignment gets off)
-            addSpanStyling(leftSeparatorSpan, new RelativeSizeSpan(segmentedLeftSeparatorFontRatio));
-            addSpanStyling(leftSeparatorSpan, new ScaleXSpan(segmentedLeftSeparatorHorizontalScaleRatio));
-            // middle separator does not need resizing
-
+        if (!compactLayout) {
+            // left separator
+            final Rect leftSeparatorBounds = new Rect(0, 0, 3, 54);
+            String leftSeparatorString = ReVancedUtils.isRightToLeftTextLayout()
+                    ? "\u200F   "  // u200F = right to left character
+                    : "\u2FF0   "; // u2FF0 = left to right character
+            Spannable leftSeparatorSpan = new SpannableString(leftSeparatorString);
+            ShapeDrawable shapeDrawable = new ShapeDrawable(new RectShape());
+            shapeDrawable.getPaint().setColor(separatorColor);
+            shapeDrawable.setBounds(leftSeparatorBounds);
+            leftSeparatorSpan.setSpan(new VerticallyCenteredImageSpan(shapeDrawable), 0, 1,
+                    Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
             builder.append(leftSeparatorSpan);
         }
 
-        builder.append(likesSpan);
+        // likes
+        builder.append(newSpanUsingStylingOfAnotherSpan(oldSpannable, oldLikesString));
+
+        // middle separator
+        String middleSeparatorString = compactLayout
+                ? "  " + MIDDLE_SEPARATOR_CHARACTER + "  "
+                : "  \u2009" + MIDDLE_SEPARATOR_CHARACTER + "\u2009  "; // u2009 = 'narrow space' character
+        final int shapeInsertionIndex = middleSeparatorString.length() / 2;
+        final Rect middleSeparatorBounds = new Rect(0, 0, 10, 10);
+        Spannable middleSeparatorSpan = new SpannableString(middleSeparatorString);
+        ShapeDrawable shapeDrawable = new ShapeDrawable(new OvalShape());
+        shapeDrawable.getPaint().setColor(separatorColor);
+        shapeDrawable.setBounds(middleSeparatorBounds);
+        middleSeparatorSpan.setSpan(new VerticallyCenteredImageSpan(shapeDrawable), shapeInsertionIndex, shapeInsertionIndex + 1,
+                Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
         builder.append(middleSeparatorSpan);
-        builder.append(dislikeSpan);
+
+        // dislikes
+        builder.append(newSpannableWithDislikes(oldSpannable, voteData));
+
         return new SpannableString(builder);
-    }
-
-    private static boolean segmentedValuesSet = false;
-    private static float segmentedVerticalShiftRatio;
-    private static float segmentedLeftSeparatorVerticalShiftRatio;
-    private static float segmentedLeftSeparatorFontRatio;
-    private static float segmentedLeftSeparatorHorizontalScaleRatio;
-
-    /**
-     * Set the segmented adjustment values, based on the device.
-     */
-    private static void setSegmentedAdjustmentValues() {
-        if (segmentedValuesSet) {
-            return;
-        }
-
-        String deviceManufacturer = Build.MANUFACTURER;
-        final int deviceSdkVersion = Build.VERSION.SDK_INT;
-        LogHelper.printDebug(() -> "Device manufacturer: '" + deviceManufacturer + "' SDK: " + deviceSdkVersion);
-
-        //
-        // Important: configurations must be with the device default system font, and default font size.
-        //
-        // In general, a single configuration will give perfect layout for all devices of the same manufacturer.
-        final String configManufacturer;
-        final int configSdk;
-        switch (deviceManufacturer) {
-            default: // use Google layout by default
-            case "Google":
-                // logging and documentation
-                configManufacturer = "Google";
-                configSdk = 33;
-                // tested on Android 10 thru 13, and works well for all
-                segmentedLeftSeparatorVerticalShiftRatio = segmentedVerticalShiftRatio = -0.18f; // move separators and like/dislike up by 18%
-                segmentedLeftSeparatorFontRatio = 1.8f;  // increase left separator size by 80%
-                segmentedLeftSeparatorHorizontalScaleRatio = 0.65f; // horizontally compress left separator by 35%
-                break;
-            case "samsung":
-                configManufacturer = "samsung";
-                configSdk = 33;
-                // tested on S22
-                segmentedLeftSeparatorVerticalShiftRatio = segmentedVerticalShiftRatio = -0.19f;
-                segmentedLeftSeparatorFontRatio = 1.5f;
-                segmentedLeftSeparatorHorizontalScaleRatio = 0.7f;
-                break;
-            case "OnePlus":
-                configManufacturer = "OnePlus";
-                configSdk = 33;
-                // tested on OnePlus 8 Pro
-                segmentedLeftSeparatorVerticalShiftRatio = -0.075f;
-                segmentedVerticalShiftRatio = -0.38f;
-                segmentedLeftSeparatorFontRatio = 1.87f;
-                segmentedLeftSeparatorHorizontalScaleRatio = 0.50f;
-                break;
-        }
-
-        LogHelper.printDebug(() -> "Using layout adjustments based on manufacturer: '" + configManufacturer + "' SDK: " + configSdk);
-        segmentedValuesSet = true;
     }
 
     /**
@@ -536,7 +473,7 @@ public class ReturnYouTubeDislike {
      *
      * @return if the string contains at least 1 number
      */
-    private static boolean stringContainsNumber(String text) {
+    private static boolean stringContainsNumber(@NonNull String text) {
         for (int index = 0, length = text.length(); index < length; index++) {
             if (Character.isDigit(text.codePointAt(index))) {
                 return true;
@@ -545,18 +482,14 @@ public class ReturnYouTubeDislike {
         return false;
     }
 
-    private static void addSpanStyling(Spannable destination, Object styling) {
-        destination.setSpan(styling, 0, destination.length(), 0);
-    }
-
-    private static Spannable newSpannableWithDislikes(Spanned sourceStyling, RYDVoteData voteData) {
+    private static Spannable newSpannableWithDislikes(@NonNull Spanned sourceStyling, @NonNull RYDVoteData voteData) {
         return newSpanUsingStylingOfAnotherSpan(sourceStyling,
                 SettingsEnum.RYD_SHOW_DISLIKE_PERCENTAGE.getBoolean()
                         ? formatDislikePercentage(voteData.getDislikePercentage())
                         : formatDislikeCount(voteData.getDislikeCount()));
     }
 
-    private static Spannable newSpanUsingStylingOfAnotherSpan(Spanned sourceStyle, String newSpanText) {
+    private static Spannable newSpanUsingStylingOfAnotherSpan(@NonNull Spanned sourceStyle, @NonNull String newSpanText) {
         SpannableString destination = new SpannableString(newSpanText);
         Object[] spans = sourceStyle.getSpans(0, sourceStyle.length(), Object.class);
         for (Object span : spans) {
@@ -626,5 +559,45 @@ public class ReturnYouTubeDislike {
         LogHelper.printDebug(() -> "UI thread forced to wait: " + numberOfTimesUIWaitedOnNetworkCalls + " times, "
                 + "total wait time: " + totalTimeUIWaitedOnNetworkCalls + "ms, "
                 + "average wait time: " + averageTimeForcedToWait + "ms");
+    }
+}
+
+class VerticallyCenteredImageSpan extends ImageSpan {
+    public VerticallyCenteredImageSpan(Drawable drawable) {
+        super(drawable);
+    }
+
+    @Override
+    public int getSize(@NonNull Paint paint, @NonNull CharSequence text,
+                       int start, int end, @Nullable Paint.FontMetricsInt fontMetrics) {
+        Drawable drawable = getDrawable();
+        Rect bounds = drawable.getBounds();
+        if (fontMetrics != null) {
+            Paint.FontMetricsInt paintMetrics = paint.getFontMetricsInt();
+            final int fontHeight = paintMetrics.descent - paintMetrics.ascent;
+            final int drawHeight = bounds.bottom - bounds.top;
+            final int yCenter = paintMetrics.ascent + fontHeight / 2;
+
+            fontMetrics.ascent = yCenter - drawHeight / 2;
+            fontMetrics.top = fontMetrics.ascent;
+            fontMetrics.bottom = yCenter + drawHeight / 2;
+            fontMetrics.descent = fontMetrics.bottom;
+        }
+        return bounds.right;
+    }
+
+    @Override
+    public void draw(@NonNull Canvas canvas, CharSequence text, int start, int end,
+                     float x, int top, int y, int bottom, @NonNull Paint paint) {
+        Drawable drawable = getDrawable();
+        canvas.save();
+        Paint.FontMetricsInt paintMetrics = paint.getFontMetricsInt();
+        final int fontHeight = paintMetrics.descent - paintMetrics.ascent;
+        final int yCenter = y + paintMetrics.descent - fontHeight / 2;
+        final Rect drawBounds = drawable.getBounds();
+        final int translateY = yCenter - (drawBounds.bottom - drawBounds.top) / 2;
+        canvas.translate(x, translateY);
+        drawable.draw(canvas);
+        canvas.restore();
     }
 }
