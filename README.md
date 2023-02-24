@@ -19,7 +19,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `debugging` | Adds debugging options. | all |
 | `disable-auto-captions` | Disable forced captions from being automatically enabled. | 18.03.36 |
 | `disable-fullscreen-panels` | Disables video description and comments panel in fullscreen view. | 18.03.36 |
-| `disable-fullscreen-panels-auto-popup` | Disables fullscreen panels from appearing automatically when going fullscreen (playlist or live chat). | 18.03.36 |
+| `disable-player-popup-panels` | Disables panels from appearing automatically when going into fullscreen (playlist or live chat). | 18.03.36 |
 | `disable-shorts-on-startup` | Disables playing YouTube Shorts when launching YouTube. | 18.03.36 |
 | `disable-zoom-haptics` | Disables haptics when zooming. | all |
 | `downloads` | Enables downloading music and videos from YouTube. | 18.03.36 |

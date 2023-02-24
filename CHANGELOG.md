@@ -1,3 +1,10 @@
+# [2.165.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.165.0-dev.3...v2.165.0-dev.4) (2023-02-24)
+
+
+### Features
+
+* **youtube/disable-player-popup-panels:** use better patch description ([eda4ed3](https://github.com/revanced/revanced-patches/commit/eda4ed3a3e83b5a0e97740547494708f4e6536c2))
+
 # [2.165.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.165.0-dev.2...v2.165.0-dev.3) (2023-02-24)
 
 
