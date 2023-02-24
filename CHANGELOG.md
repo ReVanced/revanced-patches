@@ -1,3 +1,10 @@
+# [2.165.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.165.0-dev.4...v2.165.0-dev.5) (2023-02-24)
+
+
+### Features
+
+* **youtube/general-ads:** do not hide components in library tab ([a8b597a](https://github.com/revanced/revanced-patches/commit/a8b597a1ba2fa6f6e37d3792e85296c1f07da630))
+
 # [2.165.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.165.0-dev.3...v2.165.0-dev.4) (2023-02-24)
 
 
