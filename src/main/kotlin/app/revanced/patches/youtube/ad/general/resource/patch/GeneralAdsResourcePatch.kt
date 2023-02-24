@@ -220,6 +220,13 @@ class GeneralAdsResourcePatch : ResourcePatch {
                 StringResource("revanced_hide_channel_bar_summary_on", "Channel bar is hidden"),
                 StringResource("revanced_hide_channel_bar_summary_off", "Channel bar is shown")
             ),
+            SwitchPreference(
+                "revanced_hide_image_shelf",
+                StringResource("revanced_hide_image_shelf", "Hide image shelf in search results"),
+                true,
+                StringResource("revanced_hide_image_shelf_summary_on", "Image shelf is hidden"),
+                StringResource("revanced_hide_image_shelf_summary_off", "Image shelf is shown")
+            ),
         )
 
         PreferenceScreen.ADS.addPreferences(
