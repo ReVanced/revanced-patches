@@ -21,6 +21,5 @@ object ShowAdFingerprint : MethodFingerprint(
         Opcode.CONST_4,
         Opcode.GOTO,
         Opcode.CONST_4,
-        Opcode.RETURN,
     ),
 )
