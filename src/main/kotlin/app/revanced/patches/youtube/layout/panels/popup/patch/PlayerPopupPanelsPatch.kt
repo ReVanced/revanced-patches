@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.panels.fullscreen.popup.patch
+package app.revanced.patches.youtube.layout.panels.popup.patch
 
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
@@ -13,18 +13,18 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
-import app.revanced.patches.youtube.layout.panels.fullscreen.popup.annotations.PlayerPopupPanelsCompatibility
-import app.revanced.patches.youtube.layout.panels.fullscreen.popup.fingerprints.EngagementPanelControllerFingerprint
+import app.revanced.patches.youtube.layout.panels.popup.annotations.PlayerPopupPanelsCompatibility
+import app.revanced.patches.youtube.layout.panels.popup.fingerprints.EngagementPanelControllerFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
-@Name("disable-fullscreen-panels-auto-popup")
-@Description("Disables fullscreen panels from appearing automatically when going fullscreen (playlist or live chat).")
+@Name("disable-player-popup-panels")
+@Description("Disables panels from appearing automatically when going into fullscreen (playlist or live chat).")
 @PlayerPopupPanelsCompatibility
 @Version("0.0.1")
-class FullscreenPanelsPatch : BytecodePatch(
+class PlayerPopupPanelsPatch : BytecodePatch(
     listOf(
         EngagementPanelControllerFingerprint
     )

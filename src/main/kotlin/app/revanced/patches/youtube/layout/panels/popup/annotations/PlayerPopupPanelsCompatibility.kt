@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.panels.fullscreen.popup.annotations
+package app.revanced.patches.youtube.layout.panels.popup.annotations
 
 import app.revanced.patcher.annotation.Compatibility
 import app.revanced.patcher.annotation.Package

@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.panels.fullscreen.popup.fingerprints
+package app.revanced.patches.youtube.layout.panels.popup.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.annotation.FuzzyPatternScanMethod
