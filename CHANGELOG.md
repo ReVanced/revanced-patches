@@ -1,3 +1,10 @@
+# [2.164.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.164.0-dev.2...v2.164.0-dev.3) (2023-02-24)
+
+
+### Features
+
+* **youtube/return-youtube-dislike:** support for shorts ([#1596](https://github.com/revanced/revanced-patches/issues/1596)) ([967c1cb](https://github.com/revanced/revanced-patches/commit/967c1cbd4b340a382a355f13d236d2881bafddbf))
+
 # [2.164.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.164.0-dev.1...v2.164.0-dev.2) (2023-02-23)
 
 
