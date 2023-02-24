@@ -56,6 +56,8 @@ public enum SettingsEnum {
     ADREMOVER_WEB_SEARCH_RESULTS("revanced_adremover_web_search_result", true, ReturnType.BOOLEAN),
     ADREMOVER_HORIZONTAL_VIDEO_SHELF("revanced_horizontal_video_shelf", true, ReturnType.BOOLEAN),
     ADREMOVER_CHANNEL_BAR("revanced_hide_channel_bar", false, ReturnType.BOOLEAN),
+    ADREMOVER_QUICK_ACTIONS("revanced_hide_quick_actions", false, ReturnType.BOOLEAN),
+    ADREMOVER_RELATED_VIDEOS("revanced_hide_related_videos", false, ReturnType.BOOLEAN),
 
     // Action buttons
     HIDE_LIKE_BUTTON("revanced_hide_like_button", false, ReturnType.BOOLEAN, false),
