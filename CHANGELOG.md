@@ -1,3 +1,10 @@
+# [2.165.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.165.0-dev.1...v2.165.0-dev.2) (2023-02-24)
+
+
+### Bug Fixes
+
+* **youtube/general-ads:** remove duplicate preference ([cd7a728](https://github.com/revanced/revanced-patches/commit/cd7a728f52cd29c76a24b37c07c0e4d4c5485b07))
+
 # [2.165.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.164.0...v2.165.0-dev.1) (2023-02-24)
 
 
