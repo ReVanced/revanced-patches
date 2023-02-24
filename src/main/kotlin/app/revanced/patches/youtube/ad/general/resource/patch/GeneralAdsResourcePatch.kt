@@ -199,6 +199,27 @@ class GeneralAdsResourcePatch : ResourcePatch {
                 StringResource("revanced_hide_channel_bar_summary_on", "Channel bar is hidden"),
                 StringResource("revanced_hide_channel_bar_summary_off", "Channel bar is shown")
             ),
+            SwitchPreference(
+                "revanced_hide_quick_actions",
+                StringResource("revanced_hide_quick_actions_title", "Hide quick actions in fullscreen"),
+                false,
+                StringResource("revanced_hide_quick_actions_summary_on", "Quick actions are hidden"),
+                StringResource("revanced_hide_quick_actions_summary_off", "Quick actions are shown")
+            ),
+            SwitchPreference(
+                "revanced_hide_related_videos",
+                StringResource("revanced_hide_related_videos_title", "Hide related videos in quick actions"),
+                false,
+                StringResource("revanced_hide_related_videos_summary_on", "Related videos are hidden"),
+                StringResource("revanced_hide_related_videos_summary_off", "Related videos are shown")
+            ),
+            SwitchPreference(
+                "revanced_hide_channel_bar",
+                StringResource("revanced_hide_channel_bar_title", "Hide channel bar"),
+                false,
+                StringResource("revanced_hide_channel_bar_summary_on", "Channel bar is hidden"),
+                StringResource("revanced_hide_channel_bar_summary_off", "Channel bar is shown")
+            ),
         )
 
         PreferenceScreen.ADS.addPreferences(
