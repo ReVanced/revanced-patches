@@ -42,6 +42,7 @@ public final class GeneralAdsPatch extends Filter {
         var channelBar = new BlockRule(SettingsEnum.ADREMOVER_CHANNEL_BAR, "channel_bar");
         var relatedVideos = new BlockRule(SettingsEnum.ADREMOVER_RELATED_VIDEOS, "fullscreen_related_videos");
         var quickActions = new BlockRule(SettingsEnum.ADREMOVER_QUICK_ACTIONS, "quick_actions");
+        var imageShelf = new BlockRule(SettingsEnum.ADREMOVER_IMAGE_SHELF, "image_shelf");
         var graySeparator = new BlockRule(SettingsEnum.ADREMOVER_GRAY_SEPARATOR,
                 "cell_divider" // layout residue (gray line above the buttoned ad),
         );
@@ -92,6 +93,7 @@ public final class GeneralAdsPatch extends Filter {
                 artistCard,
                 selfSponsor,
                 webLinkPanel,
+                imageShelf,
                 horizontalVideoShelf,
                 subscribersCommunityGuidelines,
                 channelMemberShelf
