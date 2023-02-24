@@ -38,7 +38,6 @@ public final class GeneralAdsPatch extends Filter {
         var chapterTeaser = new BlockRule(SettingsEnum.ADREMOVER_CHAPTER_TEASER_REMOVAL, "expandable_metadata");
         var viewProducts = new BlockRule(SettingsEnum.ADREMOVER_VIEW_PRODUCTS, "product_item", "products_in_video");
         var webLinkPanel = new BlockRule(SettingsEnum.ADREMOVER_WEB_SEARCH_RESULTS, "web_link_panel");
-        var horizontalVideoShelf = new BlockRule(SettingsEnum.ADREMOVER_HORIZONTAL_VIDEO_SHELF, "horizontal_video_shelf");
         var channelBar = new BlockRule(SettingsEnum.ADREMOVER_CHANNEL_BAR, "channel_bar");
         var relatedVideos = new BlockRule(SettingsEnum.ADREMOVER_RELATED_VIDEOS, "fullscreen_related_videos");
         var quickActions = new BlockRule(SettingsEnum.ADREMOVER_QUICK_ACTIONS, "quick_actions");
@@ -94,7 +93,6 @@ public final class GeneralAdsPatch extends Filter {
                 selfSponsor,
                 webLinkPanel,
                 imageShelf,
-                horizontalVideoShelf,
                 subscribersCommunityGuidelines,
                 channelMemberShelf
         );
