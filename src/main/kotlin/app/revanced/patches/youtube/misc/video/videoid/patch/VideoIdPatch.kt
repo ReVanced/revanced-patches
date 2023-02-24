@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.misc.video.videoid.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -22,17 +23,18 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Version("0.0.1")
 @DependsOn([IntegrationsPatch::class])
 class VideoIdPatch : BytecodePatch(
-    listOf(
-        VideoIdFingerprint
-    )
+    listOf(VideoIdFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        with(VideoIdFingerprint.result!!) {
-            insertMethod = mutableMethod
-            insertIndex = scanResult.patternScanResult!!.endIndex + 2
+        VideoIdFingerprint.result?.let {
+            val videoIdRegisterInstructionIndex = it.scanResult.patternScanResult!!.endIndex
 
-            videoIdRegister = (insertMethod.instruction(insertIndex - 1) as OneRegisterInstruction).registerA
-        }
+            with(it.mutableMethod) {
+                insertMethod = this
+                videoIdRegister = (instruction(videoIdRegisterInstructionIndex) as OneRegisterInstruction).registerA
+                insertIndex = videoIdRegisterInstructionIndex + 1
+            }
+        } ?: return VideoIdFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }
@@ -49,10 +51,15 @@ class VideoIdPatch : BytecodePatch(
          */
         fun injectCall(
             methodDescriptor: String
-        ) = insertMethod.addInstructions(
-            insertIndex, // move-result-object offset
-            "invoke-static {v$videoIdRegister}, $methodDescriptor"
-        )
+        ) {
+            insertMethod.addInstructions(
+                // TODO: The order has been proven to not be required, so remove the logic for keeping order.
+                // Keep injection calls in the order they're added:
+                // Increment index. So if additional injection calls are added, those calls run after this injection call.
+                insertIndex++,
+                "invoke-static {v$videoIdRegister}, $methodDescriptor"
+            )
+        }
     }
 }
 
