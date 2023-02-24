@@ -1,3 +1,10 @@
+# [2.165.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.164.0...v2.165.0-dev.1) (2023-02-24)
+
+
+### Features
+
+* **youtube/general-ads:** hide image shelf from search results ([e29230f](https://github.com/revanced/revanced-patches/commit/e29230f44930a9928c3f97222fe05b5493ef1710))
+
 # [2.164.0](https://github.com/revanced/revanced-patches/compare/v2.163.0...v2.164.0) (2023-02-24)
 
 
