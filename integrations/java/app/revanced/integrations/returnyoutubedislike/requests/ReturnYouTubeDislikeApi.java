@@ -1,29 +1,27 @@
 package app.revanced.integrations.returnyoutubedislike.requests;
 
-import static app.revanced.integrations.returnyoutubedislike.requests.ReturnYouTubeDislikeRoutes.getRYDConnectionFromRoute;
-import static app.revanced.integrations.sponsorblock.StringRef.str;
-
 import android.util.Base64;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
-
+import app.revanced.integrations.requests.Requester;
+import app.revanced.integrations.returnyoutubedislike.ReturnYouTubeDislike;
+import app.revanced.integrations.utils.LogHelper;
+import app.revanced.integrations.utils.ReVancedUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.ProtocolException;
+import java.net.SocketTimeoutException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Objects;
 
-import app.revanced.integrations.requests.Requester;
-import app.revanced.integrations.returnyoutubedislike.ReturnYouTubeDislike;
-import app.revanced.integrations.utils.LogHelper;
-import app.revanced.integrations.utils.ReVancedUtils;
+import static app.revanced.integrations.returnyoutubedislike.requests.ReturnYouTubeDislikeRoutes.getRYDConnectionFromRoute;
+import static app.revanced.integrations.sponsorblock.StringRef.str;
 
 public class ReturnYouTubeDislikeApi {
     /**
@@ -48,7 +46,13 @@ public class ReturnYouTubeDislikeApi {
     /**
      * Response code of a successful API call
      */
-    private static final int SUCCESS_HTTP_STATUS_CODE = 200;
+    private static final int HTTP_STATUS_CODE_SUCCESS = 200;
+
+    /**
+     * Response code indicating the video id is not for a video that can be voted for.
+     * (it's not a Short or a regular video, and it's likely a YouTube Story)
+     */
+    private static final int HTTP_STATUS_CODE_NOT_FOUND = 404;
 
     /**
      * Indicates a client rate limit has been reached
@@ -57,9 +61,9 @@ public class ReturnYouTubeDislikeApi {
 
     /**
      * How long to wait until API calls are resumed, if a rate limit is hit.
-     * No clear guideline of how long to backoff.  Using 60 seconds for now.
+     * No clear guideline of how long to backoff. Using 2 minutes for now.
      */
-    private static final int RATE_LIMIT_BACKOFF_SECONDS = 60;
+    private static final int RATE_LIMIT_BACKOFF_SECONDS = 120;
 
     /**
      * Last time a {@link #RATE_LIMIT_HTTP_STATUS_CODE} was reached.
@@ -133,6 +137,7 @@ public class ReturnYouTubeDislikeApi {
      *
      * @param maximumTimeToWait maximum time to wait
      */
+    @SuppressWarnings("UnusedReturnValue")
     private static long randomlyWaitIfLocallyDebugging(long maximumTimeToWait) {
         final boolean DEBUG_RANDOMLY_DELAY_NETWORK_CALLS = false; // set true to debug UI
         if (DEBUG_RANDOMLY_DELAY_NETWORK_CALLS) {
@@ -183,6 +188,8 @@ public class ReturnYouTubeDislikeApi {
 
         if (httpResponseCode == RATE_LIMIT_HTTP_STATUS_CODE) {
             lastTimeRateLimitWasHit = System.currentTimeMillis();
+            //noinspection NonAtomicOperationOnVolatileField // don't care, field is used only as an estimate
+            numberOfRateLimitRequestsEncountered++;
             LogHelper.printDebug(() -> "API rate limit was hit. Stopping API calls for the next "
                     + RATE_LIMIT_BACKOFF_SECONDS + " seconds");
             ReVancedUtils.runOnMainThread(() -> { // must show toasts on main thread
@@ -208,7 +215,6 @@ public class ReturnYouTubeDislikeApi {
             fetchCallNumberOfFailures++;
         } else if (rateLimitHit) {
             fetchCallResponseTimeLast = FETCH_CALL_RESPONSE_TIME_VALUE_RATE_LIMIT;
-            numberOfRateLimitRequestsEncountered++;
         } else {
             fetchCallResponseTimeLast = responseTimeOfFetchCall;
         }
@@ -228,7 +234,6 @@ public class ReturnYouTubeDislikeApi {
         LogHelper.printDebug(() -> "Fetching votes for: " + videoId);
         final long timeNetworkCallStarted = System.currentTimeMillis();
 
-        String connectionErrorMessageStringKey = "revanced_ryd_failure_connection_timeout";
         try {
             HttpURLConnection connection = getRYDConnectionFromRoute(ReturnYouTubeDislikeRoutes.GET_DISLIKES, videoId);
             // request headers, as per https://returnyoutubedislike.com/docs/fetching
@@ -250,7 +255,7 @@ public class ReturnYouTubeDislikeApi {
                 return null;
             }
 
-            if (responseCode == SUCCESS_HTTP_STATUS_CODE) {
+            if (responseCode == HTTP_STATUS_CODE_SUCCESS) {
                 final long timeNetworkCallEnded = System.currentTimeMillis(); // record end time before parsing
                 // do not disconnect, the same server connection will likely be used again soon
                 JSONObject json = Requester.parseJSONObject(connection);
@@ -263,13 +268,20 @@ public class ReturnYouTubeDislikeApi {
                     LogHelper.printException(() -> "Failed to parse video: " + videoId + " json: " + json, ex);
                     // fall thru to update statistics
                 }
+            } else if (responseCode == HTTP_STATUS_CODE_NOT_FOUND) {
+                // normal response when viewing YouTube Stories (cannot vote for these)
+                LogHelper.printDebug(() -> "Video has no like/dislikes (video is a YouTube Story?): " + videoId);
+                return null; // do not updated connection statistics
             } else {
-                LogHelper.printException(() -> "Failed to fetch votes for video: " + videoId
-                        + " response code was: " + responseCode, null, str(connectionErrorMessageStringKey));
+                LogHelper.printException(() -> "Failed to fetch votes for video: " + videoId + " response code was: " + responseCode,
+                        null, str("revanced_ryd_failure_connection_status_code", responseCode));
                 connection.disconnect(); // something went wrong, might as well disconnect
             }
-        } catch (Exception ex) { // connection timed out, response timeout, or some other network error
-            LogHelper.printException(() -> "Failed to fetch votes", ex, str(connectionErrorMessageStringKey));
+        } catch (SocketTimeoutException ex) { // connection timed out, response timeout, or some other network error
+            LogHelper.printException(() -> "Failed to fetch votes", ex, str("revanced_ryd_failure_connection_timeout"));
+        } catch (Exception ex) {
+            // should never happen
+            LogHelper.printException(() -> "Failed to fetch votes", ex, str("revanced_ryd_failure_generic", ex.getMessage()));
         }
 
         updateStatistics(timeNetworkCallStarted, System.currentTimeMillis(), true, false);
@@ -299,7 +311,7 @@ public class ReturnYouTubeDislikeApi {
                 connection.disconnect(); // disconnect, as no more connections will be made for a little while
                 return null;
             }
-            if (responseCode == SUCCESS_HTTP_STATUS_CODE) {
+            if (responseCode == HTTP_STATUS_CODE_SUCCESS) {
                 JSONObject json = Requester.parseJSONObject(connection);
                 String challenge = json.getString("challenge");
                 int difficulty = json.getInt("difficulty");
@@ -340,7 +352,7 @@ public class ReturnYouTubeDislikeApi {
                 connection.disconnect(); // disconnect, as no more connections will be made for a little while
                 return null;
             }
-            if (responseCode == SUCCESS_HTTP_STATUS_CODE) {
+            if (responseCode == HTTP_STATUS_CODE_SUCCESS) {
                 String result = Requester.parseJson(connection);
                 if (result.equalsIgnoreCase("true")) {
                     LogHelper.printDebug(() -> "Registration confirmation successful for user: " + userId);
@@ -387,7 +399,7 @@ public class ReturnYouTubeDislikeApi {
                 connection.disconnect(); // disconnect, as no more connections will be made for a little while
                 return false;
             }
-            if (responseCode == SUCCESS_HTTP_STATUS_CODE) {
+            if (responseCode == HTTP_STATUS_CODE_SUCCESS) {
                 JSONObject json = Requester.parseJSONObject(connection);
                 String challenge = json.getString("challenge");
                 int difficulty = json.getInt("difficulty");
@@ -431,7 +443,7 @@ public class ReturnYouTubeDislikeApi {
                 return false;
             }
 
-            if (responseCode == SUCCESS_HTTP_STATUS_CODE) {
+            if (responseCode == HTTP_STATUS_CODE_SUCCESS) {
                 String result = Requester.parseJson(connection);
                 if (result.equalsIgnoreCase("true")) {
                     LogHelper.printDebug(() -> "Vote confirm successful for video: " + videoId);
@@ -469,9 +481,7 @@ public class ReturnYouTubeDislikeApi {
         byte[] decodedChallenge = Base64.decode(challenge, Base64.NO_WRAP);
 
         byte[] buffer = new byte[20];
-        for (int i = 4; i < 20; i++) { // FIXME replace with System.arrayCopy
-            buffer[i] = decodedChallenge[i - 4];
-        }
+        System.arraycopy(decodedChallenge, 0, buffer, 4, 16);
 
         MessageDigest md;
         try {
@@ -513,9 +523,9 @@ public class ReturnYouTubeDislikeApi {
 
     private static int countLeadingZeroes(byte[] uInt8View) {
         int zeroes = 0;
-        int value = 0;
-        for (int i = 0; i < uInt8View.length; i++) {
-            value = uInt8View[i] & 0xFF;
+        int value;
+        for (byte b : uInt8View) {
+            value = b & 0xFF;
             if (value == 0) {
                 zeroes += 8;
             } else {
