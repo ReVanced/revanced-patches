@@ -19,11 +19,11 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
-@Name("hide-time")
-@Description("Hides the videos time.")
+@Name("hide-timestamp")
+@Description("Hides timestamp in video player.")
 @HideTimeCompatibility
 @Version("0.0.1")
-class HideTimePatch : BytecodePatch(
+class HideTimestampPatch : BytecodePatch(
     listOf(
         TimeCounterFingerprint
     )
@@ -31,17 +31,17 @@ class HideTimePatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
-                "revanced_hide_time",
-                StringResource("revanced_hide_time_title", "Hide time"),
+                "revanced_hide_timestamp",
+                StringResource("revanced_hide_timestamp_title", "Hide video timestamp"),
                 false,
-                StringResource("revanced_hide_time_summary_on", "Time is hidden"),
-                StringResource("revanced_hide_time_summary_off", "Time is shown")
+                StringResource("revanced_hide_timestamp_summary_on", "Timestamp is hidden"),
+                StringResource("revanced_hide_timestamp_summary_off", "Timestamp is shown")
             )
         )
 
         TimeCounterFingerprint.result!!.mutableMethod.addInstructions(
             0, """
-            invoke-static { }, Lapp/revanced/integrations/patches/HideTimePatch;->hideTime()Z
+            invoke-static { }, Lapp/revanced/integrations/patches/HideTimestampPatch;->hideTimestamp()Z
             move-result v0
             if-eqz v0, :hide_time
             return-void
