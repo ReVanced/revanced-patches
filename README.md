@@ -36,12 +36,13 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-crowdfunding-box` | Hides the crowdfunding box between the player and video description. | 18.03.36 |
 | `hide-email-address` | Hides the email address in the account switcher. | 18.03.36 |
 | `hide-endscreen-cards` | Hides the suggested video cards at the end of a video in fullscreen. | 18.03.36 |
+| `hide-floating-microphone-button` | Hides the floating microphone button which appears in search. | 18.03.36 |
 | `hide-info-cards` | Hides info cards in videos. | 18.03.36 |
 | `hide-my-mix` | Hides mix playlists. | 18.03.36 |
 | `hide-player-buttons` | Adds the option to hide video player previous and next buttons. | all |
 | `hide-seekbar` | Hides the seekbar. | 18.03.36 |
 | `hide-shorts-button` | Hides the shorts button on the navigation bar. | 18.03.36 |
-| `hide-time` | Hides the videos time. | 18.03.36 |
+| `hide-timestamp` | Hides timestamp in video player. | 18.03.36 |
 | `hide-video-action-buttons` | Adds the options to hide action buttons under a video. | 18.03.36 |
 | `hide-watch-in-vr` | Hides the option to watch in VR from the player settings flyout panel. | 18.03.36 |
 | `hide-watermark` | Hides creator's watermarks on videos. | 18.03.36 |

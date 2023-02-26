@@ -1,3 +1,11 @@
+# [2.165.0-dev.7](https://github.com/revanced/revanced-patches/compare/v2.165.0-dev.6...v2.165.0-dev.7) (2023-02-26)
+
+
+### Features
+
+* **youtube/hide-autoplay-button:** do not disable autoplay button when hidden ([7bc6a5b](https://github.com/revanced/revanced-patches/commit/7bc6a5ba2505e368e7590fe429b682ae435dba83))
+* **youtube:** `hide-floating-microphone-button` patch ([c684bed](https://github.com/revanced/revanced-patches/commit/c684bed5054beb5361fed5fe404cf68033927a27))
+
 # [2.165.0-dev.6](https://github.com/revanced/revanced-patches/compare/v2.165.0-dev.5...v2.165.0-dev.6) (2023-02-26)
 
 
