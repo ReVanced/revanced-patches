@@ -5,5 +5,4 @@ import app.revanced.patcher.annotation.Package
 
 @Compatibility([Package("at.gv.bmf.bmf2go", arrayOf("2.2.0"))])
 @Target(AnnotationTarget.CLASS)
-@Retention(AnnotationRetention.RUNTIME)
 internal annotation class DetectionCompatibility
