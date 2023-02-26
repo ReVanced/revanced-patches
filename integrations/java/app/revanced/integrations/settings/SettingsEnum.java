@@ -60,12 +60,12 @@ public enum SettingsEnum {
     ADREMOVER_IMAGE_SHELF("revanced_hide_image_shelf", true, ReturnType.BOOLEAN),
 
     // Action buttons
-    HIDE_LIKE_BUTTON("revanced_hide_like_button", false, ReturnType.BOOLEAN, false),
-    HIDE_DISLIKE_BUTTON("revanced_hide_dislike_button", false, ReturnType.BOOLEAN, false),
-    HIDE_DOWNLOAD_BUTTON("revanced_hide_download_button", false, ReturnType.BOOLEAN, false),
-    HIDE_PLAYLIST_BUTTON("revanced_hide_playlist_button", false, ReturnType.BOOLEAN, false),
-    HIDE_ACTION_BUTTON("revanced_hide_action_button", false, ReturnType.BOOLEAN, false),
-    HIDE_SHARE_BUTTON("revanced_hide_share_button", false, ReturnType.BOOLEAN, false),
+    HIDE_LIKE_BUTTON("revanced_hide_like_button", false, ReturnType.BOOLEAN),
+    HIDE_DISLIKE_BUTTON("revanced_hide_dislike_button", false, ReturnType.BOOLEAN),
+    HIDE_DOWNLOAD_BUTTON("revanced_hide_download_button", false, ReturnType.BOOLEAN),
+    HIDE_PLAYLIST_BUTTON("revanced_hide_playlist_button", false, ReturnType.BOOLEAN),
+    HIDE_ACTION_BUTTON("revanced_hide_action_button", false, ReturnType.BOOLEAN),
+    HIDE_SHARE_BUTTON("revanced_hide_share_button", false, ReturnType.BOOLEAN),
 
     // Layout settings
     DISABLE_STARTUP_SHORTS_PLAYER("revanced_startup_shorts_player_enabled", false, ReturnType.BOOLEAN),
@@ -95,18 +95,18 @@ public enum SettingsEnum {
     HIDE_SEEKBAR("revanced_hide_seekbar", false, ReturnType.BOOLEAN),
     HIDE_WATCH_IN_VR("revanced_hide_watch_in_vr", false, ReturnType.BOOLEAN, true),
     HIDE_BREAKING_NEWS("revanced_hide_breaking_news", true, ReturnType.BOOLEAN, true),
-    HIDE_PLAYER_BUTTONS("revanced_hide_player_buttons", false, ReturnType.BOOLEAN, false),
+    HIDE_PLAYER_BUTTONS("revanced_hide_player_buttons", false, ReturnType.BOOLEAN),
     HIDE_FLOATING_MICROPHONE_BUTTON("revanced_hide_floating_microphone_button", true, ReturnType.BOOLEAN),
 
     // Misc. Settings
-    FIX_PLAYBACK("revanced_fix_playback", false, ReturnType.BOOLEAN, false),
-    CAPTIONS_ENABLED("revanced_autocaptions_enabled", false, ReturnType.BOOLEAN, false),
+    FIX_PLAYBACK("revanced_fix_playback", false, ReturnType.BOOLEAN),
+    CAPTIONS_ENABLED("revanced_autocaptions_enabled", false, ReturnType.BOOLEAN),
     PREFERRED_AUTO_REPEAT("revanced_pref_auto_repeat", false, ReturnType.BOOLEAN),
     USE_HDR_AUTO_BRIGHTNESS("revanced_pref_hdr_autobrightness", true, ReturnType.BOOLEAN),
     TAP_SEEKING_ENABLED("revanced_enable_tap_seeking", true, ReturnType.BOOLEAN),
     ENABLE_MINIMIZED_PLAYBACK("revanced_enable_minimized_playback", true, ReturnType.BOOLEAN),
     OPEN_LINKS_DIRECTLY("revanced_uri_redirect", true, ReturnType.BOOLEAN, true),
-    DISABLE_ZOOM_HAPTICS("revanced_disable_zoom_haptics", true, ReturnType.BOOLEAN, false),
+    DISABLE_ZOOM_HAPTICS("revanced_disable_zoom_haptics", true, ReturnType.BOOLEAN),
     ENABLE_EXTERNAL_BROWSER("revanced_enable_external_browser", true, ReturnType.BOOLEAN, true),
 
     // Swipe controls
@@ -162,17 +162,17 @@ public enum SettingsEnum {
     @Deprecated
     DEPRECATED_HIDE_MIX_PLAYLISTS("revanced_mix_playlists_hidden", false, ReturnType.BOOLEAN, true),
     @Deprecated
-    DEPRECATED_HIDE_LIKE_BUTTON("revanced_like_button", false, ReturnType.BOOLEAN, false),
+    DEPRECATED_HIDE_LIKE_BUTTON("revanced_like_button", false, ReturnType.BOOLEAN),
     @Deprecated
-    DEPRECATED_HIDE_DISLIKE_BUTTON("revanced_dislike_button", false, ReturnType.BOOLEAN, false),
+    DEPRECATED_HIDE_DISLIKE_BUTTON("revanced_dislike_button", false, ReturnType.BOOLEAN),
     @Deprecated
-    DEPRECATED_HIDE_DOWNLOAD_BUTTON("revanced_download_button", false, ReturnType.BOOLEAN, false),
+    DEPRECATED_HIDE_DOWNLOAD_BUTTON("revanced_download_button", false, ReturnType.BOOLEAN),
     @Deprecated
-    DEPRECATED_HIDE_PLAYLIST_BUTTON("revanced_playlist_button", false, ReturnType.BOOLEAN, false),
+    DEPRECATED_HIDE_PLAYLIST_BUTTON("revanced_playlist_button", false, ReturnType.BOOLEAN),
     @Deprecated
-    DEPRECATED_HIDE_ACTION_BUTTON("revanced_action_button", false, ReturnType.BOOLEAN, false),
+    DEPRECATED_HIDE_ACTION_BUTTON("revanced_action_button", false, ReturnType.BOOLEAN),
     @Deprecated
-    DEPRECATED_HIDE_SHARE_BUTTON("revanced_share_button", false, ReturnType.BOOLEAN, false),
+    DEPRECATED_HIDE_SHARE_BUTTON("revanced_share_button", false, ReturnType.BOOLEAN),
     @Deprecated
     DEPRECATED_FULLSCREEN_PANELS_SHOWN("revanced_fullscreen_panels_enabled", false, ReturnType.BOOLEAN),
     @Deprecated
