@@ -91,7 +91,7 @@ public enum SettingsEnum {
     HIDE_REEL_BUTTON("revanced_hide_reel_button", true, ReturnType.BOOLEAN, true),
     HIDE_SHORTS_BUTTON("revanced_hide_shorts_button", true, ReturnType.BOOLEAN, true),
     HIDE_SHORTS_COMMENTS_BUTTON("revanced_hide_shorts_comments_button", false, ReturnType.BOOLEAN),
-    HIDE_TIME("revanced_hide_time", false, ReturnType.BOOLEAN),
+    HIDE_TIMESTAMP("revanced_hide_timestamp", false, ReturnType.BOOLEAN),
     HIDE_SEEKBAR("revanced_hide_seekbar", false, ReturnType.BOOLEAN),
     HIDE_WATCH_IN_VR("revanced_hide_watch_in_vr", false, ReturnType.BOOLEAN, true),
     HIDE_BREAKING_NEWS("revanced_hide_breaking_news", true, ReturnType.BOOLEAN, true),
@@ -194,7 +194,10 @@ public enum SettingsEnum {
     @Deprecated
     DEPRECATED_COPY_VIDEO_URL_BUTTON_SHOWN("revanced_copy_video_url", true, ReturnType.BOOLEAN, true),
     @Deprecated
-    DEPRECATED_COPY_VIDEO_URL_TIMESTAMP_BUTTON_SHOWN("revanced_copy_video_url_timestamp", true, ReturnType.BOOLEAN, true);
+    DEPRECATED_COPY_VIDEO_URL_TIMESTAMP_BUTTON_SHOWN("revanced_copy_video_url_timestamp", true, ReturnType.BOOLEAN, true),
+    @Deprecated
+    DEPRECATED_HIDE_TIME("revanced_hide_time", false, ReturnType.BOOLEAN);
+
     //
     // end deprecated settings
     //
@@ -247,6 +250,7 @@ public enum SettingsEnum {
                 {DEPRECATED_CAST_BUTTON_SHOWN, HIDE_CAST_BUTTON},
                 {DEPRECATED_BRANDING_SHOWN, HIDE_VIDEO_WATERMARK},
                 {DEPRECATED_REMEMBER_VIDEO_QUALITY, REMEMBER_VIDEO_QUALITY_LAST_SELECTED},
+                {DEPRECATED_HIDE_TIME, HIDE_TIMESTAMP}
         };
         for (SettingsEnum[] oldNewSetting : invertedSettingsToMigrate) {
             // by default, old setting was default off
