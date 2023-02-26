@@ -5,9 +5,6 @@ import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public enum SettingsEnum {
     //Download Settings
     // TODO: DOWNLOAD_PATH("revanced_download_path", Environment.getExternalStorageDirectory().getPath() + "/Download", ReturnType.STRING),
@@ -220,16 +217,6 @@ public enum SettingsEnum {
             }
             setting.setValue(defaultValue);
         }
-    }
-
-    public static List<SettingsEnum> getAdRemovalSettings() {
-        List<SettingsEnum> list = new ArrayList<>();
-        for (SettingsEnum var : SettingsEnum.values()) {
-            if (var.toString().startsWith("ADREMOVER")) {
-                list.add(var);
-            }
-        }
-        return list;
     }
 
     /**
