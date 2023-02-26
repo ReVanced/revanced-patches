@@ -153,54 +153,7 @@ public enum SettingsEnum {
     SB_IS_VIP("sb-is-vip", false, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
     SB_LAST_VIP_CHECK("sb-last-vip-check", 0L, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.LONG),
     SB_SHOW_BROWSER_BUTTON("sb-browser-button", false, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
-    SB_API_URL("sb-api-host-url", "https://sponsor.ajay.app", SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.STRING),
-
-    //
-    // old deprecated settings, kept around to migrate user settings on existing installations
-    // FIXME: after a few months, eventually delete these settings
-    //
-    @Deprecated
-    DEPRECATED_HIDE_MIX_PLAYLISTS("revanced_mix_playlists_hidden", false, ReturnType.BOOLEAN, true),
-    @Deprecated
-    DEPRECATED_HIDE_LIKE_BUTTON("revanced_like_button", false, ReturnType.BOOLEAN),
-    @Deprecated
-    DEPRECATED_HIDE_DISLIKE_BUTTON("revanced_dislike_button", false, ReturnType.BOOLEAN),
-    @Deprecated
-    DEPRECATED_HIDE_DOWNLOAD_BUTTON("revanced_download_button", false, ReturnType.BOOLEAN),
-    @Deprecated
-    DEPRECATED_HIDE_PLAYLIST_BUTTON("revanced_playlist_button", false, ReturnType.BOOLEAN),
-    @Deprecated
-    DEPRECATED_HIDE_ACTION_BUTTON("revanced_action_button", false, ReturnType.BOOLEAN),
-    @Deprecated
-    DEPRECATED_HIDE_SHARE_BUTTON("revanced_share_button", false, ReturnType.BOOLEAN),
-    @Deprecated
-    DEPRECATED_FULLSCREEN_PANELS_SHOWN("revanced_fullscreen_panels_enabled", false, ReturnType.BOOLEAN),
-    @Deprecated
-    DEPRECATED_CREATE_BUTTON_ENABLED("revanced_create_button_enabled", false, ReturnType.BOOLEAN, true),
-    @Deprecated
-    DEPRECATED_SHORTS_BUTTON_SHOWN("revanced_shorts_button_enabled", false, ReturnType.BOOLEAN, true),
-    @Deprecated
-    DEPRECATED_REEL_BUTTON_SHOWN("revanced_reel_button_enabled", false, ReturnType.BOOLEAN, true),
-    @Deprecated
-    DEPRECATED_AUTOPLAY_BUTTON_SHOWN("revanced_autoplay_button_enabled", false, ReturnType.BOOLEAN, true),
-    @Deprecated
-    DEPRECATED_CAST_BUTTON_SHOWN("revanced_cast_button_enabled", false, ReturnType.BOOLEAN, true),
-    @Deprecated
-    DEPRECATED_BRANDING_SHOWN("revanced_branding_watermark_enabled", false, ReturnType.BOOLEAN),
-    @Deprecated
-    DEPRECATED_REMEMBER_VIDEO_QUALITY("revanced_remember_video_quality_selection", false, ReturnType.BOOLEAN),
-    @Deprecated
-    DEPRECATED_DOWNLOADS_BUTTON_SHOWN("revanced_downloads", true, ReturnType.BOOLEAN, true),
-    @Deprecated
-    DEPRECATED_COPY_VIDEO_URL_BUTTON_SHOWN("revanced_copy_video_url", true, ReturnType.BOOLEAN, true),
-    @Deprecated
-    DEPRECATED_COPY_VIDEO_URL_TIMESTAMP_BUTTON_SHOWN("revanced_copy_video_url_timestamp", true, ReturnType.BOOLEAN, true),
-    @Deprecated
-    DEPRECATED_HIDE_TIME("revanced_hide_time", false, ReturnType.BOOLEAN);
-
-    //
-    // end deprecated settings
-    //
+    SB_API_URL("sb-api-host-url", "https://sponsor.ajay.app", SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.STRING);
 
     private final String path;
     private final Object defaultValue;
@@ -234,69 +187,6 @@ public enum SettingsEnum {
 
     static {
         load();
-
-        //
-        // temporary code to migrate user configuration of old settings into current settings
-        // FIXME: eventually delete this code
-        //
-
-        // old/new settings where old is default off, and new has inverted value and is default on
-        SettingsEnum[][] invertedSettingsToMigrate = {
-                {DEPRECATED_FULLSCREEN_PANELS_SHOWN, HIDE_FULLSCREEN_PANELS},
-                {DEPRECATED_CREATE_BUTTON_ENABLED, HIDE_CREATE_BUTTON},
-                {DEPRECATED_SHORTS_BUTTON_SHOWN, HIDE_SHORTS_BUTTON},
-                {DEPRECATED_REEL_BUTTON_SHOWN, HIDE_REEL_BUTTON},
-                {DEPRECATED_AUTOPLAY_BUTTON_SHOWN, HIDE_AUTOPLAY_BUTTON},
-                {DEPRECATED_CAST_BUTTON_SHOWN, HIDE_CAST_BUTTON},
-                {DEPRECATED_BRANDING_SHOWN, HIDE_VIDEO_WATERMARK},
-                {DEPRECATED_REMEMBER_VIDEO_QUALITY, REMEMBER_VIDEO_QUALITY_LAST_SELECTED},
-                {DEPRECATED_HIDE_TIME, HIDE_TIMESTAMP}
-        };
-        for (SettingsEnum[] oldNewSetting : invertedSettingsToMigrate) {
-            // by default, old setting was default off
-            // migrate to new setting of default on
-            SettingsEnum oldSetting = oldNewSetting[0];
-            SettingsEnum newSetting = oldNewSetting[1];
-
-            // only need to check if old setting was turned on
-            if (oldSetting.getBoolean()) {
-                // this code will only run once
-                LogHelper.printInfo(() -> "Migrating setting: " + oldSetting + " of 'true' to new setting: "
-                        + newSetting + " of 'false'");
-                newSetting.saveValue(false); // set opposite of old value
-                oldSetting.saveValue(false); // clear old value
-            }
-        }
-
-        //
-        // renamed settings with new path names, but otherwise the new and old settings are identical
-        //
-        SettingsEnum[][] renamedSettings = {
-                {DEPRECATED_HIDE_MIX_PLAYLISTS, HIDE_MIX_PLAYLISTS},
-                {DEPRECATED_HIDE_LIKE_BUTTON, HIDE_LIKE_BUTTON},
-                {DEPRECATED_HIDE_DISLIKE_BUTTON, HIDE_DISLIKE_BUTTON},
-                {DEPRECATED_HIDE_DOWNLOAD_BUTTON, HIDE_DOWNLOAD_BUTTON},
-                {DEPRECATED_HIDE_PLAYLIST_BUTTON, HIDE_PLAYLIST_BUTTON},
-                {DEPRECATED_HIDE_ACTION_BUTTON, HIDE_ACTION_BUTTON},
-                {DEPRECATED_HIDE_SHARE_BUTTON, HIDE_SHARE_BUTTON},
-                {DEPRECATED_DOWNLOADS_BUTTON_SHOWN, DOWNLOADS_BUTTON_SHOWN},
-                {DEPRECATED_COPY_VIDEO_URL_BUTTON_SHOWN, COPY_VIDEO_URL_BUTTON_SHOWN},
-                {DEPRECATED_COPY_VIDEO_URL_TIMESTAMP_BUTTON_SHOWN, COPY_VIDEO_URL_TIMESTAMP_BUTTON_SHOWN},
-        };
-        for (SettingsEnum[] oldNewSetting : renamedSettings) {
-            SettingsEnum oldSetting = oldNewSetting[0];
-            SettingsEnum newSetting = oldNewSetting[1];
-
-            if (!oldSetting.value.equals(oldSetting.defaultValue)) {
-                LogHelper.printInfo(() -> "Migrating old setting of '" + oldSetting.value
-                        + "' from: " + oldSetting + " into replacement setting: " + newSetting);
-                newSetting.saveValue(oldSetting.value);
-                oldSetting.saveValue(oldSetting.getDefaultValue()); // reset old value
-            }
-        }
-        //
-        // end temporary code
-        //
     }
 
     private static void load() {
