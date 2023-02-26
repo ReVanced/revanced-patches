@@ -5,5 +5,4 @@ import app.revanced.patcher.annotation.Package
 
 @Compatibility([Package("co.windyapp.android")])
 @Target(AnnotationTarget.CLASS)
-@Retention(AnnotationRetention.RUNTIME)
 internal annotation class UnlockProCompatibility

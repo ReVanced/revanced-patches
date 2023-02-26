@@ -5,5 +5,4 @@ import app.revanced.patcher.annotation.Package
 
 @Compatibility([Package("com.ticktick.task")])
 @Target(AnnotationTarget.CLASS)
-@Retention(AnnotationRetention.RUNTIME)
 internal annotation class UnlockThemesCompatibility
