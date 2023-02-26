@@ -46,7 +46,7 @@ public final class GeneralAdsPatch extends Filter {
                 "cell_divider" // layout residue (gray line above the buttoned ad),
         );
         var buttonedAd = new BlockRule(SettingsEnum.ADREMOVER_BUTTONED_REMOVAL,
-                "video_display_full_buttoned_layout",
+                "_buttoned_layout",
                 "full_width_square_image_layout",
                 "_ad_with",
                 "landscape_image_wide_button_layout"
