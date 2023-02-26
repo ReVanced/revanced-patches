@@ -8,6 +8,7 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.*
+import app.revanced.patcher.patch.annotations.RequiresIntegrations
 import app.revanced.patches.twitter.misc.hook.json.fingerprints.JsonHookPatchFingerprint
 import app.revanced.patches.twitter.misc.hook.json.fingerprints.JsonInputStreamFingerprint
 import app.revanced.patches.twitter.misc.hook.json.fingerprints.LoganSquareFingerprint
@@ -16,6 +17,7 @@ import java.io.InvalidClassException
 @Name("json-hook")
 @Description("Hooks the stream which reads JSON responses.")
 @Version("0.0.1")
+@RequiresIntegrations
 class JsonHookPatch : BytecodePatch(
     listOf(LoganSquareFingerprint)
 ) {
