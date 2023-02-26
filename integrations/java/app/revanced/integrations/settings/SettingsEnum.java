@@ -96,6 +96,7 @@ public enum SettingsEnum {
     HIDE_WATCH_IN_VR("revanced_hide_watch_in_vr", false, ReturnType.BOOLEAN, true),
     HIDE_BREAKING_NEWS("revanced_hide_breaking_news", true, ReturnType.BOOLEAN, true),
     HIDE_PLAYER_BUTTONS("revanced_hide_player_buttons", false, ReturnType.BOOLEAN, false),
+    HIDE_FLOATING_MICROPHONE_BUTTON("revanced_hide_floating_microphone_button", true, ReturnType.BOOLEAN),
 
     // Misc. Settings
     FIX_PLAYBACK("revanced_fix_playback", false, ReturnType.BOOLEAN, false),
