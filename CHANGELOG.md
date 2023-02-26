@@ -1,3 +1,10 @@
+# [2.165.0-dev.6](https://github.com/revanced/revanced-patches/compare/v2.165.0-dev.5...v2.165.0-dev.6) (2023-02-26)
+
+
+### Bug Fixes
+
+* **backdrops/pro-unlock:** constrain to most recent working app version ([#1677](https://github.com/revanced/revanced-patches/issues/1677)) ([331fe04](https://github.com/revanced/revanced-patches/commit/331fe04f142e3f1f7f6066271261a55d0bee33c4))
+
 # [2.165.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.165.0-dev.4...v2.165.0-dev.5) (2023-02-24)
 
 

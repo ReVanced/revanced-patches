@@ -228,7 +228,7 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `pro-unlock` | Unlocks pro-only functions. | all |
+| `pro-unlock` | Unlocks pro-only functions. | 4.52 |
 </details>
 
 ### [📦 `de.dwd.warnapp`](https://play.google.com/store/apps/details?id=de.dwd.warnapp)
