@@ -5,7 +5,7 @@ import app.revanced.patcher.annotation.Package
 
 @Compatibility(
     [Package(
-        "com.reddit.frontpage", arrayOf("2022.43.0", "2023.05.0")
+        "com.reddit.frontpage", arrayOf("2021.45.0", "2022.43.0", "2023.05.0", "2023.08.0")
     )]
 )
 @Target(AnnotationTarget.CLASS)
