@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.videobuffer.annotations
+package app.revanced.patches.youtube.layout.widesearchbar.annotations
 
 import app.revanced.patcher.annotation.Compatibility
 import app.revanced.patcher.annotation.Package
@@ -18,4 +18,5 @@ import app.revanced.patcher.annotation.Package
     )]
 )
 @Target(AnnotationTarget.CLASS)
-internal annotation class CustomVideoBufferCompatibility
+@Retention(AnnotationRetention.RUNTIME)
+internal annotation class WideSearchbarCompatibility
