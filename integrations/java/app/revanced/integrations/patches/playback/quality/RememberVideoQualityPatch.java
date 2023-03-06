@@ -38,7 +38,7 @@ public class RememberVideoQualityPatch {
             }
 
             SharedPrefHelper.saveString(SharedPrefHelper.SharedPrefNames.REVANCED_PREFS, preferenceKey, defaultQuality + "");
-            String message = "Changing default" + networkTypeMessage + "quality to:" + defaultQuality;
+            String message = "Changing default " + networkTypeMessage + " quality to: " + defaultQuality;
             Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
         }
 
