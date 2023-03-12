@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.misc.videobuffer.annotations
 import app.revanced.patcher.annotation.Compatibility
 import app.revanced.patcher.annotation.Package
 
+// TODO: delete this
 @Compatibility(
     [Package(
         "com.google.android.youtube", arrayOf(
