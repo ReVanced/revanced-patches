@@ -1,3 +1,22 @@
+# [2.165.0-dev.8](https://github.com/revanced/revanced-patches/compare/v2.165.0-dev.7...v2.165.0-dev.8) (2023-03-12)
+
+
+### Bug Fixes
+
+* **twitch:** misspelling annotations ([7d6fe42](https://github.com/revanced/revanced-patches/commit/7d6fe421ff2f3e0a9a25c362e53d14033c03aa1e))
+* **youtube/return-youtube-dislike:** add missing strings ([a8c88e3](https://github.com/revanced/revanced-patches/commit/a8c88e3b5a4079b684150962a50c9afe14de8156))
+
+
+### Features
+
+* **myexpenses/unlock-pro:** constrain to last working version ([21fa036](https://github.com/revanced/revanced-patches/commit/21fa03681f6cf20d22cc794b49d373eef0a9ecd4))
+* **reddit:** add more compatibility constraints ([6a53e1a](https://github.com/revanced/revanced-patches/commit/6a53e1a2db25fc5f99cbd489b00347b237143d69))
+* **reddit:** bump compatibility to `2023.09.1` ([#1729](https://github.com/revanced/revanced-patches/issues/1729)) ([8b725c3](https://github.com/revanced/revanced-patches/commit/8b725c307a34fd7f5245f5961594c35e99d22530))
+* **twitch:** constraint compatibility to `14.6.1` ([#1736](https://github.com/revanced/revanced-patches/issues/1736)) ([65ce10c](https://github.com/revanced/revanced-patches/commit/65ce10c8a5c2df2ac9b74bba13db93334c789863))
+* **youtube/custom-video-buffer:** replace patch with removal notice ([#1718](https://github.com/revanced/revanced-patches/issues/1718)) ([af53cd3](https://github.com/revanced/revanced-patches/commit/af53cd3ccf0f2585262e1c4ed82f155e7abda8b2))
+* **youtube:** bump compatibility to `18.05.40` ([#1704](https://github.com/revanced/revanced-patches/issues/1704)) ([9fa0c7b](https://github.com/revanced/revanced-patches/commit/9fa0c7b657c1e8344c432ae8948e1ea8c2d3cbfd))
+* **youtubevanced:** `general-ads` patch ([#1693](https://github.com/revanced/revanced-patches/issues/1693)) ([e0d8ef1](https://github.com/revanced/revanced-patches/commit/e0d8ef12afa447c9dc75ffb8f169f7c565214513))
+
 # [2.165.0-dev.7](https://github.com/revanced/revanced-patches/compare/v2.165.0-dev.6...v2.165.0-dev.7) (2023-02-26)
 
 
