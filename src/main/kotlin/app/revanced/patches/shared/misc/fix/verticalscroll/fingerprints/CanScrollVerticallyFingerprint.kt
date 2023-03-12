@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.fix.verticalscroll.fingerprints
+package app.revanced.patches.shared.misc.fix.verticalscroll.fingerprints
 
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
