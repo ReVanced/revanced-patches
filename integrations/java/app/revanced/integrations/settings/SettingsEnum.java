@@ -116,11 +116,6 @@ public enum SettingsEnum {
     SWIPE_OVERLAY_BACKGROUND_ALPHA("revanced_swipe_overlay_background_alpha", 127, ReturnType.INTEGER),
     SWIPE_MAGNITUDE_THRESHOLD("revanced_swipe_magnitude_threshold", 30f, ReturnType.FLOAT),
 
-    // Buffer settings
-    MAX_BUFFER("revanced_pref_max_buffer_ms", 120000, ReturnType.INTEGER),
-    PLAYBACK_MAX_BUFFER("revanced_pref_buffer_for_playback_ms", 2500, ReturnType.INTEGER),
-    MAX_PLAYBACK_BUFFER_AFTER_REBUFFER("revanced_pref_buffer_for_playback_after_rebuffer_ms", 5000, ReturnType.INTEGER),
-
     // Debug settings
     DEBUG("revanced_debug_enabled", false, ReturnType.BOOLEAN),
     DEBUG_STACKTRACE("revanced_debug_stacktrace_enabled", false, ReturnType.BOOLEAN),
