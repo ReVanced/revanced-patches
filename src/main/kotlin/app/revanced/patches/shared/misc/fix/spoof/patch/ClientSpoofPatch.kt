@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.fix.spoof.patch
+package app.revanced.patches.shared.misc.fix.spoof.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
@@ -10,8 +10,8 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.youtube.misc.fix.spoof.annotations.ClientSpoofCompatibility
-import app.revanced.patches.youtube.misc.fix.spoof.fingerprints.UserAgentHeaderBuilderFingerprint
+import app.revanced.patches.shared.misc.fix.spoof.annotations.ClientSpoofCompatibility
+import app.revanced.patches.shared.misc.fix.spoof.fingerprints.UserAgentHeaderBuilderFingerprint
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch
