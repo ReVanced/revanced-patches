@@ -1,3 +1,10 @@
+# [2.165.0-dev.9](https://github.com/revanced/revanced-patches/compare/v2.165.0-dev.8...v2.165.0-dev.9) (2023-03-13)
+
+
+### Features
+
+* **youtube:** bump compatibility to `18.05.40` ([#1743](https://github.com/revanced/revanced-patches/issues/1743)) ([923ada8](https://github.com/revanced/revanced-patches/commit/923ada8634a43406955be7552faef91f95eeac89))
+
 # [2.165.0-dev.8](https://github.com/revanced/revanced-patches/compare/v2.165.0-dev.7...v2.165.0-dev.8) (2023-03-12)
 
 
