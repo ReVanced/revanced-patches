@@ -57,6 +57,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `seekbar-tapping` | Enables tap-to-seek on the seekbar of the video player. | 18.03.36 |
 | `sponsorblock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. | 18.03.36 |
 | `spoof-app-version` | Tricks YouTube into thinking, you are running an older version of the app. One of the side effects also includes restoring the old UI. | 18.03.36 |
+| `spoof-signature-verification` | Spoofs the client to prevent playback issues. | 18.03.36 |
 | `swipe-controls` | Adds volume and brightness swipe controls. | 18.03.36 |
 | `tablet-mini-player` | Enables the tablet mini player layout. | 18.03.36 |
 | `theme` | Applies a custom theme. | all |
@@ -295,6 +296,14 @@ The official Patch bundle provided by ReVanced and the community.
 | `unlock-pro` | Unlocks all pro features. | all |
 </details>
 
+### [📦 `com.ithebk.expensemanager`](https://play.google.com/store/apps/details?id=com.ithebk.expensemanager)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-pro` | Unlocks pro features. | all |
+</details>
+
 ### [📦 `ginlemon.iconpackstudio`](https://play.google.com/store/apps/details?id=ginlemon.iconpackstudio)
 <details>
 
@@ -317,14 +326,6 @@ The official Patch bundle provided by ReVanced and the community.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `unlock-pro` | Unlocks all professional features. | all |
-</details>
-
-### [📦 `com.ithebk.expensemanager`](https://play.google.com/store/apps/details?id=com.ithebk.expensemanager)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `unlock-pro` | Unlocks pro features. | all |
 </details>
 
 ### [📦 `com.ticktick.task`](https://play.google.com/store/apps/details?id=com.ticktick.task)
