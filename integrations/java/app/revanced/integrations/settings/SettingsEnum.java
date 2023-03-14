@@ -5,9 +5,6 @@ import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public enum SettingsEnum {
     //Download Settings
     // TODO: DOWNLOAD_PATH("revanced_download_path", Environment.getExternalStorageDirectory().getPath() + "/Download", ReturnType.STRING),
@@ -54,18 +51,18 @@ public enum SettingsEnum {
     ADREMOVER_GRAY_SEPARATOR("revanced_adremover_separator", true, ReturnType.BOOLEAN),
     ADREMOVER_VIEW_PRODUCTS("revanced_adremover_view_products", true, ReturnType.BOOLEAN),
     ADREMOVER_WEB_SEARCH_RESULTS("revanced_adremover_web_search_result", true, ReturnType.BOOLEAN),
-    ADREMOVER_HORIZONTAL_VIDEO_SHELF("revanced_horizontal_video_shelf", true, ReturnType.BOOLEAN),
     ADREMOVER_CHANNEL_BAR("revanced_hide_channel_bar", false, ReturnType.BOOLEAN),
     ADREMOVER_QUICK_ACTIONS("revanced_hide_quick_actions", false, ReturnType.BOOLEAN),
     ADREMOVER_RELATED_VIDEOS("revanced_hide_related_videos", false, ReturnType.BOOLEAN),
+    ADREMOVER_IMAGE_SHELF("revanced_hide_image_shelf", true, ReturnType.BOOLEAN),
 
     // Action buttons
-    HIDE_LIKE_BUTTON("revanced_hide_like_button", false, ReturnType.BOOLEAN, false),
-    HIDE_DISLIKE_BUTTON("revanced_hide_dislike_button", false, ReturnType.BOOLEAN, false),
-    HIDE_DOWNLOAD_BUTTON("revanced_hide_download_button", false, ReturnType.BOOLEAN, false),
-    HIDE_PLAYLIST_BUTTON("revanced_hide_playlist_button", false, ReturnType.BOOLEAN, false),
-    HIDE_ACTION_BUTTON("revanced_hide_action_button", false, ReturnType.BOOLEAN, false),
-    HIDE_SHARE_BUTTON("revanced_hide_share_button", false, ReturnType.BOOLEAN, false),
+    HIDE_LIKE_BUTTON("revanced_hide_like_button", false, ReturnType.BOOLEAN),
+    HIDE_DISLIKE_BUTTON("revanced_hide_dislike_button", false, ReturnType.BOOLEAN),
+    HIDE_DOWNLOAD_BUTTON("revanced_hide_download_button", false, ReturnType.BOOLEAN),
+    HIDE_PLAYLIST_BUTTON("revanced_hide_playlist_button", false, ReturnType.BOOLEAN),
+    HIDE_ACTION_BUTTON("revanced_hide_action_button", false, ReturnType.BOOLEAN),
+    HIDE_SHARE_BUTTON("revanced_hide_share_button", false, ReturnType.BOOLEAN),
 
     // Layout settings
     DISABLE_STARTUP_SHORTS_PLAYER("revanced_startup_shorts_player_enabled", false, ReturnType.BOOLEAN),
@@ -91,21 +88,22 @@ public enum SettingsEnum {
     HIDE_REEL_BUTTON("revanced_hide_reel_button", true, ReturnType.BOOLEAN, true),
     HIDE_SHORTS_BUTTON("revanced_hide_shorts_button", true, ReturnType.BOOLEAN, true),
     HIDE_SHORTS_COMMENTS_BUTTON("revanced_hide_shorts_comments_button", false, ReturnType.BOOLEAN),
-    HIDE_TIME("revanced_hide_time", false, ReturnType.BOOLEAN),
+    HIDE_TIMESTAMP("revanced_hide_timestamp", false, ReturnType.BOOLEAN),
     HIDE_SEEKBAR("revanced_hide_seekbar", false, ReturnType.BOOLEAN),
     HIDE_WATCH_IN_VR("revanced_hide_watch_in_vr", false, ReturnType.BOOLEAN, true),
     HIDE_BREAKING_NEWS("revanced_hide_breaking_news", true, ReturnType.BOOLEAN, true),
-    HIDE_PLAYER_BUTTONS("revanced_hide_player_buttons", false, ReturnType.BOOLEAN, false),
+    HIDE_PLAYER_BUTTONS("revanced_hide_player_buttons", false, ReturnType.BOOLEAN),
+    HIDE_FLOATING_MICROPHONE_BUTTON("revanced_hide_floating_microphone_button", true, ReturnType.BOOLEAN, true),
 
     // Misc. Settings
-    FIX_PLAYBACK("revanced_fix_playback", false, ReturnType.BOOLEAN, false),
-    CAPTIONS_ENABLED("revanced_autocaptions_enabled", false, ReturnType.BOOLEAN, false),
+    FIX_PLAYBACK("revanced_fix_playback", false, ReturnType.BOOLEAN),
+    CAPTIONS_ENABLED("revanced_autocaptions_enabled", false, ReturnType.BOOLEAN),
     PREFERRED_AUTO_REPEAT("revanced_pref_auto_repeat", false, ReturnType.BOOLEAN),
     USE_HDR_AUTO_BRIGHTNESS("revanced_pref_hdr_autobrightness", true, ReturnType.BOOLEAN),
     TAP_SEEKING_ENABLED("revanced_enable_tap_seeking", true, ReturnType.BOOLEAN),
     ENABLE_MINIMIZED_PLAYBACK("revanced_enable_minimized_playback", true, ReturnType.BOOLEAN),
     OPEN_LINKS_DIRECTLY("revanced_uri_redirect", true, ReturnType.BOOLEAN, true),
-    DISABLE_ZOOM_HAPTICS("revanced_disable_zoom_haptics", true, ReturnType.BOOLEAN, false),
+    DISABLE_ZOOM_HAPTICS("revanced_disable_zoom_haptics", true, ReturnType.BOOLEAN),
     ENABLE_EXTERNAL_BROWSER("revanced_enable_external_browser", true, ReturnType.BOOLEAN, true),
 
     // Swipe controls
@@ -117,11 +115,6 @@ public enum SettingsEnum {
     SWIPE_OVERLAY_TEXT_SIZE("revanced_swipe_overlay_text_size", 22f, ReturnType.FLOAT),
     SWIPE_OVERLAY_BACKGROUND_ALPHA("revanced_swipe_overlay_background_alpha", 127, ReturnType.INTEGER),
     SWIPE_MAGNITUDE_THRESHOLD("revanced_swipe_magnitude_threshold", 30f, ReturnType.FLOAT),
-
-    // Buffer settings
-    MAX_BUFFER("revanced_pref_max_buffer_ms", 120000, ReturnType.INTEGER),
-    PLAYBACK_MAX_BUFFER("revanced_pref_buffer_for_playback_ms", 2500, ReturnType.INTEGER),
-    MAX_PLAYBACK_BUFFER_AFTER_REBUFFER("revanced_pref_buffer_for_playback_after_rebuffer_ms", 5000, ReturnType.INTEGER),
 
     // Debug settings
     DEBUG("revanced_debug_enabled", false, ReturnType.BOOLEAN),
@@ -152,51 +145,7 @@ public enum SettingsEnum {
     SB_IS_VIP("sb-is-vip", false, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
     SB_LAST_VIP_CHECK("sb-last-vip-check", 0L, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.LONG),
     SB_SHOW_BROWSER_BUTTON("sb-browser-button", false, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
-    SB_API_URL("sb-api-host-url", "https://sponsor.ajay.app", SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.STRING),
-
-    //
-    // old deprecated settings, kept around to migrate user settings on existing installations
-    // FIXME: after a few months, eventually delete these settings
-    //
-    @Deprecated
-    DEPRECATED_HIDE_MIX_PLAYLISTS("revanced_mix_playlists_hidden", false, ReturnType.BOOLEAN, true),
-    @Deprecated
-    DEPRECATED_HIDE_LIKE_BUTTON("revanced_like_button", false, ReturnType.BOOLEAN, false),
-    @Deprecated
-    DEPRECATED_HIDE_DISLIKE_BUTTON("revanced_dislike_button", false, ReturnType.BOOLEAN, false),
-    @Deprecated
-    DEPRECATED_HIDE_DOWNLOAD_BUTTON("revanced_download_button", false, ReturnType.BOOLEAN, false),
-    @Deprecated
-    DEPRECATED_HIDE_PLAYLIST_BUTTON("revanced_playlist_button", false, ReturnType.BOOLEAN, false),
-    @Deprecated
-    DEPRECATED_HIDE_ACTION_BUTTON("revanced_action_button", false, ReturnType.BOOLEAN, false),
-    @Deprecated
-    DEPRECATED_HIDE_SHARE_BUTTON("revanced_share_button", false, ReturnType.BOOLEAN, false),
-    @Deprecated
-    DEPRECATED_FULLSCREEN_PANELS_SHOWN("revanced_fullscreen_panels_enabled", false, ReturnType.BOOLEAN),
-    @Deprecated
-    DEPRECATED_CREATE_BUTTON_ENABLED("revanced_create_button_enabled", false, ReturnType.BOOLEAN, true),
-    @Deprecated
-    DEPRECATED_SHORTS_BUTTON_SHOWN("revanced_shorts_button_enabled", false, ReturnType.BOOLEAN, true),
-    @Deprecated
-    DEPRECATED_REEL_BUTTON_SHOWN("revanced_reel_button_enabled", false, ReturnType.BOOLEAN, true),
-    @Deprecated
-    DEPRECATED_AUTOPLAY_BUTTON_SHOWN("revanced_autoplay_button_enabled", false, ReturnType.BOOLEAN, true),
-    @Deprecated
-    DEPRECATED_CAST_BUTTON_SHOWN("revanced_cast_button_enabled", false, ReturnType.BOOLEAN, true),
-    @Deprecated
-    DEPRECATED_BRANDING_SHOWN("revanced_branding_watermark_enabled", false, ReturnType.BOOLEAN),
-    @Deprecated
-    DEPRECATED_REMEMBER_VIDEO_QUALITY("revanced_remember_video_quality_selection", false, ReturnType.BOOLEAN),
-    @Deprecated
-    DEPRECATED_DOWNLOADS_BUTTON_SHOWN("revanced_downloads", true, ReturnType.BOOLEAN, true),
-    @Deprecated
-    DEPRECATED_COPY_VIDEO_URL_BUTTON_SHOWN("revanced_copy_video_url", true, ReturnType.BOOLEAN, true),
-    @Deprecated
-    DEPRECATED_COPY_VIDEO_URL_TIMESTAMP_BUTTON_SHOWN("revanced_copy_video_url_timestamp", true, ReturnType.BOOLEAN, true);
-    //
-    // end deprecated settings
-    //
+    SB_API_URL("sb-api-host-url", "https://sponsor.ajay.app", SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.STRING);
 
     private final String path;
     private final Object defaultValue;
@@ -230,68 +179,6 @@ public enum SettingsEnum {
 
     static {
         load();
-
-        //
-        // temporary code to migrate user configuration of old settings into current settings
-        // FIXME: eventually delete this code
-        //
-
-        // old/new settings where old is default off, and new has inverted value and is default on
-        SettingsEnum[][] invertedSettingsToMigrate = {
-                {DEPRECATED_FULLSCREEN_PANELS_SHOWN, HIDE_FULLSCREEN_PANELS},
-                {DEPRECATED_CREATE_BUTTON_ENABLED, HIDE_CREATE_BUTTON},
-                {DEPRECATED_SHORTS_BUTTON_SHOWN, HIDE_SHORTS_BUTTON},
-                {DEPRECATED_REEL_BUTTON_SHOWN, HIDE_REEL_BUTTON},
-                {DEPRECATED_AUTOPLAY_BUTTON_SHOWN, HIDE_AUTOPLAY_BUTTON},
-                {DEPRECATED_CAST_BUTTON_SHOWN, HIDE_CAST_BUTTON},
-                {DEPRECATED_BRANDING_SHOWN, HIDE_VIDEO_WATERMARK},
-                {DEPRECATED_REMEMBER_VIDEO_QUALITY, REMEMBER_VIDEO_QUALITY_LAST_SELECTED},
-        };
-        for (SettingsEnum[] oldNewSetting : invertedSettingsToMigrate) {
-            // by default, old setting was default off
-            // migrate to new setting of default on
-            SettingsEnum oldSetting = oldNewSetting[0];
-            SettingsEnum newSetting = oldNewSetting[1];
-
-            // only need to check if old setting was turned on
-            if (oldSetting.getBoolean()) {
-                // this code will only run once
-                LogHelper.printInfo(() -> "Migrating setting: " + oldSetting + " of 'true' to new setting: "
-                        + newSetting + " of 'false'");
-                newSetting.saveValue(false); // set opposite of old value
-                oldSetting.saveValue(false); // clear old value
-            }
-        }
-
-        //
-        // renamed settings with new path names, but otherwise the new and old settings are identical
-        //
-        SettingsEnum[][] renamedSettings = {
-                {DEPRECATED_HIDE_MIX_PLAYLISTS, HIDE_MIX_PLAYLISTS},
-                {DEPRECATED_HIDE_LIKE_BUTTON, HIDE_LIKE_BUTTON},
-                {DEPRECATED_HIDE_DISLIKE_BUTTON, HIDE_DISLIKE_BUTTON},
-                {DEPRECATED_HIDE_DOWNLOAD_BUTTON, HIDE_DOWNLOAD_BUTTON},
-                {DEPRECATED_HIDE_PLAYLIST_BUTTON, HIDE_PLAYLIST_BUTTON},
-                {DEPRECATED_HIDE_ACTION_BUTTON, HIDE_ACTION_BUTTON},
-                {DEPRECATED_HIDE_SHARE_BUTTON, HIDE_SHARE_BUTTON},
-                {DEPRECATED_DOWNLOADS_BUTTON_SHOWN, DOWNLOADS_BUTTON_SHOWN},
-                {DEPRECATED_COPY_VIDEO_URL_BUTTON_SHOWN, COPY_VIDEO_URL_BUTTON_SHOWN},
-                {DEPRECATED_COPY_VIDEO_URL_TIMESTAMP_BUTTON_SHOWN, COPY_VIDEO_URL_TIMESTAMP_BUTTON_SHOWN},
-        };
-        for (SettingsEnum[] oldNewSetting : renamedSettings) {
-            SettingsEnum oldSetting = oldNewSetting[0];
-            SettingsEnum newSetting = oldNewSetting[1];
-
-            if (!oldSetting.value.equals(oldSetting.defaultValue)) {
-                LogHelper.printInfo(() -> "Migrating old setting of '" + oldSetting.value
-                        + "' from: " + oldSetting + " into replacement setting: " + newSetting);
-                newSetting.saveValue(oldSetting.value);
-                oldSetting.saveValue(oldSetting.getDefaultValue()); // reset old value
-            }
-        }
-        //
-        // end temporary code
-        //
     }
 
     private static void load() {
@@ -325,16 +212,6 @@ public enum SettingsEnum {
             }
             setting.setValue(defaultValue);
         }
-    }
-
-    public static List<SettingsEnum> getAdRemovalSettings() {
-        List<SettingsEnum> list = new ArrayList<>();
-        for (SettingsEnum var : SettingsEnum.values()) {
-            if (var.toString().startsWith("ADREMOVER")) {
-                list.add(var);
-            }
-        }
-        return list;
     }
 
     /**
