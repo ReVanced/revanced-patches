@@ -29,7 +29,7 @@ class SpoofSignatureVerificationPatch : BytecodePatch(
         ProtobufParameterBuilderFingerprint.result?.let {
             val setParamMethod = context
                 .toMethodWalker(it.method)
-                .nextMethod(it.scanResult.patternScanResult!!.endIndex, true).getMethod() as MutableMethod
+                    .nextMethod(it.scanResult.patternScanResult!!.startIndex, true).getMethod() as MutableMethod
 
             setParamMethod.apply {
                 val protobufParameterRegister = 3
