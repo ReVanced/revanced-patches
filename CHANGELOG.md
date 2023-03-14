@@ -1,3 +1,10 @@
+# [2.165.0-dev.10](https://github.com/revanced/revanced-patches/compare/v2.165.0-dev.9...v2.165.0-dev.10) (2023-03-14)
+
+
+### Features
+
+* **youtube:** `spoof-signature-verification` patch ([#1745](https://github.com/revanced/revanced-patches/issues/1745)) ([ea36154](https://github.com/revanced/revanced-patches/commit/ea3615496f92656f3d9a70240c65e333f4c5f8cf))
+
 # [2.165.0-dev.9](https://github.com/revanced/revanced-patches/compare/v2.165.0-dev.8...v2.165.0-dev.9) (2023-03-13)
 
 

@@ -58,6 +58,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `seekbar-tapping` | Enables tap-to-seek on the seekbar of the video player. | 18.05.40 |
 | `sponsorblock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. | 18.05.40 |
 | `spoof-app-version` | Tricks YouTube into thinking, you are running an older version of the app. One of the side effects also includes restoring the old UI. | 18.05.40 |
+| `spoof-signature-verification` | Spoofs the client to prevent playback issues. | 18.05.40 |
 | `swipe-controls` | Adds volume and brightness swipe controls. | 18.05.40 |
 | `tablet-mini-player` | Enables the tablet mini player layout. | 18.05.40 |
 | `theme` | Applies a custom theme. | all |
