@@ -16,6 +16,8 @@ import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ImageSpan;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
 
 import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
@@ -429,10 +431,13 @@ public class ReturnYouTubeDislike {
         final int separatorColor = ThemeHelper.isDarkTheme()
                 ? 0x29AAAAAA  // transparent dark gray
                 : 0xFFD9D9D9; // light gray
+        DisplayMetrics dp = ReVancedUtils.getContext().getResources().getDisplayMetrics();
 
         if (!compactLayout) {
             // left separator
-            final Rect leftSeparatorBounds = new Rect(0, 0, 3, 54);
+            final Rect leftSeparatorBounds = new Rect(0, 0,
+                    (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1.2f, dp),
+                    (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 18, dp));
             String leftSeparatorString = ReVancedUtils.isRightToLeftTextLayout()
                     ? "\u200F    "  // u200F = right to left character
                     : "\u200E    "; // u200E = left to right character
@@ -453,7 +458,8 @@ public class ReturnYouTubeDislike {
                 ? "  " + MIDDLE_SEPARATOR_CHARACTER + "  "
                 : "  \u2009" + MIDDLE_SEPARATOR_CHARACTER + "\u2009  "; // u2009 = 'narrow space' character
         final int shapeInsertionIndex = middleSeparatorString.length() / 2;
-        final Rect middleSeparatorBounds = new Rect(0, 0, 10, 10);
+        final int middleSeparatorSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 3.7f, dp);
+        final Rect middleSeparatorBounds = new Rect(0, 0, middleSeparatorSize, middleSeparatorSize);
         Spannable middleSeparatorSpan = new SpannableString(middleSeparatorString);
         ShapeDrawable shapeDrawable = new ShapeDrawable(new OvalShape());
         shapeDrawable.getPaint().setColor(separatorColor);
