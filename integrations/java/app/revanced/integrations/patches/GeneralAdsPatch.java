@@ -60,6 +60,7 @@ public final class GeneralAdsPatch extends Filter {
                 "video_display_full_layout",
                 "hero_promo_image",
                 "statement_banner",
+                "carousel_footered_layout"
                 "text_image_button_layout"
         );
         var movieAds = new BlockRule(
