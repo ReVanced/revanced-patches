@@ -434,14 +434,14 @@ public class ReturnYouTubeDislike {
             // left separator
             final Rect leftSeparatorBounds = new Rect(0, 0, 3, 54);
             String leftSeparatorString = ReVancedUtils.isRightToLeftTextLayout()
-                    ? "\u200F   "  // u200F = right to left character
-                    : "\u2FF0   "; // u2FF0 = left to right character
+                    ? "\u200F    "  // u200F = right to left character
+                    : "\u200E    "; // u200E = left to right character
             Spannable leftSeparatorSpan = new SpannableString(leftSeparatorString);
             ShapeDrawable shapeDrawable = new ShapeDrawable(new RectShape());
             shapeDrawable.getPaint().setColor(separatorColor);
             shapeDrawable.setBounds(leftSeparatorBounds);
-            leftSeparatorSpan.setSpan(new VerticallyCenteredImageSpan(shapeDrawable), 0, 1,
-                    Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+            leftSeparatorSpan.setSpan(new VerticallyCenteredImageSpan(shapeDrawable), 1, 2,
+                    Spannable.SPAN_INCLUSIVE_EXCLUSIVE); // drawable cannot overwrite RTL or LTR character
             builder.append(leftSeparatorSpan);
         }
 
