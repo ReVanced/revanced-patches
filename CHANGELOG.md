@@ -1,3 +1,32 @@
+# [2.166.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.165.0...v2.166.0-dev.1) (2023-03-14)
+
+
+### Bug Fixes
+
+* **backdrops/pro-unlock:** constrain to most recent working app version ([#1677](https://github.com/revanced/revanced-patches/issues/1677)) ([e209ba5](https://github.com/revanced/revanced-patches/commit/e209ba519e630e4589b9bd19720d30a005eea118))
+* **instagram/hide-timeline-ads:** fix compatibility with newer versions ([#1672](https://github.com/revanced/revanced-patches/issues/1672)) ([f502e83](https://github.com/revanced/revanced-patches/commit/f502e83b2e8b8459369923c74785152b817aedca))
+* **twitch:** misspelling annotations ([5b634f6](https://github.com/revanced/revanced-patches/commit/5b634f61224532499bd9091dab1714942ec989ef))
+* **youtube/general-ads:** remove duplicate preference ([9934e89](https://github.com/revanced/revanced-patches/commit/9934e8963669b39deb6c3d571dd3a1be93ec2ccb))
+* **youtube/return-youtube-dislike:** add missing strings ([6cde7db](https://github.com/revanced/revanced-patches/commit/6cde7db2e431a56dc25823f664b6cf6665595ad9))
+* **youtube/spoof-signature-verification:** use correct fingerprint ([13090ee](https://github.com/revanced/revanced-patches/commit/13090eeb47660980cec8dc5bbb80447de5047a1d))
+
+
+### Features
+
+* **myexpenses/unlock-pro:** constrain to last working version ([f307c66](https://github.com/revanced/revanced-patches/commit/f307c66447edd1b226db3c1189494a45c956c32c))
+* **reddit:** add more compatibility constraints ([0cd4e86](https://github.com/revanced/revanced-patches/commit/0cd4e86d79e5ec65aa190a7ee186e2eb54d5894b))
+* **reddit:** bump compatibility to `2023.09.1` ([#1729](https://github.com/revanced/revanced-patches/issues/1729)) ([f5e38a8](https://github.com/revanced/revanced-patches/commit/f5e38a8ef23a9de09cadeb4137a8950d24f71698))
+* **twitch:** constraint compatibility to `14.6.1` ([#1736](https://github.com/revanced/revanced-patches/issues/1736)) ([d5fe867](https://github.com/revanced/revanced-patches/commit/d5fe867385fd35c7639204e9fdbc6855b775e7c0))
+* **youtube/custom-video-buffer:** replace patch with removal notice ([#1718](https://github.com/revanced/revanced-patches/issues/1718)) ([7c24561](https://github.com/revanced/revanced-patches/commit/7c2456115e279db2154bcbcd66a723e41e243717))
+* **youtube/disable-player-popup-panels:** use better patch description ([58a6090](https://github.com/revanced/revanced-patches/commit/58a609074e009864d61d2b72a68dc1a8532ac203))
+* **youtube/general-ads:** do not hide components in library tab ([6d61d76](https://github.com/revanced/revanced-patches/commit/6d61d765251af92829d0522e2c33b02647c3fed4))
+* **youtube/general-ads:** hide image shelf from search results ([f71aa3f](https://github.com/revanced/revanced-patches/commit/f71aa3f77ba1b2722fc146fe643245ee5f9397ae))
+* **youtube/hide-autoplay-button:** do not disable autoplay button when hidden ([874b68a](https://github.com/revanced/revanced-patches/commit/874b68add6fe79375d232b6363af88b9a7f51ede))
+* **youtube:** `hide-floating-microphone-button` patch ([9fb176c](https://github.com/revanced/revanced-patches/commit/9fb176cdc680504dc378090161ac4849915d5a2a))
+* **youtube:** bump compatibility to `18.05.40` ([#1704](https://github.com/revanced/revanced-patches/issues/1704)) ([cadb04c](https://github.com/revanced/revanced-patches/commit/cadb04c0d840cf48887002d41850086019ad5c14))
+* **youtube:** bump compatibility to `18.05.40` ([#1743](https://github.com/revanced/revanced-patches/issues/1743)) ([dc16e11](https://github.com/revanced/revanced-patches/commit/dc16e11b13676870ffaba6ebb0bf9e250741a783))
+* **youtubevanced:** `general-ads` patch ([#1693](https://github.com/revanced/revanced-patches/issues/1693)) ([b8e610b](https://github.com/revanced/revanced-patches/commit/b8e610bba91ea88aed8b09e56cbf8f85f8222609))
+
 # [2.165.0](https://github.com/revanced/revanced-patches/compare/v2.164.0...v2.165.0) (2023-03-14)
 
 
