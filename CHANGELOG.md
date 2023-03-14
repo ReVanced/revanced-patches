@@ -1,3 +1,10 @@
+## [2.165.1](https://github.com/revanced/revanced-patches/compare/v2.165.0...v2.165.1) (2023-03-14)
+
+
+### Bug Fixes
+
+* **youtube/spoof-signature-verification:** use correct fingerprint ([13090ee](https://github.com/revanced/revanced-patches/commit/13090eeb47660980cec8dc5bbb80447de5047a1d))
+
 # [2.165.0](https://github.com/revanced/revanced-patches/compare/v2.164.0...v2.165.0) (2023-03-14)
 
 
