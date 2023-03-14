@@ -7,6 +7,5 @@ import app.revanced.patcher.annotation.Package
     [Package("com.spotify.music")]
 )
 @Target(AnnotationTarget.CLASS)
-@Retention(AnnotationRetention.RUNTIME)
 internal annotation class DisableCaptureRestrictionCompatibility
 

@@ -121,3 +121,6 @@ gradle-app.setting
 
 # Dependency directories
 node_modules/
+
+# gradle properties, due to Github token
+./gradle.properties

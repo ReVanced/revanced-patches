@@ -7,5 +7,4 @@ import app.revanced.patcher.annotation.Package
     [Package("com.spotify.lite")]
 )
 @Target(AnnotationTarget.CLASS)
-@Retention(AnnotationRetention.RUNTIME)
 internal annotation class OnDemandCompatibility
