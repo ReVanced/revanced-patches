@@ -12,6 +12,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.fingerprints.WatchWhileActivityFingerprint
 import app.revanced.patches.youtube.layout.buttons.cast.patch.HideCastButtonPatch
 import app.revanced.patches.youtube.misc.fix.spoof.patch.ClientSpoofPatch
+import app.revanced.patches.youtube.misc.fix.playback.patch.SpoofSignatureVerificationPatch
 import app.revanced.patches.youtube.misc.microg.annotations.MicroGPatchCompatibility
 import app.revanced.patches.youtube.misc.microg.fingerprints.*
 import app.revanced.patches.youtube.misc.microg.patch.resource.MicroGResourcePatch
@@ -24,7 +25,8 @@ import app.revanced.util.microg.MicroGBytecodeHelper
     [
         MicroGResourcePatch::class,
         HideCastButtonPatch::class,
-        ClientSpoofPatch::class
+        ClientSpoofPatch::class,
+        SpoofSignatureVerificationPatch::class
     ]
 )
 @Name("microg-support")
