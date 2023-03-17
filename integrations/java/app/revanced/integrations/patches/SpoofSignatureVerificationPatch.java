@@ -1,40 +1,83 @@
 package app.revanced.integrations.patches;
 
-import app.revanced.integrations.shared.PlayerType;
+import android.widget.Toast;
+
+import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
+import app.revanced.integrations.utils.ReVancedUtils;
 
 public class SpoofSignatureVerificationPatch {
-
     /**
      * Protobuf parameters used by the player.
-     * Known issue: YouTube client recognizes generic player as shorts video.
+     * Known issue: video preview not showing when using the seekbar.
      */
-    private static final String GENERAL_PROTOBUF_PARAMETER = "CgIQBg";
+    private static final String PROTOBUF_PARAMETER_GENERAL = "CgIQBg";
 
     /**
-     * Protobuf parameter of short and YouTube story.
+     * Protobuf parameter of shorts and YouTube stories.
+     * Known issue: captions are positioned on upper area in the player.
      */
-    private static final String SHORTS_PROTOBUF_PARAMETER = "8AEB"; // "8AEByAMTuAQP"
+    private static final String PROTOBUF_PARAMETER_SHORTS = "8AEB"; // "8AEByAMTuAQP"
 
     /**
      * Target Protobuf parameters.
      * Used by the generic player.
      */
-    private static final String TARGET_PROTOBUF_PARAMETER = "YADI";
+    private static final String PROTOBUF_PARAMETER_TARGET = "YADI";
 
-    public static String getVerificationSpoofOverride(String original) {
-        PlayerType player = PlayerType.getCurrent();
-        LogHelper.printDebug(() -> "Original protobuf parameter value: " + original + " PlayerType: " + player);
-        if (original.startsWith(TARGET_PROTOBUF_PARAMETER)  || original.length() == 0) {
-            if (player == PlayerType.INLINE_MINIMAL) {
-                return GENERAL_PROTOBUF_PARAMETER; // home feed autoplay
+    /**
+     * Injection point.
+     *
+     * @param originalValue originalValue protobuf parameter
+     */
+    public static String overrideProtobufParameter(String originalValue) {
+        try {
+            if (!SettingsEnum.SIGNATURE_SPOOFING.getBoolean()) {
+                return originalValue;
             }
-            if (player.isNoneOrHidden()) {
-                return SHORTS_PROTOBUF_PARAMETER; // short or story
+            LogHelper.printDebug(() -> "Original protobuf parameter value: " + originalValue);
+            if (originalValue.startsWith(PROTOBUF_PARAMETER_TARGET) || originalValue.isEmpty()) {
+                return PROTOBUF_PARAMETER_SHORTS;
             }
-            return SHORTS_PROTOBUF_PARAMETER; // regular video player
+        } catch (Exception ex) {
+            LogHelper.printException(() -> "overrideProtobufParameter failure", ex);
         }
 
-        return original;
+        return originalValue;
     }
+
+
+    /**
+     * Injection point. Runs off the main thread.
+     * <p>
+     * Used to check the response code of video playback requests made by YouTube.
+     * Response code of interest is 403 that indicate a signature verification failure for the current request
+     *
+     * @param responseCode HTTP status code of the completed YouTube connection
+     */
+    public static void onResponse(int responseCode) {
+        try {
+            if (responseCode < 400 || responseCode >= 500) {
+                return; // everything normal
+            }
+            LogHelper.printDebug(() -> "YouTube HTTP status code: " + responseCode);
+
+            if (SettingsEnum.SIGNATURE_SPOOFING.getBoolean()) {
+                return;  // already enabled
+            }
+
+            SettingsEnum.SIGNATURE_SPOOFING.saveValue(true);
+            ReVancedUtils.runOnMainThread(() -> {
+                Toast.makeText(
+                        ReVancedUtils.getContext(),
+                        "Spoofing app signature to prevent playback issues", Toast.LENGTH_LONG
+                ).show();
+                // it would be great if the video could be forcefully reloaded, but currently there is no code to do this
+            });
+
+        } catch (Exception ex) {
+            LogHelper.printException(() -> "onResponse failure", ex);
+        }
+    }
+
 }
