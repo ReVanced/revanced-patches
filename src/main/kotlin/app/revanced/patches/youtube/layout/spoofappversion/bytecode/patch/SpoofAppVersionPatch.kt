@@ -30,10 +30,6 @@ class SpoofAppVersionPatch : BytecodePatch(
         SpoofAppVersionFingerprint
     )
 ) {
-    companion object {
-        const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/SpoofAppVersionPatch"
-    }
-
     override fun execute(context: BytecodeContext): PatchResult {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
@@ -60,5 +56,9 @@ class SpoofAppVersionPatch : BytecodePatch(
         } ?: return SpoofAppVersionFingerprint.toErrorResult()
 
         return PatchResultSuccess()
+    }
+
+    private companion object {
+        const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/SpoofAppVersionPatch"
     }
 }

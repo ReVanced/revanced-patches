@@ -25,7 +25,9 @@ import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.video.videoid.patch.VideoIdPatch
 import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
+import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
 @DependsOn(
@@ -42,7 +44,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Version("0.0.1")
 class ReturnYouTubeDislikePatch : BytecodePatch(
     listOf(
-        TextComponentSpecParentFingerprint,
+        TextComponentConstructorFingerprint,
         ShortsTextComponentParentFingerprint,
         LikeFingerprint,
         DislikeFingerprint,
@@ -78,27 +80,37 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
 
         // region Hook components
 
-        TextComponentFingerprint.also { it.resolve(context, TextComponentSpecParentFingerprint.result!!.classDef) }
-            .result?.let {
-                with(it.mutableMethod) {
-                    val createComponentMethod = this
+        TextReferenceFingerprint.also {
+            it.resolve(
+                context,
+                TextComponentConstructorFingerprint.result!!.classDef
+            )
+        }.result?.let { result ->
+            val moveTextRefParamInstructionIndex = TextReferenceParamFingerprint.also {
+                if (!TextReferenceParamFingerprint.resolve(context, result.method, result.classDef))
+                    return TextReferenceParamFingerprint.toErrorResult()
+            }.result!!.scanResult.patternScanResult!!.endIndex
 
-                    val conversionContextParam = 5
-                    val textRefParam = createComponentMethod.parameters.size - 2
-                    // Insert index must be 0, otherwise UI does not updated correctly in some situations
-                    // such as switching from full screen or when using previous/next overlay buttons.
-                    val insertIndex = 0
+            result.mutableMethod.apply {
+                val insertIndex = result.scanResult.patternScanResult!!.endIndex
 
-                    createComponentMethod.addInstructions(
-                        insertIndex,
-                        """
-                            move-object/from16 v7, p$conversionContextParam
-                            move-object/from16 v8, p$textRefParam
-                            invoke-static {v7, v8}, $INTEGRATIONS_PATCH_CLASS_DESCRIPTOR->onComponentCreated(Ljava/lang/Object;Ljava/util/concurrent/atomic/AtomicReference;)V
-                        """
-                    )
-                }
-            } ?: return TextComponentFingerprint.toErrorResult()
+                val atomicReferenceInstruction = (instruction(insertIndex - 1) as FiveRegisterInstruction)
+                val conversionContextParam = atomicReferenceInstruction.registerC
+                val textRefParam = (instruction(moveTextRefParamInstructionIndex) as TwoRegisterInstruction).registerA
+
+                // Overwritten after injected code, which is why it can be used.
+                val clobberRegister = atomicReferenceInstruction.registerD
+
+                addInstructions(
+                    insertIndex,
+                    """
+                        # required instruction, otherwise register might be out of range
+                        move-object/from16 v$clobberRegister, v$textRefParam
+                        invoke-static {v$clobberRegister, v$conversionContextParam}, $ON_COMPONENT_CREATED_DESCRIPTOR
+                    """
+                )
+            }
+        } ?: return TextReferenceFingerprint.toErrorResult()
 
         ShortsTextComponentParentFingerprint.result?.let {
             context
@@ -137,6 +149,9 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
     private companion object {
         const val INTEGRATIONS_PATCH_CLASS_DESCRIPTOR =
             "Lapp/revanced/integrations/patches/ReturnYouTubeDislikePatch;"
+
+        const val ON_COMPONENT_CREATED_DESCRIPTOR =
+            "$INTEGRATIONS_PATCH_CLASS_DESCRIPTOR->onComponentCreated(Ljava/lang/Object;Ljava/util/concurrent/atomic/AtomicReference;)V"
 
         private fun MethodFingerprint.toPatch(voteKind: Vote) = VotePatch(this, voteKind)
     }

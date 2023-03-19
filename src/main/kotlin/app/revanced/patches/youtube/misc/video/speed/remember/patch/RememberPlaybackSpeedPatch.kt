@@ -8,8 +8,6 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.*
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
@@ -19,12 +17,12 @@ import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.video.speed.remember.annotation.RememberPlaybackSpeedCompatibility
-import app.revanced.patches.youtube.misc.video.speed.remember.fingerprint.ChangePlaybackSpeedFragmentStateFingerprint
 import app.revanced.patches.youtube.misc.video.speed.remember.fingerprint.InitializePlaybackSpeedValuesFingerprint
 import app.revanced.patches.youtube.misc.video.speed.remember.fingerprint.OnPlaybackSpeedItemClickFingerprint
 import app.revanced.patches.youtube.misc.video.videoid.patch.VideoIdPatch
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
+import org.jf.dexlib2.iface.instruction.Instruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch
@@ -34,7 +32,10 @@ import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 @RememberPlaybackSpeedCompatibility
 @Version("0.0.1")
 class RememberPlaybackSpeedPatch : BytecodePatch(
-    listOf(ChangePlaybackSpeedFragmentStateFingerprint)
+    listOf(
+        OnPlaybackSpeedItemClickFingerprint,
+        InitializePlaybackSpeedValuesFingerprint
+    )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
@@ -56,54 +57,67 @@ class RememberPlaybackSpeedPatch : BytecodePatch(
             )
         )
 
-        context.resolveFingerprints()
-
         VideoIdPatch.injectCall("${INTEGRATIONS_CLASS_DESCRIPTOR}->newVideoLoaded(Ljava/lang/String;)V")
 
+        /*
+         * The following code works by hooking the method which is called when the user selects a playback speed
+         * to remember the last selected playback speed.
+         *
+         * It also hooks the method which is called when the playback speeds are initialized.
+         * Conveniently, at this point the playback speed is set to the remembered playback speed.
+         */
+
+
         // Set the remembered playback speed.
-        InitializePlaybackSpeedValuesFingerprint.result!!.apply {
-            // Infer everything necessary for setPlaybackSate()
+        InitializePlaybackSpeedValuesFingerprint.result?.apply {
+            // Infer everything necessary for calling the method setPlaybackSpeed().
+            val instructions = OnPlaybackSpeedItemClickFingerprint.result!!.mutableMethod.implementation!!.instructions
+            fun getReference(offset: Int = 0, opcode: Opcode) =
+                instructions[instructions.indexOfFirst { it.opcode == opcode } + offset].reference
 
-            val playbackHandlerWrapperFieldReference =
-                (object : MethodFingerprint(opcodes = listOf(Opcode.IF_EQZ)) {}).apply {
-                    OnPlaybackSpeedItemClickFingerprint.result!!.apply {
-                        resolve(
-                            context,
-                            method,
-                            classDef
-                        )
-                    }
-                }.getReference(-1)
-            val playbackHandlerWrapperImplementorClassReference = OnPlaybackSpeedItemClickFingerprint
-                .getReference(-1)
-            val playbackHandlerFieldReference = OnPlaybackSpeedItemClickFingerprint
-                .getReference()
-            val setPlaybackSpeedMethodReference = OnPlaybackSpeedItemClickFingerprint
-                .getReference(1)
+            val setPlaybackSpeedContainerClassFieldReference =
+                getReference(-1, Opcode.IF_EQZ)
 
+            val setPlaybackSpeedClassFieldReference =
+                getReference(1, Opcode.IGET)
+
+            val setPlaybackSpeedMethodReference =
+                getReference(2, Opcode.IGET)
+
+            val onItemClickListenerClassFieldReference = mutableMethod.instruction(0).reference
+
+            // Registers are not used at index 0, so they can be freely used.
             mutableMethod.addInstructions(
                 0,
                 """
                     invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->getCurrentPlaybackSpeed()F
                     move-result v0
-                    # check if the playback speed is not 1.0x
+                    
+                    # Check if the playback speed is not 1.0x.
                     const/high16 v1, 0x3f800000  # 1.0f
                     cmpg-float v1, v0, v1
                     if-eqz v1, :do_not_override
+    
+                    # Get the instance of the class which has the container class field below.
+                    iget-object v1, p0, $onItemClickListenerClassFieldReference
 
-                    # invoke setPlaybackSpeed
-                    iget-object v1, p0, $playbackHandlerWrapperFieldReference 
-                    check-cast v1, $playbackHandlerWrapperImplementorClassReference
-                    iget-object v2, v1, $playbackHandlerFieldReference
+                    # Get the container class field.
+                    iget-object v1, v1, $setPlaybackSpeedContainerClassFieldReference 
+                    
+                    # Get the field from its class.
+                    iget-object v2, v1, $setPlaybackSpeedClassFieldReference
+                    
+                    # Invoke setPlaybackSpeed on that class.
                     invoke-virtual {v2, v0}, $setPlaybackSpeedMethodReference
                 """.trimIndent(),
                 listOf(ExternalLabel("do_not_override", mutableMethod.instruction(0)))
             )
-        }
+        } ?: return InitializePlaybackSpeedValuesFingerprint.toErrorResult()
 
         // Remember the selected playback speed.
-        OnPlaybackSpeedItemClickFingerprint.result!!.apply {
-            val setPlaybackSpeedIndex = scanResult.patternScanResult!!.endIndex
+        OnPlaybackSpeedItemClickFingerprint.result?.apply {
+            val setPlaybackSpeedIndex = scanResult.patternScanResult!!.startIndex - 3
+
             val selectedPlaybackSpeedRegister =
                 (mutableMethod.instruction(setPlaybackSpeedIndex) as FiveRegisterInstruction).registerD
 
@@ -111,8 +125,7 @@ class RememberPlaybackSpeedPatch : BytecodePatch(
                 setPlaybackSpeedIndex,
                 "invoke-static { v$selectedPlaybackSpeedRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->setPlaybackSpeed(F)V"
             )
-        }
-
+        } ?: return OnPlaybackSpeedItemClickFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }
@@ -121,20 +134,6 @@ class RememberPlaybackSpeedPatch : BytecodePatch(
         const val INTEGRATIONS_CLASS_DESCRIPTOR =
             "Lapp/revanced/integrations/patches/playback/speed/RememberPlaybackSpeedPatch;"
 
-        fun MethodFingerprint.getReference(offsetFromPatternScanResultStartIndex: Int = 0) = this.result!!.let {
-            val referenceInstruction = it.mutableMethod
-                .instruction(it.scanResult.patternScanResult!!.startIndex + offsetFromPatternScanResultStartIndex) as ReferenceInstruction
-            referenceInstruction.reference.toString()
-        }
-
-        fun BytecodeContext.resolveFingerprints() {
-            ChangePlaybackSpeedFragmentStateFingerprint.result?.also {
-                fun MethodFingerprint.resolve() = resolve(this@resolveFingerprints, it.classDef)
-
-                OnPlaybackSpeedItemClickFingerprint.resolve()
-                InitializePlaybackSpeedValuesFingerprint.resolve()
-
-            } ?: throw ChangePlaybackSpeedFragmentStateFingerprint.toErrorResult()
-        }
+        val Instruction.reference get() = (this as ReferenceInstruction).reference.toString()
     }
 }
