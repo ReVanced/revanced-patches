@@ -18,11 +18,11 @@ public enum SettingsEnum {
     // Video settings
     OLD_STYLE_VIDEO_QUALITY_PLAYER_SETTINGS("revanced_use_old_style_quality_settings", true, ReturnType.BOOLEAN),
     REMEMBER_VIDEO_QUALITY_LAST_SELECTED("revanced_remember_video_quality_last_selected", true, ReturnType.BOOLEAN),
-    REMEMBER_PLAYBACK_RATE_SELECTED("revanced_remember_playback_rate_selected", true, ReturnType.BOOLEAN),
+    REMEMBER_PLAYBACK_SPEED_LAST_SELECTED("revanced_remember_playback_speed_last_selected", true, ReturnType.BOOLEAN),
+    REMEMBER_PLAYBACK_SPEED_LAST_SELECTED_VALUE("revanced_remember_playback_speed_last_selected_value", 1.0f, ReturnType.FLOAT),
 
-
+    // TODO: Unused currently
     // Whitelist settings
-    //ToDo: Not used atm, Patch missing
     ENABLE_WHITELIST("revanced_whitelist_ads_enabled", false, ReturnType.BOOLEAN),
 
     // Ad settings
