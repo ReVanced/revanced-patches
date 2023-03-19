@@ -46,20 +46,20 @@ class VideoIdPatch : BytecodePatch(
         private lateinit var insertMethod: MutableMethod
 
         /**
-         * Adds an invoke-static instruction, called with the new id when the video changes
+         * Adds an invoke-static instruction, called with the new id when the video changes.
+         * Be aware, this can be called multiple times for the same video id.
+         *
          * @param methodDescriptor which method to call. Params have to be `Ljava/lang/String;`
          */
         fun injectCall(
             methodDescriptor: String
-        ) {
-            insertMethod.addInstructions(
-                // TODO: The order has been proven to not be required, so remove the logic for keeping order.
-                // Keep injection calls in the order they're added:
-                // Increment index. So if additional injection calls are added, those calls run after this injection call.
-                insertIndex++,
-                "invoke-static {v$videoIdRegister}, $methodDescriptor"
-            )
-        }
+        ) = insertMethod.addInstructions(
+            // Keep injection calls in the order they're added.
+            // Order has been proven to be important for the same reason that order of patch execution is important
+            // such as for the VideoInformation patch.
+            insertIndex++,
+            "invoke-static {v$videoIdRegister}, $methodDescriptor"
+        )
     }
 }
 
