@@ -1,3 +1,10 @@
+# [2.167.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.167.0-dev.1...v2.167.0-dev.2) (2023-03-19)
+
+
+### Features
+
+* **youtube/microg-support:** do not depend on `spoof-signature-verification` patch ([af4e765](https://github.com/revanced/revanced-patches/commit/af4e765ca87c6c979e95bc274b32c764a0a32a88))
+
 # [2.167.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.166.1-dev.1...v2.167.0-dev.1) (2023-03-17)
 
 
