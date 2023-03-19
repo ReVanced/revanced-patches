@@ -1,3 +1,10 @@
+# [2.167.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.167.0-dev.2...v2.167.0-dev.3) (2023-03-19)
+
+
+### Bug Fixes
+
+* **youtube/remember-playback-speed:**  allow to not remember playback speed ([#1762](https://github.com/revanced/revanced-patches/issues/1762)) ([49ec3e8](https://github.com/revanced/revanced-patches/commit/49ec3e83f18ec4eb180d220c5a7015f8e4feb3a7))
+
 # [2.167.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.167.0-dev.1...v2.167.0-dev.2) (2023-03-19)
 
 

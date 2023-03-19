@@ -51,7 +51,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `old-quality-layout` | Enables the original video quality flyout in the video player settings | 18.05.40 |
 | `open-links-externally` | Open links outside of the app directly in your browser. | 18.05.40 |
 | `premium-heading` | Shows premium branding on the home screen. | all |
-| `remember-playback-rate` | Adds the ability to remember the playback rate you chose in the video playback rate flyout. | 18.05.40 |
+| `remember-playback-speed` | Adds the ability to remember the playback speed you chose in the video playback speed flyout. | 18.05.40 |
 | `remember-video-quality` | Adds the ability to remember the video quality you chose in the video quality flyout. | 18.05.40 |
 | `remove-player-button-background` | Removes the background from the video player buttons. | 18.05.40 |
 | `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 18.05.40 |
