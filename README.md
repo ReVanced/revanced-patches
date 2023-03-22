@@ -136,7 +136,6 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-ads` | Hides ads. | all |
 | `hide-recommended-users` | Hides recommended users. | all |
 | `hide-views-stats` | Hides the view stats under tweets. | 9.71.0-release.0 |
-| `monochrome-icon` | Adds a monochrome icon. | all |
 </details>
 
 ### [📦 `com.spotify.music`](https://play.google.com/store/apps/details?id=com.spotify.music)
