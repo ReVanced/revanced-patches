@@ -51,7 +51,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `old-quality-layout` | Enables the original video quality flyout in the video player settings | 18.05.40 |
 | `open-links-externally` | Open links outside of the app directly in your browser. | 18.05.40 |
 | `premium-heading` | Shows premium branding on the home screen. | all |
-| `remember-playback-rate` | Adds the ability to remember the playback rate you chose in the video playback rate flyout. | 18.05.40 |
+| `remember-playback-speed` | Adds the ability to remember the playback speed you chose in the video playback speed flyout. | 18.05.40 |
 | `remember-video-quality` | Adds the ability to remember the video quality you chose in the video quality flyout. | 18.05.40 |
 | `remove-player-button-background` | Removes the background from the video player buttons. | 18.05.40 |
 | `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 18.05.40 |
@@ -136,7 +136,6 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-ads` | Hides ads. | all |
 | `hide-recommended-users` | Hides recommended users. | all |
 | `hide-views-stats` | Hides the view stats under tweets. | 9.71.0-release.0 |
-| `monochrome-icon` | Adds a monochrome icon. | all |
 </details>
 
 ### [📦 `com.spotify.music`](https://play.google.com/store/apps/details?id=com.spotify.music)
@@ -154,8 +153,8 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `general-reddit-ads` | Removes general ads from the Reddit frontpage and subreddits. | 2023.09.1 |
-| `hide-subreddit-banner` | Hides banner ads from comments on subreddits. | 2023.09.1 |
+| `general-reddit-ads` | Removes general ads from the Reddit frontpage and subreddits. | 2023.10.0 |
+| `hide-subreddit-banner` | Hides banner ads from comments on subreddits. | 2023.10.0 |
 | `premium-icon-reddit` | Unlocks premium Reddit app icons. | all |
 </details>
 
@@ -290,7 +289,31 @@ The official Patch bundle provided by ReVanced and the community.
 | `unlock-prime` | Unlocks Nova Prime and all functions of the app. | all |
 </details>
 
+### [📦 `org.totschnig.myexpenses`](https://play.google.com/store/apps/details?id=org.totschnig.myexpenses)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-pro` | Unlocks all professional features. | 3.4.9 |
+</details>
+
+### [📦 `com.awedea.nyx`](https://play.google.com/store/apps/details?id=com.awedea.nyx)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-pro` | Unlocks all pro features. | all |
+</details>
+
 ### [📦 `co.windyapp.android`](https://play.google.com/store/apps/details?id=co.windyapp.android)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-pro` | Unlocks all pro features. | all |
+</details>
+
+### [📦 `ginlemon.iconpackstudio`](https://play.google.com/store/apps/details?id=ginlemon.iconpackstudio)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -306,36 +329,12 @@ The official Patch bundle provided by ReVanced and the community.
 | `unlock-pro` | Unlocks pro features. | all |
 </details>
 
-### [📦 `ginlemon.iconpackstudio`](https://play.google.com/store/apps/details?id=ginlemon.iconpackstudio)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `unlock-pro` | Unlocks all pro features. | all |
-</details>
-
-### [📦 `com.awedea.nyx`](https://play.google.com/store/apps/details?id=com.awedea.nyx)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `unlock-pro` | Unlocks all pro features. | all |
-</details>
-
-### [📦 `org.totschnig.myexpenses`](https://play.google.com/store/apps/details?id=org.totschnig.myexpenses)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `unlock-pro` | Unlocks all professional features. | 3.4.9 |
-</details>
-
 ### [📦 `com.ticktick.task`](https://play.google.com/store/apps/details?id=com.ticktick.task)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `unlock-themes` | Unlocks all themes. | all |
+| `unlock-themes` | Unlocks all themes that are inaccessible until a certain level is reached. | all |
 </details>
 
 ### [📦 `net.dinglisch.android.taskerm`](https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm)

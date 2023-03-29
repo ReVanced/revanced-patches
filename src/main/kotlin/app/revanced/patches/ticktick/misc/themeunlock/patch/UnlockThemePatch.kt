@@ -16,7 +16,7 @@ import app.revanced.patches.ticktick.misc.themeunlock.fingerprints.SetThemeFinge
 
 @Patch
 @Name("unlock-themes")
-@Description("Unlocks all themes.")
+@Description("Unlocks all themes that are inaccessible until a certain level is reached.")
 @UnlockThemesCompatibility
 @Version("0.0.1")
 class UnlockProPatch : BytecodePatch(

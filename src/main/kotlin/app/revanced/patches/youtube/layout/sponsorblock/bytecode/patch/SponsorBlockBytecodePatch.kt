@@ -81,7 +81,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         /*
          Set current video id
          */
-        VideoIdPatch.injectCall("$INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
+        VideoIdPatch.injectCallBackgroundPlay("$INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
 
         /*
          Seekbar drawing

@@ -25,8 +25,7 @@ import app.revanced.util.microg.MicroGBytecodeHelper
     [
         MicroGResourcePatch::class,
         HideCastButtonPatch::class,
-        ClientSpoofPatch::class,
-        SpoofSignatureVerificationPatch::class
+        ClientSpoofPatch::class
     ]
 )
 @Name("microg-support")
