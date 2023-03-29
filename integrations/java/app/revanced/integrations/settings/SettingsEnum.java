@@ -18,11 +18,11 @@ public enum SettingsEnum {
     // Video settings
     OLD_STYLE_VIDEO_QUALITY_PLAYER_SETTINGS("revanced_use_old_style_quality_settings", true, ReturnType.BOOLEAN),
     REMEMBER_VIDEO_QUALITY_LAST_SELECTED("revanced_remember_video_quality_last_selected", true, ReturnType.BOOLEAN),
-    REMEMBER_PLAYBACK_RATE_SELECTED("revanced_remember_playback_rate_selected", true, ReturnType.BOOLEAN),
+    REMEMBER_PLAYBACK_SPEED_LAST_SELECTED("revanced_remember_playback_speed_last_selected", true, ReturnType.BOOLEAN),
+    REMEMBER_PLAYBACK_SPEED_LAST_SELECTED_VALUE("revanced_remember_playback_speed_last_selected_value", 1.0f, ReturnType.FLOAT),
 
-
+    // TODO: Unused currently
     // Whitelist settings
-    //ToDo: Not used atm, Patch missing
     ENABLE_WHITELIST("revanced_whitelist_ads_enabled", false, ReturnType.BOOLEAN),
 
     // Ad settings
@@ -96,7 +96,7 @@ public enum SettingsEnum {
     HIDE_FLOATING_MICROPHONE_BUTTON("revanced_hide_floating_microphone_button", true, ReturnType.BOOLEAN, true),
 
     // Misc. Settings
-    FIX_PLAYBACK("revanced_fix_playback", false, ReturnType.BOOLEAN),
+    SIGNATURE_SPOOFING("revanced_spoof_signature_verification", false, ReturnType.BOOLEAN),
     CAPTIONS_ENABLED("revanced_autocaptions_enabled", false, ReturnType.BOOLEAN),
     PREFERRED_AUTO_REPEAT("revanced_pref_auto_repeat", false, ReturnType.BOOLEAN),
     USE_HDR_AUTO_BRIGHTNESS("revanced_pref_hdr_autobrightness", true, ReturnType.BOOLEAN),
