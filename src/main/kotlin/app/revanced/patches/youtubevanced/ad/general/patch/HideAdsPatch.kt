@@ -35,7 +35,7 @@ class HideAdsPatch : BytecodePatch(
                 val adsListRegister = (instruction(insertIndex - 2) as Instruction21c).registerA
 
                 listOf(
-                    "video_display_full_buttoned_layout",
+                    "_buttoned_layout",
                     "full_width_square_image_layout",
                     "_ad_with",
                     "landscape_image_wide_button_layout",
@@ -46,7 +46,9 @@ class HideAdsPatch : BytecodePatch(
                     "video_display_full_layout",
                     "hero_promo_image",
                     "statement_banner",
-                    "primetime_promo"
+                    "primetime_promo",
+                    "carousel_footered_layout",
+                    "feature_grid_interstitial"
                 ).forEach { component ->
                     addInstructions(
                         insertIndex, """
