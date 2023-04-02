@@ -1,142 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="enable_sb">Enable SponsorBlock</string>
-    <string name="enable_sb_sum">SponsorBlock is a crowd-sourced system for skipping annoying parts in YouTube videos</string>
-    <string name="enable_segmadding">Enable new segment adding</string>
-    <string name="enable_segmadding_sum">Switch this on to enable experimental segment adding (has button visibility issues)</string>
-    <string name="diff_segments">What to do with different segments</string>
-    <string name="general">General</string>
-    <string name="general_skiptoast">Show a toast when skipping segment automatically</string>
-    <string name="general_skiptoast_sum">Click to see an example toast</string>
-    <string name="general_skipcount">Skip count tracking</string>
-    <string name="general_skipcount_sum">This lets SponsorBlock leaderboard system know how much time people have saved. The extension sends a message to the server each time you skip a segment</string>
-    <string name="general_adjusting">Adjusting new segment step</string>
-    <string name="general_adjusting_sum">This is the number of milliseconds you can move when you use the time adjustment buttons while adding new segment</string>
-    <string name="general_min_duration">Minimum segment duration</string>
-    <string name="general_min_duration_sum">Segments shorter than the set value (in seconds) will not be skipped or shown in the player</string>
-    <string name="general_uuid">Your private user id</string>
-    <string name="general_uuid_sum">This should be kept private. This is like a password and should not be shared with anyone. If someone has this, they can impersonate you</string>
-    <string name="settings_ie">Import/Export settings</string>
-    <string name="settings_ie_sum">This is your entire configuration that is applicable in the desktop extension in JSON. This includes your Private userID, so be sure to share this wisely.</string>
-    <string name="general_api_url">Change API URL</string>
-    <string name="general_api_url_sum">The address SponsorBlock uses to make calls to the server. &lt;b>Don\'t change this unless you know what you\'re doing.&lt;/b></string>
-    <string name="settings_import_successful">Settings were successfully imported</string>
-    <string name="settings_import_failed">Failed to import settings</string>
-    <string name="settings_export_failed">Failed to export settings</string>
-    <string name="general_cache">Cache segments locally</string>
-    <string name="general_cache_sum">Frequently watched videos (eg. music videos) may store segments in app cache to make skipping segments faster</string>
-    <string name="general_cache_clear">Clear SponsorBlock segments cache</string>
-    <string name="segments_sponsor">Sponsor</string>
-    <string name="segments_sponsor_sum">Paid promotion, paid referrals and direct advertisements</string>
-    <string name="segments_intermission">Intermission/Intro Animation</string>
-    <string name="segments_intermission_sum">An interval without actual content. Could be a pause, static frame, repeating animation</string>
-    <string name="segments_endcards">Endcards/Credits</string>
-    <string name="segments_endcards_sum">Credits or when the YouTube endcards appear. Not for spoken conclusions</string>
-    <string name="segments_subscribe">Interaction Reminder (Subscribe)</string>
-    <string name="segments_subscribe_sum">When there is a short reminder to like, subscribe, follow or interact with them on any free or paid platform</string>
-    <string name="segments_selfpromo">Unpaid/Self Promotion</string>
-    <string name="segments_selfpromo_sum">When there is unpaid or self promotion. This includes specific sections about merchandise, donations, or information about who they collaborated with</string>
-    <string name="segments_nomusic">Music: Non-Music Section</string>
-    <string name="segments_nomusic_sum">Only for use in music videos. Skips parts of the video not in official mixes</string>
-    <string name="segments_filler">Filler Tangent/Jokes</string>
-    <string name="segments_filler_sum">Tangential scenes added only for filler or humor that are not required to understand the main content of the video. This should not include context or background details</string>
-    <string name="skipped_segment">Skipped a sponsor segment</string>
-    <string name="skipped_sponsor">Skipped sponsor</string>
-    <string name="skipped_intermission">Skipped intro</string>
-    <string name="skipped_endcard">Skipped outro</string>
-    <string name="skipped_subscribe">Skipped annoying reminder</string>
-    <string name="skipped_selfpromo">Skipped self promotion</string>
-    <string name="skipped_nomusic">Skipped a non-music section</string>
-    <string name="skipped_preview">Skipped preview</string>
-    <string name="skipped_filler">Skipped filler</string>
-    <string name="skipped_unsubmitted">Skipped unsubmitted segment</string>
-    <string name="skip_automatically">Skip automatically</string>
-    <string name="skip_automatically_once">Skip automatically once</string>
-    <string name="skip_showbutton">Show a skip button</string>
-    <string name="skip_ignore">Don\'t do anything</string>
-    <string name="skip_sponsor">Skip segment</string>
-    <string name="about">About</string>
-    <string name="about_api">This app uses the API from SponsorBlock</string>
-    <string name="about_api_sum">Tap to learn more, and see downloads for other platforms at: sponsor.ajay.app</string>
-    <string name="about_madeby">Integration made by JakubWeg, recoded by oSumAtrIX</string>
-    <string name="tap_skip">Tap to skip</string>
+    <string name="sb_enable_sb">Enable SponsorBlock</string>
+    <string name="sb_enable_sb_sum">SponsorBlock is a crowd-sourced system for skipping annoying parts of YouTube videos</string>
+    <string name="sb_enable_voting">Show voting button</string>
+    <string name="sb_enable_voting_sum_on">Segment voting button is shown</string>
+    <string name="sb_enable_voting_sum_off">Segment voting button is not shown</string>
+    <string name="sb_enable_create_segment">Show create new segment button</string>
+    <string name="sb_enable_create_segment_sum_on">Create new segment button is shown</string>
+    <string name="sb_enable_create_segment_sum_off">Create new segment button is not shown</string>
+    <string name="sb_enable_compact_skip_button">Use compact skip button</string>
+    <string name="sb_enable_compact_skip_button_sum_on">Skip button styled for minimum width</string>
+    <string name="sb_enable_compact_skip_button_sum_off">Skip button styled for best appearance</string>
+    <string name="sb_diff_segments">What to do with different segments</string>
+    <string name="sb_general">General</string>
+    <string name="sb_general_skiptoast">Show a toast when skipping segment automatically</string>
+    <string name="sb_general_skiptoast_sum_on">Toast shown when a segment is automatically skipped. Tap here to see an example</string>
+    <string name="sb_general_skiptoast_sum_off">Toast not shown. Tap here to see an example</string>
+    <string name="sb_general_skipcount">Enable skip count tracking</string>
+    <string name="sb_general_skipcount_sum_on">Lets the SponsorBlock leaderboard know how much time is saved. A message is sent to the leaderboard each time a segment is skipped</string>
+    <string name="sb_general_skipcount_sum_off">Skip count tracking is not enabled</string>
+    <string name="sb_general_time_without">Show video length without segments</string>
+    <string name="sb_general_time_without_sum_on">Video length minus all segments, shown in parentheses next to the full video length</string>
+    <string name="sb_general_time_without_sum_off">Full video length shown</string>
+    <string name="sb_general_adjusting">Adjust new segment step</string>
+    <string name="sb_general_adjusting_sum">Number of milliseconds the time adjustment buttons move when creating new segments</string>
+    <string name="sb_general_adjusting_invalid">Value must be a positive number</string>
+    <string name="sb_general_min_duration">Minimum segment duration</string>
+    <string name="sb_general_min_duration_sum">Segments shorter than this value (in seconds) will not be shown or skipped</string>
+    <string name="sb_general_uuid">Your private user id</string>
+    <string name="sb_general_uuid_sum">This should be kept private. This is like a password and should not be shared with anyone. If someone has this, they can impersonate you</string>
+    <string name="sb_general_uuid_invalid">User id cannot be blank</string>
+    <string name="sb_settings_ie">Import/Export settings</string>
+    <string name="sb_settings_ie_sum">Your SponsorBlock JSON configuration that can be imported/exported to ReVanced and other SponsorBlock platforms. This includes your private user id. Be sure to share this wisely</string>
+    <string name="sb_general_api_url">Change API URL</string>
+    <string name="sb_general_api_url_sum">The address SponsorBlock uses to make calls to the server. &lt;b>Don\'t change this unless you know what you\'re doing&lt;/b></string>
+    <string name="sb_settings_import_successful">Settings imported successfully</string>
+    <string name="sb_settings_import_failed">Failed to import: %s</string>
+    <string name="sb_settings_export_failed">Failed to export settings (try clearing app data)</string>
 
-    <string name="submit_failed_invalid">Can\'t submit the segment: %s</string>
-    <string name="submit_failed_unknown_error" formatted="false">Unable to submit segments: Status: %d %s</string>
-    <string name="submit_failed_rate_limit">Can\'t submit the segment.\nRate Limited (Too many from the same user or IP)</string>
-    <string name="submit_failed_forbidden" formatted="false">Can\'t submit the segment.\n\n%s</string>
-    <string name="submit_failed_duplicate">Can\'t submit the segment.\nAlready exists</string>
-    <string name="submit_succeeded">Segment submitted successfully</string>
-    <string name="submit_started">Submitting segment…</string>
+    <string name="sb_segments_sponsor">Sponsor</string>
+    <string name="sb_segments_sponsor_sum">Paid promotion, paid referrals and direct advertisements. Not for self-promotion or free shout-outs to causes/creators/websites/products they like</string>
+    <string name="sb_segments_selfpromo">Unpaid/Self Promotion</string>
+    <string name="sb_segments_selfpromo_sum">Similar to \'Sponsor\' except for unpaid or self promotion. Includes sections about merchandise, donations, or information about who they collaborated with</string>
+    <string name="sb_segments_interaction">Interaction Reminder (Subscribe)</string>
+    <string name="sb_segments_interaction_sum">A short reminder to like, subscribe or follow them in the middle of content. If it is long or about something specific, it should instead be under self promotion</string>
+    <string name="sb_segments_intro">Intermission/Intro Animation</string>
+    <string name="sb_segments_intro_sum">An interval without actual content. Could be a pause, static frame, or repeating animation. Does not include transitions containing information</string>
+    <string name="sb_segments_outro">Endcards/Credits</string>
+    <string name="sb_segments_outro_sum">Credits or when the YouTube endcards appear. Not for conclusions with information</string>
+    <string name="sb_segments_preview">Preview/Recap</string>
+    <string name="sb_segments_preview_sum">Collection of clips that show what is coming up or what happened in the video or in other videos of a series, where all information is repeated elsewhere</string>
+    <string name="sb_segments_filler">Filler Tangent/Jokes</string>
+    <string name="sb_segments_filler_sum">Tangential scenes added only for filler or humor that are not required to understand the main content of the video. Does not include segments providing context or background details</string>
+    <string name="sb_segments_nomusic">Music: Non-Music Section</string>
+    <string name="sb_segments_nomusic_sum">Only for use in music videos. Sections of music videos without music, that aren\'t already covered by another category</string>
 
-    <string name="vote_failed_unknown_error" formatted="false">Unable to vote for segment: Status: %d %s</string>
-    <string name="vote_failed_rate_limit">Can\'t vote for segment.\nRate Limited (Too many from the same user or IP)</string>
-    <string name="vote_failed_forbidden" formatted="false">Can\'t vote for segment.\n\n%s</string>
-    <string name="vote_succeeded">Voted successfully</string>
-    <string name="vote_started">Voting for segment…</string>
-    <string name="vote_upvote">Upvote</string>
-    <string name="vote_downvote">Downvote</string>
-    <string name="vote_category">Change category</string>
-    <string name="vote_no_segments">There are no segments to vote for</string>
-    <string name="enable_voting">Enable voting</string>
-    <string name="enable_voting_sum">Switch this on to enable voting.</string>
+    <string name="sb_skip_button_compact">Skip</string>
+    <string name="sb_skip_button_sponsor">Skip sponsor</string>
+    <string name="sb_skip_button_selfpromo">Skip promo</string>
+    <string name="sb_skip_button_interaction">Skip interact</string>
+    <string name="sb_skip_button_intro_beginning">Skip intro</string>
+    <string name="sb_skip_button_intro_middle">Skip intermission</string>
+    <string name="sb_skip_button_intro_end">Skip intermission</string>
+    <string name="sb_skip_button_outro">Skip outro</string>
+    <string name="sb_skip_button_preview_beginning">Skip preview</string>
+    <string name="sb_skip_button_preview_middle">Skip preview</string>
+    <string name="sb_skip_button_preview_end">Skip recap</string>
+    <string name="sb_skip_button_filler">Skip filler</string>
+    <string name="sb_skip_button_nomusic">Skip non-music</string>
+    <string name="sb_skip_button_unsubmitted">Skip segment</string>
 
-    <string name="new_segment_choose_category">Choose the segment category</string>
-    <string name="new_segment_disabled_category">You\'ve disabled this category in the settings, enable it to be able to submit</string>
-    <string name="new_segment_title">New SponsorBlock segment</string>
-    <string name="new_segment_mark_time_as_question" formatted="false">Set %02d:%02d:%04d as the start or end of a new segment?</string>
-    <string name="new_segment_mark_start">start</string>
-    <string name="new_segment_mark_end">end</string>
-    <string name="new_segment_now">now</string>
-    <string name="new_segment_time_start">Time the segment begins at</string>
-    <string name="new_segment_time_end">Time the segment ends at</string>
-    <string name="new_segment_time_start_set">Beginning of segment set</string>
-    <string name="new_segment_time_end_set">End of segment set</string>
-    <string name="new_segment_confirm_title">Are the times correct?</string>
-    <string name="new_segment_confirm_content" formatted="false">The segment lasts from %02d:%02d to %02d:%02d (%d minutes %02d seconds)\nIs it ready to submit?</string>
-    <string name="new_segment_mark_locations_first">Mark two locations on the time bar first</string>
-    <string name="new_segment_edit_by_hand_title">Edit timing of segment manually</string>
-    <string name="new_segment_edit_by_hand_content">Do you want to edit the timing for the start or end of the segment?</string>
-    <string name="new_segment_edit_by_hand_saved">Done</string>
-    <string name="new_segment_edit_by_hand_parse_error">Invalid time given</string>
+    <string name="sb_skipped_sponsor">Skipped sponsor</string>
+    <string name="sb_skipped_selfpromo">Skipped self promotion</string>
+    <string name="sb_skipped_interaction">Skipped annoying reminder</string>
+    <string name="sb_skipped_intro_beginning">Skipped intro</string>
+    <string name="sb_skipped_intro_middle">Skipped intermission</string>
+    <string name="sb_skipped_intro_end">Skipped intermission</string>
+    <string name="sb_skipped_outro">Skipped outro</string>
+    <string name="sb_skipped_preview_beginning">Skipped preview</string>
+    <string name="sb_skipped_preview_middle">Skipped preview</string>
+    <string name="sb_skipped_preview_end">Skipped recap</string>
+    <string name="sb_skipped_filler">Skipped filler</string>
+    <string name="sb_skipped_nomusic">Skipped a non-music section</string>
+    <string name="sb_skipped_unsubmitted">Skipped unsubmitted segment</string>
+    <string name="sb_skipped_multiple_segments">Skipped multiple segments</string>
+
+    <string name="sb_skip_automatically">Skip automatically</string>
+    <string name="sb_skip_automatically_once">Skip automatically once</string>
+    <string name="sb_skip_showbutton">Show a skip button</string>
+    <string name="sb_skip_seekbaronly">Show in seek bar</string>
+    <string name="sb_skip_ignore">Disable</string>
+
+    <string name="sb_about">About</string>
+    <string name="sb_about_api">Sponsor.Ajay.app</string>
+    <string name="sb_about_api_sum">Data is provided by the SponsorBlock API. Tap here to learn more and see downloads for other platforms</string>
+    <string name="sb_about_made_by">ReVanced integration by JakubWeg,\nrecoded by oSumAtrIX</string>
+
+    <string name="sb_submit_failed_invalid" formatted="false">Can\'t submit the segment: %s</string>
+    <string name="sb_submit_failed_timeout">Unable to submit segments (API timed out)</string>
+    <string name="sb_submit_failed_unknown_error" formatted="false">Unable to submit segments (status: %d %s)</string>
+    <string name="sb_submit_failed_rate_limit">Can\'t submit the segment.\nRate Limited (too many from the same user or IP)</string>
+    <string name="sb_submit_failed_forbidden" formatted="false">Can\'t submit the segment: %s</string>
+    <string name="sb_submit_failed_duplicate">Can\'t submit the segment.\nAlready exists</string>
+    <string name="sb_submit_succeeded">Segment submitted successfully</string>
+
+    <string name="sb_sponsorblock_connection_failure_generic">SponsorBlock temporarily not available</string>
+    <string name="sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock temporarily not available (status %d)</string>
+    <string name="sb_sponsorblock_connection_failure_timeout">SponsorBlock temporarily not available (API timed out)</string>
+
+    <string name="sb_vote_failed_timeout">Unable to vote for segment (API timed out)</string>
+    <string name="sb_vote_failed_unknown_error" formatted="false">Unable to vote for segment (status: %d %s)</string>
+    <string name="sb_vote_failed_forbidden" formatted="false">Unable to vote for segment: %s</string>
+    <string name="sb_vote_upvote">Upvote</string>
+    <string name="sb_vote_downvote">Downvote</string>
+    <string name="sb_vote_category">Change category</string>
+    <string name="sb_vote_no_segments">There are no segments to vote for</string>
+
+    <string name="sb_new_segment_choose_category">Choose the segment category</string>
+    <string name="sb_new_segment_disabled_category">Category is disabled in settings. Enable category to submit.</string>
+    <string name="sb_new_segment_title">New SponsorBlock segment</string>
+    <string name="sb_new_segment_mark_time_as_question" formatted="false">Set %02d:%02d:%04d as the start or end of a new segment?</string>
+    <string name="sb_new_segment_mark_start">start</string>
+    <string name="sb_new_segment_mark_end">end</string>
+    <string name="sb_new_segment_now">now</string>
+    <string name="sb_new_segment_time_start">Time the segment begins at</string>
+    <string name="sb_new_segment_time_end">Time the segment ends at</string>
+    <string name="sb_new_segment_confirm_title">Are the times correct?</string>
+    <string name="sb_new_segment_confirm_content" formatted="false">The segment lasts from %02d:%02d to %02d:%02d (%d minutes %02d seconds)\nIs it ready to submit?</string>
+    <string name="sb_new_segment_mark_locations_first">Mark two locations on the time bar first</string>
+    <string name="sb_new_segment_preview_segment_first">Preview the segment, and ensure it skips smoothly</string>
+    <string name="sb_new_segment_edit_by_hand_title">Edit timing of segment manually</string>
+    <string name="sb_new_segment_edit_by_hand_content">Do you want to edit the timing for the start or end of the segment?</string>
+    <string name="sb_new_segment_edit_by_hand_parse_error">Invalid time given</string>
 
     <string name="sb_guidelines_preference_title">View guidelines</string>
-    <string name="sb_guidelines_preference_sum">Guidelines contain tips and rules about submitting segments</string>
-    <string name="sb_guidelines_popup_title">There are guidelines</string>
-    <string name="sb_guidelines_popup_content">It\'s recommended to read the SponsorBlock guidelines before submitting any segment</string>
+    <string name="sb_guidelines_preference_sum">Guidelines contain rules and tips for creating new segments</string>
+    <string name="sb_guidelines_popup_title">Follow the guidelines</string>
+    <string name="sb_guidelines_popup_content">Read the SponsorBlock guidelines before creating new segments</string>
     <string name="sb_guidelines_popup_already_read">Already read</string>
     <string name="sb_guidelines_popup_open">Show me</string>
 
-    <string name="general_time_without_sb">Show time without segments</string>
-    <string name="general_time_without_sb_sum">This time appears in brackets next to the current time. This shows the total video duration minus any segments.</string>
-    <string name="segments_preview">Preview/Recap</string>
-    <string name="segments_preview_sum">Recap of previous episodes, or a preview of what\'s coming up later in the current video or future videos in the same series. Clips should not provide additional information.</string>
-    <string name="stats">Stats</string>
-    <string name="stats_loading">Loading..</string>
-    <string name="stats_sb_disabled">SponsorBlock is disabled</string>
-    <string name="stats_username" formatted="false">Your username: &lt;b&gt;%s&lt;/b&gt;</string>
-    <string name="stats_username_change">Click to change your username</string>
-    <string name="stats_username_change_unknown_error" formatted="false">Unable to change username: Status: %d %s</string>
-    <string name="stats_username_changed">Username successfully changed</string>
-    <string name="stats_submissions">Submissions: &lt;b&gt;%s&lt;/b&gt;</string>
-    <string name="stats_saved">You\'ve saved people from &lt;b&gt;%s&lt;/b&gt; segments.</string>
-    <string name="stats_saved_sum">That\'s &lt;b&gt;%s&lt;/b&gt; of their lives. Click to see the leaderboard</string>
-    <string name="stats_self_saved">You\'ve skipped &lt;b&gt;%s&lt;/b&gt; segments.</string>
-    <string name="stats_self_saved_sum">That\'s &lt;b&gt;%s&lt;/b&gt;.</string>
-    <string name="minutes">minutes</string>
-    <string name="color_change">Are you looking for changing colors?</string>
-    <string name="color_change_sum">You can now change a category\'s color by clicking on it above.</string>
-    <string name="color_choose_category">Choose the category</string>
-    <string name="color_changed">Color changed</string>
-    <string name="color_reset">Color reset</string>
-    <string name="color_invalid">Invalid hex code</string>
-    <string name="change">Change</string>
-    <string name="reset">Reset</string>
+    <string name="sb_stats">Stats</string>
+    <string name="sb_stats_connection_failure">Stats temporarily not available (API is down)</string>
+    <string name="sb_stats_loading">Loading...</string>
+    <string name="sb_stats_sb_disabled">SponsorBlock is disabled</string>
+    <string name="sb_stats_username" formatted="false">Your username: &lt;b>%s&lt;/b></string>
+    <string name="sb_stats_username_change">Tap here to change your username</string>
+    <string name="sb_stats_username_change_unknown_error" formatted="false">Unable to change username: Status: %d %s</string>
+    <string name="sb_stats_username_changed">Username successfully changed</string>
+    <string name="sb_stats_reputation" formatted="false">You\'re reputation is &lt;b>%.2f&lt;/b></string>
+    <string name="sb_stats_submissions" formatted="false">You\'ve created &lt;b>%s&lt;/b> segments</string>
+    <string name="sb_stats_saved_zero">SponsorBlock leaderboard</string>
+    <string name="sb_stats_saved" formatted="false">You\'ve saved people from &lt;b>%s&lt;/b> segments</string>
+    <string name="sb_stats_saved_sum_zero">Tap here to see the global stats and top contributors</string>
+    <string name="sb_stats_saved_sum" formatted="false">That\'s &lt;b>%s&lt;/b> of their lives.&lt;br>Tap here to see the leaderboard</string>
+    <string name="sb_stats_self_saved" formatted="false">You\'ve skipped &lt;b>%s&lt;/b> segments</string>
+    <string name="sb_stats_self_saved_sum" formatted="false">That\'s &lt;b>%s&lt;/b></string>
+    <string name="sb_stats_self_saved_reset_title">Reset skipped segments counter?</string>
+    <string name="sb_stats_saved_hour_format" formatted="false">%d hours %d minutes</string>
+    <string name="sb_stats_saved_minute_format" formatted="false">%d minutes %d seconds</string>
+    <string name="sb_stats_saved_second_format" formatted="false">%d seconds</string>
+    <string name="sb_color_dot_label">Color:</string>
+    <string name="sb_color_changed">Color changed</string>
+    <string name="sb_color_reset">Color reset</string>
+    <string name="sb_color_invalid">Invalid color code</string>
+    <string name="sb_reset_color">Reset color</string>
 
-    <string name="action_segments">Segments</string>
-    <string name="action_browser">SB Browser</string>
-
-    <string name="api_url_changed">API URL changed</string>
-    <string name="api_url_reset">API URL reset</string>
-    <string name="api_url_invalid">Provided API URL is invalid</string>
+    <string name="sb_reset">Reset</string>
+    <string name="sb_api_url_reset">API URL reset</string>
+    <string name="sb_api_url_invalid">API URL is invalid</string>
+    <string name="sb_api_url_changed">API URL changed</string>
 </resources>
