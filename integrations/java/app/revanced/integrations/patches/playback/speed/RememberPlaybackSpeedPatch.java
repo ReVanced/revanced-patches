@@ -1,8 +1,8 @@
 package app.revanced.integrations.patches.playback.speed;
 
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
@@ -18,10 +18,6 @@ public final class RememberPlaybackSpeedPatch {
 
     @Nullable
     private static String currentVideoId;
-
-    private static void showToast(final String message) {
-        Toast.makeText(ReVancedUtils.getContext(), message, Toast.LENGTH_LONG).show();
-    }
 
     private static float getLastRememberedPlaybackSpeed() {
         return SettingsEnum.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED_VALUE.getFloat();
@@ -62,11 +58,11 @@ public final class RememberPlaybackSpeedPatch {
         if (rememberLastSelectedPlaybackSpeed()) {
             rememberPlaybackSpeed();
 
-            showToast("Remembering playback speed: " + playbackSpeed + "x");
+            ReVancedUtils.showToastLong("Remembering playback speed: " + playbackSpeed + "x");
         } else {
             if (getLastRememberedPlaybackSpeed() == DEFAULT_PLAYBACK_SPEED) return;
 
-            showToast("Applying playback speed: " + playbackSpeed + "x");
+            ReVancedUtils.showToastLong("Applying playback speed: " + playbackSpeed + "x");
         }
     }
 

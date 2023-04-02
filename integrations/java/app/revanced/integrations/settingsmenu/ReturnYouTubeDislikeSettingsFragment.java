@@ -1,6 +1,6 @@
 package app.revanced.integrations.settingsmenu;
 
-import static app.revanced.integrations.sponsorblock.StringRef.str;
+import static app.revanced.integrations.utils.StringRef.str;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -102,7 +102,7 @@ public class ReturnYouTubeDislikeSettingsFragment extends PreferenceFragment {
         // About category
 
         PreferenceCategory aboutCategory = new PreferenceCategory(context);
-        aboutCategory.setTitle(str("about"));
+        aboutCategory.setTitle(str("revanced_ryd_about"));
         preferenceScreen.addPreference(aboutCategory);
 
         // ReturnYouTubeDislike Website

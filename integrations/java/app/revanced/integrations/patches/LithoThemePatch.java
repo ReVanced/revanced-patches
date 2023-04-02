@@ -1,9 +1,6 @@
 package app.revanced.integrations.patches;
 
-import static app.revanced.integrations.utils.ReVancedUtils.getContext;
-
-import android.content.Context;
-
+import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.ThemeHelper;
 
 public class LithoThemePatch {
@@ -44,27 +41,13 @@ public class LithoThemePatch {
     }
 
     private static int getBlackColor() {
-        if (blackColor == 0) blackColor = getColor("yt_black1");
+        if (blackColor == 0) blackColor = ReVancedUtils.getResourceColor("yt_black1");
         return blackColor;
     }
 
     private static int getWhiteColor() {
-        if (whiteColor == 0) whiteColor = getColor("yt_white1");
+        if (whiteColor == 0) whiteColor = ReVancedUtils.getResourceColor("yt_white1");
         return whiteColor;
-    }
-
-    /**
-     * Determines the color for a color resource.
-     *
-     * @param name The color resource name.
-     * @return The value of the color.
-     */
-    private static int getColor(String name) {
-        Context context = getContext();
-
-        return context != null ? context.getColor(context.getResources()
-                .getIdentifier(name, "color", context.getPackageName())
-        ) : 0;
     }
 
     private static boolean anyEquals(int value, int... of) {

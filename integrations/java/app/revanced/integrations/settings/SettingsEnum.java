@@ -1,6 +1,5 @@
 package app.revanced.integrations.settings;
 
-import android.content.Context;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.SharedPrefHelper;
@@ -131,20 +130,20 @@ public enum SettingsEnum {
 
     // SponsorBlock settings
     SB_ENABLED("sb-enabled", true, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
-    SB_SHOW_TOAST_WHEN_SKIP("show-toast", true, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
-    SB_COUNT_SKIPS("count-skips", true, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
+    SB_VOTING_ENABLED("sb-voting-enabled", false, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
+    SB_CREATE_NEW_SEGMENT_ENABLED("sb-new-segment-enabled", false, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
+    SB_USE_COMPACT_SKIPBUTTON("sb-use-compact-skip-button", false, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
+    SB_SHOW_TOAST_ON_SKIP("show-toast", true, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
+    SB_TRACK_SKIP_COUNT("count-skips", true, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
     SB_UUID("uuid", "", SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.STRING),
     SB_ADJUST_NEW_SEGMENT_STEP("new-segment-step-accuracy", 150, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.INTEGER),
     SB_MIN_DURATION("sb-min-duration", 0F, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.FLOAT),
     SB_SEEN_GUIDELINES("sb-seen-gl", false, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
-    SB_NEW_SEGMENT_ENABLED("sb-new-segment-enabled", false, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
-    SB_VOTING_ENABLED("sb-voting-enabled", false, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
-    SB_SKIPPED_SEGMENTS("sb-skipped-segments", 0, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.INTEGER),
-    SB_SKIPPED_SEGMENTS_TIME("sb-skipped-segments-time", 0L, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.LONG),
+    SB_SKIPPED_SEGMENTS_NUMBER_SKIPPED("sb-skipped-segments", 0, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.INTEGER),
+    SB_SKIPPED_SEGMENTS_TIME_SAVED("sb-skipped-segments-time", 0L, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.LONG),
     SB_SHOW_TIME_WITHOUT_SEGMENTS("sb-length-without-segments", true, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
     SB_IS_VIP("sb-is-vip", false, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
     SB_LAST_VIP_CHECK("sb-last-vip-check", 0L, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.LONG),
-    SB_SHOW_BROWSER_BUTTON("sb-browser-button", false, SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.BOOLEAN),
     SB_API_URL("sb-api-host-url", "https://sponsor.ajay.app", SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK, ReturnType.STRING);
 
     private final String path;
@@ -178,39 +177,39 @@ public enum SettingsEnum {
     }
 
     static {
-        load();
+        loadAllSettings();
     }
 
-    private static void load() {
-        Context context = ReVancedUtils.getContext();
-        if (context == null) {
-            LogHelper.printException(() -> "SettingsEnum.load() called before ReVancedUtils.init()");
+    private static void loadAllSettings() {
+        if (ReVancedUtils.getContext() == null) {
+            LogHelper.printException(() -> "SettingsEnum loaded before ReVancedUtils context was set");
             return;
         }
         for (SettingsEnum setting : values()) {
-            var path = setting.getPath();
-            var defaultValue = setting.getDefaultValue();
-            switch (setting.getReturnType()) {
-                case FLOAT:
-                    defaultValue = SharedPrefHelper.getFloat(setting.sharedPref, path, (float) defaultValue);
-                    break;
-                case LONG:
-                    defaultValue = SharedPrefHelper.getLong(setting.sharedPref, path, (long) defaultValue);
-                    break;
-                case BOOLEAN:
-                    defaultValue = SharedPrefHelper.getBoolean(setting.sharedPref, path, (boolean) defaultValue);
-                    break;
-                case INTEGER:
-                    defaultValue = SharedPrefHelper.getInt(setting.sharedPref, path, (int) defaultValue);
-                    break;
-                case STRING:
-                    defaultValue = SharedPrefHelper.getString(setting.sharedPref, path, (String) defaultValue);
-                    break;
-                default:
-                    LogHelper.printException(() -> "Setting does not have a valid Type. Name is: " + setting.name());
-                    break;
-            }
-            setting.setValue(defaultValue);
+            setting.load();
+        }
+    }
+
+    private void load() {
+        switch (returnType) {
+            case FLOAT:
+                value = SharedPrefHelper.getFloat(sharedPref, path, (float) defaultValue);
+                break;
+            case LONG:
+                value = SharedPrefHelper.getLong(sharedPref, path, (long) defaultValue);
+                break;
+            case BOOLEAN:
+                value = SharedPrefHelper.getBoolean(sharedPref, path, (boolean) defaultValue);
+                break;
+            case INTEGER:
+                value = SharedPrefHelper.getInt(sharedPref, path, (int) defaultValue);
+                break;
+            case STRING:
+                value = SharedPrefHelper.getString(sharedPref, path, (String) defaultValue);
+                break;
+            default:
+                LogHelper.printException(() -> "Setting does not have a valid Type: " + name());
+                break;
         }
     }
 
@@ -227,14 +226,7 @@ public enum SettingsEnum {
      * Sets the value, and persistently saves it
      */
     public void saveValue(Object newValue) {
-        Context context = ReVancedUtils.getContext();
-
-        if (context == null) {
-            LogHelper.printException(() -> "Context on SaveValue is null!");
-            return;
-        }
-
-        switch (getReturnType()) {
+        switch (returnType) {
             case FLOAT:
                 SharedPrefHelper.saveFloat(sharedPref, path, (float) newValue);
                 break;
@@ -251,7 +243,7 @@ public enum SettingsEnum {
                 SharedPrefHelper.saveString(sharedPref, path, (String) newValue);
                 break;
             default:
-                LogHelper.printException(() -> "Setting does not have a valid Type. Name is: " + name());
+                LogHelper.printException(() -> "Setting does not have a valid Type: " + name());
                 break;
         }
 

@@ -36,7 +36,7 @@ public class SharedPrefHelper {
 
     // region Hack, unknown why required
 
-    public static Long getLong(SharedPrefNames prefName, String key, Long _default) {
+    public static Long getLong(SharedPrefNames prefName, String key, long _default) {
         SharedPreferences sharedPreferences = getPreferences(prefName);
         try {
             return Long.valueOf(sharedPreferences.getString(key, _default + ""));
@@ -45,7 +45,7 @@ public class SharedPrefHelper {
         }
     }
 
-    public static Float getFloat(SharedPrefNames prefName, String key, Float _default) {
+    public static Float getFloat(SharedPrefNames prefName, String key, float _default) {
         SharedPreferences sharedPreferences = getPreferences(prefName);
         try {
             return Float.valueOf(sharedPreferences.getString(key, _default + ""));
@@ -54,7 +54,7 @@ public class SharedPrefHelper {
         }
     }
 
-    public static Integer getInt(SharedPrefNames prefName, String key, Integer _default) {
+    public static Integer getInt(SharedPrefNames prefName, String key, int _default) {
         SharedPreferences sharedPreferences = getPreferences(prefName);
         try {
             return Integer.valueOf(sharedPreferences.getString(key, _default + ""));

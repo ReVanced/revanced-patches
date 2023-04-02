@@ -56,7 +56,7 @@ class SwipeZonesController(
     /**
      * id for R.id.player_view
      */
-    private val playerViewId = ReVancedUtils.getResourceIdByName(host, "id", "player_view")
+    private val playerViewId = ReVancedUtils.getResourceIdentifier(host, "player_view", "id")
 
     /**
      * current bounding rectangle of the player

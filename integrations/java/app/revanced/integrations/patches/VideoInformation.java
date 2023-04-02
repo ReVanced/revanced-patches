@@ -1,12 +1,12 @@
 package app.revanced.integrations.patches;
 
-import android.os.Handler;
-import android.os.Looper;
+import androidx.annotation.NonNull;
 
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
 
 import app.revanced.integrations.utils.LogHelper;
+import app.revanced.integrations.utils.ReVancedUtils;
 
 /**
  * Hooking class for the current playing video.
@@ -17,19 +17,20 @@ public final class VideoInformation {
     private static WeakReference<Object> playerController;
     private static Method seekMethod;
 
+    @NonNull
     private static String videoId = "";
-    private static long videoLength = 1;
-    private static long videoTime = -1;
-
+    private static long videoLength = 0;
+    private static volatile long videoTime = -1; // must be volatile. Value is set off main thread from high precision patch hook
 
     /**
-     * Hook into PlayerController.onCreate() method.
+     * Injection point.
+     * Sets a reference to the YouTube playback controller.
      *
      * @param thisRef Reference to the player controller object.
      */
     public static void playerController_onCreateHook(final Object thisRef) {
         playerController = new WeakReference<>(thisRef);
-        videoLength = 1;
+        videoLength = 0;
         videoTime = -1;
 
         try {
@@ -41,81 +42,115 @@ public final class VideoInformation {
     }
 
     /**
-     * Set the video id.
+     * Injection point.
      *
-     * @param videoId The id of the video.
+     * @param newlyLoadedVideoId id of the current video
      */
-    public static void setVideoId(String videoId) {
-        LogHelper.printDebug(() -> "Setting current video id to: " + videoId);
-
-        VideoInformation.videoId = videoId;
+    public static void setVideoId(@NonNull String newlyLoadedVideoId) {
+        if (!videoId.equals(newlyLoadedVideoId)) {
+            LogHelper.printDebug(() -> "New video id: " + newlyLoadedVideoId);
+            videoId = newlyLoadedVideoId;
+        }
     }
 
     /**
-     * Set the video length.
+     * Injection point.
      *
      * @param length The length of the video in milliseconds.
      */
     public static void setVideoLength(final long length) {
-        LogHelper.printDebug(() -> "Setting current video length to " + length);
-        videoLength = length;
+        if (videoLength != length) {
+            LogHelper.printDebug(() -> "Current video length: " + length);
+            videoLength = length;
+        }
     }
 
     /**
-     * Set the video time.
+     * Injection point.
+     * Called off the main thread approximately every 50ms to 100ms
      *
-     * @param time The time of the video in milliseconds.
+     * @param currentPlaybackTime The current playback time of the video in milliseconds.
      */
-    public static void setVideoTime(final long time) {
-        LogHelper.printDebug(() -> "Current video time " + time);
-        videoTime = time;
+    public static void setVideoTimeHighPrecision(final long currentPlaybackTime) {
+        videoTime = currentPlaybackTime;
     }
 
     /**
      * Seek on the current video.
+     * Does not function for playback of Shorts or Stories.
+     *
+     * Caution: If called from a videoTimeHook() callback,
+     * this will cause a recursive call into the same videoTimeHook() callback.
      *
      * @param millisecond The millisecond to seek the video to.
+     * @return if the seek was successful
      */
-    public static void seekTo(final long millisecond) {
-        new Handler(Looper.getMainLooper()).post(() -> {
-            if (seekMethod == null) {
-                LogHelper.printDebug(() -> "seekMethod was null");
-                return;
-            }
+    public static boolean seekTo(final long millisecond) {
+        ReVancedUtils.verifyOnMainThread();
+        if (seekMethod == null) {
+            LogHelper.printException(() -> "seekMethod was null");
+            return false;
+        }
 
-            try {
-                LogHelper.printDebug(() -> "Seeking to " + millisecond);
-                seekMethod.invoke(playerController.get(), millisecond);
-            } catch (Exception ex) {
-                LogHelper.printException(() -> "Failed to seek", ex);
-            }
-        });
+        try {
+            LogHelper.printDebug(() -> "Seeking to " + millisecond);
+            return (Boolean) seekMethod.invoke(playerController.get(), millisecond);
+        } catch (Exception ex) {
+            LogHelper.printException(() -> "Failed to seek", ex);
+            return false;
+        }
+    }
+
+    public static boolean seekToRelative(long millisecondsRelative) {
+        return seekTo(videoTime + millisecondsRelative);
     }
 
     /**
-     * Get the id of the current video playing.
+     * Id of the current video playing.  Includes Shorts and YouTube Stories.
      *
      * @return The id of the video. Empty string if not set yet.
      */
+    @NonNull
     public static String getCurrentVideoId() {
         return videoId;
     }
 
     /**
-     * Get the length of the current video playing.
+     * Length of the current video playing.
+     * Includes Shorts playback.
      *
-     * @return The length of the video in milliseconds. 1 if not set yet.
+     * @return The length of the video in milliseconds.
+     *         If the video is not yet loaded, or if the video is playing in the background with no video visible,
+     *         then this returns zero.
      */
     public static long getCurrentVideoLength() {
        return videoLength;
     }
 
     /**
-     * Get the time of the current video playing.
+     * Playback time of the current video playing.
+     * Value can lag up to approximately 100ms behind the actual current video playback time.
+     *
+     * Note: Code inside a videoTimeHook patch callback
+     * should use the callback video time and avoid using this method
+     * (in situations of recursive hook callbacks, the value returned here may be outdated).
+     *
+     * Includes Shorts playback.
      *
      * @return The time of the video in milliseconds. -1 if not set yet.
      */
     public static long getVideoTime() {
         return videoTime;
     }
+
+    /**
+     * @return If the playback is at the end of the video.
+     *
+     * If video is playing in the background with no video visible,
+     * this always returns false (even if the video is actually at the end)
+     */
+    public static boolean isAtEndOfVideo() {
+        return videoTime > 0 && videoLength > 0 && videoTime >= videoLength;
+    }
+
 }

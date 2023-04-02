@@ -1,6 +1,6 @@
 package app.revanced.integrations.returnyoutubedislike;
 
-import static app.revanced.integrations.sponsorblock.StringRef.str;
+import static app.revanced.integrations.utils.StringRef.str;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -176,6 +176,11 @@ public class ReturnYouTubeDislike {
             synchronized (videoIdLockObject) {
                 if (videoId.equals(currentVideoId)) {
                     return; // already loaded
+                }
+                if (!ReVancedUtils.isNetworkConnected()) { // must do network check after verifying it's a new video id
+                    LogHelper.printDebug(() -> "Network not connected, ignoring video: " + videoId);
+                    setCurrentVideoId(null);
+                    return;
                 }
                 LogHelper.printDebug(() -> "New video loaded: " + videoId + " playerType: " + currentPlayerType);
                 setCurrentVideoId(videoId);

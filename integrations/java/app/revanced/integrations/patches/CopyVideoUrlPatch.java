@@ -1,9 +1,7 @@
 package app.revanced.integrations.patches;
 
-import android.content.Context;
-import android.widget.Toast;
+import static app.revanced.integrations.utils.StringRef.str;
 
-import app.revanced.integrations.sponsorblock.StringRef;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 
@@ -16,10 +14,8 @@ public class CopyVideoUrlPatch {
                 url += String.format("?t=%s", seconds);
             }
 
-            Context context = ReVancedUtils.getContext();
-
             ReVancedUtils.setClipboard(url);
-            if (context != null) Toast.makeText(context, StringRef.str("share_copy_url_success"), Toast.LENGTH_SHORT).show();
+            ReVancedUtils.showToastShort(str("share_copy_url_success"));
         } catch (Exception e) {
             LogHelper.printException(() -> "Failed to generate video url", e);
         }

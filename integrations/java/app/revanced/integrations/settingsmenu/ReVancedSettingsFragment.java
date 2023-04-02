@@ -1,5 +1,7 @@
 package app.revanced.integrations.settingsmenu;
 
+import static app.revanced.integrations.utils.StringRef.str;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlarmManager;
@@ -8,11 +10,9 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Process;
 import android.preference.EditTextPreference;
-import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
@@ -86,8 +86,7 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
         super.onCreate(bundle);
         getPreferenceManager().setSharedPreferencesName(SharedPrefHelper.SharedPrefNames.YOUTUBE.getName());
         try {
-            int identifier = getResources().getIdentifier("revanced_prefs", "xml", getPackageName());
-            addPreferencesFromResource(identifier);
+            addPreferencesFromResource(ReVancedUtils.getResourceIdentifier("revanced_prefs", "xml"));
 
             SharedPreferences sharedPreferences = getPreferenceManager().getSharedPreferences();
             this.settingsInitialized = sharedPreferences.getBoolean("revanced_initialized", false);
@@ -161,17 +160,7 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
     }
 
     private void rebootDialog(final Activity activity) {
-        new AlertDialog.Builder(activity).setMessage(getStringByName(activity, "pref_refresh_config")).setPositiveButton(getStringByName(activity, "in_app_update_restart_button"), (dialog, id) -> reboot(activity, Shell_HomeActivity.class)).setNegativeButton(getStringByName(activity, "sign_in_cancel"), null).show();
-    }
-
-    private String getStringByName(Context context, String name) {
-        try {
-            Resources res = context.getResources();
-            return res.getString(res.getIdentifier(name, "string", context.getPackageName()));
-        } catch (Throwable exception) {
-            LogHelper.printException(() -> "Resource not found.", exception);
-            return "";
-        }
+        new AlertDialog.Builder(activity).setMessage(str("pref_refresh_config")).setPositiveButton(str("in_app_update_restart_button"), (dialog, id) -> reboot(activity, Shell_HomeActivity.class)).setNegativeButton(str("sign_in_cancel"), null).show();
     }
 
 }

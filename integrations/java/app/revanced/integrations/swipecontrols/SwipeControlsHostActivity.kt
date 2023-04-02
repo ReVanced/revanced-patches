@@ -16,8 +16,8 @@ import app.revanced.integrations.swipecontrols.controller.gesture.PressToSwipeCo
 import app.revanced.integrations.swipecontrols.controller.gesture.core.GestureController
 import app.revanced.integrations.swipecontrols.misc.Rectangle
 import app.revanced.integrations.swipecontrols.views.SwipeControlsOverlayLayout
+import app.revanced.integrations.utils.LogHelper.printDebug
 import app.revanced.integrations.utils.LogHelper.printException
-import app.revanced.integrations.utils.LogHelper.printInfo
 import java.lang.ref.WeakReference
 
 /**
@@ -121,7 +121,7 @@ class SwipeControlsHostActivity : Activity() {
      */
     private fun initialize() {
         // create controllers
-        printInfo { "initializing swipe controls controllers" }
+        printDebug { "initializing swipe controls controllers" }
         config = SwipeControlsConfigurationProvider(this)
         keys = VolumeKeysController(this)
         audio = createAudioController()
@@ -157,7 +157,7 @@ class SwipeControlsHostActivity : Activity() {
      * (re) attaches swipe overlays
      */
     private fun reAttachOverlays() {
-        printInfo { "attaching swipe controls overlay" }
+        printDebug{ "attaching swipe controls overlay" }
         contentRoot.removeView(overlay)
         contentRoot.addView(overlay)
     }
