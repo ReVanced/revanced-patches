@@ -45,7 +45,6 @@ import org.jf.dexlib2.iface.reference.StringReference
         VideoIdPatch::class,
         PlayerControlsBytecodePatch::class,
         PlayerTypeHookPatch::class,
-        RememberPlaybackSpeedPatch::class,
         IntegrationsPatch::class,
         SponsorBlockResourcePatch::class,
     ]
