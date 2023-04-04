@@ -29,7 +29,6 @@ import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playercontrols.bytecode.patch.PlayerControlsBytecodePatch
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.video.information.patch.VideoInformationPatch
-import app.revanced.patches.youtube.misc.video.speed.remember.patch.RememberPlaybackSpeedPatch
 import app.revanced.patches.youtube.misc.video.videoid.patch.VideoIdPatch
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.*
@@ -41,11 +40,13 @@ import org.jf.dexlib2.iface.reference.StringReference
 @Patch
 @DependsOn(
     dependencies = [
-        VideoInformationPatch::class, // updates video information and adds method to seek in video
-        VideoIdPatch::class,
-        PlayerControlsBytecodePatch::class,
-        PlayerTypeHookPatch::class,
         IntegrationsPatch::class,
+        VideoIdPatch::class,
+        // Required to skip segments on time.
+        VideoInformationPatch::class,
+        // Used to prevent SponsorBlock from running on Shorts because SponsorBlock does not yet support Shorts.
+        PlayerTypeHookPatch::class,
+        PlayerControlsBytecodePatch::class,
         SponsorBlockResourcePatch::class,
     ]
 )
@@ -75,7 +76,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
 
     override fun execute(context: BytecodeContext): PatchResult {
         /*
-        Hook the video time methods
+         * Hook the video time methods
          */
         with(VideoInformationPatch) {
             videoTimeHook(
@@ -85,12 +86,12 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         }
 
         /*
-         Set current video id
+         * Set current video id
          */
         VideoIdPatch.injectCallBackgroundPlay("$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
 
         /*
-         Seekbar drawing
+         * Seekbar drawing
          */
         val seekbarSignatureResult = SeekbarFingerprint.result!!.let {
             SeekbarOnDrawFingerprint.apply { resolve(context, it.mutableClass) }
@@ -99,7 +100,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         val seekbarMethodInstructions = seekbarMethod.implementation!!.instructions
 
         /*
-         Get the instance of the seekbar rectangle
+         * Get the instance of the seekbar rectangle
          */
         for ((index, instruction) in seekbarMethodInstructions.withIndex()) {
             if (instruction.opcode != Opcode.MOVE_OBJECT_FROM16) continue
@@ -127,8 +128,8 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         }
 
         /*
-        Set rectangle absolute left and right positions
-        */
+         * Set rectangle absolute left and right positions
+         */
         val drawRectangleInstructions = seekbarMethodInstructions.withIndex().filter { (_, instruction) ->
             instruction is ReferenceInstruction && (instruction.reference as? MethodReference)?.name == "drawRect"
         }.map { (index, instruction) -> // TODO: improve code
@@ -150,8 +151,8 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         )
 
         /*
-        Draw segment
-        */
+         * Draw segment
+         */
         val drawSegmentInstructionInsertIndex = (seekbarMethodInstructions.size - 1 - 2)
         val (canvasInstance, centerY) = (seekbarMethodInstructions[drawSegmentInstructionInsertIndex] as FiveRegisterInstruction).let {
             it.registerC to it.registerE
@@ -162,7 +163,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         )
 
         /*
-        Voting & Shield button
+         * Voting & Shield button
          */
         val controlsMethodResult = PlayerControlsBytecodePatch.showPlayerControlsFingerprintResult
 
@@ -268,7 +269,9 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             } ?: return PatchResultError("Could not find the method which contains the replaceMeWith* strings")
 
 
-        // detect end of the video has been reached
+        // The vote and create segment buttons automatically change their visibility when appropriate,
+        // but if buttons are showing when the end of the video is reached then they will not automatically hide.
+        // Add a hook to forcefully hide when the end of the video is reached.
         AutoRepeatParentFingerprint.result ?: return AutoRepeatParentFingerprint.toErrorResult()
         AutoRepeatFingerprint.also {
             it.resolve(context, AutoRepeatParentFingerprint.result!!.classDef)
