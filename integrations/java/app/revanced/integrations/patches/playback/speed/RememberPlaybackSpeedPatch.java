@@ -3,33 +3,14 @@ package app.revanced.integrations.patches.playback.speed;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import app.revanced.integrations.patches.VideoInformation;
 import app.revanced.integrations.settings.SettingsEnum;
-import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 
 public final class RememberPlaybackSpeedPatch {
 
-    /**
-     * The current playback speed
-     */
-    private static float currentPlaybackSpeed = getLastRememberedPlaybackSpeed();
-
-    private final static float DEFAULT_PLAYBACK_SPEED = (float) SettingsEnum.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED_VALUE.getDefaultValue();
-
     @Nullable
     private static String currentVideoId;
-
-    private static float getLastRememberedPlaybackSpeed() {
-        return SettingsEnum.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED_VALUE.getFloat();
-    }
-
-    private static void rememberPlaybackSpeed() {
-        SettingsEnum.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED_VALUE.saveValue(currentPlaybackSpeed);
-    }
-
-    private static boolean rememberLastSelectedPlaybackSpeed() {
-        return SettingsEnum.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED.getBoolean();
-    }
 
     /**
      * Injection point.
@@ -39,41 +20,32 @@ public final class RememberPlaybackSpeedPatch {
         if (videoId.equals(currentVideoId)) {
             return;
         }
-
         currentVideoId = videoId;
-        currentPlaybackSpeed = getLastRememberedPlaybackSpeed();
+        VideoInformation.overridePlaybackSpeed(SettingsEnum.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED_VALUE.getFloat());
     }
 
     /**
      * Injection point.
-     * Called when a playback speed is selected.
+     * Called when user selects a playback speed.
      *
-     * @param playbackSpeed The playback speed to set.
+     * @param playbackSpeed The playback speed the user selected
      */
-    public static void setPlaybackSpeed(final float playbackSpeed) {
-        LogHelper.printDebug(() -> "Playback speed changed to: " + playbackSpeed);
+    public static void userSelectedPlaybackSpeed(float playbackSpeed) {
+        if (SettingsEnum.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED.getBoolean()) {
+            SettingsEnum.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED_VALUE.saveValue(playbackSpeed);
 
-        currentPlaybackSpeed = playbackSpeed;
-
-        if (rememberLastSelectedPlaybackSpeed()) {
-            rememberPlaybackSpeed();
-
+            // TODO: extract these strings into localized file
             ReVancedUtils.showToastLong("Remembering playback speed: " + playbackSpeed + "x");
-        } else {
-            if (getLastRememberedPlaybackSpeed() == DEFAULT_PLAYBACK_SPEED) return;
-
+        } else if (playbackSpeed != (float) SettingsEnum.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED_VALUE.getDefaultValue()) {
             ReVancedUtils.showToastLong("Applying playback speed: " + playbackSpeed + "x");
         }
     }
 
     /**
      * Injection point.
-     * Called when playback first starts,
-     * and also called immediately after the user selects a new video speed.
-     *
-     * @return The currently set playback speed.
+     * Overrides the video speed.  Called after video loads, and immediately after user selects a different playback speed
      */
-    public static float getCurrentPlaybackSpeed() {
-        return currentPlaybackSpeed;
+    public static float getPlaybackSpeedOverride() {
+        return VideoInformation.getCurrentPlaybackSpeed();
     }
 }
