@@ -99,61 +99,87 @@ public class SpoofSignatureVerificationPatch {
     /**
      * Last WindowsSetting constructor values. Values are checked for changes to reduce log spam.
      */
-    private static int lastAnchorPosition, lastAnchorHorizontal, lastAnchorVertical;
+    private static int lastAp, lastAh, lastAv;
     private static boolean lastVs, lastSd;
 
     /**
      * Injection point.  Overrides values passed into SubtitleWindowSettings constructor.
      *
-     * @param anchorPosition       bitmask with 6 bit fields, that appears to be indicate the layout position on screen
-     * @param anchorHorizontal     percentage [0, 100], that appears to be a horizontal text anchor point
-     * @param anchorVertical       percentage [0, 100], that appears to be a vertical text anchor point
-     * @param vs                   appears to indicate is subtitles exist, and value is always true.
-     * @param sd                   appears to indicate if video has non standard aspect ratio (4:3, or a rotated orientation)
-     *                             Always true for Shorts playback.
+     * @param ap anchor position. A bitmask with 6 bit fields, that appears to indicate the layout position on screen
+     * @param ah anchor horizontal. A percentage [0, 100], that appears to be a horizontal text anchor point
+     * @param av anchor vertical. A percentage [0, 100], that appears to be a vertical text anchor point
+     * @param vs appears to indicate if subtitles exist, and the value is always true.
+     * @param sd function is not entirely clear
      */
-    public static int[] getSubtitleWindowSettingsOverride(int anchorPosition, int anchorHorizontal, int anchorVertical,
-                                                         boolean vs, boolean sd) {
-        int[] override = {anchorPosition, anchorHorizontal, anchorVertical};
-
-        // Videos with custom captions that specify screen positions appear to always have correct screen positions (even with spoofing).
-        // But for auto generated and most other captions, the spoof incorrectly gives Shorts caption settings for all videos.
-        // Override the parameters if the video is not a Short but it has Short caption settings.
-        if (SettingsEnum.SIGNATURE_SPOOFING.getBoolean()
-                && !PlayerType.getCurrent().isNoneOrHidden() // video is not a Short or Story
-                && anchorPosition == 9 // but it has shorts specific subtitle parameters
-                && anchorHorizontal == 20
-                && anchorVertical == 0) {
-            if (sd) {
-                // values observed during playback
-                override[0] = 33;
-                override[1] = 20;
-                override[2] = 100;
-            } else {
-                // Default values used for regular (non Shorts) playback of videos with a standard aspect ratio
-                // Values are found in SubtitleWindowSettings static field
-                override[0] = 34;
-                override[1] = 50;
-                override[2] = 95;
+    public static int[] getSubtitleWindowSettingsOverride(int ap, int ah, int av, boolean vs, boolean sd) {
+        final boolean signatureSpoofing = SettingsEnum.SIGNATURE_SPOOFING.getBoolean();
+        if (SettingsEnum.DEBUG.getBoolean()) {
+            if (ap != lastAp || ah != lastAh || av != lastAv || vs != lastVs || sd != lastSd) {
+                LogHelper.printDebug(() -> "video: " + VideoInformation.getCurrentVideoId() + " spoof: " + signatureSpoofing
+                        + " ap:" + ap + " ah:" + ah + " av:" + av + " vs:" + vs + " sd:" + sd);
+                lastAp = ap;
+                lastAh = ah;
+                lastAv = av;
+                lastVs = vs;
+                lastSd = sd;
             }
         }
 
-        if (!SettingsEnum.DEBUG.getBoolean()) {
-            return override;
-        }
-        if (anchorPosition != lastAnchorPosition
-                || anchorHorizontal != lastAnchorHorizontal || anchorVertical != lastAnchorVertical
-                || vs != lastVs || sd != lastSd) {
-            LogHelper.printDebug(() -> "SubtitleWindowSettings anchorPosition:" + anchorPosition
-                    + " anchorHorizontal:" + anchorHorizontal + " anchorVertical:" + anchorVertical
-                    + " vs:" + vs + " sd:" + sd);
-            lastAnchorPosition = anchorPosition;
-            lastAnchorHorizontal = anchorHorizontal;
-            lastAnchorVertical = anchorVertical;
-            lastVs = vs;
-            lastSd = sd;
+        // Videos with custom captions that specify screen positions appear to always have correct screen positions (even with spoofing).
+        // But for auto generated and most other captions, the spoof incorrectly gives various default Shorts caption settings.
+        // Check for these known default shorts captions parameters, and replace with the known correct values.
+        if (signatureSpoofing && !PlayerType.getCurrent().isNoneOrHidden()) { // video is not a Short or Story
+            for (SubtitleWindowReplacementSettings setting : SubtitleWindowReplacementSettings.values()) {
+                if (setting.match(ap, ah, av, vs, sd)) {
+                    return setting.replacementSetting();
+                }
+            }
+            // Parameters are either subtitles with custom positions, or a set of unidentified (and incorrect) default parameters.
+            // The subtitles could be forced to the bottom no matter what, but that would override custom screen positions.
+            // For now, just return the original parameters.
         }
 
-        return override;
+        // No matches, pass back the original values
+        return new int[]{ap, ah, av};
+    }
+
+
+    /**
+     * Known incorrect default Shorts subtitle parameters, and the corresponding correct (non-Shorts) values.
+     */
+    private enum SubtitleWindowReplacementSettings {
+        DEFAULT_SHORTS_PARAMETERS_1(10, 50, 0, true, false,
+                34, 50, 95),
+        DEFAULT_SHORTS_PARAMETERS_2(9, 20, 0, true, false,
+                34, 50, 90),
+        DEFAULT_SHORTS_PARAMETERS_3(9, 20, 0, true, true,
+                33, 20, 100);
+
+        // original values
+        final int ap, ah, av;
+        final boolean vs, sd;
+
+        // replacement values
+        final int replacementAp, replacementAh, replacementAv;
+
+        SubtitleWindowReplacementSettings(int ap, int ah, int av, boolean vs, boolean sd,
+                                          int replacementAp, int replacementAh, int replacementAv) {
+            this.ap = ap;
+            this.ah = ah;
+            this.av = av;
+            this.vs = vs;
+            this.sd = sd;
+            this.replacementAp = replacementAp;
+            this.replacementAh = replacementAh;
+            this.replacementAv = replacementAv;
+        }
+
+        boolean match(int ap, int ah, int av, boolean vs, boolean sd) {
+            return this.ap == ap && this.ah == ah && this.av == av && this.vs == vs && this.sd == sd;
+        }
+
+        int[] replacementSetting() {
+            return new int[]{replacementAp, replacementAh, replacementAv};
+        }
     }
 }
