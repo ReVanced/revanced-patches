@@ -29,11 +29,6 @@ import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 
 public class ReVancedSettingsFragment extends PreferenceFragment {
-    /**
-     * If a dialog is currently being shown.  Used to prevent showing additional dialogs if user cancels a dialog.
-     */
-    private boolean currentlyShowingDialog;
-
     SharedPreferences.OnSharedPreferenceChangeListener listener = (sharedPreferences, str) -> {
         try {
             SettingsEnum setting = SettingsEnum.settingFromPath(str);
@@ -70,12 +65,10 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
                 LogHelper.printException(() -> "Setting cannot be handled: " + pref.getClass() + " " + pref);
             }
 
-            if (!currentlyShowingDialog) {
-                if (setting.userDialogMessage != null && ((SwitchPreference) pref).isChecked() != (Boolean) setting.defaultValue) {
-                    showSettingUserDialogConfirmation(getActivity(), (SwitchPreference) pref, setting);
-                } else if (setting.rebootApp) {
-                    rebootDialog(getActivity());
-                }
+            if (setting.userDialogMessage != null && ((SwitchPreference) pref).isChecked() != (Boolean) setting.defaultValue) {
+                showSettingUserDialogConfirmation(getActivity(), (SwitchPreference) pref, setting);
+            } else if (setting.rebootApp) {
+                rebootDialog(getActivity());
             }
 
             enableDisablePreferences();
@@ -126,42 +119,30 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
     }
 
     private void rebootDialog(@NonNull Activity activity) {
-        currentlyShowingDialog = true;
         String positiveButton = str("in_app_update_restart_button");
         String negativeButton = str("sign_in_cancel");
         new AlertDialog.Builder(activity).setMessage(str("pref_refresh_config"))
                 .setPositiveButton(positiveButton, (dialog, id) -> {
                     reboot(activity);
-                    currentlyShowingDialog = false;
                 })
-                .setNegativeButton(negativeButton, (dialog, id) -> {
-                    currentlyShowingDialog = false;
-                })
-                .setOnDismissListener((dialog) -> {
-                    currentlyShowingDialog = false;
-                }).show();
+                .setNegativeButton(negativeButton,  null)
+                .show();
     }
 
     private void showSettingUserDialogConfirmation(@NonNull Activity activity, SwitchPreference switchPref, SettingsEnum setting) {
-        currentlyShowingDialog = true;
         new AlertDialog.Builder(activity)
                 .setTitle(str("revanced_settings_confirm_user_dialog_title"))
                 .setMessage(setting.userDialogMessage.toString())
                 .setPositiveButton(android.R.string.ok, (dialog, id) -> {
                     if (setting.rebootApp) {
                         rebootDialog(activity);
-                    } else {
-                        currentlyShowingDialog = false;
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, (dialog, id) -> {
                     Boolean defaultBooleanValue = (Boolean) setting.defaultValue;
                     SettingsEnum.setValue(setting, defaultBooleanValue);
                     switchPref.setChecked(defaultBooleanValue);
-                    currentlyShowingDialog = false;
                 })
-                .setOnDismissListener((dialog) -> {
-                    currentlyShowingDialog = false;
-                }).show();
+                .show();
     }
 }
