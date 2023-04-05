@@ -32,7 +32,7 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
     /**
      * If a dialog is currently being shown.  Used to prevent showing additional dialogs if user cancels a dialog.
      */
-    private static boolean currentlyShowingDialog;
+    private boolean currentlyShowingDialog;
 
     SharedPreferences.OnSharedPreferenceChangeListener listener = (sharedPreferences, str) -> {
         try {
@@ -136,6 +136,9 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
                 })
                 .setNegativeButton(negativeButton, (dialog, id) -> {
                     currentlyShowingDialog = false;
+                })
+                .setOnDismissListener((dialog) -> {
+                    currentlyShowingDialog = false;
                 }).show();
     }
 
@@ -156,7 +159,9 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
                     SettingsEnum.setValue(setting, defaultBooleanValue);
                     switchPref.setChecked(defaultBooleanValue);
                     currentlyShowingDialog = false;
+                })
+                .setOnDismissListener((dialog) -> {
+                    currentlyShowingDialog = false;
                 }).show();
     }
-
 }
