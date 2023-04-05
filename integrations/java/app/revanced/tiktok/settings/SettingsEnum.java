@@ -1,104 +1,112 @@
 package app.revanced.tiktok.settings;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+import static app.revanced.tiktok.settings.SettingsEnum.ReturnType.BOOLEAN;
+import static app.revanced.tiktok.settings.SettingsEnum.ReturnType.STRING;
+
 import android.content.Context;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
 import app.revanced.tiktok.utils.LogHelper;
 import app.revanced.tiktok.utils.ReVancedUtils;
-import app.revanced.tiktok.utils.SharedPrefHelper;
 
 public enum SettingsEnum {
     //TikTok Settings
-    TIK_REMOVE_ADS("tik_remove_ads", true, SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.BOOLEAN, true),
-    TIK_HIDE_LIVE("tik_hide_live", false, SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.BOOLEAN, true),
-    TIK_DOWN_PATH("tik_down_path", "DCIM/TikTok", SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.STRING),
-    TIK_DOWN_WATERMARK("tik_down_watermark", true, SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.BOOLEAN),
-    TIK_SIMSPOOF("tik_simspoof", true, SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.BOOLEAN, true),
-    TIK_SIMSPOOF_ISO("tik_simspoof_iso", "us", SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.STRING),
-    TIK_SIMSPOOF_MCCMNC("tik_simspoof_mccmnc", "310160", SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.STRING),
-    TIK_SIMSPOOF_OP_NAME("tik_simspoof_op_name", "T-Mobile", SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.STRING),
-    TIK_DEBUG("tik_debug", false, SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS, ReturnType.BOOLEAN);
+    TIK_DEBUG("tik_debug", BOOLEAN, FALSE), // must be first value, otherwise logging during loading will not work
+    TIK_REMOVE_ADS("tik_remove_ads", BOOLEAN, TRUE, true),
+    TIK_HIDE_LIVE("tik_hide_live", BOOLEAN, FALSE, true),
+    TIK_DOWN_PATH("tik_down_path", STRING, "DCIM/TikTok"),
+    TIK_DOWN_WATERMARK("tik_down_watermark", BOOLEAN, TRUE),
+    TIK_SIMSPOOF("tik_simspoof", BOOLEAN, TRUE, true),
+    TIK_SIMSPOOF_ISO("tik_simspoof_iso", STRING, "us"),
+    TIK_SIMSPOOF_MCCMNC("tik_simspoof_mccmnc", STRING, "310160"),
+    TIK_SIMSPOOF_OP_NAME("tik_simspoof_op_name", STRING, "T-Mobile");
 
     static {
-        load();
+        loadAllSettings();
     }
 
-    private final String path;
-    private final Object defaultValue;
-    private final SharedPrefHelper.SharedPrefNames sharedPref;
-    private final ReturnType returnType;
-    private final boolean rebootApp;
-    private Object value = null;
+    @NonNull
+    public final String path;
+    @NonNull
+    public final Object defaultValue;
+    @NonNull
+    public final SharedPrefCategory sharedPref;
+    @NonNull
+    public final ReturnType returnType;
+    /**
+     * If the app should be rebooted, if this setting is changed
+     */
+    public final boolean rebootApp;
 
-    SettingsEnum(String path, Object defaultValue, ReturnType returnType) {
+    private Object value;
+
+    SettingsEnum(String path, ReturnType returnType, Object defaultValue) {
+        this(path, returnType, defaultValue, SharedPrefCategory.TIKTOK_PREFS, false);
+    }
+    SettingsEnum(String path, ReturnType returnType, Object defaultValue, boolean rebootApp) {
+        this(path, returnType, defaultValue, SharedPrefCategory.TIKTOK_PREFS, rebootApp);
+    }
+    SettingsEnum(@NonNull String path, @NonNull ReturnType returnType, @NonNull Object defaultValue,
+                 @NonNull SharedPrefCategory prefName, boolean rebootApp) {
         this.path = path;
-        this.defaultValue = defaultValue;
-        this.sharedPref = SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS;
         this.returnType = returnType;
-        this.rebootApp = false;
-    }
-
-    SettingsEnum(String path, Object defaultValue, SharedPrefHelper.SharedPrefNames prefName, ReturnType returnType) {
-        this.path = path;
         this.defaultValue = defaultValue;
         this.sharedPref = prefName;
-        this.returnType = returnType;
-        this.rebootApp = false;
-    }
-
-    SettingsEnum(String path, Object defaultValue, SharedPrefHelper.SharedPrefNames prefName, ReturnType returnType, Boolean rebootApp) {
-        this.path = path;
-        this.defaultValue = defaultValue;
-        this.sharedPref = prefName;
-        this.returnType = returnType;
         this.rebootApp = rebootApp;
     }
 
-    private static void load() {
-        Context context = ReVancedUtils.getAppContext();
-        if (context == null) {
-            Log.e("revanced: SettingsEnum", "Context returned null! Setings NOT initialized");
-        } else {
-            try {
-                for (SettingsEnum setting : values()) {
-                    Object value = setting.getDefaultValue();
-
-                    //LogHelper is not initialized here
-                    Log.d("revanced: SettingsEnum", "Loading Setting: " + setting.name());
-
-                    switch (setting.getReturnType()) {
-                        case FLOAT:
-                            value = SharedPrefHelper.getFloat(context, setting.sharedPref, setting.getPath(), (float) setting.getDefaultValue());
-                            break;
-                        case LONG:
-                            value = SharedPrefHelper.getLong(context, setting.sharedPref, setting.getPath(), (long) setting.getDefaultValue());
-                            break;
-                        case BOOLEAN:
-                            value = SharedPrefHelper.getBoolean(context, setting.sharedPref, setting.getPath(), (boolean) setting.getDefaultValue());
-                            break;
-                        case INTEGER:
-                            value = SharedPrefHelper.getInt(context, setting.sharedPref, setting.getPath(), (int) setting.getDefaultValue());
-                            break;
-                        case STRING:
-                            value = SharedPrefHelper.getString(context, setting.sharedPref, setting.getPath(), (String) setting.getDefaultValue());
-                            break;
-                        default:
-                            LogHelper.printException(SettingsEnum.class, "Setting does not have a valid Type. Name is: " + setting.name());
-                            break;
-                    }
-                    setting.setValue(value);
-
-                    //LogHelper is not initialized here
-                    Log.d("revanced: SettingsEnum", "Loaded Setting: " + setting.name() + " Value: " + value);
-                }
-            } catch (Throwable th) {
-                LogHelper.printException(SettingsEnum.class, "Error during load()!", th);
+    private static void loadAllSettings() {
+        try {
+            Context context = ReVancedUtils.getAppContext();
+            if (context == null) {
+                Log.e("revanced: SettingsEnum", "Context returned null! Settings NOT initialized");
+                return;
             }
+            for (SettingsEnum setting : values()) {
+                setting.load(context);
+            }
+        } catch (Exception ex) {
+            LogHelper.printException(SettingsEnum.class, "Error during load()!", ex);
         }
     }
 
-    public void setValue(Object newValue) {
-        this.value = newValue;
+    private void load(Context context) {
+        switch (returnType) {
+            case BOOLEAN:
+                value = sharedPref.getBoolean(context, path, (boolean) defaultValue);
+                break;
+            case INTEGER:
+                value = sharedPref.getInt(context, path, (Integer) defaultValue);
+                break;
+            case LONG:
+                value = sharedPref.getLong(context, path, (Long) defaultValue);
+                break;
+            case FLOAT:
+                value = sharedPref.getFloat(context, path, (Float) defaultValue);
+                break;
+            case STRING:
+                value = sharedPref.getString(context, path, (String) defaultValue);
+                break;
+            default:
+                throw new IllegalStateException(name());
+        }
+
+        LogHelper.debug(SettingsEnum.class, "Loaded Setting: " + name() + " Value: " + value);
+    }
+
+    /**
+     * Sets, but does _not_ persistently save the value.
+     *
+     * This intentionally is a static method, to deter accidental usage
+     * when {@link #saveValue(Object)} was intended.
+     */
+    public static void setValue(SettingsEnum setting, Object newValue) {
+        // FIXME: this should validate the parameter matches the return type
+        setting.value = newValue;
     }
 
     public void saveValue(Object newValue) {
@@ -108,48 +116,39 @@ public enum SettingsEnum {
             return;
         }
 
-        if (returnType == ReturnType.BOOLEAN) {
-            SharedPrefHelper.saveBoolean(context, sharedPref, path, (Boolean) newValue);
+        if (returnType == BOOLEAN) {
+            sharedPref.saveBoolean(context, path, (Boolean) newValue);
         } else {
-            SharedPrefHelper.saveString(context, sharedPref, path, newValue + "");
+            sharedPref.saveString(context, path, newValue.toString());
         }
         value = newValue;
-    }
-
-    public int getInt() {
-        return (int) value;
-    }
-
-    public String getString() {
-        return (String) value;
     }
 
     public boolean getBoolean() {
         return (Boolean) value;
     }
 
-    public Long getLong() {
+    public int getInt() {
+        return (Integer) value;
+    }
+
+    public long getLong() {
         return (Long) value;
     }
 
-    public Float getFloat() {
+    public float getFloat() {
         return (Float) value;
     }
 
-    public Object getDefaultValue() {
-        return defaultValue;
+    public String getString() {
+        return (String) value;
     }
 
-    public String getPath() {
-        return path;
+    public enum ReturnType {
+        BOOLEAN,
+        INTEGER,
+        LONG,
+        FLOAT,
+        STRING,
     }
-
-    public ReturnType getReturnType() {
-        return returnType;
-    }
-
-    public boolean shouldRebootOnChange() {
-        return rebootApp;
-    }
-
 }

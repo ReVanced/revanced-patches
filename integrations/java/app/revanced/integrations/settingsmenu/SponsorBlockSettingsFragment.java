@@ -28,6 +28,7 @@ import androidx.annotation.Nullable;
 import java.text.DecimalFormat;
 
 import app.revanced.integrations.settings.SettingsEnum;
+import app.revanced.integrations.settings.SharedPrefCategory;
 import app.revanced.integrations.sponsorblock.SegmentPlaybackController;
 import app.revanced.integrations.sponsorblock.SponsorBlockSettings;
 import app.revanced.integrations.sponsorblock.SponsorBlockUtils;
@@ -38,7 +39,6 @@ import app.revanced.integrations.sponsorblock.requests.SBRequester;
 import app.revanced.integrations.sponsorblock.ui.SponsorBlockViewController;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
-import app.revanced.integrations.utils.SharedPrefHelper;
 
 @SuppressWarnings("deprecation")
 public class SponsorBlockSettingsFragment extends PreferenceFragment {
@@ -115,7 +115,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
         super.onCreate(savedInstanceState);
         try {
             PreferenceManager preferenceManager = getPreferenceManager();
-            preferenceManager.setSharedPreferencesName(SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK.getName());
+            preferenceManager.setSharedPreferencesName(SharedPrefCategory.SPONSOR_BLOCK.prefName);
 
             Activity context = this.getActivity();
             PreferenceScreen preferenceScreen = preferenceManager.createPreferenceScreen(context);
@@ -304,7 +304,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
 
             DialogInterface.OnClickListener urlChangeListener = (dialog, buttonPressed) -> {
                 if (buttonPressed == DialogInterface.BUTTON_NEUTRAL) {
-                    SettingsEnum.SB_API_URL.saveValue(SettingsEnum.SB_API_URL.getDefaultValue());
+                    SettingsEnum.SB_API_URL.saveValue(SettingsEnum.SB_API_URL.defaultValue);
                     ReVancedUtils.showToastLong(str("sb_api_url_reset"));
                 } else if (buttonPressed == DialogInterface.BUTTON_POSITIVE) {
                     String serverAddress = editText.getText().toString();
@@ -522,8 +522,8 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
                     new AlertDialog.Builder(preference1.getContext())
                             .setTitle(str("sb_stats_self_saved_reset_title"))
                             .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
-                                SettingsEnum.SB_SKIPPED_SEGMENTS_NUMBER_SKIPPED.saveValue(SettingsEnum.SB_SKIPPED_SEGMENTS_NUMBER_SKIPPED.getDefaultValue());
-                                SettingsEnum.SB_SKIPPED_SEGMENTS_TIME_SAVED.saveValue(SettingsEnum.SB_SKIPPED_SEGMENTS_TIME_SAVED.getDefaultValue());
+                                SettingsEnum.SB_SKIPPED_SEGMENTS_NUMBER_SKIPPED.saveValue(SettingsEnum.SB_SKIPPED_SEGMENTS_NUMBER_SKIPPED.defaultValue);
+                                SettingsEnum.SB_SKIPPED_SEGMENTS_TIME_SAVED.saveValue(SettingsEnum.SB_SKIPPED_SEGMENTS_TIME_SAVED.defaultValue);
                                 updateStatsSelfSaved.run();
                             })
                             .setNegativeButton(android.R.string.no, null).show();

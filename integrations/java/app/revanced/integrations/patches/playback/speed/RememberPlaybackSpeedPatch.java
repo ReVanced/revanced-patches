@@ -36,7 +36,7 @@ public final class RememberPlaybackSpeedPatch {
 
             // TODO: extract these strings into localized file
             ReVancedUtils.showToastLong("Remembering playback speed: " + playbackSpeed + "x");
-        } else if (playbackSpeed != (float) SettingsEnum.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED_VALUE.getDefaultValue()) {
+        } else if (playbackSpeed != (float) SettingsEnum.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED_VALUE.defaultValue) {
             ReVancedUtils.showToastLong("Applying playback speed: " + playbackSpeed + "x");
         }
     }

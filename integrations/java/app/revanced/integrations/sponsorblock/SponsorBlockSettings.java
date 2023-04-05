@@ -14,11 +14,11 @@ import org.json.JSONObject;
 import java.util.UUID;
 
 import app.revanced.integrations.settings.SettingsEnum;
+import app.revanced.integrations.settings.SharedPrefCategory;
 import app.revanced.integrations.sponsorblock.objects.CategoryBehaviour;
 import app.revanced.integrations.sponsorblock.objects.SegmentCategory;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
-import app.revanced.integrations.utils.SharedPrefHelper;
 
 public class SponsorBlockSettings {
 
@@ -55,7 +55,7 @@ public class SponsorBlockSettings {
             }
             SegmentCategory.updateEnabledCategories();
 
-            SharedPreferences.Editor editor = SharedPrefHelper.getPreferences(SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK).edit();
+            SharedPreferences.Editor editor = SharedPrefCategory.SPONSOR_BLOCK.preferences.edit();
             for (SegmentCategory category : SegmentCategory.valuesWithoutUnsubmitted()) {
                 category.save(editor);
             }

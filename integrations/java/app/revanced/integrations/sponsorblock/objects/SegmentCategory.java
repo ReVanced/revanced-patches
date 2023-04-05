@@ -21,8 +21,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import app.revanced.integrations.settings.SharedPrefCategory;
 import app.revanced.integrations.utils.LogHelper;
-import app.revanced.integrations.utils.SharedPrefHelper;
 import app.revanced.integrations.utils.StringRef;
 
 public enum SegmentCategory {
@@ -84,7 +84,7 @@ public enum SegmentCategory {
     }
 
     public static void loadFromPreferences() {
-        SharedPreferences preferences = SharedPrefHelper.getPreferences(SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK);
+        SharedPreferences preferences = SharedPrefCategory.SPONSOR_BLOCK.preferences;
         LogHelper.printDebug(() -> "loadFromPreferences");
         for (SegmentCategory category : valuesWithoutUnsubmitted()) {
             category.load(preferences);

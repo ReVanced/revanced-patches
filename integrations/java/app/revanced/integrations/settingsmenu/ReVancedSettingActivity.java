@@ -16,6 +16,9 @@ import app.revanced.integrations.utils.ThemeHelper;
 
 public class ReVancedSettingActivity {
 
+    /**
+     * Injection point.
+     */
     public static void setTheme(LicenseActivity base) {
         final var whiteTheme = "Theme.YouTube.Settings";
         final var darkTheme = "Theme.YouTube.Settings.Dark";
@@ -26,6 +29,9 @@ public class ReVancedSettingActivity {
         base.setTheme(ReVancedUtils.getResourceIdentifier(theme, "style"));
     }
 
+    /**
+     * Injection point.
+     */
     public static void initializeSettings(LicenseActivity base) {
         base.setContentView(ReVancedUtils.getResourceIdentifier("revanced_settings_with_toolbar", "layout"));
 
