@@ -95,7 +95,7 @@ class SponsorBlockResourcePatch : ResourcePatch {
                 if (!(view.hasAttributes() && view.attributes.getNamedItem("android:id").nodeValue.endsWith("live_chat_overlay_button"))) continue
 
                 // voting button id from the voting button view from the youtube_controls_layout.xml host file
-                val votingButtonId = "@+id/voting_button"
+                val votingButtonId = "@+id/sb_voting_button"
 
                 view.attributes.getNamedItem("android:layout_toStartOf").nodeValue = votingButtonId
 
