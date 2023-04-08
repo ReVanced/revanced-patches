@@ -31,6 +31,7 @@ public class SegmentCategoryListPreference extends ListPreference {
         super(context);
         this.category = Objects.requireNonNull(category);
         setKey(category.key);
+        setDefaultValue(category.behaviour.key);
         setEntries(CategoryBehaviour.getBehaviorNames());
         setEntryValues(CategoryBehaviour.getBehaviorKeys());
         setSummary(category.description.toString());
