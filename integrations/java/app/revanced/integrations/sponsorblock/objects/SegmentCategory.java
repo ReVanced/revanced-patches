@@ -3,6 +3,7 @@ package app.revanced.integrations.sponsorblock.objects;
 import static app.revanced.integrations.sponsorblock.objects.CategoryBehaviour.IGNORE;
 import static app.revanced.integrations.sponsorblock.objects.CategoryBehaviour.MANUAL_SKIP;
 import static app.revanced.integrations.sponsorblock.objects.CategoryBehaviour.SKIP_AUTOMATICALLY;
+import static app.revanced.integrations.sponsorblock.objects.CategoryBehaviour.SKIP_AUTOMATICALLY_ONCE;
 import static app.revanced.integrations.utils.StringRef.sf;
 
 import android.content.SharedPreferences;
@@ -27,11 +28,11 @@ import app.revanced.integrations.utils.StringRef;
 
 public enum SegmentCategory {
     SPONSOR("sponsor", sf("sb_segments_sponsor"), sf("sb_segments_sponsor_sum"), sf("sb_skip_button_sponsor"), sf("sb_skipped_sponsor"),
-            SKIP_AUTOMATICALLY, 0x00D400),
+            SKIP_AUTOMATICALLY_ONCE, 0x00D400),
     SELF_PROMO("selfpromo", sf("sb_segments_selfpromo"), sf("sb_segments_selfpromo_sum"), sf("sb_skip_button_selfpromo"), sf("sb_skipped_selfpromo"),
-            SKIP_AUTOMATICALLY, 0xFFFF00),
+            MANUAL_SKIP, 0xFFFF00),
     INTERACTION("interaction", sf("sb_segments_interaction"), sf("sb_segments_interaction_sum"), sf("sb_skip_button_interaction"), sf("sb_skipped_interaction"),
-            SKIP_AUTOMATICALLY, 0xCC00FF),
+            MANUAL_SKIP, 0xCC00FF),
     INTRO("intro", sf("sb_segments_intro"), sf("sb_segments_intro_sum"),
             sf("sb_skip_button_intro_beginning"), sf("sb_skip_button_intro_middle"), sf("sb_skip_button_intro_end"),
             sf("sb_skipped_intro_beginning"), sf("sb_skipped_intro_middle"), sf("sb_skipped_intro_end"),
