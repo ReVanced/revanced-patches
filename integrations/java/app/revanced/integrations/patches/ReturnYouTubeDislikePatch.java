@@ -6,7 +6,7 @@ import app.revanced.integrations.returnyoutubedislike.ReturnYouTubeDislike;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
- * Used by app.revanced.patches.youtube.layout.returnyoutubedislike.patch.ReturnYouTubeDislikePatch
+ * TODO: delete this empty class, and point the patch to {@link ReturnYouTubeDislike}
  */
 public class ReturnYouTubeDislikePatch {
 

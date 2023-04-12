@@ -77,7 +77,7 @@ public class ReturnYouTubeDislikeSettingsFragment extends PreferenceFragment {
         percentagePreference.setTitle(str("revanced_ryd_dislike_percentage_title"));
         percentagePreference.setOnPreferenceChangeListener((pref, newValue) -> {
             SettingsEnum.RYD_SHOW_DISLIKE_PERCENTAGE.saveValue(newValue);
-
+            ReturnYouTubeDislike.clearCache();
             updateUIState();
             return true;
         });
@@ -88,7 +88,7 @@ public class ReturnYouTubeDislikeSettingsFragment extends PreferenceFragment {
         compactLayoutPreference.setTitle(str("revanced_ryd_compact_layout_title"));
         compactLayoutPreference.setOnPreferenceChangeListener((pref, newValue) -> {
             SettingsEnum.RYD_USE_COMPACT_LAYOUT.saveValue(newValue);
-
+            ReturnYouTubeDislike.clearCache();
             updateUIState();
             return true;
         });
