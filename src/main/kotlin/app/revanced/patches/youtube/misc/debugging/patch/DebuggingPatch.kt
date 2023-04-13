@@ -11,15 +11,16 @@ import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.debugging.annotations.DebuggingCompatibility
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
+import app.revanced.patches.all.misc.debugging.patch.EnableAndroidDebuggingPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import org.w3c.dom.Element
 
 @Patch
-@Name("debugging")
-@DependsOn([IntegrationsPatch::class, SettingsPatch::class])
+@Name("enable-debugging")
+@DependsOn([IntegrationsPatch::class, SettingsPatch::class, EnableAndroidDebuggingPatch::class])
 @Description("Adds debugging options.")
 @DebuggingCompatibility
-@Version("0.0.1")
+@Version("0.0.2")
 class DebuggingPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
@@ -64,29 +65,6 @@ class DebuggingPatch : ResourcePatch {
             )
         )
 
-        if (debuggable == true) {
-            context.xmlEditor["AndroidManifest.xml"].use { dom ->
-                val applicationNode = dom
-                    .file
-                    .getElementsByTagName("application")
-                    .item(0) as Element
-
-                // set application as debuggable
-                applicationNode.setAttribute("android:debuggable", "true")
-            }
-        }
-
         return PatchResultSuccess()
-    }
-
-    companion object : OptionsContainer() {
-        var debuggable: Boolean? by option(
-            PatchOption.BooleanOption(
-                key = "debuggable",
-                default = false,
-                title = "App debugging",
-                description = "Whether to make the app debuggable on Android.",
-            )
-        )
     }
 }
