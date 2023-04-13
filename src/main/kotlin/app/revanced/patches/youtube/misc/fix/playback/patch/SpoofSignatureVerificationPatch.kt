@@ -43,7 +43,7 @@ class SpoofSignatureVerificationPatch : BytecodePatch(
             SwitchPreference(
                 "revanced_spoof_signature_verification",
                 StringResource("revanced_spoof_signature_verification_title", "Spoof app signature"),
-                false,
+                true,
                 StringResource("revanced_spoof_signature_verification_summary_on", "App signature spoofed"),
                 StringResource("revanced_spoof_signature_verification_summary_off", "App signature not spoofed")
             )
