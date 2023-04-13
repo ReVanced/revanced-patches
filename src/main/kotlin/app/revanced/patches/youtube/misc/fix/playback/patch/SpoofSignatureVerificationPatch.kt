@@ -20,6 +20,7 @@ import app.revanced.patches.youtube.misc.fix.playback.annotation.ProtobufSpoofCo
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.OpenCronetDataSourceFingerprint
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.ProtobufParameterBuilderFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
+import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -27,7 +28,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Name("spoof-signature-verification")
 @Description("Spoofs the client to prevent playback issues.")
 @ProtobufSpoofCompatibility
-@DependsOn([IntegrationsPatch::class, SettingsPatch::class])
+@DependsOn([IntegrationsPatch::class, SettingsPatch::class, PlayerTypeHookPatch::class])
 @Version("0.0.1")
 class SpoofSignatureVerificationPatch : BytecodePatch(
     listOf(
