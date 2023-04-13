@@ -1,3 +1,10 @@
+# [2.168.0](https://github.com/revanced/revanced-patches/compare/v2.167.1...v2.168.0) (2023-04-13)
+
+
+### Features
+
+* **youtube/spoof-signature-verification:** enable by default ([#1896](https://github.com/revanced/revanced-patches/issues/1896)) ([774e45e](https://github.com/revanced/revanced-patches/commit/774e45ed50bb15adb2b55d103ff7bfae38570056))
+
 ## [2.167.1](https://github.com/revanced/revanced-patches/compare/v2.167.0...v2.167.1) (2023-04-13)
 
 
