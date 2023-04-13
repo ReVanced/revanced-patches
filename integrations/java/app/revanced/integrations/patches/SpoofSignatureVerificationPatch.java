@@ -3,15 +3,18 @@ package app.revanced.integrations.patches;
 import android.widget.Toast;
 
 import app.revanced.integrations.settings.SettingsEnum;
+import app.revanced.integrations.shared.PlayerType;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 
+import static app.revanced.integrations.utils.ReVancedUtils.containsAny;
+
 public class SpoofSignatureVerificationPatch {
     /**
-     * Protobuf parameters used by the player.
-     * Known issue: video preview not showing when using the seekbar.
+     * Protobuf parameters used for autoplay in scrim.
+     * Prepend this parameter to mute video playback (for autoplay in feed)
      */
-    private static final String PROTOBUF_PARAMETER_GENERAL = "CgIQBg";
+    private static final String PROTOBUF_PARAMETER_SCRIM = "SAFgAXgB";
 
     /**
      * Protobuf parameter of shorts and YouTube stories.
@@ -21,9 +24,11 @@ public class SpoofSignatureVerificationPatch {
 
     /**
      * Target Protobuf parameters.
-     * Used by the generic player.
      */
-    private static final String PROTOBUF_PARAMETER_TARGET = "YADI";
+    private static final String[] PROTOBUF_PARAMETER_TARGETS = {
+            "YAHI", // Autoplay in feed
+            "SAFg"  // Autoplay in scrim
+    };
 
     /**
      * Injection point.
@@ -35,8 +40,19 @@ public class SpoofSignatureVerificationPatch {
             if (!SettingsEnum.SIGNATURE_SPOOFING.getBoolean()) {
                 return originalValue;
             }
+
             LogHelper.printDebug(() -> "Original protobuf parameter value: " + originalValue);
-            if (originalValue.startsWith(PROTOBUF_PARAMETER_TARGET) || originalValue.isEmpty()) {
+
+            // Video is Short or Story.
+            var isPlayingShorts = originalValue.contains(PROTOBUF_PARAMETER_SHORTS);
+            if (isPlayingShorts) return originalValue;
+
+            boolean isPlayingFeed = containsAny(originalValue, PROTOBUF_PARAMETER_TARGETS) && PlayerType.getCurrent() == PlayerType.INLINE_MINIMAL;
+            if (isPlayingFeed) {
+                // Videos in feed won't autoplay with sound.
+                return PROTOBUF_PARAMETER_SCRIM + PROTOBUF_PARAMETER_SHORTS;
+            } else{
+                // Spoof the parameter to prevent playback issues.
                 return PROTOBUF_PARAMETER_SHORTS;
             }
         } catch (Exception ex) {
@@ -79,5 +95,4 @@ public class SpoofSignatureVerificationPatch {
             LogHelper.printException(() -> "onResponse failure", ex);
         }
     }
-
 }
