@@ -96,7 +96,7 @@ public enum SettingsEnum {
     HIDE_FLOATING_MICROPHONE_BUTTON("revanced_hide_floating_microphone_button", true, ReturnType.BOOLEAN, true),
 
     // Misc. Settings
-    SIGNATURE_SPOOFING("revanced_spoof_signature_verification", false, ReturnType.BOOLEAN),
+    SIGNATURE_SPOOFING("revanced_spoof_signature_verification", true, ReturnType.BOOLEAN),
     CAPTIONS_ENABLED("revanced_autocaptions_enabled", false, ReturnType.BOOLEAN),
     PREFERRED_AUTO_REPEAT("revanced_pref_auto_repeat", false, ReturnType.BOOLEAN),
     USE_HDR_AUTO_BRIGHTNESS("revanced_pref_hdr_autobrightness", true, ReturnType.BOOLEAN),
