@@ -1,3 +1,11 @@
+## [2.167.1](https://github.com/revanced/revanced-patches/compare/v2.167.0...v2.167.1) (2023-04-13)
+
+
+### Bug Fixes
+
+* **youtube/spoof-signature-verification:** fixed subtitles in wrong location ([#1833](https://github.com/revanced/revanced-patches/issues/1833)) ([0dbfa62](https://github.com/revanced/revanced-patches/commit/0dbfa6247e6e7ff51e8fee86fd798f693ab05bcf))
+* **youtube/spoof-signature-verification:** spoof videos in playlists ([0a858ec](https://github.com/revanced/revanced-patches/commit/0a858ecef3f152dfd97e7f2d27501201968de4e4))
+
 # [2.167.0](https://github.com/revanced/revanced-patches/compare/v2.166.0...v2.167.0) (2023-03-29)
 
 
