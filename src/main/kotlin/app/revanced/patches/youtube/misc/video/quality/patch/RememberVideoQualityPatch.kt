@@ -14,6 +14,8 @@ import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patches.shared.settings.preference.impl.ArrayResource
+import app.revanced.patches.shared.settings.preference.impl.ListPreference
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
@@ -55,6 +57,52 @@ class RememberVideoQualityPatch : BytecodePatch(
                     "revanced_remember_video_quality_last_selected_summary_off",
                     "Quality changes only apply to the current video"
                 )
+            )
+        )
+
+        // This is bloated as each value has it's own String key/value
+        // ideally the entries would be raw values (and not a key to a String resource)
+        val entries = listOf(
+            StringResource("revanced_default_quality_entry_1", "Automatic quality"),
+            StringResource("revanced_default_quality_entry_2", "2160p"),
+            StringResource("revanced_default_quality_entry_3", "1440p"),
+            StringResource("revanced_default_quality_entry_4", "1080p"),
+            StringResource("revanced_default_quality_entry_5", "720p"),
+            StringResource("revanced_default_quality_entry_6", "480p"),
+            StringResource("revanced_default_quality_entry_7", "360p"),
+            StringResource("revanced_default_quality_entry_8", "280p"),
+            StringResource("revanced_default_quality_entry_9", "144p"),
+        )
+        val entryValues = listOf(
+            StringResource("revanced_default_quality_entry_value_1", "-2"),
+            StringResource("revanced_default_quality_entry_value_2", "2160"),
+            StringResource("revanced_default_quality_entry_value_3", "1440"),
+            StringResource("revanced_default_quality_entry_value_4", "1080"),
+            StringResource("revanced_default_quality_entry_value_5", "720"),
+            StringResource("revanced_default_quality_entry_value_6", "480"),
+            StringResource("revanced_default_quality_entry_value_7", "360"),
+            StringResource("revanced_default_quality_entry_value_8", "280"),
+            StringResource("revanced_default_quality_entry_value_9", "144"),
+        )
+        SettingsPatch.PreferenceScreen.MISC.addPreferences(
+            ListPreference(
+                "revanced_default_video_quality_wifi",
+                StringResource(
+                    "revanced_default_video_quality_wifi_title",
+                    "Default video quality on Wi-Fi network"
+                ),
+                ArrayResource("revanced_video_quality_wifi_entry", entries),
+                ArrayResource("revanced_video_quality_wifi_entry_values", entryValues)
+                // default value and summary are set by integrations after loading
+            ),
+            ListPreference(
+                "revanced_default_video_quality_mobile",
+                StringResource(
+                    "revanced_default_video_quality_mobile_title",
+                    "Default video quality on mobile network"
+                ),
+                ArrayResource("revanced_video_quality_mobile_entries", entries),
+                ArrayResource("revanced_video_quality_mobile_entry_values", entryValues)
             )
         )
 
