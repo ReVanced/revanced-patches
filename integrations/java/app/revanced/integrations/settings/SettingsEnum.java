@@ -29,9 +29,11 @@ public enum SettingsEnum {
 
     // Video settings
     OLD_STYLE_VIDEO_QUALITY_PLAYER_SETTINGS("revanced_use_old_style_quality_settings", BOOLEAN, TRUE),
-    REMEMBER_VIDEO_QUALITY_LAST_SELECTED("revanced_remember_video_quality_last_selected", BOOLEAN, TRUE),
-    REMEMBER_PLAYBACK_SPEED_LAST_SELECTED("revanced_remember_playback_speed_last_selected", BOOLEAN, TRUE),
-    REMEMBER_PLAYBACK_SPEED_LAST_SELECTED_VALUE("revanced_remember_playback_speed_last_selected_value", FLOAT, 1.0f),
+    VIDEO_QUALITY_REMEMBER_LAST_SELECTED("revanced_remember_video_quality_last_selected", BOOLEAN, TRUE),
+    VIDEO_QUALITY_DEFAULT_WIFI("revanced_default_video_quality_wifi", INTEGER, -2),
+    VIDEO_QUALITY_DEFAULT_MOBILE("revanced_default_video_quality_mobile", INTEGER, -2),
+    PLAYBACK_SPEED_REMEMBER_LAST_SELECTED("revanced_remember_playback_speed_last_selected", BOOLEAN, TRUE),
+    PLAYBACK_SPEED_DEFAULT("revanced_default_playback_speed", FLOAT, 1.0f),
 
     // TODO: Unused currently
     // Whitelist settings
@@ -295,13 +297,13 @@ public enum SettingsEnum {
                 value = sharedPref.getBoolean(path, (boolean) defaultValue);
                 break;
             case INTEGER:
-                value = sharedPref.getInt(path, (Integer) defaultValue);
+                value = sharedPref.getIntegerString(path, (Integer) defaultValue);
                 break;
             case LONG:
-                value = sharedPref.getLong(path, (Long) defaultValue);
+                value = sharedPref.getLongString(path, (Long) defaultValue);
                 break;
             case FLOAT:
-                value = sharedPref.getFloat(path, (Float) defaultValue);
+                value = sharedPref.getFloatString(path, (Float) defaultValue);
                 break;
             case STRING:
                 value = sharedPref.getString(path, (String) defaultValue);
@@ -316,9 +318,37 @@ public enum SettingsEnum {
      *
      * This intentionally is a static method, to deter accidental usage
      * when {@link #saveValue(Object)} was intended.
+     *
+     * This method is only to be used by the Settings preference code.
      */
-    public static void setValue(@NonNull SettingsEnum setting, @NonNull Object newValue) {
-        setting.value = Objects.requireNonNull(newValue);
+    public static void setValue(@NonNull SettingsEnum setting, @NonNull String newValue) {
+        Objects.requireNonNull(newValue);
+        switch (setting.returnType) {
+            case BOOLEAN:
+                setting.value = Boolean.valueOf(newValue);
+                break;
+            case INTEGER:
+                setting.value = Integer.valueOf(newValue);
+                break;
+            case LONG:
+                setting.value = Long.valueOf(newValue);
+                break;
+            case FLOAT:
+                setting.value = Float.valueOf(newValue);
+                break;
+            case STRING:
+                setting.value = newValue;
+                break;
+            default:
+                throw new IllegalStateException(setting.name());
+        }
+    }
+    /**
+     * This method is only to be used by the Settings preference code.
+     */
+    public static void setValue(@NonNull SettingsEnum setting, @NonNull Boolean newValue) {
+        Objects.requireNonNull(newValue);
+        setting.value = newValue;
     }
 
     /**
@@ -331,13 +361,13 @@ public enum SettingsEnum {
                 sharedPref.saveBoolean(path, (boolean) newValue);
                 break;
             case INTEGER:
-                sharedPref.saveInt(path, (int) newValue);
+                sharedPref.saveIntegerString(path, (Integer) newValue);
                 break;
             case LONG:
-                sharedPref.saveLong(path, (long) newValue);
+                sharedPref.saveLongString(path, (Long) newValue);
                 break;
             case FLOAT:
-                sharedPref.saveFloat(path, (float) newValue);
+                sharedPref.saveFloatString(path, (Float) newValue);
                 break;
             case STRING:
                 sharedPref.saveString(path, (String) newValue);
@@ -382,6 +412,14 @@ public enum SettingsEnum {
     @NonNull
     public String getString() {
         return (String) value;
+    }
+
+    /**
+     * @return the value of this setting as as generic object type.
+     */
+    @NonNull
+    public Object getObjectValue() {
+        return value;
     }
 
     public enum ReturnType {

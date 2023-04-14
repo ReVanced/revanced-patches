@@ -4,11 +4,21 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.Objects;
 
 import app.revanced.integrations.utils.ReVancedUtils;
 
+/**
+ * Shared categories, and helper methods.
+ *
+ * The various save methods store numbers as Strings,
+ * which is required if using {@link android.preference.PreferenceFragment}.
+ *
+ * If saved numbers will not be used with a preference fragment,
+ * then store the primitive numbers using {@link #preferences}.
+ */
 public enum SharedPrefCategory {
     YOUTUBE("youtube"),
     RETURN_YOUTUBE_DISLIKE("ryd"),
@@ -25,27 +35,41 @@ public enum SharedPrefCategory {
         preferences = Objects.requireNonNull(ReVancedUtils.getContext()).getSharedPreferences(prefName, Context.MODE_PRIVATE);
     }
 
-    public void saveString(@NonNull String key, @NonNull String value) {
-        Objects.requireNonNull(value);
-        preferences.edit().putString(key, value).apply();
+    private void saveObjectAsString(@NonNull String key, @Nullable Object value) {
+        preferences.edit().putString(key, (value == null ? null : value.toString())).apply();
     }
 
     public void saveBoolean(@NonNull String key, boolean value) {
         preferences.edit().putBoolean(key, value).apply();
     }
 
-    public void saveInt(@NonNull String key, int value) {
-        preferences.edit().putInt(key, value).apply();
+    /**
+     * @param value a NULL parameter removes the value from the preferences
+     */
+    public void saveIntegerString(@NonNull String key, @Nullable Integer value) {
+        saveObjectAsString(key, value);
     }
 
-    public void saveLong(@NonNull String key, long value) {
-        preferences.edit().putLong(key, value).apply();
+    /**
+     * @param value a NULL parameter removes the value from the preferences
+     */
+    public void saveLongString(@NonNull String key, @Nullable Long value) {
+        saveObjectAsString(key, value);
     }
 
-    public void saveFloat(@NonNull String key, float value) {
-        preferences.edit().putFloat(key, value).apply();
+    /**
+     * @param value a NULL parameter removes the value from the preferences
+     */
+    public void saveFloatString(@NonNull String key, @Nullable Float value) {
+        saveObjectAsString(key, value);
     }
 
+    /**
+     * @param value a NULL parameter removes the value from the preferences
+     */
+    public void saveString(@NonNull String key, @Nullable String value) {
+        saveObjectAsString(key, value);
+    }
 
     @NonNull
     public String getString(@NonNull String key, @NonNull String _default) {
@@ -53,41 +77,49 @@ public enum SharedPrefCategory {
         return preferences.getString(key, _default);
     }
 
+
     public boolean getBoolean(@NonNull String key, boolean _default) {
         return preferences.getBoolean(key, _default);
     }
 
-    // region Hack, required for PreferencesFragments to function correctly.  unknown why required
-
     @NonNull
-    public Integer getInt(@NonNull String key, @NonNull Integer _default) {
+    public Integer getIntegerString(@NonNull String key, @NonNull Integer _default) {
         try {
-            return Integer.valueOf(preferences.getString(key, _default.toString()));
+            String value = preferences.getString(key, null);
+            if (value != null) {
+                return Integer.valueOf(value);
+            }
+            return _default;
         } catch (ClassCastException ex) {
-            return preferences.getInt(key, _default);
+            return preferences.getInt(key, _default); // old data, previously stored as primitive
         }
     }
 
     @NonNull
-    public Long getLong(@NonNull String key, @NonNull Long _default) {
+    public Long getLongString(@NonNull String key, @NonNull Long _default) {
         try {
-            return Long.valueOf(preferences.getString(key, _default.toString()));
+            String value = preferences.getString(key, null);
+            if (value != null) {
+                return Long.valueOf(value);
+            }
+            return _default;
         } catch (ClassCastException ex) {
             return preferences.getLong(key, _default);
         }
     }
 
     @NonNull
-    public Float getFloat(@NonNull String key, @NonNull Float _default) {
+    public Float getFloatString(@NonNull String key, @NonNull Float _default) {
         try {
-            return Float.valueOf(preferences.getString(key, _default.toString()));
+            String value = preferences.getString(key, null);
+            if (value != null) {
+                return Float.valueOf(value);
+            }
+            return _default;
         } catch (ClassCastException ex) {
             return preferences.getFloat(key, _default);
         }
     }
-
-    // endregion
-
 
     @NonNull
     @Override

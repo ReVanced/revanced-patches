@@ -13,6 +13,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Process;
 import android.preference.EditTextPreference;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
@@ -23,12 +24,18 @@ import androidx.annotation.Nullable;
 
 import com.google.android.apps.youtube.app.application.Shell_HomeActivity;
 
+import app.revanced.integrations.patches.playback.speed.RememberPlaybackSpeedPatch;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.settings.SharedPrefCategory;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 
 public class ReVancedSettingsFragment extends PreferenceFragment {
+    /**
+     * Used to prevent showing reboot dialog, if user cancels a setting user dialog.
+     */
+    private boolean showingUserDialogMessage;
+
     SharedPreferences.OnSharedPreferenceChangeListener listener = (sharedPreferences, str) -> {
         try {
             SettingsEnum setting = SettingsEnum.settingFromPath(str);
@@ -43,32 +50,22 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
                 SettingsEnum.setValue(setting, switchPref.isChecked());
             } else if (pref instanceof EditTextPreference) {
                 String editText = ((EditTextPreference) pref).getText();
-                Object value;
-                switch (setting.returnType) {
-                    case INTEGER:
-                        value = Integer.parseInt(editText);
-                        break;
-                    case LONG:
-                        value = Long.parseLong(editText);
-                        break;
-                    case FLOAT:
-                        value = Float.parseFloat(editText);
-                        break;
-                    case STRING:
-                        value = editText;
-                        break;
-                    default:
-                        throw new IllegalStateException(setting.toString());
-                }
-                SettingsEnum.setValue(setting, value);
+                SettingsEnum.setValue(setting, editText);
+            } else if (pref instanceof ListPreference) {
+                ListPreference listPref = (ListPreference) pref;
+                SettingsEnum.setValue(setting, listPref.getValue());
+                updateListPreferenceSummary((ListPreference) pref, setting);
             } else {
                 LogHelper.printException(() -> "Setting cannot be handled: " + pref.getClass() + " " + pref);
+                return;
             }
 
-            if (setting.userDialogMessage != null && ((SwitchPreference) pref).isChecked() != (Boolean) setting.defaultValue) {
-                showSettingUserDialogConfirmation(getActivity(), (SwitchPreference) pref, setting);
-            } else if (setting.rebootApp) {
-                rebootDialog(getActivity());
+            if (!showingUserDialogMessage) {
+                if (setting.userDialogMessage != null && ((SwitchPreference) pref).isChecked() != (Boolean) setting.defaultValue) {
+                    showSettingUserDialogConfirmation(getActivity(), (SwitchPreference) pref, setting);
+                } else if (setting.rebootApp) {
+                    rebootDialog(getActivity());
+                }
             }
 
             enableDisablePreferences();
@@ -87,6 +84,20 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             addPreferencesFromResource(ReVancedUtils.getResourceIdentifier("revanced_prefs", "xml"));
 
             enableDisablePreferences();
+
+            // if the preference was included, then initialize it based on the available playback speed
+            Preference defaultSpeedPreference = findPreference(SettingsEnum.PLAYBACK_SPEED_DEFAULT.path);
+            if (defaultSpeedPreference instanceof ListPreference) {
+                RememberPlaybackSpeedPatch.initializeListPreference((ListPreference) defaultSpeedPreference);
+            }
+
+            // set the summary text for any ListPreferences
+            for (SettingsEnum setting : SettingsEnum.values()) {
+                Preference preference = findPreference(setting.path);
+                if (preference instanceof ListPreference) {
+                    updateListPreferenceSummary((ListPreference) preference, setting);
+                }
+            }
 
             preferenceManager.getSharedPreferences().registerOnSharedPreferenceChangeListener(listener);
         } catch (Exception ex) {
@@ -109,6 +120,13 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
         }
     }
 
+    private void updateListPreferenceSummary(ListPreference listPreference, SettingsEnum setting) {
+        final int entryIndex = listPreference.findIndexOfValue(setting.getObjectValue().toString());
+        if (entryIndex >= 0) {
+            listPreference.setSummary(listPreference.getEntries()[entryIndex]);
+        }
+    }
+
     private void reboot(@NonNull Activity activity) {
         final int intentFlags = PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE;
         PendingIntent intent = PendingIntent.getActivity(activity, 0,
@@ -126,10 +144,12 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
                     reboot(activity);
                 })
                 .setNegativeButton(negativeButton,  null)
+                .setCancelable(false)
                 .show();
     }
 
     private void showSettingUserDialogConfirmation(@NonNull Activity activity, SwitchPreference switchPref, SettingsEnum setting) {
+        showingUserDialogMessage = true;
         new AlertDialog.Builder(activity)
                 .setTitle(str("revanced_settings_confirm_user_dialog_title"))
                 .setMessage(setting.userDialogMessage.toString())
@@ -143,6 +163,10 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
                     SettingsEnum.setValue(setting, defaultBooleanValue);
                     switchPref.setChecked(defaultBooleanValue);
                 })
+                .setOnDismissListener(dialog -> {
+                    showingUserDialogMessage = false;
+                })
+                .setCancelable(false)
                 .show();
     }
 }
