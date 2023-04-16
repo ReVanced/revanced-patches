@@ -1,3 +1,32 @@
+# [2.168.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.167.1...v2.168.0-dev.1) (2023-04-16)
+
+
+### Bug Fixes
+
+* add missing annotation to patches ([#1882](https://github.com/revanced/revanced-patches/issues/1882)) ([d86b6a4](https://github.com/revanced/revanced-patches/commit/d86b6a4a659172c3f1db8eb883f28dfee4e83e4c))
+* **youtube/sponsorblock:** do not depend on `remember-playback-speed` patch ([b0834fa](https://github.com/revanced/revanced-patches/commit/b0834faa69755a94f70ae5075a10cf15e8a6b857))
+* **youtube/sponsorblock:** fix autorepeat button layout ([#1868](https://github.com/revanced/revanced-patches/issues/1868)) ([5e148d9](https://github.com/revanced/revanced-patches/commit/5e148d9384e8f9f1bc8f5daa7e68a05574810329))
+* **youtubevanced/hide-ads:** hide more types of ads ([#1781](https://github.com/revanced/revanced-patches/issues/1781)) ([47ff447](https://github.com/revanced/revanced-patches/commit/47ff447f8ec0e5bbc174f34bd7d61b3031276641))
+
+
+### Features
+
+* `change-package-name` patch ([#1864](https://github.com/revanced/revanced-patches/issues/1864)) ([f9a6672](https://github.com/revanced/revanced-patches/commit/f9a6672122eb28fe06c9f5e137906ad868a491d6))
+* `enable-android-debugging` patch ([#1876](https://github.com/revanced/revanced-patches/issues/1876)) ([bd224d9](https://github.com/revanced/revanced-patches/commit/bd224d90deb838ee3e7bd0c16860023ebf113e96))
+* **facebook:** `hide-inbox-ads` patch ([#1893](https://github.com/revanced/revanced-patches/issues/1893)) ([2cfc982](https://github.com/revanced/revanced-patches/commit/2cfc9829e119884ca566d6ad90fd0542317891d7))
+* **id-austria:** bump compatibility to `2.6.0` ([#1827](https://github.com/revanced/revanced-patches/issues/1827)) ([f48e794](https://github.com/revanced/revanced-patches/commit/f48e794eebf9ea44008c4c8a3967ad039d19180a))
+* **inshorts:** `hide-ads` patch ([#1828](https://github.com/revanced/revanced-patches/issues/1828)) ([04a2acc](https://github.com/revanced/revanced-patches/commit/04a2accfe9f9254af9074ad0a309d485cedb01cb))
+* **photomath:** bump compatibility up to `8.21.0` ([#1886](https://github.com/revanced/revanced-patches/issues/1886)) ([43464fd](https://github.com/revanced/revanced-patches/commit/43464fd6ffe6f097c574156146aeb23f8f026840))
+* **reddit:** bump compatibility to `2023.12.0` ([#1825](https://github.com/revanced/revanced-patches/issues/1825)) ([e3666e6](https://github.com/revanced/revanced-patches/commit/e3666e68ed4816c85fbb110cb098f53fddf135f1))
+* **youtube-music:** `bypass-certificate-checks` patch ([#1810](https://github.com/revanced/revanced-patches/issues/1810)) ([ef8f26f](https://github.com/revanced/revanced-patches/commit/ef8f26fb976c3044039f9bff0496088763ab66cd))
+* **youtube/settings:** disable preferences and add dialog messages to preferences ([#1801](https://github.com/revanced/revanced-patches/issues/1801)) ([05023ba](https://github.com/revanced/revanced-patches/commit/05023bab1d94e04553ac274468bdba7a19ad9180))
+* **youtube/spoof-signature-verification:** enable by default ([#1896](https://github.com/revanced/revanced-patches/issues/1896)) ([23eb096](https://github.com/revanced/revanced-patches/commit/23eb096e54f0ccea56f343700c9978b8f8455e75))
+* **youtube:** bump compatibility to `18.08.37` ([29561ec](https://github.com/revanced/revanced-patches/commit/29561eca10e18e11f2d4a7f9bab2f12303490b6f))
+* **youtube:** change default video speed and quality inside the settings menu ([#1880](https://github.com/revanced/revanced-patches/issues/1880)) ([fbb1763](https://github.com/revanced/revanced-patches/commit/fbb17636d8ab9f2a43ead896451804b04464527c))
+* **youtube:** constrain compatibility to `18.08.37` ([7403fc8](https://github.com/revanced/revanced-patches/commit/7403fc86ae7b7d756a2939fa0a507f237aaf6edf))
+* **youtube:** sponsorblock improvements ([#1557](https://github.com/revanced/revanced-patches/issues/1557)) ([b5d712a](https://github.com/revanced/revanced-patches/commit/b5d712a3326d1e8cdb8d8642aa7bd1bee6e30ac1))
+* **youtube:** support version `18.08.37` ([4f4ceab](https://github.com/revanced/revanced-patches/commit/4f4ceab2cc32a38dd3967fd4e81f690330c08f5c))
+
 # [2.168.0](https://github.com/revanced/revanced-patches/compare/v2.167.1...v2.168.0) (2023-04-13)
 
 
