@@ -29,11 +29,13 @@ public class SponsorBlockSettings {
             JSONObject barTypesObject = settingsJson.getJSONObject("barTypes");
             JSONArray categorySelectionsArray = settingsJson.getJSONArray("categorySelections");
 
-            for (SegmentCategory category : SegmentCategory.valuesWithoutUnsubmitted()) {
-                // clear existing behavior, as browser plugin exports no value for ignored categories
+            for (SegmentCategory category : SegmentCategory.categoriesWithoutUnsubmitted()) {
+                // clear existing behavior, as browser plugin exports no behavior for ignored categories
                 category.behaviour = CategoryBehaviour.IGNORE;
-                JSONObject categoryObject = barTypesObject.getJSONObject(category.key);
-                category.setColor(categoryObject.getString("color"));
+                if (barTypesObject.has(category.key)) {
+                    JSONObject categoryObject = barTypesObject.getJSONObject(category.key);
+                    category.setColor(categoryObject.getString("color"));
+                }
             }
 
             for (int i = 0; i < categorySelectionsArray.length(); i++) {
@@ -47,16 +49,19 @@ public class SponsorBlockSettings {
 
                 final int desktopKey = categorySelectionObject.getInt("option");
                 CategoryBehaviour behaviour = CategoryBehaviour.byDesktopKey(desktopKey);
-                if (behaviour != null) {
-                    category.behaviour = behaviour;
+                if (behaviour == null) {
+                    ReVancedUtils.showToastLong(categoryKey + " unknown behavior key: " + desktopKey);
+                } else if (category == SegmentCategory.HIGHLIGHT && behaviour == CategoryBehaviour.SKIP_AUTOMATICALLY_ONCE) {
+                    ReVancedUtils.showToastLong("Skip-once behavior not allowed for " + category.key);
+                    category.behaviour = CategoryBehaviour.SKIP_AUTOMATICALLY; // use closest match
                 } else {
-                    LogHelper.printException(() -> "Unknown segment category behavior key: " + desktopKey);
+                    category.behaviour = behaviour;
                 }
             }
             SegmentCategory.updateEnabledCategories();
 
             SharedPreferences.Editor editor = SharedPrefCategory.SPONSOR_BLOCK.preferences.edit();
-            for (SegmentCategory category : SegmentCategory.valuesWithoutUnsubmitted()) {
+            for (SegmentCategory category : SegmentCategory.categoriesWithoutUnsubmitted()) {
                 category.save(editor);
             }
             editor.apply();
@@ -117,17 +122,19 @@ public class SponsorBlockSettings {
             JSONObject barTypesObject = new JSONObject(); // categories' colors
             JSONArray categorySelectionsArray = new JSONArray(); // categories' behavior
 
-            SegmentCategory[] categories = SegmentCategory.valuesWithoutUnsubmitted();
+            SegmentCategory[] categories = SegmentCategory.categoriesWithoutUnsubmitted();
             for (SegmentCategory category : categories) {
                 JSONObject categoryObject = new JSONObject();
                 String categoryKey = category.key;
                 categoryObject.put("color", category.colorString());
                 barTypesObject.put(categoryKey, categoryObject);
 
-                JSONObject behaviorObject = new JSONObject();
-                behaviorObject.put("name", categoryKey);
-                behaviorObject.put("option", category.behaviour.desktopKey);
-                categorySelectionsArray.put(behaviorObject);
+                if (category.behaviour != CategoryBehaviour.IGNORE) {
+                    JSONObject behaviorObject = new JSONObject();
+                    behaviorObject.put("name", categoryKey);
+                    behaviorObject.put("option", category.behaviour.desktopKey);
+                    categorySelectionsArray.put(behaviorObject);
+                }
             }
             json.put("userID", SettingsEnum.SB_UUID.getString());
             json.put("isVip", SettingsEnum.SB_IS_VIP.getBoolean());
@@ -182,7 +189,7 @@ public class SponsorBlockSettings {
         initialized = true;
 
         String uuid = SettingsEnum.SB_UUID.getString();
-        if (uuid == null || uuid.isEmpty()) {
+        if (uuid.isEmpty()) {
             uuid = (UUID.randomUUID().toString() +
                     UUID.randomUUID().toString() +
                     UUID.randomUUID().toString())

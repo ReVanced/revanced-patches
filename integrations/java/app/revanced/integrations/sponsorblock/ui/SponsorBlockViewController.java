@@ -23,9 +23,13 @@ import app.revanced.integrations.utils.ReVancedUtils;
 public class SponsorBlockViewController {
     private static WeakReference<RelativeLayout> inlineSponsorOverlayRef = new WeakReference<>(null);
     private static WeakReference<ViewGroup> youtubeOverlaysLayoutRef = new WeakReference<>(null);
+    private static WeakReference<SkipSponsorButton> skipHighlightButtonRef = new WeakReference<>(null);
     private static WeakReference<SkipSponsorButton> skipSponsorButtonRef = new WeakReference<>(null);
     private static WeakReference<NewSegmentLayout> newSegmentLayoutRef = new WeakReference<>(null);
-    private static boolean canShowViewElements = true;
+    private static boolean canShowViewElements;
+    private static boolean newSegmentLayoutVisible;
+    @Nullable
+    private static SponsorSegment skipHighlight;
     @Nullable
     private static SponsorSegment skipSegment;
 
@@ -51,161 +55,155 @@ public class SponsorBlockViewController {
         try {
             LogHelper.printDebug(() -> "initializing");
 
-            RelativeLayout layout = new RelativeLayout(ReVancedUtils.getContext());
+            Context context = ReVancedUtils.getContext();
+            RelativeLayout layout = new RelativeLayout(context);
             layout.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.MATCH_PARENT));
-            LayoutInflater.from(ReVancedUtils.getContext()).inflate(getResourceIdentifier("inline_sponsor_overlay", "layout"), layout);
+            LayoutInflater.from(context).inflate(getResourceIdentifier("inline_sponsor_overlay", "layout"), layout);
             inlineSponsorOverlayRef = new WeakReference<>(layout);
 
             ViewGroup viewGroup = (ViewGroup) obj;
-            viewGroup.addView(layout, viewGroup.getChildCount() - 2);
+            viewGroup.addView(layout);
+            viewGroup.setOnHierarchyChangeListener(new ViewGroup.OnHierarchyChangeListener() {
+                @Override
+                public void onChildViewAdded(View parent, View child) {
+                    // ensure SB buttons and controls are always on top, otherwise the endscreen cards can cover the skip button
+                    RelativeLayout layout = inlineSponsorOverlayRef.get();
+                    if (layout != null) {
+                        layout.bringToFront();
+                    }
+                }
+                @Override
+                public void onChildViewRemoved(View parent, View child) {
+                }
+            });
             youtubeOverlaysLayoutRef = new WeakReference<>(viewGroup);
 
+            skipHighlightButtonRef = new WeakReference<>(
+                    Objects.requireNonNull(layout.findViewById(getResourceIdentifier("sb_skip_highlight_button", "id"))));
             skipSponsorButtonRef = new WeakReference<>(
                     Objects.requireNonNull(layout.findViewById(getResourceIdentifier("sb_skip_sponsor_button", "id"))));
-
             newSegmentLayoutRef = new WeakReference<>(
                     Objects.requireNonNull(layout.findViewById(getResourceIdentifier("sb_new_segment_view", "id"))));
+
+            newSegmentLayoutVisible = false;
+            skipHighlight = null;
+            skipSegment = null;
         } catch (Exception ex) {
             LogHelper.printException(() -> "initialize failure", ex);
         }
     }
 
-    public static void showSkipButton(@NonNull SponsorSegment info) {
-        skipSegment = Objects.requireNonNull(info);
-        updateSkipButton();
+    public static void hideAll() {
+        hideSkipHighlightButton();
+        hideSkipSegmentButton();
+        hideNewSegmentLayout();
     }
 
-    public static void hideSkipButton() {
-        skipSegment = null;
-        updateSkipButton();
-    }
-
-    private static void updateSkipButton() {
-        SkipSponsorButton skipSponsorButton = skipSponsorButtonRef.get();
-        if (skipSponsorButton == null) {
-            return;
-        }
-        if (skipSegment == null) {
-            setSkipSponsorButtonVisibility(false);
-        } else {
-            final boolean layoutNeedsUpdating = skipSponsorButton.updateSkipButtonText(skipSegment);
-            if (layoutNeedsUpdating) {
-                bringLayoutToFront();
-            }
-            setSkipSponsorButtonVisibility(true);
-        }
-    }
-
-    public static void showNewSegmentLayout() {
-        setNewSegmentLayoutVisibility(true);
-    }
-
-    public static void hideNewSegmentLayout() {
+    public static void showSkipHighlightButton(@NonNull SponsorSegment segment) {
+        skipHighlight = Objects.requireNonNull(segment);
         NewSegmentLayout newSegmentLayout = newSegmentLayoutRef.get();
-        if (newSegmentLayout == null) {
+        // don't show highlight button if create new segment is visible
+        final boolean buttonVisibility = newSegmentLayout != null && newSegmentLayout.getVisibility() != View.VISIBLE;
+        updateSkipButton(skipHighlightButtonRef.get(), segment, buttonVisibility);
+    }
+    public static void showSkipSegmentButton(@NonNull SponsorSegment segment) {
+        skipSegment = Objects.requireNonNull(segment);
+        updateSkipButton(skipSponsorButtonRef.get(), segment, true);
+    }
+
+    public static void hideSkipHighlightButton() {
+        skipHighlight = null;
+        updateSkipButton(skipHighlightButtonRef.get(), null, false);
+    }
+    public static void hideSkipSegmentButton() {
+        skipSegment = null;
+        updateSkipButton(skipSponsorButtonRef.get(), null, false);
+    }
+
+    private static void updateSkipButton(@Nullable SkipSponsorButton button,
+                                         @Nullable SponsorSegment segment, boolean visible) {
+        if (button == null) {
             return;
         }
-        setNewSegmentLayoutVisibility(false);
+        if (segment != null) {
+            button.updateSkipButtonText(segment);
+        }
+        setViewVisibility(button, visible);
     }
 
     public static void toggleNewSegmentLayoutVisibility() {
         NewSegmentLayout newSegmentLayout = newSegmentLayoutRef.get();
-        if (newSegmentLayout == null) {
+        if (newSegmentLayout == null) { // should never happen
             LogHelper.printException(() -> "toggleNewSegmentLayoutVisibility failure");
             return;
         }
-        setNewSegmentLayoutVisibility(newSegmentLayout.getVisibility() == View.VISIBLE ? false : true);
+        newSegmentLayoutVisible = (newSegmentLayout.getVisibility() != View.VISIBLE);
+        if (skipHighlight != null) {
+            setViewVisibility(skipHighlightButtonRef.get(), !newSegmentLayoutVisible);
+        }
+        setViewVisibility(newSegmentLayout, newSegmentLayoutVisible);
     }
 
-    private static void playerTypeChanged(PlayerType playerType) {
+    public static void hideNewSegmentLayout() {
+        newSegmentLayoutVisible = false;
+        NewSegmentLayout newSegmentLayout = newSegmentLayoutRef.get();
+        if (newSegmentLayout == null) {
+            return;
+        }
+        setViewVisibility(newSegmentLayout, false);
+    }
+
+    private static void setViewVisibility(@Nullable View view, boolean visible) {
+        if (view == null) {
+            return;
+        }
+        visible &= canShowViewElements;
+        final int desiredVisibility = visible ? View.VISIBLE : View.GONE;
+        if (view.getVisibility() != desiredVisibility) {
+            view.setVisibility(desiredVisibility);
+        }
+    }
+
+    private static void playerTypeChanged(@NonNull PlayerType playerType) {
         try {
             final boolean isWatchFullScreen = playerType == PlayerType.WATCH_WHILE_FULLSCREEN;
             canShowViewElements = (isWatchFullScreen || playerType == PlayerType.WATCH_WHILE_MAXIMIZED);
 
-            setSkipButtonMargins(isWatchFullScreen);
-            setNewSegmentLayoutMargins(isWatchFullScreen);
-            updateSkipButton();
+            NewSegmentLayout newSegmentLayout = newSegmentLayoutRef.get();
+            setNewSegmentLayoutMargins(newSegmentLayout, isWatchFullScreen);
+            setViewVisibility(newSegmentLayoutRef.get(), newSegmentLayoutVisible);
+
+            SkipSponsorButton skipHighlightButton = skipHighlightButtonRef.get();
+            setSkipButtonMargins(skipHighlightButton, isWatchFullScreen);
+            setViewVisibility(skipHighlightButton, skipHighlight != null);
+
+            SkipSponsorButton skipSponsorButton = skipSponsorButtonRef.get();
+            setSkipButtonMargins(skipSponsorButton, isWatchFullScreen);
+            setViewVisibility(skipSponsorButton, skipSegment != null);
         } catch (Exception ex) {
-            LogHelper.printException(() -> "Player type changed error", ex);
+            LogHelper.printException(() -> "Player type changed failure", ex);
         }
     }
 
-    private static void setSkipButtonMargins(boolean fullScreen) {
-        SkipSponsorButton skipSponsorButton = skipSponsorButtonRef.get();
-        if (skipSponsorButton == null) {
-            LogHelper.printException(() -> "setSkipButtonMargins failure");
-            return;
-        }
-
-        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) skipSponsorButton.getLayoutParams();
-        if (params == null) {
-            LogHelper.printException(() -> "setSkipButtonMargins failure");
-            return;
-        }
-        params.bottomMargin = fullScreen ? skipSponsorButton.ctaBottomMargin : skipSponsorButton.defaultBottomMargin;
-        skipSponsorButton.setLayoutParams(params);
-    }
-
-    private static void setSkipSponsorButtonVisibility(boolean visible) {
-        SkipSponsorButton skipSponsorButton = skipSponsorButtonRef.get();
-        if (skipSponsorButton == null) {
-            LogHelper.printException(() -> "setSkipSponsorButtonVisibility failure");
-            return;
-        }
-
-        visible &= canShowViewElements;
-
-        final int desiredVisibility = visible ? View.VISIBLE : View.GONE;
-        if (skipSponsorButton.getVisibility() != desiredVisibility) {
-            skipSponsorButton.setVisibility(desiredVisibility);
-            if (visible) {
-                bringLayoutToFront();
-            }
+    private static void setNewSegmentLayoutMargins(@Nullable NewSegmentLayout layout, boolean fullScreen) {
+         if (layout != null) {
+            setLayoutMargins(layout, fullScreen, layout.defaultBottomMargin, layout.ctaBottomMargin);
         }
     }
-
-    private static void setNewSegmentLayoutMargins(boolean fullScreen) {
-        NewSegmentLayout newSegmentLayout = newSegmentLayoutRef.get();
-        if (newSegmentLayout == null) {
-            LogHelper.printException(() -> "Unable to setNewSegmentLayoutMargins (button is null)");
-            return;
+    private static void setSkipButtonMargins(@Nullable SkipSponsorButton button, boolean fullScreen) {
+        if (button != null) {
+            setLayoutMargins(button, fullScreen, button.defaultBottomMargin, button.ctaBottomMargin);
         }
-
-        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) newSegmentLayout.getLayoutParams();
+    }
+    private static void setLayoutMargins(@NonNull View view, boolean fullScreen,
+                                         int defaultBottomMargin, int ctaBottomMargin) {
+        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) view.getLayoutParams();
         if (params == null) {
             LogHelper.printException(() -> "Unable to setNewSegmentLayoutMargins (params are null)");
             return;
         }
-        params.bottomMargin = fullScreen ? newSegmentLayout.ctaBottomMargin : newSegmentLayout.defaultBottomMargin;
-        newSegmentLayout.setLayoutParams(params);
-    }
-
-    private static void setNewSegmentLayoutVisibility(boolean visible) {
-        NewSegmentLayout newSegmentLayout = newSegmentLayoutRef.get();
-        if (newSegmentLayout == null) {
-            LogHelper.printException(() -> "setNewSegmentLayoutVisibility failure");
-            return;
-        }
-
-        visible &= canShowViewElements;
-
-        final int desiredVisibility = visible ? View.VISIBLE : View.GONE;
-        if (newSegmentLayout.getVisibility() != desiredVisibility) {
-            newSegmentLayout.setVisibility(desiredVisibility);
-            if (visible) {
-                bringLayoutToFront();
-            }
-        }
-    }
-
-    private static void bringLayoutToFront() {
-        RelativeLayout layout = inlineSponsorOverlayRef.get();
-        if (layout != null) {
-            // needed to keep skip button overtop end screen cards
-            layout.bringToFront();
-            layout.requestLayout();
-            layout.invalidate();
-        }
+        params.bottomMargin = fullScreen ? ctaBottomMargin : defaultBottomMargin;
+        view.setLayoutParams(params);
     }
 
     /**

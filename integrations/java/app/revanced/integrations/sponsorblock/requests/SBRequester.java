@@ -65,19 +65,15 @@ public class SBRequester {
                     JSONArray segment = obj.getJSONArray("segment");
                     final long start = (long) (segment.getDouble(0) * 1000);
                     final long end = (long) (segment.getDouble(1) * 1000);
-                    if ((end - start) < minSegmentDuration)
-                        continue;
 
-                    String categoryKey = obj.getString("category");
                     String uuid = obj.getString("UUID");
-                    boolean locked = obj.getInt("locked") == 1;
-
-                    SegmentCategory segmentCategory = SegmentCategory.byCategoryKey(categoryKey);
-                    if (segmentCategory == null) {
+                    final boolean locked = obj.getInt("locked") == 1;
+                    String categoryKey = obj.getString("category");
+                    SegmentCategory category = SegmentCategory.byCategoryKey(categoryKey);
+                    if (category == null) {
                         LogHelper.printException(() -> "Received unknown category: " + categoryKey); // should never happen
-                    } else if (segmentCategory.behaviour != CategoryBehaviour.IGNORE) {
-                        SponsorSegment sponsorSegment = new SponsorSegment(segmentCategory, uuid, start, end, locked);
-                        segments.add(sponsorSegment);
+                    } else if ((end - start) >= minSegmentDuration || category == SegmentCategory.HIGHLIGHT) {
+                        segments.add(new SponsorSegment(category, uuid, start, end, locked));
                     }
                 }
                 LogHelper.printDebug(() -> {

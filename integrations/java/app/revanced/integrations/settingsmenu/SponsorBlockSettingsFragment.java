@@ -64,8 +64,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
         try {
             final boolean enabled = SettingsEnum.SB_ENABLED.getBoolean();
             if (!enabled) {
-                SponsorBlockViewController.hideSkipButton();
-                SponsorBlockViewController.hideNewSegmentLayout();
+                SponsorBlockViewController.hideAll();
                 SegmentPlaybackController.setCurrentVideoId(null);
             } else if (!SettingsEnum.SB_CREATE_NEW_SEGMENT_ENABLED.getBoolean()) {
                 SponsorBlockViewController.hideNewSegmentLayout();
@@ -141,12 +140,13 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
             addNewSegment.setOnPreferenceChangeListener((preference1, o) -> {
                 Boolean newValue = (Boolean) o;
                 if (newValue && !SettingsEnum.SB_SEEN_GUIDELINES.getBoolean()) {
-                    SettingsEnum.SB_SEEN_GUIDELINES.saveValue(true);
                     new AlertDialog.Builder(preference1.getContext())
                             .setTitle(str("sb_guidelines_popup_title"))
                             .setMessage(str("sb_guidelines_popup_content"))
                             .setNegativeButton(str("sb_guidelines_popup_already_read"), null)
                             .setPositiveButton(str("sb_guidelines_popup_open"), (dialogInterface, i) -> openGuidelines())
+                            .setOnDismissListener(dialog -> SettingsEnum.SB_SEEN_GUIDELINES.saveValue(true))
+                            .setCancelable(false)
                             .show();
                 }
                 SettingsEnum.SB_CREATE_NEW_SEGMENT_ENABLED.saveValue(newValue);
@@ -350,7 +350,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
             segmentCategory.removeAll();
 
             Activity activity = getActivity();
-            for (SegmentCategory category : SegmentCategory.valuesWithoutUnsubmitted()) {
+            for (SegmentCategory category : SegmentCategory.categoriesWithoutUnsubmitted()) {
                 segmentCategory.addPreference(new SegmentCategoryListPreference(activity, category));
             }
         } catch (Exception ex) {

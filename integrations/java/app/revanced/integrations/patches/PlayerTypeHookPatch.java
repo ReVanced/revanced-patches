@@ -28,7 +28,7 @@ public class PlayerTypeHookPatch {
             LogHelper.printException(() -> "Unknown PlayerType encountered: " + type);
         } else {
             PlayerType.setCurrent(newType);
-            LogHelper.printDebug(() -> "YouTubePlayerOverlaysLayout player type was updated to " + newType);
+            LogHelper.printDebug(() -> "PlayerType was updated to: " + newType);
         }
     }
 }
