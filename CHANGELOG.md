@@ -1,3 +1,10 @@
+# [2.168.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.168.0-dev.1...v2.168.0-dev.2) (2023-04-16)
+
+
+### Features
+
+* **youtube/sponsorblock:** skip to video highlight ([#1874](https://github.com/revanced/revanced-patches/issues/1874)) ([ed335fb](https://github.com/revanced/revanced-patches/commit/ed335fb9a0009d74078564dcbbeabc99d2323bb4))
+
 # [2.168.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.167.1...v2.168.0-dev.1) (2023-04-16)
 
 
