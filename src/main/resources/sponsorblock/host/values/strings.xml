@@ -44,6 +44,8 @@
     <string name="sb_segments_selfpromo_sum">Similar to \'Sponsor\' except for unpaid or self promotion. Includes sections about merchandise, donations, or information about who they collaborated with</string>
     <string name="sb_segments_interaction">Interaction Reminder (Subscribe)</string>
     <string name="sb_segments_interaction_sum">A short reminder to like, subscribe or follow them in the middle of content. If it is long or about something specific, it should instead be under self promotion</string>
+    <string name="sb_segments_highlight">Highlight</string>
+    <string name="sb_segments_highlight_sum">The part of the video that most people are looking for</string>
     <string name="sb_segments_intro">Intermission/Intro Animation</string>
     <string name="sb_segments_intro_sum">An interval without actual content. Could be a pause, static frame, or repeating animation. Does not include transitions containing information</string>
     <string name="sb_segments_outro">Endcards/Credits</string>
@@ -56,9 +58,11 @@
     <string name="sb_segments_nomusic_sum">Only for use in music videos. Sections of music videos without music, that aren\'t already covered by another category</string>
 
     <string name="sb_skip_button_compact">Skip</string>
+    <string name="sb_skip_button_compact_highlight">Highlight</string>
     <string name="sb_skip_button_sponsor">Skip sponsor</string>
     <string name="sb_skip_button_selfpromo">Skip promo</string>
     <string name="sb_skip_button_interaction">Skip interact</string>
+    <string name="sb_skip_button_highlight">Skip to highlight</string>
     <string name="sb_skip_button_intro_beginning">Skip intro</string>
     <string name="sb_skip_button_intro_middle">Skip intermission</string>
     <string name="sb_skip_button_intro_end">Skip intermission</string>
@@ -73,6 +77,7 @@
     <string name="sb_skipped_sponsor">Skipped sponsor</string>
     <string name="sb_skipped_selfpromo">Skipped self promotion</string>
     <string name="sb_skipped_interaction">Skipped annoying reminder</string>
+    <string name="sb_skipped_highlight">Skipped to highlight</string>
     <string name="sb_skipped_intro_beginning">Skipped intro</string>
     <string name="sb_skipped_intro_middle">Skipped intermission</string>
     <string name="sb_skipped_intro_end">Skipped intermission</string>
@@ -119,7 +124,7 @@
     <string name="sb_new_segment_choose_category">Choose the segment category</string>
     <string name="sb_new_segment_disabled_category">Category is disabled in settings. Enable category to submit.</string>
     <string name="sb_new_segment_title">New SponsorBlock segment</string>
-    <string name="sb_new_segment_mark_time_as_question" formatted="false">Set %02d:%02d:%04d as the start or end of a new segment?</string>
+    <string name="sb_new_segment_mark_time_as_question" formatted="false">Set %02d:%02d:%03d as the start or end of a new segment?</string>
     <string name="sb_new_segment_mark_start">start</string>
     <string name="sb_new_segment_mark_end">end</string>
     <string name="sb_new_segment_now">now</string>
@@ -127,6 +132,7 @@
     <string name="sb_new_segment_time_end">Time the segment ends at</string>
     <string name="sb_new_segment_confirm_title">Are the times correct?</string>
     <string name="sb_new_segment_confirm_content" formatted="false">The segment lasts from %02d:%02d to %02d:%02d (%d minutes %02d seconds)\nIs it ready to submit?</string>
+    <string name="sb_new_segment_start_is_before_end">Start must be before the end</string>
     <string name="sb_new_segment_mark_locations_first">Mark two locations on the time bar first</string>
     <string name="sb_new_segment_preview_segment_first">Preview the segment, and ensure it skips smoothly</string>
     <string name="sb_new_segment_edit_by_hand_title">Edit timing of segment manually</string>

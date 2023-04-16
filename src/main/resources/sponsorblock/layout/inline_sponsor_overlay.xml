@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <app.revanced.integrations.sponsorblock.ui.SkipSponsorButton
+        android:id="@+id/sb_skip_highlight_button"
+        android:contentDescription="@string/sb_skip_button_compact_highlight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/inline_controls_bottom_bar_height"
+        android:focusable="true"
+        android:visibility="gone" />
+
+    <app.revanced.integrations.sponsorblock.ui.SkipSponsorButton
+        android:id="@+id/sb_skip_sponsor_button"
+        android:contentDescription="@string/sb_skip_button_compact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/inline_controls_bottom_bar_height"
+        android:focusable="true"
+        android:visibility="gone" />
+
     <app.revanced.integrations.sponsorblock.ui.NewSegmentLayout
         android:id="@+id/sb_new_segment_view"
         android:layout_width="wrap_content"
@@ -8,16 +30,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="@dimen/brand_interaction_default_bottom_margin"
-        android:focusable="true"
-        android:visibility="gone" />
-
-    <app.revanced.integrations.sponsorblock.ui.SkipSponsorButton
-        android:id="@+id/sb_skip_sponsor_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/inline_controls_bottom_bar_height"
         android:focusable="true"
         android:visibility="gone" />
 </merge>
