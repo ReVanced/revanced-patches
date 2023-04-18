@@ -1,3 +1,15 @@
+# [2.168.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.168.0-dev.2...v2.168.0-dev.3) (2023-04-18)
+
+
+### Bug Fixes
+
+* **youtubevanced/hide-ads:** remove broken ad filter ([#1881](https://github.com/revanced/revanced-patches/issues/1881)) ([2be5194](https://github.com/revanced/revanced-patches/commit/2be5194797e310a7a6cf2693fedd422405ae580c))
+
+
+### Features
+
+* **memegenerator:** `unlock-pro` patch ([#1902](https://github.com/revanced/revanced-patches/issues/1902)) ([3daf875](https://github.com/revanced/revanced-patches/commit/3daf875a2e64a5a32bcdffb5a9b15ee2a66d2741))
+
 # [2.168.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.168.0-dev.1...v2.168.0-dev.2) (2023-04-16)
 
 

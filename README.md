@@ -338,6 +338,14 @@ The official Patch bundle provided by ReVanced and the community.
 | `unlock-pro` | Unlocks all professional features. | 3.4.9 |
 </details>
 
+### [📦 `com.zombodroid.MemeGenerator`](https://play.google.com/store/apps/details?id=com.zombodroid.MemeGenerator)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-pro` | Unlocks pro features. | 4.6364 |
+</details>
+
 ### [📦 `com.awedea.nyx`](https://play.google.com/store/apps/details?id=com.awedea.nyx)
 <details>
 
