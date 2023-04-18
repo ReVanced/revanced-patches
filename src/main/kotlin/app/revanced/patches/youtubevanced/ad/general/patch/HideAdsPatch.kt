@@ -47,8 +47,7 @@ class HideAdsPatch : BytecodePatch(
                     "hero_promo_image",
                     "statement_banner",
                     "primetime_promo",
-                    "carousel_footered_layout",
-                    "feature_grid_interstitial"
+                    "carousel_footered_layout"
                 ).forEach { component ->
                     addInstructions(
                         insertIndex, """
