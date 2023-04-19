@@ -1,3 +1,10 @@
+# [2.168.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.168.0-dev.4...v2.168.0-dev.5) (2023-04-19)
+
+
+### Bug Fixes
+
+* **youtube/hide-video-action-buttons:** change 'Hide create, clip and thanks buttons' to default off ([#1923](https://github.com/revanced/revanced-patches/issues/1923)) ([734e328](https://github.com/revanced/revanced-patches/commit/734e328767c017d535a0359f8ba5e5816f4b17b8))
+
 # [2.168.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.168.0-dev.3...v2.168.0-dev.4) (2023-04-19)
 
 
