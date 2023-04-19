@@ -58,23 +58,23 @@ public class SegmentPlaybackController {
 
     /**
      * Because loading can take time, show the skip to highlight for a few seconds after the segments load.
-     * This is the end time (in milliseconds) to no longer show the initial display skip to highlight.
+     * This is the system time (in milliseconds) to no longer show the initial display skip to highlight.
      */
     private static long highlightSegmentInitialShowEndTime;
 
     /**
-     * Current (non-highlight) segment that user can manually skip
+     * Current (non-highlight) segment that user can manually skip.
      */
     @Nullable
     private static SponsorSegment segmentCurrentlyPlaying;
     /**
      * Currently playing manual skip segment, that is scheduled to hide.
-     * This will always be NULL or equal to {@link #segmentCurrentlyPlaying}
+     * This will always be NULL or equal to {@link #segmentCurrentlyPlaying}.
      */
     @Nullable
     private static SponsorSegment scheduledHideSegment;
     /**
-     * Upcoming segment that is scheduled to either autoskip or show the manual skip button
+     * Upcoming segment that is scheduled to either autoskip or show the manual skip button.
      */
     @Nullable
     private static SponsorSegment scheduledUpcomingSegment;
@@ -110,7 +110,7 @@ public class SegmentPlaybackController {
     }
 
     /**
-     * Clears all downloaded data
+     * Clears all downloaded data.
      */
     private static void clearData() {
         currentVideoId = null;
@@ -507,7 +507,7 @@ public class SegmentPlaybackController {
     }
 
     /**
-     * @param segment can be either a highlight or a regular manual skip segment
+     * @param segment can be either a highlight or a regular manual skip segment.
      */
     public static void onSkipSegmentClicked(@NonNull SponsorSegment segment) {
         try {
@@ -524,7 +524,7 @@ public class SegmentPlaybackController {
     }
 
     /**
-     * Injection point
+     * Injection point.
      */
     public static void setSponsorBarAbsoluteLeft(final Rect rect) {
         setSponsorBarAbsoluteLeft(rect.left);
@@ -557,7 +557,7 @@ public class SegmentPlaybackController {
     }
 
     /**
-     * Injection point
+     * Injection point.
      */
     public static void setSponsorBarAbsoluteRight(final Rect rect) {
         setSponsorBarAbsoluteRight(rect.right);
@@ -589,13 +589,14 @@ public class SegmentPlaybackController {
     }
 
     /**
-     * Injection point
+     * Injection point.
      */
     public static String appendTimeWithoutSegments(String totalTime) {
         try {
             if (SettingsEnum.SB_ENABLED.getBoolean() && SettingsEnum.SB_SHOW_TIME_WITHOUT_SEGMENTS.getBoolean()
                     && !TextUtils.isEmpty(totalTime) && !TextUtils.isEmpty(timeWithoutSegments)) {
-                return totalTime + timeWithoutSegments;
+                // Force LTR layout, to match the same LTR video time/length layout YouTube uses for all languages
+                return "\u202D" + totalTime + timeWithoutSegments; // u202D = left to right override
             }
         } catch (Exception ex) {
             LogHelper.printException(() -> "appendTimeWithoutSegments failure", ex);
@@ -631,13 +632,13 @@ public class SegmentPlaybackController {
         if (highlightSegmentTimeBarScreenWidth == -1) {
             highlightSegmentTimeBarScreenWidth = (int) TypedValue.applyDimension(
                     TypedValue.COMPLEX_UNIT_DIP, HIGHLIGHT_SEGMENT_DRAW_BAR_WIDTH,
-                    ReVancedUtils.getContext().getResources().getDisplayMetrics());
+                    Objects.requireNonNull(ReVancedUtils.getContext()).getResources().getDisplayMetrics());
         }
         return highlightSegmentTimeBarScreenWidth;
     }
 
     /**
-     * Injection point
+     * Injection point.
      */
     public static void drawSponsorTimeBars(final Canvas canvas, final float posY) {
         try {
