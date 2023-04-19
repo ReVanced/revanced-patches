@@ -1,3 +1,10 @@
+# [2.168.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.168.0-dev.3...v2.168.0-dev.4) (2023-04-19)
+
+
+### Bug Fixes
+
+* **youtube/return-youtube-dislike:** render dislikes when scrolling into the screen ([#1873](https://github.com/revanced/revanced-patches/issues/1873)) ([6f851e4](https://github.com/revanced/revanced-patches/commit/6f851e425337ff78437330624a3cd7167cc4f920))
+
 # [2.168.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.168.0-dev.2...v2.168.0-dev.3) (2023-04-18)
 
 
