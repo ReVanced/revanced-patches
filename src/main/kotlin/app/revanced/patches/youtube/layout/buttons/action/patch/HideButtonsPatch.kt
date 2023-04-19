@@ -61,7 +61,7 @@ class HideButtonsPatch : ResourcePatch {
                     SwitchPreference(
                         "revanced_hide_action_button",
                         StringResource("revanced_hide_action_button_title", "Hide create, clip and thanks buttons"),
-                        true,
+                        false,
                         StringResource("revanced_hide_action_button_summary_on", "Buttons are hidden"),
                         StringResource("revanced_hide_action_button_summary_off", "Buttons are shown")
                     ),
