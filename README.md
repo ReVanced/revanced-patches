@@ -10,7 +10,7 @@ The official Patch bundle provided by ReVanced and the community.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `always-autorepeat` | Always repeats the playing video again. | 18.08.37 |
-| `client-spoof` | Spoofs the YouTube or Vanced client to prevent playback issues. | all |
+| `client-spoof` | Spoofs a patched client to allow playback. | all |
 | `comments` | Hides components related to comments. | 18.08.37 |
 | `copy-video-url` | Adds buttons in player to copy video links. | 18.08.37 |
 | `custom-branding` | Changes the YouTube launcher icon and name to your choice (defaults to ReVanced). | all |
@@ -46,7 +46,6 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-video-action-buttons` | Adds the options to hide action buttons under a video. | 18.08.37 |
 | `hide-watch-in-vr` | Hides the option to watch in VR from the player settings flyout panel. | 18.08.37 |
 | `hide-watermark` | Hides creator's watermarks on videos. | 18.08.37 |
-| `microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG. | 18.08.37 |
 | `minimized-playback` | Enables minimized and background playback. | 18.08.37 |
 | `old-quality-layout` | Enables the original video quality flyout in the video player settings | 18.08.37 |
 | `open-links-externally` | Open links outside of the app directly in your browser. | 18.08.37 |
@@ -58,10 +57,11 @@ The official Patch bundle provided by ReVanced and the community.
 | `seekbar-tapping` | Enables tap-to-seek on the seekbar of the video player. | 18.08.37 |
 | `sponsorblock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. | 18.08.37 |
 | `spoof-app-version` | Tricks YouTube into thinking, you are running an older version of the app. One of the side effects also includes restoring the old UI. | 18.08.37 |
-| `spoof-signature-verification` | Spoofs the client to prevent playback issues. | 18.08.37 |
+| `spoof-signature-verification` | Spoofs a patched client to prevent playback issues. | 18.08.37 |
 | `swipe-controls` | Adds volume and brightness swipe controls. | 18.08.37 |
 | `tablet-mini-player` | Enables the tablet mini player layout. | 18.08.37 |
 | `theme` | Applies a custom theme. | all |
+| `vanced-microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG. | 18.08.37 |
 | `video-ads` | Removes ads in the video player. | 18.08.37 |
 </details>
 
@@ -164,7 +164,7 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `client-spoof` | Spoofs the YouTube or Vanced client to prevent playback issues. | all |
+| `client-spoof` | Spoofs a patched client to allow playback. | all |
 | `hide-ads` | Removes general ads. | all |
 </details>
 

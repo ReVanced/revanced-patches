@@ -1,3 +1,17 @@
+# [2.168.0-dev.7](https://github.com/revanced/revanced-patches/compare/v2.168.0-dev.6...v2.168.0-dev.7) (2023-04-20)
+
+
+### Bug Fixes
+
+* **youtube/microg-support:** remove incorrect patch dependency ([ec85a47](https://github.com/revanced/revanced-patches/commit/ec85a478cbcc252debf902918b8e90c797f57478))
+* **youtube/microg-support:** rename patch correctly ([d5c7d63](https://github.com/revanced/revanced-patches/commit/d5c7d63f75b6d9c1817f71a090516dc321eca086))
+* **youtube/spoof-signature-verification:** depend on `client-spoof` patch ([5547bd1](https://github.com/revanced/revanced-patches/commit/5547bd1ceb73bbfc934157ce87482226780a1f10))
+
+
+### Features
+
+* use better patch description ([32c0805](https://github.com/revanced/revanced-patches/commit/32c08056963fab4c5e69f8e5be7479f4b26cacc2))
+
 # [2.168.0-dev.6](https://github.com/revanced/revanced-patches/compare/v2.168.0-dev.5...v2.168.0-dev.6) (2023-04-20)
 
 
