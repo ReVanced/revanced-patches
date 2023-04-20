@@ -17,7 +17,7 @@ import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch
 @Name("client-spoof")
-@Description("Spoofs the YouTube or Vanced client to prevent playback issues.")
+@Description("Spoofs a patched client to allow playback.")
 @ClientSpoofCompatibility
 @Version("0.0.1")
 class ClientSpoofPatch : BytecodePatch(
