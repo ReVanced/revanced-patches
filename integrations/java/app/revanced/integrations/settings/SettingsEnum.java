@@ -71,12 +71,10 @@ public enum SettingsEnum {
     VIDEO_ADS_REMOVAL("revanced_video_ads_removal", BOOLEAN, TRUE, true),
 
     // Action buttons
-    HIDE_ACTION_BUTTON("revanced_hide_action_button", BOOLEAN, FALSE),
-    HIDE_DISLIKE_BUTTON("revanced_hide_dislike_button", BOOLEAN, FALSE),
+    HIDE_LIKE_DISLIKE_BUTTON("revanced_hide_like_dislike_button", BOOLEAN, FALSE),
     HIDE_DOWNLOAD_BUTTON("revanced_hide_download_button", BOOLEAN, FALSE),
-    HIDE_LIKE_BUTTON("revanced_hide_like_button", BOOLEAN, FALSE),
     HIDE_PLAYLIST_BUTTON("revanced_hide_playlist_button", BOOLEAN, FALSE),
-    HIDE_SHARE_BUTTON("revanced_hide_share_button", BOOLEAN, FALSE),
+    HIDE_ACTION_BUTTONS("revanced_hide_action_buttons", BOOLEAN, FALSE),
 
     // Layout settings
     DISABLE_STARTUP_SHORTS_PLAYER("revanced_startup_shorts_player_enabled", BOOLEAN, FALSE),
