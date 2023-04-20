@@ -1,5 +1,6 @@
 package app.revanced.patches.shared.misc.fix.spoof.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -23,15 +24,19 @@ class ClientSpoofPatch : BytecodePatch(
     listOf(UserAgentHeaderBuilderFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        val result = UserAgentHeaderBuilderFingerprint.result!!
-        val method = result.mutableMethod
+        UserAgentHeaderBuilderFingerprint.result?.let { result ->
+            val insertIndex = result.scanResult.patternScanResult!!.endIndex
+           result.mutableMethod.apply {
+               val packageNameRegister = (instruction(insertIndex) as FiveRegisterInstruction).registerD
+               addInstruction(insertIndex, "const-string v$packageNameRegister, \"$ORIGINAL_PACKAGE_NAME\"")
+           }
 
-        val insertIndex = result.scanResult.patternScanResult!!.endIndex
-        val packageNameRegister = (method.instruction(insertIndex) as FiveRegisterInstruction).registerD
-
-        val originalPackageName = "com.google.android.youtube"
-        method.addInstruction(insertIndex, "const-string v$packageNameRegister, \"$originalPackageName\"")
+        } ?: return UserAgentHeaderBuilderFingerprint.toErrorResult()
 
         return PatchResultSuccess()
+    }
+
+    private companion object {
+        private const val ORIGINAL_PACKAGE_NAME = "com.google.android.youtube"
     }
 }
