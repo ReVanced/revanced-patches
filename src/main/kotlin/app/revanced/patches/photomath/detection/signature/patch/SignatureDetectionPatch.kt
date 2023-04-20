@@ -9,12 +9,10 @@ import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patches.photomath.detection.signature.annotations.DisableSignatureDetectionCompatibility
 import app.revanced.patches.photomath.detection.signature.fingerprints.CheckSignatureFingerprint
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Description("Disables detection of incorrect signature.")
-@DisableSignatureDetectionCompatibility
 @Version("0.0.2")
 class SignatureDetectionPatch : BytecodePatch(
     listOf(
