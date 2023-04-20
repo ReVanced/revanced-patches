@@ -27,7 +27,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @Name("spoof-signature-verification")
-@Description("Spoofs the client to prevent playback issues.")
+@Description("Spoofs a patched client to prevent playback issues.")
 @ProtobufSpoofCompatibility
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class, PlayerTypeHookPatch::class])
 @Version("0.0.1")
