@@ -1,3 +1,10 @@
+# [2.168.0-dev.6](https://github.com/revanced/revanced-patches/compare/v2.168.0-dev.5...v2.168.0-dev.6) (2023-04-20)
+
+
+### Features
+
+* **photomath/unlock-plus:** bump compatibility to `8.21.1` ([#1926](https://github.com/revanced/revanced-patches/issues/1926)) ([33b77fa](https://github.com/revanced/revanced-patches/commit/33b77fac657c5bb1e1fac6ce745f65f71dabf6ad))
+
 # [2.168.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.168.0-dev.4...v2.168.0-dev.5) (2023-04-19)
 
 
