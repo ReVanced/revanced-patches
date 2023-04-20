@@ -1,3 +1,10 @@
+# [2.168.0-dev.8](https://github.com/revanced/revanced-patches/compare/v2.168.0-dev.7...v2.168.0-dev.8) (2023-04-20)
+
+
+### Bug Fixes
+
+* **youtube/hide-video-action-buttons:** fix 'hide share button' ([#1924](https://github.com/revanced/revanced-patches/issues/1924)) ([250df92](https://github.com/revanced/revanced-patches/commit/250df92a8280795a98453f031c1c29dcb1e83f7e))
+
 # [2.168.0-dev.7](https://github.com/revanced/revanced-patches/compare/v2.168.0-dev.6...v2.168.0-dev.7) (2023-04-20)
 
 
