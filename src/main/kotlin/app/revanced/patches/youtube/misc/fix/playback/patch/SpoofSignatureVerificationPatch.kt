@@ -14,6 +14,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patches.shared.misc.fix.spoof.patch.ClientSpoofPatch
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.fix.playback.annotation.ProtobufSpoofCompatibility
@@ -29,7 +30,12 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Name("spoof-signature-verification")
 @Description("Spoofs a patched client to prevent playback issues.")
 @ProtobufSpoofCompatibility
-@DependsOn([IntegrationsPatch::class, SettingsPatch::class, PlayerTypeHookPatch::class])
+@DependsOn([
+    IntegrationsPatch::class,
+    SettingsPatch::class,
+    PlayerTypeHookPatch::class,
+    ClientSpoofPatch::class
+])
 @Version("0.0.1")
 class SpoofSignatureVerificationPatch : BytecodePatch(
     listOf(
