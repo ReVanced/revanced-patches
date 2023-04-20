@@ -27,7 +27,7 @@ import app.revanced.util.microg.MicroGBytecodeHelper
         HideCastButtonPatch::class,
     ]
 )
-@Name("microg-support")
+@Name("vanced-microg-support")
 @Description("Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG.")
 @MicroGPatchCompatibility
 @Version("0.0.1")
