@@ -1,6 +1,5 @@
 package app.revanced.integrations.settingsmenu;
 
-import android.content.Context;
 import android.preference.PreferenceFragment;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +16,9 @@ import app.revanced.integrations.utils.ThemeHelper;
 
 public class ReVancedSettingActivity {
 
+    /**
+     * Injection point.
+     */
     public static void setTheme(LicenseActivity base) {
         final var whiteTheme = "Theme.YouTube.Settings";
         final var darkTheme = "Theme.YouTube.Settings.Dark";
@@ -24,11 +26,14 @@ public class ReVancedSettingActivity {
         final var theme = ThemeHelper.isDarkTheme() ? darkTheme : whiteTheme;
 
         LogHelper.printDebug(() -> "Using theme: " + theme);
-        base.setTheme(getIdentifier(theme, "style"));
+        base.setTheme(ReVancedUtils.getResourceIdentifier(theme, "style"));
     }
 
+    /**
+     * Injection point.
+     */
     public static void initializeSettings(LicenseActivity base) {
-        base.setContentView(getIdentifier("revanced_settings_with_toolbar", "layout"));
+        base.setContentView(ReVancedUtils.getResourceIdentifier("revanced_settings_with_toolbar", "layout"));
 
         PreferenceFragment preferenceFragment;
         String preferenceIdentifier;
@@ -46,7 +51,7 @@ public class ReVancedSettingActivity {
         }
 
         try {
-            TextView toolbar = getTextView((ViewGroup) base.findViewById(getIdentifier("toolbar", "id")));
+            TextView toolbar = getTextView((ViewGroup) base.findViewById(ReVancedUtils.getResourceIdentifier("toolbar", "id")));
             if (toolbar == null) {
                 // FIXME
                 // https://github.com/revanced/revanced-patches/issues/1384
@@ -58,7 +63,7 @@ public class ReVancedSettingActivity {
             LogHelper.printException(() -> "Could not set Toolbar title", e);
         }
 
-        base.getFragmentManager().beginTransaction().replace(getIdentifier("revanced_settings_fragments", "id"), preferenceFragment).commit();
+        base.getFragmentManager().beginTransaction().replace(ReVancedUtils.getResourceIdentifier("revanced_settings_fragments", "id"), preferenceFragment).commit();
     }
 
 
@@ -85,11 +90,5 @@ public class ReVancedSettingActivity {
     @Nullable
     public static TextView getTextView(ViewGroup viewGroup) {
         return getView(TextView.class, viewGroup);
-    }
-
-    private static int getIdentifier(String name, String defType) {
-        Context appContext = ReVancedUtils.getContext();
-        assert appContext != null;
-        return appContext.getResources().getIdentifier(name, defType, appContext.getPackageName());
     }
 }

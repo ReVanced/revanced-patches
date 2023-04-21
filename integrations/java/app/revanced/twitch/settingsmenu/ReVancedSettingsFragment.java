@@ -22,7 +22,6 @@ import androidx.annotation.Nullable;
 import app.revanced.twitch.settings.SettingsEnum;
 import app.revanced.twitch.utils.LogHelper;
 import app.revanced.twitch.utils.ReVancedUtils;
-
 import tv.twitch.android.app.core.LandingActivity;
 
 public class ReVancedSettingsFragment extends PreferenceFragment {
@@ -41,28 +40,28 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
      */
     private void syncPreference(@Nullable String key) {
         for (SettingsEnum setting : SettingsEnum.values()) {
-            if (!setting.getPath().equals(key) && key != null)
+            if (!setting.path.equals(key) && key != null)
                 continue;
 
-            Preference pref = this.findPreference(setting.getPath());
-            LogHelper.debug("Syncing setting '%s' with UI", setting.getPath());
+            Preference pref = this.findPreference(setting.path);
+            LogHelper.debug("Syncing setting '%s' with UI", setting.path);
 
             if (pref instanceof SwitchPreference) {
-                setting.setValue(((SwitchPreference) pref).isChecked());
+                SettingsEnum.setValue(setting, ((SwitchPreference) pref).isChecked());
             }
             else if (pref instanceof EditTextPreference) {
-                setting.setValue(((EditTextPreference) pref).getText());
+                SettingsEnum.setValue(setting, ((EditTextPreference) pref).getText());
             }
             else if (pref instanceof ListPreference) {
                 ListPreference listPref = (ListPreference) pref;
                 listPref.setSummary(listPref.getEntry());
-                setting.setValue(listPref.getValue());
+                SettingsEnum.setValue(setting, listPref.getValue());
             }
             else {
                 LogHelper.error("Setting '%s' cannot be handled!", pref);
             }
 
-            if (ReVancedUtils.getContext() != null && key != null && settingsInitialized && setting.shouldRebootOnChange()) {
+            if (ReVancedUtils.getContext() != null && key != null && settingsInitialized && setting.rebootApp) {
                 rebootDialog(getActivity());
             }
 

@@ -1,6 +1,6 @@
 package app.revanced.integrations.settingsmenu;
 
-import static app.revanced.integrations.sponsorblock.StringRef.str;
+import static app.revanced.integrations.utils.StringRef.str;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,7 +15,7 @@ import android.preference.SwitchPreference;
 import app.revanced.integrations.returnyoutubedislike.ReturnYouTubeDislike;
 import app.revanced.integrations.returnyoutubedislike.requests.ReturnYouTubeDislikeApi;
 import app.revanced.integrations.settings.SettingsEnum;
-import app.revanced.integrations.utils.SharedPrefHelper;
+import app.revanced.integrations.settings.SharedPrefCategory;
 
 public class ReturnYouTubeDislikeSettingsFragment extends PreferenceFragment {
 
@@ -35,27 +35,25 @@ public class ReturnYouTubeDislikeSettingsFragment extends PreferenceFragment {
     private SwitchPreference compactLayoutPreference;
 
     private void updateUIState() {
-        final boolean rydIsEnabled = SettingsEnum.RYD_ENABLED.getBoolean();
-
-        enabledPreference.setSummary(rydIsEnabled
+        enabledPreference.setSummary(SettingsEnum.RYD_ENABLED.getBoolean()
                 ? str("revanced_ryd_enable_summary_on")
                 : str("revanced_ryd_enable_summary_off"));
 
         percentagePreference.setSummary(SettingsEnum.RYD_SHOW_DISLIKE_PERCENTAGE.getBoolean()
                 ? str("revanced_ryd_dislike_percentage_summary_on")
                 : str("revanced_ryd_dislike_percentage_summary_off"));
-        percentagePreference.setEnabled(rydIsEnabled);
+        percentagePreference.setEnabled(SettingsEnum.RYD_SHOW_DISLIKE_PERCENTAGE.isAvailable());
 
         compactLayoutPreference.setSummary(SettingsEnum.RYD_USE_COMPACT_LAYOUT.getBoolean()
                 ? str("revanced_ryd_compact_layout_summary_on")
                 : str("revanced_ryd_compact_layout_summary_off"));
-        compactLayoutPreference.setEnabled(rydIsEnabled);
+        compactLayoutPreference.setEnabled(SettingsEnum.RYD_USE_COMPACT_LAYOUT.isAvailable());
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getPreferenceManager().setSharedPreferencesName(SharedPrefHelper.SharedPrefNames.RYD.getName());
+        getPreferenceManager().setSharedPreferencesName(SharedPrefCategory.RETURN_YOUTUBE_DISLIKE.prefName);
 
         Activity context = this.getActivity();
         PreferenceScreen preferenceScreen = getPreferenceManager().createPreferenceScreen(context);
@@ -78,8 +76,8 @@ public class ReturnYouTubeDislikeSettingsFragment extends PreferenceFragment {
         percentagePreference.setChecked(SettingsEnum.RYD_SHOW_DISLIKE_PERCENTAGE.getBoolean());
         percentagePreference.setTitle(str("revanced_ryd_dislike_percentage_title"));
         percentagePreference.setOnPreferenceChangeListener((pref, newValue) -> {
-            SettingsEnum.RYD_SHOW_DISLIKE_PERCENTAGE.saveValue((Boolean)newValue);
-
+            SettingsEnum.RYD_SHOW_DISLIKE_PERCENTAGE.saveValue(newValue);
+            ReturnYouTubeDislike.clearCache();
             updateUIState();
             return true;
         });
@@ -89,8 +87,8 @@ public class ReturnYouTubeDislikeSettingsFragment extends PreferenceFragment {
         compactLayoutPreference.setChecked(SettingsEnum.RYD_USE_COMPACT_LAYOUT.getBoolean());
         compactLayoutPreference.setTitle(str("revanced_ryd_compact_layout_title"));
         compactLayoutPreference.setOnPreferenceChangeListener((pref, newValue) -> {
-            SettingsEnum.RYD_USE_COMPACT_LAYOUT.saveValue((Boolean)newValue);
-
+            SettingsEnum.RYD_USE_COMPACT_LAYOUT.saveValue(newValue);
+            ReturnYouTubeDislike.clearCache();
             updateUIState();
             return true;
         });
@@ -102,7 +100,7 @@ public class ReturnYouTubeDislikeSettingsFragment extends PreferenceFragment {
         // About category
 
         PreferenceCategory aboutCategory = new PreferenceCategory(context);
-        aboutCategory.setTitle(str("about"));
+        aboutCategory.setTitle(str("revanced_ryd_about"));
         preferenceScreen.addPreference(aboutCategory);
 
         // ReturnYouTubeDislike Website

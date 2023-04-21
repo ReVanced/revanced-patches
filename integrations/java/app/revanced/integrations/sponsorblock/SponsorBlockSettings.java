@@ -1,202 +1,202 @@
 package app.revanced.integrations.sponsorblock;
 
-import static app.revanced.integrations.sponsorblock.StringRef.sf;
+import static app.revanced.integrations.utils.StringRef.str;
 
-import android.app.Activity;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.text.Html;
-import android.text.TextUtils;
+import android.util.Patterns;
 
+import androidx.annotation.NonNull;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.UUID;
 
 import app.revanced.integrations.settings.SettingsEnum;
-import app.revanced.integrations.utils.SharedPrefHelper;
+import app.revanced.integrations.settings.SharedPrefCategory;
+import app.revanced.integrations.sponsorblock.objects.CategoryBehaviour;
+import app.revanced.integrations.sponsorblock.objects.SegmentCategory;
+import app.revanced.integrations.utils.LogHelper;
+import app.revanced.integrations.utils.ReVancedUtils;
 
 public class SponsorBlockSettings {
 
-    public static final String CATEGORY_COLOR_SUFFIX = "_color";
-    public static final SegmentBehaviour DefaultBehaviour = SegmentBehaviour.IGNORE;
-    public static String sponsorBlockUrlCategories = "[]";
+    public static void importSettings(@NonNull String json) {
+        ReVancedUtils.verifyOnMainThread();
+        try {
+            JSONObject settingsJson = new JSONObject(json);
+            JSONObject barTypesObject = settingsJson.getJSONObject("barTypes");
+            JSONArray categorySelectionsArray = settingsJson.getJSONArray("categorySelections");
 
-    public static void update(Activity _activity) {
-        SharedPreferences preferences = SharedPrefHelper.getPreferences(SharedPrefHelper.SharedPrefNames.SPONSOR_BLOCK);
-
-        if (!SettingsEnum.SB_ENABLED.getBoolean()) {
-            SkipSegmentView.hide();
-            NewSegmentHelperLayout.hide();
-            SponsorBlockUtils.hideShieldButton();
-            SponsorBlockUtils.hideVoteButton();
-            PlayerController.sponsorSegmentsOfCurrentVideo = null;
-        } else { /*isAddNewSegmentEnabled*/
-            SponsorBlockUtils.showShieldButton();
-        }
-
-        if (!SettingsEnum.SB_NEW_SEGMENT_ENABLED.getBoolean()) {
-            NewSegmentHelperLayout.hide();
-            SponsorBlockUtils.hideShieldButton();
-        } else {
-            SponsorBlockUtils.showShieldButton();
-        }
-
-
-        if (!SettingsEnum.SB_VOTING_ENABLED.getBoolean())
-            SponsorBlockUtils.hideVoteButton();
-        else
-            SponsorBlockUtils.showVoteButton();
-
-        SegmentBehaviour[] possibleBehaviours = SegmentBehaviour.values();
-        final ArrayList<String> enabledCategories = new ArrayList<>(possibleBehaviours.length);
-        for (SegmentInfo segment : SegmentInfo.values()) {
-            String categoryColor = preferences.getString(segment.key + CATEGORY_COLOR_SUFFIX, SponsorBlockUtils.formatColorString(segment.defaultColor));
-            segment.setColor(Color.parseColor(categoryColor));
-
-            SegmentBehaviour behaviour = null;
-            String value = preferences.getString(segment.key, null);
-            if (value != null) {
-                for (SegmentBehaviour possibleBehaviour : possibleBehaviours) {
-                    if (possibleBehaviour.key.equals(value)) {
-                        behaviour = possibleBehaviour;
-                        break;
-                    }
+            for (SegmentCategory category : SegmentCategory.categoriesWithoutUnsubmitted()) {
+                // clear existing behavior, as browser plugin exports no behavior for ignored categories
+                category.behaviour = CategoryBehaviour.IGNORE;
+                if (barTypesObject.has(category.key)) {
+                    JSONObject categoryObject = barTypesObject.getJSONObject(category.key);
+                    category.setColor(categoryObject.getString("color"));
                 }
             }
-            if (behaviour != null) {
-                segment.behaviour = behaviour;
-            } else {
-                behaviour = segment.behaviour;
+
+            for (int i = 0; i < categorySelectionsArray.length(); i++) {
+                JSONObject categorySelectionObject = categorySelectionsArray.getJSONObject(i);
+
+                String categoryKey = categorySelectionObject.getString("name");
+                SegmentCategory category = SegmentCategory.byCategoryKey(categoryKey);
+                if (category == null) {
+                    continue; // unsupported category, ignore
+                }
+
+                final int desktopKey = categorySelectionObject.getInt("option");
+                CategoryBehaviour behaviour = CategoryBehaviour.byDesktopKey(desktopKey);
+                if (behaviour == null) {
+                    ReVancedUtils.showToastLong(categoryKey + " unknown behavior key: " + desktopKey);
+                } else if (category == SegmentCategory.HIGHLIGHT && behaviour == CategoryBehaviour.SKIP_AUTOMATICALLY_ONCE) {
+                    ReVancedUtils.showToastLong("Skip-once behavior not allowed for " + category.key);
+                    category.behaviour = CategoryBehaviour.SKIP_AUTOMATICALLY; // use closest match
+                } else {
+                    category.behaviour = behaviour;
+                }
+            }
+            SegmentCategory.updateEnabledCategories();
+
+            SharedPreferences.Editor editor = SharedPrefCategory.SPONSOR_BLOCK.preferences.edit();
+            for (SegmentCategory category : SegmentCategory.categoriesWithoutUnsubmitted()) {
+                category.save(editor);
+            }
+            editor.apply();
+
+            String userID = settingsJson.getString("userID");
+            if (!isValidSBUserId(userID)) {
+                throw new IllegalArgumentException("userId is blank");
+            }
+            SettingsEnum.SB_UUID.saveValue(userID);
+
+            SettingsEnum.SB_IS_VIP.saveValue(settingsJson.getBoolean("isVip"));
+            SettingsEnum.SB_SHOW_TOAST_ON_SKIP.saveValue(!settingsJson.getBoolean("dontShowNotice"));
+            SettingsEnum.SB_TRACK_SKIP_COUNT.saveValue(settingsJson.getBoolean("trackViewCount"));
+
+            String serverAddress = settingsJson.getString("serverAddress");
+            if (!isValidSBServerAddress(serverAddress)) {
+                throw new IllegalArgumentException(str("sb_api_url_invalid"));
+            }
+            SettingsEnum.SB_API_URL.saveValue(serverAddress);
+
+            SettingsEnum.SB_SHOW_TIME_WITHOUT_SEGMENTS.saveValue(settingsJson.getBoolean("showTimeWithSkips"));
+            final float minDuration = (float)settingsJson.getDouble("minDuration");
+            if (minDuration < 0) {
+                throw new IllegalArgumentException("invalid minDuration: " + minDuration);
+            }
+            SettingsEnum.SB_MIN_DURATION.saveValue(minDuration);
+
+            try {
+                int skipCount = settingsJson.getInt("skipCount");
+                if (skipCount < 0) {
+                    throw new IllegalArgumentException("invalid skipCount: " + skipCount);
+                }
+                SettingsEnum.SB_SKIPPED_SEGMENTS_NUMBER_SKIPPED.saveValue(skipCount);
+
+                final double minutesSaved = settingsJson.getDouble("minutesSaved");
+                if (minutesSaved < 0) {
+                    throw new IllegalArgumentException("invalid minutesSaved: " + minutesSaved);
+                }
+                SettingsEnum.SB_SKIPPED_SEGMENTS_TIME_SAVED.saveValue((long)(minutesSaved * 60 * 1000));
+            } catch (JSONException ex) {
+                // ignore. values were not exported in prior versions of ReVanced
             }
 
-            if (behaviour.showOnTimeBar && segment != SegmentInfo.UNSUBMITTED)
-                enabledCategories.add(segment.key);
+            ReVancedUtils.showToastLong(str("sb_settings_import_successful"));
+        } catch (Exception ex) {
+            LogHelper.printInfo(() -> "failed to import settings", ex); // use info level, as we are showing our own toast
+            ReVancedUtils.showToastLong(str("sb_settings_import_failed", ex.getMessage()));
         }
+    }
 
-        //"[%22sponsor%22,%22outro%22,%22music_offtopic%22,%22intro%22,%22selfpromo%22,%22interaction%22,%22preview%22]";
-        if (enabledCategories.isEmpty())
-            sponsorBlockUrlCategories = "[]";
-        else
-            sponsorBlockUrlCategories = "[%22" + TextUtils.join("%22,%22", enabledCategories) + "%22]";
+    @NonNull
+    public static String exportSettings() {
+        ReVancedUtils.verifyOnMainThread();
+        try {
+            LogHelper.printDebug(() -> "Creating SponsorBlock export settings string");
+            JSONObject json = new JSONObject();
+
+            JSONObject barTypesObject = new JSONObject(); // categories' colors
+            JSONArray categorySelectionsArray = new JSONArray(); // categories' behavior
+
+            SegmentCategory[] categories = SegmentCategory.categoriesWithoutUnsubmitted();
+            for (SegmentCategory category : categories) {
+                JSONObject categoryObject = new JSONObject();
+                String categoryKey = category.key;
+                categoryObject.put("color", category.colorString());
+                barTypesObject.put(categoryKey, categoryObject);
+
+                if (category.behaviour != CategoryBehaviour.IGNORE) {
+                    JSONObject behaviorObject = new JSONObject();
+                    behaviorObject.put("name", categoryKey);
+                    behaviorObject.put("option", category.behaviour.desktopKey);
+                    categorySelectionsArray.put(behaviorObject);
+                }
+            }
+            json.put("userID", SettingsEnum.SB_UUID.getString());
+            json.put("isVip", SettingsEnum.SB_IS_VIP.getBoolean());
+            json.put("serverAddress", SettingsEnum.SB_API_URL.getString());
+            json.put("dontShowNotice", !SettingsEnum.SB_SHOW_TOAST_ON_SKIP.getBoolean());
+            json.put("showTimeWithSkips", SettingsEnum.SB_SHOW_TIME_WITHOUT_SEGMENTS.getBoolean());
+            json.put("minDuration", SettingsEnum.SB_MIN_DURATION.getFloat());
+            json.put("trackViewCount", SettingsEnum.SB_TRACK_SKIP_COUNT.getBoolean());
+            json.put("skipCount", SettingsEnum.SB_SKIPPED_SEGMENTS_NUMBER_SKIPPED.getInt());
+            json.put("minutesSaved", SettingsEnum.SB_SKIPPED_SEGMENTS_TIME_SAVED.getLong() / (60f * 1000));
+
+            json.put("categorySelections", categorySelectionsArray);
+            json.put("barTypes", barTypesObject);
+
+            return json.toString(2);
+        } catch (Exception ex) {
+            LogHelper.printInfo(() -> "failed to export settings", ex); // use info level, as we are showing our own toast
+            ReVancedUtils.showToastLong(str("sb_settings_export_failed"));
+            return "";
+        }
+    }
+
+    public static boolean isValidSBUserId(@NonNull String userId) {
+        return !userId.isEmpty();
+    }
+
+    /**
+     * A non comprehensive check if a SB api server address is valid.
+     */
+    public static boolean isValidSBServerAddress(@NonNull String serverAddress) {
+        if (!Patterns.WEB_URL.matcher(serverAddress).matches()) {
+            return false;
+        }
+        // Verify url is only the server address and does not contain a path such as: "https://sponsor.ajay.app/api/"
+        // Could use Patterns.compile, but this is simpler
+        final int lastDotIndex = serverAddress.lastIndexOf('.');
+        if (lastDotIndex != -1 && serverAddress.substring(lastDotIndex).contains("/")) {
+            return false;
+        }
+        // Optionally, could also verify the domain exists using "InetAddress.getByName(serverAddress)"
+        // but that should not be done on the main thread.
+        // Instead, assume the domain exists and the user knows what they're doing.
+        return true;
+    }
+
+    private static boolean initialized;
+
+    public static void initialize() {
+        if (initialized) {
+            return;
+        }
+        initialized = true;
 
         String uuid = SettingsEnum.SB_UUID.getString();
-        if (uuid == null || uuid.length() == 0) {
+        if (uuid.isEmpty()) {
             uuid = (UUID.randomUUID().toString() +
                     UUID.randomUUID().toString() +
                     UUID.randomUUID().toString())
                     .replace("-", "");
             SettingsEnum.SB_UUID.saveValue(uuid);
         }
-    }
 
-    public enum SegmentBehaviour {
-        SKIP_AUTOMATICALLY_ONCE("skip-once", 3, sf("skip_automatically_once"), true, true),
-        SKIP_AUTOMATICALLY("skip", 2, sf("skip_automatically"), true, true),
-        MANUAL_SKIP("manual-skip", 1, sf("skip_showbutton"), false, true),
-        IGNORE("ignore", -1, sf("skip_ignore"), false, false);
-
-        public final String key;
-        public final int desktopKey;
-        public final StringRef name;
-        public final boolean skip;
-        public final boolean showOnTimeBar;
-
-        SegmentBehaviour(String key,
-                         int desktopKey,
-                         StringRef name,
-                         boolean skip,
-                         boolean showOnTimeBar) {
-            this.key = key;
-            this.desktopKey = desktopKey;
-            this.name = name;
-            this.skip = skip;
-            this.showOnTimeBar = showOnTimeBar;
-        }
-
-        public static SegmentBehaviour byDesktopKey(int desktopKey) {
-            for (SegmentBehaviour behaviour : values()) {
-                if (behaviour.desktopKey == desktopKey) {
-                    return behaviour;
-                }
-            }
-            return null;
-        }
-    }
-
-    public enum SegmentInfo {
-        SPONSOR("sponsor", sf("segments_sponsor"), sf("skipped_sponsor"), sf("segments_sponsor_sum"), SegmentBehaviour.SKIP_AUTOMATICALLY, 0xFF00d400),
-        INTRO("intro", sf("segments_intermission"), sf("skipped_intermission"), sf("segments_intermission_sum"), SegmentBehaviour.MANUAL_SKIP, 0xFF00ffff),
-        OUTRO("outro", sf("segments_endcards"), sf("skipped_endcard"), sf("segments_endcards_sum"), SegmentBehaviour.MANUAL_SKIP, 0xFF0202ed),
-        INTERACTION("interaction", sf("segments_subscribe"), sf("skipped_subscribe"), sf("segments_subscribe_sum"), SegmentBehaviour.SKIP_AUTOMATICALLY, 0xFFcc00ff),
-        SELF_PROMO("selfpromo", sf("segments_selfpromo"), sf("skipped_selfpromo"), sf("segments_selfpromo_sum"), SegmentBehaviour.SKIP_AUTOMATICALLY, 0xFFffff00),
-        MUSIC_OFFTOPIC("music_offtopic", sf("segments_nomusic"), sf("skipped_nomusic"), sf("segments_nomusic_sum"), SegmentBehaviour.MANUAL_SKIP, 0xFFff9900),
-        PREVIEW("preview", sf("segments_preview"), sf("skipped_preview"), sf("segments_preview_sum"), DefaultBehaviour, 0xFF008fd6),
-        FILLER("filler", sf("segments_filler"), sf("skipped_filler"), sf("segments_filler_sum"), DefaultBehaviour, 0xFF7300FF),
-        UNSUBMITTED("unsubmitted", StringRef.empty, sf("skipped_unsubmitted"), StringRef.empty, SegmentBehaviour.SKIP_AUTOMATICALLY, 0xFFFFFFFF);
-
-        private static final SegmentInfo[] mValuesWithoutUnsubmitted = new SegmentInfo[]{
-                SPONSOR,
-                INTRO,
-                OUTRO,
-                INTERACTION,
-                SELF_PROMO,
-                MUSIC_OFFTOPIC,
-                PREVIEW,
-                FILLER
-        };
-        private static final Map<String, SegmentInfo> mValuesMap = new HashMap<>(values().length);
-
-        static {
-            for (SegmentInfo value : valuesWithoutUnsubmitted())
-                mValuesMap.put(value.key, value);
-        }
-
-        public final String key;
-        public final StringRef title;
-        public final StringRef skipMessage;
-        public final StringRef description;
-        public final Paint paint;
-        public final int defaultColor;
-        public int color;
-        public SegmentBehaviour behaviour;
-
-        SegmentInfo(String key,
-                    StringRef title,
-                    StringRef skipMessage,
-                    StringRef description,
-                    SegmentBehaviour behaviour,
-                    int defaultColor) {
-
-            this.key = key;
-            this.title = title;
-            this.skipMessage = skipMessage;
-            this.description = description;
-            this.behaviour = behaviour;
-            this.defaultColor = defaultColor;
-            this.color = defaultColor;
-            this.paint = new Paint();
-        }
-
-        public static SegmentInfo[] valuesWithoutUnsubmitted() {
-            return mValuesWithoutUnsubmitted;
-        }
-
-        public static SegmentInfo byCategoryKey(String key) {
-            return mValuesMap.get(key);
-        }
-
-        public void setColor(int color) {
-            color = color & 0xFFFFFF;
-            this.color = color;
-            paint.setColor(color);
-            paint.setAlpha(255);
-        }
-
-        public CharSequence getTitleWithDot() {
-            return Html.fromHtml(String.format("<font color=\"#%06X\">⬤</font> %s", color, title));
-        }
+        SegmentCategory.loadFromPreferences();
     }
 }

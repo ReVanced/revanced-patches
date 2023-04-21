@@ -1,7 +1,5 @@
 package app.revanced.integrations.patches;
 
-import android.widget.Toast;
-
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.shared.PlayerType;
 import app.revanced.integrations.utils.LogHelper;
@@ -83,13 +81,8 @@ public class SpoofSignatureVerificationPatch {
             }
 
             SettingsEnum.SIGNATURE_SPOOFING.saveValue(true);
-            ReVancedUtils.runOnMainThread(() -> {
-                Toast.makeText(
-                        ReVancedUtils.getContext(),
-                        "Spoofing app signature to prevent playback issues", Toast.LENGTH_LONG
-                ).show();
-                // it would be great if the video could be forcefully reloaded, but currently there is no code to do this
-            });
+            ReVancedUtils.showToastLong("Spoofing app signature to prevent playback issues");
+            // it would be great if the video could be forcefully reloaded, but currently there is no code to do this
 
         } catch (Exception ex) {
             LogHelper.printException(() -> "onResponse failure", ex);

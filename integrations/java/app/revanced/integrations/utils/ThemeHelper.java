@@ -4,13 +4,18 @@ public class ThemeHelper {
     private static int themeValue;
 
     public static void setTheme(int value) {
-        themeValue = value;
-        LogHelper.printDebug(() -> "Theme value: " + themeValue);
+        if (themeValue != value) {
+            themeValue = value;
+            LogHelper.printDebug(() -> "Theme value: " + themeValue);
+        }
     }
 
     public static void setTheme(Object value) {
-        themeValue = ((Enum) value).ordinal();
-        LogHelper.printDebug(() -> "Theme value: " + themeValue);
+        final int newOrdinalValue = ((Enum) value).ordinal();
+        if (themeValue != newOrdinalValue) {
+            themeValue = newOrdinalValue;
+            LogHelper.printDebug(() -> "Theme value: " + themeValue);
+        }
     }
 
     public static boolean isDarkTheme() {

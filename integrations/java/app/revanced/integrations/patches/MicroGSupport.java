@@ -1,16 +1,16 @@
 package app.revanced.integrations.patches;
 
+import static app.revanced.integrations.utils.StringRef.str;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.widget.Toast;
-import app.revanced.integrations.utils.LogHelper;
-import app.revanced.integrations.utils.ReVancedUtils;
 
 import java.util.Objects;
 
-import static app.revanced.integrations.sponsorblock.StringRef.str;
+import app.revanced.integrations.utils.LogHelper;
+import app.revanced.integrations.utils.ReVancedUtils;
 
 public class MicroGSupport {
     private static final String MICROG_VENDOR = "com.mgoogle";
@@ -20,7 +20,7 @@ public class MicroGSupport {
     private static final Uri VANCED_MICROG_PROVIDER = Uri.parse("content://" + MICROG_VENDOR + ".android.gsf.gservices/prefix");
 
     private static void startIntent(Context context, String uriString, String message) {
-        Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+        ReVancedUtils.showToastLong(message);
 
         var intent = new Intent(Intent.ACTION_VIEW);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

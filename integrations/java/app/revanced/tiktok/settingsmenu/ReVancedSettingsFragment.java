@@ -21,9 +21,9 @@ import androidx.annotation.Nullable;
 import com.ss.android.ugc.aweme.splash.SplashActivity;
 
 import app.revanced.tiktok.settings.SettingsEnum;
+import app.revanced.tiktok.settings.SharedPrefCategory;
 import app.revanced.tiktok.settingsmenu.preference.DownloadPathPreference;
 import app.revanced.tiktok.utils.ReVancedUtils;
-import app.revanced.tiktok.utils.SharedPrefHelper;
 
 public class ReVancedSettingsFragment extends PreferenceFragment {
 
@@ -32,9 +32,9 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
 
     SharedPreferences.OnSharedPreferenceChangeListener listener = (sharedPreferences, str) -> {
         for (SettingsEnum setting : SettingsEnum.values()) {
-            if (!setting.getPath().equals(str)) continue;
+            if (!setting.path.equals(str)) continue;
 
-            if (ReVancedUtils.getAppContext() != null && this.settingsInitialized && setting.shouldRebootOnChange()) {
+            if (ReVancedUtils.getAppContext() != null && this.settingsInitialized && setting.rebootApp) {
                 rebootDialog(getActivity());
             }
         }
@@ -43,7 +43,7 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getPreferenceManager().setSharedPreferencesName(SharedPrefHelper.SharedPrefNames.TIKTOK_PREFS.getName());
+        getPreferenceManager().setSharedPreferencesName(SharedPrefCategory.TIKTOK_PREFS.prefName);
         getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(this.listener);
         this.Registered = true;
 
@@ -61,12 +61,14 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             {
                 SwitchPreference preference = new SwitchPreference(context);
                 feedFilter.addPreference(preference);
-                preference.setKey(SettingsEnum.TIK_REMOVE_ADS.getPath());
-                preference.setDefaultValue(SettingsEnum.TIK_REMOVE_ADS.getDefaultValue());
+                preference.setKey(SettingsEnum.TIK_REMOVE_ADS.path);
+                preference.setDefaultValue(SettingsEnum.TIK_REMOVE_ADS.defaultValue);
                 preference.setChecked(SettingsEnum.TIK_REMOVE_ADS.getBoolean());
                 preference.setTitle("Remove feed ads");
                 preference.setSummary("Remove ads from feed.");
                 preference.setOnPreferenceChangeListener((pref, newValue) -> {
+                    // FIXME: the value is already saved in the preferences.
+                    // instead of saving again, simple call SettingsEnum#setValue()
                     final boolean value = (Boolean) newValue;
                     SettingsEnum.TIK_REMOVE_ADS.saveValue(value);
                     return true;
@@ -76,8 +78,8 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             {
                 SwitchPreference preference = new SwitchPreference(context);
                 feedFilter.addPreference(preference);
-                preference.setKey(SettingsEnum.TIK_HIDE_LIVE.getPath());
-                preference.setDefaultValue(SettingsEnum.TIK_HIDE_LIVE.getDefaultValue());
+                preference.setKey(SettingsEnum.TIK_HIDE_LIVE.path);
+                preference.setDefaultValue(SettingsEnum.TIK_HIDE_LIVE.defaultValue);
                 preference.setChecked(SettingsEnum.TIK_HIDE_LIVE.getBoolean());
                 preference.setTitle("Hide livestreams");
                 preference.setSummary("Hide livestreams from feed.");
@@ -98,8 +100,8 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             {
                 DownloadPathPreference preference = new DownloadPathPreference(context);
                 download.addPreference(preference);
-                preference.setKey(SettingsEnum.TIK_DOWN_PATH.getPath());
-                preference.setDefaultValue(SettingsEnum.TIK_DOWN_PATH.getDefaultValue());
+                preference.setKey(SettingsEnum.TIK_DOWN_PATH.path);
+                preference.setDefaultValue(SettingsEnum.TIK_DOWN_PATH.defaultValue);
                 preference.setValue(SettingsEnum.TIK_DOWN_PATH.getString());
                 preference.setTitle("Download path");
                 preference.setSummary(Environment.getExternalStorageDirectory().getPath() + "/" + preference.getValue());
@@ -113,8 +115,8 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             {
                 SwitchPreference preference = new SwitchPreference(context);
                 download.addPreference(preference);
-                preference.setKey(SettingsEnum.TIK_DOWN_WATERMARK.getPath());
-                preference.setDefaultValue(SettingsEnum.TIK_DOWN_WATERMARK.getDefaultValue());
+                preference.setKey(SettingsEnum.TIK_DOWN_WATERMARK.path);
+                preference.setDefaultValue(SettingsEnum.TIK_DOWN_WATERMARK.defaultValue);
                 preference.setChecked(SettingsEnum.TIK_DOWN_WATERMARK.getBoolean());
                 preference.setTitle("Remove watermark");
                 preference.setOnPreferenceChangeListener((pref, newValue) -> {
@@ -134,8 +136,8 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             {
                 SwitchPreference preference = new SwitchPreference(context);
                 simSpoof.addPreference(preference);
-                preference.setKey(SettingsEnum.TIK_SIMSPOOF.getPath());
-                preference.setDefaultValue(SettingsEnum.TIK_SIMSPOOF.getDefaultValue());
+                preference.setKey(SettingsEnum.TIK_SIMSPOOF.path);
+                preference.setDefaultValue(SettingsEnum.TIK_SIMSPOOF.defaultValue);
                 preference.setChecked(SettingsEnum.TIK_SIMSPOOF.getBoolean());
                 preference.setTitle("Fake sim card info");
                 preference.setSummary("Bypass regional restriction by fake sim card information.");
@@ -149,8 +151,8 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             {
                 EditTextPreference preference = new EditTextPreference(context);
                 simSpoof.addPreference(preference);
-                preference.setKey(SettingsEnum.TIK_SIMSPOOF_ISO.getPath());
-                preference.setDefaultValue(SettingsEnum.TIK_SIMSPOOF_ISO.getDefaultValue());
+                preference.setKey(SettingsEnum.TIK_SIMSPOOF_ISO.path);
+                preference.setDefaultValue(SettingsEnum.TIK_SIMSPOOF_ISO.defaultValue);
                 preference.setText(SettingsEnum.TIK_SIMSPOOF_ISO.getString());
                 preference.setTitle("Country ISO");
                 preference.setSummary("us, uk, jp, ...");
@@ -164,8 +166,8 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             {
                 EditTextPreference preference = new EditTextPreference(context);
                 simSpoof.addPreference(preference);
-                preference.setKey(SettingsEnum.TIK_SIMSPOOF_MCCMNC.getPath());
-                preference.setDefaultValue(SettingsEnum.TIK_SIMSPOOF_MCCMNC.getDefaultValue());
+                preference.setKey(SettingsEnum.TIK_SIMSPOOF_MCCMNC.path);
+                preference.setDefaultValue(SettingsEnum.TIK_SIMSPOOF_MCCMNC.defaultValue);
                 preference.setText(SettingsEnum.TIK_SIMSPOOF_MCCMNC.getString());
                 preference.setTitle("Operator mcc+mnc");
                 preference.setSummary("mcc+mnc");
@@ -179,8 +181,8 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             {
                 EditTextPreference preference = new EditTextPreference(context);
                 simSpoof.addPreference(preference);
-                preference.setKey(SettingsEnum.TIK_SIMSPOOF_OP_NAME.getPath());
-                preference.setDefaultValue(SettingsEnum.TIK_SIMSPOOF_OP_NAME.getDefaultValue());
+                preference.setKey(SettingsEnum.TIK_SIMSPOOF_OP_NAME.path);
+                preference.setDefaultValue(SettingsEnum.TIK_SIMSPOOF_OP_NAME.defaultValue);
                 preference.setText(SettingsEnum.TIK_SIMSPOOF_OP_NAME.getString());
                 preference.setTitle("Operator name");
                 preference.setSummary("Name of the operator");
@@ -200,8 +202,8 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
         {
             SwitchPreference preference = new SwitchPreference(context);
             integration.addPreference(preference);
-            preference.setKey(SettingsEnum.TIK_DEBUG.getPath());
-            preference.setDefaultValue(SettingsEnum.TIK_DEBUG.getDefaultValue());
+            preference.setKey(SettingsEnum.TIK_DEBUG.path);
+            preference.setDefaultValue(SettingsEnum.TIK_DEBUG.defaultValue);
             preference.setChecked(SettingsEnum.TIK_DEBUG.getBoolean());
             preference.setTitle("Enable debug log");
             preference.setSummary("Show integration debug log.");

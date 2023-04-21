@@ -7,8 +7,8 @@ import app.revanced.integrations.utils.Event
  */
 @Suppress("unused")
 enum class PlayerType {
-    NONE, // includes Shorts playback
-    HIDDEN, // also includes YouTube Shorts and Stories, if a regular video is minimized and a Short/Story is then opened
+    NONE, // includes Shorts and Stories playback
+    HIDDEN, // A Shorts or Stories, if a regular video is minimized and a Short/Story is then opened
     WATCH_WHILE_MINIMIZED,
     WATCH_WHILE_MAXIMIZED,
     WATCH_WHILE_FULLSCREEN,
@@ -16,7 +16,7 @@ enum class PlayerType {
     WATCH_WHILE_SLIDING_MINIMIZED_MAXIMIZED,
     WATCH_WHILE_SLIDING_MINIMIZED_DISMISSED,
     WATCH_WHILE_SLIDING_FULLSCREEN_DISMISSED,
-    INLINE_MINIMAL,
+    INLINE_MINIMAL, // home feed video playback
     VIRTUAL_REALITY_FULLSCREEN,
     WATCH_WHILE_PICTURE_IN_PICTURE;
 
@@ -48,6 +48,7 @@ enum class PlayerType {
         /**
          * player type change listener
          */
+        @JvmStatic
         val onChange = Event<PlayerType>()
     }
 

@@ -1,9 +1,12 @@
 package app.revanced.integrations.patches.playback.speed;
 
 public class CustomVideoSpeedPatch {
-    // Values are useless as they are being overridden by the respective patch.
-    // This generates a .array segment in Dalvik bytecode
-    // which the patch utilizes to store the video speeds in, only
-    // if it has two or more default values.
-    public static final float[] videoSpeeds = { 0, 0 };
+    /**
+     * Default playback speeds offered by YouTube.
+     * Values are also used by {@link RememberPlaybackSpeedPatch}.
+     *
+     * If custom video speed is applied,
+     * then this array is overwritten by the patch with custom speeds
+     */
+    public static final float[] videoSpeeds = {0.25f, 0.75f, 1.0f, 1.25f, 1.5f, 1.75f, 2.0f};
 }

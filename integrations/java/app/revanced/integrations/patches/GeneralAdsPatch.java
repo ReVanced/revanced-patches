@@ -49,6 +49,7 @@ public final class GeneralAdsPatch extends Filter {
                 "_buttoned_layout",
                 "full_width_square_image_layout",
                 "_ad_with",
+                "video_display_button_group_layout",
                 "landscape_image_wide_button_layout"
         );
         var generalAds = new BlockRule(
@@ -61,7 +62,11 @@ public final class GeneralAdsPatch extends Filter {
                 "hero_promo_image",
                 "statement_banner",
                 "carousel_footered_layout",
-                "text_image_button_layout"
+                "text_image_button_layout",
+                "primetime_promo",
+                "feature_grid_interstitial",
+                "product_details",
+                "brand_video_shelf"
         );
         var movieAds = new BlockRule(
                 SettingsEnum.ADREMOVER_MOVIE_REMOVAL,
@@ -69,7 +74,8 @@ public final class GeneralAdsPatch extends Filter {
                 "compact_movie",
                 "horizontal_movie_shelf",
                 "movie_and_show_upsell_card",
-                "compact_tvfilm_item"
+                "compact_tvfilm_item",
+                "offer_module_root"
         );
 
         this.pathRegister.registerAll(

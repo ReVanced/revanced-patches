@@ -7,10 +7,18 @@ class Event<T> {
     private val eventListeners = mutableSetOf<(T) -> Unit>()
 
     operator fun plusAssign(observer: (T) -> Unit) {
+        addObserver(observer)
+    }
+
+    fun addObserver(observer: (T) -> Unit) {
         eventListeners.add(observer)
     }
 
     operator fun minusAssign(observer: (T) -> Unit) {
+        removeObserver(observer)
+    }
+
+    fun removeObserver(observer: (T) -> Unit) {
         eventListeners.remove(observer)
     }
 
