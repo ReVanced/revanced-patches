@@ -97,7 +97,7 @@
     <string name="sb_skip_ignore">Disable</string>
 
     <string name="sb_about">About</string>
-    <string name="sb_about_api">Sponsor.Ajay.app</string>
+    <string name="sb_about_api">sponsor.ajay.app</string>
     <string name="sb_about_api_sum">Data is provided by the SponsorBlock API. Tap here to learn more and see downloads for other platforms</string>
     <string name="sb_about_made_by">ReVanced integration by JakubWeg,\nrecoded by oSumAtrIX</string>
 
