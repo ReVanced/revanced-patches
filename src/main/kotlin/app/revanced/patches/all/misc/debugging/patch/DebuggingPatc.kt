@@ -9,7 +9,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import org.w3c.dom.Element
 
-@Patch
+@Patch(false)
 @Name("enable-android-debugging")
 @Description("Enables Android debugging capabilities.")
 @Version("0.0.1")
