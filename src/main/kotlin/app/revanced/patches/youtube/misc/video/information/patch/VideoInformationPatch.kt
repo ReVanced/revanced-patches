@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.misc.video.information.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -20,10 +21,16 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMu
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.video.information.annotation.VideoInformationCompatibility
 import app.revanced.patches.youtube.misc.video.information.fingerprints.*
+import app.revanced.patches.youtube.misc.video.speed.remember.patch.RememberPlaybackSpeedPatch
 import app.revanced.patches.youtube.misc.video.videoid.patch.VideoIdPatch
 import org.jf.dexlib2.AccessFlags
+import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.builder.BuilderInstruction
 import org.jf.dexlib2.builder.MutableMethodImplementation
+import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
+import org.jf.dexlib2.iface.instruction.Instruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.immutable.ImmutableMethod
 import org.jf.dexlib2.immutable.ImmutableMethodParameter
 import org.jf.dexlib2.util.MethodUtil
@@ -39,6 +46,7 @@ class VideoInformationPatch : BytecodePatch(
         CreateVideoPlayerSeekbarFingerprint,
         PlayerControllerSetTimeReferenceFingerprint,
         VideoTimeFingerprint,
+        OnPlaybackSpeedItemClickFingerprint,
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
@@ -96,15 +104,15 @@ class VideoInformationPatch : BytecodePatch(
         }
 
         /*
-        Inject call for video id
+         * Inject call for video id
          */
         val videoIdMethodDescriptor = "$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V"
         VideoIdPatch.injectCall(videoIdMethodDescriptor)
         VideoIdPatch.injectCallBackgroundPlay(videoIdMethodDescriptor)
 
         /*
-        Set the video time method
-        */
+         * Set the video time method
+         */
         with(PlayerControllerSetTimeReferenceFingerprint.result!!) {
             timeMethod = context.toMethodWalker(method)
                 .nextMethod(scanResult.patternScanResult!!.startIndex, true)
@@ -112,7 +120,7 @@ class VideoInformationPatch : BytecodePatch(
         }
 
         /*
-        Set the high precision video time method
+         * Set the high precision video time method
          */
         highPrecisionTimeMethod =
             (object : MethodFingerprint("V", null, listOf("J", "J", "J", "J", "I", "L"), null) {}).also {
@@ -120,9 +128,30 @@ class VideoInformationPatch : BytecodePatch(
             }.result!!.mutableMethod
 
         /*
-        Hook the methods which set the time
+         * Hook the methods which set the time
          */
-        highPrecisionTimeHook(INTEGRATIONS_CLASS_DESCRIPTOR, "setVideoTime")
+        highPrecisionTimeHook(INTEGRATIONS_CLASS_DESCRIPTOR, "setVideoTimeHighPrecision")
+
+
+        /*
+         * Hook the user playback speed selection
+         */
+        OnPlaybackSpeedItemClickFingerprint.result?.apply {
+            speedSelectionInsertMethod = mutableMethod
+            speedSelectionInsertIndex = scanResult.patternScanResult!!.startIndex - 3
+            speedSelectionValueRegister =
+                (mutableMethod.instruction(speedSelectionInsertIndex) as FiveRegisterInstruction).registerD
+
+            val speedSelectionMethodInstructions = mutableMethod.implementation!!.instructions
+            setPlaybackSpeedContainerClassFieldReference =
+                getReference(speedSelectionMethodInstructions, -1, Opcode.IF_EQZ)
+            setPlaybackSpeedClassFieldReference =
+                getReference(speedSelectionMethodInstructions, 1, Opcode.IGET)
+            setPlaybackSpeedMethodReference =
+                getReference(speedSelectionMethodInstructions, 2, Opcode.IGET)
+        } ?: return OnPlaybackSpeedItemClickFingerprint.toErrorResult()
+
+        userSelectedPlaybackSpeedHook(INTEGRATIONS_CLASS_DESCRIPTOR, "userSelectedPlaybackSpeed")
 
         return PatchResultSuccess()
     }
@@ -155,6 +184,7 @@ class VideoInformationPatch : BytecodePatch(
 
         /**
          * Hook the video time.
+         * The hook is usually called once per second.
          *
          * @param targetMethodClass The descriptor for the static method to invoke when the player controller is created.
          * @param targetMethodName The name of the static method to invoke when the player controller is created.
@@ -167,6 +197,8 @@ class VideoInformationPatch : BytecodePatch(
 
         /**
          * Hook the high precision video time.
+         * The hooks is called extremely often (10 to 15 times a seconds), so use with caution.
+         * Note: the hook is usually called _off_ the main thread
          *
          * @param targetMethodClass The descriptor for the static method to invoke when the player controller is created.
          * @param targetMethodName The name of the static method to invoke when the player controller is created.
@@ -182,5 +214,30 @@ class VideoInformationPatch : BytecodePatch(
             TIME(2),
             HIGH_PRECISION_TIME(0),
         }
+
+        private fun getReference(instructions: List<BuilderInstruction>, offset: Int, opcode: Opcode) =
+            instructions[instructions.indexOfFirst { it.opcode == opcode } + offset].reference
+
+        val Instruction.reference get() = (this as ReferenceInstruction).reference.toString()
+
+        private lateinit var speedSelectionInsertMethod: MutableMethod
+        private var speedSelectionInsertIndex = 0
+        private var speedSelectionValueRegister = 0
+
+        /**
+         * Hook the video speed selected by the user.
+         */
+        internal fun userSelectedPlaybackSpeedHook(targetMethodClass: String, targetMethodName: String) =
+            speedSelectionInsertMethod.addInstruction(
+            speedSelectionInsertIndex++,
+            "invoke-static {v$speedSelectionValueRegister}, $targetMethodClass->$targetMethodName(F)V"
+        )
+        
+        /**
+         * Used by [RememberPlaybackSpeedPatch]
+         */
+        internal lateinit var setPlaybackSpeedContainerClassFieldReference: String
+        internal lateinit var setPlaybackSpeedClassFieldReference: String
+        internal lateinit var setPlaybackSpeedMethodReference: String
     }
 }

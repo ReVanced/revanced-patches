@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.crowdfundingbox.bytecode.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -15,7 +16,7 @@ import app.revanced.patches.youtube.layout.hide.crowdfundingbox.annotations.Crow
 import app.revanced.patches.youtube.layout.hide.crowdfundingbox.bytecode.fingerprints.CrowdfundingBoxFingerprint
 import app.revanced.patches.youtube.layout.hide.crowdfundingbox.resource.patch.CrowdfundingBoxResourcePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
 @DependsOn([IntegrationsPatch::class, CrowdfundingBoxResourcePatch::class])
@@ -29,18 +30,20 @@ class CrowdfundingBoxPatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        val crowdfundingBoxResult = CrowdfundingBoxFingerprint.result!!
-        val crowdfundingBoxMethod = crowdfundingBoxResult.mutableMethod
+        CrowdfundingBoxFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val insertIndex = it.scanResult.patternScanResult!!.endIndex
+                val objectRegister = (instruction(insertIndex) as TwoRegisterInstruction).registerA
 
-        val moveResultObjectIndex =
-            crowdfundingBoxResult.scanResult.patternScanResult!!.endIndex - 2
-
-        crowdfundingBoxMethod.addInstruction(
-            moveResultObjectIndex + 1, """
-            invoke-static {v${(crowdfundingBoxMethod.instruction(moveResultObjectIndex) as OneRegisterInstruction).registerA}}, Lapp/revanced/integrations/patches/HideCrowdfundingBoxPatch;->hideCrowdfundingBox(Landroid/view/View;)V
-        """
-        )
+                addInstruction(insertIndex, "invoke-static {v$objectRegister}, $INTEGRATIONS_METHOD_DESCRIPTOR")
+            }
+        } ?: return CrowdfundingBoxFingerprint.toErrorResult()
 
         return PatchResultSuccess()
+    }
+
+    private companion object {
+        const val INTEGRATIONS_METHOD_DESCRIPTOR =
+            "Lapp/revanced/integrations/patches/HideCrowdfundingBoxPatch;->hideCrowdfundingBox(Landroid/view/View;)V"
     }
 }

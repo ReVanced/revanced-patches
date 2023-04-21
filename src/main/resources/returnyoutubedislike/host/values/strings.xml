@@ -21,6 +21,7 @@
     <string name="revanced_ryd_compact_layout_summary_on">Like button styled for minimum width</string>
     <string name="revanced_ryd_compact_layout_summary_off">Like button styled for best appearance</string>
 
+    <string name="revanced_ryd_about">About</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_attribution_summary">Dislike data is provided by the Return YouTube Dislike API.  Tap here to learn more.</string>
 

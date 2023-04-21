@@ -4,6 +4,7 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patcher.patch.annotations.RequiresIntegrations
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.util.patch.*
 import org.jf.dexlib2.iface.ClassDef
@@ -15,6 +16,7 @@ import java.util.*
 @Name("spoof-wifi-connection")
 @Description("Spoofs an existing Wi-Fi connection.")
 @Version("0.0.1")
+@RequiresIntegrations
 internal class SpoofWifiPatch : AbstractTransformInstructionsPatch<Instruction35cInfo>() {
 
     private companion object {

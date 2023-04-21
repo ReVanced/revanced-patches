@@ -7,7 +7,7 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 
-@FuzzyPatternScanMethod(2) // TODO: Find a good threshold value
+@FuzzyPatternScanMethod(2)
 object MiniPlayerDimensionsCalculatorFingerprint : MethodFingerprint(
     "V",
     AccessFlags.PUBLIC or AccessFlags.FINAL,

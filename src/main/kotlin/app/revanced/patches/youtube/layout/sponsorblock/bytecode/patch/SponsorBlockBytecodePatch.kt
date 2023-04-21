@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.sponsorblock.bytecode.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -22,6 +23,8 @@ import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
 import app.revanced.patches.youtube.layout.sponsorblock.annotations.SponsorBlockCompatibility
 import app.revanced.patches.youtube.layout.sponsorblock.bytecode.fingerprints.*
 import app.revanced.patches.youtube.layout.sponsorblock.resource.patch.SponsorBlockResourcePatch
+import app.revanced.patches.youtube.misc.autorepeat.fingerprints.AutoRepeatFingerprint
+import app.revanced.patches.youtube.misc.autorepeat.fingerprints.AutoRepeatParentFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playercontrols.bytecode.patch.PlayerControlsBytecodePatch
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
@@ -37,12 +40,14 @@ import org.jf.dexlib2.iface.reference.StringReference
 @Patch
 @DependsOn(
     dependencies = [
-        VideoInformationPatch::class, // updates video information and adds method to seek in video
-        PlayerControlsBytecodePatch::class,
-        PlayerTypeHookPatch::class,
         IntegrationsPatch::class,
+        VideoIdPatch::class,
+        // Required to skip segments on time.
+        VideoInformationPatch::class,
+        // Used to prevent SponsorBlock from running on Shorts because SponsorBlock does not yet support Shorts.
+        PlayerTypeHookPatch::class,
+        PlayerControlsBytecodePatch::class,
         SponsorBlockResourcePatch::class,
-        VideoIdPatch::class
     ]
 )
 @Name("sponsorblock")
@@ -52,39 +57,41 @@ import org.jf.dexlib2.iface.reference.StringReference
 class SponsorBlockBytecodePatch : BytecodePatch(
     listOf(
         SeekbarFingerprint,
-        NextGenWatchLayoutFingerprint,
         AppendTimeFingerprint,
         PlayerOverlaysLayoutInitFingerprint,
+        AutoRepeatParentFingerprint,
     )
 ) {
 
     private companion object {
-        const val INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR =
-            "Lapp/revanced/integrations/sponsorblock/PlayerController;"
+        const val INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR =
+            "Lapp/revanced/integrations/sponsorblock/SegmentPlaybackController;"
+        const val INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR =
+            "Lapp/revanced/integrations/sponsorblock/ui/CreateSegmentButtonController;"
+        const val INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR =
+            "Lapp/revanced/integrations/sponsorblock/ui/VotingButtonController;"
+        const val INTEGRATIONS_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR =
+            "Lapp/revanced/integrations/sponsorblock/ui/SponsorBlockViewController;"
     }
 
     override fun execute(context: BytecodeContext): PatchResult {
         /*
-        Hook the video time methods
+         * Hook the video time methods
          */
         with(VideoInformationPatch) {
             videoTimeHook(
-                INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR,
+                INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR,
                 "setVideoTime"
-            )
-            highPrecisionTimeHook(
-                INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR,
-                "setHighPrecisionVideoTime"
             )
         }
 
         /*
-         Set current video id
+         * Set current video id
          */
-        VideoIdPatch.injectCallBackgroundPlay("$INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
+        VideoIdPatch.injectCallBackgroundPlay("$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
 
         /*
-         Seekbar drawing
+         * Seekbar drawing
          */
         val seekbarSignatureResult = SeekbarFingerprint.result!!.let {
             SeekbarOnDrawFingerprint.apply { resolve(context, it.mutableClass) }
@@ -93,13 +100,13 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         val seekbarMethodInstructions = seekbarMethod.implementation!!.instructions
 
         /*
-         Get the instance of the seekbar rectangle
+         * Get the instance of the seekbar rectangle
          */
         for ((index, instruction) in seekbarMethodInstructions.withIndex()) {
             if (instruction.opcode != Opcode.MOVE_OBJECT_FROM16) continue
             seekbarMethod.addInstruction(
                 index + 1,
-                "invoke-static/range {p0 .. p0}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarRect(Ljava/lang/Object;)V"
+                "invoke-static/range {p0 .. p0}, $INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarRect(Ljava/lang/Object;)V"
             )
             break
         }
@@ -115,14 +122,14 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             // set the thickness of the segment
             seekbarMethod.addInstruction(
                 insertIndex,
-                "invoke-static {v${invokeInstruction.registerC}}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarThickness(I)V"
+                "invoke-static {v${invokeInstruction.registerC}}, $INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarThickness(I)V"
             )
             break
         }
 
         /*
-        Set rectangle absolute left and right positions
-        */
+         * Set rectangle absolute left and right positions
+         */
         val drawRectangleInstructions = seekbarMethodInstructions.withIndex().filter { (_, instruction) ->
             instruction is ReferenceInstruction && (instruction.reference as? MethodReference)?.name == "drawRect"
         }.map { (index, instruction) -> // TODO: improve code
@@ -136,27 +143,27 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         // the reason for that is that we get the index, add instructions and then the offset would be wrong
         seekbarMethod.addInstruction(
             indexLeft + 1,
-            "invoke-static {v$rectangleLeftRegister}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarAbsoluteLeft(Landroid/graphics/Rect;)V"
+            "invoke-static {v$rectangleLeftRegister}, $INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarAbsoluteLeft(Landroid/graphics/Rect;)V"
         )
         seekbarMethod.addInstruction(
             indexRight + 1,
-            "invoke-static {v$rectangleRightRegister}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarAbsoluteRight(Landroid/graphics/Rect;)V"
+            "invoke-static {v$rectangleRightRegister}, $INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarAbsoluteRight(Landroid/graphics/Rect;)V"
         )
 
         /*
-        Draw segment
-        */
+         * Draw segment
+         */
         val drawSegmentInstructionInsertIndex = (seekbarMethodInstructions.size - 1 - 2)
         val (canvasInstance, centerY) = (seekbarMethodInstructions[drawSegmentInstructionInsertIndex] as FiveRegisterInstruction).let {
             it.registerC to it.registerE
         }
         seekbarMethod.addInstruction(
             drawSegmentInstructionInsertIndex,
-            "invoke-static {v$canvasInstance, v$centerY}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->drawSponsorTimeBars(Landroid/graphics/Canvas;F)V"
+            "invoke-static {v$canvasInstance, v$centerY}, $INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->drawSponsorTimeBars(Landroid/graphics/Canvas;F)V"
         )
 
         /*
-        Voting & Shield button
+         * Voting & Shield button
          */
         val controlsMethodResult = PlayerControlsBytecodePatch.showPlayerControlsFingerprintResult
 
@@ -181,8 +188,8 @@ class SponsorBlockBytecodePatch : BytecodePatch(
                         method.addInstructions(
                             moveResultInstructionIndex + 1, // insert right after moving the view to the register and use that register
                             """
-                                invoke-static {v$inflatedViewRegister}, Lapp/revanced/integrations/sponsorblock/ShieldButton;->initialize(Ljava/lang/Object;)V
-                                invoke-static {v$inflatedViewRegister}, Lapp/revanced/integrations/sponsorblock/VotingButton;->initialize(Ljava/lang/Object;)V
+                                invoke-static {v$inflatedViewRegister}, $INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->initialize(Ljava/lang/Object;)V
+                                invoke-static {v$inflatedViewRegister}, $INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->initialize(Ljava/lang/Object;)V
                             """
                         )
                     }
@@ -193,8 +200,8 @@ class SponsorBlockBytecodePatch : BytecodePatch(
                         // change visibility of the buttons
                         invertVisibilityMethod.addInstructions(
                             0, """
-                                invoke-static {p1}, Lapp/revanced/integrations/sponsorblock/ShieldButton;->changeVisibilityNegatedImmediate(Z)V
-                                invoke-static {p1}, Lapp/revanced/integrations/sponsorblock/VotingButton;->changeVisibilityNegatedImmediate(Z)V
+                                invoke-static {p1}, $INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibilityNegatedImmediate(Z)V
+                                invoke-static {p1}, $INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibilityNegatedImmediate(Z)V
                             """.trimIndent()
                         )
                     }
@@ -203,15 +210,8 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         }
 
         // change visibility of the buttons
-        PlayerControlsBytecodePatch.injectVisibilityCheckCall("Lapp/revanced/integrations/sponsorblock/ShieldButton;->changeVisibility(Z)V")
-        PlayerControlsBytecodePatch.injectVisibilityCheckCall("Lapp/revanced/integrations/sponsorblock/VotingButton;->changeVisibility(Z)V")
-
-        // set SegmentHelperLayout.context to the player layout instance
-        val instanceRegister = 0
-        NextGenWatchLayoutFingerprint.result!!.mutableMethod.addInstruction(
-            3, // after super call
-            "invoke-static/range {p$instanceRegister}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->addSkipSponsorView15(Landroid/view/View;)V"
-        )
+        PlayerControlsBytecodePatch.injectVisibilityCheckCall("$INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibility(Z)V")
+        PlayerControlsBytecodePatch.injectVisibilityCheckCall("$INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibility(Z)V")
 
         // append the new time to the player layout
         val appendTimeFingerprintResult = AppendTimeFingerprint.result!!
@@ -221,18 +221,18 @@ class SponsorBlockBytecodePatch : BytecodePatch(
 
         appendTimeFingerprintResult.mutableMethod.addInstructions(
             appendTimePatternScanStartIndex + 2, """
-                    invoke-static {v$targetRegister}, Lapp/revanced/integrations/sponsorblock/SponsorBlockUtils;->appendTimeWithoutSegments(Ljava/lang/String;)Ljava/lang/String;
+                    invoke-static {v$targetRegister}, $INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->appendTimeWithoutSegments(Ljava/lang/String;)Ljava/lang/String;
                     move-result-object v$targetRegister
             """
         )
 
         // initialize the player controller
-        VideoInformationPatch.onCreateHook(INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR, "initialize")
+        VideoInformationPatch.onCreateHook(INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR, "initialize")
 
         // initialize the sponsorblock view
         PlayerOverlaysLayoutInitFingerprint.result!!.mutableMethod.addInstruction(
             6, // after inflating the view
-            "invoke-static {p0}, Lapp/revanced/integrations/sponsorblock/player/ui/SponsorBlockView;->initialize(Ljava/lang/Object;)V"
+            "invoke-static {p0}, $INTEGRATIONS_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR->initialize(Ljava/lang/Object;)V"
         )
 
         // get rectangle field name
@@ -244,7 +244,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
 
         // replace the "replaceMeWith*" strings
         context
-            .proxy(context.classes.first { it.type.endsWith("PlayerController;") })
+            .proxy(context.classes.first { it.type.endsWith("SegmentPlaybackController;") })
             .mutableClass
             .methods
             .find { it.name == "setSponsorBarRect" }
@@ -267,6 +267,18 @@ class SponsorBlockBytecodePatch : BytecodePatch(
                     }
                 }
             } ?: return PatchResultError("Could not find the method which contains the replaceMeWith* strings")
+
+
+        // The vote and create segment buttons automatically change their visibility when appropriate,
+        // but if buttons are showing when the end of the video is reached then they will not automatically hide.
+        // Add a hook to forcefully hide when the end of the video is reached.
+        AutoRepeatParentFingerprint.result ?: return AutoRepeatParentFingerprint.toErrorResult()
+        AutoRepeatFingerprint.also {
+            it.resolve(context, AutoRepeatParentFingerprint.result!!.classDef)
+        }.result?.mutableMethod?.addInstruction(
+            0,
+            "invoke-static {}, $INTEGRATIONS_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR->endOfVideoReached()V"
+        ) ?: return AutoRepeatFingerprint.toErrorResult()
 
         // TODO: isSBChannelWhitelisting implementation
 

@@ -9,11 +9,11 @@ import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.*
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.video.speed.custom.annotations.CustomPlaybackSpeedCompatibility
 import app.revanced.patches.youtube.misc.video.speed.custom.fingerprints.SpeedArrayGeneratorFingerprint
 import app.revanced.patches.youtube.misc.video.speed.custom.fingerprints.SpeedLimiterFingerprint
 import app.revanced.patches.youtube.misc.video.speed.custom.fingerprints.VideoSpeedPatchFingerprint
-import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import org.jf.dexlib2.builder.instruction.BuilderArrayPayload
 import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction

@@ -6,6 +6,7 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -20,6 +21,7 @@ import app.revanced.patches.youtube.layout.buttons.autoplay.fingerprints.LayoutC
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import org.jf.dexlib2.iface.instruction.Instruction
+import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 import org.jf.dexlib2.iface.reference.MethodReference
@@ -66,12 +68,15 @@ class HideAutoplayButtonPatch : BytecodePatch(
 
             val jumpInstruction = layoutGenMethodInstructions[insertIndex + branchIndex] as Instruction
 
+            // can be clobbered because this register is overwritten after the injected code
+            val clobberRegister = (instruction(insertIndex) as OneRegisterInstruction).registerA
+
             addInstructions(
                 insertIndex,
                 """
                 invoke-static {}, Lapp/revanced/integrations/patches/HideAutoplayButtonPatch;->isButtonShown()Z
-                move-result v11
-                if-eqz v11, :hidden
+                move-result v$clobberRegister
+                if-eqz v$clobberRegister, :hidden
             """, listOf(ExternalLabel("hidden", jumpInstruction))
             )
         } ?: return LayoutConstructorFingerprint.toErrorResult()

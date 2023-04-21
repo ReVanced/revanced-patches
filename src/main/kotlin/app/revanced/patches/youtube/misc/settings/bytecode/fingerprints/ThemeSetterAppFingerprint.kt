@@ -10,16 +10,16 @@ object ThemeSetterAppFingerprint : MethodFingerprint(
     AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("L", "L", "L", "L"),
     opcodes = listOf(
-        Opcode.CONST, //target reference
+        Opcode.CONST, // target reference
         Opcode.GOTO,
-        Opcode.CONST, //target reference
+        Opcode.CONST, // target reference
         Opcode.INVOKE_DIRECT,
         Opcode.RETURN_OBJECT,
         Opcode.NEW_INSTANCE,
-        Opcode.INVOKE_INTERFACE,
+        null, // changed from invoke interface to invoke virtual
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.SGET_OBJECT,
         Opcode.IF_NE,
-        Opcode.CONST, //target reference
+        Opcode.CONST, // target reference
     )
 )
