@@ -1,3 +1,10 @@
+## [2.169.1-dev.2](https://github.com/revanced/revanced-patches/compare/v2.169.1-dev.1...v2.169.1-dev.2) (2023-04-21)
+
+
+### Bug Fixes
+
+* **"enable-android-debugging:** don't include by default ([14b2128](https://github.com/revanced/revanced-patches/commit/14b212844f308b95ad6ed02c455716cd84c0db01))
+
 ## [2.169.1-dev.1](https://github.com/revanced/revanced-patches/compare/v2.169.0...v2.169.1-dev.1) (2023-04-21)
 
 
