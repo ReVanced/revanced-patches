@@ -1,3 +1,11 @@
+## [2.169.1-dev.1](https://github.com/revanced/revanced-patches/compare/v2.169.0...v2.169.1-dev.1) (2023-04-21)
+
+
+### Bug Fixes
+
+* **youtube/sponsorblock:** correct spelling mistake ([#1941](https://github.com/revanced/revanced-patches/issues/1941)) ([d9d0fe7](https://github.com/revanced/revanced-patches/commit/d9d0fe7e236ccce348e8b3214454d29656a853c0))
+* **youtube/sponsorblock:** use lowercase letters for URL string ([#1942](https://github.com/revanced/revanced-patches/issues/1942)) ([b58842a](https://github.com/revanced/revanced-patches/commit/b58842a5f6f3fbcf06e87821bbc1ad3be7ca2fc0))
+
 # [2.169.0](https://github.com/revanced/revanced-patches/compare/v2.168.0...v2.169.0) (2023-04-21)
 
 
