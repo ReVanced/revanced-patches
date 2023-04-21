@@ -154,7 +154,7 @@
     <string name="sb_stats_username_change">Tap here to change your username</string>
     <string name="sb_stats_username_change_unknown_error" formatted="false">Unable to change username: Status: %d %s</string>
     <string name="sb_stats_username_changed">Username successfully changed</string>
-    <string name="sb_stats_reputation" formatted="false">You\'re reputation is &lt;b>%.2f&lt;/b></string>
+    <string name="sb_stats_reputation" formatted="false">Your reputation is &lt;b>%.2f&lt;/b></string>
     <string name="sb_stats_submissions" formatted="false">You\'ve created &lt;b>%s&lt;/b> segments</string>
     <string name="sb_stats_saved_zero">SponsorBlock leaderboard</string>
     <string name="sb_stats_saved" formatted="false">You\'ve saved people from &lt;b>%s&lt;/b> segments</string>
