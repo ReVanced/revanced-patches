@@ -1,3 +1,10 @@
+## [2.169.1-dev.3](https://github.com/revanced/revanced-patches/compare/v2.169.1-dev.2...v2.169.1-dev.3) (2023-04-23)
+
+
+### Bug Fixes
+
+* **youtube/hide-video-action-buttons:** fix hide action buttons not working for some users ([#1959](https://github.com/revanced/revanced-patches/issues/1959)) ([3ff1489](https://github.com/revanced/revanced-patches/commit/3ff1489b32968e9bad3361f924b7079e7b6f29e2))
+
 ## [2.169.1-dev.2](https://github.com/revanced/revanced-patches/compare/v2.169.1-dev.1...v2.169.1-dev.2) (2023-04-21)
 
 
