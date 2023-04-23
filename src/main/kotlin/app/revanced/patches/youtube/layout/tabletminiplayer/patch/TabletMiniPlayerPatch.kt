@@ -67,10 +67,9 @@ class TabletMiniPlayerPatch : BytecodePatch(
          */
         MiniPlayerOverrideParentFingerprint.result?.let {
             if (!MiniPlayerOverrideFingerprint.resolve(context, it.classDef))
-                return MiniPlayerOverrideFingerprint.toErrorResult()
+                throw MiniPlayerOverrideFingerprint.toErrorResult()
 
             MiniPlayerOverrideFingerprint.addProxyCall()
-
         } ?: return MiniPlayerOverrideParentFingerprint.toErrorResult()
 
         /*
