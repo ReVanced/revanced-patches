@@ -93,7 +93,6 @@ public enum SettingsEnum {
     HIDE_FLOATING_MICROPHONE_BUTTON("revanced_hide_floating_microphone_button", BOOLEAN, TRUE, true),
     HIDE_FULLSCREEN_PANELS("revanced_hide_fullscreen_panels", BOOLEAN, TRUE),
     HIDE_INFO_CARDS("revanced_hide_infocards", BOOLEAN, TRUE),
-    HIDE_MIX_PLAYLISTS("revanced_hide_mix_playlists", BOOLEAN, FALSE, true),
     HIDE_PLAYER_BUTTONS("revanced_hide_player_buttons", BOOLEAN, FALSE),
     HIDE_PREVIEW_COMMENT("revanced_hide_preview_comment", BOOLEAN, FALSE, true),
     HIDE_SEEKBAR("revanced_hide_seekbar", BOOLEAN, FALSE),
