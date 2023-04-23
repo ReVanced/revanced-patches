@@ -1,3 +1,10 @@
+## [2.169.1-dev.4](https://github.com/revanced/revanced-patches/compare/v2.169.1-dev.3...v2.169.1-dev.4) (2023-04-23)
+
+
+### Bug Fixes
+
+* **twitch/block-embedded-ads:** correct spelling mistake ([#1962](https://github.com/revanced/revanced-patches/issues/1962)) ([100d9dd](https://github.com/revanced/revanced-patches/commit/100d9dd7e0b9d83a96fb25c2ffda06fc018830e4))
+
 ## [2.169.1-dev.3](https://github.com/revanced/revanced-patches/compare/v2.169.1-dev.2...v2.169.1-dev.3) (2023-04-23)
 
 
