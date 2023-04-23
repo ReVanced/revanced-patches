@@ -24,7 +24,7 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
-@Name("enable-wide-searchbar")
+@Name("wide-searchbar")
 @Description("Replaces the search icon with a wide search bar. This will hide the YouTube logo when active.")
 @WideSearchbarCompatibility
 @Version("0.0.1")
@@ -79,7 +79,7 @@ class WideSearchbarPatch : BytecodePatch(
             addInstructions(
                 implementation!!.instructions.size - 1,
                 """
-                    invoke-static {}, Lapp/revanced/integrations/patches/NewActionbarPatch;->getNewActionBar()Z
+                    invoke-static {}, Lapp/revanced/integrations/patches/WideSearchbarPatch;->enableWideSearchbar()Z
                     move-result p0
                 """
             )
