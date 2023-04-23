@@ -33,6 +33,30 @@ class WideSearchbarPatch : BytecodePatch(
         SetWordmarkHeaderFingerprint, DrawActionBarFingerprint
     )
 ) {
+    override fun execute(context: BytecodeContext): PatchResult {
+        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
+            SwitchPreference(
+                "revanced_wide_searchbar",
+                StringResource("revanced_wide_searchbar_enabled_title", "Enable wide search bar"),
+                false,
+                StringResource("revanced_wide_searchbar_summary_on", "Wide search bar is enabled"),
+                StringResource("revanced_wide_searchbar_summary_off", "Wide search bar is disabled")
+            )
+        )
+
+        val result = DrawActionBarFingerprint.result ?: return DrawActionBarFingerprint.toErrorResult()
+
+        // patch methods
+        mapOf(
+            SetWordmarkHeaderFingerprint to 1,
+            DrawActionBarFingerprint to result.scanResult.patternScanResult!!.endIndex
+        ).forEach { (fingerprint, callIndex) ->
+            context.walkMutable(callIndex, fingerprint).injectSearchBarHook()
+        }
+
+        return PatchResultSuccess()
+    }
+
     private companion object {
         /**
          * Walk a fingerprints method at a given index mutably.
@@ -60,29 +84,5 @@ class WideSearchbarPatch : BytecodePatch(
                 """
             )
         }
-    }
-
-    override fun execute(context: BytecodeContext): PatchResult {
-        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_wide_searchbar",
-                StringResource("revanced_wide_searchbar_enabled_title", "Enable wide search bar"),
-                false,
-                StringResource("revanced_wide_searchbar_summary_on", "Wide search bar is enabled"),
-                StringResource("revanced_wide_searchbar_summary_off", "Wide search bar is disabled")
-            )
-        )
-
-        val result = DrawActionBarFingerprint.result ?: return DrawActionBarFingerprint.toErrorResult()
-
-        // patch methods
-        mapOf(
-            SetWordmarkHeaderFingerprint to 1,
-            DrawActionBarFingerprint to result.scanResult.patternScanResult!!.endIndex
-        ).forEach { (fingerprint, callIndex) ->
-            context.walkMutable(callIndex, fingerprint).injectSearchBarHook()
-        }
-
-        return PatchResultSuccess()
     }
 }
