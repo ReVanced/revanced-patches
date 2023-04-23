@@ -74,6 +74,7 @@ public enum SettingsEnum {
     HIDE_LIKE_DISLIKE_BUTTON("revanced_hide_like_dislike_button", BOOLEAN, FALSE),
     HIDE_DOWNLOAD_BUTTON("revanced_hide_download_button", BOOLEAN, FALSE),
     HIDE_PLAYLIST_BUTTON("revanced_hide_playlist_button", BOOLEAN, FALSE),
+    HIDE_CLIP_BUTTON("revanced_hide_clip_button", BOOLEAN, FALSE, "revanced_hide_clip_button_user_dialog_message"),
     HIDE_ACTION_BUTTONS("revanced_hide_action_buttons", BOOLEAN, FALSE),
 
     // Layout settings
