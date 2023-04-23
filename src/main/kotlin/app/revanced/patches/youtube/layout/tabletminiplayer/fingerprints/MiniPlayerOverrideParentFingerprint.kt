@@ -9,5 +9,5 @@ object MiniPlayerOverrideParentFingerprint : MethodFingerprint(
     returnType = "L",
     access = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("L"),
-    strings = listOf("VIDEO_QUALITIES_QUICK_MENU_BOTTOM_SHEET_FRAGMENT")
+    strings = listOf("PLAYBACK_RATE_MENU_BOTTOM_SHEET_FRAGMENT")
 )

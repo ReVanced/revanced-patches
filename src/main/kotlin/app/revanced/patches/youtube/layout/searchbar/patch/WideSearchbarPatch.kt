@@ -17,7 +17,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.layout.searchbar.annotations.WideSearchbarCompatibility
-import app.revanced.patches.youtube.layout.searchbar.fingerprints.DrawActionBarFingerprint
+import app.revanced.patches.youtube.layout.searchbar.fingerprints.CreateSearchSuggestionsFingerprint
 import app.revanced.patches.youtube.layout.searchbar.fingerprints.SetWordmarkHeaderFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
@@ -30,7 +30,7 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 @Version("0.0.1")
 class WideSearchbarPatch : BytecodePatch(
     listOf(
-        SetWordmarkHeaderFingerprint, DrawActionBarFingerprint
+        SetWordmarkHeaderFingerprint, CreateSearchSuggestionsFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
@@ -44,12 +44,12 @@ class WideSearchbarPatch : BytecodePatch(
             )
         )
 
-        val result = DrawActionBarFingerprint.result ?: return DrawActionBarFingerprint.toErrorResult()
+        val result = CreateSearchSuggestionsFingerprint.result ?: return CreateSearchSuggestionsFingerprint.toErrorResult()
 
         // patch methods
         mapOf(
             SetWordmarkHeaderFingerprint to 1,
-            DrawActionBarFingerprint to result.scanResult.patternScanResult!!.endIndex
+            CreateSearchSuggestionsFingerprint to result.scanResult.patternScanResult!!.startIndex
         ).forEach { (fingerprint, callIndex) ->
             context.walkMutable(callIndex, fingerprint).injectSearchBarHook()
         }
@@ -68,7 +68,7 @@ class WideSearchbarPatch : BytecodePatch(
         fun BytecodeContext.walkMutable(index: Int, fromFingerprint: MethodFingerprint) =
             fromFingerprint.result?.let {
                 toMethodWalker(it.method).nextMethod(index, true).getMethod() as MutableMethod
-            } ?: throw SetWordmarkHeaderFingerprint.toErrorResult()
+            } ?: throw fromFingerprint.toErrorResult()
 
 
         /**

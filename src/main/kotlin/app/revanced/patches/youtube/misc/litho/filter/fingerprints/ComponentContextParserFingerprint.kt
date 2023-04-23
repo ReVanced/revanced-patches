@@ -9,5 +9,5 @@ object ComponentContextParserFingerprint : MethodFingerprint(
         Opcode.IPUT_OBJECT,
         Opcode.NEW_INSTANCE
     ),
-    strings = listOf("LoggingProperties are not in proto format")
+    strings = listOf("Component was not found %s because it was removed due to duplicate converter bindings")
 )
