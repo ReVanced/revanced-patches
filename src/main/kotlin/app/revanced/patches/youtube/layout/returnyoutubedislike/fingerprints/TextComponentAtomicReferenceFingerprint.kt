@@ -16,15 +16,16 @@ object TextComponentAtomicReferenceFingerprint : MethodFingerprint(
         Opcode.MOVE_OBJECT, // available unused register
         Opcode.MOVE_OBJECT_FROM16,
         Opcode.MOVE_OBJECT_FROM16,
-        Opcode.MOVE_FROM16,
+        Opcode.MOVE_OBJECT_FROM16,
+        Opcode.MOVE_OBJECT_FROM16,
         Opcode.INVOKE_VIRTUAL, // CharSequence atomic reference
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,
         Opcode.MOVE_OBJECT, // CharSequence reference, and control flow label. Insert code here.
-        Opcode.INVOKE_VIRTUAL_RANGE,
+        Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
         Opcode.IF_EQZ,
-        Opcode.INVOKE_VIRTUAL_RANGE,
+        Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.GOTO,
         Opcode.CONST_4,

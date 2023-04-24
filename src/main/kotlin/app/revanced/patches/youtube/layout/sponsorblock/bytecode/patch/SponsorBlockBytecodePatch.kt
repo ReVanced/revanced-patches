@@ -21,7 +21,9 @@ import app.revanced.patches.shared.fingerprints.SeekbarFingerprint
 import app.revanced.patches.shared.fingerprints.SeekbarOnDrawFingerprint
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
 import app.revanced.patches.youtube.layout.sponsorblock.annotations.SponsorBlockCompatibility
-import app.revanced.patches.youtube.layout.sponsorblock.bytecode.fingerprints.*
+import app.revanced.patches.youtube.layout.sponsorblock.bytecode.fingerprints.AppendTimeFingerprint
+import app.revanced.patches.youtube.layout.sponsorblock.bytecode.fingerprints.PlayerOverlaysLayoutInitFingerprint
+import app.revanced.patches.youtube.layout.sponsorblock.bytecode.fingerprints.RectangleFieldInvalidatorFingerprint
 import app.revanced.patches.youtube.layout.sponsorblock.resource.patch.SponsorBlockResourcePatch
 import app.revanced.patches.youtube.misc.autorepeat.fingerprints.AutoRepeatFingerprint
 import app.revanced.patches.youtube.misc.autorepeat.fingerprints.AutoRepeatParentFingerprint
@@ -153,14 +155,22 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         /*
          * Draw segment
          */
-        val drawSegmentInstructionInsertIndex = (seekbarMethodInstructions.size - 1 - 2)
-        val (canvasInstance, centerY) = (seekbarMethodInstructions[drawSegmentInstructionInsertIndex] as FiveRegisterInstruction).let {
-            it.registerC to it.registerE
+
+        // Find the drawCircle call and draw the segment before it
+        for (i in seekbarMethodInstructions.size - 1 downTo 0) {
+            val invokeInstruction = seekbarMethodInstructions[i] as? ReferenceInstruction ?: continue
+            if ((invokeInstruction.reference as MethodReference).name != "drawCircle") continue
+
+            val (canvasInstance, centerY) = (invokeInstruction as FiveRegisterInstruction).let {
+                it.registerC to it.registerE
+            }
+            seekbarMethod.addInstruction(
+                i,
+                "invoke-static {v$canvasInstance, v$centerY}, $INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->drawSponsorTimeBars(Landroid/graphics/Canvas;F)V"
+            )
+
+            break
         }
-        seekbarMethod.addInstruction(
-            drawSegmentInstructionInsertIndex,
-            "invoke-static {v$canvasInstance, v$centerY}, $INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->drawSponsorTimeBars(Landroid/graphics/Canvas;F)V"
-        )
 
         /*
          * Voting & Shield button

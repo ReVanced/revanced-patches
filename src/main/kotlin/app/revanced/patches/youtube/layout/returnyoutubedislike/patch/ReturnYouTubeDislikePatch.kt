@@ -26,6 +26,7 @@ import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.video.videoid.patch.VideoIdPatch
 import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
+import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -101,14 +102,15 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
 
             textComponentContextFingerprintResult.mutableMethod.apply {
                 // Get the conversion context obfuscated field name, and the registers for the AtomicReference and CharSequence
-                val conversionContextFieldName =
-                    (instruction(conversionContextIndex) as ReferenceInstruction).reference.toString()
-                val contextRegister = // any free register
+                val conversionContextFieldReference =
+                    (instruction(conversionContextIndex) as ReferenceInstruction).reference
+                // any free register
+                val contextRegister =
                     (instruction(atomicReferenceStartIndex) as TwoRegisterInstruction).registerB
                 val atomicReferenceRegister =
-                    (instruction(atomicReferenceStartIndex + 4) as BuilderInstruction35c).registerC
+                    (instruction(atomicReferenceStartIndex + 5) as FiveRegisterInstruction).registerC
 
-                val insertIndex = atomicReferenceStartIndex + 7
+                val insertIndex = atomicReferenceStartIndex + 8
                 val moveCharSequenceInstruction = instruction(insertIndex) as TwoRegisterInstruction
                 val charSequenceRegister = moveCharSequenceInstruction.registerB
 
@@ -117,10 +119,10 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
                 replaceInstruction(insertIndex, "move-object/from16 v$contextRegister, p0")
                 addInstructions(
                     insertIndex + 1, """
-                        iget-object v$contextRegister, v$contextRegister, $conversionContextFieldName  # copy obfuscated context field into free register
+                        iget-object v$contextRegister, v$contextRegister, $conversionContextFieldReference  # copy obfuscated context field into free register
                         invoke-static {v$contextRegister, v$atomicReferenceRegister, v$charSequenceRegister}, $INTEGRATIONS_PATCH_CLASS_DESCRIPTOR->onLithoTextLoaded(Ljava/lang/Object;Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
                         move-result-object v$charSequenceRegister
-                        move-object v${moveCharSequenceInstruction.registerA}, v${moveCharSequenceInstruction.registerB}  # original instruction at the insertion point
+                        move-object v${moveCharSequenceInstruction.registerA}, v${charSequenceRegister}  # original instruction at the insertion point
                     """
                 )
             }
