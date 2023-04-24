@@ -86,7 +86,5 @@ class LithoFilterPatch : BytecodePatch(
 
         val Instruction.twoRegisterA
             get() = (this as TwoRegisterInstruction).registerA
-
-
     }
 }
