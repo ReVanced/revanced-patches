@@ -17,51 +17,22 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.layout.searchbar.annotations.WideSearchbarCompatibility
-import app.revanced.patches.youtube.layout.searchbar.fingerprints.DrawActionBarFingerprint
+import app.revanced.patches.youtube.layout.searchbar.fingerprints.CreateSearchSuggestionsFingerprint
 import app.revanced.patches.youtube.layout.searchbar.fingerprints.SetWordmarkHeaderFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
-@Name("enable-wide-searchbar")
+@Name("wide-searchbar")
 @Description("Replaces the search icon with a wide search bar. This will hide the YouTube logo when active.")
 @WideSearchbarCompatibility
 @Version("0.0.1")
 class WideSearchbarPatch : BytecodePatch(
     listOf(
-        SetWordmarkHeaderFingerprint, DrawActionBarFingerprint
+        SetWordmarkHeaderFingerprint, CreateSearchSuggestionsFingerprint
     )
 ) {
-    private companion object {
-        /**
-         * Walk a fingerprints method at a given index mutably.
-         *
-         * @param index The index to walk at.
-         * @param fromFingerprint The fingerprint to walk the method on.
-         * @return The [MutableMethod] which was walked on.
-         */
-        fun BytecodeContext.walkMutable(index: Int, fromFingerprint: MethodFingerprint) =
-            fromFingerprint.result?.let {
-                toMethodWalker(it.method).nextMethod(index, true).getMethod() as MutableMethod
-            } ?: throw SetWordmarkHeaderFingerprint.toErrorResult()
-
-
-        /**
-         * Injects instructions required for certain methods.
-         *
-         */
-        fun MutableMethod.injectSearchBarHook() {
-            addInstructions(
-                implementation!!.instructions.size - 1,
-                """
-                    invoke-static {}, Lapp/revanced/integrations/patches/NewActionbarPatch;->getNewActionBar()Z
-                    move-result p0
-                """
-            )
-        }
-    }
-
     override fun execute(context: BytecodeContext): PatchResult {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
@@ -73,16 +44,45 @@ class WideSearchbarPatch : BytecodePatch(
             )
         )
 
-        val result = DrawActionBarFingerprint.result ?: return DrawActionBarFingerprint.toErrorResult()
+        val result = CreateSearchSuggestionsFingerprint.result ?: return CreateSearchSuggestionsFingerprint.toErrorResult()
 
         // patch methods
         mapOf(
             SetWordmarkHeaderFingerprint to 1,
-            DrawActionBarFingerprint to result.scanResult.patternScanResult!!.endIndex
+            CreateSearchSuggestionsFingerprint to result.scanResult.patternScanResult!!.startIndex
         ).forEach { (fingerprint, callIndex) ->
             context.walkMutable(callIndex, fingerprint).injectSearchBarHook()
         }
 
         return PatchResultSuccess()
+    }
+
+    private companion object {
+        /**
+         * Walk a fingerprints method at a given index mutably.
+         *
+         * @param index The index to walk at.
+         * @param fromFingerprint The fingerprint to walk the method on.
+         * @return The [MutableMethod] which was walked on.
+         */
+        fun BytecodeContext.walkMutable(index: Int, fromFingerprint: MethodFingerprint) =
+            fromFingerprint.result?.let {
+                toMethodWalker(it.method).nextMethod(index, true).getMethod() as MutableMethod
+            } ?: throw fromFingerprint.toErrorResult()
+
+
+        /**
+         * Injects instructions required for certain methods.
+         *
+         */
+        fun MutableMethod.injectSearchBarHook() {
+            addInstructions(
+                implementation!!.instructions.size - 1,
+                """
+                    invoke-static {}, Lapp/revanced/integrations/patches/WideSearchbarPatch;->enableWideSearchbar()Z
+                    move-result p0
+                """
+            )
+        }
     }
 }
