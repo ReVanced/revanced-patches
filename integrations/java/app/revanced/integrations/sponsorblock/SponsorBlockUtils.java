@@ -300,13 +300,13 @@ public class SponsorBlockUtils {
             final long currentVideoLength = VideoInformation.getCurrentVideoLength();
             final String formatPattern;
             if (currentVideoLength < (10 * 60 * 1000)) {
-                formatPattern = "m:ss"; // less than 10 minutes
+                formatPattern = "m:ss.SSS"; // less than 10 minutes
             } else if (currentVideoLength < (60 * 60 * 1000)) {
-                formatPattern = "mm:ss"; // less than 1 hour
+                formatPattern = "mm:ss.SSS"; // less than 1 hour
             } else if (currentVideoLength < (10 * 60 * 60 * 1000)) {
-                formatPattern = "H:mm:ss"; // less than 10 hours
+                formatPattern = "H:mm:ss.SSS"; // less than 10 hours
             } else {
-                formatPattern = "HH:mm:ss"; // why is this on YouTube
+                formatPattern = "HH:mm:ss.SSS"; // why is this on YouTube
             }
             voteSegmentTimeFormatter.applyPattern(formatPattern);
 

@@ -11,7 +11,8 @@ final class ButtonsPatch extends Filter {
                 new BlockRule(SettingsEnum.HIDE_LIKE_DISLIKE_BUTTON, "|like_button", "dislike_button"),
                 new BlockRule(SettingsEnum.HIDE_DOWNLOAD_BUTTON, "download_button"),
                 new BlockRule(SettingsEnum.HIDE_PLAYLIST_BUTTON, "save_to_playlist_button"),
-                new BlockRule(SettingsEnum.HIDE_ACTION_BUTTONS, "ContainerType|video_action_button")
+                new BlockRule(SettingsEnum.HIDE_CLIP_BUTTON, "|clip_button.eml|"),
+                new BlockRule(SettingsEnum.HIDE_ACTION_BUTTONS, "ContainerType|video_action_button", "|CellType|CollectionType|CellType|ContainerType|button.eml|")
         );
     }
 
