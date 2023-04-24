@@ -1,3 +1,20 @@
+# [2.170.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.169.1-dev.4...v2.170.0-dev.1) (2023-04-24)
+
+
+### Bug Fixes
+
+* **youtube/tablet-mini-player:** throw if fingerprint fails to resolve ([c78ab33](https://github.com/revanced/revanced-patches/commit/c78ab33a8d41694aaee60d0a3d99c51c95085489))
+
+
+### Features
+
+* **youtube/wide-searchbar:** rename patch ([ac9ad79](https://github.com/revanced/revanced-patches/commit/ac9ad79f2ff4fbe4fa73b80bae88d12a03a287d7))
+* **youtube:** bump compatibility to `18.15.40` ([72008da](https://github.com/revanced/revanced-patches/commit/72008da28637bb6b4bf6f0e0ae1b6bce584dd696))
+* **youtube:** bump compatibility to `18.15.40` ([#1964](https://github.com/revanced/revanced-patches/issues/1964)) ([c4c6653](https://github.com/revanced/revanced-patches/commit/c4c6653c37b9675ff0f7b0f29470342c99caba34))
+* **youtube:** constrain patches to `18.15.40` ([dfbf8ab](https://github.com/revanced/revanced-patches/commit/dfbf8ab206e779fe2624d5f62c5dab170d68fce5))
+* **youtube:** remove non working patch `hide-my-mix` ([f8ea2cf](https://github.com/revanced/revanced-patches/commit/f8ea2cf3bcec3ec4bfb424ed8e4a640b505387d7))
+* **youtube:** support version `18.15.40` ([b2916a3](https://github.com/revanced/revanced-patches/commit/b2916a379a631481c0750e312d04a4c9e82590d6))
+
 ## [2.169.1-dev.4](https://github.com/revanced/revanced-patches/compare/v2.169.1-dev.3...v2.169.1-dev.4) (2023-04-23)
 
 
