@@ -1,3 +1,10 @@
+# [2.171.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.170.1-dev.1...v2.171.0-dev.1) (2023-04-25)
+
+
+### Features
+
+* **id-austria:** remove compatibility version constraint ([#1952](https://github.com/revanced/revanced-patches/issues/1952)) ([94ffd5a](https://github.com/revanced/revanced-patches/commit/94ffd5a26fe42f223a09ad6bd7f34f1fac0986ad))
+
 ## [2.170.1-dev.1](https://github.com/revanced/revanced-patches/compare/v2.170.0...v2.170.1-dev.1) (2023-04-25)
 
 

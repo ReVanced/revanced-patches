@@ -181,8 +181,8 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `remove-root-detection` | Removes the check for root permissions and unlocked bootloader. | 2.6.0 |
-| `spoof-signature` | Spoofs the signature of the app. | 2.6.0 |
+| `remove-root-detection` | Removes the check for root permissions and unlocked bootloader. | all |
+| `spoof-signature` | Spoofs the signature of the app. | all |
 </details>
 
 ### [📦 `com.myprog.hexedit`](https://play.google.com/store/apps/details?id=com.myprog.hexedit)
