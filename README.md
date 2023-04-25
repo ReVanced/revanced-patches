@@ -38,6 +38,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-floating-microphone-button` | Hides the floating microphone button which appears in search. | 18.15.40 |
 | `hide-info-cards` | Hides info cards in videos. | 18.15.40 |
 | `hide-player-buttons` | Adds the option to hide video player previous and next buttons. | all |
+| `hide-player-overlay` | Hides the dark player overlay when player controls are visible. | all |
 | `hide-seekbar` | Hides the seekbar. | 18.15.40 |
 | `hide-shorts-button` | Hides the shorts button on the navigation bar. | 18.15.40 |
 | `hide-timestamp` | Hides timestamp in video player. | 18.15.40 |
