@@ -1,11 +1,14 @@
 package app.revanced.integrations.patches;
 
+import static app.revanced.integrations.utils.ReVancedUtils.containsAny;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.shared.PlayerType;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
-
-import static app.revanced.integrations.utils.ReVancedUtils.containsAny;
 
 public class SpoofSignatureVerificationPatch {
     /**
@@ -28,6 +31,14 @@ public class SpoofSignatureVerificationPatch {
             "SAFg"  // Autoplay in scrim
     };
 
+    @Nullable
+    private static String currentVideoId;
+
+    /**
+     * If any of the subtitles settings encountered from the current video have been non default values.
+     */
+    private static boolean nonDefaultSubtitlesEncountered;
+
     /**
      * Injection point.
      *
@@ -49,7 +60,7 @@ public class SpoofSignatureVerificationPatch {
             if (isPlayingFeed) {
                 // Videos in feed won't autoplay with sound.
                 return PROTOBUF_PARAMETER_SCRIM + PROTOBUF_PARAMETER_SHORTS;
-            } else{
+            } else {
                 // Spoof the parameter to prevent playback issues.
                 return PROTOBUF_PARAMETER_SHORTS;
             }
@@ -121,19 +132,38 @@ public class SpoofSignatureVerificationPatch {
         // Videos with custom captions that specify screen positions appear to always have correct screen positions (even with spoofing).
         // But for auto generated and most other captions, the spoof incorrectly gives various default Shorts caption settings.
         // Check for these known default shorts captions parameters, and replace with the known correct values.
-        if (signatureSpoofing && !PlayerType.getCurrent().isNoneOrHidden()) { // video is not a Short or Story
+        //
+        // If a regular video uses a custom subtitle setting that match a default short setting,
+        // then this will incorrectly replace the setting.
+        // But, if the video uses multiple subtitles in different screen locations, then detect the non-default values
+        // and do not replace any window settings for the video (regardless if they match a shorts default).
+        if (signatureSpoofing && !nonDefaultSubtitlesEncountered && !PlayerType.getCurrent().isNoneOrHidden()) {
             for (SubtitleWindowReplacementSettings setting : SubtitleWindowReplacementSettings.values()) {
                 if (setting.match(ap, ah, av, vs, sd)) {
                     return setting.replacementSetting();
                 }
             }
-            // Parameters are either subtitles with custom positions, or a set of unidentified (and incorrect) default parameters.
-            // The subtitles could be forced to the bottom no matter what, but that would override custom screen positions.
-            // For now, just return the original parameters.
+            // Settings appear to be custom subtitles.
+            nonDefaultSubtitlesEncountered = true;
+            LogHelper.printDebug(() -> "Non default subtitles found. Using existing settings without replacement.");
         }
 
-        // No matches, pass back the original values
         return new int[]{ap, ah, av};
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void setCurrentVideoId(@NonNull String videoId) {
+        try {
+            if (videoId.equals(currentVideoId)) {
+                return;
+            }
+            currentVideoId = videoId;
+            nonDefaultSubtitlesEncountered = false;
+        } catch (Exception ex) {
+            LogHelper.printException(() -> "setCurrentVideoId failure", ex);
+        }
     }
 
 
@@ -152,8 +182,8 @@ public class SpoofSignatureVerificationPatch {
         final int ap, ah, av;
         final boolean vs, sd;
 
-        // replacement values
-        final int replacementAp, replacementAh, replacementAv;
+        // replacement int values
+        final int[] replacement;
 
         SubtitleWindowReplacementSettings(int ap, int ah, int av, boolean vs, boolean sd,
                                           int replacementAp, int replacementAh, int replacementAv) {
@@ -162,9 +192,7 @@ public class SpoofSignatureVerificationPatch {
             this.av = av;
             this.vs = vs;
             this.sd = sd;
-            this.replacementAp = replacementAp;
-            this.replacementAh = replacementAh;
-            this.replacementAv = replacementAv;
+            this.replacement = new int[]{replacementAp, replacementAh, replacementAv};
         }
 
         boolean match(int ap, int ah, int av, boolean vs, boolean sd) {
@@ -172,7 +200,7 @@ public class SpoofSignatureVerificationPatch {
         }
 
         int[] replacementSetting() {
-            return new int[]{replacementAp, replacementAh, replacementAv};
+            return replacement;
         }
     }
 }
