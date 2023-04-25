@@ -1,3 +1,10 @@
+## [2.170.1-dev.1](https://github.com/revanced/revanced-patches/compare/v2.170.0...v2.170.1-dev.1) (2023-04-25)
+
+
+### Bug Fixes
+
+* **youtube/spoof-signature-verification:** additional fixes for subtitle window positions ([#1975](https://github.com/revanced/revanced-patches/issues/1975)) ([08584e6](https://github.com/revanced/revanced-patches/commit/08584e680fc658f37e8730499fa5197a08370776))
+
 # [2.170.0](https://github.com/revanced/revanced-patches/compare/v2.169.0...v2.170.0) (2023-04-24)
 
 
