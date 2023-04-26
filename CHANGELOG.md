@@ -1,3 +1,10 @@
+# [2.171.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.171.0-dev.2...v2.171.0-dev.3) (2023-04-26)
+
+
+### Features
+
+* **youtube/sponsorblock:** automatically hide skip button ([#1956](https://github.com/revanced/revanced-patches/issues/1956)) ([c3c8ae6](https://github.com/revanced/revanced-patches/commit/c3c8ae6b4377b12838971cedc32779e12c07363c))
+
 # [2.171.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.171.0-dev.1...v2.171.0-dev.2) (2023-04-25)
 
 
