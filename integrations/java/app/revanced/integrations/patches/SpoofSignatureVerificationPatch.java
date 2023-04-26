@@ -119,7 +119,7 @@ public class SpoofSignatureVerificationPatch {
         final boolean signatureSpoofing = SettingsEnum.SIGNATURE_SPOOFING.getBoolean();
         if (SettingsEnum.DEBUG.getBoolean()) {
             if (ap != lastAp || ah != lastAh || av != lastAv || vs != lastVs || sd != lastSd) {
-                LogHelper.printDebug(() -> "video: " + VideoInformation.getCurrentVideoId() + " spoof: " + signatureSpoofing
+                LogHelper.printDebug(() -> "video: " + VideoInformation.getVideoId() + " spoof: " + signatureSpoofing
                         + " ap:" + ap + " ah:" + ah + " av:" + av + " vs:" + vs + " sd:" + sd);
                 lastAp = ap;
                 lastAh = ah;

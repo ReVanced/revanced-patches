@@ -42,7 +42,7 @@ public final class VideoInformation {
         try {
             seekMethod = thisRef.getClass().getMethod(SEEK_METHOD_NAME, Long.TYPE);
             seekMethod.setAccessible(true);
-        } catch (NoSuchMethodException ex) {
+        } catch (Exception ex) {
             LogHelper.printException(() -> "Failed to initialize", ex);
         }
     }
@@ -141,26 +141,25 @@ public final class VideoInformation {
      * @return The id of the video. Empty string if not set yet.
      */
     @NonNull
-    public static String getCurrentVideoId() {
+    public static String getVideoId() {
         return videoId;
     }
 
     /**
      * @return The current playback speed.
      */
-    public static float getCurrentPlaybackSpeed() {
+    public static float getPlaybackSpeed() {
         return playbackSpeed;
     }
 
     /**
-     * Length of the current video playing.
-     * Includes Shorts playback.
+     * Length of the current video playing.  Includes Shorts and YouTube Stories.
      *
      * @return The length of the video in milliseconds.
      *         If the video is not yet loaded, or if the video is playing in the background with no video visible,
      *         then this returns zero.
      */
-    public static long getCurrentVideoLength() {
+    public static long getVideoLength() {
        return videoLength;
     }
 
@@ -172,7 +171,7 @@ public final class VideoInformation {
      * should use the callback video time and avoid using this method
      * (in situations of recursive hook callbacks, the value returned here may be outdated).
      *
-     * Includes Shorts playback.
+     * Includes Shorts and YouTube Stories.
      *
      * @return The time of the video in milliseconds. -1 if not set yet.
      */

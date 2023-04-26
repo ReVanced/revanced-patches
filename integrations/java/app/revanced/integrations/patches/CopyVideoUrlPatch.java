@@ -8,7 +8,7 @@ import app.revanced.integrations.utils.ReVancedUtils;
 public class CopyVideoUrlPatch {
     public static void copyUrl(Boolean withTimestamp) {
         try {
-            String url = String.format("https://youtu.be/%s", VideoInformation.getCurrentVideoId());
+            String url = String.format("https://youtu.be/%s", VideoInformation.getVideoId());
             if (withTimestamp) {
                 long seconds = VideoInformation.getVideoTime() / 1000;
                 url += String.format("?t=%s", seconds);

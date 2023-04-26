@@ -56,7 +56,7 @@ public class ReturnYouTubeDislikePatch {
                 return replacement;
             }
         } catch (Exception ex) {
-            LogHelper.printException(() -> "onComponentCreated AtomicReference failure", ex);
+            LogHelper.printException(() -> "onLithoTextLoaded failure", ex);
         }
         return original;
     }

@@ -1,12 +1,13 @@
 package app.revanced.integrations.sponsorblock.objects;
 
-import static app.revanced.integrations.utils.StringRef.sf;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 import app.revanced.integrations.patches.VideoInformation;
 import app.revanced.integrations.utils.StringRef;
+
+import java.util.Objects;
+
+import static app.revanced.integrations.utils.StringRef.sf;
 
 public class SponsorSegment implements Comparable<SponsorSegment> {
     public enum SegmentVote {
@@ -99,7 +100,7 @@ public class SponsorSegment implements Comparable<SponsorSegment> {
      */
     @NonNull
     public String getSkipButtonText() {
-        return category.getSkipButtonText(start, VideoInformation.getCurrentVideoLength()).toString();
+        return category.getSkipButtonText(start, VideoInformation.getVideoLength()).toString();
     }
 
     /**
@@ -107,12 +108,30 @@ public class SponsorSegment implements Comparable<SponsorSegment> {
      */
     @NonNull
     public String getSkippedToastText() {
-        return category.getSkippedToastText(start, VideoInformation.getCurrentVideoLength()).toString();
+        return category.getSkippedToastText(start, VideoInformation.getVideoLength()).toString();
     }
 
     @Override
     public int compareTo(SponsorSegment o) {
-        return (int) (this.start - o.start);
+        // If both segments start at the same time, then sort with the longer segment first.
+        // This keeps the seekbar drawing correct since it draws the segments using the sorted order.
+        return start == o.start ? Long.compare(o.length(), length()) : Long.compare(start, o.start);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof SponsorSegment)) return false;
+        SponsorSegment other = (SponsorSegment) o;
+        return Objects.equals(UUID, other.UUID)
+                && category == other.category
+                && start == other.start
+                && end == other.end;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(UUID);
     }
 
     @NonNull
