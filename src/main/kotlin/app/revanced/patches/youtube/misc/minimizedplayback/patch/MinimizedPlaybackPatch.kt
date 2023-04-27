@@ -48,7 +48,7 @@ class MinimizedPlaybackPatch : BytecodePatch(
         MinimizedPlaybackManagerFingerprint.result?.apply {
             mutableMethod.addInstructions(
                 0, """
-                invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->playbackIsNotShort()Z
+                invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->isPlaybackNotShort()Z
                 move-result v0
                 return v0
                 """
