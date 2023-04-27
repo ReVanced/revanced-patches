@@ -41,7 +41,7 @@ class ChangePackageNamePatch : ResourcePatch {
         var packageName: String? by option(
             PatchOption.StringOption(
                 key = "packageName",
-                default = "",
+                default = null,
                 title = "Package name",
                 description = "The name of the package to rename of the app.",
             )
