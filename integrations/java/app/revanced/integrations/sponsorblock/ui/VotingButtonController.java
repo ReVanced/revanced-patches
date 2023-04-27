@@ -106,7 +106,7 @@ public class VotingButtonController {
 
     private static boolean shouldBeShown() {
         return SettingsEnum.SB_ENABLED.getBoolean() && SettingsEnum.SB_VOTING_ENABLED.getBoolean()
-                && SegmentPlaybackController.currentVideoHasSegments() && !VideoInformation.isAtEndOfVideo();
+                && SegmentPlaybackController.videoHasSegments() && !VideoInformation.isAtEndOfVideo();
     }
 
     public static void hide() {

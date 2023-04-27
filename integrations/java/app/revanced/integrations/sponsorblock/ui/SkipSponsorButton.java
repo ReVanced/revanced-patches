@@ -10,6 +10,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -20,7 +21,6 @@ import java.util.Objects;
 
 import app.revanced.integrations.sponsorblock.SegmentPlaybackController;
 import app.revanced.integrations.sponsorblock.objects.SponsorSegment;
-import app.revanced.integrations.utils.LogHelper;
 
 public class SkipSponsorButton extends FrameLayout {
     private static final boolean highContrast = true;
@@ -62,6 +62,8 @@ public class SkipSponsorButton extends FrameLayout {
         ctaBottomMargin = getResourceDimensionPixelSize("skip_button_cta_bottom_margin");  // dimen:skip_button_cta_bottom_margin
 
         skipSponsorBtnContainer.setOnClickListener(v -> {
+            // The view controller handles hiding this button, but hide it here as well just in case something goofs.
+            setVisibility(View.GONE);
             SegmentPlaybackController.onSkipSegmentClicked(segment);
         });
     }

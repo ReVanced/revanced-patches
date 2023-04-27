@@ -49,7 +49,7 @@ public final class RememberPlaybackSpeedPatch {
      * Overrides the video speed.  Called after video loads, and immediately after user selects a different playback speed
      */
     public static float getPlaybackSpeedOverride() {
-        return VideoInformation.getCurrentPlaybackSpeed();
+        return VideoInformation.getPlaybackSpeed();
     }
 
     /**

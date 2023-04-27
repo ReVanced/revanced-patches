@@ -97,6 +97,33 @@ public class SBRequester {
         } catch (Exception ex) {
             LogHelper.printException(() -> "Failed to get segments", ex, str("sb_sponsorblock_connection_failure_generic"));
         }
+
+        // Crude debug tests to verify random features
+        // Could benefit from:
+        // 1) collection of YouTube videos with test segment times (verify client skip timing matches the video, verify seekbar draws correctly)
+        // 2) unit tests (verify everything else)
+        if (false) {
+            segments.clear();
+            // Test auto-hide skip button:
+            // Button should appear only once
+            segments.add(new SponsorSegment(SegmentCategory.INTRO, "debug", 5000, 120000, false));
+            // Button should appear only once
+            segments.add(new SponsorSegment(SegmentCategory.SELF_PROMO, "debug", 10000, 60000, false));
+            // Button should appear only once
+            segments.add(new SponsorSegment(SegmentCategory.INTERACTION, "debug", 15000, 20000, false));
+            // Button should appear _twice_ (at 21s and 27s)
+            segments.add(new SponsorSegment(SegmentCategory.SPONSOR, "debug", 21000, 30000, false));
+            // Button should appear only once
+            segments.add(new SponsorSegment(SegmentCategory.OUTRO, "debug", 24000, 27000, false));
+
+
+            // Test seekbar visibility:
+            // All three segments should be viewable on the seekbar
+            segments.add(new SponsorSegment(SegmentCategory.MUSIC_OFFTOPIC, "debug", 200000, 300000, false));
+            segments.add(new SponsorSegment(SegmentCategory.SPONSOR, "debug", 200000, 250000, false));
+            segments.add(new SponsorSegment(SegmentCategory.SELF_PROMO, "debug", 200000, 330000, false));
+        }
+
         return segments.toArray(new SponsorSegment[0]);
     }
 

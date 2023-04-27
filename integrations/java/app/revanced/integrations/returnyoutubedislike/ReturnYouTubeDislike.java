@@ -15,6 +15,7 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
@@ -257,12 +258,11 @@ public class ReturnYouTubeDislike {
         try {
             synchronized (videoIdLockObject) {
                 if (replacementLikeDislikeSpan != null) {
-                    String oldSpannableString = oldSpannable.toString();
-                    if (replacementLikeDislikeSpan.toString().equals(oldSpannableString)) {
+                    if (spansHaveEqualTextAndColor(replacementLikeDislikeSpan, oldSpannable)) {
                         LogHelper.printDebug(() -> "Ignoring previously created dislikes span");
                         return null;
                     }
-                    if (originalDislikeSpan.toString().equals(oldSpannableString)) {
+                    if (spansHaveEqualTextAndColor(Objects.requireNonNull(originalDislikeSpan), oldSpannable)) {
                         LogHelper.printDebug(() -> "Replacing span with previously created dislike span");
                         return replacementLikeDislikeSpan;
                     }
@@ -468,6 +468,27 @@ public class ReturnYouTubeDislike {
             }
         }
         return false;
+    }
+
+    private static boolean spansHaveEqualTextAndColor(@NonNull Spanned one, @NonNull Spanned two) {
+        // Cannot use equals on the span, because many of the inner styling spans do not implement equals.
+        // Instead, compare the underlying text and the text color to handle when dark mode is changed.
+        // Cannot compare the status of device dark mode, as Litho components are updated just before dark mode status changes.
+        if (!one.toString().equals(two.toString())) {
+            return false;
+        }
+        ForegroundColorSpan[] oneColors = one.getSpans(0, one.length(), ForegroundColorSpan.class);
+        ForegroundColorSpan[] twoColors = two.getSpans(0, two.length(), ForegroundColorSpan.class);
+        final int oneLength = oneColors.length;
+        if (oneLength != twoColors.length) {
+            return false;
+        }
+        for (int i = 0; i < oneLength; i++) {
+            if (oneColors[i].getForegroundColor() != twoColors[i].getForegroundColor()) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private static SpannableString newSpannableWithDislikes(@NonNull Spanned sourceStyling, @NonNull RYDVoteData voteData) {

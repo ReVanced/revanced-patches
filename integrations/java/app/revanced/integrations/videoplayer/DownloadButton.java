@@ -52,7 +52,7 @@ public class DownloadButton extends BottomControlButton {
 
         // Launch PowerTube intent
         try {
-            String content = String.format("https://youtu.be/%s", VideoInformation.getCurrentVideoId());
+            String content = String.format("https://youtu.be/%s", VideoInformation.getVideoId());
 
             Intent intent = new Intent("android.intent.action.SEND");
             intent.setType("text/plain");
