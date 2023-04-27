@@ -1,3 +1,10 @@
+# [2.171.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.171.0-dev.4...v2.171.0-dev.5) (2023-04-27)
+
+
+### Bug Fixes
+
+* **enable-android-debugging:** make option `debuggable` false by default ([e717e26](https://github.com/revanced/revanced-patches/commit/e717e260fd0449a97929c3c82da577362586c5e1))
+
 # [2.171.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.171.0-dev.3...v2.171.0-dev.4) (2023-04-27)
 
 
