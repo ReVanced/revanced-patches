@@ -111,7 +111,6 @@ public enum SettingsEnum {
     CAPTIONS_ENABLED("revanced_autocaptions_enabled", BOOLEAN, FALSE),
     DISABLE_ZOOM_HAPTICS("revanced_disable_zoom_haptics", BOOLEAN, TRUE),
     ENABLE_EXTERNAL_BROWSER("revanced_enable_external_browser", BOOLEAN, TRUE, true),
-    ENABLE_MINIMIZED_PLAYBACK("revanced_enable_minimized_playback", BOOLEAN, TRUE),
     PREFERRED_AUTO_REPEAT("revanced_pref_auto_repeat", BOOLEAN, FALSE),
     TAP_SEEKING_ENABLED("revanced_enable_tap_seeking", BOOLEAN, TRUE),
     USE_HDR_AUTO_BRIGHTNESS("revanced_pref_hdr_autobrightness", BOOLEAN, TRUE),
