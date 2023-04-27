@@ -1,3 +1,11 @@
+# [2.171.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.171.0-dev.4...v2.171.0-dev.5) (2023-04-27)
+
+
+### Bug Fixes
+
+* **change-package-name:** make option `packageName` `null` by default ([b0ac972](https://github.com/revanced/revanced-patches/commit/b0ac972c129ff57d4cff1db99b92bde2b3ee19a3))
+* **enable-android-debugging:** make option `debuggable` false by default ([90e1357](https://github.com/revanced/revanced-patches/commit/90e13575c4d49873ee4f7e13ea90a04f3a5f7700))
+
 # [2.171.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.171.0-dev.3...v2.171.0-dev.4) (2023-04-27)
 
 
