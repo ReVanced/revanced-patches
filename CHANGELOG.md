@@ -1,3 +1,10 @@
+# [2.171.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.171.0-dev.3...v2.171.0-dev.4) (2023-04-27)
+
+
+### Bug Fixes
+
+* **youtube/minimized-playback:** disable minimized playback for shorts ([#1990](https://github.com/revanced/revanced-patches/issues/1990)) ([b91d18d](https://github.com/revanced/revanced-patches/commit/b91d18d24f332a9aa8721dc053e395d352b5796d))
+
 # [2.171.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.171.0-dev.2...v2.171.0-dev.3) (2023-04-26)
 
 
