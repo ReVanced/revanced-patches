@@ -33,7 +33,7 @@ class EnableAndroidDebuggingPatch : ResourcePatch {
         var debuggable: Boolean? by option(
             PatchOption.BooleanOption(
                 key = "debuggable",
-                default = true,
+                default = false,
                 title = "App debugging",
                 description = "Whether to make the app debuggable on Android.",
             )
