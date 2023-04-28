@@ -1,3 +1,10 @@
+# [2.172.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.171.0...v2.172.0-dev.1) (2023-04-28)
+
+
+### Features
+
+* **youtube/spoof-app-version:** user selectable version to spoof ([#2013](https://github.com/revanced/revanced-patches/issues/2013)) ([fd66417](https://github.com/revanced/revanced-patches/commit/fd6641747bd60bdd8b967db7cceaed454fb891a1))
+
 # [2.171.0](https://github.com/revanced/revanced-patches/compare/v2.170.0...v2.171.0) (2023-04-27)
 
 
