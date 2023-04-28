@@ -19,13 +19,12 @@ import app.revanced.integrations.utils.StringRef;
 
 public enum SettingsEnum {
     //Download Settings
-    // TODO: DOWNLOAD_PATH("revanced_download_path", STRING, Environment.getExternalStorageDirectory().getPath() + "/Download"),
-    DOWNLOADS_BUTTON_SHOWN("revanced_downloads_enabled", BOOLEAN, TRUE, true),
+    DOWNLOADS_BUTTON_SHOWN("revanced_downloads_enabled", BOOLEAN, TRUE),
     DOWNLOADS_PACKAGE_NAME("revanced_downloads_package_name", STRING, "org.schabi.newpipe" /* NewPipe */, parents(DOWNLOADS_BUTTON_SHOWN)),
 
     // Copy video URL settings
-    COPY_VIDEO_URL_BUTTON_SHOWN("revanced_copy_video_url_enabled", BOOLEAN, TRUE, true),
-    COPY_VIDEO_URL_TIMESTAMP_BUTTON_SHOWN("revanced_copy_video_url_timestamp_enabled", BOOLEAN, TRUE, true),
+    COPY_VIDEO_URL_BUTTON_SHOWN("revanced_copy_video_url_enabled", BOOLEAN, TRUE),
+    COPY_VIDEO_URL_TIMESTAMP_BUTTON_SHOWN("revanced_copy_video_url_timestamp_enabled", BOOLEAN, TRUE),
 
     // Video settings
     OLD_STYLE_VIDEO_QUALITY_PLAYER_SETTINGS("revanced_use_old_style_quality_settings", BOOLEAN, TRUE),

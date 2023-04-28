@@ -3,6 +3,9 @@ package app.revanced.integrations.videoplayer;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.annotation.Nullable;
 
 import app.revanced.integrations.patches.VideoInformation;
 import app.revanced.integrations.settings.SettingsEnum;
@@ -11,21 +14,32 @@ import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.StringRef;
 
 public class DownloadButton extends BottomControlButton {
-    public static DownloadButton instance;
+    @Nullable
+    private static DownloadButton instance;
 
-    public DownloadButton(Object obj) {
+    public DownloadButton(ViewGroup viewGroup) {
         super(
-                obj,
+                viewGroup,
                 "download_button",
-                SettingsEnum.DOWNLOADS_BUTTON_SHOWN.getBoolean(),
+                SettingsEnum.DOWNLOADS_BUTTON_SHOWN,
                 DownloadButton::onDownloadClick
         );
     }
 
+    /**
+     * Injection point.
+     */
     public static void initializeButton(Object obj) {
-        instance = new DownloadButton(obj);
+        try {
+            instance = new DownloadButton((ViewGroup) obj);
+        } catch (Exception ex) {
+            LogHelper.printException(() -> "initializeButton failure", ex);
+        }
     }
 
+    /**
+     * Injection point.
+     */
     public static void changeVisibility(boolean showing) {
         if (instance != null) instance.setVisibility(showing);
     }
@@ -38,7 +52,6 @@ public class DownloadButton extends BottomControlButton {
 
         boolean packageEnabled = false;
         try {
-            assert context != null;
             packageEnabled = context.getPackageManager().getApplicationInfo(downloaderPackageName, 0).enabled;
         } catch (PackageManager.NameNotFoundException error) {
             LogHelper.printDebug(() -> "Downloader could not be found: " + error);

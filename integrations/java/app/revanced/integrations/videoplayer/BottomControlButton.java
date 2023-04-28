@@ -1,66 +1,64 @@
 package app.revanced.integrations.videoplayer;
 
-import android.support.constraint.ConstraintLayout;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.widget.ImageView;
-
-import java.lang.ref.WeakReference;
-
+import androidx.annotation.NonNull;
+import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 
+import java.lang.ref.WeakReference;
+import java.util.Objects;
+
 public abstract class BottomControlButton {
-    WeakReference<ImageView> button = new WeakReference<>(null);
-    ConstraintLayout constraintLayout;
-    Boolean isButtonEnabled;
-    Boolean isShowing;
+    private static final Animation fadeIn = ReVancedUtils.getResourceAnimation("fade_in");
+    private static final Animation fadeOut = ReVancedUtils.getResourceAnimation("fade_out");
+    private final WeakReference<ImageView> buttonRef;
+    private final SettingsEnum setting;
+    protected boolean isVisible;
 
-    private Animation fadeIn;
-    private Animation fadeOut;
-
-    public BottomControlButton(Object obj, String viewId, Boolean isEnabled, View.OnClickListener onClickListener) {
-        try {
-            LogHelper.printDebug(() -> "Initializing button with id: " + viewId);
-            constraintLayout = (ConstraintLayout) obj;
-            isButtonEnabled = isEnabled;
-
-            ImageView imageView = constraintLayout.findViewById(ReVancedUtils.getResourceIdentifier(viewId, "id"));
-            if (imageView == null) {
-                LogHelper.printException(() -> "Couldn't find ImageView with id: " + viewId);
-                return;
-            }
-            imageView.setOnClickListener(onClickListener);
-            button = new WeakReference<>(imageView);
-
-            fadeIn = ReVancedUtils.getResourceAnimation("fade_in");
-            fadeOut = ReVancedUtils.getResourceAnimation("fade_out");
-            fadeIn.setDuration(ReVancedUtils.getResourceInteger("fade_duration_fast"));
-            fadeOut.setDuration(ReVancedUtils.getResourceInteger("fade_duration_scheduled"));
-
-            isShowing = true;
-            setVisibility(false);
-        } catch (Exception e) {
-            LogHelper.printException(() -> "Failed to initialize button with id: " + viewId, e);
-        }
+    static {
+        // TODO: check if these durations are correct.
+        fadeIn.setDuration(ReVancedUtils.getResourceInteger("fade_duration_fast"));
+        fadeOut.setDuration(ReVancedUtils.getResourceInteger("fade_duration_scheduled"));
     }
 
-    public void setVisibility(boolean showing) {
-        if (isShowing == showing) return;
+    public BottomControlButton(@NonNull ViewGroup bottomControlsViewGroup, @NonNull String imageViewButtonId,
+                               @NonNull SettingsEnum booleanSetting, @NonNull View.OnClickListener onClickListener) {
+        LogHelper.printDebug(() -> "Initializing button: " + imageViewButtonId);
 
-        isShowing = showing;
-        ImageView imageView = button.get();
-
-        if (constraintLayout == null || imageView == null)
-            return;
-
-        if (showing && isButtonEnabled) {
-            LogHelper.printDebug(() -> "Fading in");
-            imageView.setVisibility(View.VISIBLE);
-            imageView.startAnimation(fadeIn);
+        if (booleanSetting.returnType != SettingsEnum.ReturnType.BOOLEAN) {
+            throw new IllegalArgumentException();
         }
-        else if (imageView.getVisibility() == View.VISIBLE) {
-            LogHelper.printDebug(() -> "Fading out");
+
+        setting = booleanSetting;
+
+        // Create the button.
+        ImageView imageView = Objects.requireNonNull(bottomControlsViewGroup.findViewById(
+                ReVancedUtils.getResourceIdentifier(imageViewButtonId, "id")
+        ));
+        imageView.setOnClickListener(onClickListener);
+        imageView.setVisibility(View.GONE);
+
+        buttonRef = new WeakReference<>(imageView);
+    }
+
+    public void setVisibility(boolean visible) {
+        if (isVisible == visible) return;
+        isVisible = visible;
+
+        ImageView imageView = buttonRef.get();
+        if (imageView == null) {
+            return;
+        }
+
+        imageView.clearAnimation();
+        if (visible && setting.getBoolean()) {
+            imageView.startAnimation(fadeIn);
+            imageView.setVisibility(View.VISIBLE);
+        } else if (imageView.getVisibility() == View.VISIBLE) {
             imageView.startAnimation(fadeOut);
             imageView.setVisibility(View.GONE);
         }
