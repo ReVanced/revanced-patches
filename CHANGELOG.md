@@ -1,3 +1,10 @@
+# [2.172.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.172.0-dev.1...v2.172.0-dev.2) (2023-04-29)
+
+
+### Bug Fixes
+
+* **youtube/minimized-playback:** fix background play of kids videos ([#2016](https://github.com/revanced/revanced-patches/issues/2016)) ([89b1484](https://github.com/revanced/revanced-patches/commit/89b1484d1d8c1419ba8020d0571b25071d43e926))
+
 # [2.172.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.171.0...v2.172.0-dev.1) (2023-04-28)
 
 
