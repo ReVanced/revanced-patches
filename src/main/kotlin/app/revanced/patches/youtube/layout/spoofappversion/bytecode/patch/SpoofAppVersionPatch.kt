@@ -55,8 +55,8 @@ class SpoofAppVersionPatch : BytecodePatch(
                     listOf(
                         StringResource("revanced_spoof_app_version_target_entry_1", "17.30.35 - Restore old UI layout"),
                         StringResource("revanced_spoof_app_version_target_entry_2", "17.01.35 - Enable sorting videos by oldest"),
-                        StringResource("revanced_spoof_app_version_target_entry_3", "16.20.35 - Disable material you"),
-                        StringResource("revanced_spoof_app_version_target_entry_4", "16.01.35 - Restore explore tab"),
+                        StringResource("revanced_spoof_app_version_target_entry_3", "16.08.35 - Restore explore tab"),
+                        StringResource("revanced_spoof_app_version_target_entry_4", "16.01.35 - Restore old shorts player"),
                     )
                 ),
                 ArrayResource(
@@ -64,7 +64,7 @@ class SpoofAppVersionPatch : BytecodePatch(
                     listOf(
                         StringResource("revanced_spoof_app_version_target_entry_value_1", "17.30.35"),
                         StringResource("revanced_spoof_app_version_target_entry_value_2", "17.01.35"),
-                        StringResource("revanced_spoof_app_version_target_entry_value_3", "16.20.35"),
+                        StringResource("revanced_spoof_app_version_target_entry_value_3", "16.08.35"),
                         StringResource("revanced_spoof_app_version_target_entry_value_4", "16.01.35"),
                     )
                 )
