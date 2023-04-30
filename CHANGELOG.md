@@ -1,3 +1,10 @@
+# [2.172.0-dev.7](https://github.com/revanced/revanced-patches/compare/v2.172.0-dev.6...v2.172.0-dev.7) (2023-04-30)
+
+
+### Bug Fixes
+
+* **youtube/return-youtube-dislike:** support older UI layouts ([#2031](https://github.com/revanced/revanced-patches/issues/2031)) ([c82ccb5](https://github.com/revanced/revanced-patches/commit/c82ccb59955d7663a5be20338b4b5c9b7601195c))
+
 # [2.172.0-dev.6](https://github.com/revanced/revanced-patches/compare/v2.172.0-dev.5...v2.172.0-dev.6) (2023-04-30)
 
 
