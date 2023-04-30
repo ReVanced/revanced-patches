@@ -1,3 +1,10 @@
+# [2.172.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.172.0-dev.3...v2.172.0-dev.4) (2023-04-30)
+
+
+### Features
+
+* **youtube/hide-player-overlay:** exclude by default ([1c6fb94](https://github.com/revanced/revanced-patches/commit/1c6fb941f59599e2fe4a7d6f96babb6b0edac054))
+
 # [2.172.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.172.0-dev.2...v2.172.0-dev.3) (2023-04-29)
 
 
