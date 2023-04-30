@@ -1,3 +1,10 @@
+# [2.172.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.172.0-dev.4...v2.172.0-dev.5) (2023-04-30)
+
+
+### Bug Fixes
+
+* **youtube/spoof-app-version:** adjust available app targets ([#2030](https://github.com/revanced/revanced-patches/issues/2030)) ([a16cb0d](https://github.com/revanced/revanced-patches/commit/a16cb0d32f40694f237cb1820b965cee26663fdd))
+
 # [2.172.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.172.0-dev.3...v2.172.0-dev.4) (2023-04-30)
 
 
