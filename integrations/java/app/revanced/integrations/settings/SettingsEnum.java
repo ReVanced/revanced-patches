@@ -91,6 +91,7 @@ public enum SettingsEnum {
     HIDE_ENDSCREEN_CARDS("revanced_hide_endscreen_cards", BOOLEAN, TRUE),
     HIDE_FLOATING_MICROPHONE_BUTTON("revanced_hide_floating_microphone_button", BOOLEAN, TRUE, true),
     HIDE_FULLSCREEN_PANELS("revanced_hide_fullscreen_panels", BOOLEAN, TRUE),
+    HIDE_GET_PREMIUM("revanced_hide_get_premium", BOOLEAN, TRUE),
     HIDE_INFO_CARDS("revanced_hide_infocards", BOOLEAN, TRUE),
     HIDE_PLAYER_BUTTONS("revanced_hide_player_buttons", BOOLEAN, FALSE),
     HIDE_PREVIEW_COMMENT("revanced_hide_preview_comment", BOOLEAN, FALSE, true),
