@@ -66,6 +66,7 @@ public final class GeneralAdsPatch extends Filter {
                 "primetime_promo",
                 "feature_grid_interstitial",
                 "product_details",
+                "full_width_portrait_image_layout",
                 "brand_video_shelf"
         );
         var movieAds = new BlockRule(
