@@ -1,3 +1,10 @@
+# [2.172.0-dev.6](https://github.com/revanced/revanced-patches/compare/v2.172.0-dev.5...v2.172.0-dev.6) (2023-04-30)
+
+
+### Features
+
+* **youtube/hide-get-premium:** hide get premium advertisements under video player ([#2020](https://github.com/revanced/revanced-patches/issues/2020)) ([05904a2](https://github.com/revanced/revanced-patches/commit/05904a2569cf9b82e3731692b93bc3a6bb005b03))
+
 # [2.172.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.172.0-dev.4...v2.172.0-dev.5) (2023-04-30)
 
 
