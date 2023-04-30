@@ -76,7 +76,7 @@ public class ReturnYouTubeDislike {
     /**
      * If {@link #currentVideoId} and the RYD data is for the last shorts loaded.
      */
-    private static volatile boolean lastVideoLoadedWasShort;
+    private static volatile boolean dislikeDataIsShort;
 
     /**
      * Stores the results of the vote api fetch, and used as a barrier to wait until fetch completes.
@@ -141,7 +141,7 @@ public class ReturnYouTubeDislike {
                 LogHelper.printDebug(() -> "Clearing data");
             }
             currentVideoId = videoId;
-            lastVideoLoadedWasShort = false;
+            dislikeDataIsShort = false;
             voteFetchFuture = null;
             originalDislikeSpan = null;
             replacementLikeDislikeSpan = null;
@@ -198,7 +198,7 @@ public class ReturnYouTubeDislike {
             // If a Short is opened while a regular video is on screen, this will incorrectly set this as false.
             // But this check is needed to fix unusual situations of opening/closing the app
             // while both a regular video and a short are on screen.
-            lastVideoLoadedWasShort = PlayerType.getCurrent().isNoneOrHidden();
+            dislikeDataIsShort = PlayerType.getCurrent().isNoneOrHidden();
 
             // No need to wrap the call in a try/catch,
             // as any exceptions are propagated out in the later Future#Get call.
@@ -224,7 +224,15 @@ public class ReturnYouTubeDislike {
             return null;
         }
 
-        if (lastVideoLoadedWasShort) {
+        return getDislikesSpanForRegularVideo((Spannable) original, isSegmentedButton);
+    }
+
+    /**
+     * @return NULL if the span does not need changing or if RYD is not available.
+     */
+    @Nullable
+    public static SpannableString getDislikesSpanForRegularVideo(@NonNull Spanned original, boolean isSegmentedButton) {
+        if (dislikeDataIsShort) {
             // user:
             // 1, opened a video
             // 2. opened a short (without closing the regular video)
@@ -234,14 +242,14 @@ public class ReturnYouTubeDislike {
             return null;
         }
 
-        return waitForFetchAndUpdateReplacementSpan((Spannable) original, isSegmentedButton);
+        return waitForFetchAndUpdateReplacementSpan(original, isSegmentedButton);
     }
 
     /**
      * Called when a Shorts dislike Spannable is created.
      */
     public static SpannableString getDislikeSpanForShort(@NonNull Spanned original) {
-        lastVideoLoadedWasShort = true; // it's now certain the video and data are a short
+        dislikeDataIsShort = true; // it's now certain the video and data are a short
         return waitForFetchAndUpdateReplacementSpan(original, false);
     }
 
@@ -313,7 +321,7 @@ public class ReturnYouTubeDislike {
         try {
             // Must make a local copy of videoId, since it may change between now and when the vote thread runs.
             String videoIdToVoteFor = getCurrentVideoId();
-            if (videoIdToVoteFor == null || lastVideoLoadedWasShort != PlayerType.getCurrent().isNoneOrHidden()) {
+            if (videoIdToVoteFor == null || dislikeDataIsShort != PlayerType.getCurrent().isNoneOrHidden()) {
                 // User enabled RYD after starting playback of a video.
                 // Or shorts was loaded with regular video present, then shorts was closed,
                 // and then user voted on the now visible original video.

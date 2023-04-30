@@ -20,33 +20,17 @@ import app.revanced.integrations.settings.SharedPrefCategory;
 public class ReturnYouTubeDislikeSettingsFragment extends PreferenceFragment {
 
     /**
-     * If ReturnYouTubeDislike is enabled
-     */
-    private SwitchPreference enabledPreference;
-
-    /**
-     * If dislikes are shown as percentage
+     * If dislikes are shown as percentage.
      */
     private SwitchPreference percentagePreference;
 
     /**
-     * If segmented like/dislike button uses smaller compact layout
+     * If segmented like/dislike button uses smaller compact layout.
      */
     private SwitchPreference compactLayoutPreference;
 
     private void updateUIState() {
-        enabledPreference.setSummary(SettingsEnum.RYD_ENABLED.getBoolean()
-                ? str("revanced_ryd_enable_summary_on")
-                : str("revanced_ryd_enable_summary_off"));
-
-        percentagePreference.setSummary(SettingsEnum.RYD_SHOW_DISLIKE_PERCENTAGE.getBoolean()
-                ? str("revanced_ryd_dislike_percentage_summary_on")
-                : str("revanced_ryd_dislike_percentage_summary_off"));
         percentagePreference.setEnabled(SettingsEnum.RYD_SHOW_DISLIKE_PERCENTAGE.isAvailable());
-
-        compactLayoutPreference.setSummary(SettingsEnum.RYD_USE_COMPACT_LAYOUT.getBoolean()
-                ? str("revanced_ryd_compact_layout_summary_on")
-                : str("revanced_ryd_compact_layout_summary_off"));
         compactLayoutPreference.setEnabled(SettingsEnum.RYD_USE_COMPACT_LAYOUT.isAvailable());
     }
 
@@ -59,9 +43,11 @@ public class ReturnYouTubeDislikeSettingsFragment extends PreferenceFragment {
         PreferenceScreen preferenceScreen = getPreferenceManager().createPreferenceScreen(context);
         setPreferenceScreen(preferenceScreen);
 
-        enabledPreference = new SwitchPreference(context);
+        SwitchPreference enabledPreference = new SwitchPreference(context);
         enabledPreference.setChecked(SettingsEnum.RYD_ENABLED.getBoolean());
         enabledPreference.setTitle(str("revanced_ryd_enable_title"));
+        enabledPreference.setSummaryOn(str("revanced_ryd_enable_summary_on"));
+        enabledPreference.setSummaryOff(str("revanced_ryd_enable_summary_off"));
         enabledPreference.setOnPreferenceChangeListener((pref, newValue) -> {
             final boolean rydIsEnabled = (Boolean) newValue;
             SettingsEnum.RYD_ENABLED.saveValue(rydIsEnabled);
@@ -75,6 +61,8 @@ public class ReturnYouTubeDislikeSettingsFragment extends PreferenceFragment {
         percentagePreference = new SwitchPreference(context);
         percentagePreference.setChecked(SettingsEnum.RYD_SHOW_DISLIKE_PERCENTAGE.getBoolean());
         percentagePreference.setTitle(str("revanced_ryd_dislike_percentage_title"));
+        percentagePreference.setSummaryOn(str("revanced_ryd_dislike_percentage_summary_on"));
+        percentagePreference.setSummaryOff(str("revanced_ryd_dislike_percentage_summary_off"));
         percentagePreference.setOnPreferenceChangeListener((pref, newValue) -> {
             SettingsEnum.RYD_SHOW_DISLIKE_PERCENTAGE.saveValue(newValue);
             ReturnYouTubeDislike.clearCache();
@@ -86,6 +74,8 @@ public class ReturnYouTubeDislikeSettingsFragment extends PreferenceFragment {
         compactLayoutPreference = new SwitchPreference(context);
         compactLayoutPreference.setChecked(SettingsEnum.RYD_USE_COMPACT_LAYOUT.getBoolean());
         compactLayoutPreference.setTitle(str("revanced_ryd_compact_layout_title"));
+        compactLayoutPreference.setSummaryOn(str("revanced_ryd_compact_layout_summary_on"));
+        compactLayoutPreference.setSummaryOff(str("revanced_ryd_compact_layout_summary_off"));
         compactLayoutPreference.setOnPreferenceChangeListener((pref, newValue) -> {
             SettingsEnum.RYD_USE_COMPACT_LAYOUT.saveValue(newValue);
             ReturnYouTubeDislike.clearCache();
@@ -185,7 +175,7 @@ public class ReturnYouTubeDislikeSettingsFragment extends PreferenceFragment {
         }
     }
 
-    private String createSummaryText(int value, String summaryStringZeroKey, String summaryStringOneOrMoreKey) {
+    private static String createSummaryText(int value, String summaryStringZeroKey, String summaryStringOneOrMoreKey) {
         if (value == 0) {
             return str(summaryStringZeroKey);
         }
