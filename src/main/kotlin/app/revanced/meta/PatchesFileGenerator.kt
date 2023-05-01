@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.Patch
 import app.revanced.patcher.util.patch.PatchBundle
 import java.io.File
 
-typealias PatchBundlePatches = List<Class<out Patch<Context>>>
+internal typealias PatchBundlePatches = List<Class<out Patch<Context>>>
 
 internal interface PatchesFileGenerator {
     fun generate(bundle: PatchBundlePatches)

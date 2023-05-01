@@ -212,6 +212,13 @@ class GeneralAdsResourcePatch : ResourcePatch {
                 true,
                 StringResource("revanced_hide_image_shelf_summary_on", "Image shelf is hidden"),
                 StringResource("revanced_hide_image_shelf_summary_off", "Image shelf is shown")
+            ),
+            SwitchPreference(
+                "revanced_hide_audio_track_button",
+                StringResource("revanced_hide_audio_track_button_title", "Hide audio track button"),
+                false,
+                StringResource("revanced_hide_audio_track_button_on", "Audio track button is hidden"),
+                StringResource("revanced_hide_audio_track_button_off", "Audio track button is shown")
             )
         )
 

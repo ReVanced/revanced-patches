@@ -11,6 +11,8 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patches.shared.settings.preference.impl.ArrayResource
+import app.revanced.patches.shared.settings.preference.impl.ListPreference
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.layout.spoofappversion.annotations.SpoofAppVersionCompatibility
@@ -36,11 +38,36 @@ class SpoofAppVersionPatch : BytecodePatch(
                 "revanced_spoof_app_version",
                 StringResource("revanced_spoof_app_version_title", "Spoof app version"),
                 false,
-                StringResource("revanced_spoof_app_version_summary_on", "Version spoofed to 17.30.34"),
+                StringResource("revanced_spoof_app_version_summary_on", "Version spoofed"),
                 StringResource("revanced_spoof_app_version_summary_off", "Version not spoofed"),
                 StringResource("revanced_spoof_app_version_user_dialog_message",
-                "App version will be spoofed to 17.30.34. This will give the old UI layout, but unknown side effects may occur."
-                        + " If later turned off, the old UI layout may remain until you log out or clear the app data.")
+                "App version will be spoofed to an older version of YouTube. This will change the appearance of the app, but unknown side effects may occur."
+                        + " If later turned off, the old UI may remain until you log out or clear the app data.")
+            ),
+            ListPreference(
+                "revanced_spoof_app_version_target",
+                StringResource(
+                    "revanced_spoof_app_version_target_title",
+                    "Spoof app version target"
+                ),
+                ArrayResource(
+                    "revanced_spoof_app_version_target_entries",
+                    listOf(
+                        StringResource("revanced_spoof_app_version_target_entry_1", "17.30.35 - Restore old UI layout"),
+                        StringResource("revanced_spoof_app_version_target_entry_2", "17.01.35 - Enable sorting videos by oldest"),
+                        StringResource("revanced_spoof_app_version_target_entry_3", "16.08.35 - Restore explore tab"),
+                        StringResource("revanced_spoof_app_version_target_entry_4", "16.01.35 - Restore old shorts player"),
+                    )
+                ),
+                ArrayResource(
+                    "revanced_spoof_app_version_target_entry_values",
+                    listOf(
+                        StringResource("revanced_spoof_app_version_target_entry_value_1", "17.30.35"),
+                        StringResource("revanced_spoof_app_version_target_entry_value_2", "17.01.35"),
+                        StringResource("revanced_spoof_app_version_target_entry_value_3", "16.08.35"),
+                        StringResource("revanced_spoof_app_version_target_entry_value_4", "16.01.35"),
+                    )
+                )
             )
         )
 
