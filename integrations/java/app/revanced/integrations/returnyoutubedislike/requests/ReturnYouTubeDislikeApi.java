@@ -136,21 +136,20 @@ public class ReturnYouTubeDislikeApi {
     /**
      * Simulates a slow response by doing meaningless calculations.
      * Used to debug the app UI and verify UI timeout logic works
-     *
-     * @param maximumTimeToWait maximum time to wait
      */
     @SuppressWarnings("UnusedReturnValue")
-    private static long randomlyWaitIfLocallyDebugging(long maximumTimeToWait) {
+    private static long randomlyWaitIfLocallyDebugging() {
         final boolean DEBUG_RANDOMLY_DELAY_NETWORK_CALLS = false; // set true to debug UI
         if (DEBUG_RANDOMLY_DELAY_NETWORK_CALLS) {
-            final long amountOfTimeToWaste = (long) (Math.random() * maximumTimeToWait);
+            final long amountOfTimeToWaste = (long) (Math.random()
+                    * (API_GET_VOTES_TCP_TIMEOUT_MILLISECONDS + API_GET_VOTES_HTTP_TIMEOUT_MILLISECONDS));
             final long timeCalculationStarted = System.currentTimeMillis();
-            LogHelper.printDebug(() -> "Artificially creating network delay of: " + amountOfTimeToWaste + " ms");
+            LogHelper.printDebug(() -> "Artificially creating network delay of: " + amountOfTimeToWaste + "ms");
 
             long meaninglessValue = 0;
             while (System.currentTimeMillis() - timeCalculationStarted < amountOfTimeToWaste) {
                 // could do a thread sleep, but that will trigger an exception if the thread is interrupted
-                meaninglessValue += Long.numberOfLeadingZeros((long) (Math.random() * Long.MAX_VALUE));
+                meaninglessValue += Long.numberOfLeadingZeros((long)Math.exp(Math.random()));
             }
             // return the value, otherwise the compiler or VM might optimize and remove the meaningless time wasting work,
             // leaving an empty loop that hammers on the System.currentTimeMillis native call
@@ -246,7 +245,7 @@ public class ReturnYouTubeDislikeApi {
             connection.setConnectTimeout(API_GET_VOTES_TCP_TIMEOUT_MILLISECONDS); // timeout for TCP connection to server
             connection.setReadTimeout(API_GET_VOTES_HTTP_TIMEOUT_MILLISECONDS); // timeout for server response
 
-            randomlyWaitIfLocallyDebugging(2*(API_GET_VOTES_TCP_TIMEOUT_MILLISECONDS + API_GET_VOTES_HTTP_TIMEOUT_MILLISECONDS));
+            randomlyWaitIfLocallyDebugging();
 
             final int responseCode = connection.getResponseCode();
             if (checkIfRateLimitWasHit(responseCode)) {

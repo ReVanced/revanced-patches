@@ -33,6 +33,7 @@ public final class GeneralAdsPatch extends Filter {
         var infoPanel = new BlockRule(SettingsEnum.ADREMOVER_INFO_PANEL_REMOVAL, "publisher_transparency_panel", "single_item_information_panel");
         var latestPosts = new BlockRule(SettingsEnum.ADREMOVER_HIDE_LATEST_POSTS, "post_shelf");
         var channelGuidelines = new BlockRule(SettingsEnum.ADREMOVER_HIDE_CHANNEL_GUIDELINES, "channel_guidelines_entry_banner");
+        var audioTrackButton = new BlockRule(SettingsEnum.HIDE_AUDIO_TRACK_BUTTON, "multi_feed_icon_button");
         var artistCard = new BlockRule(SettingsEnum.HIDE_ARTIST_CARDS, "official_card");
         var selfSponsor = new BlockRule(SettingsEnum.ADREMOVER_SELF_SPONSOR_REMOVAL, "cta_shelf_card");
         var chapterTeaser = new BlockRule(SettingsEnum.ADREMOVER_CHAPTER_TEASER_REMOVAL, "expandable_metadata", "macro_markers_carousel");
@@ -64,8 +65,8 @@ public final class GeneralAdsPatch extends Filter {
                 "carousel_footered_layout",
                 "text_image_button_layout",
                 "primetime_promo",
-                "feature_grid_interstitial",
                 "product_details",
+                "full_width_portrait_image_layout",
                 "brand_video_shelf"
         );
         var movieAds = new BlockRule(
@@ -97,6 +98,7 @@ public final class GeneralAdsPatch extends Filter {
                 merchandise,
                 infoPanel,
                 channelGuidelines,
+                audioTrackButton,
                 artistCard,
                 selfSponsor,
                 webLinkPanel,

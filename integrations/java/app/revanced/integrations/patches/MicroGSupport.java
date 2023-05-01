@@ -2,6 +2,7 @@ package app.revanced.integrations.patches;
 
 import static app.revanced.integrations.utils.StringRef.str;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -28,6 +29,7 @@ public class MicroGSupport {
         context.startActivity(intent);
     }
 
+    @TargetApi(26)
     public static void checkAvailability() {
         var context = Objects.requireNonNull(ReVancedUtils.getContext());
 
@@ -40,6 +42,7 @@ public class MicroGSupport {
             // Gracefully exit the app, so it does not crash.
             System.exit(0);
         }
+
 
         try (var client = context.getContentResolver().acquireContentProviderClient(VANCED_MICROG_PROVIDER)) {
             if (client != null) return;

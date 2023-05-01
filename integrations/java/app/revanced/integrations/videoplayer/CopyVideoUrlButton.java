@@ -1,25 +1,40 @@
 package app.revanced.integrations.videoplayer;
 
+import android.view.ViewGroup;
+
+import androidx.annotation.Nullable;
 
 import app.revanced.integrations.patches.CopyVideoUrlPatch;
 import app.revanced.integrations.settings.SettingsEnum;
+import app.revanced.integrations.utils.LogHelper;
 
 public class CopyVideoUrlButton extends BottomControlButton {
-    public static CopyVideoUrlButton instance;
+    @Nullable
+    private static CopyVideoUrlButton instance;
 
-    public CopyVideoUrlButton(Object obj) {
+    public CopyVideoUrlButton(ViewGroup viewGroup) {
         super(
-                obj,
+                viewGroup,
                 "copy_video_url_button",
-                SettingsEnum.COPY_VIDEO_URL_BUTTON_SHOWN.getBoolean(),
+                SettingsEnum.COPY_VIDEO_URL_BUTTON_SHOWN,
                 view -> CopyVideoUrlPatch.copyUrl(false)
         );
     }
 
+    /**
+     * Injection point.
+     */
     public static void initializeButton(Object obj) {
-        instance = new CopyVideoUrlButton(obj);
+        try {
+            instance = new CopyVideoUrlButton((ViewGroup) obj);
+        } catch (Exception ex) {
+            LogHelper.printException(() -> "initializeButton failure", ex);
+        }
     }
 
+    /**
+     * Injection point.
+     */
     public static void changeVisibility(boolean showing) {
         if (instance != null) instance.setVisibility(showing);
     }
