@@ -1,3 +1,10 @@
+# [2.172.0-dev.8](https://github.com/revanced/revanced-patches/compare/v2.172.0-dev.7...v2.172.0-dev.8) (2023-05-01)
+
+
+### Bug Fixes
+
+* **change-package-name:** use `null` as default value for option `packageName` ([#1998](https://github.com/revanced/revanced-patches/issues/1998)) ([8128e6b](https://github.com/revanced/revanced-patches/commit/8128e6ba57ec4e4e01a0923a0d353cc934b93899))
+
 # [2.172.0-dev.7](https://github.com/revanced/revanced-patches/compare/v2.172.0-dev.6...v2.172.0-dev.7) (2023-04-30)
 
 
