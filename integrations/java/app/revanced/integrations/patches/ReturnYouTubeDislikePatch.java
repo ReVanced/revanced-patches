@@ -3,7 +3,7 @@ package app.revanced.integrations.patches;
 import static app.revanced.integrations.returnyoutubedislike.ReturnYouTubeDislike.Vote;
 
 import android.text.Editable;
-import android.text.SpannableString;
+import android.text.Spannable;
 import android.text.Spanned;
 import android.text.TextWatcher;
 import android.widget.TextView;
@@ -16,6 +16,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 import app.revanced.integrations.returnyoutubedislike.ReturnYouTubeDislike;
 import app.revanced.integrations.settings.SettingsEnum;
+import app.revanced.integrations.shared.PlayerType;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 
@@ -68,14 +69,9 @@ public class ReturnYouTubeDislikePatch {
         if (oldUITextView == null) {
             return;
         }
-        Spanned dislikes = ReturnYouTubeDislike.getDislikesSpanForRegularVideo(oldUIOriginalSpan, false);
-        if (dislikes == null) { // Dislikes not available.
-            // Must reset text back to original as the TextView may contain dislikes of a prior video.
-            dislikes = oldUIOriginalSpan;
-        }
-        oldUIReplacementSpan = dislikes;
-        if (!dislikes.equals(oldUITextView.getText())) {
-            oldUITextView.setText(dislikes);
+        oldUIReplacementSpan = ReturnYouTubeDislike.getDislikesSpanForRegularVideo(oldUIOriginalSpan, false);
+        if (!oldUIReplacementSpan.equals(oldUITextView.getText())) {
+            oldUITextView.setText(oldUIReplacementSpan);
         }
     }
 
@@ -138,14 +134,23 @@ public class ReturnYouTubeDislikePatch {
                                                  @NonNull AtomicReference<CharSequence> textRef,
                                                  @NonNull CharSequence original) {
         try {
-            if (!SettingsEnum.RYD_ENABLED.getBoolean()) {
+            if (!SettingsEnum.RYD_ENABLED.getBoolean() || PlayerType.getCurrent().isNoneOrHidden()) {
                 return original;
             }
-            SpannableString replacement = ReturnYouTubeDislike.getDislikeSpanForContext(conversionContext, original);
-            if (replacement != null) {
-                textRef.set(replacement);
-                return replacement;
+
+            String conversionContextString = conversionContext.toString();
+            final boolean isSegmentedButton;
+            if (conversionContextString.contains("|segmented_like_dislike_button.eml|")) {
+                isSegmentedButton = true;
+            } else if (conversionContextString.contains("|dislike_button.eml|")) {
+                isSegmentedButton = false;
+            } else {
+                return original;
             }
+
+            Spanned replacement = ReturnYouTubeDislike.getDislikesSpanForRegularVideo((Spannable) original, isSegmentedButton);
+            textRef.set(replacement);
+            return replacement;
         } catch (Exception ex) {
             LogHelper.printException(() -> "onLithoTextLoaded failure", ex);
         }
@@ -162,10 +167,7 @@ public class ReturnYouTubeDislikePatch {
             if (!SettingsEnum.RYD_ENABLED.getBoolean()) {
                 return original;
             }
-            SpannableString replacement = ReturnYouTubeDislike.getDislikeSpanForShort(original);
-            if (replacement != null) {
-                return replacement;
-            }
+            return ReturnYouTubeDislike.getDislikeSpanForShort(original);
         } catch (Exception ex) {
             LogHelper.printException(() -> "onShortsComponentCreated failure", ex);
         }
