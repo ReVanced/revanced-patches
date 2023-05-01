@@ -1,3 +1,10 @@
+# [2.172.0-dev.9](https://github.com/revanced/revanced-patches/compare/v2.172.0-dev.8...v2.172.0-dev.9) (2023-05-01)
+
+
+### Features
+
+* **youtube/general-ads:** hide multiple audio track button on video player overlay ([#2021](https://github.com/revanced/revanced-patches/issues/2021)) ([8d7f305](https://github.com/revanced/revanced-patches/commit/8d7f305aa2d8f86a9232a6a9577a87f58b53d51c))
+
 # [2.172.0-dev.8](https://github.com/revanced/revanced-patches/compare/v2.172.0-dev.7...v2.172.0-dev.8) (2023-05-01)
 
 
