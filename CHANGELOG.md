@@ -1,3 +1,10 @@
+# [2.173.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.173.0-dev.4...v2.173.0-dev.5) (2023-05-02)
+
+
+### Features
+
+* **youtube:** `navigation-buttons` patch ([4bece31](https://github.com/revanced/revanced-patches/commit/4bece31f56eb340933ad26da3d1bfc902ea8569f))
+
 # [2.173.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.173.0-dev.3...v2.173.0-dev.4) (2023-05-02)
 
 

@@ -13,7 +13,6 @@ The official Patch bundle provided by ReVanced and the community.
 | `client-spoof` | Spoofs a patched client to allow playback. | 18.16.37 |
 | `comments` | Hides components related to comments. | 18.16.37 |
 | `copy-video-url` | Adds buttons in player to copy video links. | 18.16.37 |
-| `create-button` | Hide the create button in the navigation bar or switch it with notifications. | 18.16.37 |
 | `custom-branding` | Changes the YouTube launcher icon and name to your choice (defaults to ReVanced). | all |
 | `custom-video-buffer` | Lets you change the buffers of videos. | 18.16.37 |
 | `custom-video-speed` | Adds more video speed options. | 18.16.37 |
@@ -41,12 +40,12 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-player-buttons` | Adds the option to hide video player previous and next buttons. | all |
 | `hide-player-overlay` | Hides the dark player overlay when player controls are visible. | all |
 | `hide-seekbar` | Hides the seekbar. | 18.16.37 |
-| `hide-shorts-button` | Hides the shorts button on the navigation bar. | 18.16.37 |
 | `hide-timestamp` | Hides timestamp in video player. | 18.16.37 |
 | `hide-video-action-buttons` | Adds the options to hide action buttons under a video. | 18.16.37 |
 | `hide-watch-in-vr` | Hides the option to watch in VR from the player settings flyout panel. | 18.16.37 |
 | `hide-watermark` | Hides creator's watermarks on videos. | 18.16.37 |
 | `minimized-playback` | Enables minimized and background playback. | 18.16.37 |
+| `navigation-buttons` | Adds options to hide or change navigation buttons. | 18.16.37 |
 | `old-quality-layout` | Enables the original video quality flyout in the video player settings | 18.16.37 |
 | `open-links-externally` | Open links outside of the app directly in your browser. | 18.16.37 |
 | `premium-heading` | Shows premium branding on the home screen. | all |
