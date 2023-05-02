@@ -9,7 +9,7 @@ public final class ThemePatch {
 
     private static void resetSeekbarColor() {
         ReVancedUtils.showToastShort("Invalid seekbar color value. Using default value.");
-        SettingsEnum.SEEKBAR_COLOR.saveValue(Integer.toHexString(DEFAULT_SEEKBAR_COLOR));
+        SettingsEnum.SEEKBAR_COLOR.saveValue("#" + Integer.toHexString(DEFAULT_SEEKBAR_COLOR));
     }
 
     public static int getSeekbarColorValue() {
