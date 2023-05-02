@@ -1,3 +1,11 @@
+# [2.173.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.172.0...v2.173.0-dev.1) (2023-05-02)
+
+
+### Features
+
+* **youtube:** bump compatibility to `18.16.37` ([fe3fdd5](https://github.com/revanced/revanced-patches/commit/fe3fdd5c6cb186bcebc2f86b1d5b597109b25cb6))
+* **youtube:** support version `18.16.37` ([8beb5ea](https://github.com/revanced/revanced-patches/commit/8beb5ea860284be915c0ef0c6039821a50c14fa8))
+
 # [2.172.0](https://github.com/revanced/revanced-patches/compare/v2.171.0...v2.172.0) (2023-05-01)
 
 
