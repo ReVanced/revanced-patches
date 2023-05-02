@@ -13,6 +13,7 @@ The official Patch bundle provided by ReVanced and the community.
 | `client-spoof` | Spoofs a patched client to allow playback. | 18.16.37 |
 | `comments` | Hides components related to comments. | 18.16.37 |
 | `copy-video-url` | Adds buttons in player to copy video links. | 18.16.37 |
+| `create-button` | Hide the create button in the navigation bar or switch it with notifications. | 18.16.37 |
 | `custom-branding` | Changes the YouTube launcher icon and name to your choice (defaults to ReVanced). | all |
 | `custom-video-buffer` | Lets you change the buffers of videos. | 18.16.37 |
 | `custom-video-speed` | Adds more video speed options. | 18.16.37 |
@@ -31,7 +32,6 @@ The official Patch bundle provided by ReVanced and the community.
 | `hide-breaking-news-shelf` | Hides the breaking news shelf on the homepage tab. | 18.16.37 |
 | `hide-captions-button` | Hides the captions button on video player. | 18.16.37 |
 | `hide-cast-button` | Hides the cast button in the video player. | all |
-| `hide-create-button` | Hides the create button in the navigation bar. | 18.16.37 |
 | `hide-crowdfunding-box` | Hides the crowdfunding box between the player and video description. | 18.16.37 |
 | `hide-email-address` | Hides the email address in the account switcher. | 18.16.37 |
 | `hide-endscreen-cards` | Hides the suggested video cards at the end of a video in fullscreen. | 18.16.37 |

@@ -1,3 +1,10 @@
+# [2.173.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.173.0-dev.3...v2.173.0-dev.4) (2023-05-02)
+
+
+### Features
+
+* **youtube/create-button:** switch create with notifications button ([385ceda](https://github.com/revanced/revanced-patches/commit/385ceda61f586f24b11a284688f55758ef5b4e74))
+
 # [2.173.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.173.0-dev.2...v2.173.0-dev.3) (2023-05-02)
 
 
