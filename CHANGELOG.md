@@ -1,3 +1,10 @@
+# [2.173.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.173.0-dev.1...v2.173.0-dev.2) (2023-05-02)
+
+
+### Features
+
+* **youtube/theme:** change seekbar color via preference ([9b465d9](https://github.com/revanced/revanced-patches/commit/9b465d95887863f6b42baa6b710ed98c97383a82))
+
 # [2.173.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.172.0...v2.173.0-dev.1) (2023-05-02)
 
 

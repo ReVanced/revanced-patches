@@ -10,7 +10,7 @@ The official Patch bundle provided by ReVanced and the community.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `always-autorepeat` | Always repeats the playing video again. | 18.16.37 |
-| `client-spoof` | Spoofs a patched client to allow playback. | all |
+| `client-spoof` | Spoofs a patched client to allow playback. | 18.16.37 |
 | `comments` | Hides components related to comments. | 18.16.37 |
 | `copy-video-url` | Adds buttons in player to copy video links. | 18.16.37 |
 | `custom-branding` | Changes the YouTube launcher icon and name to your choice (defaults to ReVanced). | all |
@@ -57,7 +57,6 @@ The official Patch bundle provided by ReVanced and the community.
 | `seekbar-tapping` | Enables tap-to-seek on the seekbar of the video player. | 18.16.37 |
 | `sponsorblock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. | 18.16.37 |
 | `spoof-app-version` | Tricks YouTube into thinking, you are running an older version of the app. One of the side effects also includes restoring the old UI. | 18.16.37 |
-| `spoof-signature-verification` | Spoofs a patched client to prevent playback issues. | 18.16.37 |
 | `swipe-controls` | Adds volume and brightness swipe controls. | 18.16.37 |
 | `tablet-mini-player` | Enables the tablet mini player layout. | 18.16.37 |
 | `theme` | Applies a custom theme. | all |
@@ -160,15 +159,6 @@ The official Patch bundle provided by ReVanced and the community.
 | `premium-icon-reddit` | Unlocks premium Reddit app icons. | all |
 </details>
 
-### [📦 `com.vanced.android.youtube`](https://play.google.com/store/apps/details?id=com.vanced.android.youtube)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `client-spoof` | Spoofs a patched client to allow playback. | all |
-| `hide-ads` | Removes general ads. | all |
-</details>
-
 ### [📦 `at.gv.bmf.bmf2go`](https://play.google.com/store/apps/details?id=at.gv.bmf.bmf2go)
 <details>
 
@@ -209,6 +199,14 @@ The official Patch bundle provided by ReVanced and the community.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `hide-ads` | Removes ads from Inshorts. | all |
+</details>
+
+### [📦 `com.vanced.android.youtube`](https://play.google.com/store/apps/details?id=com.vanced.android.youtube)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `hide-ads` | Removes general ads. | all |
 </details>
 
 ### [📦 `com.facebook.orca`](https://play.google.com/store/apps/details?id=com.facebook.orca)
