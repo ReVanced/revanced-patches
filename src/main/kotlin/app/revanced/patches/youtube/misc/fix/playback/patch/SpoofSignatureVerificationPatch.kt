@@ -12,12 +12,9 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.misc.fix.spoof.patch.ClientSpoofPatch
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
-import app.revanced.patches.youtube.misc.fix.playback.annotation.ProtobufSpoofCompatibility
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.OpenCronetDataSourceFingerprint
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.ProtobufParameterBuilderFingerprint
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.SubtitleWindowSettingsConstructorFingerprint
@@ -27,15 +24,12 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.video.videoid.patch.VideoIdPatch
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Patch
 @Name("spoof-signature-verification")
 @Description("Spoofs a patched client to prevent playback issues.")
-@ProtobufSpoofCompatibility
 @DependsOn([
     IntegrationsPatch::class,
     SettingsPatch::class,
     PlayerTypeHookPatch::class,
-    ClientSpoofPatch::class,
     VideoIdPatch::class
 ])
 @Version("0.0.1")
