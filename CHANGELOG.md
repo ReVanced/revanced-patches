@@ -1,3 +1,10 @@
+# [2.173.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.173.0-dev.2...v2.173.0-dev.3) (2023-05-02)
+
+
+### Features
+
+* **youtube/theme:** theme seekbar when clicked ([691a231](https://github.com/revanced/revanced-patches/commit/691a231d99b3b2fbe446fc7edb7a88c7a3127037))
+
 # [2.173.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.173.0-dev.1...v2.173.0-dev.2) (2023-05-02)
 
 
