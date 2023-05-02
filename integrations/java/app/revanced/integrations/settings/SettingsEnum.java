@@ -1,21 +1,17 @@
 package app.revanced.integrations.settings;
 
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
-import static app.revanced.integrations.settings.SettingsEnum.ReturnType.BOOLEAN;
-import static app.revanced.integrations.settings.SettingsEnum.ReturnType.FLOAT;
-import static app.revanced.integrations.settings.SettingsEnum.ReturnType.INTEGER;
-import static app.revanced.integrations.settings.SettingsEnum.ReturnType.LONG;
-import static app.revanced.integrations.settings.SettingsEnum.ReturnType.STRING;
-import static app.revanced.integrations.settings.SharedPrefCategory.RETURN_YOUTUBE_DISLIKE;
-import static app.revanced.integrations.settings.SharedPrefCategory.SPONSOR_BLOCK;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import app.revanced.integrations.utils.StringRef;
+import app.revanced.integrations.patches.theme.ThemePatch;
 
 import java.util.Objects;
 
-import app.revanced.integrations.utils.StringRef;
+import static app.revanced.integrations.settings.SettingsEnum.ReturnType.*;
+import static app.revanced.integrations.settings.SharedPrefCategory.RETURN_YOUTUBE_DISLIKE;
+import static app.revanced.integrations.settings.SharedPrefCategory.SPONSOR_BLOCK;
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 
 public enum SettingsEnum {
     //Download Settings
@@ -87,6 +83,7 @@ public enum SettingsEnum {
     HIDE_CAST_BUTTON("revanced_hide_cast_button", BOOLEAN, TRUE, true),
     HIDE_COMMENTS_SECTION("revanced_hide_comments_section", BOOLEAN, FALSE, true),
     HIDE_CREATE_BUTTON("revanced_hide_create_button", BOOLEAN, TRUE, true),
+    SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON("revanced_switch_create_with_notifications_button", BOOLEAN, TRUE, true),
     HIDE_CROWDFUNDING_BOX("revanced_hide_crowdfunding_box", BOOLEAN, FALSE, true),
     HIDE_EMAIL_ADDRESS("revanced_hide_email_address", BOOLEAN, FALSE),
     HIDE_ENDSCREEN_CARDS("revanced_hide_endscreen_cards", BOOLEAN, TRUE),
@@ -97,7 +94,9 @@ public enum SettingsEnum {
     HIDE_PLAYER_BUTTONS("revanced_hide_player_buttons", BOOLEAN, FALSE),
     HIDE_PREVIEW_COMMENT("revanced_hide_preview_comment", BOOLEAN, FALSE, true),
     HIDE_SEEKBAR("revanced_hide_seekbar", BOOLEAN, FALSE),
+    HIDE_HOME_BUTTON("revanced_hide_home_button", BOOLEAN, FALSE, true),
     HIDE_SHORTS_BUTTON("revanced_hide_shorts_button", BOOLEAN, TRUE, true),
+    HIDE_SUBSCRIPTIONS_BUTTON("revanced_hide_subscriptions_button", BOOLEAN, FALSE, true),
     HIDE_SHORTS_COMMENTS_BUTTON("revanced_hide_shorts_comments_button", BOOLEAN, FALSE),
     HIDE_TIMESTAMP("revanced_hide_timestamp", BOOLEAN, FALSE),
     HIDE_VIDEO_WATERMARK("revanced_hide_video_watermark", BOOLEAN, TRUE),
@@ -107,6 +106,7 @@ public enum SettingsEnum {
     SPOOF_APP_VERSION_TARGET("revanced_spoof_app_version_target", STRING, "17.30.35", true, parents(SPOOF_APP_VERSION)),
     USE_TABLET_MINIPLAYER("revanced_tablet_miniplayer", BOOLEAN, FALSE, true),
     WIDE_SEARCHBAR("revanced_wide_searchbar", BOOLEAN, FALSE, true),
+    SEEKBAR_COLOR("revanced_seekbar_color", STRING, Integer.toHexString(ThemePatch.DEFAULT_SEEKBAR_COLOR), true),
 
     // Misc. Settings
     SIGNATURE_SPOOFING("revanced_spoof_signature_verification", BOOLEAN, TRUE, "revanced_spoof_signature_verification_user_dialog_message"),

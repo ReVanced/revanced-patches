@@ -1,9 +1,9 @@
-package app.revanced.integrations.patches;
+package app.revanced.integrations.patches.theme;
 
 import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.ThemeHelper;
 
-public class LithoThemePatch {
+public class ThemeLithoComponentsPatch {
     // color constants used in relation with litho components
     private static final int[] WHITE_VALUES = {
             -1, // comments chip background
@@ -31,7 +31,7 @@ public class LithoThemePatch {
      * @param originalValue The original color value.
      * @return The new or original color value
      */
-    public static int applyLithoTheme(int originalValue) {
+    public static int getValue(int originalValue) {
         if (ThemeHelper.isDarkTheme()) {
             if (anyEquals(originalValue, DARK_VALUES)) return getBlackColor();
         } else {
