@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.buttons.pivotbar.create.fingerprints
+package app.revanced.patches.youtube.layout.buttons.navigation.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 

@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.buttons.pivotbar.shared.annotations
+package app.revanced.patches.youtube.layout.buttons.navigation.annotations
 
 import app.revanced.patcher.annotation.Compatibility
 import app.revanced.patcher.annotation.Package
@@ -21,4 +21,4 @@ import app.revanced.patcher.annotation.Package
     )]
 )
 @Target(AnnotationTarget.CLASS)
-internal annotation class PivotBarCompatibility
+internal annotation class NavigationButtonsCompatibility
