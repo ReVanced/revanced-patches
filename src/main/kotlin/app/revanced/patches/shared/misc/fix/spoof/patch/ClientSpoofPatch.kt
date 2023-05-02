@@ -10,15 +10,18 @@ import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.misc.fix.spoof.annotations.ClientSpoofCompatibility
 import app.revanced.patches.shared.misc.fix.spoof.fingerprints.UserAgentHeaderBuilderFingerprint
+import app.revanced.patches.youtube.misc.fix.playback.patch.SpoofSignatureVerificationPatch
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch
 @Name("client-spoof")
 @Description("Spoofs a patched client to allow playback.")
 @ClientSpoofCompatibility
+@DependsOn([SpoofSignatureVerificationPatch::class])
 @Version("0.0.1")
 class ClientSpoofPatch : BytecodePatch(
     listOf(UserAgentHeaderBuilderFingerprint)

@@ -1,7 +1,7 @@
-package app.revanced.patches.youtube.layout.buttons.pivotbar.shared.fingerprints
+package app.revanced.patches.youtube.layout.buttons.navigation.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patches.youtube.layout.buttons.pivotbar.shared.patch.ResolvePivotBarFingerprintsPatch
+import app.revanced.patches.youtube.layout.buttons.navigation.patch.ResolvePivotBarFingerprintsPatch
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 

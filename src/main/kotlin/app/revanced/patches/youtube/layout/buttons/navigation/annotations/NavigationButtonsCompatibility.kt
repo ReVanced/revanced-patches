@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.buttons.pivotbar.shared.annotations
+package app.revanced.patches.youtube.layout.buttons.navigation.annotations
 
 import app.revanced.patcher.annotation.Compatibility
 import app.revanced.patcher.annotation.Package
@@ -15,9 +15,10 @@ import app.revanced.patcher.annotation.Package
             "18.05.35",
             "18.05.40",
             "18.08.37",
-            "18.15.40"
+            "18.15.40",
+            "18.16.37"
         )
     )]
 )
 @Target(AnnotationTarget.CLASS)
-internal annotation class PivotBarCompatibility
+internal annotation class NavigationButtonsCompatibility
