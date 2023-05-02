@@ -80,10 +80,11 @@ public class ReturnYouTubeDislikePatch {
      *
      * Used when spoofing the older app versions of {@link SpoofAppVersionPatch}.
      */
-    public static void setOldUILayoutDislikes(int buttonViewResourceId, @NonNull TextView textView) {
+    public static void setOldUILayoutDislikes(int buttonViewResourceId, @Nullable TextView textView) {
         try {
             if (!SettingsEnum.RYD_ENABLED.getBoolean()
-                    || buttonViewResourceId != OLD_UI_DISLIKE_BUTTON_RESOURCE_ID) {
+                    || buttonViewResourceId != OLD_UI_DISLIKE_BUTTON_RESOURCE_ID
+                    || textView == null) {
                 return;
             }
             if (oldUIOriginalSpan == null) {
