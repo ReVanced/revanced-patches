@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 
 import java.util.Objects;
 
+import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 
 /**
@@ -33,6 +34,11 @@ public enum SharedPrefCategory {
     SharedPrefCategory(@NonNull String prefName) {
         this.prefName = Objects.requireNonNull(prefName);
         preferences = Objects.requireNonNull(ReVancedUtils.getContext()).getSharedPreferences(prefName, Context.MODE_PRIVATE);
+    }
+
+    private void removeConflictingPreferenceKeyValue(@NonNull String key) {
+        LogHelper.printException(() -> "Found conflicting preference: " + key);
+        preferences.edit().remove(key).apply();
     }
 
     private void saveObjectAsString(@NonNull String key, @Nullable Object value) {
@@ -91,7 +97,14 @@ public enum SharedPrefCategory {
             }
             return _default;
         } catch (ClassCastException ex) {
-            return preferences.getInt(key, _default); // old data, previously stored as primitive
+            try {
+                // Old data previously stored as primitive.
+                return preferences.getInt(key, _default);
+            } catch (ClassCastException ex2) {
+                // Value stored is a completely different type (should never happen).
+                removeConflictingPreferenceKeyValue(key);
+                return _default;
+            }
         }
     }
 
@@ -104,7 +117,12 @@ public enum SharedPrefCategory {
             }
             return _default;
         } catch (ClassCastException ex) {
-            return preferences.getLong(key, _default);
+            try {
+                return preferences.getLong(key, _default);
+            } catch (ClassCastException ex2) {
+                removeConflictingPreferenceKeyValue(key);
+                return _default;
+            }
         }
     }
 
@@ -117,7 +135,12 @@ public enum SharedPrefCategory {
             }
             return _default;
         } catch (ClassCastException ex) {
-            return preferences.getFloat(key, _default);
+            try {
+                return preferences.getFloat(key, _default);
+            } catch (ClassCastException ex2) {
+                removeConflictingPreferenceKeyValue(key);
+                return _default;
+            }
         }
     }
 
