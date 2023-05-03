@@ -51,7 +51,7 @@ public class SponsorBlockViewController {
     /**
      * Injection point.
      */
-    public static void initialize(Object obj) {
+    public static void initialize(ViewGroup viewGroup) {
         try {
             LogHelper.printDebug(() -> "initializing");
 
@@ -64,7 +64,6 @@ public class SponsorBlockViewController {
             LayoutInflater.from(context).inflate(getResourceIdentifier("inline_sponsor_overlay", "layout"), layout);
             inlineSponsorOverlayRef = new WeakReference<>(layout);
 
-            ViewGroup viewGroup = (ViewGroup) obj;
             viewGroup.addView(layout);
             viewGroup.setOnHierarchyChangeListener(new ViewGroup.OnHierarchyChangeListener() {
                 @Override
