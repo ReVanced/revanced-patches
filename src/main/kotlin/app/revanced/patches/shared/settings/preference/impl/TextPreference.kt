@@ -23,7 +23,7 @@ internal class TextPreference(
     val default: String? = null,
     val summary: StringResource? = null
 ) : BasePreference(key, title) {
-    override val tag: String = "EditTextPreference"
+    override val tag: String = "app.revanced.integrations.settingsmenu.ResettableEditTextPreference"
 
     override fun serialize(ownerDocument: Document, resourceCallback: ((IResource) -> Unit)?): Element {
         return super.serialize(ownerDocument, resourceCallback).apply {

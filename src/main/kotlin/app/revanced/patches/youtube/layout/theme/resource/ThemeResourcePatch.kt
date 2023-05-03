@@ -20,7 +20,7 @@ class ThemeResourcePatch : ResourcePatch {
                 "revanced_seekbar_color",
                 StringResource("revanced_seekbar_color_title", "Seekbar color"),
                 InputType.STRING,
-                "#ffff0000",
+                "#FF0000",
                 StringResource(
                     "revanced_seekbar_color_summary",
                     "The color of the seekbar for the dark theme."
