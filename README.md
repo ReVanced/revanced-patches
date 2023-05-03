@@ -285,7 +285,7 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `unlock-plus` | Unlocks plus features. | 8.9.0 |
+| `unlock-plus` | Unlocks plus features. | all |
 </details>
 
 ### [📦 `io.yuka.android`](https://play.google.com/store/apps/details?id=io.yuka.android)
@@ -325,7 +325,7 @@ The official Patch bundle provided by ReVanced and the community.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `unlock-pro` | Unlocks pro features. | 4.6364 |
+| `unlock-pro` | Unlocks pro features. | 4.6377 |
 </details>
 
 ### [📦 `com.ithebk.expensemanager`](https://play.google.com/store/apps/details?id=com.ithebk.expensemanager)

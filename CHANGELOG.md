@@ -1,3 +1,10 @@
+# [2.174.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.1...v2.174.0-dev.2) (2023-05-03)
+
+
+### Features
+
+* **patch:** bump compatibility ([#2060](https://github.com/revanced/revanced-patches/issues/2060)) ([f86836d](https://github.com/revanced/revanced-patches/commit/f86836d6295db9eb8c59916deaa991b4d99e96be))
+
 # [2.174.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.173.1-dev.1...v2.174.0-dev.1) (2023-05-03)
 
 
