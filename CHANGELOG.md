@@ -1,3 +1,10 @@
+## [2.173.1-dev.1](https://github.com/revanced/revanced-patches/compare/v2.173.0...v2.173.1-dev.1) (2023-05-03)
+
+
+### Bug Fixes
+
+* **youtube/sponsorblock:** fix skip button in wrong location when full screen and comments visible ([#2051](https://github.com/revanced/revanced-patches/issues/2051)) ([30a954c](https://github.com/revanced/revanced-patches/commit/30a954cac83a66fbb25589edc487797ea5f19986))
+
 # [2.173.0](https://github.com/revanced/revanced-patches/compare/v2.172.0...v2.173.0) (2023-05-02)
 
 
