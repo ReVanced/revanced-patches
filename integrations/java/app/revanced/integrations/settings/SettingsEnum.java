@@ -106,7 +106,7 @@ public enum SettingsEnum {
     SPOOF_APP_VERSION_TARGET("revanced_spoof_app_version_target", STRING, "17.30.35", true, parents(SPOOF_APP_VERSION)),
     USE_TABLET_MINIPLAYER("revanced_tablet_miniplayer", BOOLEAN, FALSE, true),
     WIDE_SEARCHBAR("revanced_wide_searchbar", BOOLEAN, FALSE, true),
-    SEEKBAR_COLOR("revanced_seekbar_color", STRING, Integer.toHexString(ThemePatch.DEFAULT_SEEKBAR_COLOR), true),
+    SEEKBAR_COLOR("revanced_seekbar_color", STRING, "#FF0000", true),
 
     // Misc. Settings
     SIGNATURE_SPOOFING("revanced_spoof_signature_verification", BOOLEAN, TRUE, "revanced_spoof_signature_verification_user_dialog_message"),
