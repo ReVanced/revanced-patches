@@ -13,6 +13,9 @@ public final class ThemePatch {
         SettingsEnum.SEEKBAR_COLOR.saveValue(SettingsEnum.SEEKBAR_COLOR.defaultValue);
     }
 
+    /**
+     * Injection point.
+     */
     public static int getSeekbarClickedColorValue(final int colorValue) {
         // YouTube uses a specific color when the seekbar is clicked. Override in that case.
         return colorValue == ORIGINAL_SEEKBAR_CLICKED_COLOR ? getSeekbarColorValue() : colorValue;
@@ -21,7 +24,7 @@ public final class ThemePatch {
     public static int getSeekbarColorValue() {
         try {
             return Color.parseColor(SettingsEnum.SEEKBAR_COLOR.getString());
-        } catch (IllegalArgumentException exception) {
+        } catch (Exception exception) {
             resetSeekbarColor();
             return getSeekbarColorValue();
         }
