@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.comments.bytecode.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -32,9 +33,6 @@ class CommentsPatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        val shortsCommentsButtonResult = ShortsCommentsButtonFingerprint.result!!
-        val shortsCommentsButtonMethod = shortsCommentsButtonResult.mutableMethod
-
         val checkCastAnchorFingerprint = object : MethodFingerprint(
             opcodes = listOf(
                 Opcode.CONST,
@@ -47,15 +45,24 @@ class CommentsPatch : BytecodePatch(
             )
         ) {}
 
-        val checkCastAnchorIndex = checkCastAnchorFingerprint.also {
-            it.resolve(context, shortsCommentsButtonMethod, shortsCommentsButtonResult.classDef)
-        }.result!!.scanResult.patternScanResult!!.endIndex
+        ShortsCommentsButtonFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val checkCastAnchorIndex = checkCastAnchorFingerprint.also { result ->
+                    if (!result.resolve(context, this, it.classDef))
+                        throw checkCastAnchorFingerprint.toErrorResult()
+                }.result!!.scanResult.patternScanResult!!.endIndex
 
-        shortsCommentsButtonMethod.addInstructions(
-            checkCastAnchorIndex + 1, """
-                invoke-static {v${(shortsCommentsButtonMethod.instruction(checkCastAnchorIndex) as OneRegisterInstruction).registerA}}, Lapp/revanced/integrations/patches/HideShortsCommentsButtonPatch;->hideShortsCommentsButton(Landroid/view/View;)V
-            """
-        )
+                val shortsCommentsButtonRegister = instruction<OneRegisterInstruction>(checkCastAnchorIndex).registerA
+                val insertIndex = checkCastAnchorIndex + 1
+
+                addInstructions(
+                    insertIndex,
+                    """
+                    invoke-static {v$shortsCommentsButtonRegister, Lapp/revanced/integrations/patches/HideShortsCommentsButtonPatch;->hideShortsCommentsButton(Landroid/view/View;)V
+                """
+                )
+            }
+        } ?: return ShortsCommentsButtonFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }

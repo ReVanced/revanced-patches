@@ -20,7 +20,8 @@ import app.revanced.patches.youtube.layout.hide.infocards.fingerprints.Infocards
 import app.revanced.patches.youtube.layout.hide.infocards.resource.patch.HideInfocardsResourcePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
+import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
+import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch
 @DependsOn([IntegrationsPatch::class, HideInfocardsResourcePatch::class])
@@ -35,18 +36,17 @@ class HideInfoCardsPatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        with(InfocardsIncognitoFingerprint.also {
+       InfocardsIncognitoFingerprint.also {
             it.resolve(context, InfocardsIncognitoParentFingerprint.result!!.classDef)
-        }.result!!.mutableMethod) {
+        }.result!!.mutableMethod.apply {
             val invokeInstructionIndex = implementation!!.instructions.indexOfFirst {
                 it.opcode.ordinal == Opcode.INVOKE_VIRTUAL.ordinal &&
-                        ((it as? BuilderInstruction35c)?.reference.toString() ==
-                                "Landroid/view/View;->setVisibility(I)V")
+                        ((it as ReferenceInstruction).reference.toString() == "Landroid/view/View;->setVisibility(I)V")
             }
 
             addInstructions(
                 invokeInstructionIndex,
-                "invoke-static {v${(instruction(invokeInstructionIndex) as? BuilderInstruction35c)?.registerC}}," +
+                "invoke-static {v${instruction<FiveRegisterInstruction>(invokeInstructionIndex).registerC}}," +
                         " Lapp/revanced/integrations/patches/HideInfoCardsPatch;->hideInfoCardsIncognito(Landroid/view/View;)V"
             )
         }

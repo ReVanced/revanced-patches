@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.personalinformation.bytecode.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -29,23 +30,22 @@ class HideEmailAddressPatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        val accountSwitcherAccessibilityLabelResult = AccountSwitcherAccessibilityLabelFingerprint.result!!
-        val accountSwitcherAccessibilityLabelMethod = accountSwitcherAccessibilityLabelResult.mutableMethod
+        AccountSwitcherAccessibilityLabelFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val setVisibilityConstIndex = it.scanResult.patternScanResult!!.endIndex
 
-        val setVisibilityConstIndex =
-            accountSwitcherAccessibilityLabelResult.scanResult.patternScanResult!!.endIndex
+                val setVisibilityConstRegister =
+                    instruction<OneRegisterInstruction>(setVisibilityConstIndex - 2).registerA
 
-        val setVisibilityConstRegister = (
-                accountSwitcherAccessibilityLabelMethod.instruction
-                (setVisibilityConstIndex - 2) as OneRegisterInstruction
-            ).registerA
-
-        accountSwitcherAccessibilityLabelMethod.addInstructions(
-            setVisibilityConstIndex, """
-            invoke-static {v$setVisibilityConstRegister}, Lapp/revanced/integrations/patches/HideEmailAddressPatch;->hideEmailAddress(I)I
-            move-result v$setVisibilityConstRegister
-        """
-        )
+                addInstructions(
+                    setVisibilityConstIndex,
+                    """
+                        invoke-static {v$setVisibilityConstRegister}, Lapp/revanced/integrations/patches/HideEmailAddressPatch;->hideEmailAddress(I)I
+                        move-result v$setVisibilityConstRegister
+                    """
+                )
+            }
+        } ?: return AccountSwitcherAccessibilityLabelFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }

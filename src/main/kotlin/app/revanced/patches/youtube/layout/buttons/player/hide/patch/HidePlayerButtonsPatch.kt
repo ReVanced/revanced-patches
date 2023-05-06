@@ -55,7 +55,7 @@ class HidePlayerButtonsPatch : BytecodePatch(
 
         PlayerControlsVisibilityModelFingerprint.result?.apply {
             val callIndex = scanResult.patternScanResult!!.endIndex
-            val callInstruction = mutableMethod.instruction(callIndex) as Instruction3rc
+            val callInstruction = mutableMethod.instruction<Instruction3rc>(callIndex)
 
             // overriding this parameter register hides the previous and next buttons
             val hasNextParameterRegister = callInstruction.startRegister + ParameterOffsets.HAS_NEXT

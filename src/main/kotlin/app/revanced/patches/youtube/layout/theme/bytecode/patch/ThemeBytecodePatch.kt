@@ -36,7 +36,7 @@ class ThemeBytecodePatch : BytecodePatch(
             val putColorValueIndex = it.method.indexOfInstructionWithSeekbarId!! + 3
 
             it.mutableMethod.apply {
-                val overrideRegister = (instruction(putColorValueIndex) as TwoRegisterInstruction).registerA
+                val overrideRegister = instruction<TwoRegisterInstruction>(putColorValueIndex).registerA
 
                 addInstructions(
                     putColorValueIndex,
@@ -57,7 +57,7 @@ class ThemeBytecodePatch : BytecodePatch(
                     .getMethod() as MutableMethod
 
                 method.apply {
-                    val colorRegister = (method.instruction(0) as TwoRegisterInstruction).registerA
+                    val colorRegister = method.instruction<TwoRegisterInstruction>(0).registerA
                     addInstructions(
                         0,
                         """

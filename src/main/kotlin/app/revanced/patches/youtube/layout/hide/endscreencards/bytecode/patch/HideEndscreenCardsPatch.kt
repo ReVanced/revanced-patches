@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.endscreencards.bytecode.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -35,19 +36,23 @@ class HideEndscreenCardsPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         fun MethodFingerprint.injectHideCall() {
-            val layoutResult = result!!
-            val layoutMethod = layoutResult.mutableMethod
+            val layoutResult = result ?: throw toErrorResult()
+            layoutResult.mutableMethod.apply {
+                val insertIndex = layoutResult.scanResult.patternScanResult!!.endIndex + 1
+                val viewRegister = instruction<Instruction21c>(insertIndex - 1).registerA
 
-            val checkCastIndex = layoutResult.scanResult.patternScanResult!!.endIndex
-            val viewRegister = (layoutMethod.instruction(checkCastIndex) as Instruction21c).registerA
-
-            layoutMethod.addInstruction(
-                checkCastIndex + 1,
-                "invoke-static { v$viewRegister }, Lapp/revanced/integrations/patches/HideEndscreenCardsPatch;->hideEndscreen(Landroid/view/View;)V"
-            )
+                addInstruction(
+                    insertIndex,
+                    "invoke-static { v$viewRegister }, Lapp/revanced/integrations/patches/HideEndscreenCardsPatch;->hideEndscreen(Landroid/view/View;)V"
+                )
+            }
         }
-        
-        listOf(LayoutCircleFingerprint, LayoutIconFingerprint, LayoutVideoFingerprint).forEach(MethodFingerprint::injectHideCall)
+
+        listOf(
+            LayoutCircleFingerprint,
+            LayoutIconFingerprint,
+            LayoutVideoFingerprint
+        ).forEach(MethodFingerprint::injectHideCall)
 
         return PatchResultSuccess()
     }

@@ -20,7 +20,7 @@ internal object InjectionUtils {
 
         // Register to pass to the hook
         val registerIndex = insertIndex - 1 // MOVE_RESULT_OBJECT is always the previous instruction
-        val register = (injectTarget.instruction(registerIndex) as OneRegisterInstruction).registerA
+        val register = injectTarget.instruction<OneRegisterInstruction>(registerIndex).registerA
 
         injectTarget.addInstruction(
             insertIndex,

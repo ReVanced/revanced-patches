@@ -33,7 +33,7 @@ class VideoIdPatch : BytecodePatch(
             result.mutableMethod.also {
                 insertMethod = it
             }.apply {
-                videoIdRegister = (instruction(videoIdRegisterInstructionIndex) as OneRegisterInstruction).registerA
+                videoIdRegister = instruction<OneRegisterInstruction>(videoIdRegisterInstructionIndex).registerA
                 insertIndex = videoIdRegisterInstructionIndex + 1
             }
         } ?: return VideoIdFingerprint.toErrorResult()
@@ -44,7 +44,7 @@ class VideoIdPatch : BytecodePatch(
             result.mutableMethod.also {
                 backgroundPlaybackMethod = it
             }.apply {
-                backgroundPlaybackVideoIdRegister = (instruction(endIndex + 1) as OneRegisterInstruction).registerA
+                backgroundPlaybackVideoIdRegister = instruction<OneRegisterInstruction>(endIndex + 1).registerA
                 backgroundPlaybackInsertIndex = endIndex + 2
             }
         } ?: return VideoIdFingerprintBackgroundPlay.toErrorResult()

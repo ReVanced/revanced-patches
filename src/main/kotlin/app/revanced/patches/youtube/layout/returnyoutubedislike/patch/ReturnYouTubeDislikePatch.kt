@@ -102,18 +102,21 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
             val atomicReferenceStartIndex = TextComponentAtomicReferenceFingerprint.result!!
                 .scanResult.patternScanResult!!.startIndex
 
+            val insertIndex = atomicReferenceStartIndex + 8
+
             textComponentContextFingerprintResult.mutableMethod.apply {
                 // Get the conversion context obfuscated field name, and the registers for the AtomicReference and CharSequence
                 val conversionContextFieldReference =
-                    (instruction(conversionContextIndex) as ReferenceInstruction).reference
+                    instruction<ReferenceInstruction>(conversionContextIndex).reference
+
                 // any free register
                 val contextRegister =
-                    (instruction(atomicReferenceStartIndex) as TwoRegisterInstruction).registerB
-                val atomicReferenceRegister =
-                    (instruction(atomicReferenceStartIndex + 5) as FiveRegisterInstruction).registerC
+                    instruction<TwoRegisterInstruction>(atomicReferenceStartIndex).registerB
 
-                val insertIndex = atomicReferenceStartIndex + 8
-                val moveCharSequenceInstruction = instruction(insertIndex) as TwoRegisterInstruction
+                val atomicReferenceRegister =
+                    instruction<FiveRegisterInstruction>(atomicReferenceStartIndex + 5).registerC
+
+                val moveCharSequenceInstruction = instruction<TwoRegisterInstruction>(insertIndex)
                 val charSequenceRegister = moveCharSequenceInstruction.registerB
 
                 // Insert as first instructions at the control flow label.
@@ -145,8 +148,8 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
                             return PatchResultError("Method signature did not match: $this $parameterTypes")
 
                         val insertIndex = implementation!!.instructions.size - 1
-                        val spannedParameterRegister = (instruction(insertIndex) as OneRegisterInstruction).registerA
-                        val parameter = (instruction(insertIndex - 2) as BuilderInstruction35c).reference
+                        val spannedParameterRegister = instruction<OneRegisterInstruction>(insertIndex).registerA
+                        val parameter = instruction<BuilderInstruction35c>(insertIndex - 2).reference
 
                         if (!parameter.toString().endsWith("Landroid/text/Spanned;"))
                             return PatchResultError("Method signature parameter did not match: $parameter")
@@ -171,9 +174,12 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
         DislikesOldLayoutTextViewFingerprint.result?.let {
             it.mutableMethod.apply {
                 val startIndex = it.scanResult.patternScanResult!!.startIndex
-                val resourceIdentifierRegister = (instruction(startIndex) as OneRegisterInstruction).registerA
-                val textViewRegister = (instruction(startIndex + 4) as OneRegisterInstruction).registerA
-                addInstruction(startIndex + 4,
+
+                val resourceIdentifierRegister = instruction<OneRegisterInstruction>(startIndex).registerA
+                val textViewRegister = instruction<OneRegisterInstruction>(startIndex + 4).registerA
+
+                addInstruction(
+                    startIndex + 4,
                     "invoke-static {v$resourceIdentifierRegister, v$textViewRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->setOldUILayoutDislikes(ILandroid/widget/TextView;)V"
                 )
             }

@@ -33,7 +33,7 @@ class CrowdfundingBoxPatch : BytecodePatch(
         CrowdfundingBoxFingerprint.result?.let {
             it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.endIndex
-                val objectRegister = (instruction(insertIndex) as TwoRegisterInstruction).registerA
+                val objectRegister = instruction<TwoRegisterInstruction>(insertIndex).registerA
 
                 addInstruction(insertIndex, "invoke-static {v$objectRegister}, $INTEGRATIONS_METHOD_DESCRIPTOR")
             }

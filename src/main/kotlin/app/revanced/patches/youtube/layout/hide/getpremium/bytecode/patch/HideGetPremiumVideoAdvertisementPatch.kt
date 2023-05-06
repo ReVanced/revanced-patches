@@ -45,8 +45,9 @@ class HideGetPremiumPatch : BytecodePatch(
         GetPremiumViewFingerprint.result?.let {
             it.mutableMethod.apply {
                 val startIndex = it.scanResult.patternScanResult!!.startIndex
-                val measuredWidthRegister = (instruction(startIndex) as TwoRegisterInstruction).registerA
-                val measuredHeightInstruction = instruction(startIndex + 1) as TwoRegisterInstruction
+                val measuredWidthRegister = instruction<TwoRegisterInstruction>(startIndex).registerA
+                val measuredHeightInstruction = instruction<TwoRegisterInstruction>(startIndex + 1)
+
                 val measuredHeightRegister = measuredHeightInstruction.registerA
                 val tempRegister = measuredHeightInstruction.registerB
 

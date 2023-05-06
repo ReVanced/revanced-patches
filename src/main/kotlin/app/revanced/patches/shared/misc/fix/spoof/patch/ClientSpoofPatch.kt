@@ -30,7 +30,8 @@ class ClientSpoofPatch : BytecodePatch(
         UserAgentHeaderBuilderFingerprint.result?.let { result ->
             val insertIndex = result.scanResult.patternScanResult!!.endIndex
            result.mutableMethod.apply {
-               val packageNameRegister = (instruction(insertIndex) as FiveRegisterInstruction).registerD
+               val packageNameRegister = instruction<FiveRegisterInstruction>(insertIndex).registerD
+
                addInstruction(insertIndex, "const-string v$packageNameRegister, \"$ORIGINAL_PACKAGE_NAME\"")
            }
 

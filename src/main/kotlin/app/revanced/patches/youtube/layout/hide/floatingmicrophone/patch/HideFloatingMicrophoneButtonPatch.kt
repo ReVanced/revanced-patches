@@ -29,7 +29,7 @@ class HideFloatingMicrophoneButtonPatch : BytecodePatch(
         ShowFloatingMicrophoneButtonFingerprint.result?.let { result ->
             with(result.mutableMethod) {
                 val insertIndex = result.scanResult.patternScanResult!!.startIndex + 1
-                val showButtonRegister = (instruction(insertIndex - 1) as TwoRegisterInstruction).registerA
+                val showButtonRegister = instruction<TwoRegisterInstruction>(insertIndex - 1).registerA
 
                 addInstructions(
                     insertIndex,

@@ -50,6 +50,8 @@ class DisableCaptureRestrictionBytecodePatch : BytecodePatch(
             // Store register of the integer parameter for setAllowedCapturePolicy
             invokeParamRegister = (instruction as FiveRegisterInstruction).registerD
             invokePosition = index
+
+            break
         }
 
         if(invokePosition == null || invokeParamRegister == null)

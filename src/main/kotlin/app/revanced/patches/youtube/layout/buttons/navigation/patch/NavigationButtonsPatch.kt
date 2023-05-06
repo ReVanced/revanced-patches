@@ -149,7 +149,7 @@ class NavigationButtonsPatch : BytecodePatch(listOf(AddCreateButtonViewFingerpri
                 }!!.index
 
                 val conditionalCheckIndex = stringIndex - 1
-                val conditionRegister = (instruction(conditionalCheckIndex) as OneRegisterInstruction).registerA
+                val conditionRegister = instruction<OneRegisterInstruction>(conditionalCheckIndex).registerA
 
                 addInstructions(
                     conditionalCheckIndex,
