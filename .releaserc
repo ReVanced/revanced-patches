@@ -7,7 +7,13 @@
     }
   ],
   "plugins": [
-    "@semantic-release/commit-analyzer",
+    [
+      "@semantic-release/commit-analyzer", {
+        "releaseRules": [
+          { "type": "build", "scope": "revanced-patcher", "release": "patch" }
+        ]
+      }
+    ],
     "@semantic-release/release-notes-generator",
     "@semantic-release/changelog",
     "gradle-semantic-release-plugin",
