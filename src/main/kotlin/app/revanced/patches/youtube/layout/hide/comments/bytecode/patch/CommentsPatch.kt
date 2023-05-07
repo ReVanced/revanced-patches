@@ -58,7 +58,7 @@ class CommentsPatch : BytecodePatch(
                 addInstructions(
                     insertIndex,
                     """
-                    invoke-static {v$shortsCommentsButtonRegister, Lapp/revanced/integrations/patches/HideShortsCommentsButtonPatch;->hideShortsCommentsButton(Landroid/view/View;)V
+                    invoke-static { v$shortsCommentsButtonRegister }, Lapp/revanced/integrations/patches/HideShortsCommentsButtonPatch;->hideShortsCommentsButton(Landroid/view/View;)V
                 """
                 )
             }
