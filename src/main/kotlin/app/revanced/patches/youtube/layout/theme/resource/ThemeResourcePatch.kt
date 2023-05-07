@@ -1,12 +1,17 @@
 package app.revanced.patches.youtube.layout.theme.resource
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.*
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultError
+import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
 import app.revanced.patches.shared.settings.preference.impl.InputType
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.TextPreference
+import app.revanced.patches.youtube.layout.theme.bytecode.patch.ThemeBytecodePatch.Companion.darkThemeBackgroundColor
+import app.revanced.patches.youtube.layout.theme.bytecode.patch.ThemeBytecodePatch.Companion.lightThemeBackgroundColor
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
@@ -67,25 +72,7 @@ class ThemeResourcePatch : ResourcePatch {
         return PatchResultSuccess()
     }
 
-    companion object : OptionsContainer() {
-        internal var inlineTimeBarColorizedBarPlayedColorDarkId = -1L
-
-        var darkThemeBackgroundColor: String? by option(
-            PatchOption.StringOption(
-                key = "darkThemeBackgroundColor",
-                default = "@android:color/black",
-                title = "Background color for the dark theme",
-                description = "The background color of the dark theme. Can be a hex color or a resource reference.",
-            )
-        )
-
-        var lightThemeBackgroundColor: String? by option(
-            PatchOption.StringOption(
-                key = "lightThemeBackgroundColor",
-                default = "@android:color/white",
-                title = "Background color for the light theme",
-                description = "The background color of the light theme. Can be a hex color or a resource reference.",
-            )
-        )
+    internal companion object {
+        var inlineTimeBarColorizedBarPlayedColorDarkId = -1L
     }
 }
