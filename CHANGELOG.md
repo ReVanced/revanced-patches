@@ -1,3 +1,10 @@
+# [2.174.0-dev.6](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.5...v2.174.0-dev.6) (2023-05-07)
+
+
+### Features
+
+* **youtube:** `hide-load-more-button` patch ([#2078](https://github.com/revanced/revanced-patches/issues/2078)) ([7170802](https://github.com/revanced/revanced-patches/commit/71708022a06453f6f56c19d686fc505286523391))
+
 # [2.174.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.4...v2.174.0-dev.5) (2023-05-07)
 
 
