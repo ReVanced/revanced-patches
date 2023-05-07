@@ -1,3 +1,10 @@
+# [2.174.0-dev.12](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.11...v2.174.0-dev.12) (2023-05-07)
+
+
+### Bug Fixes
+
+* **readme-generator:** attempt sorting versions with `FlexVer` ([#2059](https://github.com/revanced/revanced-patches/issues/2059)) ([a54c464](https://github.com/revanced/revanced-patches/commit/a54c464522fa2a6a2d2525c8cb0ec961c2cc771c))
+
 # [2.174.0-dev.11](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.10...v2.174.0-dev.11) (2023-05-07)
 
 # [2.174.0-dev.10](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.9...v2.174.0-dev.10) (2023-05-07)
