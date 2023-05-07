@@ -176,6 +176,14 @@ The official ReVanced Patches.
 | `spoof-signature` | Spoofs the signature of the app. | all |
 </details>
 
+### [📦 `com.laurencedawson.reddit_sync`](https://play.google.com/store/apps/details?id=com.laurencedawson.reddit_sync)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `disable-ads` | Disables ads. | all |
+</details>
+
 ### [📦 `com.myprog.hexedit`](https://play.google.com/store/apps/details?id=com.myprog.hexedit)
 <details>
 

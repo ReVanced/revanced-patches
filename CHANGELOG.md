@@ -1,3 +1,10 @@
+# [2.174.0-dev.7](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.6...v2.174.0-dev.7) (2023-05-07)
+
+
+### Features
+
+* **syncforreddit:** add `disable-ads` patch ([#2066](https://github.com/revanced/revanced-patches/issues/2066)) ([c1de5d6](https://github.com/revanced/revanced-patches/commit/c1de5d6e433263b9a17305fa1c65807921594731))
+
 # [2.174.0-dev.6](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.5...v2.174.0-dev.6) (2023-05-07)
 
 
