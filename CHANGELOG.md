@@ -1,3 +1,10 @@
+# [2.174.0-dev.14](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.13...v2.174.0-dev.14) (2023-05-07)
+
+
+### Features
+
+* **youtube/hide-player-overlay:** make it toggleable in settings ([#2044](https://github.com/revanced/revanced-patches/issues/2044)) ([f693d55](https://github.com/revanced/revanced-patches/commit/f693d55caf1e0b72bb1f4c39b1eeb59436191e02))
+
 # [2.174.0-dev.13](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.12...v2.174.0-dev.13) (2023-05-07)
 
 

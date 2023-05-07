@@ -38,7 +38,7 @@ The official ReVanced Patches.
 | `hide-get-premium` | Hides advertisement for YouTube Premium under the video player. | 18.16.37 |
 | `hide-info-cards` | Hides info cards in videos. | 18.16.37 |
 | `hide-player-buttons` | Adds the option to hide video player previous and next buttons. | all |
-| `hide-player-overlay` | Hides the dark player overlay when player controls are visible. | all |
+| `hide-player-overlay` | Hides the dark background overlay from the player when player controls are visible. | all |
 | `hide-seekbar` | Hides the seekbar. | 18.16.37 |
 | `hide-timestamp` | Hides timestamp in video player. | 18.16.37 |
 | `hide-video-action-buttons` | Adds the options to hide action buttons under a video. | 18.16.37 |
