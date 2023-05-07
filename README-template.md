@@ -2,6 +2,8 @@
 
 The official ReVanced Patches.
 
+## 📋 List of patches in this repository
+
 {{ table }}
 
 > Looking for the JSON variant of this? [Click here](patches.json).
