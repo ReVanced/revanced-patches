@@ -1,3 +1,10 @@
+# [2.174.0-dev.13](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.12...v2.174.0-dev.13) (2023-05-07)
+
+
+### Bug Fixes
+
+* account fo breaking changes from ReVanced Patcher ([#2103](https://github.com/revanced/revanced-patches/issues/2103)) ([5be25cd](https://github.com/revanced/revanced-patches/commit/5be25cde4b34d58ced35a7edbb499477b538b748))
+
 # [2.174.0-dev.12](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.11...v2.174.0-dev.12) (2023-05-07)
 
 
