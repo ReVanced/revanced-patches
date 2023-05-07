@@ -26,6 +26,10 @@ dependencies {
     implementation("com.google.code.gson:gson:2.10.1")
 }
 
+kotlin {
+    jvmToolchain(11)
+}
+
 tasks {
     register<DefaultTask>("generateBundle") {
         description = "Generate dex files from build and bundle them in the jar file"
