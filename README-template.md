@@ -1,10 +1,10 @@
-## 🧩 Patches
+## 🧩 ReVanced Patches
 
-The official Patch bundle provided by ReVanced and the community.
-
-> Looking for the JSON variant of this? [Click here](patches.json).
+The official ReVanced Patches.
 
 {{ table }}
+
+> Looking for the JSON variant of this? [Click here](patches.json).
 
 ## 📝 JSON Format
 
