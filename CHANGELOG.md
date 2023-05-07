@@ -1,3 +1,10 @@
+# [2.174.0-dev.9](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.8...v2.174.0-dev.9) (2023-05-07)
+
+
+### Bug Fixes
+
+* incorrect cast of instruction ([fb94a1c](https://github.com/revanced/revanced-patches/commit/fb94a1cb48e8952981e2f9146eb90ee92a517b2e))
+
 # [2.174.0-dev.8](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.7...v2.174.0-dev.8) (2023-05-07)
 
 
