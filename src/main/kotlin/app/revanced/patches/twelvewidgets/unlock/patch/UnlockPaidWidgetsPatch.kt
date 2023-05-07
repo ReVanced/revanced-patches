@@ -38,7 +38,7 @@ class UnlockPaidWidgetsPatch : BytecodePatch(
             fingerprint.result?.mutableMethod ?: return fingerprint.toErrorResult()
         }.forEach { method ->
             method.apply {
-                removeInstructions(4, 2)
+                removeInstructions(4, 3)
                 addInstructions(
                     implementation?.instructions?.size!!, """
                     const/4 v1, 0x0

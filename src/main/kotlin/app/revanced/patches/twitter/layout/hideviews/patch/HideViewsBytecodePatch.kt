@@ -61,7 +61,7 @@ class HideViewsBytecodePatch : BytecodePatch(
             TweetStatsContainerConstructorFingerprint,
             returnFingerprint
         ) { patternScanResult, method ->
-            method.removeInstructions(patternScanResult.endIndex - 3, 2)
+            method.removeInstructions(patternScanResult.endIndex - 3, 3)
         }
     }
 
@@ -80,13 +80,13 @@ class HideViewsBytecodePatch : BytecodePatch(
             TweetStatsContainerWrapperConstructorFingerprint,
             wrapperReturnFingerprint
         ) { patternScanResult, method ->
-            method.removeInstructions(patternScanResult.startIndex - 4, 3)
+            method.removeInstructions(patternScanResult.startIndex - 4, 4)
         }
     }
 
     private fun removeViewDelegateBinderSubscription() {
         transformMethod(TweetStatsViewDelegateBinderFingerprint) { result, method ->
-            method.removeInstructions(result.scanResult.patternScanResult!!.startIndex - 4, 9)
+            method.removeInstructions(result.scanResult.patternScanResult!!.startIndex - 4, 10)
         }
     }
 
