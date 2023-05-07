@@ -1,3 +1,11 @@
+# [2.174.0-dev.10](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.9...v2.174.0-dev.10) (2023-05-07)
+
+
+### Bug Fixes
+
+* incorrect instruction offsets ([42a5a38](https://github.com/revanced/revanced-patches/commit/42a5a387da3c53c579234a44c124ab0ba26117cb))
+* incorrect smali syntax ([4e74a80](https://github.com/revanced/revanced-patches/commit/4e74a800c311d7acb2c2ddb492b43747db8a8def))
+
 # [2.174.0-dev.9](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.8...v2.174.0-dev.9) (2023-05-07)
 
 
