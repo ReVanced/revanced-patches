@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.PatchExtensions.compatiblePackages
 import app.revanced.patcher.extensions.PatchExtensions.description
 import app.revanced.patcher.extensions.PatchExtensions.patchName
 import app.revanced.patcher.patch.Patch
+import com.unascribed.flexver.FlexVerComparator
 import java.io.File
 
 internal class ReadmeGenerator : PatchesFileGenerator {
@@ -37,9 +38,8 @@ internal class ReadmeGenerator : PatchesFileGenerator {
                     }
                 }.let { commonMap ->
                     commonMap.maxByOrNull { it.value }?.value?.let {
-                        // This is not foolproof, because for example v1.0.0-dev.0 will be returned instead of v1.0.0-release.
-                        // Unfortunately this can not be solved easily because versioning can be complex.
-                        commonMap.entries.filter { mostCommon -> mostCommon.value == it }.maxBy { it.key }.key
+                        commonMap.entries.filter { mostCommon -> mostCommon.value == it }
+                            .maxOfWith(FlexVerComparator::compare, Map.Entry<String, Int>::key)
                     } ?: "all"
                 }
 
