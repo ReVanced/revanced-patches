@@ -5,6 +5,7 @@ import app.revanced.patcher.patch.annotations.RequiresIntegrations
 import app.revanced.patches.shared.integrations.patch.AbstractIntegrationsPatch
 import app.revanced.patches.youtube.misc.integrations.annotations.IntegrationsCompatibility
 import app.revanced.patches.youtube.misc.integrations.fingerprints.InitFingerprint
+import app.revanced.patches.youtube.misc.integrations.fingerprints.EmbeddedPlayerControlsOverlayFingerprint
 import app.revanced.patches.youtube.misc.integrations.fingerprints.ServiceFingerprint
 import app.revanced.patches.youtube.misc.integrations.fingerprints.StandalonePlayerFingerprint
 
@@ -13,5 +14,5 @@ import app.revanced.patches.youtube.misc.integrations.fingerprints.StandalonePla
 @RequiresIntegrations
 class IntegrationsPatch : AbstractIntegrationsPatch(
     "Lapp/revanced/integrations/utils/ReVancedUtils;",
-    listOf(InitFingerprint, StandalonePlayerFingerprint, ServiceFingerprint),
+    listOf(InitFingerprint, StandalonePlayerFingerprint, ServiceFingerprint, EmbeddedPlayerControlsOverlayFingerprint),
 )
