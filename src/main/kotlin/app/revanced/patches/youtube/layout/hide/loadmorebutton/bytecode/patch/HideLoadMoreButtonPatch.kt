@@ -14,6 +14,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.layout.hide.loadmorebutton.bytecode.fingerprints.HideLoadMoreButtonFingerprint
 import app.revanced.patches.youtube.layout.hide.loadmorebutton.resource.patch.HideLoadMoreButtonResourcePatch
+import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
@@ -26,7 +27,7 @@ class HideLoadMoreButtonPatch : BytecodePatch(listOf(HideLoadMoreButtonFingerpri
         HideLoadMoreButtonFingerprint.result?.let {
             it.mutableMethod.apply {
                 val moveRegisterIndex = it.scanResult.patternScanResult!!.endIndex
-                val viewRegister = instruction<TwoRegisterInstruction>(moveRegisterIndex).registerA
+                val viewRegister = instruction<OneRegisterInstruction>(moveRegisterIndex).registerA
 
                 val insertIndex = moveRegisterIndex + 1
                 addInstruction(
