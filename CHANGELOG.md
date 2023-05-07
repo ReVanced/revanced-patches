@@ -1,3 +1,15 @@
+# [2.174.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.3...v2.174.0-dev.4) (2023-05-07)
+
+
+### Bug Fixes
+
+* **youtube/theme:** move options out of dependency patch ([a953448](https://github.com/revanced/revanced-patches/commit/a95344879c2ac2cd6da8ce0273dcb05e8a35d2ec))
+
+
+### Features
+
+* improve structure of `README` ([279b193](https://github.com/revanced/revanced-patches/commit/279b193b687ad9cba44ab9c2a88d2ce06be0bbf0))
+
 # [2.174.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.2...v2.174.0-dev.3) (2023-05-06)
 
 # [2.174.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.1...v2.174.0-dev.2) (2023-05-03)
