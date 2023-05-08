@@ -18,7 +18,7 @@ object CreatePlayerOverviewFingerprint : MethodFingerprint(
     ),
     customFingerprint = { methodDef ->
         methodDef.implementation?.instructions?.any {
-            if (it.opcode != Opcode.INVOKE_VIRTUAL) return@any false
+            if (it.opcode != Opcode.CONST) return@any false
 
             val literal = (it as WideLiteralInstruction).wideLiteral
 
