@@ -158,6 +158,15 @@ The official ReVanced Patches.
 | `premium-icon-reddit` | Unlocks premium Reddit app icons. | all |
 </details>
 
+### [📦 `com.facebook.orca`](https://play.google.com/store/apps/details?id=com.facebook.orca)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `disable-switching-emoji-to-sticker-in-message-input-field` | Disables switching from emoji to sticker search mode in message input field | all |
+| `hide-inbox-ads` | Hides ads in inbox. | all |
+</details>
+
 ### [📦 `at.gv.bmf.bmf2go`](https://play.google.com/store/apps/details?id=at.gv.bmf.bmf2go)
 <details>
 
@@ -214,14 +223,6 @@ The official ReVanced Patches.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `hide-ads` | Removes general ads. | all |
-</details>
-
-### [📦 `com.facebook.orca`](https://play.google.com/store/apps/details?id=com.facebook.orca)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `hide-inbox-ads` | Hides ads in inbox. | all |
 </details>
 
 ### [📦 `com.instagram.android`](https://play.google.com/store/apps/details?id=com.instagram.android)

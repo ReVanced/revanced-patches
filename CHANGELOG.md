@@ -1,3 +1,10 @@
+# [2.174.0-dev.15](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.14...v2.174.0-dev.15) (2023-05-08)
+
+
+### Features
+
+* **messenger:** add `disable-switching-emoji-to-sticker-in-message-input-field` patch ([#2099](https://github.com/revanced/revanced-patches/issues/2099)) ([ac5532a](https://github.com/revanced/revanced-patches/commit/ac5532a65c353b1964d9b7d990341fc7362e510d))
+
 # [2.174.0-dev.14](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.13...v2.174.0-dev.14) (2023-05-07)
 
 
