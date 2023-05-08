@@ -1,3 +1,10 @@
+# [2.174.0-dev.16](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.15...v2.174.0-dev.16) (2023-05-08)
+
+
+### Bug Fixes
+
+* check for opcode type `CONST` ([e5bb63c](https://github.com/revanced/revanced-patches/commit/e5bb63c7ab4427b6116de4a999be306e0f3cf12e))
+
 # [2.174.0-dev.15](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.14...v2.174.0-dev.15) (2023-05-08)
 
 
