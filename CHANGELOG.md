@@ -1,3 +1,10 @@
+# [2.174.0-dev.17](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.16...v2.174.0-dev.17) (2023-05-09)
+
+
+### Bug Fixes
+
+* **youtube/remember-video-quality:** fix default video quality/speed being applied when resuming app. ([#2112](https://github.com/revanced/revanced-patches/issues/2112)) ([f68a41c](https://github.com/revanced/revanced-patches/commit/f68a41ce9f9a78818d3f28b069e70b8c66125f53))
+
 # [2.174.0-dev.16](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.15...v2.174.0-dev.16) (2023-05-08)
 
 
