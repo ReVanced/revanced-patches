@@ -6,9 +6,24 @@ import app.revanced.integrations.adremover.AdRemoverAPI;
 import app.revanced.integrations.settings.SettingsEnum;
 
 public class HideBreakingNewsPatch {
-    //Used by app.revanced.patches.youtube.layout.homepage.breakingnews.patch.BreakingNewsPatch
+
+    /**
+     * When spoofing to app versions older than 17.30.35, the watch history preview bar uses
+     * the same layout components as the breaking news shelf.
+     *
+     * Breaking news does not appear to be present in these older versions anyways.
+     */
+    private static boolean isSpoofingOldVersionWithHorizontalCardListWatchHistory() {
+        return SettingsEnum.SPOOF_APP_VERSION.getBoolean()
+                && SettingsEnum.SPOOF_APP_VERSION_TARGET.getString().compareTo("17.30.35") < 0;
+    }
+
+    /**
+     * Injection point.
+     */
     public static void hideBreakingNews(View view) {
-        if (!SettingsEnum.HIDE_BREAKING_NEWS.getBoolean()) return;
+        if (!SettingsEnum.HIDE_BREAKING_NEWS.getBoolean()
+                || isSpoofingOldVersionWithHorizontalCardListWatchHistory()) return;
         AdRemoverAPI.HideViewWithLayout1dp(view);
     }
 }
