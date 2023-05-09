@@ -20,16 +20,16 @@ import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
+import app.revanced.patches.youtube.misc.video.information.patch.VideoInformationPatch
 import app.revanced.patches.youtube.misc.video.quality.annotations.RememberVideoQualityCompatibility
 import app.revanced.patches.youtube.misc.video.quality.fingerprints.SetQualityByIndexMethodClassFieldReferenceFingerprint
 import app.revanced.patches.youtube.misc.video.quality.fingerprints.VideoQualityItemOnClickParentFingerprint
 import app.revanced.patches.youtube.misc.video.quality.fingerprints.VideoQualitySetterFingerprint
-import app.revanced.patches.youtube.misc.video.videoid.patch.VideoIdPatch
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
 
 @Patch
-@DependsOn([IntegrationsPatch::class, VideoIdPatch::class, SettingsPatch::class])
+@DependsOn([IntegrationsPatch::class, VideoInformationPatch::class, SettingsPatch::class])
 @Name("remember-video-quality")
 @Description("Adds the ability to remember the video quality you chose in the video quality flyout.")
 @RememberVideoQualityCompatibility
@@ -114,7 +114,7 @@ class RememberVideoQualityPatch : BytecodePatch(
          * Conveniently, at this point the video quality is overridden to the remembered playback speed.
          */
 
-        VideoIdPatch.injectCall("$INTEGRATIONS_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;)V")
+        VideoInformationPatch.onCreateHook(INTEGRATIONS_CLASS_DESCRIPTOR, "newVideoStarted")
 
         // Inject a call to set the remembered quality once a video loads.
         VideoQualitySetterFingerprint.result?.also {

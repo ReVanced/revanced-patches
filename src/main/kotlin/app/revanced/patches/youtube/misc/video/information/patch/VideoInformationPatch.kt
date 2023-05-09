@@ -160,24 +160,32 @@ class VideoInformationPatch : BytecodePatch(
         private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/VideoInformation;"
 
         private lateinit var playerInitMethod: MutableMethod
+        private var playerInitInsertIndex = 4
+
         private lateinit var timeMethod: MutableMethod
+        private var timeInitInsertIndex = 2
+
         private lateinit var highPrecisionTimeMethod: MutableMethod
+        private var highPrecisionInsertIndex = 0
 
-        private fun MutableMethod.insert(insert: InsertIndex, register: String, descriptor: String) =
-            addInstruction(insert.index, "invoke-static { $register }, $descriptor")
+        private fun MutableMethod.insert(insertIndex: Int, register: String, descriptor: String) =
+            addInstruction(insertIndex, "invoke-static { $register }, $descriptor")
 
-        private fun MutableMethod.insertTimeHook(insert: InsertIndex, descriptor: String) =
-            insert(insert, "p1, p2", descriptor)
+        private fun MutableMethod.insertTimeHook(insertIndex: Int, descriptor: String) =
+            insert(insertIndex, "p1, p2", descriptor)
 
         /**
-         * Hook the player controller.
+         * Hook the player controller.  Called when a video is opened or the current video is changed.
+         *
+         * Note: This hook is called very early and is called before the video id, video time, video length,
+         * and many other data fields are set.
          *
          * @param targetMethodClass The descriptor for the class to invoke when the player controller is created.
          * @param targetMethodName The name of the static method to invoke when the player controller is created.
          */
         internal fun onCreateHook(targetMethodClass: String, targetMethodName: String) =
             playerInitMethod.insert(
-                InsertIndex.CREATE,
+                playerInitInsertIndex++,
                 "v0",
                 "$targetMethodClass->$targetMethodName(Ljava/lang/Object;)V"
             )
@@ -191,7 +199,7 @@ class VideoInformationPatch : BytecodePatch(
          */
         internal fun videoTimeHook(targetMethodClass: String, targetMethodName: String) =
             timeMethod.insertTimeHook(
-                InsertIndex.TIME,
+                timeInitInsertIndex++,
                 "$targetMethodClass->$targetMethodName(J)V"
             )
 
@@ -205,15 +213,9 @@ class VideoInformationPatch : BytecodePatch(
          */
         internal fun highPrecisionTimeHook(targetMethodClass: String, targetMethodName: String) =
             highPrecisionTimeMethod.insertTimeHook(
-                InsertIndex.HIGH_PRECISION_TIME,
+                highPrecisionInsertIndex++,
                 "$targetMethodClass->$targetMethodName(J)V"
             )
-
-        enum class InsertIndex(internal val index: Int) {
-            CREATE(4),
-            TIME(2),
-            HIGH_PRECISION_TIME(0),
-        }
 
         private fun getReference(instructions: List<BuilderInstruction>, offset: Int, opcode: Opcode) =
             instructions[instructions.indexOfFirst { it.opcode == opcode } + offset].reference
