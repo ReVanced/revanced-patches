@@ -21,4 +21,4 @@ import app.revanced.patcher.annotation.Package
     )]
 )
 @Target(AnnotationTarget.CLASS)
-internal annotation class CommentsCompatibility
+internal annotation class HideCommentsCompatibility

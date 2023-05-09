@@ -1,0 +1,89 @@
+package app.revanced.patches.youtube.layout.hide.shorts.resource.patch
+
+import app.revanced.patcher.annotation.Version
+import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.ResourcePatch
+import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
+import app.revanced.patches.shared.settings.preference.impl.PreferenceScreen
+import app.revanced.patches.shared.settings.preference.impl.StringResource
+import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
+
+@DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
+@Version("0.0.1")
+class HideShortsComponentsResourcePatch : ResourcePatch {
+    override fun execute(context: ResourceContext): PatchResult {
+        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
+            PreferenceScreen(
+                "revanced_shorts",
+                StringResource("revanced_shorts_title", "Shorts components"),
+                listOf(
+                    SwitchPreference(
+                        "revanced_hide_shorts",
+                        StringResource("revanced_hide_shorts_enabled_title", "Hide shorts"),
+                        StringResource("revanced_hide_shorts_on", "Shorts are hidden"),
+                        StringResource("revanced_hide_shorts_off", "Shorts are shown")
+                    ),
+                    SwitchPreference(
+                        "revanced_hide_shorts_join_button",
+                        StringResource("revanced_hide_shorts_join_button_title", "Hide join button"),
+                        StringResource("revanced_hide_shorts_join_button_on", "Join button is hidden"),
+                        StringResource("revanced_hide_shorts_join_button_off", "Join button is shown")
+                    ),
+                    SwitchPreference(
+                        "revanced_hide_shorts_subscribe_button",
+                        StringResource("revanced_hide_shorts_subscribe_button_title", "Hide subscribe button"),
+                        StringResource("revanced_hide_shorts_subscribe_button_on", "Subscribe button is hidden"),
+                        StringResource("revanced_hide_shorts_subscribe_button_off", "Subscribe button is shown")
+                    ),
+                    SwitchPreference(
+                        "revanced_hide_shorts_thanks_button",
+                        StringResource("revanced_hide_shorts_thanks_button_title", "Hide thanks button"),
+                        StringResource("revanced_hide_shorts_thanks_button_on", "Thanks button is hidden"),
+                        StringResource("revanced_hide_shorts_thanks_button_off", "Thanks button is shown")
+                    ),
+                    SwitchPreference(
+                        "revanced_hide_shorts_comments_button",
+                        StringResource("revanced_hide_shorts_comments_button_title", "Hide comments button"),
+                        StringResource("revanced_hide_shorts_comments_button_on", "Comments button is hidden"),
+                        StringResource("revanced_hide_shorts_comments_button_off", "Comments button is shown")
+                    ),
+                    SwitchPreference(
+                        "revanced_hide_shorts_remix_button",
+                        StringResource("revanced_hide_shorts_remix_button_title", "Hide remix button"),
+                        StringResource("revanced_hide_shorts_remix_button_on", "Remix button is hidden"),
+                        StringResource("revanced_hide_shorts_remix_button_off", "Remix button is shown")
+                    ),
+                    SwitchPreference(
+                        "revanced_hide_shorts_share_button",
+                        StringResource("revanced_hide_shorts_share_button_title", "Hide share button"),
+                        StringResource("revanced_hide_shorts_share_button_on", "Share button is hidden"),
+                        StringResource("revanced_hide_shorts_share_button_off", "Share button is shown")
+                    ),
+                    SwitchPreference(
+                        "revanced_hide_shorts_navigation_bar",
+                        StringResource("revanced_hide_shorts_navigation_bar_title", "Hide navigation bar"),
+                        StringResource("revanced_hide_shorts_navigation_bar_on", "Navigation bar is hidden"),
+                        StringResource("revanced_hide_shorts_navigation_bar_off", "Navigation bar is shown")
+                    ),
+                ),
+                StringResource("revanced_shorts_summary", "Manage the visibility of Shorts components")
+            )
+        )
+
+        fun String.getId() = ResourceMappingPatch.resourceMappings.single { it.name == this }.id
+
+        reelMultipleItemShelfId = "reel_multiple_items_shelf".getId()
+        reelPlayerRightLargeIconSize = "reel_player_right_large_icon_size".getId()
+
+        return PatchResultSuccess()
+    }
+
+    companion object {
+        var reelMultipleItemShelfId: Long = -1
+        var reelPlayerRightLargeIconSize = -1L
+    }
+}

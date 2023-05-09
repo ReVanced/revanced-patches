@@ -1,6 +1,7 @@
 package app.revanced.extensions
 
 import app.revanced.patcher.extensions.MethodFingerprintExtensions.name
+import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
@@ -42,3 +43,13 @@ internal fun Node.doRecursively(action: (Node) -> Unit) {
     action(this)
     for (i in 0 until this.childNodes.length) this.childNodes.item(i).doRecursively(action)
 }
+
+fun MutableMethod.injectHideViewCall(
+    insertIndex: Int,
+    viewRegister: Int,
+    classDescriptor: String,
+    targetMethod: String
+) = addInstruction(
+    insertIndex,
+    "invoke-static { v$viewRegister }, $classDescriptor->$targetMethod(Landroid/view/View;)V"
+)

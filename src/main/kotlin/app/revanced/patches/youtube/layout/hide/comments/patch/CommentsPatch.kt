@@ -1,5 +1,6 @@
-package app.revanced.patches.youtube.layout.hide.comments.resource.patch
+package app.revanced.patches.youtube.layout.hide.comments.patch
 
+import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
@@ -7,22 +8,21 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
 import app.revanced.patches.shared.settings.preference.impl.PreferenceScreen
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
-import app.revanced.patches.youtube.layout.hide.comments.annotations.CommentsCompatibility
+import app.revanced.patches.youtube.layout.hide.comments.annotations.HideCommentsCompatibility
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
-@Name("comments-resource-patch")
-@CommentsCompatibility
+@Patch
+@Name("comments")
+@Description("Hides components related to comments.")
+@HideCommentsCompatibility
 @DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
 @Version("0.0.1")
-class CommentsResourcePatch : ResourcePatch {
-    companion object {
-        internal var shortsCommentsButtonId: Long = -1
-    }
-
+class CommentsPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
@@ -40,21 +40,11 @@ class CommentsResourcePatch : ResourcePatch {
                         StringResource("revanced_hide_preview_comment_title", "Hide preview comment"),
                         StringResource("revanced_hide_preview_comment_on", "Preview comment is hidden"),
                         StringResource("revanced_hide_preview_comment_off", "Preview comment is shown")
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_shorts_comments_button",
-                        StringResource("revanced_hide_shorts_comments_button_title", "Hide shorts comments button"),
-                        StringResource("revanced_hide_shorts_comments_button_on", "Shorts comments button is hidden"),
-                        StringResource("revanced_hide_shorts_comments_button_off", "Shorts comments button is shown")
-                    ),
+                    )
                 ),
                 StringResource("revanced_comments_preference_screen_summary", "Manage the visibility of comments section components")
             )
         )
-
-        shortsCommentsButtonId = ResourceMappingPatch.resourceMappings.single {
-            it.type == "drawable" && it.name == "ic_right_comment_32c"
-        }.id
 
         return PatchResultSuccess()
     }

@@ -23,10 +23,6 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch.P
 @HideAdsCompatibility
 @Version("0.0.1")
 class HideAdsResourcePatch : ResourcePatch {
-    internal companion object {
-        var adAttributionId: Long = -1
-        var reelMultipleItemShelfId: Long = -1
-    }
 
     override fun execute(context: ResourceContext): PatchResult {
         PreferenceScreen.LAYOUT.addPreferences(
@@ -104,12 +100,6 @@ class HideAdsResourcePatch : ResourcePatch {
                 StringResource("revanced_hide_feed_survey_title", "Hide feed surveys"),
                 StringResource("revanced_hide_feed_survey_summary_on", "Feed surveys are hidden"),
                 StringResource("revanced_hide_feed_survey_summary_off", "Feed surveys are shown")
-            ),
-            SwitchPreference(
-                "revanced_hide_shorts",
-                StringResource("revanced_hide_shorts_title", "Hide shorts"),
-                StringResource("revanced_hide_shorts_summary_on", "Shorts are hidden"),
-                StringResource("revanced_hide_shorts_summary_off", "Shorts are shown")
             ),
             SwitchPreference(
                 "revanced_hide_community_guidelines",
@@ -263,11 +253,12 @@ class HideAdsResourcePatch : ResourcePatch {
             )
         )
 
-        fun String.getId() = ResourceMappingPatch.resourceMappings.single { it.name == this }.id
-
-        adAttributionId = "ad_attribution".getId()
-        reelMultipleItemShelfId = "reel_multiple_items_shelf".getId()
+        adAttributionId = ResourceMappingPatch.resourceMappings.single { it.name == "ad_attribution" }.id
 
         return PatchResultSuccess()
+    }
+
+    internal companion object {
+        var adAttributionId: Long = -1
     }
 }

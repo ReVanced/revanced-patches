@@ -119,7 +119,7 @@ class LithoFilterPatch : BytecodePatch(
             get() = (this as ReferenceInstruction).reference.toString()
 
         const val FILTER_METHOD_DESCRIPTOR =
-            "Lapp/revanced/integrations/patches/litho/LithoFilterPatch;" +
+            "Lapp/revanced/integrations/patches/components/LithoFilterPatch;" +
                     "->filter(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/nio/ByteBuffer;)Z"
     }
 }
