@@ -22,4 +22,4 @@ import app.revanced.patcher.annotation.Package
     )]
 )
 @Target(AnnotationTarget.CLASS)
-internal annotation class GeneralAdsCompatibility
+internal annotation class HideAdsCompatibility

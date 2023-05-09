@@ -8,7 +8,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.reddit.ad.general.annotations.GeneralAdsCompatibility
+import app.revanced.patches.reddit.ad.general.annotations.HideAdsCompatibility
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
@@ -16,11 +16,11 @@ import org.jf.dexlib2.iface.reference.StringReference
 import org.jf.dexlib2.immutable.reference.ImmutableStringReference
 
 @Patch
-@Name("general-reddit-ads")
+@Name("hide-ads")
 @Description("Removes general ads from the Reddit frontpage and subreddits.")
-@GeneralAdsCompatibility
+@HideAdsCompatibility
 @Version("0.0.1")
-class GeneralAdsPatch : BytecodePatch() {
+class HideAdsPatch : BytecodePatch() {
     override fun execute(context: BytecodeContext): PatchResult {
         context.classes.forEach { classDef ->
             classDef.methods.forEach methodLoop@{ method ->

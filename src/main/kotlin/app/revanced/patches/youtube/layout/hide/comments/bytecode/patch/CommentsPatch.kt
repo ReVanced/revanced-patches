@@ -58,12 +58,18 @@ class CommentsPatch : BytecodePatch(
                 addInstructions(
                     insertIndex,
                     """
-                    invoke-static { v$shortsCommentsButtonRegister }, Lapp/revanced/integrations/patches/HideShortsCommentsButtonPatch;->hideShortsCommentsButton(Landroid/view/View;)V
+                    invoke-static { v$shortsCommentsButtonRegister }, $FILTER_METHOD_DESCRIPTOR
                 """
                 )
             }
         } ?: return ShortsCommentsButtonFingerprint.toErrorResult()
 
         return PatchResultSuccess()
+    }
+
+    private companion object {
+        private const val FILTER_METHOD_DESCRIPTOR =
+            "Lapp/revanced/integrations/patches/HideShortsCommentsButtonPatch;" +
+                    "->hideShortsCommentsButton(Landroid/view/View;)V"
     }
 }

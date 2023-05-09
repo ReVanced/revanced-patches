@@ -15,9 +15,9 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.misc.fix.verticalscroll.patch.VerticalScrollPatch
-import app.revanced.patches.youtube.ad.general.annotation.GeneralAdsCompatibility
+import app.revanced.patches.youtube.ad.general.annotation.HideAdsCompatibility
 import app.revanced.patches.youtube.ad.general.bytecode.fingerprints.ReelConstructorFingerprint
-import app.revanced.patches.youtube.ad.general.resource.patch.GeneralAdsResourcePatch
+import app.revanced.patches.youtube.ad.general.resource.patch.HideAdsResourcePatch
 import app.revanced.patches.youtube.misc.fix.backtoexitgesture.patch.FixBackToExitGesturePatch
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i
@@ -25,17 +25,17 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
 
 @Patch
-@DependsOn([GeneralAdsResourcePatch::class, VerticalScrollPatch::class, FixBackToExitGesturePatch::class])
-@Name("general-ads")
+@DependsOn([HideAdsResourcePatch::class, VerticalScrollPatch::class, FixBackToExitGesturePatch::class])
+@Name("hide-ads")
 @Description("Removes general ads.")
-@GeneralAdsCompatibility
+@HideAdsCompatibility
 @Version("0.0.1")
-class GeneralAdsPatch : BytecodePatch(
+class HideAdsPatch : BytecodePatch(
     listOf(ReelConstructorFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         fun String.buildHideCall(viewRegister: Int) = "invoke-static { v$viewRegister }, " +
-                "Lapp/revanced/integrations/patches/GeneralAdsPatch;" +
+                "Lapp/revanced/integrations/patches/litho/AdsFilter;" +
                 "->" +
                 "$this(Landroid/view/View;)V"
 
@@ -49,7 +49,7 @@ class GeneralAdsPatch : BytecodePatch(
                         if (instruction.opcode != org.jf.dexlib2.Opcode.CONST)
                             return@forEachIndexed
                         // Instruction to store the id adAttribution into a register
-                        if ((instruction as Instruction31i).wideLiteral != GeneralAdsResourcePatch.adAttributionId)
+                        if ((instruction as Instruction31i).wideLiteral != HideAdsResourcePatch.adAttributionId)
                             return@forEachIndexed
 
                         val insertIndex = index + 1

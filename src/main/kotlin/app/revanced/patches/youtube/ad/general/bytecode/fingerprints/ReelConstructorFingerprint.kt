@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.ad.general.bytecode.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patches.youtube.ad.general.resource.patch.GeneralAdsResourcePatch
+import app.revanced.patches.youtube.ad.general.resource.patch.HideAdsResourcePatch
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
@@ -11,7 +11,7 @@ object ReelConstructorFingerprint : MethodFingerprint(
     ),
     customFingerprint = { method, _ ->
         method.implementation?.instructions?.any {
-            it.opcode == Opcode.CONST && (it as WideLiteralInstruction).wideLiteral == GeneralAdsResourcePatch.reelMultipleItemShelfId
+            it.opcode == Opcode.CONST && (it as WideLiteralInstruction).wideLiteral == HideAdsResourcePatch.reelMultipleItemShelfId
         } ?: false
     }
 )
