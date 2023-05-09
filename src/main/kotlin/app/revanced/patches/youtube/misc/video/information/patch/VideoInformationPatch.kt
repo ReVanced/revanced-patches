@@ -54,7 +54,7 @@ class VideoInformationPatch : BytecodePatch(
             playerInitMethod = mutableClass.methods.first { MethodUtil.isConstructor(it) }
 
             // hook the player controller for use through integrations
-            onCreateHook(INTEGRATIONS_CLASS_DESCRIPTOR, "playerController_onCreateHook")
+            onCreateHook(INTEGRATIONS_CLASS_DESCRIPTOR, "initialize")
 
             // seek method
             val seekFingerprintResultMethod = SeekFingerprint.also { it.resolve(context, classDef) }.result!!.method
