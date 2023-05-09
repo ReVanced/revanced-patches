@@ -1,4 +1,4 @@
-package app.revanced.integrations.patches.litho;
+package app.revanced.integrations.patches.components;
 
 import android.os.Build;
 
@@ -42,7 +42,7 @@ abstract class FilterGroup<T> {
      * Initialize a new filter group.
      *
      * @param setting The associated setting.
-     * @param filters  The filters.
+     * @param filters The filters.
      */
     @SafeVarargs
     public FilterGroup(final SettingsEnum setting, final T... filters) {
@@ -54,7 +54,7 @@ abstract class FilterGroup<T> {
         return setting.getBoolean();
     }
 
-    public abstract FilterGroupResult contains(final T stack);
+    public abstract FilterGroupResult check(final T stack);
 }
 
 class StringFilterGroup extends FilterGroup<String> {
@@ -67,7 +67,7 @@ class StringFilterGroup extends FilterGroup<String> {
     }
 
     @Override
-    public FilterGroupResult contains(final String string) {
+    public FilterGroupResult check(final String string) {
         return new FilterGroupResult(setting, string != null && ReVancedUtils.containsAny(string, filters));
     }
 }
@@ -82,7 +82,7 @@ final class CustomFilterGroup extends StringFilterGroup {
     }
 }
 
-final class ByteArrayFilterGroup extends FilterGroup<byte[]> {
+class ByteArrayFilterGroup extends FilterGroup<byte[]> {
     // Modified implementation from https://stackoverflow.com/a/1507813
     private int indexOf(final byte[] data, final byte[] pattern) {
         // Computes the failure function using a boot-strapping process,
@@ -102,7 +102,7 @@ final class ByteArrayFilterGroup extends FilterGroup<byte[]> {
         }
 
         // Finds the first occurrence of the pattern in the byte array using
-        // KNP matching algorithm.
+        // KMP matching algorithm.
 
         j = 0;
         if (data.length == 0) return -1;
@@ -129,7 +129,7 @@ final class ByteArrayFilterGroup extends FilterGroup<byte[]> {
     }
 
     @Override
-    public FilterGroupResult contains(final byte[] bytes) {
+    public FilterGroupResult check(final byte[] bytes) {
         var matched = false;
         for (byte[] filter : filters) {
             if (indexOf(bytes, filter) == -1) continue;
@@ -140,6 +140,17 @@ final class ByteArrayFilterGroup extends FilterGroup<byte[]> {
 
         final var filtered = matched;
         return new FilterGroupResult(setting, filtered);
+    }
+}
+
+final class ByteArrayAsStringFilterGroup extends ByteArrayFilterGroup {
+
+    /**
+     * {@link ByteArrayFilterGroup#ByteArrayFilterGroup(SettingsEnum, byte[]...)}
+     */
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public ByteArrayAsStringFilterGroup(SettingsEnum setting, String... filters) {
+        super(setting, Arrays.stream(filters).map(String::getBytes).toArray(byte[][]::new));
     }
 }
 
@@ -174,7 +185,7 @@ abstract class FilterGroupList<V, T extends FilterGroup<V>> implements Iterable<
         for (T filterGroup : this) {
             if (!filterGroup.isEnabled()) continue;
 
-            var result = filterGroup.contains(stack);
+            var result = filterGroup.check(stack);
             if (result.isFiltered()) {
                 return true;
             }
@@ -193,10 +204,11 @@ final class ByteArrayFilterGroupList extends FilterGroupList<byte[], ByteArrayFi
 abstract class Filter {
     final protected StringFilterGroupList pathFilterGroups = new StringFilterGroupList();
     final protected StringFilterGroupList identifierFilterGroups = new StringFilterGroupList();
-    final protected ByteArrayFilterGroupList protobufBufferFilterGroup = new ByteArrayFilterGroupList();
+    final protected ByteArrayFilterGroupList protobufBufferFilterGroups = new ByteArrayFilterGroupList();
 
     /**
      * Check if the given path, identifier or protobuf buffer is filtered by any {@link FilterGroup}.
+     *
      * @return True if filtered, false otherwise.
      */
     boolean isFiltered(final String path, final String identifier, final byte[] protobufBufferArray) {
@@ -210,7 +222,7 @@ abstract class Filter {
             return true;
         }
 
-        if (protobufBufferFilterGroup.contains(protobufBufferArray)) {
+        if (protobufBufferFilterGroups.contains(protobufBufferArray)) {
             LogHelper.printDebug(() -> "Filtered from protobuf-buffer");
             return true;
         }
@@ -219,12 +231,14 @@ abstract class Filter {
     }
 }
 
+@RequiresApi(api = Build.VERSION_CODES.N)
 @SuppressWarnings("unused")
 public final class LithoFilterPatch {
     private static final Filter[] filters = new Filter[]{
             new AdsFilter(),
             new ButtonsFilter(),
             new CommentsFilter(),
+            new ShortsFilter()
     };
 
     @SuppressWarnings("unused")

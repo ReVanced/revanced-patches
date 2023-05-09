@@ -1,19 +1,19 @@
-package app.revanced.integrations.patches.litho;
+package app.revanced.integrations.patches.components;
+
 
 import android.view.View;
-
-import app.revanced.integrations.adremover.AdRemoverAPI;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 
+
 public final class AdsFilter extends Filter {
-    private final String[] EXCEPTIONS;
+    private final String[] exceptions;
 
     private final CustomFilterGroup custom;
 
     public AdsFilter() {
-        EXCEPTIONS = new String[]{
+        exceptions = new String[]{
                 "home_video_with_context",
                 "related_video_with_context",
                 "comment_thread", // skip filtering anything in the comments
@@ -22,70 +22,70 @@ public final class AdsFilter extends Filter {
         };
 
         custom = new CustomFilterGroup(
-                SettingsEnum.ADREMOVER_CUSTOM_ENABLED,
-                SettingsEnum.ADREMOVER_CUSTOM_REMOVAL
+                SettingsEnum.CUSTOM_FILTER,
+                SettingsEnum.CUSTOM_FILTER_STRINGS
         );
 
         final var communityPosts = new StringFilterGroup(
-                SettingsEnum.ADREMOVER_COMMUNITY_POSTS_REMOVAL,
+                SettingsEnum.HIDE_COMMUNITY_POSTS,
                 "post_base_wrapper"
         );
 
         final var communityGuidelines = new StringFilterGroup(
-                SettingsEnum.ADREMOVER_COMMUNITY_GUIDELINES_REMOVAL,
+                SettingsEnum.HIDE_COMMUNITY_GUIDELINES,
                 "community_guidelines"
         );
 
         final var subscribersCommunityGuidelines = new StringFilterGroup(
-                SettingsEnum.ADREMOVER_SUBSCRIBERS_COMMUNITY_GUIDELINES_REMOVAL,
+                SettingsEnum.HIDE_SUBSCRIBERS_COMMUNITY_GUIDELINES,
                 "sponsorships_comments_upsell"
         );
 
 
         final var channelMemberShelf = new StringFilterGroup(
-                SettingsEnum.ADREMOVER_CHANNEL_MEMBER_SHELF_REMOVAL,
+                SettingsEnum.HIDE_CHANNEL_MEMBER_SHELF,
                 "member_recognition_shelf"
         );
 
         final var compactBanner = new StringFilterGroup(
-                SettingsEnum.ADREMOVER_COMPACT_BANNER_REMOVAL,
+                SettingsEnum.HIDE_COMPACT_BANNER,
                 "compact_banner"
         );
 
         final var inFeedSurvey = new StringFilterGroup(
-                SettingsEnum.ADREMOVER_FEED_SURVEY_REMOVAL,
+                SettingsEnum.HIDE_FEED_SURVEY,
                 "in_feed_survey",
                 "slimline_survey"
         );
 
         final var medicalPanel = new StringFilterGroup(
-                SettingsEnum.ADREMOVER_MEDICAL_PANEL_REMOVAL,
+                SettingsEnum.HIDE_MEDICAL_PANELS,
                 "medical_panel"
         );
 
         final var paidContent = new StringFilterGroup(
-                SettingsEnum.ADREMOVER_PAID_CONTENT_REMOVAL,
+                SettingsEnum.HIDE_PAID_CONTENT,
                 "paid_content_overlay"
         );
 
         final var merchandise = new StringFilterGroup(
-                SettingsEnum.ADREMOVER_MERCHANDISE_REMOVAL,
+                SettingsEnum.HIDE_MERCHANDISE_BANNERS,
                 "product_carousel"
         );
 
         final var infoPanel = new StringFilterGroup(
-                SettingsEnum.ADREMOVER_INFO_PANEL_REMOVAL,
+                SettingsEnum.HIDE_HIDE_INFO_PANELS,
                 "publisher_transparency_panel",
                 "single_item_information_panel"
         );
 
         final var latestPosts = new StringFilterGroup(
-                SettingsEnum.ADREMOVER_HIDE_LATEST_POSTS,
+                SettingsEnum.HIDE_HIDE_LATEST_POSTS,
                 "post_shelf"
         );
 
         final var channelGuidelines = new StringFilterGroup(
-                SettingsEnum.ADREMOVER_HIDE_CHANNEL_GUIDELINES,
+                SettingsEnum.HIDE_HIDE_CHANNEL_GUIDELINES,
                 "channel_guidelines_entry_banner"
         );
 
@@ -100,54 +100,54 @@ public final class AdsFilter extends Filter {
         );
 
         final var selfSponsor = new StringFilterGroup(
-                SettingsEnum.ADREMOVER_SELF_SPONSOR_REMOVAL,
+                SettingsEnum.HIDE_SELF_SPONSOR,
                 "cta_shelf_card"
         );
 
         final var chapterTeaser = new StringFilterGroup(
-                SettingsEnum.ADREMOVER_CHAPTER_TEASER_REMOVAL,
+                SettingsEnum.HIDE_CHAPTER_TEASER,
                 "expandable_metadata",
                 "macro_markers_carousel"
         );
 
         final var viewProducts = new StringFilterGroup(
-                SettingsEnum.ADREMOVER_VIEW_PRODUCTS,
+                SettingsEnum.HIDE_PRODUCTS_BANNER,
                 "product_item",
                 "products_in_video"
         );
 
         final var webLinkPanel = new StringFilterGroup(
-                SettingsEnum.ADREMOVER_WEB_SEARCH_RESULTS,
+                SettingsEnum.HIDE_WEB_SEARCH_RESULTS,
                 "web_link_panel"
         );
 
         final var channelBar = new StringFilterGroup(
-                SettingsEnum.ADREMOVER_CHANNEL_BAR,
+                SettingsEnum.HIDE_CHANNEL_BAR,
                 "channel_bar"
         );
 
         final var relatedVideos = new StringFilterGroup(
-                SettingsEnum.ADREMOVER_RELATED_VIDEOS,
+                SettingsEnum.HIDE_RELATED_VIDEOS,
                 "fullscreen_related_videos"
         );
 
         final var quickActions = new StringFilterGroup(
-                SettingsEnum.ADREMOVER_QUICK_ACTIONS,
+                SettingsEnum.HIDE_QUICK_ACTIONS,
                 "quick_actions"
         );
 
         final var imageShelf = new StringFilterGroup(
-                SettingsEnum.ADREMOVER_IMAGE_SHELF,
+                SettingsEnum.HIDE_IMAGE_SHELF,
                 "image_shelf"
         );
 
         final var graySeparator = new StringFilterGroup(
-                SettingsEnum.ADREMOVER_GRAY_SEPARATOR,
+                SettingsEnum.HIDE_GRAY_SEPARATOR,
                 "cell_divider" // layout residue (gray line above the buttoned ad),
         );
 
         final var buttonedAd = new StringFilterGroup(
-                SettingsEnum.ADREMOVER_BUTTONED_REMOVAL,
+                SettingsEnum.HIDE_BUTTONED_ADS,
                 "_buttoned_layout",
                 "full_width_square_image_layout",
                 "_ad_with",
@@ -156,7 +156,7 @@ public final class AdsFilter extends Filter {
         );
 
         final var generalAds = new StringFilterGroup(
-                SettingsEnum.ADREMOVER_GENERAL_ADS_REMOVAL,
+                SettingsEnum.HIDE_GENERAL_ADS,
                 "ads_video_with_context",
                 "banner_text_icon",
                 "square_image_layout",
@@ -173,7 +173,7 @@ public final class AdsFilter extends Filter {
         );
 
         final var movieAds = new StringFilterGroup(
-                SettingsEnum.ADREMOVER_MOVIE_REMOVAL,
+                SettingsEnum.HIDE_MOVIES_SECTION,
                 "browsy_bar",
                 "compact_movie",
                 "horizontal_movie_shelf",
@@ -211,20 +211,11 @@ public final class AdsFilter extends Filter {
         );
 
         final var carouselAd = new StringFilterGroup(
-                SettingsEnum.ADREMOVER_GENERAL_ADS_REMOVAL,
+                SettingsEnum.HIDE_GENERAL_ADS,
                 "carousel_ad"
         );
 
-        final var shorts = new StringFilterGroup(
-                SettingsEnum.ADREMOVER_SHORTS_REMOVAL,
-                "reels_player_overlay",
-                "shorts_shelf",
-                "inline_shorts",
-                "shorts_grid"
-        );
-
         this.identifierFilterGroups.addAll(
-                shorts,
                 graySeparator,
                 carouselAd
         );
@@ -234,9 +225,9 @@ public final class AdsFilter extends Filter {
     public boolean isFiltered(final String path, final String identifier, final byte[] _protobufBufferArray) {
         FilterResult result;
 
-        if (custom.isEnabled() && custom.contains(path).isFiltered())
+        if (custom.isEnabled() && custom.check(path).isFiltered())
             result = FilterResult.CUSTOM;
-        else if (ReVancedUtils.containsAny(path, EXCEPTIONS))
+        else if (ReVancedUtils.containsAny(path, exceptions))
             result = FilterResult.EXCEPTION;
         else if (pathFilterGroups.contains(path) || identifierFilterGroups.contains(identifier))
             result = FilterResult.FILTERED;
@@ -264,34 +255,11 @@ public final class AdsFilter extends Filter {
     }
 
     /**
-     * Hide a view.
-     *
-     * @param condition The setting to check for hiding the view.
-     * @param view      The view to hide.
-     */
-    private static void hideView(SettingsEnum condition, View view) {
-        if (!condition.getBoolean()) return;
-
-        LogHelper.printDebug(() -> "Hiding view with setting: " + condition);
-
-        AdRemoverAPI.HideViewWithLayout1dp(view);
-    }
-
-    /**
      * Hide the view, which shows ads in the homepage.
      *
      * @param view The view, which shows ads.
      */
     public static void hideAdAttributionView(View view) {
-        hideView(SettingsEnum.ADREMOVER_GENERAL_ADS_REMOVAL, view);
-    }
-
-    /**
-     * Hide the view, which shows reels in the homepage.
-     *
-     * @param view The view, which shows reels.
-     */
-    public static void hideReelView(View view) {
-        hideView(SettingsEnum.ADREMOVER_SHORTS_REMOVAL, view);
+        ReVancedUtils.hideViewBy1dpUnderCondition(SettingsEnum.HIDE_GENERAL_ADS, view);
     }
 }

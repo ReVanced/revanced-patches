@@ -11,18 +11,14 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.*;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import app.revanced.integrations.settings.SettingsEnum;
 
 import java.text.Bidi;
 import java.util.Locale;
 import java.util.Objects;
-import java.util.concurrent.Callable;
-import java.util.concurrent.Future;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 public class ReVancedUtils {
 
@@ -31,6 +27,35 @@ public class ReVancedUtils {
 
     private ReVancedUtils() {
     } // utility class
+
+    /**
+     * Hide a view by setting its layout height and width to 1dp.
+     *
+     * @param condition The setting to check for hiding the view.
+     * @param view      The view to hide.
+     */
+    public static void hideViewBy1dpUnderCondition(SettingsEnum condition, View view) {
+        if (!condition.getBoolean()) return;
+
+        LogHelper.printDebug(() -> "Hiding view with setting: " + condition);
+
+        hideViewByLayoutParams(view);
+    }
+
+    /**
+     * Hide a view by setting its visibility to GONE.
+     *
+     * @param condition The setting to check for hiding the view.
+     * @param view      The view to hide.
+     */
+    public static void hideViewUnderCondition(SettingsEnum condition, View view) {
+        if (!condition.getBoolean()) return;
+
+        LogHelper.printDebug(() -> "Hiding view with setting: " + condition);
+
+        view.setVisibility(View.GONE);
+    }
+
 
     /**
      * General purpose pool for network calls and other background tasks.
@@ -119,6 +144,7 @@ public class ReVancedUtils {
 
     @Nullable
     private static Boolean isRightToLeftTextLayout;
+
     /**
      * If the device language uses right to left text layout (hebrew, arabic, etc)
      */
@@ -245,7 +271,7 @@ public class ReVancedUtils {
      * Hide a view by setting its layout params to 1x1
      * @param view The view to hide.
      */
-    public static void HideViewByLayoutParams(View view) {
+    public static void hideViewByLayoutParams(View view) {
         if (view instanceof LinearLayout) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(1, 1);
             view.setLayoutParams(layoutParams);

@@ -8,6 +8,6 @@ import app.revanced.integrations.utils.ReVancedUtils;
 public class HideLoadMoreButtonPatch {
     public static void hideLoadMoreButton(View view){
         if(!SettingsEnum.HIDE_LOAD_MORE_BUTTON.getBoolean()) return;
-        ReVancedUtils.HideViewByLayoutParams(view);
+        ReVancedUtils.hideViewByLayoutParams(view);
     }
 }

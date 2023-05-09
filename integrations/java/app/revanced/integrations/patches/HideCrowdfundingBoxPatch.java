@@ -9,6 +9,6 @@ public class HideCrowdfundingBoxPatch {
     //Used by app.revanced.patches.youtube.layout.hidecrowdfundingbox.patch.HideCrowdfundingBoxPatch
     public static void hideCrowdfundingBox(View view) {
         if (!SettingsEnum.HIDE_CROWDFUNDING_BOX.getBoolean()) return;
-        ReVancedUtils.HideViewByLayoutParams(view);
+        ReVancedUtils.hideViewByLayoutParams(view);
     }
 }

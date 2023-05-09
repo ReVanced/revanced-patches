@@ -16,6 +16,11 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import app.revanced.integrations.sponsorblock.SponsorBlockSettings;
+import app.revanced.integrations.utils.ReVancedUtils;
+import app.revanced.integrations.utils.StringRef;
+import app.revanced.integrations.utils.LogHelper;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -24,10 +29,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import app.revanced.integrations.sponsorblock.SponsorBlockSettings;
-import app.revanced.integrations.utils.LogHelper;
-import app.revanced.integrations.utils.ReVancedUtils;
-import app.revanced.integrations.utils.StringRef;
 
 public enum SettingsEnum {
     // External downloader
@@ -82,7 +83,6 @@ public enum SettingsEnum {
     HIDE_SUBSCRIBERS_COMMUNITY_GUIDELINES("revanced_hide_subscribers_community_guidelines", BOOLEAN, TRUE),
     HIDE_PRODUCTS_BANNER("revanced_hide_products_banner", BOOLEAN, TRUE),
     HIDE_WEB_SEARCH_RESULTS("revanced_hide_web_search_results", BOOLEAN, TRUE),
-    HIDE_SHORTS("revanced_hide_shorts", BOOLEAN, TRUE, true),
     HIDE_QUICK_ACTIONS("revanced_hide_quick_actions", BOOLEAN, FALSE),
     HIDE_RELATED_VIDEOS("revanced_hide_related_videos", BOOLEAN, FALSE),
 
@@ -119,7 +119,6 @@ public enum SettingsEnum {
     HIDE_HOME_BUTTON("revanced_hide_home_button", BOOLEAN, FALSE, true),
     HIDE_SHORTS_BUTTON("revanced_hide_shorts_button", BOOLEAN, TRUE, true),
     HIDE_SUBSCRIPTIONS_BUTTON("revanced_hide_subscriptions_button", BOOLEAN, FALSE, true),
-    HIDE_SHORTS_COMMENTS_BUTTON("revanced_hide_shorts_comments_button", BOOLEAN, FALSE),
     HIDE_TIMESTAMP("revanced_hide_timestamp", BOOLEAN, FALSE),
     HIDE_VIDEO_WATERMARK("revanced_hide_video_watermark", BOOLEAN, TRUE),
     HIDE_WATCH_IN_VR("revanced_hide_watch_in_vr", BOOLEAN, FALSE, true),
@@ -133,6 +132,13 @@ public enum SettingsEnum {
     HIDE_FILTER_BAR_FEED_IN_FEED("revanced_hide_filter_bar_feed_in_feed", BOOLEAN, FALSE, true),
     HIDE_FILTER_BAR_FEED_IN_SEARCH("revanced_hide_filter_bar_feed_in_search", BOOLEAN, FALSE, true),
     HIDE_FILTER_BAR_FEED_IN_RELATED_VIDEOS("revanced_hide_filter_bar_feed_in_related_videos", BOOLEAN, FALSE, true),
+    HIDE_SHORTS_JOIN_BUTTON("revanced_hide_shorts_join_button", BOOLEAN, FALSE),
+    HIDE_SHORTS_SUBSCRIBE_BUTTON("revanced_hide_shorts_subscribe_button", BOOLEAN, FALSE),
+    HIDE_SHORTS_THANKS_BUTTON("revanced_hide_shorts_thanks_button", BOOLEAN, FALSE),
+    HIDE_SHORTS_COMMENTS_BUTTON("revanced_hide_shorts_comments_button", BOOLEAN, FALSE),
+    HIDE_SHORTS_REMIX_BUTTON("revanced_hide_shorts_remix_button", BOOLEAN, FALSE),
+    HIDE_SHORTS_SHARE_BUTTON("revanced_hide_shorts_share_button", BOOLEAN, FALSE),
+    HIDE_SHORTS("revanced_hide_shorts", BOOLEAN, FALSE, true),
 
     // Misc
     AUTO_CAPTIONS("revanced_auto_captions", BOOLEAN, FALSE),
@@ -343,7 +349,7 @@ public enum SettingsEnum {
     // TODO END
     //
 
-    private static SettingsEnum[] parents(SettingsEnum ... parents) {
+    private static SettingsEnum[] parents(SettingsEnum... parents) {
         return parents;
     }
 
@@ -386,26 +392,32 @@ public enum SettingsEnum {
     SettingsEnum(String path, ReturnType returnType, Object defaultValue) {
         this(path, returnType, defaultValue, SharedPrefCategory.YOUTUBE, false, null, null);
     }
+
     SettingsEnum(String path, ReturnType returnType, Object defaultValue,
                  boolean rebootApp) {
-        this(path, returnType, defaultValue, SharedPrefCategory.YOUTUBE, rebootApp, null,null);
+        this(path, returnType, defaultValue, SharedPrefCategory.YOUTUBE, rebootApp, null, null);
     }
+
     SettingsEnum(String path, ReturnType returnType, Object defaultValue,
                  String userDialogMessage) {
         this(path, returnType, defaultValue, SharedPrefCategory.YOUTUBE, false, userDialogMessage, null);
     }
+
     SettingsEnum(String path, ReturnType returnType, Object defaultValue,
                  SettingsEnum[] parents) {
         this(path, returnType, defaultValue, SharedPrefCategory.YOUTUBE, false, null, parents);
     }
+
     SettingsEnum(String path, ReturnType returnType, Object defaultValue,
                  boolean rebootApp, String userDialogMessage) {
         this(path, returnType, defaultValue, SharedPrefCategory.YOUTUBE, rebootApp, userDialogMessage, null);
     }
+
     SettingsEnum(String path, ReturnType returnType, Object defaultValue,
                  boolean rebootApp, SettingsEnum[] parents) {
         this(path, returnType, defaultValue, SharedPrefCategory.YOUTUBE, rebootApp, null, parents);
     }
+
     SettingsEnum(String path, ReturnType returnType, Object defaultValue,
                  boolean rebootApp, String userDialogMessage, SettingsEnum[] parents) {
         this(path, returnType, defaultValue, SharedPrefCategory.YOUTUBE, rebootApp, userDialogMessage, parents);
@@ -414,20 +426,24 @@ public enum SettingsEnum {
     SettingsEnum(String path, ReturnType returnType, Object defaultValue, SharedPrefCategory prefName) {
         this(path, returnType, defaultValue, prefName, false, null, null);
     }
+
     SettingsEnum(String path, ReturnType returnType, Object defaultValue, SharedPrefCategory prefName,
                  boolean rebootApp) {
         this(path, returnType, defaultValue, prefName, rebootApp, null, null);
     }
+
     SettingsEnum(String path, ReturnType returnType, Object defaultValue, SharedPrefCategory prefName,
                  String userDialogMessage) {
         this(path, returnType, defaultValue, prefName, false, userDialogMessage, null);
     }
+
     SettingsEnum(String path, ReturnType returnType, Object defaultValue, SharedPrefCategory prefName,
                  SettingsEnum[] parents) {
         this(path, returnType, defaultValue, prefName, false, null, parents);
     }
+
     SettingsEnum(String path, ReturnType returnType, Object defaultValue, SharedPrefCategory prefName,
-                 boolean rebootApp, @Nullable String userDialogMessage, @Nullable SettingsEnum[]  parents) {
+                 boolean rebootApp, @Nullable String userDialogMessage, @Nullable SettingsEnum[] parents) {
         this.path = Objects.requireNonNull(path);
         this.returnType = Objects.requireNonNull(returnType);
         this.value = this.defaultValue = Objects.requireNonNull(defaultValue);
@@ -599,10 +615,10 @@ public enum SettingsEnum {
 
     /**
      * Sets, but does _not_ persistently save the value.
-     *
+     * <p>
      * This intentionally is a static method, to deter accidental usage
      * when {@link #saveValue(Object)} was intended.
-     *
+     * <p>
      * This method is only to be used by the Settings preference code.
      */
     public static void setValue(@NonNull SettingsEnum setting, @NonNull String newValue) {
@@ -627,6 +643,7 @@ public enum SettingsEnum {
                 throw new IllegalStateException(setting.name());
         }
     }
+
     /**
      * This method is only to be used by the Settings preference code.
      */
@@ -664,7 +681,7 @@ public enum SettingsEnum {
 
     /**
      * @return if this setting can be configured and used.
-     *
+     * <p>
      * Not to be confused with {@link #getBoolean()}
      */
     public boolean isAvailable() {

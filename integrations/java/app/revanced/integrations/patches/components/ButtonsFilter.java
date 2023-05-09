@@ -1,4 +1,4 @@
-package app.revanced.integrations.patches.litho;
+package app.revanced.integrations.patches.components;
 
 import app.revanced.integrations.settings.SettingsEnum;
 
@@ -47,7 +47,7 @@ final class ButtonsFilter extends Filter {
     @Override
     public boolean isFiltered(final String path, final String identifier, final byte[] _protobufBufferArray) {
         if (isEveryFilterGroupEnabled())
-            if (actionBarRule.contains(identifier).isFiltered()) return true;
+            if (actionBarRule.check(identifier).isFiltered()) return true;
 
         return super.isFiltered(path, identifier, _protobufBufferArray);
     }

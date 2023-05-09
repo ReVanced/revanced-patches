@@ -1,4 +1,4 @@
-package app.revanced.integrations.patches.litho;
+package app.revanced.integrations.patches.components;
 
 import app.revanced.integrations.settings.SettingsEnum;
 

@@ -24,6 +24,6 @@ public class HideBreakingNewsPatch {
     public static void hideBreakingNews(View view) {
         if (!SettingsEnum.HIDE_BREAKING_NEWS.getBoolean()
                 || isSpoofingOldVersionWithHorizontalCardListWatchHistory()) return;
-        ReVancedUtils.HideViewByLayoutParams(view);
+        ReVancedUtils.hideViewByLayoutParams(view);
     }
 }

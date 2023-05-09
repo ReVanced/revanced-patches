@@ -14,7 +14,7 @@ public final class HideFilterBarPatch {
     public static void hideInRelatedVideos(final View chipView) {
         if (!SettingsEnum.HIDE_FILTER_BAR_FEED_IN_RELATED_VIDEOS.getBoolean()) return;
 
-        ReVancedUtils.HideViewByLayoutParams(chipView);
+        ReVancedUtils.hideViewByLayoutParams(chipView);
     }
 
     public static int hideInSearch(final int height) {
