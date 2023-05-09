@@ -2,11 +2,9 @@ package app.revanced.integrations.patches.playback.speed;
 
 import android.preference.ListPreference;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import app.revanced.integrations.patches.VideoInformation;
 import app.revanced.integrations.settings.SettingsEnum;
+import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 
 public final class RememberPlaybackSpeedPatch {
@@ -16,18 +14,12 @@ public final class RememberPlaybackSpeedPatch {
      */
     private static String[] preferenceListEntries, preferenceListEntryValues;
 
-    @Nullable
-    private static String currentVideoId;
 
     /**
      * Injection point.
-     * Called when a new video loads.
      */
-    public static void newVideoLoaded(@NonNull String videoId) {
-        if (videoId.equals(currentVideoId)) {
-            return;
-        }
-        currentVideoId = videoId;
+    public static void newVideoStarted(Object ignoredPlayerController) {
+        LogHelper.printDebug(() -> "newVideoStarted");
         VideoInformation.overridePlaybackSpeed(SettingsEnum.PLAYBACK_SPEED_DEFAULT.getFloat());
     }
 

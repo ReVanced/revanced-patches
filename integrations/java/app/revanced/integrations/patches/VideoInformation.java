@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
+import java.util.Objects;
 
 import app.revanced.integrations.patches.playback.speed.RememberPlaybackSpeedPatch;
 import app.revanced.integrations.utils.LogHelper;
@@ -16,7 +17,7 @@ public final class VideoInformation {
     private static final float DEFAULT_YOUTUBE_PLAYBACK_SPEED = 1.0f;
     private static final String SEEK_METHOD_NAME = "seekTo";
 
-    private static WeakReference<Object> playerController;
+    private static WeakReference<Object> playerControllerRef;
     private static Method seekMethod;
 
     @NonNull
@@ -30,17 +31,17 @@ public final class VideoInformation {
 
     /**
      * Injection point.
-     * Sets a reference to the YouTube playback controller.
      *
-     * @param thisRef Reference to the player controller object.
+     * @param playerController player controller object.
      */
-    public static void playerController_onCreateHook(final Object thisRef) {
-        playerController = new WeakReference<>(thisRef);
-        videoLength = 0;
-        videoTime = -1;
-
+    public static void initialize(@NonNull Object playerController) {
         try {
-            seekMethod = thisRef.getClass().getMethod(SEEK_METHOD_NAME, Long.TYPE);
+            playerControllerRef = new WeakReference<>(Objects.requireNonNull(playerController));
+            videoTime = -1;
+            videoLength = 0;
+            playbackSpeed = DEFAULT_YOUTUBE_PLAYBACK_SPEED;
+
+            seekMethod = playerController.getClass().getMethod(SEEK_METHOD_NAME, Long.TYPE);
             seekMethod.setAccessible(true);
         } catch (Exception ex) {
             LogHelper.printException(() -> "Failed to initialize", ex);
@@ -56,7 +57,6 @@ public final class VideoInformation {
         if (!videoId.equals(newlyLoadedVideoId)) {
             LogHelper.printDebug(() -> "New video id: " + newlyLoadedVideoId);
             videoId = newlyLoadedVideoId;
-            playbackSpeed = DEFAULT_YOUTUBE_PLAYBACK_SPEED;
         }
     }
 
@@ -124,7 +124,7 @@ public final class VideoInformation {
 
         try {
             LogHelper.printDebug(() -> "Seeking to " + millisecond);
-            return (Boolean) seekMethod.invoke(playerController.get(), millisecond);
+            return (Boolean) seekMethod.invoke(playerControllerRef.get(), millisecond);
         } catch (Exception ex) {
             LogHelper.printException(() -> "Failed to seek", ex);
             return false;

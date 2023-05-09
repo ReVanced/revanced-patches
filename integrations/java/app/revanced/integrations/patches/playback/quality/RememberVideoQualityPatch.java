@@ -2,7 +2,6 @@ package app.revanced.integrations.patches.playback.quality;
 
 import static app.revanced.integrations.utils.ReVancedUtils.NetworkType;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.lang.reflect.Field;
@@ -20,8 +19,6 @@ public class RememberVideoQualityPatch {
     private static final SettingsEnum mobileQualitySetting = SettingsEnum.VIDEO_QUALITY_DEFAULT_MOBILE;
 
     private static boolean qualityNeedsUpdating;
-    @Nullable
-    private static String currentVideoId;
 
     /**
      * If the user selected a new quality from the flyout menu,
@@ -91,7 +88,7 @@ public class RememberVideoQualityPatch {
                         }
                     }
                 }
-                LogHelper.printDebug(() -> "VideoId: " + currentVideoId + " videoQualities: " + videoQualities);
+                LogHelper.printDebug(() -> "videoQualities: " + videoQualities);
             }
 
             if (userChangedDefaultQuality) {
@@ -144,25 +141,9 @@ public class RememberVideoQualityPatch {
     /**
      * Injection point.
      */
-    public static void newVideoStarted(@NonNull String videoId) {
-        // The same videoId can be passed in multiple times for a single video playback.
-        // Such as closing and opening the app, and sometimes when turning off/on the device screen.
-        //
-        // Known limitation, if:
-        // 1. a default video quality exists, and remember quality is turned off
-        // 2. user opens a video
-        // 3. user changes the video quality
-        // 4. user turns off then on the device screen (or does anything else that triggers the video id hook)
-        // result: the video quality of the current video will revert back to the saved default
-        //
-        // qualityNeedsUpdating could be set only when the videoId changes
-        // but then if the user closes and re-opens the same video the default video quality will not be applied.
-        LogHelper.printDebug(() -> "newVideoStarted: " + videoId);
+    public static void newVideoStarted(Object ignoredPlayerController) {
+        LogHelper.printDebug(() -> "newVideoStarted");
         qualityNeedsUpdating = true;
-
-        if (!videoId.equals(currentVideoId)) {
-            currentVideoId = videoId;
-            videoQualities = null;
-        }
+        videoQualities = null;
     }
 }
