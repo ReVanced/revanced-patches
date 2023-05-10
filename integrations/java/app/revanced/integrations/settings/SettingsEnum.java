@@ -138,6 +138,7 @@ public enum SettingsEnum {
     HIDE_SHORTS_COMMENTS_BUTTON("revanced_hide_shorts_comments_button", BOOLEAN, FALSE),
     HIDE_SHORTS_REMIX_BUTTON("revanced_hide_shorts_remix_button", BOOLEAN, FALSE),
     HIDE_SHORTS_SHARE_BUTTON("revanced_hide_shorts_share_button", BOOLEAN, FALSE),
+    HIDE_SHORTS_NAVIGATION_BAR("revanced_hide_shorts_navigation_bar", BOOLEAN, TRUE, true),
     HIDE_SHORTS("revanced_hide_shorts", BOOLEAN, FALSE, true),
 
     // Misc

@@ -3,12 +3,18 @@ package app.revanced.integrations.patches.components;
 import static app.revanced.integrations.utils.ReVancedUtils.hideViewBy1dpUnderCondition;
 import static app.revanced.integrations.utils.ReVancedUtils.hideViewUnderCondition;
 
+import android.annotation.SuppressLint;
 import android.os.Build;
 import android.view.View;
+
+import com.google.android.libraries.youtube.rendering.ui.pivotbar.PivotBar;
 
 import app.revanced.integrations.settings.SettingsEnum;
 
 public final class ShortsFilter extends Filter {
+    public static PivotBar pivotBar;
+    @SuppressLint("StaticFieldLeak")
+
     private final StringFilterGroup reelChannelBar = new StringFilterGroup(
             null,
             "reel_channel_bar"
@@ -68,5 +74,19 @@ public final class ShortsFilter extends Filter {
 
     public static void hideShortsShareButton(final View shareButtonView) {
         hideViewUnderCondition(SettingsEnum.HIDE_SHORTS_SHARE_BUTTON, shareButtonView);
+    }
+
+    public static void hideNavigationBar() {
+        if (!SettingsEnum.HIDE_SHORTS_NAVIGATION_BAR.getBoolean()) return;
+        if (pivotBar == null) return;
+
+        pivotBar.setVisibility(View.GONE);
+    }
+
+    public static View hideNavigationBar(final View navigationBarView) {
+        if (SettingsEnum.HIDE_SHORTS_NAVIGATION_BAR.getBoolean())
+            return null; // Hides the navigation bar.
+
+        return navigationBarView;
     }
 }
