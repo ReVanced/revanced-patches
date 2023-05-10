@@ -44,6 +44,7 @@ class SettingsPatch : BytecodePatch(
         ThemeSetterSystemFingerprint.result!!.let { result ->
             val call = buildInvokeInstructionsString()
             result.mutableMethod.apply {
+                // TODO: The label is pointing to the instruction below, but should instead point to the new instruction.
                 addInstruction(
                     result.scanResult.patternScanResult!!.startIndex, call
                 )

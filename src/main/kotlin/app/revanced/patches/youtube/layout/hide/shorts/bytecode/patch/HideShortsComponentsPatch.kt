@@ -1,12 +1,15 @@
 package app.revanced.patches.youtube.layout.hide.shorts.bytecode.patch
 
+import app.revanced.extensions.findIndexForIdResource
 import app.revanced.extensions.injectHideViewCall
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -15,15 +18,13 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
 import app.revanced.patches.youtube.layout.hide.shorts.annotations.HideShortsComponentsCompatibility
-import app.revanced.patches.youtube.layout.hide.shorts.bytecode.fingerprints.CreateShortsButtonsFingerprint
-import app.revanced.patches.youtube.layout.hide.shorts.bytecode.fingerprints.ReelConstructorFingerprint
+import app.revanced.patches.youtube.layout.hide.shorts.bytecode.fingerprints.*
 import app.revanced.patches.youtube.layout.hide.shorts.resource.patch.HideShortsComponentsResourcePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.patch.LithoFilterPatch
-import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
+import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
-import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
 @Patch
 @DependsOn(
@@ -38,9 +39,18 @@ import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 @Description("Hides components from YouTube Shorts.")
 @HideShortsComponentsCompatibility
 @Version("0.0.1")
-class HideShortsComponentsPatch : BytecodePatch(listOf(CreateShortsButtonsFingerprint, ReelConstructorFingerprint)) {
+class HideShortsComponentsPatch : BytecodePatch(
+    listOf(
+        CreateShortsButtonsFingerprint,
+        ReelConstructorFingerprint,
+        BottomNavigationBarFingerprint,
+        RenderBottomNavigationBarParentFingerprint,
+        SetPivotBarVisibilityParentFingerprint
+    )
+) {
     override fun execute(context: BytecodeContext): PatchResult {
-        // Hide the Shorts shelf.
+        // region Hide the Shorts shelf.
+
         ReelConstructorFingerprint.result?.let {
             it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.startIndex + 2
@@ -55,10 +65,64 @@ class HideShortsComponentsPatch : BytecodePatch(listOf(CreateShortsButtonsFinger
             }
         } ?: return ReelConstructorFingerprint.toErrorResult()
 
+        // endregion
+
+        // region Hide the Shorts buttons.
+
         // Some Shorts buttons are views, hide them by setting their visibility to GONE.
         CreateShortsButtonsFingerprint.result?.let {
             ShortsButtons.values().forEach { button -> button.injectHideCall(it.mutableMethod) }
         } ?: return CreateShortsButtonsFingerprint.toErrorResult()
+
+        // endregion
+
+        // region Hide the navigation bar.
+
+        // Hook to get the pivotBar view.
+        SetPivotBarVisibilityParentFingerprint.result?.let {
+            if (!SetPivotBarVisibilityFingerprint.resolve(context, it.classDef))
+                throw SetPivotBarVisibilityFingerprint.toErrorResult()
+
+            SetPivotBarVisibilityFingerprint.result!!.let { result ->
+                result.mutableMethod.apply {
+                    val checkCastIndex = result.scanResult.patternScanResult!!.endIndex
+                    val viewRegister = instruction<OneRegisterInstruction>(checkCastIndex).registerA
+                    addInstruction(
+                        checkCastIndex + 1,
+                        "sput-object v$viewRegister, $CLASS_DESCRIPTOR->pivotBar:" +
+                                "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;"
+                    )
+                }
+            }
+        } ?: return SetPivotBarVisibilityParentFingerprint.toErrorResult()
+
+        // Hook to hide the navigation bar when Shorts are being played.
+        RenderBottomNavigationBarParentFingerprint.result?.let {
+            if (!RenderBottomNavigationBarFingerprint.resolve(context, it.classDef))
+                throw RenderBottomNavigationBarFingerprint.toErrorResult()
+
+            RenderBottomNavigationBarFingerprint.result!!.mutableMethod.apply {
+                addInstruction(0, "invoke-static { }, $CLASS_DESCRIPTOR->hideNavigationBar()V")
+            }
+        } ?: return RenderBottomNavigationBarParentFingerprint.toErrorResult()
+
+        // Required to prevent a black bar from appearing at the bottom of the screen.
+        BottomNavigationBarFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val moveResultIndex = it.scanResult.patternScanResult!!.startIndex
+                val viewRegister = instruction<OneRegisterInstruction>(moveResultIndex).registerA
+                val insertIndex = moveResultIndex + 1
+
+                addInstruction(
+                    insertIndex,
+                    "invoke-static { v$viewRegister }, $CLASS_DESCRIPTOR->" +
+                            "hideNavigationBar(Landroid/view/View;)Landroid/view/View;"
+                )
+            }
+        } ?: return BottomNavigationBarFingerprint.toErrorResult()
+
+        // endregion
+
         return PatchResultSuccess()
     }
 
@@ -71,18 +135,7 @@ class HideShortsComponentsPatch : BytecodePatch(listOf(CreateShortsButtonsFinger
             SHARE("reel_dyn_share", "hideShortsShareButton");
 
             fun injectHideCall(method: MutableMethod) {
-                val resourceId = ResourceMappingPatch.resourceMappings.single {
-                    it.type == "id" && it.name == resourceName
-                }.id
-
-                // Get the index of the reference to the view's resource ID.
-                val referencedIndex = method.implementation!!.instructions.indexOfFirst {
-                    if (it.opcode != Opcode.CONST) return@indexOfFirst false
-
-                    val literal = (it as WideLiteralInstruction).wideLiteral
-
-                    return@indexOfFirst resourceId == literal
-                }
+                val referencedIndex = method.findIndexForIdResource(resourceName)
 
                 val setIdIndex = referencedIndex + 1
                 val viewRegister = method.instruction<FiveRegisterInstruction>(setIdIndex).registerC
