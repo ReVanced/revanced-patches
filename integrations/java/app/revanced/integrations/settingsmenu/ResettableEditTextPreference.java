@@ -16,18 +16,16 @@ import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 
 public class ResettableEditTextPreference extends EditTextPreference {
+
     public ResettableEditTextPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
-
     public ResettableEditTextPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
-
     public ResettableEditTextPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
-
     public ResettableEditTextPreference(Context context) {
         super(context);
     }
@@ -53,7 +51,6 @@ public class ResettableEditTextPreference extends EditTextPreference {
         button.setOnClickListener(v -> {
             try {
                 SettingsEnum setting = Objects.requireNonNull(SettingsEnum.settingFromPath(getKey()));
-                setting.saveValue(setting.defaultValue);
                 String defaultStringValue = setting.defaultValue.toString();
                 EditText editText = getEditText();
                 editText.setText(defaultStringValue);

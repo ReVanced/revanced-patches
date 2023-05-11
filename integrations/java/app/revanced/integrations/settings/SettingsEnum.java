@@ -28,6 +28,8 @@ public enum SettingsEnum {
     VIDEO_QUALITY_DEFAULT_MOBILE("revanced_default_video_quality_mobile", INTEGER, -2),
     PLAYBACK_SPEED_REMEMBER_LAST_SELECTED("revanced_remember_playback_speed_last_selected", BOOLEAN, TRUE),
     PLAYBACK_SPEED_DEFAULT("revanced_default_playback_speed", FLOAT, 1.0f),
+    PLAYBACK_SPEED_AVAILABLE("revanced_custom_video_speeds", STRING,
+            "0.25\n0.5\n0.75\n0.9\n0.95\n1.0\n1.05\n1.1\n1.25\n1.5\n1.75\n2.0\n3.0\n4.0\n5.0", true),
 
     // TODO: Unused currently
     // Whitelist settings
