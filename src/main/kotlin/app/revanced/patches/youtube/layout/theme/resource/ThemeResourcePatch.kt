@@ -1,10 +1,7 @@
 package app.revanced.patches.youtube.layout.theme.resource
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.ResourcePatch
+import app.revanced.patcher.patch.*
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
 import app.revanced.patches.shared.settings.preference.impl.InputType
@@ -28,18 +25,10 @@ class ThemeResourcePatch : ResourcePatch {
                 "#FF0000",
                 StringResource(
                     "revanced_seekbar_color_summary",
-                    "The color of the seekbar for the dark theme."
+                    "The color of the seekbar"
                 )
             ),
         )
-
-        // Edit theme colors via bytecode.
-        // For that the resource id is used in a bytecode patch to change the color.
-
-        inlineTimeBarColorizedBarPlayedColorDarkId = ResourceMappingPatch.resourceMappings
-            .find { it.name == "inline_time_bar_colorized_bar_played_color_dark" }?.id
-            ?: return PatchResultError("Could not find seekbar resource")
-
 
         val darkThemeBackgroundColor = darkThemeBackgroundColor!!
         val lightThemeBackgroundColor = lightThemeBackgroundColor!!
@@ -72,7 +61,4 @@ class ThemeResourcePatch : ResourcePatch {
         return PatchResultSuccess()
     }
 
-    internal companion object {
-        var inlineTimeBarColorizedBarPlayedColorDarkId = -1L
-    }
 }
