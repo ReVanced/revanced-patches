@@ -15,7 +15,6 @@ The official ReVanced Patches.
 | `copy-video-url` | Adds buttons in player to copy video links. | 18.16.37 |
 | `custom-branding` | Changes the YouTube launcher icon and name to your choice (defaults to ReVanced). | all |
 | `custom-video-buffer` | Lets you change the buffers of videos. | 18.16.37 |
-| `custom-video-speed` | Adds more video speed options. | 18.16.37 |
 | `disable-auto-captions` | Disable forced captions from being automatically enabled. | 18.16.37 |
 | `disable-fullscreen-panels` | Disables video description and comments panel in fullscreen view. | 18.16.37 |
 | `disable-player-popup-panels` | Disables panels from appearing automatically when going into fullscreen (playlist or live chat). | 18.16.37 |
@@ -49,7 +48,6 @@ The official ReVanced Patches.
 | `old-quality-layout` | Enables the original video quality flyout in the video player settings | 18.16.37 |
 | `open-links-externally` | Open links outside of the app directly in your browser. | 18.16.37 |
 | `premium-heading` | Shows premium branding on the home screen. | all |
-| `remember-playback-speed` | Adds the ability to remember the playback speed you chose in the video playback speed flyout. | 18.16.37 |
 | `remember-video-quality` | Adds the ability to remember the video quality you chose in the video quality flyout. | 18.16.37 |
 | `remove-player-button-background` | Removes the background from the video player buttons. | 18.16.37 |
 | `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 18.16.37 |

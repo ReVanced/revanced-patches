@@ -1,3 +1,10 @@
+# [2.174.0-dev.19](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.18...v2.174.0-dev.19) (2023-05-11)
+
+
+### Features
+
+* **youtube/video-speed:** change custom video speeds inside app settings ([#2114](https://github.com/revanced/revanced-patches/issues/2114)) ([d97815a](https://github.com/revanced/revanced-patches/commit/d97815af18e645fd0fa087db0174bcc2a771ec72))
+
 # [2.174.0-dev.18](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.17...v2.174.0-dev.18) (2023-05-11)
 
 
