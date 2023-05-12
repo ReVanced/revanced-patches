@@ -12,7 +12,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.interaction.downloads.annotation.DownloadsCompatibility
 import app.revanced.patches.youtube.interaction.downloads.resource.patch.DownloadsResourcePatch
 import app.revanced.patches.youtube.misc.playercontrols.bytecode.patch.PlayerControlsBytecodePatch
-import app.revanced.patches.youtube.misc.video.information.patch.VideoInformationPatch
+import app.revanced.patches.youtube.video.information.patch.VideoInformationPatch
 
 @Patch
 @Name("downloads")
