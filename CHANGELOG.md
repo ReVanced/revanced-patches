@@ -1,3 +1,10 @@
+# [2.174.0-dev.22](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.21...v2.174.0-dev.22) (2023-05-12)
+
+
+### Features
+
+* **youtube:** move video settings to `Video` settings category ([#2010](https://github.com/revanced/revanced-patches/issues/2010)) ([f4b9180](https://github.com/revanced/revanced-patches/commit/f4b918075a70d1a4ed9ac7e9c1f0e0acd1c77404))
+
 # [2.174.0-dev.21](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.20...v2.174.0-dev.21) (2023-05-12)
 
 
