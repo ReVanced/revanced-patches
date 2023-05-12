@@ -1,3 +1,10 @@
+# [2.174.0-dev.21](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.20...v2.174.0-dev.21) (2023-05-12)
+
+
+### Features
+
+* **twitch:** add `auto-claim-channel-points` patch ([#2131](https://github.com/revanced/revanced-patches/issues/2131)) ([80fb670](https://github.com/revanced/revanced-patches/commit/80fb6701b52a8c6c6bada5546dffe3438f0e4879))
+
 # [2.174.0-dev.20](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.19...v2.174.0-dev.20) (2023-05-12)
 
 

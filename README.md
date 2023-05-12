@@ -117,6 +117,7 @@ The official ReVanced Patches.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
+| `auto-claim-channel-points` | Automatically claim channel points. | all |
 | `block-audio-ads` | Blocks audio ads in streams and VODs. | 14.6.1 |
 | `block-embedded-ads` | Blocks embedded stream ads using services like TTV.lol or PurpleAdBlocker. | 14.6.1 |
 | `block-video-ads` | Blocks video ads in streams and VODs. | 14.6.1 |
