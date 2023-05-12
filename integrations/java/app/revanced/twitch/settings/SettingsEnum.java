@@ -21,6 +21,7 @@ public enum SettingsEnum {
 
     /* Chat */
     SHOW_DELETED_MESSAGES("revanced_show_deleted_messages", STRING, "cross-out"),
+    AUTO_CLAIM_CHANNEL_POINTS("revanced_auto_claim_channel_points", BOOLEAN, TRUE),
 
     /* Misc */
     DEBUG_MODE("revanced_debug_mode", BOOLEAN, FALSE, true);
