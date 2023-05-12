@@ -1,3 +1,10 @@
+# [2.174.0-dev.20](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.19...v2.174.0-dev.20) (2023-05-12)
+
+
+### Features
+
+* **youtube:** add `hide-filter-bar` patch ([6cc5f61](https://github.com/revanced/revanced-patches/commit/6cc5f61e0712fe25cd45b137773decaf4b9bb582))
+
 # [2.174.0-dev.19](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.18...v2.174.0-dev.19) (2023-05-11)
 
 
