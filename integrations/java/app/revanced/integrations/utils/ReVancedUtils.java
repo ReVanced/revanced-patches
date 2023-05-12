@@ -6,9 +6,11 @@ import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Toast;
+import android.widget.*;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -237,6 +239,31 @@ public class ReVancedUtils {
         var type = networkInfo.getType();
         return (type == ConnectivityManager.TYPE_MOBILE)
                 || (type == ConnectivityManager.TYPE_BLUETOOTH) ? NetworkType.MOBILE : NetworkType.OTHER;
+    }
+
+    /**
+     * Hide a view by setting its layout params to 1x1
+     * @param view The view to hide.
+     */
+    public static void HideViewByLayoutParams(View view) {
+        if (view instanceof LinearLayout) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(1, 1);
+            view.setLayoutParams(layoutParams);
+        } else if (view instanceof FrameLayout) {
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(1, 1);
+            view.setLayoutParams(layoutParams2);
+        } else if (view instanceof RelativeLayout) {
+            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(1, 1);
+            view.setLayoutParams(layoutParams3);
+        } else if (view instanceof Toolbar) {
+            Toolbar.LayoutParams layoutParams4 = new Toolbar.LayoutParams(1, 1);
+            view.setLayoutParams(layoutParams4);
+        } else if (view instanceof ViewGroup) {
+            ViewGroup.LayoutParams layoutParams5 = new ViewGroup.LayoutParams(1, 1);
+            view.setLayoutParams(layoutParams5);
+        } else {
+            LogHelper.printDebug(() -> "Hidden view with id " + view.getId());
+        }
     }
 
     public enum NetworkType {

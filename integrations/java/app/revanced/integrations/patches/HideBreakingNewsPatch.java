@@ -2,8 +2,8 @@ package app.revanced.integrations.patches;
 
 import android.view.View;
 
-import app.revanced.integrations.adremover.AdRemoverAPI;
 import app.revanced.integrations.settings.SettingsEnum;
+import app.revanced.integrations.utils.ReVancedUtils;
 
 public class HideBreakingNewsPatch {
 
@@ -24,6 +24,6 @@ public class HideBreakingNewsPatch {
     public static void hideBreakingNews(View view) {
         if (!SettingsEnum.HIDE_BREAKING_NEWS.getBoolean()
                 || isSpoofingOldVersionWithHorizontalCardListWatchHistory()) return;
-        AdRemoverAPI.HideViewWithLayout1dp(view);
+        ReVancedUtils.HideViewByLayoutParams(view);
     }
 }

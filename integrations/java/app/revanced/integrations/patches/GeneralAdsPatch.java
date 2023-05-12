@@ -1,7 +1,6 @@
 package app.revanced.integrations.patches;
 
 import android.view.View;
-import app.revanced.integrations.adremover.AdRemoverAPI;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
@@ -166,7 +165,7 @@ public final class GeneralAdsPatch extends Filter {
 
         LogHelper.printDebug(() -> "Hiding view with setting: " + condition);
 
-        AdRemoverAPI.HideViewWithLayout1dp(view);
+        ReVancedUtils.HideViewByLayoutParams(view);
     }
 
     /**

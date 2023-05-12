@@ -1,8 +1,8 @@
 package app.revanced.integrations.patches;
 
 import android.view.View;
-import app.revanced.integrations.adremover.AdRemoverAPI;
 import app.revanced.integrations.settings.SettingsEnum;
+import app.revanced.integrations.utils.ReVancedUtils;
 
 public final class HideFilterBarPatch {
     public static int hideInFeed(final int height) {
@@ -14,7 +14,7 @@ public final class HideFilterBarPatch {
     public static void hideInRelatedVideos(final View chipView) {
         if (!SettingsEnum.HIDE_FILTER_BAR_FEED_IN_RELATED_VIDEOS.getBoolean()) return;
 
-        AdRemoverAPI.HideViewWithLayout1dp(chipView);
+        ReVancedUtils.HideViewByLayoutParams(chipView);
     }
 
     public static int hideInSearch(final int height) {
