@@ -34,7 +34,7 @@ class CustomVideoSpeedPatch : BytecodePatch(
 ) {
 
     override fun execute(context: BytecodeContext): PatchResult {
-        SettingsPatch.PreferenceScreen.MISC.addPreferences(
+        SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
             TextPreference(
                 key = "revanced_custom_video_speeds",
                 title = StringResource(
