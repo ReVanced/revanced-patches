@@ -110,14 +110,24 @@ public class RememberVideoQualityPatch {
                 }
                 i++;
             }
+
+            // If the desired quality index is equal to the original index,
+            // then the video is already set to the desired default quality.
+            //
+            // The method could return here, but the UI video quality flyout will still
+            // show 'Auto' (ie: Auto (480p))
+            // It appears that "Auto" picks the resolution on video load,
+            // and it does not appear to change the resolution during playback.
+            //
+            // To prevent confusion, set the video index anyways (even if it matches the existing index)
+            // As that will force the UI picker to not display "Auto" which may confuse the user.
             if (qualityIndexToUse == originalQualityIndex) {
                 LogHelper.printDebug(() -> "Video is already preferred quality: " + preferredQuality);
-                return originalQualityIndex;
+            } else {
+                final int qualityToUseLog = qualityToUse;
+                LogHelper.printDebug(() -> "Quality changed from: "
+                        + videoQualities.get(originalQualityIndex) + " to: " + qualityToUseLog);
             }
-
-            final int qualityToUseLog = qualityToUse;
-            LogHelper.printDebug(() -> "Quality changed from: "
-                    + videoQualities.get(originalQualityIndex) + " to: " + qualityToUseLog);
 
             Method m = qInterface.getClass().getMethod(qIndexMethod, Integer.TYPE);
             m.invoke(qInterface, qualityToUse);
