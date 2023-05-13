@@ -1,3 +1,10 @@
+# [2.174.0-dev.24](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.23...v2.174.0-dev.24) (2023-05-13)
+
+
+### Features
+
+* **twitch/auto-claim-channel-points:** use correct casing for "Channel Points" ([#2138](https://github.com/revanced/revanced-patches/issues/2138)) ([76a3bf2](https://github.com/revanced/revanced-patches/commit/76a3bf23b5e5591ae635e612af07cbbd78d49f53))
+
 # [2.174.0-dev.23](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.22...v2.174.0-dev.23) (2023-05-13)
 
 
