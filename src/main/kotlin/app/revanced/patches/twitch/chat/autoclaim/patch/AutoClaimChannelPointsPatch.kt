@@ -22,7 +22,7 @@ import app.revanced.patches.twitch.misc.settings.bytecode.patch.SettingsPatch
 @Patch
 @DependsOn([SettingsPatch::class])
 @Name("auto-claim-channel-points")
-@Description("Automatically claim channel points.")
+@Description("Automatically claim Channel Points.")
 @AutoClaimChannelPointsCompatibility
 @Version("0.0.1")
 class AutoClaimChannelPointPatch : BytecodePatch(
@@ -34,16 +34,16 @@ class AutoClaimChannelPointPatch : BytecodePatch(
                 "revanced_auto_claim_channel_points",
                 StringResource(
                     "revanced_auto_claim_channel_points",
-                    "Automatically claim channel points"
+                    "Automatically claim Channel Points"
                 ),
                 true,
                 StringResource(
                     "revanced_auto_claim_channel_points_on",
-                    "Channel points are claimed automatically"
+                    "Channel Points are claimed automatically"
                 ),
                 StringResource(
                     "revanced_auto_claim_channel_points_off",
-                    "Channel points are not claimed automatically"
+                    "Channel Points are not claimed automatically"
                 ),
             )
         )
