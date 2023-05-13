@@ -10,6 +10,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.iface.ClassDef
 import org.jf.dexlib2.iface.Method
 
 @Description("Applies mandatory patches to implement the ReVanced integrations into the application.")
@@ -30,7 +31,7 @@ abstract class AbstractIntegrationsPatch(
         parameters: Iterable<String>? = null,
         opcodes: Iterable<Opcode?>? = null,
         strings: Iterable<String>? = null,
-        customFingerprint: ((methodDef: Method) -> Boolean)? = null,
+        customFingerprint: ((methodDef: Method, classDef: ClassDef) -> Boolean)? = null,
         private val contextRegisterResolver: (Method) -> Int = object : RegisterResolver {}
     ) : MethodFingerprint(
         returnType,

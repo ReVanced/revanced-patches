@@ -8,7 +8,7 @@ object EmbeddedPlayerControlsOverlayFingerprint : IntegrationsFingerprint(
     access = AccessFlags.PRIVATE or AccessFlags.CONSTRUCTOR,
     returnType = "V",
     parameters = listOf("L", "L", "L"),
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.definingClass.startsWith("Lcom/google/android/apps/youtube/embeddedplayer/service/ui/overlays/controlsoverlay/remoteloaded/")
     },
     contextRegisterResolver = { it.implementation!!.registerCount - it.parameters.size }

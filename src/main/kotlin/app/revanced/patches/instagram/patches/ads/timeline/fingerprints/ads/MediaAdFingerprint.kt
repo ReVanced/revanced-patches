@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.iface.ClassDef
 import org.jf.dexlib2.iface.Method
 
 abstract class MediaAdFingerprint(
@@ -11,7 +12,7 @@ abstract class MediaAdFingerprint(
     access: Int? = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters: Iterable<String>? = listOf(),
     opcodes: Iterable<Opcode>?,
-    customFingerprint: ((methodDef: Method) -> Boolean)? = null
+    customFingerprint: ((methodDef: Method, classDef: ClassDef) -> Boolean)? = null
 ) : MethodFingerprint(
     returnType,
     access,

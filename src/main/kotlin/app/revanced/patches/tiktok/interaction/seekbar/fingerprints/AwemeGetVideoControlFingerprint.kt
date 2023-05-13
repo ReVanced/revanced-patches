@@ -6,7 +6,7 @@ import org.jf.dexlib2.AccessFlags
 object AwemeGetVideoControlFingerprint : MethodFingerprint(
     "L",
     AccessFlags.PUBLIC.value,
-   customFingerprint = { methodDef ->
+   customFingerprint = { methodDef, _ ->
        methodDef.definingClass.endsWith("/Aweme;") && methodDef.name == "getVideoControl"
    }
 )

@@ -19,7 +19,7 @@ object DislikesOldLayoutTextViewFingerprint : MethodFingerprint(
         Opcode.IF_NEZ, // textview register
         Opcode.GOTO,
     ),
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.implementation?.instructions?.any { instruction ->
             instruction.opcode.ordinal == Opcode.CONST.ordinal &&
                     (instruction as? WideLiteralInstruction)?.wideLiteral == ReturnYouTubeDislikeResourcePatch.oldUIDislikeId

@@ -7,7 +7,7 @@ object SpoofSignatureFingerprint : MethodFingerprint(
     "L",
     parameters = listOf("L"),
     access = AccessFlags.PRIVATE.value,
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("/SL2Step1Task;") && methodDef.name == "getPubKey"
     }
 )

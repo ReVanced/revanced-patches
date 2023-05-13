@@ -11,7 +11,7 @@ object InfocardsMethodCallFingerprint : MethodFingerprint(
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_INTERFACE,
     ),
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.implementation?.instructions?.any { instruction ->
             (instruction as? WideLiteralInstruction)?.wideLiteral == HideInfocardsResourcePatch.drawerResourceId
         } == true

@@ -14,7 +14,7 @@ object BreakingNewsFingerprint : MethodFingerprint(
         Opcode.CHECK_CAST,
         Opcode.IPUT_OBJECT,
     ),
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.implementation?.instructions?.any { instruction ->
             instruction.opcode.ordinal == Opcode.CONST.ordinal &&
             (instruction as? WideLiteralInstruction)?.wideLiteral == BreakingNewsResourcePatch.horizontalCardListId

@@ -7,8 +7,8 @@ import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
 abstract class LiteralOpcodesFingerprint(opcodes: List<Opcode>, literal: Long) : MethodFingerprint(
     opcodes = opcodes,
-    customFingerprint = {
-        it.implementation?.instructions?.any { instruction ->
+    customFingerprint = { methodDef, _ ->
+        methodDef.implementation?.instructions?.any { instruction ->
             if (instruction.opcode != Opcode.CONST) return@any false
 
             val wideLiteral = (instruction as WideLiteralInstruction).wideLiteral

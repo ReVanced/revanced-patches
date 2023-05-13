@@ -8,7 +8,7 @@ object MenuGroupsOnClickFingerprint : MethodFingerprint(
     "V",
     AccessFlags.PRIVATE or AccessFlags.STATIC or AccessFlags.FINAL,
     listOf("L", "L", "L"),
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("/SettingsMenuViewDelegate;")
                 && methodDef.name.contains("render")
     }

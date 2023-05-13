@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 
 object CheckProFingerprint : MethodFingerprint(
     "I",
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("RawUserData;") && methodDef.name == "isPro"
     }
 )

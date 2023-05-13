@@ -18,7 +18,7 @@ object DisableCaptureRestrictionAudioDriverFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.RETURN_OBJECT
     ),
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         // Check for method call to AudioAttributes$Builder.setAllowedCapturePolicy Android API
         methodDef.implementation?.instructions?.any {
             ((it as? ReferenceInstruction)?.reference as? MethodReference)?.name == "setAllowedCapturePolicy"

@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.Opcode
 
 object OnPlaybackSpeedItemClickFingerprint : MethodFingerprint(
-    customFingerprint = { it.name == "onItemClick" },
+    customFingerprint = { methodDef, _ -> methodDef.name == "onItemClick" },
     opcodes = listOf(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_VIRTUAL,

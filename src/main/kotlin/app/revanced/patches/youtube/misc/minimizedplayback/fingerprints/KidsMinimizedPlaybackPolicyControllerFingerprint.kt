@@ -19,5 +19,7 @@ object KidsMinimizedPlaybackPolicyControllerFingerprint : MethodFingerprint(
         Opcode.IGET,
         Opcode.INVOKE_STATIC
     ),
-    customFingerprint = { it.definingClass.endsWith("MinimizedPlaybackPolicyController;") }
+    customFingerprint = { methodDef, _ ->
+        methodDef.definingClass.endsWith("MinimizedPlaybackPolicyController;")
+    }
 )

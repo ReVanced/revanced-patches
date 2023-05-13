@@ -7,7 +7,7 @@ object BootloaderDetectionFingerprint : MethodFingerprint(
     "Z",
     access = AccessFlags.PUBLIC.value,
     strings = listOf("Creation of attestation key succeeded", "Creation of attestation key failed"),
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("/AttestationHelper;")
     }
 )

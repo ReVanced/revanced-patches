@@ -17,7 +17,7 @@ object PiracyDetectionFingerprint : MethodFingerprint(
         Opcode.INVOKE_DIRECT,
         Opcode.INVOKE_VIRTUAL
     ),
-    customFingerprint = { method ->
+    customFingerprint = { method, _ ->
         method.implementation?.instructions?.any {
             if (it.opcode != Opcode.NEW_INSTANCE) return@any false
 

@@ -18,7 +18,7 @@ object ContainsAdFingerprint:MethodFingerprint(
         Opcode.INVOKE_INTERFACE
     ),
     strings = listOf("ads_video_with_context"),
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.name == "containsAd" && methodDef.definingClass.endsWith("LithoAdRemoval;")
     }
 ) {

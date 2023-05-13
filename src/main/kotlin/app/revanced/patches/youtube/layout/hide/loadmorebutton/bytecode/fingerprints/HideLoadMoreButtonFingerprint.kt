@@ -17,7 +17,7 @@ object HideLoadMoreButtonFingerprint : MethodFingerprint(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.implementation?.instructions?.any {
             if (it.opcode != Opcode.CONST) return@any false
 

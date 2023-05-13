@@ -9,7 +9,7 @@ object ReelConstructorFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.INVOKE_VIRTUAL
     ),
-    customFingerprint = { method ->
+    customFingerprint = { method, _ ->
         method.implementation?.instructions?.any {
             it.opcode == Opcode.CONST && (it as WideLiteralInstruction).wideLiteral == GeneralAdsResourcePatch.reelMultipleItemShelfId
         } ?: false

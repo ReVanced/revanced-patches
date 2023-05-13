@@ -13,7 +13,7 @@ object LayoutCircleFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,
     ),
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.implementation?.instructions?.any { instruction ->
             instruction.opcode.ordinal == Opcode.CONST.ordinal &&
                     (instruction as? WideLiteralInstruction)?.wideLiteral == HideEndscreenCardsResourcePatch.layoutCircle

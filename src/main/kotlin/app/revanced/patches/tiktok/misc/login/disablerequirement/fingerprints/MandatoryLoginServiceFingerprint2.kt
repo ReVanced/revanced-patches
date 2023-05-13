@@ -9,7 +9,7 @@ import app.revanced.patches.tiktok.misc.login.disablerequirement.annotations.Dis
 @DisableLoginRequirementCompatibility
 @Version("0.0.1")
 object MandatoryLoginServiceFingerprint2 : MethodFingerprint(
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("/MandatoryLoginService;") &&
                 methodDef.name == "shouldShowForcedLogin"
     }

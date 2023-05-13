@@ -11,6 +11,6 @@ object IsPlusUnlockedFingerprint : MethodFingerprint(
         "genius"
     ),
     customFingerprint = {
-        methodDef -> methodDef.definingClass.endsWith("/User;")
+        methodDef, _ -> methodDef.definingClass.endsWith("/User;")
     }
 )

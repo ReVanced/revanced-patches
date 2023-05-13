@@ -13,5 +13,5 @@ object CanScrollVerticallyFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
     ),
-    customFingerprint = { methodDef -> methodDef.definingClass.endsWith("SwipeRefreshLayout;") }
+    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("SwipeRefreshLayout;") }
 )

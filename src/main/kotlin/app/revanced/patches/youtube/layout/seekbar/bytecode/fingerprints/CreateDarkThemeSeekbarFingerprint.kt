@@ -8,7 +8,7 @@ import org.jf.dexlib2.AccessFlags
 
 object CreateDarkThemeSeekbarFingerprint : MethodFingerprint(
     access = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    customFingerprint = { method ->
+    customFingerprint = { method, _ ->
         method.indexOfFirstConstantInstruction(SeekbarColorResourcePatch.inlineTimeBarColorizedBarPlayedColorDarkId) != -1
                 && method.indexOfFirstConstantInstruction(SeekbarColorResourcePatch.inlineTimeBarPlayedNotHighlightedColorId) != -1
     }

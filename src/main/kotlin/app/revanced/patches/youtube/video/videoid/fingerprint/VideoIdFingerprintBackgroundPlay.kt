@@ -10,7 +10,7 @@ object VideoIdFingerprintBackgroundPlay : MethodFingerprint(
     access = AccessFlags.DECLARED_SYNCHRONIZED or AccessFlags.FINAL or AccessFlags.PUBLIC,
     parameters = listOf("L"),
     opcodes = listOf(Opcode.INVOKE_INTERFACE),
-    customFingerprint = {
-        it.definingClass.endsWith("PlaybackLifecycleMonitor;")
+    customFingerprint = { methodDef, _ ->
+        methodDef.definingClass.endsWith("PlaybackLifecycleMonitor;")
     }
 )
