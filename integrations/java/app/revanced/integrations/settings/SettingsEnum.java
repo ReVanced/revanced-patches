@@ -148,6 +148,7 @@ public enum SettingsEnum {
     RYD_ENABLED("ryd_enabled", BOOLEAN, TRUE, RETURN_YOUTUBE_DISLIKE),
     RYD_USER_ID("ryd_userId", STRING, "", RETURN_YOUTUBE_DISLIKE),
     RYD_SHOW_DISLIKE_PERCENTAGE("ryd_show_dislike_percentage", BOOLEAN, FALSE, RETURN_YOUTUBE_DISLIKE, parents(RYD_ENABLED)),
+    RYD_SHORTS("ryd_shorts", BOOLEAN, TRUE, RETURN_YOUTUBE_DISLIKE, parents(RYD_ENABLED)),
     RYD_USE_COMPACT_LAYOUT("ryd_use_compact_layout", BOOLEAN, FALSE, RETURN_YOUTUBE_DISLIKE, parents(RYD_ENABLED)),
 
     // SponsorBlock settings

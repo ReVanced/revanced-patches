@@ -20,6 +20,11 @@ import app.revanced.integrations.settings.SharedPrefCategory;
 public class ReturnYouTubeDislikeSettingsFragment extends PreferenceFragment {
 
     /**
+     * If dislikes are shown on Shorts.
+     */
+    private SwitchPreference shortsPreference;
+
+    /**
      * If dislikes are shown as percentage.
      */
     private SwitchPreference percentagePreference;
@@ -30,6 +35,7 @@ public class ReturnYouTubeDislikeSettingsFragment extends PreferenceFragment {
     private SwitchPreference compactLayoutPreference;
 
     private void updateUIState() {
+        shortsPreference.setEnabled(SettingsEnum.RYD_SHORTS.isAvailable());
         percentagePreference.setEnabled(SettingsEnum.RYD_SHOW_DISLIKE_PERCENTAGE.isAvailable());
         compactLayoutPreference.setEnabled(SettingsEnum.RYD_USE_COMPACT_LAYOUT.isAvailable());
     }
@@ -57,6 +63,18 @@ public class ReturnYouTubeDislikeSettingsFragment extends PreferenceFragment {
             return true;
         });
         preferenceScreen.addPreference(enabledPreference);
+
+        shortsPreference = new SwitchPreference(context);
+        shortsPreference.setChecked(SettingsEnum.RYD_SHORTS.getBoolean());
+        shortsPreference.setTitle(str("revanced_ryd_shorts_title"));
+        shortsPreference.setSummaryOn(str("revanced_ryd_shorts_summary_on"));
+        shortsPreference.setSummaryOff(str("revanced_ryd_shorts_summary_off"));
+        shortsPreference.setOnPreferenceChangeListener((pref, newValue) -> {
+            SettingsEnum.RYD_SHORTS.saveValue(newValue);
+            updateUIState();
+            return true;
+        });
+        preferenceScreen.addPreference(shortsPreference);
 
         percentagePreference = new SwitchPreference(context);
         percentagePreference.setChecked(SettingsEnum.RYD_SHOW_DISLIKE_PERCENTAGE.getBoolean());
