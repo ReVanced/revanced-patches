@@ -1,3 +1,10 @@
+# [2.174.0-dev.26](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.25...v2.174.0-dev.26) (2023-05-14)
+
+
+### Bug Fixes
+
+* **youtube/return-youtube-dislikes:** fix temporarily frozen video after opening a shorts ([#2126](https://github.com/revanced/revanced-patches/issues/2126)) ([e0877e3](https://github.com/revanced/revanced-patches/commit/e0877e33814ba396e64e18a577064aa5be952413))
+
 # [2.174.0-dev.25](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.24...v2.174.0-dev.25) (2023-05-14)
 
 # [2.174.0-dev.24](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.23...v2.174.0-dev.24) (2023-05-13)
