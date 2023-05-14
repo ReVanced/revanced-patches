@@ -13,7 +13,6 @@ import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.TextPreference
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
-import app.revanced.patches.youtube.video.speed.custom.annotations.CustomPlaybackSpeedCompatibility
 import app.revanced.patches.youtube.video.speed.custom.fingerprints.SpeedArrayGeneratorFingerprint
 import app.revanced.patches.youtube.video.speed.custom.fingerprints.SpeedLimiterFingerprint
 import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
@@ -25,7 +24,6 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @Name("custom-video-speed")
 @Description("Adds custom video speed options.")
 @DependsOn([IntegrationsPatch::class])
-@CustomPlaybackSpeedCompatibility
 @Version("0.0.1")
 class CustomVideoSpeedPatch : BytecodePatch(
     listOf(
@@ -98,10 +96,12 @@ class CustomVideoSpeedPatch : BytecodePatch(
         val limiterMethod = SpeedLimiterFingerprint.result?.mutableMethod!!
         val limiterMethodImpl = limiterMethod.implementation!!
 
+        val lowerLimitConst = 0.25f.toRawBits()
+        val upperLimitConst = 2.0f.toRawBits()
         val (limiterMinConstIndex, limiterMinConst) = limiterMethodImpl.instructions.withIndex()
-            .first { (it.value as? NarrowLiteralInstruction)?.narrowLiteral == 0.25f.toRawBits() }
+            .first { (it.value as? NarrowLiteralInstruction)?.narrowLiteral == lowerLimitConst }
         val (limiterMaxConstIndex, limiterMaxConst) = limiterMethodImpl.instructions.withIndex()
-            .first { (it.value as? NarrowLiteralInstruction)?.narrowLiteral == 2.0f.toRawBits() }
+            .first { (it.value as? NarrowLiteralInstruction)?.narrowLiteral == upperLimitConst }
 
         val limiterMinConstDestination = (limiterMinConst as OneRegisterInstruction).registerA
         val limiterMaxConstDestination = (limiterMaxConst as OneRegisterInstruction).registerA
