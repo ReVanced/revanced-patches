@@ -1,3 +1,5 @@
+# [2.174.0-dev.25](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.24...v2.174.0-dev.25) (2023-05-14)
+
 # [2.174.0-dev.24](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.23...v2.174.0-dev.24) (2023-05-13)
 
 
