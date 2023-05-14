@@ -1,3 +1,10 @@
+# [2.174.0-dev.27](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.26...v2.174.0-dev.27) (2023-05-14)
+
+
+### Bug Fixes
+
+* **youtube/video-speed:** add compatibility annotation ([#2156](https://github.com/revanced/revanced-patches/issues/2156)) ([ffa2e5d](https://github.com/revanced/revanced-patches/commit/ffa2e5d7eb0b90bb5c7a6854bab4caf9f810d917))
+
 # [2.174.0-dev.26](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.25...v2.174.0-dev.26) (2023-05-14)
 
 

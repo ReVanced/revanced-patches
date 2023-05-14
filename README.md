@@ -59,6 +59,7 @@ The official ReVanced Patches.
 | `tablet-mini-player` | Enables the tablet mini player layout. | 18.16.37 |
 | `vanced-microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG. | 18.16.37 |
 | `video-ads` | Removes ads in the video player. | 18.16.37 |
+| `video-speed` | Adds custom video speeds and ability to remember the playback speed you chose in the video playback speed flyout. | 18.16.37 |
 | `wide-searchbar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 18.16.37 |
 </details>
 
