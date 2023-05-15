@@ -213,7 +213,7 @@ public class SponsorBlockViewController {
             // the buttons automatically set themselves to visible when appropriate,
             // but if buttons are showing when the end of the video is reached then they need
             // to be forcefully hidden
-            if (!SettingsEnum.PREFERRED_AUTO_REPEAT.getBoolean()) {
+            if (!SettingsEnum.AUTO_REPEAT.getBoolean()) {
                 CreateSegmentButtonController.hide();
                 VotingButtonController.hide();
             }

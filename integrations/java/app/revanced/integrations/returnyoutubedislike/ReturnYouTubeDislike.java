@@ -494,7 +494,7 @@ public class ReturnYouTubeDislike {
         }
 
         SpannableStringBuilder builder = new SpannableStringBuilder();
-        final boolean compactLayout = SettingsEnum.RYD_USE_COMPACT_LAYOUT.getBoolean();
+        final boolean compactLayout = SettingsEnum.RYD_COMPACT_LAYOUT.getBoolean();
         final int separatorColor = ThemeHelper.isDarkTheme()
                 ? 0x29AAAAAA  // transparent dark gray
                 : 0xFFD9D9D9; // light gray
@@ -578,7 +578,7 @@ public class ReturnYouTubeDislike {
 
     private static SpannableString newSpannableWithDislikes(@NonNull Spanned sourceStyling, @NonNull RYDVoteData voteData) {
         return newSpanUsingStylingOfAnotherSpan(sourceStyling,
-                SettingsEnum.RYD_SHOW_DISLIKE_PERCENTAGE.getBoolean()
+                SettingsEnum.RYD_DISLIKE_PERCENTAGE.getBoolean()
                         ? formatDislikePercentage(voteData.getDislikePercentage())
                         : formatDislikeCount(voteData.getDislikeCount()));
     }

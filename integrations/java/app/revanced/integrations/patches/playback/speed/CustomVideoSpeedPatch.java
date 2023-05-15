@@ -42,12 +42,12 @@ public class CustomVideoSpeedPatch {
 
     private static void resetCustomSpeeds(@NonNull String toastMessage) {
         ReVancedUtils.showToastLong(toastMessage);
-        SettingsEnum.PLAYBACK_SPEED_AVAILABLE.saveValue(SettingsEnum.PLAYBACK_SPEED_AVAILABLE.defaultValue);
+        SettingsEnum.CUSTOM_PLAYBACK_SPEEDS.saveValue(SettingsEnum.CUSTOM_PLAYBACK_SPEEDS.defaultValue);
     }
 
     private static void loadSpeeds() {
         try {
-            String[] speedStrings = SettingsEnum.PLAYBACK_SPEED_AVAILABLE.getString().split("\\s+");
+            String[] speedStrings = SettingsEnum.CUSTOM_PLAYBACK_SPEEDS.getString().split("\\s+");
             Arrays.sort(speedStrings);
             if (speedStrings.length == 0) {
                 throw new IllegalArgumentException();

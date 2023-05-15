@@ -16,7 +16,7 @@ public class CopyVideoUrlButton extends BottomControlButton {
         super(
                 viewGroup,
                 "copy_video_url_button",
-                SettingsEnum.COPY_VIDEO_URL_BUTTON_SHOWN,
+                SettingsEnum.COPY_VIDEO_URL,
                 view -> CopyVideoUrlPatch.copyUrl(false)
         );
     }

@@ -15,37 +15,37 @@ public final class GeneralAdsPatch extends Filter {
     };
 
     private final BlockRule custom = new CustomBlockRule(
-            SettingsEnum.ADREMOVER_CUSTOM_ENABLED,
-            SettingsEnum.ADREMOVER_CUSTOM_REMOVAL
+            SettingsEnum.CUSTOM_FILTER,
+            SettingsEnum.CUSTOM_FILTER_STRINGS
     );
 
     public GeneralAdsPatch() {
-        var communityPosts = new BlockRule(SettingsEnum.ADREMOVER_COMMUNITY_POSTS_REMOVAL, "post_base_wrapper");
-        var communityGuidelines = new BlockRule(SettingsEnum.ADREMOVER_COMMUNITY_GUIDELINES_REMOVAL, "community_guidelines");
-        var subscribersCommunityGuidelines = new BlockRule(SettingsEnum.ADREMOVER_SUBSCRIBERS_COMMUNITY_GUIDELINES_REMOVAL, "sponsorships_comments_upsell");
-        var channelMemberShelf = new BlockRule(SettingsEnum.ADREMOVER_CHANNEL_MEMBER_SHELF_REMOVAL, "member_recognition_shelf");
-        var compactBanner = new BlockRule(SettingsEnum.ADREMOVER_COMPACT_BANNER_REMOVAL, "compact_banner");
-        var inFeedSurvey = new BlockRule(SettingsEnum.ADREMOVER_FEED_SURVEY_REMOVAL, "in_feed_survey", "slimline_survey");
-        var medicalPanel = new BlockRule(SettingsEnum.ADREMOVER_MEDICAL_PANEL_REMOVAL, "medical_panel");
-        var paidContent = new BlockRule(SettingsEnum.ADREMOVER_PAID_CONTENT_REMOVAL, "paid_content_overlay");
-        var merchandise = new BlockRule(SettingsEnum.ADREMOVER_MERCHANDISE_REMOVAL, "product_carousel");
-        var infoPanel = new BlockRule(SettingsEnum.ADREMOVER_INFO_PANEL_REMOVAL, "publisher_transparency_panel", "single_item_information_panel");
-        var latestPosts = new BlockRule(SettingsEnum.ADREMOVER_HIDE_LATEST_POSTS, "post_shelf");
-        var channelGuidelines = new BlockRule(SettingsEnum.ADREMOVER_HIDE_CHANNEL_GUIDELINES, "channel_guidelines_entry_banner");
+        var communityPosts = new BlockRule(SettingsEnum.HIDE_COMMUNITY_POSTS, "post_base_wrapper");
+        var communityGuidelines = new BlockRule(SettingsEnum.HIDE_COMMUNITY_GUIDELINES, "community_guidelines");
+        var subscribersCommunityGuidelines = new BlockRule(SettingsEnum.HIDE_SUBSCRIBERS_COMMUNITY_GUIDELINES, "sponsorships_comments_upsell");
+        var channelMemberShelf = new BlockRule(SettingsEnum.HIDE_CHANNEL_MEMBER_SHELF, "member_recognition_shelf");
+        var compactBanner = new BlockRule(SettingsEnum.HIDE_COMPACT_BANNER, "compact_banner");
+        var inFeedSurvey = new BlockRule(SettingsEnum.HIDE_FEED_SURVEY, "in_feed_survey", "slimline_survey");
+        var medicalPanel = new BlockRule(SettingsEnum.HIDE_MEDICAL_PANELS, "medical_panel");
+        var merchandise = new BlockRule(SettingsEnum.HIDE_MERCHANDISE_BANNERS, "product_carousel");
+        var infoPanel = new BlockRule(SettingsEnum.HIDE_HIDE_INFO_PANELS, "publisher_transparency_panel", "single_item_information_panel");
+        var channelGuidelines = new BlockRule(SettingsEnum.HIDE_HIDE_CHANNEL_GUIDELINES, "channel_guidelines_entry_banner");
         var audioTrackButton = new BlockRule(SettingsEnum.HIDE_AUDIO_TRACK_BUTTON, "multi_feed_icon_button");
         var artistCard = new BlockRule(SettingsEnum.HIDE_ARTIST_CARDS, "official_card");
-        var selfSponsor = new BlockRule(SettingsEnum.ADREMOVER_SELF_SPONSOR_REMOVAL, "cta_shelf_card");
-        var chapterTeaser = new BlockRule(SettingsEnum.ADREMOVER_CHAPTER_TEASER_REMOVAL, "expandable_metadata", "macro_markers_carousel");
-        var viewProducts = new BlockRule(SettingsEnum.ADREMOVER_VIEW_PRODUCTS, "product_item", "products_in_video");
-        var webLinkPanel = new BlockRule(SettingsEnum.ADREMOVER_WEB_SEARCH_RESULTS, "web_link_panel");
-        var channelBar = new BlockRule(SettingsEnum.ADREMOVER_CHANNEL_BAR, "channel_bar");
-        var relatedVideos = new BlockRule(SettingsEnum.ADREMOVER_RELATED_VIDEOS, "fullscreen_related_videos");
-        var quickActions = new BlockRule(SettingsEnum.ADREMOVER_QUICK_ACTIONS, "quick_actions");
-        var imageShelf = new BlockRule(SettingsEnum.ADREMOVER_IMAGE_SHELF, "image_shelf");
-        var graySeparator = new BlockRule(SettingsEnum.ADREMOVER_GRAY_SEPARATOR,
+        var chapterTeaser = new BlockRule(SettingsEnum.HIDE_CHAPTER_TEASER, "expandable_metadata", "macro_markers_carousel");
+        var viewProducts = new BlockRule(SettingsEnum.HIDE_PRODUCTS_BANNER, "product_item", "products_in_video");
+        var webLinkPanel = new BlockRule(SettingsEnum.HIDE_WEB_SEARCH_RESULTS, "web_link_panel");
+        var channelBar = new BlockRule(SettingsEnum.HIDE_CHANNEL_BAR, "channel_bar");
+        var relatedVideos = new BlockRule(SettingsEnum.HIDE_RELATED_VIDEOS, "fullscreen_related_videos");
+        var quickActions = new BlockRule(SettingsEnum.HIDE_QUICK_ACTIONS, "quick_actions");
+        var imageShelf = new BlockRule(SettingsEnum.HIDE_IMAGE_SHELF, "image_shelf");
+        var graySeparator = new BlockRule(SettingsEnum.HIDE_GRAY_SEPARATOR,
                 "cell_divider" // layout residue (gray line above the buttoned ad),
         );
-        var buttonedAd = new BlockRule(SettingsEnum.ADREMOVER_BUTTONED_REMOVAL,
+        var paidContent = new BlockRule(SettingsEnum.HIDE_PAID_CONTENT, "paid_content_overlay");
+        var latestPosts = new BlockRule(SettingsEnum.HIDE_HIDE_LATEST_POSTS, "post_shelf");
+        var selfSponsor = new BlockRule(SettingsEnum.HIDE_SELF_SPONSOR, "cta_shelf_card");
+        var buttonedAd = new BlockRule(SettingsEnum.HIDE_BUTTONED_ADS,
                 "_buttoned_layout",
                 "full_width_square_image_layout",
                 "_ad_with",
@@ -53,7 +53,7 @@ public final class GeneralAdsPatch extends Filter {
                 "landscape_image_wide_button_layout"
         );
         var generalAds = new BlockRule(
-                SettingsEnum.ADREMOVER_GENERAL_ADS_REMOVAL,
+                SettingsEnum.HIDE_GENERAL_ADS,
                 "ads_video_with_context",
                 "banner_text_icon",
                 "square_image_layout",
@@ -69,7 +69,7 @@ public final class GeneralAdsPatch extends Filter {
                 "brand_video_shelf"
         );
         var movieAds = new BlockRule(
-                SettingsEnum.ADREMOVER_MOVIE_REMOVAL,
+                SettingsEnum.HIDE_MOVIES_SECTION,
                 "browsy_bar",
                 "compact_movie",
                 "horizontal_movie_shelf",
@@ -106,10 +106,10 @@ public final class GeneralAdsPatch extends Filter {
                 channelMemberShelf
         );
 
-        var carouselAd = new BlockRule(SettingsEnum.ADREMOVER_GENERAL_ADS_REMOVAL,
+        var carouselAd = new BlockRule(SettingsEnum.HIDE_GENERAL_ADS,
                 "carousel_ad"
         );
-        var shorts = new BlockRule(SettingsEnum.ADREMOVER_SHORTS_REMOVAL,
+        var shorts = new BlockRule(SettingsEnum.HIDE_SHORTS,
                 "shorts_shelf",
                 "inline_shorts",
                 "shorts_grid"
@@ -174,7 +174,7 @@ public final class GeneralAdsPatch extends Filter {
      * @param view The view, which shows ads.
      */
     public static void hideAdAttributionView(View view) {
-        hideView(SettingsEnum.ADREMOVER_GENERAL_ADS_REMOVAL, view);
+        hideView(SettingsEnum.HIDE_GENERAL_ADS, view);
     }
 
     /**
@@ -183,7 +183,7 @@ public final class GeneralAdsPatch extends Filter {
      * @param view The view, which shows reels.
      */
     public static void hideReelView(View view) {
-        hideView(SettingsEnum.ADREMOVER_SHORTS_REMOVAL, view);
+        hideView(SettingsEnum.HIDE_SHORTS, view);
     }
 
 }

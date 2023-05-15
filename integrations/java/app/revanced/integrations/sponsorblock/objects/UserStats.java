@@ -17,7 +17,12 @@ public class UserStats {
      * "User reputation".  Unclear how SB determines this value.
      */
     public final float reputation;
+    /**
+     * {@link #segmentCount} plus {@link #ignoredSegmentCount}
+     */
+    public final int totalSegmentCountIncludingIgnored;
     public final int segmentCount;
+    public final int ignoredSegmentCount;
     public final int viewCount;
     public final double minutesSaved;
 
@@ -26,6 +31,8 @@ public class UserStats {
         userName = json.getString("userName");
         reputation = (float)json.getDouble("reputation");
         segmentCount = json.getInt("segmentCount");
+        ignoredSegmentCount = json.getInt("ignoredSegmentCount");
+        totalSegmentCountIncludingIgnored = segmentCount + ignoredSegmentCount;
         viewCount = json.getInt("viewCount");
         minutesSaved = json.getDouble("minutesSaved");
     }
@@ -38,6 +45,7 @@ public class UserStats {
                 + ", userName='" + userName + '\''
                 + ", reputation=" + reputation
                 + ", segmentCount=" + segmentCount
+                + ", ignoredSegmentCount=" + ignoredSegmentCount
                 + ", viewCount=" + viewCount
                 + ", minutesSaved=" + minutesSaved
                 + '}';

@@ -21,7 +21,7 @@ public class DownloadButton extends BottomControlButton {
         super(
                 viewGroup,
                 "download_button",
-                SettingsEnum.DOWNLOADS_BUTTON_SHOWN,
+                SettingsEnum.EXTERNAL_DOWNLOADER,
                 DownloadButton::onDownloadClick
         );
     }
@@ -48,7 +48,7 @@ public class DownloadButton extends BottomControlButton {
         LogHelper.printDebug(() -> "Download button clicked");
 
         final var context = view.getContext();
-        var downloaderPackageName = SettingsEnum.DOWNLOADS_PACKAGE_NAME.getString();
+        var downloaderPackageName = SettingsEnum.EXTERNAL_DOWNLOADER_PACKAGE_NAME.getString();
 
         boolean packageEnabled = false;
         try {

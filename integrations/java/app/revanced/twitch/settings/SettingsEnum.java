@@ -154,6 +154,14 @@ public enum SettingsEnum {
         return (String) value;
     }
 
+    /**
+     * @return the value of this setting as as generic object type.
+     */
+    @NonNull
+    public Object getObjectValue() {
+        return value;
+    }
+
     public enum ReturnType {
         BOOLEAN,
         INTEGER,

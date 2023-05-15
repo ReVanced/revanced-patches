@@ -125,7 +125,7 @@ public class LogHelper {
         } else {
             Log.e(logMessage, messageString, ex);
         }
-        if (SettingsEnum.DEBUG_SHOW_TOAST_ON_ERROR.getBoolean()) {
+        if (SettingsEnum.DEBUG_TOAST_ON_ERROR.getBoolean()) {
             String toastMessageToDisplay = (userToastMessage != null)
                     ? userToastMessage
                     : outerClassSimpleName + ": " + messageString;

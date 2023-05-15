@@ -2,10 +2,13 @@ package app.revanced.integrations.sponsorblock;
 
 import static app.revanced.integrations.utils.StringRef.str;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Patterns;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -21,6 +24,10 @@ import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 
 public class SponsorBlockSettings {
+    /**
+     * Minimum length a SB user id must be, as set by SB API.
+     */
+    private static final int SB_PRIVATE_USER_ID_MINIMUM_LENGTH = 30;
 
     public static void importSettings(@NonNull String json) {
         ReVancedUtils.verifyOnMainThread();
@@ -66,43 +73,43 @@ public class SponsorBlockSettings {
             }
             editor.apply();
 
-            String userID = settingsJson.getString("userID");
-            if (!isValidSBUserId(userID)) {
-                throw new IllegalArgumentException("userId is blank");
+            if (settingsJson.has("userID")) {
+                // User id does not exist if user never voted or created any segments.
+                String userID = settingsJson.getString("userID");
+                if (isValidSBUserId(userID)) {
+                    SettingsEnum.SB_PRIVATE_USER_ID.saveValue(userID);
+                }
             }
-            SettingsEnum.SB_UUID.saveValue(userID);
-
-            SettingsEnum.SB_IS_VIP.saveValue(settingsJson.getBoolean("isVip"));
-            SettingsEnum.SB_SHOW_TOAST_ON_SKIP.saveValue(!settingsJson.getBoolean("dontShowNotice"));
+            SettingsEnum.SB_USER_IS_VIP.saveValue(settingsJson.getBoolean("isVip"));
+            SettingsEnum.SB_TOAST_ON_SKIP.saveValue(!settingsJson.getBoolean("dontShowNotice"));
             SettingsEnum.SB_TRACK_SKIP_COUNT.saveValue(settingsJson.getBoolean("trackViewCount"));
+            SettingsEnum.SB_VIDEO_LENGTH_WITHOUT_SEGMENTS.saveValue(settingsJson.getBoolean("showTimeWithSkips"));
 
             String serverAddress = settingsJson.getString("serverAddress");
-            if (!isValidSBServerAddress(serverAddress)) {
-                throw new IllegalArgumentException(str("sb_api_url_invalid"));
+            if (isValidSBServerAddress(serverAddress)) { // Old versions of ReVanced exported wrong url format
+                SettingsEnum.SB_API_URL.saveValue(serverAddress);
             }
-            SettingsEnum.SB_API_URL.saveValue(serverAddress);
 
-            SettingsEnum.SB_SHOW_TIME_WITHOUT_SEGMENTS.saveValue(settingsJson.getBoolean("showTimeWithSkips"));
-            final float minDuration = (float)settingsJson.getDouble("minDuration");
+            final float minDuration = (float) settingsJson.getDouble("minDuration");
             if (minDuration < 0) {
                 throw new IllegalArgumentException("invalid minDuration: " + minDuration);
             }
-            SettingsEnum.SB_MIN_DURATION.saveValue(minDuration);
+            SettingsEnum.SB_SEGMENT_MIN_DURATION.saveValue(minDuration);
 
-            try {
+            if (settingsJson.has("skipCount")) { // Value not exported in old versions of ReVanced
                 int skipCount = settingsJson.getInt("skipCount");
                 if (skipCount < 0) {
                     throw new IllegalArgumentException("invalid skipCount: " + skipCount);
                 }
-                SettingsEnum.SB_SKIPPED_SEGMENTS_NUMBER_SKIPPED.saveValue(skipCount);
+                SettingsEnum.SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS.saveValue(skipCount);
+            }
 
+            if (settingsJson.has("minutesSaved")) {
                 final double minutesSaved = settingsJson.getDouble("minutesSaved");
                 if (minutesSaved < 0) {
                     throw new IllegalArgumentException("invalid minutesSaved: " + minutesSaved);
                 }
-                SettingsEnum.SB_SKIPPED_SEGMENTS_TIME_SAVED.saveValue((long)(minutesSaved * 60 * 1000));
-            } catch (JSONException ex) {
-                // ignore. values were not exported in prior versions of ReVanced
+                SettingsEnum.SB_LOCAL_TIME_SAVED_MILLISECONDS.saveValue((long) (minutesSaved * 60 * 1000));
             }
 
             ReVancedUtils.showToastLong(str("sb_settings_import_successful"));
@@ -136,15 +143,17 @@ public class SponsorBlockSettings {
                     categorySelectionsArray.put(behaviorObject);
                 }
             }
-            json.put("userID", SettingsEnum.SB_UUID.getString());
-            json.put("isVip", SettingsEnum.SB_IS_VIP.getBoolean());
+            if (SponsorBlockSettings.userHasSBPrivateId()) {
+                json.put("userID", SettingsEnum.SB_PRIVATE_USER_ID.getString());
+            }
+            json.put("isVip", SettingsEnum.SB_USER_IS_VIP.getBoolean());
             json.put("serverAddress", SettingsEnum.SB_API_URL.getString());
-            json.put("dontShowNotice", !SettingsEnum.SB_SHOW_TOAST_ON_SKIP.getBoolean());
-            json.put("showTimeWithSkips", SettingsEnum.SB_SHOW_TIME_WITHOUT_SEGMENTS.getBoolean());
-            json.put("minDuration", SettingsEnum.SB_MIN_DURATION.getFloat());
+            json.put("dontShowNotice", !SettingsEnum.SB_TOAST_ON_SKIP.getBoolean());
+            json.put("showTimeWithSkips", SettingsEnum.SB_VIDEO_LENGTH_WITHOUT_SEGMENTS.getBoolean());
+            json.put("minDuration", SettingsEnum.SB_SEGMENT_MIN_DURATION.getFloat());
             json.put("trackViewCount", SettingsEnum.SB_TRACK_SKIP_COUNT.getBoolean());
-            json.put("skipCount", SettingsEnum.SB_SKIPPED_SEGMENTS_NUMBER_SKIPPED.getInt());
-            json.put("minutesSaved", SettingsEnum.SB_SKIPPED_SEGMENTS_TIME_SAVED.getLong() / (60f * 1000));
+            json.put("skipCount", SettingsEnum.SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS.getInt());
+            json.put("minutesSaved", SettingsEnum.SB_LOCAL_TIME_SAVED_MILLISECONDS.getLong() / (60f * 1000));
 
             json.put("categorySelections", categorySelectionsArray);
             json.put("barTypes", barTypesObject);
@@ -152,13 +161,59 @@ public class SponsorBlockSettings {
             return json.toString(2);
         } catch (Exception ex) {
             LogHelper.printInfo(() -> "failed to export settings", ex); // use info level, as we are showing our own toast
-            ReVancedUtils.showToastLong(str("sb_settings_export_failed"));
+            ReVancedUtils.showToastLong(str("sb_settings_export_failed", ex));
             return "";
         }
     }
 
+    /**
+     * Export the categories using flatten json (no embedded dictionaries or arrays).
+     */
+    public static void exportCategoriesToFlatJson(@Nullable Context dialogContext,
+                                                  @NonNull JSONObject json) throws JSONException {
+        ReVancedUtils.verifyOnMainThread();
+        initialize();
+
+        // If user has a SponsorBlock user id then show a warning.
+        if (dialogContext != null && SponsorBlockSettings.userHasSBPrivateId()
+                && !SettingsEnum.SB_HIDE_EXPORT_WARNING.getBoolean()) {
+            new AlertDialog.Builder(dialogContext)
+                    .setMessage(str("sb_settings_revanced_export_user_id_warning"))
+                    .setNeutralButton(str("sb_settings_revanced_export_user_id_warning_dismiss"),
+                            (dialog, which) -> SettingsEnum.SB_HIDE_EXPORT_WARNING.saveValue(true))
+                    .setPositiveButton(android.R.string.ok, null)
+                    .setCancelable(false)
+                    .show();
+        }
+
+        for (SegmentCategory category : SegmentCategory.categoriesWithoutUnsubmitted()) {
+            category.exportToFlatJSON(json);
+        }
+    }
+
+    /**
+     * Import the categories using flatten json (no embedded dictionaries or arrays).
+     *
+     * @return the number of settings imported
+     */
+    public static int importCategoriesFromFlatJson(JSONObject json) throws JSONException {
+        ReVancedUtils.verifyOnMainThread();
+        initialize();
+
+        int numberOfImportedSettings = 0;
+        SharedPreferences.Editor editor = SharedPrefCategory.SPONSOR_BLOCK.preferences.edit();
+        for (SegmentCategory category : SegmentCategory.categoriesWithoutUnsubmitted()) {
+            numberOfImportedSettings += category.importFromFlatJSON(json, editor);
+        }
+        editor.apply();
+
+        SegmentCategory.updateEnabledCategories();
+
+        return numberOfImportedSettings;
+    }
+
     public static boolean isValidSBUserId(@NonNull String userId) {
-        return !userId.isEmpty();
+        return !userId.isEmpty() && userId.length() >= SB_PRIVATE_USER_ID_MINIMUM_LENGTH;
     }
 
     /**
@@ -180,6 +235,29 @@ public class SponsorBlockSettings {
         return true;
     }
 
+    /**
+     * @return if the user has ever voted, created a segment, or imported existing SB settings.
+     */
+    public static boolean userHasSBPrivateId() {
+        return !SettingsEnum.SB_PRIVATE_USER_ID.getString().isEmpty();
+    }
+
+    /**
+     * Use this only if a user id is required (creating segments, voting).
+     */
+    @NonNull
+    public static String getSBPrivateUserID() {
+        String uuid = SettingsEnum.SB_PRIVATE_USER_ID.getString();
+        if (uuid.isEmpty()) {
+            uuid = (UUID.randomUUID().toString() +
+                    UUID.randomUUID().toString() +
+                    UUID.randomUUID().toString())
+                    .replace("-", "");
+            SettingsEnum.SB_PRIVATE_USER_ID.saveValue(uuid);
+        }
+        return uuid;
+    }
+
     private static boolean initialized;
 
     public static void initialize() {
@@ -187,15 +265,6 @@ public class SponsorBlockSettings {
             return;
         }
         initialized = true;
-
-        String uuid = SettingsEnum.SB_UUID.getString();
-        if (uuid.isEmpty()) {
-            uuid = (UUID.randomUUID().toString() +
-                    UUID.randomUUID().toString() +
-                    UUID.randomUUID().toString())
-                    .replace("-", "");
-            SettingsEnum.SB_UUID.saveValue(uuid);
-        }
 
         SegmentCategory.loadFromPreferences();
     }

@@ -16,7 +16,7 @@ public class CopyVideoUrlTimestampButton extends BottomControlButton {
         super(
                 bottomControlsViewGroup,
                 "copy_video_url_timestamp_button",
-                SettingsEnum.COPY_VIDEO_URL_TIMESTAMP_BUTTON_SHOWN,
+                SettingsEnum.COPY_VIDEO_URL_TIMESTAMP,
                 view -> CopyVideoUrlPatch.copyUrl(true)
         );
     }

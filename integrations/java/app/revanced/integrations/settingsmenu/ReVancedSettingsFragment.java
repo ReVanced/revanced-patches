@@ -32,6 +32,33 @@ import app.revanced.integrations.utils.ReVancedUtils;
 
 public class ReVancedSettingsFragment extends PreferenceFragment {
     /**
+     * Indicates that if a preference changes,
+     * to apply the change from the Setting to the UI component.
+     */
+    static boolean settingImportInProgress;
+
+    private static void reboot(@NonNull Context activity) {
+        final int intentFlags = PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE;
+        PendingIntent intent = PendingIntent.getActivity(activity, 0,
+                new Intent(activity, Shell_HomeActivity.class), intentFlags);
+        AlarmManager systemService = (AlarmManager) activity.getSystemService(Context.ALARM_SERVICE);
+        systemService.setExact(AlarmManager.ELAPSED_REALTIME, 1500L, intent);
+        Process.killProcess(Process.myPid());
+    }
+
+    static void showRebootDialog(@NonNull Context activity) {
+        String positiveButton = str("in_app_update_restart_button");
+        String negativeButton = str("sign_in_cancel");
+        new AlertDialog.Builder(activity).setMessage(str("pref_refresh_config"))
+                .setPositiveButton(positiveButton, (dialog, id) -> {
+                    reboot(activity);
+                })
+                .setNegativeButton(negativeButton,  null)
+                .setCancelable(false)
+                .show();
+    }
+
+    /**
      * Used to prevent showing reboot dialog, if user cancels a setting user dialog.
      */
     private boolean showingUserDialogMessage;
@@ -42,21 +69,42 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
             if (setting == null) {
                 return;
             }
-            Preference pref = this.findPreference(str);
-            LogHelper.printDebug(() -> "Setting " + setting.name() + " was changed. Preference " + str + ": " + pref);
+            Preference pref = findPreference(str);
+            LogHelper.printDebug(() -> setting.name() + ": " + " setting value:" + setting.getObjectValue()  + " pref:" + pref);
+            if (pref == null) {
+                return;
+            }
 
             if (pref instanceof SwitchPreference) {
                 SwitchPreference switchPref = (SwitchPreference) pref;
-                SettingsEnum.setValue(setting, switchPref.isChecked());
+                if (settingImportInProgress) {
+                    switchPref.setChecked(setting.getBoolean());
+                } else {
+                    SettingsEnum.setValue(setting, switchPref.isChecked());
+                }
             } else if (pref instanceof EditTextPreference) {
-                String editText = ((EditTextPreference) pref).getText();
-                SettingsEnum.setValue(setting, editText);
+                EditTextPreference editPreference = (EditTextPreference) pref;
+                if (settingImportInProgress) {
+                    editPreference.getEditText().setText(setting.getObjectValue().toString());
+                } else {
+                    SettingsEnum.setValue(setting, editPreference.getText());
+                }
             } else if (pref instanceof ListPreference) {
                 ListPreference listPref = (ListPreference) pref;
-                SettingsEnum.setValue(setting, listPref.getValue());
+                if (settingImportInProgress) {
+                    listPref.setValue(setting.getObjectValue().toString());
+                } else {
+                    SettingsEnum.setValue(setting, listPref.getValue());
+                }
                 updateListPreferenceSummary((ListPreference) pref, setting);
             } else {
                 LogHelper.printException(() -> "Setting cannot be handled: " + pref.getClass() + " " + pref);
+                return;
+            }
+
+            enableDisablePreferences();
+
+            if (settingImportInProgress) {
                 return;
             }
 
@@ -64,11 +112,10 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
                 if (setting.userDialogMessage != null && ((SwitchPreference) pref).isChecked() != (Boolean) setting.defaultValue) {
                     showSettingUserDialogConfirmation(getActivity(), (SwitchPreference) pref, setting);
                 } else if (setting.rebootApp) {
-                    rebootDialog(getActivity());
+                    showRebootDialog(getActivity());
                 }
             }
 
-            enableDisablePreferences();
         } catch (Exception ex) {
             LogHelper.printException(() -> "OnSharedPreferenceChangeListener failure", ex);
         }
@@ -91,17 +138,21 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
                 CustomVideoSpeedPatch.initializeListPreference((ListPreference) defaultSpeedPreference);
             }
 
-            // set the summary text for any ListPreferences
+            // Set current value from SettingsEnum
             for (SettingsEnum setting : SettingsEnum.values()) {
                 Preference preference = findPreference(setting.path);
-                if (preference instanceof ListPreference) {
+                if (preference instanceof SwitchPreference) {
+                    ((SwitchPreference) preference).setChecked(setting.getBoolean());
+                } else if (preference instanceof EditTextPreference) {
+                    ((EditTextPreference) preference).setText(setting.getObjectValue().toString());
+                } else if (preference instanceof ListPreference) {
                     updateListPreferenceSummary((ListPreference) preference, setting);
                 }
             }
 
             preferenceManager.getSharedPreferences().registerOnSharedPreferenceChangeListener(listener);
         } catch (Exception ex) {
-            LogHelper.printException(() -> "onActivityCreated() error", ex);
+            LogHelper.printException(() -> "onActivityCreated() failure", ex);
         }
     }
 
@@ -124,31 +175,12 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
      * Sets summary text to the currently selected list option.
      */
     private void updateListPreferenceSummary(ListPreference listPreference, SettingsEnum setting) {
-        final int entryIndex = listPreference.findIndexOfValue(setting.getObjectValue().toString());
+        String objectStringValue = setting.getObjectValue().toString();
+        final int entryIndex = listPreference.findIndexOfValue(objectStringValue);
         if (entryIndex >= 0) {
             listPreference.setSummary(listPreference.getEntries()[entryIndex]);
+            listPreference.setValue(objectStringValue);
         }
-    }
-
-    private void reboot(@NonNull Activity activity) {
-        final int intentFlags = PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE;
-        PendingIntent intent = PendingIntent.getActivity(activity, 0,
-                new Intent(activity, Shell_HomeActivity.class), intentFlags);
-        AlarmManager systemService = (AlarmManager) activity.getSystemService(Context.ALARM_SERVICE);
-        systemService.setExact(AlarmManager.ELAPSED_REALTIME, 1500L, intent);
-        Process.killProcess(Process.myPid());
-    }
-
-    private void rebootDialog(@NonNull Activity activity) {
-        String positiveButton = str("in_app_update_restart_button");
-        String negativeButton = str("sign_in_cancel");
-        new AlertDialog.Builder(activity).setMessage(str("pref_refresh_config"))
-                .setPositiveButton(positiveButton, (dialog, id) -> {
-                    reboot(activity);
-                })
-                .setNegativeButton(negativeButton,  null)
-                .setCancelable(false)
-                .show();
     }
 
     private void showSettingUserDialogConfirmation(@NonNull Activity activity, SwitchPreference switchPref, SettingsEnum setting) {
@@ -158,7 +190,7 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
                 .setMessage(setting.userDialogMessage.toString())
                 .setPositiveButton(android.R.string.ok, (dialog, id) -> {
                     if (setting.rebootApp) {
-                        rebootDialog(activity);
+                        showRebootDialog(activity);
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, (dialog, id) -> {

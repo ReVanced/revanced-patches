@@ -22,7 +22,7 @@ public class RememberVideoQualityPatch {
 
     /**
      * If the user selected a new quality from the flyout menu,
-     * and {@link SettingsEnum#VIDEO_QUALITY_REMEMBER_LAST_SELECTED} is enabled.
+     * and {@link SettingsEnum#REMEMBER_VIDEO_QUALITY_LAST_SELECTED} is enabled.
      */
     private static boolean userChangedDefaultQuality;
 
@@ -142,7 +142,7 @@ public class RememberVideoQualityPatch {
      * Injection point.
      */
     public static void userChangedQuality(int selectedQuality) {
-        if (!SettingsEnum.VIDEO_QUALITY_REMEMBER_LAST_SELECTED.getBoolean()) return;
+        if (!SettingsEnum.REMEMBER_VIDEO_QUALITY_LAST_SELECTED.getBoolean()) return;
 
         userSelectedQualityIndex = selectedQuality;
         userChangedDefaultQuality = true;

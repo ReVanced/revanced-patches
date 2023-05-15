@@ -20,6 +20,7 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.text.Html;
 import android.text.InputType;
+import android.util.TypedValue;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
@@ -67,41 +68,41 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
             if (!enabled) {
                 SponsorBlockViewController.hideAll();
                 SegmentPlaybackController.setCurrentVideoId(null);
-            } else if (!SettingsEnum.SB_CREATE_NEW_SEGMENT_ENABLED.getBoolean()) {
+            } else if (!SettingsEnum.SB_CREATE_NEW_SEGMENT.getBoolean()) {
                 SponsorBlockViewController.hideNewSegmentLayout();
             }
             // voting and add new segment buttons automatically shows/hides themselves
 
             sbEnabled.setChecked(enabled);
 
-            addNewSegment.setChecked(SettingsEnum.SB_CREATE_NEW_SEGMENT_ENABLED.getBoolean());
+            addNewSegment.setChecked(SettingsEnum.SB_CREATE_NEW_SEGMENT.getBoolean());
             addNewSegment.setEnabled(enabled);
 
-            votingEnabled.setChecked(SettingsEnum.SB_VOTING_ENABLED.getBoolean());
+            votingEnabled.setChecked(SettingsEnum.SB_VOTING_BUTTON.getBoolean());
             votingEnabled.setEnabled(enabled);
 
-            compactSkipButton.setChecked(SettingsEnum.SB_USE_COMPACT_SKIP_BUTTON.getBoolean());
+            compactSkipButton.setChecked(SettingsEnum.SB_COMPACT_SKIP_BUTTON.getBoolean());
             compactSkipButton.setEnabled(enabled);
 
             autoHideSkipSegmentButton.setChecked(SettingsEnum.SB_AUTO_HIDE_SKIP_BUTTON.getBoolean());
             autoHideSkipSegmentButton.setEnabled(enabled);
 
-            showSkipToast.setChecked(SettingsEnum.SB_SHOW_TOAST_ON_SKIP.getBoolean());
+            showSkipToast.setChecked(SettingsEnum.SB_TOAST_ON_SKIP.getBoolean());
             showSkipToast.setEnabled(enabled);
 
             trackSkips.setChecked(SettingsEnum.SB_TRACK_SKIP_COUNT.getBoolean());
             trackSkips.setEnabled(enabled);
 
-            showTimeWithoutSegments.setChecked(SettingsEnum.SB_SHOW_TIME_WITHOUT_SEGMENTS.getBoolean());
+            showTimeWithoutSegments.setChecked(SettingsEnum.SB_VIDEO_LENGTH_WITHOUT_SEGMENTS.getBoolean());
             showTimeWithoutSegments.setEnabled(enabled);
 
-            newSegmentStep.setText(SettingsEnum.SB_ADJUST_NEW_SEGMENT_STEP.getObjectValue().toString());
+            newSegmentStep.setText(SettingsEnum.SB_CREATE_NEW_SEGMENT_STEP.getObjectValue().toString());
             newSegmentStep.setEnabled(enabled);
 
-            minSegmentDuration.setText(SettingsEnum.SB_MIN_DURATION.getObjectValue().toString());
+            minSegmentDuration.setText(SettingsEnum.SB_SEGMENT_MIN_DURATION.getObjectValue().toString());
             minSegmentDuration.setEnabled(enabled);
 
-            privateUserId.setText(SettingsEnum.SB_UUID.getString());
+            privateUserId.setText(SettingsEnum.SB_PRIVATE_USER_ID.getString());
             privateUserId.setEnabled(enabled);
 
             apiUrl.setEnabled(enabled);
@@ -171,7 +172,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
         votingEnabled.setSummaryOff(str("sb_enable_voting_sum_off"));
         category.addPreference(votingEnabled);
         votingEnabled.setOnPreferenceChangeListener((preference1, newValue) -> {
-            SettingsEnum.SB_VOTING_ENABLED.saveValue(newValue);
+            SettingsEnum.SB_VOTING_BUTTON.saveValue(newValue);
             updateUI();
             return true;
         });
@@ -182,7 +183,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
         compactSkipButton.setSummaryOff(str("sb_enable_compact_skip_button_sum_off"));
         category.addPreference(compactSkipButton);
         compactSkipButton.setOnPreferenceChangeListener((preference1, newValue) -> {
-            SettingsEnum.SB_USE_COMPACT_SKIP_BUTTON.saveValue(newValue);
+            SettingsEnum.SB_COMPACT_SKIP_BUTTON.saveValue(newValue);
             updateUI();
             return true;
         });
@@ -207,7 +208,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
             return false;
         });
         showSkipToast.setOnPreferenceChangeListener((preference1, newValue) -> {
-            SettingsEnum.SB_SHOW_TOAST_ON_SKIP.saveValue(newValue);
+            SettingsEnum.SB_TOAST_ON_SKIP.saveValue(newValue);
             updateUI();
             return true;
         });
@@ -218,7 +219,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
         showTimeWithoutSegments.setSummaryOn(str("sb_general_time_without_sum_on"));
         showTimeWithoutSegments.setSummaryOff(str("sb_general_time_without_sum_off"));
         showTimeWithoutSegments.setOnPreferenceChangeListener((preference1, newValue) -> {
-            SettingsEnum.SB_SHOW_TIME_WITHOUT_SEGMENTS.saveValue(newValue);
+            SettingsEnum.SB_VIDEO_LENGTH_WITHOUT_SEGMENTS.saveValue(newValue);
             updateUI();
             return true;
         });
@@ -247,7 +248,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
                         .setCancelable(false)
                         .show();
             }
-            SettingsEnum.SB_CREATE_NEW_SEGMENT_ENABLED.saveValue(newValue);
+            SettingsEnum.SB_CREATE_NEW_SEGMENT.saveValue(newValue);
             updateUI();
             return true;
         });
@@ -262,7 +263,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
                 ReVancedUtils.showToastLong(str("sb_general_adjusting_invalid"));
                 return false;
             }
-            SettingsEnum.SB_ADJUST_NEW_SEGMENT_STEP.saveValue(newAdjustmentValue);
+            SettingsEnum.SB_CREATE_NEW_SEGMENT_STEP.saveValue(newAdjustmentValue);
             return true;
         });
         category.addPreference(newSegmentStep);
@@ -298,7 +299,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
         minSegmentDuration.setSummary(str("sb_general_min_duration_sum"));
         minSegmentDuration.getEditText().setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         minSegmentDuration.setOnPreferenceChangeListener((preference1, newValue) -> {
-            SettingsEnum.SB_MIN_DURATION.saveValue(Float.valueOf(newValue.toString()));
+            SettingsEnum.SB_SEGMENT_MIN_DURATION.saveValue(Float.valueOf(newValue.toString()));
             return true;
         });
         category.addPreference(minSegmentDuration);
@@ -312,7 +313,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
                 ReVancedUtils.showToastLong(str("sb_general_uuid_invalid"));
                 return false;
             }
-            SettingsEnum.SB_UUID.saveValue(newUUID);
+            SettingsEnum.SB_PRIVATE_USER_ID.saveValue(newUUID);
             fetchAndDisplayStats();
             return true;
         });
@@ -351,9 +352,22 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
         });
         category.addPreference(apiUrl);
 
-        importExport = new EditTextPreference(context);
+        importExport = new EditTextPreference(context) {
+            protected void onPrepareDialogBuilder(AlertDialog.Builder builder) {
+                builder.setNeutralButton(str("sb_settings_copy"), (dialog, which) -> {
+                    ReVancedUtils.setClipboard(getEditText().getText().toString());
+                });
+            }
+        };
         importExport.setTitle(str("sb_settings_ie"));
         importExport.setSummary(str("sb_settings_ie_sum"));
+        importExport.getEditText().setInputType(InputType.TYPE_CLASS_TEXT
+                | InputType.TYPE_TEXT_FLAG_MULTI_LINE
+                | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            importExport.getEditText().setAutofillHints((String) null);
+        }
+        importExport.getEditText().setTextSize(TypedValue.COMPLEX_UNIT_PT, 8);
         importExport.setOnPreferenceClickListener(preference1 -> {
             importExport.getEditText().setText(SponsorBlockSettings.exportSettings());
             return true;
@@ -419,6 +433,12 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
     private void fetchAndDisplayStats() {
         try {
             statsCategory.removeAll();
+            if (!SponsorBlockSettings.userHasSBPrivateId()) {
+                // User has never voted or created any segments.  No stats to show.
+                addLocalUserStats();
+                return;
+            }
+
             Preference loadingPlaceholderPreference = new Preference(this.getActivity());
             loadingPlaceholderPreference.setEnabled(false);
             statsCategory.addPreference(loadingPlaceholderPreference);
@@ -428,6 +448,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
                     UserStats stats = SBRequester.retrieveUserStats();
                     ReVancedUtils.runOnMainThread(() -> { // get back on main thread to modify UI elements
                         addUserStats(loadingPlaceholderPreference, stats);
+                        addLocalUserStats();
                     });
                 });
             } else {
@@ -450,7 +471,8 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
             statsCategory.removeAll();
             Context context = statsCategory.getContext();
 
-            {
+            if (stats.totalSegmentCountIncludingIgnored > 0) {
+                // If user has not created any segments, there's no reason to set a username.
                 EditTextPreference preference = new EditTextPreference(context);
                 statsCategory.addPreference(preference);
                 String userName = stats.userName;
@@ -482,7 +504,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
                 statsCategory.addPreference(preference);
                 String formatted = statsNumberOfSegmentsSkippedFormatter.format(stats.segmentCount);
                 preference.setTitle(fromHtml(str("sb_stats_submissions", formatted)));
-                if (stats.segmentCount == 0) {
+                if (stats.totalSegmentCountIncludingIgnored == 0) {
                     preference.setSelectable(false);
                 } else {
                     preference.setOnPreferenceClickListener(preference1 -> {
@@ -512,7 +534,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
 
                 String stats_saved;
                 String stats_saved_sum;
-                if (stats.segmentCount == 0) {
+                if (stats.totalSegmentCountIncludingIgnored == 0) {
                     stats_saved = str("sb_stats_saved_zero");
                     stats_saved_sum = str("sb_stats_saved_sum_zero");
                 } else {
@@ -528,34 +550,34 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
                     return false;
                 });
             }
-
-            {
-                // time the user saved by using SB
-                Preference preference = new Preference(context);
-                statsCategory.addPreference(preference);
-
-                Runnable updateStatsSelfSaved = () -> {
-                    String formatted = statsNumberOfSegmentsSkippedFormatter.format(SettingsEnum.SB_SKIPPED_SEGMENTS_NUMBER_SKIPPED.getInt());
-                    preference.setTitle(fromHtml(str("sb_stats_self_saved", formatted)));
-                    String formattedSaved = SponsorBlockUtils.getTimeSavedString(SettingsEnum.SB_SKIPPED_SEGMENTS_TIME_SAVED.getLong() / 1000);
-                    preference.setSummary(fromHtml(str("sb_stats_self_saved_sum", formattedSaved)));
-                };
-                updateStatsSelfSaved.run();
-                preference.setOnPreferenceClickListener(preference1 -> {
-                    new AlertDialog.Builder(preference1.getContext())
-                            .setTitle(str("sb_stats_self_saved_reset_title"))
-                            .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
-                                SettingsEnum.SB_SKIPPED_SEGMENTS_NUMBER_SKIPPED.saveValue(SettingsEnum.SB_SKIPPED_SEGMENTS_NUMBER_SKIPPED.defaultValue);
-                                SettingsEnum.SB_SKIPPED_SEGMENTS_TIME_SAVED.saveValue(SettingsEnum.SB_SKIPPED_SEGMENTS_TIME_SAVED.defaultValue);
-                                updateStatsSelfSaved.run();
-                            })
-                            .setNegativeButton(android.R.string.no, null).show();
-                    return true;
-                });
-            }
         } catch (Exception ex) {
-            LogHelper.printException(() -> "fetchAndDisplayStats failure", ex);
+            LogHelper.printException(() -> "addUserStats failure", ex);
         }
+    }
+
+    private void addLocalUserStats() {
+        // time the user saved by using SB
+        Preference preference = new Preference(statsCategory.getContext());
+        statsCategory.addPreference(preference);
+
+        Runnable updateStatsSelfSaved = () -> {
+            String formatted = statsNumberOfSegmentsSkippedFormatter.format(SettingsEnum.SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS.getInt());
+            preference.setTitle(fromHtml(str("sb_stats_self_saved", formatted)));
+            String formattedSaved = SponsorBlockUtils.getTimeSavedString(SettingsEnum.SB_LOCAL_TIME_SAVED_MILLISECONDS.getLong() / 1000);
+            preference.setSummary(fromHtml(str("sb_stats_self_saved_sum", formattedSaved)));
+        };
+        updateStatsSelfSaved.run();
+        preference.setOnPreferenceClickListener(preference1 -> {
+            new AlertDialog.Builder(preference1.getContext())
+                    .setTitle(str("sb_stats_self_saved_reset_title"))
+                    .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
+                        SettingsEnum.SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS.saveValue(SettingsEnum.SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS.defaultValue);
+                        SettingsEnum.SB_LOCAL_TIME_SAVED_MILLISECONDS.saveValue(SettingsEnum.SB_LOCAL_TIME_SAVED_MILLISECONDS.defaultValue);
+                        updateStatsSelfSaved.run();
+                    })
+                    .setNegativeButton(android.R.string.no, null).show();
+            return true;
+        });
     }
 
 }

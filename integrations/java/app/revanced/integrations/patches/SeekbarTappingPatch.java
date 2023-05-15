@@ -6,7 +6,7 @@ public class SeekbarTappingPatch {
 
     //Used by app.revanced.patches.youtube.interaction.seekbar.patch.EnableSeekbarTappingPatch
     public static boolean isTapSeekingEnabled() {
-        return SettingsEnum.TAP_SEEKING_ENABLED.getBoolean();
+        return SettingsEnum.TAP_SEEKING.getBoolean();
     }
 
 }

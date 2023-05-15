@@ -60,7 +60,7 @@ public class SpoofSignatureVerificationPatch {
      */
     public static String overrideProtobufParameter(String originalValue) {
         try {
-            if (!SettingsEnum.SIGNATURE_SPOOFING.getBoolean()) {
+            if (!SettingsEnum.SPOOF_SIGNATURE_VERIFICATION.getBoolean()) {
                 return originalValue;
             }
 
@@ -101,11 +101,11 @@ public class SpoofSignatureVerificationPatch {
             }
             LogHelper.printDebug(() -> "YouTube HTTP status code: " + responseCode);
 
-            if (SettingsEnum.SIGNATURE_SPOOFING.getBoolean()) {
+            if (SettingsEnum.SPOOF_SIGNATURE_VERIFICATION.getBoolean()) {
                 return;  // already enabled
             }
 
-            SettingsEnum.SIGNATURE_SPOOFING.saveValue(true);
+            SettingsEnum.SPOOF_SIGNATURE_VERIFICATION.saveValue(true);
             ReVancedUtils.showToastLong("Spoofing app signature to prevent playback issues");
             // it would be great if the video could be forcefully reloaded, but currently there is no code to do this
 
@@ -130,7 +130,7 @@ public class SpoofSignatureVerificationPatch {
      * @param sd function is not entirely clear
      */
     public static int[] getSubtitleWindowSettingsOverride(int ap, int ah, int av, boolean vs, boolean sd) {
-        final boolean signatureSpoofing = SettingsEnum.SIGNATURE_SPOOFING.getBoolean();
+        final boolean signatureSpoofing = SettingsEnum.SPOOF_SIGNATURE_VERIFICATION.getBoolean();
         if (SettingsEnum.DEBUG.getBoolean()) {
             if (ap != lastAp || ah != lastAh || av != lastAv || vs != lastVs || sd != lastSd) {
                 LogHelper.printDebug(() -> "video: " + VideoInformation.getVideoId() + " spoof: " + signatureSpoofing
