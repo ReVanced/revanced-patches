@@ -37,6 +37,7 @@ The official ReVanced Patches.
 | `hide-floating-microphone-button` | Hides the floating microphone button which appears in search. | 18.16.37 |
 | `hide-get-premium` | Hides advertisement for YouTube Premium under the video player. | 18.16.37 |
 | `hide-info-cards` | Hides info cards in videos. | 18.16.37 |
+| `hide-load-more-button` | Hides the button under videos that loads similar videos. | 18.16.37 |
 | `hide-player-buttons` | Adds the option to hide video player previous and next buttons. | all |
 | `hide-player-overlay` | Hides the dark background overlay from the player when player controls are visible. | all |
 | `hide-seekbar` | Hides the seekbar. | 18.16.37 |
@@ -57,6 +58,7 @@ The official ReVanced Patches.
 | `spoof-app-version` | Tricks YouTube into thinking, you are running an older version of the app. One of the side effects also includes restoring the old UI. | 18.16.37 |
 | `swipe-controls` | Adds volume and brightness swipe controls. | 18.16.37 |
 | `tablet-mini-player` | Enables the tablet mini player layout. | 18.16.37 |
+| `theme` | Applies a custom theme. | all |
 | `vanced-microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG. | 18.16.37 |
 | `video-ads` | Removes ads in the video player. | 18.16.37 |
 | `video-speed` | Adds custom video speeds and ability to remember the playback speed you chose in the video playback speed flyout. | 18.16.37 |

@@ -1,3 +1,15 @@
+# [2.174.0-dev.28](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.27...v2.174.0-dev.28) (2023-05-15)
+
+
+### Bug Fixes
+
+* **youtube:** add missing compatibility annotations for `theme` and `hide-load-more-button` ([#2150](https://github.com/revanced/revanced-patches/issues/2150)) ([78803f8](https://github.com/revanced/revanced-patches/commit/78803f8ea85684e4c69e75b676fa40bae8760957))
+
+
+### Features
+
+* **youtube:** import / export of revanced settings ([#2077](https://github.com/revanced/revanced-patches/issues/2077)) ([b59cb3e](https://github.com/revanced/revanced-patches/commit/b59cb3ed60293aaf81067ff3469863add09c6b13))
+
 # [2.174.0-dev.27](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.26...v2.174.0-dev.27) (2023-05-14)
 
 
