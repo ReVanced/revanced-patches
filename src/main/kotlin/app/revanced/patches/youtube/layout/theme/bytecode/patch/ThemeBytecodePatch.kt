@@ -11,11 +11,13 @@ import app.revanced.patches.youtube.layout.seekbar.bytecode.patch.SeekbarColorBy
 import app.revanced.patches.youtube.layout.seekbar.bytecode.fingerprints.CreateDarkThemeSeekbarFingerprint
 import app.revanced.patches.youtube.layout.seekbar.bytecode.fingerprints.SetSeekbarClickedColorFingerprint
 import app.revanced.patches.youtube.layout.theme.resource.ThemeResourcePatch
+import app.revanced.patches.youtube.layout.theme.annotations.ThemeCompatibility
 
 @Patch
 @Name("theme")
 @Description("Applies a custom theme.")
 @DependsOn([LithoColorHookPatch::class, SeekbarColorBytecodePatch::class, ThemeResourcePatch::class])
+@ThemeCompatibility
 @Version("0.0.1")
 class ThemeBytecodePatch : BytecodePatch(
     listOf(CreateDarkThemeSeekbarFingerprint, SetSeekbarClickedColorFingerprint)
