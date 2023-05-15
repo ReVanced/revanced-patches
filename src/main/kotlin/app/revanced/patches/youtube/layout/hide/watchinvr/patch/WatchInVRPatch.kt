@@ -33,7 +33,6 @@ class WatchInVRPatch : BytecodePatch(
             SwitchPreference(
                 "revanced_hide_watch_in_vr",
                 StringResource("revanced_hide_watch_in_vr_title", "Hide VR setting"),
-                false,
                 StringResource("revanced_hide_watch_in_vr_summary_on", "VR setting is hidden"),
                 StringResource("revanced_hide_watch_in_vr_summary_off", "VR setting is shown")
             )

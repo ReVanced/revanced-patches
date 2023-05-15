@@ -38,7 +38,6 @@ class HideSeekbarPatch : BytecodePatch(
             SwitchPreference(
                 "revanced_hide_seekbar",
                 StringResource("revanced_hide_seekbar_title", "Hide seekbar"),
-                false,
                 StringResource("revanced_hide_seekbar_summary_on", "Seekbar is hidden"),
                 StringResource("revanced_hide_seekbar_summary_off", "Seekbar is shown")
             )

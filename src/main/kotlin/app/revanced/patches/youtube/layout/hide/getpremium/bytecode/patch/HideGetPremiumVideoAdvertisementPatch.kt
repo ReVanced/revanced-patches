@@ -36,7 +36,6 @@ class HideGetPremiumPatch : BytecodePatch(
             SwitchPreference(
                 "revanced_hide_get_premium",
                 StringResource("revanced_hide_get_premium_title", "Hide YouTube Premium advertisement"),
-                true,
                 StringResource("revanced_hide_get_premium_summary_on", "YouTube Premium advertisement are hidden"),
                 StringResource("revanced_hide_get_premium_summary_off", "YouTube Premium advertisement are shown")
             )

@@ -42,17 +42,21 @@
     <string name="sb_general_min_duration_sum">Segments shorter than this value (in seconds) will not be shown or skipped</string>
     <string name="sb_general_uuid">Your private user id</string>
     <string name="sb_general_uuid_sum">This should be kept private. This is like a password and should not be shared with anyone. If someone has this, they can impersonate you</string>
-    <string name="sb_general_uuid_invalid">User id cannot be blank</string>
+    <string name="sb_general_uuid_invalid">Private user id must be at least 30 characters long</string>
     <string name="sb_general_api_url">Change API URL</string>
     <string name="sb_general_api_url_sum">The address SponsorBlock uses to make calls to the server. Do not change this unless you know what you\'re doing</string>
     <string name="sb_api_url_reset">API URL reset</string>
     <string name="sb_api_url_invalid">API URL is invalid</string>
     <string name="sb_api_url_changed">API URL changed</string>
     <string name="sb_settings_ie">Import/Export settings</string>
+    <string name="sb_settings_copy">Copy</string>
     <string name="sb_settings_ie_sum">Your SponsorBlock JSON configuration that can be imported/exported to ReVanced and other SponsorBlock platforms. This includes your private user id. Be sure to share this wisely</string>
     <string name="sb_settings_import_successful">Settings imported successfully</string>
     <string name="sb_settings_import_failed">Failed to import: %s</string>
-    <string name="sb_settings_export_failed">Failed to export settings (try clearing app data)</string>
+    <string name="sb_settings_export_failed">Failed to export: %s</string>
+
+    <string name="sb_settings_revanced_export_user_id_warning">Your settings contain a private SponsorBlock user id.\n\nYour user id is like a password and it should never be shared.\n</string>
+    <string name="sb_settings_revanced_export_user_id_warning_dismiss">Do not show again</string>
 
     <string name="sb_diff_segments">Change segment behavior</string>
     <string name="sb_segments_sponsor">Sponsor</string>

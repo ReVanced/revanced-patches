@@ -37,7 +37,6 @@ class FullscreenPanelsRemoverPatch : BytecodePatch(
             SwitchPreference(
                 "revanced_hide_fullscreen_panels",
                 StringResource("revanced_hide_fullscreen_panels_title", "Hide fullscreen panels"),
-                true,
                 StringResource("revanced_hide_fullscreen_panels_summary_on", "Fullscreen panels are hidden"),
                 StringResource("revanced_hide_fullscreen_panels_summary_off", "Fullscreen panels are shown")
             )

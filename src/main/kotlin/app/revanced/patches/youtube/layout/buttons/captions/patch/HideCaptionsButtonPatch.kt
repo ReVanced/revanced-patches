@@ -32,7 +32,6 @@ class HideCaptionsButtonPatch : BytecodePatch(listOf(
             SwitchPreference(
                 "revanced_hide_captions_button",
                 StringResource("revanced_hide_captions_button_title", "Hide captions button"),
-                false,
                 StringResource("revanced_hide_captions_button_summary_on", "Captions button is hidden"),
                 StringResource("revanced_hide_captions_button_summary_off", "Captions button is shown")
             )

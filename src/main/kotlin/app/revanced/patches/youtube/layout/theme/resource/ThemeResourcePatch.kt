@@ -21,12 +21,11 @@ class ThemeResourcePatch : ResourcePatch {
             TextPreference(
                 "revanced_seekbar_color",
                 StringResource("revanced_seekbar_color_title", "Seekbar color"),
-                InputType.STRING,
-                "#FF0000",
                 StringResource(
                     "revanced_seekbar_color_summary",
                     "The color of the seekbar"
-                )
+                ),
+                InputType.TEXT_CAP_CHARACTERS
             ),
         )
 

@@ -38,7 +38,6 @@ class WideSearchbarPatch : BytecodePatch(
             SwitchPreference(
                 "revanced_wide_searchbar",
                 StringResource("revanced_wide_searchbar_enabled_title", "Enable wide search bar"),
-                false,
                 StringResource("revanced_wide_searchbar_summary_on", "Wide search bar is enabled"),
                 StringResource("revanced_wide_searchbar_summary_off", "Wide search bar is disabled")
             )

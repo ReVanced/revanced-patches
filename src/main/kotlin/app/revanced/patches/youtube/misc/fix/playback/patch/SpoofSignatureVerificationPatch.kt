@@ -45,7 +45,6 @@ class SpoofSignatureVerificationPatch : BytecodePatch(
             SwitchPreference(
                 "revanced_spoof_signature_verification",
                 StringResource("revanced_spoof_signature_verification_title", "Spoof app signature"),
-                true,
                 StringResource("revanced_spoof_signature_verification_summary_on",
                     "App signature spoofed\\n\\n"
                         + "Side effects include:\\n"

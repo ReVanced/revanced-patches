@@ -10,10 +10,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
 import app.revanced.patches.shared.settings.preference.addPreference
-import app.revanced.patches.shared.settings.preference.impl.ArrayResource
-import app.revanced.patches.shared.settings.preference.impl.Preference
-import app.revanced.patches.shared.settings.preference.impl.PreferenceScreen
-import app.revanced.patches.shared.settings.preference.impl.StringResource
+import app.revanced.patches.shared.settings.preference.impl.*
 import app.revanced.patches.shared.settings.resource.patch.AbstractSettingsResourcePatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.util.resources.ResourceUtils
@@ -71,10 +68,20 @@ class SettingsResourcePatch : AbstractSettingsResourcePatch(
         SettingsPatch.addPreference(
             Preference(
                 StringResource("revanced_settings", "ReVanced"),
+                StringResource("revanced_settings_summary", "ReVanced specific settings"),
                 Preference.Intent(
                     youtubePackage, "revanced_settings", "com.google.android.libraries.social.licenses.LicenseActivity"
-                ),
-                StringResource("revanced_settings_summary", "ReVanced specific settings"),
+                )
+            )
+        )
+
+        SettingsPatch.PreferenceScreen.MISC.addPreferences(
+            TextPreference(
+                key = null,
+                title = StringResource("revanced_pref_import_export_title", "Import / Export"),
+                summary = StringResource("revanced_pref_import_export_summary", "Import / Export ReVanced settings"),
+                inputType = InputType.TEXT_MULTI_LINE,
+                tag = "app.revanced.integrations.settingsmenu.ImportExportPreference"
             )
         )
 

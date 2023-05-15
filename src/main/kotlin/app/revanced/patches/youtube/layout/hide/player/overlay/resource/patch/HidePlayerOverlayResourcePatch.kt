@@ -21,7 +21,6 @@ class HidePlayerOverlayResourcePatch : ResourcePatch {
             SwitchPreference(
                 "revanced_hide_player_overlay",
                 StringResource("revanced_hide_player_overlay_title", "Hide background overlay in player"),
-                false,
                 StringResource("revanced_hide_player_overlay_summary_on", "Background overlay is hidden"),
                 StringResource("revanced_hide_player_overlay_summary_off", "Background overlay is shown")
             )

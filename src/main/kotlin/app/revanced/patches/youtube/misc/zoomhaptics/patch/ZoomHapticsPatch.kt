@@ -32,7 +32,6 @@ class ZoomHapticsPatch : BytecodePatch(
             SwitchPreference(
                 "revanced_disable_zoom_haptics",
                 StringResource("revanced_disable_zoom_haptics_title", "Disable zoom haptics"),
-                true,
                 StringResource("revanced_disable_zoom_haptics_summary_on", "Haptics are disabled"),
                 StringResource("revanced_disable_zoom_haptics_summary_off", "Haptics are enabled")
             )

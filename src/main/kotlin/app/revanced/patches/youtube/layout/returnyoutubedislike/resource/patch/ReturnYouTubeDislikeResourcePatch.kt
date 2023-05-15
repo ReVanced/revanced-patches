@@ -30,12 +30,12 @@ class ReturnYouTubeDislikeResourcePatch : ResourcePatch {
         SettingsPatch.addPreference(
             Preference(
                 StringResource("revanced_ryd_settings_title", "Return YouTube Dislike"),
+                StringResource("revanced_ryd_settings_summary", "Settings for Return YouTube Dislike"),
                 Preference.Intent(
                     youtubePackage,
                     "ryd_settings",
                     "com.google.android.libraries.social.licenses.LicenseActivity"
-                ),
-                StringResource("revanced_ryd_settings_summary", "Settings for Return YouTube Dislike"),
+                )
             )
         )
         // merge strings

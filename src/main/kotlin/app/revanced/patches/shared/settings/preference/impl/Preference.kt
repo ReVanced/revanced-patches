@@ -1,44 +1,41 @@
 package app.revanced.patches.shared.settings.preference.impl
 
 import app.revanced.patches.shared.settings.preference.BasePreference
-import app.revanced.patches.shared.settings.preference.IResource
-import app.revanced.patches.shared.settings.preference.addSummary
+import app.revanced.patches.shared.settings.preference.BaseResource
 import org.w3c.dom.Document
-import org.w3c.dom.Element
 
 /**
- * A Preference object.
+ * A preference object.
  *
+ * @param key The key of the preference.
  * @param title The title of the preference.
- * @param intent The intent of the preference.
  * @param summary The summary of the text preference.
+ * @param intent The intent of the preference.
  */
 internal class Preference(
     key: String,
     title: StringResource,
-    val intent: Intent,
-    val summary: StringResource? = null
-) : BasePreference(key, title) {
-    override val tag: String = "Preference"
-
-    /* Key-less constructor */
+    summary: StringResource,
+    val intent: Intent
+) : BasePreference(key, title, summary, "Preference") {
     constructor(
         title: StringResource,
-        intent: Intent,
-        summary: StringResource? = null
-    ) : this("", title, intent, summary)
+        summary: StringResource,
+        intent: Intent
+    ) : this("", title, summary, intent)
 
-    override fun serialize(ownerDocument: Document, resourceCallback: ((IResource) -> Unit)?): Element {
-        return super.serialize(ownerDocument, resourceCallback).apply {
-            addSummary(summary?.also { resourceCallback?.invoke(it) })
-
+    override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
+        super.serialize(ownerDocument, resourceCallback).apply {
             this.appendChild(ownerDocument.createElement("intent").also { intentNode ->
                 intentNode.setAttribute("android:targetPackage", intent.targetPackage)
                 intentNode.setAttribute("android:data", intent.data)
                 intentNode.setAttribute("android:targetClass", intent.targetClass)
             })
         }
-    }
 
-    data class Intent(val targetPackage: String, val data: String, val targetClass: String)
+    internal class Intent(
+        internal val targetPackage: String,
+        internal val data: String,
+        internal val targetClass: String
+    )
 }

@@ -25,25 +25,23 @@ class DownloadsResourcePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
             PreferenceScreen(
-                "revanced_downloads",
-                StringResource("revanced_downloads_title", "Download settings"),
+                "revanced_external_downloader_preference_screen",
+                StringResource("revanced_external_downloader_preference_screen_title", "Download settings"),
                 listOf(
                     SwitchPreference(
-                        "revanced_downloads_enabled",
-                        StringResource("revanced_downloads_enabled_title", "Show download button"),
-                        true,
-                        StringResource("revanced_downloads_enabled_summary_on", "Download button is shown"),
-                        StringResource("revanced_downloads_enabled_summary_off", "Download button is not shown")
+                        "revanced_external_downloader",
+                        StringResource("revanced_external_downloader_title", "Show download button"),
+                        StringResource("revanced_external_downloader_summary_on", "Download button is shown"),
+                        StringResource("revanced_external_downloader_summary_off", "Download button is not shown")
                     ),
                     TextPreference(
-                        "revanced_downloads_package_name",
-                        StringResource("revanced_downloads_package_name_title", "Downloader package name"),
-                        InputType.STRING,
-                        "org.schabi.newpipe" /* NewPipe */,
-                        StringResource("revanced_downloads_package_name_summary", "Package name of the downloader app such as NewPipe\\'s or PowerTube\\'s")
+                        "revanced_external_downloader_name",
+                        StringResource("revanced_external_downloader_name_title", "Downloader package name"),
+                        StringResource("revanced_external_downloader_name_summary", "Package name of the downloader app such as NewPipe\\'s or PowerTube\\'s"),
+                        InputType.TEXT
                     )
                 ),
-                StringResource("revanced_downloads_summary", "Settings related to downloads")
+                StringResource("revanced_external_downloader_preference_screen_summary", "Settings related to downloads")
             )
         )
 

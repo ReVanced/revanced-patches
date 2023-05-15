@@ -41,7 +41,6 @@ class HidePlayerButtonsPatch : BytecodePatch(
                     "revanced_hide_player_buttons_title",
                     "Hide previous & next video buttons"
                 ),
-                false,
                 StringResource(
                     "revanced_hide_player_buttons_summary_on",
                     "Buttons are hidden"

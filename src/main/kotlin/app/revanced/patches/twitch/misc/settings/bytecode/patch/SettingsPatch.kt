@@ -20,7 +20,6 @@ import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.util.AbstractPreferenceScreen
 import app.revanced.patches.twitch.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.twitch.misc.settings.annotations.SettingsCompatibility
-import app.revanced.patches.twitch.misc.settings.components.CustomPreferenceCategory
 import app.revanced.patches.twitch.misc.settings.fingerprints.MenuGroupsOnClickFingerprint
 import app.revanced.patches.twitch.misc.settings.fingerprints.MenuGroupsUpdatedFingerprint
 import app.revanced.patches.twitch.misc.settings.fingerprints.SettingsActivityOnCreateFingerprint
@@ -183,10 +182,11 @@ class SettingsPatch : BytecodePatch(
             internal inner class CustomCategory(key: String, title: String) : Screen.Category(key, title) {
                 /* For Twitch, we need to load our CustomPreferenceCategory class instead of the default one. */
                 override fun transform(): PreferenceCategory {
-                    return CustomPreferenceCategory(
+                    return PreferenceCategory(
                         key,
                         StringResource("${key}_title", title),
-                        preferences.sortedBy { it.title.value }
+                        preferences.sortedBy { it.title.value },
+                        "app.revanced.twitch.settingsmenu.preference.CustomPreferenceCategory"
                     )
                 }
             }

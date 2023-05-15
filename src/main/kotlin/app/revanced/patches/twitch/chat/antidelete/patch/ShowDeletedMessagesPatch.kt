@@ -98,7 +98,7 @@ class ShowDeletedMessagesPatch : BytecodePatch(
                         StringResource("key_revanced_deleted_messages_cross_out", "cross-out")
                     )
                 ),
-                "cross-out"
+                default = "cross-out"
             )
         )
 

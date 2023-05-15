@@ -30,7 +30,6 @@ class HideFilterBarResourcePatch : ResourcePatch {
                             "revanced_hide_filter_bar_feed_in_feed_title",
                             "Hide in feed"
                         ),
-                        false,
                         StringResource(
                             "revanced_hide_filter_bar_feed_in_feed_summary_on",
                             "Hidden in feed"
@@ -46,7 +45,6 @@ class HideFilterBarResourcePatch : ResourcePatch {
                             "revanced_hide_filter_bar_feed_in_search_title",
                             "Hide in search"
                         ),
-                        false,
                         StringResource(
                             "revanced_hide_filter_bar_feed_in_search_summary_on",
                             "Hidden in search"
@@ -62,7 +60,6 @@ class HideFilterBarResourcePatch : ResourcePatch {
                             "revanced_hide_filter_bar_feed_in_related_videos_title",
                             "Hide in related videos"
                         ),
-                        false,
                         StringResource(
                             "revanced_hide_filter_bar_feed_in_related_videos_summary_on",
                             "Hidden in related videos"

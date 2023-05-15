@@ -21,7 +21,6 @@ class HideLoadMoreButtonResourcePatch : ResourcePatch {
             SwitchPreference(
                 "revanced_hide_load_more_button",
                 StringResource("revanced_hide_load_more_button_title", "Hide Load More button"),
-                true,
                 StringResource("revanced_hide_load_more_button_summary_on", "Load More button is hidden"),
                 StringResource("revanced_hide_load_more_button_summary_off", "Load More button is shown")
             )
