@@ -1,3 +1,15 @@
+# [2.174.0-dev.32](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.31...v2.174.0-dev.32) (2023-05-16)
+
+
+### Bug Fixes
+
+* **youtube/sponsorblock:** fix toast shown when scrubbing thru a paused video ([#2152](https://github.com/revanced/revanced-patches/issues/2152)) ([c6c23ff](https://github.com/revanced/revanced-patches/commit/c6c23ff0d9a18e3ef3d4b9b28ffa562a2eceb58b))
+
+
+### Features
+
+* **youtube:** add options to disable toasts on connection error ([#2159](https://github.com/revanced/revanced-patches/issues/2159)) ([99916ae](https://github.com/revanced/revanced-patches/commit/99916aefaaea3b94e94e2901d70493fdb18a3dab))
+
 # [2.174.0-dev.31](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.30...v2.174.0-dev.31) (2023-05-16)
 
 
