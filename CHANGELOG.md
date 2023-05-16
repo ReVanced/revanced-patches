@@ -1,3 +1,10 @@
+# [2.174.0-dev.30](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.29...v2.174.0-dev.30) (2023-05-16)
+
+
+### Features
+
+* **youtube/hide-filter-bar:** add `PreferenceScreen` summary ([2bba5f7](https://github.com/revanced/revanced-patches/commit/2bba5f72fae06e352d2984fea7c8cc65d38ed221))
+
 # [2.174.0-dev.29](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.28...v2.174.0-dev.29) (2023-05-16)
 
 
