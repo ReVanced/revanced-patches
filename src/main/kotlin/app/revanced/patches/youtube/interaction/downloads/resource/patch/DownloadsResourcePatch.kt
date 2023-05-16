@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.interaction.downloads.resource.patch
 
-import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
@@ -9,7 +8,6 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.settings.preference.impl.*
-import app.revanced.patches.youtube.interaction.downloads.annotation.DownloadsCompatibility
 import app.revanced.patches.youtube.misc.playercontrols.resource.patch.BottomControlsResourcePatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.util.resources.ResourceUtils
@@ -18,8 +16,6 @@ import app.revanced.util.resources.ResourceUtils.mergeStrings
 
 @Name("downloads-resource-patch")
 @DependsOn([BottomControlsResourcePatch::class, SettingsPatch::class])
-@Description("Makes necessary changes to resources for the download button.")
-@DownloadsCompatibility
 @Version("0.0.1")
 class DownloadsResourcePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {

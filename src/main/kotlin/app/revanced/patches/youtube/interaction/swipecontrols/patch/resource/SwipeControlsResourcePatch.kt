@@ -7,19 +7,13 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patches.shared.settings.preference.impl.PreferenceScreen
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
-import app.revanced.patches.shared.settings.preference.impl.TextPreference
-import app.revanced.patches.shared.settings.preference.impl.InputType
-import app.revanced.patches.youtube.interaction.swipecontrols.annotation.SwipeControlsCompatibility
+import app.revanced.patches.shared.settings.preference.impl.*
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 
 @Name("swipe-controls-resource-patch")
 @DependsOn([SettingsPatch::class])
-@SwipeControlsCompatibility
 @Version("0.0.1")
 class SwipeControlsResourcePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
