@@ -7,6 +7,7 @@ import java.lang.reflect.Method;
 import java.util.Objects;
 
 import app.revanced.integrations.patches.playback.speed.RememberPlaybackSpeedPatch;
+import app.revanced.integrations.shared.VideoState;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 
@@ -183,7 +184,12 @@ public final class VideoInformation {
      * @return If the playback is at the end of the video.
      *
      * If video is playing in the background with no video visible,
-     * this always returns false (even if the video is actually at the end)
+     * this always returns false (even if the video is actually at the end).
+     *
+     * This is equivalent to checking for {@link VideoState#ENDED},
+     * but can give a more up to date result for code calling from some hooks.
+     *
+     * @see VideoState
      */
     public static boolean isAtEndOfVideo() {
         return videoTime > 0 && videoLength > 0 && videoTime >= videoLength;

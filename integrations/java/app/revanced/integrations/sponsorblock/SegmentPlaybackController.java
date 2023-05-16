@@ -20,6 +20,7 @@ import java.util.Objects;
 import app.revanced.integrations.patches.VideoInformation;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.shared.PlayerType;
+import app.revanced.integrations.shared.VideoState;
 import app.revanced.integrations.sponsorblock.objects.CategoryBehaviour;
 import app.revanced.integrations.sponsorblock.objects.SegmentCategory;
 import app.revanced.integrations.sponsorblock.objects.SponsorSegment;
@@ -522,6 +523,7 @@ public class SegmentPlaybackController {
                 return;
             }
 
+            final boolean videoIsPaused = VideoState.getCurrent() == VideoState.PAUSED;
             if (!userManuallySkipped) {
                 // check for any smaller embedded segments, and count those as autoskipped
                 final boolean showSkipToast = SettingsEnum.SB_TOAST_ON_SKIP.getBoolean();
@@ -532,7 +534,10 @@ public class SegmentPlaybackController {
                     if (otherSegment == segmentToSkip ||
                             (otherSegment.category != SegmentCategory.HIGHLIGHT && segmentToSkip.containsSegment(otherSegment))) {
                         otherSegment.didAutoSkipped = true;
-                        if (showSkipToast) {
+                        // Do not show a toast if the user is scrubbing thru a paused video.
+                        // Cannot do this video state check in setTime or earlier in this method, as the video state may not be up to date.
+                        // So instead, only hide toasts because all other skip logic done while paused causes no harm.
+                        if (showSkipToast && !videoIsPaused) {
                             showSkippedSegmentToast(otherSegment);
                         }
                     }
@@ -542,7 +547,7 @@ public class SegmentPlaybackController {
             if (segmentToSkip.category == SegmentCategory.UNSUBMITTED) {
                 removeUnsubmittedSegments();
                 SponsorBlockUtils.setNewSponsorSegmentPreviewed();
-            } else {
+            } else if (!videoIsPaused) {
                 SponsorBlockUtils.sendViewRequestAsync(segmentToSkip);
             }
         } catch (Exception ex) {

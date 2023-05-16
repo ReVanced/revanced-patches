@@ -1,11 +1,11 @@
 package app.revanced.integrations.shared
 
 import app.revanced.integrations.utils.Event
+import app.revanced.integrations.utils.LogHelper
 
 /**
  * WatchWhile player type
  */
-@Suppress("unused")
 enum class PlayerType {
     /**
      * Includes Shorts and Stories playback.
@@ -40,15 +40,15 @@ enum class PlayerType {
 
         private val nameToPlayerType = values().associateBy { it.name }
 
-        /**
-         * safely parse from a string
-         *
-         * @param name the name to find
-         * @return the enum constant, or null if not found
-         */
         @JvmStatic
-        fun safeParseFromString(name: String): PlayerType? {
-            return nameToPlayerType[name]
+        fun setFromString(enumName: String) {
+            val newType = nameToPlayerType[enumName]
+            if (newType == null) {
+                LogHelper.printException { "Unknown PlayerType encountered: $enumName" }
+            } else if (current != newType) {
+                LogHelper.printDebug { "PlayerType changed to: $newType" }
+                current = newType
+            }
         }
 
         /**
@@ -57,7 +57,7 @@ enum class PlayerType {
         @JvmStatic
         var current
             get() = currentPlayerType
-            set(value) {
+            private set(value) {
                 currentPlayerType = value
                 onChange(currentPlayerType)
             }
@@ -90,7 +90,7 @@ enum class PlayerType {
      * although can return false positive if the player is minimized.
      *
      * @return If nothing, a Short, a Story,
-     *         or a regular minimized video is sliding off screen to a dismissed or hidden state.
+     *         or a regular video is minimized video or sliding off screen to a dismissed or hidden state.
      */
     fun isNoneHiddenOrMinimized(): Boolean {
         return this == NONE || this == HIDDEN
