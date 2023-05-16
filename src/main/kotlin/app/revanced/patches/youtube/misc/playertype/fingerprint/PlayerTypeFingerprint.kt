@@ -1,15 +1,14 @@
 package app.revanced.patches.youtube.misc.playertype.fingerprint
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.method.annotation.FuzzyPatternScanMethod
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
-@FuzzyPatternScanMethod(2)
-object UpdatePlayerTypeFingerprint : MethodFingerprint(
-    "V",
-    AccessFlags.PUBLIC or AccessFlags.FINAL,
+object PlayerTypeFingerprint : MethodFingerprint(
+    returnType = "V",
+    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("L"),
     opcodes = listOf(
         Opcode.INVOKE_VIRTUAL,
         Opcode.IGET_OBJECT,
@@ -29,5 +28,8 @@ object UpdatePlayerTypeFingerprint : MethodFingerprint(
         Opcode.INVOKE_STATIC,
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_VOID
-    )
+    ),
+    customFingerprint = { methodDef, _ ->
+        methodDef.definingClass.endsWith("YouTubePlayerOverlaysLayout;")
+    }
 )
