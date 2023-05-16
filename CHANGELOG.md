@@ -1,3 +1,10 @@
+# [2.174.0-dev.33](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.32...v2.174.0-dev.33) (2023-05-16)
+
+
+### Bug Fixes
+
+* **youtube/spoof-signature-verification:** adjusting summary text ([#2169](https://github.com/revanced/revanced-patches/issues/2169)) ([4ccb1ee](https://github.com/revanced/revanced-patches/commit/4ccb1ee0b988bc0ddd6a0c986975b17caa828770))
+
 # [2.174.0-dev.32](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.31...v2.174.0-dev.32) (2023-05-16)
 
 
