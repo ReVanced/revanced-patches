@@ -150,6 +150,16 @@ The official ReVanced Patches.
 | `spotify-theme` | Applies a custom theme. | all |
 </details>
 
+### [📦 `com.facebook.orca`](https://play.google.com/store/apps/details?id=com.facebook.orca)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `disable-switching-emoji-to-sticker-in-message-input-field` | Disables switching from emoji to sticker search mode in message input field | all |
+| `disable-typing-indicator` | Disables the indicator while typing a message | all |
+| `hide-inbox-ads` | Hides ads in inbox. | all |
+</details>
+
 ### [📦 `com.reddit.frontpage`](https://play.google.com/store/apps/details?id=com.reddit.frontpage)
 <details>
 
@@ -158,15 +168,6 @@ The official ReVanced Patches.
 | `general-reddit-ads` | Removes general ads from the Reddit frontpage and subreddits. | 2023.12.0 |
 | `hide-subreddit-banner` | Hides banner ads from comments on subreddits. | 2023.12.0 |
 | `premium-icon-reddit` | Unlocks premium Reddit app icons. | all |
-</details>
-
-### [📦 `com.facebook.orca`](https://play.google.com/store/apps/details?id=com.facebook.orca)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `disable-switching-emoji-to-sticker-in-message-input-field` | Disables switching from emoji to sticker search mode in message input field | all |
-| `hide-inbox-ads` | Hides ads in inbox. | all |
 </details>
 
 ### [📦 `at.gv.bmf.bmf2go`](https://play.google.com/store/apps/details?id=at.gv.bmf.bmf2go)
@@ -353,6 +354,14 @@ The official ReVanced Patches.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `unlock-pro` | Unlocks pro features. | 4.6377 |
+</details>
+
+### [📦 `com.candylink.openvpn`](https://play.google.com/store/apps/details?id=com.candylink.openvpn)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-pro` | Unlocks premium features. | all |
 </details>
 
 ### [📦 `org.totschnig.myexpenses`](https://play.google.com/store/apps/details?id=org.totschnig.myexpenses)

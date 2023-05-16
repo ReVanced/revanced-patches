@@ -1,3 +1,11 @@
+# [2.174.0-dev.31](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.30...v2.174.0-dev.31) (2023-05-16)
+
+
+### Features
+
+* **candylinkvpn:** add `unlock-pro` patch ([#2157](https://github.com/revanced/revanced-patches/issues/2157)) ([7159f86](https://github.com/revanced/revanced-patches/commit/7159f867801300d4ae32937743de59421de76238))
+* **messenger:** add `disable-typing-indicator` patch ([#2115](https://github.com/revanced/revanced-patches/issues/2115)) ([5d1de4f](https://github.com/revanced/revanced-patches/commit/5d1de4f4eab83e61cfc1c4aaee74179afcb9431f))
+
 # [2.174.0-dev.30](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.29...v2.174.0-dev.30) (2023-05-16)
 
 
