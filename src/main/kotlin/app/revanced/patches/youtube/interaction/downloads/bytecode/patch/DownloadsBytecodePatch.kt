@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.video.information.patch.VideoInformationPatc
 @Patch
 @Name("downloads")
 @DependsOn([DownloadsResourcePatch::class, PlayerControlsBytecodePatch::class, VideoInformationPatch::class])
-@Description("Enables downloading music and videos from YouTube.")
+@Description("Adds a download button to the YouTube video player.")
 @DownloadsCompatibility
 @Version("0.0.1")
 class DownloadsBytecodePatch : BytecodePatch() {
