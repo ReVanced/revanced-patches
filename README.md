@@ -372,6 +372,14 @@ The official ReVanced Patches.
 | `unlock-pro` | Unlocks all professional features. | 3.4.9 |
 </details>
 
+### [📦 `com.vsco.cam`](https://play.google.com/store/apps/details?id=com.vsco.cam)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-pro` | Unlocks pro features. | all |
+</details>
+
 ### [📦 `com.ticktick.task`](https://play.google.com/store/apps/details?id=com.ticktick.task)
 <details>
 

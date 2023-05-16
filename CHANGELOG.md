@@ -1,3 +1,10 @@
+# [2.174.0-dev.34](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.33...v2.174.0-dev.34) (2023-05-16)
+
+
+### Features
+
+* **vsco:** add `unlock-pro` patch ([#2168](https://github.com/revanced/revanced-patches/issues/2168)) ([7ffd1a0](https://github.com/revanced/revanced-patches/commit/7ffd1a09a7bcf09bc7e7d5f3c8c8613ca34c8c59))
+
 # [2.174.0-dev.33](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.32...v2.174.0-dev.33) (2023-05-16)
 
 
