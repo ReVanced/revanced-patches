@@ -34,10 +34,16 @@ public class ReturnYouTubeDislikeSettingsFragment extends PreferenceFragment {
      */
     private SwitchPreference compactLayoutPreference;
 
+    /**
+     * If segmented like/dislike button uses smaller compact layout.
+     */
+    private SwitchPreference toastOnRYDNotAvailable;
+
     private void updateUIState() {
         shortsPreference.setEnabled(SettingsEnum.RYD_SHORTS.isAvailable());
         percentagePreference.setEnabled(SettingsEnum.RYD_DISLIKE_PERCENTAGE.isAvailable());
         compactLayoutPreference.setEnabled(SettingsEnum.RYD_COMPACT_LAYOUT.isAvailable());
+        toastOnRYDNotAvailable.setEnabled(SettingsEnum.RYD_TOAST_ON_CONNECTION_ERROR.isAvailable());
     }
 
     @Override
@@ -101,6 +107,18 @@ public class ReturnYouTubeDislikeSettingsFragment extends PreferenceFragment {
             return true;
         });
         preferenceScreen.addPreference(compactLayoutPreference);
+
+        toastOnRYDNotAvailable = new SwitchPreference(context);
+        toastOnRYDNotAvailable.setChecked(SettingsEnum.RYD_TOAST_ON_CONNECTION_ERROR.getBoolean());
+        toastOnRYDNotAvailable.setTitle(str("ryd_toast_on_connection_error_title"));
+        toastOnRYDNotAvailable.setSummaryOn(str("ryd_toast_on_connection_error_summary_on"));
+        toastOnRYDNotAvailable.setSummaryOff(str("ryd_toast_on_connection_error_summary_off"));
+        toastOnRYDNotAvailable.setOnPreferenceChangeListener((pref, newValue) -> {
+            SettingsEnum.RYD_TOAST_ON_CONNECTION_ERROR.saveValue(newValue);
+            updateUIState();
+            return true;
+        });
+        preferenceScreen.addPreference(toastOnRYDNotAvailable);
 
         updateUIState();
 

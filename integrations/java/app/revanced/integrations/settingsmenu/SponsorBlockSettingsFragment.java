@@ -52,6 +52,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
     private SwitchPreference showSkipToast;
     private SwitchPreference trackSkips;
     private SwitchPreference showTimeWithoutSegments;
+    private SwitchPreference toastOnConnectionError;
 
     private EditTextPreference newSegmentStep;
     private EditTextPreference minSegmentDuration;
@@ -89,6 +90,9 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
 
             showSkipToast.setChecked(SettingsEnum.SB_TOAST_ON_SKIP.getBoolean());
             showSkipToast.setEnabled(enabled);
+
+            toastOnConnectionError.setChecked(SettingsEnum.SB_TOAST_ON_CONNECTION_ERROR.getBoolean());
+            toastOnConnectionError.setEnabled(enabled);
 
             trackSkips.setChecked(SettingsEnum.SB_TRACK_SKIP_COUNT.getBoolean());
             trackSkips.setEnabled(enabled);
@@ -282,6 +286,17 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
         PreferenceCategory category = new PreferenceCategory(context);
         screen.addPreference(category);
         category.setTitle(str("sb_general"));
+
+        toastOnConnectionError = new SwitchPreference(context);
+        toastOnConnectionError.setTitle(str("sb_toast_on_connection_error_title"));
+        toastOnConnectionError.setSummaryOn(str("sb_toast_on_connection_error_summary_on"));
+        toastOnConnectionError.setSummaryOff(str("sb_toast_on_connection_error_summary_off"));
+        toastOnConnectionError.setOnPreferenceChangeListener((preference1, newValue) -> {
+            SettingsEnum.SB_TOAST_ON_CONNECTION_ERROR.saveValue(newValue);
+            updateUI();
+            return true;
+        });
+        category.addPreference(toastOnConnectionError);
 
         trackSkips = new SwitchPreference(context);
         trackSkips.setTitle(str("sb_general_skipcount"));
