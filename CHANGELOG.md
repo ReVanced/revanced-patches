@@ -1,3 +1,10 @@
+# [2.174.0-dev.29](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.28...v2.174.0-dev.29) (2023-05-16)
+
+
+### Features
+
+* **youtube/downloads:** improve patch description ([e0f6452](https://github.com/revanced/revanced-patches/commit/e0f64520d0235ea219f1965ba34b7e52ded9c1d9))
+
 # [2.174.0-dev.28](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.27...v2.174.0-dev.28) (2023-05-15)
 
 

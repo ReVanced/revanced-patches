@@ -20,7 +20,7 @@ The official ReVanced Patches.
 | `disable-player-popup-panels` | Disables panels from appearing automatically when going into fullscreen (playlist or live chat). | 18.16.37 |
 | `disable-shorts-on-startup` | Disables playing YouTube Shorts when launching YouTube. | 18.16.37 |
 | `disable-zoom-haptics` | Disables haptics when zooming. | all |
-| `downloads` | Enables downloading music and videos from YouTube. | 18.16.37 |
+| `downloads` | Adds a download button to the YouTube video player. | 18.16.37 |
 | `enable-debugging` | Adds debugging options. | all |
 | `general-ads` | Removes general ads. | 18.16.37 |
 | `hdr-auto-brightness` | Makes the brightness of HDR videos follow the system default. | 18.16.37 |
