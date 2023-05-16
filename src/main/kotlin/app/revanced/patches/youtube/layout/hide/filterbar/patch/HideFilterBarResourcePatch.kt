@@ -70,6 +70,10 @@ class HideFilterBarResourcePatch : ResourcePatch {
                         )
                     ),
                 ),
+                StringResource(
+                    "revanced_hide_filter_bar_preference_summary",
+                    "Manage the visibility of the filter bar in the feed, search and related videos"
+                )
             )
         )
 
