@@ -1,8 +1,8 @@
-package app.revanced.patches.youtube.layout.searchbar.annotations
+package app.revanced.patches.youtube.layout.hide.watchinvr.annotations
 
 import app.revanced.patcher.annotation.Compatibility
 import app.revanced.patcher.annotation.Package
 
 @Compatibility([Package("com.google.android.youtube", arrayOf("18.16.37"))])
 @Target(AnnotationTarget.CLASS)
-internal annotation class WideSearchbarCompatibility
+internal annotation class WatchInVRCompatibility
