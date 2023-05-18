@@ -5,12 +5,16 @@ import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsResourc
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
-object ThemeSetterSystemFingerprint : MethodFingerprint(
-    "L",
+object SetThemeFingerprint : MethodFingerprint(
+    returnType = "L",
     opcodes = listOf(Opcode.RETURN_OBJECT),
     customFingerprint = { methodDef, _ ->
-        methodDef.implementation?.instructions?.any {
-            it.opcode.ordinal == Opcode.CONST.ordinal && (it as WideLiteralInstruction).wideLiteral == SettingsResourcePatch.appearanceStringId
-        } == true
+        methodDef.implementation?.instructions?.any { instruction ->
+            if (instruction.opcode != Opcode.CONST) return@any false
+
+            val wideLiteral = (instruction as WideLiteralInstruction).wideLiteral
+
+            SettingsResourcePatch.appearanceStringId == wideLiteral
+        } ?: false
     }
 )
