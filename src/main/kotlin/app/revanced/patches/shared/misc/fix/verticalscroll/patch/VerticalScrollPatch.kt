@@ -13,7 +13,7 @@ import app.revanced.patches.shared.misc.fix.verticalscroll.annotations.VerticalS
 import app.revanced.patches.shared.misc.fix.verticalscroll.fingerprints.CanScrollVerticallyFingerprint
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Description("Fixes issues with scrolling on the home screen when the first component is of type EmptyComponent.")
+@Description("Fixes issues with refreshing the feed when the first component is of type EmptyComponent.")
 @VerticalScrollCompatibility
 @Version("0.0.1")
 class VerticalScrollPatch : BytecodePatch(
