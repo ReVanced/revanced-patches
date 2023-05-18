@@ -146,7 +146,7 @@ public enum SettingsEnum {
     DISABLE_ZOOM_HAPTICS("revanced_disable_zoom_haptics", BOOLEAN, TRUE),
     EXTERNAL_BROWSER("revanced_external_browser", BOOLEAN, TRUE, true),
     AUTO_REPEAT("revanced_auto_repeat", BOOLEAN, FALSE),
-    TAP_SEEKING("revanced_tap_seeking", BOOLEAN, TRUE),
+    SEEKBAR_TAPPING("revanced_seekbar_tapping", BOOLEAN, TRUE),
     SPOOF_SIGNATURE_VERIFICATION("revanced_spoof_signature_verification", BOOLEAN, TRUE, "revanced_spoof_signature_verification_user_dialog_message"),
 
     // Swipe controls
@@ -553,7 +553,7 @@ public enum SettingsEnum {
 
                 {DEPRECATED_EXTERNAL_BROWSER, EXTERNAL_BROWSER},
                 {DEPRECATED_AUTO_REPEAT, AUTO_REPEAT},
-                {DEPRECATED_TAP_SEEKING, TAP_SEEKING},
+                {DEPRECATED_TAP_SEEKING, SEEKBAR_TAPPING},
                 {DEPRECATED_HDR_AUTO_BRIGHTNESS, HDR_AUTO_BRIGHTNESS},
 
                 {DEPRECATED_RYD_USER_ID, RYD_USER_ID},

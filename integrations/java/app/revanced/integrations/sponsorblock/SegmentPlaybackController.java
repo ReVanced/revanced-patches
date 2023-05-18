@@ -1,22 +1,11 @@
 package app.revanced.integrations.sponsorblock;
 
-import static app.revanced.integrations.utils.StringRef.str;
-
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.text.TextUtils;
 import android.util.TypedValue;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Objects;
-
 import app.revanced.integrations.patches.VideoInformation;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.shared.PlayerType;
@@ -28,6 +17,11 @@ import app.revanced.integrations.sponsorblock.requests.SBRequester;
 import app.revanced.integrations.sponsorblock.ui.SponsorBlockViewController;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
+
+import java.lang.reflect.Field;
+import java.util.*;
+
+import static app.revanced.integrations.utils.StringRef.str;
 
 /**
  * Handles showing, scheduling, and skipping of all {@link SponsorSegment} for the current video.
@@ -619,10 +613,7 @@ public class SegmentPlaybackController {
         }
     }
 
-    /**
-     * Injection point.
-     */
-    public static void setSponsorBarAbsoluteLeft(Rect rect) {
+    private static void setSponsorBarAbsoluteLeft(Rect rect) {
         final int left = rect.left;
         if (sponsorBarAbsoluteLeft != left) {
             LogHelper.printDebug(() -> "setSponsorBarAbsoluteLeft: " + left);
@@ -630,10 +621,7 @@ public class SegmentPlaybackController {
         }
     }
 
-    /**
-     * Injection point.
-     */
-    public static void setSponsorBarAbsoluteRight(Rect rect) {
+    private static void setSponsorBarAbsoluteRight(Rect rect) {
         final int right = rect.right;
         if (sponsorAbsoluteBarRight != right) {
             LogHelper.printDebug(() -> "setSponsorBarAbsoluteRight: " +  right);
