@@ -19,9 +19,9 @@ import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.video.information.patch.VideoInformationPatch
-import app.revanced.patches.youtube.video.information.patch.VideoInformationPatch.Companion.reference
 import app.revanced.patches.youtube.video.speed.custom.patch.CustomVideoSpeedPatch
 import app.revanced.patches.youtube.video.speed.remember.fingerprint.InitializePlaybackSpeedValuesFingerprint
+import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
 @Name("remember-playback-speed")
 @Description("Adds the ability to remember the playback speed you chose in the video playback speed flyout.")
@@ -78,7 +78,8 @@ class RememberPlaybackSpeedPatch : BytecodePatch(
          */
         InitializePlaybackSpeedValuesFingerprint.result?.apply {
             // Infer everything necessary for calling the method setPlaybackSpeed().
-            val onItemClickListenerClassFieldReference = mutableMethod.instruction(0).reference
+            val onItemClickListenerClassFieldReference =
+                mutableMethod.instruction<ReferenceInstruction>(0).reference
 
             // Registers are not used at index 0, so they can be freely used.
             mutableMethod.addInstructions(

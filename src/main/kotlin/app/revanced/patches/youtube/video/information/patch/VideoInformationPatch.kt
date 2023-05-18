@@ -28,7 +28,6 @@ import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.builder.BuilderInstruction
 import org.jf.dexlib2.builder.MutableMethodImplementation
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
-import org.jf.dexlib2.iface.instruction.Instruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.immutable.ImmutableMethod
@@ -218,9 +217,8 @@ class VideoInformationPatch : BytecodePatch(
             )
 
         private fun getReference(instructions: List<BuilderInstruction>, offset: Int, opcode: Opcode) =
-            instructions[instructions.indexOfFirst { it.opcode == opcode } + offset].reference
-
-        val Instruction.reference get() = (this as ReferenceInstruction).reference.toString()
+            (instructions[instructions.indexOfFirst { it.opcode == opcode } + offset] as ReferenceInstruction)
+                .reference.toString()
 
         private lateinit var speedSelectionInsertMethod: MutableMethod
         private var speedSelectionInsertIndex = 0
