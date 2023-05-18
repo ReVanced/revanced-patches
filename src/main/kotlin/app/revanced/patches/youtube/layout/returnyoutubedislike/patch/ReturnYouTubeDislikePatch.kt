@@ -99,7 +99,7 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
             val atomicReferenceStartIndex = TextComponentAtomicReferenceFingerprint.result!!
                 .scanResult.patternScanResult!!.startIndex
 
-            val insertIndex = atomicReferenceStartIndex + 8
+            val insertIndex = atomicReferenceStartIndex + 7
 
             textComponentContextFingerprintResult.mutableMethod.apply {
                 // Get the conversion context obfuscated field name, and the registers for the AtomicReference and CharSequence
@@ -111,7 +111,7 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
                     instruction<TwoRegisterInstruction>(atomicReferenceStartIndex).registerB
 
                 val atomicReferenceRegister =
-                    instruction<FiveRegisterInstruction>(atomicReferenceStartIndex + 5).registerC
+                    instruction<FiveRegisterInstruction>(atomicReferenceStartIndex + 4).registerC
 
                 val moveCharSequenceInstruction = instruction<TwoRegisterInstruction>(insertIndex)
                 val charSequenceRegister = moveCharSequenceInstruction.registerB

@@ -8,8 +8,8 @@ import app.revanced.patcher.patch.*
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.layout.seekbar.bytecode.patch.SeekbarColorBytecodePatch
-import app.revanced.patches.youtube.layout.theme.resource.ThemeResourcePatch
 import app.revanced.patches.youtube.layout.theme.annotations.ThemeCompatibility
+import app.revanced.patches.youtube.layout.theme.resource.ThemeResourcePatch
 
 @Patch
 @Name("theme")
@@ -43,6 +43,15 @@ class ThemeBytecodePatch : BytecodePatch() {
                 default = "@android:color/white",
                 title = "Background color for the light theme",
                 description = "The background color of the light theme. Can be a hex color or a resource reference.",
+            )
+        )
+
+        var splashScreenBackgroundColor: String? by option(
+            PatchOption.StringOption(
+                key = "splashScreenBackgroundColor",
+                default = "@android:color/black",
+                title = "Background color for the splash screen",
+                description = "The background color of the splash screen. Can be a hex color or a resource reference.",
             )
         )
     }

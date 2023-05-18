@@ -13,8 +13,7 @@ object TextComponentAtomicReferenceFingerprint : MethodFingerprint(
     access = AccessFlags.PROTECTED or AccessFlags.FINAL,
     parameters = listOf("L"),
     opcodes = listOf(
-        Opcode.MOVE_OBJECT, // available unused register
-        Opcode.MOVE_OBJECT_FROM16,
+        Opcode.MOVE_OBJECT_FROM16, // available unused register
         Opcode.MOVE_OBJECT_FROM16,
         Opcode.MOVE_OBJECT_FROM16,
         Opcode.MOVE_OBJECT_FROM16,

@@ -10,35 +10,19 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.video.oldqualitylayout.annotations.OldQualityLayoutCompatibility
 import app.revanced.patches.youtube.video.oldqualitylayout.fingerprints.QualityMenuViewInflateFingerprint
-import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch
-@DependsOn([IntegrationsPatch::class, SettingsPatch::class])
+@DependsOn([IntegrationsPatch::class, OldQualityLayoutResourcePatch::class])
 @Name("old-quality-layout")
-@Description("Enables the original video quality flyout in the video player settings")
+@Description("Enables the original video quality flyout in the video player settings.")
 @OldQualityLayoutCompatibility
 @Version("0.0.1")
-// new ReVanced users have no idea what it means to use the "old quality layout menu"
-// maybe rename this patch to better describe what it provides (ie: user-selectable-video-resolution )
-class OldQualityLayoutPatch : BytecodePatch(
-    listOf(QualityMenuViewInflateFingerprint)
-) {
+class OldQualityLayoutPatch : BytecodePatch(listOf(QualityMenuViewInflateFingerprint)) {
     override fun execute(context: BytecodeContext): PatchResult {
-        SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
-            SwitchPreference(
-                "revanced_show_old_video_menu",
-                StringResource("revanced_show_old_video_menu_title", "Use old video quality player menu"),
-                StringResource("revanced_show_old_video_menu_summary_on", "Old video quality menu is used"),
-                StringResource("revanced_show_old_video_menu_summary_off", "Old video quality menu is not used")
-            )
-        )
-
         val inflateFingerprintResult = QualityMenuViewInflateFingerprint.result!!
         val method = inflateFingerprintResult.mutableMethod
         val instructions = method.implementation!!.instructions

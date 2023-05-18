@@ -1,34 +1,34 @@
 package app.revanced.patches.youtube.interaction.seekbar.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.method.annotation.FuzzyPatternScanMethod
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
 
 
-@FuzzyPatternScanMethod(2) // FIXME: Test this threshold and find the best value.
 object SeekbarTappingFingerprint : MethodFingerprint(
-    "Z", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf("L"), listOf(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_WIDE,
-        Opcode.IGET,
-        Opcode.IGET_OBJECT,
-        Opcode.IGET,
-        Opcode.DIV_INT_2ADDR,
-        Opcode.ADD_INT,
-        Opcode.SUB_INT_2ADDR,
-        Opcode.INT_TO_FLOAT,
-        Opcode.CMPG_FLOAT,
-        Opcode.IF_GTZ,
-        Opcode.INT_TO_FLOAT,
-        Opcode.CMPG_FLOAT,
-        Opcode.IF_GTZ,
-        Opcode.CONST_4,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.NEW_INSTANCE,
-        Opcode.INVOKE_DIRECT,
+    returnType = "Z",
+    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("L"),
+    opcodes = listOf(
         Opcode.IPUT_OBJECT,
-        Opcode.INVOKE_VIRTUAL
-    )
+        Opcode.INVOKE_VIRTUAL,
+        // Insert seekbar tapping instructions here.
+        Opcode.RETURN,
+        Opcode.INVOKE_VIRTUAL,
+    ),
+    customFingerprint = custom@{ methodDef, _ ->
+        if (methodDef.name != "onTouchEvent") return@custom false
+
+        methodDef.implementation!!.instructions.any { instruction ->
+            if (instruction.opcode != Opcode.CONST) return@any false
+
+            val literal = (instruction as NarrowLiteralInstruction).narrowLiteral
+
+            // onTouchEvent method contains a CONST instruction
+            // with this literal making it unique with the rest of the properties of this fingerprint.
+            literal == Integer.MAX_VALUE
+        }
+    }
 )
