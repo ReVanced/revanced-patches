@@ -44,7 +44,7 @@ class MinimizedPlaybackPatch : BytecodePatch(
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             NonInteractivePreference(
                 StringResource("revanced_minimized_playback_enabled_title", "Minimized playback"),
-                StringResource("revanced_minimized_playback_summary_on", "This setting can be found in Settings -> General")
+                StringResource("revanced_minimized_playback_summary_on", "This setting can be found in Settings -> Background")
             )
         )
 
