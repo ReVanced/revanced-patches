@@ -16,6 +16,7 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 import app.revanced.util.resources.ResourceUtils.mergeStrings
+import org.w3c.dom.Element
 import org.w3c.dom.Node
 
 @Name("settings-resource-patch")
@@ -34,40 +35,51 @@ class SettingsResourcePatch : AbstractSettingsResourcePatch(
             it.type == "string" && it.name == "app_theme_appearance_dark"
         }!!.id
 
-
-        // Create missing directory for the resources.
-        context["res/drawable-ldrtl-xxxhdpi"].mkdirs()
-
-
-        // Copy layout resources.
+        /*
+         * copy layout resources
+         */
         arrayOf(
-            ResourceUtils.ResourceGroup(
-                "layout",
-                "revanced_settings_toolbar.xml",
-                "revanced_settings_with_toolbar.xml",
-                "revanced_settings_with_toolbar_layout.xml"
-            ), ResourceUtils.ResourceGroup(
-                // required resource for back button, because when the base APK is used, this resource will not exist
-                "drawable-xxxhdpi", "quantum_ic_arrow_back_white_24.png"
-            ), ResourceUtils.ResourceGroup(
-                // required resource for back button, because when the base APK is used, this resource will not exist
-                "drawable-ldrtl-xxxhdpi", "quantum_ic_arrow_back_white_24.png"
-            )
+            ResourceUtils.ResourceGroup("layout", "revanced_settings_with_toolbar.xml")
         ).forEach { resourceGroup ->
             context.copyResources("settings", resourceGroup)
         }
 
         preferencesEditor = context.xmlEditor["res/xml/settings_fragment.xml"]
 
-        // Add the ReVanced settings to the YouTube settings.
-        val youtubePackage = "com.google.android.youtube"
+        // Modify the manifest and add an data intent filter to the LicenseActivity.
+        // Some devices freak out if undeclared data is passed to an intent,
+        // and this change appears to fix the issue.
+        context.xmlEditor["AndroidManifest.xml"].use { editor ->
+            // An xml regular expression would probably work better than this manual searching.
+            val manifestNodes = editor.file.getElementsByTagName("manifest").item(0).childNodes
+            for (i in 0..manifestNodes.length) {
+                val node = manifestNodes.item(i)
+                if (node != null && node.nodeName == "application") {
+                    val applicationNodes = node.childNodes
+                    for (j in 0..applicationNodes.length) {
+                        val applicationChild = applicationNodes.item(j)
+                        if (applicationChild is Element && applicationChild.nodeName == "activity"
+                            && applicationChild.getAttribute("android:name") == "com.google.android.libraries.social.licenses.LicenseActivity"
+                        ) {
+                            val intentFilter = editor.file.createElement("intent-filter")
+                            val mimeType = editor.file.createElement("data")
+                            mimeType.setAttribute("android:mimeType", "text/plain")
+                            intentFilter.appendChild(mimeType)
+                            applicationChild.appendChild(intentFilter)
+                            break
+                        }
+                    }
+                }
+            }
+        }
+
+
+        // Add the ReVanced settings to the YouTube settings
         SettingsPatch.addPreference(
             Preference(
                 StringResource("revanced_settings", "ReVanced"),
                 StringResource("revanced_settings_summary", "ReVanced specific settings"),
-                Preference.Intent(
-                    youtubePackage, "revanced_settings", "com.google.android.libraries.social.licenses.LicenseActivity"
-                )
+                SettingsPatch.createReVancedSettingsIntent("revanced_settings")
             )
         )
 

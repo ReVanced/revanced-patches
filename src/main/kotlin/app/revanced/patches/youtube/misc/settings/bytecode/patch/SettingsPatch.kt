@@ -60,14 +60,17 @@ class SettingsPatch : BytecodePatch(
                 }
         } ?: return SetThemeFingerprint.toErrorResult()
 
-        // set the theme based on the preference of the device
+
+        // Modify the license activity and remove all existing layout code.
+        // Must modify an existing activity and cannot add a new activity to the manifest,
+        // as that fails for root installations.
         LicenseActivityFingerprint.result!!.apply licenseActivity@{
             mutableMethod.apply {
                 fun buildSettingsActivityInvokeString(
                     registers: String = "p0",
                     classDescriptor: String = SETTINGS_ACTIVITY_DESCRIPTOR,
                     methodName: String = "initializeSettings",
-                    parameters: String = this@licenseActivity.mutableClass.type
+                    parameters: String = "Landroid/app/Activity;"
                 ) = getSetThemeInstructionString(registers, classDescriptor, methodName, parameters)
 
                 // initialize the settings
@@ -77,9 +80,6 @@ class SettingsPatch : BytecodePatch(
                         return-void
                     """
                 )
-
-                // set the current theme
-                addInstruction(0, buildSettingsActivityInvokeString(methodName = "setTheme"))
             }
 
             // remove method overrides
@@ -88,14 +88,13 @@ class SettingsPatch : BytecodePatch(
             }
         }
 
+
         return PatchResultSuccess()
     }
 
     internal companion object {
         private const val INTEGRATIONS_PACKAGE = "app/revanced/integrations"
-
         private const val SETTINGS_ACTIVITY_DESCRIPTOR = "L$INTEGRATIONS_PACKAGE/settingsmenu/ReVancedSettingActivity;"
-
         private const val THEME_HELPER_DESCRIPTOR = "L$INTEGRATIONS_PACKAGE/utils/ThemeHelper;"
         private const val SET_THEME_METHOD_NAME = "setTheme"
 
@@ -110,6 +109,15 @@ class SettingsPatch : BytecodePatch(
         fun renameIntentsTargetPackage(newPackage: String) {
             SettingsResourcePatch.overrideIntentsTargetPackage = newPackage
         }
+
+        /**
+         * Creates an intent to open ReVanced settings of the given name
+         */
+        fun createReVancedSettingsIntent(settingsName: String) = Preference.Intent(
+            "com.google.android.youtube",
+            settingsName,
+            "com.google.android.libraries.social.licenses.LicenseActivity"
+        )
     }
 
     /**

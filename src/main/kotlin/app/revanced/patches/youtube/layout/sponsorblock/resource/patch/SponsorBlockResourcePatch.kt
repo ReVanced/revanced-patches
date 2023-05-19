@@ -22,16 +22,11 @@ import app.revanced.util.resources.ResourceUtils.mergeStrings
 class SponsorBlockResourcePatch : ResourcePatch {
 
     override fun execute(context: ResourceContext): PatchResult {
-        val youtubePackage = "com.google.android.youtube"
         SettingsPatch.addPreference(
             Preference(
-                StringResource("sb_settings", "SponsorBlock"),
+                StringResource("revanced_sponsorblock_settings_title", "SponsorBlock"),
                 StringResource("revanced_sponsorblock_settings_summary", "SponsorBlock related settings"),
-                Preference.Intent(
-                    youtubePackage,
-                    "sponsorblock_settings",
-                    "com.google.android.libraries.social.licenses.LicenseActivity"
-                )
+                SettingsPatch.createReVancedSettingsIntent("sponsorblock_settings")
             )
         )
         val classLoader = this.javaClass.classLoader
