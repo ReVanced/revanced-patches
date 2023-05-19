@@ -4,13 +4,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.widget.ImageView;
+
 import androidx.annotation.NonNull;
-import app.revanced.integrations.settings.SettingsEnum;
-import app.revanced.integrations.utils.LogHelper;
-import app.revanced.integrations.utils.ReVancedUtils;
+import androidx.annotation.Nullable;
 
 import java.lang.ref.WeakReference;
 import java.util.Objects;
+
+import app.revanced.integrations.settings.SettingsEnum;
+import app.revanced.integrations.utils.LogHelper;
+import app.revanced.integrations.utils.ReVancedUtils;
 
 public abstract class BottomControlButton {
     private static final Animation fadeIn;
@@ -40,7 +43,8 @@ public abstract class BottomControlButton {
     }
 
     public BottomControlButton(@NonNull ViewGroup bottomControlsViewGroup, @NonNull String imageViewButtonId,
-                               @NonNull SettingsEnum booleanSetting, @NonNull View.OnClickListener onClickListener) {
+                               @NonNull SettingsEnum booleanSetting, @NonNull View.OnClickListener onClickListener,
+                               @Nullable View.OnLongClickListener longClickListener) {
         LogHelper.printDebug(() -> "Initializing button: " + imageViewButtonId);
 
         if (booleanSetting.returnType != SettingsEnum.ReturnType.BOOLEAN) {
@@ -53,6 +57,9 @@ public abstract class BottomControlButton {
                 ReVancedUtils.getResourceIdentifier(imageViewButtonId, "id")
         ));
         imageView.setOnClickListener(onClickListener);
+        if (longClickListener != null) {
+            imageView.setOnLongClickListener(longClickListener);
+        }
         imageView.setVisibility(View.GONE);
 
         buttonRef = new WeakReference<>(imageView);

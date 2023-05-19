@@ -22,16 +22,17 @@ public class DownloadButton extends BottomControlButton {
                 viewGroup,
                 "download_button",
                 SettingsEnum.EXTERNAL_DOWNLOADER,
-                DownloadButton::onDownloadClick
+                DownloadButton::onDownloadClick,
+                null
         );
     }
 
     /**
      * Injection point.
      */
-    public static void initializeButton(Object obj) {
+    public static void initializeButton(View view) {
         try {
-            instance = new DownloadButton((ViewGroup) obj);
+            instance = new DownloadButton((ViewGroup) view);
         } catch (Exception ex) {
             LogHelper.printException(() -> "initializeButton failure", ex);
         }

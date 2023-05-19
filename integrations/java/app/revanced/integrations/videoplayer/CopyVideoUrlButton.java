@@ -1,5 +1,6 @@
 package app.revanced.integrations.videoplayer;
 
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
@@ -17,16 +18,20 @@ public class CopyVideoUrlButton extends BottomControlButton {
                 viewGroup,
                 "copy_video_url_button",
                 SettingsEnum.COPY_VIDEO_URL,
-                view -> CopyVideoUrlPatch.copyUrl(false)
+                view -> CopyVideoUrlPatch.copyUrl(false),
+                view -> {
+                    CopyVideoUrlPatch.copyUrl(true);
+                    return true;
+                }
         );
     }
 
     /**
      * Injection point.
      */
-    public static void initializeButton(Object obj) {
+    public static void initializeButton(View view) {
         try {
-            instance = new CopyVideoUrlButton((ViewGroup) obj);
+            instance = new CopyVideoUrlButton((ViewGroup) view);
         } catch (Exception ex) {
             LogHelper.printException(() -> "initializeButton failure", ex);
         }

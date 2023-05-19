@@ -37,7 +37,7 @@ public enum SettingsEnum {
             "org.schabi.newpipe" /* NewPipe */, parents(EXTERNAL_DOWNLOADER)),
 
     // Copy video URL
-    COPY_VIDEO_URL("revanced_copy_video_url", BOOLEAN, TRUE),
+    COPY_VIDEO_URL("revanced_copy_video_url", BOOLEAN, FALSE),
     COPY_VIDEO_URL_TIMESTAMP("revanced_copy_video_url_timestamp", BOOLEAN, TRUE),
 
     // Video
