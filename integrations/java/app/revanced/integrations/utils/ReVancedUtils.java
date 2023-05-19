@@ -10,15 +10,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.*;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
+import android.widget.Toolbar;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import app.revanced.integrations.settings.SettingsEnum;
 
 import java.text.Bidi;
 import java.util.Locale;
 import java.util.Objects;
-import java.util.concurrent.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Future;
+import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
+import app.revanced.integrations.settings.SettingsEnum;
 
 public class ReVancedUtils {
 
@@ -122,6 +132,24 @@ public class ReVancedUtils {
 
     public static float getResourceDimension(@NonNull String resourceIdentifierName) throws Resources.NotFoundException {
         return getContext().getResources().getDimension(getResourceIdentifier(resourceIdentifierName, "dimen"));
+    }
+
+    /**
+     * @return The first child view that matches the filter.
+     */
+    @Nullable
+    public static <T extends View> T getChildView(@NonNull ViewGroup viewGroup, @NonNull MatchFilter filter) {
+        for (int i = 0, childCount = viewGroup.getChildCount(); i < childCount; i++) {
+            View childAt = viewGroup.getChildAt(i);
+            if (filter.matches(childAt)) {
+                return (T) childAt;
+            }
+        }
+        return null;
+    }
+
+    public interface MatchFilter<T> {
+        boolean matches(T object);
     }
 
     public static Context getContext() {
