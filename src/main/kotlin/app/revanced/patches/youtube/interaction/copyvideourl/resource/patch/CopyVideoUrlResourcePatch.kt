@@ -14,6 +14,7 @@ import app.revanced.patches.youtube.misc.playercontrols.resource.patch.BottomCon
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
+import app.revanced.util.resources.ResourceUtils.mergeStrings
 
 @Name("copy-video-url-resource")
 @DependsOn([BottomControlsResourcePatch::class, SettingsPatch::class])
@@ -28,13 +29,13 @@ class CopyVideoUrlResourcePatch : ResourcePatch {
                     SwitchPreference(
                         "revanced_copy_video_url",
                         StringResource("revanced_copy_video_url_title", "Show copy video URL button"),
-                        StringResource("revanced_copy_video_url_summary_on", "Button is shown, click to copy video URL without timestamp"),
+                        StringResource("revanced_copy_video_url_summary_on", "Button is shown. Tap to copy video URL. Tap and hold to copy video URL with timestamp"),
                         StringResource("revanced_copy_video_url_summary_off", "Button is not shown")
                     ),
                     SwitchPreference(
                         "revanced_copy_video_url_timestamp",
                         StringResource("revanced_copy_video_url_timestamp_title", "Show copy timestamp URL button"),
-                        StringResource("revanced_copy_video_url_timestamp_summary_on", "Button is shown, click to copy video URL with timestamp"),
+                        StringResource("revanced_copy_video_url_timestamp_summary_on", "Button is shown.  Tap to copy video URL with timestamp. Tap and hold to copy video without timestamp"),
                         StringResource("revanced_copy_video_url_timestamp_summary_off", "Button is not shown")
                     )
                 ),
@@ -47,6 +48,9 @@ class CopyVideoUrlResourcePatch : ResourcePatch {
             "revanced_yt_copy.xml",
             "revanced_yt_copy_timestamp.xml"
         ))
+
+        // merge strings
+        context.mergeStrings("copyvideourl/host/values/strings.xml")
 
         BottomControlsResourcePatch.addControls("copyvideourl/host/layout/${BottomControlsResourcePatch.TARGET_RESOURCE_NAME}")
 
