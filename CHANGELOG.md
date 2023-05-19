@@ -1,3 +1,22 @@
+# [2.174.0-dev.35](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.34...v2.174.0-dev.35) (2023-05-19)
+
+
+### Bug Fixes
+
+* **youtube/minimized-playback:** update settings description ([#2191](https://github.com/revanced/revanced-patches/issues/2191)) ([a561a9a](https://github.com/revanced/revanced-patches/commit/a561a9afc233e466459546fcc8452800ec56e057))
+* **youtube/settings:** fix non functional back button in settings ([#2178](https://github.com/revanced/revanced-patches/issues/2178)) ([46da834](https://github.com/revanced/revanced-patches/commit/46da83430f69b451f971bf5e9261e9d64d1a365c))
+
+
+### Features
+
+* add capability to filter from protobuf buffer ([b738b6b](https://github.com/revanced/revanced-patches/commit/b738b6bf3506f222844ef4bca99a91f78d331391))
+* use consistent names for patches ([6347146](https://github.com/revanced/revanced-patches/commit/634714690086168e63d6aa9475893135cb58db68))
+* **youtube/copy-video-url:** add tap and hold functionality to copy video url buttons ([#2174](https://github.com/revanced/revanced-patches/issues/2174)) ([95bbf46](https://github.com/revanced/revanced-patches/commit/95bbf46e77a608bd7ba8f0073d50fef01012d4df))
+* **youtube/hide-shorts-components:** hide navigation bar ([24f376a](https://github.com/revanced/revanced-patches/commit/24f376a4b8d6bdccc32ffff0d983f22eb4940791))
+* **youtube:** add `hide-shorts-components` patch ([64868f4](https://github.com/revanced/revanced-patches/commit/64868f41be9f567cb54d9214fafbf849d08b64d2))
+* **youtube:** constrain patches to `18.16.37` ([758b300](https://github.com/revanced/revanced-patches/commit/758b3005919e11d9dd4f19bf110e9d282f8d1925))
+* **youtube:** support version `18.19.35` ([491f292](https://github.com/revanced/revanced-patches/commit/491f292182a419cb5399de768560ae4daa7c86cb))
+
 # [2.174.0-dev.34](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.33...v2.174.0-dev.34) (2023-05-16)
 
 
