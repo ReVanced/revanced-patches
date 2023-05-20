@@ -1,3 +1,10 @@
+# [2.174.0-dev.36](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.35...v2.174.0-dev.36) (2023-05-20)
+
+
+### Bug Fixes
+
+* **twitter:** correctly resolve to integrations methods ([c655416](https://github.com/revanced/revanced-patches/commit/c655416a91f0a32cfe82b1384f5958cace891833))
+
 # [2.174.0-dev.35](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.34...v2.174.0-dev.35) (2023-05-19)
 
 
