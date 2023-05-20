@@ -1,5 +1,6 @@
 package app.revanced.twitter.patches.hook.json
 
+import app.revanced.twitter.patches.hook.patch.dummy.DummyHook
 import app.revanced.twitter.utils.json.JsonUtils.parseJson
 import app.revanced.twitter.utils.stream.StreamUtils
 import org.json.JSONException
@@ -7,8 +8,9 @@ import java.io.IOException
 import java.io.InputStream
 
 object JsonHookPatch {
+    // Additional hooks added by corresponding patch.
     private val hooks = buildList<JsonHook> {
-        // Modified by corresponding patch.
+        add(DummyHook)
     }
 
     @JvmStatic
