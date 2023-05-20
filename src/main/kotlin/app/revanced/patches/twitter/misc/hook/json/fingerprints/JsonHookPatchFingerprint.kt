@@ -5,5 +5,9 @@ import org.jf.dexlib2.Opcode
 
 object JsonHookPatchFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ -> methodDef.name == "<clinit>" },
-    opcodes = listOf(Opcode.IGET_OBJECT)
+    opcodes = listOf(
+        Opcode.INVOKE_INTERFACE, // Add dummy hook to hooks list.
+        // Add hooks to the hooks list.
+        Opcode.INVOKE_STATIC // Call buildList.
+    )
 )

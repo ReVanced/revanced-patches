@@ -5,13 +5,18 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.removeInstructions
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
-import app.revanced.patcher.patch.*
+import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultError
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.RequiresIntegrations
 import app.revanced.patches.twitter.misc.hook.json.fingerprints.JsonHookPatchFingerprint
 import app.revanced.patches.twitter.misc.hook.json.fingerprints.JsonInputStreamFingerprint
 import app.revanced.patches.twitter.misc.hook.json.fingerprints.LoganSquareFingerprint
+import java.io.Closeable
 import java.io.InvalidClassException
 
 @Name("json-hook")
@@ -20,16 +25,16 @@ import java.io.InvalidClassException
 @RequiresIntegrations
 class JsonHookPatch : BytecodePatch(
     listOf(LoganSquareFingerprint)
-) {
+), Closeable {
     override fun execute(context: BytecodeContext): PatchResult {
-        // Make sure the integrations are present.
-        val jsonHookPatch = context.findClass { it.type == JSON_HOOK_PATCH_CLASS_DESCRIPTOR }
-            ?: return PatchResultError("Could not find integrations.")
+        JsonHookPatchFingerprint.also {
+            // Make sure the integrations are present.
+            val jsonHookPatch = context.findClass { classDef -> classDef.type == JSON_HOOK_PATCH_CLASS_DESCRIPTOR }
+                ?: throw PatchResultError("Could not find integrations.")
 
-        // Allow patch to inject hooks into the patches integrations.
-        jsonHookPatchFingerprintResult = JsonHookPatchFingerprint.also {
-            it.resolve(context, jsonHookPatch.immutableClass)
-        }.result ?: return PatchResultError("Unexpected integrations.")
+            if (!it.resolve(context, jsonHookPatch.immutableClass))
+                throw PatchResultError("Unexpected integrations.")
+        }.let { hooks = JsonHookPatchHook(it) }
 
         // Conveniently find the type to hook a method in, via a named field.
         val jsonFactory = LoganSquareFingerprint.result
@@ -64,30 +69,10 @@ class JsonHookPatch : BytecodePatch(
      *
      * @param context The [BytecodeContext] of the current patch.
      * @param descriptor The class descriptor of the hook.
+     * @throws ClassNotFoundException If the class could not be found.
      */
-    internal class Hook(context: BytecodeContext, private val descriptor: String) {
-        private var added = false
-
-        /**
-         * Add the hook.
-         */
-        internal fun add() {
-            if (added) return
-
-            jsonHookPatchFingerprintResult.apply {
-                mutableMethod.apply {
-                    addInstructions(
-                        scanResult.patternScanResult!!.startIndex,
-                        """
-                            sget-object v1, $descriptor->INSTANCE:$descriptor
-                            invoke-virtual {v0, v1}, Lkotlin/collections/builders/ListBuilder;->add(Ljava/lang/Object;)Z
-                        """
-                    )
-                }
-            }
-
-            added = true
-        }
+    internal class Hook(context: BytecodeContext, internal val descriptor: String) {
+        internal var added = false
 
         init {
             context.findClass { it.type == descriptor }?.let {
@@ -102,15 +87,67 @@ class JsonHookPatch : BytecodePatch(
         }
     }
 
-    private companion object {
-        const val JSON_HOOK_CLASS_NAMESPACE = "app/revanced/twitter/patches/hook/json"
+    /**
+     * A hook for the [JsonHookPatch].
+     *
+     * @param jsonHookPatchFingerprint The [JsonHookPatchFingerprint] to hook.
+     */
+    internal class JsonHookPatchHook(jsonHookPatchFingerprint: MethodFingerprint): Closeable {
+        private val jsonHookPatchFingerprintResult = jsonHookPatchFingerprint.result!!
+        private val jsonHookPatchIndex = jsonHookPatchFingerprintResult.scanResult.patternScanResult!!.endIndex
 
-        const val JSON_HOOK_PATCH_CLASS_DESCRIPTOR = "L$JSON_HOOK_CLASS_NAMESPACE/JsonHookPatch;"
+        /**
+         * Add a hook to the [JsonHookPatch].
+         * Will not add the hook if it's already added.
+         *
+         * @param hook The [Hook] to add.
+         */
+        fun addHook(hook: Hook) {
+            if (hook.added) return
 
-        const val BASE_PATCH_CLASS_NAME = "BaseJsonHook"
+            jsonHookPatchFingerprintResult.mutableMethod.apply {
+                // Insert hooks right before calling buildList.
+                val insertIndex = jsonHookPatchIndex
 
-        const val JSON_HOOK_CLASS_DESCRIPTOR = "L$JSON_HOOK_CLASS_NAMESPACE/$BASE_PATCH_CLASS_NAME;"
+                addInstructions(
+                    insertIndex,
+                    """
+                            sget-object v1, ${hook.descriptor}->INSTANCE:${hook.descriptor}
+                            invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+                        """
+                )
+            }
 
-        private lateinit var jsonHookPatchFingerprintResult: MethodFingerprintResult
+            hook.added = true
+        }
+
+        override fun close() {
+            // Remove hooks.add(dummyHook).
+            jsonHookPatchFingerprintResult.mutableMethod.apply {
+                val addDummyHookIndex = jsonHookPatchIndex - 2
+
+                removeInstructions(addDummyHookIndex, 2)
+            }
+        }
     }
+
+    override fun close() = hooks.close()
+
+    internal companion object {
+        private const val JSON_HOOK_CLASS_NAMESPACE = "app/revanced/twitter/patches/hook/json"
+
+        private const val JSON_HOOK_PATCH_CLASS_DESCRIPTOR = "L$JSON_HOOK_CLASS_NAMESPACE/JsonHookPatch;"
+
+        private const val BASE_PATCH_CLASS_NAME = "BaseJsonHook"
+
+        private const val JSON_HOOK_CLASS_DESCRIPTOR = "L$JSON_HOOK_CLASS_NAMESPACE/$BASE_PATCH_CLASS_NAME;"
+
+        /**
+         * The [JsonHookPatchHook] of the [JsonHookPatch].
+         *
+         * @see JsonHookPatchHook
+         */
+        internal lateinit var hooks: JsonHookPatchHook
+    }
+
 }

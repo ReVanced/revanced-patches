@@ -15,9 +15,6 @@ import app.revanced.patches.twitter.misc.hook.patch.recommendation.annotations.H
 @Description("Hides recommended users.")
 @HideRecommendedUsersCompatibility
 @Version("0.0.1")
-class HideRecommendedUsersPatch : BaseHookPatchPatch(HOOK_CLASS_DESCRIPTOR) {
-    private companion object {
-        const val HOOK_CLASS_DESCRIPTOR =
-            "Lapp/revanced/twitter/patches/hook/patch/recommendation/RecommendedUsersHook;"
-    }
-}
+class HideRecommendedUsersPatch : BaseHookPatchPatch(
+    "Lapp/revanced/twitter/patches/hook/patch/recommendation/RecommendedUsersHook;"
+)
