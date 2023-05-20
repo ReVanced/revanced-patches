@@ -51,7 +51,7 @@ internal object TwiFucker {
 
     private fun JSONObject.dataCheckAndRemove() {
         dataGetInstructions()?.forEach { instruction ->
-            instruction.instructionCheckAndRemove()
+            instruction.instructionCheckAndRemove { it.entriesRemoveAnnoyance() }
         }
     }
 
@@ -107,9 +107,9 @@ internal object TwiFucker {
     private fun JSONObject.instructionGetAddEntries(): JSONArray? =
         optJSONObject("addEntries")?.optJSONArray("entries")
 
-    private fun JSONObject.instructionCheckAndRemove() {
-        instructionTimelineAddEntries()?.entriesRemoveAnnoyance()
-        instructionGetAddEntries()?.entriesRemoveAnnoyance()
+    private fun JSONObject.instructionCheckAndRemove(action: (JSONArray) -> Unit) {
+        instructionTimelineAddEntries()?.let(action)
+        instructionGetAddEntries()?.let(action)
     }
 
     // entries
@@ -164,14 +164,57 @@ internal object TwiFucker {
         entriesRemoveTweetDetailRelatedTweets()
     }
 
+    private fun JSONObject.entryIsWhoToFollow(): Boolean = optString("entryId").let {
+        it.startsWith("whoToFollow-") || it.startsWith("who-to-follow-") || it.startsWith("connect-module-")
+    }
+
+    private fun JSONObject.itemContainsPromotedUser(): Boolean =
+        optJSONObject("item")?.optJSONObject("content")
+            ?.has("userPromotedMetadata") == true || optJSONObject("item")?.optJSONObject("content")
+            ?.optJSONObject("user")
+            ?.has("userPromotedMetadata") == true || optJSONObject("item")?.optJSONObject("content")
+            ?.optJSONObject("user")?.has("promotedMetadata") == true
+
+    fun JSONArray.entriesRemoveWhoToFollow() {
+        val entryRemoveIndex = mutableListOf<Int>()
+        forEachIndexed { entryIndex, entry ->
+            if (!entry.entryIsWhoToFollow()) return@forEachIndexed
+
+            Log.d("revanced", "Handle whoToFollow $entryIndex $entry")
+            entryRemoveIndex.add(entryIndex)
+
+            val items = entry.entryGetContentItems()
+            val userRemoveIndex = mutableListOf<Int>()
+            items?.forEachIndexed { index, item ->
+                item.itemContainsPromotedUser().let {
+                    if (it) {
+                        Log.d("revanced", "Handle whoToFollow promoted user $index $item")
+                        userRemoveIndex.add(index)
+                    }
+                }
+            }
+            for (i in userRemoveIndex.reversed()) {
+                items?.remove(i)
+            }
+        }
+        for (i in entryRemoveIndex.reversed()) {
+            remove(i)
+        }
+    }
+
     fun hideRecommendedUsers(json: JSONObject) {
+        json.filterInstructions { it.entriesRemoveWhoToFollow() }
         json.jsonCheckAndRemoveRecommendedUsers()
     }
 
     fun hidePromotedAds(json: JSONObject) {
-        json.jsonGetInstructions()?.forEach { instruction ->
-            instruction.instructionCheckAndRemove()
-        }
+        json.filterInstructions { it.entriesRemoveAnnoyance() }
         json.jsonGetData()?.dataCheckAndRemove()
+    }
+
+    private fun JSONObject.filterInstructions(action: (JSONArray) -> Unit) {
+        jsonGetInstructions()?.forEach { instruction ->
+            instruction.instructionCheckAndRemove(action)
+        }
     }
 }
