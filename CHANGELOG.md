@@ -1,3 +1,10 @@
+# [2.174.0-dev.37](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.36...v2.174.0-dev.37) (2023-05-21)
+
+
+### Features
+
+* **reddit:** add `sanitize-sharing-links` patch ([#2192](https://github.com/revanced/revanced-patches/issues/2192)) ([9593e4b](https://github.com/revanced/revanced-patches/commit/9593e4b5db604957545b4ab6747c82fb815ac08b))
+
 # [2.174.0-dev.36](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.35...v2.174.0-dev.36) (2023-05-20)
 
 

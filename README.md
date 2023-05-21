@@ -141,6 +141,17 @@ The official ReVanced Patches.
 | `hide-views-stats` | Hides the view stats under tweets. | 9.71.0-release.0 |
 </details>
 
+### [📦 `com.reddit.frontpage`](https://play.google.com/store/apps/details?id=com.reddit.frontpage)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `hide-ads` | Removes general ads from the Reddit frontpage and subreddits. | 2023.12.0 |
+| `hide-subreddit-banner` | Hides banner ads from comments on subreddits. | 2023.12.0 |
+| `premium-icon-reddit` | Unlocks premium Reddit app icons. | all |
+| `sanitize-sharing-links` | Removes (tracking) query parameters from the URLs when sharing links. | 2023.12.0 |
+</details>
+
 ### [📦 `com.spotify.music`](https://play.google.com/store/apps/details?id=com.spotify.music)
 <details>
 
@@ -159,16 +170,6 @@ The official ReVanced Patches.
 | `disable-switching-emoji-to-sticker-in-message-input-field` | Disables switching from emoji to sticker search mode in message input field | all |
 | `disable-typing-indicator` | Disables the indicator while typing a message | all |
 | `hide-inbox-ads` | Hides ads in inbox. | all |
-</details>
-
-### [📦 `com.reddit.frontpage`](https://play.google.com/store/apps/details?id=com.reddit.frontpage)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `hide-ads` | Removes general ads from the Reddit frontpage and subreddits. | 2023.12.0 |
-| `hide-subreddit-banner` | Hides banner ads from comments on subreddits. | 2023.12.0 |
-| `premium-icon-reddit` | Unlocks premium Reddit app icons. | all |
 </details>
 
 ### [📦 `at.gv.bmf.bmf2go`](https://play.google.com/store/apps/details?id=at.gv.bmf.bmf2go)
