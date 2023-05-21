@@ -1,3 +1,10 @@
+# [2.174.0-dev.38](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.37...v2.174.0-dev.38) (2023-05-21)
+
+
+### Features
+
+* **trakt:** add `unlock-pro` patch ([#2210](https://github.com/revanced/revanced-patches/issues/2210)) ([1e8dcae](https://github.com/revanced/revanced-patches/commit/1e8dcae6f540455b8698703bbded5f52fd0c6300))
+
 # [2.174.0-dev.37](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.36...v2.174.0-dev.37) (2023-05-21)
 
 
