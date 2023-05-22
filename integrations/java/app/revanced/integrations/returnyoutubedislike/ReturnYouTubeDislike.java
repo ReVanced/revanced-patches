@@ -239,12 +239,6 @@ public class ReturnYouTubeDislike {
     public static void newVideoLoaded(@NonNull String videoId) {
         Objects.requireNonNull(videoId);
 
-        PlayerType currentPlayerType = PlayerType.getCurrent();
-        if (currentPlayerType == PlayerType.INLINE_MINIMAL) {
-            LogHelper.printDebug(() -> "Ignoring inline playback of video: " + videoId);
-            setCurrentVideoId(null);
-            return;
-        }
         synchronized (videoIdLockObject) {
             if (videoId.equals(currentVideoId)) {
                 return; // already loaded
@@ -254,13 +248,14 @@ public class ReturnYouTubeDislike {
                 setCurrentVideoId(null);
                 return;
             }
+            PlayerType currentPlayerType = PlayerType.getCurrent();
             LogHelper.printDebug(() -> "New video loaded: " + videoId + " playerType: " + currentPlayerType);
             setCurrentVideoId(videoId);
 
             // If a Short is opened while a regular video is on screen, this will incorrectly set this as false.
             // But this check is needed to fix unusual situations of opening/closing the app
             // while both a regular video and a short are on screen.
-            dislikeDataIsShort = PlayerType.getCurrent().isNoneHiddenOrMinimized();
+            dislikeDataIsShort = currentPlayerType.isNoneHiddenOrMinimized();
 
             RYDCachedFetch entry = futureCache.get(videoId);
             if (entry != null && entry.futureInProgressOrFinishedSuccessfully()) {
