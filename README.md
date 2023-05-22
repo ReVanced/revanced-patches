@@ -146,10 +146,10 @@ The official ReVanced Patches.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `hide-ads` | Removes general ads from the Reddit frontpage and subreddits. | 2023.12.0 |
-| `hide-subreddit-banner` | Hides banner ads from comments on subreddits. | 2023.12.0 |
+| `hide-ads` | Removes general ads from the Reddit frontpage and subreddits. | all |
+| `hide-subreddit-banner` | Hides banner ads from comments on subreddits. | all |
 | `premium-icon-reddit` | Unlocks premium Reddit app icons. | all |
-| `sanitize-sharing-links` | Removes (tracking) query parameters from the URLs when sharing links. | 2023.12.0 |
+| `sanitize-sharing-links` | Removes (tracking) query parameters from the URLs when sharing links. | all |
 </details>
 
 ### [📦 `com.spotify.music`](https://play.google.com/store/apps/details?id=com.spotify.music)

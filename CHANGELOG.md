@@ -1,3 +1,10 @@
+# [2.174.0-dev.39](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.38...v2.174.0-dev.39) (2023-05-22)
+
+
+### Features
+
+* **reddit:** remove compatibility version constraints ([#2226](https://github.com/revanced/revanced-patches/issues/2226)) ([f1288e4](https://github.com/revanced/revanced-patches/commit/f1288e4bb8fb1b9f394d73fd814d97db8704b8e0))
+
 # [2.174.0-dev.38](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.37...v2.174.0-dev.38) (2023-05-21)
 
 
