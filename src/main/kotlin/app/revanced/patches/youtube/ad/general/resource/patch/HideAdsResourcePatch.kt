@@ -187,7 +187,13 @@ class HideAdsResourcePatch : ResourcePatch {
                 StringResource("revanced_hide_audio_track_button_title", "Hide audio track button"),
                 StringResource("revanced_hide_audio_track_button_on", "Audio track button is hidden"),
                 StringResource("revanced_hide_audio_track_button_off", "Audio track button is shown")
-            )
+            ),
+            SwitchPreference(
+                "revanced_hide_latest_posts_ads",
+                StringResource("revanced_hide_latest_posts_ads_title", "Hide latest posts"),
+                StringResource("revanced_hide_latest_posts_ads_summary_on", "Latest posts are hidden"),
+                StringResource("revanced_hide_latest_posts_ads_summary_off", "Latest posts are shown")
+            ),
         )
 
         PreferenceScreen.ADS.addPreferences(
@@ -208,12 +214,6 @@ class HideAdsResourcePatch : ResourcePatch {
                 StringResource("revanced_hide_paid_content_ads_title", "Hide paid content"),
                 StringResource("revanced_hide_paid_content_ads_summary_on", "Paid content is hidden"),
                 StringResource("revanced_hide_paid_content_ads_summary_off", "Paid content is shown")
-            ),
-            SwitchPreference(
-                "revanced_hide_latest_posts_ads",
-                StringResource("revanced_hide_latest_posts_ads_title", "Hide latest posts"),
-                StringResource("revanced_hide_latest_posts_ads_summary_on", "Latest posts are hidden"),
-                StringResource("revanced_hide_latest_posts_ads_summary_off", "Latest posts are shown")
             ),
             SwitchPreference(
                 "revanced_hide_self_sponsor_ads",
