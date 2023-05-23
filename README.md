@@ -299,7 +299,7 @@ The official ReVanced Patches.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `unlock-plus` | Unlocks plus features. | all |
+| `unlock-plus` | Unlocks plus features. | 8.20.0 |
 </details>
 
 ### [📦 `io.yuka.android`](https://play.google.com/store/apps/details?id=io.yuka.android)

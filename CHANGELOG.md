@@ -1,3 +1,10 @@
+# [2.174.0-dev.40](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.39...v2.174.0-dev.40) (2023-05-23)
+
+
+### Bug Fixes
+
+* **photomath/unlock-plus:** constrain to last working version ([#2232](https://github.com/revanced/revanced-patches/issues/2232)) ([4da268e](https://github.com/revanced/revanced-patches/commit/4da268edc006ea496e3b1efd037676f1c40397da))
+
 # [2.174.0-dev.39](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.38...v2.174.0-dev.39) (2023-05-22)
 
 
