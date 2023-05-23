@@ -1,6 +1,6 @@
 name: 🐞 Bug report
 description: Report a very clearly broken issue.
-title: 'bug: <title>'
+title: 'bug: '
 labels: [bug]
 body:
   - type: markdown
