@@ -9,7 +9,7 @@ import org.jf.dexlib2.Opcode
 @FuzzyPatternScanMethod(2)
 object VideoIdFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L"),
     opcodes = listOf(
         Opcode.IF_EQZ,

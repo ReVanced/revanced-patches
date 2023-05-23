@@ -8,7 +8,7 @@ import org.jf.dexlib2.Opcode
 object ContainsAdFingerprint:MethodFingerprint(
     returnType = "Z",
     parameters = listOf("L", "L"),
-    access = AccessFlags.STATIC or AccessFlags.PUBLIC,
+    accessFlags = AccessFlags.STATIC or AccessFlags.PUBLIC,
     opcodes = listOf(
         Opcode.CONST_STRING,
         Opcode.INVOKE_INTERFACE,

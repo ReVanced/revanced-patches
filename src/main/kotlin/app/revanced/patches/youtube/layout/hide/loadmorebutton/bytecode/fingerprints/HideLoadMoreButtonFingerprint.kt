@@ -9,7 +9,7 @@ import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
 object HideLoadMoreButtonFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     parameters = listOf("L", "L", "L", "L"),
     opcodes = listOf(
         Opcode.CONST,

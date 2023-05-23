@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object KidsMinimizedPlaybackPolicyControllerFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters =  listOf("I", "L", "L"),
     opcodes = listOf(
         Opcode.IF_EQZ,

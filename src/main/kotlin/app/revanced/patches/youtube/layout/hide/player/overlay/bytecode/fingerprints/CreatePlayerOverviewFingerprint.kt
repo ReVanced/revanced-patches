@@ -9,7 +9,7 @@ import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
 object CreatePlayerOverviewFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PRIVATE or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     opcodes = listOf(
         Opcode.CONST,
         Opcode.INVOKE_VIRTUAL,

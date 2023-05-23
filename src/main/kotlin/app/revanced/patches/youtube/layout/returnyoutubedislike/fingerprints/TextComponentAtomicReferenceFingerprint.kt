@@ -10,7 +10,7 @@ import org.jf.dexlib2.Opcode
  */
 object TextComponentAtomicReferenceFingerprint : MethodFingerprint(
     returnType = "L",
-    access = AccessFlags.PROTECTED or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
     parameters = listOf("L"),
     opcodes = listOf(
         Opcode.MOVE_OBJECT_FROM16, // available unused register

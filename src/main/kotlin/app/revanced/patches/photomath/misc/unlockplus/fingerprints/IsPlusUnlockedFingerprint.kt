@@ -6,7 +6,7 @@ import org.jf.dexlib2.AccessFlags
 
 object IsPlusUnlockedFingerprint : MethodFingerprint(
     returnType = "Z",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     strings = listOf(
         "genius"
     ),

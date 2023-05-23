@@ -6,7 +6,7 @@ import org.jf.dexlib2.AccessFlags
 
 object YukaUserConstructorFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     strings = listOf(
         "premiumProvider"
     )

@@ -6,6 +6,6 @@ import org.jf.dexlib2.AccessFlags
 
 object IsAdsEnabledFingerprint : MethodFingerprint(
     returnType = "Z",
-    access = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     strings = listOf("SyncIapHelper")
 )

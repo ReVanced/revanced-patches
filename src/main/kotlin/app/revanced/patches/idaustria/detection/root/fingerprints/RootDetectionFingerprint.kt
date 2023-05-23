@@ -5,7 +5,7 @@ import org.jf.dexlib2.AccessFlags
 
 object RootDetectionFingerprint : MethodFingerprint(
     "V",
-    access = AccessFlags.PUBLIC.value,
+    accessFlags = AccessFlags.PUBLIC.value,
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("/DeviceIntegrityCheck;")
     }

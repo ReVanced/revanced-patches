@@ -5,7 +5,7 @@ import app.revanced.patches.shared.integrations.patch.AbstractIntegrationsPatch.
 import org.jf.dexlib2.AccessFlags
 
 object EmbeddedPlayerControlsOverlayFingerprint : IntegrationsFingerprint(
-    access = AccessFlags.PRIVATE or AccessFlags.CONSTRUCTOR,
+    accessFlags = AccessFlags.PRIVATE or AccessFlags.CONSTRUCTOR,
     returnType = "V",
     parameters = listOf("L", "L", "L"),
     customFingerprint = { methodDef, _ ->

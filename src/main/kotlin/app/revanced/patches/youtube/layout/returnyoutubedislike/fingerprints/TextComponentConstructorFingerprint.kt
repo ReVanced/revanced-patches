@@ -6,6 +6,6 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 
 object TextComponentConstructorFingerprint : MethodFingerprint(
-    access = AccessFlags.CONSTRUCTOR or AccessFlags.PRIVATE,
+    accessFlags = AccessFlags.CONSTRUCTOR or AccessFlags.PRIVATE,
     strings = listOf("TextComponent")
 )

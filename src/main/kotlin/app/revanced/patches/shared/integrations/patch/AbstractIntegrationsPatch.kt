@@ -9,6 +9,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patches.shared.integrations.patch.AbstractIntegrationsPatch.IntegrationsFingerprint.RegisterResolver
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.ClassDef
 import org.jf.dexlib2.iface.Method
@@ -27,7 +28,7 @@ abstract class AbstractIntegrationsPatch(
      */
     abstract class IntegrationsFingerprint(
         returnType: String? = null,
-        access: Int? = null,
+        accessFlags: Int? = null,
         parameters: Iterable<String>? = null,
         opcodes: Iterable<Opcode?>? = null,
         strings: Iterable<String>? = null,
@@ -35,7 +36,7 @@ abstract class AbstractIntegrationsPatch(
         private val contextRegisterResolver: (Method) -> Int = object : RegisterResolver {}
     ) : MethodFingerprint(
         returnType,
-        access,
+        accessFlags,
         parameters,
         opcodes,
         strings,

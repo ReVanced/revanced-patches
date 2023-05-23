@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object CheckSignatureFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     customFingerprint = { methodDef, _ ->
         (methodDef.definingClass == "Lcom/microblink/photomath/main/activity/LauncherActivity;" ||
                 methodDef.definingClass == "Lcom/microblink/photomath/PhotoMath;") &&

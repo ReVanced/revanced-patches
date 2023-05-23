@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object IsPremiumFingerprint : MethodFingerprint(
     returnType = "Z",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     opcodes = listOf(
         Opcode.IGET_BOOLEAN,
         Opcode.RETURN,

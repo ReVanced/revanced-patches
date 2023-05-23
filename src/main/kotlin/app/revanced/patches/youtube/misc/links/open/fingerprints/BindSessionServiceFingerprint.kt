@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object BindSessionServiceFingerprint : MethodFingerprint(
     returnType = "L",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     opcodes = listOf(
         Opcode.IPUT_OBJECT,
         Opcode.NEW_INSTANCE,

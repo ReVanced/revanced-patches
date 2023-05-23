@@ -10,7 +10,7 @@ import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 object DislikesOldLayoutTextViewFingerprint : MethodFingerprint(
     returnType = "V",
     parameters = listOf("L"),
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     opcodes = listOf(
         Opcode.CONST, // resource identifier register
         Opcode.INVOKE_VIRTUAL,

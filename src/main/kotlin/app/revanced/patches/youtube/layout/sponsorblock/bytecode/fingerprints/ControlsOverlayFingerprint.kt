@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object ControlsOverlayFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PRIVATE or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     parameters = listOf(),
     opcodes = listOf(
         Opcode.INVOKE_VIRTUAL,

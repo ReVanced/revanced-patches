@@ -10,7 +10,7 @@ import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
 object AccessibilityPlayerProgressTimeFingerprint : MethodFingerprint(
     returnType = "L",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     customFingerprint = { methodDef, _ ->
         methodDef.implementation?.instructions?.any { instruction ->
             if (instruction.opcode != Opcode.CONST) return@any false
