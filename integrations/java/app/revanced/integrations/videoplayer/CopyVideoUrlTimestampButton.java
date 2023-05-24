@@ -1,5 +1,6 @@
 package app.revanced.integrations.videoplayer;
 
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
@@ -16,15 +17,19 @@ public class CopyVideoUrlTimestampButton extends BottomControlButton {
         super(
                 bottomControlsViewGroup,
                 "copy_video_url_timestamp_button",
-                SettingsEnum.COPY_VIDEO_URL_TIMESTAMP_BUTTON_SHOWN,
-                view -> CopyVideoUrlPatch.copyUrl(true)
+                SettingsEnum.COPY_VIDEO_URL_TIMESTAMP,
+                view -> CopyVideoUrlPatch.copyUrl(true),
+                view -> {
+                    CopyVideoUrlPatch.copyUrl(false);
+                    return true;
+                }
         );
     }
 
     /**
      * Injection point.
      */
-    public static void initializeButton(Object bottomControlsViewGroup) {
+    public static void initializeButton(View bottomControlsViewGroup) {
         try {
             instance = new CopyVideoUrlTimestampButton((ViewGroup) bottomControlsViewGroup);
         } catch (Exception ex) {

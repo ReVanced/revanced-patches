@@ -15,7 +15,7 @@ import app.revanced.integrations.shared.PlayerOverlays;
 @SuppressWarnings("unused")
 public class PlayerOverlaysHookPatch {
     /**
-     * Hook into YouTubePlayerOverlaysLayout.onFinishInflate() method
+     * Injection point.
      *
      * @param thisRef reference to the view
      * @smali YouTubePlayerOverlaysLayout_onFinishInflateHook(Ljava / lang / Object ;)V

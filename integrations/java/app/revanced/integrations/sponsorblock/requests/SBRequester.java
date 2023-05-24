@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 import app.revanced.integrations.requests.Requester;
 import app.revanced.integrations.requests.Route;
 import app.revanced.integrations.settings.SettingsEnum;
-import app.revanced.integrations.sponsorblock.objects.CategoryBehaviour;
+import app.revanced.integrations.sponsorblock.SponsorBlockSettings;
 import app.revanced.integrations.sponsorblock.objects.SegmentCategory;
 import app.revanced.integrations.sponsorblock.objects.SponsorSegment;
 import app.revanced.integrations.sponsorblock.objects.SponsorSegment.SegmentVote;
@@ -49,6 +49,15 @@ public class SBRequester {
     private SBRequester() {
     }
 
+    private static void handleConnectionError(@NonNull String toastMessage, @Nullable Exception ex) {
+        if (SettingsEnum.SB_TOAST_ON_CONNECTION_ERROR.getBoolean()) {
+            ReVancedUtils.showToastShort(toastMessage);
+        }
+        if (ex != null) {
+            LogHelper.printInfo(() -> toastMessage, ex);
+        }
+    }
+
     @NonNull
     public static SponsorSegment[] getSegments(@NonNull String videoId) {
         ReVancedUtils.verifyOffMainThread();
@@ -59,7 +68,7 @@ public class SBRequester {
 
             if (responseCode == HTTP_STATUS_CODE_SUCCESS) {
                 JSONArray responseArray = Requester.parseJSONArray(connection);
-                final long minSegmentDuration = (long) (SettingsEnum.SB_MIN_DURATION.getFloat() * 1000);
+                final long minSegmentDuration = (long) (SettingsEnum.SB_SEGMENT_MIN_DURATION.getFloat() * 1000);
                 for (int i = 0, length = responseArray.length(); i < length; i++) {
                     JSONObject obj = (JSONObject) responseArray.get(i);
                     JSONArray segment = obj.getJSONArray("segment");
@@ -88,14 +97,16 @@ public class SBRequester {
                 // no segments are found.  a normal response
                 LogHelper.printDebug(() -> "No segments found for video: " + videoId);
             } else {
-                LogHelper.printException(() -> "getSegments failed with response code: " + responseCode,
-                        null, str("sb_sponsorblock_connection_failure_status", responseCode));
+                handleConnectionError(str("sb_sponsorblock_connection_failure_status", responseCode), null);
                 connection.disconnect(); // something went wrong, might as well disconnect
             }
         } catch (SocketTimeoutException ex) {
-            LogHelper.printException(() -> "Failed to get segments", ex, str("sb_sponsorblock_connection_failure_timeout"));
+            handleConnectionError(str("sb_sponsorblock_connection_failure_timeout"), ex);
+        } catch (IOException ex) {
+            handleConnectionError(str("sb_sponsorblock_connection_failure_generic"), ex);
         } catch (Exception ex) {
-            LogHelper.printException(() -> "Failed to get segments", ex, str("sb_sponsorblock_connection_failure_generic"));
+            // Should never happen
+            LogHelper.printException(() -> "getSegments failure", ex);
         }
 
         // Crude debug tests to verify random features
@@ -127,15 +138,16 @@ public class SBRequester {
         return segments.toArray(new SponsorSegment[0]);
     }
 
-    public static void submitSegments(@NonNull String userPrivateId, @NonNull String videoId, @NonNull String category,
+    public static void submitSegments(@NonNull String videoId, @NonNull String category,
                                       long startTime, long endTime, long videoLength) {
         ReVancedUtils.verifyOffMainThread();
         try {
+            String privateUserId = SponsorBlockSettings.getSBPrivateUserID();
             String start = String.format(Locale.US, TIME_TEMPLATE, startTime / 1000f);
             String end = String.format(Locale.US, TIME_TEMPLATE, endTime / 1000f);
             String duration = String.format(Locale.US, TIME_TEMPLATE, videoLength / 1000f);
 
-            HttpURLConnection connection = getConnectionFromRoute(SBRoutes.SUBMIT_SEGMENTS, userPrivateId, videoId, category, start, end, duration);
+            HttpURLConnection connection = getConnectionFromRoute(SBRoutes.SUBMIT_SEGMENTS, privateUserId, videoId, category, start, end, duration);
             final int responseCode = connection.getResponseCode();
 
             final String messageToToast;
@@ -161,7 +173,10 @@ public class SBRequester {
             }
             ReVancedUtils.showToastLong(messageToToast);
         } catch (SocketTimeoutException ex) {
+            // Always show, even if show connection toasts is turned off
             ReVancedUtils.showToastLong(str("sb_submit_failed_timeout"));
+        } catch (IOException ex) {
+            ReVancedUtils.showToastLong(str("sb_submit_failed_unknown_error", 0, ex.getMessage()));
         } catch (Exception ex) {
             LogHelper.printException(() -> "failed to submit segments", ex);
         }
@@ -196,7 +211,7 @@ public class SBRequester {
         ReVancedUtils.runOnBackgroundThread(() -> {
             try {
                 String segmentUuid = segment.UUID;
-                String uuid = SettingsEnum.SB_UUID.getString();
+                String uuid = SponsorBlockSettings.getSBPrivateUserID();
                 HttpURLConnection connection = (voteOption == SegmentVote.CATEGORY_CHANGE)
                         ? getConnectionFromRoute(SBRoutes.VOTE_ON_SEGMENT_CATEGORY, uuid, segmentUuid, categoryToVoteFor.key)
                         : getConnectionFromRoute(SBRoutes.VOTE_ON_SEGMENT_QUALITY, uuid, segmentUuid, String.valueOf(voteOption.apiVoteType));
@@ -216,7 +231,9 @@ public class SBRequester {
                         break;
                 }
             } catch (SocketTimeoutException ex) {
-                LogHelper.printException(() -> "failed to vote for segment", ex, str("sb_vote_failed_timeout"));
+                ReVancedUtils.showToastShort(str("sb_vote_failed_timeout"));
+            } catch (IOException ex) {
+                ReVancedUtils.showToastShort(str("sb_vote_failed_unknown_error", 0, ex.getMessage()));
             } catch (Exception ex) {
                 LogHelper.printException(() -> "failed to vote for segment", ex); // should never happen
             }
@@ -230,7 +247,7 @@ public class SBRequester {
     public static UserStats retrieveUserStats() {
         ReVancedUtils.verifyOffMainThread();
         try {
-            UserStats stats = new UserStats(getJSONObject(SBRoutes.GET_USER_STATS, SettingsEnum.SB_UUID.getString()));
+            UserStats stats = new UserStats(getJSONObject(SBRoutes.GET_USER_STATS, SponsorBlockSettings.getSBPrivateUserID()));
             LogHelper.printDebug(() -> "user stats: " + stats);
             return stats;
         } catch (IOException ex) {
@@ -248,7 +265,7 @@ public class SBRequester {
     public static String setUsername(@NonNull String username) {
         ReVancedUtils.verifyOffMainThread();
         try {
-            HttpURLConnection connection = getConnectionFromRoute(SBRoutes.CHANGE_USERNAME, SettingsEnum.SB_UUID.getString(), username);
+            HttpURLConnection connection = getConnectionFromRoute(SBRoutes.CHANGE_USERNAME, SponsorBlockSettings.getSBPrivateUserID(), username);
             final int responseCode = connection.getResponseCode();
             String responseMessage = connection.getResponseMessage();
             if (responseCode == HTTP_STATUS_CODE_SUCCESS) {
@@ -262,15 +279,18 @@ public class SBRequester {
     }
 
     public static void runVipCheckInBackgroundIfNeeded() {
+        if (!SponsorBlockSettings.userHasSBPrivateId()) {
+            return; // User cannot be a VIP. User has never voted, created any segments, or has imported a SB user id.
+        }
         long now = System.currentTimeMillis();
         if (now < (SettingsEnum.SB_LAST_VIP_CHECK.getLong() + TimeUnit.DAYS.toMillis(3))) {
             return;
         }
         ReVancedUtils.runOnBackgroundThread(() -> {
             try {
-                JSONObject json = getJSONObject(SBRoutes.IS_USER_VIP, SettingsEnum.SB_UUID.getString());
+                JSONObject json = getJSONObject(SBRoutes.IS_USER_VIP, SponsorBlockSettings.getSBPrivateUserID());
                 boolean vip = json.getBoolean("vip");
-                SettingsEnum.SB_IS_VIP.saveValue(vip);
+                SettingsEnum.SB_USER_IS_VIP.saveValue(vip);
                 SettingsEnum.SB_LAST_VIP_CHECK.saveValue(now);
             } catch (IOException ex) {
                 LogHelper.printInfo(() -> "Failed to check VIP (network error)", ex); // info, so no error toast is shown

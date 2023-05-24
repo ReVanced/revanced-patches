@@ -1,25 +1,15 @@
 package app.revanced.integrations.sponsorblock;
 
-import static app.revanced.integrations.utils.StringRef.str;
-
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.text.TextUtils;
 import android.util.TypedValue;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Objects;
-
 import app.revanced.integrations.patches.VideoInformation;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.shared.PlayerType;
+import app.revanced.integrations.shared.VideoState;
 import app.revanced.integrations.sponsorblock.objects.CategoryBehaviour;
 import app.revanced.integrations.sponsorblock.objects.SegmentCategory;
 import app.revanced.integrations.sponsorblock.objects.SponsorSegment;
@@ -27,6 +17,11 @@ import app.revanced.integrations.sponsorblock.requests.SBRequester;
 import app.revanced.integrations.sponsorblock.ui.SponsorBlockViewController;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
+
+import java.lang.reflect.Field;
+import java.util.*;
+
+import static app.revanced.integrations.utils.StringRef.str;
 
 /**
  * Handles showing, scheduling, and skipping of all {@link SponsorSegment} for the current video.
@@ -38,12 +33,12 @@ public class SegmentPlaybackController {
      * Length of time to show a skip button for a highlight segment,
      * or a regular segment if {@link SettingsEnum#SB_AUTO_HIDE_SKIP_BUTTON} is enabled.
      *
-     * Because Effectively, this value is rounded up to the next second.
+     * Effectively this value is rounded up to the next second.
      */
     private static final long DURATION_TO_SHOW_SKIP_BUTTON = 3800;
 
     /*
-     * Highlight segments have zero length, as they are a point in time.
+     * Highlight segments have zero length as they are a point in time.
      * Draw them on screen using a fixed width bar.
      * Value is independent of device dpi.
      */
@@ -102,9 +97,9 @@ public class SegmentPlaybackController {
     @Nullable
     private static String timeWithoutSegments;
 
-    private static float sponsorBarLeft = 1f;
-    private static float sponsorBarRight = 1f;
-    private static float sponsorBarThickness = 2f;
+    private static int sponsorBarAbsoluteLeft;
+    private static int sponsorAbsoluteBarRight;
+    private static int sponsorBarThickness;
 
     @Nullable
     static SponsorSegment[] getSegments() {
@@ -177,7 +172,7 @@ public class SegmentPlaybackController {
      * Injection point.
      * Initializes SponsorBlock when the video player starts playing a new video.
      */
-    public static void initialize(Object _o) {
+    public static void initialize(Object ignoredPlayerController) {
         try {
             ReVancedUtils.verifyOnMainThread();
             SponsorBlockSettings.initialize();
@@ -235,7 +230,7 @@ public class SegmentPlaybackController {
             SponsorSegment[] segments = SBRequester.getSegments(videoId);
 
             ReVancedUtils.runOnMainThread(()-> {
-                if (!videoId.equals(SegmentPlaybackController.currentVideoId)) {
+                if (!videoId.equals(currentVideoId)) {
                     // user changed videos before get segments network call could complete
                     LogHelper.printDebug(() -> "Ignoring segments for prior video: " + videoId);
                     return;
@@ -522,17 +517,21 @@ public class SegmentPlaybackController {
                 return;
             }
 
+            final boolean videoIsPaused = VideoState.getCurrent() == VideoState.PAUSED;
             if (!userManuallySkipped) {
                 // check for any smaller embedded segments, and count those as autoskipped
-                final boolean showSkipToast = SettingsEnum.SB_SHOW_TOAST_ON_SKIP.getBoolean();
-                for (final SponsorSegment otherSegment : segments) {
+                final boolean showSkipToast = SettingsEnum.SB_TOAST_ON_SKIP.getBoolean();
+                for (final SponsorSegment otherSegment : Objects.requireNonNull(segments)) {
                     if (segmentToSkip.end < otherSegment.start) {
                         break; // no other segments can be contained
                     }
                     if (otherSegment == segmentToSkip ||
                             (otherSegment.category != SegmentCategory.HIGHLIGHT && segmentToSkip.containsSegment(otherSegment))) {
                         otherSegment.didAutoSkipped = true;
-                        if (showSkipToast) {
+                        // Do not show a toast if the user is scrubbing thru a paused video.
+                        // Cannot do this video state check in setTime or earlier in this method, as the video state may not be up to date.
+                        // So instead, only hide toasts because all other skip logic done while paused causes no harm.
+                        if (showSkipToast && !videoIsPaused) {
                             showSkippedSegmentToast(otherSegment);
                         }
                     }
@@ -542,7 +541,7 @@ public class SegmentPlaybackController {
             if (segmentToSkip.category == SegmentCategory.UNSUBMITTED) {
                 removeUnsubmittedSegments();
                 SponsorBlockUtils.setNewSponsorSegmentPreviewed();
-            } else {
+            } else if (!videoIsPaused) {
                 SponsorBlockUtils.sendViewRequestAsync(segmentToSkip);
             }
         } catch (Exception ex) {
@@ -600,62 +599,42 @@ public class SegmentPlaybackController {
     }
 
     /**
-     * Injection point.
-     */
-    public static void setSponsorBarAbsoluteLeft(final Rect rect) {
-        setSponsorBarAbsoluteLeft(rect.left);
-    }
-
-    public static void setSponsorBarAbsoluteLeft(final float left) {
-        if (sponsorBarLeft != left) {
-            LogHelper.printDebug(() -> String.format("setSponsorBarAbsoluteLeft: left=%.2f", left));
-            sponsorBarLeft = left;
-        }
-    }
-
-    /**
      * Injection point
      */
     public static void setSponsorBarRect(final Object self) {
         try {
             Field field = self.getClass().getDeclaredField("replaceMeWithsetSponsorBarRect");
             field.setAccessible(true);
-            Rect rect = (Rect) field.get(self);
-            if (rect == null) {
-                LogHelper.printException(() -> "Could not find sponsorblock rect");
-            } else {
-                setSponsorBarAbsoluteLeft(rect.left);
-                setSponsorBarAbsoluteRight(rect.right);
-            }
+            Rect rect = (Rect) Objects.requireNonNull(field.get(self));
+            setSponsorBarAbsoluteLeft(rect);
+            setSponsorBarAbsoluteRight(rect);
         } catch (Exception ex) {
             LogHelper.printException(() -> "setSponsorBarRect failure", ex);
         }
     }
 
-    /**
-     * Injection point.
-     */
-    public static void setSponsorBarAbsoluteRight(final Rect rect) {
-        setSponsorBarAbsoluteRight(rect.right);
+    private static void setSponsorBarAbsoluteLeft(Rect rect) {
+        final int left = rect.left;
+        if (sponsorBarAbsoluteLeft != left) {
+            LogHelper.printDebug(() -> "setSponsorBarAbsoluteLeft: " + left);
+            sponsorBarAbsoluteLeft = left;
+        }
     }
 
-    public static void setSponsorBarAbsoluteRight(final float right) {
-        if (sponsorBarRight != right) {
-            LogHelper.printDebug(() -> String.format("setSponsorBarAbsoluteRight: right=%.2f", right));
-            sponsorBarRight = right;
+    private static void setSponsorBarAbsoluteRight(Rect rect) {
+        final int right = rect.right;
+        if (sponsorAbsoluteBarRight != right) {
+            LogHelper.printDebug(() -> "setSponsorBarAbsoluteRight: " +  right);
+            sponsorAbsoluteBarRight = right;
         }
     }
 
     /**
      * Injection point
      */
-    public static void setSponsorBarThickness(final int thickness) {
-        setSponsorBarThickness((float) thickness);
-    }
-
-    public static void setSponsorBarThickness(final float thickness) {
+    public static void setSponsorBarThickness(int thickness) {
         if (sponsorBarThickness != thickness) {
-            LogHelper.printDebug(() -> String.format("setSponsorBarThickness: %.2f", thickness));
+            LogHelper.printDebug(() -> "setSponsorBarThickness: " + thickness);
             sponsorBarThickness = thickness;
         }
     }
@@ -665,7 +644,7 @@ public class SegmentPlaybackController {
      */
     public static String appendTimeWithoutSegments(String totalTime) {
         try {
-            if (SettingsEnum.SB_ENABLED.getBoolean() && SettingsEnum.SB_SHOW_TIME_WITHOUT_SEGMENTS.getBoolean()
+            if (SettingsEnum.SB_ENABLED.getBoolean() && SettingsEnum.SB_VIDEO_LENGTH_WITHOUT_SEGMENTS.getBoolean()
                     && !TextUtils.isEmpty(totalTime) && !TextUtils.isEmpty(timeWithoutSegments)) {
                 // Force LTR layout, to match the same LTR video time/length layout YouTube uses for all languages
                 return "\u202D" + totalTime + timeWithoutSegments; // u202D = left to right override
@@ -679,7 +658,7 @@ public class SegmentPlaybackController {
 
     private static void calculateTimeWithoutSegments() {
         final long currentVideoLength = VideoInformation.getVideoLength();
-        if (!SettingsEnum.SB_SHOW_TIME_WITHOUT_SEGMENTS.getBoolean() || currentVideoLength <= 0
+        if (!SettingsEnum.SB_VIDEO_LENGTH_WITHOUT_SEGMENTS.getBoolean() || currentVideoLength <= 0
                 || segments == null || segments.length == 0) {
             timeWithoutSegments = null;
             return;
@@ -736,25 +715,23 @@ public class SegmentPlaybackController {
      */
     public static void drawSponsorTimeBars(final Canvas canvas, final float posY) {
         try {
-            if (sponsorBarThickness < 0.1) return;
             if (segments == null) return;
             final long videoLength = VideoInformation.getVideoLength();
             if (videoLength <= 0) return;
 
-            final float thicknessDiv2 = sponsorBarThickness / 2;
-            final float top = posY - thicknessDiv2;
+            final int thicknessDiv2 = sponsorBarThickness / 2; // rounds down
+            final float top = posY - (sponsorBarThickness - thicknessDiv2);
             final float bottom = posY + thicknessDiv2;
-            final float absoluteLeft = sponsorBarLeft;
-            final float absoluteRight = sponsorBarRight;
+            final float videoMillisecondsToPixels = (1f / videoLength) * (sponsorAbsoluteBarRight - sponsorBarAbsoluteLeft);
+            final float leftPadding = sponsorBarAbsoluteLeft;
 
-            final float tmp1 = (1f / videoLength) * (absoluteRight - absoluteLeft);
             for (SponsorSegment segment : segments) {
-                final float left = segment.start * tmp1 + absoluteLeft;
+                final float left = leftPadding + segment.start * videoMillisecondsToPixels;
                 final float right;
                 if (segment.category == SegmentCategory.HIGHLIGHT) {
                     right = left + getHighlightSegmentTimeBarScreenWidth();
                 } else {
-                     right = segment.end * tmp1 + absoluteLeft;
+                     right = leftPadding + segment.end * videoMillisecondsToPixels;
                 }
                 canvas.drawRect(left, top, right, bottom, segment.category.paint);
             }

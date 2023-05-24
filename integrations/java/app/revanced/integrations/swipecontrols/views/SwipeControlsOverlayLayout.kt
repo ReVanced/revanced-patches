@@ -74,7 +74,7 @@ class SwipeControlsOverlayLayout(
                 setColor(config.overlayTextBackgroundColor)
             }
             setTextColor(config.overlayForegroundColor)
-            setTextSize(TypedValue.COMPLEX_UNIT_SP, config.overlayTextSize)
+            setTextSize(TypedValue.COMPLEX_UNIT_SP, config.overlayTextSize.toFloat())
             compoundDrawablePadding = compoundIconPadding
             visibility = GONE
         }

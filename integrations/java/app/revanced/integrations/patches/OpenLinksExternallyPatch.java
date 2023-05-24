@@ -13,7 +13,7 @@ public class OpenLinksExternallyPatch {
      * @return The new, default service to open links with or the original service.
      */
     public static String enableExternalBrowser(String original) {
-        if (SettingsEnum.ENABLE_EXTERNAL_BROWSER.getBoolean()) original = "";
+        if (SettingsEnum.EXTERNAL_BROWSER.getBoolean()) original = "";
         return original;
     }
 }

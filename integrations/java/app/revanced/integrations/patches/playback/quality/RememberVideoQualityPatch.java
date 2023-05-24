@@ -2,7 +2,6 @@ package app.revanced.integrations.patches.playback.quality;
 
 import static app.revanced.integrations.utils.ReVancedUtils.NetworkType;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.lang.reflect.Field;
@@ -20,12 +19,10 @@ public class RememberVideoQualityPatch {
     private static final SettingsEnum mobileQualitySetting = SettingsEnum.VIDEO_QUALITY_DEFAULT_MOBILE;
 
     private static boolean qualityNeedsUpdating;
-    @Nullable
-    private static String currentVideoId;
 
     /**
      * If the user selected a new quality from the flyout menu,
-     * and {@link SettingsEnum#VIDEO_QUALITY_REMEMBER_LAST_SELECTED} is enabled.
+     * and {@link SettingsEnum#REMEMBER_VIDEO_QUALITY_LAST_SELECTED} is enabled.
      */
     private static boolean userChangedDefaultQuality;
 
@@ -91,7 +88,7 @@ public class RememberVideoQualityPatch {
                         }
                     }
                 }
-                LogHelper.printDebug(() -> "VideoId: " + currentVideoId + " videoQualities: " + videoQualities);
+                LogHelper.printDebug(() -> "videoQualities: " + videoQualities);
             }
 
             if (userChangedDefaultQuality) {
@@ -113,14 +110,24 @@ public class RememberVideoQualityPatch {
                 }
                 i++;
             }
+
+            // If the desired quality index is equal to the original index,
+            // then the video is already set to the desired default quality.
+            //
+            // The method could return here, but the UI video quality flyout will still
+            // show 'Auto' (ie: Auto (480p))
+            // It appears that "Auto" picks the resolution on video load,
+            // and it does not appear to change the resolution during playback.
+            //
+            // To prevent confusion, set the video index anyways (even if it matches the existing index)
+            // As that will force the UI picker to not display "Auto" which may confuse the user.
             if (qualityIndexToUse == originalQualityIndex) {
                 LogHelper.printDebug(() -> "Video is already preferred quality: " + preferredQuality);
-                return originalQualityIndex;
+            } else {
+                final int qualityToUseLog = qualityToUse;
+                LogHelper.printDebug(() -> "Quality changed from: "
+                        + videoQualities.get(originalQualityIndex) + " to: " + qualityToUseLog);
             }
-
-            final int qualityToUseLog = qualityToUse;
-            LogHelper.printDebug(() -> "Quality changed from: "
-                    + videoQualities.get(originalQualityIndex) + " to: " + qualityToUseLog);
 
             Method m = qInterface.getClass().getMethod(qIndexMethod, Integer.TYPE);
             m.invoke(qInterface, qualityToUse);
@@ -135,7 +142,7 @@ public class RememberVideoQualityPatch {
      * Injection point.
      */
     public static void userChangedQuality(int selectedQuality) {
-        if (!SettingsEnum.VIDEO_QUALITY_REMEMBER_LAST_SELECTED.getBoolean()) return;
+        if (!SettingsEnum.REMEMBER_VIDEO_QUALITY_LAST_SELECTED.getBoolean()) return;
 
         userSelectedQualityIndex = selectedQuality;
         userChangedDefaultQuality = true;
@@ -144,25 +151,9 @@ public class RememberVideoQualityPatch {
     /**
      * Injection point.
      */
-    public static void newVideoStarted(@NonNull String videoId) {
-        // The same videoId can be passed in multiple times for a single video playback.
-        // Such as closing and opening the app, and sometimes when turning off/on the device screen.
-        //
-        // Known limitation, if:
-        // 1. a default video quality exists, and remember quality is turned off
-        // 2. user opens a video
-        // 3. user changes the video quality
-        // 4. user turns off then on the device screen (or does anything else that triggers the video id hook)
-        // result: the video quality of the current video will revert back to the saved default
-        //
-        // qualityNeedsUpdating could be set only when the videoId changes
-        // but then if the user closes and re-opens the same video the default video quality will not be applied.
-        LogHelper.printDebug(() -> "newVideoStarted: " + videoId);
+    public static void newVideoStarted(Object ignoredPlayerController) {
+        LogHelper.printDebug(() -> "newVideoStarted");
         qualityNeedsUpdating = true;
-
-        if (!videoId.equals(currentVideoId)) {
-            currentVideoId = videoId;
-            videoQualities = null;
-        }
+        videoQualities = null;
     }
 }

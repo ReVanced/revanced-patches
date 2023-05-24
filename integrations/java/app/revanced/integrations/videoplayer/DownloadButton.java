@@ -21,17 +21,18 @@ public class DownloadButton extends BottomControlButton {
         super(
                 viewGroup,
                 "download_button",
-                SettingsEnum.DOWNLOADS_BUTTON_SHOWN,
-                DownloadButton::onDownloadClick
+                SettingsEnum.EXTERNAL_DOWNLOADER,
+                DownloadButton::onDownloadClick,
+                null
         );
     }
 
     /**
      * Injection point.
      */
-    public static void initializeButton(Object obj) {
+    public static void initializeButton(View view) {
         try {
-            instance = new DownloadButton((ViewGroup) obj);
+            instance = new DownloadButton((ViewGroup) view);
         } catch (Exception ex) {
             LogHelper.printException(() -> "initializeButton failure", ex);
         }
@@ -48,7 +49,7 @@ public class DownloadButton extends BottomControlButton {
         LogHelper.printDebug(() -> "Download button clicked");
 
         final var context = view.getContext();
-        var downloaderPackageName = SettingsEnum.DOWNLOADS_PACKAGE_NAME.getString();
+        var downloaderPackageName = SettingsEnum.EXTERNAL_DOWNLOADER_PACKAGE_NAME.getString();
 
         boolean packageEnabled = false;
         try {

@@ -88,7 +88,23 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
                 )
             );
 
-            // Sync all preferences with UI
+            // TODO: for a developer that uses Twitch: remove duplicated settings data
+            // 1. remove all default values from the Patches Setting preferences (SwitchPreference, TextPreference, ListPreference)
+            // 2. enable this code and verify the default is applied
+            if (false) {
+                for (SettingsEnum setting : SettingsEnum.values()) {
+                    Preference pref = this.findPreference(setting.path);
+                    if (pref instanceof SwitchPreference) {
+                        ((SwitchPreference) pref).setChecked(setting.getBoolean());
+                    } else if (pref instanceof EditTextPreference) {
+                        ((EditTextPreference) pref).setText(setting.getObjectValue().toString());
+                    } else if (pref instanceof ListPreference) {
+                        ((ListPreference) pref).setValue(setting.getObjectValue().toString());
+                    }
+                }
+            }
+            // TODO: remove this line.  On load the UI should apply the values from Settings using the code above.
+            // It should not apply the UI values to the Settings here
             syncPreference(null);
 
             this.registered = true;

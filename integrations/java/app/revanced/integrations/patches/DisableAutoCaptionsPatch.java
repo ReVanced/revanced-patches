@@ -4,10 +4,13 @@ import app.revanced.integrations.settings.SettingsEnum;
 
 public class DisableAutoCaptionsPatch {
 
+    /**
+     * Used by injected code. Do not delete.
+     */
     public static boolean captionsButtonDisabled;
 
     public static boolean autoCaptionsEnabled() {
-        return SettingsEnum.CAPTIONS_ENABLED.getBoolean();
+        return SettingsEnum.AUTO_CAPTIONS.getBoolean();
     }
 
 }

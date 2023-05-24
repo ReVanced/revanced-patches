@@ -51,7 +51,7 @@ public class SponsorBlockViewController {
     /**
      * Injection point.
      */
-    public static void initialize(Object obj) {
+    public static void initialize(ViewGroup viewGroup) {
         try {
             LogHelper.printDebug(() -> "initializing");
 
@@ -64,7 +64,6 @@ public class SponsorBlockViewController {
             LayoutInflater.from(context).inflate(getResourceIdentifier("inline_sponsor_overlay", "layout"), layout);
             inlineSponsorOverlayRef = new WeakReference<>(layout);
 
-            ViewGroup viewGroup = (ViewGroup) obj;
             viewGroup.addView(layout);
             viewGroup.setOnHierarchyChangeListener(new ViewGroup.OnHierarchyChangeListener() {
                 @Override
@@ -214,7 +213,7 @@ public class SponsorBlockViewController {
             // the buttons automatically set themselves to visible when appropriate,
             // but if buttons are showing when the end of the video is reached then they need
             // to be forcefully hidden
-            if (!SettingsEnum.PREFERRED_AUTO_REPEAT.getBoolean()) {
+            if (!SettingsEnum.AUTO_REPEAT.getBoolean()) {
                 CreateSegmentButtonController.hide();
                 VotingButtonController.hide();
             }

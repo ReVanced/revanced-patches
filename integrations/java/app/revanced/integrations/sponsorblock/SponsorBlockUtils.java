@@ -172,7 +172,7 @@ public class SponsorBlockUtils {
             for (int i = 0; i < voteOptions.length; i++) {
                 SegmentVote voteOption = voteOptions[i];
                 String title = voteOption.title.toString();
-                if (SettingsEnum.SB_IS_VIP.getBoolean() && segment.isLocked && voteOption.shouldHighlight) {
+                if (SettingsEnum.SB_USER_IS_VIP.getBoolean() && segment.isLocked && voteOption.shouldHighlight) {
                     items[i] = Html.fromHtml(String.format("<font color=\"%s\">%s</font>", LOCKED_COLOR, title));
                 } else {
                     items[i] = title;
@@ -214,20 +214,18 @@ public class SponsorBlockUtils {
     private static void submitNewSegment() {
         try {
             ReVancedUtils.verifyOnMainThread();
-            final String uuid = SettingsEnum.SB_UUID.getString();
             final long start = newSponsorSegmentStartMillis;
             final long end = newSponsorSegmentEndMillis;
             final String videoId = VideoInformation.getVideoId();
             final long videoLength = VideoInformation.getVideoLength();
             final SegmentCategory segmentCategory = newUserCreatedSegmentCategory;
-            if (start < 0 || end < 0 || start >= end || videoLength <= 0 || videoId.isEmpty()
-                     || segmentCategory == null || uuid.isEmpty()) {
+            if (start < 0 || end < 0 || start >= end || videoLength <= 0 || videoId.isEmpty() || segmentCategory == null) {
                 LogHelper.printException(() -> "invalid parameters");
                 return;
             }
             clearUnsubmittedSegmentTimes();
             ReVancedUtils.runOnBackgroundThread(() -> {
-                SBRequester.submitSegments(uuid, videoId, segmentCategory.key, start, end, videoLength);
+                SBRequester.submitSegments(videoId, segmentCategory.key, start, end, videoLength);
                 SegmentPlaybackController.executeDownloadSegments(videoId);
             });
         } catch (Exception e) {
@@ -380,9 +378,9 @@ public class SponsorBlockUtils {
             return;
         }
         segment.recordedAsSkipped = true;
-        final long totalTimeSkipped = SettingsEnum.SB_SKIPPED_SEGMENTS_TIME_SAVED.getLong() + segment.length();
-        SettingsEnum.SB_SKIPPED_SEGMENTS_TIME_SAVED.saveValue(totalTimeSkipped);
-        SettingsEnum.SB_SKIPPED_SEGMENTS_NUMBER_SKIPPED.saveValue(SettingsEnum.SB_SKIPPED_SEGMENTS_NUMBER_SKIPPED.getInt() + 1);
+        final long totalTimeSkipped = SettingsEnum.SB_LOCAL_TIME_SAVED_MILLISECONDS.getLong() + segment.length();
+        SettingsEnum.SB_LOCAL_TIME_SAVED_MILLISECONDS.saveValue(totalTimeSkipped);
+        SettingsEnum.SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS.saveValue(SettingsEnum.SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS.getInt() + 1);
 
         if (SettingsEnum.SB_TRACK_SKIP_COUNT.getBoolean()) {
             ReVancedUtils.runOnBackgroundThread(() -> SBRequester.sendSegmentSkippedViewedRequest(segment));

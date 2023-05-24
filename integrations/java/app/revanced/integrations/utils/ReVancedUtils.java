@@ -6,9 +6,15 @@ import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,6 +28,8 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+import app.revanced.integrations.settings.SettingsEnum;
+
 public class ReVancedUtils {
 
     @SuppressLint("StaticFieldLeak")
@@ -29,6 +37,35 @@ public class ReVancedUtils {
 
     private ReVancedUtils() {
     } // utility class
+
+    /**
+     * Hide a view by setting its layout height and width to 1dp.
+     *
+     * @param condition The setting to check for hiding the view.
+     * @param view      The view to hide.
+     */
+    public static void hideViewBy1dpUnderCondition(SettingsEnum condition, View view) {
+        if (!condition.getBoolean()) return;
+
+        LogHelper.printDebug(() -> "Hiding view with setting: " + condition);
+
+        hideViewByLayoutParams(view);
+    }
+
+    /**
+     * Hide a view by setting its visibility to GONE.
+     *
+     * @param condition The setting to check for hiding the view.
+     * @param view      The view to hide.
+     */
+    public static void hideViewUnderCondition(SettingsEnum condition, View view) {
+        if (!condition.getBoolean()) return;
+
+        LogHelper.printDebug(() -> "Hiding view with setting: " + condition);
+
+        view.setVisibility(View.GONE);
+    }
+
 
     /**
      * General purpose pool for network calls and other background tasks.
@@ -97,6 +134,24 @@ public class ReVancedUtils {
         return getContext().getResources().getDimension(getResourceIdentifier(resourceIdentifierName, "dimen"));
     }
 
+    /**
+     * @return The first child view that matches the filter.
+     */
+    @Nullable
+    public static <T extends View> T getChildView(@NonNull ViewGroup viewGroup, @NonNull MatchFilter filter) {
+        for (int i = 0, childCount = viewGroup.getChildCount(); i < childCount; i++) {
+            View childAt = viewGroup.getChildAt(i);
+            if (filter.matches(childAt)) {
+                return (T) childAt;
+            }
+        }
+        return null;
+    }
+
+    public interface MatchFilter<T> {
+        boolean matches(T object);
+    }
+
     public static Context getContext() {
         if (context != null) {
             return context;
@@ -117,6 +172,7 @@ public class ReVancedUtils {
 
     @Nullable
     private static Boolean isRightToLeftTextLayout;
+
     /**
      * If the device language uses right to left text layout (hebrew, arabic, etc)
      */
@@ -237,6 +293,31 @@ public class ReVancedUtils {
         var type = networkInfo.getType();
         return (type == ConnectivityManager.TYPE_MOBILE)
                 || (type == ConnectivityManager.TYPE_BLUETOOTH) ? NetworkType.MOBILE : NetworkType.OTHER;
+    }
+
+    /**
+     * Hide a view by setting its layout params to 1x1
+     * @param view The view to hide.
+     */
+    public static void hideViewByLayoutParams(View view) {
+        if (view instanceof LinearLayout) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(1, 1);
+            view.setLayoutParams(layoutParams);
+        } else if (view instanceof FrameLayout) {
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(1, 1);
+            view.setLayoutParams(layoutParams2);
+        } else if (view instanceof RelativeLayout) {
+            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(1, 1);
+            view.setLayoutParams(layoutParams3);
+        } else if (view instanceof Toolbar) {
+            Toolbar.LayoutParams layoutParams4 = new Toolbar.LayoutParams(1, 1);
+            view.setLayoutParams(layoutParams4);
+        } else if (view instanceof ViewGroup) {
+            ViewGroup.LayoutParams layoutParams5 = new ViewGroup.LayoutParams(1, 1);
+            view.setLayoutParams(layoutParams5);
+        } else {
+            LogHelper.printDebug(() -> "Hidden view with id " + view.getId());
+        }
     }
 
     public enum NetworkType {

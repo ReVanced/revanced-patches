@@ -82,15 +82,12 @@ public final class RYDVoteData {
 
     public void updateUsingVote(Vote vote) {
         if (vote == Vote.LIKE) {
-            LogHelper.printDebug(() -> "Increasing like count");
             likeCount = fetchedLikeCount + 1;
             dislikeCount = fetchedDislikeCount;
         } else if (vote == Vote.DISLIKE) {
-            LogHelper.printDebug(() -> "Increasing dislike count");
             likeCount = fetchedLikeCount;
             dislikeCount = fetchedDislikeCount + 1;
         } else if (vote == Vote.LIKE_REMOVE) {
-            LogHelper.printDebug(() -> "Resetting like/dislike to fetched values");
             likeCount = fetchedLikeCount;
             dislikeCount = fetchedDislikeCount;
         } else {
