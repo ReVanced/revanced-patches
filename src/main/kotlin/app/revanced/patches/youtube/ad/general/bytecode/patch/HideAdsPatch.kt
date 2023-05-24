@@ -14,13 +14,21 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.misc.fix.verticalscroll.patch.VerticalScrollPatch
 import app.revanced.patches.youtube.ad.general.annotation.HideAdsCompatibility
 import app.revanced.patches.youtube.ad.general.resource.patch.HideAdsResourcePatch
+import app.revanced.patches.youtube.ad.getpremium.bytecode.patch.HideGetPremiumPatch
 import app.revanced.patches.youtube.misc.fix.backtoexitgesture.patch.FixBackToExitGesturePatch
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
 
 @Patch
-@DependsOn([HideAdsResourcePatch::class, VerticalScrollPatch::class, FixBackToExitGesturePatch::class])
+@DependsOn(
+    [
+        HideGetPremiumPatch::class,
+        HideAdsResourcePatch::class,
+        VerticalScrollPatch::class,
+        FixBackToExitGesturePatch::class
+    ]
+)
 @Name("hide-ads")
 @Description("Removes general ads.")
 @HideAdsCompatibility

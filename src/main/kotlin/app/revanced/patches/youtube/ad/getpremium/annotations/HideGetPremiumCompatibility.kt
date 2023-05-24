@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.hide.getpremium.annotations
+package app.revanced.patches.youtube.ad.getpremium.annotations
 
 import app.revanced.patcher.annotation.Compatibility
 import app.revanced.patcher.annotation.Package
