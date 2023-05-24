@@ -52,7 +52,7 @@ The official ReVanced Patches.
 | `open-links-externally` | Open links outside of the app directly in your browser. | 18.19.35 |
 | `premium-heading` | Shows premium branding on the home screen. | all |
 | `remember-video-quality` | Adds the ability to remember the video quality you chose in the video quality flyout. | 18.19.35 |
-| `remove-player-button-background` | Removes the background from the video player buttons. | 18.19.35 |
+| `remove-player-controls-background` | Removes the background from the video player controls. | 18.19.35 |
 | `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 18.19.35 |
 | `seekbar-tapping` | Enables tap-to-seek on the seekbar of the video player. | 18.19.35 |
 | `sponsorblock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. | 18.19.35 |

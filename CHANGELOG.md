@@ -1,3 +1,10 @@
+## [2.174.1-dev.1](https://github.com/revanced/revanced-patches/compare/v2.174.0...v2.174.1-dev.1) (2023-05-24)
+
+
+### Bug Fixes
+
+* **youtube/remove-player-controls-background:** use correct patch name and description ([8732a84](https://github.com/revanced/revanced-patches/commit/8732a84422087fca7e9e1635a0b1d8d2cbf034f4))
+
 # [2.174.0](https://github.com/revanced/revanced-patches/compare/v2.173.0...v2.174.0) (2023-05-24)
 
 
