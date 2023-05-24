@@ -8,7 +8,7 @@ object CheckAdEligibilityLambdaFingerprint : MethodFingerprint(
     "L",
     AccessFlags.PRIVATE or AccessFlags.FINAL or AccessFlags.STATIC,
     listOf("L", "L", "L"),
-    customFingerprint = { method ->
+    customFingerprint = { method, _ ->
         method.definingClass.endsWith("AdEligibilityFetcher;") &&
                 method.name.contains("shouldRequestAd")
     }

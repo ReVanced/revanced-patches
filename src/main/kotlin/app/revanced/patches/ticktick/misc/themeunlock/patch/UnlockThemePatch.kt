@@ -36,7 +36,7 @@ class UnlockProPatch : BytecodePatch(
         )
         
         val setThemeMethod = SetThemeFingerprint.result!!.mutableMethod
-        setThemeMethod.removeInstructions(0, 9)
+        setThemeMethod.removeInstructions(0, 10)
         
         return PatchResultSuccess()
     }

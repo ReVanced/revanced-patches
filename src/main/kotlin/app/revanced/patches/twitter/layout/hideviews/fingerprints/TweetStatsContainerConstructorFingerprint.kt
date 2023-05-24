@@ -6,7 +6,7 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 object TweetStatsContainerConstructorFingerprint : MethodFingerprint(
-    access = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     parameters = listOf("L"),
     opcodes = listOf(
         Opcode.INVOKE_DIRECT,

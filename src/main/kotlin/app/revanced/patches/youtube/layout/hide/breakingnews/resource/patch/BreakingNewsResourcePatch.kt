@@ -25,7 +25,6 @@ class BreakingNewsResourcePatch : ResourcePatch {
             SwitchPreference(
                 "revanced_hide_breaking_news",
                 StringResource("revanced_hide_breaking_news_title", "Hide breaking news"),
-                true,
                 StringResource("revanced_hide_breaking_news_summary_on", "Breaking news are hidden"),
                 StringResource("revanced_hide_breaking_news_summary_off", "Breaking news are shown")
             )

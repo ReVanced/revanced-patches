@@ -1,10 +1,12 @@
-## 🧩 Patches
+## 🧩 ReVanced Patches
 
-The official Patch bundle provided by ReVanced and the community.
+The official ReVanced Patches.
 
-> Looking for the JSON variant of this? [Click here](patches.json).
+## 📋 List of patches in this repository
 
 {{ table }}
+
+> Looking for the JSON variant of this? [Click here](patches.json).
 
 ## 📝 JSON Format
 
@@ -64,7 +66,6 @@ Example:
     "description": "Enables a custom theme.",
     "version": "0.0.1",
     "excluded": false,
-    "deprecated": false,
     "options": [
       {
         "key": "theme",
@@ -91,7 +92,6 @@ Example:
     "description": "Changes the YouTube launcher icon and name to your choice (defaults to ReVanced).",
     "version": "0.0.1",
     "excluded": false,
-    "deprecated": false,
     "options": [
       {
         "key": "appName",

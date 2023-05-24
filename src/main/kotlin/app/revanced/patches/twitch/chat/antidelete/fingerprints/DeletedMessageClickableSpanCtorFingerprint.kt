@@ -6,7 +6,7 @@ import org.jf.dexlib2.AccessFlags
 
 object DeletedMessageClickableSpanCtorFingerprint : MethodFingerprint(
     "V", AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("DeletedMessageClickableSpan;")
     }
 )

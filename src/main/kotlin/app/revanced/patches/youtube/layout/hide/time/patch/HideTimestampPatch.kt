@@ -33,7 +33,6 @@ class HideTimestampPatch : BytecodePatch(
             SwitchPreference(
                 "revanced_hide_timestamp",
                 StringResource("revanced_hide_timestamp_title", "Hide video timestamp"),
-                false,
                 StringResource("revanced_hide_timestamp_summary_on", "Timestamp is hidden"),
                 StringResource("revanced_hide_timestamp_summary_off", "Timestamp is shown")
             )

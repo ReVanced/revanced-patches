@@ -10,15 +10,13 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
 import app.revanced.patches.shared.settings.preference.addPreference
-import app.revanced.patches.shared.settings.preference.impl.ArrayResource
-import app.revanced.patches.shared.settings.preference.impl.Preference
-import app.revanced.patches.shared.settings.preference.impl.PreferenceScreen
-import app.revanced.patches.shared.settings.preference.impl.StringResource
+import app.revanced.patches.shared.settings.preference.impl.*
 import app.revanced.patches.shared.settings.resource.patch.AbstractSettingsResourcePatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 import app.revanced.util.resources.ResourceUtils.mergeStrings
+import org.w3c.dom.Element
 import org.w3c.dom.Node
 
 @Name("settings-resource-patch")
@@ -32,49 +30,66 @@ class SettingsResourcePatch : AbstractSettingsResourcePatch(
     override fun execute(context: ResourceContext): PatchResult {
         super.execute(context)
 
-        /*
-         * used by a fingerprint of SettingsPatch
-         */
+        // Used for a fingerprint from SettingsPatch.
         appearanceStringId = ResourceMappingPatch.resourceMappings.find {
             it.type == "string" && it.name == "app_theme_appearance_dark"
         }!!.id
 
         /*
-         * create missing directory for the resources
-         */
-        context["res/drawable-ldrtl-xxxhdpi"].mkdirs()
-
-        /*
          * copy layout resources
          */
         arrayOf(
-            ResourceUtils.ResourceGroup(
-                "layout",
-                "revanced_settings_toolbar.xml",
-                "revanced_settings_with_toolbar.xml",
-                "revanced_settings_with_toolbar_layout.xml"
-            ), ResourceUtils.ResourceGroup(
-                // required resource for back button, because when the base APK is used, this resource will not exist
-                "drawable-xxxhdpi", "quantum_ic_arrow_back_white_24.png"
-            ), ResourceUtils.ResourceGroup(
-                // required resource for back button, because when the base APK is used, this resource will not exist
-                "drawable-ldrtl-xxxhdpi", "quantum_ic_arrow_back_white_24.png"
-            )
+            ResourceUtils.ResourceGroup("layout", "revanced_settings_with_toolbar.xml")
         ).forEach { resourceGroup ->
             context.copyResources("settings", resourceGroup)
         }
 
         preferencesEditor = context.xmlEditor["res/xml/settings_fragment.xml"]
 
+        // Modify the manifest and add an data intent filter to the LicenseActivity.
+        // Some devices freak out if undeclared data is passed to an intent,
+        // and this change appears to fix the issue.
+        context.xmlEditor["AndroidManifest.xml"].use { editor ->
+            // An xml regular expression would probably work better than this manual searching.
+            val manifestNodes = editor.file.getElementsByTagName("manifest").item(0).childNodes
+            for (i in 0..manifestNodes.length) {
+                val node = manifestNodes.item(i)
+                if (node != null && node.nodeName == "application") {
+                    val applicationNodes = node.childNodes
+                    for (j in 0..applicationNodes.length) {
+                        val applicationChild = applicationNodes.item(j)
+                        if (applicationChild is Element && applicationChild.nodeName == "activity"
+                            && applicationChild.getAttribute("android:name") == "com.google.android.libraries.social.licenses.LicenseActivity"
+                        ) {
+                            val intentFilter = editor.file.createElement("intent-filter")
+                            val mimeType = editor.file.createElement("data")
+                            mimeType.setAttribute("android:mimeType", "text/plain")
+                            intentFilter.appendChild(mimeType)
+                            applicationChild.appendChild(intentFilter)
+                            break
+                        }
+                    }
+                }
+            }
+        }
+
+
         // Add the ReVanced settings to the YouTube settings
-        val youtubePackage = "com.google.android.youtube"
         SettingsPatch.addPreference(
             Preference(
                 StringResource("revanced_settings", "ReVanced"),
-                Preference.Intent(
-                    youtubePackage, "revanced_settings", "com.google.android.libraries.social.licenses.LicenseActivity"
-                ),
                 StringResource("revanced_settings_summary", "ReVanced specific settings"),
+                SettingsPatch.createReVancedSettingsIntent("revanced_settings")
+            )
+        )
+
+        SettingsPatch.PreferenceScreen.MISC.addPreferences(
+            TextPreference(
+                key = null,
+                title = StringResource("revanced_pref_import_export_title", "Import / Export"),
+                summary = StringResource("revanced_pref_import_export_summary", "Import / Export ReVanced settings"),
+                inputType = InputType.TEXT_MULTI_LINE,
+                tag = "app.revanced.integrations.settingsmenu.ImportExportPreference"
             )
         )
 
@@ -85,11 +100,8 @@ class SettingsResourcePatch : AbstractSettingsResourcePatch(
 
 
     internal companion object {
-        // Used by a fingerprint of SettingsPatch
-        // this field is located in the SettingsResourcePatch
-        // because if it were to be defined in the SettingsPatch companion object,
-        // the companion object could be initialized before ResourceMappingResourcePatch has executed.
-        internal var appearanceStringId: Long = -1
+        // Used for a fingerprint from SettingsPatch.
+        internal var appearanceStringId = -1L
 
         // if this is not null, all intents will be renamed to this
         var overrideIntentsTargetPackage: String? = null

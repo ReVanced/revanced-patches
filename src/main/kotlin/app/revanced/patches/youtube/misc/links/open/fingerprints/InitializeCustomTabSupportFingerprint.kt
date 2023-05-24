@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object InitializeCustomTabSupportFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     opcodes = listOf(
         Opcode.CHECK_CAST,
         Opcode.NEW_INSTANCE,

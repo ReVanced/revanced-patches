@@ -8,6 +8,7 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
@@ -22,7 +23,7 @@ import app.revanced.patches.shared.fingerprints.SeekbarOnDrawFingerprint
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
 import app.revanced.patches.youtube.layout.sponsorblock.annotations.SponsorBlockCompatibility
 import app.revanced.patches.youtube.layout.sponsorblock.bytecode.fingerprints.AppendTimeFingerprint
-import app.revanced.patches.youtube.layout.sponsorblock.bytecode.fingerprints.PlayerOverlaysLayoutInitFingerprint
+import app.revanced.patches.youtube.layout.sponsorblock.bytecode.fingerprints.ControlsOverlayFingerprint
 import app.revanced.patches.youtube.layout.sponsorblock.bytecode.fingerprints.RectangleFieldInvalidatorFingerprint
 import app.revanced.patches.youtube.layout.sponsorblock.resource.patch.SponsorBlockResourcePatch
 import app.revanced.patches.youtube.misc.autorepeat.fingerprints.AutoRepeatFingerprint
@@ -30,8 +31,8 @@ import app.revanced.patches.youtube.misc.autorepeat.fingerprints.AutoRepeatParen
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playercontrols.bytecode.patch.PlayerControlsBytecodePatch
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
-import app.revanced.patches.youtube.misc.video.information.patch.VideoInformationPatch
-import app.revanced.patches.youtube.misc.video.videoid.patch.VideoIdPatch
+import app.revanced.patches.youtube.video.information.patch.VideoInformationPatch
+import app.revanced.patches.youtube.video.videoid.patch.VideoIdPatch
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.*
 import org.jf.dexlib2.iface.instruction.formats.Instruction35c
@@ -60,7 +61,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
     listOf(
         SeekbarFingerprint,
         AppendTimeFingerprint,
-        PlayerOverlaysLayoutInitFingerprint,
+        ControlsOverlayFingerprint,
         AutoRepeatParentFingerprint,
     )
 ) {
@@ -102,16 +103,17 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         val seekbarMethodInstructions = seekbarMethod.implementation!!.instructions
 
         /*
-         * Get the instance of the seekbar rectangle
+         * Get left and right of seekbar rectangle
          */
-        for ((index, instruction) in seekbarMethodInstructions.withIndex()) {
-            if (instruction.opcode != Opcode.MOVE_OBJECT_FROM16) continue
-            seekbarMethod.addInstruction(
-                index + 1,
-                "invoke-static/range {p0 .. p0}, $INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarRect(Ljava/lang/Object;)V"
-            )
-            break
+        val moveRectangleToRegisterIndex = seekbarMethodInstructions.indexOfFirst {
+            it.opcode == Opcode.MOVE_OBJECT_FROM16
         }
+
+        seekbarMethod.addInstruction(
+            moveRectangleToRegisterIndex + 1,
+            "invoke-static/range {p0 .. p0}, " +
+                    "$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarRect(Ljava/lang/Object;)V"
+        )
 
         for ((index, instruction) in seekbarMethodInstructions.withIndex()) {
             if (instruction.opcode != Opcode.INVOKE_STATIC) continue
@@ -124,38 +126,15 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             // set the thickness of the segment
             seekbarMethod.addInstruction(
                 insertIndex,
-                "invoke-static {v${invokeInstruction.registerC}}, $INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarThickness(I)V"
+                "invoke-static {v${invokeInstruction.registerC}}, " +
+                        "$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarThickness(I)V"
             )
             break
         }
 
         /*
-         * Set rectangle absolute left and right positions
-         */
-        val drawRectangleInstructions = seekbarMethodInstructions.withIndex().filter { (_, instruction) ->
-            instruction is ReferenceInstruction && (instruction.reference as? MethodReference)?.name == "drawRect"
-        }.map { (index, instruction) -> // TODO: improve code
-            index to (instruction as FiveRegisterInstruction).registerD
-        }
-
-        val (indexRight, rectangleRightRegister) = drawRectangleInstructions[0]
-        val (indexLeft, rectangleLeftRegister) = drawRectangleInstructions[3]
-
-        // order of operation is important here due to the code above which has to be improved
-        // the reason for that is that we get the index, add instructions and then the offset would be wrong
-        seekbarMethod.addInstruction(
-            indexLeft + 1,
-            "invoke-static {v$rectangleLeftRegister}, $INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarAbsoluteLeft(Landroid/graphics/Rect;)V"
-        )
-        seekbarMethod.addInstruction(
-            indexRight + 1,
-            "invoke-static {v$rectangleRightRegister}, $INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarAbsoluteRight(Landroid/graphics/Rect;)V"
-        )
-
-        /*
          * Draw segment
          */
-
         // Find the drawCircle call and draw the segment before it
         for (i in seekbarMethodInstructions.size - 1 downTo 0) {
             val invokeInstruction = seekbarMethodInstructions[i] as? ReferenceInstruction ?: continue
@@ -198,8 +177,8 @@ class SponsorBlockBytecodePatch : BytecodePatch(
                         method.addInstructions(
                             moveResultInstructionIndex + 1, // insert right after moving the view to the register and use that register
                             """
-                                invoke-static {v$inflatedViewRegister}, $INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->initialize(Ljava/lang/Object;)V
-                                invoke-static {v$inflatedViewRegister}, $INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->initialize(Ljava/lang/Object;)V
+                                invoke-static {v$inflatedViewRegister}, $INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->initialize(Landroid/view/View;)V
+                                invoke-static {v$inflatedViewRegister}, $INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->initialize(Landroid/view/View;)V
                             """
                         )
                     }
@@ -240,10 +219,16 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         VideoInformationPatch.onCreateHook(INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR, "initialize")
 
         // initialize the sponsorblock view
-        PlayerOverlaysLayoutInitFingerprint.result!!.mutableMethod.addInstruction(
-            6, // after inflating the view
-            "invoke-static {p0}, $INTEGRATIONS_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR->initialize(Ljava/lang/Object;)V"
-        )
+        ControlsOverlayFingerprint.result?.let {
+            val startIndex = it.scanResult.patternScanResult!!.startIndex
+            it.mutableMethod.apply {
+                val frameLayoutRegister = (instruction(startIndex + 2) as OneRegisterInstruction).registerA
+                addInstruction(
+                    startIndex + 3,
+                    "invoke-static {v$frameLayoutRegister}, $INTEGRATIONS_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR->initialize(Landroid/view/ViewGroup;)V"
+                )
+            }
+        }  ?: return ControlsOverlayFingerprint.toErrorResult()
 
         // get rectangle field name
         RectangleFieldInvalidatorFingerprint.resolve(context, seekbarSignatureResult.classDef)

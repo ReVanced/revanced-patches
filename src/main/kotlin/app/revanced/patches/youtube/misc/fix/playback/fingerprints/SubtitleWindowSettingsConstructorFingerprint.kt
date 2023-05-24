@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 
 object SubtitleWindowSettingsConstructorFingerprint : MethodFingerprint(
     parameters = listOf("I", "I", "I", "Z", "Z"),
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.definingClass == "Lcom/google/android/libraries/youtube/player/subtitles/model/SubtitleWindowSettings;"
                 && methodDef.name == "<init>"
     }

@@ -97,14 +97,14 @@ class SpoofSimPatch : BytecodePatch() {
 
     // Patch Android API and return fake sim information
     private fun MutableMethod.replaceReference(index: Int, replacement: String) {
-        val resultReg = (instruction(index + 1) as OneRegisterInstruction).registerA
+        val resultReg = instruction<OneRegisterInstruction>(index + 1).registerA
 
         addInstructions(
             index + 2,
-            """
-                     invoke-static {v$resultReg}, Lapp/revanced/tiktok/spoof/sim/SpoofSimPatch;->$replacement(Ljava/lang/String;)Ljava/lang/String;
-                     move-result-object v$resultReg
-                 """
+        """
+                 invoke-static {v$resultReg}, Lapp/revanced/tiktok/spoof/sim/SpoofSimPatch;->$replacement(Ljava/lang/String;)Ljava/lang/String;
+                 move-result-object v$resultReg
+             """
         )
     }
 }

@@ -26,16 +26,11 @@ class ReturnYouTubeDislikeResourcePatch : ResourcePatch {
     }
 
     override fun execute(context: ResourceContext): PatchResult {
-        val youtubePackage = "com.google.android.youtube"
         SettingsPatch.addPreference(
             Preference(
                 StringResource("revanced_ryd_settings_title", "Return YouTube Dislike"),
-                Preference.Intent(
-                    youtubePackage,
-                    "ryd_settings",
-                    "com.google.android.libraries.social.licenses.LicenseActivity"
-                ),
                 StringResource("revanced_ryd_settings_summary", "Settings for Return YouTube Dislike"),
+                SettingsPatch.createReVancedSettingsIntent("ryd_settings")
             )
         )
         // merge strings

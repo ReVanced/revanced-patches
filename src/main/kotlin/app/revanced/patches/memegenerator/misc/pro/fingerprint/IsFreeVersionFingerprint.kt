@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object IsFreeVersionFingerprint : MethodFingerprint(
     returnType = "Ljava/lang/Boolean;",
-    access = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     strings = listOf("free"),
     parameters = listOf("Landroid/content/Context;"),
     opcodes = listOf(

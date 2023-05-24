@@ -6,11 +6,11 @@ import org.jf.dexlib2.AccessFlags
 
 object IsPlusUnlockedFingerprint : MethodFingerprint(
     returnType = "Z",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     strings = listOf(
         "genius"
     ),
     customFingerprint = {
-        methodDef -> methodDef.definingClass.endsWith("/User;")
+        methodDef, _ -> methodDef.definingClass.endsWith("/User;")
     }
 )

@@ -28,7 +28,6 @@ class HideArtistCardsPatch : ResourcePatch {
             SwitchPreference(
                 "revanced_hide_artist_cards",
                 StringResource("revanced_hide_artist_cards_title", "Hide artist cards"),
-                false,
                 StringResource("revanced_hide_artist_cards_on", "Artist cards is hidden"),
                 StringResource("revanced_hide_artist_cards_off", "Artist cards is shown")
             ),

@@ -10,7 +10,6 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
 import app.revanced.patches.shared.settings.preference.impl.Preference
 import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.youtube.layout.sponsorblock.annotations.SponsorBlockCompatibility
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
@@ -18,22 +17,16 @@ import app.revanced.util.resources.ResourceUtils.copyXmlNode
 import app.revanced.util.resources.ResourceUtils.mergeStrings
 
 @Name("sponsorblock-resource-patch")
-@SponsorBlockCompatibility
 @DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
 @Version("0.0.1")
 class SponsorBlockResourcePatch : ResourcePatch {
 
     override fun execute(context: ResourceContext): PatchResult {
-        val youtubePackage = "com.google.android.youtube"
         SettingsPatch.addPreference(
             Preference(
-                StringResource("sb_settings", "SponsorBlock"),
-                Preference.Intent(
-                    youtubePackage,
-                    "sponsorblock_settings",
-                    "com.google.android.libraries.social.licenses.LicenseActivity"
-                ),
+                StringResource("revanced_sponsorblock_settings_title", "SponsorBlock"),
                 StringResource("revanced_sponsorblock_settings_summary", "SponsorBlock related settings"),
+                SettingsPatch.createReVancedSettingsIntent("sponsorblock_settings")
             )
         )
         val classLoader = this.javaClass.classLoader

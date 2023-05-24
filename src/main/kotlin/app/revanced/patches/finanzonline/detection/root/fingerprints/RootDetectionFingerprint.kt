@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 
 object RootDetectionFingerprint : MethodFingerprint(
     "L",
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.definingClass == "Lat/gv/bmf/bmf2go/tools/utils/z;"
     }
 )

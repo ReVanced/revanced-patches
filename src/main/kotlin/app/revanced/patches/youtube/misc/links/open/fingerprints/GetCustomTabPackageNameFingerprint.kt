@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object GetCustomTabPackageNameFingerprint : MethodFingerprint(
     returnType = "L",
-    access = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     opcodes = listOf(
         Opcode.CHECK_CAST,
         Opcode.NEW_INSTANCE,

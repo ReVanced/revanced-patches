@@ -6,7 +6,7 @@ import org.jf.dexlib2.AccessFlags
 
 object SpeedControlParentFingerprint : MethodFingerprint(
     returnType = "L",
-    access = AccessFlags.PRIVATE or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     parameters = listOf(
         "L"
     ),

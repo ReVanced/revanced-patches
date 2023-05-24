@@ -7,7 +7,7 @@ object OnBackPressedFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.RETURN_VOID
     ),
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("WatchWhileActivity;")
         && methodDef.name == "onBackPressed"
     }

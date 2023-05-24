@@ -21,7 +21,7 @@ import app.revanced.patches.youtube.misc.fix.playback.fingerprints.SubtitleWindo
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
-import app.revanced.patches.youtube.misc.video.videoid.patch.VideoIdPatch
+import app.revanced.patches.youtube.video.videoid.patch.VideoIdPatch
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Name("spoof-signature-verification")
@@ -45,12 +45,11 @@ class SpoofSignatureVerificationPatch : BytecodePatch(
             SwitchPreference(
                 "revanced_spoof_signature_verification",
                 StringResource("revanced_spoof_signature_verification_title", "Spoof app signature"),
-                true,
                 StringResource("revanced_spoof_signature_verification_summary_on",
                     "App signature spoofed\\n\\n"
                         + "Side effects include:\\n"
                         + "• End screen cards are always hidden\\n"
-                        + "• Download button may be hidden"),
+                        + "• Downloading videos may not work"),
                 StringResource("revanced_spoof_signature_verification_summary_off", "App signature not spoofed"),
                 StringResource("revanced_spoof_signature_verification_user_dialog_message",
                     "Turning off this setting may cause playback issues.")

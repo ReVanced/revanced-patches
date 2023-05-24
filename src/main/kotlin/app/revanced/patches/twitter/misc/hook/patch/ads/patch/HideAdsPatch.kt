@@ -15,8 +15,4 @@ import app.revanced.patches.twitter.misc.hook.patch.ads.annotations.HideAdsCompa
 @Description("Hides ads.")
 @HideAdsCompatibility
 @Version("0.0.1")
-class HideAdsPatch : BaseHookPatchPatch(HOOK_CLASS_DESCRIPTOR) {
-    private companion object {
-        const val HOOK_CLASS_DESCRIPTOR = "Lapp/revanced/twitter/patches/hook/patch/ads/AdsHook;"
-    }
-}
+class HideAdsPatch : BaseHookPatchPatch("Lapp/revanced/twitter/patches/hook/patch/ads/AdsHook;")

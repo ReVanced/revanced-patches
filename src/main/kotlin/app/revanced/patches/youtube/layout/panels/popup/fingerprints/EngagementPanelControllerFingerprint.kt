@@ -9,7 +9,7 @@ import org.jf.dexlib2.AccessFlags
 @FuzzyPatternScanMethod(3)
 object EngagementPanelControllerFingerprint : MethodFingerprint(
     returnType = "L",
-    access = AccessFlags.PRIVATE or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     strings = listOf(
         "EngagementPanelController: cannot show EngagementPanel before EngagementPanelController.init() has been called.",
         "[EngagementPanel] Cannot show EngagementPanel before EngagementPanelController.init() has been called."

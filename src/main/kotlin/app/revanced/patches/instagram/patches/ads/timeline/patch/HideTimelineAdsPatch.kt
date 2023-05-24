@@ -55,8 +55,8 @@ class HideTimelineAdsPatch : BytecodePatch(
             val scanStart = scanResult.patternScanResult!!.startIndex
             val jumpIndex = scanStart - 1
 
-            val mediaInstanceRegister = (mutableMethod.instruction(scanStart) as FiveRegisterInstruction).registerC
-            val freeRegister = (mutableMethod.instruction(jumpIndex) as OneRegisterInstruction).registerA
+            val mediaInstanceRegister = mutableMethod.instruction<FiveRegisterInstruction>(scanStart).registerC
+            val freeRegister = mutableMethod.instruction<OneRegisterInstruction>(jumpIndex).registerA
 
             val returnFalseLabel = "an_ad"
 

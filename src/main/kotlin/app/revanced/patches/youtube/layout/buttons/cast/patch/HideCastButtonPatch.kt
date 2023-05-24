@@ -29,7 +29,6 @@ class HideCastButtonPatch : BytecodePatch() {
             SwitchPreference(
                 "revanced_hide_cast_button",
                 StringResource("revanced_hide_cast_button_title", "Hide cast button"),
-                true,
                 StringResource("revanced_hide_cast_button_summary_on", "Cast button is hidden"),
                 StringResource("revanced_hide_cast_button_summary_off", "Cast button is shown")
             )

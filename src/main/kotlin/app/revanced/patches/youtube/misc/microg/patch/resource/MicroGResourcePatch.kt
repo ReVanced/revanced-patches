@@ -32,8 +32,8 @@ class MicroGResourcePatch : ResourcePatch {
         SettingsPatch.addPreference(
             Preference(
                 StringResource("microg_settings", "MicroG Settings"),
-                Preference.Intent("$MICROG_VENDOR.android.gms", "", "org.microg.gms.ui.SettingsActivity"),
                 StringResource("microg_settings_summary", "Settings for MicroG"),
+                Preference.Intent("$MICROG_VENDOR.android.gms", "", "org.microg.gms.ui.SettingsActivity")
             )
         )
         SettingsPatch.renameIntentsTargetPackage(REVANCED_PACKAGE_NAME)

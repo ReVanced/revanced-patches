@@ -9,7 +9,7 @@ import app.revanced.patches.shared.integrations.patch.AbstractIntegrationsPatch.
 @IntegrationsCompatibility
 @Version("0.0.1")
 object InitFingerprint : IntegrationsFingerprint(
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("/TwitchApplication;") &&
                 methodDef.name == "onCreate"
     }

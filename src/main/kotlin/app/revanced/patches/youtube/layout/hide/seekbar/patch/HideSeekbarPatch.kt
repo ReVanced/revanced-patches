@@ -16,11 +16,16 @@ import app.revanced.patches.shared.fingerprints.SeekbarOnDrawFingerprint
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.layout.hide.seekbar.annotations.HideSeekbarCompatibility
+import app.revanced.patches.youtube.layout.seekbar.bytecode.patch.SeekbarColorBytecodePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
 @Patch
-@DependsOn([IntegrationsPatch::class, SettingsPatch::class])
+@DependsOn([
+    IntegrationsPatch::class,
+    SettingsPatch::class,
+    SeekbarColorBytecodePatch::class // Used to hide the seekbar in the feed and watch history
+])
 @Name("hide-seekbar")
 @Description("Hides the seekbar.")
 @HideSeekbarCompatibility
@@ -33,7 +38,6 @@ class HideSeekbarPatch : BytecodePatch(
             SwitchPreference(
                 "revanced_hide_seekbar",
                 StringResource("revanced_hide_seekbar_title", "Hide seekbar"),
-                false,
                 StringResource("revanced_hide_seekbar_summary_on", "Seekbar is hidden"),
                 StringResource("revanced_hide_seekbar_summary_off", "Seekbar is shown")
             )

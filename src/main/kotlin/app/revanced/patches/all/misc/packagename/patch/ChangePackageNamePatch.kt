@@ -19,7 +19,7 @@ class ChangePackageNamePatch : ResourcePatch {
             if (!packageName.matches(packageNameRegex))
                 return PatchResultError("Invalid package name")
 
-            var originalPackageName = ""
+            var originalPackageName: String
             context.xmlEditor["AndroidManifest.xml"].use { editor ->
                 val manifest = editor.file.getElementsByTagName("manifest").item(0) as Element
                 originalPackageName = manifest.getAttribute("package")

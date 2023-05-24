@@ -13,7 +13,7 @@ import org.jf.dexlib2.AccessFlags
 object ACLCommonShareFingerprint2 : MethodFingerprint(
     "I",
     AccessFlags.PUBLIC or AccessFlags.FINAL,
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("/ACLCommonShare;") &&
                 methodDef.name == "getShowType"
     }

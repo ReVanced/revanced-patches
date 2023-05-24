@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.breakingnews.bytecode.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -24,22 +25,29 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @BreakingNewsCompatibility
 @Version("0.0.1")
 class BreakingNewsPatch : BytecodePatch(
-    listOf(
-        BreakingNewsFingerprint,
-    )
+    listOf(BreakingNewsFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        val breakingNewsResult = BreakingNewsFingerprint.result!!
-        val breakingNewsMethod = breakingNewsResult.mutableMethod
+        BreakingNewsFingerprint.result?.let {
+            val insertIndex = it.scanResult.patternScanResult!!.endIndex - 1
+            val moveResultIndex = insertIndex - 1
 
-        val moveResultObjectIndex =
-            breakingNewsResult.scanResult.patternScanResult!!.endIndex - 2
+            it.mutableMethod.apply {
+                val breakingNewsViewRegister = instruction<OneRegisterInstruction>(moveResultIndex).registerA
 
-        breakingNewsMethod.addInstruction(
-            moveResultObjectIndex + 1, """
-            invoke-static {v${(breakingNewsMethod.instruction(moveResultObjectIndex) as OneRegisterInstruction).registerA}}, Lapp/revanced/integrations/patches/HideBreakingNewsPatch;->hideBreakingNews(Landroid/view/View;)V
-        """
-        )
+                addInstruction(
+                    insertIndex,
+                    """
+                        invoke-static {v$breakingNewsViewRegister}, 
+                        Lapp/revanced/integrations/patches/HideBreakingNewsPatch;
+                        ->
+                        hideBreakingNews(Landroid/view/View;)V
+                    """
+                )
+            }
+
+        } ?: return BreakingNewsFingerprint.toErrorResult()
+
 
         return PatchResultSuccess()
     }

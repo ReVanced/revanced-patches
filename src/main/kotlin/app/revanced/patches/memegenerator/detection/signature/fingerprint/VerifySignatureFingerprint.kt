@@ -9,7 +9,7 @@ import org.jf.dexlib2.Opcode
 @FuzzyPatternScanMethod(2)
 object VerifySignatureFingerprint : MethodFingerprint(
     returnType = "Z",
-    access = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("Landroid/app/Activity;"),
     opcodes = listOf(
         Opcode.SGET_OBJECT,

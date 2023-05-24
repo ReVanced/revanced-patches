@@ -36,7 +36,6 @@ class HideGetPremiumPatch : BytecodePatch(
             SwitchPreference(
                 "revanced_hide_get_premium",
                 StringResource("revanced_hide_get_premium_title", "Hide YouTube Premium advertisement"),
-                true,
                 StringResource("revanced_hide_get_premium_summary_on", "YouTube Premium advertisement are hidden"),
                 StringResource("revanced_hide_get_premium_summary_off", "YouTube Premium advertisement are shown")
             )
@@ -45,8 +44,9 @@ class HideGetPremiumPatch : BytecodePatch(
         GetPremiumViewFingerprint.result?.let {
             it.mutableMethod.apply {
                 val startIndex = it.scanResult.patternScanResult!!.startIndex
-                val measuredWidthRegister = (instruction(startIndex) as TwoRegisterInstruction).registerA
-                val measuredHeightInstruction = instruction(startIndex + 1) as TwoRegisterInstruction
+                val measuredWidthRegister = instruction<TwoRegisterInstruction>(startIndex).registerA
+                val measuredHeightInstruction = instruction<TwoRegisterInstruction>(startIndex + 1)
+
                 val measuredHeightRegister = measuredHeightInstruction.registerA
                 val tempRegister = measuredHeightInstruction.registerB
 

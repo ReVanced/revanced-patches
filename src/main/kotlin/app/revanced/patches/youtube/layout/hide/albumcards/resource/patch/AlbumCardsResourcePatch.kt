@@ -27,7 +27,6 @@ class AlbumCardsResourcePatch : ResourcePatch {
             SwitchPreference(
                 "revanced_hide_album_cards",
                 StringResource("revanced_hide_album_cards_title", "Hide album cards"),
-                false,
                 StringResource("revanced_hide_album_cards_summary_on", "Album cards are hidden"),
                 StringResource("revanced_hide_album_cards_summary_off", "Album cards are shown")
             )

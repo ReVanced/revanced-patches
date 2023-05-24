@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object LicenseValidationFingerprint : MethodFingerprint(
     returnType = "Z",
-    access = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("Landroid/content/Context;"),
     opcodes = listOf(
         Opcode.INVOKE_STATIC,

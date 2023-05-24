@@ -66,7 +66,7 @@ class EmbeddedAdsPatch : BytecodePatch(
                         StringResource("key_revanced_proxy_purpleadblock", "purpleadblock")
                     )
                 ),
-                "ttv-lol"
+                default = "ttv-lol"
             )
         )
 

@@ -6,7 +6,7 @@ import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
 object InitializeButtonsFingerprint : MethodFingerprint(
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.implementation?.instructions?.any {
             it.opcode == Opcode.CONST && (it as WideLiteralInstruction).wideLiteral ==
                     ResolvePivotBarFingerprintsPatch.imageOnlyTabResourceId

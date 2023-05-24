@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.albumcards.bytecode.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -29,16 +30,22 @@ class AlbumCardsPatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        val albumCardsResult = AlbumCardsFingerprint.result!!
-        val albumCardsMethod = albumCardsResult.mutableMethod
+        AlbumCardsFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val checkCastAnchorIndex = it.scanResult.patternScanResult!!.endIndex
+                val insertIndex = checkCastAnchorIndex + 1
 
-        val checkCastAnchorIndex = albumCardsResult.scanResult.patternScanResult!!.endIndex
+                val albumCardViewRegister = instruction<OneRegisterInstruction>(checkCastAnchorIndex).registerA
 
-        albumCardsMethod.addInstruction(
-            checkCastAnchorIndex + 1, """
-            invoke-static {v${(albumCardsMethod.instruction(checkCastAnchorIndex) as OneRegisterInstruction).registerA}}, Lapp/revanced/integrations/patches/HideAlbumCardsPatch;->hideAlbumCards(Landroid/view/View;)V
-        """
-        )
+                addInstruction(
+                    insertIndex,
+                    "invoke-static {v$albumCardViewRegister}, " +
+                            "Lapp/revanced/integrations/patches/HideAlbumCardsPatch;" +
+                            "->" +
+                            "hideAlbumCards(Landroid/view/View;)V"
+                )
+            }
+        } ?: return AlbumCardsFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }

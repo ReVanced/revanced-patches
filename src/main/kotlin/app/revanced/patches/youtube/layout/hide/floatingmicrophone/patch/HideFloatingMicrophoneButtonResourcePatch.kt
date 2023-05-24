@@ -25,7 +25,6 @@ class HideFloatingMicrophoneButtonResourcePatch : ResourcePatch {
                     "revanced_hide_floating_microphone_button_enabled_title",
                     "Hide floating microphone button"
                 ),
-                true,
                 StringResource("revanced_hide_floating_microphone_button_summary_on", "Microphone button hidden"),
                 StringResource("revanced_hide_floating_microphone_button_summary_off", "Microphone button shown")
             )

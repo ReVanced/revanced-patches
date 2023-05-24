@@ -11,7 +11,7 @@ object CrowdfundingBoxFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.IPUT_OBJECT,
     ),
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.implementation?.instructions?.any { instruction ->
             instruction.opcode.ordinal == Opcode.CONST.ordinal &&
                     (instruction as? WideLiteralInstruction)?.wideLiteral == CrowdfundingBoxResourcePatch.crowdfundingBoxId

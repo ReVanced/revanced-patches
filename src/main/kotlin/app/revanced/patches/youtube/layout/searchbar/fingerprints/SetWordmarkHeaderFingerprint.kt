@@ -18,5 +18,5 @@ object SetWordmarkHeaderFingerprint : MethodFingerprint(
         Opcode.CONST,
         Opcode.INVOKE_STATIC,
     ),
-    customFingerprint = { methodDef -> methodDef.parameterTypes.first() == "Landroid/widget/ImageView;" }
+    customFingerprint = { methodDef, _ -> methodDef.parameterTypes.first() == "Landroid/widget/ImageView;" }
 )

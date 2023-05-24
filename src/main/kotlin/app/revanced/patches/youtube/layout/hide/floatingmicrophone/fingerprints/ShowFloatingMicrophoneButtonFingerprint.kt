@@ -11,7 +11,7 @@ object ShowFloatingMicrophoneButtonFingerprint : MethodFingerprint(
         Opcode.IF_EQZ,
         Opcode.RETURN_VOID
     ),
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.implementation?.instructions?.any {
             (it as? WideLiteralInstruction)?.wideLiteral == HideFloatingMicrophoneButtonResourcePatch.fabButtonId
         } == true

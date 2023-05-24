@@ -5,9 +5,9 @@ import org.jf.dexlib2.AccessFlags
 
 object BootStateFingerprint : MethodFingerprint(
     "Z",
-    access = AccessFlags.PUBLIC.value,
+    accessFlags = AccessFlags.PUBLIC.value,
     strings = listOf("Boot state of device: %s"),
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("/AttestationHelper;")
     }
 )

@@ -9,23 +9,26 @@ import org.w3c.dom.Element
  *
  * @param key The key of the preference.
  * @param title The title of the preference.
+ * @param tag The tag of the preference.
+ * @param summary The summary of the preference.
  */
 internal abstract class BasePreference(
-    override val key: String,
-    override val title: StringResource,
-) : IPreference {
-
+    val key: String?,
+    val title: StringResource,
+    val summary: StringResource? = null,
+    val tag: String
+) {
     /**
      * Serialize preference element to XML.
      * Overriding methods should invoke super and operate on its return value.
      * @param ownerDocument Target document to create elements from.
      * @param resourceCallback Called when a resource has been processed.
+     * @return The serialized element.
      */
-    open fun serialize(ownerDocument: Document, resourceCallback: ((IResource) -> Unit)? = null): Element {
-        return ownerDocument.createElement(tag).apply {
-            if(key.isNotEmpty())
-                setAttribute("android:key", key)
-            setAttribute("android:title", "@string/${title.also { resourceCallback?.invoke(it) }.name}")
+    open fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit): Element =
+        ownerDocument.createElement(tag).apply {
+            if (key != null) setAttribute("android:key", key)
+            setAttribute("android:title", "@string/${title.also { resourceCallback.invoke(it) }.name}")
+            addSummary(summary?.also { resourceCallback.invoke(it) })
         }
-    }
 }

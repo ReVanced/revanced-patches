@@ -6,7 +6,7 @@ import org.jf.dexlib2.AccessFlags
 
 object InlineActionTypesFingerprint : MethodFingerprint(
     returnType = "Ljava/util/List",
-    access = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     strings = listOf(
         "getCurrentMemoizing()",
         "android_animated_reply_icon_enabled",

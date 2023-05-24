@@ -14,7 +14,7 @@ object PaidPartnershipAdFingerprint : MediaAdFingerprint(
         Opcode.IPUT_BOOLEAN,
         Opcode.IPUT_BOOLEAN
     ),
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("ClipsEditMetadataController;")
     }
 ) {

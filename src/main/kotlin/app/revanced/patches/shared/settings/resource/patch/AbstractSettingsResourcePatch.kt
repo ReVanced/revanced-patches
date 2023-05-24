@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patches.shared.settings.preference.BasePreference
-import app.revanced.patches.shared.settings.preference.IResource
+import app.revanced.patches.shared.settings.preference.BaseResource
 import app.revanced.patches.shared.settings.preference.addPreference
 import app.revanced.patches.shared.settings.preference.addResource
 import app.revanced.patches.shared.settings.preference.impl.ArrayResource
@@ -108,7 +108,7 @@ abstract class AbstractSettingsResourcePatch(
          *
          * @throws IllegalArgumentException if the resource already exists.
          */
-        internal fun IResource.include() {
+        internal fun BaseResource.include() {
             when (this) {
                 is StringResource -> {
                     if (strings.any { it.name == name }) return

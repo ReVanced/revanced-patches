@@ -35,6 +35,9 @@
     <string name="sb_guidelines_popup_open">Show me</string>
 
     <string name="sb_general">General</string>
+    <string name="sb_toast_on_connection_error_title">Show toast if API is not available</string>
+    <string name="sb_toast_on_connection_error_summary_on">Toast shown if SponsorBlock API is not available</string>
+    <string name="sb_toast_on_connection_error_summary_off">Toast not shown if SponsorBlock API is not available</string>
     <string name="sb_general_skipcount">Enable skip count tracking</string>
     <string name="sb_general_skipcount_sum_on">Lets the SponsorBlock leaderboard know how much time is saved. A message is sent to the leaderboard each time a segment is skipped</string>
     <string name="sb_general_skipcount_sum_off">Skip count tracking is not enabled</string>
@@ -42,17 +45,21 @@
     <string name="sb_general_min_duration_sum">Segments shorter than this value (in seconds) will not be shown or skipped</string>
     <string name="sb_general_uuid">Your private user id</string>
     <string name="sb_general_uuid_sum">This should be kept private. This is like a password and should not be shared with anyone. If someone has this, they can impersonate you</string>
-    <string name="sb_general_uuid_invalid">User id cannot be blank</string>
+    <string name="sb_general_uuid_invalid">Private user id must be at least 30 characters long</string>
     <string name="sb_general_api_url">Change API URL</string>
     <string name="sb_general_api_url_sum">The address SponsorBlock uses to make calls to the server. Do not change this unless you know what you\'re doing</string>
     <string name="sb_api_url_reset">API URL reset</string>
     <string name="sb_api_url_invalid">API URL is invalid</string>
     <string name="sb_api_url_changed">API URL changed</string>
     <string name="sb_settings_ie">Import/Export settings</string>
+    <string name="sb_settings_copy">Copy</string>
     <string name="sb_settings_ie_sum">Your SponsorBlock JSON configuration that can be imported/exported to ReVanced and other SponsorBlock platforms. This includes your private user id. Be sure to share this wisely</string>
     <string name="sb_settings_import_successful">Settings imported successfully</string>
     <string name="sb_settings_import_failed">Failed to import: %s</string>
-    <string name="sb_settings_export_failed">Failed to export settings (try clearing app data)</string>
+    <string name="sb_settings_export_failed">Failed to export: %s</string>
+
+    <string name="sb_settings_revanced_export_user_id_warning">Your settings contain a private SponsorBlock user id.\n\nYour user id is like a password and it should never be shared.\n</string>
+    <string name="sb_settings_revanced_export_user_id_warning_dismiss">Do not show again</string>
 
     <string name="sb_diff_segments">Change segment behavior</string>
     <string name="sb_segments_sponsor">Sponsor</string>
@@ -113,10 +120,10 @@
     <string name="sb_skip_seekbaronly">Show in seek bar</string>
     <string name="sb_skip_ignore">Disable</string>
 
-    <string name="sb_submit_failed_invalid" formatted="false">Can\'t submit the segment: %s</string>
-    <string name="sb_submit_failed_timeout">Unable to submit segments (API timed out)</string>
-    <string name="sb_submit_failed_unknown_error" formatted="false">Unable to submit segments (status: %d %s)</string>
-    <string name="sb_submit_failed_rate_limit">Can\'t submit the segment.\nRate Limited (too many from the same user or IP)</string>
+    <string name="sb_submit_failed_invalid" formatted="false">Unable to submit segment: %s</string>
+    <string name="sb_submit_failed_timeout">SponsorBlock is temporarily down</string>
+    <string name="sb_submit_failed_unknown_error" formatted="false">Unable to submit segment (status: %d %s)</string>
+    <string name="sb_submit_failed_rate_limit">Unable to submit segment.\nRate Limited (too many from the same user or IP)</string>
     <string name="sb_submit_failed_forbidden" formatted="false">Can\'t submit the segment: %s</string>
     <string name="sb_submit_failed_duplicate">Can\'t submit the segment.\nAlready exists</string>
     <string name="sb_submit_succeeded">Segment submitted successfully</string>

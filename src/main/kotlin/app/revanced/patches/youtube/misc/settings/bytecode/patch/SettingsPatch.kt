@@ -7,6 +7,8 @@ import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -15,78 +17,61 @@ import app.revanced.patches.shared.settings.preference.impl.Preference
 import app.revanced.patches.shared.settings.util.AbstractPreferenceScreen
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.LicenseActivityFingerprint
-import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.ThemeSetterAppFingerprint
-import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.ThemeSetterSystemFingerprint
+import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.SetThemeFingerprint
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsResourcePatch
+import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.util.MethodUtil
 
-@DependsOn(
-    [
-        IntegrationsPatch::class,
-        SettingsResourcePatch::class,
-    ]
-)
+@DependsOn([IntegrationsPatch::class, SettingsResourcePatch::class, ])
 @Name("settings")
 @Description("Adds settings for ReVanced to YouTube.")
 @Version("0.0.1")
 class SettingsPatch : BytecodePatch(
-    listOf(LicenseActivityFingerprint, ThemeSetterSystemFingerprint, ThemeSetterAppFingerprint)
+    listOf(LicenseActivityFingerprint, SetThemeFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        fun buildInvokeInstructionsString(
+        // TODO: Remove this when it is only required at one place.
+        fun getSetThemeInstructionString(
             registers: String = "v0",
             classDescriptor: String = THEME_HELPER_DESCRIPTOR,
             methodName: String = SET_THEME_METHOD_NAME,
             parameters: String = "Ljava/lang/Object;"
-        ) = "invoke-static {$registers}, $classDescriptor->$methodName($parameters)V"
+        ) = "invoke-static { $registers }, $classDescriptor->$methodName($parameters)V"
 
-        // apply the current theme of the settings page
-        ThemeSetterSystemFingerprint.result!!.let { result ->
-            val call = buildInvokeInstructionsString()
-            result.mutableMethod.apply {
-                addInstruction(
-                    result.scanResult.patternScanResult!!.startIndex, call
-                )
-                addInstructions(
-                    implementation!!.instructions.size - 1, call
-                )
-            }
-        }
+        SetThemeFingerprint.result?.mutableMethod?.let { setThemeMethod ->
+            setThemeMethod.implementation!!.instructions.mapIndexedNotNull { i, instruction ->
+                    if (instruction.opcode == Opcode.RETURN_OBJECT) i else null
+                }
+                .asReversed() // Prevent index shifting.
+                .forEach { returnIndex ->
+                    // The following strategy is to replace the return instruction with the setTheme instruction,
+                    // then add a return instruction after the setTheme instruction.
+                    // This is done because the return instruction is a target of another instruction.
 
-        // set the theme based on the preference of the app
-        ThemeSetterAppFingerprint.result?.apply {
-            fun buildInstructionsString(theme: Int) = """
-                    const/4 v0, 0x$theme
-                    ${buildInvokeInstructionsString(parameters = "I")}
-                """
+                    setThemeMethod.apply {
+                        // This register is returned by the setTheme method.
+                        val register = instruction<OneRegisterInstruction>(returnIndex).registerA
 
-            val patternScanResult = scanResult.patternScanResult!!
+                        val setThemeInstruction = getSetThemeInstructionString("v$register")
+                        replaceInstruction(returnIndex, setThemeInstruction)
+                        addInstruction(returnIndex + 1, "return-object v0")
+                    }
+                }
+        } ?: return SetThemeFingerprint.toErrorResult()
 
-            mutableMethod.apply {
-                addInstructions(
-                    patternScanResult.endIndex + 1, buildInstructionsString(1)
-                )
-                addInstructions(
-                    patternScanResult.endIndex - 7, buildInstructionsString(0)
-                )
-                addInstructions(
-                    patternScanResult.endIndex - 9, buildInstructionsString(1)
-                )
-                addInstructions(
-                    implementation!!.instructions.size - 2, buildInstructionsString(0)
-                )
-            }
-        } ?: return ThemeSetterAppFingerprint.toErrorResult()
 
-        // set the theme based on the preference of the device
+        // Modify the license activity and remove all existing layout code.
+        // Must modify an existing activity and cannot add a new activity to the manifest,
+        // as that fails for root installations.
         LicenseActivityFingerprint.result!!.apply licenseActivity@{
             mutableMethod.apply {
                 fun buildSettingsActivityInvokeString(
                     registers: String = "p0",
                     classDescriptor: String = SETTINGS_ACTIVITY_DESCRIPTOR,
                     methodName: String = "initializeSettings",
-                    parameters: String = this@licenseActivity.mutableClass.type
-                ) = buildInvokeInstructionsString(registers, classDescriptor, methodName, parameters)
+                    parameters: String = "Landroid/app/Activity;"
+                ) = getSetThemeInstructionString(registers, classDescriptor, methodName, parameters)
 
                 // initialize the settings
                 addInstructions(
@@ -95,9 +80,6 @@ class SettingsPatch : BytecodePatch(
                         return-void
                     """
                 )
-
-                // set the current theme
-                addInstruction(0, buildSettingsActivityInvokeString(methodName = "setTheme"))
             }
 
             // remove method overrides
@@ -106,14 +88,13 @@ class SettingsPatch : BytecodePatch(
             }
         }
 
+
         return PatchResultSuccess()
     }
 
     internal companion object {
         private const val INTEGRATIONS_PACKAGE = "app/revanced/integrations"
-
         private const val SETTINGS_ACTIVITY_DESCRIPTOR = "L$INTEGRATIONS_PACKAGE/settingsmenu/ReVancedSettingActivity;"
-
         private const val THEME_HELPER_DESCRIPTOR = "L$INTEGRATIONS_PACKAGE/utils/ThemeHelper;"
         private const val SET_THEME_METHOD_NAME = "setTheme"
 
@@ -128,6 +109,15 @@ class SettingsPatch : BytecodePatch(
         fun renameIntentsTargetPackage(newPackage: String) {
             SettingsResourcePatch.overrideIntentsTargetPackage = newPackage
         }
+
+        /**
+         * Creates an intent to open ReVanced settings of the given name
+         */
+        fun createReVancedSettingsIntent(settingsName: String) = Preference.Intent(
+            "com.google.android.youtube",
+            settingsName,
+            "com.google.android.libraries.social.licenses.LicenseActivity"
+        )
     }
 
     /**
@@ -137,6 +127,7 @@ class SettingsPatch : BytecodePatch(
         val ADS = Screen("ads", "Ads", "Ad related settings")
         val INTERACTIONS = Screen("interactions", "Interaction", "Settings related to interactions")
         val LAYOUT = Screen("layout", "Layout", "Settings related to the layout")
+        val VIDEO = Screen("video", "Video", "Settings related to the video player")
         val MISC = Screen("misc", "Misc", "Miscellaneous patches")
 
         override fun commit(screen: app.revanced.patches.shared.settings.preference.impl.PreferenceScreen) {
