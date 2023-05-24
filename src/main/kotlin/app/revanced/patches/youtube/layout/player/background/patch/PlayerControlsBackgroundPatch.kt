@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.buttons.player.background.patch
+package app.revanced.patches.youtube.layout.player.background.patch
 
 import app.revanced.extensions.doRecursively
 import app.revanced.patcher.annotation.Description
@@ -9,15 +9,15 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.youtube.layout.buttons.player.background.annotations.PlayerButtonBackgroundCompatibility
+import app.revanced.patches.youtube.layout.player.background.annotations.PlayerControlsBackgroundCompatibility
 import org.w3c.dom.Element
 
 @Patch(false)
-@Name("remove-player-button-background")
-@Description("Removes the background from the video player buttons.")
-@PlayerButtonBackgroundCompatibility
+@Name("remove-player-controls-background")
+@Description("Removes the background from the video player controls.")
+@PlayerControlsBackgroundCompatibility
 @Version("0.0.1")
-class PlayerButtonBackgroundPatch : ResourcePatch {
+class PlayerControlsBackgroundPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
         context.xmlEditor[RESOURCE_FILE_PATH].use { editor ->
             editor.file.doRecursively node@{ node ->
