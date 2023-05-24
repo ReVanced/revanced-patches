@@ -35,7 +35,6 @@ The official ReVanced Patches.
 | `hide-endscreen-cards` | Hides the suggested video cards at the end of a video in fullscreen. | 18.19.35 |
 | `hide-filter-bar` | Hides the filter bar in video feeds. | 18.19.35 |
 | `hide-floating-microphone-button` | Hides the floating microphone button which appears in search. | 18.19.35 |
-| `hide-get-premium` | Hides advertisement for YouTube Premium under the video player. | 18.19.35 |
 | `hide-info-cards` | Hides info cards in videos. | 18.19.35 |
 | `hide-load-more-button` | Hides the button under videos that loads similar videos. | 18.19.35 |
 | `hide-player-buttons` | Adds the option to hide video player previous and next buttons. | 18.19.35 |

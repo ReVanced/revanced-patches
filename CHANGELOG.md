@@ -1,3 +1,10 @@
+# [2.175.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.174.1-dev.1...v2.175.0-dev.1) (2023-05-24)
+
+
+### Features
+
+* **youtube/general-ads:** merge `hide-get-premium` patch into `general-ads` patch ([5195dd8](https://github.com/revanced/revanced-patches/commit/5195dd8936d63c482dbcb2cd0e7e9aab3c75954e))
+
 ## [2.174.1-dev.1](https://github.com/revanced/revanced-patches/compare/v2.174.0...v2.174.1-dev.1) (2023-05-24)
 
 
