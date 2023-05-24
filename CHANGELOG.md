@@ -1,3 +1,10 @@
+# [2.174.0-dev.41](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.40...v2.174.0-dev.41) (2023-05-24)
+
+
+### Bug Fixes
+
+* **youtube/vanced-microg-support:** depend on `client-spoof` patch ([83a4905](https://github.com/revanced/revanced-patches/commit/83a490575c60adf21db926df3013f539c6d33068))
+
 # [2.174.0-dev.40](https://github.com/revanced/revanced-patches/compare/v2.174.0-dev.39...v2.174.0-dev.40) (2023-05-23)
 
 
