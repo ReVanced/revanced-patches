@@ -23,10 +23,10 @@ class HideInfocardsResourcePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
-                "revanced_hide_infocards",
-                StringResource("revanced_hide_infocards_title", "Hide info cards"),
-                StringResource("revanced_hide_infocards_summary_on", "Info cards are hidden"),
-                StringResource("revanced_hide_infocards_summary_off", "Info cards are shown")
+                "revanced_hide_info_cards",
+                StringResource("revanced_hide_info_cards_title", "Hide info cards"),
+                StringResource("revanced_hide_info_cards_summary_on", "Info cards are hidden"),
+                StringResource("revanced_hide_info_cards_summary_off", "Info cards are shown")
             )
         )
 
