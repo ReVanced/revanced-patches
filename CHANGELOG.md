@@ -1,3 +1,10 @@
+# [2.175.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.175.0-dev.1...v2.175.0-dev.2) (2023-05-25)
+
+
+### Bug Fixes
+
+* **youtube/hide-info-cards:** fix hide-info-cards setting does not work ([#2246](https://github.com/revanced/revanced-patches/issues/2246)) ([72773ac](https://github.com/revanced/revanced-patches/commit/72773ac56987753fac6c0087d048b4378a3dd360))
+
 # [2.175.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.174.1-dev.1...v2.175.0-dev.1) (2023-05-24)
 
 
