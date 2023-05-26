@@ -1,3 +1,10 @@
+# [2.175.0-dev.6](https://github.com/revanced/revanced-patches/compare/v2.175.0-dev.5...v2.175.0-dev.6) (2023-05-26)
+
+
+### Bug Fixes
+
+* **youtube/hide-shorts-components:** clarify settings switch ([#2276](https://github.com/revanced/revanced-patches/issues/2276)) ([3e6d052](https://github.com/revanced/revanced-patches/commit/3e6d0528b287ded401dacdcea698d4ec97b926ee))
+
 # [2.175.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.175.0-dev.4...v2.175.0-dev.5) (2023-05-26)
 
 
