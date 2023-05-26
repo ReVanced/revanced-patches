@@ -20,8 +20,8 @@ The official ReVanced Patches.
 | `disable-player-popup-panels` | Disables panels from appearing automatically when going into fullscreen (playlist or live chat). | 18.19.35 |
 | `disable-shorts-on-startup` | Disables playing YouTube Shorts when launching YouTube. | 18.19.35 |
 | `disable-zoom-haptics` | Disables haptics when zooming. | all |
-| `downloads` | Adds a download button to the YouTube video player. | 18.19.35 |
 | `enable-debugging` | Adds debugging options. | all |
+| `external-downloads` | Adds support to download and save YouTube videos using an external app. | 18.19.35 |
 | `hdr-auto-brightness` | Makes the brightness of HDR videos follow the system default. | 18.19.35 |
 | `hide-ads` | Removes general ads. | 18.19.35 |
 | `hide-album-cards` | Hides the album cards below the artist description. | 18.19.35 |

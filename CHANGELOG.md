@@ -1,3 +1,10 @@
+# [2.175.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.175.0-dev.3...v2.175.0-dev.4) (2023-05-26)
+
+
+### Bug Fixes
+
+* **youtube/downloads:** rename patch to `external-downloads` ([#2274](https://github.com/revanced/revanced-patches/issues/2274)) ([4480911](https://github.com/revanced/revanced-patches/commit/4480911e0b056f2148616a0c2af6b4ab7c482c3b))
+
 # [2.175.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.175.0-dev.2...v2.175.0-dev.3) (2023-05-25)
 
 
