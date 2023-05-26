@@ -1,3 +1,10 @@
+# [2.175.0-dev.7](https://github.com/revanced/revanced-patches/compare/v2.175.0-dev.6...v2.175.0-dev.7) (2023-05-26)
+
+
+### Features
+
+* **remove-screen-capture-restriction:** remove app constraint ([#2260](https://github.com/revanced/revanced-patches/issues/2260)) ([49ce47c](https://github.com/revanced/revanced-patches/commit/49ce47c3eed6a1626674d0f60ae0fdbe349e804b))
+
 # [2.175.0-dev.6](https://github.com/revanced/revanced-patches/compare/v2.175.0-dev.5...v2.175.0-dev.6) (2023-05-26)
 
 

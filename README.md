@@ -151,16 +151,6 @@ The official ReVanced Patches.
 | `sanitize-sharing-links` | Removes (tracking) query parameters from the URLs when sharing links. | all |
 </details>
 
-### [📦 `com.spotify.music`](https://play.google.com/store/apps/details?id=com.spotify.music)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `disable-capture-restriction` | Allows capturing Spotify's audio output while screen sharing or screen recording. | all |
-| `hide-premium-navbar` | Removes the premium tab from the navbar. | all |
-| `spotify-theme` | Applies a custom theme. | all |
-</details>
-
 ### [📦 `com.facebook.orca`](https://play.google.com/store/apps/details?id=com.facebook.orca)
 <details>
 
@@ -169,6 +159,15 @@ The official ReVanced Patches.
 | `disable-switching-emoji-to-sticker-in-message-input-field` | Disables switching from emoji to sticker search mode in message input field | all |
 | `disable-typing-indicator` | Disables the indicator while typing a message | all |
 | `hide-inbox-ads` | Hides ads in inbox. | all |
+</details>
+
+### [📦 `com.spotify.music`](https://play.google.com/store/apps/details?id=com.spotify.music)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `hide-premium-navbar` | Removes the premium tab from the navbar. | all |
+| `spotify-theme` | Applies a custom theme. | all |
 </details>
 
 ### [📦 `at.gv.bmf.bmf2go`](https://play.google.com/store/apps/details?id=at.gv.bmf.bmf2go)
