@@ -32,7 +32,7 @@ import java.util.Objects;
 
 public enum SettingsEnum {
     // External downloader
-    EXTERNAL_DOWNLOADER("revanced_external_downloader", BOOLEAN, TRUE),
+    EXTERNAL_DOWNLOADER("revanced_external_downloader", BOOLEAN, FALSE),
     EXTERNAL_DOWNLOADER_PACKAGE_NAME("revanced_external_downloader_name", STRING,
             "org.schabi.newpipe" /* NewPipe */, parents(EXTERNAL_DOWNLOADER)),
 
