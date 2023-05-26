@@ -1,3 +1,10 @@
+# [2.175.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.175.0-dev.4...v2.175.0-dev.5) (2023-05-26)
+
+
+### Features
+
+* **nfctoolsse:** add `unlock-pro` patch ([#2272](https://github.com/revanced/revanced-patches/issues/2272)) ([9789ad3](https://github.com/revanced/revanced-patches/commit/9789ad30ff82d9bb99e870dc8053775dc222a010))
+
 # [2.175.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.175.0-dev.3...v2.175.0-dev.4) (2023-05-26)
 
 
