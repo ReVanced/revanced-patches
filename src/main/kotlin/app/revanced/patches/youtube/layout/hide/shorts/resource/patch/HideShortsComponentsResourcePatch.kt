@@ -18,12 +18,12 @@ class HideShortsComponentsResourcePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
-                "revanced_shorts",
-                StringResource("revanced_shorts_title", "Shorts components"),
+                "revanced_shorts_preference_screen",
+                StringResource("revanced_shorts_preference_screen_title", "Shorts components"),
                 listOf(
                     SwitchPreference(
                         "revanced_hide_shorts",
-                        StringResource("revanced_hide_shorts_enabled_title", "Hide shorts"),
+                        StringResource("revanced_hide_shorts_title", "Hide shorts in feed"),
                         StringResource("revanced_hide_shorts_on", "Shorts are hidden"),
                         StringResource("revanced_hide_shorts_off", "Shorts are shown")
                     ),
@@ -70,7 +70,7 @@ class HideShortsComponentsResourcePatch : ResourcePatch {
                         StringResource("revanced_hide_shorts_navigation_bar_off", "Navigation bar is shown")
                     ),
                 ),
-                StringResource("revanced_shorts_summary", "Manage the visibility of Shorts components")
+                StringResource("revanced_shorts_preference_screen_summary", "Manage the visibility of Shorts components")
             )
         )
 
