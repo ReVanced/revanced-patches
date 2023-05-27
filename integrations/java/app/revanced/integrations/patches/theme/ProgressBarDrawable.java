@@ -22,7 +22,7 @@ public class ProgressBarDrawable extends Drawable {
 
     @Override
     public void draw(@NonNull Canvas canvas) {
-        if (SettingsEnum.HIDE_SEEKBAR.getBoolean()) {
+        if (SettingsEnum.HIDE_SEEKBAR_THUMBNAIL.getBoolean()) {
             return;
         }
         paint.setColor(SeekbarColorPatch.getCustomSeekbarColor());
