@@ -1,3 +1,10 @@
+# [2.175.0-dev.8](https://github.com/revanced/revanced-patches/compare/v2.175.0-dev.7...v2.175.0-dev.8) (2023-05-27)
+
+
+### Features
+
+* **youtube/hide-shorts-components:** hide shorts info panel ([#2278](https://github.com/revanced/revanced-patches/issues/2278)) ([a5b323d](https://github.com/revanced/revanced-patches/commit/a5b323d1d9e5b175c93f0b29732eb1123b83bab7))
+
 # [2.175.0-dev.7](https://github.com/revanced/revanced-patches/compare/v2.175.0-dev.6...v2.175.0-dev.7) (2023-05-26)
 
 
