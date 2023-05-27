@@ -20,6 +20,11 @@ public final class ShortsFilter extends Filter {
             "reel_channel_bar"
     );
 
+    private final StringFilterGroup infoPanel = new StringFilterGroup(
+            SettingsEnum.HIDE_SHORTS_INFO_PANEL,
+            "shorts_info_panel_overview"
+    );
+
     public ShortsFilter() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) return;
 
@@ -54,6 +59,9 @@ public final class ShortsFilter extends Filter {
         // Filter the path only when reelChannelBar is visible.
         if (reelChannelBar.check(path).isFiltered())
             if (this.pathFilterGroups.contains(path)) return true;
+
+        // Shorts info panel path appears outside of reelChannelBar path.
+        if (infoPanel.isEnabled() && infoPanel.check(path).isFiltered()) return true;
 
         return this.identifierFilterGroups.contains(identifier);
     }
