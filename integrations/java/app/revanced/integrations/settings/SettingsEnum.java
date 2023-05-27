@@ -140,6 +140,8 @@ public enum SettingsEnum {
     HIDE_SHORTS_REMIX_BUTTON("revanced_hide_shorts_remix_button", BOOLEAN, TRUE),
     HIDE_SHORTS_SHARE_BUTTON("revanced_hide_shorts_share_button", BOOLEAN, FALSE),
     HIDE_SHORTS_INFO_PANEL("revanced_hide_shorts_info_panel", BOOLEAN, TRUE),
+    HIDE_SHORTS_SOUND_BUTTON("revanced_hide_shorts_sound_button", BOOLEAN, FALSE),
+    HIDE_SHORTS_CHANNEL_BAR("revanced_hide_shorts_channel_bar", BOOLEAN, FALSE),
     HIDE_SHORTS_NAVIGATION_BAR("revanced_hide_shorts_navigation_bar", BOOLEAN, TRUE, true),
     HIDE_SHORTS("revanced_hide_shorts", BOOLEAN, FALSE, true),
 

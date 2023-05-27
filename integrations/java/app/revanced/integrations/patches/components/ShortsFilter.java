@@ -43,6 +43,16 @@ public final class ShortsFilter extends Filter {
                 "sponsor_button"
         );
 
+        final var soundButton = new StringFilterGroup(
+                SettingsEnum.HIDE_SHORTS_SOUND_BUTTON,
+                "reel_pivot_button"
+        );
+
+        final var channelBar = new StringFilterGroup(
+                SettingsEnum.HIDE_SHORTS_CHANNEL_BAR,
+                "reel_channel_bar"
+        );
+
         final var shorts = new StringFilterGroup(
                 SettingsEnum.HIDE_SHORTS,
                 "shorts_shelf",
@@ -50,12 +60,13 @@ public final class ShortsFilter extends Filter {
                 "shorts_grid"
         );
 
-        this.pathFilterGroups.addAll(joinButton, subscribeButton);
+        this.pathFilterGroups.addAll(joinButton, subscribeButton, soundButton, channelBar);
         this.identifierFilterGroups.addAll(shorts, thanksButton);
     }
 
     @Override
-    boolean isFiltered(final String path, final String identifier, final byte[] protobufBufferArray) {
+    boolean isFiltered(final String path, final String identifier,
+                       final byte[] protobufBufferArray) {
         // Filter the path only when reelChannelBar is visible.
         if (reelChannelBar.check(path).isFiltered())
             if (this.pathFilterGroups.contains(path)) return true;
