@@ -15,9 +15,9 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.layout.seekbar.annotations.SeekbarColorCompatibility
 import app.revanced.patches.youtube.layout.seekbar.bytecode.fingerprints.CreateDarkThemeSeekbarFingerprint
 import app.revanced.patches.youtube.layout.seekbar.bytecode.fingerprints.SetSeekbarClickedColorFingerprint
+import app.revanced.patches.youtube.layout.seekbar.resource.SeekbarColorResourcePatch
 import app.revanced.patches.youtube.layout.theme.bytecode.patch.LithoColorHookPatch
 import app.revanced.patches.youtube.layout.theme.bytecode.patch.LithoColorHookPatch.Companion.lithoColorOverrideHook
-import app.revanced.patches.youtube.layout.seekbar.resource.SeekbarColorResourcePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.util.patch.indexOfFirstConstantInstruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
@@ -37,7 +37,7 @@ class SeekbarColorBytecodePatch : BytecodePatch(
             addInstructions(
                 registerIndex + 1,
                 """
-                        invoke-static { v$colorRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getSeekbarColorValue(I)I
+                        invoke-static { v$colorRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getVideoPlayerSeekbarColor(I)I
                         move-result v$colorRegister
                     """
             )
@@ -47,7 +47,7 @@ class SeekbarColorBytecodePatch : BytecodePatch(
             addInstructions(
                 registerIndex + 1,
                 """
-                        invoke-static { v$colorRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getSeekbarColorValue(I)I
+                        invoke-static { v$colorRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getVideoPlayerSeekbarColor(I)I
                         move-result v$colorRegister
                     """
             )
@@ -66,7 +66,7 @@ class SeekbarColorBytecodePatch : BytecodePatch(
                     addInstructions(
                         0,
                         """
-                            invoke-static { v$colorRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getSeekbarColorOverride(I)I
+                            invoke-static { v$colorRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getVideoPlayerSeekbarClickedColor(I)I
                             move-result v$colorRegister
                         """
                     )
@@ -74,7 +74,7 @@ class SeekbarColorBytecodePatch : BytecodePatch(
             }
         } ?: return SetSeekbarClickedColorFingerprint.toErrorResult()
 
-        lithoColorOverrideHook(INTEGRATIONS_CLASS_DESCRIPTOR, "getSeekbarColorOverride")
+        lithoColorOverrideHook(INTEGRATIONS_CLASS_DESCRIPTOR, "getLithoColor")
 
         return PatchResultSuccess()
     }
