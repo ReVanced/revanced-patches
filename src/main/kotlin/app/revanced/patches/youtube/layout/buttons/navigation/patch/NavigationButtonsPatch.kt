@@ -42,7 +42,7 @@ class NavigationButtonsPatch : BytecodePatch(listOf(AddCreateButtonViewFingerpri
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
                 "revanced_navigation_buttons_preference_screen",
-                StringResource("revanced_navigation_buttons_preference_screen_title", "Navigation button settings"),
+                StringResource("revanced_navigation_buttons_preference_screen_title", "Navigation buttons"),
                 listOf(
                     SwitchPreference(
                         "revanced_hide_home_button",
