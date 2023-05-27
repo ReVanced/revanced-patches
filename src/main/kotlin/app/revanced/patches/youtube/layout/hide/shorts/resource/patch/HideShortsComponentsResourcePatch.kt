@@ -64,6 +64,12 @@ class HideShortsComponentsResourcePatch : ResourcePatch {
                         StringResource("revanced_hide_shorts_share_button_off", "Share button is shown")
                     ),
                     SwitchPreference(
+                        "revanced_hide_shorts_info_panel",
+                        StringResource("revanced_hide_shorts_info_panel_title", "Hide info panel"),
+                        StringResource("revanced_hide_shorts_info_panel_on", "Info panel is hidden"),
+                        StringResource("revanced_hide_shorts_info_panel_off", "Info panel is shown")
+                    ),
+                    SwitchPreference(
                         "revanced_hide_shorts_navigation_bar",
                         StringResource("revanced_hide_shorts_navigation_bar_title", "Hide navigation bar"),
                         StringResource("revanced_hide_shorts_navigation_bar_on", "Navigation bar is hidden"),
