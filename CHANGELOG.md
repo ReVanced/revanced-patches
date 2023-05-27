@@ -1,3 +1,10 @@
+# [2.175.0-dev.9](https://github.com/revanced/revanced-patches/compare/v2.175.0-dev.8...v2.175.0-dev.9) (2023-05-27)
+
+
+### Features
+
+* **youtube/hide-seekbar:** more fine grained hiding of seekbar ([#2252](https://github.com/revanced/revanced-patches/issues/2252)) ([0f07bf4](https://github.com/revanced/revanced-patches/commit/0f07bf467a4aa06c9bcdf60a2498d88eea8c1429))
+
 # [2.175.0-dev.8](https://github.com/revanced/revanced-patches/compare/v2.175.0-dev.7...v2.175.0-dev.8) (2023-05-27)
 
 
