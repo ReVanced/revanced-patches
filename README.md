@@ -284,6 +284,14 @@ The official ReVanced Patches.
 | `remove-broadcasts-restriction` | Enables starting/stopping NetGuard via broadcasts. | all |
 </details>
 
+### [📦 `com.scb.phone`](https://play.google.com/store/apps/details?id=com.scb.phone)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `remove-debugging-detection` | Removes the USB and wireless debugging checks. | all |
+</details>
+
 ### [📦 `com.dci.dev.androidtwelvewidgets`](https://play.google.com/store/apps/details?id=com.dci.dev.androidtwelvewidgets)
 <details>
 
