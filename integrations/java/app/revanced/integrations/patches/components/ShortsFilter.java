@@ -57,7 +57,8 @@ public final class ShortsFilter extends Filter {
                 SettingsEnum.HIDE_SHORTS,
                 "shorts_shelf",
                 "inline_shorts",
-                "shorts_grid"
+                "shorts_grid",
+                "shorts_video_cell"
         );
 
         this.pathFilterGroups.addAll(joinButton, subscribeButton, soundButton, channelBar);
