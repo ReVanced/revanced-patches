@@ -1,3 +1,10 @@
+# [2.175.0-dev.12](https://github.com/revanced/revanced-patches/compare/v2.175.0-dev.11...v2.175.0-dev.12) (2023-05-29)
+
+
+### Bug Fixes
+
+* **youtube/integrations:** fix playback of embedded videos ([#2304](https://github.com/revanced/revanced-patches/issues/2304)) ([1dffbaf](https://github.com/revanced/revanced-patches/commit/1dffbaf0aa73f0f703516648d5cd935000fa2770))
+
 # [2.175.0-dev.11](https://github.com/revanced/revanced-patches/compare/v2.175.0-dev.10...v2.175.0-dev.11) (2023-05-28)
 
 
