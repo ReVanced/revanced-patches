@@ -5,17 +5,14 @@ import app.revanced.patches.shared.integrations.patch.AbstractIntegrationsPatch.
 import org.jf.dexlib2.AccessFlags
 
 /**
- * For embedded playback inside Google Play store (and probably other situations as well).
- *
- * Note: this fingerprint may no longer be needed, as it appears
- * [RemoteEmbedFragmentFingerprint] may be set before this hook is called.
+ * For embedded playback inside 3rd party android app (such as 3rd party Reddit apps).
  */
-object EmbeddedPlayerControlsOverlayFingerprint : IntegrationsFingerprint(
+object RemoteEmbeddedPlayerFingerprint : IntegrationsFingerprint(
     accessFlags = AccessFlags.PRIVATE or AccessFlags.CONSTRUCTOR,
     returnType = "V",
-    parameters = listOf("Landroid/content/Context;", "L", "L"),
+    parameters = listOf("Landroid/content/Context;", "L", "L", "Z"),
     customFingerprint = { methodDef, _ ->
-        methodDef.definingClass.startsWith("Lcom/google/android/apps/youtube/embeddedplayer/service/ui/overlays/controlsoverlay/remoteloaded/")
+        methodDef.definingClass == "Lcom/google/android/youtube/api/jar/client/RemoteEmbeddedPlayer;"
     },
     // Integrations context is the first method parameter.
     contextRegisterResolver = { it.implementation!!.registerCount - it.parameters.size }
