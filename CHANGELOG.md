@@ -1,3 +1,10 @@
+# [2.175.0-dev.13](https://github.com/revanced/revanced-patches/compare/v2.175.0-dev.12...v2.175.0-dev.13) (2023-05-29)
+
+
+### Bug Fixes
+
+* **settings:** sort setting preferences using lowercase ([#2312](https://github.com/revanced/revanced-patches/issues/2312)) ([2743a95](https://github.com/revanced/revanced-patches/commit/2743a95b417a6023799035e30631e7b3a68bcc45))
+
 # [2.175.0-dev.12](https://github.com/revanced/revanced-patches/compare/v2.175.0-dev.11...v2.175.0-dev.12) (2023-05-29)
 
 
