@@ -1,3 +1,10 @@
+# [2.175.0-dev.15](https://github.com/revanced/revanced-patches/compare/v2.175.0-dev.14...v2.175.0-dev.15) (2023-05-30)
+
+
+### Bug Fixes
+
+* **youtube/remember-video-quality:** fix typo in video resolutions ([#2323](https://github.com/revanced/revanced-patches/issues/2323)) ([a99cef8](https://github.com/revanced/revanced-patches/commit/a99cef87b40b67a5feb97999fb4f2925ea80b42e))
+
 # [2.175.0-dev.14](https://github.com/revanced/revanced-patches/compare/v2.175.0-dev.13...v2.175.0-dev.14) (2023-05-30)
 
 
