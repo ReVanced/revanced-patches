@@ -89,14 +89,14 @@ The official ReVanced Patches.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `disable-login-requirement` | Do not force login. | all |
-| `downloads` | Removes download restrictions and changes the default path to download to. | 27.8.3 |
-| `feed-filter` | Filters tiktok videos: removing ads, removing livestreams. | 27.8.3 |
+| `downloads` | Removes download restrictions and changes the default path to download to. | all |
+| `feed-filter` | Filters tiktok videos: removing ads, removing livestreams. | all |
 | `fix-google-login` | Allows logging in with a Google account. | all |
 | `hide-ads` | Removes ads from TikTok. | all |
 | `playback-speed` | Enables the playback speed option for all videos. | all |
-| `settings` | Adds ReVanced settings to TikTok. | 27.8.3 |
+| `settings` | Adds ReVanced settings to TikTok. | all |
 | `show-seekbar` | Shows progress bar for all video. | all |
-| `sim-spoof` | Spoofs the information which is retrieved from the sim-card. | 27.8.3 |
+| `sim-spoof` | Spoofs the information which is retrieved from the sim-card. | all |
 </details>
 
 ### [📦 `com.zhiliaoapp.musically`](https://play.google.com/store/apps/details?id=com.zhiliaoapp.musically)
@@ -105,14 +105,14 @@ The official ReVanced Patches.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `disable-login-requirement` | Do not force login. | all |
-| `downloads` | Removes download restrictions and changes the default path to download to. | 27.8.3 |
-| `feed-filter` | Filters tiktok videos: removing ads, removing livestreams. | 27.8.3 |
+| `downloads` | Removes download restrictions and changes the default path to download to. | all |
+| `feed-filter` | Filters tiktok videos: removing ads, removing livestreams. | all |
 | `fix-google-login` | Allows logging in with a Google account. | all |
 | `hide-ads` | Removes ads from TikTok. | all |
 | `playback-speed` | Enables the playback speed option for all videos. | all |
-| `settings` | Adds ReVanced settings to TikTok. | 27.8.3 |
+| `settings` | Adds ReVanced settings to TikTok. | all |
 | `show-seekbar` | Shows progress bar for all video. | all |
-| `sim-spoof` | Spoofs the information which is retrieved from the sim-card. | 27.8.3 |
+| `sim-spoof` | Spoofs the information which is retrieved from the sim-card. | all |
 </details>
 
 ### [📦 `tv.twitch.android.app`](https://play.google.com/store/apps/details?id=tv.twitch.android.app)

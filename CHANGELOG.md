@@ -1,3 +1,15 @@
+# [2.175.0-dev.14](https://github.com/revanced/revanced-patches/compare/v2.175.0-dev.13...v2.175.0-dev.14) (2023-05-30)
+
+
+### Bug Fixes
+
+* **youtube/theme:** use dynamic background color for custom splash screen ([#2319](https://github.com/revanced/revanced-patches/issues/2319)) ([28594f3](https://github.com/revanced/revanced-patches/commit/28594f3eeaf99fa32ee57214ebbc4342529c6694))
+
+
+### Features
+
+* **tiktok:** remove compatibility version constraints ([#2306](https://github.com/revanced/revanced-patches/issues/2306)) ([a12c4bb](https://github.com/revanced/revanced-patches/commit/a12c4bb1610234d19b4ac86cd57bb09335566b68))
+
 # [2.175.0-dev.13](https://github.com/revanced/revanced-patches/compare/v2.175.0-dev.12...v2.175.0-dev.13) (2023-05-29)
 
 
