@@ -1,3 +1,10 @@
+# [2.175.0-dev.16](https://github.com/revanced/revanced-patches/compare/v2.175.0-dev.15...v2.175.0-dev.16) (2023-05-30)
+
+
+### Bug Fixes
+
+* **spoof-wifi-connection:** use updated instruction indices ([#2199](https://github.com/revanced/revanced-patches/issues/2199)) ([76fb700](https://github.com/revanced/revanced-patches/commit/76fb700884dae5b71a57f9530fad9d4a98ba0af0))
+
 # [2.175.0-dev.15](https://github.com/revanced/revanced-patches/compare/v2.175.0-dev.14...v2.175.0-dev.15) (2023-05-30)
 
 
