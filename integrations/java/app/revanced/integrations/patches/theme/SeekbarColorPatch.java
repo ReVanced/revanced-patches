@@ -51,12 +51,31 @@ public final class SeekbarColorPatch {
         return customSeekbarColor;
     }
 
+
     /**
      * Injection point.
      *
-     * Overrides color when seekbar is clicked, and all Litho components that use the YouTube seekbar color.
+     * Overrides all Litho components that use the YouTube seekbar color.
+     * Used only for the video thumbnails seekbar.
+     *
+     * If {@link SettingsEnum#HIDE_SEEKBAR_THUMBNAIL} is enabled, this returns a fully transparent color.
      */
-    public static int getSeekbarColorOverride(int colorValue) {
+    public static int getLithoColor(int colorValue) {
+        if (colorValue == ORIGINAL_SEEKBAR_COLOR) {
+            if (SettingsEnum.HIDE_SEEKBAR_THUMBNAIL.getBoolean()) {
+                return 0x00000000;
+            }
+            return getSeekbarColorValue(ORIGINAL_SEEKBAR_COLOR);
+        }
+        return colorValue;
+    }
+
+    /**
+     * Injection point.
+     *
+     * Overrides color when video player seekbar is clicked.
+     */
+    public static int getVideoPlayerSeekbarClickedColor(int colorValue) {
         return colorValue == ORIGINAL_SEEKBAR_COLOR
                 ? getSeekbarColorValue(ORIGINAL_SEEKBAR_COLOR)
                 : colorValue;
@@ -65,18 +84,20 @@ public final class SeekbarColorPatch {
     /**
      * Injection point.
      *
-     * If {@link SettingsEnum#HIDE_SEEKBAR} is enabled, this returns a fully transparent color.
-     *
-     * Otherwise the original color is changed to the custom seekbar color, while retaining
+     * Overrides color used for the video player seekbar.
+     */
+    public static int getVideoPlayerSeekbarColor(int originalColor) {
+        return getSeekbarColorValue(originalColor);
+    }
+
+    /**
+     * Color parameter is changed to the custom seekbar color, while retaining
      * the brightness and alpha changes of the parameter value compared to the original seekbar color.
      */
-    public static int getSeekbarColorValue(int originalColor) {
+    private static int getSeekbarColorValue(int originalColor) {
         try {
-            if (SettingsEnum.HIDE_SEEKBAR.getBoolean()) {
-                return 0x00000000;
-            }
             if (customSeekbarColor == ORIGINAL_SEEKBAR_COLOR) {
-                return originalColor; // Nothing to do
+                return originalColor; // nothing to do
             }
             final int alphaDifference = Color.alpha(originalColor) - Color.alpha(ORIGINAL_SEEKBAR_COLOR);
 

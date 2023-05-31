@@ -32,7 +32,7 @@ import java.util.Objects;
 
 public enum SettingsEnum {
     // External downloader
-    EXTERNAL_DOWNLOADER("revanced_external_downloader", BOOLEAN, TRUE),
+    EXTERNAL_DOWNLOADER("revanced_external_downloader", BOOLEAN, FALSE),
     EXTERNAL_DOWNLOADER_PACKAGE_NAME("revanced_external_downloader_name", STRING,
             "org.schabi.newpipe" /* NewPipe */, parents(EXTERNAL_DOWNLOADER)),
 
@@ -116,6 +116,7 @@ public enum SettingsEnum {
     HIDE_PLAYER_OVERLAY("revanced_hide_player_overlay", BOOLEAN, FALSE, true),
     HIDE_PREVIEW_COMMENT("revanced_hide_preview_comment", BOOLEAN, FALSE, true),
     HIDE_SEEKBAR("revanced_hide_seekbar", BOOLEAN, FALSE, true),
+    HIDE_SEEKBAR_THUMBNAIL("revanced_hide_seekbar_thumbnail", BOOLEAN, FALSE, true),
     HIDE_HOME_BUTTON("revanced_hide_home_button", BOOLEAN, FALSE, true),
     HIDE_SHORTS_BUTTON("revanced_hide_shorts_button", BOOLEAN, TRUE, true),
     HIDE_SUBSCRIPTIONS_BUTTON("revanced_hide_subscriptions_button", BOOLEAN, FALSE, true),
@@ -132,12 +133,15 @@ public enum SettingsEnum {
     HIDE_FILTER_BAR_FEED_IN_FEED("revanced_hide_filter_bar_feed_in_feed", BOOLEAN, FALSE, true),
     HIDE_FILTER_BAR_FEED_IN_SEARCH("revanced_hide_filter_bar_feed_in_search", BOOLEAN, FALSE, true),
     HIDE_FILTER_BAR_FEED_IN_RELATED_VIDEOS("revanced_hide_filter_bar_feed_in_related_videos", BOOLEAN, FALSE, true),
-    HIDE_SHORTS_JOIN_BUTTON("revanced_hide_shorts_join_button", BOOLEAN, FALSE),
+    HIDE_SHORTS_JOIN_BUTTON("revanced_hide_shorts_join_button", BOOLEAN, TRUE),
     HIDE_SHORTS_SUBSCRIBE_BUTTON("revanced_hide_shorts_subscribe_button", BOOLEAN, FALSE),
-    HIDE_SHORTS_THANKS_BUTTON("revanced_hide_shorts_thanks_button", BOOLEAN, FALSE),
+    HIDE_SHORTS_THANKS_BUTTON("revanced_hide_shorts_thanks_button", BOOLEAN, TRUE),
     HIDE_SHORTS_COMMENTS_BUTTON("revanced_hide_shorts_comments_button", BOOLEAN, FALSE),
-    HIDE_SHORTS_REMIX_BUTTON("revanced_hide_shorts_remix_button", BOOLEAN, FALSE),
+    HIDE_SHORTS_REMIX_BUTTON("revanced_hide_shorts_remix_button", BOOLEAN, TRUE),
     HIDE_SHORTS_SHARE_BUTTON("revanced_hide_shorts_share_button", BOOLEAN, FALSE),
+    HIDE_SHORTS_INFO_PANEL("revanced_hide_shorts_info_panel", BOOLEAN, TRUE),
+    HIDE_SHORTS_SOUND_BUTTON("revanced_hide_shorts_sound_button", BOOLEAN, FALSE),
+    HIDE_SHORTS_CHANNEL_BAR("revanced_hide_shorts_channel_bar", BOOLEAN, FALSE),
     HIDE_SHORTS_NAVIGATION_BAR("revanced_hide_shorts_navigation_bar", BOOLEAN, TRUE, true),
     HIDE_SHORTS("revanced_hide_shorts", BOOLEAN, FALSE, true),
 

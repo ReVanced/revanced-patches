@@ -13,16 +13,16 @@ import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.StringRef;
 
-public class DownloadButton extends BottomControlButton {
+public class ExternalDownloadButton extends BottomControlButton {
     @Nullable
-    private static DownloadButton instance;
+    private static ExternalDownloadButton instance;
 
-    public DownloadButton(ViewGroup viewGroup) {
+    public ExternalDownloadButton(ViewGroup viewGroup) {
         super(
                 viewGroup,
-                "download_button",
+                "external_download_button",
                 SettingsEnum.EXTERNAL_DOWNLOADER,
-                DownloadButton::onDownloadClick,
+                ExternalDownloadButton::onDownloadClick,
                 null
         );
     }
@@ -32,7 +32,7 @@ public class DownloadButton extends BottomControlButton {
      */
     public static void initializeButton(View view) {
         try {
-            instance = new DownloadButton((ViewGroup) view);
+            instance = new ExternalDownloadButton((ViewGroup) view);
         } catch (Exception ex) {
             LogHelper.printException(() -> "initializeButton failure", ex);
         }
@@ -46,7 +46,7 @@ public class DownloadButton extends BottomControlButton {
     }
 
     private static void onDownloadClick(View view) {
-        LogHelper.printDebug(() -> "Download button clicked");
+        LogHelper.printDebug(() -> "External download button clicked");
 
         final var context = view.getContext();
         var downloaderPackageName = SettingsEnum.EXTERNAL_DOWNLOADER_PACKAGE_NAME.getString();
@@ -55,12 +55,12 @@ public class DownloadButton extends BottomControlButton {
         try {
             packageEnabled = context.getPackageManager().getApplicationInfo(downloaderPackageName, 0).enabled;
         } catch (PackageManager.NameNotFoundException error) {
-            LogHelper.printDebug(() -> "Downloader could not be found: " + error);
+            LogHelper.printDebug(() -> "External downloader could not be found: " + error);
         }
 
         // If the package is not installed, show the toast
         if (!packageEnabled) {
-            ReVancedUtils.showToastLong(downloaderPackageName + " " + StringRef.str("downloader_not_installed_warning"));
+            ReVancedUtils.showToastLong(downloaderPackageName + " " + StringRef.str("external_downloader_not_installed_warning"));
             return;
         }
 

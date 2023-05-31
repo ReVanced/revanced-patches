@@ -20,6 +20,11 @@ public final class ShortsFilter extends Filter {
             "reel_channel_bar"
     );
 
+    private final StringFilterGroup infoPanel = new StringFilterGroup(
+            SettingsEnum.HIDE_SHORTS_INFO_PANEL,
+            "shorts_info_panel_overview"
+    );
+
     public ShortsFilter() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) return;
 
@@ -38,22 +43,37 @@ public final class ShortsFilter extends Filter {
                 "sponsor_button"
         );
 
+        final var soundButton = new StringFilterGroup(
+                SettingsEnum.HIDE_SHORTS_SOUND_BUTTON,
+                "reel_pivot_button"
+        );
+
+        final var channelBar = new StringFilterGroup(
+                SettingsEnum.HIDE_SHORTS_CHANNEL_BAR,
+                "reel_channel_bar"
+        );
+
         final var shorts = new StringFilterGroup(
                 SettingsEnum.HIDE_SHORTS,
                 "shorts_shelf",
                 "inline_shorts",
-                "shorts_grid"
+                "shorts_grid",
+                "shorts_video_cell"
         );
 
-        this.pathFilterGroups.addAll(joinButton, subscribeButton);
+        this.pathFilterGroups.addAll(joinButton, subscribeButton, soundButton, channelBar);
         this.identifierFilterGroups.addAll(shorts, thanksButton);
     }
 
     @Override
-    boolean isFiltered(final String path, final String identifier, final byte[] protobufBufferArray) {
+    boolean isFiltered(final String path, final String identifier,
+                       final byte[] protobufBufferArray) {
         // Filter the path only when reelChannelBar is visible.
         if (reelChannelBar.check(path).isFiltered())
             if (this.pathFilterGroups.contains(path)) return true;
+
+        // Shorts info panel path appears outside of reelChannelBar path.
+        if (infoPanel.isEnabled() && infoPanel.check(path).isFiltered()) return true;
 
         return this.identifierFilterGroups.contains(identifier);
     }
