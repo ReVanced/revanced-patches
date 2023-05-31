@@ -1,3 +1,10 @@
+# [2.176.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.176.0-dev.1...v2.176.0-dev.2) (2023-05-31)
+
+
+### Features
+
+* **youtube/hide-ads:** hide mix playlists ([7ad5f2a](https://github.com/revanced/revanced-patches/commit/7ad5f2aef922f00c881707c4084399d6557b9cfc))
+
 # [2.176.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.175.0...v2.176.0-dev.1) (2023-05-31)
 
 
