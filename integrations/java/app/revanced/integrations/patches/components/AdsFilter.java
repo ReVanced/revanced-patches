@@ -1,7 +1,9 @@
 package app.revanced.integrations.patches.components;
 
 
+import android.os.Build;
 import android.view.View;
+import androidx.annotation.RequiresApi;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
@@ -12,6 +14,13 @@ public final class AdsFilter extends Filter {
 
     private final CustomFilterGroup custom;
 
+    // region Mix playlists
+    private final ByteArrayAsStringFilterGroup mixPlaylists;
+    private final ByteArrayAsStringFilterGroup imageHosting;
+
+    // endregion
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public AdsFilter() {
         exceptions = new String[]{
                 "home_video_with_context",
@@ -183,6 +192,21 @@ public final class AdsFilter extends Filter {
                 "offer_module_root"
         );
 
+        // region Mix playlists
+
+        mixPlaylists = new ByteArrayAsStringFilterGroup(
+                SettingsEnum.HIDE_MIX_PLAYLISTS,
+                "&list=",
+                "YouTube Music"
+        );
+
+        imageHosting = new ByteArrayAsStringFilterGroup(
+                SettingsEnum.HIDE_MIX_PLAYLISTS, // Unused
+                "ggpht.com"
+        );
+
+        // endregion
+
         this.pathFilterGroups.addAll(
                 generalAds,
                 buttonedAd,
@@ -222,6 +246,18 @@ public final class AdsFilter extends Filter {
         );
     }
 
+    private boolean isMixPlaylistFiltered(final byte[] _protobufBufferArray) {
+        if (!mixPlaylists.isEnabled()) return false;
+
+        // Two checks are required to prevent false positives.
+
+        // First check if the current buffer potentially contains a mix playlist.
+        if (!mixPlaylists.check(_protobufBufferArray).isFiltered()) return false;
+
+        // Ensure that the buffer actually contains a mix playlist.
+        return imageHosting.check(_protobufBufferArray).isFiltered();
+    }
+
     @Override
     public boolean isFiltered(final String path, final String identifier, final byte[] _protobufBufferArray) {
         FilterResult result;
@@ -230,10 +266,14 @@ public final class AdsFilter extends Filter {
             result = FilterResult.CUSTOM;
         else if (ReVancedUtils.containsAny(path, exceptions))
             result = FilterResult.EXCEPTION;
-        else if (pathFilterGroups.contains(path) || identifierFilterGroups.contains(identifier))
-            result = FilterResult.FILTERED;
-        else
-            result = FilterResult.UNFILTERED;
+        else {
+            var filtered =
+                    pathFilterGroups.contains(path) || // Check if the path is filtered.
+                    identifierFilterGroups.contains(identifier) || // Check if the identifier is filtered.
+                    isMixPlaylistFiltered(_protobufBufferArray); // Check if the buffer contains a mix playlist.
+
+            result = filtered ? FilterResult.FILTERED : FilterResult.UNFILTERED;
+        }
 
         LogHelper.printDebug(() -> String.format("%s (ID: %s): %s", result.message, identifier, path));
 

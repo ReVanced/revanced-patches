@@ -85,6 +85,7 @@ public enum SettingsEnum {
     HIDE_WEB_SEARCH_RESULTS("revanced_hide_web_search_results", BOOLEAN, TRUE),
     HIDE_QUICK_ACTIONS("revanced_hide_quick_actions", BOOLEAN, FALSE),
     HIDE_RELATED_VIDEOS("revanced_hide_related_videos", BOOLEAN, FALSE),
+    HIDE_MIX_PLAYLISTS("revanced_hide_mix_playlists", BOOLEAN, TRUE),
 
     // Action buttons
     HIDE_LIKE_DISLIKE_BUTTON("revanced_hide_like_dislike_button", BOOLEAN, FALSE),
