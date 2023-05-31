@@ -194,6 +194,12 @@ class HideAdsResourcePatch : ResourcePatch {
                 StringResource("revanced_hide_latest_posts_ads_summary_on", "Latest posts are hidden"),
                 StringResource("revanced_hide_latest_posts_ads_summary_off", "Latest posts are shown")
             ),
+            SwitchPreference(
+                "revanced_hide_mix_playlists",
+                StringResource("revanced_hide_mix_playlists_title", "Hide mix playlists"),
+                StringResource("revanced_hide_mix_playlists_summary_on", "Mix playlists are hidden"),
+                StringResource("revanced_hide_mix_playlists_summary_off", "Mix playlists are shown")
+            ),
         )
 
         PreferenceScreen.ADS.addPreferences(
