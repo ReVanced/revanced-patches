@@ -1,3 +1,10 @@
+# [2.176.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.175.0...v2.176.0-dev.1) (2023-05-31)
+
+
+### Features
+
+* **youtube/swipe-controls:** add option to save and restore brightness ([941c7e2](https://github.com/revanced/revanced-patches/commit/941c7e290359ef5ab27459b8005935ab0d8ed249))
+
 # [2.175.0](https://github.com/revanced/revanced-patches/compare/v2.174.0...v2.175.0) (2023-05-31)
 
 
