@@ -51,7 +51,7 @@ class RememberVideoQualityPatch : BytecodePatch(
             StringResource("revanced_video_quality_default_entry_5", "720p"),
             StringResource("revanced_video_quality_default_entry_6", "480p"),
             StringResource("revanced_video_quality_default_entry_7", "360p"),
-            StringResource("revanced_video_quality_default_entry_8", "280p"),
+            StringResource("revanced_video_quality_default_entry_8", "240p"),
             StringResource("revanced_video_quality_default_entry_9", "144p"),
         )
         val entryValues = listOf(
@@ -62,7 +62,7 @@ class RememberVideoQualityPatch : BytecodePatch(
             StringResource("revanced_video_quality_default_entry_value_5", "720"),
             StringResource("revanced_video_quality_default_entry_value_6", "480"),
             StringResource("revanced_video_quality_default_entry_value_7", "360"),
-            StringResource("revanced_video_quality_default_entry_value_8", "280"),
+            StringResource("revanced_video_quality_default_entry_value_8", "240"),
             StringResource("revanced_video_quality_default_entry_value_9", "144"),
         )
 

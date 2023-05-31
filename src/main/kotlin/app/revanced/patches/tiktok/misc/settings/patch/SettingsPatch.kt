@@ -8,7 +8,6 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instruction
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
@@ -17,14 +16,14 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.tiktok.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.tiktok.misc.settings.annotations.SettingsCompatibility
-import app.revanced.patches.tiktok.misc.settings.fingerprints.AboutViewFingerprint
+import app.revanced.patches.tiktok.misc.settings.fingerprints.AboutPageFingerprint
 import app.revanced.patches.tiktok.misc.settings.fingerprints.AdPersonalizationActivityOnCreateFingerprint
 import app.revanced.patches.tiktok.misc.settings.fingerprints.SettingsOnViewCreatedFingerprint
 import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.instruction.formats.Instruction35c
-import org.jf.dexlib2.iface.reference.StringReference
+import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
 @Patch
 @DependsOn([IntegrationsPatch::class])
@@ -34,84 +33,92 @@ import org.jf.dexlib2.iface.reference.StringReference
 @Version("0.0.1")
 class SettingsPatch : BytecodePatch(
     listOf(
+        AboutPageFingerprint,
         AdPersonalizationActivityOnCreateFingerprint,
         SettingsOnViewCreatedFingerprint,
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        SettingsOnViewCreatedFingerprint.result?.let {
-            AboutViewFingerprint.resolve(context, it.method, it.classDef)
-        }
-        // Patch Settings UI to add 'Revanced Settings'.
-        val targetIndexes = findOptionsOnClickIndex()
-        with(SettingsOnViewCreatedFingerprint.result!!.mutableMethod) {
-            for (index in targetIndexes) {
-                if (
-                    instruction(index).opcode != Opcode.NEW_INSTANCE ||
-                    instruction(index - 4).opcode != Opcode.MOVE_RESULT_OBJECT
-                )
-                    return PatchResultError("Hardcode offset changed.")
-                patchOptionNameAndOnClickEvent(index, context)
-            }
-        }
-        // Implement settings screen in `AdPersonalizationActivity`
-        with(AdPersonalizationActivityOnCreateFingerprint.result!!.mutableMethod) {
-            for ((index, instruction) in implementation!!.instructions.withIndex()) {
-                if (instruction.opcode != Opcode.INVOKE_SUPER) continue
-                val thisRegister = (instruction as Instruction35c).registerC
-                addInstructions(
-                    index + 1,
+        SettingsOnViewCreatedFingerprint.result?.mutableMethod?.apply {
+            val instructions = implementation!!.instructions
+
+            // Find the indices that need to be patched.
+            val copyrightPolicyLabelId = AboutPageFingerprint.result?.let {
+                val startIndex = it.scanResult.patternScanResult!!.startIndex
+                it.mutableMethod.instruction<WideLiteralInstruction>(startIndex).wideLiteral
+            } ?: return AboutPageFingerprint.toErrorResult()
+
+            val copyrightIndex = instructions.indexOfFirst {
+                (it as? ReferenceInstruction)?.reference.toString() == "copyright_policy"
+            } - 6
+
+
+            val copyrightPolicyIndex = instructions.indexOfFirst {
+                (it as? WideLiteralInstruction)?.wideLiteral == copyrightPolicyLabelId
+            } + 2
+
+            // Replace an existing settings entry with ReVanced settings entry.
+            arrayOf(
+                copyrightIndex,
+                copyrightPolicyIndex
+            ).forEach { index ->
+                val instruction = instruction(index)
+                if (instruction.opcode != Opcode.MOVE_RESULT_OBJECT)
+                    return PatchResultError("Hardcoded offset changed.")
+
+                val settingsEntryStringRegister = (instruction as OneRegisterInstruction).registerA
+
+                // Replace the settings entry string with a custom one.
+                replaceInstruction(
+                    index,
                     """
-                        invoke-static {v$thisRegister}, Lapp/revanced/tiktok/settingsmenu/SettingsMenu;->initializeSettings(Lcom/bytedance/ies/ugc/aweme/commercialize/compliance/personalization/AdPersonalizationActivity;)V
+                    const-string v$settingsEntryStringRegister, "ReVanced Settings"
+                """
+                )
+
+                // Replace the OnClickListener class with a custom one.
+                val onClickListener = instruction<ReferenceInstruction>(index + 4).reference.toString()
+
+                context.findClass(onClickListener)?.mutableClass?.methods?.first {
+                    it.name == "onClick"
+                }?.addInstructions(
+                    0,
+                    """
+                        invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->startSettingsActivity()V
                         return-void
                     """
-                )
-                break
+                ) ?: return PatchResultError("Could not find the onClick method.")
             }
-        }
+
+        } ?: return SettingsOnViewCreatedFingerprint.toErrorResult()
+
+        // Initialize the settings menu once the replaced setting entry is clicked.
+        AdPersonalizationActivityOnCreateFingerprint.result?.mutableMethod?.apply {
+            val initializeSettingsIndex = implementation!!.instructions.indexOfFirst {
+                it.opcode == Opcode.INVOKE_SUPER
+            } + 1
+
+            val thisRegister = instruction<FiveRegisterInstruction>(initializeSettingsIndex - 1).registerC
+
+            addInstructions(
+                initializeSettingsIndex,
+                """
+                    invoke-static {v$thisRegister}, $INITIALIZE_SETTINGS_METHOD_DESCRIPTOR
+                    return-void
+                """
+            )
+        } ?: return AdPersonalizationActivityOnCreateFingerprint.toErrorResult()
+
         return PatchResultSuccess()
     }
 
-    private fun findOptionsOnClickIndex(): IntArray {
-        val results = IntArray(2)
-        SettingsOnViewCreatedFingerprint.result?.apply {
-            for ((index, instruction) in mutableMethod.implementation!!.instructions.withIndex()) {
-                // Old UI settings option to replace to 'Revanced Settings'
-                if (instruction.opcode == Opcode.CONST_STRING) {
-                    val string = ((instruction as ReferenceInstruction).reference as StringReference).string
-                    if (string == "copyright_policy") {
-                        results[0] = index - 2
-                        break
-                    }
-                }
-            }
+    private companion object {
+        private const val INTEGRATIONS_CLASS_DESCRIPTOR =
+            "Lapp/revanced/tiktok/settingsmenu/SettingsMenu;"
 
-            // New UI settings option to replace to 'Revanced Settings'
-            results[1] = AboutViewFingerprint.result!!.scanResult.patternScanResult!!.startIndex
-        } ?: throw SettingsOnViewCreatedFingerprint.toErrorResult()
-        return results
-    }
-
-    private fun patchOptionNameAndOnClickEvent(index: Int, context: BytecodeContext) {
-        with(SettingsOnViewCreatedFingerprint.result!!.mutableMethod) {
-            // Patch option name
-            val overrideRegister = instruction<OneRegisterInstruction>(index - 4).registerA
-            replaceInstruction(
-                index - 4,
-                """
-                    const-string v$overrideRegister, "Revanced Settings"
-                """
-            )
-
-            // Patch option OnClick Event
-            val type = instruction<ReferenceInstruction>(index).reference.toString()
-            context.findClass(type)!!.mutableClass.methods.first { type == "onClick" }.addInstructions(
-                0,
-            """
-                     invoke-static {}, Lapp/revanced/tiktok/settingsmenu/SettingsMenu;->startSettingsActivity()V
-                     return-void
-                 """
-            )
-        }
+        private const val INITIALIZE_SETTINGS_METHOD_DESCRIPTOR =
+            "$INTEGRATIONS_CLASS_DESCRIPTOR->initializeSettings(" +
+                    "Lcom/bytedance/ies/ugc/aweme/commercialize/compliance/personalization/AdPersonalizationActivity;" +
+                    ")V"
     }
 }

@@ -17,6 +17,7 @@ import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.layout.hide.seekbar.annotations.HideSeekbarCompatibility
 import app.revanced.patches.youtube.layout.seekbar.bytecode.patch.SeekbarColorBytecodePatch
+import app.revanced.patches.youtube.layout.seekbar.resource.SeekbarPreferencesPatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
@@ -24,7 +25,10 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 @DependsOn([
     IntegrationsPatch::class,
     SettingsPatch::class,
-    SeekbarColorBytecodePatch::class // Used to hide the seekbar in the feed and watch history
+    // Does not alter the behavior of the seek bar by default.
+    SeekbarColorBytecodePatch::class,
+    // Used to add preferences to the seekbar settings menu.
+    SeekbarPreferencesPatch::class
 ])
 @Name("hide-seekbar")
 @Description("Hides the seekbar.")
@@ -34,12 +38,18 @@ class HideSeekbarPatch : BytecodePatch(
     listOf(SeekbarFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
+        SeekbarPreferencesPatch.addPreferences(
             SwitchPreference(
                 "revanced_hide_seekbar",
-                StringResource("revanced_hide_seekbar_title", "Hide seekbar"),
-                StringResource("revanced_hide_seekbar_summary_on", "Seekbar is hidden"),
-                StringResource("revanced_hide_seekbar_summary_off", "Seekbar is shown")
+                StringResource("revanced_hide_seekbar_title", "Hide seekbar in video player"),
+                StringResource("revanced_hide_seekbar_summary_on", "Video player seekbar is hidden"),
+                StringResource("revanced_hide_seekbar_summary_off", "Video player seekbar is shown")
+            ),
+            SwitchPreference(
+                "revanced_hide_seekbar_thumbnail",
+                StringResource("revanced_hide_seekbar_thumbnail_title", "Hide seekbar in video thumbnails"),
+                StringResource("revanced_hide_seekbar_thumbnail_summary_on", "Thumbnail seekbar is hidden"),
+                StringResource("revanced_hide_seekbar_thumbnail_summary_off", "Thumbnail seekbar is shown")
             )
         )
 

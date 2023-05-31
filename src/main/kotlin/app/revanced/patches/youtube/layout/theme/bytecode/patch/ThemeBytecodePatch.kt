@@ -49,7 +49,7 @@ class ThemeBytecodePatch : BytecodePatch() {
         var splashScreenBackgroundColor: String? by option(
             PatchOption.StringOption(
                 key = "splashScreenBackgroundColor",
-                default = "@android:color/black",
+                default = "?android:attr/colorBackground",
                 title = "Background color for the splash screen",
                 description = "The background color of the splash screen. Can be a hex color or a resource reference.",
             )

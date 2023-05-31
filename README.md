@@ -20,8 +20,8 @@ The official ReVanced Patches.
 | `disable-player-popup-panels` | Disables panels from appearing automatically when going into fullscreen (playlist or live chat). | 18.19.35 |
 | `disable-shorts-on-startup` | Disables playing YouTube Shorts when launching YouTube. | 18.19.35 |
 | `disable-zoom-haptics` | Disables haptics when zooming. | all |
-| `downloads` | Adds a download button to the YouTube video player. | 18.19.35 |
 | `enable-debugging` | Adds debugging options. | all |
+| `external-downloads` | Adds support to download and save YouTube videos using an external app. | 18.19.35 |
 | `hdr-auto-brightness` | Makes the brightness of HDR videos follow the system default. | 18.19.35 |
 | `hide-ads` | Removes general ads. | 18.19.35 |
 | `hide-album-cards` | Hides the album cards below the artist description. | 18.19.35 |
@@ -35,7 +35,6 @@ The official ReVanced Patches.
 | `hide-endscreen-cards` | Hides the suggested video cards at the end of a video in fullscreen. | 18.19.35 |
 | `hide-filter-bar` | Hides the filter bar in video feeds. | 18.19.35 |
 | `hide-floating-microphone-button` | Hides the floating microphone button which appears in search. | 18.19.35 |
-| `hide-get-premium` | Hides advertisement for YouTube Premium under the video player. | 18.19.35 |
 | `hide-info-cards` | Hides info cards in videos. | 18.19.35 |
 | `hide-load-more-button` | Hides the button under videos that loads similar videos. | 18.19.35 |
 | `hide-player-buttons` | Adds the option to hide video player previous and next buttons. | 18.19.35 |
@@ -52,7 +51,7 @@ The official ReVanced Patches.
 | `open-links-externally` | Open links outside of the app directly in your browser. | 18.19.35 |
 | `premium-heading` | Shows premium branding on the home screen. | all |
 | `remember-video-quality` | Adds the ability to remember the video quality you chose in the video quality flyout. | 18.19.35 |
-| `remove-player-button-background` | Removes the background from the video player buttons. | 18.19.35 |
+| `remove-player-controls-background` | Removes the background from the video player controls. | 18.19.35 |
 | `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 18.19.35 |
 | `seekbar-tapping` | Enables tap-to-seek on the seekbar of the video player. | 18.19.35 |
 | `sponsorblock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. | 18.19.35 |
@@ -90,14 +89,14 @@ The official ReVanced Patches.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `disable-login-requirement` | Do not force login. | all |
-| `downloads` | Removes download restrictions and changes the default path to download to. | 27.8.3 |
-| `feed-filter` | Filters tiktok videos: removing ads, removing livestreams. | 27.8.3 |
+| `downloads` | Removes download restrictions and changes the default path to download to. | all |
+| `feed-filter` | Filters tiktok videos: removing ads, removing livestreams. | all |
 | `fix-google-login` | Allows logging in with a Google account. | all |
 | `hide-ads` | Removes ads from TikTok. | all |
 | `playback-speed` | Enables the playback speed option for all videos. | all |
-| `settings` | Adds ReVanced settings to TikTok. | 27.8.3 |
+| `settings` | Adds ReVanced settings to TikTok. | all |
 | `show-seekbar` | Shows progress bar for all video. | all |
-| `sim-spoof` | Spoofs the information which is retrieved from the sim-card. | 27.8.3 |
+| `sim-spoof` | Spoofs the information which is retrieved from the sim-card. | all |
 </details>
 
 ### [📦 `com.zhiliaoapp.musically`](https://play.google.com/store/apps/details?id=com.zhiliaoapp.musically)
@@ -106,14 +105,14 @@ The official ReVanced Patches.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `disable-login-requirement` | Do not force login. | all |
-| `downloads` | Removes download restrictions and changes the default path to download to. | 27.8.3 |
-| `feed-filter` | Filters tiktok videos: removing ads, removing livestreams. | 27.8.3 |
+| `downloads` | Removes download restrictions and changes the default path to download to. | all |
+| `feed-filter` | Filters tiktok videos: removing ads, removing livestreams. | all |
 | `fix-google-login` | Allows logging in with a Google account. | all |
 | `hide-ads` | Removes ads from TikTok. | all |
 | `playback-speed` | Enables the playback speed option for all videos. | all |
-| `settings` | Adds ReVanced settings to TikTok. | 27.8.3 |
+| `settings` | Adds ReVanced settings to TikTok. | all |
 | `show-seekbar` | Shows progress bar for all video. | all |
-| `sim-spoof` | Spoofs the information which is retrieved from the sim-card. | 27.8.3 |
+| `sim-spoof` | Spoofs the information which is retrieved from the sim-card. | all |
 </details>
 
 ### [📦 `tv.twitch.android.app`](https://play.google.com/store/apps/details?id=tv.twitch.android.app)
@@ -152,16 +151,6 @@ The official ReVanced Patches.
 | `sanitize-sharing-links` | Removes (tracking) query parameters from the URLs when sharing links. | all |
 </details>
 
-### [📦 `com.spotify.music`](https://play.google.com/store/apps/details?id=com.spotify.music)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `disable-capture-restriction` | Allows capturing Spotify's audio output while screen sharing or screen recording. | all |
-| `hide-premium-navbar` | Removes the premium tab from the navbar. | all |
-| `spotify-theme` | Applies a custom theme. | all |
-</details>
-
 ### [📦 `com.facebook.orca`](https://play.google.com/store/apps/details?id=com.facebook.orca)
 <details>
 
@@ -170,6 +159,15 @@ The official ReVanced Patches.
 | `disable-switching-emoji-to-sticker-in-message-input-field` | Disables switching from emoji to sticker search mode in message input field | all |
 | `disable-typing-indicator` | Disables the indicator while typing a message | all |
 | `hide-inbox-ads` | Hides ads in inbox. | all |
+</details>
+
+### [📦 `com.spotify.music`](https://play.google.com/store/apps/details?id=com.spotify.music)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `hide-premium-navbar` | Removes the premium tab from the navbar. | all |
+| `spotify-theme` | Applies a custom theme. | all |
 </details>
 
 ### [📦 `at.gv.bmf.bmf2go`](https://play.google.com/store/apps/details?id=at.gv.bmf.bmf2go)
@@ -286,6 +284,14 @@ The official ReVanced Patches.
 | `remove-broadcasts-restriction` | Enables starting/stopping NetGuard via broadcasts. | all |
 </details>
 
+### [📦 `com.scb.phone`](https://play.google.com/store/apps/details?id=com.scb.phone)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `remove-debugging-detection` | Removes the USB and wireless debugging checks. | all |
+</details>
+
 ### [📦 `com.dci.dev.androidtwelvewidgets`](https://play.google.com/store/apps/details?id=com.dci.dev.androidtwelvewidgets)
 <details>
 
@@ -327,6 +333,14 @@ The official ReVanced Patches.
 </details>
 
 ### [📦 `com.awedea.nyx`](https://play.google.com/store/apps/details?id=com.awedea.nyx)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-pro` | Unlocks all pro features. | all |
+</details>
+
+### [📦 `com.wakdev.apps.nfctools.se`](https://play.google.com/store/apps/details?id=com.wakdev.apps.nfctools.se)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |

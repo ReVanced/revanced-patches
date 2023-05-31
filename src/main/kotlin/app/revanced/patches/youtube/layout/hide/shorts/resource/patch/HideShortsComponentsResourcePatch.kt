@@ -18,12 +18,12 @@ class HideShortsComponentsResourcePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
-                "revanced_shorts",
-                StringResource("revanced_shorts_title", "Shorts components"),
+                "revanced_shorts_preference_screen",
+                StringResource("revanced_shorts_preference_screen_title", "Shorts components"),
                 listOf(
                     SwitchPreference(
                         "revanced_hide_shorts",
-                        StringResource("revanced_hide_shorts_enabled_title", "Hide shorts"),
+                        StringResource("revanced_hide_shorts_title", "Hide shorts in feed"),
                         StringResource("revanced_hide_shorts_on", "Shorts are hidden"),
                         StringResource("revanced_hide_shorts_off", "Shorts are shown")
                     ),
@@ -64,13 +64,31 @@ class HideShortsComponentsResourcePatch : ResourcePatch {
                         StringResource("revanced_hide_shorts_share_button_off", "Share button is shown")
                     ),
                     SwitchPreference(
+                        "revanced_hide_shorts_info_panel",
+                        StringResource("revanced_hide_shorts_info_panel_title", "Hide info panel"),
+                        StringResource("revanced_hide_shorts_info_panel_on", "Info panel is hidden"),
+                        StringResource("revanced_hide_shorts_info_panel_off", "Info panel is shown")
+                    ),
+                    SwitchPreference(
+                        "revanced_hide_shorts_channel_bar",
+                        StringResource("revanced_hide_shorts_channel_bar_title", "Hide channel bar"),
+                        StringResource("revanced_hide_shorts_channel_bar_on", "Channel bar is hidden"),
+                        StringResource("revanced_hide_shorts_channel_bar_off", "Channel bar is shown")
+                    ),
+                    SwitchPreference(
+                        "revanced_hide_shorts_sound_button",
+                        StringResource("revanced_hide_shorts_sound_button_title", "Hide sound button"),
+                        StringResource("revanced_hide_shorts_sound_button_on", "Sound button is hidden"),
+                        StringResource("revanced_hide_shorts_sound_button_off", "Sound button is shown")
+                    ),
+                    SwitchPreference(
                         "revanced_hide_shorts_navigation_bar",
                         StringResource("revanced_hide_shorts_navigation_bar_title", "Hide navigation bar"),
                         StringResource("revanced_hide_shorts_navigation_bar_on", "Navigation bar is hidden"),
                         StringResource("revanced_hide_shorts_navigation_bar_off", "Navigation bar is shown")
-                    ),
+                    )
                 ),
-                StringResource("revanced_shorts_summary", "Manage the visibility of Shorts components")
+                StringResource("revanced_shorts_preference_screen_summary", "Manage the visibility of Shorts components")
             )
         )
 

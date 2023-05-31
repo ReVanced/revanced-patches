@@ -21,39 +21,44 @@ internal abstract class AbstractTransformInstructionsPatch<T> : BytecodePatch() 
 
     abstract fun transform(mutableMethod: MutableMethod, entry: T)
 
+    // Returns the patch indices as a Sequence, which will execute lazily.
+    private fun findPatchIndices(classDef: ClassDef, method: Method): Sequence<T>? {
+        return method.implementation?.instructions?.asSequence()?.withIndex()?.mapNotNull { (index, instruction) ->
+            filterMap(classDef, method, instruction, index)
+        }
+    }
+
     override fun execute(context: BytecodeContext): PatchResult {
-        // Find all instructions
+        // Find all methods to patch
         buildMap {
             context.classes.forEach { classDef ->
-                classDef.methods.let { methods ->
-                    buildMap methodList@{
-                        methods.forEach methods@{ method ->
-                            with(method.implementation?.instructions ?: return@methods) {
-                                ArrayDeque<T>().also { patchIndices ->
-                                    this.forEachIndexed { index, instruction ->
-                                        val result = filterMap(classDef, method, instruction, index)
-                                        if (result != null) {
-                                            patchIndices.add(result)
-                                        }
-                                    }
-                                }.also { if (it.isEmpty()) return@methods }.let { patches ->
-                                    put(method, patches)
-                                }
-                            }
+                val methods = buildList {
+                    classDef.methods.forEach { method ->
+                        // Since the Sequence executes lazily,
+                        // using any() results in only calling
+                        // filterMap until the first index has been found.
+                        val patchIndices = findPatchIndices(classDef, method)
+
+                        if (patchIndices?.any() == true) {
+                            add(method)
                         }
                     }
-                }.also { if (it.isEmpty()) return@forEach }.let { methodPatches ->
-                    put(classDef, methodPatches)
+                }
+
+                if (methods.isNotEmpty()) {
+                    put(classDef, methods)
                 }
             }
         }.forEach { (classDef, methods) ->
-            // And finally transform the instructions...
-            with(context.proxy(classDef).mutableClass) {
-                methods.forEach { (method, patches) ->
-                    val mutableMethod = findMutableMethodOf(method)
-                    while (!patches.isEmpty()) {
-                        transform(mutableMethod, patches.removeLast())
-                    }
+            // And finally transform the methods...
+            val mutableClass = context.proxy(classDef).mutableClass
+
+            methods.map(mutableClass::findMutableMethodOf).forEach methods@{ mutableMethod ->
+                val patchIndices = findPatchIndices(mutableClass, mutableMethod)?.toCollection(ArrayDeque())
+                    ?: return@methods
+
+                while (!patchIndices.isEmpty()) {
+                    transform(mutableMethod, patchIndices.removeLast())
                 }
             }
         }
