@@ -188,20 +188,20 @@ The official ReVanced Patches.
 | `spoof-signature` | Spoofs the signature of the app. | all |
 </details>
 
-### [📦 `com.laurencedawson.reddit_sync`](https://play.google.com/store/apps/details?id=com.laurencedawson.reddit_sync)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `disable-ads` | Disables ads. | all |
-</details>
-
 ### [📦 `com.myprog.hexedit`](https://play.google.com/store/apps/details?id=com.myprog.hexedit)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `disable-ads` | Disables ads in HexEditor. | all |
+</details>
+
+### [📦 `com.laurencedawson.reddit_sync`](https://play.google.com/store/apps/details?id=com.laurencedawson.reddit_sync)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `disable-ads` | Disables ads. | all |
 </details>
 
 ### [📦 `com.spotify.lite`](https://play.google.com/store/apps/details?id=com.spotify.lite)
@@ -212,20 +212,20 @@ The official ReVanced Patches.
 | `enable-on-demand` | Enables listening to songs on-demand, allowing to play any song from playlists, albums or artists without limitations. This does not remove ads. | all |
 </details>
 
-### [📦 `com.nis.app`](https://play.google.com/store/apps/details?id=com.nis.app)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `hide-ads` | Removes ads from Inshorts. | all |
-</details>
-
 ### [📦 `com.vanced.android.youtube`](https://play.google.com/store/apps/details?id=com.vanced.android.youtube)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `hide-ads` | Removes general ads. | all |
+</details>
+
+### [📦 `com.nis.app`](https://play.google.com/store/apps/details?id=com.nis.app)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `hide-ads` | Removes ads from Inshorts. | all |
 </details>
 
 ### [📦 `com.instagram.android`](https://play.google.com/store/apps/details?id=com.instagram.android)
@@ -324,7 +324,7 @@ The official ReVanced Patches.
 | `unlock-prime` | Unlocks Nova Prime and all functions of the app. | all |
 </details>
 
-### [📦 `com.ithebk.expensemanager`](https://play.google.com/store/apps/details?id=com.ithebk.expensemanager)
+### [📦 `com.vsco.cam`](https://play.google.com/store/apps/details?id=com.vsco.cam)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -340,23 +340,15 @@ The official ReVanced Patches.
 | `unlock-pro` | Unlocks all pro features. | all |
 </details>
 
-### [📦 `com.wakdev.apps.nfctools.se`](https://play.google.com/store/apps/details?id=com.wakdev.apps.nfctools.se)
+### [📦 `com.candylink.openvpn`](https://play.google.com/store/apps/details?id=com.candylink.openvpn)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `unlock-pro` | Unlocks all pro features. | all |
+| `unlock-pro` | Unlocks premium features. | all |
 </details>
 
-### [📦 `ginlemon.iconpackstudio`](https://play.google.com/store/apps/details?id=ginlemon.iconpackstudio)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `unlock-pro` | Unlocks all pro features. | all |
-</details>
-
-### [📦 `tv.trakt.trakt`](https://play.google.com/store/apps/details?id=tv.trakt.trakt)
+### [📦 `com.ithebk.expensemanager`](https://play.google.com/store/apps/details?id=com.ithebk.expensemanager)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -364,7 +356,7 @@ The official ReVanced Patches.
 | `unlock-pro` | Unlocks pro features. | all |
 </details>
 
-### [📦 `co.windyapp.android`](https://play.google.com/store/apps/details?id=co.windyapp.android)
+### [📦 `ginlemon.iconpackstudio`](https://play.google.com/store/apps/details?id=ginlemon.iconpackstudio)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
@@ -380,12 +372,12 @@ The official ReVanced Patches.
 | `unlock-pro` | Unlocks pro features. | 4.6377 |
 </details>
 
-### [📦 `com.candylink.openvpn`](https://play.google.com/store/apps/details?id=com.candylink.openvpn)
+### [📦 `co.windyapp.android`](https://play.google.com/store/apps/details?id=co.windyapp.android)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `unlock-pro` | Unlocks premium features. | all |
+| `unlock-pro` | Unlocks all pro features. | all |
 </details>
 
 ### [📦 `org.totschnig.myexpenses`](https://play.google.com/store/apps/details?id=org.totschnig.myexpenses)
@@ -396,12 +388,20 @@ The official ReVanced Patches.
 | `unlock-pro` | Unlocks all professional features. | 3.4.9 |
 </details>
 
-### [📦 `com.vsco.cam`](https://play.google.com/store/apps/details?id=com.vsco.cam)
+### [📦 `tv.trakt.trakt`](https://play.google.com/store/apps/details?id=tv.trakt.trakt)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `unlock-pro` | Unlocks pro features. | all |
+</details>
+
+### [📦 `com.wakdev.apps.nfctools.se`](https://play.google.com/store/apps/details?id=com.wakdev.apps.nfctools.se)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `unlock-pro` | Unlocks all pro features. | all |
 </details>
 
 ### [📦 `com.ticktick.task`](https://play.google.com/store/apps/details?id=com.ticktick.task)
