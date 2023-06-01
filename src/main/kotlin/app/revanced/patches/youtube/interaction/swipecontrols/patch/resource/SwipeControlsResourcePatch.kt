@@ -55,7 +55,7 @@ class SwipeControlsResourcePatch : ResourcePatch {
                         ),
                         StringResource(
                             "revanced_swipe_save_and_restore_brightness_summary_off",
-                            "Don\'t save and restore brightness when exiting or entering fullscreen"
+                            "Do not save and restore brightness when exiting or entering fullscreen"
                         )
                     ),
                     TextPreference(
