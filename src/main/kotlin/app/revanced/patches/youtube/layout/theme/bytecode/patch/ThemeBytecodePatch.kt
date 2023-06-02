@@ -45,14 +45,5 @@ class ThemeBytecodePatch : BytecodePatch() {
                 description = "The background color of the light theme. Can be a hex color or a resource reference.",
             )
         )
-
-        var splashScreenBackgroundColor: String? by option(
-            PatchOption.StringOption(
-                key = "splashScreenBackgroundColor",
-                default = "?android:attr/colorBackground",
-                title = "Background color for the splash screen",
-                description = "The background color of the splash screen. Can be a hex color or a resource reference.",
-            )
-        )
     }
 }

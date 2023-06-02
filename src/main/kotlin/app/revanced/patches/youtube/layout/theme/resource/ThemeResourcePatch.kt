@@ -2,6 +2,7 @@ package app.revanced.patches.youtube.layout.theme.resource
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
@@ -12,7 +13,6 @@ import app.revanced.patches.shared.settings.preference.impl.TextPreference
 import app.revanced.patches.youtube.layout.seekbar.resource.SeekbarPreferencesPatch
 import app.revanced.patches.youtube.layout.theme.bytecode.patch.ThemeBytecodePatch.Companion.darkThemeBackgroundColor
 import app.revanced.patches.youtube.layout.theme.bytecode.patch.ThemeBytecodePatch.Companion.lightThemeBackgroundColor
-import app.revanced.patches.youtube.layout.theme.bytecode.patch.ThemeBytecodePatch.Companion.splashScreenBackgroundColor
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import org.w3c.dom.Element
 
@@ -50,58 +50,55 @@ class ThemeResourcePatch : ResourcePatch {
             }
         }
 
-        splashScreenBackgroundColor ?: return PatchResultSuccess()
+        // Add a dynamic background color to the colors.xml file.
+        addResourceColor(context, "res/values/colors.xml",
+            SPLASH_BACKGROUND_COLOR, lightThemeBackgroundColor!!)
+        addResourceColor(context, "res/values-night/colors.xml",
+            SPLASH_BACKGROUND_COLOR, darkThemeBackgroundColor!!)
 
-        // Edit splash screen background color for Android 11 and below.
-        context.xmlEditor["res/values/styles.xml"].use {
-            val resourcesNode = it.file.getElementsByTagName("resources").item(0) as Element
+        // Edit splash screen files and change the background color.
+        val splashScreenResourceFiles = listOf(
+            "res/drawable/quantum_launchscreen_youtube.xml",
+            "res/drawable-sw600dp/quantum_launchscreen_youtube.xml")
 
-            val children = resourcesNode.childNodes
-            for (i in 0 until children.length) {
-                val node = children.item(i) as? Element ?: continue
+         splashScreenResourceFiles.forEach editSplashScreen@ { resourceFile ->
+            context.xmlEditor[resourceFile].use {
+                val layerList = it.file.getElementsByTagName("layer-list").item(0) as Element
 
-                if (node.tagName != "style") continue
-
-                val name = node.getAttribute("name")
-                if (name != LAUNCHER_STYLE_NAME) continue
-
-                it.file.createElement("item").apply {
-                    setAttribute("name", "android:windowSplashScreenBackground")
-                    textContent = splashScreenBackgroundColor
-                }.also(node::appendChild)
-
-                break
-            }
-        }
-
-        // Edit splash screen background color for Android 12+.
-
-        // Add the splash screen background color to the colors.xml file.
-        context.xmlEditor["res/values/colors.xml"].use {
-            val resourcesNode = it.file.getElementsByTagName("resources").item(0) as Element
-
-            it.file.createElement("color").apply {
-                setAttribute("name", COLOR_NAME)
-                setAttribute("category", "color")
-                textContent = splashScreenBackgroundColor
-            }.also(resourcesNode::appendChild)
-        }
-
-        // Point to the splash screen background color.
-        context.xmlEditor["res/drawable/quantum_launchscreen_youtube.xml"].use {
-            val node = it.file.getElementsByTagName("layer-list").item(0) as Element
-
-            val backgroundColorItem = node.childNodes.item(1) as Element
-            backgroundColorItem.apply {
-                setAttribute("android:drawable", "@color/$COLOR_NAME")
+                val childNodes = layerList.childNodes
+                for (i in 0 until childNodes.length) {
+                    val node = childNodes.item(i)
+                    if (node is Element && node.hasAttribute("android:drawable")) {
+                        node.setAttribute("android:drawable", "@color/$SPLASH_BACKGROUND_COLOR")
+                        return@editSplashScreen
+                    }
+                }
+                return PatchResultError("Failed to modify launch screen")
             }
         }
 
         return PatchResultSuccess()
     }
 
+    private fun addResourceColor(
+        context: ResourceContext,
+        resourceFile: String,
+        colorName: String,
+        colorValue: String
+    ) {
+        context.xmlEditor[resourceFile].use {
+            val resourcesNode = it.file.getElementsByTagName("resources").item(0) as Element
+
+            resourcesNode.appendChild(
+                it.file.createElement("color").apply {
+                    setAttribute("name", colorName)
+                    setAttribute("category", "color")
+                    textContent = colorValue
+                })
+        }
+    }
+
     private companion object {
-        private const val LAUNCHER_STYLE_NAME = "Base.Theme.YouTube.Launcher"
-        private const val COLOR_NAME = "splash_background_color"
+        private const val SPLASH_BACKGROUND_COLOR = "revanced_splash_background_color"
     }
 }
