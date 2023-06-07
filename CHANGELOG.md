@@ -1,3 +1,5 @@
+# [2.176.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.176.0-dev.1...v2.176.0-dev.2) (2023-06-07)
+
 # [2.176.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.175.0...v2.176.0-dev.1) (2023-06-02)
 
 
