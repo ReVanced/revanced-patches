@@ -5,9 +5,9 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -97,14 +97,14 @@ class SpoofSimPatch : BytecodePatch() {
 
     // Patch Android API and return fake sim information
     private fun MutableMethod.replaceReference(index: Int, replacement: String) {
-        val resultReg = instruction<OneRegisterInstruction>(index + 1).registerA
+        val resultReg = getInstruction<OneRegisterInstruction>(index + 1).registerA
 
         addInstructions(
             index + 2,
-        """
-                 invoke-static {v$resultReg}, Lapp/revanced/tiktok/spoof/sim/SpoofSimPatch;->$replacement(Ljava/lang/String;)Ljava/lang/String;
-                 move-result-object v$resultReg
-             """
+            """
+                invoke-static {v$resultReg}, Lapp/revanced/tiktok/spoof/sim/SpoofSimPatch;->$replacement(Ljava/lang/String;)Ljava/lang/String;
+                move-result-object v$resultReg
+            """
         )
     }
 }

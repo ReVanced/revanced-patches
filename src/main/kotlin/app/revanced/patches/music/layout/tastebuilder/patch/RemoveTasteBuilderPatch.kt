@@ -4,7 +4,7 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -30,7 +30,8 @@ class RemoveTasteBuilderPatch : BytecodePatch(
         val insertIndex = result.scanResult.patternScanResult!!.endIndex - 8
         val register = (method.implementation!!.instructions[insertIndex] as Instruction22c).registerA
         method.addInstructions(
-            insertIndex, """
+            insertIndex,
+            """
                 const/16 v1, 0x8
                 invoke-virtual {v${register}, v1}, Landroid/view/View;->setVisibility(I)V
             """

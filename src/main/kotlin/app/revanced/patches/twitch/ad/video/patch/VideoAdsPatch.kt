@@ -4,8 +4,9 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
@@ -86,7 +87,7 @@ class VideoAdsPatch : AbstractAdPatch(
 
         // Pretend our player is ineligible for all ads
         with(CheckAdEligibilityLambdaFingerprint.result!!) {
-            mutableMethod.addInstructions(
+            mutableMethod.addInstructionsWithLabels(
                 0,
                 """
                     ${createConditionInstructions()}
@@ -95,13 +96,13 @@ class VideoAdsPatch : AbstractAdPatch(
                     move-result-object p0
                     return-object p0
                 """,
-                listOf(ExternalLabel(skipLabelName, mutableMethod.instruction(0)))
+                ExternalLabel(skipLabelName, mutableMethod.getInstruction(0))
             )
         }
 
         with(GetReadyToShowAdFingerprint.result!!) {
             val adFormatDeclined = "Ltv/twitch/android/shared/display/ads/theatre/StreamDisplayAdsPresenter\$Action\$AdFormatDeclined;"
-            mutableMethod.addInstructions(
+            mutableMethod.addInstructionsWithLabels(
                 0,
                 """
                     ${createConditionInstructions()}
@@ -110,7 +111,7 @@ class VideoAdsPatch : AbstractAdPatch(
                     move-result-object p1
                     return-object p1
                 """,
-                listOf(ExternalLabel(skipLabelName, mutableMethod.instruction(0)))
+                ExternalLabel(skipLabelName, mutableMethod.getInstruction(0))
             )
         }
 

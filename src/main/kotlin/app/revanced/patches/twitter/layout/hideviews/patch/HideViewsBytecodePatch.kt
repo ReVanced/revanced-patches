@@ -1,8 +1,8 @@
 package app.revanced.patches.twitter.layout.hideviews.patch
 
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.removeInstruction
-import app.revanced.patcher.extensions.removeInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult

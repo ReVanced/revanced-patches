@@ -4,7 +4,7 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -38,15 +38,16 @@ class HideTimestampPatch : BytecodePatch(
             )
         )
 
-        TimeCounterFingerprint.result!!.mutableMethod.addInstructions(
-            0, """
-            invoke-static { }, Lapp/revanced/integrations/patches/HideTimestampPatch;->hideTimestamp()Z
-            move-result v0
-            if-eqz v0, :hide_time
-            return-void
-            :hide_time
-            nop
-        """
+        TimeCounterFingerprint.result!!.mutableMethod.addInstructionsWithLabels(
+            0,
+            """
+                invoke-static { }, Lapp/revanced/integrations/patches/HideTimestampPatch;->hideTimestamp()Z
+                move-result v0
+                if-eqz v0, :hide_time
+                return-void
+                :hide_time
+                nop
+            """
         )
 
         return PatchResultSuccess()

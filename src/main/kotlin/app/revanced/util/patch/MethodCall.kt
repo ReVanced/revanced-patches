@@ -1,6 +1,6 @@
 package app.revanced.util.patch
 
-import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.ClassDef

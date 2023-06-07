@@ -5,8 +5,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -33,7 +33,7 @@ class VideoIdPatch : BytecodePatch(
             result.mutableMethod.also {
                 insertMethod = it
             }.apply {
-                videoIdRegister = instruction<OneRegisterInstruction>(videoIdRegisterInstructionIndex).registerA
+                videoIdRegister = getInstruction<OneRegisterInstruction>(videoIdRegisterInstructionIndex).registerA
                 insertIndex = videoIdRegisterInstructionIndex + 1
             }
         } ?: return VideoIdFingerprint.toErrorResult()
@@ -44,7 +44,7 @@ class VideoIdPatch : BytecodePatch(
             result.mutableMethod.also {
                 backgroundPlaybackMethod = it
             }.apply {
-                backgroundPlaybackVideoIdRegister = instruction<OneRegisterInstruction>(endIndex + 1).registerA
+                backgroundPlaybackVideoIdRegister = getInstruction<OneRegisterInstruction>(endIndex + 1).registerA
                 backgroundPlaybackInsertIndex = endIndex + 2
             }
         } ?: return VideoIdFingerprintBackgroundPlay.toErrorResult()
@@ -74,7 +74,7 @@ class VideoIdPatch : BytecodePatch(
          */
         fun injectCall(
             methodDescriptor: String
-        ) = insertMethod.addInstructions(
+        ) = insertMethod.addInstruction(
             // Keep injection calls in the order they're added:
             // Increment index. So if additional injection calls are added, those calls run after this injection call.
             insertIndex++,
@@ -93,7 +93,7 @@ class VideoIdPatch : BytecodePatch(
          */
         fun injectCallBackgroundPlay(
             methodDescriptor: String
-        ) = backgroundPlaybackMethod.addInstructions(
+        ) = backgroundPlaybackMethod.addInstruction(
             backgroundPlaybackInsertIndex++, // move-result-object offset
                 "invoke-static {v$backgroundPlaybackVideoIdRegister}, $methodDescriptor"
             )

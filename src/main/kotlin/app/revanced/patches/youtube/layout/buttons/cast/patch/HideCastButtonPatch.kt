@@ -4,7 +4,7 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
@@ -34,22 +34,18 @@ class HideCastButtonPatch : BytecodePatch() {
             )
         )
 
-        with(
-            context.findClass("MediaRouteButton")
-                ?: return PatchResultError("MediaRouteButton class not found.")
-        ) {
-            with(
-                mutableClass.methods.find { it.name == "setVisibility" }
-                    ?: return PatchResultError("setVisibility method not found.")
-            ) {
-                addInstructions(
-                    0, """
-                            invoke-static {p1}, Lapp/revanced/integrations/patches/HideCastButtonPatch;->getCastButtonOverrideV2(I)I
-                            move-result p1
-                        """
-                )
-            }
-        }
+        val buttonClass = context.findClass("MediaRouteButton")
+            ?: return PatchResultError("MediaRouteButton class not found.")
+
+        buttonClass.mutableClass.methods.find { it.name == "setVisibility" }?.apply {
+            addInstructions(
+                0,
+                """
+                    invoke-static {p1}, Lapp/revanced/integrations/patches/HideCastButtonPatch;->getCastButtonOverrideV2(I)I
+                    move-result p1
+                """
+            )
+        } ?: return PatchResultError("setVisibility method not found.")
 
         return PatchResultSuccess()
     }

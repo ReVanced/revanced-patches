@@ -1,8 +1,10 @@
 package app.revanced.patches.idaustria.detection.root.patch
 
-import app.revanced.patcher.annotation.*
+import app.revanced.patcher.annotation.Description
+import app.revanced.patcher.annotation.Name
+import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -19,7 +21,7 @@ class RootDetectionPatch : BytecodePatch(
     listOf(RootDetectionFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        RootDetectionFingerprint.result!!.mutableMethod.addInstructions(0, "return-void")
+        RootDetectionFingerprint.result!!.mutableMethod.addInstruction(0, "return-void")
         return PatchResultSuccess()
     }
 }

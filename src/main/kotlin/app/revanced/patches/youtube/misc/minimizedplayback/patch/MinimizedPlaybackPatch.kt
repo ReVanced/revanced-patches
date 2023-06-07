@@ -6,8 +6,8 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -50,10 +50,11 @@ class MinimizedPlaybackPatch : BytecodePatch(
 
         MinimizedPlaybackManagerFingerprint.result?.apply {
             mutableMethod.addInstructions(
-                0, """
-                invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->isPlaybackNotShort()Z
-                move-result v0
-                return v0
+                0,
+                """
+                    invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->isPlaybackNotShort()Z
+                    move-result v0
+                    return v0
                 """
             )
         } ?: return MinimizedPlaybackManagerFingerprint.toErrorResult()
@@ -68,10 +69,11 @@ class MinimizedPlaybackPatch : BytecodePatch(
                 context.toMethodWalker(method).nextMethod(settingsBooleanIndex, true).getMethod() as MutableMethod
 
             settingsBooleanMethod.addInstructions(
-                0, """
-                invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideMinimizedPlaybackAvailable()Z
-                move-result v0
-                return v0
+                0,
+                """
+                    invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideMinimizedPlaybackAvailable()Z
+                    move-result v0
+                    return v0
                 """
             )
         } ?: return MinimizedPlaybackSettingsFingerprint.toErrorResult()

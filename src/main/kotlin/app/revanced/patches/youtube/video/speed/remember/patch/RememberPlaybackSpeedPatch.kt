@@ -5,8 +5,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -79,10 +79,10 @@ class RememberPlaybackSpeedPatch : BytecodePatch(
         InitializePlaybackSpeedValuesFingerprint.result?.apply {
             // Infer everything necessary for calling the method setPlaybackSpeed().
             val onItemClickListenerClassFieldReference =
-                mutableMethod.instruction<ReferenceInstruction>(0).reference
+                mutableMethod.getInstruction<ReferenceInstruction>(0).reference
 
             // Registers are not used at index 0, so they can be freely used.
-            mutableMethod.addInstructions(
+            mutableMethod.addInstructionsWithLabels(
                 0,
                 """
                     invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->getPlaybackSpeedOverride()F
@@ -105,7 +105,7 @@ class RememberPlaybackSpeedPatch : BytecodePatch(
                     # Invoke setPlaybackSpeed on that class.
                     invoke-virtual {v2, v0}, ${VideoInformationPatch.setPlaybackSpeedMethodReference}
                 """.trimIndent(),
-                listOf(ExternalLabel("do_not_override", mutableMethod.instruction(0)))
+                ExternalLabel("do_not_override", mutableMethod.getInstruction(0))
             )
         } ?: return InitializePlaybackSpeedValuesFingerprint.toErrorResult()
 

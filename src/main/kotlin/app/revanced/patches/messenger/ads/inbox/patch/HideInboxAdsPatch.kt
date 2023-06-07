@@ -3,7 +3,7 @@ package app.revanced.patches.messenger.ads.inbox.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.*
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess

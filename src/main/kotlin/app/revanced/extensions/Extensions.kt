@@ -1,7 +1,7 @@
 package app.revanced.extensions
 
 import app.revanced.patcher.extensions.MethodFingerprintExtensions.name
-import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass

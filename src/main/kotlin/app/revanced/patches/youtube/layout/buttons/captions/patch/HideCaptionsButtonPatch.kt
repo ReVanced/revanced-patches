@@ -4,7 +4,7 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -44,8 +44,9 @@ class HideCaptionsButtonPatch : BytecodePatch(listOf(
             it.opcode == Opcode.IGET_BOOLEAN
         }
 
-        subtitleButtonControllerMethod.addInstructions(
-            igetBooleanIndex + 1, """
+        subtitleButtonControllerMethod.addInstruction(
+            igetBooleanIndex + 1,
+            """
                 invoke-static {v0}, Lapp/revanced/integrations/patches/HideCaptionsButtonPatch;->hideCaptionsButton(Landroid/widget/ImageView;)V
             """
         )

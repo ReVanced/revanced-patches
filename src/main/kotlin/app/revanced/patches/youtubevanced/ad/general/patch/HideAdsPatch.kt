@@ -5,8 +5,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -32,7 +32,7 @@ class HideAdsPatch : BytecodePatch(
         ContainsAdFingerprint.result?.let { result ->
             result.mutableMethod.apply {
                 val insertIndex = result.scanResult.patternScanResult!!.endIndex + 1
-                val adsListRegister = instruction<Instruction21c>(insertIndex - 2).registerA
+                val adsListRegister = getInstruction<Instruction21c>(insertIndex - 2).registerA
 
                 listOf(
                     "_buttoned_layout",
@@ -50,7 +50,8 @@ class HideAdsPatch : BytecodePatch(
                     "carousel_footered_layout"
                 ).forEach { component ->
                     addInstructions(
-                        insertIndex, """
+                        insertIndex,
+                        """
                            const-string v$adsListRegister, "$component"
                            invoke-interface {v0, v$adsListRegister}, Ljava/util/List;->add(Ljava/lang/Object;)Z
                         """

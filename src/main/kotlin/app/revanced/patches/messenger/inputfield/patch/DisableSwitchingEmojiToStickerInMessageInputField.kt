@@ -3,8 +3,8 @@ package app.revanced.patches.messenger.inputfield.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.*
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -23,7 +23,7 @@ class DisableSwitchingEmojiToStickerInMessageInputField : BytecodePatch(listOf(S
             val setStringIndex = it.scanResult.patternScanResult!!.startIndex + 2
 
             it.mutableMethod.apply {
-                val targetRegister = instruction<OneRegisterInstruction>(setStringIndex).registerA
+                val targetRegister = getInstruction<OneRegisterInstruction>(setStringIndex).registerA
 
                 replaceInstruction(
                     setStringIndex,

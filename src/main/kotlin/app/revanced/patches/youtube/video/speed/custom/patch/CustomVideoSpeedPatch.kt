@@ -4,9 +4,12 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.*
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultError
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.settings.preference.impl.InputType
 import app.revanced.patches.shared.settings.preference.impl.StringResource
@@ -73,8 +76,8 @@ class CustomVideoSpeedPatch : BytecodePatch(
         arrayGenMethod.addInstructions(
             arrayLengthConstIndex + 1,
             """
-            sget-object v$arrayLengthConstDestination, $videoSpeedsArrayType
-            array-length v$arrayLengthConstDestination, v$arrayLengthConstDestination
+                sget-object v$arrayLengthConstDestination, $videoSpeedsArrayType
+                array-length v$arrayLengthConstDestination, v$arrayLengthConstDestination
             """
         )
 
