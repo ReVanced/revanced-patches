@@ -29,15 +29,15 @@ class HideGetPremiumPatch : BytecodePatch(listOf(GetPremiumViewFingerprint,)) {
                 "revanced_hide_get_premium",
                 StringResource(
                     "revanced_hide_get_premium_title",
-                    "Hide YouTube Premium advertisement under video player"
+                    "Hide YouTube premium advertisement"
                 ),
                 StringResource(
                     "revanced_hide_get_premium_summary_on",
-                    "YouTube Premium advertisement are hidden"
+                    "YouTube Premium advertisements under video player are hidden"
                 ),
                 StringResource(
                     "revanced_hide_get_premium_summary_off",
-                    "YouTube Premium advertisement are shown"
+                    "YouTube Premium advertisements under video player are shown"
                 )
             )
         )
