@@ -24,7 +24,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Patch
 @Name("hide-timeline-ads")
 @Description("Removes ads from the timeline.")
-@Compatibility([Package("com.instagram.android")])
+@Compatibility([Package("com.instagram.android", arrayOf("275.0.0.27.98"))])
 @Version("0.0.1")
 class HideTimelineAdsPatch : BytecodePatch(
     listOf(
