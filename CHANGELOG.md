@@ -1,3 +1,20 @@
+# [2.176.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.176.0-dev.2...v2.176.0-dev.3) (2023-06-10)
+
+
+### Bug Fixes
+
+* **instagram/hide-timeline-ads:** constrain to version `275.0.0.27.98` ([#2377](https://github.com/revanced/revanced-patches/issues/2377)) ([6ee836c](https://github.com/revanced/revanced-patches/commit/6ee836c587676ba53c2e4748ec1828e193f1c071))
+* use correct import ([9b6e730](https://github.com/revanced/revanced-patches/commit/9b6e730395e56e60cf08372dbbc3a10e92ba8e95))
+* **youtube/hide-get-premium:** shorten descriptions ([f5224c4](https://github.com/revanced/revanced-patches/commit/f5224c4980285ef1e29d17887f02b5b397785245))
+
+
+### Features
+
+* **citra:** remove patches ([#2384](https://github.com/revanced/revanced-patches/issues/2384)) ([d182329](https://github.com/revanced/revanced-patches/commit/d1823297ce27fc6f3246123c91d9463080afb7ee))
+* **finanzonline:** support any version ([#2347](https://github.com/revanced/revanced-patches/issues/2347)) ([cc66b1f](https://github.com/revanced/revanced-patches/commit/cc66b1fc6200bbdcc2697ddd7085d46447775be2))
+* **songpal:** add `remove-badge-tab` patch ([bde9053](https://github.com/revanced/revanced-patches/commit/bde9053f04e202a7b394a1dad335470d5495e5fc))
+* **songpal:** add `remove-notification-badge` patch ([1b77f96](https://github.com/revanced/revanced-patches/commit/1b77f9633cf7e72d653f1d37483b7399e1ad797d))
+
 # [2.176.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.176.0-dev.1...v2.176.0-dev.2) (2023-06-07)
 
 # [2.176.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.175.0...v2.176.0-dev.1) (2023-06-02)

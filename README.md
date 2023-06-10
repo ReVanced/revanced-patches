@@ -170,13 +170,22 @@ The official ReVanced Patches.
 | `spotify-theme` | Applies a custom theme. | all |
 </details>
 
+### [📦 `com.sony.songpal.mdr`](https://play.google.com/store/apps/details?id=com.sony.songpal.mdr)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `remove-badge-tab` | Removes the badge tab from the activity tab. | all |
+| `remove-notification-badge` | Removes the red notification badge from the activity tab. | all |
+</details>
+
 ### [📦 `at.gv.bmf.bmf2go`](https://play.google.com/store/apps/details?id=at.gv.bmf.bmf2go)
 <details>
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `remove-bootloader-detection` | Removes the check for an unlocked bootloader. | 2.2.0 |
-| `remove-root-detection` | Removes the check for root permissions. | 2.2.0 |
+| `remove-bootloader-detection` | Removes the check for an unlocked bootloader. | all |
+| `remove-root-detection` | Removes the check for root permissions. | all |
 </details>
 
 ### [📦 `at.gv.oe.app`](https://play.google.com/store/apps/details?id=at.gv.oe.app)
@@ -233,23 +242,7 @@ The official ReVanced Patches.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `hide-timeline-ads` | Removes ads from the timeline. | all |
-</details>
-
-### [📦 `org.citra.citra_emu`](https://play.google.com/store/apps/details?id=org.citra.citra_emu)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `premium-unlock` | Unlocks premium functions. | all |
-</details>
-
-### [📦 `org.citra.citra_emu.canary`](https://play.google.com/store/apps/details?id=org.citra.citra_emu.canary)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `premium-unlock` | Unlocks premium functions. | all |
+| `hide-timeline-ads` | Removes ads from the timeline. | 275.0.0.27.98 |
 </details>
 
 ### [📦 `com.backdrops.wallpapers`](https://play.google.com/store/apps/details?id=com.backdrops.wallpapers)
