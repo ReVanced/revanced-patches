@@ -11,7 +11,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.finanzonline.detection.bootloader.fingerprints.BootStateFingerprint
-import app.revanced.patches.finanzonline.detection.bootloader.fingerprints.BootloaderDetectionFingerprint
+import app.revanced.patches.finanzonline.detection.bootloader.fingerprints.CreateKeyFingerprint
 import app.revanced.patches.finanzonline.detection.shared.annotations.DetectionCompatibility
 
 
@@ -21,11 +21,11 @@ import app.revanced.patches.finanzonline.detection.shared.annotations.DetectionC
 @DetectionCompatibility
 @Version("0.0.1")
 class BootloaderDetectionPatch : BytecodePatch(
-    listOf(BootloaderDetectionFingerprint, BootStateFingerprint)
+    listOf(CreateKeyFingerprint, BootStateFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        arrayOf(BootloaderDetectionFingerprint, BootStateFingerprint).forEach { fingerprint ->
-            fingerprint.result?.mutableMethod?.addInstruction(
+        arrayOf(CreateKeyFingerprint, BootStateFingerprint).forEach { fingerprint ->
+            fingerprint.result?.mutableMethod?.addInstructions(
                 0,
                 """
                         const/4 v0, 0x1
@@ -33,6 +33,7 @@ class BootloaderDetectionPatch : BytecodePatch(
                 """
             ) ?: return fingerprint.toErrorResult()
         }
+
         return PatchResultSuccess()
     }
 }

@@ -29,6 +29,7 @@ class RootDetectionPatch : BytecodePatch(
                 return-object v0
             """
         ) ?: return RootDetectionFingerprint.toErrorResult()
+
         return PatchResultSuccess()
     }
 }
