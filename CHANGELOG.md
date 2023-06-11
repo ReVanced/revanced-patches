@@ -1,3 +1,10 @@
+# [2.176.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.176.0-dev.3...v2.176.0-dev.4) (2023-06-11)
+
+
+### Bug Fixes
+
+* **songpal:** make patches more resilient ([#2386](https://github.com/revanced/revanced-patches/issues/2386)) ([947bf42](https://github.com/revanced/revanced-patches/commit/947bf42b7c8d029b8a26a5c306869e02a69b62fd))
+
 # [2.176.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.176.0-dev.2...v2.176.0-dev.3) (2023-06-10)
 
 
