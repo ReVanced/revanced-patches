@@ -33,6 +33,10 @@ dependencies {
     implementation("com.google.code.gson:gson:2.10.1")
     // Required for FlexVer-Java
     implementation("com.unascribed:flexver-java:1.0.2")
+
+    // A dependency to the Android library unfortunately fails the build,
+    // which is why this is required for the patch change-oauth-client-id
+    compileOnly(project("dummy"))
 }
 
 kotlin {
