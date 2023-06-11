@@ -1,3 +1,10 @@
+# [2.176.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.176.0-dev.4...v2.176.0-dev.5) (2023-06-11)
+
+
+### Features
+
+* **syncforreddit:** add `change-oauth-client-id` patch ([#2393](https://github.com/revanced/revanced-patches/issues/2393)) ([c93f0c6](https://github.com/revanced/revanced-patches/commit/c93f0c6a99fb2365747371f0f38eff8e0b77aee1))
+
 # [2.176.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.176.0-dev.3...v2.176.0-dev.4) (2023-06-11)
 
 

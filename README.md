@@ -161,6 +161,15 @@ The official ReVanced Patches.
 | `hide-inbox-ads` | Hides ads in inbox. | all |
 </details>
 
+### [📦 `com.laurencedawson.reddit_sync`](https://play.google.com/store/apps/details?id=com.laurencedawson.reddit_sync)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `change-oauth-client-id` | Changes the OAuth client ID. | all |
+| `disable-ads` | Disables ads. | all |
+</details>
+
 ### [📦 `com.spotify.music`](https://play.google.com/store/apps/details?id=com.spotify.music)
 <details>
 
@@ -203,14 +212,6 @@ The official ReVanced Patches.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `disable-ads` | Disables ads in HexEditor. | all |
-</details>
-
-### [📦 `com.laurencedawson.reddit_sync`](https://play.google.com/store/apps/details?id=com.laurencedawson.reddit_sync)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `disable-ads` | Disables ads. | all |
 </details>
 
 ### [📦 `com.spotify.lite`](https://play.google.com/store/apps/details?id=com.spotify.lite)
