@@ -1,3 +1,10 @@
+# [2.177.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.176.2-dev.2...v2.177.0-dev.1) (2023-06-12)
+
+
+### Features
+
+* **syncforreddit/change-oauth-client-id:** support pro version ([d34288b](https://github.com/revanced/revanced-patches/commit/d34288b6e8c7f5bb944622a3c741fcc693868033))
+
 ## [2.176.2-dev.2](https://github.com/revanced/revanced-patches/compare/v2.176.2-dev.1...v2.176.2-dev.2) (2023-06-12)
 
 
