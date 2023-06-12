@@ -1,3 +1,10 @@
+# [2.177.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.177.0-dev.1...v2.177.0-dev.2) (2023-06-12)
+
+
+### Bug Fixes
+
+* **reddit/hide-ads:** search for correct reference class descriptor ([ad2a858](https://github.com/revanced/revanced-patches/commit/ad2a8585b2a5ecbc5eb92dd23b0ab124aa8a2541))
+
 # [2.177.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.176.2-dev.2...v2.177.0-dev.1) (2023-06-12)
 
 
