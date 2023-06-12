@@ -1,3 +1,10 @@
+# [2.176.0-dev.6](https://github.com/revanced/revanced-patches/compare/v2.176.0-dev.5...v2.176.0-dev.6) (2023-06-12)
+
+
+### Features
+
+* **reddit:** add `hide-promoted` patch ([#2350](https://github.com/revanced/revanced-patches/issues/2350)) ([c3fd36c](https://github.com/revanced/revanced-patches/commit/c3fd36cfba7fb8246f8b3a29d9310bd88f01c3e7))
+
 # [2.176.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.176.0-dev.4...v2.176.0-dev.5) (2023-06-11)
 
 
