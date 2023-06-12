@@ -50,7 +50,7 @@ class ChangeOAuthClientIdPatch : BytecodePatch(
                 """.trimIndent()
 
                 return PatchResultError(error)
-            }.let { clientId = it.readText() }
+            }.let { clientId = it.readText().trim() }
         }
 
         GetAuthorizationStringFingerprint.result?.also { result ->
