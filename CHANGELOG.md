@@ -1,3 +1,10 @@
+## [2.176.1](https://github.com/revanced/revanced-patches/compare/v2.176.0...v2.176.1) (2023-06-12)
+
+
+### Bug Fixes
+
+* **syncforreddit/change-oauth-client-id:** use correct signature for Android API ([4db2eba](https://github.com/revanced/revanced-patches/commit/4db2eba6d66f094f1d2400bfa8b9c15a175f796e))
+
 ## [2.176.1-dev.1](https://github.com/revanced/revanced-patches/compare/v2.176.0...v2.176.1-dev.1) (2023-06-12)
 
 
