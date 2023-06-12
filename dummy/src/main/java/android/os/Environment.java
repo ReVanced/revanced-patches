@@ -1,7 +1,9 @@
 package android.os;
 
+import java.io.File;
+
 public final class Environment {
-    public static String getExternalStorageDirectory() {
+    public static File getExternalStorageDirectory() {
         throw new UnsupportedOperationException("Stub");
     }
 }
