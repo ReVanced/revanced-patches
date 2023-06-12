@@ -20,7 +20,12 @@ import java.util.*
 @Patch
 @Name("change-oauth-client-id")
 @Description("Changes the OAuth client ID.")
-@Compatibility([Package("com.laurencedawson.reddit_sync")])
+@Compatibility(
+    [
+        Package("com.laurencedawson.reddit_sync"),
+        Package("com.laurencedawson.reddit_sync.pro")
+    ]
+)
 @Version("0.0.1")
 class ChangeOAuthClientIdPatch : BytecodePatch(
     listOf(GetAuthorizationStringFingerprint)
