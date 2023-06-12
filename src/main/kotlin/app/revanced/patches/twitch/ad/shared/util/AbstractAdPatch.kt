@@ -1,8 +1,8 @@
 package app.revanced.patches.twitch.ad.shared.util
 
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
@@ -27,7 +27,7 @@ abstract class AbstractAdPatch(
             this ?: return false
 
             this.methods.filter { methodNames.contains(it.name) }.forEach {
-                val retIntructions = when(returnMethod.returnType) {
+                val retInstruction = when (returnMethod.returnType) {
                     'V' -> "return-void"
                     'Z' -> """
                         const/4 v0, ${returnMethod.value}
@@ -35,13 +35,13 @@ abstract class AbstractAdPatch(
                     """
                     else -> throw NotImplementedError()
                 }
-                it.addInstructions(
+                it.addInstructionsWithLabels(
                     0,
                     """
                         ${createConditionInstructions("v0")}
-                        $retIntructions
+                        $retInstruction
                     """,
-                    listOf(ExternalLabel(skipLabelName, it.instruction(0)))
+                    ExternalLabel(skipLabelName, it.getInstruction(0))
                 )
             }
             true

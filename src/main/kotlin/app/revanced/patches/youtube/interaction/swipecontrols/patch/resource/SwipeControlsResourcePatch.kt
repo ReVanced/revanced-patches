@@ -46,6 +46,18 @@ class SwipeControlsResourcePatch : ResourcePatch {
                         StringResource("revanced_swipe_haptic_feedback_summary_on", "Haptic feedback is enabled"),
                         StringResource("revanced_swipe_haptic_feedback_summary_off", "Haptic feedback is disabled")
                     ),
+                    SwitchPreference(
+                        "revanced_swipe_save_and_restore_brightness",
+                        StringResource("revanced_swipe_save_and_restore_brightness_title", "Save and restore brightness"),
+                        StringResource(
+                            "revanced_swipe_save_and_restore_brightness_summary_on",
+                            "Save and restore brightness when exiting or entering fullscreen"
+                        ),
+                        StringResource(
+                            "revanced_swipe_save_and_restore_brightness_summary_off",
+                            "Do not save and restore brightness when exiting or entering fullscreen"
+                        )
+                    ),
                     TextPreference(
                         "revanced_swipe_overlay_timeout",
                         StringResource("revanced_swipe_overlay_timeout_title", "Swipe overlay timeout"),

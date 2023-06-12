@@ -23,23 +23,16 @@ jobs:
           # https://github.com/cycjimmy/semantic-release-action#private-packages
           persist-credentials: false
           fetch-depth: 0
-      - name: Setup JDK
-        uses: actions/setup-java@v3
+      - name: Cache
+        uses: actions/cache@v3
         with:
-          java-version: '17'
-          distribution: 'zulu'
-          cache: gradle
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-          cache: 'npm'
-      - name: Setup Android SDK
-        uses: amyu/setup-android@v2
-        with:
-          cache-disabled: false
-          sdk-version: '33'
-          build-tools-version: '33.0.1'
+          path: |
+            ${{ runner.home }}/.gradle/caches
+            ${{ runner.home }}/.gradle/wrapper
+            .gradle
+            build
+            node_modules
+          key: ${{ runner.os }}-gradle-npm-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties', 'package-lock.json') }}
       - name: Build with Gradle
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

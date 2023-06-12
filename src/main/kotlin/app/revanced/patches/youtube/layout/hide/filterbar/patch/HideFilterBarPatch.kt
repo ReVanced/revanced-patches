@@ -5,8 +5,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -78,7 +78,7 @@ class HideFilterBarPatch : BytecodePatch(
                     val endIndex = it.scanResult.patternScanResult!!.endIndex
 
                     val insertIndex = endIndex + insertIndexOffset
-                    val register = instruction<RegisterInstruction>(endIndex + hookRegisterOffset).registerA
+                    val register = getInstruction<RegisterInstruction>(endIndex + hookRegisterOffset).registerA
 
                     addInstructions(insertIndex, instructions(register))
                 }

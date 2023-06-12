@@ -3,8 +3,8 @@ package app.revanced.patches.twelvewidgets.unlock.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.*
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.removeInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -40,11 +40,12 @@ class UnlockPaidWidgetsPatch : BytecodePatch(
             method.apply {
                 removeInstructions(4, 3)
                 addInstructions(
-                    implementation?.instructions?.size!!, """
-                    const/4 v1, 0x0
-                    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
-                    return-object v0
-                """
+                    implementation?.instructions?.size!!,
+                    """
+                        const/4 v1, 0x0
+                        invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+                        return-object v0
+                    """
                 )
             }
         }

@@ -27,12 +27,16 @@ repositories {
 }
 
 dependencies {
-    implementation("app.revanced:revanced-patcher:9.0.0")
+    implementation("app.revanced:revanced-patcher:11.0.0")
     implementation("app.revanced:multidexlib2:2.5.3-a3836654")
     // Required for meta
     implementation("com.google.code.gson:gson:2.10.1")
     // Required for FlexVer-Java
     implementation("com.unascribed:flexver-java:1.0.2")
+
+    // A dependency to the Android library unfortunately fails the build,
+    // which is why this is required for the patch change-oauth-client-id
+    compileOnly(project("dummy"))
 }
 
 kotlin {

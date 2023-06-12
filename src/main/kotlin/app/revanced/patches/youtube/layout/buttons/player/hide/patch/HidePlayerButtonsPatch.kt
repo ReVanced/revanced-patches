@@ -5,8 +5,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -55,7 +55,7 @@ class HidePlayerButtonsPatch : BytecodePatch(
 
         PlayerControlsVisibilityModelFingerprint.result?.apply {
             val callIndex = scanResult.patternScanResult!!.endIndex
-            val callInstruction = mutableMethod.instruction<Instruction3rc>(callIndex)
+            val callInstruction = mutableMethod.getInstruction<Instruction3rc>(callIndex)
 
             // overriding this parameter register hides the previous and next buttons
             val hasNextParameterRegister = callInstruction.startRegister + ParameterOffsets.HAS_NEXT

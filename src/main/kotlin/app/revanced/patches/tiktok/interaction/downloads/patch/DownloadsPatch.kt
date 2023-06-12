@@ -5,10 +5,11 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.extensions.replaceInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
@@ -63,7 +64,7 @@ class DownloadsPatch : BytecodePatch(
         )
         //Download videos without watermark.
         val method3 = ACLCommonShareFingerprint3.result!!.mutableMethod
-        method3.addInstructions(
+        method3.addInstructionsWithLabels(
             0,
             """
                 invoke-static {}, Lapp/revanced/tiktok/download/DownloadsPatch;->shouldRemoveWatermark()Z

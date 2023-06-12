@@ -1,8 +1,10 @@
 package app.revanced.patches.scbeasy.detection.debugging.patch
 
-import app.revanced.patcher.annotation.*
+import app.revanced.patcher.annotation.Description
+import app.revanced.patcher.annotation.Name
+import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -19,7 +21,7 @@ class RemoveDebuggingDetectionPatch : BytecodePatch(
     listOf(DebuggingDetectionFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        DebuggingDetectionFingerprint.result!!.mutableMethod.addInstructions(
+        DebuggingDetectionFingerprint.result!!.mutableMethod.addInstructionsWithLabels(
             0,
             """
                 const/4 v0, 0x0

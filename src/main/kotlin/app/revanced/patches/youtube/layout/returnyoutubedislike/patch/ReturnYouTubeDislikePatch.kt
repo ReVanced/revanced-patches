@@ -5,11 +5,12 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.extensions.MethodFingerprintExtensions.name
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
@@ -70,8 +71,8 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
                 addInstructions(
                     0,
                     """
-                    const/4 v0, ${vote.value}
-                    invoke-static {v0}, $INTEGRATIONS_CLASS_DESCRIPTOR->sendVote(I)V
+                        const/4 v0, ${vote.value}
+                        invoke-static {v0}, $INTEGRATIONS_CLASS_DESCRIPTOR->sendVote(I)V
                     """
                 )
             } ?: return PatchResultError("Failed to find ${fingerprint.name} method.")
@@ -104,23 +105,24 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
             textComponentContextFingerprintResult.mutableMethod.apply {
                 // Get the conversion context obfuscated field name, and the registers for the AtomicReference and CharSequence
                 val conversionContextFieldReference =
-                    instruction<ReferenceInstruction>(conversionContextIndex).reference
+                    getInstruction<ReferenceInstruction>(conversionContextIndex).reference
 
                 // any free register
                 val contextRegister =
-                    instruction<TwoRegisterInstruction>(atomicReferenceStartIndex).registerB
+                    getInstruction<TwoRegisterInstruction>(atomicReferenceStartIndex).registerB
 
                 val atomicReferenceRegister =
-                    instruction<FiveRegisterInstruction>(atomicReferenceStartIndex + 4).registerC
+                    getInstruction<FiveRegisterInstruction>(atomicReferenceStartIndex + 4).registerC
 
-                val moveCharSequenceInstruction = instruction<TwoRegisterInstruction>(insertIndex)
+                val moveCharSequenceInstruction = getInstruction<TwoRegisterInstruction>(insertIndex)
                 val charSequenceRegister = moveCharSequenceInstruction.registerB
 
                 // Insert as first instructions at the control flow label.
                 // Must replace the existing instruction to preserve the label, and then insert the remaining instructions.
                 replaceInstruction(insertIndex, "move-object/from16 v$contextRegister, p0")
                 addInstructions(
-                    insertIndex + 1, """
+                    insertIndex + 1,
+                    """
                         iget-object v$contextRegister, v$contextRegister, $conversionContextFieldReference  # copy obfuscated context field into free register
                         invoke-static {v$contextRegister, v$atomicReferenceRegister, v$charSequenceRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->onLithoTextLoaded(Ljava/lang/Object;Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
                         move-result-object v$charSequenceRegister
@@ -139,32 +141,33 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
                 val patternResult = it.scanResult.patternScanResult!!
 
                 // If the field is true, the TextView is for a dislike button.
-                val isDisLikesBooleanReference = instruction<ReferenceInstruction>(patternResult.endIndex).reference
+                val isDisLikesBooleanReference = getInstruction<ReferenceInstruction>(patternResult.endIndex).reference
 
                 val textViewFieldReference = // Like/Dislike button TextView field
-                    instruction<ReferenceInstruction>(patternResult.endIndex - 2).reference
+                    getInstruction<ReferenceInstruction>(patternResult.endIndex - 2).reference
 
                 // Check if the hooked TextView object is that of the dislike button.
                 // If RYD is disabled, or the TextView object is not that of the dislike button, the execution flow is not interrupted.
                 // Otherwise, the TextView object is modified, and the execution flow is interrupted to prevent it from being changed afterward.
                 val insertIndex = patternResult.startIndex + 6
-                addInstructions(
-                    insertIndex, """
-                    # Check, if the TextView is for a dislike button
-                    iget-boolean v0, p0, $isDisLikesBooleanReference
-                    if-eqz v0, :is_like
-                    
-                    # Hook the TextView, if it is for the dislike button
-                    iget-object v0, p0, $textViewFieldReference
-                    invoke-static {v0}, $INTEGRATIONS_CLASS_DESCRIPTOR->setShortsDislikes(Landroid/view/View;)Z
-                    move-result v0
-                    if-eqz v0, :ryd_disabled
-                    return-void
-                   
-                    :is_like
-                    :ryd_disabled
-                    nop
-                """
+                addInstructionsWithLabels(
+                    insertIndex,
+                    """
+                        # Check, if the TextView is for a dislike button
+                        iget-boolean v0, p0, $isDisLikesBooleanReference
+                        if-eqz v0, :is_like
+                        
+                        # Hook the TextView, if it is for the dislike button
+                        iget-object v0, p0, $textViewFieldReference
+                        invoke-static {v0}, $INTEGRATIONS_CLASS_DESCRIPTOR->setShortsDislikes(Landroid/view/View;)Z
+                        move-result v0
+                        if-eqz v0, :ryd_disabled
+                        return-void
+                       
+                        :is_like
+                        :ryd_disabled
+                        nop
+                    """
                 )
             }
         } ?: return ShortsTextViewFingerprint.toErrorResult()
@@ -177,8 +180,8 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
             it.mutableMethod.apply {
                 val startIndex = it.scanResult.patternScanResult!!.startIndex
 
-                val resourceIdentifierRegister = instruction<OneRegisterInstruction>(startIndex).registerA
-                val textViewRegister = instruction<OneRegisterInstruction>(startIndex + 4).registerA
+                val resourceIdentifierRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
+                val textViewRegister = getInstruction<OneRegisterInstruction>(startIndex + 4).registerA
 
                 addInstruction(
                     startIndex + 4,

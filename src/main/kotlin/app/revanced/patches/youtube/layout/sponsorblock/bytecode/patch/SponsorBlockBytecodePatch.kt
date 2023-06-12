@@ -6,10 +6,10 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -188,7 +188,8 @@ class SponsorBlockBytecodePatch : BytecodePatch(
                             context.toMethodWalker(method).nextMethod(index - 6, true).getMethod() as MutableMethod
                         // change visibility of the buttons
                         invertVisibilityMethod.addInstructions(
-                            0, """
+                            0,
+                            """
                                 invoke-static {p1}, $INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibilityNegatedImmediate(Z)V
                                 invoke-static {p1}, $INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibilityNegatedImmediate(Z)V
                             """.trimIndent()
@@ -209,9 +210,10 @@ class SponsorBlockBytecodePatch : BytecodePatch(
             (appendTimeFingerprintResult.method.implementation!!.instructions.elementAt(appendTimePatternScanStartIndex + 1) as OneRegisterInstruction).registerA
 
         appendTimeFingerprintResult.mutableMethod.addInstructions(
-            appendTimePatternScanStartIndex + 2, """
-                    invoke-static {v$targetRegister}, $INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->appendTimeWithoutSegments(Ljava/lang/String;)Ljava/lang/String;
-                    move-result-object v$targetRegister
+            appendTimePatternScanStartIndex + 2,
+            """
+                invoke-static {v$targetRegister}, $INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->appendTimeWithoutSegments(Ljava/lang/String;)Ljava/lang/String;
+                move-result-object v$targetRegister
             """
         )
 
@@ -222,7 +224,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         ControlsOverlayFingerprint.result?.let {
             val startIndex = it.scanResult.patternScanResult!!.startIndex
             it.mutableMethod.apply {
-                val frameLayoutRegister = (instruction(startIndex + 2) as OneRegisterInstruction).registerA
+                val frameLayoutRegister = (getInstruction(startIndex + 2) as OneRegisterInstruction).registerA
                 addInstruction(
                     startIndex + 3,
                     "invoke-static {v$frameLayoutRegister}, $INTEGRATIONS_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR->initialize(Landroid/view/ViewGroup;)V"

@@ -4,7 +4,7 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -38,14 +38,15 @@ class WatchInVRPatch : BytecodePatch(
             )
         )
 
-        WatchInVRFingerprint.result!!.mutableMethod.addInstructions(
-            0, """
-                invoke-static {}, Lapp/revanced/integrations/patches/HideWatchInVRPatch;->hideWatchInVR()Z
-                move-result v0
-                if-eqz v0, :shown
-                return-void
-                :shown
-                nop
+        WatchInVRFingerprint.result!!.mutableMethod.addInstructionsWithLabels(
+            0,
+            """
+                    invoke-static {}, Lapp/revanced/integrations/patches/HideWatchInVRPatch;->hideWatchInVR()Z
+                    move-result v0
+                    if-eqz v0, :shown
+                    return-void
+                    :shown
+                    nop
                 """
         )
 

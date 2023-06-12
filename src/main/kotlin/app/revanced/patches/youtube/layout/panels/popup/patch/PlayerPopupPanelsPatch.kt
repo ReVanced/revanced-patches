@@ -5,7 +5,7 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -42,17 +42,18 @@ class PlayerPopupPanelsPatch : BytecodePatch(
         val engagementPanelControllerMethod = EngagementPanelControllerFingerprint
             .result?.mutableMethod ?: return EngagementPanelControllerFingerprint.toErrorResult()
 
-        engagementPanelControllerMethod.addInstructions(
-            0, """
-            invoke-static { }, Lapp/revanced/integrations/patches/DisablePlayerPopupPanelsPatch;->disablePlayerPopupPanels()Z
-            move-result v0
-            if-eqz v0, :player_popup_panels
-            if-eqz p4, :player_popup_panels
-            const/4 v0, 0x0
-            return-object v0
-            :player_popup_panels
-            nop
-        """
+        engagementPanelControllerMethod.addInstructionsWithLabels(
+            0,
+            """
+                invoke-static { }, Lapp/revanced/integrations/patches/DisablePlayerPopupPanelsPatch;->disablePlayerPopupPanels()Z
+                move-result v0
+                if-eqz v0, :player_popup_panels
+                if-eqz p4, :player_popup_panels
+                const/4 v0, 0x0
+                return-object v0
+                :player_popup_panels
+                nop
+            """
         )
 
         return PatchResultSuccess()

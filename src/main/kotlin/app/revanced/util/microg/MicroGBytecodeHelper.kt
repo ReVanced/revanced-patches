@@ -1,10 +1,11 @@
 package app.revanced.util.microg
 
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.util.microg.Constants.ACTIONS
@@ -218,6 +219,7 @@ internal object MicroGBytecodeHelper {
      */
     private fun List<MethodFingerprint>.returnEarly() {
         this.forEach { fingerprint ->
+            if (fingerprint.result == null) throw PatchResultError(fingerprint.toString())
             val result = fingerprint.result!!
             val stringInstructions = when (result.method.returnType.first()) {
                 'L' -> """

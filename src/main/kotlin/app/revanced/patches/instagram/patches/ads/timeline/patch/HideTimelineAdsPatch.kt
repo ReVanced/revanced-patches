@@ -3,9 +3,9 @@ package app.revanced.patches.instagram.patches.ads.timeline.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.*
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.extensions.removeInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -24,7 +24,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Patch
 @Name("hide-timeline-ads")
 @Description("Removes ads from the timeline.")
-@Compatibility([Package("com.instagram.android")])
+@Compatibility([Package("com.instagram.android", arrayOf("275.0.0.27.98"))])
 @Version("0.0.1")
 class HideTimelineAdsPatch : BytecodePatch(
     listOf(
@@ -55,8 +55,8 @@ class HideTimelineAdsPatch : BytecodePatch(
             val scanStart = scanResult.patternScanResult!!.startIndex
             val jumpIndex = scanStart - 1
 
-            val mediaInstanceRegister = mutableMethod.instruction<FiveRegisterInstruction>(scanStart).registerC
-            val freeRegister = mutableMethod.instruction<OneRegisterInstruction>(jumpIndex).registerA
+            val mediaInstanceRegister = mutableMethod.getInstruction<FiveRegisterInstruction>(scanStart).registerC
+            val freeRegister = mutableMethod.getInstruction<OneRegisterInstruction>(jumpIndex).registerA
 
             val returnFalseLabel = "an_ad"
 
@@ -77,14 +77,12 @@ class HideTimelineAdsPatch : BytecodePatch(
 
             val insertIndex = scanStart + 3
 
-            mutableMethod.addInstructions(
+            mutableMethod.addInstructionsWithLabels(
                 insertIndex,
                 checkForAdInstructions,
-                listOf(
-                    ExternalLabel(
-                        returnFalseLabel,
-                        mutableMethod.instruction(mutableMethod.implementation!!.instructions.size - 2 /* return false = ad */)
-                    )
+                ExternalLabel(
+                    returnFalseLabel,
+                    mutableMethod.getInstruction(mutableMethod.implementation!!.instructions.size - 2 /* return false = ad */)
                 )
             )
 
@@ -93,10 +91,10 @@ class HideTimelineAdsPatch : BytecodePatch(
             // region Jump to checks for ads from previous patch.
 
             mutableMethod.apply {
-                addInstructions(
+                addInstructionsWithLabels(
                     jumpIndex + 1,
                     "if-nez v$freeRegister, :start_check",
-                    listOf(ExternalLabel("start_check", instruction(insertIndex)))
+                    ExternalLabel("start_check", getInstruction(insertIndex))
                 )
             }.removeInstruction(jumpIndex)
 

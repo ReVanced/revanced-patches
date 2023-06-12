@@ -7,8 +7,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -54,7 +54,7 @@ class HideShortsComponentsPatch : BytecodePatch(
         ReelConstructorFingerprint.result?.let {
             it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.startIndex + 2
-                val viewRegister = instruction<TwoRegisterInstruction>(insertIndex).registerA
+                val viewRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
                 injectHideViewCall(
                     insertIndex,
@@ -86,7 +86,7 @@ class HideShortsComponentsPatch : BytecodePatch(
             SetPivotBarVisibilityFingerprint.result!!.let { result ->
                 result.mutableMethod.apply {
                     val checkCastIndex = result.scanResult.patternScanResult!!.endIndex
-                    val viewRegister = instruction<OneRegisterInstruction>(checkCastIndex).registerA
+                    val viewRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
                     addInstruction(
                         checkCastIndex + 1,
                         "sput-object v$viewRegister, $CLASS_DESCRIPTOR->pivotBar:" +
@@ -110,7 +110,7 @@ class HideShortsComponentsPatch : BytecodePatch(
         BottomNavigationBarFingerprint.result?.let {
             it.mutableMethod.apply {
                 val moveResultIndex = it.scanResult.patternScanResult!!.startIndex
-                val viewRegister = instruction<OneRegisterInstruction>(moveResultIndex).registerA
+                val viewRegister = getInstruction<OneRegisterInstruction>(moveResultIndex).registerA
                 val insertIndex = moveResultIndex + 1
 
                 addInstruction(
@@ -138,7 +138,7 @@ class HideShortsComponentsPatch : BytecodePatch(
                 val referencedIndex = method.findIndexForIdResource(resourceName)
 
                 val setIdIndex = referencedIndex + 1
-                val viewRegister = method.instruction<FiveRegisterInstruction>(setIdIndex).registerC
+                val viewRegister = method.getInstruction<FiveRegisterInstruction>(setIdIndex).registerC
                 method.injectHideViewCall(setIdIndex, viewRegister, CLASS_DESCRIPTOR, methodName)
             }
         }

@@ -4,8 +4,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -31,7 +31,7 @@ class AudioAdsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext): PatchResult {
         // Block playAds call
         with(AudioAdsPresenterPlayFingerprint.result!!) {
-            mutableMethod.addInstructions(
+            mutableMethod.addInstructionsWithLabels(
                 0,
                 """
                     invoke-static { }, Lapp/revanced/twitch/patches/AudioAdsPatch;->shouldBlockAudioAds()Z
@@ -39,7 +39,7 @@ class AudioAdsPatch : BytecodePatch(
                     if-eqz v0, :show_audio_ads
                     return-void
                 """,
-                listOf(ExternalLabel("show_audio_ads", mutableMethod.instruction(0)))
+                ExternalLabel("show_audio_ads", mutableMethod.getInstruction(0))
             )
         }
 

@@ -4,8 +4,8 @@ import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
@@ -45,11 +45,11 @@ class LithoFilterPatch : BytecodePatch(
 
             result.mutableMethod.apply {
                 val insertHookIndex = result.scanResult.patternScanResult!!.endIndex
-                val builderMethodDescriptor = instruction(builderMethodIndex).descriptor
-                val emptyComponentFieldDescriptor = instruction(emptyComponentFieldIndex).descriptor
+                val builderMethodDescriptor = getInstruction(builderMethodIndex).descriptor
+                val emptyComponentFieldDescriptor = getInstruction(emptyComponentFieldIndex).descriptor
                 // Register is overwritten right after it is used in this patch, therefore free to clobber.
-                val free = instruction<TwoRegisterInstruction>(insertHookIndex - 1).registerA
-                val free2 = instruction<OneRegisterInstruction>(insertHookIndex).registerA
+                val free = getInstruction<TwoRegisterInstruction>(insertHookIndex - 1).registerA
+                val free2 = getInstruction<OneRegisterInstruction>(insertHookIndex).registerA
 
                 @Suppress("UnnecessaryVariable")
                 // The register, this patch clobbers, is previously used for the StringBuilder,
@@ -57,19 +57,19 @@ class LithoFilterPatch : BytecodePatch(
                 val stringBuilderRegister = free
 
                 val identifierRegister =
-                    instruction<OneRegisterInstruction>(ReadComponentIdentifierFingerprint.patternScanEndIndex).registerA
+                    getInstruction<OneRegisterInstruction>(ReadComponentIdentifierFingerprint.patternScanEndIndex).registerA
 
                 // Parameter that holds a ref to a type with a field that ref the protobuf buffer object.
                 val protobufParameterNumber = 3
 
                 // Get the field that stores an protobuf buffer required below.
                 val protobufBufferRefTypeRefFieldDescriptor =
-                    instruction(ProtobufBufferFingerprint.patternScanStartIndex).descriptor
+                    getInstruction(ProtobufBufferFingerprint.patternScanStartIndex).descriptor
                 val protobufBufferRefTypeDescriptor =
-                    instruction(ProtobufBufferFingerprint.patternScanEndIndex - 1).descriptor
+                    getInstruction(ProtobufBufferFingerprint.patternScanEndIndex - 1).descriptor
                 val protobufBufferFieldDescriptor = "$protobufBufferRefTypeDescriptor->b:Ljava/nio/ByteBuffer;"
 
-                addInstructions(
+                addInstructionsWithLabels(
                     insertHookIndex, // right after setting the component.pathBuilder field.
                     """
                         # Get the protobuf buffer object.
@@ -97,7 +97,7 @@ class LithoFilterPatch : BytecodePatch(
                         iget-object v$free, v$free, $emptyComponentFieldDescriptor
                         return-object v$free
                     """,
-                    listOf(ExternalLabel("not_an_ad", instruction(insertHookIndex)))
+                    ExternalLabel("not_an_ad", getInstruction(insertHookIndex))
                 )
             }
         } ?: return ComponentContextParserFingerprint.toErrorResult()

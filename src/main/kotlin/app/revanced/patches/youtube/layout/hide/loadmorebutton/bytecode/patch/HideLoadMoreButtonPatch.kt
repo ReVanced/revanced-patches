@@ -5,8 +5,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -16,7 +16,6 @@ import app.revanced.patches.youtube.layout.hide.loadmorebutton.bytecode.fingerpr
 import app.revanced.patches.youtube.layout.hide.loadmorebutton.resource.patch.HideLoadMoreButtonResourcePatch
 import app.revanced.patches.youtube.layout.hide.loadmorebutton.annotations.HideLoadMoreButtonCompatibility
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
 @Name("hide-load-more-button")
@@ -29,7 +28,7 @@ class HideLoadMoreButtonPatch : BytecodePatch(listOf(HideLoadMoreButtonFingerpri
         HideLoadMoreButtonFingerprint.result?.let {
             it.mutableMethod.apply {
                 val moveRegisterIndex = it.scanResult.patternScanResult!!.endIndex
-                val viewRegister = instruction<OneRegisterInstruction>(moveRegisterIndex).registerA
+                val viewRegister = getInstruction<OneRegisterInstruction>(moveRegisterIndex).registerA
 
                 val insertIndex = moveRegisterIndex + 1
                 addInstruction(

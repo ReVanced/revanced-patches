@@ -5,7 +5,7 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -43,7 +43,7 @@ class UnlockPrimePatch : BytecodePatch(
                     const/16 v$primeStatusRegister, $PRIME_STATUS
                 """
             )
-        } ?: UnlockPrimeFingerprint.toErrorResult()
+        } ?: return UnlockPrimeFingerprint.toErrorResult()
 
         return PatchResultSuccess()
     }

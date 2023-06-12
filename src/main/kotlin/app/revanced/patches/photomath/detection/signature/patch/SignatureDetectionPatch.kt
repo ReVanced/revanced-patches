@@ -4,8 +4,8 @@ import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -21,7 +21,7 @@ class SignatureDetectionPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         CheckSignatureFingerprint.result?.apply {
-            val signatureCheckInstruction = mutableMethod.instruction(scanResult.patternScanResult!!.endIndex)
+            val signatureCheckInstruction = mutableMethod.getInstruction(scanResult.patternScanResult!!.endIndex)
             val checkRegister = (signatureCheckInstruction as OneRegisterInstruction).registerA
 
             mutableMethod.replaceInstruction(signatureCheckInstruction.location.index, "const/4 v$checkRegister, 0x1")

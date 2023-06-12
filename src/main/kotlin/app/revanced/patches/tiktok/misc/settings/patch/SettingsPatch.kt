@@ -5,9 +5,9 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
@@ -45,7 +45,7 @@ class SettingsPatch : BytecodePatch(
             // Find the indices that need to be patched.
             val copyrightPolicyLabelId = AboutPageFingerprint.result?.let {
                 val startIndex = it.scanResult.patternScanResult!!.startIndex
-                it.mutableMethod.instruction<WideLiteralInstruction>(startIndex).wideLiteral
+                it.mutableMethod.getInstruction<WideLiteralInstruction>(startIndex).wideLiteral
             } ?: return AboutPageFingerprint.toErrorResult()
 
             val copyrightIndex = instructions.indexOfFirst {
@@ -62,7 +62,7 @@ class SettingsPatch : BytecodePatch(
                 copyrightIndex,
                 copyrightPolicyIndex
             ).forEach { index ->
-                val instruction = instruction(index)
+                val instruction = getInstruction(index)
                 if (instruction.opcode != Opcode.MOVE_RESULT_OBJECT)
                     return PatchResultError("Hardcoded offset changed.")
 
@@ -77,7 +77,7 @@ class SettingsPatch : BytecodePatch(
                 )
 
                 // Replace the OnClickListener class with a custom one.
-                val onClickListener = instruction<ReferenceInstruction>(index + 4).reference.toString()
+                val onClickListener = getInstruction<ReferenceInstruction>(index + 4).reference.toString()
 
                 context.findClass(onClickListener)?.mutableClass?.methods?.first {
                     it.name == "onClick"
@@ -98,7 +98,7 @@ class SettingsPatch : BytecodePatch(
                 it.opcode == Opcode.INVOKE_SUPER
             } + 1
 
-            val thisRegister = instruction<FiveRegisterInstruction>(initializeSettingsIndex - 1).registerC
+            val thisRegister = getInstruction<FiveRegisterInstruction>(initializeSettingsIndex - 1).registerC
 
             addInstructions(
                 initializeSettingsIndex,

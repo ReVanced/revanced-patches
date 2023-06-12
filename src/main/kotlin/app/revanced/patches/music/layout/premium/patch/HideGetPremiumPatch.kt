@@ -4,8 +4,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -40,10 +40,11 @@ class HideGetPremiumPatch : BytecodePatch(
 
         val result = HideGetPremiumFingerprint.result!!
         val method = result.mutableMethod
-        method.addInstructions(
-            startIndex, """
-            const/16 v0, 0x8
-        """
+        method.addInstruction(
+            startIndex,
+            """
+                const/16 v0, 0x8
+            """
         )
 
         return PatchResultSuccess()
