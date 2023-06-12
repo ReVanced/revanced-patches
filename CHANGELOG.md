@@ -1,3 +1,10 @@
+# [2.176.0-dev.7](https://github.com/revanced/revanced-patches/compare/v2.176.0-dev.6...v2.176.0-dev.7) (2023-06-12)
+
+
+### Features
+
+* **syncforreddit/change-oauth-client-id:** improve error message ([a39b2fd](https://github.com/revanced/revanced-patches/commit/a39b2fd9828b514670135918e69ee736cb4615e5))
+
 # [2.176.0-dev.6](https://github.com/revanced/revanced-patches/compare/v2.176.0-dev.5...v2.176.0-dev.6) (2023-06-12)
 
 
