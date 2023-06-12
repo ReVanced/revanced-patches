@@ -43,7 +43,7 @@ class ChangeOAuthClientIdPatch : BytecodePatch(
                     Alternatively, you can provide the client ID using patch options.
                     
                     You can get your client ID from https://www.reddit.com/prefs/apps.
-                    The redirect URI has to be set to "http://redditsync/auth".
+                    The application type has to be "installed app" and the redirect URI has to be set to "http://redditsync/auth"
                 """.trimIndent()
 
                 return PatchResultError(error)
