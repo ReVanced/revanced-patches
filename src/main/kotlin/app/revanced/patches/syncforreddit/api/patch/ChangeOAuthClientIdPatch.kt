@@ -39,10 +39,7 @@ class ChangeOAuthClientIdPatch : BytecodePatch(
                 return PatchResultError("No client ID provided")
             }
 
-            File(
-                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
-                "reddit_client_id_revanced.txt"
-            ).also {
+            File(Environment.getExternalStorageDirectory(), "reddit_client_id_revanced.txt").also {
                 if (it.exists()) return@also
 
                 val error = """
