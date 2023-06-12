@@ -1,3 +1,31 @@
+# [2.177.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.177.0-dev.1...v2.177.0-dev.2) (2023-06-12)
+
+
+### Bug Fixes
+
+* **reddit/hide-ads:** search for correct reference class descriptor ([ad2a858](https://github.com/revanced/revanced-patches/commit/ad2a8585b2a5ecbc5eb92dd23b0ab124aa8a2541))
+
+# [2.177.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.176.2-dev.2...v2.177.0-dev.1) (2023-06-12)
+
+
+### Features
+
+* **syncforreddit/change-oauth-client-id:** support pro version ([d34288b](https://github.com/revanced/revanced-patches/commit/d34288b6e8c7f5bb944622a3c741fcc693868033))
+
+## [2.176.2-dev.2](https://github.com/revanced/revanced-patches/compare/v2.176.2-dev.1...v2.176.2-dev.2) (2023-06-12)
+
+
+### Bug Fixes
+
+* **syncforreddit/change-oauth-client-id:** trim whitespace from OAuth string ([#2402](https://github.com/revanced/revanced-patches/issues/2402)) ([2afea71](https://github.com/revanced/revanced-patches/commit/2afea71557cfe4eb64d7c7ebf5a07dfd24a11824))
+
+## [2.176.2-dev.1](https://github.com/revanced/revanced-patches/compare/v2.176.1...v2.176.2-dev.1) (2023-06-12)
+
+
+### Bug Fixes
+
+* **syncforreddit/change-oauth-client-id:** use downloads directory ([9b5af77](https://github.com/revanced/revanced-patches/commit/9b5af77a229a22466cfe8ed41a21d081beeae960))
+
 ## [2.176.1](https://github.com/revanced/revanced-patches/compare/v2.176.0...v2.176.1) (2023-06-12)
 
 

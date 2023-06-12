@@ -73,7 +73,7 @@ class HideAdsPatch : BytecodePatch(
 
                 val reference = (it as ReferenceInstruction).reference as MethodReference
 
-                reference.name == "add" && reference.definingClass == "Lava/util/ArrayList;"
+                reference.name == "add" && reference.definingClass == "Ljava/util/ArrayList;"
             }
 
             result.mutableMethod.removeInstruction(index)
