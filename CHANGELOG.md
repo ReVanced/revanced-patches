@@ -1,3 +1,10 @@
+## [2.176.2-dev.1](https://github.com/revanced/revanced-patches/compare/v2.176.1...v2.176.2-dev.1) (2023-06-12)
+
+
+### Bug Fixes
+
+* **syncforreddit/change-oauth-client-id:** use downloads directory ([9b5af77](https://github.com/revanced/revanced-patches/commit/9b5af77a229a22466cfe8ed41a21d081beeae960))
+
 ## [2.176.1](https://github.com/revanced/revanced-patches/compare/v2.176.0...v2.176.1) (2023-06-12)
 
 
