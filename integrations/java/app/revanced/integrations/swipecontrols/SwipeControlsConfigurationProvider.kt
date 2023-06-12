@@ -45,7 +45,7 @@ class SwipeControlsConfigurationProvider(
      */
     val overwriteVolumeKeyControls: Boolean
         get() = isFullscreenVideo && enableVolumeControls
-//endregioin
+//endregion
 
 //region gesture adjustments
     /**
@@ -93,6 +93,16 @@ class SwipeControlsConfigurationProvider(
      */
     val overlayForegroundColor: Int
         get() = Color.WHITE
+
+//endregion
+
+//region behaviour
+
+    /**
+     * should the brightness be saved and restored when exiting or entering fullscreen
+     */
+    val shouldSaveAndRestoreBrightness: Boolean
+        get() = SettingsEnum.SWIPE_SAVE_AND_RESTORE_BRIGHTNESS.boolean
 
 //endregion
 }

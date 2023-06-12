@@ -85,6 +85,7 @@ public enum SettingsEnum {
     HIDE_WEB_SEARCH_RESULTS("revanced_hide_web_search_results", BOOLEAN, TRUE),
     HIDE_QUICK_ACTIONS("revanced_hide_quick_actions", BOOLEAN, FALSE),
     HIDE_RELATED_VIDEOS("revanced_hide_related_videos", BOOLEAN, FALSE),
+    HIDE_MIX_PLAYLISTS("revanced_hide_mix_playlists", BOOLEAN, TRUE),
 
     // Action buttons
     HIDE_LIKE_DISLIKE_BUTTON("revanced_hide_like_dislike_button", BOOLEAN, FALSE),
@@ -158,15 +159,17 @@ public enum SettingsEnum {
     SWIPE_VOLUME("revanced_swipe_volume", BOOLEAN, TRUE),
     SWIPE_PRESS_TO_ENGAGE("revanced_swipe_press_to_engage", BOOLEAN, FALSE, true,
             parents(SWIPE_BRIGHTNESS, SWIPE_VOLUME)),
-    SWIPE_HAPTIC_FEEDBACK("revanced_swipe_haptic_feedback", BOOLEAN, TRUE,
+    SWIPE_HAPTIC_FEEDBACK("revanced_swipe_haptic_feedback", BOOLEAN, TRUE, true,
             parents(SWIPE_BRIGHTNESS, SWIPE_VOLUME)),
-    SWIPE_MAGNITUDE_THRESHOLD("revanced_swipe_threshold", INTEGER, 30,
+    SWIPE_MAGNITUDE_THRESHOLD("revanced_swipe_threshold", INTEGER, 30, true,
             parents(SWIPE_BRIGHTNESS, SWIPE_VOLUME)),
-    SWIPE_OVERLAY_BACKGROUND_ALPHA("revanced_swipe_overlay_background_alpha", INTEGER, 127,
+    SWIPE_OVERLAY_BACKGROUND_ALPHA("revanced_swipe_overlay_background_alpha", INTEGER, 127, true,
             parents(SWIPE_BRIGHTNESS, SWIPE_VOLUME)),
-    SWIPE_OVERLAY_TEXT_SIZE("revanced_swipe_text_overlay_size", INTEGER, 22,
+    SWIPE_OVERLAY_TEXT_SIZE("revanced_swipe_text_overlay_size", INTEGER, 22, true,
             parents(SWIPE_BRIGHTNESS, SWIPE_VOLUME)),
-    SWIPE_OVERLAY_TIMEOUT("revanced_swipe_overlay_timeout", LONG, 500L,
+    SWIPE_OVERLAY_TIMEOUT("revanced_swipe_overlay_timeout", LONG, 500L, true,
+            parents(SWIPE_BRIGHTNESS, SWIPE_VOLUME)),
+    SWIPE_SAVE_AND_RESTORE_BRIGHTNESS("revanced_swipe_save_and_restore_brightness", BOOLEAN, TRUE, true,
             parents(SWIPE_BRIGHTNESS, SWIPE_VOLUME)),
 
     // Debugging

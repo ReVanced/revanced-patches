@@ -168,13 +168,14 @@ class SwipeControlsHostActivity : Activity() {
      * @param type the new player type
      */
     private fun onPlayerTypeChanged(type: PlayerType) {
-        when (type) {
-            PlayerType.WATCH_WHILE_FULLSCREEN -> screen?.restore()
-            else -> {
-                screen?.save()
-                screen?.restoreDefaultBrightness()
+        if (config.shouldSaveAndRestoreBrightness)
+            when (type) {
+                PlayerType.WATCH_WHILE_FULLSCREEN -> screen?.restore()
+                else -> {
+                    screen?.save()
+                    screen?.restoreDefaultBrightness()
+                }
             }
-        }
     }
 
     /**
