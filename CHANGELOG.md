@@ -1,3 +1,10 @@
+## [2.177.1-dev.1](https://github.com/revanced/revanced-patches/compare/v2.177.0...v2.177.1-dev.1) (2023-06-14)
+
+
+### Bug Fixes
+
+* don't include all Litho patches, when not included ([fc69491](https://github.com/revanced/revanced-patches/commit/fc69491dfe4b119d46dd3da27b556e55fe0cecfb))
+
 # [2.177.0](https://github.com/revanced/revanced-patches/compare/v2.176.1...v2.177.0) (2023-06-12)
 
 

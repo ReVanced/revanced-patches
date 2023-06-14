@@ -25,7 +25,6 @@ The official ReVanced Patches.
 | `hdr-auto-brightness` | Makes the brightness of HDR videos follow the system default. | 18.19.35 |
 | `hide-ads` | Removes general ads. | 18.19.35 |
 | `hide-album-cards` | Hides the album cards below the artist description. | 18.19.35 |
-| `hide-artist-card` | Hides the artist card below the searchbar. | 18.19.35 |
 | `hide-autoplay-button` | Hides the autoplay button in the video player. | 18.19.35 |
 | `hide-breaking-news-shelf` | Hides the breaking news shelf on the homepage tab. | 18.19.35 |
 | `hide-captions-button` | Hides the captions button on video player. | 18.19.35 |
