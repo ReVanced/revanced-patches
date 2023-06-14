@@ -1,9 +1,11 @@
 package app.revanced.integrations.patches.components;
 
 import android.os.Build;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import app.revanced.integrations.settings.SettingsEnum;
+import app.revanced.integrations.utils.LogHelper;
+import app.revanced.integrations.utils.ReVancedUtils;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -11,10 +13,6 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Spliterator;
 import java.util.function.Consumer;
-
-import app.revanced.integrations.settings.SettingsEnum;
-import app.revanced.integrations.utils.LogHelper;
-import app.revanced.integrations.utils.ReVancedUtils;
 
 abstract class FilterGroup<T> {
     final static class FilterGroupResult {
@@ -235,10 +233,7 @@ abstract class Filter {
 @SuppressWarnings("unused")
 public final class LithoFilterPatch {
     private static final Filter[] filters = new Filter[]{
-            new AdsFilter(),
-            new ButtonsFilter(),
-            new CommentsFilter(),
-            new ShortsFilter()
+          new DummyFilter() // Replaced by patch.
     };
 
     @SuppressWarnings("unused")
