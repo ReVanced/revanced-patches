@@ -238,7 +238,10 @@ public final class LithoFilterPatch {
 
     @SuppressWarnings("unused")
     public static boolean filter(final StringBuilder pathBuilder, final String identifier, final ByteBuffer protobufBuffer) {
+        // TODO: Maybe this can be moved to the Filter class, to prevent unnecessary string creation
+        //  because some filters might not need the path.
         var path = pathBuilder.toString();
+
         // It is assumed that protobufBuffer is empty as well in this case.
         if (path.isEmpty()) return false;
 
@@ -249,9 +252,15 @@ public final class LithoFilterPatch {
 
         var protobufBufferArray = protobufBuffer.array();
 
-        // check if any filter-group
-        for (var filter : filters)
-            if (filter.isFiltered(path, identifier, protobufBufferArray)) return true;
+        for (var filter : filters) {
+            var filtered = filter.isFiltered(path, identifier, protobufBufferArray);
+
+            LogHelper.printDebug(() ->
+                    String.format("%s (ID: %s): %s", filtered ? "Filtered" : "Unfiltered", identifier, path)
+            );
+
+            if (filtered) return true;
+        }
 
         return false;
     }
