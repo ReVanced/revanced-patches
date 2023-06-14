@@ -23,7 +23,6 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch.P
 @HideAdsCompatibility
 @Version("0.0.1")
 class HideAdsResourcePatch : ResourcePatch {
-
     override fun execute(context: ResourceContext): PatchResult {
         PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
@@ -200,6 +199,12 @@ class HideAdsResourcePatch : ResourcePatch {
                 StringResource("revanced_hide_mix_playlists_summary_on", "Mix playlists are hidden"),
                 StringResource("revanced_hide_mix_playlists_summary_off", "Mix playlists are shown")
             ),
+            SwitchPreference(
+                "revanced_hide_artist_cards",
+                StringResource("revanced_hide_artist_cards_title", "Hide artist cards"),
+                StringResource("revanced_hide_artist_cards_on", "Artist cards is hidden"),
+                StringResource("revanced_hide_artist_cards_off", "Artist cards is shown")
+            ),
         )
 
         PreferenceScreen.ADS.addPreferences(
@@ -259,6 +264,8 @@ class HideAdsResourcePatch : ResourcePatch {
             )
         )
 
+        LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
+
         adAttributionId = ResourceMappingPatch.resourceMappings.single { it.name == "ad_attribution" }.id
 
         return PatchResultSuccess()
@@ -266,5 +273,8 @@ class HideAdsResourcePatch : ResourcePatch {
 
     internal companion object {
         var adAttributionId: Long = -1
+
+        private const val FILTER_CLASS_DESCRIPTOR =
+            "Lapp/revanced/integrations/patches/components/AdsFilter;"
     }
 }

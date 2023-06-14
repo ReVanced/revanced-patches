@@ -49,6 +49,8 @@ class HideShortsComponentsPatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
+        LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
+
         // region Hide the Shorts shelf.
 
         ReelConstructorFingerprint.result?.let {
@@ -59,7 +61,7 @@ class HideShortsComponentsPatch : BytecodePatch(
                 injectHideViewCall(
                     insertIndex,
                     viewRegister,
-                    CLASS_DESCRIPTOR,
+                    FILTER_CLASS_DESCRIPTOR,
                     "hideShortsShelf"
                 )
             }
@@ -89,7 +91,7 @@ class HideShortsComponentsPatch : BytecodePatch(
                     val viewRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
                     addInstruction(
                         checkCastIndex + 1,
-                        "sput-object v$viewRegister, $CLASS_DESCRIPTOR->pivotBar:" +
+                        "sput-object v$viewRegister, $FILTER_CLASS_DESCRIPTOR->pivotBar:" +
                                 "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;"
                     )
                 }
@@ -102,7 +104,7 @@ class HideShortsComponentsPatch : BytecodePatch(
                 throw RenderBottomNavigationBarFingerprint.toErrorResult()
 
             RenderBottomNavigationBarFingerprint.result!!.mutableMethod.apply {
-                addInstruction(0, "invoke-static { }, $CLASS_DESCRIPTOR->hideNavigationBar()V")
+                addInstruction(0, "invoke-static { }, $FILTER_CLASS_DESCRIPTOR->hideNavigationBar()V")
             }
         } ?: return RenderBottomNavigationBarParentFingerprint.toErrorResult()
 
@@ -115,7 +117,7 @@ class HideShortsComponentsPatch : BytecodePatch(
 
                 addInstruction(
                     insertIndex,
-                    "invoke-static { v$viewRegister }, $CLASS_DESCRIPTOR->" +
+                    "invoke-static { v$viewRegister }, $FILTER_CLASS_DESCRIPTOR->" +
                             "hideNavigationBar(Landroid/view/View;)Landroid/view/View;"
                 )
             }
@@ -127,7 +129,7 @@ class HideShortsComponentsPatch : BytecodePatch(
     }
 
     private companion object {
-        private const val CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/components/ShortsFilter;"
+        private const val FILTER_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/components/ShortsFilter;"
 
         private enum class ShortsButtons(private val resourceName: String, private val methodName: String) {
             COMMENTS("reel_dyn_comment", "hideShortsCommentsButton"),
@@ -139,7 +141,7 @@ class HideShortsComponentsPatch : BytecodePatch(
 
                 val setIdIndex = referencedIndex + 1
                 val viewRegister = method.getInstruction<FiveRegisterInstruction>(setIdIndex).registerC
-                method.injectHideViewCall(setIdIndex, viewRegister, CLASS_DESCRIPTOR, methodName)
+                method.injectHideViewCall(setIdIndex, viewRegister, FILTER_CLASS_DESCRIPTOR, methodName)
             }
         }
     }

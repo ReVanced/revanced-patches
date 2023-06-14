@@ -66,6 +66,14 @@ class HideButtonsPatch : ResourcePatch {
                 StringResource("revanced_hide_buttons_preference_screen_summary", "Hide or show buttons under videos")
             )
         )
+
+        LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
+
         return PatchResultSuccess()
+    }
+
+    private companion object {
+        private const val FILTER_CLASS_DESCRIPTOR =
+            "Lapp/revanced/integrations/patches/components/ButtonsFilter;"
     }
 }
