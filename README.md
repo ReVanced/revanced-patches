@@ -35,6 +35,7 @@ The official ReVanced Patches.
 | `hide-filter-bar` | Hides the filter bar in video feeds. | 18.19.35 |
 | `hide-floating-microphone-button` | Hides the floating microphone button which appears in search. | 18.19.35 |
 | `hide-info-cards` | Hides info cards in videos. | 18.19.35 |
+| `hide-layout-components` | Hides general layout components. | 18.19.35 |
 | `hide-load-more-button` | Hides the button under videos that loads similar videos. | 18.19.35 |
 | `hide-player-buttons` | Adds the option to hide video player previous and next buttons. | 18.19.35 |
 | `hide-player-overlay` | Hides the dark background overlay from the player when player controls are visible. | all |
