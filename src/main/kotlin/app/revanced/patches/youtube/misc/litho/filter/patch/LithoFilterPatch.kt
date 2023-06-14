@@ -17,7 +17,6 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import app.revanced.patches.youtube.misc.litho.filter.annotation.LithoFilterCompatibility
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.*
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 import org.jf.dexlib2.iface.instruction.Instruction
@@ -27,7 +26,6 @@ import java.io.Closeable
 
 @DependsOn([IntegrationsPatch::class])
 @Description("Hooks the method which parses the bytes into a ComponentContext to filter components.")
-@LithoFilterCompatibility
 @Version("0.0.1")
 class LithoFilterPatch : BytecodePatch(
     listOf(ComponentContextParserFingerprint, LithoFilterFingerprint)
