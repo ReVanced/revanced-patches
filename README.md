@@ -293,6 +293,14 @@ The official ReVanced Patches.
 | `remove-debugging-detection` | Removes the USB and wireless debugging checks. | all |
 </details>
 
+### [📦 `com.google.android.apps.recorder`](https://play.google.com/store/apps/details?id=com.google.android.apps.recorder)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `remove-device-restrictions` | Removes restrictions from using the app on any device. | all |
+</details>
+
 ### [📦 `com.dci.dev.androidtwelvewidgets`](https://play.google.com/store/apps/details?id=com.dci.dev.androidtwelvewidgets)
 <details>
 

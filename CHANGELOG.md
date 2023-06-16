@@ -1,3 +1,10 @@
+# [2.178.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.178.0-dev.1...v2.178.0-dev.2) (2023-06-16)
+
+
+### Bug Fixes
+
+* **googlerecorder/remove-device-restrictions:** add missing app constraint ([#2438](https://github.com/revanced/revanced-patches/issues/2438)) ([d5efe26](https://github.com/revanced/revanced-patches/commit/d5efe26f8959cde75dd3865ec3c2df4b05210e4a))
+
 # [2.178.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.177.1-dev.2...v2.178.0-dev.1) (2023-06-16)
 
 
