@@ -13,12 +13,9 @@ public final class FilterPromotedLinksPatch {
         final List<Object> filteredList = new ArrayList<>();
 
         for (Object item : links) {
-            if (!(item instanceof ILink)) continue;
+            if (item instanceof ILink && ((ILink) item).getPromoted()) continue;
 
-            final var link = (ILink) item;
-            final var isPromotedAd = link.getPromoted();
-
-            if (!isPromotedAd) filteredList.add(item);
+            filteredList.add(item);
         }
 
         return filteredList;
