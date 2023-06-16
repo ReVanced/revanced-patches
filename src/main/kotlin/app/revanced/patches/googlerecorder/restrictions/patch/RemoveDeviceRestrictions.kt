@@ -18,6 +18,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Patch
 @Name("remove-device-restrictions")
 @Description("Removes restrictions from using the app on any device.")
+@Compatibility([Package("com.google.android.apps.recorder")])
 @Version("0.0.1")
 class RemoveDeviceRestrictions : BytecodePatch(
     listOf(OnApplicationCreateFingerprint)
