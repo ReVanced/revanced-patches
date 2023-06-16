@@ -1,3 +1,10 @@
+# [2.178.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.177.1-dev.2...v2.178.0-dev.1) (2023-06-16)
+
+
+### Features
+
+* **google-recorder:** add `remove-device-restrictions` patch ([ef96ed1](https://github.com/revanced/revanced-patches/commit/ef96ed124e12091dde34124eabd8be9f2bb9280c))
+
 ## [2.177.1-dev.2](https://github.com/revanced/revanced-patches/compare/v2.177.1-dev.1...v2.177.1-dev.2) (2023-06-14)
 
 
