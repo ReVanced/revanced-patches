@@ -1,4 +1,4 @@
-package app.revanced.patches.syncforreddit.detection.piracy.patch
+package app.revanced.patches.reddit.customclients.syncforreddit.detection.piracy.patch
 
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description

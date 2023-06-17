@@ -1,4 +1,4 @@
-package app.revanced.patches.syncforreddit.ads.fingerprints
+package app.revanced.patches.reddit.customclients.syncforreddit.ads.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
