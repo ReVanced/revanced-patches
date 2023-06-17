@@ -1,3 +1,10 @@
+# [2.178.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.178.0-dev.2...v2.178.0-dev.3) (2023-06-17)
+
+
+### Bug Fixes
+
+* **youtube/comments:** add missing filter ([#2423](https://github.com/revanced/revanced-patches/issues/2423)) ([cab04b3](https://github.com/revanced/revanced-patches/commit/cab04b3a56cfc5bf00b7c6fcf6f86ab75aa5d4fd))
+
 # [2.178.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.178.0-dev.1...v2.178.0-dev.2) (2023-06-16)
 
 
