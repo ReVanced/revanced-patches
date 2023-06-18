@@ -42,7 +42,7 @@ class AlbumCardsPatch : BytecodePatch(
                     "invoke-static {v$albumCardViewRegister}, " +
                             "Lapp/revanced/integrations/patches/HideAlbumCardsPatch;" +
                             "->" +
-                            "hideAlbumCards(Landroid/view/View;)V"
+                            "hideAlbumCard(Landroid/view/View;)V"
                 )
             }
         } ?: return AlbumCardsFingerprint.toErrorResult()
