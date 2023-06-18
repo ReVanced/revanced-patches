@@ -1,3 +1,10 @@
+# [2.178.0-dev.6](https://github.com/revanced/revanced-patches/compare/v2.178.0-dev.5...v2.178.0-dev.6) (2023-06-18)
+
+
+### Bug Fixes
+
+* **youtube/hide-album-cards:** call correct integrations method ([0dbffaa](https://github.com/revanced/revanced-patches/commit/0dbffaae7d6dcb7050a9ea6e3c771839bcfdfbe1))
+
 # [2.178.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.178.0-dev.4...v2.178.0-dev.5) (2023-06-18)
 
 
