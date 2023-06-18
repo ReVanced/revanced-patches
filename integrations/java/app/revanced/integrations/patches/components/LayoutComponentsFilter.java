@@ -102,9 +102,13 @@ public final class LayoutComponentsFilter extends Filter {
                 "official_card"
         );
 
-        final var chapterTeaser = new StringFilterGroup(
-                SettingsEnum.HIDE_CHAPTER_TEASER,
-                "expandable_metadata",
+        final var expandableMetadata = new StringFilterGroup(
+                SettingsEnum.HIDE_EXPANDABLE_CHIP,
+                "expandable_metadata"
+        );
+
+        final var chapters = new StringFilterGroup(
+                SettingsEnum.HIDE_CHAPTERS,
                 "macro_markers_carousel"
         );
 
@@ -153,9 +157,10 @@ public final class LayoutComponentsFilter extends Filter {
                 communityPosts,
                 paidContent,
                 latestPosts,
-                chapterTeaser,
+                chapters,
                 communityGuidelines,
                 quickActions,
+                expandableMetadata,
                 relatedVideos,
                 compactBanner,
                 inFeedSurvey,

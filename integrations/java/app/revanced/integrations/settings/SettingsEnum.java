@@ -67,7 +67,8 @@ public enum SettingsEnum {
     // Layout
     HIDE_CHANNEL_BAR("revanced_hide_channel_bar", BOOLEAN, FALSE),
     HIDE_CHANNEL_MEMBER_SHELF("revanced_hide_channel_member_shelf", BOOLEAN, TRUE),
-    HIDE_CHAPTER_TEASER("revanced_hide_chapter_teaser", BOOLEAN, TRUE),
+    HIDE_EXPANDABLE_CHIP("revanced_hide_expandable_chip", BOOLEAN, TRUE),
+    HIDE_CHAPTERS("revanced_hide_chapters", BOOLEAN, TRUE),
     HIDE_COMMUNITY_GUIDELINES("revanced_hide_community_guidelines", BOOLEAN, TRUE),
     HIDE_COMMUNITY_POSTS("revanced_hide_community_posts", BOOLEAN, FALSE),
     HIDE_COMPACT_BANNER("revanced_hide_compact_banner", BOOLEAN, TRUE),
