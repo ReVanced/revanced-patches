@@ -1,3 +1,10 @@
+# [2.178.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.178.0-dev.4...v2.178.0-dev.5) (2023-06-18)
+
+
+### Features
+
+* **youtube/hide-layout-components:** separate hiding expandable chips and chapters ([3fb1ce9](https://github.com/revanced/revanced-patches/commit/3fb1ce9f9af150b784e42aaf5b419bb123c08375))
+
 # [2.178.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.178.0-dev.3...v2.178.0-dev.4) (2023-06-18)
 
 
