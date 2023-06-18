@@ -104,7 +104,7 @@ public final class LayoutComponentsFilter extends Filter {
 
         final var expandableMetadata = new StringFilterGroup(
                 SettingsEnum.HIDE_EXPANDABLE_CHIP,
-                "expandable_metadata"
+                "inline_expander"
         );
 
         final var chapters = new StringFilterGroup(
