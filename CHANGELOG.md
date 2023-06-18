@@ -1,3 +1,10 @@
+# [2.178.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.178.0-dev.3...v2.178.0-dev.4) (2023-06-18)
+
+
+### Features
+
+* **boostforreddit:** add `change-oauth-client-id` patch ([3dbc4bd](https://github.com/revanced/revanced-patches/commit/3dbc4bd49df1656893ef69c68550a2deb6a92cb7))
+
 # [2.178.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.178.0-dev.2...v2.178.0-dev.3) (2023-06-17)
 
 

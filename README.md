@@ -205,6 +205,14 @@ The official ReVanced Patches.
 | `spoof-signature` | Spoofs the signature of the app. | all |
 </details>
 
+### [📦 `com.rubenmayayo.reddit`](https://play.google.com/store/apps/details?id=com.rubenmayayo.reddit)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `change-oauth-client-id` | Changes the OAuth client ID in Boost for Reddit. | all |
+</details>
+
 ### [📦 `com.laurencedawson.reddit_sync.pro`](https://play.google.com/store/apps/details?id=com.laurencedawson.reddit_sync.pro)
 <details>
 
