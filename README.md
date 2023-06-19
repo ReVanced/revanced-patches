@@ -71,16 +71,15 @@ The official ReVanced Patches.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `background-play` | Enables playing music in the background. | all |
-| `bypass-certificate-checks` | Bypasses certificate checks which prevent YouTube Music from working on Android Auto. | 5.39.52 |
+| `bypass-certificate-checks` | Bypasses certificate checks which prevent YouTube Music from working on Android Auto. | all |
 | `codecs-unlock` | Adds more audio codec options. The new audio codecs usually result in better audio quality. | all |
 | `compact-header` | Hides the music category bar at the top of the homepage. | all |
 | `exclusive-audio-playback` | Enables the option to play music without video. | all |
-| `hide-get-premium` | Removes all "Get Premium" evidences from the avatar menu. | 5.39.52 |
+| `hide-get-premium` | Removes all "Get Premium" evidences from the avatar menu. | all |
 | `minimized-playback-music` | Enables minimized playback on Kids music. | all |
-| `music-microg-support` | Allows YouTube Music ReVanced to run without root and under a different package name. | all |
 | `music-video-ads` | Removes ads in the music player. | all |
-| `tasteBuilder-remover` | Removes the "Tell us which artists you like" card from the home screen. | all |
 | `upgrade-button-remover` | Removes the upgrade tab from the pivot bar. | all |
+| `vanced-microg-support` | Allows YouTube Music ReVanced to run without root and under a different package name. | all |
 </details>
 
 ### [📦 `com.ss.android.ugc.trill`](https://play.google.com/store/apps/details?id=com.ss.android.ugc.trill)
