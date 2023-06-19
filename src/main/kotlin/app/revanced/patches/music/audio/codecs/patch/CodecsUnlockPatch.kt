@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.toInstruction
-import app.revanced.patches.music.audio.codecs.annotations.CodecsUnlockCompatibility
+import app.revanced.patches.music.annotations.MusicCompatibility
 import app.revanced.patches.music.audio.codecs.fingerprints.AllCodecsReferenceFingerprint
 import app.revanced.patches.music.audio.codecs.fingerprints.CodecsLockFingerprint
 import org.jf.dexlib2.Opcode
@@ -18,7 +18,7 @@ import org.jf.dexlib2.Opcode
 @Patch
 @Name("codecs-unlock")
 @Description("Adds more audio codec options. The new audio codecs usually result in better audio quality.")
-@CodecsUnlockCompatibility
+@MusicCompatibility
 @Version("0.0.1")
 class CodecsUnlockPatch : BytecodePatch(
     listOf(
