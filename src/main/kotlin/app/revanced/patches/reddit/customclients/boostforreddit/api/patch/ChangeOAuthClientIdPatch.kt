@@ -18,6 +18,7 @@ import app.revanced.patches.reddit.customclients.boostforreddit.api.fingerprints
 @Version("0.0.1")
 class ChangeOAuthClientIdPatch : AbstractChangeOAuthClientIdPatch(
     "http://rubenmayayo.com",
+    Options,
     GetClientIdFingerprint
 ) {
     override fun MethodFingerprint.patch(context: BytecodeContext): PatchResult {
@@ -32,5 +33,5 @@ class ChangeOAuthClientIdPatch : AbstractChangeOAuthClientIdPatch(
         return PatchResultSuccess()
     }
 
-    companion object : Options.ChangeOAuthClientIdOptionsContainer()
+    companion object Options : AbstractChangeOAuthClientIdPatch.Options.ChangeOAuthClientIdOptionsContainer()
 }

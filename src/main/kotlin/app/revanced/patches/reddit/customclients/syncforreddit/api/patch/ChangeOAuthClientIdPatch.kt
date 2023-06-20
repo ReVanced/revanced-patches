@@ -19,7 +19,6 @@ import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.StringReference
 import java.util.*
 
-
 @Patch
 @Name("change-oauth-client-id")
 @Description("Changes the OAuth client ID.")
@@ -27,6 +26,7 @@ import java.util.*
 @Version("0.0.1")
 class ChangeOAuthClientIdPatch : AbstractChangeOAuthClientIdPatch(
     "http://redditsync/auth",
+    Options,
     GetAuthorizationStringFingerprint,
 ) {
     override fun MethodFingerprint.patch(context: BytecodeContext): PatchResult {
@@ -51,7 +51,7 @@ class ChangeOAuthClientIdPatch : AbstractChangeOAuthClientIdPatch(
 
                 val newAuthorizationUrl = reference.string.replace(
                     "client_id=.*?&".toRegex(),
-                    "client_id=${clientId!!}&"
+                    "client_id=$clientId&"
                 )
 
                 replaceInstruction(
@@ -64,5 +64,5 @@ class ChangeOAuthClientIdPatch : AbstractChangeOAuthClientIdPatch(
         return PatchResultSuccess()
     }
 
-    companion object : Options.ChangeOAuthClientIdOptionsContainer()
+    companion object Options : AbstractChangeOAuthClientIdPatch.Options.ChangeOAuthClientIdOptionsContainer()
 }
