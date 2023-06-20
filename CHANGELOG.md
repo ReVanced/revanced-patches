@@ -1,3 +1,10 @@
+# [2.178.0-dev.8](https://github.com/revanced/revanced-patches/compare/v2.178.0-dev.7...v2.178.0-dev.8) (2023-06-20)
+
+
+### Bug Fixes
+
+* **boostforreddit:** use correct options ([ec39732](https://github.com/revanced/revanced-patches/commit/ec39732a05f7c4c3360b8ba42fe50fd60952e6ac))
+
 # [2.178.0-dev.7](https://github.com/revanced/revanced-patches/compare/v2.178.0-dev.6...v2.178.0-dev.7) (2023-06-19)
 
 
