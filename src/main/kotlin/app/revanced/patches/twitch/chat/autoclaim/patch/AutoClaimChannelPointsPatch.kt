@@ -65,6 +65,7 @@ class AutoClaimChannelPointPatch : BytecodePatch(
                 ExternalLabel("auto_claim", getInstruction(lastIndex))
             )
         } ?: return CommunityPointsButtonViewDelegateFingerprint.toErrorResult()
+
         return PatchResultSuccess()
     }
 }

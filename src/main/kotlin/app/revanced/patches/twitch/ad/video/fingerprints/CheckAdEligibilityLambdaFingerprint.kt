@@ -1,15 +1,12 @@
 package app.revanced.patches.twitch.ad.video.fingerprints
 
-import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import org.jf.dexlib2.AccessFlags
 
 object CheckAdEligibilityLambdaFingerprint : MethodFingerprint(
-    "L",
-    AccessFlags.PRIVATE or AccessFlags.FINAL or AccessFlags.STATIC,
-    listOf("L", "L", "L"),
+    returnType = "Lio/reactivex/Single;",
+    parameters = listOf("L"),
     customFingerprint = { method, _ ->
-        method.definingClass.endsWith("AdEligibilityFetcher;") &&
-                method.name.contains("shouldRequestAd")
+        method.definingClass.endsWith("/AdEligibilityFetcher;")
+                && method.name == "shouldRequestAd"
     }
 )

@@ -1,5 +1,6 @@
 package app.revanced.patches.twitch.misc.settings.bytecode.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -45,7 +46,7 @@ class SettingsPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         // Hook onCreate to handle fragment creation
-        with(SettingsActivityOnCreateFingerprint.result!!) {
+        SettingsActivityOnCreateFingerprint.result?.apply {
             val insertIndex = mutableMethod.implementation!!.instructions.size - 2
             mutableMethod.addInstructionsWithLabels(
                 insertIndex,
@@ -57,20 +58,20 @@ class SettingsPatch : BytecodePatch(
                 """,
                 ExternalLabel("no_rv_settings_init", mutableMethod.getInstruction(insertIndex))
             )
-        }
+        } ?: return SettingsActivityOnCreateFingerprint.toErrorResult()
 
         // Create new menu item for settings menu
-        with(SettingsMenuItemEnumFingerprint.result!!) {
+        SettingsMenuItemEnumFingerprint.result?.apply {
             injectMenuItem(
                 REVANCED_SETTINGS_MENU_ITEM_NAME,
                 REVANCED_SETTINGS_MENU_ITEM_ID,
                 REVANCED_SETTINGS_MENU_ITEM_TITLE_RES,
                 REVANCED_SETTINGS_MENU_ITEM_ICON_RES
             )
-        }
+        } ?: return SettingsMenuItemEnumFingerprint.toErrorResult()
 
         // Intercept settings menu creation and add new menu item
-        with(MenuGroupsUpdatedFingerprint.result!!) {
+        MenuGroupsUpdatedFingerprint.result?.apply {
             mutableMethod.addInstructions(
                 0,
                 """
@@ -79,10 +80,10 @@ class SettingsPatch : BytecodePatch(
                     move-result-object      p1
                 """
             )
-        }
+        } ?: return MenuGroupsUpdatedFingerprint.toErrorResult()
 
         // Intercept onclick events for the settings menu
-        with(MenuGroupsOnClickFingerprint.result!!) {
+        MenuGroupsOnClickFingerprint.result?.apply {
             val insertIndex = 0
             mutableMethod.addInstructionsWithLabels(
                 insertIndex,
@@ -96,7 +97,7 @@ class SettingsPatch : BytecodePatch(
                 """,
                 ExternalLabel("no_rv_settings_onclick", mutableMethod.getInstruction(insertIndex))
             )
-        }
+        }  ?: return MenuGroupsOnClickFingerprint.toErrorResult()
 
         addString("revanced_settings", "ReVanced Settings", false)
         addString("revanced_reboot_message", "Twitch needs to restart to apply your changes. Restart now?", false)

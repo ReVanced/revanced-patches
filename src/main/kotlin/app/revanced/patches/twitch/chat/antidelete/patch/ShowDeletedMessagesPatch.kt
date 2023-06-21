@@ -1,5 +1,6 @@
 package app.revanced.patches.twitch.chat.antidelete.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
@@ -44,7 +45,7 @@ class ShowDeletedMessagesPatch : BytecodePatch(
 
     override fun execute(context: BytecodeContext): PatchResult {
         // Spoiler mode: Force set hasModAccess member to true in constructor
-        DeletedMessageClickableSpanCtorFingerprint.result!!.mutableMethod.apply {
+        DeletedMessageClickableSpanCtorFingerprint.result?.mutableMethod?.apply {
             addInstructionsWithLabels(
                 implementation!!.instructions.lastIndex, /* place in front of return-void */
                 """
@@ -54,14 +55,14 @@ class ShowDeletedMessagesPatch : BytecodePatch(
                 """,
                 ExternalLabel("no_spoiler", getInstruction(implementation!!.instructions.lastIndex))
             )
-        }
+        } ?: return DeletedMessageClickableSpanCtorFingerprint.toErrorResult()
 
         // Spoiler mode: Disable setHasModAccess setter
-        SetHasModAccessFingerprint.result!!.mutableMethod.addInstruction(0, "return-void")
-
+        SetHasModAccessFingerprint.result?.mutableMethod?.addInstruction(0, "return-void")
+            ?: return SetHasModAccessFingerprint.toErrorResult()
 
         // Cross-out mode: Reformat span of deleted message
-        ChatUtilCreateDeletedSpanFingerprint.result!!.mutableMethod.apply {
+        ChatUtilCreateDeletedSpanFingerprint.result?.mutableMethod?.apply {
             addInstructionsWithLabels(
                 0,
                 """
@@ -72,7 +73,7 @@ class ShowDeletedMessagesPatch : BytecodePatch(
                 """,
                 ExternalLabel("no_reformat", getInstruction(0))
             )
-        }
+        }  ?: return ChatUtilCreateDeletedSpanFingerprint.toErrorResult()
 
         SettingsPatch.PreferenceScreen.CHAT.GENERAL.addPreferences(
             ListPreference(
