@@ -119,13 +119,13 @@ The official ReVanced Patches.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `auto-claim-channel-points` | Automatically claim Channel Points. | all |
-| `block-audio-ads` | Blocks audio ads in streams and VODs. | 14.6.1 |
-| `block-embedded-ads` | Blocks embedded stream ads using services like TTV.lol or PurpleAdBlocker. | 14.6.1 |
-| `block-video-ads` | Blocks video ads in streams and VODs. | 14.6.1 |
+| `auto-claim-channel-points` | Automatically claim Channel Points. | 15.4.1 |
+| `block-audio-ads` | Blocks audio ads in streams and VODs. | 15.4.1 |
+| `block-embedded-ads` | Blocks embedded stream ads using services like TTV.lol or PurpleAdBlocker. | 15.4.1 |
+| `block-video-ads` | Blocks video ads in streams and VODs. | 15.4.1 |
 | `debug-mode` | Enables Twitch's internal debugging mode. | all |
 | `settings` | Adds settings menu to Twitch. | all |
-| `show-deleted-messages` | Shows deleted chat messages behind a clickable spoiler. | all |
+| `show-deleted-messages` | Shows deleted chat messages behind a clickable spoiler. | 15.4.1 |
 </details>
 
 ### [📦 `com.twitter.android`](https://play.google.com/store/apps/details?id=com.twitter.android)

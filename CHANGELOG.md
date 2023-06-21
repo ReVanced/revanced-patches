@@ -1,3 +1,10 @@
+# [2.178.0-dev.9](https://github.com/revanced/revanced-patches/compare/v2.178.0-dev.8...v2.178.0-dev.9) (2023-06-21)
+
+
+### Features
+
+* **twitch:** 15.4.1 support ([#2462](https://github.com/revanced/revanced-patches/issues/2462)) ([826ed49](https://github.com/revanced/revanced-patches/commit/826ed49c7ca5a00e383b743f88f75dbfc00adb43))
+
 # [2.178.0-dev.8](https://github.com/revanced/revanced-patches/compare/v2.178.0-dev.7...v2.178.0-dev.8) (2023-06-20)
 
 
