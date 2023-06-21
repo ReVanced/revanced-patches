@@ -42,7 +42,7 @@ import org.jf.dexlib2.iface.reference.StringReference
 
 @Patch
 @DependsOn(
-    dependencies = [
+    [
         IntegrationsPatch::class,
         VideoIdPatch::class,
         // Required to skip segments on time.

@@ -11,19 +11,17 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.music.layout.premium.annotations.HideGetPremiumCompatibility
+import app.revanced.patches.music.annotations.MusicCompatibility
 import app.revanced.patches.music.layout.premium.fingerprints.HideGetPremiumFingerprint
 import app.revanced.patches.music.layout.premium.fingerprints.HideGetPremiumParentFingerprint
 
 @Patch
 @Name("hide-get-premium")
 @Description("Removes all \"Get Premium\" evidences from the avatar menu.")
-@HideGetPremiumCompatibility
+@MusicCompatibility
 @Version("0.0.1")
 class HideGetPremiumPatch : BytecodePatch(
-    listOf(
-        HideGetPremiumParentFingerprint
-    )
+    listOf(HideGetPremiumParentFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         val parentResult = HideGetPremiumParentFingerprint.result!!
@@ -33,9 +31,10 @@ class HideGetPremiumPatch : BytecodePatch(
 
         val parentMethod = parentResult.mutableMethod
         parentMethod.replaceInstruction(
-            startIndex, """
-            const/4 v1, 0x0
-        """
+            startIndex,
+            """
+                const/4 v1, 0x0
+            """
         )
 
         val result = HideGetPremiumFingerprint.result!!

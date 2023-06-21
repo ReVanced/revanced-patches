@@ -11,18 +11,16 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.music.misc.androidauto.annotations.BypassCertificateChecksCompatibility
+import app.revanced.patches.music.annotations.MusicCompatibility
 import app.revanced.patches.music.misc.androidauto.fingerprints.CheckCertificateFingerprint
 
 @Patch
 @Name("bypass-certificate-checks")
 @Description("Bypasses certificate checks which prevent YouTube Music from working on Android Auto.")
-@BypassCertificateChecksCompatibility
+@MusicCompatibility
 @Version("0.0.1")
 class BypassCertificateChecksPatch : BytecodePatch(
-    listOf(
-        CheckCertificateFingerprint
-    )
+    listOf(CheckCertificateFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         CheckCertificateFingerprint.result?.let { result ->
