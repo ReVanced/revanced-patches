@@ -67,7 +67,8 @@ public enum SettingsEnum {
     // Layout
     HIDE_CHANNEL_BAR("revanced_hide_channel_bar", BOOLEAN, FALSE),
     HIDE_CHANNEL_MEMBER_SHELF("revanced_hide_channel_member_shelf", BOOLEAN, TRUE),
-    HIDE_CHAPTER_TEASER("revanced_hide_chapter_teaser", BOOLEAN, TRUE),
+    HIDE_EXPANDABLE_CHIP("revanced_hide_expandable_chip", BOOLEAN, TRUE),
+    HIDE_CHAPTERS("revanced_hide_chapters", BOOLEAN, TRUE),
     HIDE_COMMUNITY_GUIDELINES("revanced_hide_community_guidelines", BOOLEAN, TRUE),
     HIDE_COMMUNITY_POSTS("revanced_hide_community_posts", BOOLEAN, FALSE),
     HIDE_COMPACT_BANNER("revanced_hide_compact_banner", BOOLEAN, TRUE),
@@ -497,92 +498,16 @@ public enum SettingsEnum {
             setting.load();
         }
 
-        //
-        // TODO: eventually delete this
-        // renamed settings with new path names, but otherwise the new and old settings are identical
-        //
+        // TODO: eventually delete this.
+        // region Migration
+
         SettingsEnum[][] renamedSettings = {
                 // TODO: do _not_ delete this SB private user id migration property until sometime in 2024.
                 // This is the only setting that cannot be reconfigured if lost,
                 // and more time should be given for users who rarely upgrade.
                 {DEPRECATED_SB_UUID_OLD_MIGRATION_SETTING, SB_PRIVATE_USER_ID},
-
-                // TODO: delete the rest of these migration settings.  When to delete? Anytime.
-                {DEPRECATED_ADREMOVER_BUTTONED_REMOVAL, HIDE_BUTTONED_ADS},
-                {DEPRECATED_ADREMOVER_GENERAL_ADS_REMOVAL, HIDE_GENERAL_ADS},
-                {DEPRECATED_ADREMOVER_HIDE_LATEST_POSTS, HIDE_HIDE_LATEST_POSTS},
-                {DEPRECATED_ADREMOVER_PAID_CONTENT, HIDE_PAID_CONTENT},
-                {DEPRECATED_ADREMOVER_SELF_SPONSOR, HIDE_SELF_SPONSOR},
-                {DEPRECATED_REMOVE_VIDEO_ADS, HIDE_VIDEO_ADS},
-                {DEPRECATED_ADREMOVER_CUSTOM_ENABLED, CUSTOM_FILTER},
-                {DEPRECATED_ADREMOVER_CUSTOM_REMOVAL, CUSTOM_FILTER_STRINGS},
-
-                {DEPRECATED_HIDE_CHANNEL_MEMBER_SHELF, HIDE_CHANNEL_MEMBER_SHELF},
-                {DEPRECATED_HIDE_CHAPTER_TEASER, HIDE_CHAPTER_TEASER},
-                {DEPRECATED_HIDE_COMMUNITY_GUIDELINES, HIDE_COMMUNITY_GUIDELINES},
-                {DEPRECATED_HIDE_COMMUNITY_POSTS, HIDE_COMMUNITY_POSTS},
-                {DEPRECATED_HIDE_COMPACT_BANNER, HIDE_COMPACT_BANNER},
-                {DEPRECATED_HIDE_EMERGENCY_BOX, HIDE_EMERGENCY_BOX},
-                {DEPRECATED_HIDE_FEED_SURVEY_REMOVAL, HIDE_FEED_SURVEY},
-                {DEPRECATED_HIDE_GRAY_SEPARATOR, HIDE_GRAY_SEPARATOR},
-                {DEPRECATED_HIDE_HIDE_CHANNEL_GUIDELINES, HIDE_HIDE_CHANNEL_GUIDELINES},
-                {DEPRECATED_HIDE_INFO_PANEL_REMOVAL, HIDE_HIDE_INFO_PANELS},
-                {DEPRECATED_HIDE_MEDICAL_PANEL_REMOVAL, HIDE_MEDICAL_PANELS},
-                {DEPRECATED_HIDE_MERCHANDISE_REMOVAL, HIDE_MERCHANDISE_BANNERS},
-                {DEPRECATED_HIDE_MOVIE_REMOVAL, HIDE_MOVIES_SECTION},
-                {DEPRECATED_HIDE_SUBSCRIBERS_COMMUNITY_GUIDELINES_REMOVAL, HIDE_SUBSCRIBERS_COMMUNITY_GUIDELINES},
-                {DEPRECATED_HIDE_VIEW_PRODUCTS, HIDE_PRODUCTS_BANNER},
-                {DEPRECATED_HIDE_WEB_SEARCH_RESULTS, HIDE_WEB_SEARCH_RESULTS},
-                {DEPRECATED_HIDE_SHORTS, HIDE_SHORTS},
-                {DEPRECATED_DISABLE_RESUMING_SHORTS_PLAYER, DISABLE_RESUMING_SHORTS_PLAYER},
-                {DEPRECATED_HIDE_INFO_CARDS, HIDE_INFO_CARDS},
-
-                {DEPRECATED_ETERNAL_DOWNLOADER, EXTERNAL_DOWNLOADER},
-                {DEPRECATED_EXTERNAL_DOWNLOADER_PACKAGE_NAME, EXTERNAL_DOWNLOADER_PACKAGE_NAME},
-                {DEPRECATED_COPY_VIDEO_URL, COPY_VIDEO_URL},
-                {DEPRECATED_COPY_VIDEO_URL_TIMESTAMP, COPY_VIDEO_URL_TIMESTAMP},
-
-                {DEPRECATED_SHOW_OLD_VIDEO_MENU, SHOW_OLD_VIDEO_MENU},
-                {DEPRECATED_VIDEO_QUALITY_DEFAULT_WIFI, VIDEO_QUALITY_DEFAULT_WIFI},
-                {DEPRECATED_VIDEO_QUALITY_DEFAULT_MOBILE, VIDEO_QUALITY_DEFAULT_MOBILE},
-                {DEPRECATED_PLAYBACK_SPEED_DEFAULT, PLAYBACK_SPEED_DEFAULT},
-
-                {DEPRECATED_AUTO_CAPTIONS, AUTO_CAPTIONS},
-                {DEPRECATED_PLAYER_POPUP_PANELS, PLAYER_POPUP_PANELS},
-                {DEPRECATED_SWIPE_BRIGHTNESS, SWIPE_BRIGHTNESS},
-                {DEPRECATED_SWIPE_VOLUME, SWIPE_VOLUME},
-                {DEPRECATED_PRESS_TO_SWIPE, SWIPE_PRESS_TO_ENGAGE},
-                {DEPRECATED_SWIPE_HAPTIC_FEEDBACK, SWIPE_HAPTIC_FEEDBACK},
-
-                {DEPRECATED_DEBUG, DEBUG},
-                {DEPRECATED_DEBUG_STACKTRACE, DEBUG_STACKTRACE},
-                {DEPRECATED_DEBUG_TOAST_ON_ERROR, DEBUG_TOAST_ON_ERROR},
-
-                {DEPRECATED_EXTERNAL_BROWSER, EXTERNAL_BROWSER},
-                {DEPRECATED_AUTO_REPEAT, AUTO_REPEAT},
-                {DEPRECATED_TAP_SEEKING, SEEKBAR_TAPPING},
-                {DEPRECATED_HDR_AUTO_BRIGHTNESS, HDR_AUTO_BRIGHTNESS},
-
-                {DEPRECATED_RYD_USER_ID, RYD_USER_ID},
-                {DEPRECATED_RYD_DISLIKE_PERCENTAGE, RYD_DISLIKE_PERCENTAGE},
-                {DEPRECATED_RYD_COMPACT_LAYOUT, RYD_COMPACT_LAYOUT},
-
-                {DEPRECATED_SB_ENABLED, SB_ENABLED},
-                {DEPRECATED_SB_VOTING_BUTTON, SB_VOTING_BUTTON},
-                {DEPRECATED_SB_CREATE_NEW_SEGMENT, SB_CREATE_NEW_SEGMENT},
-                {DEPRECATED_SB_COMPACT_SKIP_BUTTON, SB_COMPACT_SKIP_BUTTON},
-                {DEPRECATED_SB_MIN_DURATION, SB_SEGMENT_MIN_DURATION},
-                {DEPRECATED_SB_VIDEO_LENGTH_WITHOUT_SEGMENTS, SB_VIDEO_LENGTH_WITHOUT_SEGMENTS},
-                {DEPRECATED_SB_API_URL, SB_API_URL},
-                {DEPRECATED_SB_TOAST_ON_SKIP, SB_TOAST_ON_SKIP},
-                {DEPRECATED_SB_AUTO_HIDE_SKIP_BUTTON, SB_AUTO_HIDE_SKIP_BUTTON},
-                {DEPRECATED_SB_TRACK_SKIP_COUNT, SB_TRACK_SKIP_COUNT},
-                {DEPRECATED_SB_ADJUST_NEW_SEGMENT_STEP, SB_CREATE_NEW_SEGMENT_STEP},
-                {DEPRECATED_SB_LAST_VIP_CHECK, SB_LAST_VIP_CHECK},
-                {DEPRECATED_SB_IS_VIP, SB_USER_IS_VIP},
-                {DEPRECATED_SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS, SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS},
-                {DEPRECATED_SB_LOCAL_TIME_SAVED_MILLISECONDS, SB_LOCAL_TIME_SAVED_MILLISECONDS},
         };
+
         for (SettingsEnum[] oldNewSetting : renamedSettings) {
             SettingsEnum oldSetting = oldNewSetting[0];
             SettingsEnum newSetting = oldNewSetting[1];
@@ -594,9 +519,8 @@ public enum SettingsEnum {
                 oldSetting.saveValue(oldSetting.defaultValue); // reset old value
             }
         }
-        //
-        // TODO end
-        //
+
+        // endregion
     }
 
     private void load() {

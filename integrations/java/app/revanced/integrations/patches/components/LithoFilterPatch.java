@@ -1,9 +1,11 @@
 package app.revanced.integrations.patches.components;
 
 import android.os.Build;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import app.revanced.integrations.settings.SettingsEnum;
+import app.revanced.integrations.utils.LogHelper;
+import app.revanced.integrations.utils.ReVancedUtils;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -11,10 +13,6 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Spliterator;
 import java.util.function.Consumer;
-
-import app.revanced.integrations.settings.SettingsEnum;
-import app.revanced.integrations.utils.LogHelper;
-import app.revanced.integrations.utils.ReVancedUtils;
 
 abstract class FilterGroup<T> {
     final static class FilterGroupResult {
@@ -235,15 +233,15 @@ abstract class Filter {
 @SuppressWarnings("unused")
 public final class LithoFilterPatch {
     private static final Filter[] filters = new Filter[]{
-            new AdsFilter(),
-            new ButtonsFilter(),
-            new CommentsFilter(),
-            new ShortsFilter()
+          new DummyFilter() // Replaced by patch.
     };
 
     @SuppressWarnings("unused")
     public static boolean filter(final StringBuilder pathBuilder, final String identifier, final ByteBuffer protobufBuffer) {
+        // TODO: Maybe this can be moved to the Filter class, to prevent unnecessary string creation
+        //  because some filters might not need the path.
         var path = pathBuilder.toString();
+
         // It is assumed that protobufBuffer is empty as well in this case.
         if (path.isEmpty()) return false;
 
@@ -254,9 +252,15 @@ public final class LithoFilterPatch {
 
         var protobufBufferArray = protobufBuffer.array();
 
-        // check if any filter-group
-        for (var filter : filters)
-            if (filter.isFiltered(path, identifier, protobufBufferArray)) return true;
+        for (var filter : filters) {
+            var filtered = filter.isFiltered(path, identifier, protobufBufferArray);
+
+            LogHelper.printDebug(() ->
+                    String.format("%s (ID: %s): %s", filtered ? "Filtered" : "Unfiltered", identifier, path)
+            );
+
+            if (filtered) return true;
+        }
 
         return false;
     }
