@@ -1,3 +1,10 @@
+## [2.178.1-dev.1](https://github.com/revanced/revanced-patches/compare/v2.178.0...v2.178.1-dev.1) (2023-06-23)
+
+
+### Bug Fixes
+
+* **youtube/client-spoof:** update settings text for known side effects of spoof signature ([#2476](https://github.com/revanced/revanced-patches/issues/2476)) ([6756f80](https://github.com/revanced/revanced-patches/commit/6756f80e3e0c09376a1fd613d28644bdaa24da57))
+
 # [2.178.0](https://github.com/revanced/revanced-patches/compare/v2.177.0...v2.178.0) (2023-06-21)
 
 
