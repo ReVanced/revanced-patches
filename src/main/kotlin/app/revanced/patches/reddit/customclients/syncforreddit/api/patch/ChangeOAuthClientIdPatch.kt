@@ -6,8 +6,8 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
@@ -29,8 +29,8 @@ class ChangeOAuthClientIdPatch : AbstractChangeOAuthClientIdPatch(
     Options,
     listOf(GetAuthorizationStringFingerprint)
 ) {
-    override fun List<MethodFingerprint>.patch(context: BytecodeContext): PatchResult {
-        map { it.result ?: return it.toErrorResult() }.forEach { fingerprintResult ->
+    override fun List<MethodFingerprintResult>.patch(context: BytecodeContext): PatchResult {
+        forEach { fingerprintResult ->
             fingerprintResult.also { result ->
                 GetBearerTokenFingerprint.also { it.resolve(context, result.classDef) }.result?.mutableMethod?.apply {
                     val auth = Base64.getEncoder().encodeToString("$clientId:".toByteArray(Charsets.UTF_8))
