@@ -27,39 +27,41 @@ import java.util.*
 class ChangeOAuthClientIdPatch : AbstractChangeOAuthClientIdPatch(
     "http://redditsync/auth",
     Options,
-    GetAuthorizationStringFingerprint,
+    listOf(GetAuthorizationStringFingerprint)
 ) {
-    override fun MethodFingerprint.patch(context: BytecodeContext): PatchResult {
-        result?.also { result ->
-            GetBearerTokenFingerprint.also { it.resolve(context, result.classDef) }.result?.mutableMethod?.apply {
-                val auth = Base64.getEncoder().encodeToString("$clientId:".toByteArray(Charsets.UTF_8))
-                addInstructions(
-                    0,
-                    """
+    override fun List<MethodFingerprint>.patch(context: BytecodeContext): PatchResult {
+        map { it.result ?: return it.toErrorResult() }.forEach { fingerprintResult ->
+            fingerprintResult.also { result ->
+                GetBearerTokenFingerprint.also { it.resolve(context, result.classDef) }.result?.mutableMethod?.apply {
+                    val auth = Base64.getEncoder().encodeToString("$clientId:".toByteArray(Charsets.UTF_8))
+                    addInstructions(
+                        0,
+                        """
                          const-string v0, "Basic $auth"
                          return-object v0
                     """
-                )
-            } ?: return GetBearerTokenFingerprint.toErrorResult()
-        }?.let {
-            val occurrenceIndex = it.scanResult.stringsScanResult!!.matches.first().index
+                    )
+                } ?: return GetBearerTokenFingerprint.toErrorResult()
+            }.let {
+                val occurrenceIndex = it.scanResult.stringsScanResult!!.matches.first().index
 
-            it.mutableMethod.apply {
-                val authorizationStringInstruction = getInstruction<ReferenceInstruction>(occurrenceIndex)
-                val targetRegister = (authorizationStringInstruction as OneRegisterInstruction).registerA
-                val reference = authorizationStringInstruction.reference as StringReference
+                it.mutableMethod.apply {
+                    val authorizationStringInstruction = getInstruction<ReferenceInstruction>(occurrenceIndex)
+                    val targetRegister = (authorizationStringInstruction as OneRegisterInstruction).registerA
+                    val reference = authorizationStringInstruction.reference as StringReference
 
-                val newAuthorizationUrl = reference.string.replace(
-                    "client_id=.*?&".toRegex(),
-                    "client_id=$clientId&"
-                )
+                    val newAuthorizationUrl = reference.string.replace(
+                        "client_id=.*?&".toRegex(),
+                        "client_id=$clientId&"
+                    )
 
-                replaceInstruction(
-                    occurrenceIndex,
-                    "const-string v$targetRegister, \"$newAuthorizationUrl\""
-                )
+                    replaceInstruction(
+                        occurrenceIndex,
+                        "const-string v$targetRegister, \"$newAuthorizationUrl\""
+                    )
+                }
             }
-        } ?: return toErrorResult()
+        }
 
         return PatchResultSuccess()
     }

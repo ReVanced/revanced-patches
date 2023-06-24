@@ -1,19 +1,21 @@
 package app.revanced.patches.reddit.customclients
 
 import android.os.Environment
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.*
 import java.io.File
 
 abstract class AbstractChangeOAuthClientIdPatch(
     private val redirectUri: String,
     private val options: ChangeOAuthClientIdOptionsContainer,
-    private val fingerprint: MethodFingerprint,
-) : BytecodePatch(listOf(fingerprint)) {
+    private val fingerprints: List<MethodFingerprint>
+) : BytecodePatch(fingerprints) {
     override fun execute(context: BytecodeContext): PatchResult {
         if (options.clientId == null) {
-            // Test if on Android
+            // Ensure device runs Android.
             try {
                 Class.forName("android.os.Environment")
             } catch (e: ClassNotFoundException) {
@@ -36,10 +38,10 @@ abstract class AbstractChangeOAuthClientIdPatch(
             }.let { options.clientId = it.readText().trim() }
         }
 
-        return fingerprint.patch(context)
+        return fingerprints.map { it.result ?: throw it.toErrorResult() }.patch(context)
     }
 
-    abstract fun MethodFingerprint.patch(context: BytecodeContext): PatchResult
+    abstract fun List<MethodFingerprintResult>.patch(context: BytecodeContext): PatchResult
 
     companion object Options {
         open class ChangeOAuthClientIdOptionsContainer : OptionsContainer() {
