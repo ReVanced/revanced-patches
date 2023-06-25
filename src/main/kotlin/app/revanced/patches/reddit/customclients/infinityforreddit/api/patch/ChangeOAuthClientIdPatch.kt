@@ -1,23 +1,21 @@
 package app.revanced.patches.reddit.customclients.infinityforreddit.api.patch
 
-import app.revanced.patcher.annotation.*
+import app.revanced.patcher.annotation.Compatibility
+import app.revanced.patcher.annotation.Package
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.reddit.customclients.AbstractChangeOAuthClientIdPatch
+import app.revanced.patches.reddit.customclients.ChangeOAuthClientIdPatchAnnotation
 import app.revanced.patches.reddit.customclients.infinityforreddit.api.fingerprints.GetHTTPBasicAuthHeaderFingerprint
 import app.revanced.patches.reddit.customclients.infinityforreddit.api.fingerprints.LoginActivityOnCreateFingerprint
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Patch
-@Name("change-oauth-client-id")
-@Description("Changes the OAuth client ID.")
+@ChangeOAuthClientIdPatchAnnotation
 @Compatibility([Package("ml.docilealligator.infinityforreddit")])
-@Version("0.0.1")
 class ChangeOAuthClientIdPatch : AbstractChangeOAuthClientIdPatch(
     "infinity://localhost",
     Options,
