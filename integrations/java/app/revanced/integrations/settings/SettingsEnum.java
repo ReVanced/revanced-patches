@@ -110,7 +110,7 @@ public enum SettingsEnum {
     HIDE_EMAIL_ADDRESS("revanced_hide_email_address", BOOLEAN, FALSE),
     HIDE_ENDSCREEN_CARDS("revanced_hide_endscreen_cards", BOOLEAN, TRUE),
     HIDE_FLOATING_MICROPHONE_BUTTON("revanced_hide_floating_microphone_button", BOOLEAN, TRUE, true),
-    HIDE_FULLSCREEN_PANELS("revanced_hide_fullscreen_panels", BOOLEAN, TRUE),
+    HIDE_FULLSCREEN_PANELS("revanced_hide_fullscreen_panels", BOOLEAN, TRUE, true),
     HIDE_GET_PREMIUM("revanced_hide_get_premium", BOOLEAN, TRUE),
     HIDE_INFO_CARDS("revanced_hide_info_cards", BOOLEAN, TRUE),
     HIDE_LOAD_MORE_BUTTON("revanced_hide_load_more_button", BOOLEAN, TRUE, true),
