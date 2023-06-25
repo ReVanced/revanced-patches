@@ -1,3 +1,10 @@
+# [2.179.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.179.0-dev.1...v2.179.0-dev.2) (2023-06-25)
+
+
+### Features
+
+* **relayforreddit:** add `change-oauth-client-id` patch ([#2491](https://github.com/revanced/revanced-patches/issues/2491)) ([fe66f40](https://github.com/revanced/revanced-patches/commit/fe66f4089d6365564c8097d3c7a1bc842c343194))
+
 # [2.179.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.178.1-dev.1...v2.179.0-dev.1) (2023-06-24)
 
 
