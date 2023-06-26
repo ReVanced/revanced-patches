@@ -1,3 +1,10 @@
+# [2.179.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.179.0-dev.2...v2.179.0-dev.3) (2023-06-26)
+
+
+### Bug Fixes
+
+* **enable-android-debugging:** remove json options ([#2497](https://github.com/revanced/revanced-patches/issues/2497)) ([3e25f5f](https://github.com/revanced/revanced-patches/commit/3e25f5f8df24a585dc1097aa16877841f0c6b74a))
+
 # [2.179.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.179.0-dev.1...v2.179.0-dev.2) (2023-06-25)
 
 
