@@ -27,7 +27,7 @@ repositories {
 }
 
 dependencies {
-    implementation("app.revanced:revanced-patcher:11.0.0")
+    implementation("app.revanced:revanced-patcher:11.0.2")
     implementation("app.revanced:multidexlib2:2.5.3-a3836654")
     // Required for meta
     implementation("com.google.code.gson:gson:2.10.1")

@@ -9,12 +9,13 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patches.youtube.misc.playercontrols.annotation.PlayerControlsCompatibility
+import java.io.Closeable
 
 @Name("bottom-controls-resource-patch")
 @Description("Manages the resources for the bottom controls of the YouTube player.")
 @PlayerControlsCompatibility
 @Version("0.0.1")
-class BottomControlsResourcePatch : ResourcePatch {
+class BottomControlsResourcePatch : ResourcePatch, Closeable {
     override fun execute(context: ResourceContext): PatchResult {
         resourceContext = context
         targetXmlEditor = context.xmlEditor[TARGET_RESOURCE]
