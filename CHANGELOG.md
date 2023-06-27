@@ -1,3 +1,10 @@
+# [2.179.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.179.0-dev.4...v2.179.0-dev.5) (2023-06-27)
+
+
+### Bug Fixes
+
+* **relayforreddit/change-oauth-client-id:** change client id instead of developer key ([#2508](https://github.com/revanced/revanced-patches/issues/2508)) ([4befb44](https://github.com/revanced/revanced-patches/commit/4befb4414638c5936f99d8d63d73c729efc773a5))
+
 # [2.179.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.179.0-dev.3...v2.179.0-dev.4) (2023-06-27)
 
 # [2.179.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.179.0-dev.2...v2.179.0-dev.3) (2023-06-26)
