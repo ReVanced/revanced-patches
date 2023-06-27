@@ -21,7 +21,13 @@ import org.jf.dexlib2.iface.reference.StringReference
 import java.util.*
 
 @ChangeOAuthClientIdPatchAnnotation
-@Compatibility([Package("com.laurencedawson.reddit_sync"), Package("com.laurencedawson.reddit_sync.pro")])
+@Compatibility(
+    [
+        Package("com.laurencedawson.reddit_sync"),
+        Package("com.laurencedawson.reddit_sync.pro"),
+        Package("com.laurencedawson.reddit_sync.dev")
+    ]
+)
 class ChangeOAuthClientIdPatch : AbstractChangeOAuthClientIdPatch(
     "http://redditsync/auth", Options, listOf(GetAuthorizationStringFingerprint)
 ) {
