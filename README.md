@@ -244,6 +244,14 @@ The official ReVanced Patches.
 | `change-oauth-client-id` | Changes the OAuth client ID. | all |
 </details>
 
+### [📦 `com.laurencedawson.reddit_sync.dev`](https://play.google.com/store/apps/details?id=com.laurencedawson.reddit_sync.dev)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `change-oauth-client-id` | Changes the OAuth client ID. | all |
+</details>
+
 ### [📦 `com.myprog.hexedit`](https://play.google.com/store/apps/details?id=com.myprog.hexedit)
 <details>
 

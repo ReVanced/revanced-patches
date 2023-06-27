@@ -1,3 +1,10 @@
+# [2.179.0-dev.6](https://github.com/revanced/revanced-patches/compare/v2.179.0-dev.5...v2.179.0-dev.6) (2023-06-27)
+
+
+### Bug Fixes
+
+* **syncforreddit/change-oauth-client-id:** add dev edition ([#2516](https://github.com/revanced/revanced-patches/issues/2516)) ([7c7294b](https://github.com/revanced/revanced-patches/commit/7c7294b750f54390dd2308de63cc09545010b17f))
+
 # [2.179.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.179.0-dev.4...v2.179.0-dev.5) (2023-06-27)
 
 
