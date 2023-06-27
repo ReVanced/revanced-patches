@@ -2,6 +2,6 @@ package app.revanced.patches.reddit.customclients.relayforreddit.api.fingerprint
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 
-object GetClientIdFingerprint : MethodFingerprint(
-    strings = listOf("AIzaSyCTQfRx9fHnDpfcfiI5pmwyGUBjDVTNvX8")
+abstract class AbstractClientIdFingerprint(string: String) : MethodFingerprint(
+    strings = listOfNotNull("dj-xCIZQYiLbEg", string),
 )
