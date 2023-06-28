@@ -57,17 +57,28 @@ internal fun MutableMethod.injectHideViewCall(
     "invoke-static { v$viewRegister }, $classDescriptor->$targetMethod(Landroid/view/View;)V"
 )
 
-internal fun MutableMethod.findIndexForIdResource(resourceName: String): Int {
+internal fun Method.findIndexForIdResource(resourceName: String): Int {
     fun getIdResourceId(resourceName: String) = ResourceMappingPatch.resourceMappings.single {
         it.type == "id" && it.name == resourceName
     }.id
 
-    val resourceId = getIdResourceId(resourceName)
-    return implementation!!.instructions.indexOfFirst {
-        if (it.opcode != Opcode.CONST) return@indexOfFirst false
+    return indexOfFirstConstantInstructionValue(getIdResourceId(resourceName))
+}
 
-        val literal = (it as WideLiteralInstruction).wideLiteral
+/**
+ * @return the first constant instruction with the value, or -1 if not found.
+ */
+fun Method.indexOfFirstConstantInstructionValue(constantValue: Long): Int {
+    return implementation?.let {
+        it.instructions.indexOfFirst { instruction ->
+            instruction.opcode == Opcode.CONST && (instruction as WideLiteralInstruction).wideLiteral == constantValue
+        }
+    } ?: -1
+}
 
-        return@indexOfFirst resourceId == literal
-    }
+/**
+ * @return if the method contains a constant with the given value.
+ */
+fun Method.containsConstantInstructionValue(constantValue: Long): Boolean {
+    return indexOfFirstConstantInstructionValue(constantValue) >= 0
 }

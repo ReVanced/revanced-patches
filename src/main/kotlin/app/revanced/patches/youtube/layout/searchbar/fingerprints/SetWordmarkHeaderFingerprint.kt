@@ -6,7 +6,9 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 object SetWordmarkHeaderFingerprint : MethodFingerprint(
-    "V", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf("L"),
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "V",
+    parameters = listOf("Landroid/widget/ImageView;"),
     opcodes = listOf(
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_STATIC,
@@ -17,6 +19,5 @@ object SetWordmarkHeaderFingerprint : MethodFingerprint(
         Opcode.IGET_OBJECT,
         Opcode.CONST,
         Opcode.INVOKE_STATIC,
-    ),
-    customFingerprint = { methodDef, _ -> methodDef.parameterTypes.first() == "Landroid/widget/ImageView;" }
+    )
 )

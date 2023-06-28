@@ -1,11 +1,11 @@
 package app.revanced.patches.youtube.layout.hide.endscreencards.bytecode.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.youtube.layout.hide.endscreencards.resource.patch.HideEndscreenCardsResourcePatch
+import app.revanced.util.patch.LiteralValueFingerprint
 import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
-object LayoutVideoFingerprint : MethodFingerprint(
+object LayoutVideoFingerprint : LiteralValueFingerprint(
+    returnType = "Landroid/view/View;",
     opcodes = listOf(
         Opcode.CONST,
         Opcode.CONST_4,
@@ -13,10 +13,5 @@ object LayoutVideoFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,
     ),
-    customFingerprint = { methodDef, _ ->
-        methodDef.implementation?.instructions?.any { instruction ->
-            instruction.opcode.ordinal == Opcode.CONST.ordinal &&
-                    (instruction as? WideLiteralInstruction)?.wideLiteral == HideEndscreenCardsResourcePatch.layoutVideo
-        } == true
-    }
+    literal = HideEndscreenCardsResourcePatch.layoutVideo
 )

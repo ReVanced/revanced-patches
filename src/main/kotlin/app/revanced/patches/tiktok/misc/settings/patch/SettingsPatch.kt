@@ -53,6 +53,7 @@ class SettingsPatch : BytecodePatch(
             } - 6
 
 
+            // fixme: instead use Method.indexOfFirstConstantInstructionValue()
             val copyrightPolicyIndex = instructions.indexOfFirst {
                 (it as? WideLiteralInstruction)?.wideLiteral == copyrightPolicyLabelId
             } + 2

@@ -1,12 +1,9 @@
 package app.revanced.patches.youtube.layout.panels.popup.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.method.annotation.FuzzyPatternScanMethod
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 
-
-@FuzzyPatternScanMethod(3)
 object EngagementPanelControllerFingerprint : MethodFingerprint(
     returnType = "L",
     accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,

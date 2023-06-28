@@ -1,11 +1,12 @@
 package app.revanced.patches.youtube.layout.hide.personalinformation.bytecode.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.util.patch.LiteralValueFingerprint
 import app.revanced.patches.youtube.layout.hide.personalinformation.resource.patch.HideEmailAddressResourcePatch
 import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
-object AccountSwitcherAccessibilityLabelFingerprint : MethodFingerprint(
+object AccountSwitcherAccessibilityLabelFingerprint : LiteralValueFingerprint(
+    returnType = "V",
+    parameters = listOf("L", "Ljava/lang/Object;"),
     opcodes = listOf(
         Opcode.INVOKE_VIRTUAL,
         Opcode.IGET_OBJECT,
@@ -15,10 +16,5 @@ object AccountSwitcherAccessibilityLabelFingerprint : MethodFingerprint(
         Opcode.APUT_OBJECT,
         Opcode.CONST,
     ),
-    customFingerprint = { methodDef, _ ->
-        methodDef.implementation?.instructions?.any { instruction ->
-            instruction.opcode.ordinal == Opcode.CONST.ordinal &&
-            (instruction as? WideLiteralInstruction)?.wideLiteral == HideEmailAddressResourcePatch.accountSwitcherAccessibilityLabelId
-        } == true
-    }
+    literal = HideEmailAddressResourcePatch.accountSwitcherAccessibilityLabelId
 )
