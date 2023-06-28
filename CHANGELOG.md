@@ -1,3 +1,10 @@
+# [2.179.0-dev.7](https://github.com/revanced/revanced-patches/compare/v2.179.0-dev.6...v2.179.0-dev.7) (2023-06-28)
+
+
+### Bug Fixes
+
+* **youtube:** improve patching speed ([#2514](https://github.com/revanced/revanced-patches/issues/2514)) ([77bb761](https://github.com/revanced/revanced-patches/commit/77bb761b0bb38613ad9d5017c881396afa471558))
+
 # [2.179.0-dev.6](https://github.com/revanced/revanced-patches/compare/v2.179.0-dev.5...v2.179.0-dev.6) (2023-06-27)
 
 
