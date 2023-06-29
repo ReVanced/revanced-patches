@@ -1,3 +1,10 @@
+# [2.179.0-dev.8](https://github.com/revanced/revanced-patches/compare/v2.179.0-dev.7...v2.179.0-dev.8) (2023-06-29)
+
+
+### Features
+
+* **reddit:** add `disable-screenshot-popup` patch ([#2387](https://github.com/revanced/revanced-patches/issues/2387)) ([473e051](https://github.com/revanced/revanced-patches/commit/473e0512314dfa9790cf83b4cfcc7505058d3a51))
+
 # [2.179.0-dev.7](https://github.com/revanced/revanced-patches/compare/v2.179.0-dev.6...v2.179.0-dev.7) (2023-06-28)
 
 
