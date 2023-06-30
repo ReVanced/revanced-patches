@@ -237,6 +237,14 @@ The official ReVanced Patches.
 | `change-oauth-client-id` | Changes the OAuth client ID. | all |
 </details>
 
+### [📦 `com.andrewshu.android.reddit`](https://play.google.com/store/apps/details?id=com.andrewshu.android.reddit)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `change-oauth-client-id` | Changes the OAuth client ID. | all |
+</details>
+
 ### [📦 `com.laurencedawson.reddit_sync.pro`](https://play.google.com/store/apps/details?id=com.laurencedawson.reddit_sync.pro)
 <details>
 

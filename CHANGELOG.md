@@ -1,3 +1,10 @@
+# [2.179.0-dev.9](https://github.com/revanced/revanced-patches/compare/v2.179.0-dev.8...v2.179.0-dev.9) (2023-06-30)
+
+
+### Features
+
+* **redditisfun:** add `change-oauth-client-id` patch ([14809cd](https://github.com/revanced/revanced-patches/commit/14809cd4510ad9514b4a4820187a81681669374c))
+
 # [2.179.0-dev.8](https://github.com/revanced/revanced-patches/compare/v2.179.0-dev.7...v2.179.0-dev.8) (2023-06-29)
 
 
