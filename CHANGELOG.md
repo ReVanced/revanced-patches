@@ -1,3 +1,10 @@
+# [2.179.0-dev.10](https://github.com/revanced/revanced-patches/compare/v2.179.0-dev.9...v2.179.0-dev.10) (2023-06-30)
+
+
+### Features
+
+* **redditisfun/change-oauth-client-id:** add compatibility for paid versions ([#2536](https://github.com/revanced/revanced-patches/issues/2536)) ([e739d2f](https://github.com/revanced/revanced-patches/commit/e739d2fa16bbd0125db82c0758928addbd9950c9))
+
 # [2.179.0-dev.9](https://github.com/revanced/revanced-patches/compare/v2.179.0-dev.8...v2.179.0-dev.9) (2023-06-30)
 
 
