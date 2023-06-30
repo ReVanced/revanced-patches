@@ -16,7 +16,7 @@ import app.revanced.patches.reddit.customclients.redditisfun.api.fingerprints.Bu
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @ChangeOAuthClientIdPatchAnnotation
-@Compatibility([Package("com.andrewshu.android.reddit")])
+@Compatibility([Package("com.andrewshu.android.reddit"), Package("com.andrewshu.android.redditdonation")])
 class ChangeOAuthClientIdPatch : AbstractChangeOAuthClientIdPatch(
     "redditisfun://auth",
     Options,
