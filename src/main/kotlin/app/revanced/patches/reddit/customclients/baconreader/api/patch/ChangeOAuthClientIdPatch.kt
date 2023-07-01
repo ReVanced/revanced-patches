@@ -1,6 +1,7 @@
 package app.revanced.patches.reddit.customclients.baconreader.api.patch
 
 import app.revanced.patcher.annotation.Compatibility
+import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Package
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -16,6 +17,9 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 
 @ChangeOAuthClientIdPatchAnnotation
+@Description("Changes the OAuth client ID. " +
+        "The OAuth application type has to be \"Installed app\" " +
+        "and the redirect URI has to be set to \"http://baconreader.com/auth\".")
 @Compatibility([Package("com.onelouder.baconreader")])
 class ChangeOAuthClientIdPatch : AbstractChangeOAuthClientIdPatch(
     "http://baconreader.com/auth", Options, listOf(GetAuthorizationUrlFingerprint, RequestTokenFingerprint)
