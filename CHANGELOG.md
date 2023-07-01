@@ -1,3 +1,5 @@
+# [2.179.0-dev.11](https://github.com/revanced/revanced-patches/compare/v2.179.0-dev.10...v2.179.0-dev.11) (2023-07-01)
+
 # [2.179.0-dev.10](https://github.com/revanced/revanced-patches/compare/v2.179.0-dev.9...v2.179.0-dev.10) (2023-06-30)
 
 
