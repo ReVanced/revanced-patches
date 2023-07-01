@@ -1,3 +1,10 @@
+# [2.181.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.180.0...v2.181.0-dev.1) (2023-07-01)
+
+
+### Features
+
+* **baconreader/change-oauth-client-id:** add compatibility for premium package ([#2550](https://github.com/revanced/revanced-patches/issues/2550)) ([4d1b0b4](https://github.com/revanced/revanced-patches/commit/4d1b0b442768be4f7a12de63d8b973b2ca113f23))
+
 # [2.180.0](https://github.com/revanced/revanced-patches/compare/v2.179.0...v2.180.0) (2023-07-01)
 
 
