@@ -1,3 +1,10 @@
+# [2.181.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.181.0-dev.1...v2.181.0-dev.2) (2023-07-01)
+
+
+### Bug Fixes
+
+* **trakt:** bump compatibility to newer version ([#2554](https://github.com/revanced/revanced-patches/issues/2554)) ([2a2897d](https://github.com/revanced/revanced-patches/commit/2a2897dc9e81799a3318875122fc7b49692e3764))
+
 # [2.181.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.180.0...v2.181.0-dev.1) (2023-07-01)
 
 
