@@ -165,7 +165,7 @@ The official ReVanced Patches.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `change-oauth-client-id` | Changes the OAuth client ID. | all |
+| `change-oauth-client-id` | Changes the OAuth client ID. The OAuth application type has to be "Installed app" and the redirect URI has to be set to "http://redditsync/auth". | all |
 | `disable-ads` | Disables ads. | all |
 </details>
 
@@ -210,7 +210,7 @@ The official ReVanced Patches.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `change-oauth-client-id` | Changes the OAuth client ID. | all |
+| `change-oauth-client-id` | Changes the OAuth client ID. The OAuth application type has to be "Installed app" and the redirect URI has to be set to "infinity://localhost". | all |
 </details>
 
 ### [📦 `free.reddit.news`](https://play.google.com/store/apps/details?id=free.reddit.news)
@@ -218,7 +218,7 @@ The official ReVanced Patches.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `change-oauth-client-id` | Changes the OAuth client ID. | all |
+| `change-oauth-client-id` | Changes the OAuth client ID. The OAuth application type has to be "Installed app" and the redirect URI has to be set to "dbrady://relay". | all |
 </details>
 
 ### [📦 `reddit.news`](https://play.google.com/store/apps/details?id=reddit.news)
@@ -226,15 +226,7 @@ The official ReVanced Patches.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `change-oauth-client-id` | Changes the OAuth client ID. | all |
-</details>
-
-### [📦 `com.onelouder.baconreader`](https://play.google.com/store/apps/details?id=com.onelouder.baconreader)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `change-oauth-client-id` | Changes the OAuth client ID. | all |
+| `change-oauth-client-id` | Changes the OAuth client ID. The OAuth application type has to be "Installed app" and the redirect URI has to be set to "dbrady://relay". | all |
 </details>
 
 ### [📦 `com.rubenmayayo.reddit`](https://play.google.com/store/apps/details?id=com.rubenmayayo.reddit)
@@ -242,7 +234,7 @@ The official ReVanced Patches.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `change-oauth-client-id` | Changes the OAuth client ID. | all |
+| `change-oauth-client-id` | Changes the OAuth client ID. The OAuth application type has to be "Installed app" and the redirect URI has to be set to "http://rubenmayayo.com". | all |
 </details>
 
 ### [📦 `com.andrewshu.android.reddit`](https://play.google.com/store/apps/details?id=com.andrewshu.android.reddit)
@@ -250,7 +242,7 @@ The official ReVanced Patches.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `change-oauth-client-id` | Changes the OAuth client ID. | all |
+| `change-oauth-client-id` | Changes the OAuth client ID. The OAuth application type has to be "Installed app" and the redirect URI has to be set to "redditisfun://auth". | all |
 </details>
 
 ### [📦 `com.andrewshu.android.redditdonation`](https://play.google.com/store/apps/details?id=com.andrewshu.android.redditdonation)
@@ -258,7 +250,7 @@ The official ReVanced Patches.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `change-oauth-client-id` | Changes the OAuth client ID. | all |
+| `change-oauth-client-id` | Changes the OAuth client ID. The OAuth application type has to be "Installed app" and the redirect URI has to be set to "redditisfun://auth". | all |
 </details>
 
 ### [📦 `com.laurencedawson.reddit_sync.pro`](https://play.google.com/store/apps/details?id=com.laurencedawson.reddit_sync.pro)
@@ -266,7 +258,7 @@ The official ReVanced Patches.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `change-oauth-client-id` | Changes the OAuth client ID. | all |
+| `change-oauth-client-id` | Changes the OAuth client ID. The OAuth application type has to be "Installed app" and the redirect URI has to be set to "http://redditsync/auth". | all |
 </details>
 
 ### [📦 `com.laurencedawson.reddit_sync.dev`](https://play.google.com/store/apps/details?id=com.laurencedawson.reddit_sync.dev)
@@ -274,7 +266,7 @@ The official ReVanced Patches.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `change-oauth-client-id` | Changes the OAuth client ID. | all |
+| `change-oauth-client-id` | Changes the OAuth client ID. The OAuth application type has to be "Installed app" and the redirect URI has to be set to "http://redditsync/auth". | all |
 </details>
 
 ### [📦 `com.myprog.hexedit`](https://play.google.com/store/apps/details?id=com.myprog.hexedit)
