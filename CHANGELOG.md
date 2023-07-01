@@ -1,3 +1,25 @@
+# [2.179.0](https://github.com/revanced/revanced-patches/compare/v2.178.0...v2.179.0) (2023-07-01)
+
+
+### Bug Fixes
+
+* **enable-android-debugging:** remove json options ([#2497](https://github.com/revanced/revanced-patches/issues/2497)) ([3e25f5f](https://github.com/revanced/revanced-patches/commit/3e25f5f8df24a585dc1097aa16877841f0c6b74a))
+* **relayforreddit/change-oauth-client-id:** change client id instead of developer key ([#2508](https://github.com/revanced/revanced-patches/issues/2508)) ([4befb44](https://github.com/revanced/revanced-patches/commit/4befb4414638c5936f99d8d63d73c729efc773a5))
+* **syncforreddit/change-oauth-client-id:** add dev edition ([#2516](https://github.com/revanced/revanced-patches/issues/2516)) ([7c7294b](https://github.com/revanced/revanced-patches/commit/7c7294b750f54390dd2308de63cc09545010b17f))
+* **syncforreddit:** use correct overriding method signature ([#2483](https://github.com/revanced/revanced-patches/issues/2483)) ([f9770cf](https://github.com/revanced/revanced-patches/commit/f9770cf1babce61cd32f6ca9140103419d8d094d))
+* **youtube/client-spoof:** update settings text for known side effects of spoof signature ([#2476](https://github.com/revanced/revanced-patches/issues/2476)) ([6756f80](https://github.com/revanced/revanced-patches/commit/6756f80e3e0c09376a1fd613d28644bdaa24da57))
+* **youtube:** improve patching speed ([#2514](https://github.com/revanced/revanced-patches/issues/2514)) ([77bb761](https://github.com/revanced/revanced-patches/commit/77bb761b0bb38613ad9d5017c881396afa471558))
+
+
+### Features
+
+* **baconreader:** add `change-oauth-client-id` patch ([#2535](https://github.com/revanced/revanced-patches/issues/2535)) ([6f5e007](https://github.com/revanced/revanced-patches/commit/6f5e007a78dc5e1ed3935a3436ac1de7eb719ea1))
+* **infinityforreddit:** add `change-oauth-client-id` patch ([#2452](https://github.com/revanced/revanced-patches/issues/2452)) ([9efd790](https://github.com/revanced/revanced-patches/commit/9efd7904acc6dc70f45c6c0f835c839473d9205f))
+* **reddit:** add `disable-screenshot-popup` patch ([#2387](https://github.com/revanced/revanced-patches/issues/2387)) ([473e051](https://github.com/revanced/revanced-patches/commit/473e0512314dfa9790cf83b4cfcc7505058d3a51))
+* **redditisfun/change-oauth-client-id:** add compatibility for paid versions ([#2536](https://github.com/revanced/revanced-patches/issues/2536)) ([e739d2f](https://github.com/revanced/revanced-patches/commit/e739d2fa16bbd0125db82c0758928addbd9950c9))
+* **redditisfun:** add `change-oauth-client-id` patch ([14809cd](https://github.com/revanced/revanced-patches/commit/14809cd4510ad9514b4a4820187a81681669374c))
+* **relayforreddit:** add `change-oauth-client-id` patch ([#2491](https://github.com/revanced/revanced-patches/issues/2491)) ([fe66f40](https://github.com/revanced/revanced-patches/commit/fe66f4089d6365564c8097d3c7a1bc842c343194))
+
 # [2.179.0-dev.12](https://github.com/revanced/revanced-patches/compare/v2.179.0-dev.11...v2.179.0-dev.12) (2023-07-01)
 
 
