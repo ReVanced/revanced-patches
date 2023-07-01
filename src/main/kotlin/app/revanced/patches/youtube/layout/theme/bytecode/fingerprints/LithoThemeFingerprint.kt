@@ -6,7 +6,10 @@ import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 object LithoThemeFingerprint : MethodFingerprint(
-    "V", AccessFlags.PROTECTED or AccessFlags.FINAL, listOf("L"), listOf(
+    returnType = "V",
+    accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
+    parameters = listOf("Landroid/graphics/Rect;"),
+    opcodes = listOf(
         Opcode.APUT,
         Opcode.NEW_INSTANCE,
         Opcode.INVOKE_DIRECT,
@@ -22,5 +25,8 @@ object LithoThemeFingerprint : MethodFingerprint(
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_VOID
-    )
+    ),
+    customFingerprint = { methodDef, _ ->
+        methodDef.name == "onBoundsChange"
+    }
 )

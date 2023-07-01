@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.seekbar.bytecode.patch
 
+import app.revanced.extensions.indexOfFirstConstantInstructionValue
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Version
@@ -19,7 +20,6 @@ import app.revanced.patches.youtube.layout.seekbar.resource.SeekbarColorResource
 import app.revanced.patches.youtube.layout.theme.bytecode.patch.LithoColorHookPatch
 import app.revanced.patches.youtube.layout.theme.bytecode.patch.LithoColorHookPatch.Companion.lithoColorOverrideHook
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import app.revanced.util.patch.indexOfFirstConstantInstruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
@@ -32,7 +32,7 @@ class SeekbarColorBytecodePatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
         CreateDarkThemeSeekbarFingerprint.result?.mutableMethod?.apply {
-            var registerIndex = indexOfFirstConstantInstruction(SeekbarColorResourcePatch.inlineTimeBarColorizedBarPlayedColorDarkId) + 2
+            var registerIndex = indexOfFirstConstantInstructionValue(SeekbarColorResourcePatch.inlineTimeBarColorizedBarPlayedColorDarkId) + 2
             var colorRegister = (getInstruction(registerIndex) as OneRegisterInstruction).registerA
             addInstructions(
                 registerIndex + 1,
@@ -42,7 +42,7 @@ class SeekbarColorBytecodePatch : BytecodePatch(
                 """
             )
             
-            registerIndex = indexOfFirstConstantInstruction(SeekbarColorResourcePatch.inlineTimeBarPlayedNotHighlightedColorId) + 2
+            registerIndex = indexOfFirstConstantInstructionValue(SeekbarColorResourcePatch.inlineTimeBarPlayedNotHighlightedColorId) + 2
             colorRegister = (getInstruction(registerIndex) as OneRegisterInstruction).registerA
             addInstructions(
                 registerIndex + 1,

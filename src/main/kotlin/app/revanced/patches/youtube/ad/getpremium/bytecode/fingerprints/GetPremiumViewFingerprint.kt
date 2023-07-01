@@ -1,9 +1,14 @@
 package app.revanced.patches.youtube.ad.getpremium.bytecode.fingerprints
 
+import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
 object GetPremiumViewFingerprint : MethodFingerprint(
+    accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
+    returnType = "V",
+    parameters = listOf("I", "I"),
     opcodes = listOf(
         Opcode.ADD_INT_2ADDR,
         Opcode.ADD_INT_2ADDR,

@@ -14,6 +14,7 @@ import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 import org.w3c.dom.Node
+import java.io.Closeable
 
 /**
  * Abstract settings resource patch
@@ -24,7 +25,7 @@ import org.w3c.dom.Node
 abstract class AbstractSettingsResourcePatch(
     private val preferenceFileName: String,
     private val sourceDirectory: String,
-) : ResourcePatch {
+) : ResourcePatch, Closeable {
     override fun execute(context: ResourceContext): PatchResult {
         /*
          * used for self-restart

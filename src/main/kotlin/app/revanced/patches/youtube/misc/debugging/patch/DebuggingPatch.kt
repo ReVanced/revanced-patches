@@ -9,7 +9,6 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.all.misc.debugging.patch.EnableAndroidDebuggingPatch
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.debugging.annotations.DebuggingCompatibility
@@ -18,7 +17,7 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
 @Patch
 @Name("enable-debugging")
-@DependsOn([IntegrationsPatch::class, SettingsPatch::class, EnableAndroidDebuggingPatch::class])
+@DependsOn([IntegrationsPatch::class, SettingsPatch::class])
 @Description("Adds debugging options.")
 @DebuggingCompatibility
 @Version("0.0.2")

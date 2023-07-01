@@ -1,15 +1,13 @@
 package app.revanced.patches.youtube.layout.buttons.navigation.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.extensions.or
 import app.revanced.patches.youtube.layout.buttons.navigation.patch.ResolvePivotBarFingerprintsPatch
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
+import app.revanced.util.patch.LiteralValueFingerprint
+import org.jf.dexlib2.AccessFlags
 
-object InitializeButtonsFingerprint : MethodFingerprint(
-    customFingerprint = { methodDef, _ ->
-        methodDef.implementation?.instructions?.any {
-            it.opcode == Opcode.CONST && (it as WideLiteralInstruction).wideLiteral ==
-                    ResolvePivotBarFingerprintsPatch.imageOnlyTabResourceId
-        } == true
-    }
+object InitializeButtonsFingerprint : LiteralValueFingerprint(
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "V",
+    parameters = listOf(),
+    literal = ResolvePivotBarFingerprintsPatch.imageOnlyTabResourceId
 )

@@ -1,13 +1,10 @@
 package app.revanced.patches.youtube.misc.minimizedplayback.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.method.annotation.FuzzyPatternScanMethod
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 
-
-@FuzzyPatternScanMethod(2) // FIXME: Test this threshold and find the best value.
 object MinimizedPlaybackManagerFingerprint : MethodFingerprint(
     "Z",
     AccessFlags.PUBLIC or AccessFlags.STATIC,

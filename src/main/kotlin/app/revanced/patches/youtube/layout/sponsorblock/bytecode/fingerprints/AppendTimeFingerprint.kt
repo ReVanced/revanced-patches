@@ -8,7 +8,7 @@ import org.jf.dexlib2.Opcode
 object AppendTimeFingerprint : MethodFingerprint(
     "V",
     AccessFlags.PUBLIC or AccessFlags.FINAL,
-    listOf("L", "L", "L"),
+    listOf("Ljava/lang/CharSequence;", "Ljava/lang/CharSequence;", "Ljava/lang/CharSequence;"),
     listOf(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,

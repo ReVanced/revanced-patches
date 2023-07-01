@@ -14,29 +14,17 @@ import org.w3c.dom.Element
 @Version("0.0.1")
 class EnableAndroidDebuggingPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
-        if (debuggable == true) {
-            context.xmlEditor["AndroidManifest.xml"].use { dom ->
-                val applicationNode = dom
-                    .file
-                    .getElementsByTagName("application")
-                    .item(0) as Element
+        context.xmlEditor["AndroidManifest.xml"].use { dom ->
+            val applicationNode = dom
+                .file
+                .getElementsByTagName("application")
+                .item(0) as Element
 
-                // set application as debuggable
-                applicationNode.setAttribute("android:debuggable", "true")
-            }
+            // set application as debuggable
+            applicationNode.setAttribute("android:debuggable", "true")
         }
 
         return PatchResultSuccess()
     }
 
-    companion object : OptionsContainer() {
-        var debuggable: Boolean? by option(
-            PatchOption.BooleanOption(
-                key = "debuggable",
-                default = false,
-                title = "App debugging",
-                description = "Whether to make the app debuggable on Android.",
-            )
-        )
-    }
 }
