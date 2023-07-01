@@ -1,6 +1,7 @@
 package app.revanced.patches.reddit.customclients.boostforreddit.api.patch
 
 import app.revanced.patcher.annotation.Compatibility
+import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Package
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -12,6 +13,9 @@ import app.revanced.patches.reddit.customclients.ChangeOAuthClientIdPatchAnnotat
 import app.revanced.patches.reddit.customclients.boostforreddit.api.fingerprints.GetClientIdFingerprint
 
 @ChangeOAuthClientIdPatchAnnotation
+@Description("Changes the OAuth client ID. " +
+        "The OAuth application type has to be \"Installed app\" " +
+        "and the redirect URI has to be set to \"http://rubenmayayo.com\".")
 @Compatibility([Package("com.rubenmayayo.reddit")])
 class ChangeOAuthClientIdPatch : AbstractChangeOAuthClientIdPatch(
     "http://rubenmayayo.com", Options, listOf(GetClientIdFingerprint)

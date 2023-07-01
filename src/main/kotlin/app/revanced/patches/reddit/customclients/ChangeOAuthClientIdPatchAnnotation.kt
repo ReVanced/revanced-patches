@@ -7,5 +7,4 @@ import app.revanced.patcher.patch.annotations.Patch
 @Target(AnnotationTarget.CLASS)
 @Patch
 @Name("change-oauth-client-id")
-@Description("Changes the OAuth client ID.")
 annotation class ChangeOAuthClientIdPatchAnnotation

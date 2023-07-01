@@ -1,6 +1,7 @@
 package app.revanced.patches.reddit.customclients.infinityforreddit.api.patch
 
 import app.revanced.patcher.annotation.Compatibility
+import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Package
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -15,6 +16,9 @@ import app.revanced.patches.reddit.customclients.infinityforreddit.api.fingerpri
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @ChangeOAuthClientIdPatchAnnotation
+@Description("Changes the OAuth client ID. " +
+        "The OAuth application type has to be \"Installed app\" " +
+        "and the redirect URI has to be set to \"infinity://localhost\".")
 @Compatibility([Package("ml.docilealligator.infinityforreddit")])
 class ChangeOAuthClientIdPatch : AbstractChangeOAuthClientIdPatch(
     "infinity://localhost",

@@ -2,6 +2,7 @@ package app.revanced.patches.reddit.customclients.syncforreddit.api.patch
 
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Compatibility
+import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Package
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -21,6 +22,9 @@ import org.jf.dexlib2.iface.reference.StringReference
 import java.util.*
 
 @ChangeOAuthClientIdPatchAnnotation
+@Description("Changes the OAuth client ID. " +
+        "The OAuth application type has to be \"Installed app\" " +
+        "and the redirect URI has to be set to \"http://redditsync/auth\".")
 @Compatibility(
     [
         Package("com.laurencedawson.reddit_sync"),
