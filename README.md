@@ -229,6 +229,14 @@ The official ReVanced Patches.
 | `change-oauth-client-id` | Changes the OAuth client ID. The OAuth application type has to be "Installed app" and the redirect URI has to be set to "dbrady://relay". | all |
 </details>
 
+### [📦 `com.onelouder.baconreader`](https://play.google.com/store/apps/details?id=com.onelouder.baconreader)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `change-oauth-client-id` | Changes the OAuth client ID. The OAuth application type has to be "Installed app" and the redirect URI has to be set to "http://baconreader.com/auth". | all |
+</details>
+
 ### [📦 `com.rubenmayayo.reddit`](https://play.google.com/store/apps/details?id=com.rubenmayayo.reddit)
 <details>
 
