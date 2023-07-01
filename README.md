@@ -229,6 +229,14 @@ The official ReVanced Patches.
 | `change-oauth-client-id` | Changes the OAuth client ID. | all |
 </details>
 
+### [📦 `com.onelouder.baconreader`](https://play.google.com/store/apps/details?id=com.onelouder.baconreader)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `change-oauth-client-id` | Changes the OAuth client ID. | all |
+</details>
+
 ### [📦 `com.rubenmayayo.reddit`](https://play.google.com/store/apps/details?id=com.rubenmayayo.reddit)
 <details>
 

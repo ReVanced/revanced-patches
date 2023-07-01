@@ -1,3 +1,10 @@
+# [2.179.0-dev.12](https://github.com/revanced/revanced-patches/compare/v2.179.0-dev.11...v2.179.0-dev.12) (2023-07-01)
+
+
+### Features
+
+* **baconreader:** add `change-oauth-client-id` patch ([#2535](https://github.com/revanced/revanced-patches/issues/2535)) ([6f5e007](https://github.com/revanced/revanced-patches/commit/6f5e007a78dc5e1ed3935a3436ac1de7eb719ea1))
+
 # [2.179.0-dev.11](https://github.com/revanced/revanced-patches/compare/v2.179.0-dev.10...v2.179.0-dev.11) (2023-07-01)
 
 # [2.179.0-dev.10](https://github.com/revanced/revanced-patches/compare/v2.179.0-dev.9...v2.179.0-dev.10) (2023-06-30)
