@@ -1,3 +1,10 @@
+# [2.181.0-dev.6](https://github.com/revanced/revanced-patches/compare/v2.181.0-dev.5...v2.181.0-dev.6) (2023-07-02)
+
+
+### Bug Fixes
+
+* **reddit/hide-comment-ads:** do not require integrations ([c2211d4](https://github.com/revanced/revanced-patches/commit/c2211d458d5cab030999e604a87cc1d02805b7ef))
+
 # [2.181.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.181.0-dev.4...v2.181.0-dev.5) (2023-07-02)
 
 
