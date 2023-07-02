@@ -1,3 +1,10 @@
+# [2.181.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.181.0-dev.2...v2.181.0-dev.3) (2023-07-02)
+
+
+### Bug Fixes
+
+* **youtube/spoof-signature-verification:** remove auto re-enable functionality ([#2556](https://github.com/revanced/revanced-patches/issues/2556)) ([b8df8fb](https://github.com/revanced/revanced-patches/commit/b8df8fb99707fdac32e272fee8469dfeb940504d))
+
 # [2.181.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.181.0-dev.1...v2.181.0-dev.2) (2023-07-01)
 
 
