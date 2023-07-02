@@ -1,3 +1,10 @@
+# [2.181.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.181.0-dev.4...v2.181.0-dev.5) (2023-07-02)
+
+
+### Bug Fixes
+
+* **infinityforreddit/change-oauth-client-id:** patch correct method ([#2564](https://github.com/revanced/revanced-patches/issues/2564)) ([f1ba16e](https://github.com/revanced/revanced-patches/commit/f1ba16ebfe2fda86af96d094481ed472eebcb4f9))
+
 # [2.181.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.181.0-dev.3...v2.181.0-dev.4) (2023-07-02)
 
 
