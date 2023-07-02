@@ -1,3 +1,10 @@
+# [2.181.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.181.0-dev.3...v2.181.0-dev.4) (2023-07-02)
+
+
+### Bug Fixes
+
+* **youtube-music/bypass-certificate-checks:** fix fingerprint for the latest target app ([#2567](https://github.com/revanced/revanced-patches/issues/2567)) ([8eacb5b](https://github.com/revanced/revanced-patches/commit/8eacb5b5ace816da4d98b990eff0ea208691660c))
+
 # [2.181.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.181.0-dev.2...v2.181.0-dev.3) (2023-07-02)
 
 
