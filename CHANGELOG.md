@@ -1,3 +1,10 @@
+# [2.181.0-dev.7](https://github.com/revanced/revanced-patches/compare/v2.181.0-dev.6...v2.181.0-dev.7) (2023-07-03)
+
+
+### Bug Fixes
+
+* **reddit/sanitize-sharing-links:** update patch to support latest app version ([#2575](https://github.com/revanced/revanced-patches/issues/2575)) ([737be98](https://github.com/revanced/revanced-patches/commit/737be9815bad985328bbbead4d32f9398241eef2))
+
 # [2.181.0-dev.6](https://github.com/revanced/revanced-patches/compare/v2.181.0-dev.5...v2.181.0-dev.6) (2023-07-02)
 
 
