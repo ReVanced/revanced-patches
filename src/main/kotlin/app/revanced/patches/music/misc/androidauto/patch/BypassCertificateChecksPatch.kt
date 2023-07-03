@@ -5,8 +5,7 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -23,15 +22,13 @@ class BypassCertificateChecksPatch : BytecodePatch(
     listOf(CheckCertificateFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        CheckCertificateFingerprint.result?.let { result ->
-            val noMatchIndex = result.scanResult.stringsScanResult!!.matches.first().index
-
-            result.mutableMethod.apply {
-                val isPartnerIndex = noMatchIndex + 2
-
-                replaceInstruction(isPartnerIndex, "const/4 p1, 0x1")
-                addInstruction(isPartnerIndex + 1, "return p1")
-            }
+        CheckCertificateFingerprint.result?.apply {
+            mutableMethod.addInstructions(
+                0, """
+                const/4 v0, 0x1
+                return v0
+                """
+            )
         } ?: return CheckCertificateFingerprint.toErrorResult()
 
         return PatchResultSuccess()

@@ -1,6 +1,6 @@
 package app.revanced.patches.reddit.customclients.infinityforreddit.api.fingerprints
 
-object GetHTTPBasicAuthHeaderFingerprint : AbstractClientIdFingerprint(
+object GetHttpBasicAuthHeaderFingerprint : AbstractClientIdFingerprint(
     "APIUtils;",
-    "getHTTPBasicAuthHeader"
+    "getHttpBasicAuthHeader"
 )

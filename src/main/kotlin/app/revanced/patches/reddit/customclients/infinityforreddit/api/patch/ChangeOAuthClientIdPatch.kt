@@ -11,7 +11,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.reddit.customclients.AbstractChangeOAuthClientIdPatch
 import app.revanced.patches.reddit.customclients.ChangeOAuthClientIdPatchAnnotation
-import app.revanced.patches.reddit.customclients.infinityforreddit.api.fingerprints.GetHTTPBasicAuthHeaderFingerprint
+import app.revanced.patches.reddit.customclients.infinityforreddit.api.fingerprints.GetHttpBasicAuthHeaderFingerprint
 import app.revanced.patches.reddit.customclients.infinityforreddit.api.fingerprints.LoginActivityOnCreateFingerprint
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -23,7 +23,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 class ChangeOAuthClientIdPatch : AbstractChangeOAuthClientIdPatch(
     "infinity://localhost",
     Options,
-    listOf(GetHTTPBasicAuthHeaderFingerprint, LoginActivityOnCreateFingerprint)
+    listOf(GetHttpBasicAuthHeaderFingerprint, LoginActivityOnCreateFingerprint)
 ) {
     override fun List<MethodFingerprintResult>.patch(context: BytecodeContext): PatchResult {
         forEach {

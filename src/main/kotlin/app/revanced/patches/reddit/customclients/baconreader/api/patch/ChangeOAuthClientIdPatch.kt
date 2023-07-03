@@ -20,7 +20,12 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Description("Changes the OAuth client ID. " +
         "The OAuth application type has to be \"Installed app\" " +
         "and the redirect URI has to be set to \"http://baconreader.com/auth\".")
-@Compatibility([Package("com.onelouder.baconreader")])
+@Compatibility(
+    [
+        Package("com.onelouder.baconreader"),
+        Package("com.onelouder.baconreader.premium")
+    ]
+)
 class ChangeOAuthClientIdPatch : AbstractChangeOAuthClientIdPatch(
     "http://baconreader.com/auth", Options, listOf(GetAuthorizationUrlFingerprint, RequestTokenFingerprint)
 ) {
