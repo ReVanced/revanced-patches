@@ -427,16 +427,6 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
                 return false;
             });
         }
-
-        {
-            Preference preference = new Preference(context);
-            category.addPreference(preference);
-            preference.setSummary(str("sb_about_made_by"));
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                preference.setSingleLineTitle(false);
-            }
-            preference.setSelectable(false);
-        }
     }
 
     private void openGuidelines() {
