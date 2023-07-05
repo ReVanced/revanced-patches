@@ -1,3 +1,10 @@
+# [2.182.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.181.0...v2.182.0-dev.1) (2023-07-05)
+
+
+### Features
+
+* remove unnecessary notice ([7e9f0b2](https://github.com/revanced/revanced-patches/commit/7e9f0b2d02e910984f08777fefcd2ad7df6a21ee))
+
 # [2.181.0](https://github.com/revanced/revanced-patches/compare/v2.180.0...v2.181.0) (2023-07-03)
 
 
