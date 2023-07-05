@@ -213,6 +213,14 @@ The official ReVanced Patches.
 | `change-oauth-client-id` | Changes the OAuth client ID. The OAuth application type has to be "Installed app" and the redirect URI has to be set to "infinity://localhost". | all |
 </details>
 
+### [📦 `me.ccrama.redditslide`](https://play.google.com/store/apps/details?id=me.ccrama.redditslide)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `change-oauth-client-id` | Changes the OAuth client ID. The OAuth application type has to be "Installed app" and the redirect URI has to be set to "http://www.ccrama.me". | all |
+</details>
+
 ### [📦 `free.reddit.news`](https://play.google.com/store/apps/details?id=free.reddit.news)
 <details>
 
@@ -227,6 +235,22 @@ The official ReVanced Patches.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `change-oauth-client-id` | Changes the OAuth client ID. The OAuth application type has to be "Installed app" and the redirect URI has to be set to "dbrady://relay". | all |
+</details>
+
+### [📦 `com.onelouder.baconreader`](https://play.google.com/store/apps/details?id=com.onelouder.baconreader)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `change-oauth-client-id` | Changes the OAuth client ID. The OAuth application type has to be "Installed app" and the redirect URI has to be set to "http://baconreader.com/auth". | all |
+</details>
+
+### [📦 `com.onelouder.baconreader.premium`](https://play.google.com/store/apps/details?id=com.onelouder.baconreader.premium)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `change-oauth-client-id` | Changes the OAuth client ID. The OAuth application type has to be "Installed app" and the redirect URI has to be set to "http://baconreader.com/auth". | all |
 </details>
 
 ### [📦 `com.rubenmayayo.reddit`](https://play.google.com/store/apps/details?id=com.rubenmayayo.reddit)
@@ -299,6 +323,14 @@ The official ReVanced Patches.
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `hide-ads` | Removes general ads. | all |
+</details>
+
+### [📦 `jp.pxv.android`](https://play.google.com/store/apps/details?id=jp.pxv.android)
+<details>
+
+| 💊 Patch | 📜 Description | 🏹 Target Version |
+|:--------:|:--------------:|:-----------------:|
+| `hide-ads` | Hides ads. | all |
 </details>
 
 ### [📦 `com.instagram.android`](https://play.google.com/store/apps/details?id=com.instagram.android)

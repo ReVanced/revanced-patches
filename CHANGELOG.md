@@ -1,3 +1,10 @@
+# [2.182.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.182.0-dev.2...v2.182.0-dev.3) (2023-07-05)
+
+
+### Features
+
+* **pixiv:** add `hide-ads` patch ([#2578](https://github.com/revanced/revanced-patches/issues/2578)) ([862a7ec](https://github.com/revanced/revanced-patches/commit/862a7ec5b0767c28e79454a44218069d3e9cbac7))
+
 # [2.182.0-dev.2](https://github.com/revanced/revanced-patches/compare/v2.182.0-dev.1...v2.182.0-dev.2) (2023-07-05)
 
 
