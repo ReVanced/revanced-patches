@@ -174,15 +174,7 @@ public final class LayoutComponentsFilter extends Filter {
                 channelMemberShelf
         );
 
-        final var carouselAd = new StringFilterGroup(
-                SettingsEnum.HIDE_GENERAL_ADS,
-                "carousel_ad"
-        );
-
-        this.identifierFilterGroups.addAll(
-                graySeparator,
-                carouselAd
-        );
+        this.identifierFilterGroups.addAll(graySeparator);
     }
 
     private boolean isMixPlaylistFiltered(final byte[] _protobufBufferArray) {
