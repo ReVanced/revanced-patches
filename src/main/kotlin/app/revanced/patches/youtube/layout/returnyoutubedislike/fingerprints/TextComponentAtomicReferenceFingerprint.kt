@@ -21,14 +21,11 @@ object TextComponentAtomicReferenceFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,
         Opcode.MOVE_OBJECT, // CharSequence reference, and control flow label. Insert code here.
-        Opcode.INVOKE_VIRTUAL,
+        null, // invoke-interface or invoke-virtual
         Opcode.MOVE_RESULT,
         Opcode.IF_EQZ,
-        Opcode.INVOKE_VIRTUAL,
+        null, // invoke-interface or invoke-virtual
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.GOTO,
-        Opcode.CONST_4,
-        Opcode.INVOKE_VIRTUAL_RANGE,
-        Opcode.MOVE_RESULT_OBJECT,
     )
 )
