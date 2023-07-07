@@ -1,3 +1,10 @@
+# [2.182.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.182.0-dev.3...v2.182.0-dev.4) (2023-07-07)
+
+
+### Features
+
+* **youtube:** support version `18.23.35` ([#2461](https://github.com/revanced/revanced-patches/issues/2461)) ([d20fde1](https://github.com/revanced/revanced-patches/commit/d20fde1e57077fe9a943f9782b415d7a0249b083))
+
 # [2.182.0-dev.3](https://github.com/revanced/revanced-patches/compare/v2.182.0-dev.2...v2.182.0-dev.3) (2023-07-05)
 
 
