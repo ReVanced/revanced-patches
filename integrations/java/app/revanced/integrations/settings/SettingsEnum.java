@@ -42,7 +42,9 @@ public enum SettingsEnum {
 
     // Video
     HDR_AUTO_BRIGHTNESS("revanced_hdr_auto_brightness", BOOLEAN, TRUE),
-    SHOW_OLD_VIDEO_MENU("revanced_show_old_video_menu", BOOLEAN, TRUE),
+    SHOW_OLD_VIDEO_QUALITY_MENU("revanced_show_old_video_quality_menu", BOOLEAN, TRUE),
+    @Deprecated
+    DEPRECATED_SHOW_OLD_VIDEO_QUALITY_MENU("revanced_show_old_video_menu", BOOLEAN, TRUE),
     REMEMBER_VIDEO_QUALITY_LAST_SELECTED("revanced_remember_video_quality_last_selected", BOOLEAN, TRUE),
     VIDEO_QUALITY_DEFAULT_WIFI("revanced_video_quality_default_wifi", INTEGER, -2),
     VIDEO_QUALITY_DEFAULT_MOBILE("revanced_video_quality_default_mobile", INTEGER, -2),
@@ -50,9 +52,6 @@ public enum SettingsEnum {
     PLAYBACK_SPEED_DEFAULT("revanced_playback_speed_default", FLOAT, 1.0f),
     CUSTOM_PLAYBACK_SPEEDS("revanced_custom_playback_speeds", STRING,
             "0.25\n0.5\n0.75\n0.9\n0.95\n1.0\n1.05\n1.1\n1.25\n1.5\n1.75\n2.0\n3.0\n4.0\n5.0", true),
-
-    // Whitelist
-    //WHITELIST("revanced_whitelist_ads", BOOLEAN, FALSE), // TODO: Unused currently
 
     // Ads
     HIDE_BUTTONED_ADS("revanced_hide_buttoned_ads", BOOLEAN, TRUE),
@@ -349,29 +348,29 @@ public enum SettingsEnum {
             setting.load();
         }
 
-        // TODO: eventually delete this.
         // region Migration
 
-        SettingsEnum[][] renamedSettings = {
-                // TODO: do _not_ delete this SB private user id migration property until sometime in 2024.
-                // This is the only setting that cannot be reconfigured if lost,
-                // and more time should be given for users who rarely upgrade.
-                {DEPRECATED_SB_UUID_OLD_MIGRATION_SETTING, SB_PRIVATE_USER_ID},
-        };
+        // TODO: do _not_ delete this SB private user id migration property until sometime in 2024.
+        // This is the only setting that cannot be reconfigured if lost,
+        // and more time should be given for users who rarely upgrade.
+        migrateOldSettingToNew(DEPRECATED_SB_UUID_OLD_MIGRATION_SETTING, SB_PRIVATE_USER_ID);
 
-        for (SettingsEnum[] oldNewSetting : renamedSettings) {
-            SettingsEnum oldSetting = oldNewSetting[0];
-            SettingsEnum newSetting = oldNewSetting[1];
-
-            if (!oldSetting.isSetToDefault()) {
-                LogHelper.printInfo(() -> "Migrating old setting of '" + oldSetting.value
-                        + "' from: " + oldSetting + " into replacement setting: " + newSetting);
-                newSetting.saveValue(oldSetting.value);
-                oldSetting.saveValue(oldSetting.defaultValue); // reset old value
-            }
-        }
+        // TODO: delete DEPRECATED_SHOW_OLD_VIDEO_QUALITY_MENU (When? anytime).
+        migrateOldSettingToNew(DEPRECATED_SHOW_OLD_VIDEO_QUALITY_MENU, SHOW_OLD_VIDEO_QUALITY_MENU);
 
         // endregion
+    }
+
+    /**
+     * Migrate a setting value if the path is renamed but otherwise the old and new settings are identical.
+     */
+    private static void migrateOldSettingToNew(SettingsEnum oldSetting, SettingsEnum newSetting) {
+        if (!oldSetting.isSetToDefault()) {
+            LogHelper.printInfo(() -> "Migrating old setting of '" + oldSetting.value
+                    + "' from: " + oldSetting + " into replacement setting: " + newSetting);
+            newSetting.saveValue(oldSetting.value);
+            oldSetting.saveValue(oldSetting.defaultValue); // reset old value
+        }
     }
 
     private void load() {

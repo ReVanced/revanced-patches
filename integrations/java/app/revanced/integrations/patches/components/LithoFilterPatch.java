@@ -1,11 +1,9 @@
 package app.revanced.integrations.patches.components;
 
 import android.os.Build;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import app.revanced.integrations.settings.SettingsEnum;
-import app.revanced.integrations.utils.LogHelper;
-import app.revanced.integrations.utils.ReVancedUtils;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -13,6 +11,10 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Spliterator;
 import java.util.function.Consumer;
+
+import app.revanced.integrations.settings.SettingsEnum;
+import app.revanced.integrations.utils.LogHelper;
+import app.revanced.integrations.utils.ReVancedUtils;
 
 abstract class FilterGroup<T> {
     final static class FilterGroupResult {
@@ -49,7 +51,7 @@ abstract class FilterGroup<T> {
     }
 
     public boolean isEnabled() {
-        return setting.getBoolean();
+        return setting == null || setting.getBoolean();
     }
 
     public abstract FilterGroupResult check(final T stack);
@@ -208,7 +210,7 @@ abstract class Filter {
 
     /**
      * Check if the given path, identifier or protobuf buffer is filtered by any
-     * {@link FilterGroup}.
+     * {@link FilterGroup}.  Method is called off the main thread.
      *
      * @return True if filtered, false otherwise.
      */
@@ -239,9 +241,12 @@ public final class LithoFilterPatch {
             new DummyFilter() // Replaced by patch.
     };
 
+    /**
+     * Injection point.  Called off the main thread.
+     */
     @SuppressWarnings("unused")
     public static boolean filter(final StringBuilder pathBuilder, final String identifier,
-            final ByteBuffer protobufBuffer) {
+                                 final ByteBuffer protobufBuffer) {
         // TODO: Maybe this can be moved to the Filter class, to prevent unnecessary
         // string creation
         // because some filters might not need the path.
