@@ -2,22 +2,21 @@ package app.revanced.integrations.patches.components;
 
 
 import android.os.Build;
-import android.view.View;
 import androidx.annotation.RequiresApi;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.ReVancedUtils;
 
 
+@RequiresApi(api = Build.VERSION_CODES.N)
 public final class LayoutComponentsFilter extends Filter {
     private final String[] exceptions;
 
     private final CustomFilterGroup custom;
 
-    // region Mix playlists
-    private final ByteArrayAsStringFilterGroup mixPlaylists;
-    private final ByteArrayAsStringFilterGroup imageHosting;
-
-    // endregion
+    private static final ByteArrayAsStringFilterGroup mixPlaylists = new ByteArrayAsStringFilterGroup(
+            SettingsEnum.HIDE_MIX_PLAYLISTS,
+            "&list="
+    );
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public LayoutComponentsFilter() {
@@ -137,21 +136,6 @@ public final class LayoutComponentsFilter extends Filter {
                 "cell_divider" // layout residue (gray line above the buttoned ad),
         );
 
-        // region Mix playlists
-
-        mixPlaylists = new ByteArrayAsStringFilterGroup(
-                SettingsEnum.HIDE_MIX_PLAYLISTS,
-                "&list=",
-                "YouTube Music"
-        );
-
-        imageHosting = new ByteArrayAsStringFilterGroup(
-                SettingsEnum.HIDE_MIX_PLAYLISTS, // Unused
-                "ggpht.com"
-        );
-
-        // endregion
-
         this.pathFilterGroups.addAll(
                 channelBar,
                 communityPosts,
@@ -177,18 +161,6 @@ public final class LayoutComponentsFilter extends Filter {
         this.identifierFilterGroups.addAll(graySeparator);
     }
 
-    private boolean isMixPlaylistFiltered(final byte[] _protobufBufferArray) {
-        if (!mixPlaylists.isEnabled()) return false;
-
-        // Two checks are required to prevent false positives.
-
-        // First check if the current buffer potentially contains a mix playlist.
-        if (!mixPlaylists.check(_protobufBufferArray).isFiltered()) return false;
-
-        // Ensure that the buffer actually contains a mix playlist.
-        return imageHosting.check(_protobufBufferArray).isFiltered();
-    }
-
     @Override
     public boolean isFiltered(final String path, final String identifier, final byte[] _protobufBufferArray) {
         if (custom.isEnabled() && custom.check(path).isFiltered())
@@ -197,18 +169,12 @@ public final class LayoutComponentsFilter extends Filter {
         if (ReVancedUtils.containsAny(path, exceptions))
             return false; // Exceptions are not filtered.
 
-        if (super.isFiltered(path, identifier, _protobufBufferArray))
-            return true;
-
-        return isMixPlaylistFiltered(_protobufBufferArray);
+        return super.isFiltered(path, identifier, _protobufBufferArray);
     }
 
-    /**
-     * Hide the view, which shows ads in the homepage.
-     *
-     * @param view The view, which shows ads.
-     */
-    public static void hideAdAttributionView(View view) {
-        ReVancedUtils.hideViewBy1dpUnderCondition(SettingsEnum.HIDE_GENERAL_ADS, view);
+
+    // Called from a different place then the other filters.
+    public static boolean filterMixPlaylists(final byte[] bytes) {
+        return mixPlaylists.isEnabled() && mixPlaylists.check(bytes).isFiltered();
     }
 }
