@@ -1,3 +1,10 @@
+# [2.182.0-dev.5](https://github.com/revanced/revanced-patches/compare/v2.182.0-dev.4...v2.182.0-dev.5) (2023-07-08)
+
+
+### Bug Fixes
+
+* **youtube/hide-layout-components:**  hide mix playlists ([33a87bd](https://github.com/revanced/revanced-patches/commit/33a87bd6eac1639687ebdf96ef8924cd674f81e4))
+
 # [2.182.0-dev.4](https://github.com/revanced/revanced-patches/compare/v2.182.0-dev.3...v2.182.0-dev.4) (2023-07-07)
 
 
