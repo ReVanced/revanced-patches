@@ -1,3 +1,10 @@
+## [2.182.1-dev.1](https://github.com/revanced/revanced-patches/compare/v2.182.0...v2.182.1-dev.1) (2023-07-08)
+
+
+### Bug Fixes
+
+* **youtube/custom-video-buffer:** remove non functional deprecated patch ([de233e2](https://github.com/revanced/revanced-patches/commit/de233e28246b1716b42bf331d2355ff4beed9564))
+
 # [2.182.0](https://github.com/revanced/revanced-patches/compare/v2.181.0...v2.182.0) (2023-07-08)
 
 
