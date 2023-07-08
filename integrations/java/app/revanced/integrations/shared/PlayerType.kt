@@ -8,15 +8,16 @@ import app.revanced.integrations.utils.LogHelper
  */
 enum class PlayerType {
     /**
-     * Includes Shorts and Stories playback.
+     * Either no video, or a Short is playing.
      */
     NONE,
     /**
-     * A Shorts or Stories, if a regular video is minimized and a Short/Story is then opened.
+     * A Short is playing. Occurs if a regular video is first opened
+     * and then a Short is opened (without first closing the regular video).
      */
     HIDDEN,
     /**
-     * When spoofing to an old version of YouTube, and watching a short with a regular video in the background,
+     * When spoofing to 16.x YouTube and watching a short with a regular video in the background,
      * the type will be this (and not [HIDDEN]).
      */
     WATCH_WHILE_MINIMIZED,
@@ -76,7 +77,7 @@ enum class PlayerType {
      * Useful to check if a short is currently playing.
      *
      * Does not include the first moment after a short is opened when a regular video is minimized on screen,
-     * or while watching a short with a regular video present on a spoofed old version of YouTube.
+     * or while watching a short with a regular video present on a spoofed 16.x version of YouTube.
      * To include those situations instead use [isNoneHiddenOrMinimized].
      */
     fun isNoneOrHidden(): Boolean {
@@ -84,12 +85,13 @@ enum class PlayerType {
     }
 
     /**
-     * Check if the current player type is [NONE], [HIDDEN], [WATCH_WHILE_MINIMIZED], [WATCH_WHILE_SLIDING_MINIMIZED_DISMISSED].
+     * Check if the current player type is
+     * [NONE], [HIDDEN], [WATCH_WHILE_MINIMIZED], [WATCH_WHILE_SLIDING_MINIMIZED_DISMISSED].
      *
      * Useful to check if a Short is being played,
-     * although can return false positive if the player is minimized.
+     * although will return false positive if a regular video is opened and minimized (and no short is playing).
      *
-     * @return If nothing, a Short, a Story,
+     * @return If nothing, a Short,
      *         or a regular video is minimized video or sliding off screen to a dismissed or hidden state.
      */
     fun isNoneHiddenOrMinimized(): Boolean {

@@ -38,13 +38,8 @@ public class RememberVideoQualityPatch {
     private static List<Integer> videoQualities;
 
     private static void changeDefaultQuality(int defaultQuality) {
-        NetworkType networkType = ReVancedUtils.getNetworkType();
-        if (networkType == NetworkType.NONE) {
-            ReVancedUtils.showToastShort("No internet connection");
-            return;
-        }
         String networkTypeMessage;
-        if (networkType == NetworkType.MOBILE) {
+        if (ReVancedUtils.getNetworkType() == NetworkType.MOBILE) {
             mobileQualitySetting.saveValue(defaultQuality);
             networkTypeMessage = "mobile";
         } else {
@@ -139,13 +134,22 @@ public class RememberVideoQualityPatch {
     }
 
     /**
-     * Injection point.
+     * Injection point.  Old quality menu.
      */
-    public static void userChangedQuality(int selectedQuality) {
+    public static void userChangedQuality(int selectedQualityIndex) {
         if (!SettingsEnum.REMEMBER_VIDEO_QUALITY_LAST_SELECTED.getBoolean()) return;
 
-        userSelectedQualityIndex = selectedQuality;
+        userSelectedQualityIndex = selectedQualityIndex;
         userChangedDefaultQuality = true;
+    }
+
+    /**
+     * Injection point.  New quality menu.
+     */
+    public static void userChangedQualityInNewFlyout(int selectedQuality) {
+        if (!SettingsEnum.REMEMBER_VIDEO_QUALITY_LAST_SELECTED.getBoolean()) return;
+
+        changeDefaultQuality(selectedQuality); // Quality is human readable resolution (ie: 1080).
     }
 
     /**
