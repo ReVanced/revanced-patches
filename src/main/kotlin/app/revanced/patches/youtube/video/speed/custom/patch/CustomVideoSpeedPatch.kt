@@ -1,36 +1,46 @@
 package app.revanced.patches.youtube.video.speed.custom.patch
 
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.or
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patches.shared.settings.preference.impl.InputType
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.TextPreference
+import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
+import app.revanced.patches.shared.settings.preference.impl.*
+import app.revanced.patches.youtube.misc.bottomsheet.hook.patch.BottomSheetHookPatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
+import app.revanced.patches.youtube.misc.litho.filter.patch.LithoFilterPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
-import app.revanced.patches.youtube.video.speed.custom.fingerprints.SpeedArrayGeneratorFingerprint
-import app.revanced.patches.youtube.video.speed.custom.fingerprints.SpeedLimiterFingerprint
+import app.revanced.patches.youtube.video.speed.custom.fingerprints.*
+import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
 import org.jf.dexlib2.iface.reference.MethodReference
+import org.jf.dexlib2.immutable.ImmutableField
 
 @Name("custom-video-speed")
 @Description("Adds custom video speed options.")
-@DependsOn([IntegrationsPatch::class])
+@DependsOn([IntegrationsPatch::class, LithoFilterPatch::class, SettingsPatch::class, BottomSheetHookPatch::class])
 @Version("0.0.1")
 class CustomVideoSpeedPatch : BytecodePatch(
     listOf(
-        SpeedArrayGeneratorFingerprint, SpeedLimiterFingerprint
+        SpeedArrayGeneratorFingerprint,
+        SpeedLimiterFingerprint,
+        GetOldVideoSpeedsFingerprint,
+        ShowOldVideoSpeedMenuIntegrationsFingerprint
     )
 ) {
 
@@ -45,7 +55,7 @@ class CustomVideoSpeedPatch : BytecodePatch(
                 inputType = InputType.TEXT_MULTI_LINE,
                 summary = StringResource(
                     "revanced_custom_playback_speeds_summary",
-                    "Add or change the video speeds available"
+                    "Add or change the available playback speeds"
                 )
             )
         )
@@ -71,7 +81,7 @@ class CustomVideoSpeedPatch : BytecodePatch(
 
         val arrayLengthConstDestination = (arrayLengthConst as OneRegisterInstruction).registerA
 
-        val videoSpeedsArrayType = "Lapp/revanced/integrations/patches/playback/speed/CustomVideoSpeedPatch;->customVideoSpeeds:[F"
+        val videoSpeedsArrayType = "$INTEGRATIONS_CLASS_DESCRIPTOR->customVideoSpeeds:[F"
 
         arrayGenMethod.addInstructions(
             arrayLengthConstIndex + 1,
@@ -111,14 +121,72 @@ class CustomVideoSpeedPatch : BytecodePatch(
         // edit: alternatively this might work by overriding with fixed values such as 0.1x and 10x
         limiterMethod.replaceInstruction(
             limiterMinConstIndex,
-            "sget v$limiterMinConstDestination, Lapp/revanced/integrations/patches/playback/speed/CustomVideoSpeedPatch;->minVideoSpeed:F"
+            "sget v$limiterMinConstDestination, $INTEGRATIONS_CLASS_DESCRIPTOR->minVideoSpeed:F"
         )
         limiterMethod.replaceInstruction(
             limiterMaxConstIndex,
-            "sget v$limiterMaxConstDestination, Lapp/revanced/integrations/patches/playback/speed/CustomVideoSpeedPatch;->maxVideoSpeed:F"
+            "sget v$limiterMaxConstDestination, $INTEGRATIONS_CLASS_DESCRIPTOR->maxVideoSpeed:F"
         )
+
+        // region Force old video quality menu.
+        // This is necessary, because there is no known way of adding custom video speeds to the new menu.
+
+        BottomSheetHookPatch.addHook(INTEGRATIONS_CLASS_DESCRIPTOR)
+
+        // Required to check if the video speed menu is currently shown.
+        LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
+
+        GetOldVideoSpeedsFingerprint.result?.let { result ->
+            // Add a static INSTANCE field to the class.
+            // This is later used to call "showOldVideoSpeedMenu" on the instance.
+            val instanceField = ImmutableField(
+                result.classDef.type,
+                "INSTANCE",
+                result.classDef.type,
+                AccessFlags.PUBLIC or AccessFlags.STATIC,
+                null,
+                null,
+                null
+            ).toMutable()
+
+            result.mutableClass.staticFields.add(instanceField)
+            // Set the INSTANCE field to the instance of the class.
+            // In order to prevent a conflict with another patch, add the instruction at index 1.
+            result.mutableMethod.addInstruction(1, "sput-object p0, $instanceField")
+
+            // Get the "showOldVideoSpeedMenu" method.
+            // This is later called on the field INSTANCE.
+            val showOldVideoSpeedMenuMethod = ShowOldVideoSpeedMenuFingerprint.also {
+                if (!it.resolve(context, result.classDef))
+                    throw ShowOldVideoSpeedMenuFingerprint.toErrorResult()
+            }.result!!.method.toString()
+
+            // Insert the call to the "showOldVideoSpeedMenu" method on the field INSTANCE.
+            ShowOldVideoSpeedMenuIntegrationsFingerprint.result?.mutableMethod?.apply {
+                addInstructionsWithLabels(
+                    implementation!!.instructions.lastIndex,
+                    """
+                        sget-object v0, $instanceField
+                        if-nez v0, :not_null
+                        return-void
+                        :not_null
+                        invoke-virtual { v0 }, $showOldVideoSpeedMenuMethod
+                    """
+                )
+            } ?: return ShowOldVideoSpeedMenuIntegrationsFingerprint.toErrorResult()
+        } ?: return GetOldVideoSpeedsFingerprint.toErrorResult()
+
+        // endregion
 
         return PatchResultSuccess()
     }
 
+    private companion object {
+        private const val FILTER_CLASS_DESCRIPTOR =
+            "Lapp/revanced/integrations/patches/components/VideoSpeedMenuFilterPatch;"
+
+        private const val INTEGRATIONS_CLASS_DESCRIPTOR =
+            "Lapp/revanced/integrations/patches/playback/speed/CustomVideoSpeedPatch;"
+
+    }
 }

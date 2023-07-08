@@ -8,7 +8,8 @@ import org.jf.dexlib2.AccessFlags
  * Class fingerprint for [MinimizedPlaybackSettingsFingerprint]
  */
 object MinimizedPlaybackSettingsParentFingerprint : MethodFingerprint(
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    parameters = listOf("Landroid/content/Context;", "Landroid/support/v4/media/session/MediaSessionCompat"),
-    strings = listOf("sessionToken must not be null")
+    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
+    returnType = "I",
+    parameters = listOf(),
+    strings = listOf("BiometricManager", "Failure in canAuthenticate(). FingerprintManager was null.")
 )

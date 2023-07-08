@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object MiniPlayerOverrideFingerprint : MethodFingerprint(
     "Z", AccessFlags.STATIC or AccessFlags.PUBLIC,
-    listOf("L"),
+    listOf("Landroid/content/Context;"),
     opcodes = listOf(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT,

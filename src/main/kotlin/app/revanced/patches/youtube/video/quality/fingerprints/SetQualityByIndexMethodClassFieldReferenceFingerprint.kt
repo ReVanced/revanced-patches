@@ -3,6 +3,9 @@ package app.revanced.patches.youtube.video.quality.fingerprints
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.Opcode
 
+/**
+ * Resolves with the class found in [VideoQualitySetterFingerprint].
+ */
 object SetQualityByIndexMethodClassFieldReferenceFingerprint : MethodFingerprint(
     returnType = "V",
     parameters = listOf("L"),
