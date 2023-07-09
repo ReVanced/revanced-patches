@@ -29,14 +29,10 @@ class OldVideoQualityMenuResourcePatch : ResourcePatch {
         // Used for the old type of the video quality menu.
         videoQualityBottomSheetListFragmentTitle = findResource("video_quality_bottom_sheet_list_fragment_title")
 
-        // Used for the new type of the video quality menu.
-        bottomSheetMargins = findResource("bottom_sheet_margins")
-
         return PatchResultSuccess()
     }
 
     internal companion object {
         var videoQualityBottomSheetListFragmentTitle = -1L
-        var bottomSheetMargins = -1L
     }
 }
