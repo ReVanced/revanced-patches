@@ -1,3 +1,10 @@
+## [2.182.1-dev.2](https://github.com/revanced/revanced-patches/compare/v2.182.1-dev.1...v2.182.1-dev.2) (2023-07-09)
+
+
+### Bug Fixes
+
+* **youtube/custom-video-speed:** don not implicitly depend on `old-video-quality-menu` patch ([acfda46](https://github.com/revanced/revanced-patches/commit/acfda46bce2558df18a6fa562008e058df5ad31e))
+
 ## [2.182.1-dev.1](https://github.com/revanced/revanced-patches/compare/v2.182.0...v2.182.1-dev.1) (2023-07-08)
 
 
