@@ -11,7 +11,7 @@ import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
 @DependsOn([ResourceMappingPatch::class])
 class BottomSheetHookResourcePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
-        bottomSheetMargins =  ResourceMappingPatch.resourceMappings.find { it.name == "bottomSheetMargins" }?.id
+        bottomSheetMargins =  ResourceMappingPatch.resourceMappings.find { it.name == "bottom_sheet_margins" }?.id
             ?: return PatchResultError("Could not find resource")
 
         return PatchResultSuccess()
