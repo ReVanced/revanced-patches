@@ -1,3 +1,10 @@
+# [2.183.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.182.1-dev.2...v2.183.0-dev.1) (2023-07-10)
+
+
+### Features
+
+* change patches naming convention ([#2612](https://github.com/revanced/revanced-patches/issues/2612)) ([2dacc45](https://github.com/revanced/revanced-patches/commit/2dacc45f7430f7b3e60a8a2db60c3d6395a2f5cc))
+
 ## [2.182.1-dev.2](https://github.com/revanced/revanced-patches/compare/v2.182.1-dev.1...v2.182.1-dev.2) (2023-07-09)
 
 
