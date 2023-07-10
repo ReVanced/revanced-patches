@@ -25,7 +25,7 @@ import app.revanced.patches.twitch.misc.settings.bytecode.patch.SettingsPatch
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
-@Name("block-video-ads")
+@Name("Block video ads")
 @Description("Blocks video ads in streams and VODs.")
 @VideoAdsCompatibility
 @Version("0.0.1")

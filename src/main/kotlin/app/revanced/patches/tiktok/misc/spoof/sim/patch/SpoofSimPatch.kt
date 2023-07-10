@@ -25,7 +25,7 @@ import org.jf.dexlib2.iface.reference.MethodReference
 
 @Patch(false)
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
-@Name("sim-spoof")
+@Name("Sim spoof")
 @Description("Spoofs the information which is retrieved from the sim-card.")
 @SpoofSimCompatibility
 @Version("0.0.1")

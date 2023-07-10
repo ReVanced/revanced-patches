@@ -19,7 +19,7 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
-@Name("disable-shorts-on-startup")
+@Name("Disable Shorts on startup")
 @Description("Disables playing YouTube Shorts when launching YouTube.")
 @StartupShortsResetCompatibility
 @Version("0.0.1")
@@ -32,7 +32,7 @@ class DisableShortsOnStartupPatch : BytecodePatch(
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_disable_resuming_shorts_player",
-                StringResource("revanced_disable_resuming_shorts_player_title", "Disable shorts player at app startup"),
+                StringResource("revanced_disable_resuming_shorts_player_title", "Disable Shorts player at app startup"),
                 StringResource("revanced_disable_resuming_shorts_player_summary_on", "Shorts player is disabled at app startup"),
                 StringResource("revanced_disable_resuming_shorts_player_summary_off", "Shorts player is enabled at app startup")
             )

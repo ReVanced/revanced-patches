@@ -14,7 +14,7 @@ import java.io.FileWriter
 import java.nio.file.Files
 
 @Patch
-@Name("dynamic-color")
+@Name("Dynamic color")
 @Description("Replaces the default Twitter Blue with the users Material You palette.")
 @DynamicColorCompatibility
 @Version("0.0.1")

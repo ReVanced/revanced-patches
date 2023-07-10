@@ -20,7 +20,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @DependsOn([IntegrationsPatch::class, BreakingNewsResourcePatch::class])
-@Name("hide-breaking-news-shelf")
+@Name("Hide breaking news shelf")
 @Description("Hides the breaking news shelf on the homepage tab.")
 @BreakingNewsCompatibility
 @Version("0.0.1")

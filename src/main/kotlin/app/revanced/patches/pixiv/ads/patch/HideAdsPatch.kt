@@ -11,7 +11,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.pixiv.ads.fingerprints.IsNotPremiumFingerprint
 
 @Patch
-@Name("hide-ads")
+@Name("Hide ads")
 @Description("Hides ads.")
 @Compatibility([Package("jp.pxv.android")])
 @Version("0.0.1")

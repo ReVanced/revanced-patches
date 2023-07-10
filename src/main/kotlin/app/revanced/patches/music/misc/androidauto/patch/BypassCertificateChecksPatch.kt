@@ -14,7 +14,7 @@ import app.revanced.patches.music.annotations.MusicCompatibility
 import app.revanced.patches.music.misc.androidauto.fingerprints.CheckCertificateFingerprint
 
 @Patch
-@Name("bypass-certificate-checks")
+@Name("Bypass certificate checks")
 @Description("Bypasses certificate checks which prevent YouTube Music from working on Android Auto.")
 @MusicCompatibility
 @Version("0.0.1")

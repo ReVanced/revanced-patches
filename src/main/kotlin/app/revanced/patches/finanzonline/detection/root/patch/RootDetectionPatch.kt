@@ -14,7 +14,7 @@ import app.revanced.patches.finanzonline.detection.root.fingerprints.RootDetecti
 import app.revanced.patches.finanzonline.detection.shared.annotations.DetectionCompatibility
 
 @Patch
-@Name("remove-root-detection")
+@Name("Remove root detection")
 @Description("Removes the check for root permissions.")
 @DetectionCompatibility
 @Version("0.0.1")

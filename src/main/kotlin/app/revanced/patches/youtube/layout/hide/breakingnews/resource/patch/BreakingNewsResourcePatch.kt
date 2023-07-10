@@ -12,7 +12,7 @@ import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
-@Name("breaking-news-shelf-resource-patch")
+@Name("Breaking news shelf resource patch")
 @DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
 @Version("0.0.1")
 class BreakingNewsResourcePatch : ResourcePatch {

@@ -12,7 +12,7 @@ import app.revanced.patches.youtube.layout.hide.player.overlay.annotations.HideP
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import jdk.jfr.Name
 
-@Name("hide-player-overlay-resource-patch")
+@Name("Hide player overlay resource patch")
 @DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
 @HidePlayerOverlayPatchCompatibility
 class HidePlayerOverlayResourcePatch : ResourcePatch {

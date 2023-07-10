@@ -27,7 +27,7 @@ import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
 @Patch
 @DependsOn([IntegrationsPatch::class])
-@Name("settings")
+@Name("Settings")
 @Description("Adds ReVanced settings to TikTok.")
 @SettingsCompatibility
 @Version("0.0.1")

@@ -14,7 +14,7 @@ import app.revanced.patches.songpal.badge.annotations.BadgeCompatibility
 import app.revanced.patches.songpal.badge.fingerprints.ShowNotificationFingerprint
 
 @Patch
-@Name("remove-notification-badge")
+@Name("Remove notification badge")
 @Description("Removes the red notification badge from the activity tab.")
 @BadgeCompatibility
 @Version("0.0.1")

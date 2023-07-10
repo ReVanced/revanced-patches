@@ -9,7 +9,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import org.w3c.dom.Element
 
-@Name("remove-screen-capture-restriction-resource-patch")
+@Name("Remove screen capture restriction resource patch")
 @Description("Sets allowAudioPlaybackCapture in manifest to true.")
 @Version("0.0.1")
 internal class RemoveCaptureRestrictionResourcePatch : ResourcePatch {

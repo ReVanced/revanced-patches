@@ -15,7 +15,7 @@ import app.revanced.patches.youtube.misc.playercontrols.bytecode.patch.PlayerCon
 import app.revanced.patches.youtube.video.information.patch.VideoInformationPatch
 
 @Patch
-@Name("copy-video-url")
+@Name("Copy video url")
 @Description("Adds buttons in player to copy video links.")
 @DependsOn([
     CopyVideoUrlResourcePatch::class,

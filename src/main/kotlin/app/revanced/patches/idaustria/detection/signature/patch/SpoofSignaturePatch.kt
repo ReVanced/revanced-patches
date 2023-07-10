@@ -13,7 +13,7 @@ import app.revanced.patches.idaustria.detection.shared.annotations.DetectionComp
 import app.revanced.patches.idaustria.detection.signature.fingerprints.SpoofSignatureFingerprint
 
 @Patch
-@Name("spoof-signature")
+@Name("Spoof signature")
 @Description("Spoofs the signature of the app.")
 @DetectionCompatibility
 @Version("0.0.1")

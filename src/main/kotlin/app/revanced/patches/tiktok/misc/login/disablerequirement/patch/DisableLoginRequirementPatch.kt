@@ -14,7 +14,7 @@ import app.revanced.patches.tiktok.misc.login.disablerequirement.fingerprints.Ma
 import app.revanced.patches.tiktok.misc.login.disablerequirement.fingerprints.MandatoryLoginServiceFingerprint2
 
 @Patch
-@Name("disable-login-requirement")
+@Name("Disable login requirement")
 @Description("Do not force login.")
 @DisableLoginRequirementCompatibility
 @Version("0.0.1")

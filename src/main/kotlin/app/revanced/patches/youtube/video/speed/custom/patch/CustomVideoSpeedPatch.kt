@@ -31,7 +31,7 @@ import org.jf.dexlib2.iface.reference.FieldReference
 import org.jf.dexlib2.iface.reference.MethodReference
 import org.jf.dexlib2.immutable.ImmutableField
 
-@Name("custom-video-speed")
+@Name("Custom video speed")
 @Description("Adds custom video speed options.")
 @DependsOn([IntegrationsPatch::class, LithoFilterPatch::class, SettingsPatch::class, BottomSheetHookPatch::class])
 @Version("0.0.1")

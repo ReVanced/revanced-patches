@@ -19,7 +19,7 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
-@Name("hide-get-premium")
+@Name("Hide get premium")
 @HideGetPremiumCompatibility
 @Version("0.0.1")
 class HideGetPremiumPatch : BytecodePatch(listOf(GetPremiumViewFingerprint,)) {

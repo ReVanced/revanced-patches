@@ -25,7 +25,7 @@ import org.jf.dexlib2.util.MethodUtil
 import java.io.Closeable
 
 @DependsOn([IntegrationsPatch::class, SettingsResourcePatch::class, ])
-@Name("settings")
+@Name("Settings")
 @Description("Adds settings for ReVanced to YouTube.")
 @Version("0.0.1")
 class SettingsPatch : BytecodePatch(

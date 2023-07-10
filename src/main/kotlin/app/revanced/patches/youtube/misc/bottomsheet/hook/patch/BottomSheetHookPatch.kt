@@ -12,7 +12,7 @@ import app.revanced.patches.youtube.misc.bottomsheet.hook.fingerprints.CreateBot
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
-@DependsOn([IntegrationsPatch::class])
+@DependsOn([IntegrationsPatch::class, BottomSheetHookResourcePatch::class])
 class BottomSheetHookPatch : BytecodePatch(
     listOf(CreateBottomSheetFingerprint)
 ) {

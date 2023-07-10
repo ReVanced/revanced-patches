@@ -20,7 +20,7 @@ import app.revanced.patches.warnwetter.misc.promocode.fingerprints.PromoCodeUnlo
     ]
 )
 @Patch
-@Name("promo-code-unlock")
+@Name("Promo code unlock")
 @Description("Disables the validation of promo code. Any code will work to unlock all features.")
 @PromoCodeUnlockCompatibility
 @Version("0.0.1")

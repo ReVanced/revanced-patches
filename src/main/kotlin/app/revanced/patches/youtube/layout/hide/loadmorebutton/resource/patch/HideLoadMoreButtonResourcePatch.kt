@@ -12,7 +12,7 @@ import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.layout.hide.loadmorebutton.annotations.HideLoadMoreButtonCompatibility
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
-@Name("hide-load-more-button-resource-patch")
+@Name("Hide load more button resource patch")
 @DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
 @HideLoadMoreButtonCompatibility
 class HideLoadMoreButtonResourcePatch : ResourcePatch {

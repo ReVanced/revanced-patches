@@ -32,7 +32,7 @@ import org.jf.dexlib2.iface.reference.StringReference
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
-@Name("downloads")
+@Name("Downloads")
 @Description("Removes download restrictions and changes the default path to download to.")
 @DownloadsCompatibility
 @Version("0.0.1")

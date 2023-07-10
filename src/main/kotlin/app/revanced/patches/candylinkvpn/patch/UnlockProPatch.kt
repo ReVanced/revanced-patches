@@ -14,7 +14,7 @@ import app.revanced.patches.candylinkvpn.annotations.UnlockProCompatibility
 import app.revanced.patches.candylinkvpn.fingereprints.IsPremiumPurchasedFingerprint
 
 @Patch
-@Name("unlock-pro")
+@Name("Unlock pro")
 @Description("Unlocks premium features.")
 @UnlockProCompatibility
 @Version("0.0.1")

@@ -16,7 +16,7 @@ import app.revanced.patches.youtube.misc.playercontrols.fingerprints.PlayerContr
 import app.revanced.patches.youtube.misc.playercontrols.resource.patch.BottomControlsResourcePatch
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Name("player-controls-bytecode-patch")
+@Name("Player controls bytecode patch")
 @DependsOn([BottomControlsResourcePatch::class])
 @Description("Manages the code for the player controls of the YouTube player.")
 @PlayerControlsCompatibility

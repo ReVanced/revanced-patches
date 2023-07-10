@@ -14,7 +14,7 @@ import app.revanced.patches.reddit.misc.tracking.url.annotations.SanitizeUrlQuer
 import app.revanced.patches.reddit.misc.tracking.url.fingerprints.ShareLinkFormatterFingerprint
 
 @Patch
-@Name("sanitize-sharing-links")
+@Name("Sanitize sharing links")
 @Description("Removes (tracking) query parameters from the URLs when sharing links.")
 @SanitizeUrlQueryCompatibility
 @Version("0.0.1")

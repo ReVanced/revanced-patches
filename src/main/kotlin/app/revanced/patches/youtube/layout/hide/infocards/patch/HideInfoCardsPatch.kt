@@ -26,7 +26,7 @@ import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch
 @DependsOn([IntegrationsPatch::class, HideInfocardsResourcePatch::class])
-@Name("hide-info-cards")
+@Name("Hide info cards")
 @Description("Hides info cards in videos.")
 @HideInfocardsCompatibility
 @Version("0.0.1")

@@ -17,7 +17,7 @@ import app.revanced.patches.trakt.fingerprints.IsVIPFingerprint
 import app.revanced.patches.trakt.fingerprints.RemoteUserFingerprint
 
 @Patch
-@Name("unlock-pro")
+@Name("Unlock pro")
 @Description("Unlocks pro features.")
 @UnlockProCompatibility
 @Version("0.0.1")

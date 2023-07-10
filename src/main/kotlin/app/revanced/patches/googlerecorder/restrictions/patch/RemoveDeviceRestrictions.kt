@@ -18,7 +18,7 @@ import app.revanced.patches.googlerecorder.restrictions.fingereprints.OnApplicat
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("remove-device-restrictions")
+@Name("Remove device restrictions")
 @Description("Removes restrictions from using the app on any device.")
 @Compatibility([Package("com.google.android.apps.recorder")])
 @Version("0.0.1")

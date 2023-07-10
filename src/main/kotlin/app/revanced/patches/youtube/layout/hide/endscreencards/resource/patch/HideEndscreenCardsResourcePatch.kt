@@ -13,7 +13,7 @@ import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.layout.hide.endscreencards.annotations.HideEndscreenCardsCompatibility
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
-@Name("hide-endscreen-cards-resource-patch")
+@Name("Hide endscreen cards resource patch")
 @HideEndscreenCardsCompatibility
 @DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
 @Version("0.0.1")

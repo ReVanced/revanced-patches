@@ -13,7 +13,7 @@ import app.revanced.patches.myexpenses.misc.pro.annotations.UnlockProCompatibili
 import app.revanced.patches.myexpenses.misc.pro.fingerprints.IsEnabledFingerprint
 
 @Patch
-@Name("unlock-pro")
+@Name("Unlock pro")
 @Description("Unlocks all professional features.")
 @UnlockProCompatibility
 @Version("0.0.1")

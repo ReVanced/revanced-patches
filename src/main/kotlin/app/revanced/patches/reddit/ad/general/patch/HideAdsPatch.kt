@@ -24,7 +24,7 @@ import org.jf.dexlib2.iface.reference.FieldReference
 import org.jf.dexlib2.iface.reference.MethodReference
 
 @Patch
-@Name("hide-ads")
+@Name("Hide ads")
 @Description("Removes ads from the Reddit.")
 @DependsOn([HideBannerPatch::class, HideCommentAdsPatch::class])
 @HideAdsCompatibility

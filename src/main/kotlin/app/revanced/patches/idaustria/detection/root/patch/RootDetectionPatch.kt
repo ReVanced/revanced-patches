@@ -13,7 +13,7 @@ import app.revanced.patches.idaustria.detection.root.fingerprints.RootDetectionF
 import app.revanced.patches.idaustria.detection.shared.annotations.DetectionCompatibility
 
 @Patch
-@Name("remove-root-detection")
+@Name("Remove root detection")
 @Description("Removes the check for root permissions and unlocked bootloader.")
 @DetectionCompatibility
 @Version("0.0.1")

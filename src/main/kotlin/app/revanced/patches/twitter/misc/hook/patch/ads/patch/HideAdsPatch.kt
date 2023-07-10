@@ -10,7 +10,7 @@ import app.revanced.patches.twitter.misc.hook.patch.BaseHookPatchPatch
 import app.revanced.patches.twitter.misc.hook.patch.ads.annotations.HideAdsCompatibility
 
 @Patch
-@Name("hide-ads")
+@Name("Hide ads")
 @DependsOn([JsonHookPatch::class])
 @Description("Hides ads.")
 @HideAdsCompatibility

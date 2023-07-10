@@ -8,7 +8,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 
-@Name("hide-subreddit-banner")
+@Name("Hide subreddit banner")
 @Description("Hides banner ads from comments on subreddits.")
 @Version("0.0.1")
 class HideBannerPatch : ResourcePatch {

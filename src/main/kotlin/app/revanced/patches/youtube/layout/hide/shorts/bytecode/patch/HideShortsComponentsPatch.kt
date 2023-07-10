@@ -35,7 +35,7 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
         ResourceMappingPatch::class
     ]
 )
-@Name("hide-shorts-components")
+@Name("Hide Shorts components")
 @Description("Hides components from YouTube Shorts.")
 @HideShortsComponentsCompatibility
 @Version("0.0.1")

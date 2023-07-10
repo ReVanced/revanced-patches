@@ -12,7 +12,7 @@ import org.w3c.dom.Element
 
 @Patch
 @DependsOn([HideViewsBytecodePatch::class])
-@Name("hide-views-stats")
+@Name("Hide views stats")
 @Description("Hides the view stats under tweets.")
 @HideViewsCompatibility
 @Version("0.0.1")

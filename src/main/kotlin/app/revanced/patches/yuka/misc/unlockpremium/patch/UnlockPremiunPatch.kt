@@ -15,7 +15,7 @@ import app.revanced.patches.yuka.misc.unlockpremium.fingerprints.IsPremiumFinger
 import app.revanced.patches.yuka.misc.unlockpremium.fingerprints.YukaUserConstructorFingerprint
 
 @Patch
-@Name("unlock-premium")
+@Name("Unlock premium")
 @Description("Unlocks premium features.")
 @UnlockPremiumCompatibility
 @Version("0.0.1")

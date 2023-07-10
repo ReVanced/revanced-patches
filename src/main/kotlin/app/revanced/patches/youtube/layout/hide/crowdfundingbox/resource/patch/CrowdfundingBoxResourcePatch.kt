@@ -13,7 +13,7 @@ import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.layout.hide.crowdfundingbox.annotations.CrowdfundingBoxCompatibility
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
-@Name("crowdfunding-box-resource-patch")
+@Name("Crowdfunding box resource patch")
 @CrowdfundingBoxCompatibility
 @DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
 @Version("0.0.1")

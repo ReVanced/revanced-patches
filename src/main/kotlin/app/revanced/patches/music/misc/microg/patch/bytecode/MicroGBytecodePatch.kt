@@ -18,7 +18,7 @@ import app.revanced.util.microg.MicroGBytecodeHelper
 
 @Patch
 @DependsOn([MicroGResourcePatch::class])
-@Name("vanced-microg-support")
+@Name("Vanced MicroG support")
 @Description("Allows YouTube Music ReVanced to run without root and under a different package name.")
 @MusicCompatibility
 @Version("0.0.2")

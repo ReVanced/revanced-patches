@@ -19,7 +19,7 @@ import app.revanced.patches.twitter.misc.hook.json.fingerprints.LoganSquareFinge
 import java.io.Closeable
 import java.io.InvalidClassException
 
-@Name("json-hook")
+@Name("Json hook")
 @Description("Hooks the stream which reads JSON responses.")
 @Version("0.0.1")
 @RequiresIntegrations

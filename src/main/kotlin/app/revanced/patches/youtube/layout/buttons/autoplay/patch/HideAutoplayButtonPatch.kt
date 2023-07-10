@@ -28,7 +28,7 @@ import org.jf.dexlib2.iface.reference.MethodReference
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class, ResourceMappingPatch::class])
-@Name("hide-autoplay-button")
+@Name("Hide autoplay button")
 @Description("Hides the autoplay button in the video player.")
 @AutoplayButtonCompatibility
 @Version("0.0.1")

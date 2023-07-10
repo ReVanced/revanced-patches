@@ -13,7 +13,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.layout.theme.annotations.ThemeCompatibility
 import app.revanced.patches.youtube.layout.theme.bytecode.fingerprints.LithoThemeFingerprint
 
-@Name("litho-color-hook")
+@Name("Litho color hook")
 @Description("Adds a hook to set color of Litho components.")
 @ThemeCompatibility
 @Version("0.0.1")

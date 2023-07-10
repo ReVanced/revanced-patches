@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.Patch
 
 @Patch(false)
-@Name("predictive-back-gesture")
+@Name("Predictive back gesture")
 @Description("Enables the predictive back gesture introduced on Android 13.")
 @Version("0.0.1")
 class PredictiveBackGesturePatch : ResourcePatch {

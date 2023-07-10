@@ -16,7 +16,7 @@ import app.revanced.patches.music.audio.codecs.fingerprints.CodecsLockFingerprin
 import org.jf.dexlib2.Opcode
 
 @Patch
-@Name("codecs-unlock")
+@Name("Codecs unlock")
 @Description("Adds more audio codec options. The new audio codecs usually result in better audio quality.")
 @MusicCompatibility
 @Version("0.0.1")

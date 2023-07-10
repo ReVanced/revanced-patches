@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.reddit.ad.comments.fingerprints.HideCommentAdsFingerprint
 
-@Name("hide-comment-ads")
+@Name("Hide comment ads")
 @Description("Removes all comment ads.")
 @Version("0.0.1")
 class HideCommentAdsPatch : BytecodePatch(

@@ -6,7 +6,7 @@ import app.revanced.patches.shared.integrations.patch.AbstractIntegrationsPatch
 import app.revanced.patches.twitch.misc.integrations.annotations.IntegrationsCompatibility
 import app.revanced.patches.twitch.misc.integrations.fingerprints.InitFingerprint
 
-@Name("integrations")
+@Name("Integrations")
 @IntegrationsCompatibility
 @RequiresIntegrations
 class IntegrationsPatch : AbstractIntegrationsPatch(

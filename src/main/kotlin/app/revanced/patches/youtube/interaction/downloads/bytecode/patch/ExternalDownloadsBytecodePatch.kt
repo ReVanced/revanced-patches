@@ -15,7 +15,7 @@ import app.revanced.patches.youtube.misc.playercontrols.bytecode.patch.PlayerCon
 import app.revanced.patches.youtube.video.information.patch.VideoInformationPatch
 
 @Patch
-@Name("external-downloads")
+@Name("External downloads")
 @DependsOn([ExternalDownloadsResourcePatch::class, PlayerControlsBytecodePatch::class, VideoInformationPatch::class])
 @Description("Adds support to download and save YouTube videos using an external app.")
 @ExternalDownloadsCompatibility

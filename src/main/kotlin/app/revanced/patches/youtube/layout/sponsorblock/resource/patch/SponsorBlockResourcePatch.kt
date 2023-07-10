@@ -16,7 +16,7 @@ import app.revanced.util.resources.ResourceUtils.copyResources
 import app.revanced.util.resources.ResourceUtils.copyXmlNode
 import app.revanced.util.resources.ResourceUtils.mergeStrings
 
-@Name("sponsorblock-resource-patch")
+@Name("SponsorBlock resource patch")
 @DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
 @Version("0.0.1")
 class SponsorBlockResourcePatch : ResourcePatch {

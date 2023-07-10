@@ -16,7 +16,7 @@ import app.revanced.patches.music.layout.premium.fingerprints.HideGetPremiumFing
 import app.revanced.patches.music.layout.premium.fingerprints.HideGetPremiumParentFingerprint
 
 @Patch
-@Name("hide-get-premium")
+@Name("Hide get premium")
 @Description("Removes all \"Get Premium\" evidences from the avatar menu.")
 @MusicCompatibility
 @Version("0.0.1")

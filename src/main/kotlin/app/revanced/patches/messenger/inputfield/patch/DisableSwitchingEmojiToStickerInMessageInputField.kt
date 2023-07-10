@@ -13,7 +13,7 @@ import app.revanced.patches.messenger.inputfield.fingerprints.SwitchMessangeInpu
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("disable-switching-emoji-to-sticker-in-message-input-field")
+@Name("Disable switching emoji to sticker in message input field")
 @Description("Disables switching from emoji to sticker search mode in message input field")
 @Compatibility([Package("com.facebook.orca")])
 @Version("0.0.1")

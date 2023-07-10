@@ -39,7 +39,7 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
         PlayerTypeHookPatch::class,
     ]
 )
-@Name("return-youtube-dislike")
+@Name("Return youtube dislike")
 @Description("Shows the dislike count of videos using the Return YouTube Dislike API.")
 @ReturnYouTubeDislikeCompatibility
 @Version("0.0.1")

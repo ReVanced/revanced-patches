@@ -16,7 +16,7 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.util.resources.ResourceUtils.mergeStrings
 
 @DependsOn([SettingsPatch::class])
-@Name("return-youtube-dislike-resource-patch")
+@Name("Return youtube dislike resource patch")
 @Description("Adds the preferences for Return YouTube Dislike.")
 @ReturnYouTubeDislikeCompatibility
 @Version("0.0.1")

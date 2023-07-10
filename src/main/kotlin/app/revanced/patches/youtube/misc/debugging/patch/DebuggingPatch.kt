@@ -16,7 +16,7 @@ import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
 @Patch
-@Name("enable-debugging")
+@Name("Enable debugging")
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
 @Description("Adds debugging options.")
 @DebuggingCompatibility

@@ -16,7 +16,7 @@ import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 import app.revanced.util.resources.ResourceUtils.mergeStrings
 
-@Name("copy-video-url-resource")
+@Name("Copy video url resource")
 @DependsOn([BottomControlsResourcePatch::class, SettingsPatch::class])
 @Version("0.0.1")
 class CopyVideoUrlResourcePatch : ResourcePatch {

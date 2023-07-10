@@ -14,7 +14,7 @@ import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 import app.revanced.util.resources.ResourceUtils.mergeStrings
 
-@Name("external-downloads-resource-patch")
+@Name("External downloads resource patch")
 @DependsOn([BottomControlsResourcePatch::class, SettingsPatch::class])
 @Version("0.0.1")
 class ExternalDownloadsResourcePatch : ResourcePatch {

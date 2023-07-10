@@ -12,7 +12,7 @@ import app.revanced.patches.warnwetter.misc.firebasegetcert.annotations.Firebase
 import app.revanced.patches.warnwetter.misc.firebasegetcert.fingerprints.GetMessagingCertFingerprint
 import app.revanced.patches.warnwetter.misc.firebasegetcert.fingerprints.GetReqistrationCertFingerprint
 
-@Name("spoof-cert-patch")
+@Name("Spoof cert patch")
 @Description("Spoofs the X-Android-Cert header.")
 @FirebaseGetCertPatchCompatibility
 @Version("0.0.1")
