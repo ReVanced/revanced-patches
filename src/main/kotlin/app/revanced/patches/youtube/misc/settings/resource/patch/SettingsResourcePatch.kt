@@ -19,7 +19,7 @@ import app.revanced.util.resources.ResourceUtils.mergeStrings
 import org.w3c.dom.Element
 import org.w3c.dom.Node
 
-@Name("settings-resource-patch")
+@Name("Settings resource patch")
 @DependsOn([ResourceMappingPatch::class])
 @Description("Applies mandatory patches to implement ReVanced settings into the application.")
 @Version("0.0.1")

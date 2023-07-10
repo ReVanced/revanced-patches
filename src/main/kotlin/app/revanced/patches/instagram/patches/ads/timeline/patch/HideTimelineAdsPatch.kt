@@ -22,7 +22,7 @@ import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("hide-timeline-ads")
+@Name("Hide timeline ads")
 @Description("Removes ads from the timeline.")
 @Compatibility([Package("com.instagram.android", arrayOf("275.0.0.27.98"))])
 @Version("0.0.1")

@@ -14,7 +14,7 @@ import app.revanced.patches.hexeditor.ad.annotations.HexEditorAdsCompatibility
 import app.revanced.patches.hexeditor.ad.fingerprints.PrimaryAdsFingerprint
 
 @Patch
-@Name("disable-ads")
+@Name("Disable ads")
 @Description("Disables ads in HexEditor.")
 @HexEditorAdsCompatibility
 @Version("0.0.1")

@@ -22,7 +22,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction3rc
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
-@Name("hide-player-buttons")
+@Name("Hide player buttons")
 @Description("Adds the option to hide video player previous and next buttons.")
 @HidePlayerButtonsCompatibility
 @Version("0.0.1")

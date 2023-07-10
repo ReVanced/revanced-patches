@@ -10,7 +10,7 @@ import app.revanced.patches.spotify.layout.theme.annotations.ThemeCompatibility
 import org.w3c.dom.Element
 
 @Patch
-@Name("spotify-theme")
+@Name("Spotify theme")
 @Description("Applies a custom theme.")
 @ThemeCompatibility
 @Version("0.0.1")

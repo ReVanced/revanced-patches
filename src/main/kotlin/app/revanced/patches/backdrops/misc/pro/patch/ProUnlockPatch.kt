@@ -16,7 +16,7 @@ import app.revanced.patches.backdrops.misc.pro.fingerprints.ProUnlockFingerprint
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("pro-unlock")
+@Name("Pro unlock")
 @Description("Unlocks pro-only functions.")
 @ProUnlockCompatibility
 @Version("0.0.1")

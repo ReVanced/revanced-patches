@@ -13,7 +13,7 @@ import app.revanced.patches.tasker.trial.unlock.annotations.UnlockTrialCompatibi
 import app.revanced.patches.tasker.trial.unlock.fingerprints.CheckLicenseFingerprint
 
 @Patch
-@Name("unlock-trial")
+@Name("Unlock trial")
 @Description("Unlocks the trial version.")
 @UnlockTrialCompatibility
 @Version("0.0.1")

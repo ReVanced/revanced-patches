@@ -15,7 +15,7 @@ import app.revanced.patches.songpal.badge.annotations.BadgeCompatibility
 import app.revanced.patches.songpal.badge.fingerprints.CreateTabsFingerprint
 
 @Patch
-@Name("remove-badge-tab")
+@Name("Remove badge tab")
 @Description("Removes the badge tab from the activity tab.")
 @BadgeCompatibility
 @Version("0.0.1")

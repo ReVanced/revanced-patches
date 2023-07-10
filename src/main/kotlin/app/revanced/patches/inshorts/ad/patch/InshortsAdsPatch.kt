@@ -14,7 +14,7 @@ import app.revanced.patches.inshorts.ad.annotations.HideAdsCompatibility
 import app.revanced.patches.inshorts.ad.fingerprints.InshortsAdsFingerprint
 
 @Patch
-@Name("hide-ads")
+@Name("Hide ads")
 @Description("Removes ads from Inshorts.")
 @HideAdsCompatibility
 @Version("0.0.1")

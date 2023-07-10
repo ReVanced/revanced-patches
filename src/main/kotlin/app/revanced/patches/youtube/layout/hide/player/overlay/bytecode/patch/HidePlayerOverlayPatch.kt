@@ -19,7 +19,7 @@ import app.revanced.patches.youtube.layout.hide.player.overlay.resource.patch.Hi
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
-@Name("hide-player-overlay")
+@Name("Hide player overlay")
 @Description("Hides the dark background overlay from the player when player controls are visible.")
 @DependsOn([HidePlayerOverlayResourcePatch::class])
 @HidePlayerOverlayPatchCompatibility

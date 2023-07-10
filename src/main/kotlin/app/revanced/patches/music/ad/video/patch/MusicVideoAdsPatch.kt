@@ -15,7 +15,7 @@ import app.revanced.patches.music.ad.video.fingerprints.ShowMusicVideoAdsFingerp
 import app.revanced.patches.music.annotations.MusicCompatibility
 
 @Patch
-@Name("music-video-ads")
+@Name("Music video ads")
 @Description("Removes ads in the music player.")
 @MusicCompatibility
 @Version("0.0.1")

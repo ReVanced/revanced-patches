@@ -18,7 +18,7 @@ import app.revanced.patches.youtubevanced.ad.general.fingerprints.ContainsAdFing
 import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 
 @Patch
-@Name("hide-ads")
+@Name("Hide ads")
 @Description("Removes general ads.")
 @DependsOn([VerticalScrollPatch::class])
 @HideAdsCompatibility

@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.Patch
 
 @Patch(false)
-@Name("export-all-activities")
+@Name("Export all activities")
 @Description("Makes all app activities exportable.")
 @Version("0.0.1")
 class ExportAllActivitiesPatch : ResourcePatch {

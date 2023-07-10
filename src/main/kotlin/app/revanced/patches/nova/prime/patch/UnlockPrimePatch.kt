@@ -15,7 +15,7 @@ import app.revanced.patches.nova.prime.fingerprints.UnlockPrimeFingerprint
 import org.jf.dexlib2.builder.instruction.BuilderInstruction11x
 
 @Patch
-@Name("unlock-prime")
+@Name("Unlock prime")
 @Description("Unlocks Nova Prime and all functions of the app.")
 @UnlockPrimeCompatibility
 @Version("0.0.1")

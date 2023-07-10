@@ -14,7 +14,7 @@ import app.revanced.patches.reddit.layout.disablescreenshotpopup.annotations.Dis
 import app.revanced.patches.reddit.layout.disablescreenshotpopup.fingerprints.DisableScreenshotPopupFingerprint
 
 @Patch
-@Name("disable-screenshot-popup")
+@Name("Disable screenshot popup")
 @Description("Disables the popup that shows up when taking a screenshot.")
 @DisableScreenshotPopupCompatibility
 @Version("0.0.1")

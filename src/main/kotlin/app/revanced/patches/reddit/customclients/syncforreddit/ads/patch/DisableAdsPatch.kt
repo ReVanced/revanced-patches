@@ -13,7 +13,7 @@ import app.revanced.patches.reddit.customclients.syncforreddit.ads.fingerprints.
 import app.revanced.patches.reddit.customclients.syncforreddit.detection.piracy.patch.DisablePiracyDetectionPatch
 
 @Patch
-@Name("disable-ads")
+@Name("Disable ads")
 @DependsOn([DisablePiracyDetectionPatch::class])
 @Description("Disables ads.")
 @Compatibility([Package("com.laurencedawson.reddit_sync")])

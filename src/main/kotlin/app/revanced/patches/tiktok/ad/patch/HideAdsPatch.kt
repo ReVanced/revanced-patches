@@ -19,7 +19,7 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.jf.dexlib2.iface.reference.FieldReference
 
 @Patch
-@Name("hide-ads")
+@Name("Hide ads")
 @Description("Removes ads from TikTok.")
 @HideAdsCompatibility
 @Version("0.0.1")

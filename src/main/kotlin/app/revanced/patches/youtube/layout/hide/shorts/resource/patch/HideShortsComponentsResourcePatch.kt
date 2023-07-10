@@ -23,7 +23,7 @@ class HideShortsComponentsResourcePatch : ResourcePatch {
                 listOf(
                     SwitchPreference(
                         "revanced_hide_shorts",
-                        StringResource("revanced_hide_shorts_title", "Hide shorts in feed"),
+                        StringResource("revanced_hide_shorts_title", "Hide Shorts in feed"),
                         StringResource("revanced_hide_shorts_on", "Shorts are hidden"),
                         StringResource("revanced_hide_shorts_off", "Shorts are shown")
                     ),

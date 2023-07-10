@@ -14,7 +14,7 @@ import org.jf.dexlib2.iface.Method
 import org.jf.dexlib2.iface.instruction.Instruction
 
 @Patch(false)
-@Name("remove-screen-capture-restriction")
+@Name("Remove screen capture restriction")
 @Description("Removes the restriction of capturing audio from apps that normally wouldn't allow it.")
 @Version("0.0.1")
 @DependsOn([RemoveCaptureRestrictionResourcePatch::class])

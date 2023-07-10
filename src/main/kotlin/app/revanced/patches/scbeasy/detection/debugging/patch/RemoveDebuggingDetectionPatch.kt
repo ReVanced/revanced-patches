@@ -13,7 +13,7 @@ import app.revanced.patches.scbeasy.detection.debugging.annotations.RemoveDebugg
 import app.revanced.patches.scbeasy.detection.debugging.fingerprints.DebuggingDetectionFingerprint
 
 @Patch(false)
-@Name("remove-debugging-detection")
+@Name("Remove debugging detection")
 @Description("Removes the USB and wireless debugging checks.")
 @RemoveDebuggingDetectionCompatibility
 @Version("0.0.1")

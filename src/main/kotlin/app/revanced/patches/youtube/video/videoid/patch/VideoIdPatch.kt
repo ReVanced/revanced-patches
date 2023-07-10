@@ -18,7 +18,7 @@ import app.revanced.patches.youtube.video.videoid.fingerprint.VideoIdFingerprint
 import app.revanced.patches.youtube.video.videoid.fingerprint.VideoIdFingerprintBackgroundPlay
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Name("video-id-hook")
+@Name("Video id hook")
 @Description("Hooks to detect when the video id changes")
 @VideoIdCompatibility
 @Version("0.0.1")

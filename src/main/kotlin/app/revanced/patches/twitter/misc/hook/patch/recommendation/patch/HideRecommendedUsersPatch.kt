@@ -10,7 +10,7 @@ import app.revanced.patches.twitter.misc.hook.patch.BaseHookPatchPatch
 import app.revanced.patches.twitter.misc.hook.patch.recommendation.annotations.HideRecommendedUsersCompatibility
 
 @Patch
-@Name("hide-recommended-users")
+@Name("Hide recommended users")
 @DependsOn([JsonHookPatch::class])
 @Description("Hides recommended users.")
 @HideRecommendedUsersCompatibility

@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.misc.fix.playback.fingerprints.UserAgentHead
 import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch
-@Name("client-spoof")
+@Name("Client spoof")
 @Description("Spoofs a patched client to allow playback.")
 @ClientSpoofCompatibility
 @DependsOn([SpoofSignatureVerificationPatch::class])

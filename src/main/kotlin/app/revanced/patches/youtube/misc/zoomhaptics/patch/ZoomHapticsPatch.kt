@@ -19,7 +19,7 @@ import app.revanced.patches.youtube.misc.zoomhaptics.annotations.ZoomHapticsComp
 import app.revanced.patches.youtube.misc.zoomhaptics.fingerprints.ZoomHapticsFingerprint
 
 @Patch
-@Name("disable-zoom-haptics")
+@Name("Disable zoom haptics")
 @Description("Disables haptics when zooming.")
 @DependsOn([SettingsPatch::class])
 @ZoomHapticsCompatibility

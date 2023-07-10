@@ -20,7 +20,7 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
 @DependsOn([IntegrationsPatch::class, CrowdfundingBoxResourcePatch::class])
-@Name("hide-crowdfunding-box")
+@Name("Hide crowdfunding box")
 @Description("Hides the crowdfunding box between the player and video description.")
 @CrowdfundingBoxCompatibility
 @Version("0.0.1")

@@ -14,7 +14,7 @@ import app.revanced.patches.tiktok.misc.login.fixgoogle.fingerprints.GoogleAuthA
 import app.revanced.patches.tiktok.misc.login.fixgoogle.fingerprints.GoogleOneTapAuthAvailableFingerprint
 
 @Patch
-@Name("fix-google-login")
+@Name("Fix google login")
 @Description("Allows logging in with a Google account.")
 @FixGoogleLoginCompatibility
 @Version("0.0.1")

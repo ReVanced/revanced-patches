@@ -24,7 +24,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch
 @DependsOn([IntegrationsPatch::class, EnableSeekbarTappingResourcePatch::class])
-@Name("seekbar-tapping")
+@Name("Seekbar tapping")
 @Description("Enables tap-to-seek on the seekbar of the video player.")
 @SeekbarTappingCompatibility
 @Version("0.0.1")

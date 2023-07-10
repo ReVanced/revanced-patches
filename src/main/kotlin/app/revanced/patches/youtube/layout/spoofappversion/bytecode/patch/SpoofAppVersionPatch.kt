@@ -23,7 +23,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
-@Name("spoof-app-version")
+@Name("Spoof app version")
 @Description("Tricks YouTube into thinking, you are running an older version of the app. One of the side effects also includes restoring the old UI.")
 @SpoofAppVersionCompatibility
 @Version("0.0.1")
@@ -56,7 +56,7 @@ class SpoofAppVersionPatch : BytecodePatch(
                         StringResource("revanced_spoof_app_version_target_entry_1", "17.30.35 - Restore old UI layout"),
                         StringResource("revanced_spoof_app_version_target_entry_2", "17.01.35 - Enable sorting videos by oldest"),
                         StringResource("revanced_spoof_app_version_target_entry_3", "16.08.35 - Restore explore tab"),
-                        StringResource("revanced_spoof_app_version_target_entry_4", "16.01.35 - Restore old shorts player"),
+                        StringResource("revanced_spoof_app_version_target_entry_4", "16.01.35 - Restore old Shorts player"),
                     )
                 ),
                 ArrayResource(

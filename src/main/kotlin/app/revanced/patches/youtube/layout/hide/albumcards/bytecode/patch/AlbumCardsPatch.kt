@@ -20,7 +20,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @DependsOn([IntegrationsPatch::class, AlbumCardsResourcePatch::class])
-@Name("hide-album-cards")
+@Name("Hide album cards")
 @Description("Hides the album cards below the artist description.")
 @AlbumCardsCompatibility
 @Version("0.0.1")

@@ -7,7 +7,7 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.tiktok.interaction.downloads.annotations.DownloadsCompatibility
 import org.jf.dexlib2.AccessFlags
 
-@Name("acl-common-share-get-transcode")
+@Name("Acl common share get transcode")
 @DownloadsCompatibility
 @Version("0.0.1")
 object ACLCommonShareFingerprint3 : MethodFingerprint(

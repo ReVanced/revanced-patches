@@ -13,7 +13,7 @@ import app.revanced.patches.nyx.misc.pro.annotations.UnlockProCompatibility
 import app.revanced.patches.nyx.misc.pro.fingerprints.CheckProFingerprint
 
 @Patch
-@Name("unlock-pro")
+@Name("Unlock pro")
 @Description("Unlocks all pro features.")
 @UnlockProCompatibility
 @Version("0.0.1")

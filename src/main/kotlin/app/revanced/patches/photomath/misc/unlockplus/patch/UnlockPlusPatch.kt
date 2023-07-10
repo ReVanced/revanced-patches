@@ -16,7 +16,7 @@ import app.revanced.patches.photomath.misc.unlockplus.annotations.UnlockPlusComp
 import app.revanced.patches.photomath.misc.unlockplus.fingerprints.IsPlusUnlockedFingerprint
 
 @Patch
-@Name("unlock-plus")
+@Name("Unlock plus")
 @DependsOn([SignatureDetectionPatch::class])
 @Description("Unlocks plus features.")
 @UnlockPlusCompatibilty

@@ -33,7 +33,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
         ResolvePivotBarFingerprintsPatch::class,
     ]
 )
-@Name("navigation-buttons")
+@Name("Navigation buttons")
 @Description("Adds options to hide or change navigation buttons.")
 @NavigationButtonsCompatibility
 @Version("0.0.1")
@@ -52,7 +52,7 @@ class NavigationButtonsPatch : BytecodePatch(listOf(AddCreateButtonViewFingerpri
                     ),
                     SwitchPreference(
                         "revanced_hide_shorts_button",
-                        StringResource("revanced_hide_shorts_button_title", "Hide shorts button"),
+                        StringResource("revanced_hide_shorts_button_title", "Hide Shorts button"),
                         StringResource("revanced_hide_shorts_button_summary_on", "Shorts button is hidden"),
                         StringResource("revanced_hide_shorts_button_summary_off", "Shorts button is shown")
                     ),

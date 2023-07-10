@@ -16,7 +16,7 @@ import app.revanced.patches.finanzonline.detection.shared.annotations.DetectionC
 
 
 @Patch
-@Name("remove-bootloader-detection")
+@Name("Remove bootloader detection")
 @Description("Removes the check for an unlocked bootloader.")
 @DetectionCompatibility
 @Version("0.0.1")

@@ -23,7 +23,7 @@ import app.revanced.patches.youtube.video.speed.custom.patch.CustomVideoSpeedPat
 import app.revanced.patches.youtube.video.speed.remember.fingerprint.InitializePlaybackSpeedValuesFingerprint
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
-@Name("remember-playback-speed")
+@Name("Remember playback speed")
 @Description("Adds the ability to remember the playback speed you chose in the video playback speed flyout.")
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class, VideoInformationPatch::class, CustomVideoSpeedPatch::class])
 @Version("0.0.1")

@@ -13,7 +13,7 @@ import app.revanced.patches.youtube.layout.player.background.annotations.PlayerC
 import org.w3c.dom.Element
 
 @Patch(false)
-@Name("remove-player-controls-background")
+@Name("Remove player controls background")
 @Description("Removes the background from the video player controls.")
 @PlayerControlsBackgroundCompatibility
 @Version("0.0.1")

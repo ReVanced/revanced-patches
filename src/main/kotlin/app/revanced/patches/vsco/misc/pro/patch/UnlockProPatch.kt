@@ -12,7 +12,7 @@ import app.revanced.patches.vsco.misc.pro.fingerprints.RevCatSubscriptionFingerp
 
 
 @Patch
-@Name("unlock-pro")
+@Name("Unlock pro")
 @Description("Unlocks pro features.")
 @Compatibility([Package("com.vsco.cam")])
 @Version("0.0.1")

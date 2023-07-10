@@ -13,7 +13,7 @@ import app.revanced.patches.reddit.layout.premiumicon.annotations.PremiumIconCom
 import app.revanced.patches.reddit.layout.premiumicon.fingerprints.PremiumIconFingerprint
 
 @Patch
-@Name("premium-icon-reddit")
+@Name("Premium icon reddit")
 @Description("Unlocks premium Reddit app icons.")
 @PremiumIconCompatibility
 @Version("0.0.1")

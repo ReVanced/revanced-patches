@@ -25,7 +25,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
     LithoFilterPatch::class,
     BottomSheetHookPatch::class
 ])
-@Name("old-video-quality-menu")
+@Name("Old video quality menu")
 @Description("Shows the old video quality with the advanced video quality options instead of the new one.")
 @OldVideoQualityMenuCompatibility
 @Version("0.0.1")

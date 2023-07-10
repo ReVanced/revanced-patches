@@ -23,7 +23,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 
 @Patch
 @DependsOn([IntegrationsPatch::class, HideEndscreenCardsResourcePatch::class])
-@Name("hide-endscreen-cards")
+@Name("Hide endscreen cards")
 @Description("Hides the suggested video cards at the end of a video in fullscreen.")
 @HideEndscreenCardsCompatibility
 @Version("0.0.1")

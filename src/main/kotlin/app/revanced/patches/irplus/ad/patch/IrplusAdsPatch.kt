@@ -14,7 +14,7 @@ import app.revanced.patches.irplus.ad.fingerprints.IrplusAdsFingerprint
 
 
 @Patch
-@Name("remove-ads")
+@Name("Remove ads")
 @Description("Removes all ads from the app.")
 @IrplusAdsCompatibility
 @Version("0.0.1")

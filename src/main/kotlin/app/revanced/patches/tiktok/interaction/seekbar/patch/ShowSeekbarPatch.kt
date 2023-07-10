@@ -19,7 +19,7 @@ import org.jf.dexlib2.builder.instruction.BuilderInstruction21t
 import org.jf.dexlib2.builder.instruction.BuilderInstruction22c
 
 @Patch
-@Name("show-seekbar")
+@Name("Show seekbar")
 @Description("Shows progress bar for all video.")
 @ShowSeekbarCompatibility
 @Version("0.0.1")

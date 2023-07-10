@@ -20,7 +20,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @DependsOn([IntegrationsPatch::class, HideEmailAddressResourcePatch::class])
-@Name("hide-email-address")
+@Name("Hide email address")
 @Description("Hides the email address in the account switcher.")
 @HideEmailAddressCompatibility
 @Version("0.0.1")

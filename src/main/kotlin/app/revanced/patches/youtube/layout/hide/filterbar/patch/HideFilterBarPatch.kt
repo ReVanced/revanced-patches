@@ -21,7 +21,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
-@Name("hide-filter-bar")
+@Name("Hide filter bar")
 @Description("Hides the filter bar in video feeds.")
 @DependsOn([HideFilterBarResourcePatch::class])
 @HideFilterBar

@@ -20,7 +20,7 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
-@Name("hide-timestamp")
+@Name("Hide timestamp")
 @Description("Hides timestamp in video player.")
 @HideTimeCompatibility
 @Version("0.0.1")

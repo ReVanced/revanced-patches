@@ -34,7 +34,7 @@ import org.jf.dexlib2.immutable.ImmutableMethod
 import org.jf.dexlib2.immutable.ImmutableMethodParameter
 import org.jf.dexlib2.util.MethodUtil
 
-@Name("video-information")
+@Name("Video information")
 @Description("Hooks YouTube to get information about the current playing video.")
 @VideoInformationCompatibility
 @Version("0.0.1")

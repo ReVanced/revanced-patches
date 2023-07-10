@@ -23,7 +23,7 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
 @Patch
 @DependsOn([IntegrationsPatch::class])
-@Name("always-autorepeat")
+@Name("Always autorepeat")
 @Description("Always repeats the playing video again.")
 @AutoRepeatCompatibility
 @Version("0.0.1")

@@ -20,7 +20,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
-@Name("feed-filter")
+@Name("Feed filter")
 @Description("Filters tiktok videos: removing ads, removing livestreams.")
 @FeedFilterCompatibility
 @Version("0.0.1")

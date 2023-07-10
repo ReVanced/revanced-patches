@@ -15,7 +15,7 @@ import app.revanced.patches.nfctoolsse.misc.pro.fingerprints.IsLicenseRegistered
 
 
 @Patch
-@Name("unlock-pro")
+@Name("Unlock pro")
 @Description("Unlocks all pro features.")
 @Version("0.0.1")
 @UnlockProCompatibility

@@ -13,7 +13,7 @@ import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
 
-@Name("resource-mapping")
+@Name("Resource mapping")
 @Description("Creates a map of public resources.")
 @Version("0.0.1")
 class ResourceMappingPatch : ResourcePatch {

@@ -13,7 +13,7 @@ import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.layout.hide.personalinformation.annotations.HideEmailAddressCompatibility
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
-@Name("hide-email-address-resource-patch")
+@Name("Hide email address resource patch")
 @HideEmailAddressCompatibility
 @DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
 @Version("0.0.1")

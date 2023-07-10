@@ -19,7 +19,7 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
 
 @Patch
-@Name("upgrade-button-remover")
+@Name("Upgrade button remover")
 @Description("Removes the upgrade tab from the pivot bar.")
 @MusicCompatibility
 @Version("0.0.1")

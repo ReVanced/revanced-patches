@@ -13,7 +13,7 @@ import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.layout.hide.albumcards.annotations.AlbumCardsCompatibility
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
-@Name("hide-album-cards-resource-patch")
+@Name("Hide album cards resource patch")
 @AlbumCardsCompatibility
 @DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
 @Version("0.0.1")

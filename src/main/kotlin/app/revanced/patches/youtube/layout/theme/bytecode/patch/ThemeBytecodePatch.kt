@@ -12,7 +12,7 @@ import app.revanced.patches.youtube.layout.theme.annotations.ThemeCompatibility
 import app.revanced.patches.youtube.layout.theme.resource.ThemeResourcePatch
 
 @Patch
-@Name("theme")
+@Name("Theme")
 @Description("Applies a custom theme.")
 @DependsOn([LithoColorHookPatch::class, SeekbarColorBytecodePatch::class, ThemeResourcePatch::class])
 @ThemeCompatibility

@@ -14,7 +14,7 @@ import app.revanced.patches.spotify.lite.ondemand.annotations.OnDemandCompatibil
 import app.revanced.patches.spotify.lite.ondemand.fingerprints.OnDemandFingerprint
 
 @Patch
-@Name("enable-on-demand")
+@Name("Enable on demand")
 @Description("Enables listening to songs on-demand, allowing to play any song from playlists, albums or artists without limitations. This does not remove ads.")
 @OnDemandCompatibility
 @Version("0.0.1")

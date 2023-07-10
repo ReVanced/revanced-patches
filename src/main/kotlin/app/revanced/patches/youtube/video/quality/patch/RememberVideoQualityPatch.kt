@@ -33,7 +33,7 @@ import org.jf.dexlib2.iface.reference.FieldReference
 
 @Patch
 @DependsOn([IntegrationsPatch::class, VideoInformationPatch::class, SettingsPatch::class])
-@Name("remember-video-quality")
+@Name("Remember video quality")
 @Description("Adds the ability to remember the video quality you chose in the video quality flyout.")
 @RememberVideoQualityCompatibility
 @Version("0.0.1")

@@ -13,7 +13,7 @@ import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
 import app.revanced.patches.youtube.misc.playercontrols.annotation.PlayerControlsCompatibility
 import java.io.Closeable
 
-@Name("bottom-controls-resource-patch")
+@Name("Bottom controls resource patch")
 @Description("Manages the resources for the bottom controls of the YouTube player.")
 @PlayerControlsCompatibility
 @DependsOn([ResourceMappingPatch::class])

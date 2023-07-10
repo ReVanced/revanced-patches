@@ -19,7 +19,7 @@ import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
 @Patch
-@Name("hide-premium-navbar")
+@Name("Hide premium navbar")
 @Description("Removes the premium tab from the navbar.")
 @PremiumNavbarTabCompatibility
 @Version("0.0.1")

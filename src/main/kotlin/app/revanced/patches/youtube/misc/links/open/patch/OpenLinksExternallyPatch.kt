@@ -20,7 +20,7 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 
 @Patch
-@Name("open-links-externally")
+@Name("Open links externally")
 @Description("Open links outside of the app directly in your browser.")
 @OpenLinksExternallyCompatibility
 @Version("0.0.1")

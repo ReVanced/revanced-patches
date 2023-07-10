@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.layout.hide.floatingmicrophone.fingerprints.
 import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch
-@Name("hide-floating-microphone-button")
+@Name("Hide floating microphone button")
 @Description("Hides the floating microphone button which appears in search.")
 @DependsOn([HideFloatingMicrophoneButtonResourcePatch::class])
 @HideFloatingMicrophoneButtonCompatibility

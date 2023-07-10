@@ -13,7 +13,7 @@ import app.revanced.patches.moneymanager.annotations.UnlockProCompatibility
 import app.revanced.patches.moneymanager.fingerprints.UnlockProFingerprint
 
 @Patch
-@Name("unlock-pro")
+@Name("Unlock pro")
 @Description("Unlocks pro features.")
 @UnlockProCompatibility
 @Version("0.0.1")

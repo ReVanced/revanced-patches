@@ -16,7 +16,7 @@ import app.revanced.patches.music.misc.microg.shared.Constants.SPOOFED_PACKAGE_S
 import app.revanced.util.microg.MicroGManifestHelper
 import app.revanced.util.microg.MicroGResourceHelper
 
-@Name("microg-resource-patch")
+@Name("Vanced MicroG resource patch")
 @Description("Resource patch to allow YouTube Music ReVanced to run without root and under a different package name.")
 @MusicCompatibility
 @Version("0.0.2")
