@@ -1,3 +1,10 @@
+# [2.184.0](https://github.com/revanced/revanced-patches/compare/v2.183.1...v2.184.0) (2023-07-11)
+
+
+### Features
+
+* **youtube/custom-branding:** update logo ([e2187f3](https://github.com/revanced/revanced-patches/commit/e2187f33ff82fce40592517aef31cb191b42987c))
+
 # [2.184.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.183.1...v2.184.0-dev.1) (2023-07-11)
 
 
