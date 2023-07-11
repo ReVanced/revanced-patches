@@ -1,8 +1,5 @@
 package app.revanced.patches.youtube.misc.settings.resource.patch
 
-import app.revanced.patcher.annotation.Description
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.DomFileEditor
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
@@ -19,10 +16,7 @@ import app.revanced.util.resources.ResourceUtils.mergeStrings
 import org.w3c.dom.Element
 import org.w3c.dom.Node
 
-@Name("Settings resource patch")
 @DependsOn([ResourceMappingPatch::class])
-@Description("Applies mandatory patches to implement ReVanced settings into the application.")
-@Version("0.0.1")
 class SettingsResourcePatch : AbstractSettingsResourcePatch(
     "revanced_prefs",
     "settings"

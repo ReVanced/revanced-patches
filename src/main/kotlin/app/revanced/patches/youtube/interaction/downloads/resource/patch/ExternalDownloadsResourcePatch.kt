@@ -1,7 +1,5 @@
 package app.revanced.patches.youtube.interaction.downloads.resource.patch
 
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -14,9 +12,7 @@ import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 import app.revanced.util.resources.ResourceUtils.mergeStrings
 
-@Name("External downloads resource patch")
 @DependsOn([BottomControlsResourcePatch::class, SettingsPatch::class])
-@Version("0.0.1")
 class ExternalDownloadsResourcePatch : ResourcePatch {
 
     override fun execute(context: ResourceContext): PatchResult {
