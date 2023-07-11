@@ -1,8 +1,5 @@
 package app.revanced.patches.youtube.misc.microg.patch.resource
 
-import app.revanced.patcher.annotation.Description
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -10,7 +7,6 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.settings.preference.impl.Preference
 import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.youtube.misc.microg.annotations.MicroGPatchCompatibility
 import app.revanced.patches.youtube.misc.microg.shared.Constants.PACKAGE_NAME
 import app.revanced.patches.youtube.misc.microg.shared.Constants.REVANCED_APP_NAME
 import app.revanced.patches.youtube.misc.microg.shared.Constants.REVANCED_PACKAGE_NAME
@@ -22,11 +18,7 @@ import app.revanced.util.microg.Constants.MICROG_VENDOR
 import app.revanced.util.microg.MicroGManifestHelper
 import app.revanced.util.microg.MicroGResourceHelper
 
-@Name("Vanced MicroG resource patch")
 @DependsOn([SettingsResourcePatch::class])
-@Description("Resource patch to allow YouTube ReVanced to run without root and under a different package name.")
-@MicroGPatchCompatibility
-@Version("0.0.1")
 class MicroGResourcePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
         SettingsPatch.addPreference(

@@ -1,15 +1,9 @@
 package app.revanced.patches.twitch.misc.settings.resource.patch
 
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patches.shared.settings.preference.impl.ArrayResource
 import app.revanced.patches.shared.settings.preference.impl.PreferenceScreen
 import app.revanced.patches.shared.settings.resource.patch.AbstractSettingsResourcePatch
-import app.revanced.patches.twitch.misc.settings.annotations.SettingsCompatibility
 
-@Name("Settings resource patch")
-@SettingsCompatibility
-@Version("0.0.1")
 class SettingsResourcePatch : AbstractSettingsResourcePatch(
 "revanced_prefs",
 "twitch/settings"

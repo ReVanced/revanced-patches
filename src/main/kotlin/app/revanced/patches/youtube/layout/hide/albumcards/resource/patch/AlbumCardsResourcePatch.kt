@@ -1,7 +1,5 @@
 package app.revanced.patches.youtube.layout.hide.albumcards.resource.patch
 
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -10,13 +8,9 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
-import app.revanced.patches.youtube.layout.hide.albumcards.annotations.AlbumCardsCompatibility
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
-@Name("Hide album cards resource patch")
-@AlbumCardsCompatibility
 @DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
-@Version("0.0.1")
 class AlbumCardsResourcePatch : ResourcePatch {
     companion object {
         internal var albumCardId: Long = -1

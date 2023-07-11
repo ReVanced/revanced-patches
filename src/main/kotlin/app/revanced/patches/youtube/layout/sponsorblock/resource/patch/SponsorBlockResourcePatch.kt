@@ -1,7 +1,5 @@
 package app.revanced.patches.youtube.layout.sponsorblock.resource.patch
 
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -16,9 +14,7 @@ import app.revanced.util.resources.ResourceUtils.copyResources
 import app.revanced.util.resources.ResourceUtils.copyXmlNode
 import app.revanced.util.resources.ResourceUtils.mergeStrings
 
-@Name("SponsorBlock resource patch")
 @DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
-@Version("0.0.1")
 class SponsorBlockResourcePatch : ResourcePatch {
 
     override fun execute(context: ResourceContext): PatchResult {

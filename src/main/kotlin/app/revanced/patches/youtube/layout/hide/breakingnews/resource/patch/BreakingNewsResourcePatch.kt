@@ -1,7 +1,5 @@
 package app.revanced.patches.youtube.layout.hide.breakingnews.resource.patch
 
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -12,9 +10,7 @@ import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
-@Name("Breaking news shelf resource patch")
 @DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
-@Version("0.0.1")
 class BreakingNewsResourcePatch : ResourcePatch {
     companion object {
         internal var horizontalCardListId: Long = -1

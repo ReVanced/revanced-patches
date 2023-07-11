@@ -12,7 +12,6 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 
-@Name("Swipe controls resource patch")
 @DependsOn([SettingsPatch::class])
 @Version("0.0.1")
 class SwipeControlsResourcePatch : ResourcePatch {

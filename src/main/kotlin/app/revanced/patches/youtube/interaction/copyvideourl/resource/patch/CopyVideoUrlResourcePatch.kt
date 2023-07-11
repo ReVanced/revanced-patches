@@ -1,7 +1,5 @@
 package app.revanced.patches.youtube.interaction.copyvideourl.resource.patch
 
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -16,9 +14,7 @@ import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 import app.revanced.util.resources.ResourceUtils.mergeStrings
 
-@Name("Copy video url resource")
 @DependsOn([BottomControlsResourcePatch::class, SettingsPatch::class])
-@Version("0.0.1")
 class CopyVideoUrlResourcePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
