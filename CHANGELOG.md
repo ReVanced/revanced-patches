@@ -1,3 +1,10 @@
+## [2.184.1-dev.1](https://github.com/revanced/revanced-patches/compare/v2.184.0...v2.184.1-dev.1) (2023-07-14)
+
+
+### Bug Fixes
+
+* **youtube/sponsorblock:** fix some segments skipping slightly too late ([#2634](https://github.com/revanced/revanced-patches/issues/2634)) ([3175431](https://github.com/revanced/revanced-patches/commit/31754311870324b1e245b12965d7486878e9eba4))
+
 # [2.184.0](https://github.com/revanced/revanced-patches/compare/v2.183.1...v2.184.0) (2023-07-11)
 
 
