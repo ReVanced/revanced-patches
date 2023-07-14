@@ -10,7 +10,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -44,7 +43,6 @@ class VideoInformationPatch : BytecodePatch(
         PlayerInitFingerprint,
         CreateVideoPlayerSeekbarFingerprint,
         PlayerControllerSetTimeReferenceFingerprint,
-        VideoTimeFingerprint,
         OnPlaybackSpeedItemClickFingerprint,
     )
 ) {
@@ -119,17 +117,9 @@ class VideoInformationPatch : BytecodePatch(
         }
 
         /*
-         * Set the high precision video time method
-         */
-        highPrecisionTimeMethod =
-            (object : MethodFingerprint("V", null, listOf("J", "J", "J", "J", "I", "L"), null) {}).also {
-                it.resolve(context, VideoTimeFingerprint.result!!.classDef)
-            }.result!!.mutableMethod
-
-        /*
          * Hook the methods which set the time
          */
-        highPrecisionTimeHook(INTEGRATIONS_CLASS_DESCRIPTOR, "setVideoTimeHighPrecision")
+        videoTimeHook(INTEGRATIONS_CLASS_DESCRIPTOR, "setVideoTime")
 
 
         /*
@@ -164,9 +154,6 @@ class VideoInformationPatch : BytecodePatch(
         private lateinit var timeMethod: MutableMethod
         private var timeInitInsertIndex = 2
 
-        private lateinit var highPrecisionTimeMethod: MutableMethod
-        private var highPrecisionInsertIndex = 0
-
         private fun MutableMethod.insert(insertIndex: Int, register: String, descriptor: String) =
             addInstruction(insertIndex, "invoke-static { $register }, $descriptor")
 
@@ -199,20 +186,6 @@ class VideoInformationPatch : BytecodePatch(
         internal fun videoTimeHook(targetMethodClass: String, targetMethodName: String) =
             timeMethod.insertTimeHook(
                 timeInitInsertIndex++,
-                "$targetMethodClass->$targetMethodName(J)V"
-            )
-
-        /**
-         * Hook the high precision video time.
-         * The hooks is called extremely often (10 to 15 times a seconds), so use with caution.
-         * Note: the hook is usually called _off_ the main thread
-         *
-         * @param targetMethodClass The descriptor for the static method to invoke when the player controller is created.
-         * @param targetMethodName The name of the static method to invoke when the player controller is created.
-         */
-        internal fun highPrecisionTimeHook(targetMethodClass: String, targetMethodName: String) =
-            highPrecisionTimeMethod.insertTimeHook(
-                highPrecisionInsertIndex++,
                 "$targetMethodClass->$targetMethodName(J)V"
             )
 
