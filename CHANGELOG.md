@@ -1,3 +1,10 @@
+# [2.185.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.185.0-dev.1...v2.185.0-dev.2) (2023-07-15)
+
+
+### Bug Fixes
+
+* allocate for more than eight `LithoFilter` array items ([#2643](https://github.com/ReVanced/revanced-patches/issues/2643)) ([fc8660b](https://github.com/ReVanced/revanced-patches/commit/fc8660b740bec2747e5f82b7321027bb8a51e0cf))
+
 # [2.185.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.184.1-dev.1...v2.185.0-dev.1) (2023-07-15)
 
 
