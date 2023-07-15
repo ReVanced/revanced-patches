@@ -5,4 +5,4 @@ import app.revanced.patcher.annotation.Package
 
 @Compatibility([Package("com.google.android.youtube", arrayOf("18.20.39", "18.23.35"))])
 @Target(AnnotationTarget.CLASS)
-internal annotation class VideoSpeedCompatibility
+internal annotation class PlaybackSpeedCompatibility
