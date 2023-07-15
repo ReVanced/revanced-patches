@@ -1,3 +1,10 @@
+# [2.185.0-dev.1](https://github.com/revanced/revanced-patches/compare/v2.184.1-dev.1...v2.185.0-dev.1) (2023-07-15)
+
+
+### Features
+
+* **youtube:** rename `video-speed` to `playback-speed` ([#2642](https://github.com/revanced/revanced-patches/issues/2642)) ([77e8639](https://github.com/revanced/revanced-patches/commit/77e8639b71048f2795f8f32fe18d052b335e3ce4))
+
 ## [2.184.1-dev.1](https://github.com/revanced/revanced-patches/compare/v2.184.0...v2.184.1-dev.1) (2023-07-14)
 
 
