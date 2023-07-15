@@ -176,7 +176,7 @@ class LithoFilterPatch : BytecodePatch(
                     """
                         new-instance v1, $classDescriptor
                         invoke-direct {v1}, $classDescriptor-><init>()V
-                        const/4 v2, ${filterCount++}
+                        const/16 v2, ${filterCount++}
                         aput-object v1, v0, v2
                     """
                 )
@@ -187,7 +187,7 @@ class LithoFilterPatch : BytecodePatch(
     }
 
     override fun close() = LithoFilterFingerprint.result!!
-        .mutableMethod.replaceInstruction(0, "const/4 v0, $filterCount")
+        .mutableMethod.replaceInstruction(0, "const/16 v0, $filterCount")
 
     companion object {
         private val MethodFingerprint.patternScanResult
