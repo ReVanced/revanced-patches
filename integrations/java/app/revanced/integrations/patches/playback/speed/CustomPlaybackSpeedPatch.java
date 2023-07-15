@@ -13,12 +13,12 @@ import com.facebook.litho.ComponentHost;
 
 import java.util.Arrays;
 
-import app.revanced.integrations.patches.components.VideoSpeedMenuFilterPatch;
+import app.revanced.integrations.patches.components.PlaybackSpeedMenuFilterPatch;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 
-public class CustomVideoSpeedPatch {
+public class CustomPlaybackSpeedPatch {
     /**
      * Maximum playback speed, exclusive value.  Custom speeds must be less than this value.
      */
@@ -27,17 +27,17 @@ public class CustomVideoSpeedPatch {
     /**
      * Custom playback speeds.
      */
-    public static float[] customVideoSpeeds;
+    public static float[] customPlaybackSpeeds;
 
     /**
-     * Minimum value of {@link #customVideoSpeeds}
+     * Minimum value of {@link #customPlaybackSpeeds}
      */
-    public static float minVideoSpeed;
+    public static float minPlaybackSpeed;
 
     /**
-     * Maxium value of {@link #customVideoSpeeds}
+     * Maxium value of {@link #customPlaybackSpeeds}
      */
-    public static float maxVideoSpeed;
+    public static float maxPlaybackSpeed;
 
     /**
      * PreferenceList entries and values, of all available playback speeds.
@@ -60,10 +60,10 @@ public class CustomVideoSpeedPatch {
             if (speedStrings.length == 0) {
                 throw new IllegalArgumentException();
             }
-            customVideoSpeeds = new float[speedStrings.length];
+            customPlaybackSpeeds = new float[speedStrings.length];
             for (int i = 0, length = speedStrings.length; i < length; i++) {
                 final float speed = Float.parseFloat(speedStrings[i]);
-                if (speed <= 0 || arrayContains(customVideoSpeeds, speed)) {
+                if (speed <= 0 || arrayContains(customPlaybackSpeeds, speed)) {
                     throw new IllegalArgumentException();
                 }
                 if (speed >= MAXIMUM_PLAYBACK_SPEED) {
@@ -72,13 +72,13 @@ public class CustomVideoSpeedPatch {
                     loadCustomSpeeds();
                     return;
                 }
-                minVideoSpeed = Math.min(minVideoSpeed, speed);
-                maxVideoSpeed = Math.max(maxVideoSpeed, speed);
-                customVideoSpeeds[i] = speed;
+                minPlaybackSpeed = Math.min(minPlaybackSpeed, speed);
+                maxPlaybackSpeed = Math.max(maxPlaybackSpeed, speed);
+                customPlaybackSpeeds[i] = speed;
             }
         } catch (Exception ex) {
             LogHelper.printInfo(() -> "parse error", ex);
-            resetCustomSpeeds("Invalid custom video speeds. Using default values.");
+            resetCustomSpeeds("Invalid custom playback speeds. Using default values.");
             loadCustomSpeeds();
         }
     }
@@ -95,10 +95,10 @@ public class CustomVideoSpeedPatch {
      */
     public static void initializeListPreference(ListPreference preference) {
         if (preferenceListEntries == null) {
-            preferenceListEntries = new String[customVideoSpeeds.length];
-            preferenceListEntryValues = new String[customVideoSpeeds.length];
+            preferenceListEntries = new String[customPlaybackSpeeds.length];
+            preferenceListEntryValues = new String[customPlaybackSpeeds.length];
             int i = 0;
-            for (float speed : customVideoSpeeds) {
+            for (float speed : customPlaybackSpeeds) {
                 String speedString = String.valueOf(speed);
                 preferenceListEntries[i] = speedString + "x";
                 preferenceListEntryValues[i] = speedString;
@@ -115,14 +115,14 @@ public class CustomVideoSpeedPatch {
     public static void onFlyoutMenuCreate(final LinearLayout linearLayout) {
         // The playback rate menu is a RecyclerView with 2 children. The third child is the "Advanced" quality menu.
         addRecyclerListener(linearLayout, 2, 1, recyclerView -> {
-            if (VideoSpeedMenuFilterPatch.isVideoSpeedMenuVisible &&
+            if (PlaybackSpeedMenuFilterPatch.isPlaybackSpeedMenuVisible &&
                     recyclerView.getChildCount() == 1 &&
                     recyclerView.getChildAt(0) instanceof ComponentHost
             ) {
                 linearLayout.setVisibility(View.GONE);
 
-                // Close the new video speed menu and instead show the old one.
-                showOldVideoSpeedMenu();
+                // Close the new Playback speed menu and instead show the old one.
+                showOldPlaybackSpeedMenu();
 
                 // DismissView [R.id.touch_outside] is the 1st ChildView of the 3rd ParentView.
                 ((ViewGroup) linearLayout.getParent().getParent().getParent())
@@ -131,7 +131,7 @@ public class CustomVideoSpeedPatch {
         });
     }
 
-    public static void showOldVideoSpeedMenu() {
+    public static void showOldPlaybackSpeedMenu() {
         LogHelper.printDebug(() -> "Old video quality menu shown");
 
         // Rest of the implementation added by patch.
