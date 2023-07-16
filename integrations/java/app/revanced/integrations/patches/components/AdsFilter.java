@@ -23,6 +23,7 @@ public final class AdsFilter extends Filter {
                 "_buttoned_layout",
                 "full_width_square_image_layout",
                 "_ad_with",
+                "text_image_button_group_layout",
                 "video_display_button_group_layout",
                 "landscape_image_wide_button_layout"
         );
