@@ -255,7 +255,7 @@ public class ReturnYouTubeDislike {
             // If a Short is opened while a regular video is on screen, this will incorrectly set this as false.
             // But this check is needed to fix unusual situations of opening/closing the app
             // while both a regular video and a short are on screen.
-            dislikeDataIsShort = currentPlayerType.isNoneHiddenOrMinimized();
+            dislikeDataIsShort = currentPlayerType.isNoneOrHidden();
 
             RYDCachedFetch entry = futureCache.get(videoId);
             if (entry != null && entry.futureInProgressOrFinishedSuccessfully()) {
@@ -371,7 +371,7 @@ public class ReturnYouTubeDislike {
             // Must make a local copy of videoId, since it may change between now and when the vote thread runs.
             String videoIdToVoteFor = getCurrentVideoId();
             if (videoIdToVoteFor == null ||
-                    (SettingsEnum.RYD_SHORTS.getBoolean() && dislikeDataIsShort != PlayerType.getCurrent().isNoneHiddenOrMinimized())) {
+                    (SettingsEnum.RYD_SHORTS.getBoolean() && dislikeDataIsShort != PlayerType.getCurrent().isNoneOrHidden())) {
                 // User enabled RYD after starting playback of a video.
                 // Or shorts was loaded with regular video present, then shorts was closed,
                 // and then user voted on the now visible original video.

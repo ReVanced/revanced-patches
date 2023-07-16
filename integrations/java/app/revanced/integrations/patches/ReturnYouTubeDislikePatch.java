@@ -202,7 +202,13 @@ public class ReturnYouTubeDislikePatch {
      */
     public static boolean setShortsDislikes(@NonNull View likeDislikeView) {
         try {
-            if (!SettingsEnum.RYD_ENABLED.getBoolean() || !SettingsEnum.RYD_SHORTS.getBoolean()) {
+            if (!SettingsEnum.RYD_ENABLED.getBoolean()) {
+                return false;
+            }
+            if (!SettingsEnum.RYD_SHORTS.getBoolean()) {
+                // Must clear the data here, in case a new video was loaded while PlayerType
+                // suggested the video was not a short (can happen when spoofing to an old app version).
+                ReturnYouTubeDislike.setCurrentVideoId(null);
                 return false;
             }
             LogHelper.printDebug(() -> "setShortsDislikes");
@@ -302,7 +308,7 @@ public class ReturnYouTubeDislikePatch {
             if (!videoId.equals(currentVideoId)) {
                 currentVideoId = videoId;
 
-                final boolean noneHiddenOrMinimized = PlayerType.getCurrent().isNoneHiddenOrMinimized();
+                final boolean noneHiddenOrMinimized = PlayerType.getCurrent().isNoneOrHidden();
                 if (noneHiddenOrMinimized && !SettingsEnum.RYD_SHORTS.getBoolean()) {
                     ReturnYouTubeDislike.setCurrentVideoId(null);
                     return;
