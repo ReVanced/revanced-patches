@@ -1,3 +1,10 @@
+# [2.185.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v2.185.0-dev.2...v2.185.0-dev.3) (2023-07-17)
+
+
+### Bug Fixes
+
+* **Sync for Reddit - Disable ads:** fix compatibility with latest version ([1456577](https://github.com/ReVanced/revanced-patches/commit/1456577f11c4a7e49d6c1ba0103b919dc487f4cf))
+
 # [2.185.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.185.0-dev.1...v2.185.0-dev.2) (2023-07-15)
 
 
