@@ -1,11 +1,10 @@
-package app.revanced.patches.syncforreddit.detection.piracy.fingerprints
+package app.revanced.patches.reddit.customclients.syncforreddit.detection.piracy.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.reference.TypeReference
 
 object PiracyDetectionFingerprint : MethodFingerprint(
     returnType = "V",
