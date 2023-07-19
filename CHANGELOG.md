@@ -1,3 +1,10 @@
+# [2.185.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v2.185.0-dev.3...v2.185.0-dev.4) (2023-07-19)
+
+
+### Bug Fixes
+
+* **TikTok - Show seekbar:** fix seekbar not always showing ([#2660](https://github.com/ReVanced/revanced-patches/issues/2660)) ([f2742f1](https://github.com/ReVanced/revanced-patches/commit/f2742f1ba117809971a10780823fca99c19a4f34))
+
 # [2.185.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v2.185.0-dev.2...v2.185.0-dev.3) (2023-07-17)
 
 
