@@ -1,3 +1,10 @@
+# [2.185.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v2.185.0-dev.5...v2.185.0-dev.6) (2023-07-19)
+
+
+### Bug Fixes
+
+* **Tiktok - Settings:** bump compatibility ([#2656](https://github.com/ReVanced/revanced-patches/issues/2656)) ([6641356](https://github.com/ReVanced/revanced-patches/commit/6641356d41813a20c77faac67c37ea517690d25b))
+
 # [2.185.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v2.185.0-dev.4...v2.185.0-dev.5) (2023-07-19)
 
 
