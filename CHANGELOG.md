@@ -1,3 +1,10 @@
+# [2.185.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v2.185.0-dev.4...v2.185.0-dev.5) (2023-07-19)
+
+
+### Bug Fixes
+
+* **Trakt - Unlock pro:** constraint to last known working version ([#2662](https://github.com/ReVanced/revanced-patches/issues/2662)) ([324bbde](https://github.com/ReVanced/revanced-patches/commit/324bbde92a851e855c11f266e92fa14c39d88160))
+
 # [2.185.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v2.185.0-dev.3...v2.185.0-dev.4) (2023-07-19)
 
 
