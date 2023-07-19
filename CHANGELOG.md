@@ -1,3 +1,10 @@
+# [2.185.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v2.185.0-dev.6...v2.185.0-dev.7) (2023-07-19)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof client:** show video time and chapters while using seekbar ([#2607](https://github.com/ReVanced/revanced-patches/issues/2607)) ([9546d12](https://github.com/ReVanced/revanced-patches/commit/9546d126430870d1abd8f43bb687b31b9fcb6fb5))
+
 # [2.185.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v2.185.0-dev.5...v2.185.0-dev.6) (2023-07-19)
 
 
