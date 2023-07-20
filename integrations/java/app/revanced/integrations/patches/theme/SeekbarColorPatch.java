@@ -8,8 +8,10 @@ import app.revanced.integrations.utils.ReVancedUtils;
 
 public final class SeekbarColorPatch {
 
+    private static final boolean USE_SEEKBAR_CUSTOM_COLOR = SettingsEnum.SEEKBAR_CUSTOM_COLOR.getBoolean();
+
     /**
-     * Default color of seekbar.
+     * Default color of the seekbar.
      */
     private static final int ORIGINAL_SEEKBAR_COLOR = 0xFFFF0000;
 
@@ -19,9 +21,11 @@ public final class SeekbarColorPatch {
     private static final float ORIGINAL_SEEKBAR_COLOR_BRIGHTNESS;
 
     /**
-     * Color value of {@link SettingsEnum#SEEKBAR_COLOR}
+     * If {@link SettingsEnum#SEEKBAR_CUSTOM_COLOR} is enabled,
+     * this is the color value of {@link SettingsEnum#SEEKBAR_CUSTOM_COLOR_VALUE}.
+     * Otherwise this is {@link #ORIGINAL_SEEKBAR_COLOR}.
      */
-    private static int customSeekbarColor;
+    private static int seekbarColor = ORIGINAL_SEEKBAR_COLOR;
 
     /**
      * Custom seekbar hue, saturation, and brightness values.
@@ -33,22 +37,24 @@ public final class SeekbarColorPatch {
         Color.colorToHSV(ORIGINAL_SEEKBAR_COLOR, hsv);
         ORIGINAL_SEEKBAR_COLOR_BRIGHTNESS = hsv[2];
 
-        loadCustomSeekbarColorHSV();
-    }
-
-    private static void loadCustomSeekbarColorHSV() {
-        try {
-            customSeekbarColor = Color.parseColor(SettingsEnum.SEEKBAR_COLOR.getString());
-            Color.colorToHSV(customSeekbarColor, customSeekbarColorHSV);
-        } catch (Exception ex) {
-            ReVancedUtils.showToastShort("Invalid seekbar color value. Using default value.");
-            SettingsEnum.SEEKBAR_COLOR.saveValue(SettingsEnum.SEEKBAR_COLOR.defaultValue);
-            loadCustomSeekbarColorHSV();
+        if (USE_SEEKBAR_CUSTOM_COLOR) {
+            loadCustomSeekbarColor();
         }
     }
 
-    public static int getCustomSeekbarColor() {
-        return customSeekbarColor;
+    private static void loadCustomSeekbarColor() {
+        try {
+            seekbarColor = Color.parseColor(SettingsEnum.SEEKBAR_CUSTOM_COLOR_VALUE.getString());
+            Color.colorToHSV(seekbarColor, customSeekbarColorHSV);
+        } catch (Exception ex) {
+            ReVancedUtils.showToastShort("Invalid seekbar color value. Using default value.");
+            SettingsEnum.SEEKBAR_CUSTOM_COLOR_VALUE.saveValue(SettingsEnum.SEEKBAR_CUSTOM_COLOR_VALUE.defaultValue);
+            loadCustomSeekbarColor();
+        }
+    }
+
+    public static int getSeekbarColor() {
+        return seekbarColor;
     }
 
 
@@ -96,7 +102,7 @@ public final class SeekbarColorPatch {
      */
     private static int getSeekbarColorValue(int originalColor) {
         try {
-            if (customSeekbarColor == ORIGINAL_SEEKBAR_COLOR) {
+            if (!USE_SEEKBAR_CUSTOM_COLOR || originalColor == seekbarColor) {
                 return originalColor; // nothing to do
             }
             final int alphaDifference = Color.alpha(originalColor) - Color.alpha(ORIGINAL_SEEKBAR_COLOR);
@@ -111,7 +117,7 @@ public final class SeekbarColorPatch {
             hsv[1] = customSeekbarColorHSV[1];
             hsv[2] = clamp(customSeekbarColorHSV[2] + brightnessDifference, 0, 1);
 
-            final int replacementAlpha = clamp(Color.alpha(customSeekbarColor) + alphaDifference, 0, 255);
+            final int replacementAlpha = clamp(Color.alpha(seekbarColor) + alphaDifference, 0, 255);
             final int replacementColor = Color.HSVToColor(replacementAlpha, hsv);
             LogHelper.printDebug(() -> String.format("Original color: #%08X  replacement color: #%08X",
                             originalColor, replacementColor));

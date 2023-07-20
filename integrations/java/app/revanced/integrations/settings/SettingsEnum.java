@@ -116,8 +116,8 @@ public enum SettingsEnum {
     HIDE_PLAYER_BUTTONS("revanced_hide_player_buttons", BOOLEAN, FALSE),
     HIDE_PLAYER_OVERLAY("revanced_hide_player_overlay", BOOLEAN, FALSE, true),
     HIDE_PREVIEW_COMMENT("revanced_hide_preview_comment", BOOLEAN, FALSE, true),
-    HIDE_SEEKBAR("revanced_hide_seekbar", BOOLEAN, FALSE, true),
-    HIDE_SEEKBAR_THUMBNAIL("revanced_hide_seekbar_thumbnail", BOOLEAN, FALSE, true),
+    HIDE_SEEKBAR("revanced_hide_seekbar", BOOLEAN, FALSE),
+    HIDE_SEEKBAR_THUMBNAIL("revanced_hide_seekbar_thumbnail", BOOLEAN, FALSE),
     HIDE_HOME_BUTTON("revanced_hide_home_button", BOOLEAN, FALSE, true),
     HIDE_SHORTS_BUTTON("revanced_hide_shorts_button", BOOLEAN, TRUE, true),
     HIDE_SUBSCRIPTIONS_BUTTON("revanced_hide_subscriptions_button", BOOLEAN, FALSE, true),
@@ -130,7 +130,10 @@ public enum SettingsEnum {
     SPOOF_APP_VERSION_TARGET("revanced_spoof_app_version_target", STRING, "17.30.35", true, parents(SPOOF_APP_VERSION)),
     USE_TABLET_MINIPLAYER("revanced_tablet_miniplayer", BOOLEAN, FALSE, true),
     WIDE_SEARCHBAR("revanced_wide_searchbar", BOOLEAN, FALSE, true),
-    SEEKBAR_COLOR("revanced_seekbar_color", STRING, "#FF0000", true),
+    @Deprecated
+    DEPRECATED_SEEKBAR_COLOR("revanced_seekbar_color", STRING, "#FF0000"), // TODO: delete this
+    SEEKBAR_CUSTOM_COLOR("revanced_seekbar_custom_color", BOOLEAN, TRUE, true),
+    SEEKBAR_CUSTOM_COLOR_VALUE("revanced_seekbar_custom_color_value", STRING, "#FF0000", true, parents(SEEKBAR_CUSTOM_COLOR)),
     HIDE_FILTER_BAR_FEED_IN_FEED("revanced_hide_filter_bar_feed_in_feed", BOOLEAN, FALSE, true),
     HIDE_FILTER_BAR_FEED_IN_SEARCH("revanced_hide_filter_bar_feed_in_search", BOOLEAN, FALSE, true),
     HIDE_FILTER_BAR_FEED_IN_RELATED_VIDEOS("revanced_hide_filter_bar_feed_in_related_videos", BOOLEAN, FALSE, true),
@@ -358,6 +361,14 @@ public enum SettingsEnum {
 
         // TODO: delete DEPRECATED_SHOW_OLD_VIDEO_QUALITY_MENU (When? anytime).
         migrateOldSettingToNew(DEPRECATED_SHOW_OLD_VIDEO_QUALITY_MENU, SHOW_OLD_VIDEO_QUALITY_MENU);
+
+        // TODO: delete this seekbar color migration code
+        String oldSeekbarColorValue = DEPRECATED_SEEKBAR_COLOR.getString();
+        if (!oldSeekbarColorValue.equalsIgnoreCase((String) DEPRECATED_SEEKBAR_COLOR.defaultValue)) {
+            SEEKBAR_CUSTOM_COLOR_VALUE.saveValue(oldSeekbarColorValue);
+            SEEKBAR_CUSTOM_COLOR.saveValue(true);
+            DEPRECATED_SEEKBAR_COLOR.saveValue(DEPRECATED_SEEKBAR_COLOR.defaultValue);
+        }
 
         // endregion
     }
