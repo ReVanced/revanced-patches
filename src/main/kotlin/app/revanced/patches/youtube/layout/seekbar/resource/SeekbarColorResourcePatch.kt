@@ -9,17 +9,20 @@ import org.w3c.dom.Element
 
 @DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
 class SeekbarColorResourcePatch : ResourcePatch {
-    override fun execute(context: ResourceContext): PatchResult {
-        // Edit theme colors via bytecode.
-        // For that the resource id is used in a bytecode patch to change the color.
 
-        val seekbarErrorMessage = "Could not find seekbar resource"
-        inlineTimeBarColorizedBarPlayedColorDarkId = ResourceMappingPatch.resourceMappings
-            .find { it.name == "inline_time_bar_colorized_bar_played_color_dark" }?.id
-            ?: return PatchResultError(seekbarErrorMessage)
-        inlineTimeBarPlayedNotHighlightedColorId = ResourceMappingPatch.resourceMappings
-            .find { it.name == "inline_time_bar_played_not_highlighted_color" }?.id
-            ?: return PatchResultError(seekbarErrorMessage)
+    override fun execute(context: ResourceContext): PatchResult {
+        fun findColorResource(resourceName: String): Long {
+            return ResourceMappingPatch.resourceMappings
+                .find { it.type == "color" && it.name == resourceName }?.id
+            ?: throw PatchResultError("Could not find color resource: $resourceName")
+        }
+
+        reelTimeBarPlayedColorId =
+            findColorResource("reel_time_bar_played_color")
+        inlineTimeBarColorizedBarPlayedColorDarkId =
+            findColorResource("inline_time_bar_colorized_bar_played_color_dark")
+        inlineTimeBarPlayedNotHighlightedColorId =
+            findColorResource("inline_time_bar_played_not_highlighted_color")
 
         // Edit the resume playback drawable and replace the progress bar with a custom drawable
         context.xmlEditor["res/drawable/resume_playback_progressbar_drawable.xml"].use { editor ->
@@ -39,6 +42,7 @@ class SeekbarColorResourcePatch : ResourcePatch {
     }
 
     companion object {
+        internal var reelTimeBarPlayedColorId = -1L
         internal var inlineTimeBarColorizedBarPlayedColorDarkId = -1L
         internal var inlineTimeBarPlayedNotHighlightedColorId = -1L
     }

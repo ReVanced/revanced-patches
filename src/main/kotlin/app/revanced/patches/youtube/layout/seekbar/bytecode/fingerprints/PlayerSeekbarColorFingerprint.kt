@@ -6,7 +6,7 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.youtube.layout.seekbar.resource.SeekbarColorResourcePatch
 import org.jf.dexlib2.AccessFlags
 
-object CreateDarkThemeSeekbarFingerprint : MethodFingerprint(
+object PlayerSeekbarColorFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     customFingerprint = { method, _ ->
         method.containsConstantInstructionValue(SeekbarColorResourcePatch.inlineTimeBarColorizedBarPlayedColorDarkId)
