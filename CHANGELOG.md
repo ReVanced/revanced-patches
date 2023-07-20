@@ -1,3 +1,10 @@
+# [2.186.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v2.186.0-dev.2...v2.186.0-dev.3) (2023-07-20)
+
+
+### Bug Fixes
+
+* **Tiktok - Settings:** get instruction registers dynamically ([#2676](https://github.com/ReVanced/revanced-patches/issues/2676)) ([b34e45b](https://github.com/ReVanced/revanced-patches/commit/b34e45b6dafad8e9d567ad65f58a182b8cc04676))
+
 # [2.186.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.186.0-dev.1...v2.186.0-dev.2) (2023-07-20)
 
 
