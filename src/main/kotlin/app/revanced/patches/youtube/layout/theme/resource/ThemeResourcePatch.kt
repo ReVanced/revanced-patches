@@ -9,6 +9,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
 import app.revanced.patches.shared.settings.preference.impl.InputType
 import app.revanced.patches.shared.settings.preference.impl.StringResource
+import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.shared.settings.preference.impl.TextPreference
 import app.revanced.patches.youtube.layout.seekbar.resource.SeekbarPreferencesPatch
 import app.revanced.patches.youtube.layout.theme.bytecode.patch.ThemeBytecodePatch.Companion.darkThemeBackgroundColor
@@ -20,10 +21,16 @@ import org.w3c.dom.Element
 class ThemeResourcePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
         SeekbarPreferencesPatch.addPreferences(
+            SwitchPreference(
+                "revanced_seekbar_custom_color",
+                StringResource("revanced_seekbar_custom_color_title", "Enable custom seekbar color"),
+                StringResource("revanced_seekbar_custom_color_summary_on", "Custom seekbar color is shown"),
+                StringResource("revanced_seekbar_custom_color_summary_off", "Original seekbar color is shown")
+            ),
             TextPreference(
-                "revanced_seekbar_color",
-                StringResource("revanced_seekbar_color_title", "Seekbar color"),
-                StringResource("revanced_seekbar_color_summary", "The color of the seekbar"),
+                "revanced_seekbar_custom_color_value",
+                StringResource("revanced_seekbar_custom_color_value_title", "Custom seekbar color"),
+                StringResource("revanced_seekbar_custom_color_value_summary", "The color of the seekbar"),
                 InputType.TEXT_CAP_CHARACTERS
             )
         )
