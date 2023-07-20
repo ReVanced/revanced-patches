@@ -1,3 +1,10 @@
+# [2.186.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v2.186.0-dev.3...v2.186.0-dev.4) (2023-07-20)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof app version:** update target app version description ([#2666](https://github.com/ReVanced/revanced-patches/issues/2666)) ([307442e](https://github.com/ReVanced/revanced-patches/commit/307442e654ff5486656319d91e4a5f5fb2b92651))
+
 # [2.186.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v2.186.0-dev.2...v2.186.0-dev.3) (2023-07-20)
 
 
