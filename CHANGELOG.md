@@ -1,3 +1,10 @@
+# [2.186.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.185.0...v2.186.0-dev.1) (2023-07-20)
+
+
+### Features
+
+* **Twitter:** remove `Hide view stats` patch ([f0d3800](https://github.com/ReVanced/revanced-patches/commit/f0d38001b34db63f212209afb91eebf59dad2b24))
+
 # [2.185.0](https://github.com/ReVanced/revanced-patches/compare/v2.184.0...v2.185.0) (2023-07-20)
 
 
