@@ -152,7 +152,8 @@ public enum SettingsEnum {
     EXTERNAL_BROWSER("revanced_external_browser", BOOLEAN, TRUE, true),
     AUTO_REPEAT("revanced_auto_repeat", BOOLEAN, FALSE),
     SEEKBAR_TAPPING("revanced_seekbar_tapping", BOOLEAN, TRUE),
-    SPOOF_SIGNATURE_VERIFICATION("revanced_spoof_signature_verification", BOOLEAN, TRUE, "revanced_spoof_signature_verification_user_dialog_message"),
+    SPOOF_SIGNATURE_VERIFICATION("revanced_spoof_signature_verification", BOOLEAN, TRUE, true,
+            "revanced_spoof_signature_verification_user_dialog_message"),
 
     // Swipe controls
     SWIPE_BRIGHTNESS("revanced_swipe_brightness", BOOLEAN, TRUE),

@@ -18,7 +18,7 @@ enum class PlayerType {
     HIDDEN,
     /**
      * When spoofing to 16.x YouTube and watching a short with a regular video in the background,
-     * the type will be this (and not [HIDDEN]).
+     * the type can be this (and not [HIDDEN]).
      */
     WATCH_WHILE_MINIMIZED,
     WATCH_WHILE_MAXIMIZED,

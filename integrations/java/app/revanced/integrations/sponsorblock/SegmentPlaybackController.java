@@ -58,6 +58,7 @@ public class SegmentPlaybackController {
     /**
      * Because loading can take time, show the skip to highlight for a few seconds after the segments load.
      * This is the system time (in milliseconds) to no longer show the initial display skip to highlight.
+     * Value will be zero if no highlight segment exists, or if the system time to show the highlight has passed.
      */
     private static long highlightSegmentInitialShowEndTime;
 
@@ -198,7 +199,7 @@ public class SegmentPlaybackController {
                 return;
             }
             if (PlayerType.getCurrent().isNoneOrHidden()) {
-                LogHelper.printDebug(() -> "ignoring short or story");
+                LogHelper.printDebug(() -> "ignoring Short");
                 return;
             }
             if (!ReVancedUtils.isNetworkConnected()) {
@@ -238,14 +239,20 @@ public class SegmentPlaybackController {
                 setSegments(segments);
 
                 final long videoTime = VideoInformation.getVideoTime();
-                // if the current video time is before the highlight
-                if (highlightSegment != null && videoTime < highlightSegment.end) {
-                    if (highlightSegment.shouldAutoSkip()) {
-                        skipSegment(highlightSegment, false);
-                        return;
+                if (highlightSegment != null) {
+                    // If the current video time is before the highlight.
+                    final long timeUntilHighlight = highlightSegment.start - videoTime;
+                    if (timeUntilHighlight > 0) {
+                        if (highlightSegment.shouldAutoSkip()) {
+                            skipSegment(highlightSegment, false);
+                            return;
+                        }
+                        highlightSegmentInitialShowEndTime = System.currentTimeMillis() + Math.min(
+                                (long) (timeUntilHighlight / VideoInformation.getPlaybackSpeed()),
+                                DURATION_TO_SHOW_SKIP_BUTTON);
                     }
-                    highlightSegmentInitialShowEndTime = System.currentTimeMillis() + DURATION_TO_SHOW_SKIP_BUTTON;
                 }
+
                 // check for any skips now, instead of waiting for the next update to setVideoTime()
                 setVideoTime(videoTime);
             });
@@ -262,7 +269,7 @@ public class SegmentPlaybackController {
     public static void setVideoTime(long millis) {
         try {
             if (!SettingsEnum.SB_ENABLED.getBoolean()
-                || PlayerType.getCurrent().isNoneOrHidden() // shorts playback
+                || PlayerType.getCurrent().isNoneOrHidden() // Shorts playback.
                 || segments == null || segments.length == 0) {
                 return;
             }
@@ -270,11 +277,17 @@ public class SegmentPlaybackController {
 
             updateHiddenSegments(millis);
 
-            // to debug the timing logic, set this to a very large value (5000 or more)
-            // then try manually seeking just playback reaches a skip/hide of different segments
-            final long lookAheadMilliseconds = 1500; // must be larger than the average time between calls to this method
             final float playbackSpeed = VideoInformation.getPlaybackSpeed();
-            final long startTimerLookAheadThreshold = millis + (long)(playbackSpeed * lookAheadMilliseconds);
+            // Amount of time to look ahead for the next segment,
+            // and the threshold to determine if a scheduled show/hide is at the correct video time when it's run.
+            //
+            // This value must be greater than largest time between calls to this method (1000ms),
+            // and must be adjusted for the video speed.
+            //
+            // To debug the stale skip logic, set this to a very large value (5000 or more)
+            // then try manually seeking just before playback reaches a segment skip.
+            final long speedAdjustedTimeThreshold = (long)(playbackSpeed * 1200);
+            final long startTimerLookAheadThreshold = millis + speedAdjustedTimeThreshold;
 
             SponsorSegment foundSegmentCurrentlyPlaying = null;
             SponsorSegment foundUpcomingSegment = null;
@@ -344,9 +357,11 @@ public class SegmentPlaybackController {
             }
 
             if (highlightSegment != null) {
-                if (millis < DURATION_TO_SHOW_SKIP_BUTTON || System.currentTimeMillis() < highlightSegmentInitialShowEndTime) {
+                if (millis < DURATION_TO_SHOW_SKIP_BUTTON || (highlightSegmentInitialShowEndTime != 0
+                            && System.currentTimeMillis() < highlightSegmentInitialShowEndTime)) {
                     SponsorBlockViewController.showSkipHighlightButton(highlightSegment);
                 } else {
+                    highlightSegmentInitialShowEndTime = 0;
                     SponsorBlockViewController.hideSkipHighlightButton();
                 }
             }
@@ -361,12 +376,9 @@ public class SegmentPlaybackController {
                 SponsorBlockViewController.hideSkipSegmentButton();
             }
 
-            // must be greater than the average time between updates to VideoInformation time
-            final long videoInformationTimeUpdateThresholdMilliseconds = 250;
-
             // schedule a hide, only if the segment end is near
             final SponsorSegment segmentToHide =
-                    (foundSegmentCurrentlyPlaying != null && foundSegmentCurrentlyPlaying.endIsNear(millis, lookAheadMilliseconds))
+                    (foundSegmentCurrentlyPlaying != null && foundSegmentCurrentlyPlaying.endIsNear(millis, speedAdjustedTimeThreshold))
                     ? foundSegmentCurrentlyPlaying
                     : null;
 
@@ -384,9 +396,13 @@ public class SegmentPlaybackController {
                             return;
                         }
                         scheduledHideSegment = null;
+                        if (VideoState.getCurrent() != VideoState.PLAYING) {
+                            LogHelper.printDebug(() -> "Ignoring scheduled hide segment as video is paused: " + segmentToHide);
+                            return;
+                        }
 
                         final long videoTime = VideoInformation.getVideoTime();
-                        if (!segmentToHide.endIsNear(videoTime, videoInformationTimeUpdateThresholdMilliseconds)) {
+                        if (!segmentToHide.endIsNear(videoTime, speedAdjustedTimeThreshold)) {
                             // current video time is not what's expected.  User paused playback
                             LogHelper.printDebug(() -> "Ignoring outdated scheduled hide: " + segmentToHide
                                     + " videoInformation time: " + videoTime);
@@ -419,10 +435,13 @@ public class SegmentPlaybackController {
                             return;
                         }
                         scheduledUpcomingSegment = null;
+                        if (VideoState.getCurrent() != VideoState.PLAYING) {
+                            LogHelper.printDebug(() -> "Ignoring scheduled hide segment as video is paused: " + segmentToSkip);
+                            return;
+                        }
 
                         final long videoTime = VideoInformation.getVideoTime();
-                        if (!segmentToSkip.startIsNear(videoTime,
-                                videoInformationTimeUpdateThresholdMilliseconds)) {
+                        if (!segmentToSkip.startIsNear(videoTime, speedAdjustedTimeThreshold)) {
                             // current video time is not what's expected.  User paused playback
                             LogHelper.printDebug(() -> "Ignoring outdated scheduled segment: " + segmentToSkip
                                     + " videoInformation time: " + videoTime);
@@ -488,10 +507,10 @@ public class SegmentPlaybackController {
             SponsorBlockViewController.hideSkipHighlightButton();
             SponsorBlockViewController.hideSkipSegmentButton();
 
-            // If trying to seek to end of the video, YouTube can seek just short of the actual end.
+            // If trying to seek to end of the video, YouTube can seek just before of the actual end.
             // (especially if the video does not end on a whole second boundary).
             // This causes additional segment skip attempts, even though it cannot seek any closer to the desired time.
-            // Check for and ignore repeated skip attempts of the same segment over a short time period.
+            // Check for and ignore repeated skip attempts of the same segment over a small time period.
             final long now = System.currentTimeMillis();
             final long minimumMillisecondsBetweenSkippingSameSegment = 500;
             if ((lastSegmentSkipped == segmentToSkip) && (now - lastSegmentSkippedTime < minimumMillisecondsBetweenSkippingSameSegment)) {

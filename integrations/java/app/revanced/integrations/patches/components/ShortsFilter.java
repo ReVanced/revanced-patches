@@ -1,33 +1,22 @@
 package app.revanced.integrations.patches.components;
 
+import android.view.View;
+import app.revanced.integrations.settings.SettingsEnum;
+import com.google.android.libraries.youtube.rendering.ui.pivotbar.PivotBar;
+
 import static app.revanced.integrations.utils.ReVancedUtils.hideViewBy1dpUnderCondition;
 import static app.revanced.integrations.utils.ReVancedUtils.hideViewUnderCondition;
 
-import android.annotation.SuppressLint;
-import android.os.Build;
-import android.view.View;
-
-import com.google.android.libraries.youtube.rendering.ui.pivotbar.PivotBar;
-
-import app.revanced.integrations.settings.SettingsEnum;
-
 public final class ShortsFilter extends Filter {
+    // Set by patch.
     public static PivotBar pivotBar;
-    @SuppressLint("StaticFieldLeak")
-
+    final StringFilterGroupList shortsFilterGroup = new StringFilterGroupList();
     private final StringFilterGroup reelChannelBar = new StringFilterGroup(
             null,
             "reel_channel_bar"
     );
 
-    private final StringFilterGroup infoPanel = new StringFilterGroup(
-            SettingsEnum.HIDE_SHORTS_INFO_PANEL,
-            "shorts_info_panel_overview"
-    );
-
     public ShortsFilter() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) return;
-
         final var thanksButton = new StringFilterGroup(
                 SettingsEnum.HIDE_SHORTS_THANKS_BUTTON,
                 "suggested_action"
@@ -48,6 +37,11 @@ public final class ShortsFilter extends Filter {
                 "reel_pivot_button"
         );
 
+        final var infoPanel = new StringFilterGroup(
+                SettingsEnum.HIDE_SHORTS_INFO_PANEL,
+                "shorts_info_panel_overview"
+        );
+
         final var channelBar = new StringFilterGroup(
                 SettingsEnum.HIDE_SHORTS_CHANNEL_BAR,
                 "reel_channel_bar"
@@ -61,19 +55,20 @@ public final class ShortsFilter extends Filter {
                 "shorts_video_cell"
         );
 
-        this.pathFilterGroups.addAll(joinButton, subscribeButton, soundButton, channelBar);
-        this.identifierFilterGroups.addAll(shorts, thanksButton);
+        shortsFilterGroup.addAll(soundButton, infoPanel);
+        pathFilterGroups.addAll(joinButton, subscribeButton, channelBar);
+        identifierFilterGroups.addAll(shorts, thanksButton);
     }
 
     @Override
     boolean isFiltered(final String path, final String identifier,
                        final byte[] protobufBufferArray) {
+
         // Filter the path only when reelChannelBar is visible.
         if (reelChannelBar.check(path).isFiltered())
             if (this.pathFilterGroups.contains(path)) return true;
 
-        // Shorts info panel path appears outside of reelChannelBar path.
-        if (infoPanel.isEnabled() && infoPanel.check(path).isFiltered()) return true;
+        if (shortsFilterGroup.contains(path)) return true;
 
         return this.identifierFilterGroups.contains(identifier);
     }

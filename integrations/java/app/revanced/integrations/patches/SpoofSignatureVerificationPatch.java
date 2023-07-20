@@ -2,6 +2,10 @@ package app.revanced.integrations.patches;
 
 import static app.revanced.integrations.utils.ReVancedUtils.containsAny;
 
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.shared.PlayerType;
 import app.revanced.integrations.utils.LogHelper;
@@ -65,6 +69,27 @@ public class SpoofSignatureVerificationPatch {
         }
 
         return originalValue;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean getSeekbarThumbnailOverrideValue() {
+        return SettingsEnum.SPOOF_SIGNATURE_VERIFICATION.getBoolean();
+    }
+
+    /**
+     * Injection point.
+     *
+     * @param view seekbar thumbnail view.  Includes both shorts and regular videos.
+     */
+    public static void seekbarImageViewCreated(ImageView view) {
+        if (SettingsEnum.SPOOF_SIGNATURE_VERIFICATION.getBoolean()) {
+            view.setVisibility(View.GONE);
+            // Also hide the border around the thumbnail (otherwise a 1 pixel wide bordered frame is visible).
+            ViewGroup parentLayout = (ViewGroup) view.getParent();
+            parentLayout.setPadding(0, 0, 0, 0);
+        }
     }
 
 }
