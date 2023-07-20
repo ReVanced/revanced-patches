@@ -1,3 +1,10 @@
+# [2.186.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v2.186.0-dev.4...v2.186.0-dev.5) (2023-07-20)
+
+
+### Bug Fixes
+
+* **YouTube - Theme:** allow setting no background color ([8a4e77a](https://github.com/ReVanced/revanced-patches/commit/8a4e77a290a61a1caf93eb8bccaf728c84a3ef53))
+
 # [2.186.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v2.186.0-dev.3...v2.186.0-dev.4) (2023-07-20)
 
 
