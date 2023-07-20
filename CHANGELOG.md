@@ -1,3 +1,15 @@
+# [2.186.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.186.0-dev.1...v2.186.0-dev.2) (2023-07-20)
+
+
+### Bug Fixes
+
+* **YouTube - Theme:** apply custom seekbar color to shorts ([#2670](https://github.com/ReVanced/revanced-patches/issues/2670)) ([1f6fe3d](https://github.com/ReVanced/revanced-patches/commit/1f6fe3da4284fd768057ef068c7ddf88d3a11049))
+
+
+### Features
+
+* **Youtube - Theme:** add a switch to enable/disable custom seekbar color ([#2663](https://github.com/ReVanced/revanced-patches/issues/2663)) ([5c39985](https://github.com/ReVanced/revanced-patches/commit/5c39985888cdfe3acfdd8811ff9b6f80e243704e))
+
 # [2.186.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.185.0...v2.186.0-dev.1) (2023-07-20)
 
 
