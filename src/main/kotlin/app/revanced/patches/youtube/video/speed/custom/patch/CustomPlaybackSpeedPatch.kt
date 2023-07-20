@@ -31,16 +31,16 @@ import org.jf.dexlib2.iface.reference.FieldReference
 import org.jf.dexlib2.iface.reference.MethodReference
 import org.jf.dexlib2.immutable.ImmutableField
 
-@Name("Custom video speed")
-@Description("Adds custom video speed options.")
+@Name("Custom playback speed")
+@Description("Adds custom playback speed options.")
 @DependsOn([IntegrationsPatch::class, LithoFilterPatch::class, SettingsPatch::class, BottomSheetHookPatch::class])
 @Version("0.0.1")
-class CustomVideoSpeedPatch : BytecodePatch(
+class CustomPlaybackSpeedPatch : BytecodePatch(
     listOf(
         SpeedArrayGeneratorFingerprint,
         SpeedLimiterFingerprint,
-        GetOldVideoSpeedsFingerprint,
-        ShowOldVideoSpeedMenuIntegrationsFingerprint
+        GetOldPlaybackSpeedsFingerprint,
+        ShowOldPlaybackSpeedMenuIntegrationsFingerprint
     )
 ) {
 
@@ -81,12 +81,12 @@ class CustomVideoSpeedPatch : BytecodePatch(
 
         val arrayLengthConstDestination = (arrayLengthConst as OneRegisterInstruction).registerA
 
-        val videoSpeedsArrayType = "$INTEGRATIONS_CLASS_DESCRIPTOR->customVideoSpeeds:[F"
+        val playbackSpeedsArrayType = "$INTEGRATIONS_CLASS_DESCRIPTOR->customPlaybackSpeeds:[F"
 
         arrayGenMethod.addInstructions(
             arrayLengthConstIndex + 1,
             """
-                sget-object v$arrayLengthConstDestination, $videoSpeedsArrayType
+                sget-object v$arrayLengthConstDestination, $playbackSpeedsArrayType
                 array-length v$arrayLengthConstDestination, v$arrayLengthConstDestination
             """
         )
@@ -102,7 +102,7 @@ class CustomVideoSpeedPatch : BytecodePatch(
 
         arrayGenMethod.replaceInstruction(
             originalArrayFetchIndex,
-            "sget-object v$originalArrayFetchDestination, $videoSpeedsArrayType"
+            "sget-object v$originalArrayFetchDestination, $playbackSpeedsArrayType"
         )
 
         val limiterMethod = SpeedLimiterFingerprint.result?.mutableMethod!!
@@ -121,24 +121,24 @@ class CustomVideoSpeedPatch : BytecodePatch(
         // edit: alternatively this might work by overriding with fixed values such as 0.1x and 10x
         limiterMethod.replaceInstruction(
             limiterMinConstIndex,
-            "sget v$limiterMinConstDestination, $INTEGRATIONS_CLASS_DESCRIPTOR->minVideoSpeed:F"
+            "sget v$limiterMinConstDestination, $INTEGRATIONS_CLASS_DESCRIPTOR->minPlaybackSpeed:F"
         )
         limiterMethod.replaceInstruction(
             limiterMaxConstIndex,
-            "sget v$limiterMaxConstDestination, $INTEGRATIONS_CLASS_DESCRIPTOR->maxVideoSpeed:F"
+            "sget v$limiterMaxConstDestination, $INTEGRATIONS_CLASS_DESCRIPTOR->maxPlaybackSpeed:F"
         )
 
         // region Force old video quality menu.
-        // This is necessary, because there is no known way of adding custom video speeds to the new menu.
+        // This is necessary, because there is no known way of adding custom playback speeds to the new menu.
 
         BottomSheetHookPatch.addHook(INTEGRATIONS_CLASS_DESCRIPTOR)
 
-        // Required to check if the video speed menu is currently shown.
+        // Required to check if the playback speed menu is currently shown.
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
 
-        GetOldVideoSpeedsFingerprint.result?.let { result ->
+        GetOldPlaybackSpeedsFingerprint.result?.let { result ->
             // Add a static INSTANCE field to the class.
-            // This is later used to call "showOldVideoSpeedMenu" on the instance.
+            // This is later used to call "showOldPlaybackSpeedMenu" on the instance.
             val instanceField = ImmutableField(
                 result.classDef.type,
                 "INSTANCE",
@@ -154,15 +154,15 @@ class CustomVideoSpeedPatch : BytecodePatch(
             // In order to prevent a conflict with another patch, add the instruction at index 1.
             result.mutableMethod.addInstruction(1, "sput-object p0, $instanceField")
 
-            // Get the "showOldVideoSpeedMenu" method.
+            // Get the "showOldPlaybackSpeedMenu" method.
             // This is later called on the field INSTANCE.
-            val showOldVideoSpeedMenuMethod = ShowOldVideoSpeedMenuFingerprint.also {
+            val showOldPlaybackSpeedMenuMethod = ShowOldPlaybackSpeedMenuFingerprint.also {
                 if (!it.resolve(context, result.classDef))
-                    throw ShowOldVideoSpeedMenuFingerprint.toErrorResult()
+                    throw ShowOldPlaybackSpeedMenuFingerprint.toErrorResult()
             }.result!!.method.toString()
 
-            // Insert the call to the "showOldVideoSpeedMenu" method on the field INSTANCE.
-            ShowOldVideoSpeedMenuIntegrationsFingerprint.result?.mutableMethod?.apply {
+            // Insert the call to the "showOldPlaybackSpeedMenu" method on the field INSTANCE.
+            ShowOldPlaybackSpeedMenuIntegrationsFingerprint.result?.mutableMethod?.apply {
                 addInstructionsWithLabels(
                     implementation!!.instructions.lastIndex,
                     """
@@ -170,11 +170,11 @@ class CustomVideoSpeedPatch : BytecodePatch(
                         if-nez v0, :not_null
                         return-void
                         :not_null
-                        invoke-virtual { v0 }, $showOldVideoSpeedMenuMethod
+                        invoke-virtual { v0 }, $showOldPlaybackSpeedMenuMethod
                     """
                 )
-            } ?: return ShowOldVideoSpeedMenuIntegrationsFingerprint.toErrorResult()
-        } ?: return GetOldVideoSpeedsFingerprint.toErrorResult()
+            } ?: return ShowOldPlaybackSpeedMenuIntegrationsFingerprint.toErrorResult()
+        } ?: return GetOldPlaybackSpeedsFingerprint.toErrorResult()
 
         // endregion
 
@@ -183,10 +183,10 @@ class CustomVideoSpeedPatch : BytecodePatch(
 
     private companion object {
         private const val FILTER_CLASS_DESCRIPTOR =
-            "Lapp/revanced/integrations/patches/components/VideoSpeedMenuFilterPatch;"
+            "Lapp/revanced/integrations/patches/components/PlaybackSpeedMenuFilterPatch;"
 
         private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-            "Lapp/revanced/integrations/patches/playback/speed/CustomVideoSpeedPatch;"
+            "Lapp/revanced/integrations/patches/playback/speed/CustomPlaybackSpeedPatch;"
 
     }
 }
