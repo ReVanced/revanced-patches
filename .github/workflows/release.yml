@@ -35,7 +35,7 @@ jobs:
       - name: Build with Gradle
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./gradlew generateMeta
+        run: ./gradlew generateMeta clean
       - name: Setup semantic-release
         run: npm install
       - name: Release
