@@ -2,6 +2,7 @@ package app.revanced.tiktok.settingsmenu;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.preference.PreferenceFragment;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -35,7 +36,8 @@ public class SettingsMenu {
      * @return Whether the settings menu should be initialized.
      */
     public static boolean initializeSettings(AdPersonalizationActivity base) {
-        if (!base.getIntent().getExtras().getBoolean("revanced", false)) return false;
+        Bundle extras = base.getIntent().getExtras();
+        if (extras != null && !extras.getBoolean("revanced", false)) return false;
 
         SettingsStatus.load();
 
