@@ -1,3 +1,10 @@
+## [2.186.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.186.0...v2.186.1-dev.1) (2023-07-21)
+
+
+### Bug Fixes
+
+* **YouTube - Theme:** only set splash screen color if background colors are set ([f058db4](https://github.com/ReVanced/revanced-patches/commit/f058db4ba4300400ac92b4a9790708eb8bde7092))
+
 # [2.186.0](https://github.com/ReVanced/revanced-patches/compare/v2.185.0...v2.186.0) (2023-07-21)
 
 
