@@ -30,13 +30,12 @@ jobs:
             ${{ runner.home }}/.gradle/caches
             ${{ runner.home }}/.gradle/wrapper
             .gradle
-            build
             node_modules
           key: ${{ runner.os }}-gradle-npm-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties', 'package-lock.json') }}
       - name: Build with Gradle
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./gradlew generateMeta clean --no-daemon
+        run: ./gradlew generateMeta
       - name: Setup semantic-release
         run: npm install
       - name: Release
