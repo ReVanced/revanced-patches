@@ -9,6 +9,7 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
 import app.revanced.patches.shared.settings.preference.impl.InputType
 import app.revanced.patches.shared.settings.preference.impl.StringResource
+import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.shared.settings.preference.impl.TextPreference
 import app.revanced.patches.youtube.layout.seekbar.resource.SeekbarPreferencesPatch
 import app.revanced.patches.youtube.layout.theme.bytecode.patch.ThemeBytecodePatch.Companion.darkThemeBackgroundColor
@@ -20,10 +21,16 @@ import org.w3c.dom.Element
 class ThemeResourcePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
         SeekbarPreferencesPatch.addPreferences(
+            SwitchPreference(
+                "revanced_seekbar_custom_color",
+                StringResource("revanced_seekbar_custom_color_title", "Enable custom seekbar color"),
+                StringResource("revanced_seekbar_custom_color_summary_on", "Custom seekbar color is shown"),
+                StringResource("revanced_seekbar_custom_color_summary_off", "Original seekbar color is shown")
+            ),
             TextPreference(
-                "revanced_seekbar_color",
-                StringResource("revanced_seekbar_color_title", "Seekbar color"),
-                StringResource("revanced_seekbar_color_summary", "The color of the seekbar"),
+                "revanced_seekbar_custom_color_value",
+                StringResource("revanced_seekbar_custom_color_value_title", "Custom seekbar color"),
+                StringResource("revanced_seekbar_custom_color_value_summary", "The color of the seekbar"),
                 InputType.TEXT_CAP_CHARACTERS
             )
         )
@@ -38,8 +45,8 @@ class ThemeResourcePatch : ResourcePatch {
 
                 node.textContent = when (node.getAttribute("name")) {
                     "yt_black0", "yt_black1", "yt_black1_opacity95", "yt_black1_opacity98", "yt_black2", "yt_black3",
-                    "yt_black4", "yt_status_bar_background_dark", "material_grey_850" -> darkThemeBackgroundColor
-                        ?: continue
+                    "yt_black4", "yt_status_bar_background_dark", "material_grey_850"
+                    -> darkThemeBackgroundColor ?: continue
 
                     "yt_white1", "yt_white1_opacity95", "yt_white1_opacity98",
                     "yt_white2", "yt_white3", "yt_white4",
@@ -51,10 +58,13 @@ class ThemeResourcePatch : ResourcePatch {
         }
 
         // Add a dynamic background color to the colors.xml file.
-        addResourceColor(context, "res/values/colors.xml",
-            SPLASH_BACKGROUND_COLOR, lightThemeBackgroundColor!!)
-        addResourceColor(context, "res/values-night/colors.xml",
-            SPLASH_BACKGROUND_COLOR, darkThemeBackgroundColor!!)
+        lightThemeBackgroundColor?.let {
+            addColorResource(context, "res/values/colors.xml", SPLASH_BACKGROUND_COLOR, it)
+        }
+
+        darkThemeBackgroundColor?.let {
+            addColorResource(context, "res/values-night/colors.xml", SPLASH_BACKGROUND_COLOR, it)
+        }
 
         // Edit splash screen files and change the background color.
         val splashScreenResourceFiles = listOf(
@@ -80,7 +90,7 @@ class ThemeResourcePatch : ResourcePatch {
         return PatchResultSuccess()
     }
 
-    private fun addResourceColor(
+    private fun addColorResource(
         context: ResourceContext,
         resourceFile: String,
         colorName: String,

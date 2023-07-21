@@ -42,7 +42,7 @@ class SpoofAppVersionPatch : BytecodePatch(
                 StringResource("revanced_spoof_app_version_user_dialog_message",
                 "App version will be spoofed to an older version of YouTube."
                         + "\\n\\nThis will change the appearance and features of the app, but unknown side effects may occur."
-                        + "\\n\\nIf later turned off, the old UI may remain until you log out or clear the app data.")
+                        + "\\n\\nIf later turned off, the old UI may remain until the app data is cleared.")
             ),
             ListPreference(
                 "revanced_spoof_app_version_target",
@@ -54,7 +54,7 @@ class SpoofAppVersionPatch : BytecodePatch(
                     "revanced_spoof_app_version_target_entries",
                     listOf(
                         StringResource("revanced_spoof_app_version_target_entry_1", "17.30.35 - Restore old UI layout"),
-                        StringResource("revanced_spoof_app_version_target_entry_2", "17.01.35 - Enable sorting videos by oldest"),
+                        StringResource("revanced_spoof_app_version_target_entry_2", "17.01.35 - Restore old watch history"),
                         StringResource("revanced_spoof_app_version_target_entry_3", "16.08.35 - Restore explore tab"),
                         StringResource("revanced_spoof_app_version_target_entry_4", "16.01.35 - Restore old Shorts player"),
                     )

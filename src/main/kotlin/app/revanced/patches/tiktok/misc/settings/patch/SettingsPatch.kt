@@ -18,7 +18,8 @@ import app.revanced.patches.tiktok.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.tiktok.misc.settings.annotations.SettingsCompatibility
 import app.revanced.patches.tiktok.misc.settings.fingerprints.*
 import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
+import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
+import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch
 @DependsOn([IntegrationsPatch::class])
@@ -45,7 +46,9 @@ class SettingsPatch : BytecodePatch(
         AddSettingsEntryFingerprint.result?.apply {
             scanResult.patternScanResult?.startIndex?.let {
                 val settingsEntries = mutableMethod.getInstruction(it + 3)
-                val addEntry = mutableMethod.getInstruction(it + 5)
+                val addEntry = mutableMethod.getInstruction<BuilderInstruction35c>(it + 5)
+                val register1 = addEntry.registerC
+                val register2 = addEntry.registerD
                 // Add the settings entry created to the settings fragment
                 mutableMethod.addInstructions(
                     it + 6,
@@ -58,10 +61,10 @@ class SettingsPatch : BytecodePatch(
                 mutableMethod.addInstructions(
                     it + 6,
                     """
-                        const-string v1, "$settingsButtonClass"
-                        const-string v2, "$settingsButtonInfoClass"
-                        invoke-static {v1, v2}, $CREATE_SETTINGS_ENTRY_METHOD_DESCRIPTOR
-                        move-result-object v1
+                        const-string v$register1, "$settingsButtonClass"
+                        const-string v$register2, "$settingsButtonInfoClass"
+                        invoke-static {v$register1, v$register2}, $CREATE_SETTINGS_ENTRY_METHOD_DESCRIPTOR
+                        move-result-object v$register2
                     """
                 )
             }
@@ -73,14 +76,15 @@ class SettingsPatch : BytecodePatch(
                 it.opcode == Opcode.INVOKE_SUPER
             } + 1
 
-            val thisRegister = getInstruction<FiveRegisterInstruction>(initializeSettingsIndex - 1).registerC
+            val thisRegister = getInstruction<Instruction35c>(initializeSettingsIndex - 1).registerC
+            val usableRegister = implementation!!.registerCount - parameters.size - 2
 
             addInstructionsWithLabels(
                 initializeSettingsIndex,
                 """
                     invoke-static {v$thisRegister}, $INITIALIZE_SETTINGS_METHOD_DESCRIPTOR
-                    move-result v0
-                    if-eqz v0, :notrevanced
+                    move-result v$usableRegister
+                    if-eqz v$usableRegister, :notrevanced
                     return-void
                 """,
                 ExternalLabel("notrevanced", getInstruction(initializeSettingsIndex))

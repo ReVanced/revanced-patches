@@ -14,8 +14,9 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.layout.seekbar.annotations.SeekbarColorCompatibility
-import app.revanced.patches.youtube.layout.seekbar.bytecode.fingerprints.CreateDarkThemeSeekbarFingerprint
+import app.revanced.patches.youtube.layout.seekbar.bytecode.fingerprints.PlayerSeekbarColorFingerprint
 import app.revanced.patches.youtube.layout.seekbar.bytecode.fingerprints.SetSeekbarClickedColorFingerprint
+import app.revanced.patches.youtube.layout.seekbar.bytecode.fingerprints.ShortsSeekbarColorFingerprint
 import app.revanced.patches.youtube.layout.seekbar.resource.SeekbarColorResourcePatch
 import app.revanced.patches.youtube.layout.theme.bytecode.patch.LithoColorHookPatch
 import app.revanced.patches.youtube.layout.theme.bytecode.patch.LithoColorHookPatch.Companion.lithoColorOverrideHook
@@ -28,30 +29,29 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 @SeekbarColorCompatibility
 @Version("0.0.1")
 class SeekbarColorBytecodePatch : BytecodePatch(
-    listOf(CreateDarkThemeSeekbarFingerprint, SetSeekbarClickedColorFingerprint)
+    listOf(PlayerSeekbarColorFingerprint, ShortsSeekbarColorFingerprint, SetSeekbarClickedColorFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        CreateDarkThemeSeekbarFingerprint.result?.mutableMethod?.apply {
-            var registerIndex = indexOfFirstConstantInstructionValue(SeekbarColorResourcePatch.inlineTimeBarColorizedBarPlayedColorDarkId) + 2
-            var colorRegister = (getInstruction(registerIndex) as OneRegisterInstruction).registerA
+        fun MutableMethod.addColorChangeInstructions(resourceId: Long) {
+            var registerIndex = indexOfFirstConstantInstructionValue(resourceId) + 2
+            var colorRegister = getInstruction<OneRegisterInstruction>(registerIndex).registerA
             addInstructions(
                 registerIndex + 1,
                 """
-                    invoke-static { v$colorRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getVideoPlayerSeekbarColor(I)I
-                    move-result v$colorRegister
-                """
+                        invoke-static { v$colorRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getVideoPlayerSeekbarColor(I)I
+                        move-result v$colorRegister
+                    """
             )
-            
-            registerIndex = indexOfFirstConstantInstructionValue(SeekbarColorResourcePatch.inlineTimeBarPlayedNotHighlightedColorId) + 2
-            colorRegister = (getInstruction(registerIndex) as OneRegisterInstruction).registerA
-            addInstructions(
-                registerIndex + 1,
-                """
-                    invoke-static { v$colorRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getVideoPlayerSeekbarColor(I)I
-                    move-result v$colorRegister
-                """
-            )
-        } ?: return CreateDarkThemeSeekbarFingerprint.toErrorResult()
+        }
+
+        PlayerSeekbarColorFingerprint.result?.mutableMethod?.apply {
+            addColorChangeInstructions(SeekbarColorResourcePatch.inlineTimeBarColorizedBarPlayedColorDarkId)
+            addColorChangeInstructions(SeekbarColorResourcePatch.inlineTimeBarPlayedNotHighlightedColorId)
+        } ?: return PlayerSeekbarColorFingerprint.toErrorResult()
+
+        ShortsSeekbarColorFingerprint.result?.mutableMethod?.apply {
+            addColorChangeInstructions(SeekbarColorResourcePatch.reelTimeBarPlayedColorId)
+        } ?: return ShortsSeekbarColorFingerprint.toErrorResult()
 
         SetSeekbarClickedColorFingerprint.result?.let { result ->
             result.mutableMethod.let {
@@ -62,7 +62,7 @@ class SeekbarColorBytecodePatch : BytecodePatch(
                     .getMethod() as MutableMethod
 
                 method.apply {
-                    val colorRegister = (method.getInstruction(0) as TwoRegisterInstruction).registerA
+                    val colorRegister = getInstruction<TwoRegisterInstruction>(0).registerA
                     addInstructions(
                         0,
                         """
