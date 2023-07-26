@@ -105,6 +105,7 @@ public enum SettingsEnum {
     HIDE_CAST_BUTTON("revanced_hide_cast_button", BOOLEAN, TRUE, true),
     HIDE_COMMENTS_SECTION("revanced_hide_comments_section", BOOLEAN, FALSE, true),
     HIDE_CREATE_BUTTON("revanced_hide_create_button", BOOLEAN, TRUE, true),
+    HIDE_CHIPS_SHELF("revanced_hide_chips_shelf", BOOLEAN, TRUE),
     HIDE_CROWDFUNDING_BOX("revanced_hide_crowdfunding_box", BOOLEAN, FALSE, true),
     HIDE_EMAIL_ADDRESS("revanced_hide_email_address", BOOLEAN, FALSE),
     HIDE_ENDSCREEN_CARDS("revanced_hide_endscreen_cards", BOOLEAN, TRUE),

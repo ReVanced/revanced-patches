@@ -136,6 +136,11 @@ public final class LayoutComponentsFilter extends Filter {
                 "cell_divider" // layout residue (gray line above the buttoned ad),
         );
 
+        final var chipsShelf = new StringFilterGroup(
+                SettingsEnum.HIDE_CHIPS_SHELF,
+                "chips_shelf"
+        );
+
         this.pathFilterGroups.addAll(
                 channelBar,
                 communityPosts,
@@ -158,7 +163,10 @@ public final class LayoutComponentsFilter extends Filter {
                 channelMemberShelf
         );
 
-        this.identifierFilterGroups.addAll(graySeparator);
+        this.identifierFilterGroups.addAll(
+                graySeparator,
+                chipsShelf
+        );
     }
 
     @Override
