@@ -50,7 +50,7 @@ public class SegmentPlaybackController {
     private static SponsorSegment[] segments;
 
     /**
-     * Highlight segment, if one exists.
+     * Highlight segment, if one exists and the skip behavior is not set to {@link CategoryBehaviour#SHOW_IN_SEEKBAR}.
      */
     @Nullable
     private static SponsorSegment highlightSegment;
@@ -112,10 +112,13 @@ public class SegmentPlaybackController {
         segments = videoSegments;
         calculateTimeWithoutSegments();
 
-        for (SponsorSegment segment : videoSegments) {
-            if (segment.category == SegmentCategory.HIGHLIGHT) {
-                highlightSegment = segment;
-                return;
+        if (SegmentCategory.HIGHLIGHT.behaviour == CategoryBehaviour.SKIP_AUTOMATICALLY
+                || SegmentCategory.HIGHLIGHT.behaviour == CategoryBehaviour.MANUAL_SKIP) {
+            for (SponsorSegment segment : videoSegments) {
+                if (segment.category == SegmentCategory.HIGHLIGHT) {
+                    highlightSegment = segment;
+                    return;
+                }
             }
         }
         highlightSegment = null;
