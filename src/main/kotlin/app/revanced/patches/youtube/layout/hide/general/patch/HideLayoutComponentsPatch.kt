@@ -211,6 +211,12 @@ class HideLayoutComponentsPatch : BytecodePatch(
                 StringResource("revanced_hide_artist_cards_on", "Artist cards is hidden"),
                 StringResource("revanced_hide_artist_cards_off", "Artist cards is shown")
             ),
+            SwitchPreference(
+                "revanced_hide_chips_shelf",
+                StringResource("revanced_hide_chips_shelf_title", "Hide chips shelf"),
+                StringResource("revanced_hide_chips_shelf_on", "Chips shelf is hidden"),
+                StringResource("revanced_hide_chips_shelf_off", "Chips shelf is shown")
+            ),
             app.revanced.patches.shared.settings.preference.impl.PreferenceScreen(
                 "revanced_custom_filter_preference_screen",
                 StringResource("revanced_custom_filter_preference_screen_title", "Custom filter"),
