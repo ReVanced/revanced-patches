@@ -1,3 +1,10 @@
+# [2.187.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.187.0-dev.1...v2.187.0-dev.2) (2023-07-26)
+
+
+### Features
+
+* **YouTube - Hide layout components:** Hide `chips shelf` ([#2699](https://github.com/ReVanced/revanced-patches/issues/2699)) ([8e6058b](https://github.com/ReVanced/revanced-patches/commit/8e6058b62350b3d14d79e6fe52b0ad781b66b5de))
+
 # [2.187.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.186.1-dev.1...v2.187.0-dev.1) (2023-07-24)
 
 
