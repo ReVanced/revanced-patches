@@ -1,3 +1,10 @@
+# [2.187.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v2.187.0-dev.2...v2.187.0-dev.3) (2023-07-26)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof App Version:** Remove 17.30.35 target (version no longer works correctly) ([#2703](https://github.com/ReVanced/revanced-patches/issues/2703)) ([210108b](https://github.com/ReVanced/revanced-patches/commit/210108bd8f86f583f5cd5d5538480b76d51d7776))
+
 # [2.187.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.187.0-dev.1...v2.187.0-dev.2) (2023-07-26)
 
 
