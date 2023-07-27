@@ -128,7 +128,7 @@ public enum SettingsEnum {
     PLAYER_POPUP_PANELS("revanced_hide_player_popup_panels", BOOLEAN, FALSE),
     SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON("revanced_switch_create_with_notifications_button", BOOLEAN, TRUE, true),
     SPOOF_APP_VERSION("revanced_spoof_app_version", BOOLEAN, FALSE, true, "revanced_spoof_app_version_user_dialog_message"),
-    SPOOF_APP_VERSION_TARGET("revanced_spoof_app_version_target", STRING, "17.01.35", true, parents(SPOOF_APP_VERSION)),
+    SPOOF_APP_VERSION_TARGET("revanced_spoof_app_version_target", STRING, "17.08.35", true, parents(SPOOF_APP_VERSION)),
     USE_TABLET_MINIPLAYER("revanced_tablet_miniplayer", BOOLEAN, FALSE, true),
     WIDE_SEARCHBAR("revanced_wide_searchbar", BOOLEAN, FALSE, true),
     @Deprecated
