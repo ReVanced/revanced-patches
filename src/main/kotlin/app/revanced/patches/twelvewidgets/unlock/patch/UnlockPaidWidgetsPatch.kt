@@ -15,7 +15,6 @@ import app.revanced.patches.twelvewidgets.unlock.fingerprints.*
 @Name("Unlock paid widgets")
 @Description("Unlocks paid widgets of the app")
 @Compatibility([Package("com.dci.dev.androidtwelvewidgets")])
-@Version("0.0.1")
 class UnlockPaidWidgetsPatch : BytecodePatch(
     listOf(
         AgendaDaysWidgetUnlockFingerprint,

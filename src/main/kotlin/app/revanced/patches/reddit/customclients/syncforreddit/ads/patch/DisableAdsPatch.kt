@@ -17,7 +17,6 @@ import app.revanced.patches.reddit.customclients.syncforreddit.detection.piracy.
 @DependsOn([DisablePiracyDetectionPatch::class])
 @Description("Disables ads.")
 @Compatibility([Package("com.laurencedawson.reddit_sync")])
-@Version("0.0.1")
 class DisableAdsPatch : BytecodePatch(listOf(IsAdsEnabledFingerprint)) {
     override fun execute(context: BytecodeContext): PatchResult {
         IsAdsEnabledFingerprint.result?.mutableMethod?.apply {

@@ -2,7 +2,6 @@ package app.revanced.patches.music.layout.compactheader.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
@@ -17,7 +16,6 @@ import org.jf.dexlib2.builder.instruction.BuilderInstruction11x
 @Name("Compact header")
 @Description("Hides the music category bar at the top of the homepage.")
 @MusicCompatibility
-@Version("0.0.1")
 class CompactHeaderPatch : BytecodePatch(
     listOf(CompactHeaderConstructorFingerprint)
 ) {

@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.layout.hide.infocards.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -29,7 +28,6 @@ import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 @Name("Hide info cards")
 @Description("Hides info cards in videos.")
 @HideInfocardsCompatibility
-@Version("0.0.1")
 class HideInfoCardsPatch : BytecodePatch(
     listOf(
         InfocardsIncognitoParentFingerprint,

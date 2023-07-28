@@ -4,7 +4,6 @@ import app.revanced.extensions.findMutableMethodOf
 import app.revanced.extensions.injectHideViewCall
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -32,7 +31,6 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 @Name("Hide ads")
 @Description("Removes general ads.")
 @HideAdsCompatibility
-@Version("0.0.1")
 class HideAdsPatch : BytecodePatch() {
     override fun execute(context: BytecodeContext): PatchResult {
         context.classes.forEach { classDef ->

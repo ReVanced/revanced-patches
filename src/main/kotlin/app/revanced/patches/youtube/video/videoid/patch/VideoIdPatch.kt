@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.video.videoid.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -21,7 +20,6 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Name("Video id hook")
 @Description("Hooks to detect when the video id changes")
 @VideoIdCompatibility
-@Version("0.0.1")
 @DependsOn([IntegrationsPatch::class])
 class VideoIdPatch : BytecodePatch(
     listOf(VideoIdFingerprint, VideoIdFingerprintBackgroundPlay)

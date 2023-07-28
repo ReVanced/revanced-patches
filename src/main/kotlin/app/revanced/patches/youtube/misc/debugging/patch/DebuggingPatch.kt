@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.misc.debugging.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -20,7 +19,6 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
 @Description("Adds debugging options.")
 @DebuggingCompatibility
-@Version("0.0.2")
 class DebuggingPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
         SettingsPatch.PreferenceScreen.MISC.addPreferences(

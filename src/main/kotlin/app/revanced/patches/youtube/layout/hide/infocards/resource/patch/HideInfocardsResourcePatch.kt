@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.layout.hide.infocards.resource.patch
 
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -14,7 +13,6 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
 @HideInfocardsCompatibility
 @DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
-@Version("0.0.1")
 class HideInfocardsResourcePatch : ResourcePatch {
     internal companion object {
         var drawerResourceId: Long = -1

@@ -3,7 +3,6 @@ package app.revanced.patches.backdrops.misc.pro.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -19,7 +18,6 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Name("Pro unlock")
 @Description("Unlocks pro-only functions.")
 @ProUnlockCompatibility
-@Version("0.0.1")
 class ProUnlockPatch : BytecodePatch(
     listOf(ProUnlockFingerprint)
 ) {

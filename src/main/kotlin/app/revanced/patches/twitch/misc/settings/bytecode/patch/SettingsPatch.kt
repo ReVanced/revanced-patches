@@ -3,7 +3,6 @@ package app.revanced.patches.twitch.misc.settings.bytecode.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -36,7 +35,6 @@ import java.io.Closeable
 @Name("Settings")
 @Description("Adds settings menu to Twitch.")
 @SettingsCompatibility
-@Version("0.0.1")
 class SettingsPatch : BytecodePatch(
     listOf(
         SettingsActivityOnCreateFingerprint,

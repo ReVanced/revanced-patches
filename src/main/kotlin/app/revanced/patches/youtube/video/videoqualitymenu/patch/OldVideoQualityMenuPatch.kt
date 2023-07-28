@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.video.videoqualitymenu.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -28,7 +27,6 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Name("Old video quality menu")
 @Description("Shows the old video quality with the advanced video quality options instead of the new one.")
 @OldVideoQualityMenuCompatibility
-@Version("0.0.1")
 class OldVideoQualityMenuPatch : BytecodePatch(
     listOf(VideoQualityMenuViewInflateFingerprint)
 ) {

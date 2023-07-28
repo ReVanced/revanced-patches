@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.video.speed.custom.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -34,7 +33,6 @@ import org.jf.dexlib2.immutable.ImmutableField
 @Name("Custom playback speed")
 @Description("Adds custom playback speed options.")
 @DependsOn([IntegrationsPatch::class, LithoFilterPatch::class, SettingsPatch::class, BottomSheetHookPatch::class])
-@Version("0.0.1")
 class CustomPlaybackSpeedPatch : BytecodePatch(
     listOf(
         SpeedArrayGeneratorFingerprint,

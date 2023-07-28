@@ -2,7 +2,6 @@ package app.revanced.patches.tiktok.misc.login.fixgoogle.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
@@ -17,7 +16,6 @@ import app.revanced.patches.tiktok.misc.login.fixgoogle.fingerprints.GoogleOneTa
 @Name("Fix google login")
 @Description("Allows logging in with a Google account.")
 @FixGoogleLoginCompatibility
-@Version("0.0.1")
 class FixGoogleLoginPatch : BytecodePatch(
     listOf(
         GoogleOneTapAuthAvailableFingerprint,

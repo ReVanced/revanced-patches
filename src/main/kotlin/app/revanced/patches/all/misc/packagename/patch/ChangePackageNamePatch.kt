@@ -2,7 +2,6 @@ package app.revanced.patches.all.misc.packagename.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.*
 import app.revanced.patcher.patch.annotations.Patch
@@ -11,7 +10,6 @@ import org.w3c.dom.Element
 @Patch(false)
 @Name("Change package name")
 @Description("Changes the package name.")
-@Version("0.0.1")
 class ChangePackageNamePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
         packageName?.let { packageName ->

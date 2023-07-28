@@ -2,7 +2,6 @@ package app.revanced.patches.idaustria.detection.signature.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
@@ -16,7 +15,6 @@ import app.revanced.patches.idaustria.detection.signature.fingerprints.SpoofSign
 @Name("Spoof signature")
 @Description("Spoofs the signature of the app.")
 @DetectionCompatibility
-@Version("0.0.1")
 class SpoofSignaturePatch : BytecodePatch(
     listOf(SpoofSignatureFingerprint)
 ) {

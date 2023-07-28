@@ -3,7 +3,6 @@ package app.revanced.patches.nova.prime.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
@@ -18,7 +17,6 @@ import org.jf.dexlib2.builder.instruction.BuilderInstruction11x
 @Name("Unlock prime")
 @Description("Unlocks Nova Prime and all functions of the app.")
 @UnlockPrimeCompatibility
-@Version("0.0.1")
 class UnlockPrimePatch : BytecodePatch(
     listOf(
         UnlockPrimeFingerprint

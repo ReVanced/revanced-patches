@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.layout.spoofappversion.bytecode.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
@@ -26,7 +25,6 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Name("Spoof app version")
 @Description("Tricks YouTube into thinking, you are running an older version of the app. One of the side effects also includes restoring the old UI.")
 @SpoofAppVersionCompatibility
-@Version("0.0.1")
 class SpoofAppVersionPatch : BytecodePatch(
     listOf(
         SpoofAppVersionFingerprint

@@ -3,7 +3,6 @@ package app.revanced.patches.trakt.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
@@ -20,7 +19,6 @@ import app.revanced.patches.trakt.fingerprints.RemoteUserFingerprint
 @Name("Unlock pro")
 @Description("Unlocks pro features.")
 @UnlockProCompatibility
-@Version("0.0.1")
 class UnlockProPatch : BytecodePatch(
     listOf(RemoteUserFingerprint)
 ) {

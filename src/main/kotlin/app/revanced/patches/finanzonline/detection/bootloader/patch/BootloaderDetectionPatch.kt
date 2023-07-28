@@ -3,7 +3,6 @@ package app.revanced.patches.finanzonline.detection.bootloader.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
@@ -19,7 +18,6 @@ import app.revanced.patches.finanzonline.detection.shared.annotations.DetectionC
 @Name("Remove bootloader detection")
 @Description("Removes the check for an unlocked bootloader.")
 @DetectionCompatibility
-@Version("0.0.1")
 class BootloaderDetectionPatch : BytecodePatch(
     listOf(CreateKeyFingerprint, BootStateFingerprint)
 ) {

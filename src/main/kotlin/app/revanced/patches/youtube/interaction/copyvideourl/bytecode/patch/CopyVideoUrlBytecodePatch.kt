@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.interaction.copyvideourl.bytecode.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -23,7 +22,6 @@ import app.revanced.patches.youtube.video.information.patch.VideoInformationPatc
     VideoInformationPatch::class
 ])
 @CopyVideoUrlCompatibility
-@Version("0.0.1")
 class CopyVideoUrlBytecodePatch : BytecodePatch() {
     private companion object {
         const val INTEGRATIONS_PLAYER_PACKAGE = "Lapp/revanced/integrations/videoplayer"

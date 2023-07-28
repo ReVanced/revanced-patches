@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.video.speed
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -17,7 +16,6 @@ import app.revanced.patches.youtube.video.speed.remember.patch.RememberPlaybackS
 @Description("Adds custom playback speeds and ability to remember the playback speed you chose in the video playback speed flyout.")
 @DependsOn([CustomPlaybackSpeedPatch::class, RememberPlaybackSpeedPatch::class])
 @PlaybackSpeedCompatibility
-@Version("0.0.1")
 class PlaybackSpeed : BytecodePatch() {
     override fun execute(context: BytecodeContext): PatchResult {
         return PatchResultSuccess() // All patches this patch depends on succeed.

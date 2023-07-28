@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.layout.hide.filterbar.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -25,7 +24,6 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 @Description("Hides the filter bar in video feeds.")
 @DependsOn([HideFilterBarResourcePatch::class])
 @HideFilterBar
-@Version("0.0.1")
 class HideFilterBarPatch : BytecodePatch(
     listOf(
         RelatedChipCloudFingerprint,

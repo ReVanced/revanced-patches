@@ -3,7 +3,6 @@ package app.revanced.patches.photomath.misc.unlockplus.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
@@ -20,7 +19,6 @@ import app.revanced.patches.photomath.misc.unlockplus.fingerprints.IsPlusUnlocke
 @DependsOn([SignatureDetectionPatch::class])
 @Description("Unlocks plus features.")
 @UnlockPlusCompatibilty
-@Version("0.0.1")
 class UnlockPlusPatch : BytecodePatch(
     listOf(
         IsPlusUnlockedFingerprint

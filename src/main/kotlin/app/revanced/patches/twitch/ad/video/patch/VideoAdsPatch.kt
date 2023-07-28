@@ -3,7 +3,6 @@ package app.revanced.patches.twitch.ad.video.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -28,7 +27,6 @@ import app.revanced.patches.twitch.misc.settings.bytecode.patch.SettingsPatch
 @Name("Block video ads")
 @Description("Blocks video ads in streams and VODs.")
 @VideoAdsCompatibility
-@Version("0.0.1")
 class VideoAdsPatch : AbstractAdPatch(
     "Lapp/revanced/twitch/patches/VideoAdsPatch;->shouldBlockVideoAds()Z",
     "show_video_ads",

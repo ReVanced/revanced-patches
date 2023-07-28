@@ -1,7 +1,6 @@
 package app.revanced.patches.shared.integrations.patch
 
 import app.revanced.patcher.annotation.Description
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
@@ -15,7 +14,6 @@ import org.jf.dexlib2.iface.ClassDef
 import org.jf.dexlib2.iface.Method
 
 @Description("Applies mandatory patches to implement the ReVanced integrations into the application.")
-@Version("0.0.1")
 abstract class AbstractIntegrationsPatch(
     private val integrationsDescriptor: String,
     private val hooks: Iterable<IntegrationsFingerprint>

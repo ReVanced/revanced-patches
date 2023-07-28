@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.video.information.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
@@ -36,7 +35,6 @@ import org.jf.dexlib2.util.MethodUtil
 @Name("Video information")
 @Description("Hooks YouTube to get information about the current playing video.")
 @VideoInformationCompatibility
-@Version("0.0.1")
 @DependsOn([IntegrationsPatch::class, VideoIdPatch::class])
 class VideoInformationPatch : BytecodePatch(
     listOf(

@@ -2,7 +2,6 @@ package app.revanced.patches.twitter.misc.dynamiccolor.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
@@ -17,7 +16,6 @@ import java.nio.file.Files
 @Name("Dynamic color")
 @Description("Replaces the default Twitter Blue with the users Material You palette.")
 @DynamicColorCompatibility
-@Version("0.0.1")
 class DynamicColorPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
         val resDirectory = context["res"]

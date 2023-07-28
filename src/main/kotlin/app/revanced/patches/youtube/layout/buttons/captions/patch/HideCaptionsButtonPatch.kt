@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.layout.buttons.captions.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
@@ -23,7 +22,6 @@ import org.jf.dexlib2.Opcode
 @Name("Hide captions button")
 @Description("Hides the captions button on video player.")
 @HideCaptionsButtonCompatibility
-@Version("0.0.1")
 class HideCaptionsButtonPatch : BytecodePatch(listOf(
     SubtitleButtonControllerFingerprint,
 )) {

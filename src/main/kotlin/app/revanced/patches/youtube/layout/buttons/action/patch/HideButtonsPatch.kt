@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.layout.buttons.action.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -22,7 +21,6 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 @Name("Hide video action buttons")
 @Description("Adds the options to hide action buttons under a video.")
 @HideButtonsCompatibility
-@Version("0.0.1")
 class HideButtonsPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(

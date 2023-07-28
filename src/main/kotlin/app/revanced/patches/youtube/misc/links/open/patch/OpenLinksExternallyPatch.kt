@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.misc.links.open.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
@@ -23,7 +22,6 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 @Name("Open links externally")
 @Description("Open links outside of the app directly in your browser.")
 @OpenLinksExternallyCompatibility
-@Version("0.0.1")
 class OpenLinksExternallyPatch : BytecodePatch(
     listOf(
         GetCustomTabPackageNameFingerprint,

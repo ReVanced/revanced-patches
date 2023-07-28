@@ -2,7 +2,6 @@ package app.revanced.patches.music.layout.premium.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
@@ -19,7 +18,6 @@ import app.revanced.patches.music.layout.premium.fingerprints.HideGetPremiumPare
 @Name("Hide get premium")
 @Description("Removes all \"Get Premium\" evidences from the avatar menu.")
 @MusicCompatibility
-@Version("0.0.1")
 class HideGetPremiumPatch : BytecodePatch(
     listOf(HideGetPremiumParentFingerprint)
 ) {

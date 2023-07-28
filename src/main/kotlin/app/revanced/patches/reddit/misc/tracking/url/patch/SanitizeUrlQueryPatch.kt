@@ -3,7 +3,6 @@ package app.revanced.patches.reddit.misc.tracking.url.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
@@ -17,7 +16,6 @@ import app.revanced.patches.reddit.misc.tracking.url.fingerprints.ShareLinkForma
 @Name("Sanitize sharing links")
 @Description("Removes (tracking) query parameters from the URLs when sharing links.")
 @SanitizeUrlQueryCompatibility
-@Version("0.0.1")
 class SanitizeUrlQueryPatch : BytecodePatch(
     listOf(ShareLinkFormatterFingerprint)
 ) {

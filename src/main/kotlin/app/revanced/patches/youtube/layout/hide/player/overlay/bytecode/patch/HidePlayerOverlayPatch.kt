@@ -4,7 +4,6 @@ import app.revanced.extensions.indexOfFirstConstantInstructionValue
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -23,7 +22,6 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Description("Hides the dark background overlay from the player when player controls are visible.")
 @DependsOn([HidePlayerOverlayResourcePatch::class])
 @HidePlayerOverlayPatchCompatibility
-@Version("0.0.2")
 class HidePlayerOverlayPatch : BytecodePatch(listOf(CreatePlayerOverviewFingerprint)) {
     override fun execute(context: BytecodeContext): PatchResult {
         CreatePlayerOverviewFingerprint.result?.let { result ->

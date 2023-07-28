@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.misc.minimizedplayback.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
@@ -33,7 +32,6 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @Description("Enables minimized and background playback.")
 @DependsOn([IntegrationsPatch::class, PlayerTypeHookPatch::class, SettingsPatch::class])
 @MinimizedPlaybackCompatibility
-@Version("0.0.1")
 class MinimizedPlaybackPatch : BytecodePatch(
     listOf(
         MinimizedPlaybackManagerFingerprint,

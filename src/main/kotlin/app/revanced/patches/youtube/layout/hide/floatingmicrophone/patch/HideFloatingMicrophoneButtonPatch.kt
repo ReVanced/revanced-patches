@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.layout.hide.floatingmicrophone.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -21,7 +20,6 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 @Description("Hides the floating microphone button which appears in search.")
 @DependsOn([HideFloatingMicrophoneButtonResourcePatch::class])
 @HideFloatingMicrophoneButtonCompatibility
-@Version("0.0.1")
 class HideFloatingMicrophoneButtonPatch : BytecodePatch(
     listOf(ShowFloatingMicrophoneButtonFingerprint)
 ) {

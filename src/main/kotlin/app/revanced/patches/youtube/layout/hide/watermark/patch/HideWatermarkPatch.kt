@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.layout.hide.watermark.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
@@ -26,7 +25,6 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 @Name("Hide watermark")
 @Description("Hides creator's watermarks on videos.")
 @HideWatermarkCompatibility
-@Version("0.0.1")
 class HideWatermarkPatch : BytecodePatch(
     listOf(
         HideWatermarkParentFingerprint

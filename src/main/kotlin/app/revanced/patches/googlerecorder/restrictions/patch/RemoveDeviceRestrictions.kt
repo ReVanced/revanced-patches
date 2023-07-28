@@ -5,7 +5,6 @@ import app.revanced.patcher.annotation.Compatibility
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Package
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -14,14 +13,13 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.googlerecorder.restrictions.fingereprints.OnApplicationCreateFingerprint
+import app.revanced.patches.googlerecorder.restrictions.fingerprints.OnApplicationCreateFingerprint
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @Name("Remove device restrictions")
 @Description("Removes restrictions from using the app on any device.")
 @Compatibility([Package("com.google.android.apps.recorder")])
-@Version("0.0.1")
 class RemoveDeviceRestrictions : BytecodePatch(
     listOf(OnApplicationCreateFingerprint)
 ) {

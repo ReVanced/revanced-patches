@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.misc.litho.filter.patch
 
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -31,7 +30,6 @@ import java.io.Closeable
 
 @DependsOn([IntegrationsPatch::class])
 @Description("Hooks the method which parses the bytes into a ComponentContext to filter components.")
-@Version("0.0.1")
 class LithoFilterPatch : BytecodePatch(
     listOf(ComponentContextParserFingerprint, LithoFilterFingerprint, ProtobufBufferReferenceFingerprint)
 ), Closeable {

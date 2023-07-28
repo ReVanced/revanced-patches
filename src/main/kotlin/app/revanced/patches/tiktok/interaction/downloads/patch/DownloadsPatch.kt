@@ -2,7 +2,6 @@ package app.revanced.patches.tiktok.interaction.downloads.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
@@ -35,7 +34,6 @@ import org.jf.dexlib2.iface.reference.StringReference
 @Name("Downloads")
 @Description("Removes download restrictions and changes the default path to download to.")
 @DownloadsCompatibility
-@Version("0.0.1")
 class DownloadsPatch : BytecodePatch(
     listOf(
         ACLCommonShareFingerprint,

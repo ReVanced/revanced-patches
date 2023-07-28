@@ -2,7 +2,6 @@ package app.revanced.patches.warnwetter.misc.promocode.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
@@ -23,7 +22,6 @@ import app.revanced.patches.warnwetter.misc.promocode.fingerprints.PromoCodeUnlo
 @Name("Promo code unlock")
 @Description("Disables the validation of promo code. Any code will work to unlock all features.")
 @PromoCodeUnlockCompatibility
-@Version("0.0.1")
 class PromoCodeUnlockPatch : BytecodePatch(
     listOf(
         PromoCodeUnlockFingerprint

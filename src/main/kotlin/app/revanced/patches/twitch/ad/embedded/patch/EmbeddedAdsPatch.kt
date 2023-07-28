@@ -2,7 +2,6 @@ package app.revanced.patches.twitch.ad.embedded.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.MethodFingerprintExtensions.name
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -26,7 +25,6 @@ import app.revanced.patches.twitch.misc.settings.bytecode.patch.SettingsPatch
 @Name("Block embedded ads")
 @Description("Blocks embedded stream ads using services like TTV.lol or PurpleAdBlocker.")
 @EmbeddedAdsCompatibility
-@Version("0.0.1")
 class EmbeddedAdsPatch : BytecodePatch(
     listOf(CreateUsherClientFingerprint)
 ) {

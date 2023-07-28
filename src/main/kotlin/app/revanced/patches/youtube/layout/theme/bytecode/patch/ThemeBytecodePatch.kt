@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.layout.theme.bytecode.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.*
 import app.revanced.patcher.patch.annotations.DependsOn
@@ -16,7 +15,6 @@ import app.revanced.patches.youtube.layout.theme.resource.ThemeResourcePatch
 @Description("Applies a custom theme.")
 @DependsOn([LithoColorHookPatch::class, SeekbarColorBytecodePatch::class, ThemeResourcePatch::class])
 @ThemeCompatibility
-@Version("0.0.1")
 class ThemeBytecodePatch : BytecodePatch() {
 
     override fun execute(context: BytecodeContext): PatchResult {

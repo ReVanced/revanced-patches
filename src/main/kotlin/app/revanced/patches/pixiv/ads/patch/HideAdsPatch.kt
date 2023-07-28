@@ -14,7 +14,6 @@ import app.revanced.patches.pixiv.ads.fingerprints.IsNotPremiumFingerprint
 @Name("Hide ads")
 @Description("Hides ads.")
 @Compatibility([Package("jp.pxv.android")])
-@Version("0.0.1")
 class HideAdsPatch : BytecodePatch(listOf(IsNotPremiumFingerprint)) {
     override fun execute(context: BytecodeContext): PatchResult {
         // Always return false in the "isNotPremium" method which normally returns !this.accountManager.isPremium.

@@ -2,7 +2,6 @@ package app.revanced.patches.tiktok.interaction.speed.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -19,7 +18,6 @@ import org.jf.dexlib2.Opcode
 @Name("Playback speed")
 @Description("Enables the playback speed option for all videos.")
 @PlaybackSpeedCompatibility
-@Version("0.0.1")
 class PlaybackSpeedPatch : BytecodePatch(
     listOf(
         SpeedControlParentFingerprint

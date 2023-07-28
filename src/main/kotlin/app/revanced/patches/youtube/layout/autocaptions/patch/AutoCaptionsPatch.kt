@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.layout.autocaptions.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -25,7 +24,6 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 @Name("Disable auto captions")
 @Description("Disable forced captions from being automatically enabled.")
 @HideCaptionsButtonCompatibility
-@Version("0.0.1")
 class AutoCaptionsPatch : BytecodePatch(
     listOf(
         StartVideoInformerFingerprint, SubtitleButtonControllerFingerprint, SubtitleTrackFingerprint

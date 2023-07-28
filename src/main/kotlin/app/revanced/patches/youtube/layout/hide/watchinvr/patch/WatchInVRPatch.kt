@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.layout.hide.watchinvr.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.BytecodePatch
@@ -22,7 +21,6 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 @Name("Hide watch in VR")
 @Description("Hides the option to watch in VR from the player settings flyout panel.")
 @WatchInVRCompatibility
-@Version("0.0.1")
 class WatchInVRPatch : BytecodePatch(
     listOf(
         WatchInVRFingerprint
