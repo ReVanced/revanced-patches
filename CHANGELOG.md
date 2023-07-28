@@ -1,3 +1,10 @@
+# [2.187.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v2.187.0-dev.4...v2.187.0-dev.5) (2023-07-28)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof app version:** Fix grammar in description ([#2711](https://github.com/ReVanced/revanced-patches/issues/2711)) ([dd249e6](https://github.com/ReVanced/revanced-patches/commit/dd249e62243e57733a6ff4d3a17d30db0e08a84d))
+
 # [2.187.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v2.187.0-dev.3...v2.187.0-dev.4) (2023-07-28)
 
 
