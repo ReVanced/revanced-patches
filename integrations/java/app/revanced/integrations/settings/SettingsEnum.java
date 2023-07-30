@@ -124,7 +124,6 @@ public enum SettingsEnum {
     HIDE_SUBSCRIPTIONS_BUTTON("revanced_hide_subscriptions_button", BOOLEAN, FALSE, true),
     HIDE_TIMESTAMP("revanced_hide_timestamp", BOOLEAN, FALSE),
     HIDE_VIDEO_WATERMARK("revanced_hide_video_watermark", BOOLEAN, TRUE),
-    HIDE_WATCH_IN_VR("revanced_hide_watch_in_vr", BOOLEAN, FALSE, true),
     PLAYER_POPUP_PANELS("revanced_hide_player_popup_panels", BOOLEAN, FALSE),
     SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON("revanced_switch_create_with_notifications_button", BOOLEAN, TRUE, true),
     SPOOF_APP_VERSION("revanced_spoof_app_version", BOOLEAN, FALSE, true, "revanced_spoof_app_version_user_dialog_message"),
@@ -149,6 +148,18 @@ public enum SettingsEnum {
     HIDE_SHORTS_CHANNEL_BAR("revanced_hide_shorts_channel_bar", BOOLEAN, FALSE),
     HIDE_SHORTS_NAVIGATION_BAR("revanced_hide_shorts_navigation_bar", BOOLEAN, TRUE, true),
     HIDE_SHORTS("revanced_hide_shorts", BOOLEAN, FALSE, true),
+
+    //Player flyout menu items
+    HIDE_QUALITY_MENU("revanced_hide_player_flyout_quality", BOOLEAN, FALSE),
+    HIDE_CAPTIONS_MENU("revanced_hide_player_flyout_captions", BOOLEAN, FALSE),
+    HIDE_LOOP_VIDEO_MENU("revanced_hide_player_flyout_loop_video", BOOLEAN, FALSE),
+    HIDE_AMBIENT_MODE_MENU("revanced_hide_player_flyout_ambient_mode", BOOLEAN, FALSE),
+    HIDE_REPORT_MENU("revanced_hide_player_flyout_report", BOOLEAN, TRUE),
+    HIDE_HELP_MENU("revanced_hide_player_flyout_help", BOOLEAN, TRUE),
+    HIDE_SPEED_MENU("revanced_hide_player_flyout_speed", BOOLEAN, FALSE),
+    HIDE_MORE_INFO_MENU("revanced_hide_player_flyout_more_info", BOOLEAN, TRUE),
+    HIDE_AUDIO_TRACK_MENU("revanced_hide_player_flyout_audio_track", BOOLEAN, TRUE),
+    HIDE_WATCH_IN_VR_MENU("revanced_hide_player_flyout_watch_in_vr", BOOLEAN, TRUE),
 
     // Misc
     AUTO_CAPTIONS("revanced_auto_captions", BOOLEAN, FALSE),
