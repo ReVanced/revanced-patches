@@ -17,7 +17,7 @@ import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch
 @Name("Client spoof")
-@Description("Spoofs a patched client to allow playback.")
+@Description("Spoofs the client to allow playback.")
 @ClientSpoofCompatibility
 @DependsOn([SpoofSignatureVerificationPatch::class])
 class ClientSpoofPatch : BytecodePatch(
