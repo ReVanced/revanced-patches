@@ -12,10 +12,12 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.reddit.customclients.AbstractChangeOAuthClientIdPatch
 import app.revanced.patches.reddit.customclients.ChangeOAuthClientIdPatchAnnotation
 import app.revanced.patches.reddit.customclients.syncforreddit.api.fingerprints.GetAuthorizationStringFingerprint
 import app.revanced.patches.reddit.customclients.syncforreddit.api.fingerprints.GetBearerTokenFingerprint
+import app.revanced.patches.reddit.customclients.syncforreddit.detection.piracy.patch.DisablePiracyDetectionPatch
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.StringReference
@@ -32,6 +34,7 @@ import java.util.*
         Package("com.laurencedawson.reddit_sync.dev")
     ]
 )
+@DependsOn([DisablePiracyDetectionPatch::class])
 class ChangeOAuthClientIdPatch : AbstractChangeOAuthClientIdPatch(
     "http://redditsync/auth", Options, listOf(GetAuthorizationStringFingerprint)
 ) {
