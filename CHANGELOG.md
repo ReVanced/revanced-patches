@@ -1,3 +1,16 @@
+# [2.187.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v2.187.0-dev.7...v2.187.0-dev.8) (2023-07-30)
+
+
+### Bug Fixes
+
+* **Sync for Reddit - Change OAuth client id:** Disable piracy detection ([cd103dd](https://github.com/ReVanced/revanced-patches/commit/cd103dd9b8ff2667246d4abaf75577f28bf1a11b))
+
+
+### Features
+
+* **Joey for Reddit:** Add `Change OAuth client id` patch ([1bac47d](https://github.com/ReVanced/revanced-patches/commit/1bac47df889b5221bef1c03e652f894be8d39385))
+* **Joey for Reddit:** Add `Disable ads` patch ([ad7e147](https://github.com/ReVanced/revanced-patches/commit/ad7e14771208dcab08fd6dc29403b1a4cf602111))
+
 # [2.187.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v2.187.0-dev.6...v2.187.0-dev.7) (2023-07-30)
 
 
