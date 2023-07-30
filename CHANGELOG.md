@@ -1,3 +1,10 @@
+# [2.187.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v2.187.0-dev.8...v2.187.0-dev.9) (2023-07-30)
+
+
+### Bug Fixes
+
+* Use clearer descriptions ([8dbb0e2](https://github.com/ReVanced/revanced-patches/commit/8dbb0e212e8ceeb0381a3509e45afca095ddee53))
+
 # [2.187.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v2.187.0-dev.7...v2.187.0-dev.8) (2023-07-30)
 
 
