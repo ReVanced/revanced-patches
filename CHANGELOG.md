@@ -1,3 +1,10 @@
+# [2.187.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v2.187.0-dev.6...v2.187.0-dev.7) (2023-07-30)
+
+
+### Features
+
+* **YouTube:** add `Player Flyout Menu` patch ([#2295](https://github.com/ReVanced/revanced-patches/issues/2295)) ([aea0af0](https://github.com/ReVanced/revanced-patches/commit/aea0af059784ae4820a0e73ff91f97bbc3ebc4c7))
+
 # [2.187.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v2.187.0-dev.5...v2.187.0-dev.6) (2023-07-30)
 
 # [2.187.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v2.187.0-dev.4...v2.187.0-dev.5) (2023-07-28)
