@@ -1,3 +1,5 @@
+# [2.187.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v2.187.0-dev.5...v2.187.0-dev.6) (2023-07-30)
+
 # [2.187.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v2.187.0-dev.4...v2.187.0-dev.5) (2023-07-28)
 
 
