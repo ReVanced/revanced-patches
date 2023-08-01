@@ -6,6 +6,7 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -25,27 +26,33 @@ class VideoIdPatch : BytecodePatch(
     listOf(VideoIdFingerprint, VideoIdFingerprintBackgroundPlay)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-        VideoIdFingerprint.result?.let { result ->
-            val videoIdRegisterInstructionIndex = result.scanResult.patternScanResult!!.endIndex
+        /**
+         * Supplies the method and register index of the video id register.
+         *
+         * @param consumer Consumer that receives the method, insert index and video id register index.
+         */
+        fun MethodFingerprint.setFields(consumer: (MutableMethod, Int, Int) -> Unit) = result?.let { result ->
+            val videoIdRegisterIndex = result.scanResult.patternScanResult!!.endIndex
 
-            result.mutableMethod.also {
-                insertMethod = it
-            }.apply {
-                videoIdRegister = getInstruction<OneRegisterInstruction>(videoIdRegisterInstructionIndex).registerA
-                insertIndex = videoIdRegisterInstructionIndex + 1
+            result.mutableMethod.let {
+                val videoIdRegister = it.getInstruction<OneRegisterInstruction>(videoIdRegisterIndex).registerA
+                val insertIndex = videoIdRegisterIndex + 1
+                consumer(it, insertIndex, videoIdRegister)
+
             }
-        } ?: return VideoIdFingerprint.toErrorResult()
+        } ?: throw VideoIdFingerprint.toErrorResult()
 
-        VideoIdFingerprintBackgroundPlay.result?.let { result ->
-            val endIndex = result.scanResult.patternScanResult!!.endIndex
+        VideoIdFingerprint.setFields { method, insertIndex, videoIdRegister ->
+            insertMethod = method
+            VideoIdPatch.insertIndex = insertIndex
+            VideoIdPatch.videoIdRegister = videoIdRegister
+        }
 
-            result.mutableMethod.also {
-                backgroundPlaybackMethod = it
-            }.apply {
-                backgroundPlaybackVideoIdRegister = getInstruction<OneRegisterInstruction>(endIndex + 1).registerA
-                backgroundPlaybackInsertIndex = endIndex + 2
-            }
-        } ?: return VideoIdFingerprintBackgroundPlay.toErrorResult()
+        VideoIdFingerprintBackgroundPlay.setFields { method, insertIndex, videoIdRegister ->
+            backgroundPlaybackMethod = method
+            backgroundPlaybackInsertIndex = insertIndex
+            backgroundPlaybackVideoIdRegister = videoIdRegister
+        }
 
         return PatchResultSuccess()
     }

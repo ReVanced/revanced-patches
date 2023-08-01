@@ -15,7 +15,7 @@ object TextComponentAtomicReferenceFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.MOVE_OBJECT_FROM16, // available unused register
         Opcode.MOVE_OBJECT_FROM16,
-        Opcode.MOVE_OBJECT_FROM16,
+        null, // move-object/from16 or move/from16
         Opcode.MOVE_OBJECT_FROM16,
         Opcode.INVOKE_VIRTUAL, // CharSequence atomic reference
         Opcode.MOVE_RESULT_OBJECT,

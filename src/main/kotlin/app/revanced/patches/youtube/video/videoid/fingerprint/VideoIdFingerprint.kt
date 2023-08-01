@@ -10,6 +10,7 @@ object VideoIdFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L"),
     opcodes = listOf(
+        Opcode.MOVE_RESULT_OBJECT,
         Opcode.IF_EQZ,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
@@ -23,8 +24,5 @@ object VideoIdFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT_OBJECT
-    ),
-    customFingerprint = { methodDef, _ ->
-        methodDef.definingClass.endsWith("SubtitlesOverlayPresenter;")
-    }
+    )
 )

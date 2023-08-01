@@ -17,6 +17,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patches.shared.fingerprints.LayoutConstructorFingerprint
 import app.revanced.patches.shared.fingerprints.SeekbarFingerprint
 import app.revanced.patches.shared.fingerprints.SeekbarOnDrawFingerprint
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
@@ -59,23 +60,16 @@ class SponsorBlockBytecodePatch : BytecodePatch(
     listOf(
         SeekbarFingerprint,
         AppendTimeFingerprint,
-        ControlsOverlayFingerprint,
+        LayoutConstructorFingerprint,
         AutoRepeatParentFingerprint,
     )
 ) {
-
-    private companion object {
-        const val INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR =
-            "Lapp/revanced/integrations/sponsorblock/SegmentPlaybackController;"
-        const val INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR =
-            "Lapp/revanced/integrations/sponsorblock/ui/CreateSegmentButtonController;"
-        const val INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR =
-            "Lapp/revanced/integrations/sponsorblock/ui/VotingButtonController;"
-        const val INTEGRATIONS_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR =
-            "Lapp/revanced/integrations/sponsorblock/ui/SponsorBlockViewController;"
-    }
-
     override fun execute(context: BytecodeContext): PatchResult {
+        LayoutConstructorFingerprint.result?.let {
+            if (!ControlsOverlayFingerprint.resolve(context, it.classDef))
+                throw ControlsOverlayFingerprint.toErrorResult()
+        } ?: return LayoutConstructorFingerprint.toErrorResult()
+
         /*
          * Hook the video time methods
          */
@@ -278,5 +272,16 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         // TODO: isSBChannelWhitelisting implementation
 
         return PatchResultSuccess()
+    }
+
+    private companion object {
+        const val INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR =
+            "Lapp/revanced/integrations/sponsorblock/SegmentPlaybackController;"
+        const val INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR =
+            "Lapp/revanced/integrations/sponsorblock/ui/CreateSegmentButtonController;"
+        const val INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR =
+            "Lapp/revanced/integrations/sponsorblock/ui/VotingButtonController;"
+        const val INTEGRATIONS_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR =
+            "Lapp/revanced/integrations/sponsorblock/ui/SponsorBlockViewController;"
     }
 }

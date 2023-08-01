@@ -38,12 +38,12 @@ class HideCaptionsButtonPatch : BytecodePatch(listOf(
         val subtitleButtonControllerMethod = SubtitleButtonControllerFingerprint.result!!.mutableMethod
 
         // Due to previously applied patches, scanResult index cannot be used in this context
-        val igetBooleanIndex = subtitleButtonControllerMethod.implementation!!.instructions.indexOfFirst {
+        val insertIndex = subtitleButtonControllerMethod.implementation!!.instructions.indexOfFirst {
             it.opcode == Opcode.IGET_BOOLEAN
-        }
+        } + 1
 
         subtitleButtonControllerMethod.addInstruction(
-            igetBooleanIndex + 1,
+            insertIndex,
             """
                 invoke-static {v0}, Lapp/revanced/integrations/patches/HideCaptionsButtonPatch;->hideCaptionsButton(Landroid/widget/ImageView;)V
             """

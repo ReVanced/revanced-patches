@@ -17,8 +17,5 @@ object VideoStateFingerprint : MethodFingerprint(
         Opcode.IF_EQZ,
         Opcode.IF_EQZ,
         Opcode.IGET_OBJECT, // obfuscated parameter field name
-    ),
-    customFingerprint = { methodDef, _ ->
-        methodDef.definingClass.endsWith("YouTubeControlsOverlay;")
-    }
+    )
 )

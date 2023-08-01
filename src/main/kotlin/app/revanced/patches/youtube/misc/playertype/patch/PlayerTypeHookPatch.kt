@@ -12,33 +12,27 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import app.revanced.patches.youtube.misc.playertype.annotation.PlayerTypeHookCompatibility
 import app.revanced.patches.youtube.misc.playertype.fingerprint.PlayerTypeFingerprint
 import app.revanced.patches.youtube.misc.playertype.fingerprint.VideoStateFingerprint
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Name("Player type hook")
 @Description("Hook to get the current player type and video playback state.")
-@PlayerTypeHookCompatibility
 @DependsOn([IntegrationsPatch::class])
 class PlayerTypeHookPatch : BytecodePatch(
     listOf(PlayerTypeFingerprint, VideoStateFingerprint)
 ) {
     override fun execute(context: BytecodeContext): PatchResult {
-
-        PlayerTypeFingerprint.result?.let {
-            it.mutableMethod.apply {
-                addInstruction(
-                    0,
-                    "invoke-static {p1}, $INTEGRATIONS_CLASS_DESCRIPTOR->setPlayerType(Ljava/lang/Enum;)V"
-                )
-            }
-        } ?: return PlayerTypeFingerprint.toErrorResult()
+        PlayerTypeFingerprint.result?.mutableMethod?.addInstruction(
+            0,
+            "invoke-static {p1}, $INTEGRATIONS_CLASS_DESCRIPTOR->setPlayerType(Ljava/lang/Enum;)V"
+        ) ?: return PlayerTypeFingerprint.toErrorResult()
 
         VideoStateFingerprint.result?.let {
             it.mutableMethod.apply {
                 val endIndex = it.scanResult.patternScanResult!!.endIndex
                 val videoStateFieldName = getInstruction<ReferenceInstruction>(endIndex).reference
+
                 addInstructions(
                     0,
                     """

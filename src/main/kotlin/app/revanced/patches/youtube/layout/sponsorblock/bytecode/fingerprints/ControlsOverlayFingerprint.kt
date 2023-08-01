@@ -19,9 +19,6 @@ object ControlsOverlayFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,
-        Opcode.NEW_INSTANCE,
-        ),
-    customFingerprint = { methodDef, _ ->
-        methodDef.definingClass == "Lcom/google/android/apps/youtube/app/player/overlay/YouTubeControlsOverlay;"
-    }
+        Opcode.NEW_INSTANCE
+    )
 )

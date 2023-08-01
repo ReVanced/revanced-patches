@@ -17,7 +17,6 @@ object CreatePlayerOverviewFingerprint : MethodFingerprint(
         Opcode.CHECK_CAST
     ),
     customFingerprint = { methodDef, _ ->
-        methodDef.definingClass.endsWith("YouTubeControlsOverlay;")
-                &&  methodDef.containsConstantInstructionValue(HidePlayerOverlayResourcePatch.scrimOverlayId)
+        methodDef.containsConstantInstructionValue(HidePlayerOverlayResourcePatch.scrimOverlayId)
     }
 )
