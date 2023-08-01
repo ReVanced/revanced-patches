@@ -26,7 +26,8 @@ public final class OldVideoQualityMenuPatch {
         // The quality menu is a RecyclerView with 3 children. The third child is the "Advanced" quality menu.
         addRecyclerListener(linearLayout, 3, 2, recyclerView -> {
             // Check if the current view is the quality menu.
-            if (VideoQualityMenuFilterPatch.isVideoQualityMenuVisible) {// Hide the video quality menu.
+            if (VideoQualityMenuFilterPatch.isVideoQualityMenuVisible) {
+                VideoQualityMenuFilterPatch.isVideoQualityMenuVisible = false;
                 linearLayout.setVisibility(View.GONE);
 
                 // Click the "Advanced" quality menu to show the "old" quality menu.

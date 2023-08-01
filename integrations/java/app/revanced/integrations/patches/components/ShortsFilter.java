@@ -1,22 +1,40 @@
 package app.revanced.integrations.patches.components;
 
-import android.view.View;
-import app.revanced.integrations.settings.SettingsEnum;
-import com.google.android.libraries.youtube.rendering.ui.pivotbar.PivotBar;
-
 import static app.revanced.integrations.utils.ReVancedUtils.hideViewBy1dpUnderCondition;
 import static app.revanced.integrations.utils.ReVancedUtils.hideViewUnderCondition;
 
+import android.view.View;
+
+import androidx.annotation.Nullable;
+
+import com.google.android.libraries.youtube.rendering.ui.pivotbar.PivotBar;
+
+import app.revanced.integrations.settings.SettingsEnum;
+
 public final class ShortsFilter extends Filter {
-    // Set by patch.
-    public static PivotBar pivotBar;
-    final StringFilterGroupList shortsFilterGroup = new StringFilterGroupList();
-    private final StringFilterGroup reelChannelBar = new StringFilterGroup(
-            null,
-            "reel_channel_bar"
-    );
+    private static final String REEL_CHANNEL_BAR_PATH = "reel_channel_bar";
+    public static PivotBar pivotBar; // Set by patch.
+
+    private final StringFilterGroup channelBar;
+    private final StringFilterGroup soundButton;
+    private final StringFilterGroup infoPanel;
 
     public ShortsFilter() {
+        channelBar = new StringFilterGroup(
+                SettingsEnum.HIDE_SHORTS_CHANNEL_BAR,
+                REEL_CHANNEL_BAR_PATH
+        );
+
+        soundButton = new StringFilterGroup(
+                SettingsEnum.HIDE_SHORTS_SOUND_BUTTON,
+                "reel_pivot_button"
+        );
+
+        infoPanel = new StringFilterGroup(
+                SettingsEnum.HIDE_SHORTS_INFO_PANEL,
+                "shorts_info_panel_overview"
+        );
+
         final var thanksButton = new StringFilterGroup(
                 SettingsEnum.HIDE_SHORTS_THANKS_BUTTON,
                 "suggested_action"
@@ -32,21 +50,6 @@ public final class ShortsFilter extends Filter {
                 "sponsor_button"
         );
 
-        final var soundButton = new StringFilterGroup(
-                SettingsEnum.HIDE_SHORTS_SOUND_BUTTON,
-                "reel_pivot_button"
-        );
-
-        final var infoPanel = new StringFilterGroup(
-                SettingsEnum.HIDE_SHORTS_INFO_PANEL,
-                "shorts_info_panel_overview"
-        );
-
-        final var channelBar = new StringFilterGroup(
-                SettingsEnum.HIDE_SHORTS_CHANNEL_BAR,
-                "reel_channel_bar"
-        );
-
         final var shorts = new StringFilterGroup(
                 SettingsEnum.HIDE_SHORTS,
                 "shorts_shelf",
@@ -55,22 +58,21 @@ public final class ShortsFilter extends Filter {
                 "shorts_video_cell"
         );
 
-        shortsFilterGroup.addAll(soundButton, infoPanel);
-        pathFilterGroups.addAll(joinButton, subscribeButton, channelBar);
+        pathFilterGroups.addAll(joinButton, subscribeButton, channelBar, soundButton, infoPanel);
         identifierFilterGroups.addAll(shorts, thanksButton);
     }
 
     @Override
-    boolean isFiltered(final String path, final String identifier,
-                       final byte[] protobufBufferArray) {
+    boolean isFiltered(String path, @Nullable String identifier, byte[] protobufBufferArray,
+                       FilterGroupList matchedList, FilterGroup matchedGroup, int matchedIndex) {
+        if (matchedGroup == soundButton || matchedGroup == infoPanel || matchedGroup == channelBar) return true;
 
         // Filter the path only when reelChannelBar is visible.
-        if (reelChannelBar.check(path).isFiltered())
-            if (this.pathFilterGroups.contains(path)) return true;
+        if (pathFilterGroups == matchedList) {
+            return path.contains(REEL_CHANNEL_BAR_PATH);
+        }
 
-        if (shortsFilterGroup.contains(path)) return true;
-
-        return this.identifierFilterGroups.contains(identifier);
+        return identifierFilterGroups == matchedList;
     }
 
     public static void hideShortsShelf(final View shortsShelfView) {
