@@ -4,7 +4,6 @@ import app.revanced.extensions.findIndexForIdResource
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -31,7 +30,6 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @Name("Hide autoplay button")
 @Description("Hides the autoplay button in the video player.")
 @AutoplayButtonCompatibility
-@Version("0.0.1")
 class HideAutoplayButtonPatch : BytecodePatch(
     listOf(LayoutConstructorFingerprint)
 ) {

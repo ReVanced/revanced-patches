@@ -66,26 +66,30 @@ class ThemeResourcePatch : ResourcePatch {
             addColorResource(context, "res/values-night/colors.xml", SPLASH_BACKGROUND_COLOR, it)
         }
 
-        // Edit splash screen files and change the background color.
-        val splashScreenResourceFiles = listOf(
-            "res/drawable/quantum_launchscreen_youtube.xml",
-            "res/drawable-sw600dp/quantum_launchscreen_youtube.xml")
+        // Edit splash screen files and change the background color,
+        // if the background colors are set.
+        if (darkThemeBackgroundColor != null && lightThemeBackgroundColor != null) {
+            val splashScreenResourceFiles = listOf(
+                "res/drawable/quantum_launchscreen_youtube.xml",
+                "res/drawable-sw600dp/quantum_launchscreen_youtube.xml")
 
-         splashScreenResourceFiles.forEach editSplashScreen@ { resourceFile ->
-            context.xmlEditor[resourceFile].use {
-                val layerList = it.file.getElementsByTagName("layer-list").item(0) as Element
+            splashScreenResourceFiles.forEach editSplashScreen@ { resourceFile ->
+                context.xmlEditor[resourceFile].use {
+                    val layerList = it.file.getElementsByTagName("layer-list").item(0) as Element
 
-                val childNodes = layerList.childNodes
-                for (i in 0 until childNodes.length) {
-                    val node = childNodes.item(i)
-                    if (node is Element && node.hasAttribute("android:drawable")) {
-                        node.setAttribute("android:drawable", "@color/$SPLASH_BACKGROUND_COLOR")
-                        return@editSplashScreen
+                    val childNodes = layerList.childNodes
+                    for (i in 0 until childNodes.length) {
+                        val node = childNodes.item(i)
+                        if (node is Element && node.hasAttribute("android:drawable")) {
+                            node.setAttribute("android:drawable", "@color/$SPLASH_BACKGROUND_COLOR")
+                            return@editSplashScreen
+                        }
                     }
+                    return PatchResultError("Failed to modify launch screen")
                 }
-                return PatchResultError("Failed to modify launch screen")
             }
         }
+
 
         return PatchResultSuccess()
     }

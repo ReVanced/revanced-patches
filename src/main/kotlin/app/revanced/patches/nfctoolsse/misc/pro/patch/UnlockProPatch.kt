@@ -3,7 +3,6 @@ package app.revanced.patches.nfctoolsse.misc.pro.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
@@ -17,7 +16,6 @@ import app.revanced.patches.nfctoolsse.misc.pro.fingerprints.IsLicenseRegistered
 @Patch
 @Name("Unlock pro")
 @Description("Unlocks all pro features.")
-@Version("0.0.1")
 @UnlockProCompatibility
 class UnlockProPatch : BytecodePatch(
     listOf(

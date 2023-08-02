@@ -2,7 +2,6 @@ package app.revanced.patches.all.connectivity.wifi.spoof.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.annotations.RequiresIntegrations
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -15,7 +14,6 @@ import java.util.*
 @Patch(false)
 @Name("Spoof wifi connection")
 @Description("Spoofs an existing Wi-Fi connection.")
-@Version("0.0.1")
 @RequiresIntegrations
 internal class SpoofWifiPatch : AbstractTransformInstructionsPatch<Instruction35cInfo>() {
 

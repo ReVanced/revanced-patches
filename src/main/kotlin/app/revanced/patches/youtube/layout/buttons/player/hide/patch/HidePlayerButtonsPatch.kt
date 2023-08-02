@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.layout.buttons.player.hide.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -25,7 +24,6 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction3rc
 @Name("Hide player buttons")
 @Description("Adds the option to hide video player previous and next buttons.")
 @HidePlayerButtonsCompatibility
-@Version("0.0.1")
 class HidePlayerButtonsPatch : BytecodePatch(
     listOf(PlayerControlsVisibilityModelFingerprint)
 ) {

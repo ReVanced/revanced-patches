@@ -3,7 +3,6 @@ package app.revanced.patches.tiktok.misc.spoof.sim.patch
 import app.revanced.extensions.findMutableMethodOf
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -28,7 +27,6 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @Name("Sim spoof")
 @Description("Spoofs the information which is retrieved from the sim-card.")
 @SpoofSimCompatibility
-@Version("0.0.1")
 class SpoofSimPatch : BytecodePatch() {
     private companion object {
         val replacements = hashMapOf(

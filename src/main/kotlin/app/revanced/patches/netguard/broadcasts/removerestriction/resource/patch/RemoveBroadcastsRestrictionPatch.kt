@@ -2,7 +2,6 @@ package app.revanced.patches.netguard.broadcasts.removerestriction.resource.patc
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -15,7 +14,6 @@ import org.w3c.dom.Element
 @Name("Remove broadcasts restriction")
 @Description("Enables starting/stopping NetGuard via broadcasts.")
 @RemoveBroadcastsRestrictionCompatibility
-@Version("0.0.1")
 class RemoveBroadcastsRestrictionPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
         context.xmlEditor["AndroidManifest.xml"].use { dom ->

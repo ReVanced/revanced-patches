@@ -2,7 +2,6 @@ package app.revanced.patches.irplus.ad.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
@@ -17,7 +16,6 @@ import app.revanced.patches.irplus.ad.fingerprints.IrplusAdsFingerprint
 @Name("Remove ads")
 @Description("Removes all ads from the app.")
 @IrplusAdsCompatibility
-@Version("0.0.1")
 class IrplusAdsPatch : BytecodePatch(
     listOf(IrplusAdsFingerprint)
 ) {

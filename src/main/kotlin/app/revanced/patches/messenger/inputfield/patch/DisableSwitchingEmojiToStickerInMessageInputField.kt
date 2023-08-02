@@ -16,7 +16,6 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Name("Disable switching emoji to sticker in message input field")
 @Description("Disables switching from emoji to sticker search mode in message input field")
 @Compatibility([Package("com.facebook.orca")])
-@Version("0.0.1")
 class DisableSwitchingEmojiToStickerInMessageInputField : BytecodePatch(listOf(SwitchMessangeInputEmojiButtonFingerprint)) {
     override fun execute(context: BytecodeContext): PatchResult {
         SwitchMessangeInputEmojiButtonFingerprint.result?.let {

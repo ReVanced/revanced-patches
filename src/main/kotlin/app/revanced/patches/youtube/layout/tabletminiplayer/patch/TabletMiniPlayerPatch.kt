@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.layout.tabletminiplayer.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
@@ -29,7 +28,6 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Name("Tablet mini player")
 @Description("Enables the tablet mini player layout.")
 @TabletMiniPlayerCompatibility
-@Version("0.0.1")
 class TabletMiniPlayerPatch : BytecodePatch(
     listOf(
         MiniPlayerDimensionsCalculatorParentFingerprint,

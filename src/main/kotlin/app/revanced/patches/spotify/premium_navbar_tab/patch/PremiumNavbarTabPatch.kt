@@ -2,7 +2,6 @@ package app.revanced.patches.spotify.premium_navbar_tab.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
@@ -22,7 +21,6 @@ import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 @Name("Hide premium navbar")
 @Description("Removes the premium tab from the navbar.")
 @PremiumNavbarTabCompatibility
-@Version("0.0.1")
 @DependsOn([ResourceMappingPatch::class])
 class PremiumNavbarTabPatch : BytecodePatch(
     listOf(

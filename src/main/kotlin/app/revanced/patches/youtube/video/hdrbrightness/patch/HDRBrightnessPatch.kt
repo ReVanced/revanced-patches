@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.video.hdrbrightness.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
@@ -24,7 +23,6 @@ import org.jf.dexlib2.iface.reference.FieldReference
 @Name("HDR auto brightness")
 @Description("Makes the brightness of HDR videos follow the system default.")
 @HDRBrightnessCompatibility
-@Version("0.0.2")
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
 class HDRBrightnessPatch : BytecodePatch(
     listOf(HDRBrightnessFingerprint)

@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.layout.hide.breakingnews.bytecode.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -23,7 +22,6 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Name("Hide breaking news shelf")
 @Description("Hides the breaking news shelf on the homepage tab.")
 @BreakingNewsCompatibility
-@Version("0.0.1")
 class BreakingNewsPatch : BytecodePatch(
     listOf(BreakingNewsFingerprint)
 ) {

@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.layout.startupshortsreset.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.BytecodePatch
@@ -22,7 +21,6 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 @Name("Disable Shorts on startup")
 @Description("Disables playing YouTube Shorts when launching YouTube.")
 @StartupShortsResetCompatibility
-@Version("0.0.1")
 class DisableShortsOnStartupPatch : BytecodePatch(
     listOf(
         UserWasInShortsFingerprint

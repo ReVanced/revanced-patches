@@ -2,7 +2,6 @@ package app.revanced.patches.music.audio.exclusiveaudio.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
@@ -17,7 +16,6 @@ import app.revanced.patches.music.audio.exclusiveaudio.fingerprints.AudioOnlyEna
 @Name("Exclusive audio playback")
 @Description("Enables the option to play music without video.")
 @MusicCompatibility
-@Version("0.0.1")
 class ExclusiveAudioPatch : BytecodePatch(
     listOf(AudioOnlyEnablerFingerprint)
 ) {

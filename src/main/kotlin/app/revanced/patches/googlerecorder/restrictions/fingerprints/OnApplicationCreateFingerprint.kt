@@ -1,4 +1,4 @@
-package app.revanced.patches.googlerecorder.restrictions.fingereprints
+package app.revanced.patches.googlerecorder.restrictions.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 

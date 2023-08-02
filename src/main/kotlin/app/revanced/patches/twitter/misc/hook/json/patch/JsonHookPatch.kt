@@ -2,7 +2,6 @@ package app.revanced.patches.twitter.misc.hook.json.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
@@ -21,7 +20,6 @@ import java.io.InvalidClassException
 
 @Name("Json hook")
 @Description("Hooks the stream which reads JSON responses.")
-@Version("0.0.1")
 @RequiresIntegrations
 class JsonHookPatch : BytecodePatch(
     listOf(LoganSquareFingerprint)

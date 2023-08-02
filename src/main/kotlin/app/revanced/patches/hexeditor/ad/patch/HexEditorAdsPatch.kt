@@ -2,9 +2,7 @@ package app.revanced.patches.hexeditor.ad.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -17,7 +15,6 @@ import app.revanced.patches.hexeditor.ad.fingerprints.PrimaryAdsFingerprint
 @Name("Disable ads")
 @Description("Disables ads in HexEditor.")
 @HexEditorAdsCompatibility
-@Version("0.0.1")
 class HexEditorAdsPatch : BytecodePatch(
     listOf(
         PrimaryAdsFingerprint

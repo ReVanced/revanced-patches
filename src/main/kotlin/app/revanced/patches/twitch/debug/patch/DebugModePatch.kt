@@ -3,7 +3,6 @@ package app.revanced.patches.twitch.debug.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
@@ -25,7 +24,6 @@ import app.revanced.patches.twitch.misc.settings.bytecode.patch.SettingsPatch
 @Name("Debug mode")
 @Description("Enables Twitch's internal debugging mode.")
 @DebugModeCompatibility
-@Version("0.0.1")
 class DebugModePatch : BytecodePatch(
     listOf(
         IsDebugConfigEnabledFingerprint,

@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.layout.theme.bytecode.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
@@ -16,7 +15,6 @@ import app.revanced.patches.youtube.layout.theme.bytecode.fingerprints.LithoThem
 @Name("Litho color hook")
 @Description("Adds a hook to set color of Litho components.")
 @ThemeCompatibility
-@Version("0.0.1")
 class LithoColorHookPatch : BytecodePatch(listOf(LithoThemeFingerprint)) {
     override fun execute(context: BytecodeContext): PatchResult {
         LithoThemeFingerprint.result?.let {

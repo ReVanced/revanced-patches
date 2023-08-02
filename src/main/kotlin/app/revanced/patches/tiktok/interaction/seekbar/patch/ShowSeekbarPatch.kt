@@ -3,7 +3,6 @@ package app.revanced.patches.tiktok.interaction.seekbar.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -19,7 +18,6 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction22t
 @Name("Show seekbar")
 @Description("Shows progress bar for all video.")
 @ShowSeekbarCompatibility
-@Version("0.0.1")
 class ShowSeekbarPatch : BytecodePatch(
     listOf(
         SetSeekBarShowTypeFingerprint,

@@ -8,11 +8,15 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.*
 import java.io.File
 
-abstract class AbstractChangeOAuthClientIdPatch(
+abstract class AbstractSpoofClientPatch(
     private val redirectUri: String,
-    private val options: ChangeOAuthClientIdOptionsContainer,
-    private val fingerprints: List<MethodFingerprint>
-) : BytecodePatch(fingerprints) {
+    private val options: SpoofClientOptionsContainer,
+    private val clientIdFingerprints: List<MethodFingerprint>,
+    private val userAgentFingerprints: List<MethodFingerprint>? = null,
+) : BytecodePatch(buildList {
+    addAll(clientIdFingerprints)
+    userAgentFingerprints?.let(::addAll)
+}) {
     override fun execute(context: BytecodeContext): PatchResult {
         if (options.clientId == null) {
             // Ensure device runs Android.
@@ -38,13 +42,39 @@ abstract class AbstractChangeOAuthClientIdPatch(
             }.let { options.clientId = it.readText().trim() }
         }
 
-        return fingerprints.map { it.result ?: throw it.toErrorResult() }.patch(context)
+        fun List<MethodFingerprint>?.executePatch(
+            patch: List<MethodFingerprintResult>.(BytecodeContext) -> PatchResult
+        ) {
+            when (val result = this?.map { it.result ?: throw it.toErrorResult() }?.patch(context)) {
+                is PatchResultError -> throw result
+            }
+        }
+
+        clientIdFingerprints.executePatch { patchClientId(context) }
+        userAgentFingerprints.executePatch { patchUserAgent(context) }
+
+        return PatchResultSuccess()
     }
 
-    abstract fun List<MethodFingerprintResult>.patch(context: BytecodeContext): PatchResult
+    /**
+     * Patch the client ID. The fingerprints are guaranteed to be in the same order as in [clientIdFingerprints].
+     *
+     * @param context The current [BytecodeContext].
+     *
+     */
+    abstract fun List<MethodFingerprintResult>.patchClientId(context: BytecodeContext): PatchResult
+
+    /**
+     * Patch the user agent. The fingerprints are guaranteed to be in the same order as in [userAgentFingerprints].
+     *
+     * @param context The current [BytecodeContext].
+     */
+    // Not every client needs to patch the user agent.
+    open fun List<MethodFingerprintResult>.patchUserAgent(context: BytecodeContext): PatchResult =
+        PatchResultSuccess()
 
     companion object Options {
-        open class ChangeOAuthClientIdOptionsContainer : OptionsContainer() {
+        open class SpoofClientOptionsContainer : OptionsContainer() {
             var clientId by option(
                 PatchOption.StringOption(
                     "client-id",

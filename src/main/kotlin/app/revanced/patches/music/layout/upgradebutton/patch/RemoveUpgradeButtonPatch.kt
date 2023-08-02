@@ -2,7 +2,6 @@ package app.revanced.patches.music.layout.upgradebutton.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
@@ -22,7 +21,6 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 @Name("Upgrade button remover")
 @Description("Removes the upgrade tab from the pivot bar.")
 @MusicCompatibility
-@Version("0.0.1")
 class RemoveUpgradeButtonPatch : BytecodePatch(
     listOf(PivotBarConstructorFingerprint)
 ) {

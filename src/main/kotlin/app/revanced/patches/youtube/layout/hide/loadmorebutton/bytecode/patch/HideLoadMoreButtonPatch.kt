@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.layout.hide.loadmorebutton.bytecode.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -22,7 +21,6 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Description("Hides the button under videos that loads similar videos.")
 @DependsOn([HideLoadMoreButtonResourcePatch::class])
 @HideLoadMoreButtonCompatibility
-@Version("0.0.1")
 class HideLoadMoreButtonPatch : BytecodePatch(listOf(HideLoadMoreButtonFingerprint)) {
     override fun execute(context: BytecodeContext): PatchResult {
         HideLoadMoreButtonFingerprint.result?.let {

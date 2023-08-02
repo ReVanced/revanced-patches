@@ -2,7 +2,6 @@ package app.revanced.patches.yuka.misc.unlockpremium.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
@@ -18,7 +17,6 @@ import app.revanced.patches.yuka.misc.unlockpremium.fingerprints.YukaUserConstru
 @Name("Unlock premium")
 @Description("Unlocks premium features.")
 @UnlockPremiumCompatibility
-@Version("0.0.1")
 class UnlockPremiunPatch : BytecodePatch(
     listOf(
         YukaUserConstructorFingerprint

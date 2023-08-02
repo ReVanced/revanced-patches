@@ -3,7 +3,6 @@ package app.revanced.patches.youtubevanced.ad.general.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -22,7 +21,6 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 @Description("Removes general ads.")
 @DependsOn([VerticalScrollPatch::class])
 @HideAdsCompatibility
-@Version("0.0.1")
 class HideAdsPatch : BytecodePatch(
     listOf(
         ContainsAdFingerprint

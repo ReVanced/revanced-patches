@@ -2,7 +2,6 @@ package app.revanced.patches.reddit.ad.general.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
@@ -29,7 +28,6 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @DependsOn([HideBannerPatch::class, HideCommentAdsPatch::class])
 @HideAdsCompatibility
 @RequiresIntegrations
-@Version("0.0.2")
 class HideAdsPatch : BytecodePatch(
     listOf(AdPostFingerprint, NewAdPostFingerprint)
 ) {

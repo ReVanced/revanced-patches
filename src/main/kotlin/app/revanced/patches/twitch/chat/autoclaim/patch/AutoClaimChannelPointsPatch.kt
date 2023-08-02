@@ -3,7 +3,6 @@ package app.revanced.patches.twitch.chat.autoclaim.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -24,7 +23,6 @@ import app.revanced.patches.twitch.misc.settings.bytecode.patch.SettingsPatch
 @Name("Auto claim channel points")
 @Description("Automatically claim Channel Points.")
 @AutoClaimChannelPointsCompatibility
-@Version("0.0.1")
 class AutoClaimChannelPointPatch : BytecodePatch(
     listOf(CommunityPointsButtonViewDelegateFingerprint)
 ) {

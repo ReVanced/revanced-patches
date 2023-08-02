@@ -4,7 +4,6 @@ import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -17,7 +16,6 @@ import app.revanced.patches.inshorts.ad.fingerprints.InshortsAdsFingerprint
 @Name("Hide ads")
 @Description("Removes ads from Inshorts.")
 @HideAdsCompatibility
-@Version("0.0.1")
 class HideAdsPatch : BytecodePatch(
     listOf(InshortsAdsFingerprint)
 ) {

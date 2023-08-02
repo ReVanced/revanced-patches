@@ -2,7 +2,6 @@ package app.revanced.patches.tiktok.ad.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
@@ -22,7 +21,6 @@ import org.jf.dexlib2.iface.reference.FieldReference
 @Name("Hide ads")
 @Description("Removes ads from TikTok.")
 @HideAdsCompatibility
-@Version("0.0.1")
 class HideAdsPatch : BytecodePatch(
     listOf(
         FeedItemListCloneFingerprint,

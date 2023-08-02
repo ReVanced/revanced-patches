@@ -2,7 +2,6 @@ package app.revanced.patches.moneymanager.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
@@ -16,7 +15,6 @@ import app.revanced.patches.moneymanager.fingerprints.UnlockProFingerprint
 @Name("Unlock pro")
 @Description("Unlocks pro features.")
 @UnlockProCompatibility
-@Version("0.0.1")
 class UnlockProPatch : BytecodePatch(
     listOf(UnlockProFingerprint)
 ) {

@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.interaction.seekbar.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -27,7 +26,6 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 @Name("Seekbar tapping")
 @Description("Enables tap-to-seek on the seekbar of the video player.")
 @SeekbarTappingCompatibility
-@Version("0.0.1")
 class EnableSeekbarTappingPatch : BytecodePatch(
     listOf(AccessibilityPlayerProgressTimeFingerprint, SeekbarTappingFingerprint)
 ) {

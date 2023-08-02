@@ -2,7 +2,6 @@ package app.revanced.patches.shared.misc.fix.verticalscroll.patch
 
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -15,7 +14,6 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Description("Fixes issues with refreshing the feed when the first component is of type EmptyComponent.")
 @VerticalScrollCompatibility
-@Version("0.0.1")
 class VerticalScrollPatch : BytecodePatch(
     listOf(CanScrollVerticallyFingerprint)
 ) {

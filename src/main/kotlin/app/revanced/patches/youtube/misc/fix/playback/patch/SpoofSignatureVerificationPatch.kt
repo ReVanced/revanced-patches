@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.misc.fix.playback.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -15,19 +14,21 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.youtube.misc.fix.playback.fingerprints.*
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.ProtobufParameterBuilderFingerprint
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.ScrubbedPreviewLayoutFingerprint
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.StoryboardThumbnailFingerprint
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.StoryboardThumbnailParentFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
 @Name("Spoof signature verification")
-@Description("Spoofs a patched client to prevent playback issues.")
+@Description("Spoofs the client to prevent playback issues.")
 @DependsOn([
     SpoofSignatureVerificationResourcePatch::class,
     IntegrationsPatch::class,
     PlayerTypeHookPatch::class
 ])
-@Version("0.0.1")
 class SpoofSignatureVerificationPatch : BytecodePatch(
     listOf(
         ProtobufParameterBuilderFingerprint,

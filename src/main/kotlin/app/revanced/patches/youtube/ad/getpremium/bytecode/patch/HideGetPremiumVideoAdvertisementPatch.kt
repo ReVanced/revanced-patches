@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.ad.getpremium.bytecode.patch
 
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -21,8 +20,7 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
 @Name("Hide get premium")
 @HideGetPremiumCompatibility
-@Version("0.0.1")
-class HideGetPremiumPatch : BytecodePatch(listOf(GetPremiumViewFingerprint,)) {
+class HideGetPremiumPatch : BytecodePatch(listOf(GetPremiumViewFingerprint)) {
     override fun execute(context: BytecodeContext): PatchResult {
         SettingsPatch.PreferenceScreen.ADS.addPreferences(
             SwitchPreference(

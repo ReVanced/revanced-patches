@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.layout.panels.popup.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.BytecodePatch
@@ -23,7 +22,6 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 @Name("Disable player popup panels")
 @Description("Disables panels from appearing automatically when going into fullscreen (playlist or live chat).")
 @PlayerPopupPanelsCompatibility
-@Version("0.0.1")
 class PlayerPopupPanelsPatch : BytecodePatch(
     listOf(
         EngagementPanelControllerFingerprint

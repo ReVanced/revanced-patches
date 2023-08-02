@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.misc.autorepeat.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
@@ -26,7 +25,6 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 @Name("Always autorepeat")
 @Description("Always repeats the playing video again.")
 @AutoRepeatCompatibility
-@Version("0.0.1")
 class AutoRepeatPatch : BytecodePatch(
     listOf(
         AutoRepeatParentFingerprint
@@ -50,7 +48,7 @@ class AutoRepeatPatch : BytecodePatch(
         val playMethod = parentResult.mutableMethod
         AutoRepeatFingerprint.resolve(context, parentResult.classDef)
         //String is: Laamp;->E()V
-        val methodToCall = playMethod.definingClass + "->" + playMethod.name + "()V";
+        val methodToCall = playMethod.definingClass + "->" + playMethod.name + "()V"
 
         //This is the method we search for
         val result = AutoRepeatFingerprint.result

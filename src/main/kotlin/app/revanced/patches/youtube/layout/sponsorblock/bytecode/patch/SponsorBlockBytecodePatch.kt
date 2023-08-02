@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.layout.sponsorblock.bytecode.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
@@ -56,7 +55,6 @@ import org.jf.dexlib2.iface.reference.StringReference
 @Name("SponsorBlock")
 @Description("Integrates SponsorBlock which allows skipping video segments such as sponsored content.")
 @SponsorBlockCompatibility
-@Version("0.0.1")
 class SponsorBlockBytecodePatch : BytecodePatch(
     listOf(
         SeekbarFingerprint,

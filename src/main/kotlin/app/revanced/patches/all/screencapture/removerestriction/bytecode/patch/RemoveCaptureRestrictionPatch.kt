@@ -2,7 +2,6 @@ package app.revanced.patches.all.screencapture.removerestriction.bytecode.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.annotations.RequiresIntegrations
@@ -16,7 +15,6 @@ import org.jf.dexlib2.iface.instruction.Instruction
 @Patch(false)
 @Name("Remove screen capture restriction")
 @Description("Removes the restriction of capturing audio from apps that normally wouldn't allow it.")
-@Version("0.0.1")
 @DependsOn([RemoveCaptureRestrictionResourcePatch::class])
 @RequiresIntegrations
 internal class RemoveCaptureRestrictionPatch : AbstractTransformInstructionsPatch<Instruction35cInfo>() {

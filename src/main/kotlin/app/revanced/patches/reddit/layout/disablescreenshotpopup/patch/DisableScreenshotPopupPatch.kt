@@ -3,7 +3,6 @@ package app.revanced.patches.reddit.layout.disablescreenshotpopup.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
@@ -17,7 +16,6 @@ import app.revanced.patches.reddit.layout.disablescreenshotpopup.fingerprints.Di
 @Name("Disable screenshot popup")
 @Description("Disables the popup that shows up when taking a screenshot.")
 @DisableScreenshotPopupCompatibility
-@Version("0.0.1")
 class DisableScreenshotPopupPatch : BytecodePatch(
     listOf(DisableScreenshotPopupFingerprint)
 ) {

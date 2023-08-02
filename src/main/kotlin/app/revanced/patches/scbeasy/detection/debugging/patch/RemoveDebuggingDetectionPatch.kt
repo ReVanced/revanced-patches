@@ -2,7 +2,6 @@ package app.revanced.patches.scbeasy.detection.debugging.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
@@ -16,7 +15,6 @@ import app.revanced.patches.scbeasy.detection.debugging.fingerprints.DebuggingDe
 @Name("Remove debugging detection")
 @Description("Removes the USB and wireless debugging checks.")
 @RemoveDebuggingDetectionCompatibility
-@Version("0.0.1")
 class RemoveDebuggingDetectionPatch : BytecodePatch(
     listOf(DebuggingDetectionFingerprint)
 ) {

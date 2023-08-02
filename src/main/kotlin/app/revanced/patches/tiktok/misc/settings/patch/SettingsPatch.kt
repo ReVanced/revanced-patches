@@ -3,7 +3,6 @@ package app.revanced.patches.tiktok.misc.settings.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -26,7 +25,6 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 @Name("Settings")
 @Description("Adds ReVanced settings to TikTok.")
 @SettingsCompatibility
-@Version("0.0.1")
 class SettingsPatch : BytecodePatch(
     listOf(
         AdPersonalizationActivityOnCreateFingerprint,

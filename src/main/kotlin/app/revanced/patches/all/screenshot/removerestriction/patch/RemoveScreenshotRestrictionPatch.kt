@@ -2,7 +2,6 @@ package app.revanced.patches.all.screenshot.removerestriction.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.annotations.RequiresIntegrations
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -15,7 +14,6 @@ import java.util.*
 @Patch(false)
 @Name("Remove screenshot restriction")
 @Description("Removes the restriction of taking screenshots in apps that normally wouldn't allow it.")
-@Version("0.0.1")
 @RequiresIntegrations
 internal class RemoveScreenshotRestrictionPatch : AbstractTransformInstructionsPatch<Instruction35cInfo>() {
 

@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.layout.player.background.patch
 import app.revanced.extensions.doRecursively
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -16,7 +15,6 @@ import org.w3c.dom.Element
 @Name("Remove player controls background")
 @Description("Removes the background from the video player controls.")
 @PlayerControlsBackgroundCompatibility
-@Version("0.0.1")
 class PlayerControlsBackgroundPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
         context.xmlEditor[RESOURCE_FILE_PATH].use { editor ->

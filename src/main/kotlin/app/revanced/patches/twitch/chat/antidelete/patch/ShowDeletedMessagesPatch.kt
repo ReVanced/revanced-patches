@@ -3,7 +3,6 @@ package app.revanced.patches.twitch.chat.antidelete.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -29,7 +28,6 @@ import app.revanced.patches.twitch.misc.settings.bytecode.patch.SettingsPatch
 @Name("Show deleted messages")
 @Description("Shows deleted chat messages behind a clickable spoiler.")
 @ShowDeletedMessagesCompatibility
-@Version("0.0.1")
 class ShowDeletedMessagesPatch : BytecodePatch(
     listOf(
         SetHasModAccessFingerprint,

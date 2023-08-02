@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.layout.hide.endscreencards.bytecode.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -26,7 +25,6 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 @Name("Hide endscreen cards")
 @Description("Hides the suggested video cards at the end of a video in fullscreen.")
 @HideEndscreenCardsCompatibility
-@Version("0.0.1")
 class HideEndscreenCardsPatch : BytecodePatch(
     listOf(
         LayoutCircleFingerprint,

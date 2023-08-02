@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.layout.seekbar.bytecode.patch
 import app.revanced.extensions.indexOfFirstConstantInstructionValue
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -27,7 +26,6 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 @Description("Hide or set a custom seekbar color")
 @DependsOn([IntegrationsPatch::class, LithoColorHookPatch::class, SeekbarColorResourcePatch::class])
 @SeekbarColorCompatibility
-@Version("0.0.1")
 class SeekbarColorBytecodePatch : BytecodePatch(
     listOf(PlayerSeekbarColorFingerprint, ShortsSeekbarColorFingerprint, SetSeekbarClickedColorFingerprint)
 ) {

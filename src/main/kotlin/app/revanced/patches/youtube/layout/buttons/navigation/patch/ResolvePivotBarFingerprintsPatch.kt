@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.layout.buttons.navigation.patch
 
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
@@ -16,7 +15,6 @@ import app.revanced.patches.youtube.layout.buttons.navigation.fingerprints.Pivot
 
 @DependsOn([ResourceMappingPatch::class])
 @Description("Resolves necessary fingerprints.")
-@Version("0.0.1")
 class ResolvePivotBarFingerprintsPatch : BytecodePatch(
     listOf(PivotBarConstructorFingerprint)
 ) {

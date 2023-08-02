@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.layout.hide.general.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -28,7 +27,6 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch.P
 @Description("Hides general layout components.")
 @DependsOn([LithoFilterPatch::class, SettingsPatch::class])
 @HideLayoutComponentsCompatibility
-@Version("0.0.1")
 class HideLayoutComponentsPatch : BytecodePatch(
     listOf(ConvertElementToFlatBufferFingerprint)
 ) {
@@ -210,6 +208,12 @@ class HideLayoutComponentsPatch : BytecodePatch(
                 StringResource("revanced_hide_artist_cards_title", "Hide artist cards"),
                 StringResource("revanced_hide_artist_cards_on", "Artist cards is hidden"),
                 StringResource("revanced_hide_artist_cards_off", "Artist cards is shown")
+            ),
+            SwitchPreference(
+                "revanced_hide_chips_shelf",
+                StringResource("revanced_hide_chips_shelf_title", "Hide chips shelf"),
+                StringResource("revanced_hide_chips_shelf_on", "Chips shelf is hidden"),
+                StringResource("revanced_hide_chips_shelf_off", "Chips shelf is shown")
             ),
             app.revanced.patches.shared.settings.preference.impl.PreferenceScreen(
                 "revanced_custom_filter_preference_screen",

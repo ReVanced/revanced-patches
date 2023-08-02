@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.layout.panels.fullscreen.remove.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
@@ -26,7 +25,6 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
 @Description("Disables video description and comments panel in fullscreen view.")
 @FullscreenPanelsCompatibility
-@Version("0.0.1")
 class FullscreenPanelsRemoverPatch : BytecodePatch(
     listOf(
         FullscreenViewAdderParentFingerprint

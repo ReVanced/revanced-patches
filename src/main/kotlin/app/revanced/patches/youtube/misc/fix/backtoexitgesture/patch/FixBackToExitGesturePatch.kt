@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.misc.fix.backtoexitgesture.patch
 
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
@@ -19,7 +18,6 @@ import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fingerprints.Recy
 
 @Description("Fixes the swipe back to exit gesture.")
 @FixBackToExitGestureCompatibility
-@Version("0.0.1")
 class FixBackToExitGesturePatch : BytecodePatch(
     listOf(
         RecyclerViewTopScrollingParentFingerprint,

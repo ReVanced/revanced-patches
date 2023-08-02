@@ -3,7 +3,6 @@ package app.revanced.patches.finanzonline.detection.root.patch
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
@@ -17,7 +16,6 @@ import app.revanced.patches.finanzonline.detection.shared.annotations.DetectionC
 @Name("Remove root detection")
 @Description("Removes the check for root permissions.")
 @DetectionCompatibility
-@Version("0.0.1")
 class RootDetectionPatch : BytecodePatch(
     listOf(RootDetectionFingerprint)
 ) {

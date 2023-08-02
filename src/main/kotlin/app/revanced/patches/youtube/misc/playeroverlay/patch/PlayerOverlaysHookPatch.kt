@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.misc.playeroverlay.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
@@ -16,7 +15,6 @@ import app.revanced.patches.youtube.misc.playeroverlay.fingerprint.PlayerOverlay
 @Name("Player overlays hook")
 @Description("Hook for adding custom overlays to the video player.")
 @PlayerOverlaysHookCompatibility
-@Version("0.0.1")
 @DependsOn([IntegrationsPatch::class])
 class PlayerOverlaysHookPatch : BytecodePatch(
     listOf(

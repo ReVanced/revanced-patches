@@ -21,5 +21,4 @@ object ContainsAdFingerprint:MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.name == "containsAd" && methodDef.definingClass.endsWith("LithoAdRemoval;")
     }
-) {
-}
+)

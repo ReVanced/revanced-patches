@@ -2,7 +2,6 @@ package app.revanced.patches.music.premium.backgroundplay.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
@@ -16,7 +15,6 @@ import app.revanced.patches.music.premium.backgroundplay.fingerprints.Background
 @Name("Background play")
 @Description("Enables playing music in the background.")
 @MusicCompatibility
-@Version("0.0.1")
 class BackgroundPlayPatch : BytecodePatch(
     listOf(BackgroundPlaybackDisableFingerprint)
 ) {
