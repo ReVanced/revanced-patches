@@ -5,5 +5,5 @@ import app.revanced.patcher.patch.annotations.Patch
 
 @Target(AnnotationTarget.CLASS)
 @Patch
-@Name("Change OAuth client id")
-annotation class ChangeOAuthClientIdPatchAnnotation
+@Name("Spoof client")
+annotation class SpoofClientAnnotation

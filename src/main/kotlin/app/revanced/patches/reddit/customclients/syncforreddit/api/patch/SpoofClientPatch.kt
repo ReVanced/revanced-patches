@@ -13,8 +13,8 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patches.reddit.customclients.AbstractChangeOAuthClientIdPatch
-import app.revanced.patches.reddit.customclients.ChangeOAuthClientIdPatchAnnotation
+import app.revanced.patches.reddit.customclients.AbstractSpoofClientPatch
+import app.revanced.patches.reddit.customclients.SpoofClientAnnotation
 import app.revanced.patches.reddit.customclients.syncforreddit.api.fingerprints.GetAuthorizationStringFingerprint
 import app.revanced.patches.reddit.customclients.syncforreddit.api.fingerprints.GetBearerTokenFingerprint
 import app.revanced.patches.reddit.customclients.syncforreddit.detection.piracy.patch.DisablePiracyDetectionPatch
@@ -23,8 +23,8 @@ import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 import org.jf.dexlib2.iface.reference.StringReference
 import java.util.*
 
-@ChangeOAuthClientIdPatchAnnotation
-@Description("Changes the OAuth client ID. " +
+@SpoofClientAnnotation
+@Description("Spoofs the client in order to allow logging in. " +
         "The OAuth application type has to be \"Installed app\" " +
         "and the redirect URI has to be set to \"http://redditsync/auth\".")
 @Compatibility(
@@ -35,10 +35,10 @@ import java.util.*
     ]
 )
 @DependsOn([DisablePiracyDetectionPatch::class])
-class ChangeOAuthClientIdPatch : AbstractChangeOAuthClientIdPatch(
+class SpoofClientPatch : AbstractSpoofClientPatch(
     "http://redditsync/auth", Options, listOf(GetAuthorizationStringFingerprint)
 ) {
-    override fun List<MethodFingerprintResult>.patch(context: BytecodeContext): PatchResult {
+    override fun List<MethodFingerprintResult>.patchClientId(context: BytecodeContext): PatchResult {
         forEach { fingerprintResult ->
             fingerprintResult.also { result ->
                 GetBearerTokenFingerprint.also { it.resolve(context, result.classDef) }.result?.mutableMethod?.apply {
@@ -75,5 +75,5 @@ class ChangeOAuthClientIdPatch : AbstractChangeOAuthClientIdPatch(
         return PatchResultSuccess()
     }
 
-    companion object Options : AbstractChangeOAuthClientIdPatch.Options.ChangeOAuthClientIdOptionsContainer()
+    companion object Options : AbstractSpoofClientPatch.Options.SpoofClientOptionsContainer()
 }

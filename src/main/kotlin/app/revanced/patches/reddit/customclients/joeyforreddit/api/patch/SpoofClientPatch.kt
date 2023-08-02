@@ -9,14 +9,14 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patches.reddit.customclients.AbstractChangeOAuthClientIdPatch
-import app.revanced.patches.reddit.customclients.ChangeOAuthClientIdPatchAnnotation
+import app.revanced.patches.reddit.customclients.AbstractSpoofClientPatch
+import app.revanced.patches.reddit.customclients.SpoofClientAnnotation
 import app.revanced.patches.reddit.customclients.joeyforreddit.api.fingerprints.GetClientIdFingerprint
 import app.revanced.patches.reddit.customclients.joeyforreddit.detection.piracy.patch.DisablePiracyDetectionPatch
 
-@ChangeOAuthClientIdPatchAnnotation
+@SpoofClientAnnotation
 @Description(
-    "Changes the OAuth client ID. " +
+    "Spoofs the client in order to allow logging in. " +
             "The OAuth application type has to be \"Installed app\" " +
             "and the redirect URI has to be set to \"https://127.0.0.1:65023/authorize_callback\"."
 )
@@ -28,10 +28,10 @@ import app.revanced.patches.reddit.customclients.joeyforreddit.detection.piracy.
     ]
 )
 @DependsOn([DisablePiracyDetectionPatch::class])
-class ChangeOAuthClientIdPatch : AbstractChangeOAuthClientIdPatch(
+class SpoofClientPatch : AbstractSpoofClientPatch(
     "https://127.0.0.1:65023/authorize_callback", Options, listOf(GetClientIdFingerprint)
 ) {
-    override fun List<MethodFingerprintResult>.patch(context: BytecodeContext): PatchResult {
+    override fun List<MethodFingerprintResult>.patchClientId(context: BytecodeContext): PatchResult {
         first().mutableMethod.addInstructions(
             0,
             """
@@ -43,5 +43,5 @@ class ChangeOAuthClientIdPatch : AbstractChangeOAuthClientIdPatch(
         return PatchResultSuccess()
     }
 
-    companion object Options : AbstractChangeOAuthClientIdPatch.Options.ChangeOAuthClientIdOptionsContainer()
+    companion object Options : AbstractSpoofClientPatch.Options.SpoofClientOptionsContainer()
 }

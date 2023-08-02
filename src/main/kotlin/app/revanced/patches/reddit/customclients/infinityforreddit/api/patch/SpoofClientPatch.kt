@@ -9,23 +9,23 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
-import app.revanced.patches.reddit.customclients.AbstractChangeOAuthClientIdPatch
-import app.revanced.patches.reddit.customclients.ChangeOAuthClientIdPatchAnnotation
+import app.revanced.patches.reddit.customclients.AbstractSpoofClientPatch
+import app.revanced.patches.reddit.customclients.SpoofClientAnnotation
 import app.revanced.patches.reddit.customclients.infinityforreddit.api.fingerprints.GetHttpBasicAuthHeaderFingerprint
 import app.revanced.patches.reddit.customclients.infinityforreddit.api.fingerprints.LoginActivityOnCreateFingerprint
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
-@ChangeOAuthClientIdPatchAnnotation
-@Description("Changes the OAuth client ID. " +
+@SpoofClientAnnotation
+@Description("Spoofs the client in order to allow logging in. " +
         "The OAuth application type has to be \"Installed app\" " +
         "and the redirect URI has to be set to \"infinity://localhost\".")
 @Compatibility([Package("ml.docilealligator.infinityforreddit")])
-class ChangeOAuthClientIdPatch : AbstractChangeOAuthClientIdPatch(
+class SpoofClientPatch : AbstractSpoofClientPatch(
     "infinity://localhost",
     Options,
     listOf(GetHttpBasicAuthHeaderFingerprint, LoginActivityOnCreateFingerprint)
 ) {
-    override fun List<MethodFingerprintResult>.patch(context: BytecodeContext): PatchResult {
+    override fun List<MethodFingerprintResult>.patchClientId(context: BytecodeContext): PatchResult {
         forEach {
             val clientIdIndex = it.scanResult.stringsScanResult!!.matches.first().index
             it.mutableMethod.apply {
@@ -41,5 +41,5 @@ class ChangeOAuthClientIdPatch : AbstractChangeOAuthClientIdPatch(
         return PatchResultSuccess()
     }
 
-    companion object Options : AbstractChangeOAuthClientIdPatch.Options.ChangeOAuthClientIdOptionsContainer()
+    companion object Options : AbstractSpoofClientPatch.Options.SpoofClientOptionsContainer()
 }
