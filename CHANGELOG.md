@@ -1,3 +1,10 @@
+# [2.187.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v2.187.0-dev.9...v2.187.0-dev.10) (2023-08-02)
+
+
+### Features
+
+* **Reddit is Fun - Spoof client:** Spoof the user agent ([b9aaf61](https://github.com/ReVanced/revanced-patches/commit/b9aaf610ad9f1f45a72265a3782d2cf996020139))
+
 # [2.187.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v2.187.0-dev.8...v2.187.0-dev.9) (2023-07-30)
 
 
