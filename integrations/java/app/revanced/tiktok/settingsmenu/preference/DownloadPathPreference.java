@@ -7,6 +7,7 @@ import android.os.Environment;
 import android.preference.DialogPreference;
 import android.text.Editable;
 import android.text.InputType;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
@@ -14,23 +15,48 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import app.revanced.tiktok.settings.SettingsEnum;
+
+@SuppressWarnings("deprecation")
 public class DownloadPathPreference extends DialogPreference {
     private final Context context;
     private final String[] entryValues = {"DCIM", "Movies", "Pictures"};
-    private String value;
+    private String mValue;
+
+    private boolean mValueSet;
     private int mediaPathIndex;
     private String childDownloadPath;
 
-    public DownloadPathPreference(Context context) {
+    public DownloadPathPreference(Context context, String title, SettingsEnum setting) {
         super(context);
         this.context = context;
+        this.setTitle(title);
+        this.setSummary(Environment.getExternalStorageDirectory().getPath() + "/" + setting.getString());
+        this.setKey(setting.path);
+        this.setValue(setting.getString());
+    }
+
+    public String getValue() {
+        return this.mValue;
+    }
+
+    public void setValue(String value) {
+        final boolean changed = !TextUtils.equals(mValue, value);
+        if (changed || !mValueSet) {
+            mValue = value;
+            mValueSet = true;
+            persistString(value);
+            if (changed) {
+                notifyDependencyChange(shouldDisableDependents());
+                notifyChanged();
+            }
+        }
     }
 
     @Override
     protected View onCreateDialogView() {
         String currentMedia = getValue().split("/")[0];
         childDownloadPath = getValue().substring(getValue().indexOf("/") + 1);
-
         mediaPathIndex = findIndexOf(currentMedia);
 
         LinearLayout dialogView = new LinearLayout(context);
@@ -84,10 +110,8 @@ public class DownloadPathPreference extends DialogPreference {
     protected void onDialogClosed(boolean positiveResult) {
         if (positiveResult && mediaPathIndex >= 0) {
             String newValue = entryValues[mediaPathIndex] + "/" + childDownloadPath;
-            if (callChangeListener(newValue)) {
-                setValue(newValue);
-                setSummary(Environment.getExternalStorageDirectory().getPath() + "/" + newValue);
-            }
+            setSummary(Environment.getExternalStorageDirectory().getPath() + "/" + newValue);
+            setValue(newValue);
         }
     }
 
@@ -96,13 +120,5 @@ public class DownloadPathPreference extends DialogPreference {
             if (str.equals(entryValues[i])) return i;
         }
         return -1;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
     }
 }

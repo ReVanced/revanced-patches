@@ -4,11 +4,11 @@ import app.revanced.tiktok.settings.SettingsEnum;
 
 public class SpoofSimPatch {
     public static boolean isEnable() {
-        return SettingsEnum.TIK_SIMSPOOF.getBoolean();
+        return SettingsEnum.SIM_SPOOF.getBoolean();
     }
     public static String getCountryIso(String value) {
         if (isEnable()) {
-            return SettingsEnum.TIK_SIMSPOOF_ISO.getString();
+            return SettingsEnum.SIM_SPOOF_ISO.getString();
         } else {
             return value;
         }
@@ -16,14 +16,14 @@ public class SpoofSimPatch {
     }
     public static String getOperator(String value) {
         if (isEnable()) {
-            return SettingsEnum.TIK_SIMSPOOF_MCCMNC.getString();
+            return SettingsEnum.SIMSPOOF_MCCMNC.getString();
         } else {
             return value;
         }
     }
     public static String getOperatorName(String value) {
         if (isEnable()) {
-            return SettingsEnum.TIK_SIMSPOOF_OP_NAME.getString();
+            return SettingsEnum.SIMSPOOF_OP_NAME.getString();
         } else {
             return value;
         }
