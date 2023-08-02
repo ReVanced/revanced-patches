@@ -55,7 +55,7 @@ public class SettingsMenu {
         linearLayout.addView(fragment);
         base.setContentView(linearLayout);
 
-        PreferenceFragment preferenceFragment = new ReVancedSettingsFragment();
+        PreferenceFragment preferenceFragment = new ReVancedPreferenceFragment();
         base.getFragmentManager().beginTransaction().replace(fragmentId, preferenceFragment).commit();
 
         return true;

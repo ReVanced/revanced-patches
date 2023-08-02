@@ -1,20 +1,20 @@
 package app.revanced.tiktok.settingsmenu;
 
 public class SettingsStatus {
-    public static boolean feedFilter = false;
-    public static boolean download = false;
-    public static boolean simSpoof = false;
+    public static boolean feedFilterEnabled = false;
+    public static boolean downloadEnabled = false;
+    public static boolean simSpoofEnabled = false;
 
     public static void enableFeedFilter() {
-        feedFilter = true;
+        feedFilterEnabled = true;
     }
 
     public static void enableDownload() {
-        download = true;
+        downloadEnabled = true;
     }
 
     public static void enableSimSpoof() {
-        simSpoof = true;
+        simSpoofEnabled = true;
     }
 
     public static void load() {

@@ -2,15 +2,16 @@ package app.revanced.integrations.patches.components;
 
 
 import android.os.Build;
-import androidx.annotation.RequiresApi;
-import app.revanced.integrations.settings.SettingsEnum;
-import app.revanced.integrations.utils.ReVancedUtils;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+
+import app.revanced.integrations.settings.SettingsEnum;
+import app.revanced.integrations.utils.StringTrieSearch;
 
 @RequiresApi(api = Build.VERSION_CODES.N)
 public final class LayoutComponentsFilter extends Filter {
-    private final String[] exceptions;
-
+    private final StringTrieSearch exceptions = new StringTrieSearch();
     private final CustomFilterGroup custom;
 
     private static final ByteArrayAsStringFilterGroup mixPlaylists = new ByteArrayAsStringFilterGroup(
@@ -20,13 +21,13 @@ public final class LayoutComponentsFilter extends Filter {
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public LayoutComponentsFilter() {
-        exceptions = new String[]{
+        exceptions.addPatterns(
                 "home_video_with_context",
                 "related_video_with_context",
                 "comment_thread", // skip filtering anything in the comments
                 "|comment.", // skip filtering anything in the comments replies
-                "library_recent_shelf",
-        };
+                "library_recent_shelf"
+        );
 
         custom = new CustomFilterGroup(
                 SettingsEnum.CUSTOM_FILTER,
@@ -136,6 +137,11 @@ public final class LayoutComponentsFilter extends Filter {
                 "cell_divider" // layout residue (gray line above the buttoned ad),
         );
 
+        final var chipsShelf = new StringFilterGroup(
+                SettingsEnum.HIDE_CHIPS_SHELF,
+                "chips_shelf"
+        );
+
         this.pathFilterGroups.addAll(
                 channelBar,
                 communityPosts,
@@ -155,26 +161,32 @@ public final class LayoutComponentsFilter extends Filter {
                 artistCard,
                 imageShelf,
                 subscribersCommunityGuidelines,
-                channelMemberShelf
+                channelMemberShelf,
+                custom
         );
 
-        this.identifierFilterGroups.addAll(graySeparator);
+        this.identifierFilterGroups.addAll(
+                graySeparator,
+                chipsShelf
+        );
     }
 
     @Override
-    public boolean isFiltered(final String path, final String identifier, final byte[] _protobufBufferArray) {
-        if (custom.isEnabled() && custom.check(path).isFiltered())
-            return true;
-
-        if (ReVancedUtils.containsAny(path, exceptions))
+    public boolean isFiltered(String path, @Nullable String identifier, byte[] protobufBufferArray,
+                              FilterGroupList matchedList, FilterGroup matchedGroup, int matchedIndex) {
+        if (matchedGroup != custom && exceptions.matches(path))
             return false; // Exceptions are not filtered.
 
-        return super.isFiltered(path, identifier, _protobufBufferArray);
+        return super.isFiltered(path, identifier, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
     }
 
 
-    // Called from a different place then the other filters.
+    /**
+     * Injection point.
+     *
+     * Called from a different place then the other filters.
+     */
     public static boolean filterMixPlaylists(final byte[] bytes) {
-        return mixPlaylists.isEnabled() && mixPlaylists.check(bytes).isFiltered();
+        return mixPlaylists.check(bytes).isFiltered();
     }
 }

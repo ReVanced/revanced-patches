@@ -10,7 +10,7 @@ import app.revanced.tiktok.settings.SettingsEnum;
 public class LogHelper {
 
     public static void debug(Class clazz, String message) {
-        if (SettingsEnum.TIK_DEBUG.getBoolean()) {
+        if (SettingsEnum.DEBUG.getBoolean()) {
             Log.d("revanced: " + (clazz != null ? clazz.getSimpleName() : ""), message);
         }
     }

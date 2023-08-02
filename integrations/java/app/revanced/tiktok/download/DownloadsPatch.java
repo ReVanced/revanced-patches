@@ -4,10 +4,10 @@ import app.revanced.tiktok.settings.SettingsEnum;
 
 public class DownloadsPatch {
     public static String getDownloadPath() {
-        return SettingsEnum.TIK_DOWN_PATH.getString();
+        return SettingsEnum.DOWNLOAD_PATH.getString();
     }
 
     public static boolean shouldRemoveWatermark() {
-        return SettingsEnum.TIK_DOWN_WATERMARK.getBoolean();
+        return SettingsEnum.DOWNLOAD_WATERMARK.getBoolean();
     }
 }
