@@ -1,3 +1,18 @@
+# [2.188.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.3...v2.188.0-dev.4) (2023-08-03)
+
+
+### Bug Fixes
+
+* improve wording ([26f9b05](https://github.com/ReVanced/revanced-patches/commit/26f9b0514fda9434b2a36d2f9e5ad6a4f5bb94bd))
+* **Tiktok - Show seekbar:** Bump compatibility ([#2737](https://github.com/ReVanced/revanced-patches/issues/2737)) ([08413bd](https://github.com/ReVanced/revanced-patches/commit/08413bdc97aef892f7372c585d1d792eb95e30f4))
+
+
+### Features
+
+* **Lightroom:** Add `Disable mandatory login` patch ([#2738](https://github.com/ReVanced/revanced-patches/issues/2738)) ([896a713](https://github.com/ReVanced/revanced-patches/commit/896a71308f1084d7f941c5b59610e40ea5d53009))
+* **Lightroom:** Add `Unlock premium` patch ([#2740](https://github.com/ReVanced/revanced-patches/issues/2740)) ([e18a9bc](https://github.com/ReVanced/revanced-patches/commit/e18a9bcb50705d374ccbf03cd6ab9a140a2f23ec))
+* **YouTube Music:** Add `Permanent Shuffle` patch ([#2730](https://github.com/ReVanced/revanced-patches/issues/2730)) ([86a271c](https://github.com/ReVanced/revanced-patches/commit/86a271cd7cc3d1d2a11ff9ebe962574368b93f4f))
+
 # [2.188.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.2...v2.188.0-dev.3) (2023-08-03)
 
 
