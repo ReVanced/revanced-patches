@@ -31,7 +31,7 @@ abstract class AbstractSpoofClientPatch(
 
                 val error = """
                     In order to use this patch, you need to provide a client ID.
-                    You can do this by creating a file at ${it.absolutePath} with the client ID as its content.
+                    You can do that by creating a file at ${it.absolutePath} with the client ID as its content.
                     Alternatively, you can provide the client ID using patch options.
                     
                     You can get your client ID from https://www.reddit.com/prefs/apps.
