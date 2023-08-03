@@ -1,3 +1,10 @@
+# [2.188.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.1...v2.188.0-dev.2) (2023-08-03)
+
+
+### Bug Fixes
+
+* **Reddit is Fun - Spoof client:** Use a more convincing user agent ([236a18f](https://github.com/ReVanced/revanced-patches/commit/236a18f9356cede156417c0d55a876d25a98cd4d))
+
 # [2.188.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.187.0...v2.188.0-dev.1) (2023-08-03)
 
 
