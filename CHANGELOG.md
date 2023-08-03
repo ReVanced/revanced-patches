@@ -1,3 +1,10 @@
+# [2.188.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.187.0...v2.188.0-dev.1) (2023-08-03)
+
+
+### Features
+
+* **Nova Launcher:** Remove `Unlock prime` patch ([bbde91c](https://github.com/ReVanced/revanced-patches/commit/bbde91cf9df4b410a34147bbe5f359e39a71ad4c))
+
 # [2.187.0](https://github.com/ReVanced/revanced-patches/compare/v2.186.0...v2.187.0) (2023-08-02)
 
 
