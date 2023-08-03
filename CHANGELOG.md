@@ -1,3 +1,10 @@
+# [2.188.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.2...v2.188.0-dev.3) (2023-08-03)
+
+
+### Bug Fixes
+
+* remove newline ([545388b](https://github.com/ReVanced/revanced-patches/commit/545388b3b21cabb485c4d2025756c48984548d6b))
+
 # [2.188.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.1...v2.188.0-dev.2) (2023-08-03)
 
 
