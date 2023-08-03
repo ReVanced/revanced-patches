@@ -58,15 +58,16 @@ class SpoofClientPatch : AbstractSpoofClientPatch(
     }
 
     override fun List<MethodFingerprintResult>.patchUserAgent(context: BytecodeContext): PatchResult {
-        // Use a random number as the user agent string.
-        val randomUserAgent = (0..100000).random()
+        // Use a random user agent.
+        val randomName = (0..100000).random()
+        val userAgent = "android:app.revanced.$randomName:v1.0.0 (by /u/revanced)\n"
 
         first().mutableMethod.addInstructions(
             0,
             """
-                 const-string v0, "$randomUserAgent"
-                 return-object v0
-             """
+                const-string v0, "$userAgent"
+                return-object v0
+            """
         )
 
         return PatchResultSuccess()
