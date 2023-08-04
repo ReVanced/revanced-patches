@@ -1,3 +1,10 @@
+# [2.188.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.4...v2.188.0-dev.5) (2023-08-04)
+
+
+### Features
+
+* **YouTube Music:** Add `Permanent repeat` patch ([#2722](https://github.com/ReVanced/revanced-patches/issues/2722)) ([506d49c](https://github.com/ReVanced/revanced-patches/commit/506d49c82a68faee25aede8194e7884191c0f271))
+
 # [2.188.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.3...v2.188.0-dev.4) (2023-08-03)
 
 
