@@ -1,3 +1,10 @@
+# [2.188.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.5...v2.188.0-dev.6) (2023-08-06)
+
+
+### Bug Fixes
+
+* **YouTube - Client spoof:** Adjust spoof signature settings description ([#2760](https://github.com/ReVanced/revanced-patches/issues/2760)) ([f71d893](https://github.com/ReVanced/revanced-patches/commit/f71d8937663fdbfc93d8e3ce1cdb47e1667554f0))
+
 # [2.188.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.4...v2.188.0-dev.5) (2023-08-04)
 
 
