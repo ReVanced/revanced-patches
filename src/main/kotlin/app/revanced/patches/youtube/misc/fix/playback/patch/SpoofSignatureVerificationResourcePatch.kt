@@ -23,11 +23,11 @@ class SpoofSignatureVerificationResourcePatch : ResourcePatch {
                     "App signature spoofed\\n\\n"
                         + "Side effects include:\\n"
                         + "• Ambient mode may not work\\n"
-                        + "• Seekbar thumbnails are hidden\\n"
-                        + "• Downloading videos may not work"),
-                StringResource("revanced_spoof_signature_verification_summary_off", "App signature not spoofed"),
+                        + "• Downloading videos may not work\\n"
+                        + "• Seekbar thumbnails are always hidden"),
+                StringResource("revanced_spoof_signature_verification_summary_off", "App signature not spoofed\\n\\nVideo playback may not work"),
                 StringResource("revanced_spoof_signature_verification_user_dialog_message",
-                    "Turning off this setting may cause playback issues.")
+                    "If you do not have a YouTube Premium subscription,\\n\\nthen turning off this setting will cause video playback issues.")
             )
         )
 
