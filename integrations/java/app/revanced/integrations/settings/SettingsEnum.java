@@ -89,10 +89,15 @@ public enum SettingsEnum {
 
     // Action buttons
     HIDE_LIKE_DISLIKE_BUTTON("revanced_hide_like_dislike_button", BOOLEAN, FALSE),
+    HIDE_LIVE_CHAT_BUTTON("revanced_hide_live_chat_button", BOOLEAN, FALSE),
+    HIDE_SHARE_BUTTON("revanced_hide_share_button", BOOLEAN, FALSE),
+    HIDE_REPORT_BUTTON("revanced_hide_report_button", BOOLEAN, FALSE),
+    HIDE_REMIX_BUTTON("revanced_hide_remix_button", BOOLEAN, TRUE),
     HIDE_DOWNLOAD_BUTTON("revanced_hide_download_button", BOOLEAN, FALSE),
+    HIDE_THANKS_BUTTON("revanced_hide_thanks_button", BOOLEAN, TRUE),
+    HIDE_CLIP_BUTTON("revanced_hide_clip_button", BOOLEAN, TRUE),
     HIDE_PLAYLIST_BUTTON("revanced_hide_playlist_button", BOOLEAN, FALSE),
-    HIDE_CLIP_BUTTON("revanced_hide_clip_button", BOOLEAN, FALSE, "revanced_hide_clip_button_user_dialog_message"),
-    HIDE_ACTION_BUTTONS("revanced_hide_action_buttons", BOOLEAN, FALSE),
+    HIDE_SHOP_BUTTON("revanced_hide_shop_button", BOOLEAN, TRUE),
 
     // Layout
     DISABLE_RESUMING_SHORTS_PLAYER("revanced_disable_resuming_shorts_player", BOOLEAN, FALSE),
