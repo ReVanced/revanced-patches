@@ -1,3 +1,10 @@
+# [2.188.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.6...v2.188.0-dev.7) (2023-08-07)
+
+
+### Features
+
+* **YouTube - Debug:** Logging of layout proto buffer strings ([#2759](https://github.com/ReVanced/revanced-patches/issues/2759)) ([189f719](https://github.com/ReVanced/revanced-patches/commit/189f719720551f36c6e006c45558fe5ae46ca4f8))
+
 # [2.188.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.5...v2.188.0-dev.6) (2023-08-06)
 
 
