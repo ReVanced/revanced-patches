@@ -1,3 +1,10 @@
+# [2.188.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.7...v2.188.0-dev.8) (2023-08-07)
+
+
+### Features
+
+* **Change package name:** Append `.revanced` to package name by default ([#2750](https://github.com/ReVanced/revanced-patches/issues/2750)) ([e83e62f](https://github.com/ReVanced/revanced-patches/commit/e83e62fc2400caf1c5179d25e0ac4fbd51ddba00))
+
 # [2.188.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.6...v2.188.0-dev.7) (2023-08-07)
 
 
