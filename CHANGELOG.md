@@ -1,3 +1,10 @@
+# [2.188.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.8...v2.188.0-dev.9) (2023-08-07)
+
+
+### Features
+
+* **YouTube - Hide video action buttons:** Hide individual action buttons ([#2723](https://github.com/ReVanced/revanced-patches/issues/2723)) ([220f694](https://github.com/ReVanced/revanced-patches/commit/220f694b12e7ed013753c8215d181936ab2205c3))
+
 # [2.188.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.7...v2.188.0-dev.8) (2023-08-07)
 
 
