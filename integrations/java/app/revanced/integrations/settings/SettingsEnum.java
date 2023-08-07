@@ -191,6 +191,7 @@ public enum SettingsEnum {
     // Debugging
     DEBUG("revanced_debug", BOOLEAN, FALSE),
     DEBUG_STACKTRACE("revanced_debug_stacktrace", BOOLEAN, FALSE, parents(DEBUG)),
+    DEBUG_PROTOBUFFER("revanced_debug_protobuffer", BOOLEAN, FALSE, parents(DEBUG)),
     DEBUG_TOAST_ON_ERROR("revanced_debug_toast_on_error", BOOLEAN, TRUE, "revanced_debug_toast_on_error_user_dialog_message"),
 
     // ReturnYoutubeDislike

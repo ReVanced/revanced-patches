@@ -342,9 +342,10 @@ public final class LithoFilterPatch {
             builder.append(identifier);
             builder.append(" Path: ");
             builder.append(path);
-            // TODO: allow turning on/off buffer logging with a debug setting?
-            builder.append(" BufferStrings: ");
-            findAsciiStrings(builder, protoBuffer);
+            if (SettingsEnum.DEBUG_PROTOBUFFER.getBoolean()) {
+                builder.append(" BufferStrings: ");
+                findAsciiStrings(builder, protoBuffer);
+            }
 
             return builder.toString();
         }
