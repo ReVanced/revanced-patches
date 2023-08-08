@@ -163,7 +163,7 @@ public enum SettingsEnum {
     HIDE_HELP_MENU("revanced_hide_player_flyout_help", BOOLEAN, TRUE),
     HIDE_SPEED_MENU("revanced_hide_player_flyout_speed", BOOLEAN, FALSE),
     HIDE_MORE_INFO_MENU("revanced_hide_player_flyout_more_info", BOOLEAN, TRUE),
-    HIDE_AUDIO_TRACK_MENU("revanced_hide_player_flyout_audio_track", BOOLEAN, TRUE),
+    HIDE_AUDIO_TRACK_MENU("revanced_hide_player_flyout_audio_track", BOOLEAN, FALSE),
     HIDE_WATCH_IN_VR_MENU("revanced_hide_player_flyout_watch_in_vr", BOOLEAN, TRUE),
 
     // Misc
