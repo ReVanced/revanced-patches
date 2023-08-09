@@ -1,3 +1,10 @@
+# [2.188.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.9...v2.188.0-dev.10) (2023-08-09)
+
+
+### Features
+
+* **Tasker:** Remove `Unlock trial` patch ([8354a87](https://github.com/ReVanced/revanced-patches/commit/8354a879cfc6028820e2bb0e01d6f607e145c0f6))
+
 # [2.188.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.8...v2.188.0-dev.9) (2023-08-07)
 
 
