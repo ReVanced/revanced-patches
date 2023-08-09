@@ -1,3 +1,10 @@
+# [2.188.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.10...v2.188.0-dev.11) (2023-08-09)
+
+
+### Bug Fixes
+
+* **Client spoof:** Remove exception from option ([9c69f87](https://github.com/ReVanced/revanced-patches/commit/9c69f876902496c101eac295e581c15e02bfaf29))
+
 # [2.188.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.9...v2.188.0-dev.10) (2023-08-09)
 
 
