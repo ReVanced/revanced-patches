@@ -8,7 +8,6 @@ import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
-import app.revanced.patches.youtube.misc.fix.playback.fingerprints.*
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
 @DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
@@ -27,7 +26,7 @@ class SpoofSignatureVerificationResourcePatch : ResourcePatch {
                         + "• Seekbar thumbnails are always hidden"),
                 StringResource("revanced_spoof_signature_verification_summary_off", "App signature not spoofed\\n\\nVideo playback may not work"),
                 StringResource("revanced_spoof_signature_verification_user_dialog_message",
-                    "If you do not have a YouTube Premium subscription,\\n\\nthen turning off this setting will cause video playback issues.")
+                    "Turning off this setting will cause video playback issues.")
             )
         )
 
