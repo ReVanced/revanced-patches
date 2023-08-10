@@ -1,3 +1,10 @@
+# [2.188.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.11...v2.188.0-dev.12) (2023-08-10)
+
+
+### Features
+
+* Add `Override certificate pinning` patch ([#2781](https://github.com/ReVanced/revanced-patches/issues/2781)) ([94ed738](https://github.com/ReVanced/revanced-patches/commit/94ed738515aa6e1a1d346b85b54805e68e36f94c))
+
 # [2.188.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.10...v2.188.0-dev.11) (2023-08-09)
 
 
