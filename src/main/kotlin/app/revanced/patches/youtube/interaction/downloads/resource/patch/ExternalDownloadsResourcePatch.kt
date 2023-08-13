@@ -30,7 +30,7 @@ class ExternalDownloadsResourcePatch : ResourcePatch {
                     TextPreference(
                         "revanced_external_downloader_name",
                         StringResource("revanced_external_downloader_name_title", "Downloader package name"),
-                        StringResource("revanced_external_downloader_name_summary", "Package name of your installed external downloader app, such as NewPipe or PowerTube"),
+                        StringResource("revanced_external_downloader_name_summary", "Package name of your installed external downloader app, such as NewPipe or Seal"),
                         InputType.TEXT
                     )
                 ),
