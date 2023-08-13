@@ -1,3 +1,10 @@
+# [2.188.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.13...v2.188.0-dev.14) (2023-08-13)
+
+
+### Bug Fixes
+
+* allow using `PreferenceScreen` outside of current module ([fe94013](https://github.com/ReVanced/revanced-patches/commit/fe94013a2235953b32fed6e0710a252698a264b3))
+
 # [2.188.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.12...v2.188.0-dev.13) (2023-08-13)
 
 
