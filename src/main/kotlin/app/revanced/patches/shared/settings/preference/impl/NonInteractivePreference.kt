@@ -15,7 +15,7 @@ import org.w3c.dom.Element
  * @param title The title of the preference.
  * @param summary The summary of the text preference.
  */
-internal class NonInteractivePreference(
+class NonInteractivePreference(
     title: StringResource,
     summary: StringResource,
 ) : BasePreference(null, title, summary, "Preference") {

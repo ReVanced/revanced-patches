@@ -11,7 +11,7 @@ import org.w3c.dom.Document
  * @param title The title of the preference.
  * @param preferences Child preferences of this category.
  */
-internal open class PreferenceCategory(
+open class PreferenceCategory(
     key: String,
     title: StringResource,
     var preferences: List<BasePreference>,

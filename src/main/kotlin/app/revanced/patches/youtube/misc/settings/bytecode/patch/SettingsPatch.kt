@@ -123,7 +123,7 @@ class SettingsPatch : BytecodePatch(
     /**
      * Preference screens patches should add their settings to.
      */
-    internal object PreferenceScreen : AbstractPreferenceScreen() {
+    object PreferenceScreen : AbstractPreferenceScreen() {
         val ADS = Screen("ads", "Ads", "Ad related settings")
         val INTERACTIONS = Screen("interactions", "Interaction", "Settings related to interactions")
         val LAYOUT = Screen("layout", "Layout", "Settings related to the layout")
