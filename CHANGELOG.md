@@ -1,3 +1,10 @@
+# [2.188.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.12...v2.188.0-dev.13) (2023-08-13)
+
+
+### Features
+
+* **YouTube - External downloads:** Recommend Seal instead of PowerTube ([#2803](https://github.com/ReVanced/revanced-patches/issues/2803)) ([082e067](https://github.com/ReVanced/revanced-patches/commit/082e067338026d05046ed5f398a1261aa20d3cb3))
+
 # [2.188.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.11...v2.188.0-dev.12) (2023-08-10)
 
 
