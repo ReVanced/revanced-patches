@@ -8,9 +8,9 @@ import app.revanced.patcher.patch.annotations.RequiresIntegrations
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.all.screencapture.removerestriction.resource.patch.RemoveCaptureRestrictionResourcePatch
 import app.revanced.util.patch.*
-import org.jf.dexlib2.iface.ClassDef
-import org.jf.dexlib2.iface.Method
-import org.jf.dexlib2.iface.instruction.Instruction
+import com.android.tools.smali.dexlib2.iface.ClassDef
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 
 @Patch(false)
 @Name("Remove screen capture restriction")

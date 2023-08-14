@@ -1,8 +1,8 @@
 package app.revanced.patches.finanzonline.detection.bootloader.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 // Located @ at.gv.bmf.bmf2go.taxequalization.tools.utils.AttestationHelper#isBootStateOk (3.0.1)
 object BootStateFingerprint : MethodFingerprint(

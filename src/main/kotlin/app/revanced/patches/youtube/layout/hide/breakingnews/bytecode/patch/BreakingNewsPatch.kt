@@ -15,7 +15,7 @@ import app.revanced.patches.youtube.layout.hide.breakingnews.annotations.Breakin
 import app.revanced.patches.youtube.layout.hide.breakingnews.bytecode.fingerprints.BreakingNewsFingerprint
 import app.revanced.patches.youtube.layout.hide.breakingnews.resource.patch.BreakingNewsResourcePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @DependsOn([IntegrationsPatch::class, BreakingNewsResourcePatch::class])

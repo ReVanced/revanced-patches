@@ -18,8 +18,8 @@ import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.ads.Gene
 import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.ads.MediaAdFingerprint
 import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.ads.PaidPartnershipAdFingerprint
 import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.ads.ShoppingAdFingerprint
-import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @Name("Hide timeline ads")

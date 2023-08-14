@@ -17,8 +17,8 @@ import app.revanced.patches.youtube.interaction.swipecontrols.fingerprints.Swipe
 import app.revanced.patches.youtube.interaction.swipecontrols.patch.resource.SwipeControlsResourcePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
-import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
 @Patch
 @Name("Swipe controls")

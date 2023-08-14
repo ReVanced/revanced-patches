@@ -20,7 +20,7 @@ import app.revanced.patches.youtube.misc.fix.playback.fingerprints.StoryboardThu
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.StoryboardThumbnailParentFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Name("Spoof signature verification")
 @Description("Spoofs the client to prevent playback issues.")

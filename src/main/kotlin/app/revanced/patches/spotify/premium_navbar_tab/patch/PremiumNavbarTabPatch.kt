@@ -14,8 +14,8 @@ import app.revanced.patches.spotify.premium_navbar_tab.annotations.PremiumNavbar
 import app.revanced.patches.spotify.premium_navbar_tab.fingerprints.AddPremiumNavbarTabFingerprint
 import app.revanced.patches.spotify.premium_navbar_tab.fingerprints.AddPremiumNavbarTabParentFingerprint
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 
 @Patch
 @Name("Hide premium navbar")

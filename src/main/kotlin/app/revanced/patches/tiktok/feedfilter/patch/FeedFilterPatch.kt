@@ -14,8 +14,8 @@ import app.revanced.patches.tiktok.feedfilter.fingerprints.FeedApiServiceLIZFing
 import app.revanced.patches.tiktok.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.tiktok.misc.settings.fingerprints.SettingsStatusLoadFingerprint
 import app.revanced.patches.tiktok.misc.settings.patch.SettingsPatch
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])

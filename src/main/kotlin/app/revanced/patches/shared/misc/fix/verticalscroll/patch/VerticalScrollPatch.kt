@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.shared.misc.fix.verticalscroll.annotations.VerticalScrollCompatibility
 import app.revanced.patches.shared.misc.fix.verticalscroll.fingerprints.CanScrollVerticallyFingerprint
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Description("Fixes issues with refreshing the feed when the first component is of type EmptyComponent.")
 @VerticalScrollCompatibility

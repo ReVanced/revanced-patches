@@ -15,7 +15,7 @@ import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.video.videoid.annotation.VideoIdCompatibility
 import app.revanced.patches.youtube.video.videoid.fingerprint.VideoIdFingerprint
 import app.revanced.patches.youtube.video.videoid.fingerprint.VideoIdFingerprintBackgroundPlay
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Name("Video id hook")
 @Description("Hooks to detect when the video id changes")

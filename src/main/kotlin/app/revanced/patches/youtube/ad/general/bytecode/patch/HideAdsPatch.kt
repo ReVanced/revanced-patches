@@ -15,8 +15,9 @@ import app.revanced.patches.youtube.ad.general.annotation.HideAdsCompatibility
 import app.revanced.patches.youtube.ad.general.resource.patch.HideAdsResourcePatch
 import app.revanced.patches.youtube.ad.getpremium.bytecode.patch.HideGetPremiumPatch
 import app.revanced.patches.youtube.misc.fix.backtoexitgesture.patch.FixBackToExitGesturePatch
-import org.jf.dexlib2.iface.instruction.formats.Instruction31i
-import org.jf.dexlib2.iface.instruction.formats.Instruction35c
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 
 
 @Patch
@@ -37,7 +38,7 @@ class HideAdsPatch : BytecodePatch() {
             classDef.methods.forEach { method ->
                 with(method.implementation) {
                     this?.instructions?.forEachIndexed { index, instruction ->
-                        if (instruction.opcode != org.jf.dexlib2.Opcode.CONST)
+                        if (instruction.opcode != Opcode.CONST)
                             return@forEachIndexed
                         // Instruction to store the id adAttribution into a register
                         if ((instruction as Instruction31i).wideLiteral != HideAdsResourcePatch.adAttributionId)
@@ -47,7 +48,7 @@ class HideAdsPatch : BytecodePatch() {
 
                         // Call to get the view with the id adAttribution
                         with(instructions.elementAt(insertIndex)) {
-                            if (opcode != org.jf.dexlib2.Opcode.INVOKE_VIRTUAL)
+                            if (opcode != Opcode.INVOKE_VIRTUAL)
                                 return@forEachIndexed
 
                             // Hide the view

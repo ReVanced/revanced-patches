@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.annotations.MusicCompatibility
 import app.revanced.patches.music.layout.compactheader.fingerprints.CompactHeaderConstructorFingerprint
-import org.jf.dexlib2.builder.instruction.BuilderInstruction11x
+import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction11x
 
 @Patch(false)
 @Name("Compact header")

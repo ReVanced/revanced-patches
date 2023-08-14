@@ -12,11 +12,11 @@ import app.revanced.util.microg.Constants.ACTIONS
 import app.revanced.util.microg.Constants.AUTHORITIES
 import app.revanced.util.microg.Constants.MICROG_VENDOR
 import app.revanced.util.microg.Constants.PERMISSIONS
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
-import org.jf.dexlib2.iface.instruction.formats.Instruction21c
-import org.jf.dexlib2.iface.reference.StringReference
-import org.jf.dexlib2.immutable.reference.ImmutableStringReference
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
+import com.android.tools.smali.dexlib2.immutable.reference.ImmutableStringReference
 
 /**
  * Helper class for applying bytecode patches needed for the microg-support patches.

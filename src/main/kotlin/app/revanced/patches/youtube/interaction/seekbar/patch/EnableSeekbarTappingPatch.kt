@@ -16,10 +16,10 @@ import app.revanced.patches.youtube.interaction.seekbar.annotation.SeekbarTappin
 import app.revanced.patches.youtube.interaction.seekbar.fingerprints.AccessibilityPlayerProgressTimeFingerprint
 import app.revanced.patches.youtube.interaction.seekbar.fingerprints.SeekbarTappingFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.Method
-import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
-import org.jf.dexlib2.iface.instruction.formats.Instruction35c
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch
 @DependsOn([IntegrationsPatch::class, EnableSeekbarTappingResourcePatch::class])

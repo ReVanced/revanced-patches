@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.layout.hide.personalinformation.bytecode.fi
 
 import app.revanced.util.patch.LiteralValueFingerprint
 import app.revanced.patches.youtube.layout.hide.personalinformation.resource.patch.HideEmailAddressResourcePatch
-import org.jf.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.Opcode
 
 object AccountSwitcherAccessibilityLabelFingerprint : LiteralValueFingerprint(
     returnType = "V",

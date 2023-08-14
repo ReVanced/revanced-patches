@@ -11,10 +11,10 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.music.annotations.MusicCompatibility
 import app.revanced.patches.music.layout.upgradebutton.fingerprints.PivotBarConstructorFingerprint
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.builder.instruction.BuilderInstruction22t
-import org.jf.dexlib2.iface.instruction.formats.Instruction22c
-import org.jf.dexlib2.iface.instruction.formats.Instruction35c
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction22t
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 
 
 @Patch

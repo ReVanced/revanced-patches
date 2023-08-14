@@ -26,9 +26,9 @@ import app.revanced.patches.youtube.video.quality.fingerprints.NewVideoQualityCh
 import app.revanced.patches.youtube.video.quality.fingerprints.SetQualityByIndexMethodClassFieldReferenceFingerprint
 import app.revanced.patches.youtube.video.quality.fingerprints.VideoQualityItemOnClickParentFingerprint
 import app.revanced.patches.youtube.video.quality.fingerprints.VideoQualitySetterFingerprint
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
-import org.jf.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Patch
 @DependsOn([IntegrationsPatch::class, VideoInformationPatch::class, SettingsPatch::class])

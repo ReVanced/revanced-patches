@@ -26,8 +26,8 @@ import app.revanced.patches.twitch.misc.settings.fingerprints.MenuGroupsUpdatedF
 import app.revanced.patches.twitch.misc.settings.fingerprints.SettingsActivityOnCreateFingerprint
 import app.revanced.patches.twitch.misc.settings.fingerprints.SettingsMenuItemEnumFingerprint
 import app.revanced.patches.twitch.misc.settings.resource.patch.SettingsResourcePatch
-import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.immutable.ImmutableField
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import java.io.Closeable
 
 @Patch

@@ -18,9 +18,9 @@ import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.LicenseActivityFingerprint
 import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.SetThemeFingerprint
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsResourcePatch
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.util.MethodUtil
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.util.MethodUtil
 import java.io.Closeable
 
 @DependsOn([IntegrationsPatch::class, SettingsResourcePatch::class])

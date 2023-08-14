@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.layout.buttons.player.hide.annotations.HideP
 import app.revanced.patches.youtube.layout.buttons.player.hide.fingerprints.PlayerControlsVisibilityModelFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
-import org.jf.dexlib2.iface.instruction.formats.Instruction3rc
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction3rc
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])

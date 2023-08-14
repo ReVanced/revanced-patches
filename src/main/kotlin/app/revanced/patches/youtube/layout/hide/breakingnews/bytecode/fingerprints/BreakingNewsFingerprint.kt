@@ -3,8 +3,8 @@ package app.revanced.patches.youtube.layout.hide.breakingnews.bytecode.fingerpri
 import app.revanced.patcher.extensions.or
 import app.revanced.patches.youtube.layout.hide.breakingnews.resource.patch.BreakingNewsResourcePatch
 import app.revanced.util.patch.LiteralValueFingerprint
-import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 object BreakingNewsFingerprint : LiteralValueFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,

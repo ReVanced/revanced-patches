@@ -7,10 +7,10 @@ import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.Method
-import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
-import org.jf.dexlib2.util.MethodUtil
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
+import com.android.tools.smali.dexlib2.util.MethodUtil
 import org.w3c.dom.Node
 
 // TODO: populate this to all patches

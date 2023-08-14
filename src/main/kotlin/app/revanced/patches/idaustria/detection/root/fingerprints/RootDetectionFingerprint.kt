@@ -1,7 +1,7 @@
 package app.revanced.patches.idaustria.detection.root.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import org.jf.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.AccessFlags
 
 object RootDetectionFingerprint : MethodFingerprint(
     "V",

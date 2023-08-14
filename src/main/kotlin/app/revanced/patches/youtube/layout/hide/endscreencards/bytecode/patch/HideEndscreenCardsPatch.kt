@@ -18,7 +18,7 @@ import app.revanced.patches.youtube.layout.hide.endscreencards.bytecode.fingerpr
 import app.revanced.patches.youtube.layout.hide.endscreencards.bytecode.fingerprints.LayoutVideoFingerprint
 import app.revanced.patches.youtube.layout.hide.endscreencards.resource.patch.HideEndscreenCardsResourcePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import org.jf.dexlib2.iface.instruction.formats.Instruction21c
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
 
 @Patch
 @DependsOn([IntegrationsPatch::class, HideEndscreenCardsResourcePatch::class])

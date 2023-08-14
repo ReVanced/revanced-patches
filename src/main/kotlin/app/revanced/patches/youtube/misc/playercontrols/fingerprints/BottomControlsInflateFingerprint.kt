@@ -3,8 +3,8 @@ package app.revanced.patches.youtube.misc.playercontrols.fingerprints
 import app.revanced.patcher.extensions.or
 import app.revanced.util.patch.LiteralValueFingerprint
 import app.revanced.patches.youtube.misc.playercontrols.resource.patch.BottomControlsResourcePatch
-import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 object BottomControlsInflateFingerprint : LiteralValueFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL or AccessFlags.SYNTHETIC,

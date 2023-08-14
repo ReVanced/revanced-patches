@@ -12,7 +12,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.tiktok.interaction.speed.annotations.PlaybackSpeedCompatibility
 import app.revanced.patches.tiktok.interaction.speed.fingerprints.SpeedControlParentFingerprint
-import org.jf.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.Opcode
 
 @Patch
 @Name("Playback speed")

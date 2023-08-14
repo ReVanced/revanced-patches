@@ -15,7 +15,7 @@ import app.revanced.patches.youtube.layout.autocaptions.fingerprints.SubtitleBut
 import app.revanced.patches.youtube.layout.buttons.captions.annotations.HideCaptionsButtonCompatibility
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
-import org.jf.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.Opcode
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])

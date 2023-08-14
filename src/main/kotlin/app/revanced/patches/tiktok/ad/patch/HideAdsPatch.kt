@@ -12,10 +12,10 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.tiktok.ad.annotations.HideAdsCompatibility
 import app.revanced.patches.tiktok.ad.fingerprints.ConvertHelpFeedItemListFingerprint
 import app.revanced.patches.tiktok.ad.fingerprints.FeedItemListCloneFingerprint
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
-import org.jf.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Patch
 @Name("Hide ads")

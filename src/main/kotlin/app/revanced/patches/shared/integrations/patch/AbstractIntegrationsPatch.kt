@@ -9,9 +9,9 @@ import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.shared.integrations.patch.AbstractIntegrationsPatch.IntegrationsFingerprint.RegisterResolver
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.ClassDef
-import org.jf.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.ClassDef
+import com.android.tools.smali.dexlib2.iface.Method
 
 @Description("Applies mandatory patches to implement the ReVanced integrations into the application.")
 abstract class AbstractIntegrationsPatch(

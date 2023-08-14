@@ -21,16 +21,16 @@ import app.revanced.patches.youtube.video.information.annotation.VideoInformatio
 import app.revanced.patches.youtube.video.information.fingerprints.*
 import app.revanced.patches.youtube.video.speed.remember.patch.RememberPlaybackSpeedPatch
 import app.revanced.patches.youtube.video.videoid.patch.VideoIdPatch
-import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.builder.BuilderInstruction
-import org.jf.dexlib2.builder.MutableMethodImplementation
-import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.immutable.ImmutableMethod
-import org.jf.dexlib2.immutable.ImmutableMethodParameter
-import org.jf.dexlib2.util.MethodUtil
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.BuilderInstruction
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
+import com.android.tools.smali.dexlib2.util.MethodUtil
 
 @Name("Video information")
 @Description("Hooks YouTube to get information about the current playing video.")

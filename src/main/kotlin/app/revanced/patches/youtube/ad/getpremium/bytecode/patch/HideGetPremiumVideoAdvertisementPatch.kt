@@ -15,7 +15,7 @@ import app.revanced.patches.youtube.ad.getpremium.annotations.HideGetPremiumComp
 import app.revanced.patches.youtube.ad.getpremium.bytecode.fingerprints.GetPremiumViewFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
-import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
 @Name("Hide get premium")

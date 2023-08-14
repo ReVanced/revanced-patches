@@ -12,7 +12,7 @@ import app.revanced.patcher.util.smali.toInstruction
 import app.revanced.patches.music.annotations.MusicCompatibility
 import app.revanced.patches.music.audio.codecs.fingerprints.AllCodecsReferenceFingerprint
 import app.revanced.patches.music.audio.codecs.fingerprints.CodecsLockFingerprint
-import org.jf.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.Opcode
 
 @Patch
 @Name("Codecs unlock")

@@ -16,7 +16,7 @@ import app.revanced.patches.youtube.misc.links.open.fingerprints.BindSessionServ
 import app.revanced.patches.youtube.misc.links.open.fingerprints.GetCustomTabPackageNameFingerprint
 import app.revanced.patches.youtube.misc.links.open.fingerprints.InitializeCustomTabSupportFingerprint
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
-import org.jf.dexlib2.iface.instruction.formats.Instruction21c
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
 
 @Patch
 @Name("Open links externally")

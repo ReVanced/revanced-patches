@@ -14,7 +14,7 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.misc.fix.verticalscroll.patch.VerticalScrollPatch
 import app.revanced.patches.youtubevanced.ad.general.annotations.HideAdsCompatibility
 import app.revanced.patches.youtubevanced.ad.general.fingerprints.ContainsAdFingerprint
-import org.jf.dexlib2.iface.instruction.formats.Instruction21c
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
 
 @Patch
 @Name("Hide ads")

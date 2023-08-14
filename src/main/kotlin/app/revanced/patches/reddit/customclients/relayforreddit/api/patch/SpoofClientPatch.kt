@@ -15,7 +15,7 @@ import app.revanced.patches.reddit.customclients.relayforreddit.api.fingerprints
 import app.revanced.patches.reddit.customclients.relayforreddit.api.fingerprints.GetLoggedOutBearerTokenFingerprint
 import app.revanced.patches.reddit.customclients.relayforreddit.api.fingerprints.GetRefreshTokenFingerprint
 import app.revanced.patches.reddit.customclients.relayforreddit.api.fingerprints.LoginActivityClientIdFingerprint
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @SpoofClientAnnotation
 @Description("Spoofs the client in order to allow logging in. " +

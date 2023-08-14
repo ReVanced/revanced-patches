@@ -16,9 +16,9 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.tiktok.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.tiktok.misc.settings.annotations.SettingsCompatibility
 import app.revanced.patches.tiktok.misc.settings.fingerprints.*
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
-import org.jf.dexlib2.iface.instruction.formats.Instruction35c
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch
 @DependsOn([IntegrationsPatch::class])
