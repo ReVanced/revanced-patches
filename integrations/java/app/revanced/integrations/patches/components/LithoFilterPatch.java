@@ -425,6 +425,10 @@ public final class LithoFilterPatch {
      */
     @SuppressWarnings("unused")
     public static void setProtoBuffer(@NonNull ByteBuffer protobufBuffer) {
+        // Set the buffer to a thread local.  The buffer will remain in memory, even after the call to #filter completes.
+        // This is intentional, as it appears the buffer can be set once and then filtered multiple times.
+        // The buffer will be cleared from memory after a new buffer is set by the same thread,
+        // or when the calling thread eventually dies.
         bufferThreadLocal.set(protobufBuffer);
     }
 
@@ -452,8 +456,6 @@ public final class LithoFilterPatch {
             if (pathSearchTree.matches(parameter.path, parameter)) return true;
         } catch (Exception ex) {
             LogHelper.printException(() -> "Litho filter failure", ex);
-        } finally {
-            bufferThreadLocal.remove(); // Cleanup and remove the buffer.
         }
 
         return false;
