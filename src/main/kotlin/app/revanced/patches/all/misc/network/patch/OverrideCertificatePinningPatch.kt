@@ -2,9 +2,8 @@ package app.revanced.patches.all.misc.network.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.*
+import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.all.misc.debugging.patch.EnableAndroidDebuggingPatch
@@ -16,8 +15,7 @@ import java.io.File
 @Description("Overrides certificate pinning, allowing to inspect traffic via a proxy.")
 @DependsOn([EnableAndroidDebuggingPatch::class])
 class OverrideCertificatePinningPatch : ResourcePatch {
-
-    override fun execute(context: ResourceContext): PatchResult {
+    override fun execute(context: ResourceContext) {
         val resXmlDirectory = context["res/xml"]
 
         // Add android:networkSecurityConfig="@xml/network_security_config" and the "networkSecurityConfig" attribute if it does not exist.
@@ -73,7 +71,5 @@ class OverrideCertificatePinningPatch : ResourcePatch {
 
             }
         }
-
-        return PatchResultSuccess()
     }
 }

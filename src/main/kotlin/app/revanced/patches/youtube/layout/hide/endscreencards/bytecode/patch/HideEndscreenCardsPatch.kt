@@ -8,8 +8,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.layout.hide.endscreencards.annotations.HideEndscreenCardsCompatibility
@@ -32,7 +30,7 @@ class HideEndscreenCardsPatch : BytecodePatch(
         LayoutVideoFingerprint,
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         fun MethodFingerprint.injectHideCall() {
             val layoutResult = result ?: throw toErrorResult()
             layoutResult.mutableMethod.apply {
@@ -51,7 +49,5 @@ class HideEndscreenCardsPatch : BytecodePatch(
             LayoutIconFingerprint,
             LayoutVideoFingerprint
         ).forEach(MethodFingerprint::injectHideCall)
-
-        return PatchResultSuccess()
     }
 }

@@ -5,8 +5,6 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.warnwetter.misc.firebasegetcert.annotations.FirebaseGetCertPatchCompatibility
 import app.revanced.patches.warnwetter.misc.firebasegetcert.fingerprints.GetMessagingCertFingerprint
 import app.revanced.patches.warnwetter.misc.firebasegetcert.fingerprints.GetReqistrationCertFingerprint
@@ -20,7 +18,7 @@ class FirebaseGetCertPatch : BytecodePatch(
         GetMessagingCertFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         val spoofedInstruction =
             """
                 const-string v0, "0799DDF0414D3B3475E88743C91C0676793ED450"
@@ -38,7 +36,5 @@ class FirebaseGetCertPatch : BytecodePatch(
             0,
             spoofedInstruction
         )
-
-        return PatchResultSuccess()
     }
 }

@@ -8,8 +8,6 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
@@ -33,7 +31,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 class HideAutoplayButtonPatch : BytecodePatch(
     listOf(LayoutConstructorFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_hide_autoplay_button",
@@ -70,8 +68,6 @@ class HideAutoplayButtonPatch : BytecodePatch(
                 """,
                 ExternalLabel("hidden", jumpInstruction)
             )
-        } ?: return LayoutConstructorFingerprint.toErrorResult()
-
-        return PatchResultSuccess()
+        } ?: throw LayoutConstructorFingerprint.toErrorResult()
     }
 }

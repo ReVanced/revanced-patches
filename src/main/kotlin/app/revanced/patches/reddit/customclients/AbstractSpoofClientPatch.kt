@@ -5,7 +5,10 @@ import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
-import app.revanced.patcher.patch.*
+import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.OptionsContainer
+import app.revanced.patcher.patch.PatchException
+import app.revanced.patcher.patch.PatchOption
 import java.io.File
 
 abstract class AbstractSpoofClientPatch(
@@ -17,13 +20,13 @@ abstract class AbstractSpoofClientPatch(
     addAll(clientIdFingerprints)
     userAgentFingerprints?.let(::addAll)
 }) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         if (options.clientId == null) {
             // Ensure device runs Android.
             try {
                 Class.forName("android.os.Environment")
             } catch (e: ClassNotFoundException) {
-                return PatchResultError("No client ID provided")
+                throw PatchException("No client ID provided")
             }
 
             File(Environment.getExternalStorageDirectory(), "reddit_client_id_revanced.txt").also {
@@ -38,22 +41,16 @@ abstract class AbstractSpoofClientPatch(
                     The application type has to be "Installed app" and the redirect URI has to be set to "$redirectUri".
                 """.trimIndent()
 
-                return PatchResultError(error)
+                throw PatchException(error)
             }.let { options.clientId = it.readText().trim() }
         }
 
         fun List<MethodFingerprint>?.executePatch(
-            patch: List<MethodFingerprintResult>.(BytecodeContext) -> PatchResult
-        ) {
-            when (val result = this?.map { it.result ?: throw it.toErrorResult() }?.patch(context)) {
-                is PatchResultError -> throw result
-            }
-        }
+            patch: List<MethodFingerprintResult>.(BytecodeContext) -> Unit
+        ) = this?.map { it.result ?: throw it.toErrorResult() }?.patch(context)
 
         clientIdFingerprints.executePatch { patchClientId(context) }
         userAgentFingerprints.executePatch { patchUserAgent(context) }
-
-        return PatchResultSuccess()
     }
 
     /**
@@ -62,7 +59,7 @@ abstract class AbstractSpoofClientPatch(
      * @param context The current [BytecodeContext].
      *
      */
-    abstract fun List<MethodFingerprintResult>.patchClientId(context: BytecodeContext): PatchResult
+    abstract fun List<MethodFingerprintResult>.patchClientId(context: BytecodeContext)
 
     /**
      * Patch the user agent. The fingerprints are guaranteed to be in the same order as in [userAgentFingerprints].
@@ -70,8 +67,7 @@ abstract class AbstractSpoofClientPatch(
      * @param context The current [BytecodeContext].
      */
     // Not every client needs to patch the user agent.
-    open fun List<MethodFingerprintResult>.patchUserAgent(context: BytecodeContext): PatchResult =
-        PatchResultSuccess()
+    open fun List<MethodFingerprintResult>.patchUserAgent(context: BytecodeContext) {}
 
     companion object Options {
         open class SpoofClientOptionsContainer : OptionsContainer() {

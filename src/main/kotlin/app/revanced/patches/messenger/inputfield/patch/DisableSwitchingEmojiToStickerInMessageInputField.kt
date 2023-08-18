@@ -6,8 +6,6 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.messenger.inputfield.fingerprints.SwitchMessangeInputEmojiButtonFingerprint
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -17,7 +15,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Description("Disables switching from emoji to sticker search mode in message input field")
 @Compatibility([Package("com.facebook.orca")])
 class DisableSwitchingEmojiToStickerInMessageInputField : BytecodePatch(listOf(SwitchMessangeInputEmojiButtonFingerprint)) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         SwitchMessangeInputEmojiButtonFingerprint.result?.let {
             val setStringIndex = it.scanResult.patternScanResult!!.startIndex + 2
 
@@ -30,7 +28,5 @@ class DisableSwitchingEmojiToStickerInMessageInputField : BytecodePatch(listOf(S
                 )
             }
         } ?: throw SwitchMessangeInputEmojiButtonFingerprint.toErrorResult()
-
-        return PatchResultSuccess()
     }
 }

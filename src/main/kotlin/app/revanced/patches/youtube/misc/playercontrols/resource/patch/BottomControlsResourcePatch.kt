@@ -1,9 +1,7 @@
 package app.revanced.patches.youtube.misc.playercontrols.resource.patch
 
-import app.revanced.patcher.data.DomFileEditor
+import app.revanced.patcher.util.DomFileEditor
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
@@ -11,14 +9,12 @@ import java.io.Closeable
 
 @DependsOn([ResourceMappingPatch::class])
 class BottomControlsResourcePatch : ResourcePatch, Closeable {
-    override fun execute(context: ResourceContext): PatchResult {
+    override fun execute(context: ResourceContext) {
         resourceContext = context
         targetXmlEditor = context.xmlEditor[TARGET_RESOURCE]
 
         bottomUiContainerResourceId = ResourceMappingPatch.resourceMappings
             .single { it.type == "id" && it.name == "bottom_ui_container_stub" }.id
-
-        return PatchResultSuccess()
     }
 
     companion object {

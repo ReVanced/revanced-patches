@@ -7,8 +7,6 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
@@ -31,7 +29,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 class EnableSeekbarTappingPatch : BytecodePatch(
     listOf(OnTouchEventHandlerFingerprint, SeekbarTappingFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         // Find the required methods to tap the seekbar.
         val seekbarTappingMethods = OnTouchEventHandlerFingerprint.result?.let {
             val patternScanResult = it.scanResult.patternScanResult!!
@@ -45,7 +43,7 @@ class EnableSeekbarTappingPatch : BytecodePatch(
             }
         }
 
-        seekbarTappingMethods ?: return OnTouchEventHandlerFingerprint.toErrorResult()
+        seekbarTappingMethods ?: throw OnTouchEventHandlerFingerprint.toErrorResult()
 
         SeekbarTappingFingerprint.result?.let {
             val insertIndex = it.scanResult.patternScanResult!!.endIndex - 1
@@ -74,8 +72,6 @@ class EnableSeekbarTappingPatch : BytecodePatch(
                     ExternalLabel("disabled", getInstruction(insertIndex))
                 )
             }
-        } ?: return SeekbarTappingFingerprint.toErrorResult()
-
-        return PatchResultSuccess()
+        } ?: throw SeekbarTappingFingerprint.toErrorResult()
     }
 }

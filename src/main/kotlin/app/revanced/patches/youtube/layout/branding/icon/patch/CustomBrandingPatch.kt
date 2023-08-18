@@ -16,7 +16,7 @@ import java.nio.file.Files
 @Description("Changes the YouTube launcher icon and name to your choice (defaults to ReVanced).")
 @CustomBrandingCompatibility
 class CustomBrandingPatch : ResourcePatch {
-    override fun execute(context: ResourceContext): PatchResult {
+    override fun execute(context: ResourceContext) {
         fun copyResources(resourceGroups: List<ResourceUtils.ResourceGroup>) {
             iconPath?.let { iconPathString ->
                 val iconPath = File(iconPathString)
@@ -62,8 +62,6 @@ class CustomBrandingPatch : ResourcePatch {
                     "android:label=\"$appName"
                 )
         )
-
-        return PatchResultSuccess()
     }
 
     companion object : OptionsContainer() {

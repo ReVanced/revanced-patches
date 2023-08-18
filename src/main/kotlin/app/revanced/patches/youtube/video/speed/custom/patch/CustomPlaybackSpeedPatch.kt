@@ -11,9 +11,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patches.shared.settings.preference.impl.InputType
@@ -44,7 +42,7 @@ class CustomPlaybackSpeedPatch : BytecodePatch(
     )
 ) {
 
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
             TextPreference(
                 key = "revanced_custom_playback_speeds",
@@ -66,7 +64,7 @@ class CustomPlaybackSpeedPatch : BytecodePatch(
         val sizeCallIndex = arrayGenMethodImpl.instructions
             .indexOfFirst { ((it as? ReferenceInstruction)?.reference as? MethodReference)?.name == "size" }
 
-        if (sizeCallIndex == -1) return PatchResultError("Couldn't find call to size()")
+        if (sizeCallIndex == -1) throw PatchException("Couldn't find call to size()")
 
         val sizeCallResultRegister =
             (arrayGenMethodImpl.instructions.elementAt(sizeCallIndex + 1) as OneRegisterInstruction).registerA
@@ -173,12 +171,10 @@ class CustomPlaybackSpeedPatch : BytecodePatch(
                         invoke-virtual { v0 }, $showOldPlaybackSpeedMenuMethod
                     """
                 )
-            } ?: return ShowOldPlaybackSpeedMenuIntegrationsFingerprint.toErrorResult()
-        } ?: return GetOldPlaybackSpeedsFingerprint.toErrorResult()
+            } ?: throw ShowOldPlaybackSpeedMenuIntegrationsFingerprint.toErrorResult()
+        } ?: throw GetOldPlaybackSpeedsFingerprint.toErrorResult()
 
         // endregion
-
-        return PatchResultSuccess()
     }
 
     private companion object {

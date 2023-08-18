@@ -3,10 +3,7 @@ package app.revanced.patches.music.audio.codecs.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.toInstruction
 import app.revanced.patches.music.annotations.MusicCompatibility
@@ -23,7 +20,7 @@ class CodecsUnlockPatch : BytecodePatch(
         CodecsLockFingerprint, AllCodecsReferenceFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         val codecsLockResult = CodecsLockFingerprint.result!!
 
         val implementation = codecsLockResult.mutableMethod.implementation!!
@@ -48,7 +45,5 @@ class CodecsUnlockPatch : BytecodePatch(
             instructionIndex,
             "invoke-static {}, ${allCodecsMethod.definingClass}->${allCodecsMethod.name}()Ljava/util/Set;".toInstruction()
         )
-
-        return PatchResultSuccess()
     }
 }

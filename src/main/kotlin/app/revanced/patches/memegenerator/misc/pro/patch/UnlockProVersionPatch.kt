@@ -6,8 +6,6 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.memegenerator.detection.license.patch.LicenseValidationPatch
@@ -28,7 +26,7 @@ class UnlockProVersionPatch : BytecodePatch(
         IsFreeVersionFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         IsFreeVersionFingerprint.result?.apply {
             mutableMethod.replaceInstructions(0,
                 """
@@ -37,7 +35,5 @@ class UnlockProVersionPatch : BytecodePatch(
                 """
             )
         } ?: throw IsFreeVersionFingerprint.toErrorResult()
-
-        return PatchResultSuccess()
     }
 }

@@ -6,7 +6,6 @@ import app.revanced.patcher.extensions.PatchExtensions.description
 import app.revanced.patcher.extensions.PatchExtensions.include
 import app.revanced.patcher.extensions.PatchExtensions.options
 import app.revanced.patcher.extensions.PatchExtensions.patchName
-import app.revanced.patcher.extensions.PatchExtensions.version
 import app.revanced.patcher.patch.PatchOption
 import com.google.gson.GsonBuilder
 import java.io.File
@@ -17,7 +16,6 @@ internal class JsonGenerator : PatchesFileGenerator {
             JsonPatch(
                 it.patchName,
                 it.description ?: "This patch has no description.",
-                it.version ?: "0.0.0",
                 !it.include,
                 it.options?.map { option ->
                     JsonPatch.Option(
@@ -48,7 +46,6 @@ internal class JsonGenerator : PatchesFileGenerator {
     private class JsonPatch(
         val name: String,
         val description: String,
-        val version: String,
         val excluded: Boolean,
         val options: Array<Option>,
         val dependencies: Array<String>,

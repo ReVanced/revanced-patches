@@ -4,14 +4,11 @@ import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -39,7 +36,7 @@ class TabletMiniPlayerPatch : BytecodePatch(
         MiniPlayerOverrideFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_tablet_miniplayer",
@@ -50,7 +47,7 @@ class TabletMiniPlayerPatch : BytecodePatch(
         )
 
         // First resolve the fingerprints via the parent fingerprint.
-        MiniPlayerDimensionsCalculatorParentFingerprint.result ?: return MiniPlayerDimensionsCalculatorParentFingerprint.toErrorResult()
+        MiniPlayerDimensionsCalculatorParentFingerprint.result ?: throw MiniPlayerDimensionsCalculatorParentFingerprint.toErrorResult()
         val miniPlayerClass = MiniPlayerDimensionsCalculatorParentFingerprint.result!!.classDef
 
         /*
@@ -81,7 +78,7 @@ class TabletMiniPlayerPatch : BytecodePatch(
                         .filter { (_, instruction) -> instruction.opcode == Opcode.RETURN }
                         .map { (index, _) -> index }
 
-                    if (returnIndices.isEmpty()) throw PatchResultError("No return instructions found.")
+                    if (returnIndices.isEmpty()) throw PatchException("No return instructions found.")
 
                     // This method clobbers register p0 to return the value, calculate to override.
                     val returnedRegister = implementation.registerCount - parameters.size
@@ -92,14 +89,12 @@ class TabletMiniPlayerPatch : BytecodePatch(
             }
 
             return@let
-        } ?: return MiniPlayerOverrideFingerprint.toErrorResult()
+        } ?: throw MiniPlayerOverrideFingerprint.toErrorResult()
 
         /*
          * Size check return value override.
          */
         MiniPlayerResponseModelSizeCheckFingerprint.addProxyCall()
-
-        return PatchResultSuccess()
     }
 
     // Helper methods.

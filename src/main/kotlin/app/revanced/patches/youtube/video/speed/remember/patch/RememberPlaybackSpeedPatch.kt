@@ -7,8 +7,6 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.settings.preference.impl.ArrayResource
@@ -30,7 +28,7 @@ class RememberPlaybackSpeedPatch : BytecodePatch(
         InitializePlaybackSpeedValuesFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
             SwitchPreference(
                 "revanced_remember_playback_speed_last_selected",
@@ -105,9 +103,7 @@ class RememberPlaybackSpeedPatch : BytecodePatch(
                 """.trimIndent(),
                 ExternalLabel("do_not_override", mutableMethod.getInstruction(0))
             )
-        } ?: return InitializePlaybackSpeedValuesFingerprint.toErrorResult()
-
-        return PatchResultSuccess()
+        } ?: throw InitializePlaybackSpeedValuesFingerprint.toErrorResult()
     }
 
     private companion object {

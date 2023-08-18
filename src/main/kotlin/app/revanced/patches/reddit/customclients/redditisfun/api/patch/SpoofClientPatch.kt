@@ -9,8 +9,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult.MethodFingerprintScanResult.StringsScanResult.StringMatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.reddit.customclients.AbstractSpoofClientPatch
 import app.revanced.patches.reddit.customclients.SpoofClientAnnotation
 import app.revanced.patches.reddit.customclients.redditisfun.api.fingerprints.BasicAuthorizationFingerprint
@@ -29,7 +27,7 @@ class SpoofClientPatch : AbstractSpoofClientPatch(
     listOf(BuildAuthorizationStringFingerprint, BasicAuthorizationFingerprint),
     listOf(GetUserAgentFingerprint)
 ) {
-    override fun List<MethodFingerprintResult>.patchClientId(context: BytecodeContext): PatchResult {
+    override fun List<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
         /**
          * Replaces a one register instruction with a const-string instruction
          * at the index returned by [getReplacementIndex].
@@ -53,11 +51,9 @@ class SpoofClientPatch : AbstractSpoofClientPatch(
 
         // Path basic authorization.
         last().replaceWith("$clientId:") { last().index + 7 }
-
-        return PatchResultSuccess()
     }
 
-    override fun List<MethodFingerprintResult>.patchUserAgent(context: BytecodeContext): PatchResult {
+    override fun List<MethodFingerprintResult>.patchUserAgent(context: BytecodeContext) {
         // Use a random user agent.
         val randomName = (0..100000).random()
         val userAgent = "android:app.revanced.$randomName:v1.0.0 (by /u/revanced)"
@@ -69,8 +65,6 @@ class SpoofClientPatch : AbstractSpoofClientPatch(
                 return-object v0
             """
         )
-
-        return PatchResultSuccess()
     }
 
     companion object Options : AbstractSpoofClientPatch.Options.SpoofClientOptionsContainer()

@@ -6,8 +6,6 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.annotations.MusicCompatibility
 import app.revanced.patches.music.interaction.permanentshuffle.fingerprints.DisableShuffleFingerprint
@@ -20,10 +18,8 @@ import app.revanced.patches.music.interaction.permanentshuffle.fingerprints.Disa
 class PermanentShuffleTogglePatch : BytecodePatch(
     listOf(DisableShuffleFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         DisableShuffleFingerprint.result?.mutableMethod?.addInstruction(0, "return-void")
-            ?: return DisableShuffleFingerprint.toErrorResult()
-
-        return PatchResultSuccess()
+            ?: throw DisableShuffleFingerprint.toErrorResult()
     }
 }

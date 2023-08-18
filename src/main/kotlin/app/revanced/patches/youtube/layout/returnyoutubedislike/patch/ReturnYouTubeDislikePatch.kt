@@ -13,9 +13,7 @@ import app.revanced.patcher.extensions.MethodFingerprintExtensions.name
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.layout.returnyoutubedislike.annotations.ReturnYouTubeDislikeCompatibility
@@ -51,7 +49,7 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
         RemoveLikeFingerprint,
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         // region Inject newVideoLoaded event handler to update dislikes when a new video is loaded.
 
         VideoIdPatch.injectCall("$INTEGRATIONS_CLASS_DESCRIPTOR->newVideoLoaded(Ljava/lang/String;)V")
@@ -73,7 +71,7 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
                         invoke-static {v0}, $INTEGRATIONS_CLASS_DESCRIPTOR->sendVote(I)V
                     """
                 )
-            } ?: return PatchResultError("Failed to find ${fingerprint.name} method.")
+            } ?: throw PatchException("Failed to find ${fingerprint.name} method.")
         }
 
         // endregion
@@ -128,7 +126,7 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
                     """
                 )
             }
-        } ?: return TextComponentContextFingerprint.toErrorResult()
+        } ?: throw TextComponentContextFingerprint.toErrorResult()
 
         // endregion
 
@@ -168,7 +166,7 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
                     """
                 )
             }
-        } ?: return ShortsTextViewFingerprint.toErrorResult()
+        } ?: throw ShortsTextViewFingerprint.toErrorResult()
 
         // endregion
 
@@ -186,11 +184,9 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
                     "invoke-static {v$resourceIdentifierRegister, v$textViewRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->setOldUILayoutDislikes(ILandroid/widget/TextView;)V"
                 )
             }
-        } ?: return DislikesOldLayoutTextViewFingerprint.toErrorResult()
+        } ?: throw DislikesOldLayoutTextViewFingerprint.toErrorResult()
 
         // endregion
-
-        return PatchResultSuccess()
     }
 
     private companion object {

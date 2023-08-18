@@ -9,8 +9,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.settings.preference.impl.Preference
 import app.revanced.patches.shared.settings.util.AbstractPreferenceScreen
@@ -29,7 +27,7 @@ import java.io.Closeable
 class SettingsPatch : BytecodePatch(
     listOf(LicenseActivityFingerprint, SetThemeFingerprint)
 ), Closeable {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         // TODO: Remove this when it is only required at one place.
         fun getSetThemeInstructionString(
             registers: String = "v0",
@@ -57,7 +55,7 @@ class SettingsPatch : BytecodePatch(
                         addInstruction(returnIndex + 1, "return-object v0")
                     }
                 }
-        } ?: return SetThemeFingerprint.toErrorResult()
+        } ?: throw SetThemeFingerprint.toErrorResult()
 
 
         // Modify the license activity and remove all existing layout code.
@@ -88,8 +86,6 @@ class SettingsPatch : BytecodePatch(
             }
         }
 
-
-        return PatchResultSuccess()
     }
 
     internal companion object {

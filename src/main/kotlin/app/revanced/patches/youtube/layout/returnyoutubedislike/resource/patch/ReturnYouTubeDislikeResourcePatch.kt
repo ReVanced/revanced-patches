@@ -1,8 +1,6 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike.resource.patch
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
@@ -17,7 +15,7 @@ class ReturnYouTubeDislikeResourcePatch : ResourcePatch {
         internal var oldUIDislikeId: Long = -1
     }
 
-    override fun execute(context: ResourceContext): PatchResult {
+    override fun execute(context: ResourceContext) {
         SettingsPatch.addPreference(
             Preference(
                 StringResource("revanced_ryd_settings_title", "Return YouTube Dislike"),
@@ -31,7 +29,5 @@ class ReturnYouTubeDislikeResourcePatch : ResourcePatch {
         oldUIDislikeId = ResourceMappingPatch.resourceMappings.single {
             it.type == "id" && it.name == "dislike_button"
         }.id
-
-        return PatchResultSuccess()
     }
 }

@@ -7,8 +7,6 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.annotations.MusicCompatibility
@@ -21,7 +19,7 @@ import app.revanced.patches.music.interaction.permanentrepeat.fingerprints.Repea
 class PermanentRepeatPatch : BytecodePatch(
     listOf(RepeatTrackFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         RepeatTrackFingerprint.result?.let {
             val startIndex = it.scanResult.patternScanResult!!.endIndex
             val repeatIndex = startIndex + 3
@@ -33,8 +31,6 @@ class PermanentRepeatPatch : BytecodePatch(
                     ExternalLabel("repeat", getInstruction(repeatIndex))
                 )
             }
-        } ?: return RepeatTrackFingerprint.toErrorResult()
-
-        return PatchResultSuccess()
+        } ?: throw RepeatTrackFingerprint.toErrorResult()
     }
 }

@@ -8,8 +8,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
@@ -30,7 +28,7 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch.P
 class HideLayoutComponentsPatch : BytecodePatch(
     listOf(ConvertElementToFlatBufferFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_hide_gray_separator",
@@ -274,11 +272,9 @@ class HideLayoutComponentsPatch : BytecodePatch(
                 addInstruction(0, "move-object/from16 v$freeRegister, p3")
             }
 
-        } ?: return ConvertElementToFlatBufferFingerprint.toErrorResult()
+        } ?: throw ConvertElementToFlatBufferFingerprint.toErrorResult()
 
         // endregion
-
-        return PatchResultSuccess()
     }
 
     internal companion object {

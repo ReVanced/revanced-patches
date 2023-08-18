@@ -6,8 +6,6 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.spotify.premium_navbar_tab.annotations.PremiumNavbarTabCompatibility
@@ -27,7 +25,7 @@ class PremiumNavbarTabPatch : BytecodePatch(
         AddPremiumNavbarTabParentFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         val parentResult = AddPremiumNavbarTabParentFingerprint.result!!
         AddPremiumNavbarTabFingerprint.resolve(context, parentResult.classDef)
 
@@ -55,7 +53,5 @@ class PremiumNavbarTabPatch : BytecodePatch(
 
             if (--removeAmount == 0) break
         }
-
-        return PatchResultSuccess()
     }
 }

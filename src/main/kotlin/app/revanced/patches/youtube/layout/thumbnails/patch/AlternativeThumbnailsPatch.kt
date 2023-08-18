@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.alternativethumbnails.bytecode.patch
+package app.revanced.patches.youtube.layout.thumbnails.patch
 
 import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
@@ -8,23 +8,12 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.settings.preference.impl.ArrayResource
-import app.revanced.patches.shared.settings.preference.impl.ListPreference
-import app.revanced.patches.shared.settings.preference.impl.NonInteractivePreference
-import app.revanced.patches.shared.settings.preference.impl.PreferenceScreen
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
-import app.revanced.patches.youtube.layout.alternativethumbnails.annotations.AlternativeThumbnailsCompatibility
-import app.revanced.patches.youtube.layout.alternativethumbnails.bytecode.fingerprints.CronetURLRequestCallbackOnFailureFingerprint
-import app.revanced.patches.youtube.layout.alternativethumbnails.bytecode.fingerprints.CronetURLRequestCallbackOnResponseStartedFingerprint
-import app.revanced.patches.youtube.layout.alternativethumbnails.bytecode.fingerprints.CronetURLRequestCallbackOnSucceededFingerprint
-import app.revanced.patches.youtube.layout.alternativethumbnails.bytecode.fingerprints.MessageDigestImageUrlFingerprint
-import app.revanced.patches.youtube.layout.alternativethumbnails.bytecode.fingerprints.MessageDigestImageUrlParentFingerprint
+import app.revanced.patches.shared.settings.preference.impl.*
+import app.revanced.patches.youtube.layout.thumbnails.annotations.AlternativeThumbnailsCompatibility
+import app.revanced.patches.youtube.layout.thumbnails.fingerprints.*
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
@@ -32,11 +21,11 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
 @Name("Alternative thumbnails")
 @AlternativeThumbnailsCompatibility
-@Description("Adds an option to replace video thumbnails with still image captures of the video.")
+@Description("Adds options to replace video thumbnails with still image captures of the video.")
 class AlternativeThumbnailsPatch : BytecodePatch(
     listOf(MessageDigestImageUrlParentFingerprint, CronetURLRequestCallbackOnResponseStartedFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
                 "revanced_alt_thumbnails_preference_screen",
@@ -84,23 +73,23 @@ class AlternativeThumbnailsPatch : BytecodePatch(
         )
 
         MessageDigestImageUrlParentFingerprint.result
-            ?: return MessageDigestImageUrlParentFingerprint.toErrorResult()
+            ?: throw MessageDigestImageUrlParentFingerprint.toErrorResult()
         MessageDigestImageUrlFingerprint.resolve(context, MessageDigestImageUrlParentFingerprint.result!!.classDef)
         MessageDigestImageUrlFingerprint.result?.apply {
             loadImageUrlMethod = mutableMethod
-        } ?: return MessageDigestImageUrlFingerprint.toErrorResult()
+        } ?: throw MessageDigestImageUrlFingerprint.toErrorResult()
         addImageUrlHook(INTEGRATIONS_CLASS_DESCRIPTOR, true)
 
 
         CronetURLRequestCallbackOnResponseStartedFingerprint.result
-            ?: return CronetURLRequestCallbackOnResponseStartedFingerprint.toErrorResult()
+            ?: throw CronetURLRequestCallbackOnResponseStartedFingerprint.toErrorResult()
         CronetURLRequestCallbackOnSucceededFingerprint.resolve(
             context,
             CronetURLRequestCallbackOnResponseStartedFingerprint.result!!.classDef
         )
         CronetURLRequestCallbackOnSucceededFingerprint.result?.apply {
             loadImageSuccessCallbackMethod = mutableMethod
-        } ?: return CronetURLRequestCallbackOnSucceededFingerprint.toErrorResult()
+        } ?: throw CronetURLRequestCallbackOnSucceededFingerprint.toErrorResult()
         addImageUrlSuccessCallbackHook(INTEGRATIONS_CLASS_DESCRIPTOR)
 
 
@@ -110,10 +99,7 @@ class AlternativeThumbnailsPatch : BytecodePatch(
         )
         CronetURLRequestCallbackOnFailureFingerprint.result?.apply {
             loadImageErrorCallbackMethod = mutableMethod
-        } ?: return CronetURLRequestCallbackOnFailureFingerprint.toErrorResult()
-
-
-        return PatchResultSuccess()
+        } ?: throw CronetURLRequestCallbackOnFailureFingerprint.toErrorResult()
     }
 
     internal companion object {

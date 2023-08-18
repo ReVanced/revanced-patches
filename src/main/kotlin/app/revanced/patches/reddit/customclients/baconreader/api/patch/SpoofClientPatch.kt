@@ -7,8 +7,6 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.reddit.customclients.AbstractSpoofClientPatch
 import app.revanced.patches.reddit.customclients.SpoofClientAnnotation
 import app.revanced.patches.reddit.customclients.baconreader.api.fingerprints.GetAuthorizationUrlFingerprint
@@ -30,7 +28,7 @@ class SpoofClientPatch : AbstractSpoofClientPatch(
     "http://baconreader.com/auth", Options, listOf(GetAuthorizationUrlFingerprint, RequestTokenFingerprint)
 ) {
 
-    override fun List<MethodFingerprintResult>.patchClientId(context: BytecodeContext): PatchResult {
+    override fun List<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
         fun MethodFingerprintResult.patch(replacementString: String) {
             val clientIdIndex = scanResult.stringsScanResult!!.matches.first().index
 
@@ -48,8 +46,6 @@ class SpoofClientPatch : AbstractSpoofClientPatch(
 
         // Patch client id for access token request.
         last().patch(clientId!!)
-
-        return PatchResultSuccess()
     }
 
     companion object Options : AbstractSpoofClientPatch.Options.SpoofClientOptionsContainer()

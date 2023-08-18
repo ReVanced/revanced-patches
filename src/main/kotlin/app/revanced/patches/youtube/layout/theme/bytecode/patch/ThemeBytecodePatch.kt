@@ -17,10 +17,8 @@ import app.revanced.patches.youtube.layout.theme.resource.ThemeResourcePatch
 @ThemeCompatibility
 class ThemeBytecodePatch : BytecodePatch() {
 
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         LithoColorHookPatch.lithoColorOverrideHook(INTEGRATIONS_CLASS_DESCRIPTOR, "getValue")
-
-        return PatchResultSuccess()
     }
 
     companion object : OptionsContainer() {

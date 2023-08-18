@@ -5,8 +5,6 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.settings.preference.impl.StringResource
@@ -27,7 +25,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 class HDRBrightnessPatch : BytecodePatch(
     listOf(HDRBrightnessFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
             SwitchPreference(
                 "revanced_hdr_auto_brightness",
@@ -55,7 +53,5 @@ class HDRBrightnessPatch : BytecodePatch(
                 """
             )
         }
-
-        return PatchResultSuccess()
     }
 }

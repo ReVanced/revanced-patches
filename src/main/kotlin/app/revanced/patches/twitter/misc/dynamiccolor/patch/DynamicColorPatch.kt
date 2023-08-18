@@ -3,9 +3,7 @@ package app.revanced.patches.twitter.misc.dynamiccolor.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.twitter.misc.dynamiccolor.annotations.DynamicColorCompatibility
@@ -17,9 +15,9 @@ import java.nio.file.Files
 @Description("Replaces the default Twitter Blue with the users Material You palette.")
 @DynamicColorCompatibility
 class DynamicColorPatch : ResourcePatch {
-    override fun execute(context: ResourceContext): PatchResult {
+    override fun execute(context: ResourceContext) {
         val resDirectory = context["res"]
-        if (!resDirectory.isDirectory) return PatchResultError("The res folder can not be found.")
+        if (!resDirectory.isDirectory) throw PatchException("The res folder can not be found.")
 
         val valuesV31Directory = resDirectory.resolve("values-v31")
         if (!valuesV31Directory.isDirectory) Files.createDirectories(valuesV31Directory.toPath())
@@ -79,7 +77,5 @@ class DynamicColorPatch : ResourcePatch {
                 document.getElementsByTagName("resources").item(0).appendChild(colorElement)
             }
         }
-
-        return PatchResultSuccess()
     }
 }

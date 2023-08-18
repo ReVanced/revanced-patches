@@ -8,8 +8,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -39,7 +37,7 @@ class SpoofSimPatch : BytecodePatch() {
         )
     }
 
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         // Find all api call to check sim information
         buildMap {
             context.classes.forEach { classDef ->
@@ -89,8 +87,6 @@ class SpoofSimPatch : BytecodePatch() {
                 "invoke-static {}, Lapp/revanced/tiktok/settingsmenu/SettingsStatus;->enableSimSpoof()V"
             )
         }
-
-        return PatchResultSuccess()
     }
 
     // Patch Android API and return fake sim information

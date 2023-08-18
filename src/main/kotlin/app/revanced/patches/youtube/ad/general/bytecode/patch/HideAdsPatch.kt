@@ -6,8 +6,6 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.misc.fix.verticalscroll.patch.VerticalScrollPatch
@@ -33,7 +31,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 @Description("Removes general ads.")
 @HideAdsCompatibility
 class HideAdsPatch : BytecodePatch() {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         context.classes.forEach { classDef ->
             classDef.methods.forEach { method ->
                 with(method.implementation) {
@@ -67,7 +65,5 @@ class HideAdsPatch : BytecodePatch() {
                 }
             }
         }
-
-        return PatchResultSuccess()
     }
 }

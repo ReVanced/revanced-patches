@@ -11,20 +11,18 @@ import org.w3c.dom.Element
 @Name("Change package name")
 @Description("Changes the package name. Appends \".revanced\" to the package name by default.")
 class ChangePackageNamePatch : ResourcePatch {
-    override fun execute(context: ResourceContext): PatchResult {
+    override fun execute(context: ResourceContext) {
         val packageNameToUse = packageName ?: getDefaultPackageName(context)
 
         val packageNameRegex = Regex("^[a-z]\\w*(\\.[a-z]\\w*)+\$")
         if (!packageNameToUse.matches(packageNameRegex))
-            return PatchResultError("Invalid package name")
+            throw PatchException("Invalid package name")
 
         val originalPackageName = getOriginalPackageName(context)
 
         context["AndroidManifest.xml"].apply {
             readText().replace(originalPackageName, packageNameToUse).let(::writeText)
         }
-
-        return PatchResultSuccess()
     }
 
     private fun getDefaultPackageName(context: ResourceContext): String {

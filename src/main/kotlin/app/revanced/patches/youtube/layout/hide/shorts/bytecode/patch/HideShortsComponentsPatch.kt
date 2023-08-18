@@ -10,8 +10,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -46,7 +44,7 @@ class HideShortsComponentsPatch : BytecodePatch(
         SetPivotBarVisibilityParentFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
 
         // region Hide the Shorts shelf.
@@ -63,7 +61,7 @@ class HideShortsComponentsPatch : BytecodePatch(
                     "hideShortsShelf"
                 )
             }
-        } ?: return ReelConstructorFingerprint.toErrorResult()
+        } ?: throw ReelConstructorFingerprint.toErrorResult()
 
         // endregion
 
@@ -72,7 +70,7 @@ class HideShortsComponentsPatch : BytecodePatch(
         // Some Shorts buttons are views, hide them by setting their visibility to GONE.
         CreateShortsButtonsFingerprint.result?.let {
             ShortsButtons.values().forEach { button -> button.injectHideCall(it.mutableMethod) }
-        } ?: return CreateShortsButtonsFingerprint.toErrorResult()
+        } ?: throw CreateShortsButtonsFingerprint.toErrorResult()
 
         // endregion
 
@@ -94,7 +92,7 @@ class HideShortsComponentsPatch : BytecodePatch(
                     )
                 }
             }
-        } ?: return SetPivotBarVisibilityParentFingerprint.toErrorResult()
+        } ?: throw SetPivotBarVisibilityParentFingerprint.toErrorResult()
 
         // Hook to hide the navigation bar when Shorts are being played.
         RenderBottomNavigationBarParentFingerprint.result?.let {
@@ -104,7 +102,7 @@ class HideShortsComponentsPatch : BytecodePatch(
             RenderBottomNavigationBarFingerprint.result!!.mutableMethod.apply {
                 addInstruction(0, "invoke-static { }, $FILTER_CLASS_DESCRIPTOR->hideNavigationBar()V")
             }
-        } ?: return RenderBottomNavigationBarParentFingerprint.toErrorResult()
+        } ?: throw RenderBottomNavigationBarParentFingerprint.toErrorResult()
 
         // Required to prevent a black bar from appearing at the bottom of the screen.
         BottomNavigationBarFingerprint.result?.let {
@@ -119,11 +117,9 @@ class HideShortsComponentsPatch : BytecodePatch(
                             "hideNavigationBar(Landroid/view/View;)Landroid/view/View;"
                 )
             }
-        } ?: return BottomNavigationBarFingerprint.toErrorResult()
+        } ?: throw BottomNavigationBarFingerprint.toErrorResult()
 
         // endregion
-
-        return PatchResultSuccess()
     }
 
     private companion object {

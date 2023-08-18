@@ -1,8 +1,6 @@
 package app.revanced.patches.youtube.misc.fix.playback.patch
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
@@ -13,7 +11,7 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 @DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
 class SpoofSignatureVerificationResourcePatch : ResourcePatch {
 
-    override fun execute(context: ResourceContext): PatchResult {
+    override fun execute(context: ResourceContext) {
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             SwitchPreference(
                 "revanced_spoof_signature_verification",
@@ -33,8 +31,6 @@ class SpoofSignatureVerificationResourcePatch : ResourcePatch {
         scrubbedPreviewThumbnailResourceId = ResourceMappingPatch.resourceMappings.single {
             it.type == "id" && it.name == "thumbnail"
         }.id
-
-        return PatchResultSuccess()
     }
 
     companion object {

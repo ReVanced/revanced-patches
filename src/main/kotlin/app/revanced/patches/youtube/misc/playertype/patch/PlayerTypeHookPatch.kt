@@ -8,8 +8,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playertype.fingerprint.PlayerTypeFingerprint
@@ -22,11 +20,11 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 class PlayerTypeHookPatch : BytecodePatch(
     listOf(PlayerTypeFingerprint, VideoStateFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         PlayerTypeFingerprint.result?.mutableMethod?.addInstruction(
             0,
             "invoke-static {p1}, $INTEGRATIONS_CLASS_DESCRIPTOR->setPlayerType(Ljava/lang/Enum;)V"
-        ) ?: return PlayerTypeFingerprint.toErrorResult()
+        ) ?: throw PlayerTypeFingerprint.toErrorResult()
 
         VideoStateFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -41,9 +39,7 @@ class PlayerTypeHookPatch : BytecodePatch(
                     """
                 )
             }
-        } ?: return VideoStateFingerprint.toErrorResult()
-
-        return PatchResultSuccess()
+        } ?: throw VideoStateFingerprint.toErrorResult()
     }
 
     companion object {

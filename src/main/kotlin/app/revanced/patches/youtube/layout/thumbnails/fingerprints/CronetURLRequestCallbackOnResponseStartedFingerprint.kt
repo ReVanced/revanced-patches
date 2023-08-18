@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.alternativethumbnails.bytecode.fingerprints
+package app.revanced.patches.youtube.layout.thumbnails.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint

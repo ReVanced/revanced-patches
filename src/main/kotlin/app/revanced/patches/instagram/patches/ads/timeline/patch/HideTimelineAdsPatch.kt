@@ -8,8 +8,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.MediaFingerprint
@@ -32,19 +30,19 @@ class HideTimelineAdsPatch : BytecodePatch(
         PaidPartnershipAdFingerprint // Unlike the other ads this one is resolved from all classes.
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         // region Resolve required methods to check for ads.
 
-        ShowAdFingerprint.result ?: return ShowAdFingerprint.toErrorResult()
+        ShowAdFingerprint.result ?: throw ShowAdFingerprint.toErrorResult()
 
-        PaidPartnershipAdFingerprint.result ?: return PaidPartnershipAdFingerprint.toErrorResult()
+        PaidPartnershipAdFingerprint.result ?: throw PaidPartnershipAdFingerprint.toErrorResult()
 
         MediaFingerprint.result?.let {
             GenericMediaAdFingerprint.resolve(context, it.classDef)
             ShoppingAdFingerprint.resolve(context, it.classDef)
 
             return@let
-        } ?: return MediaFingerprint.toErrorResult()
+        } ?: throw MediaFingerprint.toErrorResult()
 
         // endregion
 
@@ -99,7 +97,5 @@ class HideTimelineAdsPatch : BytecodePatch(
 
             // endregion
         }
-
-        return PatchResultSuccess()
     }
 }

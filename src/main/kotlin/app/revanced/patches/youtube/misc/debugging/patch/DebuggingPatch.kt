@@ -3,8 +3,6 @@ package app.revanced.patches.youtube.misc.debugging.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
@@ -20,7 +18,7 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 @Description("Adds debugging options.")
 @DebuggingCompatibility
 class DebuggingPatch : ResourcePatch {
-    override fun execute(context: ResourceContext): PatchResult {
+    override fun execute(context: ResourceContext) {
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             app.revanced.patches.shared.settings.preference.impl.PreferenceScreen(
                 "revanced_debug_preference_screen",
@@ -67,7 +65,5 @@ class DebuggingPatch : ResourcePatch {
                 StringResource("revanced_debug_preference_screen_summary", "Enable or disable debugging options")
             )
         )
-
-        return PatchResultSuccess()
     }
 }

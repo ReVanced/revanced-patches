@@ -7,8 +7,6 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.layout.hide.crowdfundingbox.annotations.CrowdfundingBoxCompatibility
@@ -27,7 +25,7 @@ class CrowdfundingBoxPatch : BytecodePatch(
         CrowdfundingBoxFingerprint,
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         CrowdfundingBoxFingerprint.result?.let {
             it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.endIndex
@@ -35,9 +33,7 @@ class CrowdfundingBoxPatch : BytecodePatch(
 
                 addInstruction(insertIndex, "invoke-static {v$objectRegister}, $INTEGRATIONS_METHOD_DESCRIPTOR")
             }
-        } ?: return CrowdfundingBoxFingerprint.toErrorResult()
-
-        return PatchResultSuccess()
+        } ?: throw CrowdfundingBoxFingerprint.toErrorResult()
     }
 
     private companion object {

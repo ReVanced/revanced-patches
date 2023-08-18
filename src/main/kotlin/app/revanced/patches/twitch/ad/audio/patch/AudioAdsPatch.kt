@@ -6,8 +6,6 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
@@ -26,7 +24,7 @@ import app.revanced.patches.twitch.misc.settings.bytecode.patch.SettingsPatch
 class AudioAdsPatch : BytecodePatch(
     listOf(AudioAdsPresenterPlayFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         // Block playAds call
         with(AudioAdsPresenterPlayFingerprint.result!!) {
             mutableMethod.addInstructionsWithLabels(
@@ -59,7 +57,5 @@ class AudioAdsPatch : BytecodePatch(
                 default = true,
             )
         )
-
-        return PatchResultSuccess()
     }
 }
