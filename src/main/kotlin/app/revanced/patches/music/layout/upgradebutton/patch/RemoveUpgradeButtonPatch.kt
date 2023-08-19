@@ -18,7 +18,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 
 
 @Patch
-@Name("Upgrade button remover")
+@Name("Remove upgrade button")
 @Description("Removes the upgrade tab from the pivot bar.")
 @MusicCompatibility
 class RemoveUpgradeButtonPatch : BytecodePatch(
@@ -36,7 +36,7 @@ class RemoveUpgradeButtonPatch : BytecodePatch(
         val instructionList = """
                 invoke-interface { v0 }, Ljava/util/List;->size()I
                 move-result v1
-                const/4 v2, 0x3
+                const/4 v2, 0x4
                 invoke-interface {v0, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
                 iput-object v0, v$register, $pivotBarElementFieldRef
             """.toInstructions().toMutableList()
