@@ -1,3 +1,10 @@
+# [2.188.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.15...v2.188.0-dev.16) (2023-08-19)
+
+
+### Bug Fixes
+
+* **YouTube Music - Remove upgrade button:** Remove the correct navigation bar item ([fd3813f](https://github.com/ReVanced/revanced-patches/commit/fd3813f66ededdae1e52bf021a3de9d818f65096))
+
 # [2.188.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.14...v2.188.0-dev.15) (2023-08-14)
 
 # [2.188.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.13...v2.188.0-dev.14) (2023-08-13)
