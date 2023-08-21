@@ -34,7 +34,17 @@ public final class StringTrieSearch extends TrieSearch<String> {
     }
 
     @Override
+    public boolean matches(@NonNull String textToSearch, int startIndex, int endIndex, @Nullable Object callbackParameter) {
+        return super.matches(textToSearch, textToSearch.length(), startIndex, endIndex, callbackParameter);
+    }
+
+    @Override
     public boolean matches(@NonNull String textToSearch, @Nullable Object callbackParameter) {
-        return super.matches(textToSearch, textToSearch.length(), callbackParameter);
+        return matches(textToSearch, 0, textToSearch.length(), callbackParameter);
+    }
+
+    @Override
+    public boolean matches(@NonNull String textToSearch, int startIndex) {
+        return matches(textToSearch, startIndex, textToSearch.length(), null);
     }
 }
