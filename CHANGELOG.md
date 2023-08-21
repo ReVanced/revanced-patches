@@ -1,3 +1,10 @@
+# [2.188.0-dev.17](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.16...v2.188.0-dev.17) (2023-08-21)
+
+
+### Features
+
+* **YouTube:** Add `Alternative thumbnails` patch ([#2834](https://github.com/ReVanced/revanced-patches/issues/2834)) ([8a4277c](https://github.com/ReVanced/revanced-patches/commit/8a4277c486d995f57cde3a56274979c4a7b42bf6))
+
 # [2.188.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.15...v2.188.0-dev.16) (2023-08-19)
 
 
