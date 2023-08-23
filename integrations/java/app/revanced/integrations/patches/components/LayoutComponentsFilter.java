@@ -142,7 +142,7 @@ public final class LayoutComponentsFilter extends Filter {
                 "chips_shelf"
         );
 
-        this.pathFilterGroups.addAll(
+        this.pathFilterGroupList.addAll(
                 channelBar,
                 communityPosts,
                 paidContent,
@@ -165,7 +165,7 @@ public final class LayoutComponentsFilter extends Filter {
                 custom
         );
 
-        this.identifierFilterGroups.addAll(
+        this.identifierFilterGroupList.addAll(
                 graySeparator,
                 chipsShelf
         );

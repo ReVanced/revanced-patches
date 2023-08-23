@@ -18,7 +18,7 @@ final class CommentsFilter extends Filter {
                 "comments_entry_point_simplebox"
         );
 
-        this.pathFilterGroups.addAll(
+        this.pathFilterGroupList.addAll(
                 comments,
                 previewComment
         );

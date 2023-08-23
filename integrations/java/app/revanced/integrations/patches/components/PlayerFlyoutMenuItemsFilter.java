@@ -15,7 +15,7 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public PlayerFlyoutMenuItemsFilter() {
-        identifierFilterGroups.addAll(new StringFilterGroup(null, "overflow_menu_item.eml|"));
+        identifierFilterGroupList.addAll(new StringFilterGroup(null, "overflow_menu_item.eml|"));
 
         flyoutFilterGroupList.addAll(
                 new ByteArrayAsStringFilterGroup(

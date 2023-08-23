@@ -59,8 +59,8 @@ public final class ShortsFilter extends Filter {
                 "shorts_pivot_item"
         );
 
-        pathFilterGroups.addAll(joinButton, subscribeButton, channelBar, soundButton, infoPanel);
-        identifierFilterGroups.addAll(shorts, thanksButton);
+        pathFilterGroupList.addAll(joinButton, subscribeButton, channelBar, soundButton, infoPanel);
+        identifierFilterGroupList.addAll(shorts, thanksButton);
     }
 
     @Override
@@ -69,11 +69,11 @@ public final class ShortsFilter extends Filter {
         if (matchedGroup == soundButton || matchedGroup == infoPanel || matchedGroup == channelBar) return true;
 
         // Filter the path only when reelChannelBar is visible.
-        if (pathFilterGroups == matchedList) {
+        if (pathFilterGroupList == matchedList) {
             return path.contains(REEL_CHANNEL_BAR_PATH);
         }
 
-        return identifierFilterGroups == matchedList;
+        return identifierFilterGroupList == matchedList;
     }
 
     public static void hideShortsShelf(final View shortsShelfView) {

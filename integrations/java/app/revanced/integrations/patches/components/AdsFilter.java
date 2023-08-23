@@ -86,7 +86,7 @@ public final class AdsFilter extends Filter {
                 "cta_shelf_card"
         );
 
-        this.pathFilterGroups.addAll(
+        this.pathFilterGroupList.addAll(
                 generalAds,
                 buttonedAd,
                 merchandise,
@@ -95,7 +95,7 @@ public final class AdsFilter extends Filter {
                 webLinkPanel,
                 movieAds
         );
-        this.identifierFilterGroups.addAll(carouselAd);
+        this.identifierFilterGroupList.addAll(carouselAd);
     }
 
     @Override

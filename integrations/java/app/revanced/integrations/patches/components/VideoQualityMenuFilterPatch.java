@@ -10,7 +10,7 @@ public final class VideoQualityMenuFilterPatch extends Filter {
     public static volatile boolean isVideoQualityMenuVisible;
 
     public VideoQualityMenuFilterPatch() {
-        pathFilterGroups.addAll(new StringFilterGroup(
+        pathFilterGroupList.addAll(new StringFilterGroup(
                 SettingsEnum.SHOW_OLD_VIDEO_QUALITY_MENU,
                 "quick_quality_sheet_content.eml-js"
         ));

@@ -1,25 +1,15 @@
 package app.revanced.integrations.patches.components;
 
 import android.os.Build;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import app.revanced.integrations.settings.SettingsEnum;
+import app.revanced.integrations.utils.*;
 
 import java.nio.ByteBuffer;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Spliterator;
+import java.util.*;
 import java.util.function.Consumer;
-
-import app.revanced.integrations.settings.SettingsEnum;
-import app.revanced.integrations.utils.ByteTrieSearch;
-import app.revanced.integrations.utils.LogHelper;
-import app.revanced.integrations.utils.ReVancedUtils;
-import app.revanced.integrations.utils.StringTrieSearch;
-import app.revanced.integrations.utils.TrieSearch;
 
 abstract class FilterGroup<T> {
     final static class FilterGroupResult {
@@ -283,8 +273,8 @@ abstract class Filter {
      * will never be called for any matches.
      */
 
-    protected final StringFilterGroupList pathFilterGroups = new StringFilterGroupList();
-    protected final StringFilterGroupList identifierFilterGroups = new StringFilterGroupList();
+    protected final StringFilterGroupList pathFilterGroupList = new StringFilterGroupList();
+    protected final StringFilterGroupList identifierFilterGroupList = new StringFilterGroupList();
 
     /**
      * Called after an enabled filter has been matched.
@@ -302,9 +292,9 @@ abstract class Filter {
     boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                        FilterGroupList matchedList, FilterGroup matchedGroup, int matchedIndex) {
         if (SettingsEnum.DEBUG.getBoolean()) {
-            if (pathFilterGroups == matchedList) {
+            if (pathFilterGroupList == matchedList) {
                 LogHelper.printDebug(() -> getClass().getSimpleName() + " Filtered path: " + path);
-            } else if (identifierFilterGroups == matchedList) {
+            } else if (identifierFilterGroupList == matchedList) {
                 LogHelper.printDebug(() -> getClass().getSimpleName() + " Filtered identifier: " + identifier);
             }
         }
@@ -391,8 +381,8 @@ public final class LithoFilterPatch {
 
     static {
         for (Filter filter : filters) {
-            filterGroupLists(pathSearchTree, filter, filter.pathFilterGroups);
-            filterGroupLists(identifierSearchTree, filter, filter.identifierFilterGroups);
+            filterGroupLists(pathSearchTree, filter, filter.pathFilterGroupList);
+            filterGroupLists(identifierSearchTree, filter, filter.identifierFilterGroupList);
         }
 
         LogHelper.printDebug(() -> "Using: "

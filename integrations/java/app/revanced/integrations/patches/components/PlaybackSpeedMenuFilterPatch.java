@@ -8,7 +8,7 @@ public final class PlaybackSpeedMenuFilterPatch extends Filter {
     public static volatile boolean isPlaybackSpeedMenuVisible;
 
     public PlaybackSpeedMenuFilterPatch() {
-        pathFilterGroups.addAll(new StringFilterGroup(
+        pathFilterGroupList.addAll(new StringFilterGroup(
                 null,
                 "playback_speed_sheet_content.eml-js"
         ));
