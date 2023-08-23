@@ -1,3 +1,10 @@
+# [2.188.0-dev.18](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.17...v2.188.0-dev.18) (2023-08-23)
+
+
+### Features
+
+* **YouTube:** Support version `18.29.38` ([c1b9eef](https://github.com/ReVanced/revanced-patches/commit/c1b9eefa280b980d08a571e1ce205dc71ccde3b6))
+
 # [2.188.0-dev.17](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.16...v2.188.0-dev.17) (2023-08-21)
 
 
