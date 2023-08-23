@@ -39,7 +39,7 @@ public final class ShortsFilter extends Filter {
                 SettingsEnum.HIDE_SHORTS,
                 "shelf_header.eml"
         );
-        identifierFilterGroups.addAll(shorts, shortsShelfHeader, thanksButton);
+        identifierFilterGroupList.addAll(shorts, shortsShelfHeader, thanksButton);
 
 
         // Shorts player components.
