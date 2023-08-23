@@ -9,22 +9,21 @@ import app.revanced.integrations.settings.SettingsEnum;
 
 @RequiresApi(api = Build.VERSION_CODES.N)
 final class ButtonsFilter extends Filter {
-
     private static final String VIDEO_ACTION_BAR_PATH = "video_action_bar.eml";
 
-    private final StringFilterGroup actionBarRule;
-    private final StringFilterGroup bufferFilterPathRule;
+    private final StringFilterGroup actionBarGroup;
+    private final StringFilterGroup bufferFilterPathGroup;
     private final ByteArrayFilterGroupList bufferButtonsGroupList = new ByteArrayFilterGroupList();
 
     public ButtonsFilter() {
-        actionBarRule = new StringFilterGroup(
+        actionBarGroup = new StringFilterGroup(
                 null,
                 VIDEO_ACTION_BAR_PATH
         );
-        identifierFilterGroups.addAll(actionBarRule);
+        identifierFilterGroups.addAll(actionBarGroup);
 
 
-        bufferFilterPathRule = new StringFilterGroup(
+        bufferFilterPathGroup = new StringFilterGroup(
                 null,
                 "|CellType|CollectionType|CellType|ContainerType|button.eml|"
         );
@@ -45,7 +44,7 @@ final class ButtonsFilter extends Filter {
                         SettingsEnum.HIDE_CLIP_BUTTON,
                         "|clip_button.eml|"
                 ),
-                bufferFilterPathRule
+                bufferFilterPathGroup
         );
 
         bufferButtonsGroupList.addAll(
@@ -83,11 +82,11 @@ final class ButtonsFilter extends Filter {
     }
 
     private boolean isEveryFilterGroupEnabled() {
-        for (FilterGroup rule : pathFilterGroups)
-            if (!rule.isEnabled()) return false;
+        for (var group : pathFilterGroups)
+            if (!group.isEnabled()) return false;
 
-        for (FilterGroup rule : bufferButtonsGroupList)
-            if (!rule.isEnabled()) return false;
+        for (var group : bufferButtonsGroupList)
+            if (!group.isEnabled()) return false;
 
         return true;
     }
@@ -95,17 +94,19 @@ final class ButtonsFilter extends Filter {
     @Override
     public boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                               FilterGroupList matchedList, FilterGroup matchedGroup, int matchedIndex) {
-        if (matchedGroup == actionBarRule) {
+        // If the current matched group is the action bar group,
+        // in case every filter group is enabled, hide the action bar.
+        if (matchedGroup == actionBarGroup) {
             if (!isEveryFilterGroupEnabled()) {
                 return false;
             }
-        } else if (matchedGroup == bufferFilterPathRule) {
-            if (!path.startsWith(VIDEO_ACTION_BAR_PATH)) {
-                return false; // Some other unknown button and not part of the player action buttons.
-            }
-            if (!bufferButtonsGroupList.check(protobufBufferArray).isFiltered()) {
-                return false; // Action button is not set to hide.
-            }
+        } else if (matchedGroup == bufferFilterPathGroup) {
+            // Make sure the current path is the right one
+            //  to avoid false positives.
+            if (!path.startsWith(VIDEO_ACTION_BAR_PATH)) return false;
+
+            // In case the group list has no match, return false.
+            if (!bufferButtonsGroupList.check(protobufBufferArray).isFiltered()) return false;
         }
 
         return super.isFiltered(identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
