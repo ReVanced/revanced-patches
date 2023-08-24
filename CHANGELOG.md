@@ -1,3 +1,10 @@
+# [2.188.0-dev.21](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.20...v2.188.0-dev.21) (2023-08-24)
+
+
+### Features
+
+* **Duolingo:** Add `Unlock Duolingo Super` patch ([#2862](https://github.com/ReVanced/revanced-patches/issues/2862)) ([61a7533](https://github.com/ReVanced/revanced-patches/commit/61a7533136f38d7a308e31c9f250baad00515d6a))
+
 # [2.188.0-dev.20](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.19...v2.188.0-dev.20) (2023-08-24)
 
 
