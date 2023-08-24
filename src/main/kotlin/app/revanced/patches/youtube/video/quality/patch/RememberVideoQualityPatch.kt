@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.video.quality.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -158,7 +158,7 @@ class RememberVideoQualityPatch : BytecodePatch(
                     move-result p2
                 """,
             )
-        } ?: throw VideoQualitySetterFingerprint.toErrorResult()
+        } ?: throw VideoQualitySetterFingerprint.exception
 
 
         // Inject a call to remember the selected quality.
@@ -173,7 +173,7 @@ class RememberVideoQualityPatch : BytecodePatch(
                     "invoke-static {p$listItemIndexParameter}, $INTEGRATIONS_CLASS_DESCRIPTOR->userChangedQuality(I)V"
                 )
             } ?: throw PatchException("Failed to find onItemClick method")
-        } ?: throw VideoQualityItemOnClickParentFingerprint.toErrorResult()
+        } ?: throw VideoQualityItemOnClickParentFingerprint.exception
 
 
         // Remember video quality if not using old layout menu.
@@ -187,7 +187,7 @@ class RememberVideoQualityPatch : BytecodePatch(
                     "invoke-static {v$qualityRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->userChangedQualityInNewFlyout(I)V"
                 )
             }
-        } ?: throw NewVideoQualityChangedFingerprint.toErrorResult()
+        } ?: throw NewVideoQualityChangedFingerprint.exception
 
     }
 

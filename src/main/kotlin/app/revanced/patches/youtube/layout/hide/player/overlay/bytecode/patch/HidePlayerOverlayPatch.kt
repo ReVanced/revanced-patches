@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.hide.player.overlay.bytecode.patch
 
 import app.revanced.extensions.indexOfFirstConstantInstructionValue
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -35,7 +35,7 @@ class HidePlayerOverlayPatch : BytecodePatch(listOf(CreatePlayerOverviewFingerpr
                             "$INTEGRATIONS_CLASS_DESCRIPTOR->hidePlayerOverlay(Landroid/widget/ImageView;)V"
                 )
             }
-        } ?: throw CreatePlayerOverviewFingerprint.toErrorResult()
+        } ?: throw CreatePlayerOverviewFingerprint.exception
     }
 
     private companion object {

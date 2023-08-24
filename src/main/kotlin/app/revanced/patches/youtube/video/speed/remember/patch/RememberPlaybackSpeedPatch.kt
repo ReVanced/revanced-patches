@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.video.speed.remember.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -103,7 +103,7 @@ class RememberPlaybackSpeedPatch : BytecodePatch(
                 """.trimIndent(),
                 ExternalLabel("do_not_override", mutableMethod.getInstruction(0))
             )
-        } ?: throw InitializePlaybackSpeedValuesFingerprint.toErrorResult()
+        } ?: throw InitializePlaybackSpeedValuesFingerprint.exception
     }
 
     private companion object {

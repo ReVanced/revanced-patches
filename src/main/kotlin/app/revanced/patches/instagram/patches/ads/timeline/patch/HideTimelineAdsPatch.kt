@@ -1,6 +1,6 @@
 package app.revanced.patches.instagram.patches.ads.timeline.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.*
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -33,16 +33,16 @@ class HideTimelineAdsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         // region Resolve required methods to check for ads.
 
-        ShowAdFingerprint.result ?: throw ShowAdFingerprint.toErrorResult()
+        ShowAdFingerprint.result ?: throw ShowAdFingerprint.exception
 
-        PaidPartnershipAdFingerprint.result ?: throw PaidPartnershipAdFingerprint.toErrorResult()
+        PaidPartnershipAdFingerprint.result ?: throw PaidPartnershipAdFingerprint.exception
 
         MediaFingerprint.result?.let {
             GenericMediaAdFingerprint.resolve(context, it.classDef)
             ShoppingAdFingerprint.resolve(context, it.classDef)
 
             return@let
-        } ?: throw MediaFingerprint.toErrorResult()
+        } ?: throw MediaFingerprint.exception
 
         // endregion
 

@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.buttons.autoplay.patch
 
 import app.revanced.extensions.findIndexForIdResource
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -68,6 +68,6 @@ class HideAutoplayButtonPatch : BytecodePatch(
                 """,
                 ExternalLabel("hidden", jumpInstruction)
             )
-        } ?: throw LayoutConstructorFingerprint.toErrorResult()
+        } ?: throw LayoutConstructorFingerprint.exception
     }
 }

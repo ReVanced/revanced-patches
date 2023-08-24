@@ -1,6 +1,6 @@
 package app.revanced.patches.shared.misc.fix.verticalscroll.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
@@ -27,6 +27,6 @@ class VerticalScrollPatch : BytecodePatch(
                     "const/4 v$moveResultRegister, 0x0"
                 )
             }
-        } ?: throw CanScrollVerticallyFingerprint.toErrorResult()
+        } ?: throw CanScrollVerticallyFingerprint.exception
     }
 }

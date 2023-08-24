@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.buttons.navigation.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -101,7 +101,7 @@ class NavigationButtonsPatch : BytecodePatch(listOf(AddCreateButtonViewFingerpri
                             initializeButtonsResult.mutableClass
                         )
                     )
-                        throw it.toErrorResult()
+                        throw it.exception
                 }
                 .map { it.result!!.scanResult.patternScanResult!! }
 
@@ -150,7 +150,7 @@ class NavigationButtonsPatch : BytecodePatch(listOf(AddCreateButtonViewFingerpri
                     """
                 )
             }
-        } ?: throw AddCreateButtonViewFingerprint.toErrorResult()
+        } ?: throw AddCreateButtonViewFingerprint.exception
 
         /*
          * Resolve fingerprints
@@ -158,7 +158,7 @@ class NavigationButtonsPatch : BytecodePatch(listOf(AddCreateButtonViewFingerpri
 
         InitializeButtonsFingerprint.result!!.let {
             if (!PivotBarCreateButtonViewFingerprint.resolve(context, it.mutableMethod, it.mutableClass))
-                throw PivotBarCreateButtonViewFingerprint.toErrorResult()
+                throw PivotBarCreateButtonViewFingerprint.exception
         }
 
         PivotBarCreateButtonViewFingerprint.result!!.apply {

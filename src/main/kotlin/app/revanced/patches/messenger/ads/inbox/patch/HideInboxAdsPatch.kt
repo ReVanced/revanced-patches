@@ -1,6 +1,6 @@
 package app.revanced.patches.messenger.ads.inbox.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.*
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
@@ -18,7 +18,7 @@ class HideInboxAdsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         LoadInboxAdsFingerprint.result?.mutableMethod?.apply {
             this.replaceInstruction(0, "return-void")
-        } ?: throw LoadInboxAdsFingerprint.toErrorResult()
+        } ?: throw LoadInboxAdsFingerprint.exception
     }
 }
 

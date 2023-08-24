@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.seekbar.bytecode.patch
 
 import app.revanced.extensions.indexOfFirstConstantInstructionValue
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -42,11 +42,11 @@ class SeekbarColorBytecodePatch : BytecodePatch(
         PlayerSeekbarColorFingerprint.result?.mutableMethod?.apply {
             addColorChangeInstructions(SeekbarColorResourcePatch.inlineTimeBarColorizedBarPlayedColorDarkId)
             addColorChangeInstructions(SeekbarColorResourcePatch.inlineTimeBarPlayedNotHighlightedColorId)
-        } ?: throw PlayerSeekbarColorFingerprint.toErrorResult()
+        } ?: throw PlayerSeekbarColorFingerprint.exception
 
         ShortsSeekbarColorFingerprint.result?.mutableMethod?.apply {
             addColorChangeInstructions(SeekbarColorResourcePatch.reelTimeBarPlayedColorId)
-        } ?: throw ShortsSeekbarColorFingerprint.toErrorResult()
+        } ?: throw ShortsSeekbarColorFingerprint.exception
 
         SetSeekbarClickedColorFingerprint.result?.let { result ->
             result.mutableMethod.let {
@@ -67,7 +67,7 @@ class SeekbarColorBytecodePatch : BytecodePatch(
                     )
                 }
             }
-        } ?: throw SetSeekbarClickedColorFingerprint.toErrorResult()
+        } ?: throw SetSeekbarClickedColorFingerprint.exception
 
         lithoColorOverrideHook(INTEGRATIONS_CLASS_DESCRIPTOR, "getLithoColor")
     }

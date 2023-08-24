@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.ad.getpremium.bytecode.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -62,7 +62,7 @@ class HideGetPremiumPatch : BytecodePatch(listOf(GetPremiumViewFingerprint)) {
                     """
                 )
             }
-        } ?: throw GetPremiumViewFingerprint.toErrorResult()
+        } ?: throw GetPremiumViewFingerprint.exception
     }
 
     private companion object {

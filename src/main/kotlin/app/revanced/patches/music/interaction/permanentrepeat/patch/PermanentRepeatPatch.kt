@@ -1,6 +1,6 @@
 package app.revanced.patches.music.interaction.permanentrepeat.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -31,6 +31,6 @@ class PermanentRepeatPatch : BytecodePatch(
                     ExternalLabel("repeat", getInstruction(repeatIndex))
                 )
             }
-        } ?: throw RepeatTrackFingerprint.toErrorResult()
+        } ?: throw RepeatTrackFingerprint.exception
     }
 }

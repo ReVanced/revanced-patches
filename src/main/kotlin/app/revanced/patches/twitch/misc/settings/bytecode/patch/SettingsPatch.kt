@@ -1,6 +1,6 @@
 package app.revanced.patches.twitch.misc.settings.bytecode.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -55,7 +55,7 @@ class SettingsPatch : BytecodePatch(
                 """,
                 ExternalLabel("no_rv_settings_init", mutableMethod.getInstruction(insertIndex))
             )
-        } ?: throw SettingsActivityOnCreateFingerprint.toErrorResult()
+        } ?: throw SettingsActivityOnCreateFingerprint.exception
 
         // Create new menu item for settings menu
         SettingsMenuItemEnumFingerprint.result?.apply {
@@ -65,7 +65,7 @@ class SettingsPatch : BytecodePatch(
                 REVANCED_SETTINGS_MENU_ITEM_TITLE_RES,
                 REVANCED_SETTINGS_MENU_ITEM_ICON_RES
             )
-        } ?: throw SettingsMenuItemEnumFingerprint.toErrorResult()
+        } ?: throw SettingsMenuItemEnumFingerprint.exception
 
         // Intercept settings menu creation and add new menu item
         MenuGroupsUpdatedFingerprint.result?.apply {
@@ -77,7 +77,7 @@ class SettingsPatch : BytecodePatch(
                     move-result-object      p1
                 """
             )
-        } ?: throw MenuGroupsUpdatedFingerprint.toErrorResult()
+        } ?: throw MenuGroupsUpdatedFingerprint.exception
 
         // Intercept onclick events for the settings menu
         MenuGroupsOnClickFingerprint.result?.apply {
@@ -94,7 +94,7 @@ class SettingsPatch : BytecodePatch(
                 """,
                 ExternalLabel("no_rv_settings_onclick", mutableMethod.getInstruction(insertIndex))
             )
-        }  ?: throw MenuGroupsOnClickFingerprint.toErrorResult()
+        }  ?: throw MenuGroupsOnClickFingerprint.exception
 
         addString("revanced_settings", "ReVanced Settings", false)
         addString("revanced_reboot_message", "Twitch needs to restart to apply your changes. Restart now?", false)

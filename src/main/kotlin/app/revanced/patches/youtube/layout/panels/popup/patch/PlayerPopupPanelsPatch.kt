@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.panels.popup.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -36,7 +36,7 @@ class PlayerPopupPanelsPatch : BytecodePatch(
         )
 
         val engagementPanelControllerMethod = EngagementPanelControllerFingerprint
-            .result?.mutableMethod ?: throw EngagementPanelControllerFingerprint.toErrorResult()
+            .result?.mutableMethod ?: throw EngagementPanelControllerFingerprint.exception
 
         engagementPanelControllerMethod.addInstructionsWithLabels(
             0,

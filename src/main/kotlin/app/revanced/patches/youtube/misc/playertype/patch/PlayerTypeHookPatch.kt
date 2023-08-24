@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.playertype.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -24,7 +24,7 @@ class PlayerTypeHookPatch : BytecodePatch(
         PlayerTypeFingerprint.result?.mutableMethod?.addInstruction(
             0,
             "invoke-static {p1}, $INTEGRATIONS_CLASS_DESCRIPTOR->setPlayerType(Ljava/lang/Enum;)V"
-        ) ?: throw PlayerTypeFingerprint.toErrorResult()
+        ) ?: throw PlayerTypeFingerprint.exception
 
         VideoStateFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -39,7 +39,7 @@ class PlayerTypeHookPatch : BytecodePatch(
                     """
                 )
             }
-        } ?: throw VideoStateFingerprint.toErrorResult()
+        } ?: throw VideoStateFingerprint.exception
     }
 
     companion object {

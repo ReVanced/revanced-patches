@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.video.videoid.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -38,7 +38,7 @@ class VideoIdPatch : BytecodePatch(
                 consumer(it, insertIndex, videoIdRegister)
 
             }
-        } ?: throw VideoIdFingerprint.toErrorResult()
+        } ?: throw VideoIdFingerprint.exception
 
         VideoIdFingerprint.setFields { method, insertIndex, videoIdRegister ->
             insertMethod = method

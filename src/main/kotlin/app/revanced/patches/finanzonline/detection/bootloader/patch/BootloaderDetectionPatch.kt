@@ -1,6 +1,6 @@
 package app.revanced.patches.finanzonline.detection.bootloader.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -27,7 +27,7 @@ class BootloaderDetectionPatch : BytecodePatch(
                         const/4 v0, 0x1
                         return v0
                 """
-            ) ?: throw fingerprint.toErrorResult()
+            ) ?: throw fingerprint.exception
         }
     }
 }

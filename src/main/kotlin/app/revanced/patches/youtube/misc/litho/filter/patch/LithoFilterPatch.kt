@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.litho.filter.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
@@ -66,7 +66,7 @@ class LithoFilterPatch : BytecodePatch(
                 ReadComponentIdentifierFingerprint
             ).forEach { fingerprint ->
                 if (fingerprint.resolve(context, it.mutableMethod, it.mutableClass)) return@forEach
-                throw fingerprint.toErrorResult()
+                throw fingerprint.exception
             }
         }?.let { bytesToComponentContextMethod ->
 
@@ -75,7 +75,7 @@ class LithoFilterPatch : BytecodePatch(
             ProtobufBufferReferenceFingerprint.result
                 ?.mutableMethod?.addInstruction(0,
                     " invoke-static { p2 }, $INTEGRATIONS_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V")
-                ?: throw ProtobufBufferReferenceFingerprint.toErrorResult()
+                ?: throw ProtobufBufferReferenceFingerprint.exception
 
             // endregion
 
@@ -141,7 +141,7 @@ class LithoFilterPatch : BytecodePatch(
             }
 
             // endregion
-        } ?: throw ComponentContextParserFingerprint.toErrorResult()
+        } ?: throw ComponentContextParserFingerprint.exception
 
         LithoFilterFingerprint.result?.mutableMethod?.apply {
             removeInstructions(2, 4) // Remove dummy filter.
@@ -157,7 +157,7 @@ class LithoFilterPatch : BytecodePatch(
                     """
                 )
             }
-        } ?: throw LithoFilterFingerprint.toErrorResult()
+        } ?: throw LithoFilterFingerprint.exception
     }
 
     override fun close() = LithoFilterFingerprint.result!!

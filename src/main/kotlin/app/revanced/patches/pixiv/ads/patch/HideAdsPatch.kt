@@ -1,6 +1,6 @@
 package app.revanced.patches.pixiv.ads.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.*
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -23,6 +23,6 @@ class HideAdsPatch : BytecodePatch(listOf(IsNotPremiumFingerprint)) {
                 const/4 v0, 0x0
                 return v0
             """
-        ) ?: throw IsNotPremiumFingerprint.toErrorResult()
+        ) ?: throw IsNotPremiumFingerprint.exception
     }
 }

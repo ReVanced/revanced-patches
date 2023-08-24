@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.playercontrols.bytecode.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -29,8 +29,8 @@ class PlayerControlsBytecodePatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         LayoutConstructorFingerprint.result?.let {
             if (!PlayerControlsVisibilityFingerprint.resolve(context, it.classDef))
-                throw LayoutConstructorFingerprint.toErrorResult()
-        } ?: throw LayoutConstructorFingerprint.toErrorResult()
+                throw LayoutConstructorFingerprint.exception
+        } ?: throw LayoutConstructorFingerprint.exception
 
         showPlayerControlsFingerprintResult = PlayerControlsVisibilityFingerprint.result!!
         inflateFingerprintResult = BottomControlsInflateFingerprint.result!!

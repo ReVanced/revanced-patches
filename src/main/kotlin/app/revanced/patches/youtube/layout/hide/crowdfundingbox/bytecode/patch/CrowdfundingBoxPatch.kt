@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.crowdfundingbox.bytecode.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -33,7 +33,7 @@ class CrowdfundingBoxPatch : BytecodePatch(
 
                 addInstruction(insertIndex, "invoke-static {v$objectRegister}, $INTEGRATIONS_METHOD_DESCRIPTOR")
             }
-        } ?: throw CrowdfundingBoxFingerprint.toErrorResult()
+        } ?: throw CrowdfundingBoxFingerprint.exception
     }
 
     private companion object {

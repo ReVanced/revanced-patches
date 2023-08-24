@@ -1,6 +1,6 @@
 package app.revanced.patches.tiktok.misc.settings.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -34,9 +34,9 @@ class SettingsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         // Find the class name of classes which construct a settings entry
         val settingsButtonClass = SettingsEntryFingerprint.result?.classDef?.type?.toClassName()
-            ?: throw SettingsEntryFingerprint.toErrorResult()
+            ?: throw SettingsEntryFingerprint.exception
         val settingsButtonInfoClass = SettingsEntryInfoFingerprint.result?.classDef?.type?.toClassName()
-            ?: throw SettingsEntryInfoFingerprint.toErrorResult()
+            ?: throw SettingsEntryInfoFingerprint.exception
 
         // Create a settings entry for 'revanced settings' and add it to settings fragment
         AddSettingsEntryFingerprint.result?.apply {
@@ -64,7 +64,7 @@ class SettingsPatch : BytecodePatch(
                     """
                 )
             }
-        } ?: throw AddSettingsEntryFingerprint.toErrorResult()
+        } ?: throw AddSettingsEntryFingerprint.exception
 
         // Initialize the settings menu once the replaced setting entry is clicked.
         AdPersonalizationActivityOnCreateFingerprint.result?.mutableMethod?.apply {
@@ -85,7 +85,7 @@ class SettingsPatch : BytecodePatch(
                 """,
                 ExternalLabel("notrevanced", getInstruction(initializeSettingsIndex))
             )
-        } ?: throw AdPersonalizationActivityOnCreateFingerprint.toErrorResult()
+        } ?: throw AdPersonalizationActivityOnCreateFingerprint.exception
     }
 
     private fun String.toClassName(): String {

@@ -1,6 +1,6 @@
 package app.revanced.patches.twitch.chat.autoclaim.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -60,6 +60,6 @@ class AutoClaimChannelPointPatch : BytecodePatch(
                 """,
                 ExternalLabel("auto_claim", getInstruction(lastIndex))
             )
-        } ?: throw CommunityPointsButtonViewDelegateFingerprint.toErrorResult()
+        } ?: throw CommunityPointsButtonViewDelegateFingerprint.exception
     }
 }

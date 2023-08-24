@@ -1,6 +1,6 @@
 package app.revanced.patches.messenger.inputfield.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Compatibility
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
@@ -18,6 +18,6 @@ import app.revanced.patches.messenger.inputfield.fingerprints.SendTypingIndicato
 class DisableTypingIndicator : BytecodePatch(listOf(SendTypingIndicatorFingerprint)) {
     override fun execute(context: BytecodeContext) {
         SendTypingIndicatorFingerprint.result?.mutableMethod?.replaceInstruction(0, "return-void")
-            ?: throw SendTypingIndicatorFingerprint.toErrorResult()
+            ?: throw SendTypingIndicatorFingerprint.exception
     }
 }

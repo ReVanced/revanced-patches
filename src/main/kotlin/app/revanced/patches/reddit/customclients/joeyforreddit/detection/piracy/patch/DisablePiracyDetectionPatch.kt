@@ -1,6 +1,6 @@
 package app.revanced.patches.reddit.customclients.joeyforreddit.detection.piracy.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
@@ -13,6 +13,6 @@ class DisablePiracyDetectionPatch : BytecodePatch(listOf(PiracyDetectionFingerpr
             """
                 return-void
             """
-        ) ?: throw PiracyDetectionFingerprint.toErrorResult()
+        ) ?: throw PiracyDetectionFingerprint.exception
     }
 }

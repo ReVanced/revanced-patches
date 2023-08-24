@@ -1,6 +1,6 @@
 package app.revanced.patches.duolingo.unlocksuper.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Compatibility
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
@@ -38,7 +38,7 @@ class UnlockDuolingoSuperPatch : BytecodePatch(
             ?.filterIsInstance<BuilderInstruction22c>()
             ?.firstOrNull { it.opcode == Opcode.IGET_BOOLEAN }
             ?.reference
-            ?: throw IsUserSuperMethodFingerprint.toErrorResult()
+            ?: throw IsUserSuperMethodFingerprint.exception
 
         // Patch the instruction that assigns isUserSuper to true.
         UserSerializationMethodFingerprint
@@ -50,7 +50,7 @@ class UnlockDuolingoSuperPatch : BytecodePatch(
                     "const/4 v2, 0x1"
                 )
             }
-            ?: throw UserSerializationMethodFingerprint.toErrorResult()
+            ?: throw UserSerializationMethodFingerprint.exception
     }
 
     private companion object {

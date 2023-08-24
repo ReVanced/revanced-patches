@@ -1,6 +1,6 @@
 package app.revanced.util.microg
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -237,7 +237,7 @@ internal object MicroGBytecodeHelper {
                 result.mutableMethod.addInstructions(
                     0, stringInstructions
                 )
-            } ?: throw fingerprint.toErrorResult()
+            } ?: throw fingerprint.exception
         }
     }
 }

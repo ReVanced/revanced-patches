@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.video.speed.custom.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -156,7 +156,7 @@ class CustomPlaybackSpeedPatch : BytecodePatch(
             // This is later called on the field INSTANCE.
             val showOldPlaybackSpeedMenuMethod = ShowOldPlaybackSpeedMenuFingerprint.also {
                 if (!it.resolve(context, result.classDef))
-                    throw ShowOldPlaybackSpeedMenuFingerprint.toErrorResult()
+                    throw ShowOldPlaybackSpeedMenuFingerprint.exception
             }.result!!.method.toString()
 
             // Insert the call to the "showOldPlaybackSpeedMenu" method on the field INSTANCE.
@@ -171,8 +171,8 @@ class CustomPlaybackSpeedPatch : BytecodePatch(
                         invoke-virtual { v0 }, $showOldPlaybackSpeedMenuMethod
                     """
                 )
-            } ?: throw ShowOldPlaybackSpeedMenuIntegrationsFingerprint.toErrorResult()
-        } ?: throw GetOldPlaybackSpeedsFingerprint.toErrorResult()
+            } ?: throw ShowOldPlaybackSpeedMenuIntegrationsFingerprint.exception
+        } ?: throw GetOldPlaybackSpeedsFingerprint.exception
 
         // endregion
     }

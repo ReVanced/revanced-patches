@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.loadmorebutton.bytecode.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -33,7 +33,7 @@ class HideLoadMoreButtonPatch : BytecodePatch(listOf(HideLoadMoreButtonFingerpri
                             "$INTEGRATIONS_CLASS_DESCRIPTOR->hideLoadMoreButton(Landroid/view/View;)V"
                 )
             }
-        } ?: throw HideLoadMoreButtonFingerprint.toErrorResult()
+        } ?: throw HideLoadMoreButtonFingerprint.exception
     }
 
     private companion object {

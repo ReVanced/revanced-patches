@@ -1,6 +1,6 @@
 package app.revanced.patches.tiktok.interaction.seekbar.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -40,7 +40,7 @@ class ShowSeekbarPatch : BytecodePatch(
                     const/16 v$typeRegister, 0x64
                 """
             )
-        } ?: throw SetSeekBarShowTypeFingerprint.toErrorResult()
+        } ?: throw SetSeekBarShowTypeFingerprint.exception
     }
 
 }

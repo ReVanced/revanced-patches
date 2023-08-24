@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.fix.playback.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -52,14 +52,14 @@ class SpoofSignatureVerificationPatch : BytecodePatch(
                     """
                 )
             }
-        } ?: throw ProtobufParameterBuilderFingerprint.toErrorResult()
+        } ?: throw ProtobufParameterBuilderFingerprint.exception
 
 
         // When signature spoofing is enabled, the seekbar when tapped does not show
         // the video time, chapter names, or the video thumbnail.
         // Changing the value returned of this method forces all of these to show up,
         // except the thumbnails are blank, which is handled with the patch below.
-        StoryboardThumbnailParentFingerprint.result ?: throw StoryboardThumbnailParentFingerprint.toErrorResult()
+        StoryboardThumbnailParentFingerprint.result ?: throw StoryboardThumbnailParentFingerprint.exception
         StoryboardThumbnailFingerprint.resolve(context, StoryboardThumbnailParentFingerprint.result!!.classDef)
         StoryboardThumbnailFingerprint.result?.apply {
             val endIndex = scanResult.patternScanResult!!.endIndex
@@ -81,7 +81,7 @@ class SpoofSignatureVerificationPatch : BytecodePatch(
                 return v0
             """
             )
-        } ?: throw StoryboardThumbnailFingerprint.toErrorResult()
+        } ?: throw StoryboardThumbnailFingerprint.exception
 
 
         // Seekbar thumbnail now show up but are always a blank image.
@@ -99,7 +99,7 @@ class SpoofSignatureVerificationPatch : BytecodePatch(
                 """
                 )
             }
-        } ?: throw ScrubbedPreviewLayoutFingerprint.toErrorResult()
+        } ?: throw ScrubbedPreviewLayoutFingerprint.exception
     }
 
     private companion object {

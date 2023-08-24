@@ -1,6 +1,6 @@
 package app.revanced.patches.songpal.badge.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -20,6 +20,6 @@ class RemoveNotificationBadgePatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         ShowNotificationFingerprint.result?.mutableMethod?.apply {
             addInstructions(0, "return-void")
-        } ?: throw ShowNotificationFingerprint.toErrorResult()
+        } ?: throw ShowNotificationFingerprint.exception
     }
 }

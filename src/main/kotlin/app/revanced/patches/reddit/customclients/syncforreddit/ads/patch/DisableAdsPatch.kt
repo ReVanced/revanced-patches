@@ -1,6 +1,6 @@
 package app.revanced.patches.reddit.customclients.syncforreddit.ads.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.*
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -24,7 +24,7 @@ class DisableAdsPatch : BytecodePatch(listOf(IsAdsEnabledFingerprint)) {
                 return v0
             """
             )
-        } ?: throw IsAdsEnabledFingerprint.toErrorResult()
+        } ?: throw IsAdsEnabledFingerprint.exception
     }
 
 }

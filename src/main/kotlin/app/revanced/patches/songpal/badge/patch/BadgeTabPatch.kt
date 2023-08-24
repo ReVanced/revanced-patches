@@ -1,6 +1,6 @@
 package app.revanced.patches.songpal.badge.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -50,7 +50,7 @@ class BadgeTabPatch : BytecodePatch(
                  """
             )
 
-        } ?: throw CreateTabsFingerprint.toErrorResult()
+        } ?: throw CreateTabsFingerprint.exception
     }
 
     companion object {

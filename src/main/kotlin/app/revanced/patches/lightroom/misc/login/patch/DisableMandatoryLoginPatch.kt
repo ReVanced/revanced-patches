@@ -1,6 +1,6 @@
 package app.revanced.patches.lightroom.misc.login.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
@@ -18,6 +18,6 @@ class DisableMandatoryLoginPatch : BytecodePatch(listOf(IsLoggedInFingerprint)) 
             val index = implementation!!.instructions.lastIndex - 1
             // Set isLoggedIn = true.
             replaceInstruction(index, "const/4 v0, 0x1")
-        } ?: throw IsLoggedInFingerprint.toErrorResult()
+        } ?: throw IsLoggedInFingerprint.exception
     }
 }

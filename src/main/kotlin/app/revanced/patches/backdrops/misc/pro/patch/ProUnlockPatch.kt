@@ -1,6 +1,6 @@
 package app.revanced.patches.backdrops.misc.pro.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -33,6 +33,6 @@ class ProUnlockPatch : BytecodePatch(
                 )
             }
 
-        } ?: throw ProUnlockFingerprint.toErrorResult()
+        } ?: throw ProUnlockFingerprint.exception
     }
 }

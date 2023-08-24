@@ -1,6 +1,6 @@
 package app.revanced.patches.music.misc.androidauto.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -25,6 +25,6 @@ class BypassCertificateChecksPatch : BytecodePatch(
                 return v0
                 """
             )
-        } ?: throw CheckCertificateFingerprint.toErrorResult()
+        } ?: throw CheckCertificateFingerprint.exception
     }
 }

@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.time.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -47,6 +47,6 @@ class HideTimestampPatch : BytecodePatch(
                 nop
             """
             )
-        } ?: throw TimeCounterFingerprint.toErrorResult()
+        } ?: throw TimeCounterFingerprint.exception
     }
 }

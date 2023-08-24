@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.filterbar.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -76,6 +76,6 @@ class HideFilterBarPatch : BytecodePatch(
 
                     addInstructions(insertIndex, instructions(register))
                 }
-            } ?: throw toErrorResult()
+            } ?: throw exception
     }
 }

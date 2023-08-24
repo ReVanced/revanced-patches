@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.settings.bytecode.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -55,7 +55,7 @@ class SettingsPatch : BytecodePatch(
                         addInstruction(returnIndex + 1, "return-object v0")
                     }
                 }
-        } ?: throw SetThemeFingerprint.toErrorResult()
+        } ?: throw SetThemeFingerprint.exception
 
 
         // Modify the license activity and remove all existing layout code.

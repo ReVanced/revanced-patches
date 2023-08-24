@@ -1,6 +1,6 @@
 package app.revanced.patches.messenger.inputfield.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.*
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -27,6 +27,6 @@ class DisableSwitchingEmojiToStickerInMessageInputField : BytecodePatch(listOf(S
                     "const-string v$targetRegister, \"expression\""
                 )
             }
-        } ?: throw SwitchMessangeInputEmojiButtonFingerprint.toErrorResult()
+        } ?: throw SwitchMessangeInputEmojiButtonFingerprint.exception
     }
 }

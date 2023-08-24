@@ -1,6 +1,6 @@
 package app.revanced.patches.twitch.debug.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -44,7 +44,7 @@ class DebugModePatch : BytecodePatch(
                          return v0
                       """
                 )
-            } ?: throw it.toErrorResult()
+            } ?: throw it.exception
         }
 
         SettingsPatch.PreferenceScreen.MISC.OTHER.addPreferences(

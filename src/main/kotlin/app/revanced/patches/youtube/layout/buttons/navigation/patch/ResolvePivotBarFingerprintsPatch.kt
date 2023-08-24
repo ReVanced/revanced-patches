@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.buttons.navigation.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
@@ -28,8 +28,8 @@ class ResolvePivotBarFingerprintsPatch : BytecodePatch(
                     context,
                     it.classDef
                 )
-            ) throw InitializeButtonsFingerprint.toErrorResult()
-        } ?: throw PivotBarConstructorFingerprint.toErrorResult()
+            ) throw InitializeButtonsFingerprint.exception
+        } ?: throw PivotBarConstructorFingerprint.exception
     }
 
     internal companion object {

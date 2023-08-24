@@ -1,6 +1,6 @@
 package app.revanced.patches.reddit.customclients.joeyforreddit.ads.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Compatibility
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.annotation.Package
@@ -24,6 +24,6 @@ class DisableAdsPatch : BytecodePatch(listOf(IsAdFreeUserFingerprint)) {
                 const/4 v0, 0x1
                 return v0
             """
-        ) ?: throw IsAdFreeUserFingerprint.toErrorResult()
+        ) ?: throw IsAdFreeUserFingerprint.exception
     }
 }

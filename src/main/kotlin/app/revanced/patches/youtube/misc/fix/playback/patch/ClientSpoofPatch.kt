@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.fix.playback.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -30,7 +30,7 @@ class ClientSpoofPatch : BytecodePatch(
                addInstruction(insertIndex, "const-string v$packageNameRegister, \"$ORIGINAL_PACKAGE_NAME\"")
            }
 
-        } ?: throw UserAgentHeaderBuilderFingerprint.toErrorResult()
+        } ?: throw UserAgentHeaderBuilderFingerprint.exception
     }
 
     private companion object {

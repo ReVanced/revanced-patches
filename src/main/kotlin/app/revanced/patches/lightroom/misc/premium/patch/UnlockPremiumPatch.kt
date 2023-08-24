@@ -1,6 +1,6 @@
 package app.revanced.patches.lightroom.misc.premium.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -18,6 +18,6 @@ class UnlockPremiumPatch : BytecodePatch(listOf(HasPurchasedFingerprint)) {
     override fun execute(context: BytecodeContext) {
          // Set hasPremium = true.
         HasPurchasedFingerprint.result?.mutableMethod?.replaceInstruction(2, "const/4 v2, 0x1")
-            ?: throw HasPurchasedFingerprint.toErrorResult()
+            ?: throw HasPurchasedFingerprint.exception
     }
 }

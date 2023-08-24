@@ -1,7 +1,7 @@
 package app.revanced.patches.reddit.customclients
 
 import android.os.Environment
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
@@ -47,7 +47,7 @@ abstract class AbstractSpoofClientPatch(
 
         fun List<MethodFingerprint>?.executePatch(
             patch: List<MethodFingerprintResult>.(BytecodeContext) -> Unit
-        ) = this?.map { it.result ?: throw it.toErrorResult() }?.patch(context)
+        ) = this?.map { it.result ?: throw it.exception }?.patch(context)
 
         clientIdFingerprints.executePatch { patchClientId(context) }
         userAgentFingerprints.executePatch { patchUserAgent(context) }

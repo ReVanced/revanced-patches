@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.albumcards.bytecode.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -41,6 +41,6 @@ class AlbumCardsPatch : BytecodePatch(
                             "hideAlbumCard(Landroid/view/View;)V"
                 )
             }
-        } ?: throw AlbumCardsFingerprint.toErrorResult()
+        } ?: throw AlbumCardsFingerprint.exception
     }
 }

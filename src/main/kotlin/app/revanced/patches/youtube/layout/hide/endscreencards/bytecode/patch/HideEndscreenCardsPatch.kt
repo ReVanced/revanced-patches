@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.endscreencards.bytecode.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -32,7 +32,7 @@ class HideEndscreenCardsPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
         fun MethodFingerprint.injectHideCall() {
-            val layoutResult = result ?: throw toErrorResult()
+            val layoutResult = result ?: throw exception
             layoutResult.mutableMethod.apply {
                 val insertIndex = layoutResult.scanResult.patternScanResult!!.endIndex + 1
                 val viewRegister = getInstruction<Instruction21c>(insertIndex - 1).registerA

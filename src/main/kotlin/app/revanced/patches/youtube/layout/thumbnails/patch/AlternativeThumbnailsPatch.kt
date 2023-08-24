@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.thumbnails.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -73,23 +73,23 @@ class AlternativeThumbnailsPatch : BytecodePatch(
         )
 
         MessageDigestImageUrlParentFingerprint.result
-            ?: throw MessageDigestImageUrlParentFingerprint.toErrorResult()
+            ?: throw MessageDigestImageUrlParentFingerprint.exception
         MessageDigestImageUrlFingerprint.resolve(context, MessageDigestImageUrlParentFingerprint.result!!.classDef)
         MessageDigestImageUrlFingerprint.result?.apply {
             loadImageUrlMethod = mutableMethod
-        } ?: throw MessageDigestImageUrlFingerprint.toErrorResult()
+        } ?: throw MessageDigestImageUrlFingerprint.exception
         addImageUrlHook(INTEGRATIONS_CLASS_DESCRIPTOR, true)
 
 
         CronetURLRequestCallbackOnResponseStartedFingerprint.result
-            ?: throw CronetURLRequestCallbackOnResponseStartedFingerprint.toErrorResult()
+            ?: throw CronetURLRequestCallbackOnResponseStartedFingerprint.exception
         CronetURLRequestCallbackOnSucceededFingerprint.resolve(
             context,
             CronetURLRequestCallbackOnResponseStartedFingerprint.result!!.classDef
         )
         CronetURLRequestCallbackOnSucceededFingerprint.result?.apply {
             loadImageSuccessCallbackMethod = mutableMethod
-        } ?: throw CronetURLRequestCallbackOnSucceededFingerprint.toErrorResult()
+        } ?: throw CronetURLRequestCallbackOnSucceededFingerprint.exception
         addImageUrlSuccessCallbackHook(INTEGRATIONS_CLASS_DESCRIPTOR)
 
 
@@ -99,7 +99,7 @@ class AlternativeThumbnailsPatch : BytecodePatch(
         )
         CronetURLRequestCallbackOnFailureFingerprint.result?.apply {
             loadImageErrorCallbackMethod = mutableMethod
-        } ?: throw CronetURLRequestCallbackOnFailureFingerprint.toErrorResult()
+        } ?: throw CronetURLRequestCallbackOnFailureFingerprint.exception
     }
 
     internal companion object {

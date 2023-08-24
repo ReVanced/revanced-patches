@@ -1,6 +1,6 @@
 package app.revanced.patches.reddit.customclients.syncforreddit.api.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Compatibility
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Package
@@ -48,7 +48,7 @@ class SpoofClientPatch : AbstractSpoofClientPatch(
                          return-object v0
                     """
                     )
-                } ?: throw GetBearerTokenFingerprint.toErrorResult()
+                } ?: throw GetBearerTokenFingerprint.exception
             }.let {
                 val occurrenceIndex = it.scanResult.stringsScanResult!!.matches.first().index
 

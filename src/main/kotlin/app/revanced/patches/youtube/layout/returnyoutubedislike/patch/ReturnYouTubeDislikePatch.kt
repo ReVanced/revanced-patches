@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -89,7 +89,7 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
             )
         }.result?.also { result ->
             if (!TextComponentAtomicReferenceFingerprint.resolve(context, result.method, result.classDef))
-                throw TextComponentAtomicReferenceFingerprint.toErrorResult()
+                throw TextComponentAtomicReferenceFingerprint.exception
         }?.let { textComponentContextFingerprintResult ->
             val conversionContextIndex = textComponentContextFingerprintResult
                 .scanResult.patternScanResult!!.startIndex
@@ -126,7 +126,7 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
                     """
                 )
             }
-        } ?: throw TextComponentContextFingerprint.toErrorResult()
+        } ?: throw TextComponentContextFingerprint.exception
 
         // endregion
 
@@ -166,7 +166,7 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
                     """
                 )
             }
-        } ?: throw ShortsTextViewFingerprint.toErrorResult()
+        } ?: throw ShortsTextViewFingerprint.exception
 
         // endregion
 
@@ -184,7 +184,7 @@ class ReturnYouTubeDislikePatch : BytecodePatch(
                     "invoke-static {v$resourceIdentifierRegister, v$textViewRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->setOldUILayoutDislikes(ILandroid/widget/TextView;)V"
                 )
             }
-        } ?: throw DislikesOldLayoutTextViewFingerprint.toErrorResult()
+        } ?: throw DislikesOldLayoutTextViewFingerprint.exception
 
         // endregion
     }

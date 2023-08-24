@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.theme.bytecode.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -19,7 +19,7 @@ class LithoColorHookPatch : BytecodePatch(listOf(LithoThemeFingerprint)) {
             insertionIndex = it.scanResult.patternScanResult!!.endIndex - 1
             colorRegister = "p1"
             insertionMethod = it.mutableMethod
-        } ?: throw LithoThemeFingerprint.toErrorResult()
+        } ?: throw LithoThemeFingerprint.exception
     }
     companion object {
         private var insertionIndex : Int = -1

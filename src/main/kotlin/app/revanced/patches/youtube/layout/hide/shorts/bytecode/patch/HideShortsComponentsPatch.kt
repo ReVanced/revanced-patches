@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.layout.hide.shorts.bytecode.patch
 
 import app.revanced.extensions.findIndexForIdResource
 import app.revanced.extensions.injectHideViewCall
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -61,7 +61,7 @@ class HideShortsComponentsPatch : BytecodePatch(
                     "hideShortsShelf"
                 )
             }
-        } ?: throw ReelConstructorFingerprint.toErrorResult()
+        } ?: throw ReelConstructorFingerprint.exception
 
         // endregion
 
@@ -70,7 +70,7 @@ class HideShortsComponentsPatch : BytecodePatch(
         // Some Shorts buttons are views, hide them by setting their visibility to GONE.
         CreateShortsButtonsFingerprint.result?.let {
             ShortsButtons.values().forEach { button -> button.injectHideCall(it.mutableMethod) }
-        } ?: throw CreateShortsButtonsFingerprint.toErrorResult()
+        } ?: throw CreateShortsButtonsFingerprint.exception
 
         // endregion
 
@@ -79,7 +79,7 @@ class HideShortsComponentsPatch : BytecodePatch(
         // Hook to get the pivotBar view.
         SetPivotBarVisibilityParentFingerprint.result?.let {
             if (!SetPivotBarVisibilityFingerprint.resolve(context, it.classDef))
-                throw SetPivotBarVisibilityFingerprint.toErrorResult()
+                throw SetPivotBarVisibilityFingerprint.exception
 
             SetPivotBarVisibilityFingerprint.result!!.let { result ->
                 result.mutableMethod.apply {
@@ -92,17 +92,17 @@ class HideShortsComponentsPatch : BytecodePatch(
                     )
                 }
             }
-        } ?: throw SetPivotBarVisibilityParentFingerprint.toErrorResult()
+        } ?: throw SetPivotBarVisibilityParentFingerprint.exception
 
         // Hook to hide the navigation bar when Shorts are being played.
         RenderBottomNavigationBarParentFingerprint.result?.let {
             if (!RenderBottomNavigationBarFingerprint.resolve(context, it.classDef))
-                throw RenderBottomNavigationBarFingerprint.toErrorResult()
+                throw RenderBottomNavigationBarFingerprint.exception
 
             RenderBottomNavigationBarFingerprint.result!!.mutableMethod.apply {
                 addInstruction(0, "invoke-static { }, $FILTER_CLASS_DESCRIPTOR->hideNavigationBar()V")
             }
-        } ?: throw RenderBottomNavigationBarParentFingerprint.toErrorResult()
+        } ?: throw RenderBottomNavigationBarParentFingerprint.exception
 
         // Required to prevent a black bar from appearing at the bottom of the screen.
         BottomNavigationBarFingerprint.result?.let {
@@ -117,7 +117,7 @@ class HideShortsComponentsPatch : BytecodePatch(
                             "hideNavigationBar(Landroid/view/View;)Landroid/view/View;"
                 )
             }
-        } ?: throw BottomNavigationBarFingerprint.toErrorResult()
+        } ?: throw BottomNavigationBarFingerprint.exception
 
         // endregion
     }

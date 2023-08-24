@@ -1,6 +1,6 @@
 package app.revanced.patches.solidexplorer2.functionality.filesize.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Compatibility
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
@@ -23,5 +23,5 @@ class RemoveFileSizeLimitPatch : BytecodePatch(listOf(OnReadyFingerprint)) {
         val cmpResultRegister = result.mutableMethod.getInstruction<ThreeRegisterInstruction>(cmpIndex).registerA
 
         result.mutableMethod.replaceInstruction(cmpIndex, "const/4 v${cmpResultRegister}, 0x0")
-    } ?: throw OnReadyFingerprint.toErrorResult()
+    } ?: throw OnReadyFingerprint.exception
 }

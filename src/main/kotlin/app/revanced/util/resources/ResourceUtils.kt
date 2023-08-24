@@ -12,6 +12,7 @@ internal object ResourceUtils {
 
     /**
      * Merge strings. This manages [StringResource]s automatically.
+     *
      * @param host The hosting xml resource. Needs to be a valid strings.xml resource.
      */
     internal fun ResourceContext.mergeStrings(host: String) {

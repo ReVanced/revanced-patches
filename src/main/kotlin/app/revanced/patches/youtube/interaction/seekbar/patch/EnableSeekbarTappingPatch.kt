@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.interaction.seekbar.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -43,7 +43,7 @@ class EnableSeekbarTappingPatch : BytecodePatch(
             }
         }
 
-        seekbarTappingMethods ?: throw OnTouchEventHandlerFingerprint.toErrorResult()
+        seekbarTappingMethods ?: throw OnTouchEventHandlerFingerprint.exception
 
         SeekbarTappingFingerprint.result?.let {
             val insertIndex = it.scanResult.patternScanResult!!.endIndex - 1
@@ -72,6 +72,6 @@ class EnableSeekbarTappingPatch : BytecodePatch(
                     ExternalLabel("disabled", getInstruction(insertIndex))
                 )
             }
-        } ?: throw SeekbarTappingFingerprint.toErrorResult()
+        } ?: throw SeekbarTappingFingerprint.exception
     }
 }

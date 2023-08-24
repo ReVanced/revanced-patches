@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.sponsorblock.bytecode.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -64,8 +64,8 @@ class SponsorBlockBytecodePatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         LayoutConstructorFingerprint.result?.let {
             if (!ControlsOverlayFingerprint.resolve(context, it.classDef))
-                throw ControlsOverlayFingerprint.toErrorResult()
-        } ?: throw LayoutConstructorFingerprint.toErrorResult()
+                throw ControlsOverlayFingerprint.exception
+        } ?: throw LayoutConstructorFingerprint.exception
 
         /*
          * Hook the video time methods
@@ -219,7 +219,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
                     "invoke-static {v$frameLayoutRegister}, $INTEGRATIONS_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR->initialize(Landroid/view/ViewGroup;)V"
                 )
             }
-        }  ?: throw ControlsOverlayFingerprint.toErrorResult()
+        }  ?: throw ControlsOverlayFingerprint.exception
 
         // get rectangle field name
         RectangleFieldInvalidatorFingerprint.resolve(context, seekbarSignatureResult.classDef)
@@ -258,13 +258,13 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         // The vote and create segment buttons automatically change their visibility when appropriate,
         // but if buttons are showing when the end of the video is reached then they will not automatically hide.
         // Add a hook to forcefully hide when the end of the video is reached.
-        AutoRepeatParentFingerprint.result ?: throw AutoRepeatParentFingerprint.toErrorResult()
+        AutoRepeatParentFingerprint.result ?: throw AutoRepeatParentFingerprint.exception
         AutoRepeatFingerprint.also {
             it.resolve(context, AutoRepeatParentFingerprint.result!!.classDef)
         }.result?.mutableMethod?.addInstruction(
             0,
             "invoke-static {}, $INTEGRATIONS_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR->endOfVideoReached()V"
-        ) ?: throw AutoRepeatFingerprint.toErrorResult()
+        ) ?: throw AutoRepeatFingerprint.exception
 
         // TODO: isSBChannelWhitelisting implementation
     }

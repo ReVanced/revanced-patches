@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.minimizedplayback.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -54,10 +54,10 @@ class MinimizedPlaybackPatch : BytecodePatch(
                     return v0
                 """
             )
-        } ?: throw MinimizedPlaybackManagerFingerprint.toErrorResult()
+        } ?: throw MinimizedPlaybackManagerFingerprint.exception
 
         // Enable minimized playback option in YouTube settings
-        MinimizedPlaybackSettingsParentFingerprint.result ?: throw MinimizedPlaybackSettingsParentFingerprint.toErrorResult()
+        MinimizedPlaybackSettingsParentFingerprint.result ?: throw MinimizedPlaybackSettingsParentFingerprint.exception
         MinimizedPlaybackSettingsFingerprint.resolve(context, MinimizedPlaybackSettingsParentFingerprint.result!!.classDef)
         MinimizedPlaybackSettingsFingerprint.result?.apply {
             val booleanCalls = method.implementation!!.instructions.withIndex()
@@ -75,7 +75,7 @@ class MinimizedPlaybackPatch : BytecodePatch(
                     return v0
                 """
             )
-        } ?: throw MinimizedPlaybackSettingsFingerprint.toErrorResult()
+        } ?: throw MinimizedPlaybackSettingsFingerprint.exception
 
         // Force allowing background play for videos labeled for kids.
         // Some regions and YouTube accounts do not require this patch.
@@ -84,7 +84,7 @@ class MinimizedPlaybackPatch : BytecodePatch(
                 0,
                 "return-void"
             )
-        } ?: throw KidsMinimizedPlaybackPolicyControllerFingerprint.toErrorResult()
+        } ?: throw KidsMinimizedPlaybackPolicyControllerFingerprint.exception
     }
 
     private companion object {

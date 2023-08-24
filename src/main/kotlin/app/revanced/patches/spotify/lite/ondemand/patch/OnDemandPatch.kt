@@ -1,6 +1,6 @@
 package app.revanced.patches.spotify.lite.ondemand.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -24,6 +24,6 @@ class OnDemandPatch : BytecodePatch(
             val insertIndex = scanResult.patternScanResult!!.endIndex - 1
             // Spoof a premium account
             mutableMethod.addInstruction(insertIndex, "const/4 v0, 0x2")
-        } ?: throw OnDemandFingerprint.toErrorResult()
+        } ?: throw OnDemandFingerprint.exception
     }
 }

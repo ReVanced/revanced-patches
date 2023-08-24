@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.general.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -272,7 +272,7 @@ class HideLayoutComponentsPatch : BytecodePatch(
                 addInstruction(0, "move-object/from16 v$freeRegister, p3")
             }
 
-        } ?: throw ConvertElementToFlatBufferFingerprint.toErrorResult()
+        } ?: throw ConvertElementToFlatBufferFingerprint.exception
 
         // endregion
     }
