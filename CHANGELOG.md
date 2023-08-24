@@ -1,3 +1,10 @@
+# [2.188.0-dev.19](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.18...v2.188.0-dev.19) (2023-08-24)
+
+
+### Features
+
+* **Solid Explorer:** Add `Remove file size limit` patch ([01c617d](https://github.com/ReVanced/revanced-patches/commit/01c617d94e58b30bbffb3426fcfa55b8979962bd))
+
 # [2.188.0-dev.18](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.17...v2.188.0-dev.18) (2023-08-23)
 
 
