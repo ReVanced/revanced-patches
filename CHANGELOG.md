@@ -1,3 +1,10 @@
+# [2.188.0-dev.20](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.19...v2.188.0-dev.20) (2023-08-24)
+
+
+### Bug Fixes
+
+* **Enable android debugging:** Update patch description ([#2869](https://github.com/ReVanced/revanced-patches/issues/2869)) ([d9f0d08](https://github.com/ReVanced/revanced-patches/commit/d9f0d08498662e7aa18edb5201a5d60f3738e4e4))
+
 # [2.188.0-dev.19](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.18...v2.188.0-dev.19) (2023-08-24)
 
 
