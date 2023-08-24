@@ -1,3 +1,11 @@
+# [2.188.0-dev.22](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.21...v2.188.0-dev.22) (2023-08-24)
+
+
+### Features
+
+* Publicize resource utility functions ([20aff26](https://github.com/ReVanced/revanced-patches/commit/20aff26784296517257ea19d66ffd3bdfe6b06fa))
+* Use an extension property to create new exception when failing to resolve a fingerprint ([47eac14](https://github.com/ReVanced/revanced-patches/commit/47eac14f039dc466c1957470d82255bfa2c06ff0))
+
 # [2.188.0-dev.21](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.20...v2.188.0-dev.21) (2023-08-24)
 
 
