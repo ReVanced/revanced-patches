@@ -1,3 +1,10 @@
+# [2.188.0-dev.23](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.22...v2.188.0-dev.23) (2023-08-25)
+
+
+### Features
+
+* **Strava:** Add `Subscription features` patch ([#2872](https://github.com/ReVanced/revanced-patches/issues/2872)) ([387eb29](https://github.com/ReVanced/revanced-patches/commit/387eb29e7ed45169c89a03513af64104d0082f28))
+
 # [2.188.0-dev.22](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.21...v2.188.0-dev.22) (2023-08-24)
 
 
