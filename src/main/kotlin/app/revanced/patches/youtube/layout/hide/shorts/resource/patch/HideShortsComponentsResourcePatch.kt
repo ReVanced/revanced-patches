@@ -91,11 +91,11 @@ class HideShortsComponentsResourcePatch : ResourcePatch {
         fun String.getId() = ResourceMappingPatch.resourceMappings.single { it.name == this }.id
 
         reelMultipleItemShelfId = "reel_multiple_items_shelf".getId()
-        reelPlayerRightLargeIconSize = "reel_player_right_large_icon_size".getId()
+        reelPlayerRightCellButtonHeight = "reel_player_right_cell_button_height".getId()
     }
 
     companion object {
-        var reelMultipleItemShelfId: Long = -1
-        var reelPlayerRightLargeIconSize = -1L
+        var reelMultipleItemShelfId = -1L
+        var reelPlayerRightCellButtonHeight = -1L
     }
 }

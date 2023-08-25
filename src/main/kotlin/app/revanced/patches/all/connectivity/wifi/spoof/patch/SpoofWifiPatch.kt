@@ -15,7 +15,7 @@ import java.util.*
 @Name("Spoof wifi connection")
 @Description("Spoofs an existing Wi-Fi connection.")
 @RequiresIntegrations
-internal class SpoofWifiPatch : AbstractTransformInstructionsPatch<Instruction35cInfo>() {
+class SpoofWifiPatch : AbstractTransformInstructionsPatch<Instruction35cInfo>() {
 
     private companion object {
         const val INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX = "Lapp/revanced/all/connectivity/wifi/spoof/SpoofWifiPatch"

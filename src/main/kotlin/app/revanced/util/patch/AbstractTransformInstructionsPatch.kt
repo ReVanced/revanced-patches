@@ -8,7 +8,7 @@ import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 
-internal abstract class AbstractTransformInstructionsPatch<T> : BytecodePatch() {
+abstract class AbstractTransformInstructionsPatch<T> : BytecodePatch() {
 
     abstract fun filterMap(
         classDef: ClassDef,

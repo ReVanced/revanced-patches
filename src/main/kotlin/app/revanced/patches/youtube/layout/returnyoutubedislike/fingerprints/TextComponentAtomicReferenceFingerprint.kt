@@ -13,19 +13,17 @@ object TextComponentAtomicReferenceFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
     parameters = listOf("L"),
     opcodes = listOf(
-        Opcode.MOVE_OBJECT_FROM16, // available unused register
-        Opcode.MOVE_OBJECT_FROM16,
-        null, // move-object/from16 or move/from16
-        Opcode.MOVE_OBJECT_FROM16,
-        Opcode.INVOKE_VIRTUAL, // CharSequence atomic reference
-        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.MOVE_OBJECT, // Register A and B is context, use B as context, reuse A as free register
+        Opcode.INVOKE_VIRTUAL, // Register C is atomic reference
+        Opcode.MOVE_RESULT_OBJECT, // Register A is char sequence
+        Opcode.MOVE_OBJECT,
         Opcode.CHECK_CAST,
-        Opcode.MOVE_OBJECT, // CharSequence reference, and control flow label. Insert code here.
-        null, // invoke-interface or invoke-virtual
+        Opcode.MOVE_OBJECT,
+        Opcode.INVOKE_INTERFACE, // Insert hook here
         Opcode.MOVE_RESULT,
         Opcode.IF_EQZ,
-        null, // invoke-interface or invoke-virtual
+        Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT_OBJECT,
-        Opcode.GOTO,
+        Opcode.GOTO
     )
 )

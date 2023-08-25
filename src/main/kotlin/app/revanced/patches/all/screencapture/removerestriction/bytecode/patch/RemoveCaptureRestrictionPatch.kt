@@ -7,7 +7,10 @@ import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.annotations.RequiresIntegrations
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.all.screencapture.removerestriction.resource.patch.RemoveCaptureRestrictionResourcePatch
-import app.revanced.util.patch.*
+import app.revanced.util.patch.AbstractTransformInstructionsPatch
+import app.revanced.util.patch.IMethodCall
+import app.revanced.util.patch.Instruction35cInfo
+import app.revanced.util.patch.filterMapInstruction35c
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
@@ -17,7 +20,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 @Description("Removes the restriction of capturing audio from apps that normally wouldn't allow it.")
 @DependsOn([RemoveCaptureRestrictionResourcePatch::class])
 @RequiresIntegrations
-internal class RemoveCaptureRestrictionPatch : AbstractTransformInstructionsPatch<Instruction35cInfo>() {
+class RemoveCaptureRestrictionPatch : AbstractTransformInstructionsPatch<Instruction35cInfo>() {
     // Information about method calls we want to replace
     enum class MethodCall(
         override val definedClassName: String,
