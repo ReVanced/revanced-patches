@@ -1,3 +1,10 @@
+# [2.188.0-dev.24](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.23...v2.188.0-dev.24) (2023-08-25)
+
+
+### Features
+
+* Exclude `Custom branding` patch by default ([d6de957](https://github.com/ReVanced/revanced-patches/commit/d6de957f4efce11d9a709d4c8f500b039166fc2f))
+
 # [2.188.0-dev.23](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.22...v2.188.0-dev.23) (2023-08-25)
 
 
