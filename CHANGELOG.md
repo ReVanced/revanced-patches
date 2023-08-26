@@ -1,3 +1,10 @@
+# [2.188.0-dev.27](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.26...v2.188.0-dev.27) (2023-08-26)
+
+
+### Features
+
+* **YouTube Music - Exclusive audio playback:** Support latest version ([bfa379a](https://github.com/ReVanced/revanced-patches/commit/bfa379a398bce8d635043eb2d4f81c4ed7440101))
+
 # [2.188.0-dev.26](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.25...v2.188.0-dev.26) (2023-08-26)
 
 
