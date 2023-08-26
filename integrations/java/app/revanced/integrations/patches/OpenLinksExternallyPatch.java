@@ -4,16 +4,14 @@ import app.revanced.integrations.settings.SettingsEnum;
 
 public class OpenLinksExternallyPatch {
     /**
-     * Override 'android.support.customtabs.action.CustomTabsService',
-     * in order to open links in the default browser. This is done by returning an empty string,
-     * for the service that handles custom tabs in the Android support library
-     * which opens links in the default service instead.
+     * Return the intent to open links with. If empty, the link will be opened with the default browser.
      *
-     * @param original The original custom tabs service.
-     * @return The new, default service to open links with or the original service.
+     * @param originalIntent The original intent to open links with.
+     * @return The intent to open links with. Empty means the link will be opened with the default browser.
      */
-    public static String enableExternalBrowser(String original) {
-        if (SettingsEnum.EXTERNAL_BROWSER.getBoolean()) original = "";
-        return original;
+    public static String getIntent(String originalIntent) {
+        if (SettingsEnum.EXTERNAL_BROWSER.getBoolean()) return "";
+
+        return originalIntent;
     }
 }
