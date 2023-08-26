@@ -1,26 +1,12 @@
 package app.revanced.integrations.settings;
 
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
-import static app.revanced.integrations.settings.SettingsEnum.ReturnType.BOOLEAN;
-import static app.revanced.integrations.settings.SettingsEnum.ReturnType.FLOAT;
-import static app.revanced.integrations.settings.SettingsEnum.ReturnType.INTEGER;
-import static app.revanced.integrations.settings.SettingsEnum.ReturnType.LONG;
-import static app.revanced.integrations.settings.SettingsEnum.ReturnType.STRING;
-import static app.revanced.integrations.settings.SharedPrefCategory.RETURN_YOUTUBE_DISLIKE;
-import static app.revanced.integrations.settings.SharedPrefCategory.SPONSOR_BLOCK;
-import static app.revanced.integrations.utils.StringRef.str;
-
 import android.content.Context;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 import app.revanced.integrations.sponsorblock.SponsorBlockSettings;
+import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.StringRef;
-import app.revanced.integrations.utils.LogHelper;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -28,6 +14,13 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+
+import static app.revanced.integrations.settings.SettingsEnum.ReturnType.*;
+import static app.revanced.integrations.settings.SharedPrefCategory.RETURN_YOUTUBE_DISLIKE;
+import static app.revanced.integrations.settings.SharedPrefCategory.SPONSOR_BLOCK;
+import static app.revanced.integrations.utils.StringRef.str;
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 
 
 public enum SettingsEnum {
@@ -100,6 +93,7 @@ public enum SettingsEnum {
     HIDE_SHOP_BUTTON("revanced_hide_shop_button", BOOLEAN, TRUE),
 
     // Layout
+    PLAYER_OVERLAY_OPACITY("revanced_player_overlay_opacity", INTEGER, 100, true),
     DISABLE_RESUMING_SHORTS_PLAYER("revanced_disable_resuming_shorts_player", BOOLEAN, FALSE),
     HIDE_ALBUM_CARDS("revanced_hide_album_cards", BOOLEAN, FALSE, true),
     HIDE_ARTIST_CARDS("revanced_hide_artist_cards", BOOLEAN, FALSE),
@@ -120,7 +114,6 @@ public enum SettingsEnum {
     HIDE_INFO_CARDS("revanced_hide_info_cards", BOOLEAN, TRUE),
     HIDE_LOAD_MORE_BUTTON("revanced_hide_load_more_button", BOOLEAN, TRUE, true),
     HIDE_PLAYER_BUTTONS("revanced_hide_player_buttons", BOOLEAN, FALSE),
-    HIDE_PLAYER_OVERLAY("revanced_hide_player_overlay", BOOLEAN, FALSE, true),
     HIDE_PREVIEW_COMMENT("revanced_hide_preview_comment", BOOLEAN, FALSE, true),
     HIDE_SEEKBAR("revanced_hide_seekbar", BOOLEAN, FALSE),
     HIDE_SEEKBAR_THUMBNAIL("revanced_hide_seekbar_thumbnail", BOOLEAN, FALSE),
