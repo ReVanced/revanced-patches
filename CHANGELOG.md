@@ -1,3 +1,10 @@
+# [2.188.0-dev.25](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.24...v2.188.0-dev.25) (2023-08-26)
+
+
+### Features
+
+* **YouTube:** Add `Custom player overlay opacity` patch ([#2721](https://github.com/ReVanced/revanced-patches/issues/2721)) ([2622b00](https://github.com/ReVanced/revanced-patches/commit/2622b008ab78b15aa3c28a13b38e63041f29c9ea))
+
 # [2.188.0-dev.24](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.23...v2.188.0-dev.24) (2023-08-25)
 
 
