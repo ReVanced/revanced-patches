@@ -1,3 +1,10 @@
+# [2.188.0-dev.26](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.25...v2.188.0-dev.26) (2023-08-26)
+
+
+### Features
+
+* **YouTube:** Support version `18.32.39` ([7b503e2](https://github.com/ReVanced/revanced-patches/commit/7b503e2336dd4d330b651bf7c168d95a38e8c777))
+
 # [2.188.0-dev.25](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.24...v2.188.0-dev.25) (2023-08-26)
 
 
