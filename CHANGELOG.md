@@ -1,3 +1,10 @@
+# [2.188.0-dev.28](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.27...v2.188.0-dev.28) (2023-08-26)
+
+
+### Features
+
+* **YouTube:** Add `Enable tablet layout` patch ([3ac68b3](https://github.com/ReVanced/revanced-patches/commit/3ac68b3c6ef0d568780855003217fc3e904d789b))
+
 # [2.188.0-dev.27](https://github.com/ReVanced/revanced-patches/compare/v2.188.0-dev.26...v2.188.0-dev.27) (2023-08-26)
 
 
