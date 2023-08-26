@@ -4,8 +4,6 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.interaction.downloads.annotation.ExternalDownloadsCompatibility
@@ -23,7 +21,7 @@ class ExternalDownloadsBytecodePatch : BytecodePatch() {
         const val BUTTON_DESCRIPTOR = "Lapp/revanced/integrations/videoplayer/ExternalDownloadButton;"
     }
 
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         /*
         initialize the control
          */
@@ -37,7 +35,5 @@ class ExternalDownloadsBytecodePatch : BytecodePatch() {
 
         PlayerControlsBytecodePatch.injectVisibilityCheckCall(
             "$BUTTON_DESCRIPTOR->changeVisibility(Z)V")
-
-        return PatchResultSuccess()
     }
 }

@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.buttons.navigation.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -8,8 +8,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.settings.preference.impl.PreferenceScreen
@@ -21,8 +19,8 @@ import app.revanced.patches.youtube.layout.buttons.navigation.utils.InjectionUti
 import app.revanced.patches.youtube.layout.buttons.navigation.utils.InjectionUtils.injectHook
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @DependsOn(
@@ -36,7 +34,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Description("Adds options to hide or change navigation buttons.")
 @NavigationButtonsCompatibility
 class NavigationButtonsPatch : BytecodePatch(listOf(AddCreateButtonViewFingerprint)) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
                 "revanced_navigation_buttons_preference_screen",
@@ -103,7 +101,7 @@ class NavigationButtonsPatch : BytecodePatch(listOf(AddCreateButtonViewFingerpri
                             initializeButtonsResult.mutableClass
                         )
                     )
-                        return it.toErrorResult()
+                        throw it.exception
                 }
                 .map { it.result!!.scanResult.patternScanResult!! }
 
@@ -152,7 +150,7 @@ class NavigationButtonsPatch : BytecodePatch(listOf(AddCreateButtonViewFingerpri
                     """
                 )
             }
-        } ?: return AddCreateButtonViewFingerprint.toErrorResult()
+        } ?: throw AddCreateButtonViewFingerprint.exception
 
         /*
          * Resolve fingerprints
@@ -160,7 +158,7 @@ class NavigationButtonsPatch : BytecodePatch(listOf(AddCreateButtonViewFingerpri
 
         InitializeButtonsFingerprint.result!!.let {
             if (!PivotBarCreateButtonViewFingerprint.resolve(context, it.mutableMethod, it.mutableClass))
-                return PivotBarCreateButtonViewFingerprint.toErrorResult()
+                throw PivotBarCreateButtonViewFingerprint.exception
         }
 
         PivotBarCreateButtonViewFingerprint.result!!.apply {
@@ -180,7 +178,6 @@ class NavigationButtonsPatch : BytecodePatch(listOf(AddCreateButtonViewFingerpri
 
             mutableMethod.injectHook(hook, insertIndex)
         }
-        return PatchResultSuccess()
     }
 
     private companion object {

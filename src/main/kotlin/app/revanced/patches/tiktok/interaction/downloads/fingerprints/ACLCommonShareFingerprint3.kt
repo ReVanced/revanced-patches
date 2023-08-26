@@ -4,7 +4,7 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.tiktok.interaction.downloads.annotations.DownloadsCompatibility
-import org.jf.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.AccessFlags
 
 @Name("Acl common share get transcode")
 @DownloadsCompatibility

@@ -1,13 +1,11 @@
 package app.revanced.patches.twelvewidgets.unlock.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.*
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.twelvewidgets.unlock.fingerprints.*
 
@@ -25,7 +23,7 @@ class UnlockPaidWidgetsPatch : BytecodePatch(
         WeatherWidgetUnlockFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         listOf(
             AgendaDaysWidgetUnlockFingerprint,
             CalendarBigWidgetUnlockFingerprint,
@@ -34,7 +32,7 @@ class UnlockPaidWidgetsPatch : BytecodePatch(
             ScreentimeSmallWidgetUnlockFingerprint,
             WeatherWidgetUnlockFingerprint
         ).map { fingerprint ->
-            fingerprint.result?.mutableMethod ?: return fingerprint.toErrorResult()
+            fingerprint.result?.mutableMethod ?: throw fingerprint.exception
         }.forEach { method ->
             method.apply {
                 removeInstructions(4, 3)
@@ -48,7 +46,5 @@ class UnlockPaidWidgetsPatch : BytecodePatch(
                 )
             }
         }
-
-        return PatchResultSuccess()
     }
 }

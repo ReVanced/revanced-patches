@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.litho.filter.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
@@ -9,23 +9,17 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.*
-import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
-import org.jf.dexlib2.iface.instruction.Instruction
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.immutable.ImmutableField
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.Instruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import java.io.Closeable
 
 @DependsOn([IntegrationsPatch::class])
@@ -41,59 +35,47 @@ class LithoFilterPatch : BytecodePatch(
      * Additionally, the method contains a reference to the components identifier.
      * The identifier is used to filter components by their identifier.
      *
-     * In addition to that, a static field is added to the class of this method. (See protobufBufferField).
-     * This field holds a reference to the protobuf buffer object.
-     * The field is being set in another method that holds a reference to the protobuf buffer object.
-     * The object contains a large byte array that represents the component tree.
+     * The protobuf buffer is passed along from a different injection point before the filtering occurs.
+     * The buffer is a large byte array that represents the component tree.
      * This byte array is searched for strings that indicate the current component.
      *
      * The following pseudo code shows how the patch works:
      *
+     * class SomeOtherClass {
+     *    // Called before ComponentContextParser.parseBytesToComponentContext method.
+     *    public void someOtherMethod(ByteBuffer byteBuffer) {
+     *        IntegrationsClass.setProtoBuffer(byteBuffer); // Inserted by this patch.
+     *        ...
+     *   }
+     * }
+     *
      * class ComponentContextParser {
-     *    public static ByteBuffer buffer; // Inserted by this patch.
      *
      *    public ComponentContext parseBytesToComponentContext(...) {
      *        ...
-     *        if (filter(identifier, pathBuilder, buffer)); // Inserted by this patch.
+     *        if (IntegrationsClass.filter(identifier, pathBuilder)); // Inserted by this patch.
      *            return emptyComponent;
      *        ...
      *    }
      * }
-     *
-     * class SomeOtherClass {
-     *    // Called before ComponentContextParser.parseBytesToComponentContext method.
-     *    public void someOtherMethod(ByteBuffer byteBuffer) {
-     *        ComponentContextParser.buffer = byteBuffer; // Inserted by this patch.
-     *        ...
-     *   }
-     * }
      */
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         ComponentContextParserFingerprint.result?.also {
             arrayOf(
                 EmptyComponentBuilderFingerprint,
                 ReadComponentIdentifierFingerprint
             ).forEach { fingerprint ->
                 if (fingerprint.resolve(context, it.mutableMethod, it.mutableClass)) return@forEach
-                return fingerprint.toErrorResult()
+                throw fingerprint.exception
             }
         }?.let { bytesToComponentContextMethod ->
-            // region Add a static field that holds a reference to the protobuf buffer object.
-            val protobufBufferField = ImmutableField(
-                bytesToComponentContextMethod.mutableClass.type,
-                "buffer",
-                "Ljava/nio/ByteBuffer;",
-                AccessFlags.PUBLIC or AccessFlags.STATIC,
-                null,
-                null,
-                null
-            ).toMutable()
-            bytesToComponentContextMethod.mutableClass.staticFields.add(protobufBufferField)
 
-            // Set the field with the reference to the protobuf buffer object.
+            // region Pass the buffer into Integrations.
+
             ProtobufBufferReferenceFingerprint.result
-                ?.mutableMethod?.addInstruction(0, "sput-object p2, $protobufBufferField")
-                ?: return ProtobufBufferReferenceFingerprint.toErrorResult()
+                ?.mutableMethod?.addInstruction(0,
+                    " invoke-static { p2 }, $INTEGRATIONS_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V")
+                ?: throw ProtobufBufferReferenceFingerprint.exception
 
             // endregion
 
@@ -135,17 +117,13 @@ class LithoFilterPatch : BytecodePatch(
                 // region Patch the method.
 
                 // Insert the instructions that are responsible
-                // to return an EmptyComponent instead of the original component if the filter method returns false.
+                // to return an EmptyComponent instead of the original component if the filter method returns true.
                 addInstructionsWithLabels(
                     insertHookIndex,
                     """
-                        # Register "free1" holds the protobuf buffer object
-                       
-                        sget-object v$free1, $protobufBufferField
-
                         # Invoke the filter method.
                       
-                        invoke-static { v$stringBuilderRegister, v$identifierRegister, v$free1 }, $FILTER_METHOD_DESCRIPTOR
+                        invoke-static { v$identifierRegister, v$stringBuilderRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->filter(Ljava/lang/String;Ljava/lang/StringBuilder;)Z
                         move-result v$free1
                        
                         if-eqz v$free1, :unfiltered
@@ -163,7 +141,7 @@ class LithoFilterPatch : BytecodePatch(
             }
 
             // endregion
-        } ?: return ComponentContextParserFingerprint.toErrorResult()
+        } ?: throw ComponentContextParserFingerprint.exception
 
         LithoFilterFingerprint.result?.mutableMethod?.apply {
             removeInstructions(2, 4) // Remove dummy filter.
@@ -179,9 +157,7 @@ class LithoFilterPatch : BytecodePatch(
                     """
                 )
             }
-        } ?: return LithoFilterFingerprint.toErrorResult()
-
-        return PatchResultSuccess()
+        } ?: throw LithoFilterFingerprint.exception
     }
 
     override fun close() = LithoFilterFingerprint.result!!
@@ -197,9 +173,7 @@ class LithoFilterPatch : BytecodePatch(
         private val Instruction.descriptor
             get() = (this as ReferenceInstruction).reference.toString()
 
-        private const val FILTER_METHOD_DESCRIPTOR =
-            "Lapp/revanced/integrations/patches/components/LithoFilterPatch;" +
-                    "->filter(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/nio/ByteBuffer;)Z"
+        const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/components/LithoFilterPatch;"
 
         internal lateinit var addFilter: (String) -> Unit
             private set

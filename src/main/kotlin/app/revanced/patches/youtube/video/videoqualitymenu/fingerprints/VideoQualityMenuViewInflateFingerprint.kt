@@ -3,8 +3,8 @@ package app.revanced.patches.youtube.video.videoqualitymenu.fingerprints
 import app.revanced.patcher.extensions.or
 import app.revanced.patches.youtube.video.videoqualitymenu.patch.OldVideoQualityMenuResourcePatch
 import app.revanced.util.patch.LiteralValueFingerprint
-import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 object VideoQualityMenuViewInflateFingerprint : LiteralValueFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,

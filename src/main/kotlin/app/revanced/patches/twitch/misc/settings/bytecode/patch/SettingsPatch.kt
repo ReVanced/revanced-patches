@@ -1,6 +1,6 @@
 package app.revanced.patches.twitch.misc.settings.bytecode.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -10,8 +10,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
@@ -26,8 +24,8 @@ import app.revanced.patches.twitch.misc.settings.fingerprints.MenuGroupsUpdatedF
 import app.revanced.patches.twitch.misc.settings.fingerprints.SettingsActivityOnCreateFingerprint
 import app.revanced.patches.twitch.misc.settings.fingerprints.SettingsMenuItemEnumFingerprint
 import app.revanced.patches.twitch.misc.settings.resource.patch.SettingsResourcePatch
-import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.immutable.ImmutableField
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import java.io.Closeable
 
 @Patch
@@ -43,7 +41,7 @@ class SettingsPatch : BytecodePatch(
         MenuGroupsOnClickFingerprint
     )
 ), Closeable {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         // Hook onCreate to handle fragment creation
         SettingsActivityOnCreateFingerprint.result?.apply {
             val insertIndex = mutableMethod.implementation!!.instructions.size - 2
@@ -57,7 +55,7 @@ class SettingsPatch : BytecodePatch(
                 """,
                 ExternalLabel("no_rv_settings_init", mutableMethod.getInstruction(insertIndex))
             )
-        } ?: return SettingsActivityOnCreateFingerprint.toErrorResult()
+        } ?: throw SettingsActivityOnCreateFingerprint.exception
 
         // Create new menu item for settings menu
         SettingsMenuItemEnumFingerprint.result?.apply {
@@ -67,7 +65,7 @@ class SettingsPatch : BytecodePatch(
                 REVANCED_SETTINGS_MENU_ITEM_TITLE_RES,
                 REVANCED_SETTINGS_MENU_ITEM_ICON_RES
             )
-        } ?: return SettingsMenuItemEnumFingerprint.toErrorResult()
+        } ?: throw SettingsMenuItemEnumFingerprint.exception
 
         // Intercept settings menu creation and add new menu item
         MenuGroupsUpdatedFingerprint.result?.apply {
@@ -79,7 +77,7 @@ class SettingsPatch : BytecodePatch(
                     move-result-object      p1
                 """
             )
-        } ?: return MenuGroupsUpdatedFingerprint.toErrorResult()
+        } ?: throw MenuGroupsUpdatedFingerprint.exception
 
         // Intercept onclick events for the settings menu
         MenuGroupsOnClickFingerprint.result?.apply {
@@ -96,14 +94,12 @@ class SettingsPatch : BytecodePatch(
                 """,
                 ExternalLabel("no_rv_settings_onclick", mutableMethod.getInstruction(insertIndex))
             )
-        }  ?: return MenuGroupsOnClickFingerprint.toErrorResult()
+        }  ?: throw MenuGroupsOnClickFingerprint.exception
 
         addString("revanced_settings", "ReVanced Settings", false)
         addString("revanced_reboot_message", "Twitch needs to restart to apply your changes. Restart now?", false)
         addString("revanced_reboot", "Restart", false)
         addString("revanced_cancel", "Cancel", false)
-
-        return PatchResultSuccess()
     }
 
     internal companion object {

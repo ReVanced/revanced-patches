@@ -1,6 +1,6 @@
 package app.revanced.patches.googlerecorder.restrictions.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Compatibility
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
@@ -10,11 +10,9 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.googlerecorder.restrictions.fingerprints.OnApplicationCreateFingerprint
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @Name("Remove device restrictions")
@@ -23,7 +21,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 class RemoveDeviceRestrictions : BytecodePatch(
     listOf(OnApplicationCreateFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         OnApplicationCreateFingerprint.result?.let {
             val featureStringIndex = it.scanResult.stringsScanResult!!.matches.first().index
 
@@ -36,8 +34,6 @@ class RemoveDeviceRestrictions : BytecodePatch(
                 // Override "isPixelDevice()" to return true.
                 addInstruction(featureStringIndex, "const/4 v$featureAvailableRegister, 0x1")
             }
-        } ?: return OnApplicationCreateFingerprint.toErrorResult()
-
-        return PatchResultSuccess()
+        } ?: throw OnApplicationCreateFingerprint.exception
     }
 }

@@ -10,7 +10,7 @@ import org.w3c.dom.Document
  *  @param name The name of the array resource.
  *  @param items The items of the array resource.
  */
-internal class ArrayResource(
+class ArrayResource(
     name: String,
     val items: List<StringResource>
 ) : BaseResource(name, "string-array") {

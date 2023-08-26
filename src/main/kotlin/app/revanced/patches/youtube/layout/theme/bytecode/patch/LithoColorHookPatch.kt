@@ -1,13 +1,11 @@
 package app.revanced.patches.youtube.layout.theme.bytecode.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.layout.theme.annotations.ThemeCompatibility
 import app.revanced.patches.youtube.layout.theme.bytecode.fingerprints.LithoThemeFingerprint
@@ -16,14 +14,12 @@ import app.revanced.patches.youtube.layout.theme.bytecode.fingerprints.LithoThem
 @Description("Adds a hook to set color of Litho components.")
 @ThemeCompatibility
 class LithoColorHookPatch : BytecodePatch(listOf(LithoThemeFingerprint)) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         LithoThemeFingerprint.result?.let {
             insertionIndex = it.scanResult.patternScanResult!!.endIndex - 1
             colorRegister = "p1"
             insertionMethod = it.mutableMethod
-        } ?: return LithoThemeFingerprint.toErrorResult()
-
-        return PatchResultSuccess()
+        } ?: throw LithoThemeFingerprint.exception
     }
     companion object {
         private var insertionIndex : Int = -1

@@ -1,12 +1,10 @@
 package app.revanced.patches.messenger.ads.inbox.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.*
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.messenger.ads.inbox.fingerprints.LoadInboxAdsFingerprint
 
@@ -17,12 +15,10 @@ import app.revanced.patches.messenger.ads.inbox.fingerprints.LoadInboxAdsFingerp
 class HideInboxAdsPatch : BytecodePatch(
     listOf(LoadInboxAdsFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         LoadInboxAdsFingerprint.result?.mutableMethod?.apply {
             this.replaceInstruction(0, "return-void")
-        } ?: return LoadInboxAdsFingerprint.toErrorResult()
-
-        return PatchResultSuccess()
+        } ?: throw LoadInboxAdsFingerprint.exception
     }
 }
 

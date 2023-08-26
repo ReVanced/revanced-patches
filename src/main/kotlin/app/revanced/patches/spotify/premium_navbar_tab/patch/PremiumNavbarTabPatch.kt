@@ -6,16 +6,14 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.spotify.premium_navbar_tab.annotations.PremiumNavbarTabCompatibility
 import app.revanced.patches.spotify.premium_navbar_tab.fingerprints.AddPremiumNavbarTabFingerprint
 import app.revanced.patches.spotify.premium_navbar_tab.fingerprints.AddPremiumNavbarTabParentFingerprint
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 
 @Patch
 @Name("Hide premium navbar")
@@ -27,7 +25,7 @@ class PremiumNavbarTabPatch : BytecodePatch(
         AddPremiumNavbarTabParentFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         val parentResult = AddPremiumNavbarTabParentFingerprint.result!!
         AddPremiumNavbarTabFingerprint.resolve(context, parentResult.classDef)
 
@@ -55,7 +53,5 @@ class PremiumNavbarTabPatch : BytecodePatch(
 
             if (--removeAmount == 0) break
         }
-
-        return PatchResultSuccess()
     }
 }

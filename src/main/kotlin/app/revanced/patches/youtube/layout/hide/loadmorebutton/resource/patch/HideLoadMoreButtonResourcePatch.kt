@@ -1,8 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.loadmorebutton.resource.patch
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
@@ -12,7 +10,7 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
 @DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
 class HideLoadMoreButtonResourcePatch : ResourcePatch {
-    override fun execute(context: ResourceContext): PatchResult {
+    override fun execute(context: ResourceContext) {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_hide_load_more_button",
@@ -25,8 +23,6 @@ class HideLoadMoreButtonResourcePatch : ResourcePatch {
         expandButtonDownId = ResourceMappingPatch.resourceMappings.single {
             it.type == "layout" && it.name == "expand_button_down"
         }.id
-
-        return PatchResultSuccess()
     }
 
     internal companion object {

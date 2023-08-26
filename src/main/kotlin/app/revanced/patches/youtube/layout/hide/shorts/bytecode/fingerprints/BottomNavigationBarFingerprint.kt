@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.hide.shorts.bytecode.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import org.jf.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.Opcode
 
 object BottomNavigationBarFingerprint : MethodFingerprint(
     opcodes = listOf(

@@ -2,15 +2,15 @@ package app.revanced.util.patch
 
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.ClassDef
-import org.jf.dexlib2.iface.instruction.Instruction
-import org.jf.dexlib2.iface.instruction.formats.Instruction35c
-import org.jf.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.ClassDef
+import com.android.tools.smali.dexlib2.iface.instruction.Instruction
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal typealias Instruction35cInfo = Triple<IMethodCall, Instruction35c, Int>
+typealias Instruction35cInfo = Triple<IMethodCall, Instruction35c, Int>
 
-internal interface IMethodCall {
+interface IMethodCall {
     val definedClassName: String
     val methodName: String
     val methodParams: Array<String>
@@ -62,14 +62,14 @@ internal interface IMethodCall {
     }
 }
 
-internal inline fun <reified E> fromMethodReference(methodReference: MethodReference)
+inline fun <reified E> fromMethodReference(methodReference: MethodReference)
         where E : Enum<E>, E : IMethodCall = enumValues<E>().firstOrNull { search ->
     search.definedClassName == methodReference.definingClass
             && search.methodName == methodReference.name
             && methodReference.parameterTypes.toTypedArray().contentEquals(search.methodParams)
 }
 
-internal inline fun <reified E> filterMapInstruction35c(
+inline fun <reified E> filterMapInstruction35c(
     integrationsClassDescriptorPrefix: String,
     classDef: ClassDef,
     instruction: Instruction,
