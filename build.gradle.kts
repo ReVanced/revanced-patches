@@ -25,7 +25,7 @@ repositories {
 }
 
 dependencies {
-    implementation("app.revanced:revanced-patcher:14.0.0")
+    implementation("app.revanced:revanced-patcher:14.2.1")
     implementation("com.android.tools.smali:smali:3.0.3")
     // Required because build fails without it.
     // TODO: Find a way to remove this dependency.
