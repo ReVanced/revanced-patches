@@ -86,7 +86,7 @@ public final class AdsFilter extends Filter {
                 "cta_shelf_card"
         );
 
-        this.pathFilterGroupList.addAll(
+        this.pathFilterGroups.addAll(
                 generalAds,
                 buttonedAd,
                 merchandise,
@@ -95,16 +95,16 @@ public final class AdsFilter extends Filter {
                 webLinkPanel,
                 movieAds
         );
-        this.identifierFilterGroupList.addAll(carouselAd);
+        this.identifierFilterGroups.addAll(carouselAd);
     }
 
     @Override
-    public boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
+    public boolean isFiltered(String path, @Nullable String identifier, byte[] protobufBufferArray,
                               FilterGroupList matchedList, FilterGroup matchedGroup, int matchedIndex) {
         if (exceptions.matches(path))
            return false;
 
-        return super.isFiltered(identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
+        return super.isFiltered(path, identifier, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
     }
 
     /**

@@ -80,24 +80,12 @@ public enum SharedPrefCategory {
     @NonNull
     public String getString(@NonNull String key, @NonNull String _default) {
         Objects.requireNonNull(_default);
-        try {
-            return preferences.getString(key, _default);
-        } catch (ClassCastException ex) {
-            // Value stored is a completely different type (should never happen).
-            removeConflictingPreferenceKeyValue(key);
-            return _default;
-        }
+        return preferences.getString(key, _default);
     }
 
 
     public boolean getBoolean(@NonNull String key, boolean _default) {
-        try {
-            return preferences.getBoolean(key, _default);
-        } catch (ClassCastException ex) {
-            // Value stored is a completely different type (should never happen).
-            removeConflictingPreferenceKeyValue(key);
-            return _default;
-        }
+        return preferences.getBoolean(key, _default);
     }
 
     @NonNull

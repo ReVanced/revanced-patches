@@ -81,7 +81,8 @@ class StringFilterGroup extends FilterGroup<String> {
 
     @Override
     public FilterGroupResult check(final String string) {
-        return new FilterGroupResult(setting, isEnabled() && ReVancedUtils.containsAny(string, filters));
+        return new FilterGroupResult(setting,
+                (setting == null || setting.getBoolean()) && ReVancedUtils.containsAny(string, filters));
     }
 }
 
@@ -273,14 +274,25 @@ abstract class Filter {
      * will never be called for any matches.
      */
 
-    protected final StringFilterGroupList pathFilterGroupList = new StringFilterGroupList();
-    protected final StringFilterGroupList identifierFilterGroupList = new StringFilterGroupList();
+    protected final StringFilterGroupList pathFilterGroups = new StringFilterGroupList();
+    protected final StringFilterGroupList identifierFilterGroups = new StringFilterGroupList();
+    /**
+     * A collection of {@link ByteArrayFilterGroup} that are always searched for (no matter what).
+     *
+     * If possible, avoid adding values to this list and instead use a path or identifier filter
+     * for the item you are looking for. Then inside
+     * {@link #isFiltered(String, String, byte[], FilterGroupList, FilterGroup, int)},
+     * the buffer can then be searched using using a different
+     * {@link ByteArrayFilterGroupList} or a {@link ByteArrayFilterGroup}.
+     * This way, the expensive buffer searching only occurs if the cheap and fast path/identifier is already found.
+     */
+    protected final ByteArrayFilterGroupList protobufBufferFilterGroups = new ByteArrayFilterGroupList();
 
     /**
      * Called after an enabled filter has been matched.
      * Default implementation is to always filter the matched item.
      * Subclasses can perform additional or different checks if needed.
-     * <p>
+     *
      * Method is called off the main thread.
      *
      * @param matchedList  The list the group filter belongs to.
@@ -289,13 +301,15 @@ abstract class Filter {
      * @return True if the litho item should be filtered out.
      */
     @SuppressWarnings("rawtypes")
-    boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
+    boolean isFiltered(String path, @Nullable String identifier, byte[] protobufBufferArray,
                        FilterGroupList matchedList, FilterGroup matchedGroup, int matchedIndex) {
         if (SettingsEnum.DEBUG.getBoolean()) {
-            if (pathFilterGroupList == matchedList) {
+            if (pathFilterGroups == matchedList) {
                 LogHelper.printDebug(() -> getClass().getSimpleName() + " Filtered path: " + path);
-            } else if (identifierFilterGroupList == matchedList) {
+            } else if (identifierFilterGroups == matchedList) {
                 LogHelper.printDebug(() -> getClass().getSimpleName() + " Filtered identifier: " + identifier);
+            } else if (protobufBufferFilterGroups == matchedList) {
+                LogHelper.printDebug(() -> getClass().getSimpleName() + " Filtered from protobuf-buffer");
             }
         }
         return true;
@@ -309,14 +323,13 @@ public final class LithoFilterPatch {
      * Simple wrapper to pass the litho parameters through the prefix search.
      */
     private static final class LithoFilterParameters {
-        @Nullable
-        final String identifier;
         final String path;
+        final String identifier;
         final byte[] protoBuffer;
 
-        LithoFilterParameters(@Nullable String lithoIdentifier, StringBuilder lithoPath, ByteBuffer protoBuffer) {
-            this.identifier = lithoIdentifier;
+        LithoFilterParameters(StringBuilder lithoPath, String lithoIdentifier, ByteBuffer protoBuffer) {
             this.path = lithoPath.toString();
+            this.identifier = lithoIdentifier;
             this.protoBuffer = protoBuffer.array();
         }
 
@@ -329,10 +342,9 @@ public final class LithoFilterPatch {
             builder.append(identifier);
             builder.append(" Path: ");
             builder.append(path);
-            if (SettingsEnum.DEBUG_PROTOBUFFER.getBoolean()) {
-                builder.append(" BufferStrings: ");
-                findAsciiStrings(builder, protoBuffer);
-            }
+            // TODO: allow turning on/off buffer logging with a debug setting?
+            builder.append(" BufferStrings: ");
+            findAsciiStrings(builder, protoBuffer);
 
             return builder.toString();
         }
@@ -354,9 +366,7 @@ public final class LithoFilterPatch {
                 int value = buffer[end];
                 if (value < minimumAscii || value > maximumAscii || end == length - 1) {
                     if (end - start >= minimumAsciiStringLength) {
-                        for (int i = start; i < end; i++) {
-                            builder.append((char) buffer[i]);
-                        }
+                        builder.append(new String(buffer, start, end - start));
                         builder.append(delimitingCharacter);
                     }
                     start = end + 1;
@@ -372,24 +382,22 @@ public final class LithoFilterPatch {
 
     private static final StringTrieSearch pathSearchTree = new StringTrieSearch();
     private static final StringTrieSearch identifierSearchTree = new StringTrieSearch();
-
-    /**
-     * Because litho filtering is multi-threaded and the buffer is passed in from a different injection point,
-     * the buffer is saved to a ThreadLocal so each calling thread does not interfere with other threads.
-     */
-    private static final ThreadLocal<ByteBuffer> bufferThreadLocal = new ThreadLocal<>();
+    private static final ByteTrieSearch protoSearchTree = new ByteTrieSearch();
 
     static {
         for (Filter filter : filters) {
-            filterGroupLists(pathSearchTree, filter, filter.pathFilterGroupList);
-            filterGroupLists(identifierSearchTree, filter, filter.identifierFilterGroupList);
+            filterGroupLists(pathSearchTree, filter, filter.pathFilterGroups);
+            filterGroupLists(identifierSearchTree, filter, filter.identifierFilterGroups);
+            filterGroupLists(protoSearchTree, filter, filter.protobufBufferFilterGroups);
         }
 
         LogHelper.printDebug(() -> "Using: "
                 + pathSearchTree.numberOfPatterns() + " path filters"
                 + " (" + pathSearchTree.getEstimatedMemorySize() + " KB), "
                 + identifierSearchTree.numberOfPatterns() + " identifier filters"
-                + " (" + identifierSearchTree.getEstimatedMemorySize() + " KB)");
+                + " (" + identifierSearchTree.getEstimatedMemorySize() + " KB), "
+                + protoSearchTree.numberOfPatterns() + " buffer filters"
+                + " (" + protoSearchTree.getEstimatedMemorySize() + " KB)");
     }
 
     private static <T> void filterGroupLists(TrieSearch<T> pathSearchTree,
@@ -402,7 +410,7 @@ public final class LithoFilterPatch {
                 pathSearchTree.addPattern(pattern, (textSearched, matchedStartIndex, callbackParameter) -> {
                             if (!group.isEnabled()) return false;
                             LithoFilterParameters parameters = (LithoFilterParameters) callbackParameter;
-                            return filter.isFiltered(parameters.identifier, parameters.path, parameters.protoBuffer,
+                            return filter.isFiltered(parameters.path, parameters.identifier, parameters.protoBuffer,
                                     list, group, matchedStartIndex);
                         }
                 );
@@ -414,36 +422,21 @@ public final class LithoFilterPatch {
      * Injection point.  Called off the main thread.
      */
     @SuppressWarnings("unused")
-    public static void setProtoBuffer(@NonNull ByteBuffer protobufBuffer) {
-        // Set the buffer to a thread local.  The buffer will remain in memory, even after the call to #filter completes.
-        // This is intentional, as it appears the buffer can be set once and then filtered multiple times.
-        // The buffer will be cleared from memory after a new buffer is set by the same thread,
-        // or when the calling thread eventually dies.
-        bufferThreadLocal.set(protobufBuffer);
-    }
-
-    /**
-     * Injection point.  Called off the main thread, and commonly called by multiple threads at the same time.
-     */
-    @SuppressWarnings("unused")
-    public static boolean filter(@Nullable String lithoIdentifier, @NonNull StringBuilder pathBuilder) {
+    public static boolean filter(@NonNull StringBuilder pathBuilder, @Nullable String lithoIdentifier,
+                                 @NonNull ByteBuffer protobufBuffer) {
         try {
             // It is assumed that protobufBuffer is empty as well in this case.
             if (pathBuilder.length() == 0)
                 return false;
 
-            ByteBuffer protobufBuffer = bufferThreadLocal.get();
-            if (protobufBuffer == null) {
-                LogHelper.printException(() -> "Proto buffer is null"); // Should never happen
-                return false;
-            }
-            LithoFilterParameters parameter = new LithoFilterParameters(lithoIdentifier, pathBuilder, protobufBuffer);
+            LithoFilterParameters parameter = new LithoFilterParameters(pathBuilder, lithoIdentifier, protobufBuffer);
             LogHelper.printDebug(() -> "Searching " + parameter);
 
+            if (pathSearchTree.matches(parameter.path, parameter)) return true;
             if (parameter.identifier != null) {
                 if (identifierSearchTree.matches(parameter.identifier, parameter)) return true;
             }
-            if (pathSearchTree.matches(parameter.path, parameter)) return true;
+            if (protoSearchTree.matches(parameter.protoBuffer, parameter)) return true;
         } catch (Exception ex) {
             LogHelper.printException(() -> "Litho filter failure", ex);
         }

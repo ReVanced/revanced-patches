@@ -142,7 +142,7 @@ public final class LayoutComponentsFilter extends Filter {
                 "chips_shelf"
         );
 
-        this.pathFilterGroupList.addAll(
+        this.pathFilterGroups.addAll(
                 channelBar,
                 communityPosts,
                 paidContent,
@@ -165,19 +165,19 @@ public final class LayoutComponentsFilter extends Filter {
                 custom
         );
 
-        this.identifierFilterGroupList.addAll(
+        this.identifierFilterGroups.addAll(
                 graySeparator,
                 chipsShelf
         );
     }
 
     @Override
-    public boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
+    public boolean isFiltered(String path, @Nullable String identifier, byte[] protobufBufferArray,
                               FilterGroupList matchedList, FilterGroup matchedGroup, int matchedIndex) {
         if (matchedGroup != custom && exceptions.matches(path))
             return false; // Exceptions are not filtered.
 
-        return super.isFiltered(identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
+        return super.isFiltered(path, identifier, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
     }
 
 

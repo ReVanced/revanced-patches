@@ -1,114 +1,59 @@
 package app.revanced.integrations.patches.components;
 
-import android.os.Build;
-
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 
 import app.revanced.integrations.settings.SettingsEnum;
 
-@RequiresApi(api = Build.VERSION_CODES.N)
 final class ButtonsFilter extends Filter {
-    private static final String VIDEO_ACTION_BAR_PATH = "video_action_bar.eml";
-
-    private final StringFilterGroup actionBarGroup;
-    private final StringFilterGroup bufferFilterPathGroup;
-    private final ByteArrayFilterGroupList bufferButtonsGroupList = new ByteArrayFilterGroupList();
+    private final StringFilterGroup actionBarRule;
 
     public ButtonsFilter() {
-        actionBarGroup = new StringFilterGroup(
+        actionBarRule = new StringFilterGroup(
                 null,
-                VIDEO_ACTION_BAR_PATH
+                "video_action_bar"
         );
-        identifierFilterGroupList.addAll(actionBarGroup);
 
-
-        bufferFilterPathGroup = new StringFilterGroup(
-                null,
-                "|CellType|CollectionType|CellType|ContainerType|button.eml|"
-        );
-        pathFilterGroupList.addAll(
+        pathFilterGroups.addAll(
                 new StringFilterGroup(
                         SettingsEnum.HIDE_LIKE_DISLIKE_BUTTON,
-                        "|segmented_like_dislike_button"
+                        "|like_button",
+                        "dislike_button"
                 ),
                 new StringFilterGroup(
                         SettingsEnum.HIDE_DOWNLOAD_BUTTON,
-                        "|download_button.eml|"
+                        "download_button"
                 ),
                 new StringFilterGroup(
                         SettingsEnum.HIDE_PLAYLIST_BUTTON,
-                        "|save_to_playlist_button"
+                        "save_to_playlist_button"
                 ),
                 new StringFilterGroup(
                         SettingsEnum.HIDE_CLIP_BUTTON,
                         "|clip_button.eml|"
                 ),
-                bufferFilterPathGroup
-        );
-
-        bufferButtonsGroupList.addAll(
-                new ByteArrayAsStringFilterGroup(
-                        SettingsEnum.HIDE_LIVE_CHAT_BUTTON,
-                        "yt_outline_message_bubble_overlap"
+                new StringFilterGroup(
+                        SettingsEnum.HIDE_ACTION_BUTTONS,
+                        "ContainerType|video_action_button",
+                        "|CellType|CollectionType|CellType|ContainerType|button.eml|"
                 ),
-                new ByteArrayAsStringFilterGroup(
-                        SettingsEnum.HIDE_REPORT_BUTTON,
-                        "yt_outline_flag"
-                ),
-                new ByteArrayAsStringFilterGroup(
-                        SettingsEnum.HIDE_SHARE_BUTTON,
-                        "yt_outline_share"
-                ),
-                new ByteArrayAsStringFilterGroup(
-                        SettingsEnum.HIDE_REMIX_BUTTON,
-                        "yt_outline_youtube_shorts_plus"
-                ),
-                // Check for clip button both here and using a path filter,
-                // as there's a chance the path is a generic action button and won't contain 'clip_button'
-                new ByteArrayAsStringFilterGroup(
-                        SettingsEnum.HIDE_CLIP_BUTTON,
-                        "yt_outline_scissors"
-                ),
-                new ByteArrayAsStringFilterGroup(
-                        SettingsEnum.HIDE_SHOP_BUTTON,
-                        "yt_outline_bag"
-                ),
-                new ByteArrayAsStringFilterGroup(
-                        SettingsEnum.HIDE_THANKS_BUTTON,
-                        "yt_outline_dollar_sign_heart"
-                )
+                actionBarRule
         );
     }
 
     private boolean isEveryFilterGroupEnabled() {
-        for (var group : pathFilterGroupList)
-            if (!group.isEnabled()) return false;
-
-        for (var group : bufferButtonsGroupList)
-            if (!group.isEnabled()) return false;
+        for (StringFilterGroup rule : pathFilterGroups)
+            if (!rule.isEnabled()) return false;
 
         return true;
     }
 
     @Override
-    public boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
+    public boolean isFiltered(String path, @Nullable String identifier, byte[] protobufBufferArray,
                               FilterGroupList matchedList, FilterGroup matchedGroup, int matchedIndex) {
-        // If the current matched group is the action bar group,
-        // in case every filter group is enabled, hide the action bar.
-        if (matchedGroup == actionBarGroup) {
-            if (!isEveryFilterGroupEnabled()) {
-                return false;
-            }
-        } else if (matchedGroup == bufferFilterPathGroup) {
-            // Make sure the current path is the right one
-            //  to avoid false positives.
-            if (!path.startsWith(VIDEO_ACTION_BAR_PATH)) return false;
-
-            // In case the group list has no match, return false.
-            if (!bufferButtonsGroupList.check(protobufBufferArray).isFiltered()) return false;
+        if (matchedGroup == actionBarRule) {
+            return isEveryFilterGroupEnabled();
         }
 
-        return super.isFiltered(identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
+        return super.isFiltered(path, identifier, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
     }
 }
