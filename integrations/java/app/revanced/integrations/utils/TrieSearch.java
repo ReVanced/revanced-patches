@@ -243,17 +243,12 @@ public abstract class TrieSearch<T> {
         root.addPattern(pattern, patternLength, 0, callback);
     }
 
-    final boolean matches(@NonNull T textToSearch, int textToSearchLength, int startIndex, int endIndex,
-                          @Nullable Object callbackParameter) {
-        if (endIndex > textToSearchLength) {
-            throw new IllegalArgumentException("endIndex: " + endIndex
-                    + " is greater than texToSearchLength: " + textToSearchLength);
-        }
+    boolean matches(@NonNull T textToSearch, int textToSearchLength, @Nullable Object callbackParameter) {
         if (patterns.size() == 0) {
             return false; // No patterns were added.
         }
-        for (int i = startIndex; i < endIndex; i++) {
-            if (root.matches(textToSearch, endIndex, i, 0, callbackParameter)) return true;
+        for (int i = 0; i < textToSearchLength; i++) {
+            if (root.matches(textToSearch, textToSearchLength, i, 0, callbackParameter)) return true;
         }
         return false;
     }
@@ -292,27 +287,19 @@ public abstract class TrieSearch<T> {
      */
     public abstract void addPattern(@NonNull T pattern, @NonNull TriePatternMatchedCallback<T> callback);
 
-
     /**
      * Searches through text, looking for any substring that matches any pattern in this tree.
      *
      * @param textToSearch Text to search through.
-     * @param startIndex Index to start searching, inclusive value.
-     * @param endIndex Index to stop matching, exclusive value.
      * @param callbackParameter Optional parameter passed to the callbacks.
      * @return If any pattern matched, and it's callback halted searching.
      */
-    public abstract boolean matches(@NonNull T textToSearch, int startIndex, int endIndex, @Nullable Object callbackParameter);
-
-    public abstract boolean matches(@NonNull T textToSearch, int startIndex);
-
     public abstract boolean matches(@NonNull T textToSearch, @Nullable Object callbackParameter);
 
-    public final boolean matches(@NonNull T textToSearch, int startIndex, int endIndex) {
-        return matches(textToSearch, startIndex, endIndex, null);
-    }
-
+    /**
+     * Identical to {@link #matches(Object, Object)} but with a null callback parameter.
+     */
     public final boolean matches(@NonNull T textToSearch) {
-        return matches(textToSearch, 0);
+        return matches(textToSearch, null);
     }
 }
