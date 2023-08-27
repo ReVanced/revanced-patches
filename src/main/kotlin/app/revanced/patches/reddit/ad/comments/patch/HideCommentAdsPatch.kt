@@ -5,6 +5,8 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.reddit.ad.comments.fingerprints.HideCommentAdsFingerprint
 
 @Name("Hide comment ads")
@@ -12,7 +14,7 @@ import app.revanced.patches.reddit.ad.comments.fingerprints.HideCommentAdsFinger
 class HideCommentAdsPatch : BytecodePatch(
     listOf(HideCommentAdsFingerprint)
 ) {
-    override fun execute(context: BytecodeContext) {
+    override fun execute(context: BytecodeContext): PatchResult {
         val method = HideCommentAdsFingerprint.result!!.mutableMethod
         // Returns a blank object instead of the comment ad.
         method.addInstructions(
@@ -23,5 +25,6 @@ class HideCommentAdsPatch : BytecodePatch(
             return-object v0
             """
         )
+        return PatchResultSuccess()
     }
 }

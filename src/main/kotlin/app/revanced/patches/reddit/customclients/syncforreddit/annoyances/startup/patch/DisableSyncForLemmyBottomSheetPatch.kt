@@ -7,6 +7,8 @@ import app.revanced.patcher.annotation.Package
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.reddit.customclients.syncforreddit.annoyances.startup.fingerprints.MainActivityOnCreate
 
@@ -21,11 +23,13 @@ import app.revanced.patches.reddit.customclients.syncforreddit.annoyances.startu
     ]
 )
 class DisableSyncForLemmyBottomSheetPatch : BytecodePatch(listOf(MainActivityOnCreate)) {
-    override fun execute(context: BytecodeContext) {
+    override fun execute(context: BytecodeContext): PatchResult {
         MainActivityOnCreate.result?.mutableMethod?.apply {
             val showBottomSheetIndex = implementation!!.instructions.lastIndex - 1
 
             removeInstruction(showBottomSheetIndex)
         }
+
+        return PatchResultSuccess()
     }
 }

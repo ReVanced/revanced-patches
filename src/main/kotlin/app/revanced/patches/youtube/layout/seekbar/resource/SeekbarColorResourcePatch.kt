@@ -1,8 +1,7 @@
 package app.revanced.patches.youtube.layout.seekbar.resource
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.ResourcePatch
+import app.revanced.patcher.patch.*
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
@@ -11,11 +10,11 @@ import org.w3c.dom.Element
 @DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
 class SeekbarColorResourcePatch : ResourcePatch {
 
-    override fun execute(context: ResourceContext) {
+    override fun execute(context: ResourceContext): PatchResult {
         fun findColorResource(resourceName: String): Long {
             return ResourceMappingPatch.resourceMappings
                 .find { it.type == "color" && it.name == resourceName }?.id
-            ?: throw PatchException("Could not find color resource: $resourceName")
+            ?: throw PatchResultError("Could not find color resource: $resourceName")
         }
 
         reelTimeBarPlayedColorId =
@@ -30,7 +29,7 @@ class SeekbarColorResourcePatch : ResourcePatch {
             val layerList = editor.file.getElementsByTagName("layer-list").item(0) as Element
             val progressNode = layerList.getElementsByTagName("item").item(1) as Element
             if (!progressNode.getAttributeNode("android:id").value.endsWith("progress")) {
-                throw PatchException("Could not find progress bar")
+                return PatchResultError("Could not find progress bar")
             }
             val scaleNode = progressNode.getElementsByTagName("scale").item(0) as Element
             val shapeNode = scaleNode.getElementsByTagName("shape").item(0) as Element
@@ -38,6 +37,8 @@ class SeekbarColorResourcePatch : ResourcePatch {
                 "app.revanced.integrations.patches.theme.ProgressBarDrawable")
             scaleNode.replaceChild(replacementNode, shapeNode)
         }
+
+        return PatchResultSuccess()
     }
 
     companion object {

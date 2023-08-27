@@ -7,13 +7,15 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.reddit.customclients.AbstractSpoofClientPatch
 import app.revanced.patches.reddit.customclients.SpoofClientAnnotation
 import app.revanced.patches.reddit.customclients.relayforreddit.api.fingerprints.GetLoggedInBearerTokenFingerprint
 import app.revanced.patches.reddit.customclients.relayforreddit.api.fingerprints.GetLoggedOutBearerTokenFingerprint
 import app.revanced.patches.reddit.customclients.relayforreddit.api.fingerprints.GetRefreshTokenFingerprint
 import app.revanced.patches.reddit.customclients.relayforreddit.api.fingerprints.LoginActivityClientIdFingerprint
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @SpoofClientAnnotation
 @Description("Spoofs the client in order to allow logging in. " +
@@ -30,7 +32,7 @@ class SpoofClientPatch : AbstractSpoofClientPatch(
         GetRefreshTokenFingerprint
     )
 ) {
-    override fun List<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
+    override fun List<MethodFingerprintResult>.patchClientId(context: BytecodeContext): PatchResult {
         forEach {
             val clientIdIndex = it.scanResult.stringsScanResult!!.matches.first().index
             it.mutableMethod.apply {
@@ -42,6 +44,8 @@ class SpoofClientPatch : AbstractSpoofClientPatch(
                 )
             }
         }
+
+        return PatchResultSuccess()
     }
 
     companion object Options : AbstractSpoofClientPatch.Options.SpoofClientOptionsContainer()

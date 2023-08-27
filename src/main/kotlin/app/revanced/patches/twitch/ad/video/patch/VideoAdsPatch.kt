@@ -1,12 +1,14 @@
 package app.revanced.patches.twitch.ad.video.patch
 
-import app.revanced.extensions.exception
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
@@ -34,7 +36,7 @@ class VideoAdsPatch : AbstractAdPatch(
         GetReadyToShowAdFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext) {
+    override fun execute(context: BytecodeContext): PatchResult {
         /* Amazon ads SDK */
         context.blockMethods(
             "Lcom/amazon/ads/video/player/AdsManagerImpl;",
@@ -95,7 +97,7 @@ class VideoAdsPatch : AbstractAdPatch(
                 """,
                 ExternalLabel(skipLabelName, mutableMethod.getInstruction(0))
             )
-        } ?: throw CheckAdEligibilityLambdaFingerprint.exception
+        } ?: return CheckAdEligibilityLambdaFingerprint.toErrorResult()
 
         GetReadyToShowAdFingerprint.result?.apply {
             val adFormatDeclined = "Ltv/twitch/android/shared/display/ads/theatre/StreamDisplayAdsPresenter\$Action\$AdFormatDeclined;"
@@ -110,7 +112,7 @@ class VideoAdsPatch : AbstractAdPatch(
                 """,
                 ExternalLabel(skipLabelName, mutableMethod.getInstruction(0))
             )
-        } ?: throw GetReadyToShowAdFingerprint.exception
+        } ?: return GetReadyToShowAdFingerprint.toErrorResult()
 
         // Spoof showAds JSON field
         ContentConfigShowAdsFingerprint.result?.apply {
@@ -121,7 +123,7 @@ class VideoAdsPatch : AbstractAdPatch(
                     return v0
                 """
             )
-        }  ?: throw ContentConfigShowAdsFingerprint.exception
+        }  ?: return ContentConfigShowAdsFingerprint.toErrorResult()
 
         SettingsPatch.PreferenceScreen.ADS.CLIENT_SIDE.addPreferences(
             SwitchPreference(
@@ -141,5 +143,7 @@ class VideoAdsPatch : AbstractAdPatch(
                 default = true
             )
         )
+
+        return PatchResultSuccess()
     }
 }

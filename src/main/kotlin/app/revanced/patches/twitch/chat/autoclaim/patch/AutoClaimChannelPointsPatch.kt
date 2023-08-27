@@ -1,12 +1,14 @@
 package app.revanced.patches.twitch.chat.autoclaim.patch
 
-import app.revanced.extensions.exception
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
@@ -24,7 +26,7 @@ import app.revanced.patches.twitch.misc.settings.bytecode.patch.SettingsPatch
 class AutoClaimChannelPointPatch : BytecodePatch(
     listOf(CommunityPointsButtonViewDelegateFingerprint)
 ) {
-    override fun execute(context: BytecodeContext) {
+    override fun execute(context: BytecodeContext): PatchResult {
         SettingsPatch.PreferenceScreen.CHAT.GENERAL.addPreferences(
             SwitchPreference(
                 "revanced_auto_claim_channel_points",
@@ -60,6 +62,8 @@ class AutoClaimChannelPointPatch : BytecodePatch(
                 """,
                 ExternalLabel("auto_claim", getInstruction(lastIndex))
             )
-        } ?: throw CommunityPointsButtonViewDelegateFingerprint.exception
+        } ?: return CommunityPointsButtonViewDelegateFingerprint.toErrorResult()
+
+        return PatchResultSuccess()
     }
 }

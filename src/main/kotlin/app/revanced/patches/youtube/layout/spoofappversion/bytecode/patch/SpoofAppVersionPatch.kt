@@ -1,11 +1,13 @@
 package app.revanced.patches.youtube.layout.spoofappversion.bytecode.patch
 
-import app.revanced.extensions.exception
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.settings.preference.impl.ArrayResource
@@ -16,7 +18,7 @@ import app.revanced.patches.youtube.layout.spoofappversion.annotations.SpoofAppV
 import app.revanced.patches.youtube.layout.spoofappversion.bytecode.fingerprints.SpoofAppVersionFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
@@ -28,7 +30,7 @@ class SpoofAppVersionPatch : BytecodePatch(
         SpoofAppVersionFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext) {
+    override fun execute(context: BytecodeContext): PatchResult {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_spoof_app_version",
@@ -77,7 +79,9 @@ class SpoofAppVersionPatch : BytecodePatch(
                     move-result-object v$buildOverrideNameRegister
                 """
             )
-        } ?: throw SpoofAppVersionFingerprint.exception
+        } ?: return SpoofAppVersionFingerprint.toErrorResult()
+
+        return PatchResultSuccess()
     }
 
     private companion object {

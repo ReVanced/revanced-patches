@@ -1,14 +1,11 @@
 package app.revanced.patches.reddit.customclients
 
 import android.os.Environment
-import app.revanced.extensions.exception
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.OptionsContainer
-import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.PatchOption
+import app.revanced.patcher.patch.*
 import java.io.File
 
 abstract class AbstractSpoofClientPatch(
@@ -20,13 +17,13 @@ abstract class AbstractSpoofClientPatch(
     addAll(clientIdFingerprints)
     userAgentFingerprints?.let(::addAll)
 }) {
-    override fun execute(context: BytecodeContext) {
+    override fun execute(context: BytecodeContext): PatchResult {
         if (options.clientId == null) {
             // Ensure device runs Android.
             try {
                 Class.forName("android.os.Environment")
             } catch (e: ClassNotFoundException) {
-                throw PatchException("No client ID provided")
+                return PatchResultError("No client ID provided")
             }
 
             File(Environment.getExternalStorageDirectory(), "reddit_client_id_revanced.txt").also {
@@ -34,23 +31,29 @@ abstract class AbstractSpoofClientPatch(
 
                 val error = """
                     In order to use this patch, you need to provide a client ID.
-                    You can do that by creating a file at ${it.absolutePath} with the client ID as its content.
+                    You can do this by creating a file at ${it.absolutePath} with the client ID as its content.
                     Alternatively, you can provide the client ID using patch options.
                     
                     You can get your client ID from https://www.reddit.com/prefs/apps.
                     The application type has to be "Installed app" and the redirect URI has to be set to "$redirectUri".
                 """.trimIndent()
 
-                throw PatchException(error)
+                return PatchResultError(error)
             }.let { options.clientId = it.readText().trim() }
         }
 
         fun List<MethodFingerprint>?.executePatch(
-            patch: List<MethodFingerprintResult>.(BytecodeContext) -> Unit
-        ) = this?.map { it.result ?: throw it.exception }?.patch(context)
+            patch: List<MethodFingerprintResult>.(BytecodeContext) -> PatchResult
+        ) {
+            when (val result = this?.map { it.result ?: throw it.toErrorResult() }?.patch(context)) {
+                is PatchResultError -> throw result
+            }
+        }
 
         clientIdFingerprints.executePatch { patchClientId(context) }
         userAgentFingerprints.executePatch { patchUserAgent(context) }
+
+        return PatchResultSuccess()
     }
 
     /**
@@ -59,7 +62,7 @@ abstract class AbstractSpoofClientPatch(
      * @param context The current [BytecodeContext].
      *
      */
-    abstract fun List<MethodFingerprintResult>.patchClientId(context: BytecodeContext)
+    abstract fun List<MethodFingerprintResult>.patchClientId(context: BytecodeContext): PatchResult
 
     /**
      * Patch the user agent. The fingerprints are guaranteed to be in the same order as in [userAgentFingerprints].
@@ -67,7 +70,8 @@ abstract class AbstractSpoofClientPatch(
      * @param context The current [BytecodeContext].
      */
     // Not every client needs to patch the user agent.
-    open fun List<MethodFingerprintResult>.patchUserAgent(context: BytecodeContext) {}
+    open fun List<MethodFingerprintResult>.patchUserAgent(context: BytecodeContext): PatchResult =
+        PatchResultSuccess()
 
     companion object Options {
         open class SpoofClientOptionsContainer : OptionsContainer() {

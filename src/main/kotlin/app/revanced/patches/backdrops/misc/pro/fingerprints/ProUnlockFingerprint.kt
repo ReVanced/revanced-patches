@@ -1,7 +1,7 @@
 package app.revanced.patches.backdrops.misc.pro.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import com.android.tools.smali.dexlib2.Opcode
+import org.jf.dexlib2.Opcode
 
 object ProUnlockFingerprint : MethodFingerprint(
     opcodes = listOf(

@@ -1,8 +1,10 @@
-package app.revanced.patches.all.activity.exportall.patch
+package app.revanced.patches.all.activity.exportAll.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.Patch
 
@@ -10,7 +12,7 @@ import app.revanced.patcher.patch.annotations.Patch
 @Name("Export all activities")
 @Description("Makes all app activities exportable.")
 class ExportAllActivitiesPatch : ResourcePatch {
-    override fun execute(context: ResourceContext) {
+    override fun execute(context: ResourceContext): PatchResult {
         context.xmlEditor["AndroidManifest.xml"].use { editor ->
             val document = editor.file
             val activities = document.getElementsByTagName("activity")
@@ -31,6 +33,8 @@ class ExportAllActivitiesPatch : ResourcePatch {
                 }
             }
         }
+
+        return PatchResultSuccess()
     }
 
     private companion object {

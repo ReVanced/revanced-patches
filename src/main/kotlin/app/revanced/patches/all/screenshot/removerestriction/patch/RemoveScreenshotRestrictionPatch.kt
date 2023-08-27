@@ -5,19 +5,17 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.annotations.RequiresIntegrations
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.util.patch.AbstractTransformInstructionsPatch
-import app.revanced.util.patch.IMethodCall
-import app.revanced.util.patch.Instruction35cInfo
-import app.revanced.util.patch.filterMapInstruction35c
-import com.android.tools.smali.dexlib2.iface.ClassDef
-import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.instruction.Instruction
+import app.revanced.util.patch.*
+import org.jf.dexlib2.iface.ClassDef
+import org.jf.dexlib2.iface.Method
+import org.jf.dexlib2.iface.instruction.Instruction
+import java.util.*
 
 @Patch(false)
 @Name("Remove screenshot restriction")
 @Description("Removes the restriction of taking screenshots in apps that normally wouldn't allow it.")
 @RequiresIntegrations
-class RemoveScreenshotRestrictionPatch : AbstractTransformInstructionsPatch<Instruction35cInfo>() {
+internal class RemoveScreenshotRestrictionPatch : AbstractTransformInstructionsPatch<Instruction35cInfo>() {
 
     private companion object {
         const val INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX =

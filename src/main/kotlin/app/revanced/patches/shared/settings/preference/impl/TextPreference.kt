@@ -13,7 +13,7 @@ import org.w3c.dom.Document
  * @param summary The summary of the text preference.
  * @param default The default value of the text preference.
  */
-class TextPreference(
+internal class TextPreference(
     key: String?,
     title: StringResource,
     summary: StringResource?,

@@ -5,6 +5,8 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.idaustria.detection.shared.annotations.DetectionCompatibility
 import app.revanced.patches.idaustria.detection.signature.fingerprints.SpoofSignatureFingerprint
@@ -30,7 +32,7 @@ class SpoofSignaturePatch : BytecodePatch(
                 "bf42c121d620ddfb7914f7a95c713d9e1c1b7bdb4a03d618e40cf7e9e235c0b5687e03b7ab3,publicExponent=10001}"
     }
 
-    override fun execute(context: BytecodeContext) {
+    override fun execute(context: BytecodeContext): PatchResult {
         SpoofSignatureFingerprint.result!!.mutableMethod.addInstructions(
             0,
             """
@@ -38,5 +40,6 @@ class SpoofSignaturePatch : BytecodePatch(
                 return-object v0 
             """
         )
+        return PatchResultSuccess()
     }
 }

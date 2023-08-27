@@ -1,13 +1,16 @@
 package app.revanced.patches.youtube.misc.minimizedplayback.patch
 
-import app.revanced.extensions.exception
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -21,8 +24,8 @@ import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.Minimize
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackSettingsParentFingerprint
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import org.jf.dexlib2.iface.instruction.ReferenceInstruction
+import org.jf.dexlib2.iface.reference.MethodReference
 
 @Patch
 @Name("Minimized playback")
@@ -36,7 +39,7 @@ class MinimizedPlaybackPatch : BytecodePatch(
         KidsMinimizedPlaybackPolicyControllerFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext) {
+    override fun execute(context: BytecodeContext): PatchResult {
         // TODO: remove this empty preference sometime after mid 2023
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             NonInteractivePreference(
@@ -54,10 +57,10 @@ class MinimizedPlaybackPatch : BytecodePatch(
                     return v0
                 """
             )
-        } ?: throw MinimizedPlaybackManagerFingerprint.exception
+        } ?: return MinimizedPlaybackManagerFingerprint.toErrorResult()
 
         // Enable minimized playback option in YouTube settings
-        MinimizedPlaybackSettingsParentFingerprint.result ?: throw MinimizedPlaybackSettingsParentFingerprint.exception
+        MinimizedPlaybackSettingsParentFingerprint.result ?: return MinimizedPlaybackSettingsParentFingerprint.toErrorResult()
         MinimizedPlaybackSettingsFingerprint.resolve(context, MinimizedPlaybackSettingsParentFingerprint.result!!.classDef)
         MinimizedPlaybackSettingsFingerprint.result?.apply {
             val booleanCalls = method.implementation!!.instructions.withIndex()
@@ -75,7 +78,7 @@ class MinimizedPlaybackPatch : BytecodePatch(
                     return v0
                 """
             )
-        } ?: throw MinimizedPlaybackSettingsFingerprint.exception
+        } ?: return MinimizedPlaybackSettingsFingerprint.toErrorResult()
 
         // Force allowing background play for videos labeled for kids.
         // Some regions and YouTube accounts do not require this patch.
@@ -84,7 +87,9 @@ class MinimizedPlaybackPatch : BytecodePatch(
                 0,
                 "return-void"
             )
-        } ?: throw KidsMinimizedPlaybackPolicyControllerFingerprint.exception
+        } ?: return KidsMinimizedPlaybackPolicyControllerFingerprint.toErrorResult()
+
+        return PatchResultSuccess()
     }
 
     private companion object {

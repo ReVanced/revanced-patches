@@ -6,6 +6,8 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.ticktick.misc.themeunlock.annotations.UnlockThemesCompatibility
 import app.revanced.patches.ticktick.misc.themeunlock.fingerprints.CheckLockedThemesFingerprint
@@ -21,7 +23,7 @@ class UnlockProPatch : BytecodePatch(
         SetThemeFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext) {
+    override fun execute(context: BytecodeContext): PatchResult {
         val lockedThemesMethod = CheckLockedThemesFingerprint.result!!.mutableMethod
         lockedThemesMethod.addInstructions(
             0,
@@ -33,5 +35,7 @@ class UnlockProPatch : BytecodePatch(
         
         val setThemeMethod = SetThemeFingerprint.result!!.mutableMethod
         setThemeMethod.removeInstructions(0, 10)
+        
+        return PatchResultSuccess()
     }
 }

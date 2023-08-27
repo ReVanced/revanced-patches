@@ -2,8 +2,8 @@ package app.revanced.patches.youtube.layout.sponsorblock.bytecode.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.Opcode
+import org.jf.dexlib2.AccessFlags
+import org.jf.dexlib2.Opcode
 
 object ControlsOverlayFingerprint : MethodFingerprint(
     returnType = "V",
@@ -19,6 +19,9 @@ object ControlsOverlayFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,
-        Opcode.NEW_INSTANCE
-    )
+        Opcode.NEW_INSTANCE,
+        ),
+    customFingerprint = { methodDef, _ ->
+        methodDef.definingClass == "Lcom/google/android/apps/youtube/app/player/overlay/YouTubeControlsOverlay;"
+    }
 )

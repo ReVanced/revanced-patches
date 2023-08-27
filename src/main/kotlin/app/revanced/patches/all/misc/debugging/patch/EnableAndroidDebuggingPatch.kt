@@ -9,9 +9,9 @@ import org.w3c.dom.Element
 
 @Patch(false)
 @Name("Enable android debugging")
-@Description("Enables Android debugging capabilities. This can slow down the app.")
+@Description("Enables Android debugging capabilities.")
 class EnableAndroidDebuggingPatch : ResourcePatch {
-    override fun execute(context: ResourceContext) {
+    override fun execute(context: ResourceContext): PatchResult {
         context.xmlEditor["AndroidManifest.xml"].use { dom ->
             val applicationNode = dom
                 .file
@@ -21,6 +21,8 @@ class EnableAndroidDebuggingPatch : ResourcePatch {
             // set application as debuggable
             applicationNode.setAttribute("android:debuggable", "true")
         }
+
+        return PatchResultSuccess()
     }
 
 }

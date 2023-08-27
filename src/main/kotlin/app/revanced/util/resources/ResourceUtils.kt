@@ -1,22 +1,20 @@
 package app.revanced.util.resources
 
+import app.revanced.patcher.data.DomFileEditor
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.util.DomFileEditor
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import org.w3c.dom.Node
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 
-@Suppress("MemberVisibilityCanBePrivate")
-object ResourceUtils {
+internal object ResourceUtils {
 
     /**
      * Merge strings. This manages [StringResource]s automatically.
-     *
      * @param host The hosting xml resource. Needs to be a valid strings.xml resource.
      */
-    fun ResourceContext.mergeStrings(host: String) {
+    internal fun ResourceContext.mergeStrings(host: String) {
         this.iterateXmlNodeChildren(host, "resources") {
             // TODO: figure out why this is needed
             if (!it.hasAttributes()) return@iterateXmlNodeChildren
@@ -33,11 +31,10 @@ object ResourceUtils {
 
     /**
      * Copy resources from the current class loader to the resource directory.
-     *
      * @param sourceResourceDirectory The source resource directory name.
      * @param resources The resources to copy.
      */
-    fun ResourceContext.copyResources(sourceResourceDirectory: String, vararg resources: ResourceGroup) {
+    internal fun ResourceContext.copyResources(sourceResourceDirectory: String, vararg resources: ResourceGroup) {
         val classLoader = ResourceUtils.javaClass.classLoader
         val targetResourceDirectory = this["res"]
 
@@ -57,7 +54,7 @@ object ResourceUtils {
      * @param resourceDirectoryName The name of the directory of the resource.
      * @param resources A list of resource names.
      */
-    class ResourceGroup(val resourceDirectoryName: String, vararg val resources: String)
+    internal class ResourceGroup(val resourceDirectoryName: String, vararg val resources: String)
 
     /**
      * Iterate through the children of a node by its tag.
@@ -65,7 +62,7 @@ object ResourceUtils {
      * @param targetTag The target xml node.
      * @param callback The callback to call when iterating over the nodes.
      */
-    fun ResourceContext.iterateXmlNodeChildren(
+    internal fun ResourceContext.iterateXmlNodeChildren(
         resource: String,
         targetTag: String,
         callback: (node: Node) -> Unit

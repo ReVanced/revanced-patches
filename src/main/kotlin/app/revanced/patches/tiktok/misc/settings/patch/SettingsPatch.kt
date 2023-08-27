@@ -1,6 +1,6 @@
 package app.revanced.patches.tiktok.misc.settings.patch
 
-import app.revanced.extensions.exception
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -8,15 +8,17 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.tiktok.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.tiktok.misc.settings.annotations.SettingsCompatibility
 import app.revanced.patches.tiktok.misc.settings.fingerprints.*
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
+import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.builder.instruction.BuilderInstruction35c
+import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch
 @DependsOn([IntegrationsPatch::class])
@@ -31,12 +33,12 @@ class SettingsPatch : BytecodePatch(
         SettingsEntryInfoFingerprint,
     )
 ) {
-    override fun execute(context: BytecodeContext) {
+    override fun execute(context: BytecodeContext): PatchResult {
         // Find the class name of classes which construct a settings entry
         val settingsButtonClass = SettingsEntryFingerprint.result?.classDef?.type?.toClassName()
-            ?: throw SettingsEntryFingerprint.exception
+            ?: return SettingsEntryFingerprint.toErrorResult()
         val settingsButtonInfoClass = SettingsEntryInfoFingerprint.result?.classDef?.type?.toClassName()
-            ?: throw SettingsEntryInfoFingerprint.exception
+            ?: return SettingsEntryInfoFingerprint.toErrorResult()
 
         // Create a settings entry for 'revanced settings' and add it to settings fragment
         AddSettingsEntryFingerprint.result?.apply {
@@ -64,7 +66,7 @@ class SettingsPatch : BytecodePatch(
                     """
                 )
             }
-        } ?: throw AddSettingsEntryFingerprint.exception
+        } ?: return AddSettingsEntryFingerprint.toErrorResult()
 
         // Initialize the settings menu once the replaced setting entry is clicked.
         AdPersonalizationActivityOnCreateFingerprint.result?.mutableMethod?.apply {
@@ -85,7 +87,9 @@ class SettingsPatch : BytecodePatch(
                 """,
                 ExternalLabel("notrevanced", getInstruction(initializeSettingsIndex))
             )
-        } ?: throw AdPersonalizationActivityOnCreateFingerprint.exception
+        } ?: return AdPersonalizationActivityOnCreateFingerprint.toErrorResult()
+
+        return PatchResultSuccess()
     }
 
     private fun String.toClassName(): String {

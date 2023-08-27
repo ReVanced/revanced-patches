@@ -1,25 +1,25 @@
 package app.revanced.patches.youtube.interaction.seekbar.patch
 
-import app.revanced.extensions.exception
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.interaction.seekbar.annotation.SeekbarTappingCompatibility
-import app.revanced.patches.youtube.interaction.seekbar.fingerprints.OnTouchEventHandlerFingerprint
+import app.revanced.patches.youtube.interaction.seekbar.fingerprints.AccessibilityPlayerProgressTimeFingerprint
 import app.revanced.patches.youtube.interaction.seekbar.fingerprints.SeekbarTappingFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.iface.Method
+import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
+import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch
 @DependsOn([IntegrationsPatch::class, EnableSeekbarTappingResourcePatch::class])
@@ -27,23 +27,37 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 @Description("Enables tap-to-seek on the seekbar of the video player.")
 @SeekbarTappingCompatibility
 class EnableSeekbarTappingPatch : BytecodePatch(
-    listOf(OnTouchEventHandlerFingerprint, SeekbarTappingFingerprint)
+    listOf(AccessibilityPlayerProgressTimeFingerprint, SeekbarTappingFingerprint)
 ) {
-    override fun execute(context: BytecodeContext) {
+    override fun execute(context: BytecodeContext): PatchResult {
         // Find the required methods to tap the seekbar.
-        val seekbarTappingMethods = OnTouchEventHandlerFingerprint.result?.let {
-            val patternScanResult = it.scanResult.patternScanResult!!
+        val seekbarTappingMethods =
+            AccessibilityPlayerProgressTimeFingerprint.result?.classDef?.methods?.let { methods ->
+                buildMap {
+                    // find the methods which tap the seekbar
+                    methods.forEach { method ->
+                        if (method.implementation == null) return@forEach
 
-            fun getReference(index: Int) = it.mutableMethod.getInstruction<ReferenceInstruction>(index)
-                .reference as MethodReference
+                        val instructions = method.implementation!!.instructions
 
-            buildMap {
-                put("O", getReference(patternScanResult.endIndex))
-                put("N", getReference(patternScanResult.startIndex))
+                        // The method has more than 7 instructions.
+                        if (instructions.count() < 7) return@forEach
+
+                        // The 7th instruction has the opcode CONST_4.
+                        val instruction = instructions.elementAt(6)
+                        if (instruction.opcode != Opcode.CONST_4) return@forEach
+
+                        // the literal for this instruction has to be either 1 or 2.
+                        val literal = (instruction as NarrowLiteralInstruction).narrowLiteral
+
+                        // Based on the literal, determine which method is which.
+                        if (literal == 1) this["P"] = method
+                        if (literal == 2) this["O"] = method
+                    }
+                }
             }
-        }
 
-        seekbarTappingMethods ?: throw OnTouchEventHandlerFingerprint.exception
+        seekbarTappingMethods ?: return AccessibilityPlayerProgressTimeFingerprint.toErrorResult()
 
         SeekbarTappingFingerprint.result?.let {
             val insertIndex = it.scanResult.patternScanResult!!.endIndex - 1
@@ -54,11 +68,11 @@ class EnableSeekbarTappingPatch : BytecodePatch(
                 val freeRegister = 0
                 val xAxisRegister = 2
 
+                val pMethod = seekbarTappingMethods["P"]!!
                 val oMethod = seekbarTappingMethods["O"]!!
-                val nMethod = seekbarTappingMethods["N"]!!
 
-                fun MethodReference.toInvokeInstructionString() =
-                    "invoke-virtual { v$thisInstanceRegister, v$xAxisRegister }, $this"
+                fun Method.toInvokeInstructionString() =
+                    "invoke-virtual { v$thisInstanceRegister, v$xAxisRegister }, $definingClass->$name(I)V"
 
                 addInstructionsWithLabels(
                     insertIndex,
@@ -67,11 +81,13 @@ class EnableSeekbarTappingPatch : BytecodePatch(
                         move-result v$freeRegister
                         if-eqz v$freeRegister, :disabled
                         ${oMethod.toInvokeInstructionString()}
-                        ${nMethod.toInvokeInstructionString()}
+                        ${pMethod.toInvokeInstructionString()}
                     """,
                     ExternalLabel("disabled", getInstruction(insertIndex))
                 )
             }
-        } ?: throw SeekbarTappingFingerprint.exception
+        } ?: return SeekbarTappingFingerprint.toErrorResult()
+
+        return PatchResultSuccess()
     }
 }

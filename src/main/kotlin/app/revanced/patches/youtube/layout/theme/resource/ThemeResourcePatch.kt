@@ -1,7 +1,9 @@
 package app.revanced.patches.youtube.layout.theme.resource
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchException
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultError
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
@@ -17,7 +19,7 @@ import org.w3c.dom.Element
 
 @DependsOn([SettingsPatch::class, ResourceMappingPatch::class, SeekbarPreferencesPatch::class])
 class ThemeResourcePatch : ResourcePatch {
-    override fun execute(context: ResourceContext) {
+    override fun execute(context: ResourceContext): PatchResult {
         SeekbarPreferencesPatch.addPreferences(
             SwitchPreference(
                 "revanced_seekbar_custom_color",
@@ -83,11 +85,13 @@ class ThemeResourcePatch : ResourcePatch {
                             return@editSplashScreen
                         }
                     }
-                    throw PatchException("Failed to modify launch screen")
+                    return PatchResultError("Failed to modify launch screen")
                 }
             }
         }
 
+
+        return PatchResultSuccess()
     }
 
     private fun addColorResource(

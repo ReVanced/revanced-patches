@@ -7,7 +7,9 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchException
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultError
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.settings.preference.impl.StringResource
@@ -28,7 +30,7 @@ class AutoRepeatPatch : BytecodePatch(
         AutoRepeatParentFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext) {
+    override fun execute(context: BytecodeContext): PatchResult {
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             SwitchPreference(
                 "revanced_auto_repeat",
@@ -40,7 +42,7 @@ class AutoRepeatPatch : BytecodePatch(
 
         //Get Result from the ParentFingerprint which is the playMethod we need to get.
         val parentResult = AutoRepeatParentFingerprint.result
-            ?: throw PatchException("ParentFingerprint did not resolve.")
+            ?: return PatchResultError("ParentFingerprint did not resolve.")
 
         //this one needs to be called when app/revanced/integrations/patches/AutoRepeatPatch;->shouldAutoRepeat() returns true
         val playMethod = parentResult.mutableMethod
@@ -50,7 +52,7 @@ class AutoRepeatPatch : BytecodePatch(
 
         //This is the method we search for
         val result = AutoRepeatFingerprint.result
-            ?: throw PatchException("FingerPrint did not resolve.")
+            ?: return PatchResultError("FingerPrint did not resolve.")
         val method = result.mutableMethod
 
         //Instructions to add to the smali code
@@ -65,7 +67,7 @@ class AutoRepeatPatch : BytecodePatch(
 
         //Get the implementation so we can do a check for null and get instructions size.
         val implementation = method.implementation
-            ?: throw PatchException("No Method Implementation found!")
+            ?: return PatchResultError("No Method Implementation found!")
 
         //Since addInstructions needs an index which starts counting at 0 and size starts counting at 1,
         //we have to remove 1 to get the latest instruction
@@ -78,5 +80,6 @@ class AutoRepeatPatch : BytecodePatch(
         method.addInstructionsWithLabels(index, instructions)
 
         //Everything worked as expected, return Success
+        return PatchResultSuccess()
     }
 }

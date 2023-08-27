@@ -4,6 +4,8 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.fingerprints.WatchWhileActivityFingerprint
@@ -38,7 +40,7 @@ class MicroGBytecodePatch : BytecodePatch(
         WatchWhileActivityFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext) {
+    override fun execute(context: BytecodeContext): PatchResult {
         // apply common microG patch
         MicroGBytecodeHelper.patchBytecode(
             context, arrayOf(
@@ -63,5 +65,7 @@ class MicroGBytecodePatch : BytecodePatch(
 
         // inject the notice for MicroG
         MicroGBytecodeHelper.injectNotice(WatchWhileActivityFingerprint)
+
+        return PatchResultSuccess()
     }
 }

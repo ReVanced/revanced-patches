@@ -1,12 +1,14 @@
 package app.revanced.patches.youtube.video.speed.remember.patch
 
-import app.revanced.extensions.exception
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.settings.preference.impl.ArrayResource
@@ -18,7 +20,7 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.video.information.patch.VideoInformationPatch
 import app.revanced.patches.youtube.video.speed.custom.patch.CustomPlaybackSpeedPatch
 import app.revanced.patches.youtube.video.speed.remember.fingerprint.InitializePlaybackSpeedValuesFingerprint
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
 @Name("Remember playback speed")
 @Description("Adds the ability to remember the playback speed you chose in the playback speed flyout.")
@@ -28,7 +30,7 @@ class RememberPlaybackSpeedPatch : BytecodePatch(
         InitializePlaybackSpeedValuesFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext) {
+    override fun execute(context: BytecodeContext): PatchResult {
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
             SwitchPreference(
                 "revanced_remember_playback_speed_last_selected",
@@ -103,7 +105,9 @@ class RememberPlaybackSpeedPatch : BytecodePatch(
                 """.trimIndent(),
                 ExternalLabel("do_not_override", mutableMethod.getInstruction(0))
             )
-        } ?: throw InitializePlaybackSpeedValuesFingerprint.exception
+        } ?: return InitializePlaybackSpeedValuesFingerprint.toErrorResult()
+
+        return PatchResultSuccess()
     }
 
     private companion object {

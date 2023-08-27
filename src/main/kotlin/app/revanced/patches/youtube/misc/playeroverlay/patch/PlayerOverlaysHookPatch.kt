@@ -5,6 +5,8 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playeroverlay.annotation.PlayerOverlaysHookCompatibility
@@ -19,12 +21,13 @@ class PlayerOverlaysHookPatch : BytecodePatch(
         PlayerOverlaysOnFinishInflateFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext) {
+    override fun execute(context: BytecodeContext): PatchResult {
         // hook YouTubePlayerOverlaysLayout.onFinishInflate()
         val method = PlayerOverlaysOnFinishInflateFingerprint.result!!.mutableMethod
         method.addInstruction(
             method.implementation!!.instructions.size - 2,
             "invoke-static { p0 }, Lapp/revanced/integrations/patches/PlayerOverlaysHookPatch;->YouTubePlayerOverlaysLayout_onFinishInflateHook(Ljava/lang/Object;)V"
         )
+        return PatchResultSuccess()
     }
 }

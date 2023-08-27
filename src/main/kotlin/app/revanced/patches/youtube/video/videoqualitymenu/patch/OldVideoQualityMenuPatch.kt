@@ -6,6 +6,8 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.misc.bottomsheet.hook.patch.BottomSheetHookPatch
@@ -13,7 +15,7 @@ import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.patch.LithoFilterPatch
 import app.revanced.patches.youtube.video.videoqualitymenu.annotations.OldVideoQualityMenuCompatibility
 import app.revanced.patches.youtube.video.videoqualitymenu.fingerprints.VideoQualityMenuViewInflateFingerprint
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @DependsOn([
@@ -28,7 +30,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 class OldVideoQualityMenuPatch : BytecodePatch(
     listOf(VideoQualityMenuViewInflateFingerprint)
 ) {
-    override fun execute(context: BytecodeContext) {
+    override fun execute(context: BytecodeContext): PatchResult {
         // region Patch for the old type of the video quality menu.
 
         VideoQualityMenuViewInflateFingerprint.result?.let {
@@ -55,6 +57,8 @@ class OldVideoQualityMenuPatch : BytecodePatch(
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
 
         // endregion
+
+        return PatchResultSuccess()
     }
 
     private companion object {

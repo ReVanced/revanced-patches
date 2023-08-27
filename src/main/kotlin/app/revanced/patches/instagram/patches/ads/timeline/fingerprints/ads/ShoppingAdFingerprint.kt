@@ -1,6 +1,6 @@
 package app.revanced.patches.instagram.patches.ads.timeline.fingerprints.ads
 
-import com.android.tools.smali.dexlib2.Opcode
+import org.jf.dexlib2.Opcode
 
 object ShoppingAdFingerprint : MediaAdFingerprint(
     opcodes = listOf(

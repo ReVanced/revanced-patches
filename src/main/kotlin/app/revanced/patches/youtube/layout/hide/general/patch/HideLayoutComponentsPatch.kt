@@ -1,13 +1,15 @@
 package app.revanced.patches.youtube.layout.hide.general.patch
 
-import app.revanced.extensions.exception
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
@@ -15,12 +17,10 @@ import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.shared.settings.preference.impl.TextPreference
 import app.revanced.patches.youtube.layout.hide.general.annotations.HideLayoutComponentsCompatibility
-import app.revanced.patches.youtube.layout.hide.general.fingerprints.ParseElementFromBufferFingerprint
+import app.revanced.patches.youtube.layout.hide.general.fingerprints.ConvertElementToFlatBufferFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.patch.LithoFilterPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch.PreferenceScreen
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch
 @Name("Hide layout components")
@@ -28,9 +28,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 @DependsOn([LithoFilterPatch::class, SettingsPatch::class])
 @HideLayoutComponentsCompatibility
 class HideLayoutComponentsPatch : BytecodePatch(
-    listOf(ParseElementFromBufferFingerprint)
+    listOf(ConvertElementToFlatBufferFingerprint)
 ) {
-    override fun execute(context: BytecodeContext) {
+    override fun execute(context: BytecodeContext): PatchResult {
         PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_hide_gray_separator",
@@ -251,28 +251,34 @@ class HideLayoutComponentsPatch : BytecodePatch(
 
         // region Mix playlists
 
-        ParseElementFromBufferFingerprint.result?.let { result ->
-            val returnEmptyComponentInstruction = result.mutableMethod.getInstructions()
-                .last { it.opcode == Opcode.INVOKE_STATIC }
+        ConvertElementToFlatBufferFingerprint.result?.let {
+            val returnEmptyComponentIndex = it.scanResult.stringsScanResult!!.matches.first().index + 2
 
-            result.mutableMethod.apply {
-                val consumeByteBufferIndex = result.scanResult.patternScanResult!!.startIndex
-                val byteBufferRegister = getInstruction<FiveRegisterInstruction>(consumeByteBufferIndex).registerD
+            it.mutableMethod.apply {
+                // The last virtual register (not parameter). Used to store the byte array
+                // that may contain information about a mix playlist.
+                val freeRegister = (implementation!!.registerCount - 1) - parameterTypes.size - 1
 
+                // Check if the byte array contains anything about a mix playlist.
                 addInstructionsWithLabels(
-                    result.scanResult.patternScanResult!!.startIndex,
+                    it.scanResult.patternScanResult!!.startIndex,
                     """
-                        invoke-static {v$byteBufferRegister}, $FILTER_CLASS_DESCRIPTOR->filterMixPlaylists([B)Z
-                        move-result v0 # Conveniently same register happens to be free. 
-                        if-nez v0, :return_empty_component
+                        invoke-static {v$freeRegister}, $FILTER_CLASS_DESCRIPTOR->filterMixPlaylists([B)Z
+                        move-result v$freeRegister
+                        if-nez v$freeRegister, :return_empty_component
                     """,
-                    ExternalLabel("return_empty_component", returnEmptyComponentInstruction)
+                    ExternalLabel("return_empty_component", getInstruction(returnEmptyComponentIndex))
                 )
+
+                // Move the byte array to a free register.
+                addInstruction(0, "move-object/from16 v$freeRegister, p3")
             }
 
-        } ?: throw ParseElementFromBufferFingerprint.exception
+        } ?: return ConvertElementToFlatBufferFingerprint.toErrorResult()
 
         // endregion
+
+        return PatchResultSuccess()
     }
 
     internal companion object {
