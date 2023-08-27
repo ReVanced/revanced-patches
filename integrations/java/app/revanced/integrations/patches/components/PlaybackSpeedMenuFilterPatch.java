@@ -8,14 +8,14 @@ public final class PlaybackSpeedMenuFilterPatch extends Filter {
     public static volatile boolean isPlaybackSpeedMenuVisible;
 
     public PlaybackSpeedMenuFilterPatch() {
-        pathFilterGroups.addAll(new StringFilterGroup(
+        pathFilterGroupList.addAll(new StringFilterGroup(
                 null,
                 "playback_speed_sheet_content.eml-js"
         ));
     }
 
     @Override
-    boolean isFiltered(String path, @Nullable String identifier, byte[] protobufBufferArray,
+    boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                        FilterGroupList matchedList, FilterGroup matchedGroup, int matchedIndex) {
         isPlaybackSpeedMenuVisible = true;
 

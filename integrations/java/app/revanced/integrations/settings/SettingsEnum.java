@@ -1,26 +1,12 @@
 package app.revanced.integrations.settings;
 
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
-import static app.revanced.integrations.settings.SettingsEnum.ReturnType.BOOLEAN;
-import static app.revanced.integrations.settings.SettingsEnum.ReturnType.FLOAT;
-import static app.revanced.integrations.settings.SettingsEnum.ReturnType.INTEGER;
-import static app.revanced.integrations.settings.SettingsEnum.ReturnType.LONG;
-import static app.revanced.integrations.settings.SettingsEnum.ReturnType.STRING;
-import static app.revanced.integrations.settings.SharedPrefCategory.RETURN_YOUTUBE_DISLIKE;
-import static app.revanced.integrations.settings.SharedPrefCategory.SPONSOR_BLOCK;
-import static app.revanced.integrations.utils.StringRef.str;
-
 import android.content.Context;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 import app.revanced.integrations.sponsorblock.SponsorBlockSettings;
+import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.StringRef;
-import app.revanced.integrations.utils.LogHelper;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -28,6 +14,13 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+
+import static app.revanced.integrations.settings.SettingsEnum.ReturnType.*;
+import static app.revanced.integrations.settings.SharedPrefCategory.RETURN_YOUTUBE_DISLIKE;
+import static app.revanced.integrations.settings.SharedPrefCategory.SPONSOR_BLOCK;
+import static app.revanced.integrations.utils.StringRef.str;
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 
 
 public enum SettingsEnum {
@@ -89,12 +82,18 @@ public enum SettingsEnum {
 
     // Action buttons
     HIDE_LIKE_DISLIKE_BUTTON("revanced_hide_like_dislike_button", BOOLEAN, FALSE),
+    HIDE_LIVE_CHAT_BUTTON("revanced_hide_live_chat_button", BOOLEAN, FALSE),
+    HIDE_SHARE_BUTTON("revanced_hide_share_button", BOOLEAN, FALSE),
+    HIDE_REPORT_BUTTON("revanced_hide_report_button", BOOLEAN, FALSE),
+    HIDE_REMIX_BUTTON("revanced_hide_remix_button", BOOLEAN, TRUE),
     HIDE_DOWNLOAD_BUTTON("revanced_hide_download_button", BOOLEAN, FALSE),
+    HIDE_THANKS_BUTTON("revanced_hide_thanks_button", BOOLEAN, TRUE),
+    HIDE_CLIP_BUTTON("revanced_hide_clip_button", BOOLEAN, TRUE),
     HIDE_PLAYLIST_BUTTON("revanced_hide_playlist_button", BOOLEAN, FALSE),
-    HIDE_CLIP_BUTTON("revanced_hide_clip_button", BOOLEAN, FALSE, "revanced_hide_clip_button_user_dialog_message"),
-    HIDE_ACTION_BUTTONS("revanced_hide_action_buttons", BOOLEAN, FALSE),
+    HIDE_SHOP_BUTTON("revanced_hide_shop_button", BOOLEAN, TRUE),
 
     // Layout
+    PLAYER_OVERLAY_OPACITY("revanced_player_overlay_opacity", INTEGER, 100, true),
     DISABLE_RESUMING_SHORTS_PLAYER("revanced_disable_resuming_shorts_player", BOOLEAN, FALSE),
     HIDE_ALBUM_CARDS("revanced_hide_album_cards", BOOLEAN, FALSE, true),
     HIDE_ARTIST_CARDS("revanced_hide_artist_cards", BOOLEAN, FALSE),
@@ -115,7 +114,6 @@ public enum SettingsEnum {
     HIDE_INFO_CARDS("revanced_hide_info_cards", BOOLEAN, TRUE),
     HIDE_LOAD_MORE_BUTTON("revanced_hide_load_more_button", BOOLEAN, TRUE, true),
     HIDE_PLAYER_BUTTONS("revanced_hide_player_buttons", BOOLEAN, FALSE),
-    HIDE_PLAYER_OVERLAY("revanced_hide_player_overlay", BOOLEAN, FALSE, true),
     HIDE_PREVIEW_COMMENT("revanced_hide_preview_comment", BOOLEAN, FALSE, true),
     HIDE_SEEKBAR("revanced_hide_seekbar", BOOLEAN, FALSE),
     HIDE_SEEKBAR_THUMBNAIL("revanced_hide_seekbar_thumbnail", BOOLEAN, FALSE),
@@ -129,9 +127,8 @@ public enum SettingsEnum {
     SPOOF_APP_VERSION("revanced_spoof_app_version", BOOLEAN, FALSE, true, "revanced_spoof_app_version_user_dialog_message"),
     SPOOF_APP_VERSION_TARGET("revanced_spoof_app_version_target", STRING, "17.08.35", true, parents(SPOOF_APP_VERSION)),
     USE_TABLET_MINIPLAYER("revanced_tablet_miniplayer", BOOLEAN, FALSE, true),
+    TABLET_LAYOUT("revanced_tablet_layout", BOOLEAN, FALSE, true, "revanced_tablet_layout_user_dialog_message"),
     WIDE_SEARCHBAR("revanced_wide_searchbar", BOOLEAN, FALSE, true),
-    @Deprecated
-    DEPRECATED_SEEKBAR_COLOR("revanced_seekbar_color", STRING, "#FF0000"), // TODO: delete this
     SEEKBAR_CUSTOM_COLOR("revanced_seekbar_custom_color", BOOLEAN, TRUE, true),
     SEEKBAR_CUSTOM_COLOR_VALUE("revanced_seekbar_custom_color_value", STRING, "#FF0000", true, parents(SEEKBAR_CUSTOM_COLOR)),
     HIDE_FILTER_BAR_FEED_IN_FEED("revanced_hide_filter_bar_feed_in_feed", BOOLEAN, FALSE, true),
@@ -149,6 +146,10 @@ public enum SettingsEnum {
     HIDE_SHORTS_NAVIGATION_BAR("revanced_hide_shorts_navigation_bar", BOOLEAN, TRUE, true),
     HIDE_SHORTS("revanced_hide_shorts", BOOLEAN, FALSE, true),
 
+    ALT_THUMBNAIL("revanced_alt_thumbnail", BOOLEAN, FALSE),
+    ALT_THUMBNAIL_TYPE("revanced_alt_thumbnail_type", INTEGER, 2, parents(ALT_THUMBNAIL)),
+    ALT_THUMBNAIL_FAST_QUALITY("revanced_alt_thumbnail_fast_quality", BOOLEAN, FALSE, parents(ALT_THUMBNAIL)),
+
     //Player flyout menu items
     HIDE_QUALITY_MENU("revanced_hide_player_flyout_quality", BOOLEAN, FALSE),
     HIDE_CAPTIONS_MENU("revanced_hide_player_flyout_captions", BOOLEAN, FALSE),
@@ -158,7 +159,7 @@ public enum SettingsEnum {
     HIDE_HELP_MENU("revanced_hide_player_flyout_help", BOOLEAN, TRUE),
     HIDE_SPEED_MENU("revanced_hide_player_flyout_speed", BOOLEAN, FALSE),
     HIDE_MORE_INFO_MENU("revanced_hide_player_flyout_more_info", BOOLEAN, TRUE),
-    HIDE_AUDIO_TRACK_MENU("revanced_hide_player_flyout_audio_track", BOOLEAN, TRUE),
+    HIDE_AUDIO_TRACK_MENU("revanced_hide_player_flyout_audio_track", BOOLEAN, FALSE),
     HIDE_WATCH_IN_VR_MENU("revanced_hide_player_flyout_watch_in_vr", BOOLEAN, TRUE),
 
     // Misc
@@ -191,6 +192,7 @@ public enum SettingsEnum {
     // Debugging
     DEBUG("revanced_debug", BOOLEAN, FALSE),
     DEBUG_STACKTRACE("revanced_debug_stacktrace", BOOLEAN, FALSE, parents(DEBUG)),
+    DEBUG_PROTOBUFFER("revanced_debug_protobuffer", BOOLEAN, FALSE, parents(DEBUG)),
     DEBUG_TOAST_ON_ERROR("revanced_debug_toast_on_error", BOOLEAN, TRUE, "revanced_debug_toast_on_error_user_dialog_message"),
 
     // ReturnYoutubeDislike
@@ -373,14 +375,6 @@ public enum SettingsEnum {
 
         // TODO: delete DEPRECATED_SHOW_OLD_VIDEO_QUALITY_MENU (When? anytime).
         migrateOldSettingToNew(DEPRECATED_SHOW_OLD_VIDEO_QUALITY_MENU, SHOW_OLD_VIDEO_QUALITY_MENU);
-
-        // TODO: delete this seekbar color migration code
-        String oldSeekbarColorValue = DEPRECATED_SEEKBAR_COLOR.getString();
-        if (!oldSeekbarColorValue.equalsIgnoreCase((String) DEPRECATED_SEEKBAR_COLOR.defaultValue)) {
-            SEEKBAR_CUSTOM_COLOR_VALUE.saveValue(oldSeekbarColorValue);
-            SEEKBAR_CUSTOM_COLOR.saveValue(true);
-            DEPRECATED_SEEKBAR_COLOR.saveValue(DEPRECATED_SEEKBAR_COLOR.defaultValue);
-        }
 
         // endregion
     }
