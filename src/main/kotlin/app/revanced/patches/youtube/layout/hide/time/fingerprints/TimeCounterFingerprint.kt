@@ -1,28 +1,24 @@
 package app.revanced.patches.youtube.layout.hide.time.fingerprints
 
 import app.revanced.patcher.extensions.or
+import app.revanced.patcher.fingerprint.method.annotation.FuzzyPatternScanMethod
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
+@FuzzyPatternScanMethod(1)
 object TimeCounterFingerprint : MethodFingerprint(
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf(),
-    returnType = "V",
-    opcodes = listOf(
-        Opcode.SUB_LONG_2ADDR,
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
+    "V", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf(), listOf(
         Opcode.IGET_OBJECT,
         Opcode.IGET_WIDE,
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.RETURN_VOID,
-    ),
-    customFingerprint = { _, classDef ->
-        // On older devices this fingerprint resolves very slowly.
-        // Speed this up by checking for the number of methods.
-        classDef.methods.count() == 14
-    }
+        Opcode.CONST_WIDE_16,
+        Opcode.CMP_LONG,
+        Opcode.IF_LEZ,
+        Opcode.IGET_OBJECT,
+        Opcode.IF_EQZ,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT,
+        Opcode.IF_EQZ,
+        Opcode.GOTO,
+    )
 )

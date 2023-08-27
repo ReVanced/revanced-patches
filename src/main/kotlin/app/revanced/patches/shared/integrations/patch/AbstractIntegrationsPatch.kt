@@ -5,13 +5,11 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patches.shared.integrations.patch.AbstractIntegrationsPatch.IntegrationsFingerprint.RegisterResolver
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.ClassDef
-import org.jf.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.ClassDef
+import com.android.tools.smali.dexlib2.iface.Method
 
 @Description("Applies mandatory patches to implement the ReVanced integrations into the application.")
 abstract class AbstractIntegrationsPatch(
@@ -40,7 +38,7 @@ abstract class AbstractIntegrationsPatch(
         strings,
         customFingerprint
     ) {
-        fun invoke(integrationsDescriptor: String): PatchResult {
+        fun invoke(integrationsDescriptor: String) {
             result?.mutableMethod?.let { method ->
                 val contextRegister = contextRegisterResolver(method)
 
@@ -49,9 +47,7 @@ abstract class AbstractIntegrationsPatch(
                     "sput-object v$contextRegister, " +
                             "$integrationsDescriptor->context:Landroid/content/Context;"
                 )
-            } ?: return PatchResultError("Could not find hook target fingerprint.")
-
-            return PatchResultSuccess()
+            } ?: throw PatchException("Could not find hook target fingerprint.")
         }
 
         interface RegisterResolver : (Method) -> Int {
@@ -59,20 +55,11 @@ abstract class AbstractIntegrationsPatch(
         }
     }
 
-    override fun execute(context: BytecodeContext): PatchResult {
-        if (context.findClass(integrationsDescriptor) == null) return MISSING_INTEGRATIONS
-
-        for (hook in hooks) hook.invoke(integrationsDescriptor).let {
-            if (it is PatchResultError) return it
-        }
-
-        return PatchResultSuccess()
-    }
-
-    private companion object {
-        val MISSING_INTEGRATIONS = PatchResultError(
-            "Integrations have not been merged yet. " +
-                    "This patch can not succeed without merging the integrations."
+    override fun execute(context: BytecodeContext) {
+        if (context.findClass(integrationsDescriptor) == null) throw PatchException(
+            "Integrations have not been merged yet. This patch can not succeed without merging the integrations."
         )
+
+        for (hook in hooks) hook.invoke(integrationsDescriptor)
     }
 }

@@ -3,9 +3,7 @@ package app.revanced.patches.youtube.layout.branding.header.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.layout.branding.header.annotations.PremiumHeadingCompatibility
@@ -18,9 +16,9 @@ import kotlin.io.path.exists
 @Description("Shows premium branding on the home screen.")
 @PremiumHeadingCompatibility
 class PremiumHeadingPatch : ResourcePatch {
-    override fun execute(context: ResourceContext): PatchResult {
+    override fun execute(context: ResourceContext) {
         val resDirectory = context["res"]
-        if (!resDirectory.isDirectory) return PatchResultError("The res folder can not be found.")
+        if (!resDirectory.isDirectory) throw PatchException("The res folder can not be found.")
 
         val (original, replacement) = "yt_premium_wordmark_header" to "yt_wordmark_header"
         val modes = arrayOf("light", "dark")
@@ -32,7 +30,7 @@ class PremiumHeadingPatch : ResourcePatch {
                 val toPath = headingDirectory.resolve("${replacement}_$mode.png").toPath()
 
                 if (!fromPath.exists())
-                    return PatchResultError("The file $fromPath does not exist in the resources. Therefore, this patch can not succeed.")
+                    throw PatchException("The file $fromPath does not exist in the resources. Therefore, this patch can not succeed.")
                 Files.copy(
                     fromPath,
                     toPath,
@@ -40,7 +38,5 @@ class PremiumHeadingPatch : ResourcePatch {
                 )
             }
         }
-
-        return PatchResultSuccess()
     }
 }

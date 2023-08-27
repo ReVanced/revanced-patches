@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.video.quality.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -9,9 +9,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.settings.preference.impl.ArrayResource
@@ -26,9 +24,9 @@ import app.revanced.patches.youtube.video.quality.fingerprints.NewVideoQualityCh
 import app.revanced.patches.youtube.video.quality.fingerprints.SetQualityByIndexMethodClassFieldReferenceFingerprint
 import app.revanced.patches.youtube.video.quality.fingerprints.VideoQualityItemOnClickParentFingerprint
 import app.revanced.patches.youtube.video.quality.fingerprints.VideoQualitySetterFingerprint
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
-import org.jf.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Patch
 @DependsOn([IntegrationsPatch::class, VideoInformationPatch::class, SettingsPatch::class])
@@ -42,7 +40,7 @@ class RememberVideoQualityPatch : BytecodePatch(
         NewVideoQualityChangedFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         // This is bloated as each value has it's own String key/value
         // ideally the entries would be raw values (and not a key to a String resource)
         val entries = listOf(
@@ -119,7 +117,7 @@ class RememberVideoQualityPatch : BytecodePatch(
         // Inject a call to set the remembered quality once a video loads.
         VideoQualitySetterFingerprint.result?.also {
             if (!SetQualityByIndexMethodClassFieldReferenceFingerprint.resolve(context, it.classDef))
-                return PatchResultError("Could not resolve fingerprint to find setQualityByIndex method")
+                throw PatchException("Could not resolve fingerprint to find setQualityByIndex method")
         }?.let {
             // This instruction refers to the field with the type that contains the setQualityByIndex method.
             val instructions = SetQualityByIndexMethodClassFieldReferenceFingerprint.result!!
@@ -139,7 +137,7 @@ class RememberVideoQualityPatch : BytecodePatch(
             // Get the name of the setQualityByIndex method.
             val setQualityByIndexMethod = setQualityByIndexMethodClass.methods
                 .find { method -> method.parameterTypes.first() == "I" }
-                ?: return PatchResultError("Could not find setQualityByIndex method")
+                ?: throw PatchException("Could not find setQualityByIndex method")
 
             it.mutableMethod.addInstructions(
                 0,
@@ -160,7 +158,7 @@ class RememberVideoQualityPatch : BytecodePatch(
                     move-result p2
                 """,
             )
-        } ?: return VideoQualitySetterFingerprint.toErrorResult()
+        } ?: throw VideoQualitySetterFingerprint.exception
 
 
         // Inject a call to remember the selected quality.
@@ -174,8 +172,8 @@ class RememberVideoQualityPatch : BytecodePatch(
                     0,
                     "invoke-static {p$listItemIndexParameter}, $INTEGRATIONS_CLASS_DESCRIPTOR->userChangedQuality(I)V"
                 )
-            } ?: return PatchResultError("Failed to find onItemClick method")
-        } ?: return VideoQualityItemOnClickParentFingerprint.toErrorResult()
+            } ?: throw PatchException("Failed to find onItemClick method")
+        } ?: throw VideoQualityItemOnClickParentFingerprint.exception
 
 
         // Remember video quality if not using old layout menu.
@@ -189,10 +187,8 @@ class RememberVideoQualityPatch : BytecodePatch(
                     "invoke-static {v$qualityRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->userChangedQualityInNewFlyout(I)V"
                 )
             }
-        } ?: return NewVideoQualityChangedFingerprint.toErrorResult()
+        } ?: throw NewVideoQualityChangedFingerprint.exception
 
-
-        return PatchResultSuccess()
     }
 
     private companion object {

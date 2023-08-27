@@ -1,6 +1,6 @@
 package app.revanced.patches.instagram.patches.ads.timeline.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.*
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -8,8 +8,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.MediaFingerprint
@@ -18,8 +16,8 @@ import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.ads.Gene
 import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.ads.MediaAdFingerprint
 import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.ads.PaidPartnershipAdFingerprint
 import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.ads.ShoppingAdFingerprint
-import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @Name("Hide timeline ads")
@@ -32,19 +30,19 @@ class HideTimelineAdsPatch : BytecodePatch(
         PaidPartnershipAdFingerprint // Unlike the other ads this one is resolved from all classes.
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         // region Resolve required methods to check for ads.
 
-        ShowAdFingerprint.result ?: return ShowAdFingerprint.toErrorResult()
+        ShowAdFingerprint.result ?: throw ShowAdFingerprint.exception
 
-        PaidPartnershipAdFingerprint.result ?: return PaidPartnershipAdFingerprint.toErrorResult()
+        PaidPartnershipAdFingerprint.result ?: throw PaidPartnershipAdFingerprint.exception
 
         MediaFingerprint.result?.let {
             GenericMediaAdFingerprint.resolve(context, it.classDef)
             ShoppingAdFingerprint.resolve(context, it.classDef)
 
             return@let
-        } ?: return MediaFingerprint.toErrorResult()
+        } ?: throw MediaFingerprint.exception
 
         // endregion
 
@@ -99,7 +97,5 @@ class HideTimelineAdsPatch : BytecodePatch(
 
             // endregion
         }
-
-        return PatchResultSuccess()
     }
 }

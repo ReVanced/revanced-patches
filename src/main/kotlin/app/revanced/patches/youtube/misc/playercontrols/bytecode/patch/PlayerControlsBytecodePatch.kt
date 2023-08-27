@@ -1,32 +1,39 @@
 package app.revanced.patches.youtube.misc.playercontrols.bytecode.patch
 
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patches.shared.fingerprints.LayoutConstructorFingerprint
 import app.revanced.patches.youtube.misc.playercontrols.annotation.PlayerControlsCompatibility
 import app.revanced.patches.youtube.misc.playercontrols.fingerprints.BottomControlsInflateFingerprint
 import app.revanced.patches.youtube.misc.playercontrols.fingerprints.PlayerControlsVisibilityFingerprint
 import app.revanced.patches.youtube.misc.playercontrols.resource.patch.BottomControlsResourcePatch
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Name("Player controls bytecode patch")
 @DependsOn([BottomControlsResourcePatch::class])
 @Description("Manages the code for the player controls of the YouTube player.")
 @PlayerControlsCompatibility
 class PlayerControlsBytecodePatch : BytecodePatch(
-    listOf(PlayerControlsVisibilityFingerprint, BottomControlsInflateFingerprint)
+    listOf(
+        LayoutConstructorFingerprint,
+        BottomControlsInflateFingerprint
+    )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
+        LayoutConstructorFingerprint.result?.let {
+            if (!PlayerControlsVisibilityFingerprint.resolve(context, it.classDef))
+                throw LayoutConstructorFingerprint.exception
+        } ?: throw LayoutConstructorFingerprint.exception
+
         showPlayerControlsFingerprintResult = PlayerControlsVisibilityFingerprint.result!!
         inflateFingerprintResult = BottomControlsInflateFingerprint.result!!
-
-        return PatchResultSuccess()
     }
 
     internal companion object {

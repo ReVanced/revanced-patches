@@ -3,16 +3,13 @@ package app.revanced.patches.tiktok.interaction.downloads.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -24,10 +21,10 @@ import app.revanced.patches.tiktok.interaction.downloads.fingerprints.DownloadPa
 import app.revanced.patches.tiktok.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.tiktok.misc.settings.fingerprints.SettingsStatusLoadFingerprint
 import app.revanced.patches.tiktok.misc.settings.patch.SettingsPatch
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.reference.StringReference
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
@@ -43,7 +40,7 @@ class DownloadsPatch : BytecodePatch(
         SettingsStatusLoadFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         val method1 = ACLCommonShareFingerprint.result!!.mutableMethod
         method1.replaceInstructions(
             0,
@@ -89,7 +86,7 @@ class DownloadsPatch : BytecodePatch(
             targetOffset = index + 1
             break
         }
-        if (targetOffset == -1) return PatchResultError("Can not find download path uri method.")
+        if (targetOffset == -1) throw PatchException("Can not find download path uri method.")
         //Change videos' download path.
         val downloadUriMethod = context
             .toMethodWalker(DownloadPathParentFingerprint.result!!.method)
@@ -125,6 +122,5 @@ class DownloadsPatch : BytecodePatch(
             0,
             "invoke-static {}, Lapp/revanced/tiktok/settingsmenu/SettingsStatus;->enableDownload()V"
         )
-        return PatchResultSuccess()
     }
 }

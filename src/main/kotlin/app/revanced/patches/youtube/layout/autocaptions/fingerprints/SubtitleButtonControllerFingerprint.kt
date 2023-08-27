@@ -2,8 +2,8 @@ package app.revanced.patches.youtube.layout.autocaptions.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 object SubtitleButtonControllerFingerprint : MethodFingerprint(
     returnType = "V",
@@ -19,8 +19,5 @@ object SubtitleButtonControllerFingerprint : MethodFingerprint(
         Opcode.CONST,
         Opcode.INVOKE_VIRTUAL,
         Opcode.IGET_OBJECT,
-    ),
-    customFingerprint = { methodDef, _ ->
-        methodDef.definingClass.endsWith("SubtitleButtonController;")
-    }
+    )
 )

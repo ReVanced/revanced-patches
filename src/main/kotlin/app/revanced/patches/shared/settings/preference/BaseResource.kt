@@ -9,7 +9,7 @@ import org.w3c.dom.Element
  * @param name The name of the resource.
  * @param tag The tag of the resource.
  */
-internal abstract class BaseResource(
+abstract class BaseResource(
     val name: String,
     val tag: String
 ) {

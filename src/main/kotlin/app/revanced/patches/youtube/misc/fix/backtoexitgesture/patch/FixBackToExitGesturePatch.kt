@@ -1,15 +1,12 @@
 package app.revanced.patches.youtube.misc.fix.backtoexitgesture.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.youtube.misc.fix.backtoexitgesture.annotation.FixBackToExitGestureCompatibility
 import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fingerprints.OnBackPressedFingerprint
 import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fingerprints.RecyclerViewScrollingFingerprint
@@ -25,12 +22,12 @@ class FixBackToExitGesturePatch : BytecodePatch(
         OnBackPressedFingerprint,
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         RecyclerViewTopScrollingFingerprint.apply {
             resolve(
                 context,
                 RecyclerViewTopScrollingParentFingerprint.result?.classDef
-                    ?: return RecyclerViewTopScrollingParentFingerprint.toErrorResult()
+                    ?: throw RecyclerViewTopScrollingParentFingerprint.exception
             )
         }
 
@@ -44,15 +41,7 @@ class FixBackToExitGesturePatch : BytecodePatch(
             OnBackPressedFingerprint to IntegrationsMethod(
                 "p0", "onBackPressed", "Lcom/google/android/apps/youtube/app/watchwhile/WatchWhileActivity;"
             )
-        ).forEach { (fingerprint, target) ->
-            try {
-                fingerprint.injectCall(target)
-            } catch (error: PatchResultError) {
-                return error
-            }
-        }
-
-        return PatchResultSuccess()
+        ).forEach { (fingerprint, target) -> fingerprint.injectCall(target) }
     }
 
     private companion object {
@@ -79,6 +68,6 @@ class FixBackToExitGesturePatch : BytecodePatch(
             mutableMethod.addInstruction(
                 scanResult.patternScanResult!!.endIndex, targetMethod.toString()
             )
-        } ?: throw this.toErrorResult()
+        } ?: throw this.exception
     }
 }

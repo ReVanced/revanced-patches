@@ -4,7 +4,6 @@ import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.annotations.MusicCompatibility
@@ -37,27 +36,25 @@ class MicroGBytecodePatch : BytecodePatch(
     // - "com.google.android.gms.phenotype.PACKAGE_NAME",
     // - "com.google.android.gms.phenotype.UPDATE",
     // - "com.google.android.gms.phenotype",
-    override fun execute(context: BytecodeContext) =
-        // apply common microG patch
-        MicroGBytecodeHelper.patchBytecode(
-            context,
-            arrayOf(
-                MicroGBytecodeHelper.packageNameTransform(
-                    Constants.PACKAGE_NAME,
-                    Constants.REVANCED_PACKAGE_NAME
-                )
-            ),
-            MicroGBytecodeHelper.PrimeMethodTransformationData(
-                PrimeFingerprint,
-                MUSIC_PACKAGE_NAME,
-                REVANCED_MUSIC_PACKAGE_NAME
-            ),
-            listOf(
-                ServiceCheckFingerprint,
-                GooglePlayUtilityFingerprint,
-                CastDynamiteModuleFingerprint,
-                CastDynamiteModuleV2Fingerprint,
-                CastContextFetchFingerprint
+    override fun execute(context: BytecodeContext) = MicroGBytecodeHelper.patchBytecode(
+        context,
+        arrayOf(
+            MicroGBytecodeHelper.packageNameTransform(
+                Constants.PACKAGE_NAME,
+                Constants.REVANCED_PACKAGE_NAME
             )
-        ).let { PatchResultSuccess() }
+        ),
+        MicroGBytecodeHelper.PrimeMethodTransformationData(
+            PrimeFingerprint,
+            MUSIC_PACKAGE_NAME,
+            REVANCED_MUSIC_PACKAGE_NAME
+        ),
+        listOf(
+            ServiceCheckFingerprint,
+            GooglePlayUtilityFingerprint,
+            CastDynamiteModuleFingerprint,
+            CastDynamiteModuleV2Fingerprint,
+            CastContextFetchFingerprint
+        )
+    )
 }

@@ -5,8 +5,6 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.tiktok.feedfilter.annotations.FeedFilterCompatibility
@@ -14,8 +12,8 @@ import app.revanced.patches.tiktok.feedfilter.fingerprints.FeedApiServiceLIZFing
 import app.revanced.patches.tiktok.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.tiktok.misc.settings.fingerprints.SettingsStatusLoadFingerprint
 import app.revanced.patches.tiktok.misc.settings.patch.SettingsPatch
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @DependsOn([IntegrationsPatch::class, SettingsPatch::class])
@@ -28,7 +26,7 @@ class FeedFilterPatch : BytecodePatch(
         SettingsStatusLoadFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         val method = FeedApiServiceLIZFingerprint.result!!.mutableMethod
         for ((index, instruction) in method.implementation!!.instructions.withIndex()) {
             if (instruction.opcode != Opcode.RETURN_OBJECT) continue
@@ -44,6 +42,5 @@ class FeedFilterPatch : BytecodePatch(
             0,
             "invoke-static {}, Lapp/revanced/tiktok/settingsmenu/SettingsStatus;->enableFeedFilter()V"
         )
-        return PatchResultSuccess()
     }
 }

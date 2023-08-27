@@ -3,8 +3,8 @@ package app.revanced.patches.youtube.layout.buttons.navigation.utils
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import org.jf.dexlib2.Opcode.MOVE_RESULT_OBJECT
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.Opcode.MOVE_RESULT_OBJECT
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 internal object InjectionUtils {
     const val REGISTER_TEMPLATE_REPLACEMENT: String = "REGISTER_INDEX"

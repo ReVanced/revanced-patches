@@ -1,15 +1,12 @@
 package app.revanced.patches.youtube.layout.seekbar.bytecode.patch
 
 import app.revanced.extensions.indexOfFirstConstantInstructionValue
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.layout.seekbar.annotations.SeekbarColorCompatibility
@@ -20,8 +17,8 @@ import app.revanced.patches.youtube.layout.seekbar.resource.SeekbarColorResource
 import app.revanced.patches.youtube.layout.theme.bytecode.patch.LithoColorHookPatch
 import app.revanced.patches.youtube.layout.theme.bytecode.patch.LithoColorHookPatch.Companion.lithoColorOverrideHook
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Description("Hide or set a custom seekbar color")
 @DependsOn([IntegrationsPatch::class, LithoColorHookPatch::class, SeekbarColorResourcePatch::class])
@@ -29,7 +26,7 @@ import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
 class SeekbarColorBytecodePatch : BytecodePatch(
     listOf(PlayerSeekbarColorFingerprint, ShortsSeekbarColorFingerprint, SetSeekbarClickedColorFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         fun MutableMethod.addColorChangeInstructions(resourceId: Long) {
             var registerIndex = indexOfFirstConstantInstructionValue(resourceId) + 2
             var colorRegister = getInstruction<OneRegisterInstruction>(registerIndex).registerA
@@ -45,11 +42,11 @@ class SeekbarColorBytecodePatch : BytecodePatch(
         PlayerSeekbarColorFingerprint.result?.mutableMethod?.apply {
             addColorChangeInstructions(SeekbarColorResourcePatch.inlineTimeBarColorizedBarPlayedColorDarkId)
             addColorChangeInstructions(SeekbarColorResourcePatch.inlineTimeBarPlayedNotHighlightedColorId)
-        } ?: return PlayerSeekbarColorFingerprint.toErrorResult()
+        } ?: throw PlayerSeekbarColorFingerprint.exception
 
         ShortsSeekbarColorFingerprint.result?.mutableMethod?.apply {
             addColorChangeInstructions(SeekbarColorResourcePatch.reelTimeBarPlayedColorId)
-        } ?: return ShortsSeekbarColorFingerprint.toErrorResult()
+        } ?: throw ShortsSeekbarColorFingerprint.exception
 
         SetSeekbarClickedColorFingerprint.result?.let { result ->
             result.mutableMethod.let {
@@ -70,11 +67,9 @@ class SeekbarColorBytecodePatch : BytecodePatch(
                     )
                 }
             }
-        } ?: return SetSeekbarClickedColorFingerprint.toErrorResult()
+        } ?: throw SetSeekbarClickedColorFingerprint.exception
 
         lithoColorOverrideHook(INTEGRATIONS_CLASS_DESCRIPTOR, "getLithoColor")
-
-        return PatchResultSuccess()
     }
 
     private companion object {

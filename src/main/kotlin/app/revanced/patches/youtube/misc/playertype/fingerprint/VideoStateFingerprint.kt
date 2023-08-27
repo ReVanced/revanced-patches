@@ -2,8 +2,8 @@ package app.revanced.patches.youtube.misc.playertype.fingerprint
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 object VideoStateFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
@@ -17,8 +17,5 @@ object VideoStateFingerprint : MethodFingerprint(
         Opcode.IF_EQZ,
         Opcode.IF_EQZ,
         Opcode.IGET_OBJECT, // obfuscated parameter field name
-    ),
-    customFingerprint = { methodDef, _ ->
-        methodDef.definingClass.endsWith("YouTubeControlsOverlay;")
-    }
+    )
 )

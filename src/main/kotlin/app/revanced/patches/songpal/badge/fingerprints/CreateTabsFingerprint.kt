@@ -2,10 +2,10 @@ package app.revanced.patches.songpal.badge.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.songpal.badge.patch.BadgeTabPatch
-import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 // Located @ ub.i0.h#p (9.5.0)
 object CreateTabsFingerprint : MethodFingerprint(

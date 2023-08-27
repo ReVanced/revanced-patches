@@ -1,6 +1,6 @@
 package app.revanced.patches.reddit.customclients.syncforreddit.api.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Compatibility
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Package
@@ -10,17 +10,15 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.reddit.customclients.AbstractSpoofClientPatch
 import app.revanced.patches.reddit.customclients.SpoofClientAnnotation
 import app.revanced.patches.reddit.customclients.syncforreddit.api.fingerprints.GetAuthorizationStringFingerprint
 import app.revanced.patches.reddit.customclients.syncforreddit.api.fingerprints.GetBearerTokenFingerprint
 import app.revanced.patches.reddit.customclients.syncforreddit.detection.piracy.patch.DisablePiracyDetectionPatch
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.reference.StringReference
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import java.util.*
 
 @SpoofClientAnnotation
@@ -38,7 +36,7 @@ import java.util.*
 class SpoofClientPatch : AbstractSpoofClientPatch(
     "http://redditsync/auth", Options, listOf(GetAuthorizationStringFingerprint)
 ) {
-    override fun List<MethodFingerprintResult>.patchClientId(context: BytecodeContext): PatchResult {
+    override fun List<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
         forEach { fingerprintResult ->
             fingerprintResult.also { result ->
                 GetBearerTokenFingerprint.also { it.resolve(context, result.classDef) }.result?.mutableMethod?.apply {
@@ -50,7 +48,7 @@ class SpoofClientPatch : AbstractSpoofClientPatch(
                          return-object v0
                     """
                     )
-                } ?: return GetBearerTokenFingerprint.toErrorResult()
+                } ?: throw GetBearerTokenFingerprint.exception
             }.let {
                 val occurrenceIndex = it.scanResult.stringsScanResult!!.matches.first().index
 
@@ -71,8 +69,6 @@ class SpoofClientPatch : AbstractSpoofClientPatch(
                 }
             }
         }
-
-        return PatchResultSuccess()
     }
 
     companion object Options : AbstractSpoofClientPatch.Options.SpoofClientOptionsContainer()
