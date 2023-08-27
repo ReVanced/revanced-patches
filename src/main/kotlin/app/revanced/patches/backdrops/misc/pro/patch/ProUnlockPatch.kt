@@ -1,18 +1,16 @@
 package app.revanced.patches.backdrops.misc.pro.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.backdrops.misc.pro.annotations.ProUnlockCompatibility
 import app.revanced.patches.backdrops.misc.pro.fingerprints.ProUnlockFingerprint
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch
 @Name("Pro unlock")
@@ -21,7 +19,7 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 class ProUnlockPatch : BytecodePatch(
     listOf(ProUnlockFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         ProUnlockFingerprint.result?.let { result ->
             val registerIndex = result.scanResult.patternScanResult!!.endIndex - 1
 
@@ -35,8 +33,6 @@ class ProUnlockPatch : BytecodePatch(
                 )
             }
 
-        } ?: return ProUnlockFingerprint.toErrorResult()
-
-        return PatchResultSuccess()
+        } ?: throw ProUnlockFingerprint.exception
     }
 }

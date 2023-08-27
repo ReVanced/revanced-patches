@@ -5,17 +5,15 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.tiktok.ad.annotations.HideAdsCompatibility
 import app.revanced.patches.tiktok.ad.fingerprints.ConvertHelpFeedItemListFingerprint
 import app.revanced.patches.tiktok.ad.fingerprints.FeedItemListCloneFingerprint
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
-import org.jf.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Patch
 @Name("Hide ads")
@@ -27,7 +25,7 @@ class HideAdsPatch : BytecodePatch(
         ConvertHelpFeedItemListFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         listOf(
             FeedItemListCloneFingerprint,
             ConvertHelpFeedItemListFingerprint
@@ -48,8 +46,7 @@ class HideAdsPatch : BytecodePatch(
                 )
                 return@forEach
             }
-            return PatchResultError("Can not find required instruction.")
+            throw PatchException("Can not find required instruction.")
         }
-        return PatchResultSuccess()
     }
 }

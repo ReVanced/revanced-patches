@@ -8,9 +8,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotations.RequiresIntegrations
 import app.revanced.patches.twitter.misc.hook.json.fingerprints.JsonHookPatchFingerprint
 import app.revanced.patches.twitter.misc.hook.json.fingerprints.JsonInputStreamFingerprint
@@ -24,14 +22,14 @@ import java.io.InvalidClassException
 class JsonHookPatch : BytecodePatch(
     listOf(LoganSquareFingerprint)
 ), Closeable {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         JsonHookPatchFingerprint.also {
             // Make sure the integrations are present.
             val jsonHookPatch = context.findClass { classDef -> classDef.type == JSON_HOOK_PATCH_CLASS_DESCRIPTOR }
-                ?: throw PatchResultError("Could not find integrations.")
+                ?: throw PatchException("Could not find integrations.")
 
             if (!it.resolve(context, jsonHookPatch.immutableClass))
-                throw PatchResultError("Unexpected integrations.")
+                throw PatchException("Unexpected integrations.")
         }.let { hooks = JsonHookPatchHook(it) }
 
         // Conveniently find the type to hook a method in, via a named field.
@@ -42,7 +40,7 @@ class JsonHookPatch : BytecodePatch(
             ?.type
             .let { type ->
                 context.findClass { it.type == type }?.mutableClass
-            } ?: return PatchResultError("Could not find required class.")
+            } ?: throw PatchException("Could not find required class.")
 
         // Hook the methods first parameter.
         JsonInputStreamFingerprint
@@ -55,9 +53,7 @@ class JsonHookPatch : BytecodePatch(
                     invoke-static { p1 }, $JSON_HOOK_PATCH_CLASS_DESCRIPTOR->parseJsonHook(Ljava/io/InputStream;)Ljava/io/InputStream;
                     move-result-object p1
                 """
-            ) ?: return PatchResultError("Could not find method to hook.")
-
-        return PatchResultSuccess()
+            ) ?: throw PatchException("Could not find method to hook.")
     }
 
     /**

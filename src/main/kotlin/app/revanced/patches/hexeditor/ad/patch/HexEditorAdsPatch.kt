@@ -5,8 +5,6 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.hexeditor.ad.annotations.HexEditorAdsCompatibility
 import app.revanced.patches.hexeditor.ad.fingerprints.PrimaryAdsFingerprint
@@ -20,7 +18,7 @@ class HexEditorAdsPatch : BytecodePatch(
         PrimaryAdsFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         val method = PrimaryAdsFingerprint.result!!.mutableMethod
         
         method.replaceInstructions(
@@ -30,7 +28,5 @@ class HexEditorAdsPatch : BytecodePatch(
                 return v0
             """
         )
-
-        return PatchResultSuccess()
     }
 }

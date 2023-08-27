@@ -1,8 +1,8 @@
 package app.revanced.patches.instagram.patches.ads.timeline.fingerprints.ads
 
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 object PaidPartnershipAdFingerprint : MediaAdFingerprint(
     "V",

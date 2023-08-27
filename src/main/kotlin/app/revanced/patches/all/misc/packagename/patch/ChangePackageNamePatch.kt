@@ -9,30 +9,32 @@ import org.w3c.dom.Element
 
 @Patch(false)
 @Name("Change package name")
-@Description("Changes the package name.")
+@Description("Changes the package name. Appends \".revanced\" to the package name by default.")
 class ChangePackageNamePatch : ResourcePatch {
-    override fun execute(context: ResourceContext): PatchResult {
-        packageName?.let { packageName ->
-            val packageNameRegex = Regex("^[a-z]\\w*(\\.[a-z]\\w*)+\$")
-            if (!packageName.matches(packageNameRegex))
-                return PatchResultError("Invalid package name")
+    override fun execute(context: ResourceContext) {
+        val packageNameToUse = packageName ?: getDefaultPackageName(context)
 
-            var originalPackageName: String
-            context.xmlEditor["AndroidManifest.xml"].use { editor ->
-                val manifest = editor.file.getElementsByTagName("manifest").item(0) as Element
-                originalPackageName = manifest.getAttribute("package")
-            }
+        val packageNameRegex = Regex("^[a-z]\\w*(\\.[a-z]\\w*)+\$")
+        if (!packageNameToUse.matches(packageNameRegex))
+            throw PatchException("Invalid package name")
 
-            if (!originalPackageName.matches(packageNameRegex))
-                return PatchResultError("Failed to get the original package name")
+        val originalPackageName = getOriginalPackageName(context)
 
-            context["AndroidManifest.xml"].apply {
-                readText().replace(originalPackageName, packageName).let(::writeText)
-            }
+        context["AndroidManifest.xml"].apply {
+            readText().replace(originalPackageName, packageNameToUse).let(::writeText)
+        }
+    }
 
-        } ?: return PatchResultError("No package name provided")
+    private fun getDefaultPackageName(context: ResourceContext): String {
+        val originalPackageName = getOriginalPackageName(context)
+        return "$originalPackageName.revanced"
+    }
 
-        return PatchResultSuccess()
+    private fun getOriginalPackageName(context: ResourceContext): String {
+        context.xmlEditor["AndroidManifest.xml"].use { editor ->
+            val manifest = editor.file.getElementsByTagName("manifest").item(0) as Element
+            return manifest.getAttribute("package")
+        }
     }
 
     companion object : OptionsContainer() {
@@ -41,7 +43,7 @@ class ChangePackageNamePatch : ResourcePatch {
                 key = "packageName",
                 default = null,
                 title = "Package name",
-                description = "The name of the package to rename of the app.",
+                description = "The name of the package to rename the app to.",
             )
         )
     }

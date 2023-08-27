@@ -6,8 +6,6 @@ import app.revanced.patcher.annotation.Package
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.reddit.customclients.AbstractSpoofClientPatch
 import app.revanced.patches.reddit.customclients.SpoofClientAnnotation
@@ -31,7 +29,7 @@ import app.revanced.patches.reddit.customclients.joeyforreddit.detection.piracy.
 class SpoofClientPatch : AbstractSpoofClientPatch(
     "https://127.0.0.1:65023/authorize_callback", Options, listOf(GetClientIdFingerprint)
 ) {
-    override fun List<MethodFingerprintResult>.patchClientId(context: BytecodeContext): PatchResult {
+    override fun List<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
         first().mutableMethod.addInstructions(
             0,
             """
@@ -39,8 +37,6 @@ class SpoofClientPatch : AbstractSpoofClientPatch(
                 return-object v0
             """
         )
-
-        return PatchResultSuccess()
     }
 
     companion object Options : AbstractSpoofClientPatch.Options.SpoofClientOptionsContainer()

@@ -1,3 +1,10 @@
+# [2.189.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.188.1...v2.189.0-dev.1) (2023-08-27)
+
+
+### Features
+
+* Restore previous release ([f7352fe](https://github.com/ReVanced/revanced-patches/commit/f7352feb6e9604162b52072d74310b9e3067bc69))
+
 ## [2.188.1](https://github.com/ReVanced/revanced-patches/compare/v2.188.0...v2.188.1) (2023-08-27)
 
 

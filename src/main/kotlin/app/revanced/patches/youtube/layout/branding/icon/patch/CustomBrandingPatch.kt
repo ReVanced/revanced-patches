@@ -3,7 +3,9 @@ package app.revanced.patches.youtube.layout.branding.icon.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.*
+import app.revanced.patcher.patch.OptionsContainer
+import app.revanced.patcher.patch.PatchOption
+import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.layout.branding.icon.annotations.CustomBrandingCompatibility
 import app.revanced.util.resources.ResourceUtils
@@ -11,12 +13,12 @@ import app.revanced.util.resources.ResourceUtils.copyResources
 import java.io.File
 import java.nio.file.Files
 
-@Patch
+@Patch(false)
 @Name("Custom branding")
 @Description("Changes the YouTube launcher icon and name to your choice (defaults to ReVanced).")
 @CustomBrandingCompatibility
 class CustomBrandingPatch : ResourcePatch {
-    override fun execute(context: ResourceContext): PatchResult {
+    override fun execute(context: ResourceContext) {
         fun copyResources(resourceGroups: List<ResourceUtils.ResourceGroup>) {
             iconPath?.let { iconPathString ->
                 val iconPath = File(iconPathString)
@@ -62,8 +64,6 @@ class CustomBrandingPatch : ResourcePatch {
                     "android:label=\"$appName"
                 )
         )
-
-        return PatchResultSuccess()
     }
 
     companion object : OptionsContainer() {

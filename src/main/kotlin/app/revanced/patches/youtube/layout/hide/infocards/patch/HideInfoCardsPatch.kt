@@ -8,8 +8,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
@@ -19,9 +17,9 @@ import app.revanced.patches.youtube.layout.hide.infocards.fingerprints.Infocards
 import app.revanced.patches.youtube.layout.hide.infocards.fingerprints.InfocardsMethodCallFingerprint
 import app.revanced.patches.youtube.layout.hide.infocards.resource.patch.HideInfocardsResourcePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch
 @DependsOn([IntegrationsPatch::class, HideInfocardsResourcePatch::class])
@@ -34,7 +32,7 @@ class HideInfoCardsPatch : BytecodePatch(
         InfocardsMethodCallFingerprint,
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
        InfocardsIncognitoFingerprint.also {
             it.resolve(context, InfocardsIncognitoParentFingerprint.result!!.classDef)
         }.result!!.mutableMethod.apply {
@@ -68,7 +66,5 @@ class HideInfoCardsPatch : BytecodePatch(
                 )
             )
         }
-
-        return PatchResultSuccess()
     }
 }

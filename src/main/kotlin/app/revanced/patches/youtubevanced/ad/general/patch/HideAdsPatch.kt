@@ -1,20 +1,18 @@
 package app.revanced.patches.youtubevanced.ad.general.patch
 
-import app.revanced.extensions.toErrorResult
+import app.revanced.extensions.exception
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.misc.fix.verticalscroll.patch.VerticalScrollPatch
 import app.revanced.patches.youtubevanced.ad.general.annotations.HideAdsCompatibility
 import app.revanced.patches.youtubevanced.ad.general.fingerprints.ContainsAdFingerprint
-import org.jf.dexlib2.iface.instruction.formats.Instruction21c
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
 
 @Patch
 @Name("Hide ads")
@@ -26,7 +24,7 @@ class HideAdsPatch : BytecodePatch(
         ContainsAdFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         ContainsAdFingerprint.result?.let { result ->
             result.mutableMethod.apply {
                 val insertIndex = result.scanResult.patternScanResult!!.endIndex + 1
@@ -56,8 +54,6 @@ class HideAdsPatch : BytecodePatch(
                     )
                 }
             }
-        } ?: return ContainsAdFingerprint.toErrorResult()
-
-        return PatchResultSuccess()
+        } ?: throw ContainsAdFingerprint.exception
     }
 }

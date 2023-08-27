@@ -5,8 +5,6 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.reddit.layout.premiumicon.annotations.PremiumIconCompatibility
 import app.revanced.patches.reddit.layout.premiumicon.fingerprints.PremiumIconFingerprint
@@ -20,7 +18,7 @@ class PremiumIconPatch : BytecodePatch(
         PremiumIconFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         val method = PremiumIconFingerprint.result!!.mutableMethod
         method.addInstructions(
             0,
@@ -29,6 +27,5 @@ class PremiumIconPatch : BytecodePatch(
                 return v0
             """
         )
-        return PatchResultSuccess()
     }
 }

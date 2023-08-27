@@ -18,7 +18,7 @@ import org.w3c.dom.Element
  * @param userDialogMessage The message to show in a dialog when the user toggles the preference.
  * @param default The default value of the switch.
  */
-internal class SwitchPreference(
+class SwitchPreference(
     key: String, title: StringResource,
     val summaryOn: StringResource,
     val summaryOff: StringResource,

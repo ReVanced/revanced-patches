@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.video.quality.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import org.jf.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.Opcode
 
 /**
  * Resolves with the class found in [VideoQualitySetterFingerprint].

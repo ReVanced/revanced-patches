@@ -5,8 +5,6 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.settings.preference.impl.StringResource
@@ -26,7 +24,7 @@ class DisableShortsOnStartupPatch : BytecodePatch(
         UserWasInShortsFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_disable_resuming_shorts_player",
@@ -51,7 +49,5 @@ class DisableShortsOnStartupPatch : BytecodePatch(
                 nop
             """
         )
-
-        return PatchResultSuccess()
     }
 }

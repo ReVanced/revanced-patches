@@ -3,14 +3,12 @@ package app.revanced.util.patch
 import app.revanced.extensions.findMutableMethodOf
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import org.jf.dexlib2.iface.ClassDef
-import org.jf.dexlib2.iface.Method
-import org.jf.dexlib2.iface.instruction.Instruction
+import com.android.tools.smali.dexlib2.iface.ClassDef
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 
-internal abstract class AbstractTransformInstructionsPatch<T> : BytecodePatch() {
+abstract class AbstractTransformInstructionsPatch<T> : BytecodePatch() {
 
     abstract fun filterMap(
         classDef: ClassDef,
@@ -28,7 +26,7 @@ internal abstract class AbstractTransformInstructionsPatch<T> : BytecodePatch() 
         }
     }
 
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         // Find all methods to patch
         buildMap {
             context.classes.forEach { classDef ->
@@ -62,7 +60,5 @@ internal abstract class AbstractTransformInstructionsPatch<T> : BytecodePatch() 
                 }
             }
         }
-
-        return PatchResultSuccess()
     }
 }

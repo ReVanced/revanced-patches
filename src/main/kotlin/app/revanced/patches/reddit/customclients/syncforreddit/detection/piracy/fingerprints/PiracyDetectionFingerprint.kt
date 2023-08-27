@@ -2,9 +2,9 @@ package app.revanced.patches.reddit.customclients.syncforreddit.detection.piracy
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 object PiracyDetectionFingerprint : MethodFingerprint(
     returnType = "V",

@@ -2,8 +2,8 @@ package app.revanced.patches.youtube.layout.sponsorblock.bytecode.fingerprints
 
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 object RectangleFieldInvalidatorFingerprint : MethodFingerprint(
     "V",

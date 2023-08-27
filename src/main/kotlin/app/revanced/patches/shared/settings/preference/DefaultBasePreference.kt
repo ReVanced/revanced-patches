@@ -12,7 +12,7 @@ import org.w3c.dom.Document
  * @param summary The summary of the preference.
  * @param default The default value of the preference.
  */
-internal abstract class DefaultBasePreference<T>(
+abstract class DefaultBasePreference<T>(
     key: String?,
     title: StringResource,
     summary: StringResource? = null,

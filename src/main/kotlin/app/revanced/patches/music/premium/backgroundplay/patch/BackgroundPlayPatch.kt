@@ -5,8 +5,6 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.annotations.MusicCompatibility
 import app.revanced.patches.music.premium.backgroundplay.fingerprints.BackgroundPlaybackDisableFingerprint
@@ -18,7 +16,7 @@ import app.revanced.patches.music.premium.backgroundplay.fingerprints.Background
 class BackgroundPlayPatch : BytecodePatch(
     listOf(BackgroundPlaybackDisableFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         BackgroundPlaybackDisableFingerprint.result!!.mutableMethod.addInstructions(
             0,
             """
@@ -26,7 +24,5 @@ class BackgroundPlayPatch : BytecodePatch(
                 return v0
             """
         )
-
-        return PatchResultSuccess()
     }
 }

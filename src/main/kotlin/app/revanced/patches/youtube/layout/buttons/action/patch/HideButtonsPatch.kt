@@ -3,8 +3,6 @@ package app.revanced.patches.youtube.layout.buttons.action.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
@@ -22,7 +20,7 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 @Description("Adds the options to hide action buttons under a video.")
 @HideButtonsCompatibility
 class HideButtonsPatch : ResourcePatch {
-    override fun execute(context: ResourceContext): PatchResult {
+    override fun execute(context: ResourceContext) {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
                 "revanced_hide_buttons_preference_screen",
@@ -35,30 +33,58 @@ class HideButtonsPatch : ResourcePatch {
                         StringResource("revanced_hide_like_dislike_button_summary_off", "Like and dislike buttons are shown")
                     ),
                     SwitchPreference(
+                        "revanced_hide_live_chat_button",
+                        StringResource("revanced_hide_live_chat_button_title", "Hide live chat button"),
+                        StringResource("revanced_hide_live_chat_button_summary_on", "Live chat button is hidden"),
+                        StringResource("revanced_hide_live_chat_button_summary_off", "Live chat button is shown")
+                    ),
+                    SwitchPreference(
+                        "revanced_hide_share_button",
+                        StringResource("revanced_hide_share_button_title", "Hide share button"),
+                        StringResource("revanced_hide_share_button_summary_on", "Share button is hidden"),
+                        StringResource("revanced_hide_share_button_summary_off", "Share button is shown")
+                    ),
+                    SwitchPreference(
+                        "revanced_hide_report_button",
+                        StringResource("revanced_hide_report_button_title", "Hide report button"),
+                        StringResource("revanced_hide_report_button_summary_on", "Report button is hidden"),
+                        StringResource("revanced_hide_report_button_summary_off", "Report button is shown")
+                    ),
+                    SwitchPreference(
+                        "revanced_hide_remix_button",
+                        StringResource("revanced_hide_remix_button_title", "Hide remix button"),
+                        StringResource("revanced_hide_remix_button_summary_on", "Remix button is hidden"),
+                        StringResource("revanced_hide_remix_button_summary_off", "Remix button is shown")
+                    ),
+                    SwitchPreference(
                         "revanced_hide_download_button",
                         StringResource("revanced_hide_download_button_title", "Hide download button"),
                         StringResource("revanced_hide_download_button_summary_on", "Download button is hidden"),
                         StringResource("revanced_hide_download_button_summary_off", "Download button is shown")
                     ),
                     SwitchPreference(
-                        "revanced_hide_playlist_button",
-                        StringResource("revanced_hide_playlist_button_title", "Hide playlist button"),
-                        StringResource("revanced_hide_playlist_button_summary_on", "Playlist button is hidden"),
-                        StringResource("revanced_hide_playlist_button_summary_off", "Playlist button is shown")
+                        "revanced_hide_thanks_button",
+                        StringResource("revanced_hide_thanks_button_title", "Hide thanks button"),
+                        StringResource("revanced_hide_thanks_button_summary_on", "Thanks button is hidden"),
+                        StringResource("revanced_hide_thanks_button_summary_off", "Thanks button is shown")
                     ),
                     SwitchPreference(
                         "revanced_hide_clip_button",
                         StringResource("revanced_hide_clip_button_title", "Hide clip button"),
                         StringResource("revanced_hide_clip_button_summary_on", "Clip button is hidden"),
                         StringResource("revanced_hide_clip_button_summary_off", "Clip button is shown"),
-                        StringResource("revanced_hide_clip_button_user_dialog_message",
-                            "Hiding the clip button might not work reliably. In the case it does not work, it can only be hidden by enabling \\'Hide all other action buttons\\'")
                     ),
                     SwitchPreference(
-                        "revanced_hide_action_buttons",
-                        StringResource("revanced_hide_action_buttons_title", "Hide all other action buttons"),
-                        StringResource("revanced_hide_action_buttons_summary_on", "Share, remix, thanks, shop, live chat buttons are hidden"),
-                        StringResource("revanced_hide_action_buttons_summary_off", "Share, remix, thanks, shop, live chat buttons are shown")
+                        "revanced_hide_playlist_button",
+                        StringResource("revanced_hide_playlist_button_title", "Hide save to playlist button"),
+                        StringResource("revanced_hide_playlist_button_summary_on", "Save button is hidden"),
+                        StringResource("revanced_hide_playlist_button_summary_off", "Save button is shown")
+                    ),
+                    SwitchPreference(
+                        "revanced_hide_shop_button",
+                        StringResource("revanced_hide_shop_button_title", "Hide shop button"),
+                        StringResource("revanced_hide_shop_button_summary_on", "Shop button is hidden"),
+                        StringResource("revanced_hide_shop_button_summary_off", "Shop button is shown")
                     )
                 ),
                 StringResource("revanced_hide_buttons_preference_screen_summary", "Hide or show buttons under videos")
@@ -66,8 +92,6 @@ class HideButtonsPatch : ResourcePatch {
         )
 
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
-
-        return PatchResultSuccess()
     }
 
     private companion object {

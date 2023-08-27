@@ -3,7 +3,9 @@ package app.revanced.patches.spotify.layout.theme.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.*
+import app.revanced.patcher.patch.OptionsContainer
+import app.revanced.patcher.patch.PatchOption
+import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.spotify.layout.theme.annotations.ThemeCompatibility
 import org.w3c.dom.Element
@@ -13,7 +15,7 @@ import org.w3c.dom.Element
 @Description("Applies a custom theme.")
 @ThemeCompatibility
 class ThemePatch : ResourcePatch {
-    override fun execute(context: ResourceContext): PatchResult {
+    override fun execute(context: ResourceContext) {
         context.xmlEditor["res/values/colors.xml"].use { editor ->
             val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
 
@@ -28,8 +30,6 @@ class ThemePatch : ResourcePatch {
                 }
             }
         }
-
-        return PatchResultSuccess()
     }
 
     companion object : OptionsContainer() {

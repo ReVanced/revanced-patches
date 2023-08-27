@@ -1,8 +1,6 @@
 package app.revanced.patches.youtube.layout.sponsorblock.resource.patch
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
@@ -17,7 +15,7 @@ import app.revanced.util.resources.ResourceUtils.mergeStrings
 @DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
 class SponsorBlockResourcePatch : ResourcePatch {
 
-    override fun execute(context: ResourceContext): PatchResult {
+    override fun execute(context: ResourceContext) {
         SettingsPatch.addPreference(
             Preference(
                 StringResource("revanced_sponsorblock_settings_title", "SponsorBlock"),
@@ -91,7 +89,5 @@ class SponsorBlockResourcePatch : ResourcePatch {
                 break
             }
         }.close() // close afterwards
-
-        return PatchResultSuccess()
     }
 }

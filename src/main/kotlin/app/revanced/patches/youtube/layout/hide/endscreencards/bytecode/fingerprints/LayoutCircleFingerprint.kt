@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.layout.hide.endscreencards.bytecode.fingerp
 
 import app.revanced.patches.youtube.layout.hide.endscreencards.resource.patch.HideEndscreenCardsResourcePatch
 import app.revanced.util.patch.LiteralValueFingerprint
-import org.jf.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.Opcode
 
 object LayoutCircleFingerprint : LiteralValueFingerprint(
     returnType = "Landroid/view/View;",
