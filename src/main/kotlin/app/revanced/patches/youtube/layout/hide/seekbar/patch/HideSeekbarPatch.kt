@@ -6,6 +6,8 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.shared.fingerprints.SeekbarFingerprint
@@ -33,7 +35,7 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 class HideSeekbarPatch : BytecodePatch(
     listOf(SeekbarFingerprint)
 ) {
-    override fun execute(context: BytecodeContext) {
+    override fun execute(context: BytecodeContext): PatchResult {
         SeekbarPreferencesPatch.addPreferences(
             SwitchPreference(
                 "revanced_hide_seekbar",
@@ -63,5 +65,7 @@ class HideSeekbarPatch : BytecodePatch(
                 nop
             """
         )
+
+        return PatchResultSuccess()
     }
 }

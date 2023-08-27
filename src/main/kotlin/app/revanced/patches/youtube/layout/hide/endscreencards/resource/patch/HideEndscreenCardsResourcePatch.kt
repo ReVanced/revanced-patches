@@ -1,6 +1,8 @@
 package app.revanced.patches.youtube.layout.hide.endscreencards.resource.patch
 
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
@@ -16,7 +18,7 @@ class HideEndscreenCardsResourcePatch : ResourcePatch {
         var layoutVideo: Long = -1
     }
 
-    override fun execute(context: ResourceContext) {
+    override fun execute(context: ResourceContext): PatchResult {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_hide_endscreen_cards",
@@ -33,5 +35,7 @@ class HideEndscreenCardsResourcePatch : ResourcePatch {
         layoutCircle = findEndscreenResourceId("circle")
         layoutIcon = findEndscreenResourceId("icon")
         layoutVideo = findEndscreenResourceId("video")
+
+        return PatchResultSuccess()
     }
 }

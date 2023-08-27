@@ -1,11 +1,13 @@
 package app.revanced.patches.youtube.layout.buttons.navigation.patch
 
-import app.revanced.extensions.exception
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchException
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultError
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
 import app.revanced.patches.youtube.layout.buttons.navigation.fingerprints.InitializeButtonsFingerprint
@@ -16,10 +18,10 @@ import app.revanced.patches.youtube.layout.buttons.navigation.fingerprints.Pivot
 class ResolvePivotBarFingerprintsPatch : BytecodePatch(
     listOf(PivotBarConstructorFingerprint)
 ) {
-    override fun execute(context: BytecodeContext) {
+    override fun execute(context: BytecodeContext): PatchResult {
         // imageOnlyTabResourceId is used in InitializeButtonsFingerprint fingerprint
         ResourceMappingPatch.resourceMappings.find { it.type == "layout" && it.name == "image_only_tab" }
-            ?.let { imageOnlyTabResourceId = it.id } ?: throw PatchException("Failed to find resource")
+            ?.let { imageOnlyTabResourceId = it.id } ?: return PatchResultError("Failed to find resource")
 
         PivotBarConstructorFingerprint.result?.let {
             // Resolve InitializeButtonsFingerprint on the class of the method
@@ -28,8 +30,9 @@ class ResolvePivotBarFingerprintsPatch : BytecodePatch(
                     context,
                     it.classDef
                 )
-            ) throw InitializeButtonsFingerprint.exception
-        } ?: throw PivotBarConstructorFingerprint.exception
+            ) return InitializeButtonsFingerprint.toErrorResult()
+        } ?: return PivotBarConstructorFingerprint.toErrorResult()
+        return PatchResultSuccess()
     }
 
     internal companion object {

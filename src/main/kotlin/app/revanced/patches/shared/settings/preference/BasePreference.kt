@@ -12,7 +12,7 @@ import org.w3c.dom.Element
  * @param tag The tag of the preference.
  * @param summary The summary of the preference.
  */
-abstract class BasePreference(
+internal abstract class BasePreference(
     val key: String?,
     val title: StringResource,
     val summary: StringResource? = null,

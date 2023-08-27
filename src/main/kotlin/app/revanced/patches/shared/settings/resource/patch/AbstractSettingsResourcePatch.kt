@@ -1,8 +1,10 @@
 package app.revanced.patches.shared.settings.resource.patch
 
+import app.revanced.patcher.data.DomFileEditor
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.util.DomFileEditor
 import app.revanced.patches.shared.settings.preference.BasePreference
 import app.revanced.patches.shared.settings.preference.BaseResource
 import app.revanced.patches.shared.settings.preference.addPreference
@@ -24,7 +26,7 @@ abstract class AbstractSettingsResourcePatch(
     private val preferenceFileName: String,
     private val sourceDirectory: String,
 ) : ResourcePatch, Closeable {
-    override fun execute(context: ResourceContext) {
+    override fun execute(context: ResourceContext): PatchResult {
         /*
          * used for self-restart
          * TODO: do this only, when necessary
@@ -49,6 +51,8 @@ abstract class AbstractSettingsResourcePatch(
         stringsEditor = context.xmlEditor["res/values/strings.xml"]
         arraysEditor = context.xmlEditor["res/values/arrays.xml"]
         revancedPreferencesEditor = context.xmlEditor["res/xml/$preferenceFileName.xml"]
+
+        return PatchResultSuccess()
     }
 
     internal companion object {

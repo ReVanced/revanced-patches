@@ -3,6 +3,8 @@ package app.revanced.patches.youtube.layout.hide.comments.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
@@ -19,7 +21,7 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 @HideCommentsCompatibility
 @DependsOn([SettingsPatch::class, LithoFilterPatch::class])
 class CommentsPatch : ResourcePatch {
-    override fun execute(context: ResourceContext) {
+    override fun execute(context: ResourceContext): PatchResult {
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
         
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
@@ -43,6 +45,8 @@ class CommentsPatch : ResourcePatch {
                 StringResource("revanced_comments_preference_screen_summary", "Manage the visibility of comments section components")
             )
         )
+
+        return PatchResultSuccess()
     }
     
     private companion object {

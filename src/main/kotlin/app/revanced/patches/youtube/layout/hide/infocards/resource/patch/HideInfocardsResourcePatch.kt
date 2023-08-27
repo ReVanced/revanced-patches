@@ -1,6 +1,8 @@
 package app.revanced.patches.youtube.layout.hide.infocards.resource.patch
 
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
@@ -16,7 +18,7 @@ class HideInfocardsResourcePatch : ResourcePatch {
         var drawerResourceId: Long = -1
     }
 
-    override fun execute(context: ResourceContext) {
+    override fun execute(context: ResourceContext): PatchResult {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_hide_info_cards",
@@ -29,5 +31,7 @@ class HideInfocardsResourcePatch : ResourcePatch {
         drawerResourceId = ResourceMappingPatch.resourceMappings.single {
             it.type == "id" && it.name == "info_cards_drawer_header"
         }.id
+
+        return PatchResultSuccess()
     }
 }

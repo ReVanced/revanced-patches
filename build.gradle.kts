@@ -4,15 +4,17 @@ plugins {
 
 group = "app.revanced"
 
+val githubUsername: String = project.findProperty("gpr.user") as? String ?: System.getenv("GITHUB_ACTOR")
+val githubPassword: String = project.findProperty("gpr.key") as? String ?: System.getenv("GITHUB_TOKEN")
+
 repositories {
     mavenCentral()
     mavenLocal()
-    google()
     maven {
         url = uri("https://maven.pkg.github.com/revanced/revanced-patcher")
         credentials {
-            username = project.findProperty("gpr.user") as? String ?: System.getenv("GITHUB_ACTOR")
-            password = project.findProperty("gpr.key") as? String ?: System.getenv("GITHUB_TOKEN")
+            username = githubUsername
+            password = githubPassword
         }
     }
     // Required for FlexVer-Java
@@ -25,15 +27,15 @@ repositories {
 }
 
 dependencies {
-    implementation("app.revanced:revanced-patcher:14.0.0")
-    implementation("com.android.tools.smali:smali:3.0.3")
-    // Required because build fails without it.
-    // TODO: Find a way to remove this dependency.
-    implementation("com.google.guava:guava:32.1.2-jre")
-    // Used in JsonGenerator.
+    implementation("app.revanced:revanced-patcher:11.0.4")
+    implementation("app.revanced:multidexlib2:2.5.3-a3836654")
+    // Required for meta
     implementation("com.google.code.gson:gson:2.10.1")
+    // Required for FlexVer-Java
+    implementation("com.unascribed:flexver-java:1.0.2")
+
     // A dependency to the Android library unfortunately fails the build,
-    // which is why this is required for the patch change-oauth-client-id.
+    // which is why this is required for the patch change-oauth-client-id
     compileOnly(project("dummy"))
 }
 

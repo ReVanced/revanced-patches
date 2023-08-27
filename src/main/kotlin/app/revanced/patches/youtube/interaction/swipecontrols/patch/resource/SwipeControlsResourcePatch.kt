@@ -1,6 +1,8 @@
 package app.revanced.patches.youtube.interaction.swipecontrols.patch.resource
 
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.settings.preference.impl.*
@@ -10,7 +12,7 @@ import app.revanced.util.resources.ResourceUtils.copyResources
 
 @DependsOn([SettingsPatch::class])
 class SwipeControlsResourcePatch : ResourcePatch {
-    override fun execute(context: ResourceContext) {
+    override fun execute(context: ResourceContext): PatchResult {
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
             PreferenceScreen(
                 "revanced_swipe_controls_preference_screen",
@@ -100,5 +102,6 @@ class SwipeControlsResourcePatch : ResourcePatch {
                 "ic_sc_volume_normal.xml"
             )
         )
+        return PatchResultSuccess()
     }
 }

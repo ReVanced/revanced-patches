@@ -3,6 +3,8 @@ package app.revanced.patches.youtube.misc.debugging.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
@@ -18,7 +20,7 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 @Description("Adds debugging options.")
 @DebuggingCompatibility
 class DebuggingPatch : ResourcePatch {
-    override fun execute(context: ResourceContext) {
+    override fun execute(context: ResourceContext): PatchResult {
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             app.revanced.patches.shared.settings.preference.impl.PreferenceScreen(
                 "revanced_debug_preference_screen",
@@ -29,15 +31,6 @@ class DebuggingPatch : ResourcePatch {
                         StringResource("revanced_debug_title", "Debug logging"),
                         StringResource("revanced_debug_summary_on", "Debug logs are enabled"),
                         StringResource("revanced_debug_summary_off", "Debug logs are disabled")
-                    ),
-                    SwitchPreference(
-                        "revanced_debug_protobuffer",
-                        StringResource(
-                            "revanced_debug_protobuffer_title",
-                            "Log protocol buffer"
-                        ),
-                        StringResource("revanced_debug_protobuffer_summary_on", "Debug logs include proto buffer"),
-                        StringResource("revanced_debug_protobuffer_summary_off", "Debug logs do not include proto buffer")
                     ),
                     SwitchPreference(
                         "revanced_debug_stacktrace",
@@ -65,5 +58,7 @@ class DebuggingPatch : ResourcePatch {
                 StringResource("revanced_debug_preference_screen_summary", "Enable or disable debugging options")
             )
         )
+
+        return PatchResultSuccess()
     }
 }

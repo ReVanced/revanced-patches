@@ -1,13 +1,15 @@
 package app.revanced.patches.youtube.interaction.swipecontrols.patch.bytecode
 
 import app.revanced.extensions.transformMethods
-import app.revanced.extensions.traverseClassHierarchy
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
+import app.revanced.patcher.util.TypeUtil.traverseClassHierarchy
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.shared.fingerprints.WatchWhileActivityFingerprint
 import app.revanced.patches.youtube.interaction.swipecontrols.annotation.SwipeControlsCompatibility
@@ -15,8 +17,8 @@ import app.revanced.patches.youtube.interaction.swipecontrols.fingerprints.Swipe
 import app.revanced.patches.youtube.interaction.swipecontrols.patch.resource.SwipeControlsResourcePatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
-import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import org.jf.dexlib2.AccessFlags
+import org.jf.dexlib2.immutable.ImmutableMethod
 
 @Patch
 @Name("Swipe controls")
@@ -35,7 +37,7 @@ class SwipeControlsBytecodePatch : BytecodePatch(
         SwipeControlsHostActivityFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext) {
+    override fun execute(context: BytecodeContext): PatchResult {
         val wrapperClass = SwipeControlsHostActivityFingerprint.result!!.mutableClass
         val targetClass = WatchWhileActivityFingerprint.result!!.mutableClass
 
@@ -59,5 +61,6 @@ class SwipeControlsBytecodePatch : BytecodePatch(
                 ).toMutable()
             }
         }
+        return PatchResultSuccess()
     }
 }

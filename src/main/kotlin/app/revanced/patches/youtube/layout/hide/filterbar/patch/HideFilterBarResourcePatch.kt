@@ -1,6 +1,8 @@
 package app.revanced.patches.youtube.layout.hide.filterbar.patch
 
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
@@ -11,7 +13,7 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 
 @DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
 class HideFilterBarResourcePatch : ResourcePatch {
-    override fun execute(context: ResourceContext) {
+    override fun execute(context: ResourceContext): PatchResult {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
                 "revanced_hide_filter_bar_preference",
@@ -76,6 +78,8 @@ class HideFilterBarResourcePatch : ResourcePatch {
         relatedChipCloudMarginId = "related_chip_cloud_reduced_margins".layoutResourceId("layout")
         filterBarHeightId = "filter_bar_height".layoutResourceId()
         barContainerHeightId = "bar_container_height".layoutResourceId()
+
+        return PatchResultSuccess()
     }
 
     internal companion object {

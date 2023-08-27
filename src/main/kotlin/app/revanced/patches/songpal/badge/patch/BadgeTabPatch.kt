@@ -1,12 +1,14 @@
 package app.revanced.patches.songpal.badge.patch
 
-import app.revanced.extensions.exception
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.songpal.badge.annotations.BadgeCompatibility
 import app.revanced.patches.songpal.badge.fingerprints.CreateTabsFingerprint
@@ -18,7 +20,7 @@ import app.revanced.patches.songpal.badge.fingerprints.CreateTabsFingerprint
 class BadgeTabPatch : BytecodePatch(
     listOf(CreateTabsFingerprint)
 ) {
-    override fun execute(context: BytecodeContext) {
+    override fun execute(context: BytecodeContext): PatchResult {
         CreateTabsFingerprint.result?.mutableMethod?.apply {
             removeInstructions(0, 2)
 
@@ -50,7 +52,9 @@ class BadgeTabPatch : BytecodePatch(
                  """
             )
 
-        } ?: throw CreateTabsFingerprint.exception
+        } ?: return CreateTabsFingerprint.toErrorResult()
+
+        return PatchResultSuccess()
     }
 
     companion object {

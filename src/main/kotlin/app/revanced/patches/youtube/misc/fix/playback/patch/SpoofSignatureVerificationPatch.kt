@@ -1,14 +1,17 @@
 package app.revanced.patches.youtube.misc.fix.playback.patch
 
-import app.revanced.extensions.exception
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.ProtobufParameterBuilderFingerprint
@@ -17,7 +20,7 @@ import app.revanced.patches.youtube.misc.fix.playback.fingerprints.StoryboardThu
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.StoryboardThumbnailParentFingerprint
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
 @Name("Spoof signature verification")
 @Description("Spoofs the client to prevent playback issues.")
@@ -33,7 +36,7 @@ class SpoofSignatureVerificationPatch : BytecodePatch(
         ScrubbedPreviewLayoutFingerprint,
     )
 ) {
-    override fun execute(context: BytecodeContext) {
+    override fun execute(context: BytecodeContext): PatchResult {
 
         // hook parameter
         ProtobufParameterBuilderFingerprint.result?.let {
@@ -52,14 +55,14 @@ class SpoofSignatureVerificationPatch : BytecodePatch(
                     """
                 )
             }
-        } ?: throw ProtobufParameterBuilderFingerprint.exception
+        } ?: return ProtobufParameterBuilderFingerprint.toErrorResult()
 
 
         // When signature spoofing is enabled, the seekbar when tapped does not show
         // the video time, chapter names, or the video thumbnail.
         // Changing the value returned of this method forces all of these to show up,
         // except the thumbnails are blank, which is handled with the patch below.
-        StoryboardThumbnailParentFingerprint.result ?: throw StoryboardThumbnailParentFingerprint.exception
+        StoryboardThumbnailParentFingerprint.result ?: return StoryboardThumbnailParentFingerprint.toErrorResult()
         StoryboardThumbnailFingerprint.resolve(context, StoryboardThumbnailParentFingerprint.result!!.classDef)
         StoryboardThumbnailFingerprint.result?.apply {
             val endIndex = scanResult.patternScanResult!!.endIndex
@@ -81,7 +84,7 @@ class SpoofSignatureVerificationPatch : BytecodePatch(
                 return v0
             """
             )
-        } ?: throw StoryboardThumbnailFingerprint.exception
+        } ?: return StoryboardThumbnailFingerprint.toErrorResult()
 
 
         // Seekbar thumbnail now show up but are always a blank image.
@@ -99,7 +102,9 @@ class SpoofSignatureVerificationPatch : BytecodePatch(
                 """
                 )
             }
-        } ?: throw ScrubbedPreviewLayoutFingerprint.exception
+        } ?: return ScrubbedPreviewLayoutFingerprint.toErrorResult()
+
+        return PatchResultSuccess()
     }
 
     private companion object {

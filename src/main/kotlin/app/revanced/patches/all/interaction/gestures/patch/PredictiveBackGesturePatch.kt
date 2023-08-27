@@ -3,6 +3,8 @@ package app.revanced.patches.all.interaction.gestures.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.Patch
 
@@ -10,7 +12,7 @@ import app.revanced.patcher.patch.annotations.Patch
 @Name("Predictive back gesture")
 @Description("Enables the predictive back gesture introduced on Android 13.")
 class PredictiveBackGesturePatch : ResourcePatch {
-    override fun execute(context: ResourceContext) {
+    override fun execute(context: ResourceContext): PatchResult {
         context.xmlEditor["AndroidManifest.xml"].use { editor ->
             val document = editor.file
 
@@ -23,6 +25,8 @@ class PredictiveBackGesturePatch : ResourcePatch {
 
             }
         }
+
+        return PatchResultSuccess()
     }
 
     private companion object {

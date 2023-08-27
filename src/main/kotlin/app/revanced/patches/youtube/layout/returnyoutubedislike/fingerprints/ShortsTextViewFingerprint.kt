@@ -1,12 +1,12 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints
 
+import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.Opcode
+import org.jf.dexlib2.AccessFlags
+import org.jf.dexlib2.Opcode
 
 object ShortsTextViewFingerprint : MethodFingerprint(
-    // 18.29.38 method is public final visibility, but in 18.23.35 and older it's protected final.
-    // If 18.23.35 is dropped then accessFlags should be specified here.
+    accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
     returnType = "V",
     parameters = listOf("L", "L"),
     opcodes = listOf(

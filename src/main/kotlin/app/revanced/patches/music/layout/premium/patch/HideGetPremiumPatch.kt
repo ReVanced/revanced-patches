@@ -7,6 +7,8 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.music.annotations.MusicCompatibility
 import app.revanced.patches.music.layout.premium.fingerprints.HideGetPremiumFingerprint
@@ -19,7 +21,7 @@ import app.revanced.patches.music.layout.premium.fingerprints.HideGetPremiumPare
 class HideGetPremiumPatch : BytecodePatch(
     listOf(HideGetPremiumParentFingerprint)
 ) {
-    override fun execute(context: BytecodeContext) {
+    override fun execute(context: BytecodeContext): PatchResult {
         val parentResult = HideGetPremiumParentFingerprint.result!!
         HideGetPremiumFingerprint.resolve(context, parentResult.classDef)
 
@@ -41,5 +43,7 @@ class HideGetPremiumPatch : BytecodePatch(
                 const/16 v0, 0x8
             """
         )
+
+        return PatchResultSuccess()
     }
 }

@@ -1,7 +1,9 @@
 package app.revanced.patches.youtube.layout.hide.floatingmicrophone.patch
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchException
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultError
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
@@ -13,7 +15,7 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
 @DependsOn([SettingsPatch::class, ResourceMappingPatch::class])
 @HideFloatingMicrophoneButtonCompatibility
 class HideFloatingMicrophoneButtonResourcePatch : ResourcePatch {
-    override fun execute(context: ResourceContext) {
+    override fun execute(context: ResourceContext): PatchResult {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_hide_floating_microphone_button",
@@ -27,7 +29,8 @@ class HideFloatingMicrophoneButtonResourcePatch : ResourcePatch {
         )
 
         fabButtonId = ResourceMappingPatch.resourceMappings.find { it.type == "id" && it.name == "fab" }?.id
-            ?: throw PatchException("Can not find required fab button resource id")
+            ?: return PatchResultError("Can not find required fab button resource id")
+        return PatchResultSuccess()
     }
 
     internal companion object {

@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.settings.bytecode.patch
 
-import app.revanced.extensions.exception
+import app.revanced.extensions.toErrorResult
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
@@ -9,6 +9,8 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.settings.preference.impl.Preference
 import app.revanced.patches.shared.settings.util.AbstractPreferenceScreen
@@ -16,9 +18,9 @@ import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.LicenseActivityFingerprint
 import app.revanced.patches.youtube.misc.settings.bytecode.fingerprints.SetThemeFingerprint
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsResourcePatch
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.util.MethodUtil
+import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
+import org.jf.dexlib2.util.MethodUtil
 import java.io.Closeable
 
 @DependsOn([IntegrationsPatch::class, SettingsResourcePatch::class])
@@ -27,7 +29,7 @@ import java.io.Closeable
 class SettingsPatch : BytecodePatch(
     listOf(LicenseActivityFingerprint, SetThemeFingerprint)
 ), Closeable {
-    override fun execute(context: BytecodeContext) {
+    override fun execute(context: BytecodeContext): PatchResult {
         // TODO: Remove this when it is only required at one place.
         fun getSetThemeInstructionString(
             registers: String = "v0",
@@ -55,7 +57,7 @@ class SettingsPatch : BytecodePatch(
                         addInstruction(returnIndex + 1, "return-object v0")
                     }
                 }
-        } ?: throw SetThemeFingerprint.exception
+        } ?: return SetThemeFingerprint.toErrorResult()
 
 
         // Modify the license activity and remove all existing layout code.
@@ -86,6 +88,8 @@ class SettingsPatch : BytecodePatch(
             }
         }
 
+
+        return PatchResultSuccess()
     }
 
     internal companion object {
@@ -119,7 +123,7 @@ class SettingsPatch : BytecodePatch(
     /**
      * Preference screens patches should add their settings to.
      */
-    object PreferenceScreen : AbstractPreferenceScreen() {
+    internal object PreferenceScreen : AbstractPreferenceScreen() {
         val ADS = Screen("ads", "Ads", "Ad related settings")
         val INTERACTIONS = Screen("interactions", "Interaction", "Settings related to interactions")
         val LAYOUT = Screen("layout", "Layout", "Settings related to the layout")

@@ -6,6 +6,8 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.annotations.RequiresIntegrations
@@ -14,11 +16,11 @@ import app.revanced.patches.reddit.ad.comments.patch.HideCommentAdsPatch
 import app.revanced.patches.reddit.ad.general.annotations.HideAdsCompatibility
 import app.revanced.patches.reddit.ad.general.fingerprints.AdPostFingerprint
 import app.revanced.patches.reddit.ad.general.fingerprints.NewAdPostFingerprint
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.iface.instruction.ReferenceInstruction
+import org.jf.dexlib2.iface.instruction.formats.Instruction22c
+import org.jf.dexlib2.iface.reference.FieldReference
+import org.jf.dexlib2.iface.reference.MethodReference
 
 @Patch
 @Name("Hide ads")
@@ -29,7 +31,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 class HideAdsPatch : BytecodePatch(
     listOf(AdPostFingerprint, NewAdPostFingerprint)
 ) {
-    override fun execute(context: BytecodeContext) {
+    override fun execute(context: BytecodeContext): PatchResult {
         // region Filter promoted ads (does not work in popular or latest feed)
 
         AdPostFingerprint.result?.mutableMethod?.apply {
@@ -76,6 +78,8 @@ class HideAdsPatch : BytecodePatch(
         }
 
         // endregion
+
+        return PatchResultSuccess()
     }
 
     private companion object {

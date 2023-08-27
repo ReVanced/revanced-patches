@@ -13,7 +13,7 @@ import org.w3c.dom.Document
  * @param preferences Child preferences of this screen.
  * @param summary The summary of the text preference.
  */
-open class PreferenceScreen(
+internal open class PreferenceScreen(
     key: String,
     title: StringResource,
     var preferences: List<BasePreference>,

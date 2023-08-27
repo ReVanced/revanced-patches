@@ -1,6 +1,8 @@
 package app.revanced.patches.youtube.ad.general.resource.patch
 
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.PatchResult
+import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patches.shared.mapping.misc.patch.ResourceMappingPatch
@@ -20,7 +22,7 @@ import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch.P
 )
 @HideAdsCompatibility
 class HideAdsResourcePatch : ResourcePatch {
-    override fun execute(context: ResourceContext) {
+    override fun execute(context: ResourceContext): PatchResult {
         PreferenceScreen.ADS.addPreferences(
             SwitchPreference(
                 "revanced_hide_general_ads",
@@ -69,6 +71,8 @@ class HideAdsResourcePatch : ResourcePatch {
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
 
         adAttributionId = ResourceMappingPatch.resourceMappings.single { it.name == "ad_attribution" }.id
+
+        return PatchResultSuccess()
     }
 
     internal companion object {
