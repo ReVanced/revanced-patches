@@ -22,7 +22,7 @@ internal object TwiFucker {
 
     private fun JSONObject.jsonCheckAndRemoveRecommendedUsers() {
         if (jsonHasRecommendedUsers()) {
-            Log.d("revanced", "Handle recommended users: $this")
+            Log.d("ReVanced", "Handle recommended users: $this")
             jsonRemoveRecommendedUsers()
         }
     }
@@ -35,7 +35,7 @@ internal object TwiFucker {
 
     private fun JSONObject.jsonCheckAndRemoveThreads() {
         if (jsonHasThreads()) {
-            Log.d("revabced", "Handle threads: $this")
+            Log.d("ReVanced", "Handle threads: $this")
             jsonRemoveThreads()
         }
     }
@@ -92,7 +92,7 @@ internal object TwiFucker {
         val trendRemoveIndex = mutableListOf<Int>()
         forEachIndexed { trendIndex, trend ->
             if (trend.trendHasPromotedMetadata()) {
-                Log.d("revanced", "Handle trends ads $trendIndex $trend")
+                Log.d("ReVanced", "Handle trends ads $trendIndex $trend")
                 trendRemoveIndex.add(trendIndex)
             }
         }
@@ -119,7 +119,7 @@ internal object TwiFucker {
             entry.entryGetTrends()?.trendRemoveAds()
 
             if (entry.entryHasPromotedMetadata()) {
-                Log.d("revanced", "Handle timeline ads $entryIndex $entry")
+                Log.d("ReVanced", "Handle timeline ads $entryIndex $entry")
                 removeIndex.add(entryIndex)
             }
 
@@ -127,7 +127,7 @@ internal object TwiFucker {
             val contentItems = entry.entryGetContentItems()
             contentItems?.forEachIndexed inner@{ itemIndex, item ->
                 if (item.entryHasPromotedMetadata()) {
-                    Log.d("revanced", "Handle timeline replies ads $entryIndex $entry")
+                    Log.d("ReVanced", "Handle timeline replies ads $entryIndex $entry")
                     if (contentItems.length() == 1) {
                         removeIndex.add(entryIndex)
                     } else {
@@ -150,7 +150,7 @@ internal object TwiFucker {
         forEachIndexed { entryIndex, entry ->
 
             if (entry.entryIsTweetDetailRelatedTweets()) {
-                Log.d("revanced", "Handle tweet detail related tweets $entryIndex $entry")
+                Log.d("ReVanced", "Handle tweet detail related tweets $entryIndex $entry")
                 removeIndex.add(entryIndex)
             }
         }
@@ -180,7 +180,7 @@ internal object TwiFucker {
         forEachIndexed { entryIndex, entry ->
             if (!entry.entryIsWhoToFollow()) return@forEachIndexed
 
-            Log.d("revanced", "Handle whoToFollow $entryIndex $entry")
+            Log.d("ReVanced", "Handle whoToFollow $entryIndex $entry")
             entryRemoveIndex.add(entryIndex)
 
             val items = entry.entryGetContentItems()
@@ -188,7 +188,7 @@ internal object TwiFucker {
             items?.forEachIndexed { index, item ->
                 item.itemContainsPromotedUser().let {
                     if (it) {
-                        Log.d("revanced", "Handle whoToFollow promoted user $index $item")
+                        Log.d("ReVanced", "Handle whoToFollow promoted user $index $item")
                         userRemoveIndex.add(index)
                     }
                 }

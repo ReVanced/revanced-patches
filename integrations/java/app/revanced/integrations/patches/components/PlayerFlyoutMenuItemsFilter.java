@@ -15,7 +15,7 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public PlayerFlyoutMenuItemsFilter() {
-        identifierFilterGroups.addAll(new StringFilterGroup(null, "overflow_menu_item.eml|"));
+        identifierFilterGroupList.addAll(new StringFilterGroup(null, "overflow_menu_item.eml|"));
 
         flyoutFilterGroupList.addAll(
                 new ByteArrayAsStringFilterGroup(
@@ -62,12 +62,12 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
     }
 
     @Override
-    boolean isFiltered(String path, @Nullable String identifier, byte[] protobufBufferArray,
+    boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                        FilterGroupList matchedList, FilterGroup matchedGroup, int matchedIndex) {
         // Only 1 group is added to the parent class, so the matched group must be the overflow menu.
         if (matchedIndex == 0 && flyoutFilterGroupList.check(protobufBufferArray).isFiltered()) {
             // Super class handles logging.
-            return super.isFiltered(path, identifier, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
+            return super.isFiltered(identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
         }
         return false;
     }
