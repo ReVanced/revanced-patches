@@ -1,3 +1,10 @@
+# [2.190.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.190.0-dev.1...v2.190.0-dev.2) (2023-08-28)
+
+
+### Bug Fixes
+
+* **Infinity for Reddit - Spoof client:** Support latest version ([8a5311b](https://github.com/ReVanced/revanced-patches/commit/8a5311b1e645ca2aab1e416d647cf52bf0be6e7f))
+
 # [2.190.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.189.0...v2.190.0-dev.1) (2023-08-28)
 
 
