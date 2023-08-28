@@ -1,3 +1,10 @@
+# [2.190.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.189.0...v2.190.0-dev.1) (2023-08-28)
+
+
+### Features
+
+* **Photomath:** Support latest version ([5a2cad0](https://github.com/ReVanced/revanced-patches/commit/5a2cad077f03880ee1417c5cfd448bbdea4c07e2))
+
 # [2.189.0](https://github.com/ReVanced/revanced-patches/compare/v2.188.1...v2.189.0) (2023-08-27)
 
 
