@@ -1,3 +1,10 @@
+## [2.190.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.190.0...v2.190.1-dev.1) (2023-09-03)
+
+
+### Bug Fixes
+
+* **Twitch - Audio ads:** Support missing version `16.1.0` ([#2928](https://github.com/ReVanced/revanced-patches/issues/2928)) ([688d8fa](https://github.com/ReVanced/revanced-patches/commit/688d8fa7e86862e03d8336af5f6cb207c4b72593))
+
 # [2.190.0](https://github.com/ReVanced/revanced-patches/compare/v2.189.0...v2.190.0) (2023-09-03)
 
 
