@@ -25,6 +25,7 @@ class SpoofClientPatch : AbstractSpoofClientPatch(
 ) {
     override fun List<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
         forEach {
+            // First is index of the clientId string.
             val clientIdIndex = it.scanResult.stringsScanResult!!.matches.first().index
             it.mutableMethod.apply {
                 val oAuthClientIdRegister = getInstruction<OneRegisterInstruction>(clientIdIndex).registerA

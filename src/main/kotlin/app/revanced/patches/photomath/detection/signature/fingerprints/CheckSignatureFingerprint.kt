@@ -1,19 +1,11 @@
 package app.revanced.patches.photomath.detection.signature.fingerprints
 
-import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 object CheckSignatureFingerprint : MethodFingerprint(
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    customFingerprint = { methodDef, _ ->
-        (methodDef.definingClass == "Lcom/microblink/photomath/main/activity/LauncherActivity;" ||
-                methodDef.definingClass == "Lcom/microblink/photomath/PhotoMath;") &&
-                methodDef.name == "onCreate"
-    },
     strings = listOf(
+        "packageInfo.signatures",
         "currentSignature"
     ),
     opcodes = listOf(

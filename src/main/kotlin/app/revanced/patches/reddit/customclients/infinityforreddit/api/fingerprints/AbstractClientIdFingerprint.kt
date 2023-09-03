@@ -1,12 +1,17 @@
 package app.revanced.patches.reddit.customclients.infinityforreddit.api.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import com.android.tools.smali.dexlib2.iface.ClassDef
+import com.android.tools.smali.dexlib2.iface.Method
 
-abstract class AbstractClientIdFingerprint(classTypeSuffix: String, methodName: String) : MethodFingerprint(
-    strings = listOf("NOe2iKrPPzwscA"),
-    customFingerprint = custom@{ methodDef, classDef ->
-        if (!classDef.type.endsWith(classTypeSuffix)) return@custom false
-
-        methodDef.name == methodName
-    }
-)
+/**
+ * Fingerprint for a method that has the client id hardcoded in it.
+ * The first string in the fingerprint is the client id.
+ *
+ * @param customFingerprint A custom fingerprint.
+ * @param additionalStrings Additional strings to add to the fingerprint.
+ */
+abstract class AbstractClientIdFingerprint(
+    customFingerprint: ((methodDef: Method, classDef: ClassDef) -> Boolean)? = null,
+    vararg additionalStrings: String
+) : MethodFingerprint(strings = listOf("NOe2iKrPPzwscA", *additionalStrings), customFingerprint = customFingerprint)
