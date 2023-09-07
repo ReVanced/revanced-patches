@@ -17,7 +17,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Description("Spoofs the client in order to allow logging in. " +
         "The OAuth application type has to be \"Installed app\" " +
         "and the redirect URI has to be set to \"infinity://localhost\".")
-@Compatibility([Package("ml.docilealligator.infinityforreddit")])
+@Compatibility([Package("ml.docilealligator.infinityforreddit", arrayOf("5.4.0", "5.4.1", "5.4.2", "6.0.1", "6.0.2", "6.0.4", "6.0.6", "6.1.1"))])
 class SpoofClientPatch : AbstractSpoofClientPatch(
     "infinity://localhost",
     Options,
