@@ -186,12 +186,6 @@ class HideLayoutComponentsPatch : BytecodePatch(
                 StringResource("revanced_hide_image_shelf_summary_off", "Image shelf is shown")
             ),
             SwitchPreference(
-                "revanced_hide_audio_track_button",
-                StringResource("revanced_hide_audio_track_button_title", "Hide audio track button"),
-                StringResource("revanced_hide_audio_track_button_on", "Audio track button is hidden"),
-                StringResource("revanced_hide_audio_track_button_off", "Audio track button is shown")
-            ),
-            SwitchPreference(
                 "revanced_hide_latest_posts_ads",
                 StringResource("revanced_hide_latest_posts_ads_title", "Hide latest posts"),
                 StringResource("revanced_hide_latest_posts_ads_summary_on", "Latest posts are hidden"),
