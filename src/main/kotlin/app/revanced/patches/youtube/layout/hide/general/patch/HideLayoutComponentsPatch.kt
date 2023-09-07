@@ -11,6 +11,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.shared.settings.preference.impl.InputType
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.shared.settings.preference.impl.TextPreference
@@ -234,8 +235,9 @@ class HideLayoutComponentsPatch : BytecodePatch(
                         StringResource("revanced_custom_filter_strings_title", "Custom filter"),
                         StringResource(
                             "revanced_custom_filter_strings_summary",
-                            "Filter components by their name separated by a comma"
-                        )
+                            "List of components to filter separated by new line"
+                        ),
+                        inputType = InputType.TEXT_MULTI_LINE
                     )
                 )
             )
