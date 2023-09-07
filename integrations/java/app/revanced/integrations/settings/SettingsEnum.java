@@ -36,8 +36,6 @@ public enum SettingsEnum {
     // Video
     HDR_AUTO_BRIGHTNESS("revanced_hdr_auto_brightness", BOOLEAN, TRUE),
     SHOW_OLD_VIDEO_QUALITY_MENU("revanced_show_old_video_quality_menu", BOOLEAN, TRUE),
-    @Deprecated
-    DEPRECATED_SHOW_OLD_VIDEO_QUALITY_MENU("revanced_show_old_video_menu", BOOLEAN, TRUE),
     REMEMBER_VIDEO_QUALITY_LAST_SELECTED("revanced_remember_video_quality_last_selected", BOOLEAN, TRUE),
     VIDEO_QUALITY_DEFAULT_WIFI("revanced_video_quality_default_wifi", INTEGER, -2),
     VIDEO_QUALITY_DEFAULT_MOBILE("revanced_video_quality_default_mobile", INTEGER, -2),
@@ -367,13 +365,20 @@ public enum SettingsEnum {
 
         // region Migration
 
-        // TODO: do _not_ delete this SB private user id migration property until sometime in 2024.
+        // Do _not_ delete this SB private user id migration property until sometime in 2024.
         // This is the only setting that cannot be reconfigured if lost,
         // and more time should be given for users who rarely upgrade.
         migrateOldSettingToNew(DEPRECATED_SB_UUID_OLD_MIGRATION_SETTING, SB_PRIVATE_USER_ID);
 
-        // TODO: delete DEPRECATED_SHOW_OLD_VIDEO_QUALITY_MENU (When? anytime).
-        migrateOldSettingToNew(DEPRECATED_SHOW_OLD_VIDEO_QUALITY_MENU, SHOW_OLD_VIDEO_QUALITY_MENU);
+        // This migration may need to remain here for a while.
+        // Older online guides will still reference using commas,
+        // and this code will automatically convert anything the user enters to newline format,
+        // and also migrate any imported older settings that using commas.
+        String componentsToFilter = SettingsEnum.CUSTOM_FILTER_STRINGS.getString();
+        if (componentsToFilter.contains(",")) {
+            LogHelper.printInfo(() -> "Migrating custom filter strings to new line format");
+            SettingsEnum.CUSTOM_FILTER_STRINGS.saveValue(componentsToFilter.replace(",", "\n"));
+        }
 
         // endregion
     }
