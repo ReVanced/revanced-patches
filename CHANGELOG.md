@@ -1,3 +1,10 @@
+## [2.190.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v2.190.1-dev.2...v2.190.1-dev.3) (2023-09-07)
+
+
+### Bug Fixes
+
+* **Infinity for Reddit - Spoof client:** Constrain patch to last working versions ([#2944](https://github.com/ReVanced/revanced-patches/issues/2944)) ([ee975de](https://github.com/ReVanced/revanced-patches/commit/ee975dea846c77af0efe608e647075f4055af320))
+
 ## [2.190.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.190.1-dev.1...v2.190.1-dev.2) (2023-09-07)
 
 
