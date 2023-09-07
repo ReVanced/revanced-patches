@@ -1,3 +1,10 @@
+## [2.190.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.190.1-dev.1...v2.190.1-dev.2) (2023-09-07)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Always hide redundant 'player audio track' button ([#2951](https://github.com/ReVanced/revanced-patches/issues/2951)) ([ca632bd](https://github.com/ReVanced/revanced-patches/commit/ca632bd2cc74f0ce5ccb948e902445de3ab893cf))
+
 ## [2.190.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.190.0...v2.190.1-dev.1) (2023-09-03)
 
 
