@@ -154,6 +154,8 @@ public class ReturnYouTubeDislikePatch {
             }
 
             String conversionContextString = conversionContext.toString();
+            LogHelper.printDebug(() -> "conversionContext: " + conversionContextString);
+
             final boolean isSegmentedButton;
             if (conversionContextString.contains("|segmented_like_dislike_button.eml|")) {
                 isSegmentedButton = true;
