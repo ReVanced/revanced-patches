@@ -50,7 +50,7 @@ tasks {
             val androidHome = System.getenv("ANDROID_HOME") ?: throw GradleException("ANDROID_HOME not found")
             val d8 = "${androidHome}/build-tools/33.0.1/d8"
             val input = configurations.archives.get().allArtifacts.files.files.first().absolutePath
-            val work = File("${buildDir}/libs")
+            val work = layout.buildDirectory.dir("libs").get().asFile
 
             exec {
                 workingDir = work
