@@ -1,3 +1,10 @@
+# [2.191.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.1...v2.191.0-dev.2) (2023-09-11)
+
+
+### Bug Fixes
+
+* Use consistent toggle description ([#2983](https://github.com/ReVanced/revanced-patches/issues/2983)) ([ceaa512](https://github.com/ReVanced/revanced-patches/commit/ceaa512f317fdd95dca37e425b389494a9b2e226))
+
 # [2.191.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.190.1-dev.4...v2.191.0-dev.1) (2023-09-11)
 
 
