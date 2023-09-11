@@ -55,7 +55,7 @@ class HideLayoutComponentsPatch : BytecodePatch(
                 "revanced_hide_expandable_chip",
                 StringResource(
                     "revanced_hide_expandable_chip_title",
-                    "Hide the expandable chip under videos"
+                    "Hide expandable chip under videos"
                 ),
                 StringResource(
                     "revanced_hide_expandable_chip_summary_on",
