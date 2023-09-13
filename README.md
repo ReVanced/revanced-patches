@@ -1,3 +1,3 @@
-## 🧩 ReVanced Patches
+# 🧩 ReVanced Patches
 
 Patches for ReVanced.
