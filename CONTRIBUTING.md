@@ -45,7 +45,7 @@ This document describes how to contribute to ReVanced Patches.
 
 ## 📖 Resources to help you get started
 
-* [The documentation](https://github.com/ReVanced/revanced-patches/tree/docs/docs) provides the fundamentals of patches 
+* The [documentation](https://github.com/ReVanced/revanced-patches/tree/docs/docs) provides the fundamentals of patches 
 and everything necessary to create your own patch from scratch
 * [Our backlog](https://github.com/orgs/ReVanced/projects/12) is where we keep track of what we're working on
 * [Issues](https://github.com/ReVanced/revanced-patches/issues) are where we keep track of bugs and feature requests
