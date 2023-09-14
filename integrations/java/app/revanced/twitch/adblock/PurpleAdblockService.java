@@ -1,14 +1,13 @@
 package app.revanced.twitch.adblock;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import app.revanced.twitch.api.RetrofitClient;
 import app.revanced.twitch.utils.LogHelper;
 import app.revanced.twitch.utils.ReVancedUtils;
 import okhttp3.HttpUrl;
 import okhttp3.Request;
-import okhttp3.ResponseBody;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class PurpleAdblockService implements IAdblockService {
     private final Map<String, Boolean> tunnels = new HashMap<>() {{
@@ -36,9 +35,13 @@ public class PurpleAdblockService implements IAdblockService {
                 if (!response.isSuccessful()) {
                     LogHelper.error("PurpleAdBlock tunnel $tunnel returned an error: HTTP code %d", response.code());
                     LogHelper.debug(response.message());
-                    if (response.errorBody() != null) {
-                        LogHelper.debug(((ResponseBody) response.errorBody()).string());
+
+                    try (var errorBody = response.errorBody()) {
+                        if (errorBody != null) {
+                            LogHelper.debug(errorBody.string());
+                        }
                     }
+
                     success = false;
                 }
             } catch (Exception ex) {
