@@ -3,8 +3,8 @@ package app.revanced.patches.twitch.ad.embedded.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.MethodFingerprintExtensions.name
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.MethodFingerprintExtensions.name
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotations.DependsOn
@@ -21,7 +21,7 @@ import app.revanced.patches.twitch.misc.settings.bytecode.patch.SettingsPatch
 @Patch
 @DependsOn([VideoAdsPatch::class, IntegrationsPatch::class, SettingsPatch::class])
 @Name("Block embedded ads")
-@Description("Blocks embedded stream ads using services like TTV.lol or PurpleAdBlocker.")
+@Description("Blocks embedded stream ads using services like Luminous or PurpleAdBlocker.")
 @EmbeddedAdsCompatibility
 class EmbeddedAdsPatch : BytecodePatch(
     listOf(CreateUsherClientFingerprint)
@@ -50,7 +50,7 @@ class EmbeddedAdsPatch : BytecodePatch(
                     "revanced_hls_proxies",
                     listOf(
                         StringResource("revanced_proxy_disabled", "Disabled"),
-                        StringResource("revanced_proxy_ttv_lol", "TTV LOL proxy"),
+                        StringResource("revanced_proxy_luminous", "Luminous proxy"),
                         StringResource("revanced_proxy_purpleadblock", "PurpleAdBlock proxy"),
                     )
                 ),
@@ -58,11 +58,11 @@ class EmbeddedAdsPatch : BytecodePatch(
                     "revanced_hls_proxies_values",
                     listOf(
                         StringResource("key_revanced_proxy_disabled", "disabled"),
-                        StringResource("key_revanced_proxy_ttv_lol", "ttv-lol"),
+                        StringResource("key_revanced_proxy_luminous", "luminous"),
                         StringResource("key_revanced_proxy_purpleadblock", "purpleadblock")
                     )
                 ),
-                default = "ttv-lol"
+                default = "luminous"
             )
         )
 
