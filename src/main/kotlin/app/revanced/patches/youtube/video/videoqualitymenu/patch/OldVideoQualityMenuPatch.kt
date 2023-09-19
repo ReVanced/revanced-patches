@@ -8,9 +8,9 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.youtube.misc.bottomsheet.hook.patch.BottomSheetHookPatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.patch.LithoFilterPatch
+import app.revanced.patches.youtube.misc.recyclerviewtree.hook.patch.RecyclerViewTreeHookPatch
 import app.revanced.patches.youtube.video.videoqualitymenu.annotations.OldVideoQualityMenuCompatibility
 import app.revanced.patches.youtube.video.videoqualitymenu.fingerprints.VideoQualityMenuViewInflateFingerprint
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -20,7 +20,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     IntegrationsPatch::class,
     OldVideoQualityMenuResourcePatch::class,
     LithoFilterPatch::class,
-    BottomSheetHookPatch::class
+    RecyclerViewTreeHookPatch::class
 ])
 @Name("Old video quality menu")
 @Description("Shows the old video quality with the advanced video quality options instead of the new one.")
@@ -30,6 +30,7 @@ class OldVideoQualityMenuPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
         // region Patch for the old type of the video quality menu.
+        // Only used when spoofing to old app version.
 
         VideoQualityMenuViewInflateFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -49,7 +50,7 @@ class OldVideoQualityMenuPatch : BytecodePatch(
 
         // region Patch for the new type of the video quality menu.
 
-        BottomSheetHookPatch.addHook(INTEGRATIONS_CLASS_DESCRIPTOR)
+        RecyclerViewTreeHookPatch.addHook(INTEGRATIONS_CLASS_DESCRIPTOR)
 
         // Required to check if the video quality menu is currently shown in order to click on the "Advanced" item.
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)

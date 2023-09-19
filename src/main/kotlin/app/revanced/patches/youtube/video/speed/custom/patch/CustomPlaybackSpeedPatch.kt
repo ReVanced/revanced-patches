@@ -17,7 +17,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMut
 import app.revanced.patches.shared.settings.preference.impl.InputType
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.TextPreference
-import app.revanced.patches.youtube.misc.bottomsheet.hook.patch.BottomSheetHookPatch
+import app.revanced.patches.youtube.misc.recyclerviewtree.hook.patch.RecyclerViewTreeHookPatch
 import app.revanced.patches.youtube.misc.integrations.patch.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.patch.LithoFilterPatch
 import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
@@ -32,7 +32,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableField
 
 @Name("Custom playback speed")
 @Description("Adds custom playback speed options.")
-@DependsOn([IntegrationsPatch::class, LithoFilterPatch::class, SettingsPatch::class, BottomSheetHookPatch::class])
+@DependsOn([IntegrationsPatch::class, LithoFilterPatch::class, SettingsPatch::class, RecyclerViewTreeHookPatch::class])
 class CustomPlaybackSpeedPatch : BytecodePatch(
     listOf(
         SpeedArrayGeneratorFingerprint,
@@ -116,20 +116,19 @@ class CustomPlaybackSpeedPatch : BytecodePatch(
         val limiterMinConstDestination = (limiterMinConst as OneRegisterInstruction).registerA
         val limiterMaxConstDestination = (limiterMaxConst as OneRegisterInstruction).registerA
 
-        // edit: alternatively this might work by overriding with fixed values such as 0.1x and 10x
         limiterMethod.replaceInstruction(
             limiterMinConstIndex,
-            "sget v$limiterMinConstDestination, $INTEGRATIONS_CLASS_DESCRIPTOR->minPlaybackSpeed:F"
+            "const/high16 v$limiterMinConstDestination, 0x0"
         )
         limiterMethod.replaceInstruction(
             limiterMaxConstIndex,
-            "sget v$limiterMaxConstDestination, $INTEGRATIONS_CLASS_DESCRIPTOR->maxPlaybackSpeed:F"
+            "const/high16 v$limiterMaxConstDestination, 0x41200000  # 10.0f"
         )
 
         // region Force old video quality menu.
         // This is necessary, because there is no known way of adding custom playback speeds to the new menu.
 
-        BottomSheetHookPatch.addHook(INTEGRATIONS_CLASS_DESCRIPTOR)
+        RecyclerViewTreeHookPatch.addHook(INTEGRATIONS_CLASS_DESCRIPTOR)
 
         // Required to check if the playback speed menu is currently shown.
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
