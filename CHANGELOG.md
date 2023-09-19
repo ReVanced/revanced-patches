@@ -1,3 +1,10 @@
+# [2.191.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.4...v2.191.0-dev.5) (2023-09-19)
+
+
+### Bug Fixes
+
+* **YouTube:** Restore functionality of `Old video quality menu` and `Custom speeds` on tablets ([#2999](https://github.com/ReVanced/revanced-patches/issues/2999)) ([238bed1](https://github.com/ReVanced/revanced-patches/commit/238bed12519ec61a53b1ee72da467830ef252154))
+
 # [2.191.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.3...v2.191.0-dev.4) (2023-09-14)
 
 
