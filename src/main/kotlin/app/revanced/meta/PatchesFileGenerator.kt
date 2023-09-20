@@ -1,13 +1,11 @@
 package app.revanced.meta
 
 import app.revanced.patcher.PatchBundleLoader
-import app.revanced.patcher.patch.PatchClass
+import app.revanced.patcher.PatchSet
 import java.io.File
 
-internal typealias PatchBundlePatches = List<PatchClass>
-
 internal interface PatchesFileGenerator {
-    fun generate(bundle: PatchBundlePatches)
+    fun generate(patches: PatchSet)
 
     private companion object {
         @JvmStatic

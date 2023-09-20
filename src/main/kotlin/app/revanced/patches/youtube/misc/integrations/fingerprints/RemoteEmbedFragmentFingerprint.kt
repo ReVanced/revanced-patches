@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.misc.integrations.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patches.shared.integrations.patch.AbstractIntegrationsPatch.IntegrationsFingerprint
+import app.revanced.patches.shared.integrations.AbstractIntegrationsPatch.IntegrationsFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
 /**

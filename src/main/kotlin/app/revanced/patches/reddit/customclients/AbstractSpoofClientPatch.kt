@@ -6,22 +6,27 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.OptionsContainer
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.PatchOption
+import app.revanced.patcher.patch.options.types.StringPatchOption.Companion.stringPatchOption
 import java.io.File
 
 abstract class AbstractSpoofClientPatch(
     private val redirectUri: String,
-    private val options: SpoofClientOptionsContainer,
     private val clientIdFingerprints: List<MethodFingerprint>,
     private val userAgentFingerprints: List<MethodFingerprint>? = null,
-) : BytecodePatch(buildList {
+) : BytecodePatch(buildSet {
     addAll(clientIdFingerprints)
     userAgentFingerprints?.let(::addAll)
 }) {
+    var clientId by stringPatchOption(
+        "client-id",
+        null,
+        "OAuth client ID",
+        "The Reddit OAuth client ID."
+    )
+
     override fun execute(context: BytecodeContext) {
-        if (options.clientId == null) {
+        if (clientId == null) {
             // Ensure device runs Android.
             try {
                 Class.forName("android.os.Environment")
@@ -42,7 +47,7 @@ abstract class AbstractSpoofClientPatch(
                 """.trimIndent()
 
                 throw PatchException(error)
-            }.let { options.clientId = it.readText().trim() }
+            }.let { clientId = it.readText().trim() }
         }
 
         fun List<MethodFingerprint>?.executePatch(
@@ -68,17 +73,4 @@ abstract class AbstractSpoofClientPatch(
      */
     // Not every client needs to patch the user agent.
     open fun List<MethodFingerprintResult>.patchUserAgent(context: BytecodeContext) {}
-
-    companion object Options {
-        open class SpoofClientOptionsContainer : OptionsContainer() {
-            var clientId by option(
-                PatchOption.StringOption(
-                    "client-id",
-                    null,
-                    "OAuth client ID",
-                    "The Reddit OAuth client ID."
-                )
-            )
-        }
-    }
 }

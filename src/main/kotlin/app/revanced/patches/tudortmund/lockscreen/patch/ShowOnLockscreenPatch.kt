@@ -1,17 +1,13 @@
 package app.revanced.patches.tudortmund.lockscreen.patch
 
 import app.revanced.extensions.exception
-import app.revanced.patcher.annotation.Compatibility
-import app.revanced.patcher.annotation.Description
-import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Package
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patcher.patch.annotations.RequiresIntegrations
+import app.revanced.patcher.patch.annotation.CompatiblePackage
+import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.tudortmund.lockscreen.fingerprints.BrightnessFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
@@ -19,14 +15,18 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-@Patch
-@Name("Show on lockscreen")
-@Description("Shows student id and student ticket on lockscreen.")
-@Compatibility([Package("de.tudortmund.app")])
-@RequiresIntegrations
-class ShowOnLockscreenPatch : BytecodePatch(
-    listOf(BrightnessFingerprint)
+@Patch(
+    name = "Show on lockscreen",
+    description = "Shows student id and student ticket on lockscreen.",
+    compatiblePackages = [CompatiblePackage("de.tudortmund.app")],
+    requiresIntegrations = true
+)
+@Suppress("unused")
+object ShowOnLockscreenPatch : BytecodePatch(
+    setOf(BrightnessFingerprint)
 ) {
+    const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/tudortmund/lockscreen/ShowOnLockscreenPatch;"
+
     override fun execute(context: BytecodeContext) {
         BrightnessFingerprint.result?.mutableMethod?.apply {
             // Find the instruction where the brightness value is loaded into a register
@@ -85,9 +85,5 @@ class ShowOnLockscreenPatch : BytecodePatch(
             addInstruction(windowIndex, brightnessInstruction)
 
         } ?: throw BrightnessFingerprint.exception
-    }
-
-    private companion object {
-        const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/tudortmund/lockscreen/ShowOnLockscreenPatch;"
     }
 }

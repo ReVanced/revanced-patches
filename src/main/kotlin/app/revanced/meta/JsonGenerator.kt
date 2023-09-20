@@ -1,67 +1,43 @@
 package app.revanced.meta
 
-import app.revanced.patcher.extensions.PatchExtensions.compatiblePackages
-import app.revanced.patcher.extensions.PatchExtensions.dependencies
-import app.revanced.patcher.extensions.PatchExtensions.description
-import app.revanced.patcher.extensions.PatchExtensions.include
-import app.revanced.patcher.extensions.PatchExtensions.options
-import app.revanced.patcher.extensions.PatchExtensions.patchName
-import app.revanced.patcher.patch.PatchOption
+import app.revanced.patcher.PatchSet
+import app.revanced.patcher.patch.Patch
 import com.google.gson.GsonBuilder
 import java.io.File
 
 internal class JsonGenerator : PatchesFileGenerator {
-    override fun generate(bundle: PatchBundlePatches) {
-        val patches = bundle.map {
-            JsonPatch(
-                it.patchName,
-                it.description ?: "This patch has no description.",
-                !it.include,
-                it.options?.map { option ->
-                    JsonPatch.Option(
-                        option.key,
-                        option.title,
-                        option.description,
-                        option.required,
-                        option.let { listOption ->
-                            if (listOption is PatchOption.ListOption<*>) {
-                                listOption.options.toMutableList().toTypedArray()
-                            } else null
-                        }
-                    )
-                }?.toTypedArray() ?: emptyArray(),
-                it.dependencies?.map { dep ->
-                    dep.java.patchName
-                }?.toTypedArray() ?: emptyArray(),
-                it.compatiblePackages?.map { pkg ->
-                    JsonPatch.CompatiblePackage(pkg.name, pkg.versions)
-                }?.toTypedArray() ?: emptyArray()
-            )
-        }
-
-        val json = File("patches.json")
-        json.writeText(GsonBuilder().serializeNulls().create().toJson(patches))
+    override fun generate(patches: PatchSet) = patches.map {
+        JsonPatch(
+            it.name!!,
+            it.description,
+            it.compatiblePackages,
+            it.dependencies?.map { dependency -> dependency::class.java.name }?.toSet(),
+            it.use,
+            it.requiresIntegrations,
+            it.options.values.map { option ->
+                JsonPatch.Option(option.key, option.value, option.title, option.description, option.required)
+            }
+        )
+    }.let {
+        File("patches.json").writeText(GsonBuilder().serializeNulls().create().toJson(it))
     }
 
+    @Suppress("unused")
     private class JsonPatch(
-        val name: String,
-        val description: String,
-        val excluded: Boolean,
-        val options: Array<Option>,
-        val dependencies: Array<String>,
-        val compatiblePackages: Array<CompatiblePackage>,
+        val name: String? = null,
+        val description: String? = null,
+        val compatiblePackages: Set<Patch.CompatiblePackage>? = null,
+        val dependencies: Set<String>? = null,
+        val use: Boolean = true,
+        val requiresIntegrations: Boolean = false,
+        val options: List<Option>
     ) {
-        class CompatiblePackage(
-            val name: String,
-            val versions: Array<String>,
-        )
-
         class Option(
             val key: String,
-            val title: String,
-            val description: String,
+            val default: Any?,
+            val title: String?,
+            val description: String?,
             val required: Boolean,
-            val choices: Array<*>?,
         )
     }
 }
