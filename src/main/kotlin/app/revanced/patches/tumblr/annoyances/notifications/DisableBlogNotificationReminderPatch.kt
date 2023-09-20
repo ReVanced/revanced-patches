@@ -1,4 +1,4 @@
-package app.revanced.patches.tumblr.annoyances.notifications.patch
+package app.revanced.patches.tumblr.annoyances.notifications
 
 import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
