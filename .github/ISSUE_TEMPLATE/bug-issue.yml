@@ -1,7 +1,7 @@
 name: 🐞 Bug report
 description: Report a bug or an issue.
 title: 'bug: '
-labels: [bug]
+labels: ['Bug report']
 body:
   - type: markdown
     attributes:

@@ -1,7 +1,7 @@
 name: ⭐ Feature request
 description: Create a detailed request for a new feature.
 title: 'feat: '
-labels: [feature-request]
+labels: ['Feature request']
 body:
   - type: textarea
     attributes:
