@@ -3,6 +3,14 @@ description: Create a detailed request for a new feature.
 title: 'feat: '
 labels: ['Feature request']
 body:
+  - type: markdown
+    attributes:
+      value: |
+        # ReVanced Patches feature request
+        
+        Please check for existing feature requests
+        [here](https://github.com/ReVanced/revanced-patches/labels/Feature%20request)
+        before creating a new one.
   - type: textarea
     attributes:
       label: Feature description

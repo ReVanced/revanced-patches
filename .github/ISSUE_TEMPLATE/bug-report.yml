@@ -8,7 +8,9 @@ body:
       value: |
         # ReVanced Patches bug report
 
-        Please check for existing bug reports [here](https://github.com/revanced/revanced-patches/labels/bug) before creating a new one.
+        Please check for existing bug reports
+        [here](https://github.com/ReVanced/revanced-patches/labels/Bug%20report)
+        before creating a new one.
 
   - type: textarea
     attributes:

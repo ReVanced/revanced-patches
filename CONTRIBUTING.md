@@ -50,10 +50,10 @@ and everything necessary to create your own patch from scratch
 * [Our backlog](https://github.com/orgs/ReVanced/projects/12) is where we keep track of what we're working on
 * [Issues](https://github.com/ReVanced/revanced-patches/issues) are where we keep track of bugs and feature requests
 
-## 🙏 Submitting a patch request
+## 🙏 Submitting a feature request
 
-Patches can be requested by opening an issue using the
-[Patch request issue template](https://github.com/ReVanced/revanced-patches/issues/new?assignees=&labels=patch-request&projects=&template=patch-request.yml&title=feat%3A+).
+Features can be requested by opening an issue using the
+[Feature request issue template](https://github.com/ReVanced/revanced-patches/issues/new?assignees=&labels=Feature+request&projects=&template=feature-request.yml&title=feat%3A+).
 
 > **Note**
 > Requests can be accepted or rejected at the discretion of maintainers of ReVanced Patches.
@@ -62,7 +62,7 @@ Patches can be requested by opening an issue using the
 ## 🐞 Submitting a bug report
 
 If you encounter a bug while using ReVanced Patches, open an issue using the
-[Bug report issue template](https://github.com/ReVanced/revanced-patches/issues/new?assignees=&labels=bug&projects=&template=bug-issue.yml&title=bug%3A+).
+[Bug report issue template](https://github.com/ReVanced/revanced-patches/issues/new?assignees=&labels=Bug+report&projects=&template=bug-report.yml&title=bug%3A+).
 
 ## 🧑‍⚖️ Guidelines for requesting or contributing patches
 
