@@ -14,7 +14,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 @Patch(
     name = "Client spoof",
     description = "Spoofs the client to allow playback.",
-    dependencies = [SpoofSignatureVerificationPatch::class],
+    dependencies = [SpoofSignaturePatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
