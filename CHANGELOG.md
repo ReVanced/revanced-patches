@@ -1,3 +1,10 @@
+# [2.191.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.6...v2.191.0-dev.7) (2023-09-24)
+
+
+### Bug Fixes
+
+* **Duolingo - Unlock Super:** Get correct instruction offset ([#3023](https://github.com/ReVanced/revanced-patches/issues/3023)) ([5146de8](https://github.com/ReVanced/revanced-patches/commit/5146de872acb17d7c21019ac7ed531f27361038f))
+
 # [2.191.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.5...v2.191.0-dev.6) (2023-09-23)
 
 
