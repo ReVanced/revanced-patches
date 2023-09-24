@@ -1,16 +1,14 @@
 package app.revanced.patches.reddit.customclients.relayforreddit.api
 
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.reddit.customclients.AbstractSpoofClientPatch
-import app.revanced.patches.reddit.customclients.relayforreddit.api.fingerprints.GetLoggedInBearerTokenFingerprint
-import app.revanced.patches.reddit.customclients.relayforreddit.api.fingerprints.GetLoggedOutBearerTokenFingerprint
-import app.revanced.patches.reddit.customclients.relayforreddit.api.fingerprints.GetRefreshTokenFingerprint
-import app.revanced.patches.reddit.customclients.relayforreddit.api.fingerprints.LoginActivityClientIdFingerprint
+import app.revanced.patches.reddit.customclients.relayforreddit.api.fingerprints.*
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -31,7 +29,8 @@ object SpoofClientPatch : AbstractSpoofClientPatch(
         GetLoggedInBearerTokenFingerprint,
         GetLoggedOutBearerTokenFingerprint,
         GetRefreshTokenFingerprint
-    )
+    ),
+    miscellaneousFingerprints = listOf(SetRemoteConfigFingerprint)
 ) {
     override fun List<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
         forEach {
@@ -46,4 +45,8 @@ object SpoofClientPatch : AbstractSpoofClientPatch(
             }
         }
     }
+
+    override fun List<MethodFingerprintResult>.patchMiscellaneous(context: BytecodeContext) =
+        // Do not load remote config which disables OAuth login remotely
+        first().mutableMethod.addInstructions(0, "return-void")
 }

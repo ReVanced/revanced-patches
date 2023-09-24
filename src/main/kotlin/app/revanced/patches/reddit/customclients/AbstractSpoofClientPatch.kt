@@ -14,9 +14,11 @@ abstract class AbstractSpoofClientPatch(
     private val redirectUri: String,
     private val clientIdFingerprints: List<MethodFingerprint>,
     private val userAgentFingerprints: List<MethodFingerprint>? = null,
+    private val miscellaneousFingerprints: List<MethodFingerprint>? = null
 ) : BytecodePatch(buildSet {
     addAll(clientIdFingerprints)
     userAgentFingerprints?.let(::addAll)
+    miscellaneousFingerprints?.let(::addAll)
 }) {
     var clientId by stringPatchOption(
         "client-id",
@@ -56,10 +58,12 @@ abstract class AbstractSpoofClientPatch(
 
         clientIdFingerprints.executePatch { patchClientId(context) }
         userAgentFingerprints.executePatch { patchUserAgent(context) }
+        miscellaneousFingerprints.executePatch { patchMiscellaneous(context) }
     }
 
     /**
-     * Patch the client ID. The fingerprints are guaranteed to be in the same order as in [clientIdFingerprints].
+     * Patch the client ID.
+     * The fingerprints are guaranteed to be in the same order as in [clientIdFingerprints].
      *
      * @param context The current [BytecodeContext].
      *
@@ -67,10 +71,19 @@ abstract class AbstractSpoofClientPatch(
     abstract fun List<MethodFingerprintResult>.patchClientId(context: BytecodeContext)
 
     /**
-     * Patch the user agent. The fingerprints are guaranteed to be in the same order as in [userAgentFingerprints].
+     * Patch the user agent.
+     * The fingerprints are guaranteed to be in the same order as in [userAgentFingerprints].
      *
      * @param context The current [BytecodeContext].
      */
     // Not every client needs to patch the user agent.
     open fun List<MethodFingerprintResult>.patchUserAgent(context: BytecodeContext) {}
+
+    /**
+     * Patch miscellaneous things such as protection measures.
+     * The fingerprints are guaranteed to be in the same order as in [miscellaneousFingerprints].
+     *
+     * @param context The current [BytecodeContext].
+     */
+    open fun List<MethodFingerprintResult>.patchMiscellaneous(context: BytecodeContext) { }
 }
