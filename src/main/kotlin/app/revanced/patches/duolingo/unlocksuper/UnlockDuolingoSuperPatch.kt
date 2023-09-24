@@ -54,8 +54,8 @@ object UnlockDuolingoSuperPatch : BytecodePatch(
     }
 
     private fun MutableMethod.indexOfReference(reference: Reference) = getInstructions()
-        .filterIsInstance<BuilderInstruction22c>()
-        .filter { it.opcode == Opcode.IPUT_BOOLEAN }.indexOfFirst { it.reference == reference }.let {
+        .indexOfFirst { it is BuilderInstruction22c && it.opcode == Opcode.IPUT_BOOLEAN && it.reference == reference }
+        .let {
             if (it == -1) throw PatchException("Could not find index of instruction with supplied reference.")
             else it
         }
