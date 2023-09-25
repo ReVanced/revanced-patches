@@ -1,3 +1,10 @@
+# [2.191.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.10...v2.191.0-dev.11) (2023-09-25)
+
+
+### Features
+
+* Add notice for thumbnails for age restricted or paid videos ([f7cf70b](https://github.com/ReVanced/revanced-patches/commit/f7cf70b5d3f415411fa767931a33e84df9df6c16))
+
 # [2.191.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.9...v2.191.0-dev.10) (2023-09-25)
 
 
