@@ -51,6 +51,13 @@ public class SpoofSignaturePatch {
 
         if (!SettingsEnum.SPOOF_SIGNATURE.getBoolean()) return parameters;
 
+        // Clip's player parameters contain a lot of information (e.g. video start and end time or whether it loops)
+        // For this reason, the player parameters of a clip are usually very long (150~300 characters).
+        // Clips are 60 seconds or less in length, so no spoofing.
+        var isClip = parameters.length() > 150;
+        if (isClip) return parameters;
+
+
         // Shorts do not need to be spoofed.
         //noinspection AssignmentUsedAsCondition
         if (isPlayingShorts = parameters.startsWith(SHORTS_PLAYER_PARAMETERS)) return parameters;
