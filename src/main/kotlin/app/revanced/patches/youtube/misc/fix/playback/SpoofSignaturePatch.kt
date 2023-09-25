@@ -23,15 +23,16 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
         SpoofSignatureResourcePatch::class,
         IntegrationsPatch::class,
         PlayerTypeHookPatch::class,
-        VideoInformationPatch::class
+        VideoInformationPatch::class,
     ]
 )
 object SpoofSignaturePatch : BytecodePatch(
     setOf(
         ProtobufParameterBuilderFingerprint,
+        PlayerResponseModelImplFingerprint,
         StoryboardThumbnailParentFingerprint,
         StoryboardRendererSpecFingerprint,
-        PlayerResponseModelImplFingerprint
+        StoryboardRendererInitFingerprint
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -100,7 +101,7 @@ object SpoofSignaturePatch : BytecodePatch(
                     addInstructions(
                         getStoryBoardIndex,
                         """
-                        invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->getStoryboardRendererSpec()Ljava/lang/String;
+                        invoke-static { v$getStoryBoardRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getStoryboardRendererSpec(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object v$getStoryBoardRegister
                     """
                     )
@@ -115,13 +116,31 @@ object SpoofSignaturePatch : BytecodePatch(
                         0,
                         """
                         if-nez p$storyBoardUrlParams, :ignore
-                        invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->getStoryboardRendererSpec()Ljava/lang/String;
+                        invoke-static { p$storyBoardUrlParams }, $INTEGRATIONS_CLASS_DESCRIPTOR->getStoryboardRendererSpec(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object p$storyBoardUrlParams
                     """,
                         ExternalLabel("ignore", getInstruction(0))
                     )
                 }
             } ?: throw StoryboardRendererSpecFingerprint.exception
+
+            // Hook recommended value
+            StoryboardRendererInitFingerprint.result?.let {
+                val moveOriginalRecommendedValueIndex = it.scanResult.patternScanResult!!.endIndex
+
+                val originalValueRegister  = it.mutableMethod
+                    .getInstruction<OneRegisterInstruction>(moveOriginalRecommendedValueIndex).registerA
+
+                it.mutableMethod.apply {
+                    addInstructions(
+                        moveOriginalRecommendedValueIndex + 1,
+                        """
+                            invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
+                            move-result v$originalValueRegister
+                        """
+                    )
+                }
+            } ?: throw StoryboardRendererInitFingerprint.exception
         }
     }
 }
