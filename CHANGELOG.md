@@ -1,3 +1,10 @@
+# [2.191.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.8...v2.191.0-dev.9) (2023-09-25)
+
+
+### Features
+
+* **Strava:** Add `Disable subscription suggestions` patch ([#2997](https://github.com/ReVanced/revanced-patches/issues/2997)) ([af02175](https://github.com/ReVanced/revanced-patches/commit/af0217594d9c7526f550fc7e6f09f8a9232e72cf))
+
 # [2.191.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.7...v2.191.0-dev.8) (2023-09-24)
 
 
