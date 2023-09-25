@@ -122,7 +122,6 @@ object RememberVideoQualityPatch : BytecodePatch(
          * It also hooks the method which is called when the video quality to set is determined.
          * Conveniently, at this point the video quality is overridden to the remembered playback speed.
          */
-
         VideoInformationPatch.onCreateHook(INTEGRATIONS_CLASS_DESCRIPTOR, "newVideoStarted")
 
 

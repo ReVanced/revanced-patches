@@ -59,7 +59,7 @@ object VideoIdPatch : BytecodePatch(
     }
 
 
-    /**
+        /**
          * Adds an invoke-static instruction, called with the new id when the video changes.
          *
          * Supports all videos (regular videos, Shorts and Stories).

@@ -31,7 +31,7 @@ object SpoofSignatureResourcePatch : ResourcePatch() {
                                     + "Side effects include:\\n"
                                     + "• No ambient mode\\n"
                                     + "• Videos cannot be downloaded\\n"
-                                    + "• Seekbar thumbnails are hidden"
+                                    + "• Low quality seekbar thumbnails"
                         ),
                         StringResource(
                             "revanced_spoof_signature_verification_enabled_summary_off",
