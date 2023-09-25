@@ -53,6 +53,8 @@ public class StoryBoardRendererRequester {
                 final String storyboardsRendererSpec = storyboardsRenderer.getString("spec");
 
                 SpoofSignaturePatch.setStoryboardRendererSpec(storyboardsRendererSpec);
+                SpoofSignaturePatch.setRecommendedLevel(storyboardsRenderer.getInt("recommendedLevel"));
+
                 LogHelper.printDebug(() -> "StoryBoard renderer spec: " + storyboardsRendererSpec);
 
             } else {

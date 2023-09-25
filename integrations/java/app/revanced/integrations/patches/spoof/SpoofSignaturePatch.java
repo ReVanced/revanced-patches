@@ -40,6 +40,7 @@ public class SpoofSignaturePatch {
     private static boolean isPlayingShorts;
 
     private static String storyboardRendererSpec = "";
+    private static int recommendedLevel;
 
     /**
      * Injection point.
@@ -82,17 +83,30 @@ public class SpoofSignaturePatch {
         return SettingsEnum.SPOOF_SIGNATURE.getBoolean();
     }
 
+
     /**
      * Injection point.
      */
-    public static String getStoryboardRendererSpec() {
+    public static String getStoryboardRendererSpec(String originalStoryboardRendererSpec) {
+        if (!SettingsEnum.SPOOF_SIGNATURE.getBoolean()) return originalStoryboardRendererSpec;
+
         return storyboardRendererSpec;
     }
 
-    public static void setStoryboardRendererSpec(String newlyLoadedStoryboardRendererSpec) {
-        if (storyboardRendererSpec.equals(newlyLoadedStoryboardRendererSpec))
-            return;
+    /**
+     * Injection point.
+     */
+    public static int getRecommendedLevel(int originalLevel) {
+        if (!SettingsEnum.SPOOF_SIGNATURE.getBoolean()) return originalLevel;
 
+        return recommendedLevel;
+    }
+
+    public static void setStoryboardRendererSpec(String newlyLoadedStoryboardRendererSpec) {
         storyboardRendererSpec = newlyLoadedStoryboardRendererSpec;
+    }
+
+    public static void setRecommendedLevel(int level) {
+        recommendedLevel = level;
     }
 }
