@@ -16,7 +16,11 @@ public class Requester {
     }
 
     public static HttpURLConnection getConnectionFromRoute(String apiUrl, Route route, String... params) throws IOException {
-        String url = apiUrl + route.compile(params).getCompiledRoute();
+        return getConnectionFromCompiledRoute(apiUrl, route.compile(params));
+    }
+
+    public static HttpURLConnection getConnectionFromCompiledRoute(String apiUrl, Route.CompiledRoute route) throws IOException {
+        String url = apiUrl + route.getCompiledRoute();
         HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
         connection.setRequestMethod(route.getMethod().name());
         connection.setRequestProperty("User-agent", System.getProperty("http.agent") + ";revanced");

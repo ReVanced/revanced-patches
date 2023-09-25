@@ -1,12 +1,14 @@
 package app.revanced.integrations.patches.spoof;
 
+import static app.revanced.integrations.patches.spoof.requests.StoryBoardRendererRequester.fetchStoryboardRenderer;
+import static app.revanced.integrations.utils.ReVancedUtils.containsAny;
+
+import androidx.annotation.Nullable;
+
 import app.revanced.integrations.patches.VideoInformation;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.shared.PlayerType;
 import app.revanced.integrations.utils.LogHelper;
-
-import static app.revanced.integrations.patches.spoof.requests.StoryBoardRendererRequester.fetchStoryboardsRenderer;
-import static app.revanced.integrations.utils.ReVancedUtils.containsAny;
 
 /** @noinspection unused*/
 public class SpoofSignaturePatch {
@@ -31,16 +33,18 @@ public class SpoofSignaturePatch {
      */
     private static final String SCRIM_PARAMETER = "SAFgAXgB";
 
-
     /**
      * Parameters used in YouTube Shorts.
      */
     private static final String SHORTS_PLAYER_PARAMETERS = "8AEB";
 
-    private static boolean isPlayingShorts;
+    /**
+     * Last video id loaded. Used to prevent reloading the same spec multiple times.
+     */
+    private static volatile String currentVideoId;
 
-    private static String storyboardRendererSpec = "";
-    private static int recommendedLevel;
+    @Nullable
+    private static volatile StoryboardRenderer renderer;
 
     /**
      * Injection point.
@@ -60,8 +64,7 @@ public class SpoofSignaturePatch {
 
 
         // Shorts do not need to be spoofed.
-        //noinspection AssignmentUsedAsCondition
-        if (isPlayingShorts = parameters.startsWith(SHORTS_PLAYER_PARAMETERS)) return parameters;
+        if (parameters.startsWith(SHORTS_PLAYER_PARAMETERS)) return parameters;
 
         boolean isPlayingFeed = PlayerType.getCurrent() == PlayerType.INLINE_MINIMAL && containsAny(parameters, AUTOPLAY_PARAMETERS);
         if (isPlayingFeed) return SettingsEnum.SPOOF_SIGNATURE_IN_FEED.getBoolean() ?
@@ -72,7 +75,13 @@ public class SpoofSignaturePatch {
                 // This will cause playback issues in the feed, but it's better than manipulating the history.
                 parameters;
 
-        fetchStoryboardsRenderer(VideoInformation.getVideoId());
+        String videoId = VideoInformation.getVideoId();
+        if (!videoId.equals(currentVideoId)) {
+            currentVideoId = videoId;
+            renderer = fetchStoryboardRenderer(videoId);
+            LogHelper.printDebug(() -> "Fetched: " + renderer);
+        }
+
         return INCOGNITO_PARAMETERS;
     }
 
@@ -83,14 +92,18 @@ public class SpoofSignaturePatch {
         return SettingsEnum.SPOOF_SIGNATURE.getBoolean();
     }
 
-
     /**
      * Injection point.
+     * Called from background threads and from the main thread.
      */
+    @Nullable
     public static String getStoryboardRendererSpec(String originalStoryboardRendererSpec) {
         if (!SettingsEnum.SPOOF_SIGNATURE.getBoolean()) return originalStoryboardRendererSpec;
 
-        return storyboardRendererSpec;
+        StoryboardRenderer currentRenderer = renderer;
+        if (currentRenderer == null) return originalStoryboardRendererSpec;
+
+        return currentRenderer.getSpec();
     }
 
     /**
@@ -99,14 +112,10 @@ public class SpoofSignaturePatch {
     public static int getRecommendedLevel(int originalLevel) {
         if (!SettingsEnum.SPOOF_SIGNATURE.getBoolean()) return originalLevel;
 
-        return recommendedLevel;
+        StoryboardRenderer currentRenderer = renderer;
+        if (currentRenderer == null) return originalLevel;
+
+        return currentRenderer.getRecommendedLevel();
     }
 
-    public static void setStoryboardRendererSpec(String newlyLoadedStoryboardRendererSpec) {
-        storyboardRendererSpec = newlyLoadedStoryboardRendererSpec;
-    }
-
-    public static void setRecommendedLevel(int level) {
-        recommendedLevel = level;
-    }
 }

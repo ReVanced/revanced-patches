@@ -2,16 +2,18 @@ package app.revanced.integrations.patches.spoof.requests;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import app.revanced.integrations.patches.spoof.SpoofSignaturePatch;
+import app.revanced.integrations.patches.spoof.StoryboardRenderer;
 import app.revanced.integrations.requests.Requester;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.nio.charset.StandardCharsets;
+import java.util.Objects;
+
+import static app.revanced.integrations.patches.spoof.requests.PlayerRoutes.POST_STORYBOARD_SPEC_RENDERER;
 
 public class StoryBoardRendererRequester {
     private static final String INNER_TUBE_BODY =
@@ -30,14 +32,15 @@ public class StoryBoardRendererRequester {
     private StoryBoardRendererRequester() {
     }
 
-    // TODO: Find a way to increase the quality of SeekBar thumbnail previews
-    public static void fetchStoryboardsRenderer(@NonNull String videoId) {
-        ReVancedUtils.verifyOffMainThread();
-
+    @Nullable
+    public static StoryboardRenderer fetchStoryboardRenderer(@NonNull String videoId) {
         try {
+            ReVancedUtils.verifyOffMainThread();
+            Objects.requireNonNull(videoId);
+
             final byte[] innerTubeBody = String.format(INNER_TUBE_BODY, videoId).getBytes(StandardCharsets.UTF_8);
 
-            HttpURLConnection connection = StoryBoardRendererRoutes.getPlayerResponseConnectionFromRoute();
+            HttpURLConnection connection = PlayerRoutes.getPlayerResponseConnectionFromRoute(POST_STORYBOARD_SPEC_RENDERER);
             connection.getOutputStream().write(innerTubeBody, 0, innerTubeBody.length);
 
             final int responseCode = connection.getResponseCode();
@@ -49,33 +52,23 @@ public class StoryBoardRendererRequester {
                 final String storyboardsRendererTag = storyboards.has("playerLiveStoryboardSpecRenderer")
                         ? "playerLiveStoryboardSpecRenderer"
                         : "playerStoryboardSpecRenderer";
-                final JSONObject storyboardsRenderer = storyboards.getJSONObject(storyboardsRendererTag);
-                final String storyboardsRendererSpec = storyboardsRenderer.getString("spec");
 
-                SpoofSignaturePatch.setStoryboardRendererSpec(storyboardsRendererSpec);
-                SpoofSignaturePatch.setRecommendedLevel(storyboardsRenderer.getInt("recommendedLevel"));
+                final var renderer = storyboards.getJSONObject(storyboardsRendererTag);
 
-                LogHelper.printDebug(() -> "StoryBoard renderer spec: " + storyboardsRendererSpec);
-
+                return new StoryboardRenderer(
+                        renderer.getString("spec"),
+                        renderer.getInt("recommendedLevel")
+                );
             } else {
-                handleConnectionError("API not available: " + responseCode, null);
+                LogHelper.printException(() -> "API not available: " + responseCode);
+                connection.disconnect();
             }
-            connection.disconnect();
         } catch (SocketTimeoutException ex) {
-            handleConnectionError("API timed out", ex);
-        } catch (IOException ex) {
-            handleConnectionError(String.format("Failed to fetch StoryBoard URL (%s)", ex.getMessage()), ex);
+            LogHelper.printException(() -> "API timed out", ex);
         } catch (Exception ex) {
-            handleConnectionError("Failed to fetch StoryBoard URL", ex);
+            LogHelper.printException(() -> "Failed to fetch StoryBoard URL", ex);
         }
-    }
 
-    private static void handleConnectionError(@NonNull String toastMessage, @Nullable Exception ex) {
-        if (ex != null)
-            LogHelper.printException(() -> toastMessage, ex);
-        else
-            LogHelper.printException(() -> toastMessage);
-
-        SpoofSignaturePatch.setStoryboardRendererSpec("");
+        return null;
     }
 }
