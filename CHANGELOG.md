@@ -1,3 +1,10 @@
+# [2.191.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.11...v2.191.0-dev.12) (2023-09-25)
+
+
+### Bug Fixes
+
+* **YouTube - Client spoof:** Display seekbar thumbnails in high quality ([5e8a2d3](https://github.com/ReVanced/revanced-patches/commit/5e8a2d3fe77a4a08ea32e7dc22f2c8e4048b7a6b))
+
 # [2.191.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.10...v2.191.0-dev.11) (2023-09-25)
 
 
