@@ -13,8 +13,7 @@ public final class StoryBoardRendererRoutes {
             Route.Method.POST,
             "player" +
                     "?fields=storyboards.playerStoryboardSpecRenderer.spec," +
-                    "storyboards.playerLiveStoryboardSpecRenderer.spec" +
-                    "&key={api_key}"
+                    "storyboards.playerLiveStoryboardSpecRenderer.spec"
     );
 
     private StoryBoardRendererRoutes() {
