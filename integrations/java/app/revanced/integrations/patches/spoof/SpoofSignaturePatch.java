@@ -1,12 +1,11 @@
-package app.revanced.integrations.patches;
+package app.revanced.integrations.patches.spoof;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
+import app.revanced.integrations.patches.VideoInformation;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.shared.PlayerType;
 import app.revanced.integrations.utils.LogHelper;
 
+import static app.revanced.integrations.patches.spoof.requests.StoryBoardRendererRequester.fetchStoryboardsRenderer;
 import static app.revanced.integrations.utils.ReVancedUtils.containsAny;
 
 /** @noinspection unused*/
@@ -40,6 +39,8 @@ public class SpoofSignaturePatch {
 
     private static boolean isPlayingShorts;
 
+    private static String storyboardRendererSpec = "";
+
     /**
      * Injection point.
      *
@@ -63,6 +64,7 @@ public class SpoofSignaturePatch {
                 // This will cause playback issues in the feed, but it's better than manipulating the history.
                 parameters;
 
+        fetchStoryboardsRenderer(VideoInformation.getVideoId());
         return INCOGNITO_PARAMETERS;
     }
 
@@ -75,16 +77,15 @@ public class SpoofSignaturePatch {
 
     /**
      * Injection point.
-     *
-     * @param view seekbar thumbnail view.  Includes both shorts and regular videos.
      */
-    public static void seekbarImageViewCreated(ImageView view) {
-        if (!SettingsEnum.SPOOF_SIGNATURE.getBoolean()) return;
-        if (isPlayingShorts) return;
+    public static String getStoryboardRendererSpec() {
+        return storyboardRendererSpec;
+    }
 
-        view.setVisibility(View.GONE);
-        // Also hide the border around the thumbnail (otherwise a 1 pixel wide bordered frame is visible).
-        ViewGroup parentLayout = (ViewGroup) view.getParent();
-        parentLayout.setPadding(0, 0, 0, 0);
+    public static void setStoryboardRendererSpec(String newlyLoadedStoryboardRendererSpec) {
+        if (storyboardRendererSpec.equals(newlyLoadedStoryboardRendererSpec))
+            return;
+
+        storyboardRendererSpec = newlyLoadedStoryboardRendererSpec;
     }
 }
