@@ -14,8 +14,8 @@ import app.revanced.util.resources.ResourceUtils.mergeStrings
 
 @Patch(
     dependencies = [
-        BottomControlsResourcePatch::class,
-        SettingsPatch::class
+        SettingsPatch::class,
+        BottomControlsResourcePatch::class
     ]
 )
 object CopyVideoUrlResourcePatch : ResourcePatch() {

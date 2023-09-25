@@ -51,7 +51,9 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         // region Inject newVideoLoaded event handler to update dislikes when a new video is loaded.
 
-        VideoIdPatch.injectCall("$INTEGRATIONS_CLASS_DESCRIPTOR->newVideoLoaded(Ljava/lang/String;)V")
+        // This patch needs a few adjustments and lots of testing before it can change to the new video id hook.
+        // There's a few corner cases and some weirdness when loading new videos (specifically with detecting shorts).
+        VideoIdPatch.legacyInjectCall("$INTEGRATIONS_CLASS_DESCRIPTOR->newVideoLoaded(Ljava/lang/String;)V")
 
         // endregion
 

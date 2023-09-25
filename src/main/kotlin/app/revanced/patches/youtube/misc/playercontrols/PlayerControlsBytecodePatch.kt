@@ -23,6 +23,7 @@ object PlayerControlsBytecodePatch : BytecodePatch(
 
     private var moveToRegisterInstructionIndex: Int = 0
     private var viewRegister: Int = 0
+    private lateinit var inflateFingerprintResult: MethodFingerprintResult
 
     override fun execute(context: BytecodeContext) {
         LayoutConstructorFingerprint.result?.let {
@@ -31,17 +32,13 @@ object PlayerControlsBytecodePatch : BytecodePatch(
         } ?: throw LayoutConstructorFingerprint.exception
 
         showPlayerControlsFingerprintResult = PlayerControlsVisibilityFingerprint.result!!
-        inflateFingerprintResult = BottomControlsInflateFingerprint.result!!
-    }
 
-    private var inflateFingerprintResult: MethodFingerprintResult? = null
-        set(fingerprint) {
-            field = fingerprint!!.also {
-                moveToRegisterInstructionIndex = it.scanResult.patternScanResult!!.endIndex
-                viewRegister =
-                    (it.mutableMethod.implementation!!.instructions[moveToRegisterInstructionIndex] as OneRegisterInstruction).registerA
-            }
+        inflateFingerprintResult = BottomControlsInflateFingerprint.result!!.also {
+            moveToRegisterInstructionIndex = it.scanResult.patternScanResult!!.endIndex
+            viewRegister =
+                (it.mutableMethod.implementation!!.instructions[moveToRegisterInstructionIndex] as OneRegisterInstruction).registerA
         }
+    }
 
     /**
      * Injects the code to change the visibility of controls.

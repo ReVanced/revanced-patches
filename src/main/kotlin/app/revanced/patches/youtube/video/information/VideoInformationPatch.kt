@@ -111,9 +111,7 @@ object VideoInformationPatch : BytecodePatch(
         /*
          * Inject call for video id
          */
-        val videoIdMethodDescriptor = "$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V"
-        VideoIdPatch.injectCall(videoIdMethodDescriptor)
-        VideoIdPatch.injectCallBackgroundPlay(videoIdMethodDescriptor)
+        VideoIdPatch.injectCall("$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V")
 
         /*
          * Set the video time method
