@@ -11,13 +11,19 @@ public final class StoryBoardRendererRoutes {
     private static final String YT_API_URL = "https://www.youtube.com/youtubei/v1/";
     private static final String YT_API_KEY = "AIzaSyA8eiZmM1FaDVjRy-df2KTyQ_vz_yYM39w";
 
-    static final Route GET_PLAYER_RESPONSE_BODY = new Route(Route.Method.POST, "player?key={api_key}");
+    static final Route GET_STORYBOARD_SPEC = new Route(
+            Route.Method.POST,
+            "player" +
+                    "?fields=storyboards.playerStoryboardSpecRenderer.spec," +
+                    "storyboards.playerLiveStoryboardSpecRenderer.spec" +
+                    "&key={api_key}"
+    );
 
     private StoryBoardRendererRoutes() {
     }
 
     public static HttpURLConnection getPlayerResponseConnectionFromRoute() throws IOException {
-        var connection = Requester.getConnectionFromRoute(YT_API_URL, GET_PLAYER_RESPONSE_BODY, YT_API_KEY);
+        var connection = Requester.getConnectionFromRoute(YT_API_URL, GET_STORYBOARD_SPEC, YT_API_KEY);
         connection.setRequestProperty("User-Agent", "com.google.android.youtube/18.37.36 (Linux; U; Android 12; GB) gzip");
         connection.setRequestProperty("X-Goog-Api-Format-Version", "2");
         connection.setRequestProperty("Content-Type", "application/json");
