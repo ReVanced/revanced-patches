@@ -30,7 +30,7 @@ object SpoofSignatureResourcePatch : ResourcePatch() {
                             "App signature spoofed\\n\\n"
                                     + "Side effects include:\\n"
                                     + "• No ambient mode\\n"
-                                    + "• Videos can't be downloaded\\n"
+                                    + "• Videos cannot be downloaded\\n"
                                     + "• Seekbar thumbnails are hidden"
                         ),
                         StringResource(
