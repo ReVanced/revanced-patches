@@ -48,6 +48,11 @@ public class StoryBoardRendererRequester {
             if (responseCode == 200) {
                 final JSONObject playerResponse = Requester.parseJSONObject(connection);
 
+                if (!playerResponse.has("storyboards")) {
+                    // Video is age restricted or paid.
+                    LogHelper.printDebug(() -> "Video has no public storyboard: " + videoId);
+                    return null;
+                }
                 final JSONObject storyboards = playerResponse.getJSONObject("storyboards");
                 final String storyboardsRendererTag = storyboards.has("playerLiveStoryboardSpecRenderer")
                         ? "playerLiveStoryboardSpecRenderer"
