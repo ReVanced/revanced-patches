@@ -63,9 +63,8 @@ public class StoryboardRendererRequester {
     @Nullable
     private static StoryboardRenderer getStoryboardRendererUsingBody(@NonNull String innerTubeBody) {
         final JSONObject playerResponse = fetchPlayerResponse(innerTubeBody);
-        Objects.requireNonNull(playerResponse);
-
-        if (isPlayabilityStatusOk(playerResponse)) return getStoryboardRendererUsingResponse(playerResponse);
+        if (playerResponse != null && isPlayabilityStatusOk(playerResponse))
+            return getStoryboardRendererUsingResponse(playerResponse);
 
         return null;
     }
@@ -100,8 +99,13 @@ public class StoryboardRendererRequester {
             Objects.requireNonNull(videoId);
 
             var renderer = getStoryboardRendererUsingBody(String.format(ANDROID_INNER_TUBE_BODY, videoId));
-            if (renderer == null)
+            if (renderer == null) {
+                LogHelper.printDebug(() -> videoId + " not available using android client");
                 renderer = getStoryboardRendererUsingBody(String.format(TV_EMBED_INNER_TUBE_BODY, videoId, videoId));
+                if (renderer == null) {
+                    LogHelper.printDebug(() -> videoId + " not available using tv embedded client");
+                }
+            }
 
             return renderer;
         } catch (Exception ex) {

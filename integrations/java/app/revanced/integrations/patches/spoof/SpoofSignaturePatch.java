@@ -51,9 +51,6 @@ public class SpoofSignaturePatch {
     private static volatile Future<StoryboardRenderer> rendererFuture;
 
     @Nullable
-    private static volatile StoryboardRenderer renderer;
-
-    @Nullable
     private static StoryboardRenderer getRenderer() {
         if (rendererFuture != null) {
             try {
