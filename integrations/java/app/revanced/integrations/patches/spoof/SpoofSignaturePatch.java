@@ -1,20 +1,19 @@
 package app.revanced.integrations.patches.spoof;
 
-import static app.revanced.integrations.patches.spoof.requests.StoryBoardRendererRequester.fetchStoryboardRenderer;
-import static app.revanced.integrations.utils.ReVancedUtils.containsAny;
-
 import androidx.annotation.Nullable;
+import app.revanced.integrations.patches.VideoInformation;
+import app.revanced.integrations.settings.SettingsEnum;
+import app.revanced.integrations.shared.PlayerType;
+import app.revanced.integrations.utils.LogHelper;
+import app.revanced.integrations.utils.ReVancedUtils;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-import app.revanced.integrations.patches.VideoInformation;
-import app.revanced.integrations.settings.SettingsEnum;
-import app.revanced.integrations.shared.PlayerType;
-import app.revanced.integrations.utils.LogHelper;
-import app.revanced.integrations.utils.ReVancedUtils;
+import static app.revanced.integrations.patches.spoof.requests.StoryboardRendererRequester.getStoryboardRenderer;
+import static app.revanced.integrations.utils.ReVancedUtils.containsAny;
 
 /** @noinspection unused*/
 public class SpoofSignaturePatch {
@@ -51,6 +50,24 @@ public class SpoofSignaturePatch {
 
     private static volatile Future<StoryboardRenderer> rendererFuture;
 
+    @Nullable
+    private static volatile StoryboardRenderer renderer;
+
+    @Nullable
+    private static StoryboardRenderer getRenderer() {
+        if (rendererFuture != null) {
+            try {
+                return rendererFuture.get(5000, TimeUnit.MILLISECONDS);
+            } catch (TimeoutException ex) {
+                LogHelper.printDebug(() -> "Could not get renderer (get timed out)");
+            } catch (ExecutionException | InterruptedException ex) {
+                // Should never happen.
+                LogHelper.printException(() -> "Could not get renderer", ex);
+            }
+        }
+        return null;
+    }
+
     /**
      * Injection point.
      *
@@ -83,25 +100,10 @@ public class SpoofSignaturePatch {
         String videoId = VideoInformation.getVideoId();
         if (!videoId.equals(currentVideoId)) {
             currentVideoId = videoId;
-            rendererFuture = ReVancedUtils.submitOnBackgroundThread(() -> fetchStoryboardRenderer(videoId));
+            rendererFuture = ReVancedUtils.submitOnBackgroundThread(() -> getStoryboardRenderer(videoId));
         }
 
         return INCOGNITO_PARAMETERS;
-    }
-
-    @Nullable
-    private static StoryboardRenderer getRenderer() {
-        if (rendererFuture != null) {
-            try {
-                return rendererFuture.get(5000, TimeUnit.MILLISECONDS);
-            } catch (TimeoutException ex) {
-                LogHelper.printDebug(() -> "Could not get renderer (get timed out)");
-            } catch (ExecutionException | InterruptedException ex) {
-                // Should never happen.
-                LogHelper.printException(() -> "Could not get renderer", ex);
-            }
-        }
-        return null;
     }
 
     /**
@@ -136,5 +138,4 @@ public class SpoofSignaturePatch {
 
         return renderer.getRecommendedLevel();
     }
-
 }
