@@ -56,6 +56,7 @@ object SpoofSignaturePatch : BytecodePatch(
                                     + "Side effects include:\\n"
                                     + "• Enhanced bitrate is not available\\n"
                                     + "• Videos cannot be downloaded"
+                                    + "• No seekbar thumbnails for paid videos"
                         ),
                         StringResource(
                             "revanced_spoof_signature_verification_enabled_summary_off",
@@ -78,7 +79,7 @@ object SpoofSignaturePatch : BytecodePatch(
                         ),
                         StringResource(
                             "revanced_spoof_signature_in_feed_enabled_summary_off",
-                            "App signature not spoofed for feed videos\n\n"
+                            "App signature not spoofed for feed videos\\n\\n"
                                     + "Feed videos will play for less than 1 minute before encountering playback issues"
                         )
                     )
@@ -89,9 +90,8 @@ object SpoofSignaturePatch : BytecodePatch(
         // Hook the player parameters.
         PlayerResponseMethodHookPatch.injectProtoBufferHook("$INTEGRATIONS_CLASS_DESCRIPTOR->spoofParameter(Ljava/lang/String;)Ljava/lang/String;")
 
-        // Force the seekbar thumbnails to show up.
-        // This is only required to show the seekbar time and chapters
-        // if the storyboard spec fetch fails.
+        // Force the seekbar time and chapters to always show up.
+        // This is used only if the storyboard spec fetch fails, or when viewing paid videos.
         StoryboardThumbnailParentFingerprint.result?.classDef?.let { classDef ->
             StoryboardThumbnailFingerprint.also {
                 it.resolve(
