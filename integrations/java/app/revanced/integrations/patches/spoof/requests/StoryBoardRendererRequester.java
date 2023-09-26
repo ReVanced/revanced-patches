@@ -53,12 +53,13 @@ public class StoryBoardRendererRequester {
                         ? "playerLiveStoryboardSpecRenderer"
                         : "playerStoryboardSpecRenderer";
 
-                final var renderer = storyboards.getJSONObject(storyboardsRendererTag);
-
-                return new StoryboardRenderer(
-                        renderer.getString("spec"),
-                        renderer.getInt("recommendedLevel")
+                final var rendererElement = storyboards.getJSONObject(storyboardsRendererTag);
+                StoryboardRenderer renderer = new StoryboardRenderer(
+                        rendererElement.getString("spec"),
+                        rendererElement.getInt("recommendedLevel")
                 );
+                LogHelper.printDebug(() -> "Fetched: " + renderer);
+                return renderer;
             } else {
                 LogHelper.printException(() -> "API not available: " + responseCode);
                 connection.disconnect();

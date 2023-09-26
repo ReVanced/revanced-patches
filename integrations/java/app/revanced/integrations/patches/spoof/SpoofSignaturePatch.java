@@ -5,10 +5,16 @@ import static app.revanced.integrations.utils.ReVancedUtils.containsAny;
 
 import androidx.annotation.Nullable;
 
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+
 import app.revanced.integrations.patches.VideoInformation;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.shared.PlayerType;
 import app.revanced.integrations.utils.LogHelper;
+import app.revanced.integrations.utils.ReVancedUtils;
 
 /** @noinspection unused*/
 public class SpoofSignaturePatch {
@@ -43,8 +49,7 @@ public class SpoofSignaturePatch {
      */
     private static volatile String currentVideoId;
 
-    @Nullable
-    private static volatile StoryboardRenderer renderer;
+    private static volatile Future<StoryboardRenderer> rendererFuture;
 
     /**
      * Injection point.
@@ -78,11 +83,25 @@ public class SpoofSignaturePatch {
         String videoId = VideoInformation.getVideoId();
         if (!videoId.equals(currentVideoId)) {
             currentVideoId = videoId;
-            renderer = fetchStoryboardRenderer(videoId);
-            LogHelper.printDebug(() -> "Fetched: " + renderer);
+            rendererFuture = ReVancedUtils.submitOnBackgroundThread(() -> fetchStoryboardRenderer(videoId));
         }
 
         return INCOGNITO_PARAMETERS;
+    }
+
+    @Nullable
+    private static StoryboardRenderer getRenderer() {
+        if (rendererFuture != null) {
+            try {
+                return rendererFuture.get(5000, TimeUnit.MILLISECONDS);
+            } catch (TimeoutException ex) {
+                LogHelper.printDebug(() -> "Could not get renderer (get timed out)");
+            } catch (ExecutionException | InterruptedException ex) {
+                // Should never happen.
+                LogHelper.printException(() -> "Could not get renderer", ex);
+            }
+        }
+        return null;
     }
 
     /**
@@ -100,10 +119,10 @@ public class SpoofSignaturePatch {
     public static String getStoryboardRendererSpec(String originalStoryboardRendererSpec) {
         if (!SettingsEnum.SPOOF_SIGNATURE.getBoolean()) return originalStoryboardRendererSpec;
 
-        StoryboardRenderer currentRenderer = renderer;
-        if (currentRenderer == null) return originalStoryboardRendererSpec;
+        StoryboardRenderer renderer = getRenderer();
+        if (renderer == null) return originalStoryboardRendererSpec;
 
-        return currentRenderer.getSpec();
+        return renderer.getSpec();
     }
 
     /**
@@ -112,10 +131,10 @@ public class SpoofSignaturePatch {
     public static int getRecommendedLevel(int originalLevel) {
         if (!SettingsEnum.SPOOF_SIGNATURE.getBoolean()) return originalLevel;
 
-        StoryboardRenderer currentRenderer = renderer;
-        if (currentRenderer == null) return originalLevel;
+        StoryboardRenderer renderer = getRenderer();
+        if (renderer == null) return originalLevel;
 
-        return currentRenderer.getRecommendedLevel();
+        return renderer.getRecommendedLevel();
     }
 
 }
