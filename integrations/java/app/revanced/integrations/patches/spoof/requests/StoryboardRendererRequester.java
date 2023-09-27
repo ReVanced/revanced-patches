@@ -100,10 +100,10 @@ public class StoryboardRendererRequester {
 
             var renderer = getStoryboardRendererUsingBody(String.format(ANDROID_INNER_TUBE_BODY, videoId));
             if (renderer == null) {
-                LogHelper.printDebug(() -> videoId + " not available using android client");
+                LogHelper.printDebug(() -> videoId + " not available using Android client");
                 renderer = getStoryboardRendererUsingBody(String.format(TV_EMBED_INNER_TUBE_BODY, videoId, videoId));
                 if (renderer == null) {
-                    LogHelper.printDebug(() -> videoId + " not available using tv embedded client");
+                    LogHelper.printDebug(() -> videoId + " not available using TV embedded client");
                 }
             }
 

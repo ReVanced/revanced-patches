@@ -279,7 +279,7 @@ public class ReturnYouTubeDislike {
             // 2. opened a short (without closing the regular video)
             // 3. closed the short
             // 4. regular video is now present, but the videoId and RYD data is still for the short
-            LogHelper.printDebug(() -> "Ignoring getDislikeSpanForContext(), as data loaded is for prior short");
+            LogHelper.printDebug(() -> "Ignoring dislike span, as data loaded is for prior short");
             return original;
         }
         return waitForFetchAndUpdateReplacementSpan(original, isSegmentedButton);
