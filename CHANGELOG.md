@@ -1,3 +1,10 @@
+# [2.191.0-dev.17](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.16...v2.191.0-dev.17) (2023-09-27)
+
+
+### Features
+
+* **YouTube:** Bump compatibility to `18.37.36` ([#3028](https://github.com/ReVanced/revanced-patches/issues/3028)) ([eda28e5](https://github.com/ReVanced/revanced-patches/commit/eda28e507e7fb5171eeb15a5a0532929ee611211))
+
 # [2.191.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.15...v2.191.0-dev.16) (2023-09-27)
 
 
