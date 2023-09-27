@@ -36,7 +36,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
                 "18.20.39",
                 "18.23.35",
                 "18.29.38",
-                "18.32.39"
+                "18.32.39",
+                "18.37.36"
             ]
         )
     ]
@@ -54,8 +55,6 @@ object HideShortsComponentsPatch : BytecodePatch(
     private const val FILTER_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/components/ShortsFilter;"
 
     override fun execute(context: BytecodeContext) {
-        LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
-
         // region Hide the Shorts shelf.
 
         ReelConstructorFingerprint.result?.let {
@@ -74,12 +73,19 @@ object HideShortsComponentsPatch : BytecodePatch(
 
         // endregion
 
-        // region Hide the Shorts buttons.
+        // region Hide the Shorts buttons in older versions of YouTube.
 
         // Some Shorts buttons are views, hide them by setting their visibility to GONE.
         CreateShortsButtonsFingerprint.result?.let {
-            ShortsButtons.values().forEach { button -> button.injectHideCall(it.mutableMethod) }
+            ShortsButtons.entries.forEach { button -> button.injectHideCall(it.mutableMethod) }
         } ?: throw CreateShortsButtonsFingerprint.exception
+
+
+        // endregion
+
+        // region Hide the Shorts buttons in newer versions of YouTube.
+
+        LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
 
         // endregion
 

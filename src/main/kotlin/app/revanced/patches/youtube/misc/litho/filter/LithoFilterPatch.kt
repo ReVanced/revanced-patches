@@ -103,7 +103,7 @@ object LithoFilterPatch : BytecodePatch(
             val emptyComponentFieldIndex = builderMethodIndex + 2
 
             bytesToComponentContextMethod.mutableMethod.apply {
-                val insertHookIndex = bytesToComponentContextMethod.scanResult.patternScanResult!!.endIndex
+                val insertHookIndex = bytesToComponentContextMethod.scanResult.patternScanResult!!.endIndex + 1
 
                 // region Get free registers that this patch uses.
                 // Registers are overwritten right after they are used in this patch, therefore free to clobber.

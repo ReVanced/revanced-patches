@@ -12,8 +12,8 @@ import app.revanced.util.microg.MicroGBytecodeHelper
 
 
 @Patch(
-    name = "MicroG support",
-    description = "Allows YouTube Music ReVanced to run without root and under a different package name.",
+    name = "Vanced MicroG support",
+    description = "Allows YouTube Music to run without root and under a different package name.",
     dependencies = [MicroGResourcePatch::class],
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )

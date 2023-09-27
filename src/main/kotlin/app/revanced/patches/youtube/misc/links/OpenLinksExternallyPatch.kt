@@ -19,7 +19,20 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 @Patch(
     name = "Open links externally",
     description = "Open links outside of the app directly in your browser.",
-    compatiblePackages = [CompatiblePackage("com.google.android.youtube", ["18.16.37", "18.19.35", "18.20.39", "18.23.35", "18.29.38", "18.32.39"])]
+    compatiblePackages = [
+        CompatiblePackage(
+            "com.google.android.youtube",
+            [
+                "18.16.37",
+                "18.19.35",
+                "18.20.39",
+                "18.23.35",
+                "18.29.38",
+                "18.32.39",
+                "18.37.36"
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object OpenLinksExternallyPatch : AbstractTransformInstructionsPatch<Pair<Int, Int>>(

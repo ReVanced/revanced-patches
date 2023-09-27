@@ -27,7 +27,14 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
         LithoFilterPatch::class,
         SettingsPatch::class
     ],
-    compatiblePackages = [CompatiblePackage("com.google.android.youtube", ["18.32.39"])]
+    compatiblePackages = [
+        CompatiblePackage(
+            "com.google.android.youtube", [
+                "18.32.39",
+                "18.37.36"
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object HideLayoutComponentsPatch : BytecodePatch(
