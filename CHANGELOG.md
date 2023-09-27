@@ -1,3 +1,10 @@
+# [2.191.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.15...v2.191.0-dev.16) (2023-09-27)
+
+
+### Bug Fixes
+
+* **YouTube - Hide info cards:** Fix info cards not hiding for some users ([#3039](https://github.com/ReVanced/revanced-patches/issues/3039)) ([cb38637](https://github.com/ReVanced/revanced-patches/commit/cb38637e6be968d54561a1e0466b9259dbf0b4ee))
+
 # [2.191.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.14...v2.191.0-dev.15) (2023-09-26)
 
 
