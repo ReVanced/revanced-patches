@@ -68,6 +68,8 @@ public class SpoofSignaturePatch {
     /**
      * Injection point.
      *
+     * Called off the main thread, and called multiple times for each video.
+     *
      * @param parameters Original protobuf parameter value.
      */
     public static String spoofParameter(String parameters) {
@@ -96,9 +98,14 @@ public class SpoofSignaturePatch {
 
         String videoId = VideoInformation.getVideoId();
         if (!videoId.equals(currentVideoId)) {
-            currentVideoId = videoId;
             rendererFuture = ReVancedUtils.submitOnBackgroundThread(() -> getStoryboardRenderer(videoId));
+            currentVideoId = videoId;
         }
+        // Occasionally when a new video is opened the video will be frozen a few seconds while the audio plays.
+        // This is because the main thread is calling to get the storyboard but the fetch is not completed.
+        // To prevent this, call get() here and block until the fetch is completed.
+        // So later when the main thread calls to get the renderer it will never block as the future is done.
+        getRenderer();
 
         return INCOGNITO_PARAMETERS;
     }
