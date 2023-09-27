@@ -55,7 +55,7 @@ object SpoofSignaturePatch : BytecodePatch(
                             "App signature spoofed\\n\\n"
                                     + "Side effects include:\\n"
                                     + "• Enhanced bitrate is not available\\n"
-                                    + "• Videos cannot be downloaded"
+                                    + "• Videos cannot be downloaded\\n"
                                     + "• No seekbar thumbnails for paid videos"
                         ),
                         StringResource(
