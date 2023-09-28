@@ -32,9 +32,9 @@ object PremiumHeadingPatch : ResourcePatch() {
         val resDirectory = context["res"]
 
         val (original, replacement) = if (usePremiumHeading!!)
-            DEFAULT_HEADING_RES to PREMIUM_HEADING_RES
-        else
             PREMIUM_HEADING_RES to DEFAULT_HEADING_RES
+        else
+            DEFAULT_HEADING_RES to PREMIUM_HEADING_RES
 
         val variants = arrayOf("light", "dark")
 
