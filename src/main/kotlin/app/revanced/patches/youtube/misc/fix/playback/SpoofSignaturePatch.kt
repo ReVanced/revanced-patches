@@ -88,7 +88,9 @@ object SpoofSignaturePatch : BytecodePatch(
         )
 
         // Hook the player parameters.
-        PlayerResponseMethodHookPatch.injectProtoBufferHook("$INTEGRATIONS_CLASS_DESCRIPTOR->spoofParameter(Ljava/lang/String;)Ljava/lang/String;")
+        PlayerResponseMethodHookPatch + PlayerResponseMethodHookPatch.Hook.ProtoBufferParameter(
+            "$INTEGRATIONS_CLASS_DESCRIPTOR->spoofParameter(Ljava/lang/String;)Ljava/lang/String;"
+        )
 
         // Force the seekbar time and chapters to always show up.
         // This is used only if the storyboard spec fetch fails, or when viewing paid videos.

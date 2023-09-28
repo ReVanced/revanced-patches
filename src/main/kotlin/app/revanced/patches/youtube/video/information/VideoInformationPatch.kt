@@ -109,9 +109,13 @@ object VideoInformationPatch : BytecodePatch(
         }
 
         /*
-         * Inject call for video id
+         * Inject call for video ids
          */
-        VideoIdPatch.injectCall("$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V")
+        val videoIdMethodDescriptor = "$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V"
+        VideoIdPatch.hookVideoId(videoIdMethodDescriptor)
+        VideoIdPatch.hookBackgroundPlayVideoId(videoIdMethodDescriptor)
+        VideoIdPatch.hookPlayerResponseVideoId(
+            "$INTEGRATIONS_CLASS_DESCRIPTOR->setPlayerResponseVideoId(Ljava/lang/String;)V")
 
         /*
          * Set the video time method

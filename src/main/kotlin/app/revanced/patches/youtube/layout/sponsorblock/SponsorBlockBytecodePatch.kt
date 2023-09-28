@@ -96,11 +96,8 @@ object SponsorBlockBytecodePatch : BytecodePatch(
 
         /*
          * Set current video id.
-         *
-         * The new video id hook seems to work without issues,
-         * but it's easier to keep using this hook as it's well tested and has no known problems.
          */
-        VideoIdPatch.legacyInjectCallBackgroundPlay("$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
+        VideoIdPatch.hookBackgroundPlayVideoId("$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
 
         /*
          * Seekbar drawing

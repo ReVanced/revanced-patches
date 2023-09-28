@@ -26,8 +26,8 @@ object VideoIdPatch : BytecodePatch(
     )
 ) {
     private var videoIdRegister = 0
-    private var insertIndex = 0
-    private lateinit var insertMethod: MutableMethod
+    private var videoIdInsertIndex = 0
+    private lateinit var videoIdMethod: MutableMethod
 
     private var backgroundPlaybackVideoIdRegister = 0
     private var backgroundPlaybackInsertIndex = 0
@@ -52,8 +52,8 @@ object VideoIdPatch : BytecodePatch(
         } ?: throw VideoIdFingerprint.exception
 
         VideoIdFingerprint.setFields { method, index, register ->
-            insertMethod = method
-            insertIndex = index
+            videoIdMethod = method
+            videoIdInsertIndex = index
             videoIdRegister = register
         }
 
@@ -65,21 +65,7 @@ object VideoIdPatch : BytecodePatch(
     }
 
     /**
-     * Adds an invoke-static instruction, called with the new id when the video changes.
-     *
-     * Called as soon as the player response is parsed, and called before many other hooks are
-     * updated such as [PlayerTypeHookPatch].
-     *
-     * Supports all videos and functions in all situations.
-     *
-     * Be aware, this can be called multiple times for the same video id.
-     *
-     * @param methodDescriptor which method to call. Params have to be `Ljava/lang/String;`
-     */
-    fun injectCall(methodDescriptor: String) = PlayerResponseMethodHookPatch.injectVideoIdHook(methodDescriptor)
-
-    /**
-     * Adds an invoke-static instruction, called with the new id when the video changes.
+     * Hooks the new video id when the video changes.
      *
      * Supports all videos (regular videos and Shorts).
      *
@@ -89,10 +75,10 @@ object VideoIdPatch : BytecodePatch(
      *
      * @param methodDescriptor which method to call. Params have to be `Ljava/lang/String;`
      */
-    fun legacyInjectCall(
+    fun hookVideoId(
         methodDescriptor: String
-    ) = insertMethod.addInstruction(
-        insertIndex++,
+    ) = videoIdMethod.addInstruction(
+        videoIdInsertIndex++,
         "invoke-static {v$videoIdRegister}, $methodDescriptor"
     )
 
@@ -106,11 +92,37 @@ object VideoIdPatch : BytecodePatch(
      *
      * @param methodDescriptor which method to call. Params have to be `Ljava/lang/String;`
      */
-    fun legacyInjectCallBackgroundPlay(
+    fun hookBackgroundPlayVideoId(
         methodDescriptor: String
     ) = backgroundPlaybackMethod.addInstruction(
         backgroundPlaybackInsertIndex++, // move-result-object offset
         "invoke-static {v$backgroundPlaybackVideoIdRegister}, $methodDescriptor"
     )
+
+    /**
+     * Hooks the video id of every video when loaded.
+     * Supports all videos and functions in all situations.
+     *
+     * Hook is always called off the main thread.
+     *
+     * This hook is called as soon as the player response is parsed,
+     * and called before many other hooks are updated such as [PlayerTypeHookPatch].
+     *
+     * Note: The video id returned here may not be the current video that's being played.
+     * It's common for multiple Shorts to load at once in preparation
+     * for the user swiping to the next Short.
+     *
+     * For most use cases, you probably want to use
+     * [hookVideoId] or [hookBackgroundPlayVideoId] instead.
+     *
+     * Be aware, this can be called multiple times for the same video id.
+     *
+     * @param methodDescriptor which method to call. Params have to be `Ljava/lang/String;`
+     */
+    fun hookPlayerResponseVideoId(methodDescriptor: String) {
+        PlayerResponseMethodHookPatch + PlayerResponseMethodHookPatch.Hook.VideoId(
+            methodDescriptor
+        )
+    }
 }
 
