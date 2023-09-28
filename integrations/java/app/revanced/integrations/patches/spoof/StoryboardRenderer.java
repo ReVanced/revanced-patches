@@ -1,13 +1,16 @@
 package app.revanced.integrations.patches.spoof;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.jetbrains.annotations.NotNull;
 
 public final class StoryboardRenderer {
     private final String spec;
-    private final int recommendedLevel;
+    @Nullable
+    private final Integer recommendedLevel;
 
-    public StoryboardRenderer(String spec, int recommendedLevel) {
+    public StoryboardRenderer(String spec, @Nullable Integer recommendedLevel) {
         this.spec = spec;
         this.recommendedLevel = recommendedLevel;
     }
@@ -17,7 +20,11 @@ public final class StoryboardRenderer {
         return spec;
     }
 
-    public int getRecommendedLevel() {
+    /**
+     * @return Recommended image quality level, or NULL if no recommendation exists.
+     */
+    @Nullable
+    public Integer getRecommendedLevel() {
         return recommendedLevel;
     }
 

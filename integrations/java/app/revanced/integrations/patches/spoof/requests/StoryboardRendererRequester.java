@@ -49,7 +49,7 @@ public class StoryboardRendererRequester {
         try {
             return playerResponse.getJSONObject("playabilityStatus").getString("status").equals("OK");
         } catch (JSONException e) {
-            LogHelper.printException(() -> "Failed to get playabilityStatus", e);
+            LogHelper.printDebug(() -> "Failed to get playabilityStatus for response: " + playerResponse);
         }
 
         return false;
@@ -80,7 +80,9 @@ public class StoryboardRendererRequester {
             final var rendererElement = storyboards.getJSONObject(storyboardsRendererTag);
             StoryboardRenderer renderer = new StoryboardRenderer(
                     rendererElement.getString("spec"),
-                    rendererElement.getInt("recommendedLevel")
+                    rendererElement.has("recommendedLevel")
+                            ? rendererElement.getInt("recommendedLevel")
+                            : null
             );
 
             LogHelper.printDebug(() -> "Fetched: " + renderer);

@@ -128,23 +128,26 @@ public class SpoofSignaturePatch {
      */
     @Nullable
     public static String getStoryboardRendererSpec(String originalStoryboardRendererSpec) {
-        if (!SettingsEnum.SPOOF_SIGNATURE.getBoolean()) return originalStoryboardRendererSpec;
+        if (SettingsEnum.SPOOF_SIGNATURE.getBoolean()) {
+            StoryboardRenderer renderer = getRenderer();
+            if (renderer != null) return renderer.getSpec();
+        }
 
-        StoryboardRenderer renderer = getRenderer();
-        if (renderer == null) return originalStoryboardRendererSpec;
-
-        return renderer.getSpec();
+        return originalStoryboardRendererSpec;
     }
 
     /**
      * Injection point.
      */
     public static int getRecommendedLevel(int originalLevel) {
-        if (!SettingsEnum.SPOOF_SIGNATURE.getBoolean()) return originalLevel;
+        if (SettingsEnum.SPOOF_SIGNATURE.getBoolean()) {
+            StoryboardRenderer renderer = getRenderer();
+            if (renderer != null) {
+                Integer recommendedLevel = renderer.getRecommendedLevel();
+                if (recommendedLevel != null) return recommendedLevel;
+            }
+        }
 
-        StoryboardRenderer renderer = getRenderer();
-        if (renderer == null) return originalLevel;
-
-        return renderer.getRecommendedLevel();
+        return originalLevel;
     }
 }
