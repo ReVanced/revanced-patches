@@ -1,3 +1,10 @@
+# [2.191.0-dev.18](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.17...v2.191.0-dev.18) (2023-09-28)
+
+
+### Features
+
+* **YouTube - Premium heading:** Allow using default heading ([#3029](https://github.com/ReVanced/revanced-patches/issues/3029)) ([d5ab35a](https://github.com/ReVanced/revanced-patches/commit/d5ab35a444523baa0586fcb9513d6ae4f2518946))
+
 # [2.191.0-dev.17](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.16...v2.191.0-dev.17) (2023-09-27)
 
 
