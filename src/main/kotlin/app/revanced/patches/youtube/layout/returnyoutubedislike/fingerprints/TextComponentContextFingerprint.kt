@@ -13,14 +13,12 @@ object TextComponentContextFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
     parameters = listOf("L"),
     opcodes = listOf(
-        Opcode.MOVE_OBJECT_FROM16,
-        Opcode.MOVE_OBJECT_FROM16,
-        Opcode.INVOKE_STATIC_RANGE,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IGET_OBJECT,
-        Opcode.IGET_OBJECT,
-        Opcode.IGET_OBJECT,
-        Opcode.IGET_OBJECT,
         Opcode.IGET_OBJECT, // conversion context field name
+        Opcode.IGET_OBJECT,
+        Opcode.IGET_OBJECT,
+        Opcode.IGET_BOOLEAN,
+        Opcode.IGET,
+        Opcode.IGET,
+        Opcode.IGET,
     )
 )
