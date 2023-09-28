@@ -5,39 +5,57 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import java.nio.file.Files
-import java.nio.file.StandardCopyOption
-import kotlin.io.path.exists
+import app.revanced.patcher.patch.options.types.BooleanPatchOption.Companion.booleanPatchOption
+import kotlin.io.path.copyTo
 
 @Patch(
     name = "Premium heading",
-    description = "Shows premium branding on the home screen.",
+    description = "Show or hide the premium heading.",
     compatiblePackages = [
         CompatiblePackage("com.google.android.youtube")
     ]
 )
 @Suppress("unused")
 object PremiumHeadingPatch : ResourcePatch() {
+    private const val DEFAULT_HEADING_RES = "yt_wordmark_header"
+    private const val PREMIUM_HEADING_RES = "yt_premium_wordmark_header"
+
+    private val usePremiumHeading by booleanPatchOption(
+        key = "usePremiumHeading",
+        default = true,
+        title = "Use premium heading",
+        description = "Whether to use the premium heading.",
+        required = true,
+    )
+
     override fun execute(context: ResourceContext) {
         val resDirectory = context["res"]
-        if (!resDirectory.isDirectory) throw PatchException("The res folder can not be found.")
 
-        val (original, replacement) = "yt_premium_wordmark_header" to "yt_wordmark_header"
-        val modes = arrayOf("light", "dark")
+        val (original, replacement) = if (usePremiumHeading!!)
+            DEFAULT_HEADING_RES to PREMIUM_HEADING_RES
+        else
+            PREMIUM_HEADING_RES to DEFAULT_HEADING_RES
 
-        arrayOf("xxxhdpi", "xxhdpi", "xhdpi", "hdpi", "mdpi").forEach { size ->
-            val headingDirectory = resDirectory.resolve("drawable-$size")
-            modes.forEach { mode ->
-                val fromPath = headingDirectory.resolve("${original}_$mode.png").toPath()
-                val toPath = headingDirectory.resolve("${replacement}_$mode.png").toPath()
+        val variants = arrayOf("light", "dark")
 
-                if (!fromPath.exists())
-                    throw PatchException("The file $fromPath does not exist in the resources. Therefore, this patch can not succeed.")
-                Files.copy(
-                    fromPath,
-                    toPath,
-                    StandardCopyOption.REPLACE_EXISTING
-                )
+        arrayOf(
+            "xxxhdpi",
+            "xxhdpi",
+            "xhdpi",
+            "hdpi",
+            "mdpi"
+        ).mapNotNull { dpi ->
+            resDirectory.resolve("drawable-$dpi").takeIf { it.exists() }?.toPath()
+        }.also {
+            if (it.isEmpty())
+                throw PatchException("The drawable folder can not be found. Therefore, the patch can not be applied.")
+        }.forEach { path ->
+
+            variants.forEach { mode ->
+                val fromPath = path.resolve("${original}_$mode.png")
+                val toPath = path.resolve("${replacement}_$mode.png")
+
+                fromPath.copyTo(toPath, true)
             }
         }
     }
