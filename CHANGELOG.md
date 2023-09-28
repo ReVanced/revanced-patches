@@ -1,3 +1,10 @@
+# [2.191.0-dev.22](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.21...v2.191.0-dev.22) (2023-09-28)
+
+
+### Bug Fixes
+
+* **YouTube - Premium heading:** Correct inverted logic ([#3042](https://github.com/ReVanced/revanced-patches/issues/3042)) ([b33ed75](https://github.com/ReVanced/revanced-patches/commit/b33ed757370653b8eb0002b0977eedfbc73dbe5e))
+
 # [2.191.0-dev.21](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.20...v2.191.0-dev.21) (2023-09-28)
 
 
