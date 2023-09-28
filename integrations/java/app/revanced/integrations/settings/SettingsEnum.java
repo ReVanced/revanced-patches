@@ -169,6 +169,7 @@ public enum SettingsEnum {
             "revanced_spoof_signature_verification_enabled_user_dialog_message"),
     SPOOF_SIGNATURE_IN_FEED("revanced_spoof_signature_in_feed_enabled", BOOLEAN, FALSE, false,
             parents(SPOOF_SIGNATURE)),
+    BYPASS_URL_REDIRECTS("revanced_bypass_url_redirects", BOOLEAN, TRUE),
 
     // Swipe controls
     SWIPE_BRIGHTNESS("revanced_swipe_brightness", BOOLEAN, TRUE),
