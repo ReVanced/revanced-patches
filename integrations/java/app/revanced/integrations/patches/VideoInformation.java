@@ -1,15 +1,14 @@
 package app.revanced.integrations.patches;
 
 import androidx.annotation.NonNull;
-
-import java.lang.ref.WeakReference;
-import java.lang.reflect.Method;
-import java.util.Objects;
-
 import app.revanced.integrations.patches.playback.speed.RememberPlaybackSpeedPatch;
 import app.revanced.integrations.shared.VideoState;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
+
+import java.lang.ref.WeakReference;
+import java.lang.reflect.Method;
+import java.util.Objects;
 
 /**
  * Hooking class for the current playing video.
@@ -25,6 +24,10 @@ public final class VideoInformation {
     private static String videoId = "";
     private static long videoLength = 0;
     private static long videoTime = -1;
+
+    @NonNull
+    private static volatile String playerResponseVideoId = "";
+
     /**
      * The current playback speed
      */
@@ -58,6 +61,18 @@ public final class VideoInformation {
         if (!videoId.equals(newlyLoadedVideoId)) {
             LogHelper.printDebug(() -> "New video id: " + newlyLoadedVideoId);
             videoId = newlyLoadedVideoId;
+        }
+    }
+
+    /**
+     * Injection point.  Called off the main thread.
+     *
+     * @param videoId The id of the last video loaded.
+     */
+    public static void setPlayerResponseVideoId(@NonNull String videoId) {
+        if (!playerResponseVideoId.equals(videoId)) {
+            LogHelper.printDebug(() -> "New player response video id: " + videoId);
+            playerResponseVideoId = videoId;
         }
     }
 
@@ -139,6 +154,22 @@ public final class VideoInformation {
     @NonNull
     public static String getVideoId() {
         return videoId;
+    }
+
+    /**
+     * Differs from {@link #videoId} as this is the video id for the
+     * last player response received, which may not be the current video playing.
+     *
+     * If Shorts are loading the background, this commonly will be
+     * different from the Short that is currently on screen.
+     *
+     * For most use cases, you should instead use {@link #getVideoId()}.
+     *
+     * @return The id of the last video loaded. Empty string if not set yet.
+     */
+    @NonNull
+    public static String getPlayerResponseVideoId() {
+        return playerResponseVideoId;
     }
 
     /**

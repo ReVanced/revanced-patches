@@ -1,19 +1,20 @@
 package app.revanced.integrations.patches.spoof;
 
+import static app.revanced.integrations.patches.spoof.requests.StoryboardRendererRequester.getStoryboardRenderer;
+import static app.revanced.integrations.utils.ReVancedUtils.containsAny;
+
 import androidx.annotation.Nullable;
-import app.revanced.integrations.patches.VideoInformation;
-import app.revanced.integrations.settings.SettingsEnum;
-import app.revanced.integrations.shared.PlayerType;
-import app.revanced.integrations.utils.LogHelper;
-import app.revanced.integrations.utils.ReVancedUtils;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-import static app.revanced.integrations.patches.spoof.requests.StoryboardRendererRequester.getStoryboardRenderer;
-import static app.revanced.integrations.utils.ReVancedUtils.containsAny;
+import app.revanced.integrations.patches.VideoInformation;
+import app.revanced.integrations.settings.SettingsEnum;
+import app.revanced.integrations.shared.PlayerType;
+import app.revanced.integrations.utils.LogHelper;
+import app.revanced.integrations.utils.ReVancedUtils;
 
 /** @noinspection unused*/
 public class SpoofSignaturePatch {
@@ -46,7 +47,7 @@ public class SpoofSignaturePatch {
     /**
      * Last video id loaded. Used to prevent reloading the same spec multiple times.
      */
-    private static volatile String currentVideoId;
+    private static volatile String lastPlayerResponseVideoId;
 
     private static volatile Future<StoryboardRenderer> rendererFuture;
 
@@ -83,7 +84,6 @@ public class SpoofSignaturePatch {
         var isClip = parameters.length() > 150;
         if (isClip) return parameters;
 
-
         // Shorts do not need to be spoofed.
         if (parameters.startsWith(SHORTS_PLAYER_PARAMETERS)) return parameters;
 
@@ -96,18 +96,23 @@ public class SpoofSignaturePatch {
                 // This will cause playback issues in the feed, but it's better than manipulating the history.
                 parameters;
 
-        String videoId = VideoInformation.getVideoId();
-        if (!videoId.equals(currentVideoId)) {
+        fetchStoryboardRenderer();
+
+        return INCOGNITO_PARAMETERS;
+    }
+
+    private static void fetchStoryboardRenderer() {
+        String videoId = VideoInformation.getPlayerResponseVideoId();
+        if (!videoId.equals(lastPlayerResponseVideoId)) {
             rendererFuture = ReVancedUtils.submitOnBackgroundThread(() -> getStoryboardRenderer(videoId));
-            currentVideoId = videoId;
+            lastPlayerResponseVideoId = videoId;
         }
-        // Occasionally when a new video is opened the video will be frozen a few seconds while the audio plays.
+        // Block until the fetch is completed.  Without this, occasionally when a new video is opened
+        // the video will be frozen a few seconds while the audio plays.
         // This is because the main thread is calling to get the storyboard but the fetch is not completed.
         // To prevent this, call get() here and block until the fetch is completed.
         // So later when the main thread calls to get the renderer it will never block as the future is done.
         getRenderer();
-
-        return INCOGNITO_PARAMETERS;
     }
 
     /**
