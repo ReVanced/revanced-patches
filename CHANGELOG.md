@@ -1,3 +1,10 @@
+# [2.191.0-dev.21](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.20...v2.191.0-dev.21) (2023-09-28)
+
+
+### Bug Fixes
+
+* **YouTube - ReturnYouTubeDislike:** Revert support for 18.37.36 ([#3041](https://github.com/ReVanced/revanced-patches/issues/3041)) ([3761073](https://github.com/ReVanced/revanced-patches/commit/37610732da87549c22a430bb62d10793dfa2e696))
+
 # [2.191.0-dev.20](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.19...v2.191.0-dev.20) (2023-09-28)
 
 
