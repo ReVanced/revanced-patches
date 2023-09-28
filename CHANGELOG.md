@@ -1,3 +1,10 @@
+# [2.191.0-dev.19](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.18...v2.191.0-dev.19) (2023-09-28)
+
+
+### Features
+
+* **YouTube:** Add `Bypass URL redirects` patch ([125cac5](https://github.com/ReVanced/revanced-patches/commit/125cac5928c9b71d35253f1fd7651f4a30e15529))
+
 # [2.191.0-dev.18](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.17...v2.191.0-dev.18) (2023-09-28)
 
 
