@@ -1,3 +1,10 @@
+# [2.191.0-dev.20](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.19...v2.191.0-dev.20) (2023-09-28)
+
+
+### Bug Fixes
+
+* **YouTube - Video Id:** Fix video id not showing the currently playing video ([#3038](https://github.com/ReVanced/revanced-patches/issues/3038)) ([f6f226b](https://github.com/ReVanced/revanced-patches/commit/f6f226ba281823cb5d2d468c32f6e48551971726))
+
 # [2.191.0-dev.19](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.18...v2.191.0-dev.19) (2023-09-28)
 
 
