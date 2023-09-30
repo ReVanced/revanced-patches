@@ -1,3 +1,10 @@
+# [2.191.0-dev.24](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.23...v2.191.0-dev.24) (2023-09-30)
+
+
+### Features
+
+* **Duolingo:** Remove `Unlock Duolingo Super` patch ([b4b9746](https://github.com/ReVanced/revanced-patches/commit/b4b9746361b5435b9d9429ad065e53364c51904a))
+
 # [2.191.0-dev.23](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.22...v2.191.0-dev.23) (2023-09-30)
 
 
