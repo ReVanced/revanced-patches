@@ -1,3 +1,10 @@
+# [2.191.0-dev.23](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.22...v2.191.0-dev.23) (2023-09-30)
+
+
+### Features
+
+* **SPB Serviceportal Bund:** Add `Remove root detection` patch ([#3049](https://github.com/ReVanced/revanced-patches/issues/3049)) ([481bf58](https://github.com/ReVanced/revanced-patches/commit/481bf583afbf954bef1c4e5349a62ea1c623115a))
+
 # [2.191.0-dev.22](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.21...v2.191.0-dev.22) (2023-09-28)
 
 
