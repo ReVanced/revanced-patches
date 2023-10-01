@@ -71,6 +71,21 @@ object HideLayoutComponentsPatch : BytecodePatch(
                 StringResource("revanced_hide_timed_reactions_summary_off", "Timed reactions are shown")
             ),
             SwitchPreference(
+                "revanced_hide_search_result_shelf_header",
+                StringResource(
+                    "revanced_hide_search_result_shelf_header_title",
+                    "Hide search result shelf header"
+                ),
+                StringResource(
+                    "revanced_hide_search_result_shelf_header_summary_on",
+                    "Shelf header is hidden"
+                ),
+                StringResource(
+                    "revanced_hide_search_result_shelf_header_summary_off",
+                    "Shelf header is shown"
+                )
+            ),
+            SwitchPreference(
                 "revanced_hide_channel_guidelines",
                 StringResource("revanced_hide_channel_guidelines_title", "Hide channel guidelines"),
                 StringResource(
