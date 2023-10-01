@@ -1,3 +1,10 @@
+# [2.191.0-dev.26](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.25...v2.191.0-dev.26) (2023-10-01)
+
+
+### Bug Fixes
+
+* Use correct instruction ([246cf2c](https://github.com/ReVanced/revanced-patches/commit/246cf2cc92624e43bc7405cb32be9b560bb648c5))
+
 # [2.191.0-dev.25](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.24...v2.191.0-dev.25) (2023-10-01)
 
 
