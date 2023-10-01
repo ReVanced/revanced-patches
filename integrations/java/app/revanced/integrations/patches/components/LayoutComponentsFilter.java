@@ -157,6 +157,11 @@ public final class LayoutComponentsFilter extends Filter {
                 "set_reminder_button"
         );
 
+        final var joinMembership = new StringFilterGroup(
+                SettingsEnum.HIDE_JOIN_MEMBERSHIP_BUTTON,
+                "compact_sponsor_button"
+        );
+
         final var chipsShelf = new StringFilterGroup(
                 SettingsEnum.HIDE_CHIPS_SHELF,
                 "chips_shelf"
@@ -174,6 +179,7 @@ public final class LayoutComponentsFilter extends Filter {
                 relatedVideos,
                 compactBanner,
                 inFeedSurvey,
+                joinMembership,
                 medicalPanel,
                 notifyMe,
                 infoPanel,
