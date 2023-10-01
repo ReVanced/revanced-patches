@@ -146,6 +146,12 @@ public final class LayoutComponentsFilter extends Filter {
                 "cell_divider" // layout residue (gray line above the buttoned ad),
         );
 
+        final var timedReactions = new StringFilterGroup(
+                SettingsEnum.HIDE_TIMED_REACTIONS,
+                "emoji_control_panel",
+                "timed_reaction"
+        );
+
         final var chipsShelf = new StringFilterGroup(
                 SettingsEnum.HIDE_CHIPS_SHELF,
                 "chips_shelf"
@@ -168,6 +174,7 @@ public final class LayoutComponentsFilter extends Filter {
                 channelGuidelines,
                 audioTrackButton,
                 artistCard,
+                timedReactions,
                 imageShelf,
                 subscribersCommunityGuidelines,
                 channelMemberShelf,
