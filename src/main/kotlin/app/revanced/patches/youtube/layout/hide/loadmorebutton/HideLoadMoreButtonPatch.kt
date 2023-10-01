@@ -11,7 +11,7 @@ import app.revanced.patches.youtube.layout.hide.loadmorebutton.fingerprints.Hide
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
-    name = "Hide load more button",
+    name = "Hide \"Load more\" button",
     description = "Hides the button under videos that loads similar videos.",
     dependencies = [HideLoadMoreButtonResourcePatch::class],
     compatiblePackages = [
