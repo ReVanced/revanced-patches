@@ -16,8 +16,8 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 @Patch(
     name = "Hide ads",
     compatiblePackages = [
-        CompatiblePackage("com.ss.android.ugc.trill"),
-        CompatiblePackage("com.zhiliaoapp.musically")
+        CompatiblePackage("com.ss.android.ugc.trill", ["30.9.3"]),
+        CompatiblePackage("com.zhiliaoapp.musically", ["30.9.3"])
     ]
 )
 @Suppress("unused")
