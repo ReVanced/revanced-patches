@@ -1,3 +1,11 @@
+# [2.191.0-dev.28](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.27...v2.191.0-dev.28) (2023-10-01)
+
+
+### Bug Fixes
+
+* **YouTube - Hide "Load more" button:** Use correct names ([569c3cd](https://github.com/ReVanced/revanced-patches/commit/569c3cde9875b807c9116322ca324f69b5fa0218))
+* **YouTube - Hide shorts components:** Fix hiding navigation bar ([2de51e6](https://github.com/ReVanced/revanced-patches/commit/2de51e65f05be8a6364dfdfe9cd36e8fed5737f6))
+
 # [2.191.0-dev.27](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.26...v2.191.0-dev.27) (2023-10-01)
 
 
