@@ -152,6 +152,11 @@ public final class LayoutComponentsFilter extends Filter {
                 "timed_reaction"
         );
 
+        final var notifyMe = new StringFilterGroup(
+                SettingsEnum.HIDE_NOTIFY_ME_BUTTON,
+                "set_reminder_button"
+        );
+
         final var chipsShelf = new StringFilterGroup(
                 SettingsEnum.HIDE_CHIPS_SHELF,
                 "chips_shelf"
@@ -170,6 +175,7 @@ public final class LayoutComponentsFilter extends Filter {
                 compactBanner,
                 inFeedSurvey,
                 medicalPanel,
+                notifyMe,
                 infoPanel,
                 channelGuidelines,
                 audioTrackButton,

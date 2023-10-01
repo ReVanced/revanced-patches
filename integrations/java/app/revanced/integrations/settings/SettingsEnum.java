@@ -66,6 +66,8 @@ public enum SettingsEnum {
     HIDE_FEED_SURVEY("revanced_hide_feed_survey", BOOLEAN, TRUE),
     HIDE_GRAY_SEPARATOR("revanced_hide_gray_separator", BOOLEAN, TRUE),
     HIDE_TIMED_REACTIONS("revanced_hide_timed_reactions", BOOLEAN, TRUE),
+    HIDE_NOTIFY_ME_BUTTON("revanced_hide_notify_me_button", BOOLEAN, TRUE),
+
     HIDE_HIDE_CHANNEL_GUIDELINES("revanced_hide_channel_guidelines", BOOLEAN, TRUE),
     HIDE_IMAGE_SHELF("revanced_hide_image_shelf", BOOLEAN, TRUE),
     HIDE_HIDE_INFO_PANELS("revanced_hide_info_panels", BOOLEAN, TRUE),
