@@ -52,6 +52,12 @@ object HideLayoutComponentsPatch : BytecodePatch(
                 StringResource("revanced_hide_gray_separator_summary_off", "Gray separators are shown")
             ),
             SwitchPreference(
+                "revanced_hide_notify_me_button",
+                StringResource("revanced_hide_notify_me_button_title", "Hide \"Notify me\" button"),
+                StringResource("revanced_hide_notify_me_button_summary_on", "Button is hidden"),
+                StringResource("revanced_hide_notify_me_button_summary_off", "Button is shown")
+            ),
+            SwitchPreference(
                 "revanced_hide_timed_reactions",
                 StringResource("revanced_hide_timed_reactions_title", "Hide timed reactions"),
                 StringResource("revanced_hide_timed_reactions_summary_on", "Timed reactions are hidden"),
