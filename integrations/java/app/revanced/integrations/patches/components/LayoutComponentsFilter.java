@@ -152,6 +152,11 @@ public final class LayoutComponentsFilter extends Filter {
                 "timed_reaction"
         );
 
+        final var searchResultShelfHeader = new StartsWithStringFilterGroup(
+                SettingsEnum.HIDE_SEARCH_RESULT_SHELF_HEADER,
+                "shelf_header.eml"
+        );
+
         final var notifyMe = new StringFilterGroup(
                 SettingsEnum.HIDE_NOTIFY_ME_BUTTON,
                 "set_reminder_button"
@@ -183,12 +188,13 @@ public final class LayoutComponentsFilter extends Filter {
                 medicalPanel,
                 notifyMe,
                 infoPanel,
+                subscribersCommunityGuidelines,
                 channelGuidelines,
                 audioTrackButton,
                 artistCard,
                 timedReactions,
                 imageShelf,
-                subscribersCommunityGuidelines,
+                searchResultShelfHeader,
                 channelMemberShelf,
                 custom
         );

@@ -10,25 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
-import android.widget.Toolbar;
-
+import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import app.revanced.integrations.settings.SettingsEnum;
 
 import java.text.Bidi;
 import java.util.Locale;
 import java.util.Objects;
-import java.util.concurrent.Callable;
-import java.util.concurrent.Future;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-
-import app.revanced.integrations.settings.SettingsEnum;
+import java.util.concurrent.*;
 
 public class ReVancedUtils {
 
@@ -95,6 +85,12 @@ public class ReVancedUtils {
     public static boolean containsAny(@NonNull String value, @NonNull String... targets) {
         for (String string : targets)
             if (!string.isEmpty() && value.contains(string)) return true;
+        return false;
+    }
+
+    public static boolean startsWithAny(@NonNull String value, @NonNull String... targets) {
+        for (String string : targets)
+            if (!string.isEmpty() && value.startsWith(string)) return true;
         return false;
     }
 
