@@ -52,6 +52,12 @@ object HideLayoutComponentsPatch : BytecodePatch(
                 StringResource("revanced_hide_gray_separator_summary_off", "Gray separators are shown")
             ),
             SwitchPreference(
+                "revanced_hide_timed_reactions",
+                StringResource("revanced_hide_timed_reactions_title", "Hide timed reactions"),
+                StringResource("revanced_hide_timed_reactions_summary_on", "Timed reactions are hidden"),
+                StringResource("revanced_hide_timed_reactions_summary_off", "Timed reactions are shown")
+            ),
+            SwitchPreference(
                 "revanced_hide_channel_guidelines",
                 StringResource("revanced_hide_channel_guidelines_title", "Hide channel guidelines"),
                 StringResource(
