@@ -1,3 +1,10 @@
+# [2.191.0-dev.27](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.26...v2.191.0-dev.27) (2023-10-01)
+
+
+### Features
+
+* **Tumblr:** Add `Disable in-app update` patch ([#3058](https://github.com/ReVanced/revanced-patches/issues/3058)) ([5e8076b](https://github.com/ReVanced/revanced-patches/commit/5e8076b330cabe57130233adacdf84b56f010217))
+
 # [2.191.0-dev.26](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.25...v2.191.0-dev.26) (2023-10-01)
 
 
