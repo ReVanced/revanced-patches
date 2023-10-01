@@ -1,3 +1,12 @@
+# [2.191.0-dev.25](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.24...v2.191.0-dev.25) (2023-10-01)
+
+
+### Features
+
+* **YouTube - Hide layout components:** Hide "Join" button ([1b71f89](https://github.com/ReVanced/revanced-patches/commit/1b71f893bb9fd8511833b8895031c8d8122a6efb))
+* **YouTube - Hide layout components:** Hide "Notify me" button ([3027c15](https://github.com/ReVanced/revanced-patches/commit/3027c1575717588f43f4b95be6ba97dac2b94069))
+* **YouTube - Hide layout components:** Hide timed reactions ([d0a775d](https://github.com/ReVanced/revanced-patches/commit/d0a775d685b1e0564804d564d1cbcbb8d0a04b03))
+
 # [2.191.0-dev.24](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.23...v2.191.0-dev.24) (2023-09-30)
 
 
