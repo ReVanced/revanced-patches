@@ -98,10 +98,10 @@ object HideShortsComponentsPatch : BytecodePatch(
 
             SetPivotBarVisibilityFingerprint.result!!.let { result ->
                 result.mutableMethod.apply {
-                    val checkCastIndex = result.scanResult.patternScanResult!!.endIndex
-                    val viewRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
+                    val insertIndex = result.scanResult.patternScanResult!!.endIndex
+                    val viewRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
                     addInstruction(
-                        checkCastIndex + 1,
+                        insertIndex,
                         "sput-object v$viewRegister, $FILTER_CLASS_DESCRIPTOR->pivotBar:" +
                                 "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;"
                     )
