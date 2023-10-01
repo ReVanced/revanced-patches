@@ -46,7 +46,7 @@ object TimelineFilterPatch : BytecodePatch(
                     addInstructionsWithLabels(
                         filterInsertIndex, """
                             const-string v$stringRegister, "$typeName"
-                            invoke-interface { v$filterListRegister, v$stringRegister }, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+                            invoke-virtual { v$filterListRegister, v$stringRegister }, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
                         """
                     )
                 }
