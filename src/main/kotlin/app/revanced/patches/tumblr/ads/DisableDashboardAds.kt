@@ -1,33 +1,37 @@
 package app.revanced.patches.tumblr.ads
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.tumblr.ads.fingerprints.AdWaterfallFingerprint
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import app.revanced.patches.tumblr.timelinefilter.TimelineFilterPatch
 
 @Patch(
     name = "Disable dashboard ads",
     description = "Disables ads in the dashboard.",
-    compatiblePackages = [CompatiblePackage("com.tumblr")]
+    compatiblePackages = [CompatiblePackage("com.tumblr")],
+    dependencies = [TimelineFilterPatch::class]
 )
 @Suppress("unused")
-object DisableDashboardAds : BytecodePatch(
-    setOf(AdWaterfallFingerprint)
-) {
-    override fun execute(context: BytecodeContext) = AdWaterfallFingerprint.result?.let {
-        it.scanResult.stringsScanResult!!.matches.forEach { match ->
-            // We just replace all occurrences of "client_side_ad_waterfall" with anything else
-            // so the app fails to handle ads in the timeline elements array and just skips them.
-            // See AdWaterfallFingerprint for more info.
-            val stringRegister = it.mutableMethod.getInstruction<OneRegisterInstruction>(match.index).registerA
-            it.mutableMethod.replaceInstruction(
-                match.index, "const-string v$stringRegister, \"dummy\""
-            )
+object DisableDashboardAds : BytecodePatch() {
+    override fun execute(context: BytecodeContext)  {
+        // The timeline object types are filtered by their name in the TimelineObjectType enum.
+        // This is often different from the "object_type" returned in the api (noted in comments here)
+        arrayOf(
+            "CLIENT_SIDE_MEDIATION", // "client_side_ad_waterfall"
+            "GEMINI_AD", // "backfill_ad"
+
+            // The object types below weren't actually spotted in the wild in testing, but they are valid Object types
+            // and their names clearly indicate that they are ads, so we just block them anyway,
+            // just in case they will be used in the future.
+            "NIMBUS_AD", // "nimbus_ad"
+            "CLIENT_SIDE_AD", // "client_side_ad"
+            "DISPLAY_IO_INTERSCROLLER_AD", // "display_io_interscroller"
+            "DISPLAY_IO_HEADLINE_VIDEO_AD", // "display_io_headline_video"
+            "FACEBOOK_BIDDAABLE", // "facebook_biddable_sdk_ad"
+            "GOOGLE_NATIVE" // "google_native_ad"
+        ).forEach {
+            TimelineFilterPatch.addObjectTypeFilter(it)
         }
-    } ?: throw AdWaterfallFingerprint.exception
+    }
 }
