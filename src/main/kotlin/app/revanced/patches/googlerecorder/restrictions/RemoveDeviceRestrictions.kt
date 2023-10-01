@@ -13,7 +13,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Remove device restrictions",
-    description = "Removes restrictions from using the app on any device.",
+    description = "Removes restrictions from using the app on any device. Requires mounting patched app over original.",
     compatiblePackages = [CompatiblePackage("com.google.android.apps.recorder")]
 )
 @Suppress("unused")
