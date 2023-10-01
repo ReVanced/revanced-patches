@@ -1,3 +1,10 @@
+# [2.191.0-dev.29](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.28...v2.191.0-dev.29) (2023-10-01)
+
+
+### Features
+
+* **TikTok - Hide ads:** Constrain to last working version ([516e8a1](https://github.com/ReVanced/revanced-patches/commit/516e8a14c0e113f9f4c0dda9be223cf3e929eb3a))
+
 # [2.191.0-dev.28](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.27...v2.191.0-dev.28) (2023-10-01)
 
 
