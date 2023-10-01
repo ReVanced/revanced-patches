@@ -55,7 +55,8 @@ public final class ShortsFilter extends Filter {
         );
         var subscribeButton = new StringFilterGroup(
                 SettingsEnum.HIDE_SHORTS_SUBSCRIBE_BUTTON,
-                "subscribe_button"
+                "subscribe_button",
+                "shorts_paused_state"
         );
 
         channelBar = new StringFilterGroup(
