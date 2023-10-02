@@ -211,7 +211,8 @@ public final class LayoutComponentsFilter extends Filter {
         if (matchedGroup != custom && exceptions.matches(path))
             return false; // Exceptions are not filtered.
 
-        if (matchedGroup == searchResultShelfHeader && matchedIndex == 0) return true;
+        // TODO: This also hides the feed Shorts shelf header
+        if (matchedGroup == searchResultShelfHeader && matchedIndex != 0) return false;
 
         return super.isFiltered(identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
     }
