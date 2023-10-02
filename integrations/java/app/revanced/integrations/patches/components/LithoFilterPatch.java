@@ -85,18 +85,6 @@ class StringFilterGroup extends FilterGroup<String> {
     }
 }
 
-class StartsWithStringFilterGroup extends StringFilterGroup {
-
-    public StartsWithStringFilterGroup(final SettingsEnum setting, final String... filters) {
-        super(setting, filters);
-    }
-
-    @Override
-    public FilterGroupResult check(final String string) {
-        return new FilterGroupResult(setting, isEnabled() && ReVancedUtils.startsWithAny(string, filters));
-    }
-}
-
 final class CustomFilterGroup extends StringFilterGroup {
 
     public CustomFilterGroup(final SettingsEnum setting, final SettingsEnum filter) {

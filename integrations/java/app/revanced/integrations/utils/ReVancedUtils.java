@@ -88,12 +88,6 @@ public class ReVancedUtils {
         return false;
     }
 
-    public static boolean startsWithAny(@NonNull String value, @NonNull String... targets) {
-        for (String string : targets)
-            if (!string.isEmpty() && value.startsWith(string)) return true;
-        return false;
-    }
-
     /**
      * @return zero, if the resource is not found
      */
