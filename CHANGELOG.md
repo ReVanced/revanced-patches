@@ -1,3 +1,16 @@
+# [2.191.0-dev.30](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.29...v2.191.0-dev.30) (2023-10-02)
+
+
+### Bug Fixes
+
+* Add hooks to existing hook set ([5655067](https://github.com/ReVanced/revanced-patches/commit/5655067f28d010f3a7a6d91b09ac984eee162031))
+* **Google Recorder - Remove device restrictions:** Clarify limitation ([094f57b](https://github.com/ReVanced/revanced-patches/commit/094f57b601d746079c43fd5c8834e3e6be07f946))
+
+
+### Features
+
+* **YouTube - Hide layout components:** Hide search result shelf header ([f4eda8c](https://github.com/ReVanced/revanced-patches/commit/f4eda8c8d111cc856d5878a32ddca3f7c2e0df31))
+
 # [2.191.0-dev.29](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.28...v2.191.0-dev.29) (2023-10-01)
 
 
