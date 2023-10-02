@@ -1,3 +1,10 @@
+# [2.191.0-dev.31](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.30...v2.191.0-dev.31) (2023-10-02)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Adjust import/export UI text ([#3063](https://github.com/ReVanced/revanced-patches/issues/3063)) ([4e5513e](https://github.com/ReVanced/revanced-patches/commit/4e5513e973f5de7c9f6330dfe7a0744e91f305b4))
+
 # [2.191.0-dev.30](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.29...v2.191.0-dev.30) (2023-10-02)
 
 
