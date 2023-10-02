@@ -1,6 +1,6 @@
 [versions]
-revanced-patcher = "15.0.1"
-revanced-patch-annotation-processor = "15.0.1"
+revanced-patcher = "15.0.3"
+revanced-patch-annotation-processor = "15.0.3"
 ksp = "1.9.0-1.0.11"
 smali = "3.0.3"
 guava = "32.1.2-jre"
