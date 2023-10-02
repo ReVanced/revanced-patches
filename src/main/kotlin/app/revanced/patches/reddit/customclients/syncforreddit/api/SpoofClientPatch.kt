@@ -9,6 +9,7 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.patch.options.types.StringPatchOption.Companion.stringPatchOption
 import app.revanced.patches.reddit.customclients.AbstractSpoofClientPatch
 import app.revanced.patches.reddit.customclients.syncforreddit.api.fingerprints.GetAuthorizationStringFingerprint
 import app.revanced.patches.reddit.customclients.syncforreddit.api.fingerprints.GetBearerTokenFingerprint
@@ -20,9 +21,7 @@ import java.util.*
 
 @Patch(
     name = "Spoof client",
-    description = "Spoofs the client in order to allow logging in. " +
-            "The OAuth application type has to be \"Installed app\" " +
-            "and the redirect URI has to be set to \"http://redditsync/auth\".",
+    description = "Restores functionality of the app by using custom client ID's.",
     dependencies = [DisablePiracyDetectionPatch::class],
     compatiblePackages =  [
         CompatiblePackage("com.laurencedawson.reddit_sync"),

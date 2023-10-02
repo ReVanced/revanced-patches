@@ -16,9 +16,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Spoof client",
-    description = "Spoofs the client in order to allow logging in. " +
-            "The OAuth application type has to be \"Installed app\" " +
-            "and the redirect URI has to be set to \"redditisfun://auth\".",
+    description = "Restores functionality of the app by using custom client ID's.",
     compatiblePackages = [
         CompatiblePackage("com.andrewshu.android.reddit"),
         CompatiblePackage("com.andrewshu.android.redditdonation")

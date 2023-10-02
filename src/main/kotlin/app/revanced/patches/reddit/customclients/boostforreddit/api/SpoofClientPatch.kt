@@ -10,9 +10,7 @@ import app.revanced.patches.reddit.customclients.boostforreddit.api.fingerprints
 
 @Patch(
     name = "Spoof client",
-    description = "Spoofs the client in order to allow logging in. " +
-            "The OAuth application type has to be \"Installed app\" " +
-            "and the redirect URI has to be set to \"http://rubenmayayo.com\".",
+    description = "Restores functionality of the app by using custom client ID's.",
     compatiblePackages = [CompatiblePackage("com.rubenmayayo.reddit")]
 )
 @Suppress("unused")

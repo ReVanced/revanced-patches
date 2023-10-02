@@ -7,8 +7,10 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
+import app.revanced.patcher.patch.options.PatchOptionException
 import app.revanced.patcher.patch.options.types.StringPatchOption.Companion.stringPatchOption
 import java.io.File
+import java.util.*
 
 abstract class AbstractSpoofClientPatch(
     private val redirectUri: String,
@@ -24,32 +26,65 @@ abstract class AbstractSpoofClientPatch(
         "client-id",
         null,
         "OAuth client ID",
-        "The Reddit OAuth client ID."
+        "The Reddit OAuth client ID. " +
+                "You can get your client ID from https://www.reddit.com/prefs/apps. " +
+                "The application type has to be \"Installed app\" " +
+                "and the redirect URI has to be set to \"$redirectUri\"",
+        true
     )
 
     override fun execute(context: BytecodeContext) {
-        if (clientId == null) {
-            // Ensure device runs Android.
-            try {
-                Class.forName("android.os.Environment")
-            } catch (e: ClassNotFoundException) {
-                throw PatchException("No client ID provided")
+        val requiredOptions = options.values.filter { it.required }
+
+        val isAndroidButRequiredOptionsUnset = try {
+            Class.forName("android.os.Environment")
+
+            requiredOptions.any { it.value == null }
+        } catch (_: ClassNotFoundException) {
+            false
+        }
+
+        if (isAndroidButRequiredOptionsUnset) {
+            val properties = Properties()
+
+            val propertiesFile = File(
+                Environment.getExternalStorageDirectory(),
+                "revanced_client_spoof_${redirectUri.hashCode()}.properties"
+            )
+            if (propertiesFile.exists()) {
+                properties.load(propertiesFile.inputStream())
+
+                // Set options from properties file.
+                properties.forEach { (name, value) ->
+                    try {
+                        options[name.toString()] = value.toString().trim()
+                    } catch (_: PatchOptionException.PatchOptionNotFoundException) {
+                        // Ignore unknown options.
+                    }
+                }
+            } else {
+                options.keys.forEach { properties.setProperty(it, "") }
+
+                properties.store(
+                    propertiesFile.outputStream(),
+                    "Options for the ReVanced \"Client Spoof\" patch. Required options: " +
+                            requiredOptions.joinToString { it.key }
+                )
             }
 
-            File(Environment.getExternalStorageDirectory(), "reddit_client_id_revanced.txt").also {
-                if (it.exists()) return@also
+            requiredOptions.filter { it.value == null }.let { requiredUnsetOptions ->
+                if (requiredUnsetOptions.isEmpty()) return@let
 
                 val error = """
-                    In order to use this patch, you need to provide a client ID.
-                    You can do that by creating a file at ${it.absolutePath} with the client ID as its content.
-                    Alternatively, you can provide the client ID using patch options.
-                    
-                    You can get your client ID from https://www.reddit.com/prefs/apps.
-                    The application type has to be "Installed app" and the redirect URI has to be set to "$redirectUri".
+                    In order to use this patch, you need to provide the following options:
+                    ${requiredUnsetOptions.joinToString("\n") { "${it.key}: ${it.description}" }}
+
+                    A properties file has been created at ${propertiesFile.absolutePath}.
+                    Please fill in the required options before using this patch.
                 """.trimIndent()
 
                 throw PatchException(error)
-            }.let { clientId = it.readText().trim() }
+            }
         }
 
         fun List<MethodFingerprint>?.executePatch(
@@ -85,5 +120,6 @@ abstract class AbstractSpoofClientPatch(
      *
      * @param context The current [BytecodeContext].
      */
-    open fun List<MethodFingerprintResult>.patchMiscellaneous(context: BytecodeContext) { }
+    // Not every client needs to patch miscellaneous things.
+    open fun List<MethodFingerprintResult>.patchMiscellaneous(context: BytecodeContext) {}
 }

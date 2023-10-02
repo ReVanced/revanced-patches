@@ -13,9 +13,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Spoof client",
-    description = "Spoofs the client in order to allow logging in. " +
-            "The OAuth application type has to be \"Installed app\" " +
-            "and the redirect URI has to be set to \"dbrady://relay\".",
+    description = "Restores functionality of the app by using custom client ID's.",
     compatiblePackages = [
         CompatiblePackage("free.reddit.news"),
         CompatiblePackage("reddit.news")

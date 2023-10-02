@@ -12,9 +12,7 @@ import app.revanced.patches.reddit.customclients.joeyforreddit.detection.piracy.
 
 @Patch(
     name = "Spoof client",
-    description = "Spoofs the client in order to allow logging in. " +
-            "The OAuth application type has to be \"Installed app\" " +
-            "and the redirect URI has to be set to \"https://127.0.0.1:65023/authorize_callback\".",
+    description = "Restores functionality of the app by using custom client ID's.",
     dependencies = [DisablePiracyDetectionPatch::class],
     compatiblePackages = [
         CompatiblePackage("o.o.joey"),
