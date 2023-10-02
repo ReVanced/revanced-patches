@@ -72,7 +72,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
             } else if (!SettingsEnum.SB_CREATE_NEW_SEGMENT.getBoolean()) {
                 SponsorBlockViewController.hideNewSegmentLayout();
             }
-            // voting and add new segment buttons automatically shows/hides themselves
+            // Voting and add new segment buttons automatically shows/hide themselves.
 
             sbEnabled.setChecked(enabled);
 
@@ -108,6 +108,12 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
 
             privateUserId.setText(SettingsEnum.SB_PRIVATE_USER_ID.getString());
             privateUserId.setEnabled(enabled);
+
+            // If the user has a private user id, then include a subtext that mentions not to share it.
+            String exportSummarySubText = SponsorBlockSettings.userHasSBPrivateId()
+                    ? str("sb_settings_ie_sum_warning")
+                    : "";
+            importExport.setSummary(str("sb_settings_ie_sum", exportSummarySubText));
 
             apiUrl.setEnabled(enabled);
             importExport.setEnabled(enabled);
@@ -329,6 +335,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
                 return false;
             }
             SettingsEnum.SB_PRIVATE_USER_ID.saveValue(newUUID);
+            updateUI();
             fetchAndDisplayStats();
             return true;
         });
@@ -375,7 +382,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
             }
         };
         importExport.setTitle(str("sb_settings_ie"));
-        importExport.setSummary(str("sb_settings_ie_sum"));
+        // Summary is set in updateUI()
         importExport.getEditText().setInputType(InputType.TYPE_CLASS_TEXT
                 | InputType.TYPE_TEXT_FLAG_MULTI_LINE
                 | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
