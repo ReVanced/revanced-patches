@@ -120,7 +120,7 @@ object VideoIdPatch : BytecodePatch(
      * @param methodDescriptor which method to call. Params have to be `Ljava/lang/String;`
      */
     fun hookPlayerResponseVideoId(methodDescriptor: String) {
-        PlayerResponseMethodHookPatch + PlayerResponseMethodHookPatch.Hook.VideoId(
+        PlayerResponseMethodHookPatch += PlayerResponseMethodHookPatch.Hook.VideoId(
             methodDescriptor
         )
     }
