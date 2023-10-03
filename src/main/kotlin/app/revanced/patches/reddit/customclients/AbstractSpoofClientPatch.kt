@@ -29,7 +29,7 @@ abstract class AbstractSpoofClientPatch(
         "The Reddit OAuth client ID. " +
                 "You can get your client ID from https://www.reddit.com/prefs/apps. " +
                 "The application type has to be \"Installed app\" " +
-                "and the redirect URI has to be set to \"$redirectUri\"",
+                "and the redirect URI has to be set to \"$redirectUri\".",
         true
     )
 
