@@ -178,7 +178,6 @@ public final class LayoutComponentsFilter extends Filter {
                 communityPosts,
                 paidContent,
                 latestPosts,
-                chapters,
                 communityGuidelines,
                 quickActions,
                 expandableMetadata,
@@ -201,7 +200,8 @@ public final class LayoutComponentsFilter extends Filter {
 
         this.identifierFilterGroupList.addAll(
                 graySeparator,
-                chipsShelf
+                chipsShelf,
+                chapters
         );
     }
 
