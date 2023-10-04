@@ -53,7 +53,8 @@
     <string name="sb_api_url_changed">API URL changed</string>
     <string name="sb_settings_ie">Import/Export settings</string>
     <string name="sb_settings_copy">Copy</string>
-    <string name="sb_settings_ie_sum">Your SponsorBlock JSON configuration that can be imported/exported to ReVanced and other SponsorBlock platforms. This includes your private user id. Be sure to share this wisely</string>
+    <string name="sb_settings_ie_sum">Your SponsorBlock JSON configuration that can be imported/exported to ReVanced and other SponsorBlock platforms. %s</string>
+    <string name="sb_settings_ie_sum_warning">This includes your private user id. Be sure to share this wisely</string>
     <string name="sb_settings_import_successful">Settings imported successfully</string>
     <string name="sb_settings_import_failed">Failed to import: %s</string>
     <string name="sb_settings_export_failed">Failed to export: %s</string>

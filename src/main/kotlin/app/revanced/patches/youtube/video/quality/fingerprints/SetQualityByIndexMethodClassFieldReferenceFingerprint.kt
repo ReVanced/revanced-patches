@@ -11,7 +11,7 @@ object SetQualityByIndexMethodClassFieldReferenceFingerprint : MethodFingerprint
     parameters = listOf("L"),
     opcodes = listOf(
         Opcode.IGET_OBJECT,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.RETURN_VOID
+        Opcode.IPUT_OBJECT,
+        Opcode.IGET_OBJECT,
     )
 )

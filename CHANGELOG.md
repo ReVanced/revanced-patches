@@ -1,3 +1,319 @@
+# [2.191.0-dev.33](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.32...v2.191.0-dev.33) (2023-10-04)
+
+
+### Bug Fixes
+
+* **TikTok - Hide ads:** Constrain to last working version ([56e45a6](https://github.com/ReVanced/revanced-patches/commit/56e45a60a405b5382e1ef6f7bcd5de570c7c52ef))
+
+# [2.191.0-dev.32](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.31...v2.191.0-dev.32) (2023-10-03)
+
+
+### Bug Fixes
+
+* **Sync for Reddit:** Do not throw an error when not necessary ([ef644e4](https://github.com/ReVanced/revanced-patches/commit/ef644e48018a90429108779b7419299c4f43e4ff))
+
+
+### Features
+
+* **Sync for Reddit - Client spoof:** Restore upload functionality ([9344c8a](https://github.com/ReVanced/revanced-patches/commit/9344c8a067127b0fb4ee8599c5dcfcb206b4ee07))
+* Use properties file for `Client spoof` patches ([e5d548c](https://github.com/ReVanced/revanced-patches/commit/e5d548c6427fb54968f26d706ff16274e72f700a))
+
+# [2.191.0-dev.31](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.30...v2.191.0-dev.31) (2023-10-02)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Adjust import/export UI text ([#3063](https://github.com/ReVanced/revanced-patches/issues/3063)) ([4e5513e](https://github.com/ReVanced/revanced-patches/commit/4e5513e973f5de7c9f6330dfe7a0744e91f305b4))
+
+# [2.191.0-dev.30](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.29...v2.191.0-dev.30) (2023-10-02)
+
+
+### Bug Fixes
+
+* Add hooks to existing hook set ([5655067](https://github.com/ReVanced/revanced-patches/commit/5655067f28d010f3a7a6d91b09ac984eee162031))
+* **Google Recorder - Remove device restrictions:** Clarify limitation ([094f57b](https://github.com/ReVanced/revanced-patches/commit/094f57b601d746079c43fd5c8834e3e6be07f946))
+
+
+### Features
+
+* **YouTube - Hide layout components:** Hide search result shelf header ([f4eda8c](https://github.com/ReVanced/revanced-patches/commit/f4eda8c8d111cc856d5878a32ddca3f7c2e0df31))
+
+# [2.191.0-dev.29](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.28...v2.191.0-dev.29) (2023-10-01)
+
+
+### Features
+
+* **TikTok - Hide ads:** Constrain to last working version ([516e8a1](https://github.com/ReVanced/revanced-patches/commit/516e8a14c0e113f9f4c0dda9be223cf3e929eb3a))
+
+# [2.191.0-dev.28](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.27...v2.191.0-dev.28) (2023-10-01)
+
+
+### Bug Fixes
+
+* **YouTube - Hide "Load more" button:** Use correct names ([569c3cd](https://github.com/ReVanced/revanced-patches/commit/569c3cde9875b807c9116322ca324f69b5fa0218))
+* **YouTube - Hide shorts components:** Fix hiding navigation bar ([2de51e6](https://github.com/ReVanced/revanced-patches/commit/2de51e65f05be8a6364dfdfe9cd36e8fed5737f6))
+
+# [2.191.0-dev.27](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.26...v2.191.0-dev.27) (2023-10-01)
+
+
+### Features
+
+* **Tumblr:** Add `Disable in-app update` patch ([#3058](https://github.com/ReVanced/revanced-patches/issues/3058)) ([5e8076b](https://github.com/ReVanced/revanced-patches/commit/5e8076b330cabe57130233adacdf84b56f010217))
+
+# [2.191.0-dev.26](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.25...v2.191.0-dev.26) (2023-10-01)
+
+
+### Bug Fixes
+
+* Use correct instruction ([246cf2c](https://github.com/ReVanced/revanced-patches/commit/246cf2cc92624e43bc7405cb32be9b560bb648c5))
+
+# [2.191.0-dev.25](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.24...v2.191.0-dev.25) (2023-10-01)
+
+
+### Features
+
+* **YouTube - Hide layout components:** Hide "Join" button ([1b71f89](https://github.com/ReVanced/revanced-patches/commit/1b71f893bb9fd8511833b8895031c8d8122a6efb))
+* **YouTube - Hide layout components:** Hide "Notify me" button ([3027c15](https://github.com/ReVanced/revanced-patches/commit/3027c1575717588f43f4b95be6ba97dac2b94069))
+* **YouTube - Hide layout components:** Hide timed reactions ([d0a775d](https://github.com/ReVanced/revanced-patches/commit/d0a775d685b1e0564804d564d1cbcbb8d0a04b03))
+
+# [2.191.0-dev.24](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.23...v2.191.0-dev.24) (2023-09-30)
+
+
+### Features
+
+* **Duolingo:** Remove `Unlock Duolingo Super` patch ([b4b9746](https://github.com/ReVanced/revanced-patches/commit/b4b9746361b5435b9d9429ad065e53364c51904a))
+
+# [2.191.0-dev.23](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.22...v2.191.0-dev.23) (2023-09-30)
+
+
+### Features
+
+* **SPB Serviceportal Bund:** Add `Remove root detection` patch ([#3049](https://github.com/ReVanced/revanced-patches/issues/3049)) ([481bf58](https://github.com/ReVanced/revanced-patches/commit/481bf583afbf954bef1c4e5349a62ea1c623115a))
+
+# [2.191.0-dev.22](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.21...v2.191.0-dev.22) (2023-09-28)
+
+
+### Bug Fixes
+
+* **YouTube - Premium heading:** Correct inverted logic ([#3042](https://github.com/ReVanced/revanced-patches/issues/3042)) ([b33ed75](https://github.com/ReVanced/revanced-patches/commit/b33ed757370653b8eb0002b0977eedfbc73dbe5e))
+
+# [2.191.0-dev.21](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.20...v2.191.0-dev.21) (2023-09-28)
+
+
+### Bug Fixes
+
+* **YouTube - ReturnYouTubeDislike:** Revert support for 18.37.36 ([#3041](https://github.com/ReVanced/revanced-patches/issues/3041)) ([3761073](https://github.com/ReVanced/revanced-patches/commit/37610732da87549c22a430bb62d10793dfa2e696))
+
+# [2.191.0-dev.20](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.19...v2.191.0-dev.20) (2023-09-28)
+
+
+### Bug Fixes
+
+* **YouTube - Video Id:** Fix video id not showing the currently playing video ([#3038](https://github.com/ReVanced/revanced-patches/issues/3038)) ([f6f226b](https://github.com/ReVanced/revanced-patches/commit/f6f226ba281823cb5d2d468c32f6e48551971726))
+
+# [2.191.0-dev.19](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.18...v2.191.0-dev.19) (2023-09-28)
+
+
+### Features
+
+* **YouTube:** Add `Bypass URL redirects` patch ([125cac5](https://github.com/ReVanced/revanced-patches/commit/125cac5928c9b71d35253f1fd7651f4a30e15529))
+
+# [2.191.0-dev.18](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.17...v2.191.0-dev.18) (2023-09-28)
+
+
+### Features
+
+* **YouTube - Premium heading:** Allow using default heading ([#3029](https://github.com/ReVanced/revanced-patches/issues/3029)) ([d5ab35a](https://github.com/ReVanced/revanced-patches/commit/d5ab35a444523baa0586fcb9513d6ae4f2518946))
+
+# [2.191.0-dev.17](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.16...v2.191.0-dev.17) (2023-09-27)
+
+
+### Features
+
+* **YouTube:** Bump compatibility to `18.37.36` ([#3028](https://github.com/ReVanced/revanced-patches/issues/3028)) ([eda28e5](https://github.com/ReVanced/revanced-patches/commit/eda28e507e7fb5171eeb15a5a0532929ee611211))
+
+# [2.191.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.15...v2.191.0-dev.16) (2023-09-27)
+
+
+### Bug Fixes
+
+* **YouTube - Hide info cards:** Fix info cards not hiding for some users ([#3039](https://github.com/ReVanced/revanced-patches/issues/3039)) ([cb38637](https://github.com/ReVanced/revanced-patches/commit/cb38637e6be968d54561a1e0466b9259dbf0b4ee))
+
+# [2.191.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.14...v2.191.0-dev.15) (2023-09-26)
+
+
+### Bug Fixes
+
+* **YouTube - Client spoof:** adjust settings text ([#3035](https://github.com/ReVanced/revanced-patches/issues/3035)) ([59a2e96](https://github.com/ReVanced/revanced-patches/commit/59a2e9617fc4f898e87cefeb3d2c6996b925fa90))
+
+# [2.191.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.13...v2.191.0-dev.14) (2023-09-26)
+
+
+### Bug Fixes
+
+* **YouTube - Client spoof:** Show seekbar thumbnail for age restricted and paid videos ([1a79300](https://github.com/ReVanced/revanced-patches/commit/1a793007c919753a8c31ab2382d86c0546eefe20))
+
+# [2.191.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.12...v2.191.0-dev.13) (2023-09-25)
+
+
+### Bug Fixes
+
+* **YouTube - Client spoof:** Removed unused code ([#3030](https://github.com/ReVanced/revanced-patches/issues/3030)) ([15e27bf](https://github.com/ReVanced/revanced-patches/commit/15e27bf93e6366ba8a59091409c4271c8230edb6))
+
+# [2.191.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.11...v2.191.0-dev.12) (2023-09-25)
+
+
+### Bug Fixes
+
+* **YouTube - Client spoof:** Display seekbar thumbnails in high quality ([5e8a2d3](https://github.com/ReVanced/revanced-patches/commit/5e8a2d3fe77a4a08ea32e7dc22f2c8e4048b7a6b))
+
+# [2.191.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.10...v2.191.0-dev.11) (2023-09-25)
+
+
+### Features
+
+* Add notice for thumbnails for age restricted or paid videos ([f7cf70b](https://github.com/ReVanced/revanced-patches/commit/f7cf70b5d3f415411fa767931a33e84df9df6c16))
+
+# [2.191.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.9...v2.191.0-dev.10) (2023-09-25)
+
+
+### Bug Fixes
+
+* **YouTube - Client spoof:** Restore seekbar thumbnails ([bf4a115](https://github.com/ReVanced/revanced-patches/commit/bf4a1159ff745f8f91e11f30db4651d85769227b))
+
+# [2.191.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.8...v2.191.0-dev.9) (2023-09-25)
+
+
+### Features
+
+* **Strava:** Add `Disable subscription suggestions` patch ([#2997](https://github.com/ReVanced/revanced-patches/issues/2997)) ([af02175](https://github.com/ReVanced/revanced-patches/commit/af0217594d9c7526f550fc7e6f09f8a9232e72cf))
+
+# [2.191.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.7...v2.191.0-dev.8) (2023-09-24)
+
+
+### Bug Fixes
+
+* **Relay - Spoof client:** Restore OAuth login ([96e01f7](https://github.com/ReVanced/revanced-patches/commit/96e01f7a7b87f468776fbde48e114a3f51630a46))
+* **Slide - Spoof client:** Use correct patch name ([f355dbf](https://github.com/ReVanced/revanced-patches/commit/f355dbf1d2af3075c6a3f13d8bf5f8dca22e6005))
+
+# [2.191.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.6...v2.191.0-dev.7) (2023-09-24)
+
+
+### Bug Fixes
+
+* **Duolingo - Unlock Super:** Get correct instruction offset ([#3023](https://github.com/ReVanced/revanced-patches/issues/3023)) ([5146de8](https://github.com/ReVanced/revanced-patches/commit/5146de872acb17d7c21019ac7ed531f27361038f))
+
+# [2.191.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.5...v2.191.0-dev.6) (2023-09-23)
+
+
+### Bug Fixes
+
+* **YouTube - Client spoof:** Do not record feed videos to history by default ([#3017](https://github.com/ReVanced/revanced-patches/issues/3017)) ([5ccbf1b](https://github.com/ReVanced/revanced-patches/commit/5ccbf1bf8ed92cde61689a2b1e3a3c1e915959a7))
+
+
+### Features
+
+* **Tumblr:** Add `Disable Tumblr Live` patch ([#2987](https://github.com/ReVanced/revanced-patches/issues/2987)) ([bf1f9dc](https://github.com/ReVanced/revanced-patches/commit/bf1f9dc799705679d17973e689165ab1bff327cd))
+* **YouTube - Spoof app version:** add version 18.20.39 ([#3001](https://github.com/ReVanced/revanced-patches/issues/3001)) ([f14c5e7](https://github.com/ReVanced/revanced-patches/commit/f14c5e79792f62fb060dd0eebbd3dd7157a08a98))
+
+# [2.191.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.5...v2.191.0-dev.6) (2023-09-23)
+
+
+### Features
+
+* **Tumblr:** Add `Disable Tumblr Live` patch ([#2987](https://github.com/ReVanced/revanced-patches/issues/2987)) ([bf1f9dc](https://github.com/ReVanced/revanced-patches/commit/bf1f9dc799705679d17973e689165ab1bff327cd))
+* **YouTube - Spoof app version:** add version 18.20.39 ([#3001](https://github.com/ReVanced/revanced-patches/issues/3001)) ([f14c5e7](https://github.com/ReVanced/revanced-patches/commit/f14c5e79792f62fb060dd0eebbd3dd7157a08a98))
+
+# [2.191.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.5...v2.191.0-dev.6) (2023-09-21)
+
+
+### Features
+
+* **Tumblr:** Add `Disable Tumblr Live` patch ([#2987](https://github.com/ReVanced/revanced-patches/issues/2987)) ([bf1f9dc](https://github.com/ReVanced/revanced-patches/commit/bf1f9dc799705679d17973e689165ab1bff327cd))
+* **YouTube - Spoof app version:** add version 18.20.39 ([#3001](https://github.com/ReVanced/revanced-patches/issues/3001)) ([f14c5e7](https://github.com/ReVanced/revanced-patches/commit/f14c5e79792f62fb060dd0eebbd3dd7157a08a98))
+
+# [2.191.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.5...v2.191.0-dev.6) (2023-09-20)
+
+
+### Features
+
+* **Tumblr:** Add `Disable Tumblr Live` patch ([#2987](https://github.com/ReVanced/revanced-patches/issues/2987)) ([bf1f9dc](https://github.com/ReVanced/revanced-patches/commit/bf1f9dc799705679d17973e689165ab1bff327cd))
+* **YouTube - Spoof app version:** add version 18.20.39 ([#3001](https://github.com/ReVanced/revanced-patches/issues/3001)) ([f14c5e7](https://github.com/ReVanced/revanced-patches/commit/f14c5e79792f62fb060dd0eebbd3dd7157a08a98))
+
+# [2.191.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.5...v2.191.0-dev.6) (2023-09-20)
+
+
+### Features
+
+* **Tumblr:** Add `Disable Tumblr Live` patch ([#2987](https://github.com/ReVanced/revanced-patches/issues/2987)) ([bf1f9dc](https://github.com/ReVanced/revanced-patches/commit/bf1f9dc799705679d17973e689165ab1bff327cd))
+
+# [2.191.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.5...v2.191.0-dev.6) (2023-09-20)
+
+# [2.191.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.4...v2.191.0-dev.5) (2023-09-19)
+
+
+### Bug Fixes
+
+* **YouTube:** Restore functionality of `Old video quality menu` and `Custom speeds` on tablets ([#2999](https://github.com/ReVanced/revanced-patches/issues/2999)) ([238bed1](https://github.com/ReVanced/revanced-patches/commit/238bed12519ec61a53b1ee72da467830ef252154))
+
+# [2.191.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.3...v2.191.0-dev.4) (2023-09-14)
+
+
+### Features
+
+* **Twitch - Block embedded ads:** Switch from `ttv.lol` to `luminous.dev` ([0fe115e](https://github.com/ReVanced/revanced-patches/commit/0fe115e8f98ccdc86d318090fc92fe77cece1dd8))
+
+# [2.191.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.2...v2.191.0-dev.3) (2023-09-14)
+
+
+### Features
+
+* **TU Dortmund:** Add `Show on lockscreen` patch ([#2947](https://github.com/ReVanced/revanced-patches/issues/2947)) ([9a18326](https://github.com/ReVanced/revanced-patches/commit/9a18326aeb68d7518594d0eab326ca845b9bdbdd))
+* **Tumblr:** Add `Disable blog notification reminder` patch ([29f19b9](https://github.com/ReVanced/revanced-patches/commit/29f19b9378c7e167137f38fa4517ae19382ca4f6))
+* **Tumblr:** Add `Disable gift message popup` patch ([a4d6b4e](https://github.com/ReVanced/revanced-patches/commit/a4d6b4e5ce6065d932f3895b4996e7dc1e5f7c67))
+
+# [2.191.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.191.0-dev.1...v2.191.0-dev.2) (2023-09-11)
+
+
+### Bug Fixes
+
+* Use consistent toggle description ([#2983](https://github.com/ReVanced/revanced-patches/issues/2983)) ([ceaa512](https://github.com/ReVanced/revanced-patches/commit/ceaa512f317fdd95dca37e425b389494a9b2e226))
+
+# [2.191.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.190.1-dev.4...v2.191.0-dev.1) (2023-09-11)
+
+
+### Features
+
+* **Tumblr:** Add `Disable dashboard ads` patch ([#2979](https://github.com/ReVanced/revanced-patches/issues/2979)) ([07c267a](https://github.com/ReVanced/revanced-patches/commit/07c267ad20afa1415d2dba31f0830d2dd5a34654))
+
+## [2.190.1-dev.4](https://github.com/ReVanced/revanced-patches/compare/v2.190.1-dev.3...v2.190.1-dev.4) (2023-09-07)
+
+
+### Bug Fixes
+
+* **YouTube - Custom filter:** Use new lines between components instead of commas ([#2952](https://github.com/ReVanced/revanced-patches/issues/2952)) ([ecb2e32](https://github.com/ReVanced/revanced-patches/commit/ecb2e32b1e296590d150bdd3f8bea2665b19a84d))
+
+## [2.190.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v2.190.1-dev.2...v2.190.1-dev.3) (2023-09-07)
+
+
+### Bug Fixes
+
+* **Infinity for Reddit - Spoof client:** Constrain patch to last working versions ([#2944](https://github.com/ReVanced/revanced-patches/issues/2944)) ([ee975de](https://github.com/ReVanced/revanced-patches/commit/ee975dea846c77af0efe608e647075f4055af320))
+
+## [2.190.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.190.1-dev.1...v2.190.1-dev.2) (2023-09-07)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Always hide redundant 'player audio track' button ([#2951](https://github.com/ReVanced/revanced-patches/issues/2951)) ([ca632bd](https://github.com/ReVanced/revanced-patches/commit/ca632bd2cc74f0ce5ccb948e902445de3ab893cf))
+
+## [2.190.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.190.0...v2.190.1-dev.1) (2023-09-03)
+
+
+### Bug Fixes
+
+* **Twitch - Audio ads:** Support missing version `16.1.0` ([#2928](https://github.com/ReVanced/revanced-patches/issues/2928)) ([688d8fa](https://github.com/ReVanced/revanced-patches/commit/688d8fa7e86862e03d8336af5f6cb207c4b72593))
+
 # [2.190.0](https://github.com/ReVanced/revanced-patches/compare/v2.189.0...v2.190.0) (2023-09-03)
 
 

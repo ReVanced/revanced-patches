@@ -1,4 +1,4 @@
-name: PR to main
+name: Open a PR to main
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  MESSAGE: merge branch `${{ github.head_ref || github.ref_name }}` to `main`
+  MESSAGE: Merge branch `${{ github.head_ref || github.ref_name }}` to `main`
 
 jobs:
   pull-request:
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Open pull request
         uses: repo-sync/pull-request@v2
         with:

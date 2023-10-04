@@ -1,8 +1,8 @@
 package app.revanced.patches.youtube.misc.playercontrols.fingerprints
 
 import app.revanced.patcher.extensions.or
+import app.revanced.patches.youtube.misc.playercontrols.BottomControlsResourcePatch
 import app.revanced.util.patch.LiteralValueFingerprint
-import app.revanced.patches.youtube.misc.playercontrols.resource.patch.BottomControlsResourcePatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -15,5 +15,5 @@ object BottomControlsInflateFingerprint : LiteralValueFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    literal = BottomControlsResourcePatch.bottomUiContainerResourceId
+    literalSupplier = { BottomControlsResourcePatch.bottomUiContainerResourceId }
 )

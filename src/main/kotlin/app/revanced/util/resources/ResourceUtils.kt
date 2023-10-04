@@ -3,7 +3,7 @@ package app.revanced.util.resources
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.util.DomFileEditor
 import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.youtube.misc.settings.bytecode.patch.SettingsPatch
+import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import org.w3c.dom.Node
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption

@@ -6,25 +6,11 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 object StartVideoInformerFingerprint : MethodFingerprint(
-    "V", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf("L", "L", "L", "L"), listOf(
-        Opcode.INVOKE_STATIC,
-        Opcode.IGET_OBJECT,
-        Opcode.IGET_OBJECT,
-        Opcode.NEW_INSTANCE,
-        Opcode.INVOKE_DIRECT,
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    opcodes = listOf(
         Opcode.INVOKE_INTERFACE,
-        Opcode.IF_EQZ,
-        Opcode.CONST_STRING,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
-        Opcode.IF_EQZ,
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
-        Opcode.CONST_4,
-        Opcode.IF_EQ,
-        Opcode.GOTO,
-    )
+        Opcode.RETURN_VOID
+    ),
+    strings = listOf("pc")
 )

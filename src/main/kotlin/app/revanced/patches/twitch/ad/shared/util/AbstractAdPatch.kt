@@ -10,7 +10,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 abstract class AbstractAdPatch(
     val conditionCall: String,
     val skipLabelName: String,
-    internal val fingerprints: Iterable<MethodFingerprint>? = null,
+    internal val fingerprints: Set<MethodFingerprint> = emptySet(),
 ) : BytecodePatch(fingerprints) {
 
     protected fun createConditionInstructions(register: String = "v0") = """
