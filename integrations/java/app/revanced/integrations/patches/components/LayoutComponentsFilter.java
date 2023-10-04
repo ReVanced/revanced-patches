@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
 import app.revanced.integrations.settings.SettingsEnum;
+import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.StringTrieSearch;
 
 @RequiresApi(api = Build.VERSION_CODES.N)
@@ -18,6 +19,7 @@ public final class LayoutComponentsFilter extends Filter {
             SettingsEnum.HIDE_MIX_PLAYLISTS,
             "&list="
     );
+    private final StringFilterGroup searchResultShelfHeader;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public LayoutComponentsFilter() {
@@ -92,8 +94,16 @@ public final class LayoutComponentsFilter extends Filter {
                 "channel_guidelines_entry_banner"
         );
 
+        // The player audio track button does the exact same function as the audio track flyout menu option.
+        // But if the copy url button is shown, these button clashes and the the audio button does not work.
+        // Previously this was a setting to show/hide the player button.
+        // But it was decided it's simpler to always hide this button because:
+        // - it doesn't work with copy video url feature
+        // - the button is rare
+        // - always hiding makes the ReVanced settings simpler and easier to understand
+        // - nobody is going to notice the redundant button is always hidden
         final var audioTrackButton = new StringFilterGroup(
-                SettingsEnum.HIDE_AUDIO_TRACK_BUTTON,
+                null,
                 "multi_feed_icon_button"
         );
 
@@ -137,6 +147,27 @@ public final class LayoutComponentsFilter extends Filter {
                 "cell_divider" // layout residue (gray line above the buttoned ad),
         );
 
+        final var timedReactions = new StringFilterGroup(
+                SettingsEnum.HIDE_TIMED_REACTIONS,
+                "emoji_control_panel",
+                "timed_reaction"
+        );
+
+        searchResultShelfHeader = new StringFilterGroup(
+                SettingsEnum.HIDE_SEARCH_RESULT_SHELF_HEADER,
+                "shelf_header.eml"
+        );
+
+        final var notifyMe = new StringFilterGroup(
+                SettingsEnum.HIDE_NOTIFY_ME_BUTTON,
+                "set_reminder_button"
+        );
+
+        final var joinMembership = new StringFilterGroup(
+                SettingsEnum.HIDE_JOIN_MEMBERSHIP_BUTTON,
+                "compact_sponsor_button"
+        );
+
         final var chipsShelf = new StringFilterGroup(
                 SettingsEnum.HIDE_CHIPS_SHELF,
                 "chips_shelf"
@@ -147,27 +178,30 @@ public final class LayoutComponentsFilter extends Filter {
                 communityPosts,
                 paidContent,
                 latestPosts,
-                chapters,
                 communityGuidelines,
                 quickActions,
                 expandableMetadata,
                 relatedVideos,
                 compactBanner,
                 inFeedSurvey,
+                joinMembership,
                 medicalPanel,
+                notifyMe,
                 infoPanel,
+                subscribersCommunityGuidelines,
                 channelGuidelines,
                 audioTrackButton,
                 artistCard,
+                timedReactions,
                 imageShelf,
-                subscribersCommunityGuidelines,
                 channelMemberShelf,
                 custom
         );
 
         this.identifierFilterGroupList.addAll(
                 graySeparator,
-                chipsShelf
+                chipsShelf,
+                chapters
         );
     }
 
@@ -176,6 +210,9 @@ public final class LayoutComponentsFilter extends Filter {
                               FilterGroupList matchedList, FilterGroup matchedGroup, int matchedIndex) {
         if (matchedGroup != custom && exceptions.matches(path))
             return false; // Exceptions are not filtered.
+
+        // TODO: This also hides the feed Shorts shelf header
+        if (matchedGroup == searchResultShelfHeader && matchedIndex != 0) return false;
 
         return super.isFiltered(identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
     }
@@ -187,6 +224,11 @@ public final class LayoutComponentsFilter extends Filter {
      * Called from a different place then the other filters.
      */
     public static boolean filterMixPlaylists(final byte[] bytes) {
-        return mixPlaylists.check(bytes).isFiltered();
+        final boolean isMixPlaylistFiltered = mixPlaylists.check(bytes).isFiltered();
+
+        if (isMixPlaylistFiltered)
+            LogHelper.printDebug(() -> "Filtered mix playlist");
+
+        return isMixPlaylistFiltered;
     }
 }

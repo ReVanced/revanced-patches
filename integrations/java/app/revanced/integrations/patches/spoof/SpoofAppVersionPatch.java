@@ -1,4 +1,4 @@
-package app.revanced.integrations.patches;
+package app.revanced.integrations.patches.spoof;
 
 import app.revanced.integrations.settings.SettingsEnum;
 

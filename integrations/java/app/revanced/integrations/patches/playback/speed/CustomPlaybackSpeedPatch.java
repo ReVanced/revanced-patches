@@ -1,23 +1,23 @@
 package app.revanced.integrations.patches.playback.speed;
 
 import android.preference.ListPreference;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+
 import androidx.annotation.NonNull;
+
+import java.util.Arrays;
+
 import app.revanced.integrations.patches.components.PlaybackSpeedMenuFilterPatch;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
-import com.facebook.litho.ComponentHost;
-
-import java.util.Arrays;
-
-import static app.revanced.integrations.patches.playback.quality.OldVideoQualityMenuPatch.addRecyclerListener;
 
 public class CustomPlaybackSpeedPatch {
     /**
      * Maximum playback speed, exclusive value.  Custom speeds must be less than this value.
+     * Limit is required otherwise double digit speeds show up out of order in the UI selector.
      */
     public static final float MAXIMUM_PLAYBACK_SPEED = 10;
 
@@ -25,16 +25,6 @@ public class CustomPlaybackSpeedPatch {
      * Custom playback speeds.
      */
     public static float[] customPlaybackSpeeds;
-
-    /**
-     * Minimum value of {@link #customPlaybackSpeeds}
-     */
-    public static float minPlaybackSpeed;
-
-    /**
-     * Maxium value of {@link #customPlaybackSpeeds}
-     */
-    public static float maxPlaybackSpeed;
 
     /**
      * PreferenceList entries and values, of all available playback speeds.
@@ -69,8 +59,6 @@ public class CustomPlaybackSpeedPatch {
                     loadCustomSpeeds();
                     return;
                 }
-                minPlaybackSpeed = Math.min(minPlaybackSpeed, speed);
-                maxPlaybackSpeed = Math.max(maxPlaybackSpeed, speed);
                 customPlaybackSpeeds[i] = speed;
             }
         } catch (Exception ex) {
@@ -106,25 +94,37 @@ public class CustomPlaybackSpeedPatch {
         preference.setEntryValues(preferenceListEntryValues);
     }
 
-    /*
-     * To reduce copy and paste between two similar code paths.
+    /**
+     * Injection point.
      */
-    public static void onFlyoutMenuCreate(final LinearLayout linearLayout) {
-        // The playback rate menu is a RecyclerView with 2 children. The third child is the "Advanced" quality menu.
-        addRecyclerListener(linearLayout, 2, 1, recyclerView -> {
-            if (PlaybackSpeedMenuFilterPatch.isPlaybackSpeedMenuVisible) {
-                PlaybackSpeedMenuFilterPatch.isPlaybackSpeedMenuVisible = false;
+    public static void onFlyoutMenuCreate(RecyclerView recyclerView) {
+        recyclerView.getViewTreeObserver().addOnDrawListener(() -> {
+            try {
+                // For some reason, the custom playback speed flyout panel is activated when the user opens the share panel. (A/B tests)
+                // Check the child count of playback speed flyout panel to prevent this issue.
+                // Child count of playback speed flyout panel is always 8.
+                if (PlaybackSpeedMenuFilterPatch.isPlaybackSpeedMenuVisible
+                        && ((ViewGroup) recyclerView.getChildAt(0)).getChildCount() == 8) {
+                    PlaybackSpeedMenuFilterPatch.isPlaybackSpeedMenuVisible = false;
+                    ViewGroup parentView3rd = (ViewGroup) recyclerView.getParent().getParent().getParent();
+                    ViewGroup parentView4th = (ViewGroup) parentView3rd.getParent();
 
-                if (recyclerView.getChildCount() == 1 && recyclerView.getChildAt(0) instanceof ComponentHost) {
-                    linearLayout.setVisibility(View.GONE);
+                    // Dismiss View [R.id.touch_outside] is the 1st ChildView of the 4th ParentView.
+                    // This only shows in phone layout.
+                    parentView4th.getChildAt(0).performClick();
 
-                    // Close the new Playback speed menu and instead show the old one.
+                    // In tablet layout there is no Dismiss View, instead we just hide all two parent views.
+                    parentView3rd.setVisibility(View.GONE);
+                    parentView4th.setVisibility(View.GONE);
+
+                    // This works without issues for both tablet and phone layouts,
+                    // So no code is needed to check whether the current device is a tablet or phone.
+
+                    // Close the new Playback speed menu and show the old one.
                     showOldPlaybackSpeedMenu();
-
-                    // DismissView [R.id.touch_outside] is the 1st ChildView of the 3rd ParentView.
-                    ((ViewGroup) linearLayout.getParent().getParent().getParent())
-                            .getChildAt(0).performClick();
                 }
+            } catch (Exception ex) {
+                LogHelper.printException(() -> "onFlyoutMenuCreate failure", ex);
             }
         });
     }

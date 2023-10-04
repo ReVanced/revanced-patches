@@ -1,20 +1,19 @@
 package app.revanced.twitch.api;
 
-import static app.revanced.twitch.adblock.IAdblockService.channelName;
-import static app.revanced.twitch.adblock.IAdblockService.isVod;
-
 import androidx.annotation.NonNull;
-
-import java.io.IOException;
-
 import app.revanced.twitch.adblock.IAdblockService;
+import app.revanced.twitch.adblock.LuminousService;
 import app.revanced.twitch.adblock.PurpleAdblockService;
-import app.revanced.twitch.adblock.TTVLolService;
 import app.revanced.twitch.settings.SettingsEnum;
 import app.revanced.twitch.utils.LogHelper;
 import app.revanced.twitch.utils.ReVancedUtils;
 import okhttp3.Interceptor;
 import okhttp3.Response;
+
+import java.io.IOException;
+
+import static app.revanced.twitch.adblock.IAdblockService.channelName;
+import static app.revanced.twitch.adblock.IAdblockService.isVod;
 
 public class RequestInterceptor implements Interceptor {
     private IAdblockService activeService = null;
@@ -87,8 +86,8 @@ public class RequestInterceptor implements Interceptor {
     private void updateActiveService() {
         var current = SettingsEnum.BLOCK_EMBEDDED_ADS.getString();
 
-        if (current.equals(ReVancedUtils.getString("key_revanced_proxy_ttv_lol")) && !(activeService instanceof TTVLolService))
-            activeService = new TTVLolService();
+        if (current.equals(ReVancedUtils.getString("key_revanced_proxy_luminous")) && !(activeService instanceof LuminousService))
+            activeService = new LuminousService();
         else if (current.equals(ReVancedUtils.getString("key_revanced_proxy_purpleadblock")) && !(activeService instanceof PurpleAdblockService))
             activeService = new PurpleAdblockService();
         else if (current.equals(ReVancedUtils.getString("key_revanced_proxy_disabled")))

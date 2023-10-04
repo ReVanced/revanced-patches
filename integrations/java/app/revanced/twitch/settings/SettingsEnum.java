@@ -1,23 +1,21 @@
 package app.revanced.twitch.settings;
 
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
-import static app.revanced.twitch.settings.SettingsEnum.ReturnType.BOOLEAN;
-import static app.revanced.twitch.settings.SettingsEnum.ReturnType.STRING;
-
 import android.content.Context;
 import android.content.SharedPreferences;
-
 import androidx.annotation.NonNull;
-
 import app.revanced.twitch.utils.LogHelper;
 import app.revanced.twitch.utils.ReVancedUtils;
+
+import static app.revanced.twitch.settings.SettingsEnum.ReturnType.BOOLEAN;
+import static app.revanced.twitch.settings.SettingsEnum.ReturnType.STRING;
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 
 public enum SettingsEnum {
     /* Ads */
     BLOCK_VIDEO_ADS("revanced_block_video_ads", BOOLEAN, TRUE),
     BLOCK_AUDIO_ADS("revanced_block_audio_ads", BOOLEAN, TRUE),
-    BLOCK_EMBEDDED_ADS("revanced_block_embedded_ads", STRING, "ttv-lol"),
+    BLOCK_EMBEDDED_ADS("revanced_block_embedded_ads", STRING, "luminous"),
 
     /* Chat */
     SHOW_DELETED_MESSAGES("revanced_show_deleted_messages", STRING, "cross-out"),

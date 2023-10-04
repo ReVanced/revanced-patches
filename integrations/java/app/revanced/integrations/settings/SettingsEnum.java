@@ -36,8 +36,6 @@ public enum SettingsEnum {
     // Video
     HDR_AUTO_BRIGHTNESS("revanced_hdr_auto_brightness", BOOLEAN, TRUE),
     SHOW_OLD_VIDEO_QUALITY_MENU("revanced_show_old_video_quality_menu", BOOLEAN, TRUE),
-    @Deprecated
-    DEPRECATED_SHOW_OLD_VIDEO_QUALITY_MENU("revanced_show_old_video_menu", BOOLEAN, TRUE),
     REMEMBER_VIDEO_QUALITY_LAST_SELECTED("revanced_remember_video_quality_last_selected", BOOLEAN, TRUE),
     VIDEO_QUALITY_DEFAULT_WIFI("revanced_video_quality_default_wifi", INTEGER, -2),
     VIDEO_QUALITY_DEFAULT_MOBILE("revanced_video_quality_default_mobile", INTEGER, -2),
@@ -67,6 +65,10 @@ public enum SettingsEnum {
     HIDE_EMERGENCY_BOX("revanced_hide_emergency_box", BOOLEAN, TRUE),
     HIDE_FEED_SURVEY("revanced_hide_feed_survey", BOOLEAN, TRUE),
     HIDE_GRAY_SEPARATOR("revanced_hide_gray_separator", BOOLEAN, TRUE),
+    HIDE_TIMED_REACTIONS("revanced_hide_timed_reactions", BOOLEAN, TRUE),
+    HIDE_SEARCH_RESULT_SHELF_HEADER("revanced_hide_search_result_shelf_header", BOOLEAN, FALSE),
+    HIDE_NOTIFY_ME_BUTTON("revanced_hide_notify_me_button", BOOLEAN, TRUE),
+    HIDE_JOIN_MEMBERSHIP_BUTTON("revanced_hide_join_membership_button", BOOLEAN, TRUE),
     HIDE_HIDE_CHANNEL_GUIDELINES("revanced_hide_channel_guidelines", BOOLEAN, TRUE),
     HIDE_IMAGE_SHELF("revanced_hide_image_shelf", BOOLEAN, TRUE),
     HIDE_HIDE_INFO_PANELS("revanced_hide_info_panels", BOOLEAN, TRUE),
@@ -97,7 +99,6 @@ public enum SettingsEnum {
     DISABLE_RESUMING_SHORTS_PLAYER("revanced_disable_resuming_shorts_player", BOOLEAN, FALSE),
     HIDE_ALBUM_CARDS("revanced_hide_album_cards", BOOLEAN, FALSE, true),
     HIDE_ARTIST_CARDS("revanced_hide_artist_cards", BOOLEAN, FALSE),
-    HIDE_AUDIO_TRACK_BUTTON("revanced_hide_audio_track_button", BOOLEAN, FALSE),
     HIDE_AUTOPLAY_BUTTON("revanced_hide_autoplay_button", BOOLEAN, TRUE, true),
     HIDE_BREAKING_NEWS("revanced_hide_breaking_news", BOOLEAN, TRUE, true),
     HIDE_CAPTIONS_BUTTON("revanced_hide_captions_button", BOOLEAN, FALSE),
@@ -168,8 +169,11 @@ public enum SettingsEnum {
     EXTERNAL_BROWSER("revanced_external_browser", BOOLEAN, TRUE, true),
     AUTO_REPEAT("revanced_auto_repeat", BOOLEAN, FALSE),
     SEEKBAR_TAPPING("revanced_seekbar_tapping", BOOLEAN, TRUE),
-    SPOOF_SIGNATURE_VERIFICATION("revanced_spoof_signature_verification", BOOLEAN, TRUE, true,
-            "revanced_spoof_signature_verification_user_dialog_message"),
+    SPOOF_SIGNATURE("revanced_spoof_signature_verification_enabled", BOOLEAN, TRUE, true,
+            "revanced_spoof_signature_verification_enabled_user_dialog_message"),
+    SPOOF_SIGNATURE_IN_FEED("revanced_spoof_signature_in_feed_enabled", BOOLEAN, FALSE, false,
+            parents(SPOOF_SIGNATURE)),
+    BYPASS_URL_REDIRECTS("revanced_bypass_url_redirects", BOOLEAN, TRUE),
 
     // Swipe controls
     SWIPE_BRIGHTNESS("revanced_swipe_brightness", BOOLEAN, TRUE),
@@ -368,13 +372,20 @@ public enum SettingsEnum {
 
         // region Migration
 
-        // TODO: do _not_ delete this SB private user id migration property until sometime in 2024.
+        // Do _not_ delete this SB private user id migration property until sometime in 2024.
         // This is the only setting that cannot be reconfigured if lost,
         // and more time should be given for users who rarely upgrade.
         migrateOldSettingToNew(DEPRECATED_SB_UUID_OLD_MIGRATION_SETTING, SB_PRIVATE_USER_ID);
 
-        // TODO: delete DEPRECATED_SHOW_OLD_VIDEO_QUALITY_MENU (When? anytime).
-        migrateOldSettingToNew(DEPRECATED_SHOW_OLD_VIDEO_QUALITY_MENU, SHOW_OLD_VIDEO_QUALITY_MENU);
+        // This migration may need to remain here for a while.
+        // Older online guides will still reference using commas,
+        // and this code will automatically convert anything the user enters to newline format,
+        // and also migrate any imported older settings that using commas.
+        String componentsToFilter = SettingsEnum.CUSTOM_FILTER_STRINGS.getString();
+        if (componentsToFilter.contains(",")) {
+            LogHelper.printInfo(() -> "Migrating custom filter strings to new line format");
+            SettingsEnum.CUSTOM_FILTER_STRINGS.saveValue(componentsToFilter.replace(",", "\n"));
+        }
 
         // endregion
     }

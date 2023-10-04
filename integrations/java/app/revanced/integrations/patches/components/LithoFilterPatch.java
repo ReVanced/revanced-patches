@@ -88,7 +88,7 @@ class StringFilterGroup extends FilterGroup<String> {
 final class CustomFilterGroup extends StringFilterGroup {
 
     public CustomFilterGroup(final SettingsEnum setting, final SettingsEnum filter) {
-        super(setting, filter.getString().split(","));
+        super(setting, filter.getString().split("\\s+"));
     }
 }
 
@@ -292,10 +292,10 @@ abstract class Filter {
     boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                        FilterGroupList matchedList, FilterGroup matchedGroup, int matchedIndex) {
         if (SettingsEnum.DEBUG.getBoolean()) {
-            if (pathFilterGroupList == matchedList) {
-                LogHelper.printDebug(() -> getClass().getSimpleName() + " Filtered path: " + path);
-            } else if (identifierFilterGroupList == matchedList) {
+            if (matchedList == identifierFilterGroupList) {
                 LogHelper.printDebug(() -> getClass().getSimpleName() + " Filtered identifier: " + identifier);
+            } else {
+                LogHelper.printDebug(() -> getClass().getSimpleName() + " Filtered path: " + path);
             }
         }
         return true;
