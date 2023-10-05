@@ -11,7 +11,6 @@ internal class JsonGenerator : PatchesFileGenerator {
             it.name!!,
             it.description,
             it.compatiblePackages,
-            it.dependencies?.map { dependency -> dependency::class.java.name }?.toSet(),
             it.use,
             it.requiresIntegrations,
             it.options.values.map { option ->
@@ -27,7 +26,6 @@ internal class JsonGenerator : PatchesFileGenerator {
         val name: String? = null,
         val description: String? = null,
         val compatiblePackages: Set<Patch.CompatiblePackage>? = null,
-        val dependencies: Set<String>? = null,
         val use: Boolean = true,
         val requiresIntegrations: Boolean = false,
         val options: List<Option>
