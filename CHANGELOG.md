@@ -1,3 +1,10 @@
+## [2.191.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.191.0...v2.191.1-dev.1) (2023-10-05)
+
+
+### Bug Fixes
+
+* Remove `dependencies` from generated JSON file ([79bb3e1](https://github.com/ReVanced/revanced-patches/commit/79bb3e164f84094c639ac9e567dc0a5ce70300bd))
+
 # [2.191.0](https://github.com/ReVanced/revanced-patches/compare/v2.190.0...v2.191.0) (2023-10-04)
 
 
