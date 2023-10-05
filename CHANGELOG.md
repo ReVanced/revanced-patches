@@ -1,3 +1,10 @@
+# [2.193.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.192.0...v2.193.0-dev.1) (2023-10-05)
+
+
+### Features
+
+* **YouTube - Hide shorts components:** Hide subscribe button when paused separately from subscribe button ([52d07ec](https://github.com/ReVanced/revanced-patches/commit/52d07ecd39b1c37cfbfbfa699ccbef849600d9f8))
+
 # [2.192.0](https://github.com/ReVanced/revanced-patches/compare/v2.191.0...v2.192.0) (2023-10-05)
 
 
