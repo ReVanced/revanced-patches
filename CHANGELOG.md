@@ -1,3 +1,10 @@
+# [2.192.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v2.192.0-dev.2...v2.192.0-dev.3) (2023-10-05)
+
+
+### Bug Fixes
+
+* **Relay for Reddit - Spoof client:** Prevent OAuth login being disabled remotely ([a0aa2be](https://github.com/ReVanced/revanced-patches/commit/a0aa2be86d25aab2803901b4100fdc75461e94bc))
+
 # [2.192.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.192.0-dev.1...v2.192.0-dev.2) (2023-10-05)
 
 
