@@ -17,6 +17,7 @@ public final class ShortsFilter extends Filter {
 
     private final StringFilterGroup channelBar;
     private final StringFilterGroup subscribeButton;
+    private final StringFilterGroup subscribeButtonPaused;
     private final StringFilterGroup soundButton;
     private final StringFilterGroup infoPanel;
     private final StringFilterGroup shelfHeader;
@@ -57,7 +58,11 @@ public final class ShortsFilter extends Filter {
 
         subscribeButton = new StringFilterGroup(
                 SettingsEnum.HIDE_SHORTS_SUBSCRIBE_BUTTON,
-                "subscribe_button",
+                "subscribe_button"
+        );
+
+        subscribeButtonPaused = new StringFilterGroup(
+                SettingsEnum.HIDE_SHORTS_SUBSCRIBE_BUTTON_PAUSED,
                 "shorts_paused_state"
         );
 
@@ -111,7 +116,8 @@ public final class ShortsFilter extends Filter {
             if (matchedGroup == soundButton ||
                     matchedGroup == infoPanel ||
                     matchedGroup == channelBar ||
-                    matchedGroup == subscribeButton
+                    matchedGroup == subscribeButton ||
+                    matchedGroup == subscribeButtonPaused
             ) return super.isFiltered(identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
 
             // Video action buttons (comment, share, remix) have the same path.
