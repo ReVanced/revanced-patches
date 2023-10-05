@@ -1,3 +1,10 @@
+# [2.192.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.191.1-dev.1...v2.192.0-dev.1) (2023-10-05)
+
+
+### Features
+
+* **YouTube - Hide "Get YouTube Premium" advertisements:** Name patch correctly ([#3079](https://github.com/ReVanced/revanced-patches/issues/3079)) ([5c140ea](https://github.com/ReVanced/revanced-patches/commit/5c140ea38dc7b7da1efd4b98315fb401267b99f8))
+
 ## [2.191.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.191.0...v2.191.1-dev.1) (2023-10-05)
 
 
