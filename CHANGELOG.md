@@ -1,3 +1,17 @@
+# [2.192.0](https://github.com/ReVanced/revanced-patches/compare/v2.191.0...v2.192.0) (2023-10-05)
+
+
+### Bug Fixes
+
+* **Relay for Reddit - Spoof client:** Prevent OAuth login being disabled remotely ([a0aa2be](https://github.com/ReVanced/revanced-patches/commit/a0aa2be86d25aab2803901b4100fdc75461e94bc))
+* Remove `dependencies` from generated JSON file ([79bb3e1](https://github.com/ReVanced/revanced-patches/commit/79bb3e164f84094c639ac9e567dc0a5ce70300bd))
+
+
+### Features
+
+* **TikTok:** Constrain patches to last working version ([066023c](https://github.com/ReVanced/revanced-patches/commit/066023ca148b413b0848c0939e0bab2b3ff32b3a))
+* **YouTube - Hide "Get YouTube Premium" advertisements:** Name patch correctly ([#3079](https://github.com/ReVanced/revanced-patches/issues/3079)) ([5c140ea](https://github.com/ReVanced/revanced-patches/commit/5c140ea38dc7b7da1efd4b98315fb401267b99f8))
+
 # [2.192.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v2.192.0-dev.2...v2.192.0-dev.3) (2023-10-05)
 
 
