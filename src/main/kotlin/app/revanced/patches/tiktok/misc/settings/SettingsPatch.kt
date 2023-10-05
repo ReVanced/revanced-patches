@@ -23,8 +23,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
     description = "Adds ReVanced settings to TikTok.",
     dependencies = [IntegrationsPatch::class],
     compatiblePackages = [
-        CompatiblePackage("com.ss.android.ugc.trill"),
-        CompatiblePackage("com.zhiliaoapp.musically")
+        CompatiblePackage("com.ss.android.ugc.trill", ["30.8.4"]),
+        CompatiblePackage("com.zhiliaoapp.musically", ["30.8.4"])
     ]
 )
 object SettingsPatch : BytecodePatch(

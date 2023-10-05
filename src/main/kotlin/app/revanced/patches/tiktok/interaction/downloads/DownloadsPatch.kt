@@ -16,8 +16,8 @@ import app.revanced.patches.tiktok.interaction.downloads.fingerprints.ACLCommonS
 import app.revanced.patches.tiktok.interaction.downloads.fingerprints.ACLCommonShareFingerprint3
 import app.revanced.patches.tiktok.interaction.downloads.fingerprints.DownloadPathParentFingerprint
 import app.revanced.patches.tiktok.misc.integrations.IntegrationsPatch
-import app.revanced.patches.tiktok.misc.settings.fingerprints.SettingsStatusLoadFingerprint
 import app.revanced.patches.tiktok.misc.settings.SettingsPatch
+import app.revanced.patches.tiktok.misc.settings.fingerprints.SettingsStatusLoadFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -28,8 +28,8 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
     description = "Removes download restrictions and changes the default path to download to.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
-        CompatiblePackage("com.ss.android.ugc.trill"),
-        CompatiblePackage("com.zhiliaoapp.musically")
+        CompatiblePackage("com.ss.android.ugc.trill", ["30.8.4"]),
+        CompatiblePackage("com.zhiliaoapp.musically", ["30.8.4"])
     ]
 )
 @Suppress("unused")
