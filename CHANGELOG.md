@@ -1,3 +1,10 @@
+# [2.192.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.192.0-dev.1...v2.192.0-dev.2) (2023-10-05)
+
+
+### Features
+
+* **TikTok:** Constrain patches to last working version ([066023c](https://github.com/ReVanced/revanced-patches/commit/066023ca148b413b0848c0939e0bab2b3ff32b3a))
+
 # [2.192.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.191.1-dev.1...v2.192.0-dev.1) (2023-10-05)
 
 
