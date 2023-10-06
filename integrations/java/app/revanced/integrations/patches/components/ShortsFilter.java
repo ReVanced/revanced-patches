@@ -87,7 +87,8 @@ public final class ShortsFilter extends Filter {
         );
 
         pathFilterGroupList.addAll(
-                joinButton, subscribeButton, channelBar, soundButton, infoPanel, videoActionButton
+                joinButton, subscribeButton, subscribeButtonPaused,
+                channelBar, soundButton, infoPanel, videoActionButton
         );
 
         var shortsCommentButton = new ByteArrayAsStringFilterGroup(
