@@ -1,3 +1,10 @@
+# [2.193.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v2.193.0-dev.2...v2.193.0-dev.3) (2023-10-07)
+
+
+### Features
+
+* **YouTube - Return YouTube Dislike:** Support version `18.37.36` ([#3061](https://github.com/ReVanced/revanced-patches/issues/3061)) ([fe11db7](https://github.com/ReVanced/revanced-patches/commit/fe11db70eafb481db87231d3db22eafbaa479871))
+
 # [2.193.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.193.0-dev.1...v2.193.0-dev.2) (2023-10-07)
 
 
