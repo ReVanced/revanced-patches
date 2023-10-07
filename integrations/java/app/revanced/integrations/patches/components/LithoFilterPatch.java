@@ -4,6 +4,7 @@ import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.*;
 
@@ -13,12 +14,24 @@ import java.util.function.Consumer;
 
 abstract class FilterGroup<T> {
     final static class FilterGroupResult {
-        SettingsEnum setting;
-        boolean filtered;
+        private SettingsEnum setting;
+        private int matchedIndex;
+        private int matchedLength;
+        // In the future it might be useful to include which pattern matched,
+        // but for now that is not needed.
 
-        FilterGroupResult(SettingsEnum setting, boolean filtered) {
+        FilterGroupResult() {
+            this(null, -1, 0);
+        }
+
+        FilterGroupResult(SettingsEnum setting, int matchedIndex, int matchedLength) {
+            setValues(setting, matchedIndex, matchedLength);
+        }
+
+        public void setValues(SettingsEnum setting, int matchedIndex, int matchedLength) {
             this.setting = setting;
-            this.filtered = filtered;
+            this.matchedIndex = matchedIndex;
+            this.matchedLength = matchedLength;
         }
 
         /**
@@ -30,7 +43,21 @@ abstract class FilterGroup<T> {
         }
 
         public boolean isFiltered() {
-            return filtered;
+            return matchedIndex >= 0;
+        }
+
+        /**
+         * Matched index of first pattern that matched, or -1 if nothing matched.
+         */
+        public int getMatchedIndex() {
+            return matchedIndex;
+        }
+
+        /**
+         * Length of the matched filter pattern.
+         */
+        public int getMatchedLength() {
+            return matchedLength;
         }
     }
 
@@ -81,7 +108,21 @@ class StringFilterGroup extends FilterGroup<String> {
 
     @Override
     public FilterGroupResult check(final String string) {
-        return new FilterGroupResult(setting, isEnabled() && ReVancedUtils.containsAny(string, filters));
+        int matchedIndex = -1;
+        int matchedLength = 0;
+        if (isEnabled()) {
+            for (String pattern : filters) {
+                if (!string.isEmpty()) {
+                    final int indexOf = pattern.indexOf(string);
+                    if (indexOf >= 0) {
+                        matchedIndex = indexOf;
+                        matchedLength = pattern.length();
+                        break;
+                    }
+                }
+            }
+        }
+        return new FilterGroupResult(setting, matchedIndex, matchedLength);
     }
 }
 
@@ -155,19 +196,22 @@ class ByteArrayFilterGroup extends FilterGroup<byte[]> {
 
     @Override
     public FilterGroupResult check(final byte[] bytes) {
-        var matched = false;
+        int matchedLength = 0;
+        int matchedIndex = -1;
         if (isEnabled()) {
             if (failurePatterns == null) {
                 buildFailurePatterns(); // Lazy load.
             }
             for (int i = 0, length = filters.length; i < length; i++) {
-                if (indexOf(bytes, filters[i], failurePatterns[i]) >= 0) {
-                    matched = true;
+                byte[] filter = filters[i];
+                matchedIndex = indexOf(bytes, filter, failurePatterns[i]);
+                if (matchedIndex >= 0) {
+                    matchedLength = filter.length;
                     break;
                 }
             }
         }
-        return new FilterGroupResult(setting, matched);
+        return new FilterGroupResult(setting, matchedIndex, matchedLength);
     }
 }
 
@@ -204,11 +248,10 @@ abstract class FilterGroupList<V, T extends FilterGroup<V>> implements Iterable<
                 continue;
             }
             for (V pattern : group.filters) {
-                search.addPattern(pattern, (textSearched, matchedStartIndex, callbackParameter) -> {
+                search.addPattern(pattern, (textSearched, matchedStartIndex, matchedLength, callbackParameter) -> {
                     if (group.isEnabled()) {
                         FilterGroup.FilterGroupResult result = (FilterGroup.FilterGroupResult) callbackParameter;
-                        result.setting = group.setting;
-                        result.filtered = true;
+                        result.setValues(group.setting, matchedStartIndex, matchedLength);
                         return true;
                     }
                     return false;
@@ -241,9 +284,10 @@ abstract class FilterGroupList<V, T extends FilterGroup<V>> implements Iterable<
         if (search == null) {
             buildSearch(); // Lazy load.
         }
-        FilterGroup.FilterGroupResult result = new FilterGroup.FilterGroupResult(null, false);
+        FilterGroup.FilterGroupResult result = new FilterGroup.FilterGroupResult();
         search.matches(stack, result);
         return result;
+
     }
 
     protected abstract TrieSearch<V> createSearchGraph();
@@ -399,7 +443,7 @@ public final class LithoFilterPatch {
                 continue;
             }
             for (T pattern : group.filters) {
-                pathSearchTree.addPattern(pattern, (textSearched, matchedStartIndex, callbackParameter) -> {
+                pathSearchTree.addPattern(pattern, (textSearched, matchedStartIndex, matchedLength, callbackParameter) -> {
                             if (!group.isEnabled()) return false;
                             LithoFilterParameters parameters = (LithoFilterParameters) callbackParameter;
                             return filter.isFiltered(parameters.identifier, parameters.path, parameters.protoBuffer,
