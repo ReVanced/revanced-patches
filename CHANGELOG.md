@@ -1,3 +1,10 @@
+# [2.193.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.193.0-dev.1...v2.193.0-dev.2) (2023-10-07)
+
+
+### Features
+
+* **YouTube:** Add `Disable fine scrubbing gesture` patch ([6c9baf2](https://github.com/ReVanced/revanced-patches/commit/6c9baf22614b1be4870be684915445f7a138cf31))
+
 # [2.193.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.192.0...v2.193.0-dev.1) (2023-10-05)
 
 
