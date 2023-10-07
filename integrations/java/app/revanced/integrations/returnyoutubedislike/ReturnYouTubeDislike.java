@@ -69,12 +69,18 @@ public class ReturnYouTubeDislike {
      * Must be less than 5 seconds, as per:
      * https://developer.android.com/topic/performance/vitals/anr
      */
-    private static final long MAX_MILLISECONDS_TO_BLOCK_UI_WAITING_FOR_FETCH = 4000;
+    private static final long MAX_MILLISECONDS_TO_BLOCK_UI_WAITING_FOR_FETCH = 4500;
 
     /**
-     * How long to retain cached RYD fetches.
+     * How long to retain successful RYD fetches.
      */
-    private static final long CACHE_TIMEOUT_MILLISECONDS = 5 * 60 * 1000; // 5 Minutes
+    private static final long CACHE_TIMEOUT_SUCCESS_MILLISECONDS = 5 * 60 * 1000; // 5 Minutes
+
+    /**
+     * How long to retain unsuccessful RYD fetches,
+     * and also the minimum time before retrying again.
+     */
+    private static final long CACHE_TIMEOUT_FAILURE_MILLISECONDS = 60 * 1000; // 1 Minute
 
     /**
      * Unique placeholder character, used to detect if a segmented span already has dislikes added to it.
@@ -348,7 +354,7 @@ public class ReturnYouTubeDislike {
             }
 
             ReturnYouTubeDislike fetch = fetchCache.get(videoId);
-            if (fetch == null || !fetch.futureInProgressOrFinishedSuccessfully()) {
+            if (fetch == null) {
                 fetch = new ReturnYouTubeDislike(videoId);
                 fetchCache.put(videoId, fetch);
             }
@@ -374,7 +380,15 @@ public class ReturnYouTubeDislike {
     }
 
     private boolean isExpired(long now) {
-        return timeFetched != 0 && (now - timeFetched) > CACHE_TIMEOUT_MILLISECONDS;
+        final long timeSinceCreation = now - timeFetched;
+        if (timeSinceCreation < CACHE_TIMEOUT_FAILURE_MILLISECONDS) {
+            return false; // Not expired, even if the API call failed.
+        }
+        if (timeSinceCreation > CACHE_TIMEOUT_SUCCESS_MILLISECONDS) {
+            return true; // Always expired.
+        }
+        // Only expired if the fetch failed (API null response).
+        return (!fetchCompleted() || getFetchData(MAX_MILLISECONDS_TO_BLOCK_UI_WAITING_FOR_FETCH) == null);
     }
 
     @Nullable
@@ -389,8 +403,11 @@ public class ReturnYouTubeDislike {
         return null;
     }
 
-    private boolean futureInProgressOrFinishedSuccessfully() {
-        return !future.isDone() || getFetchData(MAX_MILLISECONDS_TO_BLOCK_UI_WAITING_FOR_FETCH) != null;
+    /**
+     * @return if the RYD fetch call has completed.
+     */
+    public boolean fetchCompleted() {
+        return future.isDone();
     }
 
     private synchronized void clearUICache() {
@@ -491,13 +508,6 @@ public class ReturnYouTubeDislike {
             LogHelper.printException(() -> "waitForFetchAndUpdateReplacementSpan failure", e); // should never happen
         }
         return original;
-    }
-
-    /**
-     * @return if the RYD fetch call has completed.
-     */
-    public boolean fetchCompleted() {
-        return future.isDone();
     }
 
     public void sendVote(@NonNull Vote vote) {

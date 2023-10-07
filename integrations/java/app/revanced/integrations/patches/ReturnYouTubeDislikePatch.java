@@ -25,6 +25,17 @@ import static app.revanced.integrations.returnyoutubedislike.ReturnYouTubeDislik
 
 /**
  * Handles all interaction of UI patch components.
+ *
+ * Known limitation:
+ * Litho based Shorts player can experience temporarily frozen video playback if the RYD fetch takes too long.
+ *
+ * Temporary work around:
+ * Enable app spoofing to version 18.20.39 or older, as that uses a non litho Shorts player.
+ *
+ * Permanent fix (yet to be implemented), either of:
+ * - Modify patch to hook onto the Shorts Litho TextView, and update the dislikes asynchronously.
+ * - Find a way to force Litho to rebuild it's component tree
+ *   (and use that hook to force the shorts dislikes to update after the fetch is completed).
  */
 public class ReturnYouTubeDislikePatch {
 
@@ -435,10 +446,10 @@ public class ReturnYouTubeDislikePatch {
                 lastLithoShortsVideoData = videoData;
                 lithoShortsShouldUseCurrentData = false;
             } else {
+                // All other playback (including non-litho Shorts).
                 if (videoIdIsSame(currentVideoData, videoId)) {
                     return;
                 }
-                // All other playback (including litho Shorts).
                 currentVideoData = ReturnYouTubeDislike.getFetchForVideoId(videoId);
             }
 
