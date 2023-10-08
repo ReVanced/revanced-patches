@@ -10,6 +10,7 @@ import com.google.android.libraries.youtube.rendering.ui.pivotbar.PivotBar;
 import static app.revanced.integrations.utils.ReVancedUtils.hideViewBy1dpUnderCondition;
 import static app.revanced.integrations.utils.ReVancedUtils.hideViewUnderCondition;
 
+/** @noinspection unused*/
 @RequiresApi(api = Build.VERSION_CODES.N)
 public final class ShortsFilter extends Filter {
     public static PivotBar pivotBar; // Set by patch.
@@ -117,21 +118,25 @@ public final class ShortsFilter extends Filter {
             if (matchedGroup == soundButton ||
                     matchedGroup == infoPanel ||
                     matchedGroup == channelBar ||
-                    matchedGroup == subscribeButton ||
                     matchedGroup == subscribeButtonPaused
             ) return super.isFiltered(identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
 
             // Video action buttons (comment, share, remix) have the same path.
             if (matchedGroup == videoActionButton) {
-                if (videoActionButtonGroupList.check(protobufBufferArray).isFiltered())
-                    return super.isFiltered(identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
+                if (videoActionButtonGroupList.check(protobufBufferArray).isFiltered()) return super.isFiltered(
+                        identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex
+                );
                 return false;
             }
 
             // Filter other path groups from pathFilterGroupList, only when reelChannelBar is visible
             // to avoid false positives.
-            if (!path.startsWith(REEL_CHANNEL_BAR_PATH))
-                return false;
+            if (path.startsWith(REEL_CHANNEL_BAR_PATH))
+                if (matchedGroup == subscribeButton) return super.isFiltered(
+                        identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex
+                );
+
+            return false;
         } else if (matchedGroup == shelfHeader) {
             // Because the header is used in watch history and possibly other places, check for the index,
             // which is 0 when the shelf header is used for Shorts.
