@@ -1,3 +1,10 @@
+# [2.193.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v2.193.0-dev.4...v2.193.0-dev.5) (2023-10-08)
+
+
+### Bug Fixes
+
+* Consolidate patches ([#3098](https://github.com/ReVanced/revanced-patches/issues/3098)) ([02f767d](https://github.com/ReVanced/revanced-patches/commit/02f767df3cd1b2d0155e7360d2b26fa5d1cfcace))
+
 # [2.193.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v2.193.0-dev.3...v2.193.0-dev.4) (2023-10-08)
 
 
