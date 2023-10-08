@@ -21,7 +21,7 @@ object HideLoadMoreButtonResourcePatch : ResourcePatch() {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_hide_load_more_button",
-                StringResource("revanced_hide_load_more_button_title", "Hide \"Load More\" button"),
+                StringResource("revanced_hide_load_more_button_title", "Hide \\\'Load More\\\' button"),
                 StringResource("revanced_hide_load_more_button_summary_on", "Button is hidden"),
                 StringResource("revanced_hide_load_more_button_summary_off", "Button is shown")
             )
