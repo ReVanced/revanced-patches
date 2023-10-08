@@ -23,7 +23,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
             "com.google.android.youtube",
             [
                 "18.32.39",
-                "18.37.36"
+                "18.37.36",
+                "18.38.44"
             ]
         )
     ]

@@ -58,7 +58,7 @@ object PlayerControlsBytecodePatch : BytecodePatch(
      * @param descriptor The descriptor of the method which should be calleed.
      */
     fun initializeControl(descriptor: String) {
-        inflateFingerprintResult!!.mutableMethod.addInstruction(
+        inflateFingerprintResult.mutableMethod.addInstruction(
             moveToRegisterInstructionIndex + 1,
             "invoke-static {v$viewRegister}, $descriptor"
         )

@@ -33,7 +33,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
         PlayerTypeHookPatch::class,
     ],
     compatiblePackages = [
-        CompatiblePackage("com.google.android.youtube", ["18.37.36"])
+        CompatiblePackage("com.google.android.youtube", ["18.37.36", "18.38.44"])
     ]
 )
 @Suppress("unused")
