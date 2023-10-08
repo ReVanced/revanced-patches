@@ -7,8 +7,6 @@ import androidx.annotation.NonNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import app.revanced.integrations.utils.LogHelper;
-
 /**
  * ReturnYouTubeDislike API estimated like/dislike/view counts.
  *
@@ -81,17 +79,21 @@ public final class RYDVoteData {
     }
 
     public void updateUsingVote(Vote vote) {
-        if (vote == Vote.LIKE) {
-            likeCount = fetchedLikeCount + 1;
-            dislikeCount = fetchedDislikeCount;
-        } else if (vote == Vote.DISLIKE) {
-            likeCount = fetchedLikeCount;
-            dislikeCount = fetchedDislikeCount + 1;
-        } else if (vote == Vote.LIKE_REMOVE) {
-            likeCount = fetchedLikeCount;
-            dislikeCount = fetchedDislikeCount;
-        } else {
-            throw new IllegalStateException();
+        switch (vote) {
+            case LIKE:
+                likeCount = fetchedLikeCount + 1;
+                dislikeCount = fetchedDislikeCount;
+                break;
+            case DISLIKE:
+                likeCount = fetchedLikeCount;
+                dislikeCount = fetchedDislikeCount + 1;
+                break;
+            case LIKE_REMOVE:
+                likeCount = fetchedLikeCount;
+                dislikeCount = fetchedDislikeCount;
+                break;
+            default:
+                throw new IllegalStateException();
         }
         updatePercentages();
     }

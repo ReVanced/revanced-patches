@@ -20,14 +20,16 @@ public final class LayoutComponentsFilter extends Filter {
             "&list="
     );
     private final StringFilterGroup searchResultShelfHeader;
+    private final StringFilterGroup inFeedSurvey;
+    private final StringFilterGroup notifyMe;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public LayoutComponentsFilter() {
         exceptions.addPatterns(
                 "home_video_with_context",
                 "related_video_with_context",
-                "comment_thread", // skip filtering anything in the comments
-                "|comment.", // skip filtering anything in the comments replies
+                "comment_thread", // Whitelist comments
+                "|comment.", // Whitelist comment replies
                 "library_recent_shelf"
         );
 
@@ -62,7 +64,7 @@ public final class LayoutComponentsFilter extends Filter {
                 "compact_banner"
         );
 
-        final var inFeedSurvey = new StringFilterGroup(
+        inFeedSurvey = new StringFilterGroup(
                 SettingsEnum.HIDE_FEED_SURVEY,
                 "in_feed_survey",
                 "slimline_survey"
@@ -158,7 +160,7 @@ public final class LayoutComponentsFilter extends Filter {
                 "shelf_header.eml"
         );
 
-        final var notifyMe = new StringFilterGroup(
+        notifyMe = new StringFilterGroup(
                 SettingsEnum.HIDE_NOTIFY_ME_BUTTON,
                 "set_reminder_button"
         );
@@ -208,6 +210,9 @@ public final class LayoutComponentsFilter extends Filter {
     @Override
     public boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                               FilterGroupList matchedList, FilterGroup matchedGroup, int matchedIndex) {
+
+        if (matchedGroup == notifyMe || matchedGroup == inFeedSurvey) return true;
+
         if (matchedGroup != custom && exceptions.matches(path))
             return false; // Exceptions are not filtered.
 

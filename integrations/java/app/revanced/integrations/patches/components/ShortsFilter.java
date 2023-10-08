@@ -16,6 +16,8 @@ public final class ShortsFilter extends Filter {
     private final String REEL_CHANNEL_BAR_PATH = "reel_channel_bar.eml";
 
     private final StringFilterGroup channelBar;
+    private final StringFilterGroup subscribeButton;
+    private final StringFilterGroup subscribeButtonPaused;
     private final StringFilterGroup soundButton;
     private final StringFilterGroup infoPanel;
     private final StringFilterGroup shelfHeader;
@@ -53,9 +55,14 @@ public final class ShortsFilter extends Filter {
                 SettingsEnum.HIDE_SHORTS_JOIN_BUTTON,
                 "sponsor_button"
         );
-        var subscribeButton = new StringFilterGroup(
+
+        subscribeButton = new StringFilterGroup(
                 SettingsEnum.HIDE_SHORTS_SUBSCRIBE_BUTTON,
-                "subscribe_button",
+                "subscribe_button"
+        );
+
+        subscribeButtonPaused = new StringFilterGroup(
+                SettingsEnum.HIDE_SHORTS_SUBSCRIBE_BUTTON_PAUSED,
                 "shorts_paused_state"
         );
 
@@ -63,6 +70,7 @@ public final class ShortsFilter extends Filter {
                 SettingsEnum.HIDE_SHORTS_CHANNEL_BAR,
                 REEL_CHANNEL_BAR_PATH
         );
+
         soundButton = new StringFilterGroup(
                 SettingsEnum.HIDE_SHORTS_SOUND_BUTTON,
                 "reel_pivot_button"
@@ -79,7 +87,8 @@ public final class ShortsFilter extends Filter {
         );
 
         pathFilterGroupList.addAll(
-                joinButton, subscribeButton, channelBar, soundButton, infoPanel, videoActionButton
+                joinButton, subscribeButton, subscribeButtonPaused,
+                channelBar, soundButton, infoPanel, videoActionButton
         );
 
         var shortsCommentButton = new ByteArrayAsStringFilterGroup(
@@ -105,8 +114,12 @@ public final class ShortsFilter extends Filter {
                        FilterGroupList matchedList, FilterGroup matchedGroup, int matchedIndex) {
         if (matchedList == pathFilterGroupList) {
             // Always filter if matched.
-            if (matchedGroup == soundButton || matchedGroup == infoPanel || matchedGroup == channelBar)
-                return super.isFiltered(identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
+            if (matchedGroup == soundButton ||
+                    matchedGroup == infoPanel ||
+                    matchedGroup == channelBar ||
+                    matchedGroup == subscribeButton ||
+                    matchedGroup == subscribeButtonPaused
+            ) return super.isFiltered(identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
 
             // Video action buttons (comment, share, remix) have the same path.
             if (matchedGroup == videoActionButton) {

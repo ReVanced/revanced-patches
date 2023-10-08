@@ -23,11 +23,12 @@ public abstract class TrieSearch<T> {
          *
          * @param textSearched      Text that was searched.
          * @param matchedStartIndex Start index of the search text, where the pattern was matched.
+         * @param matchedLength     Length of the match.
          * @param callbackParameter Optional parameter passed into {@link TrieSearch#matches(Object, Object)}.
          * @return True, if the search should stop here.
          * If false, searching will continue to look for other matches.
          */
-        boolean patternMatched(T textSearched, int matchedStartIndex, Object callbackParameter);
+        boolean patternMatched(T textSearched, int matchedStartIndex, int matchedLength, Object callbackParameter);
     }
 
     /**
@@ -64,8 +65,8 @@ public abstract class TrieSearch<T> {
                     return false;
                 }
             }
-            return callback == null
-                    || callback.patternMatched(searchText, searchTextIndex - patternStartIndex, callbackParameter);
+            return callback == null || callback.patternMatched(searchText,
+                    searchTextIndex - patternStartIndex, patternLength, callbackParameter);
         }
     }
 
@@ -161,7 +162,7 @@ public abstract class TrieSearch<T> {
                     if (callback == null) {
                         return true; // No callback and all matches are valid.
                     }
-                    if (callback.patternMatched(searchText, matchStartIndex, callbackParameter)) {
+                    if (callback.patternMatched(searchText, matchStartIndex, currentMatchLength, callbackParameter)) {
                         return true; // Callback confirmed the match.
                     }
                 }

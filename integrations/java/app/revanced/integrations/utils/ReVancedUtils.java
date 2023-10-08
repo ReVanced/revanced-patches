@@ -83,9 +83,17 @@ public class ReVancedUtils {
     }
 
     public static boolean containsAny(@NonNull String value, @NonNull String... targets) {
-        for (String string : targets)
-            if (!string.isEmpty() && value.contains(string)) return true;
-        return false;
+        return indexOfFirstFound(value, targets) >= 0;
+    }
+
+    public static int indexOfFirstFound(@NonNull String value, @NonNull String... targets) {
+        for (String string : targets) {
+            if (!string.isEmpty()) {
+                final int indexOf = value.indexOf(string);
+                if (indexOf >= 0) return indexOf;
+            }
+        }
+        return -1;
     }
 
     /**

@@ -35,10 +35,10 @@ public class ReturnYouTubeDislikeApi {
     private static final int API_GET_VOTES_TCP_TIMEOUT_MILLISECONDS = 2000;
 
     /**
-     * {@link #fetchVotes(String)} HTTP read timeout
-     *  To locally debug and force timeouts, change this to a very small number (ie: 100)
+     * {@link #fetchVotes(String)} HTTP read timeout.
+     * To locally debug and force timeouts, change this to a very small number (ie: 100)
      */
-    private static final int API_GET_VOTES_HTTP_TIMEOUT_MILLISECONDS = 4000;
+    private static final int API_GET_VOTES_HTTP_TIMEOUT_MILLISECONDS = 5000;
 
     /**
      * Default connection and response timeout for voting and registration.
@@ -391,13 +391,37 @@ public class ReturnYouTubeDislikeApi {
         return null;
     }
 
-    public static boolean sendVote(String videoId, String userId, ReturnYouTubeDislike.Vote vote) {
+    /**
+     * Must call off main thread, as this will make a network call if user is not yet registered.
+     *
+     * @return ReturnYouTubeDislike user ID. If user registration has never happened
+     * and the network call fails, this returns NULL.
+     */
+    @Nullable
+    private static String getUserId() {
+        ReVancedUtils.verifyOffMainThread();
+
+        String userId = SettingsEnum.RYD_USER_ID.getString();
+        if (!userId.isEmpty()) {
+            return userId;
+        }
+
+        userId = registerAsNewUser();
+        if (userId != null) {
+            SettingsEnum.RYD_USER_ID.saveValue(userId);
+        }
+        return userId;
+    }
+
+    public static boolean sendVote(String videoId, ReturnYouTubeDislike.Vote vote) {
         ReVancedUtils.verifyOffMainThread();
         Objects.requireNonNull(videoId);
-        Objects.requireNonNull(userId);
         Objects.requireNonNull(vote);
 
         try {
+            String userId = getUserId();
+            if (userId == null) return false;
+
             if (checkIfRateLimitInEffect("sendVote")) {
                 return false;
             }
