@@ -15,8 +15,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
-    name = "Hide \"Get YouTube Premium\" advertisements",
-    description = "Hides YouTube Premium advertisements under video player.",
+    description = "Hides YouTube Premium signup promotions under the video player.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -27,7 +26,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
                 "18.23.35",
                 "18.29.38",
                 "18.32.39",
-                "18.37.36"
+                "18.37.36",
+                "18.38.44"
             ]
         )
     ]
@@ -42,15 +42,15 @@ object HideGetPremiumPatch : BytecodePatch(setOf(GetPremiumViewFingerprint)) {
                 "revanced_hide_get_premium",
                 StringResource(
                     "revanced_hide_get_premium_title",
-                    "Hide \"Get YouTube Premium\" advertisements"
+                    "Hide YouTube Premium promotions"
                 ),
                 StringResource(
                     "revanced_hide_get_premium_summary_on",
-                    "YouTube Premium advertisements under video player are hidden"
+                    "YouTube Premium promotions under video player is hidden"
                 ),
                 StringResource(
                     "revanced_hide_get_premium_summary_off",
-                    "YouTube Premium advertisements under video player are shown"
+                    "YouTube Premium promotions under video player is shown"
                 )
             )
         )

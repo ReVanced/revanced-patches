@@ -14,6 +14,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.*
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
+import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -26,12 +27,13 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
     description = "Shows the dislike count of videos using the Return YouTube Dislike API.",
     dependencies = [
         IntegrationsPatch::class,
+        LithoFilterPatch::class,
         VideoIdPatch::class,
         ReturnYouTubeDislikeResourcePatch::class,
         PlayerTypeHookPatch::class,
     ],
     compatiblePackages = [
-        CompatiblePackage("com.google.android.youtube", ["18.32.39"])
+        CompatiblePackage("com.google.android.youtube", ["18.37.36", "18.38.44"])
     ]
 )
 @Suppress("unused")
@@ -48,10 +50,16 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/patches/ReturnYouTubeDislikePatch;"
 
+    private const val FILTER_CLASS_DESCRIPTOR =
+        "Lapp/revanced/integrations/patches/components/ReturnYouTubeDislikeFilterPatch;"
+
     override fun execute(context: BytecodeContext) {
         // region Inject newVideoLoaded event handler to update dislikes when a new video is loaded.
 
         VideoIdPatch.hookVideoId("$INTEGRATIONS_CLASS_DESCRIPTOR->newVideoLoaded(Ljava/lang/String;)V")
+
+        // Hook the player response video id, to start loading RYD sooner in the background.
+        VideoIdPatch.hookPlayerResponseVideoId("$INTEGRATIONS_CLASS_DESCRIPTOR->preloadVideoId(Ljava/lang/String;)V")
 
         // endregion
 
@@ -89,49 +97,40 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                 throw TextComponentAtomicReferenceFingerprint.exception
         }?.let { textComponentContextFingerprintResult ->
             val conversionContextIndex = textComponentContextFingerprintResult
-                .scanResult.patternScanResult!!.startIndex
+                .scanResult.patternScanResult!!.endIndex
             val atomicReferenceStartIndex = TextComponentAtomicReferenceFingerprint.result!!
                 .scanResult.patternScanResult!!.startIndex
 
-            val insertIndex = atomicReferenceStartIndex + 6
+            val insertIndex = atomicReferenceStartIndex + 9
 
             textComponentContextFingerprintResult.mutableMethod.apply {
-                // Get the conversion context obfuscated field name, and the registers for the AtomicReference and CharSequence
+                // Get the conversion context obfuscated field name
                 val conversionContextFieldReference =
                     getInstruction<ReferenceInstruction>(conversionContextIndex).reference
 
-                // Reuse the free register to make room for the atomic reference register.
+                // Free register to hold the conversion context
                 val freeRegister =
                     getInstruction<TwoRegisterInstruction>(atomicReferenceStartIndex).registerB
 
                 val atomicReferenceRegister =
-                    getInstruction<FiveRegisterInstruction>(atomicReferenceStartIndex + 1).registerC
+                    getInstruction<FiveRegisterInstruction>(atomicReferenceStartIndex + 6).registerC
 
-                val moveCharSequenceInstruction = getInstruction<TwoRegisterInstruction>(insertIndex - 1)
+                // Instruction that is replaced, and also has the CharacterSequence register.
+                val moveCharSequenceInstruction = getInstruction<TwoRegisterInstruction>(insertIndex)
                 val charSequenceSourceRegister = moveCharSequenceInstruction.registerB
                 val charSequenceTargetRegister = moveCharSequenceInstruction.registerA
 
-                // In order to preserve the atomic reference register, because it is overwritten,
-                // use another free register to store it.
-                replaceInstruction(
-                    atomicReferenceStartIndex + 2,
-                    "move-result-object v$freeRegister"
-                )
-                replaceInstruction(
-                    atomicReferenceStartIndex + 3,
-                    "move-object v$charSequenceSourceRegister, v$freeRegister"
-                )
-
                 // Move the current instance to the free register, and get the conversion context from it.
-                replaceInstruction(insertIndex - 1, "move-object/from16 v$freeRegister, p0")
+                // Must replace the instruction to preserve the control flow label.
+                replaceInstruction(insertIndex, "move-object/from16 v$freeRegister, p0")
                 addInstructions(
-                    insertIndex,
+                    insertIndex + 1,
                     """
                         # Move context to free register
-                        iget-object v$freeRegister, v$freeRegister, $conversionContextFieldReference 
+                        iget-object v$freeRegister, v$freeRegister, $conversionContextFieldReference
                         invoke-static {v$freeRegister, v$atomicReferenceRegister, v$charSequenceSourceRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->onLithoTextLoaded(Ljava/lang/Object;Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
                         move-result-object v$freeRegister
-                        # Replace the original char sequence with the modified one.
+                        # Replace the original instruction
                         move-object v${charSequenceTargetRegister}, v${freeRegister}
                     """
                 )
@@ -140,7 +139,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
 
         // endregion
 
-        // region Hook for Short videos.
+        // region Hook for non litho Short videos.
 
         ShortsTextViewFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -150,7 +149,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                 val isDisLikesBooleanReference = getInstruction<ReferenceInstruction>(patternResult.endIndex).reference
 
                 val textViewFieldReference = // Like/Dislike button TextView field
-                    getInstruction<ReferenceInstruction>(patternResult.endIndex - 2).reference
+                    getInstruction<ReferenceInstruction>(patternResult.endIndex - 1).reference
 
                 // Check if the hooked TextView object is that of the dislike button.
                 // If RYD is disabled, or the TextView object is not that of the dislike button, the execution flow is not interrupted.
@@ -177,6 +176,13 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                 )
             }
         } ?: throw ShortsTextViewFingerprint.exception
+
+        // endregion
+
+        // region Hook for litho Shorts
+
+        // Filter that parses the video id from the UI
+        LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
 
         // endregion
 
