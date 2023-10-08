@@ -1,3 +1,10 @@
+# [2.193.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v2.193.0-dev.5...v2.193.0-dev.6) (2023-10-08)
+
+
+### Bug Fixes
+
+* **YouTube:** Sort settings alphabetically despite punctuation ([#3097](https://github.com/ReVanced/revanced-patches/issues/3097)) ([46e3c97](https://github.com/ReVanced/revanced-patches/commit/46e3c97d24e282e4d7d444603af4fb475ae03315))
+
 # [2.193.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v2.193.0-dev.4...v2.193.0-dev.5) (2023-10-08)
 
 
