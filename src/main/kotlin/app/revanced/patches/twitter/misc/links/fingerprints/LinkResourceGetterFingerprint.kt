@@ -1,10 +1,11 @@
-package app.revanced.patches.twitter.misc.fxtwitter.fingerprints
+package app.revanced.patches.twitter.misc.links.fingerprints
 
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object FxTwitterPatchFingerprintResource: MethodFingerprint(
+// Gets Resource string for share link view available by pressing "Share via" button
+object LinkResourceGetterFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
     opcodes = listOf(
         Opcode.CONST_STRING,
