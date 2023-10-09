@@ -1,3 +1,5 @@
+## [2.193.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.193.0...v2.193.1-dev.1) (2023-10-09)
+
 # [2.193.0](https://github.com/ReVanced/revanced-patches/compare/v2.192.0...v2.193.0) (2023-10-08)
 
 
