@@ -48,9 +48,13 @@ object FxTwitterPatch : BytecodePatch(
                     if (string.contains("https://twitter.com/%1\$s/status/%2\$d") || string.contains("https://x.com/%1\$s/status/%2\$d")) {
                         val overrideRegister = (instruction as OneRegisterInstruction).registerA
 
-                        // Totally efficient
-                        var overrideString = string.replace("twitter.com", shareLinkBase.toString())
-                        overrideString = overrideString.replace("x.com", shareLinkBase.toString())
+                        var overrideString = string
+                        if (string.contains("twitter.com")) {
+                            overrideString = string.replace("twitter.com", shareLinkBase.toString())
+                        } else if (string.contains("x.com")) {
+                            overrideString = string.replace("x.com", shareLinkBase.toString())
+                        }
+
                         this.mutableMethod.replaceInstruction(
                             index,
                             """
@@ -75,10 +79,12 @@ object FxTwitterPatch : BytecodePatch(
                     if (
                         methodRef.returnType != "Ljava/lang/String;") continue;
 
+                    val sourceRegister = (instructions[index + 1] as OneRegisterInstruction).registerA
+
                     this.mutableMethod.addInstruction(
                         index + 2,
                         """
-                            move-object v9, v3
+                            move-object v9, v$sourceRegister
                         """
                     )
 
@@ -94,10 +100,12 @@ object FxTwitterPatch : BytecodePatch(
                         (instruction as ReferenceInstruction).reference as MethodReference
                     if (methodRef.definingClass != "Ljava/lang/Long;") continue;
 
+                    val sourceRegister = (instructions[index + 1] as OneRegisterInstruction).registerA
+
                     this.mutableMethod.addInstruction(
                         index + 2,
                         """
-                            move-wide v7, v5
+                            move-wide v7, v$sourceRegister
                         """
                     )
                     break;
