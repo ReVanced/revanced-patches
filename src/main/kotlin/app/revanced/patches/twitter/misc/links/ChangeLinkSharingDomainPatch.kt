@@ -11,7 +11,6 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.types.StringPatchOption.Companion.stringPatchOption
-import app.revanced.patches.twitter.misc.links.fingerprints.AddTelemetryToLinkFingerprint
 import app.revanced.patches.twitter.misc.links.fingerprints.LinkBuilderMethodFingerprint
 import app.revanced.patches.twitter.misc.links.fingerprints.LinkResourceGetterFingerprint
 import com.android.tools.smali.dexlib2.Opcode
@@ -28,7 +27,7 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 )
 @Suppress("unused")
 object ChangeLinkSharingDomainPatch : BytecodePatch(
-    setOf(LinkBuilderMethodFingerprint, LinkResourceGetterFingerprint, AddTelemetryToLinkFingerprint)
+    setOf(LinkBuilderMethodFingerprint, LinkResourceGetterFingerprint)
 ) {
     private var domain by stringPatchOption(
         key = "domain",
@@ -38,16 +37,6 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
     )
 
     override fun execute(context: BytecodeContext) {
-        // Remove telemetry from links
-        AddTelemetryToLinkFingerprint.result?.apply {
-            this.mutableMethod.addInstruction(
-                0,
-                """
-                    return-object p0
-                """
-            )
-        } ?: throw AddTelemetryToLinkFingerprint.exception
-
         // Replace the domain in the method that generates the share link
         val linkBuilderMethod = LinkBuilderMethodFingerprint.result?.apply {
             val instructions = this.mutableMethod.getInstructions()
