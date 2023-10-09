@@ -1,14 +1,14 @@
 [versions]
-revanced-patcher = "16.0.1"
-revanced-patch-annotation-processor = "16.0.1"
+revanced-patcher = "17.0.0"
+revanced-patch-annotation-processor = "17.0.0"
 ksp = "1.9.0-1.0.11"
 smali = "3.0.3"
 guava = "32.1.2-jre"
 gson = "2.10.1"
 
 [libraries]
-revanced-patcher = { module = "app.revanced:revanced-patcher", version.ref = "revanced-patcher" }
-revanced-patch-annotation-processor = { module = "app.revanced:revanced-patch-annotation-processor", version.ref = "revanced-patch-annotation-processor" }
+revanced-patcher = { module = "app.revanced.revanced-patcher:revanced-patcher", version.ref = "revanced-patcher" }
+revanced-patch-annotation-processor = { module = "app.revanced.revanced-patcher:revanced-patch-annotation-processor", version.ref = "revanced-patch-annotation-processor" }
 smali = { module = "com.android.tools.smali:smali", version.ref = "smali" }
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
