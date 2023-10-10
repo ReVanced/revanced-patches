@@ -4,6 +4,7 @@ import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
@@ -39,31 +40,30 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         // Replace the domain in the method that generates the share link
         val linkBuilderMethod = LinkBuilderMethodFingerprint.result?.apply {
-            val instructions = this.mutableMethod.getInstructions()
 
-            for ((index, instruction) in instructions.withIndex()) {
-                if (instruction.opcode == Opcode.CONST_STRING) {
-                    val string = ((instruction as ReferenceInstruction).reference as StringReference).string
+            // Find the index of the string instruction that contains the link
+            val stringIndex = scanResult.stringsScanResult!!.matches.find { match ->
+                (
+                        match.string == "https://twitter.com/%1\$s/status/%2\$d" || match.string == "https://x.com/%1\$s/status/%2\$d")
+            }!!.index
 
-                    if (string.contains("https://twitter.com/%1\$s/status/%2\$d") || string.contains("https://x.com/%1\$s/status/%2\$d")) {
-                        val overrideRegister = (instruction as OneRegisterInstruction).registerA
+            val instruction = this.mutableMethod.getInstruction(stringIndex)
+            val overrideRegister = (instruction as OneRegisterInstruction).registerA
+            val string = ((instruction as ReferenceInstruction).reference as StringReference).string
 
-                        var overrideString = string
-                        if (string.contains("twitter.com")) {
-                            overrideString = string.replace("twitter.com", domain.toString())
-                        } else if (string.contains("x.com")) {
-                            overrideString = string.replace("x.com", domain.toString())
-                        }
-
-                        this.mutableMethod.replaceInstruction(
-                            index,
-                            """
-                                const-string v$overrideRegister, "$overrideString"
-                            """
-                        )
-                    }
-                }
+            var overrideString = string
+            if (string.contains("twitter.com")) {
+                overrideString = string.replace("twitter.com", domain.toString())
+            } else if (string.contains("x.com")) {
+                overrideString = string.replace("x.com", domain.toString())
             }
+
+            this.mutableMethod.replaceInstruction(
+                stringIndex,
+                """
+                    const-string v$overrideRegister, "$overrideString"
+                """
+            )
         } ?: throw LinkBuilderMethodFingerprint.exception
 
         LinkResourceGetterFingerprint.result?.apply {
@@ -77,7 +77,7 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
                 if (instruction.opcode == Opcode.INVOKE_VIRTUAL) {
                     val methodRef =
                         (instruction as ReferenceInstruction).reference as MethodReference
-                    if (methodRef.definingClass != "Landroid/content/res/Resources;") continue;
+                    if (methodRef.definingClass != "Landroid/content/res/Resources;") continue
 
                     // Get the result register of the original method call
                     resultRegister = (instructions[index + 1] as OneRegisterInstruction).registerA
@@ -88,7 +88,7 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
                     // Remove the instruction that uses the resultRegister as an array reference to prevent an error
                     this.mutableMethod.removeInstructions(index - 2, 1)
 
-                    break;
+                    break
                 }
             }
 
@@ -99,7 +99,7 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
                     val methodRef =
                         (instruction as ReferenceInstruction).reference as MethodReference
                     if (
-                        methodRef.returnType != "Ljava/lang/String;") continue;
+                        methodRef.returnType != "Ljava/lang/String;") continue
 
                     val sourceRegister = (instructions[index + 1] as OneRegisterInstruction).registerA
                     this.mutableMethod.addInstruction(
@@ -108,7 +108,7 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
                             move-object v7, v$sourceRegister
                         """
                     )
-                    break;
+                    break
                 }
             }
 
@@ -118,7 +118,7 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
 
                     val methodRef =
                         (instruction as ReferenceInstruction).reference as MethodReference
-                    if (methodRef.definingClass != "Ljava/lang/Long;") continue;
+                    if (methodRef.definingClass != "Ljava/lang/Long;") continue
 
                     // Get the first part of the tweet ID
                     val sourceRegister = (instructions[index + 1] as OneRegisterInstruction).registerA
@@ -133,7 +133,7 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
                             move-result-object v$resultRegister
                         """
                     )
-                    break;
+                    break
                 }
             }
 
