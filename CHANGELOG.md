@@ -1,3 +1,10 @@
+## [2.193.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.193.1-dev.1...v2.193.1-dev.2) (2023-10-11)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof app version:** Recommend clearing the app data after turning off spoofing ([#3134](https://github.com/ReVanced/revanced-patches/issues/3134)) ([166bf5b](https://github.com/ReVanced/revanced-patches/commit/166bf5b1aec5f8868b3895f7e24d2abc9037a7de))
+
 ## [2.193.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.193.0...v2.193.1-dev.1) (2023-10-09)
 
 # [2.193.0](https://github.com/ReVanced/revanced-patches/compare/v2.192.0...v2.193.0) (2023-10-08)
