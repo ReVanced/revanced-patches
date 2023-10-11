@@ -51,7 +51,7 @@ object SpoofAppVersionPatch : BytecodePatch(
                 StringResource("revanced_spoof_app_version_user_dialog_message",
                 "App version will be spoofed to an older version of YouTube."
                         + "\\n\\nThis will change the appearance and features of the app, but unknown side effects may occur."
-                        + "\\n\\nIf later turned off, the old UI may remain until the app data is cleared.")
+                        + "\\n\\nIf later turned off, it is recommended to clear the app data to prevent UI bugs.")
             ),
             ListPreference(
                 "revanced_spoof_app_version_target",
