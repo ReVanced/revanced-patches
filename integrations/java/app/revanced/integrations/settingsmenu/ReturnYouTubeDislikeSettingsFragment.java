@@ -20,6 +20,10 @@ import app.revanced.integrations.settings.SharedPrefCategory;
 
 public class ReturnYouTubeDislikeSettingsFragment extends PreferenceFragment {
 
+    private static final boolean IS_SPOOFING_TO_NON_LITHO_SHORTS_PLAYER =
+            SettingsEnum.SPOOF_APP_VERSION.getBoolean()
+                    && SettingsEnum.SPOOF_APP_VERSION_TARGET.getString().compareTo("18.33.40") <= 0;
+
     /**
      * If dislikes are shown on Shorts.
      */
@@ -74,7 +78,11 @@ public class ReturnYouTubeDislikeSettingsFragment extends PreferenceFragment {
         shortsPreference = new SwitchPreference(context);
         shortsPreference.setChecked(SettingsEnum.RYD_SHORTS.getBoolean());
         shortsPreference.setTitle(str("revanced_ryd_shorts_title"));
-        shortsPreference.setSummaryOn(str("revanced_ryd_shorts_summary_on"));
+        String shortsSummary = str("revanced_ryd_shorts_summary_on",
+                IS_SPOOFING_TO_NON_LITHO_SHORTS_PLAYER
+                        ? ""
+                        : "\n\n" + str("revanced_ryd_shorts_summary_disclaimer"));
+        shortsPreference.setSummaryOn(shortsSummary);
         shortsPreference.setSummaryOff(str("revanced_ryd_shorts_summary_off"));
         shortsPreference.setOnPreferenceChangeListener((pref, newValue) -> {
             SettingsEnum.RYD_SHORTS.saveValue(newValue);

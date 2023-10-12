@@ -1,27 +1,32 @@
 package app.revanced.integrations.patches;
 
+import static app.revanced.integrations.returnyoutubedislike.ReturnYouTubeDislike.Vote;
+
 import android.graphics.Rect;
 import android.os.Build;
-import android.text.*;
+import android.text.Editable;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.concurrent.atomic.AtomicReference;
+
 import app.revanced.integrations.patches.components.ReturnYouTubeDislikeFilterPatch;
-import app.revanced.integrations.patches.spoof.SpoofAppVersionPatch;
 import app.revanced.integrations.returnyoutubedislike.ReturnYouTubeDislike;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.shared.PlayerType;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
-
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
-
-import static app.revanced.integrations.returnyoutubedislike.ReturnYouTubeDislike.Vote;
 
 /**
  * Handles all interaction of UI patch components.
@@ -108,7 +113,7 @@ public class ReturnYouTubeDislikePatch {
 
     /**
      * Old UI dislikes can be set multiple times by YouTube.
-     * To prevent it from reverting changes made here, this listener overrides any future changes YouTube makes.
+     * To prevent reverting changes made here, this listener overrides any future changes YouTube makes.
      */
     private static final TextWatcher oldUiTextWatcher = new TextWatcher() {
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -141,7 +146,7 @@ public class ReturnYouTubeDislikePatch {
     /**
      * Injection point.  Called on main thread.
      *
-     * Used when spoofing the older app versions of {@link SpoofAppVersionPatch}.
+     * Used when spoofing to 16.x and 17.x versions.
      */
     public static void setOldUILayoutDislikes(int buttonViewResourceId, @Nullable TextView textView) {
         try {
@@ -230,9 +235,9 @@ public class ReturnYouTubeDislikePatch {
                 }
                 ReturnYouTubeDislike videoData = lastLithoShortsVideoData;
                 if (videoData == null) {
-                    // Should not happen, as user cannot turn on RYD while leaving a short on screen.
-                    // If this does happen, then the litho video id filter did not detect the video id.
-                    LogHelper.printDebug(() -> "Error: Litho video data is null, but it should not be");
+                    // The Shorts litho video id filter did not detect the video id.
+                    // This is normal if in incognito mode, but otherwise is not normal.
+                    LogHelper.printDebug(() -> "Cannot modify Shorts litho span, data is null");
                     return original;
                 }
                 // Use the correct dislikes data after voting.
@@ -425,14 +430,18 @@ public class ReturnYouTubeDislikePatch {
      * Called both on and off main thread.
      *
      * @param isShortsLithoVideoId If the video id is from {@link ReturnYouTubeDislikeFilterPatch}.
+     *                             if true, then the video id can be null indicating the filter did
+     *                             not find any video id.
      */
-    public static void newVideoLoaded(@NonNull String videoId, boolean isShortsLithoVideoId) {
+    public static void newVideoLoaded(@Nullable String videoId, boolean isShortsLithoVideoId) {
         try {
             if (!SettingsEnum.RYD_ENABLED.getBoolean()) return;
 
             PlayerType currentPlayerType = PlayerType.getCurrent();
-            final boolean isNoneOrHidden = currentPlayerType.isNoneOrHidden();
-            if (isNoneOrHidden && !SettingsEnum.RYD_SHORTS.getBoolean()) {
+            final boolean isNoneHiddenOrSlidingMinimized = currentPlayerType.isNoneHiddenOrSlidingMinimized();
+            if (isNoneHiddenOrSlidingMinimized && !SettingsEnum.RYD_SHORTS.getBoolean()) {
+                // Must clear here, otherwise the wrong data can be used for a minimized regular video.
+                currentVideoData = null;
                 return;
             }
 
@@ -441,24 +450,41 @@ public class ReturnYouTubeDislikePatch {
                 if (videoIdIsSame(lastLithoShortsVideoData, videoId)) {
                     return;
                 }
+                if (videoId == null) {
+                    // Litho filter did not detect the video id.  App is in incognito mode,
+                    // or the proto buffer structure was changed and the video id is no longer present.
+                    // Must clear both currently playing and last litho data otherwise the
+                    // next regular video may use the wrong data.
+                    LogHelper.printDebug(() -> "Litho filter did not find any video ids");
+                    currentVideoData = null;
+                    lastLithoShortsVideoData = null;
+                    lithoShortsShouldUseCurrentData = false;
+                    return;
+                }
                 ReturnYouTubeDislike videoData = ReturnYouTubeDislike.getFetchForVideoId(videoId);
                 videoData.setVideoIdIsShort(true);
                 lastLithoShortsVideoData = videoData;
                 lithoShortsShouldUseCurrentData = false;
             } else {
+                Objects.requireNonNull(videoId);
                 // All other playback (including non-litho Shorts).
                 if (videoIdIsSame(currentVideoData, videoId)) {
                     return;
                 }
                 currentVideoData = ReturnYouTubeDislike.getFetchForVideoId(videoId);
+                // Pre-emptively set the data to short status.
+                // Required to prevent Shorts data from being used on a minimized video in incognito mode.
+                if (isNoneHiddenOrSlidingMinimized) {
+                    currentVideoData.setVideoIdIsShort(true);
+                }
             }
 
             LogHelper.printDebug(() -> "New video id: " + videoId + " playerType: " + currentPlayerType
                     + " isShortsLithoHook: " + isShortsLithoVideoId);
 
-            if (isNoneOrHidden) {
-                // Current video id hook can be called out of order with the non litho Shorts text view hook.
-                // Must manually update again here.
+            // Current video id hook can be called out of order with the non litho Shorts text view hook.
+            // Must manually update again here.
+            if (!isShortsLithoVideoId && isNoneHiddenOrSlidingMinimized) {
                 updateOnScreenShortsTextViews(true);
             }
         } catch (Exception ex) {
@@ -466,8 +492,9 @@ public class ReturnYouTubeDislikePatch {
         }
     }
 
-    private static boolean videoIdIsSame(@Nullable  ReturnYouTubeDislike fetch, String videoId) {
-        return fetch != null && fetch.getVideoId().equals(videoId);
+    private static boolean videoIdIsSame(@Nullable ReturnYouTubeDislike fetch, @Nullable String videoId) {
+        return (fetch == null && videoId == null)
+                || (fetch != null && fetch.getVideoId().equals(videoId));
     }
 
     /**
@@ -482,11 +509,13 @@ public class ReturnYouTubeDislikePatch {
             if (!SettingsEnum.RYD_ENABLED.getBoolean()) {
                 return;
             }
-            if (!SettingsEnum.RYD_SHORTS.getBoolean() && PlayerType.getCurrent().isNoneHiddenOrMinimized()) {
+            final boolean isNoneHiddenOrMinimized = PlayerType.getCurrent().isNoneHiddenOrMinimized();
+            if (isNoneHiddenOrMinimized && !SettingsEnum.RYD_SHORTS.getBoolean()) {
                 return;
             }
             ReturnYouTubeDislike videoData = currentVideoData;
             if (videoData == null) {
+                LogHelper.printDebug(() -> "Cannot send vote, as current video data is null");
                 return; // User enabled RYD while a regular video was minimized.
             }
 
@@ -494,10 +523,13 @@ public class ReturnYouTubeDislikePatch {
                 if (v.value == vote) {
                     videoData.sendVote(v);
 
-                    if (lastLithoShortsVideoData != null) {
-                        lithoShortsShouldUseCurrentData = true;
+                    if (isNoneHiddenOrMinimized) {
+                        if (lastLithoShortsVideoData != null) {
+                            lithoShortsShouldUseCurrentData = true;
+                        }
+                        updateOldUIDislikesTextView();
                     }
-                    updateOldUIDislikesTextView();
+
                     return;
                 }
             }
