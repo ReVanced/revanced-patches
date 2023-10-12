@@ -1,3 +1,10 @@
+# [2.194.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.194.0-dev.1...v2.194.0-dev.2) (2023-10-12)
+
+
+### Bug Fixes
+
+* **YouTube - ReturnYouTubeDislike:** Fix dislikes not showing on Shorts ([#3133](https://github.com/ReVanced/revanced-patches/issues/3133)) ([0e8a286](https://github.com/ReVanced/revanced-patches/commit/0e8a2868e8e4328a6f02fa31537abc5e5ed220eb))
+
 # [2.194.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.193.1-dev.2...v2.194.0-dev.1) (2023-10-12)
 
 
