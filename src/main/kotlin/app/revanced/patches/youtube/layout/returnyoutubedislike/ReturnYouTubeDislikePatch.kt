@@ -184,6 +184,9 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
         // Filter that parses the video id from the UI
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
 
+        // Player response video id is needed to search for the video ids in Shorts litho components.
+        VideoIdPatch.hookPlayerResponseVideoId("$FILTER_CLASS_DESCRIPTOR->newPlayerResponseVideoId(Ljava/lang/String;)V")
+
         // endregion
 
         // region Hook old UI layout dislikes, for the older app spoofs used with spoof-app-version.
