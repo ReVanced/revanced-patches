@@ -1,3 +1,15 @@
+# [2.194.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v2.194.0-dev.2...v2.194.0-dev.3) (2023-10-12)
+
+
+### Bug Fixes
+
+* Fix builds ([d7b8149](https://github.com/ReVanced/revanced-patches/commit/d7b8149b0a8dad4e2c201b2f514d298bc6b97f54))
+
+
+### Features
+
+* **CieID:** Add `bypass root check` patch ([#3011](https://github.com/ReVanced/revanced-patches/issues/3011)) ([20cfa8a](https://github.com/ReVanced/revanced-patches/commit/20cfa8a5cdebc7e81128c820a2aa01415a068320))
+
 # [2.194.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.194.0-dev.1...v2.194.0-dev.2) (2023-10-12)
 
 
