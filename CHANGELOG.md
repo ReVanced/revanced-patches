@@ -1,3 +1,11 @@
+# [2.194.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.193.1-dev.2...v2.194.0-dev.1) (2023-10-12)
+
+
+### Features
+
+* Do not support reading options from a properties file ([3d1c0c1](https://github.com/ReVanced/revanced-patches/commit/3d1c0c1a958271c358755220b97b9dd92eb81d54))
+* Improve option descriptions and titles ([9f86daa](https://github.com/ReVanced/revanced-patches/commit/9f86daa82271591bcaa9144d300a4810458fdd28))
+
 ## [2.193.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.193.1-dev.1...v2.193.1-dev.2) (2023-10-11)
 
 
