@@ -23,14 +23,14 @@ object ThemeBytecodePatch : BytecodePatch() {
     internal val darkThemeBackgroundColor by stringPatchOption(
         key = "darkThemeBackgroundColor",
         default = "@android:color/black",
-        title = "Background color for the dark theme",
+        title = "Dark theme background color",
         description = "The background color of the dark theme. Can be a hex color or a resource reference.",
     )
 
     internal val lightThemeBackgroundColor by stringPatchOption(
         key = "lightThemeBackgroundColor",
         default = "@android:color/white",
-        title = "Background color for the light theme",
+        title = "Light theme background color",
         description = "The background color of the light theme. Can be a hex color or a resource reference.",
     )
 
