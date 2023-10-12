@@ -9,13 +9,7 @@ repositories {
     mavenCentral()
     mavenLocal()
     google()
-    maven {
-        url = uri("https://maven.pkg.github.com/revanced/revanced-patcher")
-        credentials {
-            username = project.findProperty("gpr.user") as? String ?: System.getenv("GITHUB_ACTOR")
-            password = project.findProperty("gpr.key") as? String ?: System.getenv("GITHUB_TOKEN")
-        }
-    }
+    maven { url = uri("https://jitpack.io") }
     // Required for FlexVer-Java
     maven {
         url = uri("https://repo.sleeping.town")

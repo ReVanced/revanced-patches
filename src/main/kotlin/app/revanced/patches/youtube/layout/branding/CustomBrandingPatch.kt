@@ -12,7 +12,7 @@ import java.nio.file.Files
 
 @Patch(
     name = "Custom branding",
-    description = "Changes the YouTube launcher icon and name to your choice (defaults to ReVanced).",
+    description = "Changes the app icon and name to your choice (defaults to YouTube ReVanced and the ReVanced logo).",
     compatiblePackages = [
         CompatiblePackage("com.google.android.youtube")
     ],
@@ -20,19 +20,42 @@ import java.nio.file.Files
 )
 @Suppress("unused")
 object CustomBrandingPatch : ResourcePatch() {
+    private val iconResourceFileNames = arrayOf(
+        "adaptiveproduct_youtube_background_color_108",
+        "adaptiveproduct_youtube_foreground_color_108",
+        "ic_launcher",
+        "ic_launcher_round"
+    ).map { "$it.png" }.toTypedArray()
+
+    private val mipmapDirectories = arrayOf(
+        "xxxhdpi",
+        "xxhdpi",
+        "xhdpi",
+        "hdpi",
+        "mdpi"
+    ).map { "mipmap-$it" }
+
     private var appName by stringPatchOption(
         key = "appName",
         default = "YouTube ReVanced",
-        title = "Application Name",
-        description = "The name of the application it will show on your home screen.",
+        title = "App name",
+        description = "The name of the app.",
         required = true
     )
 
     private var iconPath by stringPatchOption(
         key = "iconPath",
         default = null,
-        title = "App Icon Path",
-        description = "A path containing mipmap resource folders with icons."
+        title = "App icon path",
+        description =  """
+            The path to a folder containing the following folders:
+            
+            ${mipmapDirectories.joinToString("\n") { "- $it" }}
+            
+            Each of these folders has to have the following files:
+            
+            ${iconResourceFileNames.joinToString("\n") { "- $it" }}
+        """.trimIndent()
     )
 
     override fun execute(context: ResourceContext) {
@@ -55,24 +78,14 @@ object CustomBrandingPatch : ResourcePatch() {
             } ?: resourceGroups.forEach { context.copyResources("branding", it) }
         }
 
-        val iconResourceFileNames = arrayOf(
-            "adaptiveproduct_youtube_background_color_108",
-            "adaptiveproduct_youtube_foreground_color_108",
-            "ic_launcher",
-            "ic_launcher_round"
-        ).map { "$it.png" }.toTypedArray()
-
         fun createGroup(directory: String) = ResourceUtils.ResourceGroup(
             directory, *iconResourceFileNames
         )
 
-        // change the app icon
-        arrayOf("xxxhdpi", "xxhdpi", "xhdpi", "hdpi", "mdpi")
-            .map { "mipmap-$it" }
-            .map(::createGroup)
-            .let(::copyResources)
+        // Change the app icon.
+        mipmapDirectories.map(::createGroup).let(::copyResources)
 
-        // change the name of the app
+        // Change the app name.
         val manifest = context["AndroidManifest.xml"]
         manifest.writeText(
             manifest.readText()
