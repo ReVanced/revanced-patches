@@ -13,7 +13,8 @@ import app.revanced.patches.cieid.restrictions.root.fingerprints.CheckRootFinger
     description = "Removes the restriction to use the app with root permissions or on a custom ROM.",
     compatiblePackages = [CompatiblePackage("it.ipzs.cieid")]
 )
-class BypassRootChecksPatch : BytecodePatch(
+@Suppress("unused")
+object BypassRootChecksPatch : BytecodePatch(
     setOf(CheckRootFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
