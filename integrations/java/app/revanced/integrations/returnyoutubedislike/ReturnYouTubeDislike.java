@@ -74,13 +74,13 @@ public class ReturnYouTubeDislike {
     /**
      * How long to retain successful RYD fetches.
      */
-    private static final long CACHE_TIMEOUT_SUCCESS_MILLISECONDS = 5 * 60 * 1000; // 5 Minutes
+    private static final long CACHE_TIMEOUT_SUCCESS_MILLISECONDS = 7 * 60 * 1000; // 7 Minutes
 
     /**
      * How long to retain unsuccessful RYD fetches,
      * and also the minimum time before retrying again.
      */
-    private static final long CACHE_TIMEOUT_FAILURE_MILLISECONDS = 60 * 1000; // 1 Minute
+    private static final long CACHE_TIMEOUT_FAILURE_MILLISECONDS = 2 * 60 * 1000; // 2 Minutes
 
     /**
      * Unique placeholder character, used to detect if a segmented span already has dislikes added to it.
@@ -140,14 +140,10 @@ public class ReturnYouTubeDislike {
     private final long timeFetched;
 
     /**
-     * If the video id is for a Short.
-     * Value of TRUE indicates it was previously loaded for a Short
-     * and FALSE indicates a regular video.
-     * NULL values means short status is not yet known.
+     * If this instance was previously used for a Short.
      */
-    @Nullable
     @GuardedBy("this")
-    private Boolean isShort;
+    private boolean isShort;
 
     /**
      * Optional current vote status of the UI.  Used to apply a user vote that was done on a previous video viewing.
@@ -424,7 +420,6 @@ public class ReturnYouTubeDislike {
 
     /**
      * Pre-emptively set this as a Short.
-     * Should only be used immediately after creation of this instance.
      */
     public synchronized void setVideoIdIsShort(boolean isShort) {
         this.isShort = isShort;
@@ -458,35 +453,39 @@ public class ReturnYouTubeDislike {
             }
 
             synchronized (this) {
-                if (isShort != null) {
-                    if (isShort != spanIsForShort) {
-                        // user:
-                        // 1, opened a video
-                        // 2. opened a short (without closing the regular video)
-                        // 3. closed the short
-                        // 4. regular video is now present, but the videoId and RYD data is still for the short
-                        LogHelper.printDebug(() -> "Ignoring dislike span, as data loaded was previously"
-                                + " used for a different video type.");
-                        return original;
-                    }
-                } else {
-                    isShort = spanIsForShort;
+                if (spanIsForShort) {
+                    // Cannot set this to false if span is not for a Short.
+                    // When spoofing to an old version and a Short is opened while a regular video
+                    // is on screen, this instance can be loaded for the minimized regular video.
+                    // But this Shorts data won't be displayed for that call
+                    // and when it is un-minimized it will reload again and the load will be ignored.
+                    isShort = true;
+                } else if (isShort) {
+                    // user:
+                    // 1, opened a video
+                    // 2. opened a short (without closing the regular video)
+                    // 3. closed the short
+                    // 4. regular video is now present, but the videoId and RYD data is still for the short
+                    LogHelper.printDebug(() -> "Ignoring regular video dislike span,"
+                            + " as data loaded was previously used for a Short: " + videoId);
+                    return original;
                 }
 
                 if (originalDislikeSpan != null && replacementLikeDislikeSpan != null) {
                     if (spansHaveEqualTextAndColor(original, replacementLikeDislikeSpan)) {
-                        LogHelper.printDebug(() -> "Ignoring previously created dislikes span");
+                        LogHelper.printDebug(() -> "Ignoring previously created dislikes span of data: " + videoId);
                         return original;
                     }
                     if (spansHaveEqualTextAndColor(original, originalDislikeSpan)) {
-                        LogHelper.printDebug(() -> "Replacing span with previously created dislike span");
+                        LogHelper.printDebug(() -> "Replacing span with previously created dislike span of data: " + videoId);
                         return replacementLikeDislikeSpan;
                     }
                 }
                 if (isSegmentedButton && isPreviouslyCreatedSegmentedSpan(original)) {
                     // need to recreate using original, as original has prior outdated dislike values
                     if (originalDislikeSpan == null) {
-                        LogHelper.printDebug(() -> "Cannot add dislikes - original span is null"); // should never happen
+                        // Should never happen.
+                        LogHelper.printDebug(() -> "Cannot add dislikes - original span is null. videoId: " + videoId);
                         return original;
                     }
                     original = originalDislikeSpan;
@@ -514,10 +513,10 @@ public class ReturnYouTubeDislike {
         ReVancedUtils.verifyOnMainThread();
         Objects.requireNonNull(vote);
         try {
-            if (isShort != null && isShort != PlayerType.getCurrent().isNoneOrHidden()) {
+            if (isShort != PlayerType.getCurrent().isNoneOrHidden()) {
                 // Shorts was loaded with regular video present, then Shorts was closed.
                 // and then user voted on the now visible original video.
-                // Cannot send a vote, because the loaded videoId is for the wrong video.
+                // Cannot send a vote, because this instance is for the wrong video.
                 ReVancedUtils.showToastLong(str("revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted"));
                 return;
             }

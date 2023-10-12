@@ -2,16 +2,71 @@ package app.revanced.integrations.patches.components;
 
 import android.os.Build;
 
+import androidx.annotation.GuardedBy;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
-import java.nio.charset.StandardCharsets;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.Map;
 
 import app.revanced.integrations.patches.ReturnYouTubeDislikePatch;
+import app.revanced.integrations.patches.VideoInformation;
 import app.revanced.integrations.settings.SettingsEnum;
+import app.revanced.integrations.utils.LogHelper;
+import app.revanced.integrations.utils.TrieSearch;
 
+/**
+ * Searches for video id's in the proto buffer of Shorts dislike.
+ *
+ * Because multiple litho dislike spans are created in the background
+ * (and also anytime litho refreshes the components, which is somewhat arbitrary),
+ * that makes the value of {@link VideoInformation#getVideoId()} and {@link VideoInformation#getPlayerResponseVideoId()}
+ * unreliable to determine which video id a Shorts litho span belongs to.
+ *
+ * But the correct video id does appear in the protobuffer just before a Shorts litho span is created.
+ *
+ * Once a way to asynchronously update litho text is found, this strategy will no longer be needed.
+ */
 @RequiresApi(api = Build.VERSION_CODES.N)
 public final class ReturnYouTubeDislikeFilterPatch extends Filter {
+
+    /**
+     * Last unique video id's loaded.  Value is ignored and Map is treated as a Set.
+     * Cannot use {@link LinkedHashSet} because it's missing #removeEldestEntry().
+     */
+    @GuardedBy("itself")
+    private static final Map<String, Boolean> lastVideoIds = new LinkedHashMap<>() {
+        /**
+         * Number of video id's to keep track of for searching thru the buffer.
+         * A minimum value of 3 should be sufficient, but check a few more just in case.
+         */
+        private static final int NUMBER_OF_LAST_VIDEO_IDS_TO_TRACK = 5;
+
+        @Override
+        protected boolean removeEldestEntry(Map.Entry eldest) {
+            return size() > NUMBER_OF_LAST_VIDEO_IDS_TO_TRACK;
+        }
+    };
+
+    /**
+     * Injection point.
+     */
+    public static void newPlayerResponseVideoId(String videoId) {
+        try {
+            if (!SettingsEnum.RYD_SHORTS.getBoolean()) {
+                return;
+            }
+            synchronized (lastVideoIds) {
+                if (lastVideoIds.put(videoId, Boolean.TRUE) == null) {
+                    LogHelper.printDebug(() -> "New video id: " + videoId);
+                }
+            }
+        } catch (Exception ex) {
+            LogHelper.printException(() -> "newPlayerResponseVideoId failure", ex);
+        }
+    }
 
     private final ByteArrayFilterGroupList videoIdFilterGroup = new ByteArrayFilterGroupList();
 
@@ -33,44 +88,46 @@ public final class ReturnYouTubeDislikeFilterPatch extends Filter {
                               FilterGroupList matchedList, FilterGroup matchedGroup, int matchedIndex) {
         FilterGroup.FilterGroupResult result = videoIdFilterGroup.check(protobufBufferArray);
         if (result.isFiltered()) {
-            // The video length must be hard coded to 11, as there is additional ASCII text that
-            // appears immediately after the id if the dislike button is already selected.
-            final int videoIdLength = 11;
-            final int subStringSearchStartIndex = result.getMatchedIndex() + result.getMatchedLength();
-            String videoId = findSubString(protobufBufferArray, subStringSearchStartIndex, videoIdLength);
-            if (videoId != null) {
-                ReturnYouTubeDislikePatch.newVideoLoaded(videoId, true);
-            }
+            String matchedVideoId = findVideoId(protobufBufferArray);
+            // Matched video will be null if in incognito mode.
+            // Must pass a null id to correctly clear out the current video data.
+            // Otherwise if a Short is opened in non-incognito, then incognito is enabled and another Short is opened,
+            // the new incognito Short will show the old prior data.
+            ReturnYouTubeDislikePatch.newVideoLoaded(matchedVideoId, true);
         }
 
         return false;
     }
 
-    /**
-     * Find an exact length ASCII substring starting from a given index.
-     *
-     * Similar to the String finding code in {@link LithoFilterPatch},
-     * but refactoring it to also handle this use case became messy and overly complicated.
-     */
     @Nullable
-    private static String findSubString(byte[] buffer, int bufferStartIndex, int subStringLength) {
-        // Valid ASCII values (ignore control characters).
-        final int minimumAscii = 32;  // 32 = space character
-        final int maximumAscii = 126; // 127 = delete character
-
-        final int bufferLength = buffer.length;
-        int start = bufferStartIndex;
-        int end = bufferStartIndex;
-        do {
-            final int value = buffer[end];
-            if (value < minimumAscii || value > maximumAscii) {
-                start = end + 1;
-            } else if (end - start == subStringLength) {
-                return new String(buffer, start, subStringLength, StandardCharsets.US_ASCII);
+    private String findVideoId(byte[] protobufBufferArray) {
+        synchronized (lastVideoIds) {
+            for (String videoId : lastVideoIds.keySet()) {
+                if (byteArrayContainsString(protobufBufferArray, videoId)) {
+                    return videoId;
+                }
             }
-            end++;
-        } while (end < bufferLength);
+            return null;
+        }
+    }
 
-        return null;
+    /**
+     * This could use {@link TrieSearch}, but since the video ids are constantly changing
+     * the overhead of updating the Trie might negate the search performance gain.
+     */
+    private static boolean byteArrayContainsString(@NonNull byte[] array, @NonNull String text) {
+        for (int i = 0, lastArrayStartIndex = array.length - text.length(); i <= lastArrayStartIndex; i++) {
+            boolean found = true;
+            for (int j = 0, textLength = text.length(); j < textLength; j++) {
+                if (array[i + j] != (byte) text.charAt(j)) {
+                    found = false;
+                    break;
+                }
+            }
+            if (found) {
+                return true;
+            }
+        }
+        return false;
     }
 }
