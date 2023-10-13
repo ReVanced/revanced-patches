@@ -1,3 +1,10 @@
+# [2.195.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.194.1-dev.1...v2.195.0-dev.1) (2023-10-13)
+
+
+### Features
+
+* **YouTube - Theme:** Disable gradient loading screen ([90d5877](https://github.com/ReVanced/revanced-patches/commit/90d5877950095b7abacdca979bc7ad709192eee2))
+
 ## [2.194.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.194.0...v2.194.1-dev.1) (2023-10-13)
 
 
