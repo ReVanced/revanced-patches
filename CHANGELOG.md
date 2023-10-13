@@ -1,3 +1,10 @@
+## [2.194.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.194.0...v2.194.1-dev.1) (2023-10-13)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Hide new channel watermark component ([cbfd569](https://github.com/ReVanced/revanced-patches/commit/cbfd5691d31ed144eac1d23de918ab5a6a905dfa))
+
 # [2.194.0](https://github.com/ReVanced/revanced-patches/compare/v2.193.0...v2.194.0) (2023-10-12)
 
 
