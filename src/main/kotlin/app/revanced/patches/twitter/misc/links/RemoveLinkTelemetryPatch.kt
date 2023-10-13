@@ -19,13 +19,7 @@ object RemoveLinkTelemetryPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
         // Remove telemetry from links
-        AddTelemetryToLinkFingerprint.result?.apply {
-            this.mutableMethod.addInstruction(
-                0,
-                """
-                    return-object p0
-                """
-            )
-        } ?: throw AddTelemetryToLinkFingerprint.exception
+        AddTelemetryToLinkFingerprint.result?.mutableMethod?.addInstruction(0, "return-object p0")
+            ?: throw AddTelemetryToLinkFingerprint.exception
     }
 }
