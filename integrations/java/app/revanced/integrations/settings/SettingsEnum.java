@@ -123,6 +123,7 @@ public enum SettingsEnum {
     HIDE_SUBSCRIPTIONS_BUTTON("revanced_hide_subscriptions_button", BOOLEAN, FALSE, true),
     HIDE_TIMESTAMP("revanced_hide_timestamp", BOOLEAN, FALSE),
     HIDE_VIDEO_WATERMARK("revanced_hide_video_watermark", BOOLEAN, TRUE),
+    HIDE_VIDEO_CHANNEL_WATERMARK("revanced_hide_channel_watermark", BOOLEAN, TRUE),
     PLAYER_POPUP_PANELS("revanced_hide_player_popup_panels", BOOLEAN, FALSE),
     SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON("revanced_switch_create_with_notifications_button", BOOLEAN, TRUE, true),
     SPOOF_APP_VERSION("revanced_spoof_app_version", BOOLEAN, FALSE, true, "revanced_spoof_app_version_user_dialog_message"),
@@ -373,6 +374,8 @@ public enum SettingsEnum {
         }
 
         // region Migration
+
+        migrateOldSettingToNew(HIDE_VIDEO_WATERMARK, HIDE_VIDEO_CHANNEL_WATERMARK);
 
         // Do _not_ delete this SB private user id migration property until sometime in 2024.
         // This is the only setting that cannot be reconfigured if lost,
