@@ -23,7 +23,7 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 @Patch(
     name = "Change link sharing domain",
-    description = "Replaces the default Twitter share domain.",
+    description = "Replaces the domain name of Twitter links when sharing them.",
     compatiblePackages = [CompatiblePackage("com.twitter.android")]
 )
 @Suppress("unused")
