@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.fix.playback.fingerprints
 
-import app.revanced.extensions.containsConstantInstructionValue
+import app.revanced.extensions.containsWideLiteralInstructionValue
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -18,6 +18,6 @@ object PlayerResponseModelImplFingerprint : MethodFingerprint(
     customFingerprint = handler@{ methodDef, _ ->
         if (!methodDef.definingClass.endsWith("/PlayerResponseModelImpl;")) return@handler false
 
-        methodDef.containsConstantInstructionValue(55735497)
+        methodDef.containsWideLiteralInstructionValue(55735497)
     }
 )

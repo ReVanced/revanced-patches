@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.player.overlay
 
 import app.revanced.extensions.exception
-import app.revanced.extensions.indexOfFirstConstantInstructionValue
+import app.revanced.extensions.indexOfFirstWideLiteralInstructionValue
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -27,7 +27,7 @@ object CustomPlayerOverlayOpacityPatch : BytecodePatch(setOf(CreatePlayerOvervie
         CreatePlayerOverviewFingerprint.result?.let { result ->
             result.mutableMethod.apply {
                 val viewRegisterIndex =
-                    indexOfFirstConstantInstructionValue(CustomPlayerOverlayOpacityResourcePatch.scrimOverlayId) + 3
+                    indexOfFirstWideLiteralInstructionValue(CustomPlayerOverlayOpacityResourcePatch.scrimOverlayId) + 3
                 val viewRegister =
                     getInstruction<OneRegisterInstruction>(viewRegisterIndex).registerA
 
