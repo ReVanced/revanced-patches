@@ -1,3 +1,10 @@
+# [2.195.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.195.0-dev.1...v2.195.0-dev.2) (2023-10-14)
+
+
+### Bug Fixes
+
+* Indent option description correctly ([d4a9ea1](https://github.com/ReVanced/revanced-patches/commit/d4a9ea1f6c7ab9d25fd60695cce0965c7b5269a4))
+
 # [2.195.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.194.1-dev.1...v2.195.0-dev.1) (2023-10-13)
 
 
