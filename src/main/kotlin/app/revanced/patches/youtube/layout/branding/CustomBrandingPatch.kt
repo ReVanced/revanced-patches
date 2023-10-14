@@ -8,6 +8,7 @@ import app.revanced.patcher.patch.options.types.StringPatchOption.Companion.stri
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 import java.io.File
+import java.nio.file.Files
 
 @Patch(
     name = "Custom branding",
