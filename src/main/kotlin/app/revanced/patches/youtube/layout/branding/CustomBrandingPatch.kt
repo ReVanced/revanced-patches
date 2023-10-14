@@ -8,7 +8,6 @@ import app.revanced.patcher.patch.options.types.StringPatchOption.Companion.stri
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 import java.io.File
-import java.nio.file.Files
 
 @Patch(
     name = "Custom branding",
@@ -47,15 +46,18 @@ object CustomBrandingPatch : ResourcePatch() {
         key = "iconPath",
         default = null,
         title = "App icon path",
-        description =  """
+        description = """
             The path to a folder containing the following folders:
-            
+
             ${mipmapDirectories.joinToString("\n") { "- $it" }}
-            
+
             Each of these folders has to have the following files:
-            
+
             ${iconResourceFileNames.joinToString("\n") { "- $it" }}
-        """.trimIndent()
+        """
+            .split("\n")
+            .joinToString("\n") { it.trimIndent() } // Remove the leading whitespace from each line.
+            .trimIndent(), // Remove the leading newline.
     )
 
     override fun execute(context: ResourceContext) {
