@@ -5,7 +5,7 @@ import app.revanced.integrations.shared.PlayerType;
 public class MinimizedPlaybackPatch {
 
     public static boolean isPlaybackNotShort() {
-        return !PlayerType.getCurrent().isNoneOrHidden();
+        return !PlayerType.getCurrent().isNoneHiddenOrSlidingMinimized();
     }
 
     public static boolean overrideMinimizedPlaybackAvailable() {
