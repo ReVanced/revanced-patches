@@ -27,10 +27,13 @@ public final class OldVideoQualityMenuPatch {
                 // Check if the current view is the quality menu.
                 if (VideoQualityMenuFilterPatch.isVideoQualityMenuVisible) {
                     VideoQualityMenuFilterPatch.isVideoQualityMenuVisible = false;
-                    ((ViewGroup) recyclerView.getParent().getParent().getParent()).setVisibility(View.GONE);
 
-                    // Click the "Advanced" quality menu to show the "old" quality menu.
-                    ((ViewGroup) recyclerView.getChildAt(0)).getChildAt(3).performClick();
+                    ((ViewGroup) recyclerView.getParent().getParent().getParent()).setVisibility(View.GONE);
+                    View advancedQualityView = ((ViewGroup) recyclerView.getChildAt(0)).getChildAt(3);
+                    if (advancedQualityView != null) {
+                        // Click the "Advanced" quality menu to show the "old" quality menu.
+                        advancedQualityView.performClick();
+                    }
                 }
             } catch (Exception ex) {
                 LogHelper.printException(() -> "onFlyoutMenuCreate failure", ex);
