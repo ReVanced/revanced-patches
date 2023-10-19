@@ -1,3 +1,10 @@
+# [2.195.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v2.195.0-dev.2...v2.195.0-dev.3) (2023-10-19)
+
+
+### Features
+
+* **YouTube:** Add `Spoof device dimensions` patch ([c8d409e](https://github.com/ReVanced/revanced-patches/commit/c8d409e1dbda6ac45fef01912ce7afad1022b4b7))
+
 # [2.195.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.195.0-dev.1...v2.195.0-dev.2) (2023-10-14)
 
 
