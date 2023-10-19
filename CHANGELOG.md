@@ -1,3 +1,10 @@
+# [2.195.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v2.195.0-dev.3...v2.195.0-dev.4) (2023-10-19)
+
+
+### Bug Fixes
+
+* **Reddit - Sanitize sharing links:** Restore compatibility with newer versions of the app ([1671d8d](https://github.com/ReVanced/revanced-patches/commit/1671d8d826a08273fae5ccffc4a4ebfef9648fe2))
+
 # [2.195.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v2.195.0-dev.2...v2.195.0-dev.3) (2023-10-19)
 
 
