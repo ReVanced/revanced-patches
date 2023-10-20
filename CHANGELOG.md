@@ -1,3 +1,15 @@
+# [2.196.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.195.1-dev.2...v2.196.0-dev.1) (2023-10-20)
+
+
+### Bug Fixes
+
+* **YouTube - Announcements:** Do not end descriptions with punctuation ([17e414d](https://github.com/ReVanced/revanced-patches/commit/17e414d32b41b66441382d123aa4c16c2547f2c9))
+
+
+### Features
+
+* **YouTube - Announcements:** Clarify announcements origin ([03bb7d3](https://github.com/ReVanced/revanced-patches/commit/03bb7d3cff419c5214cf5bc0e5298e612b678d98))
+
 ## [2.195.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.195.1-dev.1...v2.195.1-dev.2) (2023-10-20)
 
 
