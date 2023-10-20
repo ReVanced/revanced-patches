@@ -2,8 +2,11 @@ package app.revanced.integrations.utils;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.net.ConnectivityManager;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
@@ -25,8 +28,35 @@ public class ReVancedUtils {
     @SuppressLint("StaticFieldLeak")
     public static Context context;
 
+    private static String versionName;
+
     private ReVancedUtils() {
     } // utility class
+
+    public static String getVersionName() {
+        if (versionName != null) return versionName;
+
+        PackageInfo packageInfo;
+        try {
+            final var packageName = Objects.requireNonNull(getContext()).getPackageName();
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
+                packageInfo = context.getPackageManager().getPackageInfo(
+                        packageName,
+                        PackageManager.PackageInfoFlags.of(0)
+                );
+            else
+                packageInfo = context.getPackageManager().getPackageInfo(
+                        packageName,
+                        0
+                );
+        } catch (PackageManager.NameNotFoundException e) {
+            LogHelper.printException(() -> "Failed to get package info", e);
+            return null;
+        }
+
+        return versionName = packageInfo.versionName;
+    }
 
     /**
      * Hide a view by setting its layout height and width to 1dp.

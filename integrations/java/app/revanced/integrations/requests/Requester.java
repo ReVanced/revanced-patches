@@ -1,5 +1,6 @@
 package app.revanced.integrations.requests;
 
+import app.revanced.integrations.utils.ReVancedUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,7 +24,7 @@ public class Requester {
         String url = apiUrl + route.getCompiledRoute();
         HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
         connection.setRequestMethod(route.getMethod().name());
-        connection.setRequestProperty("User-agent", System.getProperty("http.agent") + ";revanced");
+        connection.setRequestProperty("User-Agent", System.getProperty("http.agent") + "; ReVanced/" + ReVancedUtils.getVersionName());
 
         return connection;
     }

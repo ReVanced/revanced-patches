@@ -10,10 +10,7 @@ import app.revanced.integrations.utils.StringRef;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 import static app.revanced.integrations.settings.SettingsEnum.ReturnType.*;
 import static app.revanced.integrations.settings.SharedPrefCategory.RETURN_YOUTUBE_DISLIKE;
@@ -179,6 +176,9 @@ public enum SettingsEnum {
             parents(SPOOF_SIGNATURE)),
     SPOOF_DEVICE_DIMENSIONS("revanced_spoof_device_dimensions", BOOLEAN, FALSE, true),
     BYPASS_URL_REDIRECTS("revanced_bypass_url_redirects", BOOLEAN, TRUE),
+    ANNOUNCEMENTS("revanced_announcements", BOOLEAN, TRUE),
+    ANNOUNCEMENT_CONSUMER("revanced_announcement_consumer", STRING, ""),
+    ANNOUNCEMENT_LAST_HASH("revanced_announcement_last_hash", STRING, ""),
 
     // Swipe controls
     SWIPE_BRIGHTNESS("revanced_swipe_brightness", BOOLEAN, TRUE),
@@ -555,6 +555,7 @@ public enum SettingsEnum {
     private boolean includeWithImportExport() {
         switch (this) {
             case RYD_USER_ID: // Not useful to export, no reason to include it.
+            case ANNOUNCEMENT_CONSUMER: // Not useful to export, no reason to include it.
             case SB_LAST_VIP_CHECK:
             case SB_HIDE_EXPORT_WARNING:
             case SB_SEEN_GUIDELINES:
