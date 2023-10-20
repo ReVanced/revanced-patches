@@ -1,3 +1,11 @@
+## [2.195.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.195.1-dev.1...v2.195.1-dev.2) (2023-10-20)
+
+
+### Reverts
+
+* Revert "fix(YouTube - Minimized playback): Fix pip incorrectly showing for Short playback (#3170)" ([4179b16](https://github.com/ReVanced/revanced-patches/commit/4179b166bbdfbe98cc368f4a7ad17419e1b469a9)), closes [#3170](https://github.com/ReVanced/revanced-patches/issues/3170)
+* Revert "chore(release): 2.195.1-dev.1 [skip ci]" ([be0e0e4](https://github.com/ReVanced/revanced-patches/commit/be0e0e40d6396ceebd40c4e43aecd32dfd86cf0f))
+
 # [2.195.0](https://github.com/ReVanced/revanced-patches/compare/v2.194.0...v2.195.0) (2023-10-20)
 
 
