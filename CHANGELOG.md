@@ -1,3 +1,10 @@
+# [2.195.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v2.195.0-dev.4...v2.195.0-dev.5) (2023-10-20)
+
+
+### Features
+
+* **YouTube:** Add `Announcements` patch ([#3166](https://github.com/ReVanced/revanced-patches/issues/3166)) ([f977983](https://github.com/ReVanced/revanced-patches/commit/f97798391ffc3477f781d43817664d31cfcd209a))
+
 # [2.195.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v2.195.0-dev.3...v2.195.0-dev.4) (2023-10-19)
 
 
