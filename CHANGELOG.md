@@ -1,3 +1,10 @@
+## [2.195.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.195.0...v2.195.1-dev.1) (2023-10-20)
+
+
+### Bug Fixes
+
+* **YouTube - Minimized playback:** Fix pip incorrectly showing for Short playback ([#3170](https://github.com/ReVanced/revanced-patches/issues/3170)) ([7a07507](https://github.com/ReVanced/revanced-patches/commit/7a075074af5a923bb9af447a5152dc75053a2e01))
+
 # [2.195.0](https://github.com/ReVanced/revanced-patches/compare/v2.194.0...v2.195.0) (2023-10-20)
 
 
