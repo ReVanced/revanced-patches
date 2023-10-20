@@ -10,10 +10,7 @@ import app.revanced.integrations.utils.StringRef;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 import static app.revanced.integrations.settings.SettingsEnum.ReturnType.*;
 import static app.revanced.integrations.settings.SharedPrefCategory.RETURN_YOUTUBE_DISLIKE;
@@ -123,6 +120,7 @@ public enum SettingsEnum {
     HIDE_SUBSCRIPTIONS_BUTTON("revanced_hide_subscriptions_button", BOOLEAN, FALSE, true),
     HIDE_TIMESTAMP("revanced_hide_timestamp", BOOLEAN, FALSE),
     HIDE_VIDEO_WATERMARK("revanced_hide_video_watermark", BOOLEAN, TRUE),
+    HIDE_VIDEO_CHANNEL_WATERMARK("revanced_hide_channel_watermark", BOOLEAN, TRUE),
     PLAYER_POPUP_PANELS("revanced_hide_player_popup_panels", BOOLEAN, FALSE),
     SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON("revanced_switch_create_with_notifications_button", BOOLEAN, TRUE, true),
     SPOOF_APP_VERSION("revanced_spoof_app_version", BOOLEAN, FALSE, true, "revanced_spoof_app_version_user_dialog_message"),
@@ -130,6 +128,7 @@ public enum SettingsEnum {
     USE_TABLET_MINIPLAYER("revanced_tablet_miniplayer", BOOLEAN, FALSE, true),
     TABLET_LAYOUT("revanced_tablet_layout", BOOLEAN, FALSE, true, "revanced_tablet_layout_user_dialog_message"),
     WIDE_SEARCHBAR("revanced_wide_searchbar", BOOLEAN, FALSE, true),
+    GRADIENT_LOADING_SCREEN("revanced_gradient_loading_screen", BOOLEAN, FALSE),
     SEEKBAR_CUSTOM_COLOR("revanced_seekbar_custom_color", BOOLEAN, TRUE, true),
     SEEKBAR_CUSTOM_COLOR_VALUE("revanced_seekbar_custom_color_value", STRING, "#FF0000", true, parents(SEEKBAR_CUSTOM_COLOR)),
     HIDE_FILTER_BAR_FEED_IN_FEED("revanced_hide_filter_bar_feed_in_feed", BOOLEAN, FALSE, true),
@@ -175,7 +174,11 @@ public enum SettingsEnum {
             "revanced_spoof_signature_verification_enabled_user_dialog_message"),
     SPOOF_SIGNATURE_IN_FEED("revanced_spoof_signature_in_feed_enabled", BOOLEAN, FALSE, false,
             parents(SPOOF_SIGNATURE)),
+    SPOOF_DEVICE_DIMENSIONS("revanced_spoof_device_dimensions", BOOLEAN, FALSE, true),
     BYPASS_URL_REDIRECTS("revanced_bypass_url_redirects", BOOLEAN, TRUE),
+    ANNOUNCEMENTS("revanced_announcements", BOOLEAN, TRUE),
+    ANNOUNCEMENT_CONSUMER("revanced_announcement_consumer", STRING, ""),
+    ANNOUNCEMENT_LAST_HASH("revanced_announcement_last_hash", STRING, ""),
 
     // Swipe controls
     SWIPE_BRIGHTNESS("revanced_swipe_brightness", BOOLEAN, TRUE),
@@ -374,6 +377,8 @@ public enum SettingsEnum {
 
         // region Migration
 
+        migrateOldSettingToNew(HIDE_VIDEO_WATERMARK, HIDE_VIDEO_CHANNEL_WATERMARK);
+
         // Do _not_ delete this SB private user id migration property until sometime in 2024.
         // This is the only setting that cannot be reconfigured if lost,
         // and more time should be given for users who rarely upgrade.
@@ -550,6 +555,7 @@ public enum SettingsEnum {
     private boolean includeWithImportExport() {
         switch (this) {
             case RYD_USER_ID: // Not useful to export, no reason to include it.
+            case ANNOUNCEMENT_CONSUMER: // Not useful to export, no reason to include it.
             case SB_LAST_VIP_CHECK:
             case SB_HIDE_EXPORT_WARNING:
             case SB_SEEN_GUIDELINES:

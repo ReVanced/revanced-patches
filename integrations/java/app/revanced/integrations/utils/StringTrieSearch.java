@@ -11,9 +11,17 @@ import java.util.Objects;
 public final class StringTrieSearch extends TrieSearch<String> {
 
     private static final class StringTrieNode extends TrieNode<String> {
-        TrieNode<String> createNode() {
-            return new StringTrieNode();
+        StringTrieNode() {
+            super();
         }
+        StringTrieNode(char nodeCharacterValue) {
+            super(nodeCharacterValue);
+        }
+        @Override
+        TrieNode<String> createNode(char nodeValue) {
+            return new StringTrieNode(nodeValue);
+        }
+        @Override
         char getCharValue(String text, int index) {
             return text.charAt(index);
         }

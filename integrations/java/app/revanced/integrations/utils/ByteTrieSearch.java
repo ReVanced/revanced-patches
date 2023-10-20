@@ -8,9 +8,17 @@ import java.util.Objects;
 public final class ByteTrieSearch extends TrieSearch<byte[]> {
 
     private static final class ByteTrieNode extends TrieNode<byte[]> {
-        TrieNode<byte[]> createNode() {
-            return new ByteTrieNode();
+        ByteTrieNode() {
+            super();
         }
+        ByteTrieNode(char nodeCharacterValue) {
+            super(nodeCharacterValue);
+        }
+        @Override
+        TrieNode<byte[]> createNode(char nodeCharacterValue) {
+            return new ByteTrieNode(nodeCharacterValue);
+        }
+        @Override
         char getCharValue(byte[] text, int index) {
             return (char) text[index];
         }

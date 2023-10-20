@@ -1,9 +1,10 @@
 package app.revanced.integrations.patches.theme;
 
+import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.ThemeHelper;
 
-public class ThemeLithoComponentsPatch {
+public class ThemePatch {
     // color constants used in relation with litho components
     private static final int[] WHITE_VALUES = {
             -1, // comments chip background
@@ -38,6 +39,10 @@ public class ThemeLithoComponentsPatch {
             if (anyEquals(originalValue, WHITE_VALUES)) return getWhiteColor();
         }
         return originalValue;
+    }
+
+    public static boolean gradientLoadingScreenEnabled() {
+        return SettingsEnum.GRADIENT_LOADING_SCREEN.getBoolean();
     }
 
     private static int getBlackColor() {
