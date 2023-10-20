@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.seekbar
 
 import app.revanced.extensions.exception
-import app.revanced.extensions.indexOfFirstConstantInstructionValue
+import app.revanced.extensions.indexOfFirstWideLiteralInstructionValue
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -30,7 +30,7 @@ object SeekbarColorBytecodePatch : BytecodePatch(
 
     override fun execute(context: BytecodeContext) {
         fun MutableMethod.addColorChangeInstructions(resourceId: Long) {
-            val registerIndex = indexOfFirstConstantInstructionValue(resourceId) + 2
+            val registerIndex = indexOfFirstWideLiteralInstructionValue(resourceId) + 2
             val colorRegister = getInstruction<OneRegisterInstruction>(registerIndex).registerA
             addInstructions(
                 registerIndex + 1,

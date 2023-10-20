@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.player.overlay.fingerprints
 
-import app.revanced.extensions.containsConstantInstructionValue
+import app.revanced.extensions.containsWideLiteralInstructionValue
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patches.youtube.layout.player.overlay.CustomPlayerOverlayOpacityResourcePatch
@@ -17,6 +17,6 @@ object CreatePlayerOverviewFingerprint : MethodFingerprint(
         Opcode.CHECK_CAST
     ),
     customFingerprint = { methodDef, _ ->
-        methodDef.containsConstantInstructionValue(CustomPlayerOverlayOpacityResourcePatch.scrimOverlayId)
+        methodDef.containsWideLiteralInstructionValue(CustomPlayerOverlayOpacityResourcePatch.scrimOverlayId)
     }
 )

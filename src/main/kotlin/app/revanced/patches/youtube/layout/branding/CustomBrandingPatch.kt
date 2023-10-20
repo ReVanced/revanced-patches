@@ -47,15 +47,18 @@ object CustomBrandingPatch : ResourcePatch() {
         key = "iconPath",
         default = null,
         title = "App icon path",
-        description =  """
+        description = """
             The path to a folder containing the following folders:
-            
+
             ${mipmapDirectories.joinToString("\n") { "- $it" }}
-            
+
             Each of these folders has to have the following files:
-            
+
             ${iconResourceFileNames.joinToString("\n") { "- $it" }}
-        """.trimIndent()
+        """
+            .split("\n")
+            .joinToString("\n") { it.trimIndent() } // Remove the leading whitespace from each line.
+            .trimIndent(), // Remove the leading newline.
     )
 
     override fun execute(context: ResourceContext) {

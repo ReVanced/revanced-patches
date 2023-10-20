@@ -1,3 +1,45 @@
+# [2.195.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v2.195.0-dev.4...v2.195.0-dev.5) (2023-10-20)
+
+
+### Features
+
+* **YouTube:** Add `Announcements` patch ([#3166](https://github.com/ReVanced/revanced-patches/issues/3166)) ([f977983](https://github.com/ReVanced/revanced-patches/commit/f97798391ffc3477f781d43817664d31cfcd209a))
+
+# [2.195.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v2.195.0-dev.3...v2.195.0-dev.4) (2023-10-19)
+
+
+### Bug Fixes
+
+* **Reddit - Sanitize sharing links:** Restore compatibility with newer versions of the app ([1671d8d](https://github.com/ReVanced/revanced-patches/commit/1671d8d826a08273fae5ccffc4a4ebfef9648fe2))
+
+# [2.195.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v2.195.0-dev.2...v2.195.0-dev.3) (2023-10-19)
+
+
+### Features
+
+* **YouTube:** Add `Spoof device dimensions` patch ([c8d409e](https://github.com/ReVanced/revanced-patches/commit/c8d409e1dbda6ac45fef01912ce7afad1022b4b7))
+
+# [2.195.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.195.0-dev.1...v2.195.0-dev.2) (2023-10-14)
+
+
+### Bug Fixes
+
+* Indent option description correctly ([d4a9ea1](https://github.com/ReVanced/revanced-patches/commit/d4a9ea1f6c7ab9d25fd60695cce0965c7b5269a4))
+
+# [2.195.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.194.1-dev.1...v2.195.0-dev.1) (2023-10-13)
+
+
+### Features
+
+* **YouTube - Theme:** Disable gradient loading screen ([90d5877](https://github.com/ReVanced/revanced-patches/commit/90d5877950095b7abacdca979bc7ad709192eee2))
+
+## [2.194.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.194.0...v2.194.1-dev.1) (2023-10-13)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Hide new channel watermark component ([cbfd569](https://github.com/ReVanced/revanced-patches/commit/cbfd5691d31ed144eac1d23de918ab5a6a905dfa))
+
 # [2.194.0](https://github.com/ReVanced/revanced-patches/compare/v2.193.0...v2.194.0) (2023-10-12)
 
 
