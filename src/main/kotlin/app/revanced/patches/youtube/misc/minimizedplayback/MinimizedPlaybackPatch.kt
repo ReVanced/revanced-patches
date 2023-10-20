@@ -13,7 +13,7 @@ import app.revanced.patches.shared.settings.preference.impl.NonInteractivePrefer
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.KidsMinimizedPlaybackPolicyControllerFingerprint
-import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackManagerFingerprint
+import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackPlayerResponseProcessorFingerprint
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackSettingsFingerprint
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackSettingsParentFingerprint
 import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
@@ -44,7 +44,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 @Suppress("unused")
 object MinimizedPlaybackPatch : BytecodePatch(
     setOf(
-        MinimizedPlaybackManagerFingerprint,
+        MinimizedPlaybackPlayerResponseProcessorFingerprint,
         MinimizedPlaybackSettingsParentFingerprint,
         KidsMinimizedPlaybackPolicyControllerFingerprint
     )
@@ -63,16 +63,16 @@ object MinimizedPlaybackPatch : BytecodePatch(
             )
         )
 
-        MinimizedPlaybackManagerFingerprint.result?.apply {
+        MinimizedPlaybackPlayerResponseProcessorFingerprint.result?.apply {
             mutableMethod.addInstructions(
                 0,
                 """
-                    invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->isPlaybackNotShort()Z
+                    invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->videoSupportsMinimizedPlayback()Z
                     move-result v0
                     return v0
                 """
             )
-        } ?: throw MinimizedPlaybackManagerFingerprint.exception
+        } ?: throw MinimizedPlaybackPlayerResponseProcessorFingerprint.exception
 
         // Enable minimized playback option in YouTube settings
         MinimizedPlaybackSettingsParentFingerprint.result ?: throw MinimizedPlaybackSettingsParentFingerprint.exception
