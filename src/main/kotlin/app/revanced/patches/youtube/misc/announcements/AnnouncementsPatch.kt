@@ -43,7 +43,7 @@ object AnnouncementsPatch : BytecodePatch(
                 "revanced_announcements",
                 StringResource(
                     "revanced_announcements_title",
-                    "Show announcements"
+                    "Show announcements from ReVanced"
                 ),
                 StringResource(
                     "revanced_announcements_summary_on",
