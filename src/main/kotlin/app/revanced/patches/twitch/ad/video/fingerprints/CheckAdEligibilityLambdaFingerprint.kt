@@ -1,6 +1,6 @@
 package app.revanced.patches.twitch.ad.video.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object CheckAdEligibilityLambdaFingerprint : MethodFingerprint(
     returnType = "Lio/reactivex/Single;",

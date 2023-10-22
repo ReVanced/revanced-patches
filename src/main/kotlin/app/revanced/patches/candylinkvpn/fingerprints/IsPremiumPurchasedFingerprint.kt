@@ -1,6 +1,6 @@
 package app.revanced.patches.candylinkvpn.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object IsPremiumPurchasedFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->

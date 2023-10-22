@@ -1,6 +1,6 @@
 package app.revanced.patches.tiktok.misc.settings.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object AdPersonalizationActivityOnCreateFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->

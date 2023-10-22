@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.sponsorblock.fingerprints
 
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 

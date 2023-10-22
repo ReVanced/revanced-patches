@@ -2,7 +2,7 @@ package app.revanced.patches.reddit.customclients.slide.api
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
+import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.reddit.customclients.AbstractSpoofClientPatch

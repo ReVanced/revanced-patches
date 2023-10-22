@@ -1,6 +1,6 @@
 package app.revanced.patches.reddit.misc.tracking.url.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object ShareLinkFormatterFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, classDef ->

@@ -1,6 +1,6 @@
 package app.revanced.patches.twelvewidgets.unlock.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 abstract class MethodUnlockFingerprint(private val className: String) : MethodFingerprint(
     "L",

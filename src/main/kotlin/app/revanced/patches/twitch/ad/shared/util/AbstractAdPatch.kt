@@ -3,7 +3,7 @@ package app.revanced.patches.twitch.ad.shared.util
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 

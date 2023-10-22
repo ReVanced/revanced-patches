@@ -1,6 +1,6 @@
 package app.revanced.patches.twitch.ad.embedded.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object CreateUsherClientFingerprint : MethodFingerprint(
     customFingerprint = { method, _ ->

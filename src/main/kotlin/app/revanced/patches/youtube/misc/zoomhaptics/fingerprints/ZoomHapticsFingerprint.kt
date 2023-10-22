@@ -1,5 +1,5 @@
 package app.revanced.patches.youtube.misc.zoomhaptics.fingerprints
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object ZoomHapticsFingerprint : MethodFingerprint(
     strings = listOf(

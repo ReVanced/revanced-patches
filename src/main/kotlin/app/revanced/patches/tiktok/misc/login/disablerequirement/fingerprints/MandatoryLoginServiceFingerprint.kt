@@ -1,6 +1,6 @@
 package app.revanced.patches.tiktok.misc.login.disablerequirement.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 object MandatoryLoginServiceFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("/MandatoryLoginService;") &&

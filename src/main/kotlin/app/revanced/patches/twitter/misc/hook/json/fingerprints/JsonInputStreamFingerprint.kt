@@ -1,6 +1,6 @@
 package app.revanced.patches.twitter.misc.hook.json.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object JsonInputStreamFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->

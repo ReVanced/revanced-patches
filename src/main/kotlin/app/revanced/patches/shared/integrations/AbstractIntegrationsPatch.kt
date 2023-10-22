@@ -2,7 +2,7 @@ package app.revanced.patches.shared.integrations
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patches.shared.integrations.AbstractIntegrationsPatch.IntegrationsFingerprint.RegisterResolver

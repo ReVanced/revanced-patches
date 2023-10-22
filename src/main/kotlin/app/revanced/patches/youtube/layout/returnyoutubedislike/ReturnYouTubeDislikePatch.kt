@@ -7,8 +7,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch

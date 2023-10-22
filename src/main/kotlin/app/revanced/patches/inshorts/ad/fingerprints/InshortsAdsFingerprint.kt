@@ -1,6 +1,6 @@
 package app.revanced.patches.inshorts.ad.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object InshortsAdsFingerprint : MethodFingerprint(
     "V",

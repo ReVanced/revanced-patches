@@ -2,7 +2,7 @@ package app.revanced.extensions
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod

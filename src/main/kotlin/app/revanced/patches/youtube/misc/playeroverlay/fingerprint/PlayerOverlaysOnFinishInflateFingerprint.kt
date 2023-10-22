@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.misc.playeroverlay.fingerprint
 
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object PlayerOverlaysOnFinishInflateFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->

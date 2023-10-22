@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.layout.seekbar.fingerprints
 
 import app.revanced.extensions.containsWideLiteralInstructionValue
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.layout.seekbar.SeekbarColorResourcePatch
 import com.android.tools.smali.dexlib2.AccessFlags
 

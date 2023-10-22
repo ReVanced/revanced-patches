@@ -1,6 +1,6 @@
 package app.revanced.patches.reddit.customclients.syncforreddit.annoyances.startup.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object MainActivityOnCreate : MethodFingerprint(
     customFingerprint = custom@{ method, classDef ->

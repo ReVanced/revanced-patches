@@ -1,6 +1,6 @@
 package app.revanced.patches.iconpackstudio.misc.pro.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object CheckProFingerprint : MethodFingerprint(
     "Z",

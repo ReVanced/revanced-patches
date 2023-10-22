@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.ad.video.fingerprints
 
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object LoadVideoAdsFingerprint : MethodFingerprint(
     strings = listOf(

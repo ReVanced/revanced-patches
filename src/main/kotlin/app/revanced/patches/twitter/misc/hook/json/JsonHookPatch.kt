@@ -3,8 +3,7 @@ package app.revanced.patches.twitter.misc.hook.json
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch

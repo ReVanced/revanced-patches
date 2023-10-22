@@ -24,7 +24,6 @@ repositories {
 dependencies {
     implementation(libs.revanced.patcher)
     implementation(libs.smali)
-    implementation(libs.revanced.patch.annotation.processor)
     // TODO: Required because build fails without it. Find a way to remove this dependency.
     implementation(libs.guava)
     // Used in JsonGenerator.
@@ -32,8 +31,6 @@ dependencies {
 
     // A dependency to the Android library unfortunately fails the build, which is why this is required.
     compileOnly(project("dummy"))
-
-    ksp(libs.revanced.patch.annotation.processor)
 }
 
 kotlin {

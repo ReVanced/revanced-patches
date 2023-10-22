@@ -8,8 +8,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
