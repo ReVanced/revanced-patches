@@ -52,6 +52,17 @@ object ThemeBytecodePatch : BytecodePatch(
     internal val darkThemeBackgroundColor by stringPatchOption(
         key = "darkThemeBackgroundColor",
         default = AMOLED_BLACK_COLOR,
+        values = mapOf(
+            "Amoled black" to AMOLED_BLACK_COLOR,
+            "Material You" to "@android:color/system_neutral1_900",
+            "Catppuccin (Mocha)" to "#FF181825",
+            "Dark pink" to "#FF290025",
+            "Dark blue" to "#FF001029",
+            "Dark green" to "#FF002905",
+            "Dark yellow" to "#FF282900",
+            "Dark orange" to "#FF291800",
+            "Dark red" to "#FF290000"
+        ),
         title = "Dark theme background color",
         description = "The background color of the dark theme. Can be a hex color or a resource reference.",
     )
@@ -59,6 +70,17 @@ object ThemeBytecodePatch : BytecodePatch(
     internal val lightThemeBackgroundColor by stringPatchOption(
         key = "lightThemeBackgroundColor",
         default = WHITE_COLOR,
+        values = mapOf(
+            "White" to WHITE_COLOR,
+            "Material You" to "@android:color/system_neutral1_50",
+            "Catppuccin (Latte)" to "#FFE6E9EF",
+            "Light pink" to "#FFFCCFF3",
+            "Light blue" to "#FFD1E0FF",
+            "Light green" to "#FFCCFFCC",
+            "Light yellow" to "#FFFDFFCC",
+            "Light orange" to "#FFFFE6CC",
+            "Light red" to "#FFFFD6D6"
+        ),
         title = "Light theme background color",
         description = "The background color of the light theme. Can be a hex color or a resource reference.",
     )
