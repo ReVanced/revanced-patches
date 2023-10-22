@@ -1,8 +1,7 @@
 import org.gradle.kotlin.dsl.support.listFilesOrdered
 
 plugins {
-    kotlin("jvm") version "1.8.20"
-    alias(libs.plugins.ksp)
+    kotlin("jvm") version "1.9.10"
     `maven-publish`
 }
 
