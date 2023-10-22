@@ -1,3 +1,10 @@
+# [2.196.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.196.0-dev.1...v2.196.0-dev.2) (2023-10-22)
+
+
+### Features
+
+* **YouTube - Announcements:** Clarify announcements origin in patch description ([#3175](https://github.com/ReVanced/revanced-patches/issues/3175)) ([0a04500](https://github.com/ReVanced/revanced-patches/commit/0a0450075a6af913de0c8b414103e491e5ff8e72))
+
 # [2.196.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.195.1-dev.2...v2.196.0-dev.1) (2023-10-20)
 
 
