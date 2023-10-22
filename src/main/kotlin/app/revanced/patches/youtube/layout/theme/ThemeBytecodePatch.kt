@@ -64,7 +64,7 @@ object ThemeBytecodePatch : BytecodePatch(
             "Dark red" to "#FF290000"
         ),
         title = "Dark theme background color",
-        description = "The background color of the dark theme. Can be a hex color or a resource reference.",
+        description = "Can be a hex color (#AARRGGBB) or a color resource reference.",
     )
 
     internal val lightThemeBackgroundColor by stringPatchOption(
@@ -82,7 +82,7 @@ object ThemeBytecodePatch : BytecodePatch(
             "Light red" to "#FFFFD6D6"
         ),
         title = "Light theme background color",
-        description = "The background color of the light theme. Can be a hex color or a resource reference.",
+        description = "Can be a hex color or a color resource reference.",
     )
 
     override fun execute(context: BytecodeContext) {
