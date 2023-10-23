@@ -126,6 +126,21 @@ object HideLayoutComponentsPatch : BytecodePatch(
                 )
             ),
             SwitchPreference(
+                "revanced_hide_video_quality_menu_footer",
+                StringResource(
+                    "revanced_hide_video_quality_menu_footer_title",
+                    "Hide video quality menu footer"
+                ),
+                StringResource(
+                    "revanced_hide_video_quality_menu_footer_summary_on",
+                    "Video quality menu footer is hidden"
+                ),
+                StringResource(
+                    "revanced_hide_video_quality_menu_footer_summary_off",
+                    "Video quality menu footer is shown"
+                )
+            ),
+            SwitchPreference(
                 "revanced_hide_chapters",
                 StringResource(
                     "revanced_hide_chapters_title",
