@@ -1,3 +1,10 @@
+# [2.196.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v2.196.0-dev.3...v2.196.0-dev.4) (2023-10-23)
+
+
+### Features
+
+* **YouTube - Hide layout components:** Hide video quality menu footer ([0f9e6e7](https://github.com/ReVanced/revanced-patches/commit/0f9e6e751fe4822c92afd7176e6be67d1afe566f))
+
 # [2.196.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v2.196.0-dev.2...v2.196.0-dev.3) (2023-10-23)
 
 
