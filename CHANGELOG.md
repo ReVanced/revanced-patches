@@ -1,3 +1,11 @@
+# [2.196.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v2.196.0-dev.2...v2.196.0-dev.3) (2023-10-23)
+
+
+### Features
+
+* **YouTube - Theme:** Add set of light and dark themes to chose from ([cf6006c](https://github.com/ReVanced/revanced-patches/commit/cf6006cc83909b60acaad374ddaac5de902eb604))
+* **YouTube - Theme:** Improve patch option descriptions ([5d3008a](https://github.com/ReVanced/revanced-patches/commit/5d3008a5afa8961a04ce09782574a4c19343951b))
+
 # [2.196.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.196.0-dev.1...v2.196.0-dev.2) (2023-10-22)
 
 
