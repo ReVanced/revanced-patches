@@ -120,6 +120,11 @@ public final class LayoutComponentsFilter extends Filter {
                 "inline_expander"
         );
 
+        final var videoQualityMenuFooter = new StringFilterGroup(
+                SettingsEnum.HIDE_VIDEO_QUALITY_MENU_FOOTER,
+                "quality_sheet_footer"
+        );
+
         final var chapters = new StringFilterGroup(
                 SettingsEnum.HIDE_CHAPTERS,
                 "macro_markers_carousel"
@@ -196,6 +201,7 @@ public final class LayoutComponentsFilter extends Filter {
                 joinMembership,
                 medicalPanel,
                 notifyMe,
+                videoQualityMenuFooter,
                 infoPanel,
                 subscribersCommunityGuidelines,
                 channelGuidelines,
