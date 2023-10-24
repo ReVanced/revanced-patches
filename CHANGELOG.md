@@ -1,3 +1,10 @@
+# [2.196.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v2.196.0-dev.5...v2.196.0-dev.6) (2023-10-24)
+
+
+### Bug Fixes
+
+* **YouTube - ReturnYouTubeDislike:** Fix RYD prefetching home feed Shorts ([#3195](https://github.com/ReVanced/revanced-patches/issues/3195)) ([f3726fe](https://github.com/ReVanced/revanced-patches/commit/f3726fefb9a80cccbf12f3ec455d1720b385782e))
+
 # [2.196.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v2.196.0-dev.4...v2.196.0-dev.5) (2023-10-24)
 
 
