@@ -53,9 +53,9 @@ public final class ReturnYouTubeDislikeFilterPatch extends Filter {
     /**
      * Injection point.
      */
-    public static void newPlayerResponseVideoId(String videoId) {
+    public static void newPlayerResponseVideoId(String videoId, boolean videoIsOpeningOrPlaying) {
         try {
-            if (!SettingsEnum.RYD_SHORTS.getBoolean()) {
+            if (!videoIsOpeningOrPlaying || !SettingsEnum.RYD_SHORTS.getBoolean()) {
                 return;
             }
             synchronized (lastVideoIds) {
