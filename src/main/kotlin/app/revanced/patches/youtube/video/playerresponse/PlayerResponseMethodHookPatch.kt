@@ -19,6 +19,7 @@ object PlayerResponseMethodHookPatch :
     Closeable,
     MutableSet<PlayerResponseMethodHookPatch.Hook> by mutableSetOf() {
     private const val VIDEO_ID_PARAMETER = 1
+    private const val VIDEO_IS_OPENING_OR_PLAYING_PARAMETER = 11
     private const val PROTO_BUFFER_PARAMETER_PARAMETER = 3
 
     private lateinit var playerResponseMethod: MutableMethod
@@ -30,7 +31,7 @@ object PlayerResponseMethodHookPatch :
 
     override fun close() {
         fun hookVideoId(hook: Hook) = playerResponseMethod.addInstruction(
-            0, "invoke-static {p$VIDEO_ID_PARAMETER}, $hook"
+            0, "invoke-static {p$VIDEO_ID_PARAMETER, p$VIDEO_IS_OPENING_OR_PLAYING_PARAMETER}, $hook"
         )
 
         fun hookProtoBufferParameter(hook: Hook) = playerResponseMethod.addInstructions(

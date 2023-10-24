@@ -58,7 +58,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
         VideoIdPatch.hookVideoId("$INTEGRATIONS_CLASS_DESCRIPTOR->newVideoLoaded(Ljava/lang/String;)V")
 
         // Hook the player response video id, to start loading RYD sooner in the background.
-        VideoIdPatch.hookPlayerResponseVideoId("$INTEGRATIONS_CLASS_DESCRIPTOR->preloadVideoId(Ljava/lang/String;)V")
+        VideoIdPatch.hookPlayerResponseVideoId("$INTEGRATIONS_CLASS_DESCRIPTOR->preloadVideoId(Ljava/lang/String;Z)V")
 
         // endregion
 
@@ -184,7 +184,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
 
         // Player response video id is needed to search for the video ids in Shorts litho components.
-        VideoIdPatch.hookPlayerResponseVideoId("$FILTER_CLASS_DESCRIPTOR->newPlayerResponseVideoId(Ljava/lang/String;)V")
+        VideoIdPatch.hookPlayerResponseVideoId("$FILTER_CLASS_DESCRIPTOR->newPlayerResponseVideoId(Ljava/lang/String;Z)V")
 
         // endregion
 

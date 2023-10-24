@@ -114,7 +114,7 @@ object VideoInformationPatch : BytecodePatch(
         VideoIdPatch.hookVideoId(videoIdMethodDescriptor)
         VideoIdPatch.hookBackgroundPlayVideoId(videoIdMethodDescriptor)
         VideoIdPatch.hookPlayerResponseVideoId(
-            "$INTEGRATIONS_CLASS_DESCRIPTOR->setPlayerResponseVideoId(Ljava/lang/String;)V")
+            "$INTEGRATIONS_CLASS_DESCRIPTOR->setPlayerResponseVideoId(Ljava/lang/String;Z)V")
 
         /*
          * Set the video time method
