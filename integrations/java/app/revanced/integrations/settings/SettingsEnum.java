@@ -147,7 +147,7 @@ public enum SettingsEnum {
     HIDE_SHORTS_CHANNEL_BAR("revanced_hide_shorts_channel_bar", BOOLEAN, FALSE),
     HIDE_SHORTS_NAVIGATION_BAR("revanced_hide_shorts_navigation_bar", BOOLEAN, TRUE, true),
     HIDE_SHORTS("revanced_hide_shorts", BOOLEAN, FALSE, true),
-
+    DISABLE_FULLSCREEN_AMBIENT_MODE("revanced_disable_fullscreen_ambient_mode", BOOLEAN, TRUE, true),
     ALT_THUMBNAIL("revanced_alt_thumbnail", BOOLEAN, FALSE),
     ALT_THUMBNAIL_TYPE("revanced_alt_thumbnail_type", INTEGER, 2, parents(ALT_THUMBNAIL)),
     ALT_THUMBNAIL_FAST_QUALITY("revanced_alt_thumbnail_fast_quality", BOOLEAN, FALSE, parents(ALT_THUMBNAIL)),
