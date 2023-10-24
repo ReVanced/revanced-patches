@@ -46,8 +46,8 @@ object ThemeBytecodePatch : BytecodePatch(
 
     internal const val GRADIENT_LOADING_SCREEN_AB_CONSTANT = 45412406L
 
-    private const val AMOLED_BLACK_COLOR = "#@android:color/black"
-    private const val WHITE_COLOR = "#@android:color/white"
+    private const val AMOLED_BLACK_COLOR = "@android:color/black"
+    private const val WHITE_COLOR = "@android:color/white"
 
     internal val darkThemeBackgroundColor by stringPatchOption(
         key = "darkThemeBackgroundColor",
