@@ -1,3 +1,11 @@
+# [2.196.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v2.196.0-dev.6...v2.196.0-dev.7) (2023-10-24)
+
+
+### Features
+
+* **YouTube:** Add `Disable fullscreen ambient mode` patch ([2a5514a](https://github.com/ReVanced/revanced-patches/commit/2a5514a6b3df076d5bc2cdc4459df30bca18f396))
+* **YouTube:** Add `Disable suggested video end screen` patch ([09f1684](https://github.com/ReVanced/revanced-patches/commit/09f168406c36fb71e12c6c1875a765a86ec2b4f9))
+
 # [2.196.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v2.196.0-dev.5...v2.196.0-dev.6) (2023-10-24)
 
 
