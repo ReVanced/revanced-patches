@@ -31,7 +31,7 @@ final class PlayerRoutes {
 
             JSONObject client = new JSONObject();
             client.put("clientName", "ANDROID");
-            client.put("clientVersion", "18.37.36");
+            client.put("clientVersion", ReVancedUtils.getVersionName());
             client.put("androidSdkVersion", 34);
 
             context.put("client", client);
