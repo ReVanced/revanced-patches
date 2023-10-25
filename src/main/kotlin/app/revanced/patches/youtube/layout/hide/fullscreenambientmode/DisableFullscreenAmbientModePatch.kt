@@ -15,7 +15,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 @Patch(
     name = "Disable fullscreen ambient mode",
     description = "Disables the ambient mode when in fullscreen.",
-    dependencies = [IntegrationsPatch::class, SettingsPatch::class, IntegrationsPatch::class],
+    dependencies = [SettingsPatch::class, IntegrationsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
