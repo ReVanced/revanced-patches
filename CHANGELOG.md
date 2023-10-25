@@ -1,3 +1,10 @@
+# [2.196.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v2.196.0-dev.9...v2.196.0-dev.10) (2023-10-25)
+
+
+### Features
+
+* **YouTube - Client spoof:** Update current video id ([9937b8f](https://github.com/ReVanced/revanced-patches/commit/9937b8fc7e7df6c850073da6faeeb70f82977cd1))
+
 # [2.196.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v2.196.0-dev.8...v2.196.0-dev.9) (2023-10-25)
 
 
