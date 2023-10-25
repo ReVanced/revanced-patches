@@ -1,3 +1,10 @@
+# [2.196.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v2.196.0-dev.10...v2.196.0-dev.11) (2023-10-25)
+
+
+### Bug Fixes
+
+* **YouTube - Custom branding:** Set default values for patch options ([2ba31f1](https://github.com/ReVanced/revanced-patches/commit/2ba31f13012284f4ae9d556cbaa01dc128f193df))
+
 # [2.196.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v2.196.0-dev.9...v2.196.0-dev.10) (2023-10-25)
 
 
