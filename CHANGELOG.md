@@ -1,3 +1,11 @@
+# [2.196.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v2.196.0-dev.8...v2.196.0-dev.9) (2023-10-25)
+
+
+### Features
+
+* **YouTube - Disable precise seeking gesture:** Use better patch name ([88cce59](https://github.com/ReVanced/revanced-patches/commit/88cce592adde46bc2811596772c03d275352be4b))
+* **YouTube:** Add `Enable old seekbar thumbnails` patch ([e97e0e6](https://github.com/ReVanced/revanced-patches/commit/e97e0e6631f64e12b8d45d8cacbc059d5fc72e0c))
+
 # [2.196.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v2.196.0-dev.7...v2.196.0-dev.8) (2023-10-25)
 
 
