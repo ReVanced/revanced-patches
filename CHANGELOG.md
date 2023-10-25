@@ -1,3 +1,10 @@
+# [2.196.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v2.196.0-dev.7...v2.196.0-dev.8) (2023-10-25)
+
+
+### Features
+
+* **ID Austria:** Constrain compatibility to last working version ([#3196](https://github.com/ReVanced/revanced-patches/issues/3196)) ([79a2416](https://github.com/ReVanced/revanced-patches/commit/79a24164193460acf1b7bac43abdfa2604b02679))
+
 # [2.196.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v2.196.0-dev.6...v2.196.0-dev.7) (2023-10-24)
 
 
