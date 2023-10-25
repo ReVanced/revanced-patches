@@ -10,7 +10,7 @@ import app.revanced.patches.idaustria.detection.root.fingerprints.RootDetectionF
 @Patch(
     name = "Remove root detection",
     description = "Removes the check for root permissions and unlocked bootloader.",
-    compatiblePackages = [CompatiblePackage("at.gv.oe.app")]
+    compatiblePackages = [CompatiblePackage("at.gv.oe.app", ["2.7.1"])]
 )
 @Suppress("unused")
 object RootDetectionPatch : BytecodePatch(
