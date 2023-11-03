@@ -155,8 +155,8 @@ public enum SettingsEnum {
     ALT_THUMBNAIL_FAST_QUALITY("revanced_alt_thumbnail_fast_quality", BOOLEAN, FALSE, parents(ALT_THUMBNAIL)),
 
     //Player flyout menu items
-    HIDE_QUALITY_MENU("revanced_hide_player_flyout_quality", BOOLEAN, FALSE),
     HIDE_CAPTIONS_MENU("revanced_hide_player_flyout_captions", BOOLEAN, FALSE),
+    HIDE_ADDITIONAL_SETTINGS_MENU("revanced_hide_player_flyout_additional_settings", BOOLEAN, FALSE),
     HIDE_LOOP_VIDEO_MENU("revanced_hide_player_flyout_loop_video", BOOLEAN, FALSE),
     HIDE_AMBIENT_MODE_MENU("revanced_hide_player_flyout_ambient_mode", BOOLEAN, FALSE),
     HIDE_REPORT_MENU("revanced_hide_player_flyout_report", BOOLEAN, TRUE),
