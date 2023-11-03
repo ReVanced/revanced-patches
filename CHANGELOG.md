@@ -1,3 +1,10 @@
+# [2.196.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v2.196.0-dev.12...v2.196.0-dev.13) (2023-11-03)
+
+
+### Bug Fixes
+
+* **YouTube - Player flyout menu:** Restore functionality ([#3163](https://github.com/ReVanced/revanced-patches/issues/3163)) ([b5e63c1](https://github.com/ReVanced/revanced-patches/commit/b5e63c11ab21a89e912dd41e307631f479e0ba96))
+
 # [2.196.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v2.196.0-dev.11...v2.196.0-dev.12) (2023-11-03)
 
 # [2.196.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v2.196.0-dev.10...v2.196.0-dev.11) (2023-10-25)
