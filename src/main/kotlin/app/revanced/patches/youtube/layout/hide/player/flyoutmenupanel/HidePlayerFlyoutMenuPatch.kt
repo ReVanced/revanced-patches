@@ -8,6 +8,7 @@ import app.revanced.patches.shared.settings.preference.impl.PreferenceScreen
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
+import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
@@ -15,6 +16,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
     description = "Hides player flyout menu items.",
     dependencies = [
         LithoFilterPatch::class,
+        PlayerTypeHookPatch::class,
         SettingsPatch::class
     ],
     compatiblePackages = [
@@ -44,16 +46,16 @@ object HidePlayerFlyoutMenuPatch : ResourcePatch() {
                 StringResource("${KEY}_title", "Player flyout menu items"),
                 listOf(
                     SwitchPreference(
-                        "${KEY}_quality",
-                        StringResource("${KEY}_quality_title", "Hide Quality menu"),
-                        StringResource("${KEY}_quality_on", "Quality menu item is hidden"),
-                        StringResource("${KEY}_quality_off", "Quality menu item is shown")
-                    ),
-                    SwitchPreference(
                         "${KEY}_captions",
                         StringResource("${KEY}_captions_title", "Hide Captions menu"),
                         StringResource("${KEY}_captions_on", "Captions menu item is hidden"),
                         StringResource("${KEY}_captions_off", "Captions menu item is shown")
+                    ),
+                    SwitchPreference(
+                        "${KEY}_additional_settings",
+                        StringResource("${KEY}_additional_settings_title", "Hide Additional settings menu"),
+                        StringResource("${KEY}_additional_settings_on", "Additional settings menu item is hidden"),
+                        StringResource("${KEY}_additional_settings_off", "Additional settings menu item is shown")
                     ),
                     SwitchPreference(
                         "${KEY}_loop_video",
