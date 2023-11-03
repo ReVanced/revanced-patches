@@ -1,3 +1,5 @@
+# [2.196.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v2.196.0-dev.11...v2.196.0-dev.12) (2023-11-03)
+
 # [2.196.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v2.196.0-dev.10...v2.196.0-dev.11) (2023-10-25)
 
 
