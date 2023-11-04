@@ -1,5 +1,5 @@
 package app.revanced.patches.warnwetter.misc.promocode.fingerprints
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object PromoCodeUnlockFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->

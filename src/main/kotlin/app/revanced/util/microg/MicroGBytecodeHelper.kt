@@ -1,13 +1,12 @@
 package app.revanced.util.microg
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.util.Utils.returnEarly
 import app.revanced.util.microg.Constants.ACTIONS
 import app.revanced.util.microg.Constants.AUTHORITIES
 import app.revanced.util.microg.Constants.MICROG_VENDOR
@@ -211,33 +210,6 @@ internal object MicroGBytecodeHelper {
                     }
                 }
             }
-        }
-    }
-
-    /**
-     * Return the resolved methods of a list of [MethodFingerprint] early.
-     */
-    private fun List<MethodFingerprint>.returnEarly() {
-        this.forEach { fingerprint ->
-            fingerprint.result?.let { result ->
-                val stringInstructions = when (result.method.returnType.first()) {
-                    'L' -> """
-                        const/4 v0, 0x0
-                        return-object v0
-                        """
-
-                    'V' -> "return-void"
-                    'I' -> """
-                        const/4 v0, 0x0
-                        return v0
-                        """
-
-                    else -> throw Exception("This case should never happen.")
-                }
-                result.mutableMethod.addInstructions(
-                    0, stringInstructions
-                )
-            } ?: throw fingerprint.exception
         }
     }
 }

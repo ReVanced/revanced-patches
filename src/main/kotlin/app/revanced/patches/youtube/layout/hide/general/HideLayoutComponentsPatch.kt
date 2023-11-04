@@ -7,7 +7,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
@@ -124,6 +123,21 @@ object HideLayoutComponentsPatch : BytecodePatch(
                 StringResource(
                     "revanced_hide_expandable_chip_summary_off",
                     "Expandable chips are shown"
+                )
+            ),
+            SwitchPreference(
+                "revanced_hide_video_quality_menu_footer",
+                StringResource(
+                    "revanced_hide_video_quality_menu_footer_title",
+                    "Hide video quality menu footer"
+                ),
+                StringResource(
+                    "revanced_hide_video_quality_menu_footer_summary_on",
+                    "Video quality menu footer is hidden"
+                ),
+                StringResource(
+                    "revanced_hide_video_quality_menu_footer_summary_off",
+                    "Video quality menu footer is shown"
                 )
             ),
             SwitchPreference(

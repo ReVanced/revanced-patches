@@ -1,6 +1,6 @@
 package app.revanced.patches.strava.subscription.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
 object GetSubscribedFingerprint : MethodFingerprint(

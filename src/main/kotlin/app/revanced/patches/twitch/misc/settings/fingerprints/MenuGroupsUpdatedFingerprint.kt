@@ -1,6 +1,6 @@
 package app.revanced.patches.twitch.misc.settings.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object MenuGroupsUpdatedFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->

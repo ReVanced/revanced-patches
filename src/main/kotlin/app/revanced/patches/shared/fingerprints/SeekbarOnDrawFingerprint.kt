@@ -1,7 +1,7 @@
 package app.revanced.patches.shared.fingerprints
 
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object SeekbarOnDrawFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ -> methodDef.name == "onDraw" }

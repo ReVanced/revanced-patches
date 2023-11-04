@@ -1,6 +1,6 @@
 package app.revanced.patches.tumblr.featureflags.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
 // This fingerprint targets the method to get the value of a Feature in the class "com.tumblr.configuration.Feature".

@@ -1,6 +1,6 @@
 package app.revanced.patches.photomath.detection.deviceid.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object GetDeviceIdFingerprint : MethodFingerprint(
     returnType = "Ljava/lang/String;",

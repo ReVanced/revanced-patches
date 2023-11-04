@@ -1,6 +1,6 @@
 package app.revanced.patches.googlerecorder.restrictions.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object OnApplicationCreateFingerprint : MethodFingerprint(
     strings = listOf("com.google.android.feature.PIXEL_2017_EXPERIENCE"),

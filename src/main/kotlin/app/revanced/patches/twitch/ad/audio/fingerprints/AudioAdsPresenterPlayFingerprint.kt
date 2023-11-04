@@ -1,7 +1,7 @@
 package app.revanced.patches.twitch.ad.audio.fingerprints
 
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object AudioAdsPresenterPlayFingerprint : MethodFingerprint(
     customFingerprint = { method, _ ->

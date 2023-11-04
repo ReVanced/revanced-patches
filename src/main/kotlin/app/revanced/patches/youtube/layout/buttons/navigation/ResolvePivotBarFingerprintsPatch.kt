@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.layout.buttons.navigation
 
 import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch

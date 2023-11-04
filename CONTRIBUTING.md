@@ -42,7 +42,7 @@
    Continuing the legacy of Vanced
 </p>
 
-# 📙 ReVanced Patches contribution guidelines
+# 👋 Contribution guidelines
 
 This document describes how to contribute to ReVanced Patches.
 

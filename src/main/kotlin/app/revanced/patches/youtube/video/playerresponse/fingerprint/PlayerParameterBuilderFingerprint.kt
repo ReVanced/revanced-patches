@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.video.playerresponse.fingerprint
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
 object PlayerParameterBuilderFingerprint : MethodFingerprint(
@@ -18,7 +18,7 @@ object PlayerParameterBuilderFingerprint : MethodFingerprint(
         "Ljava/lang/String;",
         "Ljava/lang/String;",
         "L",
-        "Z",
+        "Z", // Appears to indicate if the video id is being opened or is currently playing.
         "Z",
         "Z"
     )

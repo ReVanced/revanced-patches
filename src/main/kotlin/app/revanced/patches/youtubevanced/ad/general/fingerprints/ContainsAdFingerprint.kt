@@ -1,11 +1,11 @@
 package app.revanced.patches.youtubevanced.ad.general.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object ContainsAdFingerprint:MethodFingerprint(
+object ContainsAdFingerprint: MethodFingerprint(
     returnType = "Z",
     parameters = listOf("L", "L"),
     accessFlags = AccessFlags.STATIC or AccessFlags.PUBLIC,

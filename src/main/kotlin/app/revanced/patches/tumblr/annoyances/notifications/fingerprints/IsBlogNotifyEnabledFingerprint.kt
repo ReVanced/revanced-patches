@@ -1,6 +1,6 @@
 package app.revanced.patches.tumblr.annoyances.notifications.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 // The BlogNotifyCtaDialog asks you if you want to enable notifications for a blog.
 // It shows whenever you visit a certain blog for the second time and disables itself

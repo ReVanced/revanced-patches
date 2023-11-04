@@ -15,7 +15,7 @@ import com.android.tools.smali.dexlib2.Opcode
 
 @Patch(
     name = "Announcements",
-    description = "Shows announcements on startup.",
+    description = "Shows ReVanced announcements on startup.",
     compatiblePackages = [CompatiblePackage("com.google.android.youtube")],
     dependencies = [SettingsPatch::class]
 )
@@ -43,17 +43,17 @@ object AnnouncementsPatch : BytecodePatch(
                 "revanced_announcements",
                 StringResource(
                     "revanced_announcements_title",
-                    "Show announcements"
+                    "Show announcements from ReVanced"
                 ),
                 StringResource(
                     "revanced_announcements_summary_on",
-                    "Announcements are shown on startup."
+                    "Announcements are shown on startup"
                 ), StringResource(
                     "revanced_announcements_summary_off",
-                    "Announcements are not shown on startup."
+                    "Announcements are not shown on startup"
                 ), StringResource(
                     "revanced_announcements_enabled_summary",
-                    "Show announcements on startup."
+                    "Show announcements on startup"
                 ),
             )
         )

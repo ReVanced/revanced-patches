@@ -1,6 +1,6 @@
 package app.revanced.patches.reddit.ad.comments.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object HideCommentAdsFingerprint : MethodFingerprint(
     strings = listOf(

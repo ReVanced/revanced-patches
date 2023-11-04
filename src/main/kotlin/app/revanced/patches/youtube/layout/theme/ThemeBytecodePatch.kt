@@ -8,7 +8,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patcher.patch.options.types.StringPatchOption.Companion.stringPatchOption
+import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.layout.seekbar.SeekbarColorBytecodePatch
@@ -46,18 +46,43 @@ object ThemeBytecodePatch : BytecodePatch(
 
     internal const val GRADIENT_LOADING_SCREEN_AB_CONSTANT = 45412406L
 
+    private const val AMOLED_BLACK_COLOR = "@android:color/black"
+    private const val WHITE_COLOR = "@android:color/white"
+
     internal val darkThemeBackgroundColor by stringPatchOption(
         key = "darkThemeBackgroundColor",
-        default = "@android:color/black",
+        default = AMOLED_BLACK_COLOR,
+        values = mapOf(
+            "Amoled black" to AMOLED_BLACK_COLOR,
+            "Material You" to "@android:color/system_neutral1_900",
+            "Catppuccin (Mocha)" to "#FF181825",
+            "Dark pink" to "#FF290025",
+            "Dark blue" to "#FF001029",
+            "Dark green" to "#FF002905",
+            "Dark yellow" to "#FF282900",
+            "Dark orange" to "#FF291800",
+            "Dark red" to "#FF290000"
+        ),
         title = "Dark theme background color",
-        description = "The background color of the dark theme. Can be a hex color or a resource reference.",
+        description = "Can be a hex color (#AARRGGBB) or a color resource reference.",
     )
 
     internal val lightThemeBackgroundColor by stringPatchOption(
         key = "lightThemeBackgroundColor",
-        default = "@android:color/white",
+        default = WHITE_COLOR,
+        values = mapOf(
+            "White" to WHITE_COLOR,
+            "Material You" to "@android:color/system_neutral1_50",
+            "Catppuccin (Latte)" to "#FFE6E9EF",
+            "Light pink" to "#FFFCCFF3",
+            "Light blue" to "#FFD1E0FF",
+            "Light green" to "#FFCCFFCC",
+            "Light yellow" to "#FFFDFFCC",
+            "Light orange" to "#FFFFE6CC",
+            "Light red" to "#FFFFD6D6"
+        ),
         title = "Light theme background color",
-        description = "The background color of the light theme. Can be a hex color or a resource reference.",
+        description = "Can be a hex color or a color resource reference.",
     )
 
     override fun execute(context: BytecodeContext) {

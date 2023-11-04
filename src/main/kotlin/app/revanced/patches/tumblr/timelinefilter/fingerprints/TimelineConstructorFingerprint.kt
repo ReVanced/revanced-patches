@@ -1,6 +1,6 @@
 package app.revanced.patches.tumblr.timelinefilter.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 // This is the constructor of the Timeline class.
 // It receives the List<TimelineObject> as an argument with a @Json annotation, so this should be the first time

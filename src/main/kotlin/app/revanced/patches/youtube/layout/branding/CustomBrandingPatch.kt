@@ -4,7 +4,7 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patcher.patch.options.types.StringPatchOption.Companion.stringPatchOption
+import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.util.resources.ResourceUtils
 import app.revanced.util.resources.ResourceUtils.copyResources
 import java.io.File
@@ -20,6 +20,9 @@ import java.nio.file.Files
 )
 @Suppress("unused")
 object CustomBrandingPatch : ResourcePatch() {
+    private const val REVANCED_ICON = "ReVanced*Logo" // Can never be a valid path.
+    private const val APP_NAME = "YouTube ReVanced"
+
     private val iconResourceFileNames = arrayOf(
         "adaptiveproduct_youtube_background_color_108",
         "adaptiveproduct_youtube_foreground_color_108",
@@ -37,16 +40,21 @@ object CustomBrandingPatch : ResourcePatch() {
 
     private var appName by stringPatchOption(
         key = "appName",
-        default = "YouTube ReVanced",
+        default = APP_NAME,
+        values = mapOf(
+            "YouTube ReVanced" to APP_NAME,
+            "YT" to "YT",
+            "YouTube" to "YouTube",
+        ),
         title = "App name",
-        description = "The name of the app.",
-        required = true
+        description = "The name of the app."
     )
 
-    private var iconPath by stringPatchOption(
+    private var icon by stringPatchOption(
         key = "iconPath",
-        default = null,
-        title = "App icon path",
+        default = REVANCED_ICON,
+        values = mapOf("ReVanced Logo" to REVANCED_ICON),
+        title = "App icon",
         description = """
             The path to a folder containing the following folders:
 
@@ -62,40 +70,42 @@ object CustomBrandingPatch : ResourcePatch() {
     )
 
     override fun execute(context: ResourceContext) {
-        fun copyResources(resourceGroups: List<ResourceUtils.ResourceGroup>) {
-            iconPath?.let { iconPathString ->
-                val iconPath = File(iconPathString)
-                val resourceDirectory = context["res"]
+        icon?.let { icon ->
+            // Change the app icon.
+            mipmapDirectories.map { directory ->
+                ResourceUtils.ResourceGroup(
+                    directory, *iconResourceFileNames
+                )
+            }.let { resourceGroups ->
+                if (icon != REVANCED_ICON) {
+                    val path = File(icon)
+                    val resourceDirectory = context["res"]
 
-                resourceGroups.forEach { group ->
-                    val fromDirectory = iconPath.resolve(group.resourceDirectoryName)
-                    val toDirectory = resourceDirectory.resolve(group.resourceDirectoryName)
+                    resourceGroups.forEach { group ->
+                        val fromDirectory = path.resolve(group.resourceDirectoryName)
+                        val toDirectory = resourceDirectory.resolve(group.resourceDirectoryName)
 
-                    group.resources.forEach { iconFileName ->
-                        Files.write(
-                            toDirectory.resolve(iconFileName).toPath(),
-                            fromDirectory.resolve(iconFileName).readBytes()
-                        )
+                        group.resources.forEach { iconFileName ->
+                            Files.write(
+                                toDirectory.resolve(iconFileName).toPath(),
+                                fromDirectory.resolve(iconFileName).readBytes()
+                            )
+                        }
                     }
-                }
-            } ?: resourceGroups.forEach { context.copyResources("branding", it) }
+                } else resourceGroups.forEach { context.copyResources("branding", it) }
+            }
         }
 
-        fun createGroup(directory: String) = ResourceUtils.ResourceGroup(
-            directory, *iconResourceFileNames
-        )
-
-        // Change the app icon.
-        mipmapDirectories.map(::createGroup).let(::copyResources)
-
-        // Change the app name.
-        val manifest = context["AndroidManifest.xml"]
-        manifest.writeText(
-            manifest.readText()
-                .replace(
-                    "android:label=\"@string/application_name",
-                    "android:label=\"$appName"
-                )
-        )
+        appName?.let { name ->
+            // Change the app name.
+            val manifest = context["AndroidManifest.xml"]
+            manifest.writeText(
+                manifest.readText()
+                    .replace(
+                        "android:label=\"@string/application_name",
+                        "android:label=\"$name"
+                    )
+            )
+        }
     }
 }

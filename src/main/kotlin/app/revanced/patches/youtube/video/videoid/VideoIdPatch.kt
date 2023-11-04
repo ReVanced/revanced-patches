@@ -4,7 +4,7 @@ import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -103,6 +103,9 @@ object VideoIdPatch : BytecodePatch(
      * Hooks the video id of every video when loaded.
      * Supports all videos and functions in all situations.
      *
+     * First parameter is the video id.
+     * Second parameter is if the video is being opened or is currently playing.
+     *
      * Hook is always called off the main thread.
      *
      * This hook is called as soon as the player response is parsed,
@@ -117,7 +120,7 @@ object VideoIdPatch : BytecodePatch(
      *
      * Be aware, this can be called multiple times for the same video id.
      *
-     * @param methodDescriptor which method to call. Params have to be `Ljava/lang/String;`
+     * @param methodDescriptor which method to call. Params must be `Ljava/lang/String;Z`
      */
     fun hookPlayerResponseVideoId(methodDescriptor: String) {
         PlayerResponseMethodHookPatch += PlayerResponseMethodHookPatch.Hook.VideoId(

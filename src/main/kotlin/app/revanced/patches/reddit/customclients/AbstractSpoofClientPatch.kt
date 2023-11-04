@@ -2,10 +2,10 @@ package app.revanced.patches.reddit.customclients
 
 import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
+import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.options.types.StringPatchOption.Companion.stringPatchOption
+import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 
 abstract class AbstractSpoofClientPatch(
     redirectUri: String,
@@ -19,6 +19,7 @@ abstract class AbstractSpoofClientPatch(
 }) {
     var clientId by stringPatchOption(
         "client-id",
+        null,
         null,
         "OAuth client ID",
         "The Reddit OAuth client ID. " +

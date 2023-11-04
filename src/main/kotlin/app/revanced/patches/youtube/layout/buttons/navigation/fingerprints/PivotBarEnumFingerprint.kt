@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.buttons.navigation.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
 object PivotBarEnumFingerprint : MethodFingerprint(

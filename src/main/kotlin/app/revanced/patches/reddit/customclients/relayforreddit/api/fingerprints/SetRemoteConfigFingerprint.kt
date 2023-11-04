@@ -1,6 +1,6 @@
 package app.revanced.patches.reddit.customclients.relayforreddit.api.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 object SetRemoteConfigFingerprint : MethodFingerprint(
     strings = listOf("reddit_oauth_url"),
