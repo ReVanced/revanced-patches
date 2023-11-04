@@ -3,6 +3,14 @@
 
 ### Features
 
+* **Digitales Amt:** Bump compatibility to `3.0.2` ([#3217](https://github.com/ReVanced/revanced-patches/issues/3217)) ([79a1571](https://github.com/ReVanced/revanced-patches/commit/79a1571dd674d0cdaae7d00da74b59376ef1550b))
+* **Sony Headphones Connect - Remove notification badge:** Constrain to last working version ([4a7d189](https://github.com/ReVanced/revanced-patches/commit/4a7d18962d85382f358de774d5b2bcc3ab7f4a1a))
+
+# [2.196.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v2.196.0-dev.13...v2.196.0-dev.14) (2023-11-04)
+
+
+### Features
+
 * **Digitales Amt:** Bump compatibility to `3.0.2` ([#3217](https://github.com/ReVanced/revanced-patches/issues/3217)) ([f21fa58](https://github.com/ReVanced/revanced-patches/commit/f21fa5894b767474b7cedcc2eba7b2a65554169a))
 
 # [2.196.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v2.196.0-dev.12...v2.196.0-dev.13) (2023-11-03)
