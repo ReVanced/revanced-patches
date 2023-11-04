@@ -404,11 +404,14 @@ public class ReturnYouTubeDislikePatch {
     /**
      * Injection point.  Uses 'playback response' video id hook to preload RYD.
      */
-    public static void preloadVideoId(@NonNull String videoId) {
-        if (!SettingsEnum.RYD_ENABLED.getBoolean()) {
+    public static void preloadVideoId(@NonNull String videoId, boolean videoIsOpeningOrPlaying) {
+        // Shorts shelf in home and subscription feed causes player response hook to be called,
+        // and the 'is opening/playing' parameter will be false.
+        // This hook will be called again when the Short is actually opened.
+        if (!videoIsOpeningOrPlaying || !SettingsEnum.RYD_ENABLED.getBoolean()) {
             return;
         }
-        if (!SettingsEnum.RYD_SHORTS.getBoolean() && PlayerType.getCurrent().isNoneOrHidden()) {
+        if (!SettingsEnum.RYD_SHORTS.getBoolean() && PlayerType.getCurrent().isNoneHiddenOrSlidingMinimized()) {
             return;
         }
         if (videoId.equals(lastPrefetchedVideoId)) {
@@ -471,12 +474,13 @@ public class ReturnYouTubeDislikePatch {
                 if (videoIdIsSame(currentVideoData, videoId)) {
                     return;
                 }
-                currentVideoData = ReturnYouTubeDislike.getFetchForVideoId(videoId);
+                ReturnYouTubeDislike data = ReturnYouTubeDislike.getFetchForVideoId(videoId);
                 // Pre-emptively set the data to short status.
                 // Required to prevent Shorts data from being used on a minimized video in incognito mode.
                 if (isNoneHiddenOrSlidingMinimized) {
-                    currentVideoData.setVideoIdIsShort(true);
+                    data.setVideoIdIsShort(true);
                 }
+                currentVideoData = data;
             }
 
             LogHelper.printDebug(() -> "New video id: " + videoId + " playerType: " + currentPlayerType

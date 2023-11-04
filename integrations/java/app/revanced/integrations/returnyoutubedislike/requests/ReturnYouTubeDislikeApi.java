@@ -32,13 +32,13 @@ public class ReturnYouTubeDislikeApi {
     /**
      * {@link #fetchVotes(String)} TCP connection timeout
      */
-    private static final int API_GET_VOTES_TCP_TIMEOUT_MILLISECONDS = 2000;
+    private static final int API_GET_VOTES_TCP_TIMEOUT_MILLISECONDS = 2 * 1000; // 2 Seconds.
 
     /**
      * {@link #fetchVotes(String)} HTTP read timeout.
      * To locally debug and force timeouts, change this to a very small number (ie: 100)
      */
-    private static final int API_GET_VOTES_HTTP_TIMEOUT_MILLISECONDS = 5000;
+    private static final int API_GET_VOTES_HTTP_TIMEOUT_MILLISECONDS = 5 * 1000; // 5 Seconds.
 
     /**
      * Default connection and response timeout for voting and registration.
@@ -46,7 +46,7 @@ public class ReturnYouTubeDislikeApi {
      * Voting and user registration runs in the background and has has no urgency
      * so this can be a larger value.
      */
-    private static final int API_REGISTER_VOTE_TIMEOUT_MILLISECONDS = 90000;
+    private static final int API_REGISTER_VOTE_TIMEOUT_MILLISECONDS = 60 * 1000; // 60 Seconds.
 
     /**
      * Response code of a successful API call
@@ -54,31 +54,30 @@ public class ReturnYouTubeDislikeApi {
     private static final int HTTP_STATUS_CODE_SUCCESS = 200;
 
     /**
-     * Response code indicating the video id is not for a video that can be voted for.
-     * (it's not a Short or a regular video, and it's likely a YouTube Story)
+     * Indicates a client rate limit has been reached and the client must back off.
      */
-    private static final int HTTP_STATUS_CODE_NOT_FOUND = 404;
+    private static final int HTTP_STATUS_CODE_RATE_LIMIT = 429;
 
     /**
-     * Indicates a client rate limit has been reached
+     * How long to wait until API calls are resumed, if the API requested a back off.
+     * No clear guideline of how long to wait until resuming.
      */
-    private static final int RATE_LIMIT_HTTP_STATUS_CODE = 429;
+    private static final int BACKOFF_RATE_LIMIT_MILLISECONDS = 4 * 60 * 1000; // 4 Minutes.
 
     /**
-     * How long to wait until API calls are resumed, if a rate limit is hit.
-     * No clear guideline of how long to backoff. Using 2 minutes for now.
+     * How long to wait until API calls are resumed, if any connection error occurs.
      */
-    private static final int RATE_LIMIT_BACKOFF_SECONDS = 120;
+    private static final int BACKOFF_CONNECTION_ERROR_MILLISECONDS = 60 * 1000; // 60 Seconds.
 
     /**
-     * Last time a {@link #RATE_LIMIT_HTTP_STATUS_CODE} was reached.
-     * zero if has not been reached.
+     * If non zero, then the system time of when API calls can resume.
      */
-    private static volatile long lastTimeRateLimitWasHit; // must be volatile, since different threads read/write to this
+    private static volatile long timeToResumeAPICalls; // must be volatile, since different threads read/write to this
 
     /**
-     * Number of times {@link #RATE_LIMIT_HTTP_STATUS_CODE} was requested by RYD api.
-     * Does not include network calls attempted while rate limit is in effect
+     * Number of times {@link #HTTP_STATUS_CODE_RATE_LIMIT} was requested by RYD api.
+     * Does not include network calls attempted while rate limit is in effect,
+     * and does not include rate limit imposed if a fetch fails.
      */
     private static volatile int numberOfRateLimitRequestsEncountered;
 
@@ -165,16 +164,16 @@ public class ReturnYouTubeDislikeApi {
      * @return True, if api rate limit is in effect.
      */
     private static boolean checkIfRateLimitInEffect(String apiEndPointName) {
-        if (lastTimeRateLimitWasHit == 0) {
+        if (timeToResumeAPICalls == 0) {
             return false;
         }
-        final long numberOfSecondsSinceLastRateLimit = (System.currentTimeMillis() - lastTimeRateLimitWasHit) / 1000;
-        if (numberOfSecondsSinceLastRateLimit < RATE_LIMIT_BACKOFF_SECONDS) {
-            LogHelper.printDebug(() -> "Ignoring api call " + apiEndPointName + " as only "
-                    + numberOfSecondsSinceLastRateLimit + " seconds has passed since last rate limit.");
-            return true;
+        final long now = System.currentTimeMillis();
+        if (now > timeToResumeAPICalls) {
+            timeToResumeAPICalls = 0;
+            return false;
         }
-        return false;
+        LogHelper.printDebug(() -> "Ignoring api call " + apiEndPointName + " as rate limit is in effect");
+        return true;
     }
 
     /**
@@ -186,37 +185,33 @@ public class ReturnYouTubeDislikeApi {
             final double RANDOM_RATE_LIMIT_PERCENTAGE = 0.2; // 20% chance of a triggering a rate limit
             if (Math.random() < RANDOM_RATE_LIMIT_PERCENTAGE) {
                 LogHelper.printDebug(() -> "Artificially triggering rate limit for debug purposes");
-                httpResponseCode = RATE_LIMIT_HTTP_STATUS_CODE;
+                httpResponseCode = HTTP_STATUS_CODE_RATE_LIMIT;
             }
         }
-
-        if (httpResponseCode == RATE_LIMIT_HTTP_STATUS_CODE) {
-            lastTimeRateLimitWasHit = System.currentTimeMillis();
-            //noinspection NonAtomicOperationOnVolatileField // don't care, field is used only as an estimate
-            numberOfRateLimitRequestsEncountered++;
-            LogHelper.printDebug(() -> "API rate limit was hit. Stopping API calls for the next "
-                    + RATE_LIMIT_BACKOFF_SECONDS + " seconds");
-            ReVancedUtils.showToastLong(str("revanced_ryd_failure_client_rate_limit_requested"));
-            return true;
-        }
-        return false;
+        return httpResponseCode == HTTP_STATUS_CODE_RATE_LIMIT;
     }
 
-    @SuppressWarnings("NonAtomicOperationOnVolatileField") // do not want to pay performance cost of full synchronization for debug fields that are only estimates anyways
-    private static void updateStatistics(long timeNetworkCallStarted, long timeNetworkCallEnded, boolean connectionError, boolean rateLimitHit) {
+    @SuppressWarnings("NonAtomicOperationOnVolatileField") // Don't care, fields are estimates.
+    private static void updateRateLimitAndStats(long timeNetworkCallStarted, boolean connectionError, boolean rateLimitHit) {
         if (connectionError && rateLimitHit) {
             throw new IllegalArgumentException();
         }
-        final long responseTimeOfFetchCall = timeNetworkCallEnded - timeNetworkCallStarted;
+        final long responseTimeOfFetchCall = System.currentTimeMillis() - timeNetworkCallStarted;
         fetchCallResponseTimeTotal += responseTimeOfFetchCall;
         fetchCallResponseTimeMin = (fetchCallResponseTimeMin == 0) ? responseTimeOfFetchCall : Math.min(responseTimeOfFetchCall, fetchCallResponseTimeMin);
         fetchCallResponseTimeMax = Math.max(responseTimeOfFetchCall, fetchCallResponseTimeMax);
         fetchCallCount++;
         if (connectionError) {
+            timeToResumeAPICalls = System.currentTimeMillis() + BACKOFF_CONNECTION_ERROR_MILLISECONDS;
             fetchCallResponseTimeLast = responseTimeOfFetchCall;
             fetchCallNumberOfFailures++;
         } else if (rateLimitHit) {
+            LogHelper.printDebug(() -> "API rate limit was hit. Stopping API calls for the next "
+                    + BACKOFF_RATE_LIMIT_MILLISECONDS + " seconds");
+            timeToResumeAPICalls = System.currentTimeMillis() + BACKOFF_RATE_LIMIT_MILLISECONDS;
+            numberOfRateLimitRequestsEncountered++;
             fetchCallResponseTimeLast = FETCH_CALL_RESPONSE_TIME_VALUE_RATE_LIMIT;
+            ReVancedUtils.showToastLong(str("revanced_ryd_failure_client_rate_limit_requested"));
         } else {
             fetchCallResponseTimeLast = responseTimeOfFetchCall;
         }
@@ -262,27 +257,22 @@ public class ReturnYouTubeDislikeApi {
             final int responseCode = connection.getResponseCode();
             if (checkIfRateLimitWasHit(responseCode)) {
                 connection.disconnect(); // rate limit hit, should disconnect
-                updateStatistics(timeNetworkCallStarted, System.currentTimeMillis(),false, true);
+                updateRateLimitAndStats(timeNetworkCallStarted, false, true);
                 return null;
             }
 
             if (responseCode == HTTP_STATUS_CODE_SUCCESS) {
-                final long timeNetworkCallEnded = System.currentTimeMillis(); // record end time before parsing
                 // do not disconnect, the same server connection will likely be used again soon
                 JSONObject json = Requester.parseJSONObject(connection);
                 try {
                     RYDVoteData votingData = new RYDVoteData(json);
-                    updateStatistics(timeNetworkCallStarted, timeNetworkCallEnded, false, false);
+                    updateRateLimitAndStats(timeNetworkCallStarted, false, false);
                     LogHelper.printDebug(() -> "Voting data fetched: " + votingData);
                     return votingData;
                 } catch (JSONException ex) {
                     LogHelper.printException(() -> "Failed to parse video: " + videoId + " json: " + json, ex);
                     // fall thru to update statistics
                 }
-            } else if (responseCode == HTTP_STATUS_CODE_NOT_FOUND) {
-                // normal response when viewing YouTube Stories (cannot vote for these)
-                LogHelper.printDebug(() -> "Video has no like/dislikes (video is a YouTube Story?): " + videoId);
-                return null; // do not updated connection statistics
             } else {
                 handleConnectionError(str("revanced_ryd_failure_connection_status_code", responseCode), null);
             }
@@ -296,7 +286,7 @@ public class ReturnYouTubeDislikeApi {
             LogHelper.printException(() -> "Failed to fetch votes", ex, str("revanced_ryd_failure_generic", ex.getMessage()));
         }
 
-        updateStatistics(timeNetworkCallStarted, System.currentTimeMillis(), true, false);
+        updateRateLimitAndStats(timeNetworkCallStarted, true, false);
         return null;
     }
 
@@ -311,7 +301,7 @@ public class ReturnYouTubeDislikeApi {
                 return null;
             }
             String userId = randomString(36);
-            LogHelper.printDebug(() -> "Trying to register new user: " + userId);
+            LogHelper.printDebug(() -> "Trying to register new user");
 
             HttpURLConnection connection = getRYDConnectionFromRoute(ReturnYouTubeDislikeRoutes.GET_REGISTRATION, userId);
             connection.setRequestProperty("Accept", "application/json");

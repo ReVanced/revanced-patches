@@ -55,6 +55,7 @@ public enum SettingsEnum {
     HIDE_CHANNEL_BAR("revanced_hide_channel_bar", BOOLEAN, FALSE),
     HIDE_CHANNEL_MEMBER_SHELF("revanced_hide_channel_member_shelf", BOOLEAN, TRUE),
     HIDE_EXPANDABLE_CHIP("revanced_hide_expandable_chip", BOOLEAN, TRUE),
+    HIDE_VIDEO_QUALITY_MENU_FOOTER("revanced_hide_video_quality_menu_footer", BOOLEAN, TRUE),
     HIDE_CHAPTERS("revanced_hide_chapters", BOOLEAN, TRUE),
     HIDE_COMMUNITY_GUIDELINES("revanced_hide_community_guidelines", BOOLEAN, TRUE),
     HIDE_COMMUNITY_POSTS("revanced_hide_community_posts", BOOLEAN, FALSE),
@@ -146,14 +147,16 @@ public enum SettingsEnum {
     HIDE_SHORTS_CHANNEL_BAR("revanced_hide_shorts_channel_bar", BOOLEAN, FALSE),
     HIDE_SHORTS_NAVIGATION_BAR("revanced_hide_shorts_navigation_bar", BOOLEAN, TRUE, true),
     HIDE_SHORTS("revanced_hide_shorts", BOOLEAN, FALSE, true),
-
+    DISABLE_SUGGESTED_VIDEO_END_SCREEN("revanced_disable_suggested_video_end_screen", BOOLEAN, TRUE),
+    ENABLE_OLD_SEEKBAR_THUMBNAILS("revanced_enable_old_seekbar_thumbnails", BOOLEAN, TRUE),
+    DISABLE_FULLSCREEN_AMBIENT_MODE("revanced_disable_fullscreen_ambient_mode", BOOLEAN, TRUE, true),
     ALT_THUMBNAIL("revanced_alt_thumbnail", BOOLEAN, FALSE),
     ALT_THUMBNAIL_TYPE("revanced_alt_thumbnail_type", INTEGER, 2, parents(ALT_THUMBNAIL)),
     ALT_THUMBNAIL_FAST_QUALITY("revanced_alt_thumbnail_fast_quality", BOOLEAN, FALSE, parents(ALT_THUMBNAIL)),
 
     //Player flyout menu items
-    HIDE_QUALITY_MENU("revanced_hide_player_flyout_quality", BOOLEAN, FALSE),
     HIDE_CAPTIONS_MENU("revanced_hide_player_flyout_captions", BOOLEAN, FALSE),
+    HIDE_ADDITIONAL_SETTINGS_MENU("revanced_hide_player_flyout_additional_settings", BOOLEAN, FALSE),
     HIDE_LOOP_VIDEO_MENU("revanced_hide_player_flyout_loop_video", BOOLEAN, FALSE),
     HIDE_AMBIENT_MODE_MENU("revanced_hide_player_flyout_ambient_mode", BOOLEAN, FALSE),
     HIDE_REPORT_MENU("revanced_hide_player_flyout_report", BOOLEAN, TRUE),
@@ -169,6 +172,7 @@ public enum SettingsEnum {
     EXTERNAL_BROWSER("revanced_external_browser", BOOLEAN, TRUE, true),
     AUTO_REPEAT("revanced_auto_repeat", BOOLEAN, FALSE),
     SEEKBAR_TAPPING("revanced_seekbar_tapping", BOOLEAN, TRUE),
+    DISABLE_PRECISE_SEEKING_GESTURE("revanced_disable_precise_seeking_gesture", BOOLEAN, TRUE),
     DISABLE_FINE_SCRUBBING_GESTURE("revanced_disable_fine_scrubbing_gesture", BOOLEAN, TRUE),
     SPOOF_SIGNATURE("revanced_spoof_signature_verification_enabled", BOOLEAN, TRUE, true,
             "revanced_spoof_signature_verification_enabled_user_dialog_message"),
@@ -378,6 +382,7 @@ public enum SettingsEnum {
         // region Migration
 
         migrateOldSettingToNew(HIDE_VIDEO_WATERMARK, HIDE_VIDEO_CHANNEL_WATERMARK);
+        migrateOldSettingToNew(DISABLE_FINE_SCRUBBING_GESTURE, DISABLE_PRECISE_SEEKING_GESTURE);
 
         // Do _not_ delete this SB private user id migration property until sometime in 2024.
         // This is the only setting that cannot be reconfigured if lost,

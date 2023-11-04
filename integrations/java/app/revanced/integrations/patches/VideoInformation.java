@@ -69,7 +69,7 @@ public final class VideoInformation {
      *
      * @param videoId The id of the last video loaded.
      */
-    public static void setPlayerResponseVideoId(@NonNull String videoId) {
+    public static void setPlayerResponseVideoId(@NonNull String videoId, boolean videoIsOpeningOrPlaying) {
         if (!playerResponseVideoId.equals(videoId)) {
             LogHelper.printDebug(() -> "New player response video id: " + videoId);
             playerResponseVideoId = videoId;

@@ -128,8 +128,20 @@ class StringFilterGroup extends FilterGroup<String> {
 
 final class CustomFilterGroup extends StringFilterGroup {
 
-    public CustomFilterGroup(final SettingsEnum setting, final SettingsEnum filter) {
-        super(setting, filter.getString().split("\\s+"));
+    private static String[] getFilterPatterns(SettingsEnum setting) {
+        String[] patterns = setting.getString().split("\\s+");
+        for (String pattern : patterns) {
+            if (!StringTrieSearch.isValidPattern(pattern)) {
+                ReVancedUtils.showToastLong("Invalid custom filter, resetting to default");
+                setting.saveValue(setting.defaultValue);
+                return getFilterPatterns(setting);
+            }
+        }
+        return patterns;
+    }
+
+    public CustomFilterGroup(SettingsEnum setting, SettingsEnum filter) {
+        super(setting, getFilterPatterns(filter));
     }
 }
 
