@@ -1,3 +1,10 @@
+# [2.196.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v2.196.0-dev.13...v2.196.0-dev.14) (2023-11-04)
+
+
+### Features
+
+* **Digitales Amt:** Bump compatibility to `3.0.2` ([#3217](https://github.com/ReVanced/revanced-patches/issues/3217)) ([f21fa58](https://github.com/ReVanced/revanced-patches/commit/f21fa5894b767474b7cedcc2eba7b2a65554169a))
+
 # [2.196.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v2.196.0-dev.12...v2.196.0-dev.13) (2023-11-03)
 
 
