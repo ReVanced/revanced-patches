@@ -1,3 +1,10 @@
+## [2.196.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v2.196.1-dev.2...v2.196.1-dev.3) (2023-11-06)
+
+
+### Bug Fixes
+
+* **Nyx Music Plaer - Unlock pro:** Constrain to last working version ([96d24a3](https://github.com/ReVanced/revanced-patches/commit/96d24a3e2ef6bd323aa44a05aaf122683898e90a))
+
 ## [2.196.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.196.1-dev.1...v2.196.1-dev.2) (2023-11-06)
 
 
