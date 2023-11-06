@@ -82,7 +82,7 @@ object ThemeBytecodePatch : BytecodePatch(
             "Light red" to "#FFFFD6D6"
         ),
         title = "Light theme background color",
-        description = "Can be a hex color or a color resource reference.",
+        description = "Can be a hex color (#AARRGGBB) or a color resource reference.",
     )
 
     override fun execute(context: BytecodeContext) {
