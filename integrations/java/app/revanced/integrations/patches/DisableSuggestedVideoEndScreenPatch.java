@@ -26,6 +26,7 @@ public final class DisableSuggestedVideoEndScreenPatch {
             public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop,
                                        int oldRight, int oldBottom) {
                 // Disable sound effects to prevent the click sound.
+                imageView.setSoundEffectsEnabled(false);
                 imageView.performClick();
 
                 // Remove the listener to prevent it from being called multiple times.

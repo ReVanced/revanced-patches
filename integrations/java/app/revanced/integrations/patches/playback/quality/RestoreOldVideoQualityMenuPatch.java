@@ -33,6 +33,7 @@ public final class RestoreOldVideoQualityMenuPatch {
                     View advancedQualityView = ((ViewGroup) recyclerView.getChildAt(0)).getChildAt(3);
                     if (advancedQualityView != null) {
                         // Click the "Advanced" quality menu to show the "old" quality menu.
+                        advancedQualityView.setSoundEffectsEnabled(false);
                         advancedQualityView.performClick();
                     }
                 }
