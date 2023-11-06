@@ -1,3 +1,10 @@
+## [2.196.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.196.0...v2.196.1-dev.1) (2023-11-06)
+
+
+### Bug Fixes
+
+* **YouTube - Theme:** Use consistent patch option descriptions ([#3231](https://github.com/ReVanced/revanced-patches/issues/3231)) ([c84a940](https://github.com/ReVanced/revanced-patches/commit/c84a94075ecba11e826f0b311283ef530563fe93))
+
 # [2.196.0](https://github.com/ReVanced/revanced-patches/compare/v2.195.0...v2.196.0) (2023-11-04)
 
 
