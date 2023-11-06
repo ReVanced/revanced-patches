@@ -14,13 +14,14 @@ import app.revanced.integrations.utils.LogHelper;
  * Two methods are required, because the quality menu is a RecyclerView in the new YouTube version
  * and a ListView in the old one.
  */
-public final class OldVideoQualityMenuPatch {
+@SuppressWarnings("unused")
+public final class RestoreOldVideoQualityMenuPatch {
 
     /**
      * Injection point.
      */
     public static void onFlyoutMenuCreate(RecyclerView recyclerView) {
-        if (!SettingsEnum.SHOW_OLD_VIDEO_QUALITY_MENU.getBoolean()) return;
+        if (!SettingsEnum.RESTORE_OLD_VIDEO_QUALITY_MENU.getBoolean()) return;
 
         recyclerView.getViewTreeObserver().addOnDrawListener(() -> {
             try {
@@ -45,7 +46,7 @@ public final class OldVideoQualityMenuPatch {
      * Injection point.  Only used if spoofing to an old app version.
      */
     public static void showOldVideoQualityMenu(final ListView listView) {
-        if (!SettingsEnum.SHOW_OLD_VIDEO_QUALITY_MENU.getBoolean()) return;
+        if (!SettingsEnum.RESTORE_OLD_VIDEO_QUALITY_MENU.getBoolean()) return;
 
         listView.setOnHierarchyChangeListener(new ViewGroup.OnHierarchyChangeListener() {
             @Override
