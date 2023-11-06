@@ -9,13 +9,13 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
-import app.revanced.patches.youtube.layout.seekbar.fingerprints.EnableNewSeekbarThumbnailsFingerprint
+import app.revanced.patches.youtube.layout.seekbar.fingerprints.FullscreenSeekbarThumbnailsFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
-    name = "Enable old seekbar thumbnails",
-    description = "Enables the old seekbar thumbnails that appear above the seekbar instead of in fullscreen.",
+    name = "Restore old seekbar thumbnails",
+    description = "Restores the old seekbar thumbnails that appear above the seekbar instead of fullscreen thumbnails.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -27,38 +27,38 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
     ]
 )
 @Suppress("unused")
-object EnableOldSeekbarThumbnailsPatch : BytecodePatch(
-    setOf(EnableNewSeekbarThumbnailsFingerprint)
+object RestoreOldSeekbarThumbnailsPatch : BytecodePatch(
+    setOf(FullscreenSeekbarThumbnailsFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/EnableOldSeekbarThumbnailsPatch;"
+        "Lapp/revanced/integrations/patches/RestoreOldSeekbarThumbnailsPatch;"
 
     override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
-                "revanced_enable_old_seekbar_thumbnails",
+                "revanced_restore_old_seekbar_thumbnails",
                 StringResource(
-                    "revanced_enable_old_seekbar_thumbnails_title",
-                    "Enable old seekbar thumbnails"
+                    "revanced_restore_old_seekbar_thumbnails_title",
+                    "Restore old seekbar thumbnails"
                 ),
                 StringResource(
-                    "revanced_enable_old_seekbar_thumbnails_summary_on",
+                    "revanced_restore_old_seekbar_thumbnails_summary_on",
                     "Seekbar thumbnails will appear above the seekbar"
                 ),
                 StringResource(
-                    "revanced_enable_old_seekbar_thumbnails_summary_off",
+                    "revanced_restore_old_seekbar_thumbnails_summary_off",
                     "Seekbar thumbnails will appear in fullscreen"
                 ),
             )
         )
 
-        EnableNewSeekbarThumbnailsFingerprint.result?.mutableMethod?.apply {
+        FullscreenSeekbarThumbnailsFingerprint.result?.mutableMethod?.apply {
             val moveResultIndex = getInstructions().lastIndex - 1
 
             addInstruction(
                 moveResultIndex,
-                "invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->enableOldSeekbarThumbnails()Z"
+                "invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->useFullscreenSeekbarThumbnails()Z"
             )
-        } ?: throw EnableNewSeekbarThumbnailsFingerprint.exception
+        } ?: throw FullscreenSeekbarThumbnailsFingerprint.exception
     }
 }
