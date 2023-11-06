@@ -1,3 +1,10 @@
+## [2.196.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.196.1-dev.1...v2.196.1-dev.2) (2023-11-06)
+
+
+### Bug Fixes
+
+* **YouTube:** Rename `Restore old seekbar thumbnails` and `Restore old quality menu` ([#3235](https://github.com/ReVanced/revanced-patches/issues/3235)) ([7e3ffc8](https://github.com/ReVanced/revanced-patches/commit/7e3ffc88631da47a032cb29a4a30fd8f5679542d))
+
 ## [2.196.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.196.0...v2.196.1-dev.1) (2023-11-06)
 
 
