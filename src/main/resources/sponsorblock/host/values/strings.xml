@@ -75,7 +75,7 @@
     <string name="sb_segments_intro_sum">An interval without actual content. Could be a pause, static frame, or repeating animation. Does not include transitions containing information</string>
     <string name="sb_segments_outro">Endcards/Credits</string>
     <string name="sb_segments_outro_sum">Credits or when the YouTube endcards appear. Not for conclusions with information</string>
-    <string name="sb_segments_preview">Preview/Recap</string>
+    <string name="sb_segments_preview">Preview/Recap/Hook</string>
     <string name="sb_segments_preview_sum">Collection of clips that show what is coming up or what happened in the video or in other videos of a series, where all information is repeated elsewhere</string>
     <string name="sb_segments_filler">Filler Tangent/Jokes</string>
     <string name="sb_segments_filler_sum">Tangential scenes added only for filler or humor that are not required to understand the main content of the video. Does not include segments providing context or background details</string>
