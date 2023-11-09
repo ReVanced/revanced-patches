@@ -1,3 +1,10 @@
+## [2.196.1-dev.4](https://github.com/ReVanced/revanced-patches/compare/v2.196.1-dev.3...v2.196.1-dev.4) (2023-11-09)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Rename "Preview/Recap" category to "Preview/Recap/Hook" ([#3245](https://github.com/ReVanced/revanced-patches/issues/3245)) ([2cd2453](https://github.com/ReVanced/revanced-patches/commit/2cd2453658622f369b6449d5c8c33326384c2679))
+
 ## [2.196.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v2.196.1-dev.2...v2.196.1-dev.3) (2023-11-06)
 
 
