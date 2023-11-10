@@ -1,3 +1,10 @@
+## [2.196.1-dev.5](https://github.com/ReVanced/revanced-patches/compare/v2.196.1-dev.4...v2.196.1-dev.5) (2023-11-10)
+
+
+### Bug Fixes
+
+* **Remove screenshot restriction:** Improve reliability ([#2938](https://github.com/ReVanced/revanced-patches/issues/2938)) ([6b7cb7b](https://github.com/ReVanced/revanced-patches/commit/6b7cb7bd38348dbe4a56385356df6ed97e81c319))
+
 ## [2.196.1-dev.4](https://github.com/ReVanced/revanced-patches/compare/v2.196.1-dev.3...v2.196.1-dev.4) (2023-11-09)
 
 
