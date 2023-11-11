@@ -1,3 +1,10 @@
+## [2.196.1-dev.6](https://github.com/ReVanced/revanced-patches/compare/v2.196.1-dev.5...v2.196.1-dev.6) (2023-11-11)
+
+
+### Bug Fixes
+
+* **YouTube - Client spoof:** Fix low resolution precise seeking thumbnails ([#3249](https://github.com/ReVanced/revanced-patches/issues/3249)) ([0cb41ef](https://github.com/ReVanced/revanced-patches/commit/0cb41efa067d74b873167718b25893cb2e1dd240))
+
 ## [2.196.1-dev.5](https://github.com/ReVanced/revanced-patches/compare/v2.196.1-dev.4...v2.196.1-dev.5) (2023-11-10)
 
 
