@@ -22,6 +22,7 @@ public class StoryboardRendererRequester {
 
     @Nullable
     private static JSONObject fetchPlayerResponse(@NonNull String requestBody) {
+        final long startTime = System.currentTimeMillis();
         try {
             ReVancedUtils.verifyOffMainThread();
             Objects.requireNonNull(requestBody);
@@ -40,6 +41,8 @@ public class StoryboardRendererRequester {
             LogHelper.printException(() -> "API timed out", ex);
         } catch (Exception ex) {
             LogHelper.printException(() -> "Failed to fetch storyboard URL", ex);
+        } finally {
+            LogHelper.printDebug(() -> "Request took: " + (System.currentTimeMillis() - startTime) + "ms");
         }
 
         return null;
@@ -72,14 +75,17 @@ public class StoryboardRendererRequester {
     @Nullable
     private static StoryboardRenderer getStoryboardRendererUsingResponse(@NonNull JSONObject playerResponse) {
         try {
+            LogHelper.printDebug(() -> "Parsing response: " + playerResponse);
             final JSONObject storyboards = playerResponse.getJSONObject("storyboards");
-            final String storyboardsRendererTag = storyboards.has("playerLiveStoryboardSpecRenderer")
+            final boolean isLiveStream = storyboards.has("playerLiveStoryboardSpecRenderer");
+            final String storyboardsRendererTag = isLiveStream
                     ? "playerLiveStoryboardSpecRenderer"
                     : "playerStoryboardSpecRenderer";
 
             final var rendererElement = storyboards.getJSONObject(storyboardsRendererTag);
             StoryboardRenderer renderer = new StoryboardRenderer(
                     rendererElement.getString("spec"),
+                    isLiveStream,
                     rendererElement.has("recommendedLevel")
                             ? rendererElement.getInt("recommendedLevel")
                             : null

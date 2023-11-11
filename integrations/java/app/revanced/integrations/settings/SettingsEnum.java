@@ -182,6 +182,9 @@ public enum SettingsEnum {
             "revanced_spoof_signature_verification_enabled_user_dialog_message"),
     SPOOF_SIGNATURE_IN_FEED("revanced_spoof_signature_in_feed_enabled", BOOLEAN, FALSE, false,
             parents(SPOOF_SIGNATURE)),
+    SPOOF_STORYBOARD_RENDERER("revanced_spoof_storyboard", BOOLEAN, TRUE, true,
+            parents(SPOOF_SIGNATURE)),
+
     SPOOF_DEVICE_DIMENSIONS("revanced_spoof_device_dimensions", BOOLEAN, FALSE, true),
     BYPASS_URL_REDIRECTS("revanced_bypass_url_redirects", BOOLEAN, TRUE),
     ANNOUNCEMENTS("revanced_announcements", BOOLEAN, TRUE),
