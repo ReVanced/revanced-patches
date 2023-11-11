@@ -11,11 +11,10 @@ object RecyclerViewTreeObserverFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.NEW_INSTANCE,
         Opcode.INVOKE_DIRECT,
-        Opcode.IPUT_OBJECT,
-        Opcode.IGET_BOOLEAN,
-        Opcode.IF_NEZ,
-        Opcode.INVOKE_VIRTUAL_RANGE,
-        Opcode.MOVE_RESULT_OBJECT
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.NEW_INSTANCE,
+        Opcode.INVOKE_DIRECT,
+        Opcode.IPUT_OBJECT
     ),
     strings = listOf("LithoRVSLCBinder")
 )

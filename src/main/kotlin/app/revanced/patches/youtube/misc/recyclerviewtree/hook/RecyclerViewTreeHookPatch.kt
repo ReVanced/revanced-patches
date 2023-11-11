@@ -21,7 +21,7 @@ object RecyclerViewTreeHookPatch : BytecodePatch(
 
         RecyclerViewTreeObserverFingerprint.result?.let {
             it.mutableMethod.apply {
-                val insertIndex = it.scanResult.patternScanResult!!.startIndex + 5
+                val insertIndex = it.scanResult.patternScanResult!!.startIndex
                 val recyclerViewParameter = 2
 
                 addHook = { classDescriptor ->
