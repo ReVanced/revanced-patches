@@ -15,7 +15,6 @@ import app.revanced.patches.youtube.layout.buttons.navigation.utils.InjectionUti
 import app.revanced.patches.youtube.layout.buttons.navigation.utils.InjectionUtils.injectHook
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -177,13 +176,7 @@ object NavigationButtonsPatch : BytecodePatch(
         }
 
         PivotBarCreateButtonViewFingerprint.result!!.apply {
-            val insertIndex = mutableMethod.implementation!!.instructions.let {
-                val scanStart = scanResult.patternScanResult!!.endIndex
-
-                scanStart + it.subList(scanStart, it.size - 1).indexOfFirst { instruction ->
-                    instruction.opcode == Opcode.INVOKE_STATIC
-                }
-            }
+            val insertIndex = scanResult.patternScanResult!!.endIndex
 
             /*
              * Inject hooks
