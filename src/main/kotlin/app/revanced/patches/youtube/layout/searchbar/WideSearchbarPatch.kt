@@ -70,7 +70,7 @@ object WideSearchbarPatch : BytecodePatch(
      * @param fromFingerprint The fingerprint to walk the method on.
      * @return The [MutableMethod] which was walked on.
      */
-    fun BytecodeContext.walkMutable(index: Int, fromFingerprint: MethodFingerprint) =
+    private fun BytecodeContext.walkMutable(index: Int, fromFingerprint: MethodFingerprint) =
         fromFingerprint.result?.let {
             toMethodWalker(it.method).nextMethod(index, true).getMethod() as MutableMethod
         } ?: throw fromFingerprint.exception
@@ -79,7 +79,7 @@ object WideSearchbarPatch : BytecodePatch(
     /**
      * Injects instructions required for certain methods.
      */
-    fun MutableMethod.injectSearchBarHook() {
+    private fun MutableMethod.injectSearchBarHook() {
         addInstructions(
             implementation!!.instructions.size - 1,
             """
