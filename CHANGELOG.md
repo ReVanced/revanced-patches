@@ -1,3 +1,10 @@
+# [2.197.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.196.1-dev.6...v2.197.0-dev.1) (2023-11-12)
+
+
+### Features
+
+* **Twitch:** Support version `17.0.0` ([#3250](https://github.com/ReVanced/revanced-patches/issues/3250)) ([9c103ac](https://github.com/ReVanced/revanced-patches/commit/9c103acb94b8d7d2858441300bd297fedbacbb40))
+
 ## [2.196.1-dev.6](https://github.com/ReVanced/revanced-patches/compare/v2.196.1-dev.5...v2.196.1-dev.6) (2023-11-11)
 
 
