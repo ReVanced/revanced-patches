@@ -63,7 +63,7 @@ public class SpoofSignaturePatch {
     private static StoryboardRenderer getRenderer() {
         if (rendererFuture != null) {
             try {
-                return rendererFuture.get(4000, TimeUnit.MILLISECONDS);
+                return rendererFuture.get(2000, TimeUnit.MILLISECONDS);
             } catch (TimeoutException ex) {
                 LogHelper.printDebug(() -> "Could not get renderer (get timed out)");
             } catch (ExecutionException | InterruptedException ex) {
