@@ -190,6 +190,7 @@ public enum SettingsEnum {
     ANNOUNCEMENTS("revanced_announcements", BOOLEAN, TRUE),
     ANNOUNCEMENT_CONSUMER("revanced_announcement_consumer", STRING, ""),
     ANNOUNCEMENT_LAST_HASH("revanced_announcement_last_hash", STRING, ""),
+    REMOVE_TRACKING_QUERY_PARAMETER("revanced_remove_tracking_query_parameter", BOOLEAN, TRUE),
 
     // Swipe controls
     SWIPE_BRIGHTNESS("revanced_swipe_brightness", BOOLEAN, TRUE),
