@@ -23,6 +23,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch.PreferenceScreen
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Hide layout components",
@@ -327,12 +328,15 @@ object HideLayoutComponentsPatch : BytecodePatch(
 
             result.mutableMethod.apply {
                 val consumeByteBufferIndex = result.scanResult.patternScanResult!!.startIndex
-                val byteBufferRegister = getInstruction<FiveRegisterInstruction>(consumeByteBufferIndex).registerD
+                val conversionContextRegister =
+                    getInstruction<TwoRegisterInstruction>(consumeByteBufferIndex - 2).registerA
+                val byteBufferRegister =
+                    getInstruction<FiveRegisterInstruction>(consumeByteBufferIndex).registerD
 
                 addInstructionsWithLabels(
-                    result.scanResult.patternScanResult!!.startIndex,
+                    consumeByteBufferIndex,
                     """
-                        invoke-static {v$byteBufferRegister}, $FILTER_CLASS_DESCRIPTOR->filterMixPlaylists([B)Z
+                        invoke-static {v$conversionContextRegister, v$byteBufferRegister}, $FILTER_CLASS_DESCRIPTOR->filterMixPlaylists(Ljava/lang/Object;[B)Z
                         move-result v0 # Conveniently same register happens to be free. 
                         if-nez v0, :return_empty_component
                     """,
