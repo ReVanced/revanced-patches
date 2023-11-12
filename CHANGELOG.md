@@ -1,3 +1,23 @@
+# [2.197.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.197.0-dev.1...v2.197.0-dev.2) (2023-11-12)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Reduce false positives when hiding mix playlists ([aac30ad](https://github.com/ReVanced/revanced-patches/commit/aac30ad717df02af87f2d65edddac8119cb262e9))
+
+
+### Features
+
+* **YouTube - Bypass URL redirects:** Support version `18.43.45` ([8935955](https://github.com/ReVanced/revanced-patches/commit/89359550c087e457a3fa5ad924daae0735cfad55))
+* **YouTube - Hide timestamp:** Support version `18.43.45` ([9180d4f](https://github.com/ReVanced/revanced-patches/commit/9180d4f5c3d4a50f412b37af69d61aafce5ffc07))
+* **YouTube - Navigation buttons:** Support version `18.43.45` ([e21286e](https://github.com/ReVanced/revanced-patches/commit/e21286e4d76323adb24ca8112a4ce03bfab98d60))
+* **YouTube - Seekbar tapping:** Support version `18.43.45` ([7828b14](https://github.com/ReVanced/revanced-patches/commit/7828b1425bd766db79fa8b28f002c75ff8d62cdd))
+* **YouTube:** Add `Enable slide to seek` patch ([a82fa35](https://github.com/ReVanced/revanced-patches/commit/a82fa35dd8dff30fabdc5f91c48a95234ed5d055))
+* **YouTube:** Add `Remove tracking query parameter` patch ([a353934](https://github.com/ReVanced/revanced-patches/commit/a3539348ce488f1effc88e62a1e0bd1a3635a2bd))
+* **YouTube:** Bump compatibility to `18.38.45` ([f743491](https://github.com/ReVanced/revanced-patches/commit/f7434910ad860e92f6c8d71a1fcd063ae075b704))
+* **YouTube:** Bump compatibility to `18.44.41` ([5490f58](https://github.com/ReVanced/revanced-patches/commit/5490f58974b6d5a0af145f3518756d736566adc7))
+* **YouTube:** Support version `18.43.45` for `Playback speed failed` and `Restore old video quality menu` ([b5e3263](https://github.com/ReVanced/revanced-patches/commit/b5e326348a581f343a4f05ae7a8c822bc6c90313))
+
 # [2.197.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.196.1-dev.6...v2.197.0-dev.1) (2023-11-12)
 
 
