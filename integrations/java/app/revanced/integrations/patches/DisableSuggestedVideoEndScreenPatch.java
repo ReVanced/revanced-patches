@@ -21,17 +21,10 @@ public final class DisableSuggestedVideoEndScreenPatch {
         if (lastView == parent) return;
 
         lastView = (ViewGroup)parent;
-        lastView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
-            @Override
-            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop,
-                                       int oldRight, int oldBottom) {
-                // Disable sound effects to prevent the click sound.
-                imageView.setSoundEffectsEnabled(false);
-                imageView.performClick();
-
-                // Remove the listener to prevent it from being called multiple times.
-                lastView.removeOnLayoutChangeListener(this);
-            }
+        lastView.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> {
+            // Disable sound effects to prevent the click sound.
+            imageView.setSoundEffectsEnabled(false);
+            imageView.performClick();
         });
     }
 }
