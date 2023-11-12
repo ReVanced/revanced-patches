@@ -176,6 +176,7 @@ public enum SettingsEnum {
     EXTERNAL_BROWSER("revanced_external_browser", BOOLEAN, TRUE, true),
     AUTO_REPEAT("revanced_auto_repeat", BOOLEAN, FALSE),
     SEEKBAR_TAPPING("revanced_seekbar_tapping", BOOLEAN, TRUE),
+    SLIDE_TO_SEEK("revanced_slide_to_seek", BOOLEAN, FALSE),
     @Deprecated DISABLE_FINE_SCRUBBING_GESTURE("revanced_disable_fine_scrubbing_gesture", BOOLEAN, TRUE),
     DISABLE_PRECISE_SEEKING_GESTURE("revanced_disable_precise_seeking_gesture", BOOLEAN, TRUE),
     SPOOF_SIGNATURE("revanced_spoof_signature_verification_enabled", BOOLEAN, TRUE, true,
