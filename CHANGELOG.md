@@ -1,3 +1,26 @@
+# [2.197.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.197.0-dev.1...v2.197.0-dev.2) (2023-11-13)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Reduce false positives when hiding mix playlists ([fb173e1](https://github.com/ReVanced/revanced-patches/commit/fb173e18afd5566a4ccdbb613810fa9646da9334))
+
+
+### Features
+
+* Add `Spoof SIM country` patch ([#3116](https://github.com/ReVanced/revanced-patches/issues/3116)) ([304a0d4](https://github.com/ReVanced/revanced-patches/commit/304a0d46bfee5ae96aaefee8f508eedd16004e36))
+* **Facebook:** Add `Hide story ads` patch ([#3257](https://github.com/ReVanced/revanced-patches/issues/3257)) ([1408c2e](https://github.com/ReVanced/revanced-patches/commit/1408c2e6283f4c48020d4305008a45f53b96b5cc))
+* **YouTube - Bypass URL redirects:** Support version `18.43.45` ([e205ac7](https://github.com/ReVanced/revanced-patches/commit/e205ac761d836047c52a4862132b6ea7d5a10b1b))
+* **YouTube - Hide timestamp:** Support version `18.43.45` ([9180d4f](https://github.com/ReVanced/revanced-patches/commit/9180d4f5c3d4a50f412b37af69d61aafce5ffc07))
+* **YouTube - Navigation buttons:** Support version `18.43.45` ([e21286e](https://github.com/ReVanced/revanced-patches/commit/e21286e4d76323adb24ca8112a4ce03bfab98d60))
+* **YouTube - Player flyout menu:** Support version `18.43.45` and `18.44.41` ([#3263](https://github.com/ReVanced/revanced-patches/issues/3263)) ([fcbebf9](https://github.com/ReVanced/revanced-patches/commit/fcbebf90f350cb7653e14da33b703eb25098dd55))
+* **YouTube - Seekbar tapping:** Support version `18.43.45` ([eee51a8](https://github.com/ReVanced/revanced-patches/commit/eee51a863a059c5073b2817e57059e072b72155d))
+* **YouTube:** Add `Enable slide to seek` patch ([68d10d4](https://github.com/ReVanced/revanced-patches/commit/68d10d4779d3545177fcf48f0aec237a2359b8b1))
+* **YouTube:** Add `Remove tracking query parameter` patch ([ddda3f6](https://github.com/ReVanced/revanced-patches/commit/ddda3f6e8cd919edaa891baee6597d2566e18e50))
+* **YouTube:** Bump compatibility to `18.38.45` ([9f19869](https://github.com/ReVanced/revanced-patches/commit/9f1986960cbaab84519d0685d1950764c16d08a5))
+* **YouTube:** Bump compatibility to `18.44.41` ([384a0a6](https://github.com/ReVanced/revanced-patches/commit/384a0a67c52d7d342afae491388199aca6b78b4d))
+* **YouTube:** Support version `18.43.45` for `Playback speed` and `Restore old video quality menu` ([c5236f8](https://github.com/ReVanced/revanced-patches/commit/c5236f812e1e362e4d03885b0950385e360bbff8))
+
 # [2.197.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.197.0-dev.1...v2.197.0-dev.2) (2023-11-12)
 
 
