@@ -4,6 +4,7 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.all.misc.packagename.ChangePackageNamePatch
 import app.revanced.patches.shared.fingerprints.WatchWhileActivityFingerprint
 import app.revanced.patches.youtube.layout.buttons.cast.HideCastButtonPatch
 import app.revanced.patches.youtube.misc.fix.playback.ClientSpoofPatch
@@ -16,6 +17,7 @@ import app.revanced.util.microg.MicroGBytecodeHelper
     name = "Vanced MicroG support",
     description = "Allows YouTube to run without root and under a different package name with Vanced MicroG.",
     dependencies = [
+        ChangePackageNamePatch::class,
         MicroGResourcePatch::class,
         HideCastButtonPatch::class,
         ClientSpoofPatch::class
@@ -50,18 +52,20 @@ object MicroGBytecodePatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext) {
+        val packageName = ChangePackageNamePatch.setOrGetFallbackPackageName(REVANCED_PACKAGE_NAME)
+
         // apply common microG patch
         MicroGBytecodeHelper.patchBytecode(
             context, arrayOf(
                 MicroGBytecodeHelper.packageNameTransform(
                     PACKAGE_NAME,
-                    REVANCED_PACKAGE_NAME
+                    packageName
                 )
             ),
             MicroGBytecodeHelper.PrimeMethodTransformationData(
                 PrimeFingerprint,
                 PACKAGE_NAME,
-                REVANCED_PACKAGE_NAME
+                packageName
             ),
             listOf(
                 ServiceCheckFingerprint,
