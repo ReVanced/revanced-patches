@@ -4,7 +4,9 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
+import app.revanced.patcher.patch.options.PatchOptionException
 import org.w3c.dom.Element
+import java.io.Closeable
 
 @Patch(
     name = "Change package name",
@@ -12,13 +14,11 @@ import org.w3c.dom.Element
     use = false
 )
 @Suppress("unused")
-object ChangePackageNamePatch : ResourcePatch() {
-    private const val DEFAULT_PACKAGE_NAME_OPTION = "Default"
-
-    private var packageName by stringPatchOption(
+object ChangePackageNamePatch : ResourcePatch(), Closeable {
+    private val packageNameOption = stringPatchOption(
         key = "packageName",
-        default = DEFAULT_PACKAGE_NAME_OPTION,
-        values = mapOf("Default" to DEFAULT_PACKAGE_NAME_OPTION),
+        default = "Default",
+        values = mapOf("Default" to "Default"),
         title = "Package name",
         description = "The name of the package to rename the app to.",
         required = true
@@ -26,19 +26,37 @@ object ChangePackageNamePatch : ResourcePatch() {
         it == "Default" || it!!.matches(Regex("^[a-z]\\w*(\\.[a-z]\\w*)+\$"))
     }
 
+    private lateinit var context: ResourceContext
+
     override fun execute(context: ResourceContext) {
-        fun getOriginalPackageName(context: ResourceContext): String {
-            context.xmlEditor["AndroidManifest.xml"].use { editor ->
-                val manifest = editor.file.getElementsByTagName("manifest").item(0) as Element
-                return manifest.getAttribute("package")
-            }
-        }
+        this.context = context
+    }
 
-        val originalPackageName = getOriginalPackageName(context)
-        if (packageName == DEFAULT_PACKAGE_NAME_OPTION) packageName = "$originalPackageName.revanced"
+    /**
+     * Set the package name to use.
+     * If this is called multiple times, the first call will set the package name.
+     *
+     * @param fallbackPackageName The package name to use if the user has not already specified a package name.
+     * @return The package name that was set.
+     * @throws PatchOptionException.ValueValidationException If the package name is invalid.
+     */
+    fun setOrGetFallbackPackageName(fallbackPackageName: String): String {
+        val packageName = this.packageNameOption.value!!
 
-        context["AndroidManifest.xml"].apply {
-            readText().replace(originalPackageName, packageName!!).let(::writeText)
-        }
+        return if (packageName == this.packageNameOption.default)
+            fallbackPackageName.also { this.packageNameOption.value = it }
+        else
+            packageName
+    }
+
+    override fun close() = context.xmlEditor["AndroidManifest.xml"].use { editor ->
+        val manifest = editor.file.getElementsByTagName("manifest").item(0) as Element
+        val originalPackageName = manifest.getAttribute("package")
+
+        var replacementPackageName = this.packageNameOption.value
+        if (replacementPackageName == this.packageNameOption.default)
+            replacementPackageName = "$originalPackageName.revanced"
+
+        manifest.setAttribute("package", replacementPackageName)
     }
 }
