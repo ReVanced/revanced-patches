@@ -57,7 +57,7 @@ object DisableResumingShortsOnStartupPatch : BytecodePatch(
             mutableMethod.addInstructionsWithLabels(
                 moveResultIndex + 1,
                 """
-                invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->DisableResumingStartupShortsPlayerPatch()Z
+                invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer()Z
                 move-result v5
                 if-eqz v5, :disable_shorts_player
                 return-void
