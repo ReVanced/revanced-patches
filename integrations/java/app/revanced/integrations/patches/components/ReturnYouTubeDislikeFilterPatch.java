@@ -93,7 +93,7 @@ public final class ReturnYouTubeDislikeFilterPatch extends Filter {
             // Must pass a null id to correctly clear out the current video data.
             // Otherwise if a Short is opened in non-incognito, then incognito is enabled and another Short is opened,
             // the new incognito Short will show the old prior data.
-            ReturnYouTubeDislikePatch.newVideoLoaded(matchedVideoId, true);
+            ReturnYouTubeDislikePatch.setLastLithoShortsVideoId(matchedVideoId);
         }
 
         return false;

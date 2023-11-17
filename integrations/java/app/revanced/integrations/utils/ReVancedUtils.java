@@ -92,7 +92,7 @@ public class ReVancedUtils {
      * All tasks run at max thread priority.
      */
     private static final ThreadPoolExecutor backgroundThreadPool = new ThreadPoolExecutor(
-            2, // 2 threads always ready to go
+            3, // 3 threads always ready to go
             Integer.MAX_VALUE,
             10, // For any threads over the minimum, keep them alive 10 seconds after they go idle
             TimeUnit.SECONDS,
