@@ -1,3 +1,10 @@
+# [2.197.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v2.197.0-dev.2...v2.197.0-dev.3) (2023-11-17)
+
+
+### Features
+
+* **Android Widgets (Material U):** Remove `Unlock paid widgets` patch ([#3286](https://github.com/ReVanced/revanced-patches/issues/3286)) ([b44da1c](https://github.com/ReVanced/revanced-patches/commit/b44da1c7018c88d30be0849569837b4e17c68e0f))
+
 # [2.197.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.197.0-dev.1...v2.197.0-dev.2) (2023-11-17)
 
 
