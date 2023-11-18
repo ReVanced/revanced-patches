@@ -489,8 +489,13 @@ public final class LithoFilterPatch {
                 return false;
 
             ByteBuffer protobufBuffer = bufferThreadLocal.get();
-            if (protobufBuffer == null || !protobufBuffer.hasArray()) {
-                LogHelper.printException(() -> "Proto buffer is null or has no array"); // Should never happen.
+            if (protobufBuffer == null) {
+                LogHelper.printException(() -> "Proto buffer is null"); // Should never happen.
+                return false;
+            }
+
+            if (!protobufBuffer.hasArray()) {
+                LogHelper.printDebug(() -> "Proto buffer does not have an array");
                 return false;
             }
 
