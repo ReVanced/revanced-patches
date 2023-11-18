@@ -113,7 +113,7 @@ public class ReturnYouTubeDislike {
     private static NumberFormat dislikePercentageFormatter;
 
     // Used for segmented dislike spans in Litho regular player.
-    private static final Rect leftSeparatorBounds;
+    public static final Rect leftSeparatorBounds;
     private static final Rect middleSeparatorBounds;
 
     /**
@@ -260,30 +260,16 @@ public class ReturnYouTubeDislike {
         ShapeDrawable shapeDrawable = new ShapeDrawable(new OvalShape());
         shapeDrawable.getPaint().setColor(getSeparatorColor());
         shapeDrawable.setBounds(middleSeparatorBounds);
-        // Use original text width if using compact layout with Rolling Number,
-        // as there is no empty padding to allow any layout width differences.
+        // Use original text width if using Rolling Number,
+        // to ensure the replacement styled span has the same width as the measured String,
+        // otherwise layout can be broken (especially on devices with small system font sizes).
         middleSeparatorSpan.setSpan(
-                new VerticallyCenteredImageSpan(shapeDrawable, isRollingNumber && compactLayout),
+                new VerticallyCenteredImageSpan(shapeDrawable, isRollingNumber),
                 shapeInsertionIndex, shapeInsertionIndex + 1, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
         builder.append(middleSeparatorSpan);
 
         // dislikes
         builder.append(newSpannableWithDislikes(oldSpannable, voteData));
-
-        // Add some padding for Rolling Number segmented span.
-        // Use an empty width span, as the layout uses the measured text width and not the
-        // actual span width.  So adding padding and then removing it while drawing gives some
-        // extra wiggle room for the left separator drawable (which is not included in layout width).
-        if (isRollingNumber && !compactLayout) {
-            // To test this, set the device system font to the smallest available.
-            // If text clipping still occurs, then increase the number of padding spaces below.
-            // Any extra width will be padded around the like/dislike string
-            // as it's set to center text alignment.
-            Spannable rightPaddingString = new SpannableString("      ");
-            rightPaddingString.setSpan(new FixedWidthEmptySpan(0), 0,
-                    rightPaddingString.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
-            builder.append(rightPaddingString);
-        }
 
         return new SpannableString(builder);
     }
