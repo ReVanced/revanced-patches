@@ -207,6 +207,26 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
             }
         } ?: throw RollingNumberMeasureTextFingerprint.exception
 
+        // Additional text measurement method. Used if YouTube decides not to animate the likes count
+        // and sometimes used for initial video load.
+        RollingNumberStaticLabelMeasureTextFingerprint.also {
+            if (!it.resolve(context, RollingNumberMeasureTextParentFingerprint.result!!.classDef))
+                throw it.exception
+        }.result?.also {
+            it.mutableMethod.apply {
+                val measureTextIndex = it.scanResult.patternScanResult!!.startIndex + 1
+                val freeRegister = getInstruction<TwoRegisterInstruction>(0).registerA
+
+                addInstructions(
+                    measureTextIndex + 1,
+                    """
+                        move-result v$freeRegister
+                        invoke-static {p1, v$freeRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->onRollingNumberMeasured(Ljava/lang/String;F)F
+                    """
+                )
+            }
+        } ?: throw RollingNumberStaticLabelMeasureTextFingerprint.exception
+
         // The rolling number Span is missing styling since it's initially set as a String.
         // Modify the UI text view and use the styled like/dislike Span.
         RollingNumberTextViewFingerprint.result?.let {
