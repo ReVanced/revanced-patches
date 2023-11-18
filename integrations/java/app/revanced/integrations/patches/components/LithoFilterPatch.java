@@ -489,10 +489,11 @@ public final class LithoFilterPatch {
                 return false;
 
             ByteBuffer protobufBuffer = bufferThreadLocal.get();
-            if (protobufBuffer == null) {
-                LogHelper.printException(() -> "Proto buffer is null"); // Should never happen
+            if (protobufBuffer == null || !protobufBuffer.hasArray()) {
+                LogHelper.printException(() -> "Proto buffer is null or has no array"); // Should never happen.
                 return false;
             }
+
             LithoFilterParameters parameter = new LithoFilterParameters(lithoIdentifier, pathBuilder, protobufBuffer);
             LogHelper.printDebug(() -> "Searching " + parameter);
 
