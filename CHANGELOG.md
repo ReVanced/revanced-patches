@@ -1,3 +1,21 @@
+# [2.197.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v2.197.0-dev.4...v2.197.0-dev.5) (2023-11-18)
+
+
+### Bug Fixes
+
+* Use a checked cast by reifying the generic type parameter ([f7a296e](https://github.com/ReVanced/revanced-patches/commit/f7a296e1f17d7bfb5fd303ee83cabd8d625781b9))
+
+
+### Features
+
+* **YouTube - Client spoof:** Add description to preference screen ([843a568](https://github.com/ReVanced/revanced-patches/commit/843a56854465fe2052977cd2a8f24ecb839f8d2a))
+* **YouTube - Hide layout components:** Add description to preference screen ([cc85441](https://github.com/ReVanced/revanced-patches/commit/cc854415e2311d4a06805a49a052fc8a16924739))
+* **YouTube - Hide layout components:** Hide description components ([38b8e44](https://github.com/ReVanced/revanced-patches/commit/38b8e44ec494e7dea24066dc2f5af578e01d58dc))
+* **YouTube - Navigation buttons:** Add description to preference screen ([14ea967](https://github.com/ReVanced/revanced-patches/commit/14ea9674c4e65ff2a92962222860b8035c7cda3f))
+* **YouTube - Seekbar:** Add description to preference screen ([ea6de49](https://github.com/ReVanced/revanced-patches/commit/ea6de498e3b002feeabf72d20059090db0be7f94))
+* **YouTube - Settings:** Sort preference screens below other types of preference ([9561db5](https://github.com/ReVanced/revanced-patches/commit/9561db50a82b0eeed07fe6541bc29a37f85b7caa))
+* **YouTube:** Support version `18.45.41` ([7c4f021](https://github.com/ReVanced/revanced-patches/commit/7c4f021f8c849dfc448c18ffc800da39576be617))
+
 # [2.197.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v2.197.0-dev.3...v2.197.0-dev.4) (2023-11-17)
 
 
