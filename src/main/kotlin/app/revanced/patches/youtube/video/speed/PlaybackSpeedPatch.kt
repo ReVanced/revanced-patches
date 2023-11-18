@@ -23,6 +23,7 @@ import app.revanced.patches.youtube.video.speed.remember.RememberPlaybackSpeedPa
                 "18.38.44",
                 "18.43.45",
                 "18.44.41",
+                "18.45.41"
             ]
         )
     ]

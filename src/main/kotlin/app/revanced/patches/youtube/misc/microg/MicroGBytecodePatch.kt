@@ -35,6 +35,7 @@ import app.revanced.util.microg.MicroGBytecodeHelper
                 "18.38.44",
                 "18.43.45",
                 "18.44.41",
+                "18.45.41"
             ]
         )
     ]
