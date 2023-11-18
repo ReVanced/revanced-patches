@@ -72,7 +72,6 @@ public enum SettingsEnum {
     HIDE_CAST_BUTTON("revanced_hide_cast_button", BOOLEAN, TRUE, true),
     HIDE_CHANNEL_BAR("revanced_hide_channel_bar", BOOLEAN, FALSE),
     HIDE_CHANNEL_MEMBER_SHELF("revanced_hide_channel_member_shelf", BOOLEAN, TRUE),
-    HIDE_CHAPTERS("revanced_hide_chapters", BOOLEAN, TRUE),
     HIDE_CHIPS_SHELF("revanced_hide_chips_shelf", BOOLEAN, TRUE),
     HIDE_COMMENTS_SECTION("revanced_hide_comments_section", BOOLEAN, FALSE, true),
     HIDE_COMMUNITY_GUIDELINES("revanced_hide_community_guidelines", BOOLEAN, TRUE),
@@ -123,6 +122,13 @@ public enum SettingsEnum {
     TABLET_LAYOUT("revanced_tablet_layout", BOOLEAN, FALSE, true, "revanced_tablet_layout_user_dialog_message"),
     USE_TABLET_MINIPLAYER("revanced_tablet_miniplayer", BOOLEAN, FALSE, true),
     WIDE_SEARCHBAR("revanced_wide_searchbar", BOOLEAN, FALSE, true),
+    // Description
+    HIDE_CHAPTERS("revanced_hide_chapters", BOOLEAN, TRUE),
+    HIDE_INFO_CARDS_SECTION("revanced_hide_info_cards_section", BOOLEAN, TRUE),
+    HIDE_GAME_SECTION("revanced_hide_game_section", BOOLEAN, TRUE),
+    HIDE_MUSIC_SECTION("revanced_hide_music_section", BOOLEAN, TRUE),
+    HIDE_PODCAST_SECTION("revanced_hide_podcast_section", BOOLEAN, TRUE),
+    HIDE_TRANSCIPT_SECTION("revanced_hide_transcript_section", BOOLEAN, TRUE),
 
     // Shorts
     HIDE_SHORTS("revanced_hide_shorts", BOOLEAN, FALSE, true),
