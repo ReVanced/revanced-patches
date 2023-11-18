@@ -1,3 +1,10 @@
+## [2.197.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.197.1-dev.1...v2.197.1-dev.2) (2023-11-18)
+
+
+### Bug Fixes
+
+* **YouTube - ReturnYouTubeDislike:** Fix text alignment on videos that don't use rolling number animations ([8fe9df7](https://github.com/ReVanced/revanced-patches/commit/8fe9df75efa59faa9586eda8462d97f81b9f8ed0))
+
 ## [2.197.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.197.0...v2.197.1-dev.1) (2023-11-18)
 
 
