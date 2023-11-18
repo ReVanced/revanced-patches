@@ -55,7 +55,8 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
         DislikeFingerprint,
         RemoveLikeFingerprint,
         RollingNumberSetterFingerprint,
-        RollingNumberTextViewFingerprint
+        RollingNumberTextViewFingerprint,
+        RollingNumberMeasureTextParentFingerprint
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -180,6 +181,31 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                 )
             }
         } ?: throw RollingNumberSetterFingerprint.exception
+
+        // Rolling Number text views use the measured width of the raw string for layout.
+        // Modify the measure text calculation to include the left drawable separator if needed.
+        RollingNumberMeasureTextFingerprint.also {
+            if (!it.resolve(context, RollingNumberMeasureTextParentFingerprint.result!!.classDef))
+                throw it.exception
+        }.result?.also {
+            it.mutableMethod.apply {
+                val returnInstructionIndex = it.scanResult.patternScanResult!!.endIndex
+                val measuredTextWidthRegister =
+                    getInstruction<OneRegisterInstruction>(returnInstructionIndex).registerA
+
+                replaceInstruction( // Replace instruction to preserve control flow label.
+                    returnInstructionIndex,
+                    "invoke-static {p1, v$measuredTextWidthRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->onRollingNumberMeasured(Ljava/lang/String;F)F"
+                )
+                addInstructions(
+                    returnInstructionIndex + 1,
+                    """
+                        move-result v$measuredTextWidthRegister
+                        return v$measuredTextWidthRegister
+                    """
+                )
+            }
+        } ?: throw RollingNumberMeasureTextFingerprint.exception
 
         // The rolling number Span is missing styling since it's initially set as a String.
         // Modify the UI text view and use the styled like/dislike Span.
