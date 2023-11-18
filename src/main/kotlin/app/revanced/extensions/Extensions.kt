@@ -115,7 +115,7 @@ fun BytecodeContext.traverseClassHierarchy(targetClass: MutableClass, callback: 
  * if the [Instruction] is not a [ReferenceInstruction] or the [Reference] is not of type [T].
  * @see ReferenceInstruction
  */
-fun <T : Reference> Instruction.getReference() = (this as? ReferenceInstruction)?.reference as? T
+inline fun <reified T : Reference> Instruction.getReference() = (this as? ReferenceInstruction)?.reference as? T
 
 /**
  * Get the index of the first [Instruction] that matches the predicate.
