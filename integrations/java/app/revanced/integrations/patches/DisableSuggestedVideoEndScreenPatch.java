@@ -14,13 +14,17 @@ public final class DisableSuggestedVideoEndScreenPatch {
     public static void closeEndScreen(final ImageView imageView) {
         if (!SettingsEnum.DISABLE_SUGGESTED_VIDEO_END_SCREEN.getBoolean()) return;
 
-        // Get the view which can be listened to for layout changes.
+        // Get a parent view which can be listened to for layout changes.
         final var parent = imageView.getParent().getParent();
 
         // Prevent adding the listener multiple times.
         if (lastView == parent) return;
 
         lastView = (ViewGroup)parent;
-        lastView.addOnLayoutChangeListener((view, i, i1, i2, i3, i4, i5, i6, i7) -> imageView.performClick());
+        lastView.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> {
+            // Disable sound effects to prevent the click sound.
+            imageView.setSoundEffectsEnabled(false);
+            imageView.performClick();
+        });
     }
 }

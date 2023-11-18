@@ -13,6 +13,7 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 
 import app.revanced.integrations.patches.ReturnYouTubeDislikePatch;
+import app.revanced.integrations.patches.spoof.SpoofAppVersionPatch;
 import app.revanced.integrations.returnyoutubedislike.ReturnYouTubeDislike;
 import app.revanced.integrations.returnyoutubedislike.requests.ReturnYouTubeDislikeApi;
 import app.revanced.integrations.settings.SettingsEnum;
@@ -21,8 +22,7 @@ import app.revanced.integrations.settings.SharedPrefCategory;
 public class ReturnYouTubeDislikeSettingsFragment extends PreferenceFragment {
 
     private static final boolean IS_SPOOFING_TO_NON_LITHO_SHORTS_PLAYER =
-            SettingsEnum.SPOOF_APP_VERSION.getBoolean()
-                    && SettingsEnum.SPOOF_APP_VERSION_TARGET.getString().compareTo("18.33.40") <= 0;
+            SpoofAppVersionPatch.isSpoofingToEqualOrLessThan("18.33.40");
 
     /**
      * If dislikes are shown on Shorts.

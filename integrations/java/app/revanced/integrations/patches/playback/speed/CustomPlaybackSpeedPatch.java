@@ -4,15 +4,13 @@ import android.preference.ListPreference;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
-
-import java.util.Arrays;
-
 import app.revanced.integrations.patches.components.PlaybackSpeedMenuFilterPatch;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
+
+import java.util.Arrays;
 
 public class CustomPlaybackSpeedPatch {
     /**
@@ -111,7 +109,10 @@ public class CustomPlaybackSpeedPatch {
 
                     // Dismiss View [R.id.touch_outside] is the 1st ChildView of the 4th ParentView.
                     // This only shows in phone layout.
-                    parentView4th.getChildAt(0).performClick();
+
+                    final var touchInsidedView = parentView4th.getChildAt(0);
+                    touchInsidedView.setSoundEffectsEnabled(false);
+                    touchInsidedView.performClick();
 
                     // In tablet layout there is no Dismiss View, instead we just hide all two parent views.
                     parentView3rd.setVisibility(View.GONE);

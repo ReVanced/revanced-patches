@@ -17,6 +17,7 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
+import android.text.style.ReplacementSpan;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 
@@ -69,7 +70,7 @@ public class ReturnYouTubeDislike {
      * Must be less than 5 seconds, as per:
      * https://developer.android.com/topic/performance/vitals/anr
      */
-    private static final long MAX_MILLISECONDS_TO_BLOCK_UI_WAITING_FOR_FETCH = 4500;
+    private static final long MAX_MILLISECONDS_TO_BLOCK_UI_WAITING_FOR_FETCH = 4000;
 
     /**
      * How long to retain successful RYD fetches.
@@ -84,9 +85,9 @@ public class ReturnYouTubeDislike {
 
     /**
      * Unique placeholder character, used to detect if a segmented span already has dislikes added to it.
-     * Can be any almost any non-visible character.
+     * Must be something YouTube is unlikely to use, as it's searched for in all usage of Rolling Number.
      */
-    private static final char MIDDLE_SEPARATOR_CHARACTER = '\u2009'; // 'narrow space' character
+    private static final char MIDDLE_SEPARATOR_CHARACTER = '◎'; // 'bullseye'
 
     /**
      * Cached lookup of all video ids.
@@ -115,6 +116,12 @@ public class ReturnYouTubeDislike {
     private static final Rect leftSeparatorBounds;
     private static final Rect middleSeparatorBounds;
 
+    /**
+     * Left separator horizontal padding for Rolling Number layout.
+     */
+    public static final int leftSeparatorShapePaddingPixels;
+    private static final ShapeDrawable leftSeparatorShape;
+
     static {
         DisplayMetrics dp = Objects.requireNonNull(ReVancedUtils.getContext()).getResources().getDisplayMetrics();
 
@@ -124,6 +131,11 @@ public class ReturnYouTubeDislike {
         final int middleSeparatorSize =
                 (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 3.7f, dp);
         middleSeparatorBounds = new Rect(0, 0, middleSeparatorSize, middleSeparatorSize);
+
+        leftSeparatorShapePaddingPixels = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10.0f, dp);
+
+        leftSeparatorShape = new ShapeDrawable(new RectShape());
+        leftSeparatorShape.setBounds(leftSeparatorBounds);
     }
 
     private final String videoId;
@@ -167,19 +179,31 @@ public class ReturnYouTubeDislike {
     @GuardedBy("this")
     private SpannableString replacementLikeDislikeSpan;
 
+    private static int getSeparatorColor() {
+        return ThemeHelper.isDarkTheme()
+                ? 0x33FFFFFF  // transparent dark gray
+                : 0xFFD9D9D9; // light gray
+    }
+
+    public static ShapeDrawable getLeftSeparatorDrawable() {
+        leftSeparatorShape.getPaint().setColor(getSeparatorColor());
+        return leftSeparatorShape;
+    }
+
     /**
      * @param isSegmentedButton If UI is using the segmented single UI component for both like and dislike.
      */
     @NonNull
-    private static SpannableString createDislikeSpan(@NonNull Spanned oldSpannable, boolean isSegmentedButton, @NonNull RYDVoteData voteData) {
+    private static SpannableString createDislikeSpan(@NonNull Spanned oldSpannable,
+                                                     boolean isSegmentedButton,
+                                                     boolean isRollingNumber,
+                                                     @NonNull RYDVoteData voteData) {
         if (!isSegmentedButton) {
             // Simple replacement of 'dislike' with a number/percentage.
             return newSpannableWithDislikes(oldSpannable, voteData);
         }
 
-        // Note: Some locales use right to left layout (arabic, hebrew, etc),
-        // and care must be taken to retain the existing RTL encoding character on the likes string,
-        // otherwise text will incorrectly show as left to right.
+        // Note: Some locales use right to left layout (Arabic, Hebrew, etc).
         // If making changes to this code, change device settings to a RTL language and verify layout is correct.
         String oldLikesString = oldSpannable.toString();
 
@@ -202,21 +226,25 @@ public class ReturnYouTubeDislike {
 
         SpannableStringBuilder builder = new SpannableStringBuilder();
         final boolean compactLayout = SettingsEnum.RYD_COMPACT_LAYOUT.getBoolean();
-        final int separatorColor = ThemeHelper.isDarkTheme()
-                ? 0x29AAAAAA  // transparent dark gray
-                : 0xFFD9D9D9; // light gray
 
         if (!compactLayout) {
-            // left separator
             String leftSeparatorString = ReVancedUtils.isRightToLeftTextLayout()
-                    ? "\u200F    "  // u200F = right to left character
-                    : "\u200E    "; // u200E = left to right character
-            Spannable leftSeparatorSpan = new SpannableString(leftSeparatorString);
-            ShapeDrawable shapeDrawable = new ShapeDrawable(new RectShape());
-            shapeDrawable.getPaint().setColor(separatorColor);
-            shapeDrawable.setBounds(leftSeparatorBounds);
-            leftSeparatorSpan.setSpan(new VerticallyCenteredImageSpan(shapeDrawable), 1, 2,
-                    Spannable.SPAN_INCLUSIVE_EXCLUSIVE); // drawable cannot overwrite RTL or LTR character
+                    ? "\u200F"  // u200F = right to left character
+                    : "\u200E"; // u200E = left to right character
+            final Spannable leftSeparatorSpan;
+            if (isRollingNumber) {
+                 leftSeparatorSpan = new SpannableString(leftSeparatorString);
+            } else {
+                leftSeparatorString += "  ";
+                leftSeparatorSpan = new SpannableString(leftSeparatorString);
+                // Styling spans cannot overwrite RTL or LTR character.
+                leftSeparatorSpan.setSpan(
+                        new VerticallyCenteredImageSpan(getLeftSeparatorDrawable(), false),
+                        1, 2, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+                leftSeparatorSpan.setSpan(
+                        new FixedWidthEmptySpan(leftSeparatorShapePaddingPixels),
+                        2, 3, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+            }
             builder.append(leftSeparatorSpan);
         }
 
@@ -230,21 +258,41 @@ public class ReturnYouTubeDislike {
         final int shapeInsertionIndex = middleSeparatorString.length() / 2;
         Spannable middleSeparatorSpan = new SpannableString(middleSeparatorString);
         ShapeDrawable shapeDrawable = new ShapeDrawable(new OvalShape());
-        shapeDrawable.getPaint().setColor(separatorColor);
+        shapeDrawable.getPaint().setColor(getSeparatorColor());
         shapeDrawable.setBounds(middleSeparatorBounds);
-        middleSeparatorSpan.setSpan(new VerticallyCenteredImageSpan(shapeDrawable), shapeInsertionIndex, shapeInsertionIndex + 1,
-                Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+        // Use original text width if using compact layout with Rolling Number,
+        // as there is no empty padding to allow any layout width differences.
+        middleSeparatorSpan.setSpan(
+                new VerticallyCenteredImageSpan(shapeDrawable, isRollingNumber && compactLayout),
+                shapeInsertionIndex, shapeInsertionIndex + 1, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
         builder.append(middleSeparatorSpan);
 
         // dislikes
         builder.append(newSpannableWithDislikes(oldSpannable, voteData));
 
+        // Add some padding for Rolling Number segmented span.
+        // Use an empty width span, as the layout uses the measured text width and not the
+        // actual span width.  So adding padding and then removing it while drawing gives some
+        // extra wiggle room for the left separator drawable (which is not included in layout width).
+        if (isRollingNumber && !compactLayout) {
+            // To test this, set the device system font to the smallest available.
+            // If text clipping still occurs, then increase the number of padding spaces below.
+            // Any extra width will be padded around the like/dislike string
+            // as it's set to center text alignment.
+            Spannable rightPaddingString = new SpannableString("      ");
+            rightPaddingString.setSpan(new FixedWidthEmptySpan(0), 0,
+                    rightPaddingString.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+            builder.append(rightPaddingString);
+        }
+
         return new SpannableString(builder);
     }
 
-    // Alternatively, this could check if the span contains one of the custom created spans, but this is simple and quick.
-    private static boolean isPreviouslyCreatedSegmentedSpan(@NonNull Spanned span) {
-        return span.toString().indexOf(MIDDLE_SEPARATOR_CHARACTER) != -1;
+    /**
+     * @return If the text is likely for a previously created likes/dislikes segmented span.
+     */
+    public static boolean isPreviouslyCreatedSegmentedSpan(@NonNull String text) {
+        return text.indexOf(MIDDLE_SEPARATOR_CHARACTER) >= 0;
     }
 
     /**
@@ -429,8 +477,10 @@ public class ReturnYouTubeDislike {
      * @return the replacement span containing dislikes, or the original span if RYD is not available.
      */
     @NonNull
-    public synchronized Spanned getDislikesSpanForRegularVideo(@NonNull Spanned original, boolean isSegmentedButton) {
-        return waitForFetchAndUpdateReplacementSpan(original, isSegmentedButton, false);
+    public synchronized Spanned getDislikesSpanForRegularVideo(@NonNull Spanned original,
+                                                               boolean isSegmentedButton,
+                                                               boolean isRollingNumber) {
+        return waitForFetchAndUpdateReplacementSpan(original, isSegmentedButton, isRollingNumber,false);
     }
 
     /**
@@ -438,12 +488,13 @@ public class ReturnYouTubeDislike {
      */
     @NonNull
     public synchronized Spanned getDislikeSpanForShort(@NonNull Spanned original) {
-        return waitForFetchAndUpdateReplacementSpan(original, false, true);
+        return waitForFetchAndUpdateReplacementSpan(original, false, false, true);
     }
 
     @NonNull
     private Spanned waitForFetchAndUpdateReplacementSpan(@NonNull Spanned original,
                                                          boolean isSegmentedButton,
+                                                         boolean isRollingNumber,
                                                          boolean spanIsForShort) {
         try {
             RYDVoteData votingData = getFetchData(MAX_MILLISECONDS_TO_BLOCK_UI_WAITING_FOR_FETCH);
@@ -481,7 +532,7 @@ public class ReturnYouTubeDislike {
                         return replacementLikeDislikeSpan;
                     }
                 }
-                if (isSegmentedButton && isPreviouslyCreatedSegmentedSpan(original)) {
+                if (isSegmentedButton && isPreviouslyCreatedSegmentedSpan(original.toString())) {
                     // need to recreate using original, as original has prior outdated dislike values
                     if (originalDislikeSpan == null) {
                         // Should never happen.
@@ -497,7 +548,7 @@ public class ReturnYouTubeDislike {
                     votingData.updateUsingVote(userVote);
                 }
                 originalDislikeSpan = original;
-                replacementLikeDislikeSpan = createDislikeSpan(original, isSegmentedButton, votingData);
+                replacementLikeDislikeSpan = createDislikeSpan(original, isSegmentedButton, isRollingNumber, votingData);
                 LogHelper.printDebug(() -> "Replaced: '" + originalDislikeSpan + "' with: '"
                         + replacementLikeDislikeSpan + "'" + " using video: " + videoId);
 
@@ -567,9 +618,44 @@ public class ReturnYouTubeDislike {
     }
 }
 
+/**
+ * Styles a Spannable with an empty fixed width.
+ */
+class FixedWidthEmptySpan extends ReplacementSpan {
+    final int fixedWidth;
+    /**
+     * @param fixedWith Fixed width in screen pixels.
+     */
+    FixedWidthEmptySpan(int fixedWith) {
+        this.fixedWidth = fixedWith;
+        if (fixedWith < 0) throw new IllegalArgumentException();
+    }
+    @Override
+    public int getSize(@NonNull Paint paint, @NonNull CharSequence text,
+                       int start, int end, @Nullable Paint.FontMetricsInt fontMetrics) {
+        return fixedWidth;
+    }
+    @Override
+    public void draw(@NonNull Canvas canvas, CharSequence text, int start, int end,
+                     float x, int top, int y, int bottom, @NonNull Paint paint) {
+        // Nothing to draw.
+    }
+}
+
+/**
+ * Vertically centers a Spanned Drawable.
+ */
 class VerticallyCenteredImageSpan extends ImageSpan {
-    public VerticallyCenteredImageSpan(Drawable drawable) {
+    final boolean useOriginalWidth;
+
+    /**
+     * @param useOriginalWidth Use the original layout width of the text this span is applied to,
+     * and not the bounds of the Drawable. Drawable is always displayed using it's own bounds,
+     * and this setting only affects the layout width of the entire span.
+     */
+    public VerticallyCenteredImageSpan(Drawable drawable, boolean useOriginalWidth) {
         super(drawable);
+        this.useOriginalWidth = useOriginalWidth;
     }
 
     @Override
@@ -581,12 +667,16 @@ class VerticallyCenteredImageSpan extends ImageSpan {
             Paint.FontMetricsInt paintMetrics = paint.getFontMetricsInt();
             final int fontHeight = paintMetrics.descent - paintMetrics.ascent;
             final int drawHeight = bounds.bottom - bounds.top;
+            final int halfDrawHeight = drawHeight / 2;
             final int yCenter = paintMetrics.ascent + fontHeight / 2;
 
-            fontMetrics.ascent = yCenter - drawHeight / 2;
+            fontMetrics.ascent = yCenter - halfDrawHeight;
             fontMetrics.top = fontMetrics.ascent;
-            fontMetrics.bottom = yCenter + drawHeight / 2;
+            fontMetrics.bottom = yCenter + halfDrawHeight;
             fontMetrics.descent = fontMetrics.bottom;
+        }
+        if (useOriginalWidth) {
+            return (int) paint.measureText(text, start, end);
         }
         return bounds.right;
     }
@@ -600,8 +690,13 @@ class VerticallyCenteredImageSpan extends ImageSpan {
         final int fontHeight = paintMetrics.descent - paintMetrics.ascent;
         final int yCenter = y + paintMetrics.descent - fontHeight / 2;
         final Rect drawBounds = drawable.getBounds();
+        float translateX = x;
+        if (useOriginalWidth) {
+            // Horizontally center the drawable in the same space as the original text.
+            translateX += (paint.measureText(text, start, end) - (drawBounds.right - drawBounds.left)) / 2;
+        }
         final int translateY = yCenter - (drawBounds.bottom - drawBounds.top) / 2;
-        canvas.translate(x, translateY);
+        canvas.translate(translateX, translateY);
         drawable.draw(canvas);
         canvas.restore();
     }

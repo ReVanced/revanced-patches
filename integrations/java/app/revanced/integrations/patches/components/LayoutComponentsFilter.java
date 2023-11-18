@@ -2,10 +2,8 @@ package app.revanced.integrations.patches.components;
 
 
 import android.os.Build;
-
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.StringTrieSearch;
@@ -13,6 +11,9 @@ import app.revanced.integrations.utils.StringTrieSearch;
 @RequiresApi(api = Build.VERSION_CODES.N)
 public final class LayoutComponentsFilter extends Filter {
     private final StringTrieSearch exceptions = new StringTrieSearch();
+    private static final StringTrieSearch mixPlaylistsExceptions = new StringTrieSearch();
+    private static ByteArrayAsStringFilterGroup mixPlaylistsExceptions2;
+
     private final CustomFilterGroup custom;
 
     private static final ByteArrayAsStringFilterGroup mixPlaylists = new ByteArrayAsStringFilterGroup(
@@ -32,6 +33,16 @@ public final class LayoutComponentsFilter extends Filter {
                 "comment_thread", // Whitelist comments
                 "|comment.", // Whitelist comment replies
                 "library_recent_shelf"
+        );
+
+        mixPlaylistsExceptions.addPatterns(
+                "V.ED", // Playlist browse id.
+                "java.lang.ref.WeakReference"
+        );
+
+        mixPlaylistsExceptions2 = new ByteArrayAsStringFilterGroup(
+                null,
+                "cell_description_body"
         );
 
         custom = new CustomFilterGroup(
@@ -125,11 +136,6 @@ public final class LayoutComponentsFilter extends Filter {
                 "quality_sheet_footer"
         );
 
-        final var chapters = new StringFilterGroup(
-                SettingsEnum.HIDE_CHAPTERS,
-                "macro_markers_carousel"
-        );
-
         final var channelBar = new StringFilterGroup(
                 SettingsEnum.HIDE_CHANNEL_BAR,
                 "channel_bar"
@@ -215,8 +221,7 @@ public final class LayoutComponentsFilter extends Filter {
 
         this.identifierFilterGroupList.addAll(
                 graySeparator,
-                chipsShelf,
-                chapters
+                chipsShelf
         );
     }
 
@@ -238,18 +243,23 @@ public final class LayoutComponentsFilter extends Filter {
         return super.isFiltered(identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
     }
 
-
     /**
      * Injection point.
      * Called from a different place then the other filters.
      */
-    public static boolean filterMixPlaylists(final byte[] bytes) {
-        final boolean isMixPlaylistFiltered = mixPlaylists.check(bytes).isFiltered();
+    public static boolean filterMixPlaylists(final Object conversionContext, final byte[] bytes) {
+        // Prevent playlist items being hidden, if a mix playlist is present in it.
+        if (mixPlaylistsExceptions.matches(conversionContext.toString()))
+            return false;
 
-        if (isMixPlaylistFiltered)
-            LogHelper.printDebug(() -> "Filtered mix playlist");
+        if (!mixPlaylists.check(bytes).isFiltered()) return false;
 
-        return isMixPlaylistFiltered;
+        // Prevent hiding the description of some videos accidentally.
+        if (mixPlaylistsExceptions2.check(bytes).isFiltered()) return false;
+
+        LogHelper.printDebug(() -> "Filtered mix playlist");
+        return true;
+
     }
 
     public static boolean showWatermark() {
