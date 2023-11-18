@@ -48,12 +48,12 @@ object SpoofSignaturePatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             PreferenceScreen(
-                key = "revanced_spoof_signature_verification",
-                title = StringResource(
+                "revanced_spoof_signature_verification",
+                StringResource(
                     "revanced_spoof_signature_verification_title",
                     "Spoof app signature"
                 ),
-                preferences = listOf(
+                listOf(
                     SwitchPreference(
                         "revanced_spoof_signature_verification_enabled",
                         StringResource("revanced_spoof_signature_verification_enabled_title", "Spoof app signature"),
@@ -102,6 +102,10 @@ object SpoofSignaturePatch : BytecodePatch(
                                     + "• Seekbar thumbnails are hidden"
                         )
                     )
+                ),
+                StringResource(
+                    "revanced_spoof_signature_verification_summary",
+                    "Spoof the app signature to prevent playback issues"
                 )
             )
         )
