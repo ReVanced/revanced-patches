@@ -18,6 +18,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch(
     description = "Spoofs the signature to prevent playback issues.",
@@ -26,14 +27,19 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
         PlayerTypeHookPatch::class,
         PlayerResponseMethodHookPatch::class,
         VideoInformationPatch::class,
+        SpoofSignatureResourcePatch::class
     ]
 )
 object SpoofSignaturePatch : BytecodePatch(
     setOf(
-        PlayerResponseModelImplFingerprint,
-        StoryboardThumbnailParentFingerprint,
+        PlayerResponseModelImplGeneralFingerprint,
+        PlayerResponseModelImplLiveStreamFingerprint,
+        PlayerResponseModelImplRecommendedLevel,
         StoryboardRendererSpecFingerprint,
-        StoryboardRendererInitFingerprint
+        StoryboardRendererDecoderSpecFingerprint,
+        StoryboardRendererDecoderRecommendedLevelFingerprint,
+        StoryboardThumbnailParentFingerprint,
+        ScrubbedPreviewLayoutFingerprint,
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -42,12 +48,12 @@ object SpoofSignaturePatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             PreferenceScreen(
-                key = "revanced_spoof_signature_verification",
-                title = StringResource(
+                "revanced_spoof_signature_verification",
+                StringResource(
                     "revanced_spoof_signature_verification_title",
                     "Spoof app signature"
                 ),
-                preferences = listOf(
+                listOf(
                     SwitchPreference(
                         "revanced_spoof_signature_verification_enabled",
                         StringResource("revanced_spoof_signature_verification_enabled_title", "Spoof app signature"),
@@ -83,7 +89,23 @@ object SpoofSignaturePatch : BytecodePatch(
                             "App signature not spoofed for feed videos\\n\\n"
                                     + "Feed videos will play for less than 1 minute before encountering playback issues"
                         )
+                    ),
+                    SwitchPreference(
+                        "revanced_spoof_storyboard",
+                        StringResource("revanced_spoof_storyboard_title", "Spoof storyboard"),
+                        StringResource("revanced_spoof_storyboard_summary_on", "Storyboard spoofed"),
+                        StringResource(
+                            "revanced_spoof_storyboard_summary_off",
+                            "Storyboard not spoofed\\n\\n"
+                                    + "Side effects include:\\n"
+                                    + "• No ambient mode\\n"
+                                    + "• Seekbar thumbnails are hidden"
+                        )
                     )
+                ),
+                StringResource(
+                    "revanced_spoof_signature_verification_summary",
+                    "Spoof the app signature to prevent playback issues"
                 )
             )
         )
@@ -94,7 +116,8 @@ object SpoofSignaturePatch : BytecodePatch(
         )
 
         // Force the seekbar time and chapters to always show up.
-        // This is used only if the storyboard spec fetch fails, or when viewing paid videos.
+        // This is used if the storyboard spec fetch fails, for viewing paid videos,
+        // or if storyboard spoofing is turned off.
         StoryboardThumbnailParentFingerprint.result?.classDef?.let { classDef ->
             StoryboardThumbnailFingerprint.also {
                 it.resolve(
@@ -124,23 +147,74 @@ object SpoofSignaturePatch : BytecodePatch(
             } ?: throw StoryboardThumbnailFingerprint.exception
         }
 
-        /**
-         * Hook StoryBoard renderer url
-         */
-        PlayerResponseModelImplFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val getStoryBoardIndex = it.scanResult.patternScanResult!!.endIndex
-                val getStoryBoardRegister = getInstruction<OneRegisterInstruction>(getStoryBoardIndex).registerA
-
+        // If storyboard spoofing is turned off, then hide the empty seekbar thumbnail view.
+        ScrubbedPreviewLayoutFingerprint.result?.apply {
+            val endIndex = scanResult.patternScanResult!!.endIndex
+            mutableMethod.apply {
+                val imageViewFieldName = getInstruction<ReferenceInstruction>(endIndex).reference
                 addInstructions(
-                    getStoryBoardIndex,
+                    implementation!!.instructions.lastIndex,
                     """
-                        invoke-static { v$getStoryBoardRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getStoryboardRendererSpec(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object v$getStoryBoardRegister
+                        iget-object v0, p0, $imageViewFieldName   # copy imageview field to a register
+                        invoke-static {v0}, $INTEGRATIONS_CLASS_DESCRIPTOR->seekbarImageViewCreated(Landroid/widget/ImageView;)V
                     """
                 )
             }
-        } ?: throw PlayerResponseModelImplFingerprint.exception
+        } ?: throw ScrubbedPreviewLayoutFingerprint.exception
+
+        /**
+         * Hook StoryBoard renderer url
+         */
+        arrayOf(
+            PlayerResponseModelImplGeneralFingerprint,
+            PlayerResponseModelImplLiveStreamFingerprint
+        ).forEach { fingerprint ->
+            fingerprint.result?.let {
+                it.mutableMethod.apply {
+                    val getStoryBoardIndex = it.scanResult.patternScanResult!!.endIndex
+                    val getStoryBoardRegister =
+                        getInstruction<OneRegisterInstruction>(getStoryBoardIndex).registerA
+
+                    addInstructions(
+                        getStoryBoardIndex,
+                        """
+                        invoke-static { v$getStoryBoardRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getStoryboardRendererSpec(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$getStoryBoardRegister
+                    """
+                    )
+                }
+            } ?: throw fingerprint.exception
+        }
+
+        // Hook recommended seekbar thumbnails quality level.
+        StoryboardRendererDecoderRecommendedLevelFingerprint.result?.let {
+            val moveOriginalRecommendedValueIndex = it.scanResult.patternScanResult!!.endIndex
+            val originalValueRegister = it.mutableMethod
+                .getInstruction<OneRegisterInstruction>(moveOriginalRecommendedValueIndex).registerA
+
+            it.mutableMethod.addInstructions(
+                moveOriginalRecommendedValueIndex + 1, """
+                        invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
+                        move-result v$originalValueRegister
+                """
+            )
+        } ?: throw StoryboardRendererDecoderRecommendedLevelFingerprint.exception
+
+        // Hook the recommended precise seeking thumbnails quality level.
+        PlayerResponseModelImplRecommendedLevel.result?.let {
+            it.mutableMethod.apply {
+                val moveOriginalRecommendedValueIndex = it.scanResult.patternScanResult!!.endIndex
+                val originalValueRegister =
+                    getInstruction<OneRegisterInstruction>(moveOriginalRecommendedValueIndex).registerA
+
+                addInstructions(
+                    moveOriginalRecommendedValueIndex, """
+                        invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
+                        move-result v$originalValueRegister
+                        """
+                )
+            }
+        } ?: throw PlayerResponseModelImplRecommendedLevel.exception
 
         StoryboardRendererSpecFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -158,22 +232,18 @@ object SpoofSignaturePatch : BytecodePatch(
             }
         } ?: throw StoryboardRendererSpecFingerprint.exception
 
-        // Hook recommended value
-        StoryboardRendererInitFingerprint.result?.let {
-            val moveOriginalRecommendedValueIndex = it.scanResult.patternScanResult!!.endIndex
+        // Hook the seekbar thumbnail decoder and use a NULL spec for live streams.
+        StoryboardRendererDecoderSpecFingerprint.result?.let {
+            val storyBoardUrlIndex = it.scanResult.patternScanResult!!.startIndex + 1
+            val storyboardUrlRegister =
+                it.mutableMethod.getInstruction<OneRegisterInstruction>(storyBoardUrlIndex).registerA
 
-            val originalValueRegister = it.mutableMethod
-                .getInstruction<OneRegisterInstruction>(moveOriginalRecommendedValueIndex).registerA
-
-            it.mutableMethod.apply {
-                addInstructions(
-                    moveOriginalRecommendedValueIndex + 1,
-                    """
-                            invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
-                            move-result v$originalValueRegister
-                        """
-                )
-            }
-        } ?: throw StoryboardRendererInitFingerprint.exception
+            it.mutableMethod.addInstructions(
+                storyBoardUrlIndex + 1, """
+                        invoke-static { v$storyboardUrlRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getStoryboardDecoderRendererSpec(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$storyboardUrlRegister
+                """
+            )
+        } ?: throw StoryboardRendererDecoderSpecFingerprint.exception
     }
 }

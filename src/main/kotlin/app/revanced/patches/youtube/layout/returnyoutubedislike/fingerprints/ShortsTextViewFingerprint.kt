@@ -12,7 +12,7 @@ object ShortsTextViewFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.INVOKE_SUPER,    // first instruction of method
         Opcode.IF_NEZ,
-        Opcode.RETURN_VOID,
+        null,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,

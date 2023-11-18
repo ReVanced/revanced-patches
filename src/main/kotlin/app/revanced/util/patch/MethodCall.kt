@@ -67,6 +67,7 @@ inline fun <reified E> fromMethodReference(methodReference: MethodReference)
     search.definedClassName == methodReference.definingClass
             && search.methodName == methodReference.name
             && methodReference.parameterTypes.toTypedArray().contentEquals(search.methodParams)
+            && search.returnType == methodReference.returnType
 }
 
 inline fun <reified E> filterMapInstruction35c(

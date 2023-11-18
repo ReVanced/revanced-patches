@@ -18,7 +18,7 @@ object TextComponentAtomicReferenceFingerprint : MethodFingerprint(
         Opcode.MOVE_OBJECT_FROM16,
         Opcode.MOVE_OBJECT_FROM16,
         Opcode.MOVE_OBJECT_FROM16,
-        Opcode.MOVE_OBJECT_FROM16,
+        null,
         Opcode.INVOKE_VIRTUAL, // Register C is atomic reference
         Opcode.MOVE_RESULT_OBJECT, // Register A is char sequence
         Opcode.CHECK_CAST,

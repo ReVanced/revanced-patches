@@ -8,7 +8,10 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.mapping.misc.ResourceMappingPatch
 import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.instruction.Instruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
+import com.android.tools.smali.dexlib2.iface.reference.Reference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import org.w3c.dom.Node
 
@@ -103,3 +106,22 @@ fun BytecodeContext.traverseClassHierarchy(targetClass: MutableClass, callback: 
         traverseClassHierarchy(it, callback)
     }
 }
+
+/**
+ * Get the [Reference] of an [Instruction] as [T].
+ *
+ * @param T The type of [Reference] to cast to.
+ * @return The [Reference] as [T] or null
+ * if the [Instruction] is not a [ReferenceInstruction] or the [Reference] is not of type [T].
+ * @see ReferenceInstruction
+ */
+inline fun <reified T : Reference> Instruction.getReference() = (this as? ReferenceInstruction)?.reference as? T
+
+/**
+ * Get the index of the first [Instruction] that matches the predicate.
+ *
+ * @param predicate The predicate to match.
+ * @return The index of the first [Instruction] that matches the predicate.
+ */
+fun Method.indexOfFirstInstruction(predicate: Instruction.() -> Boolean) =
+    this.implementation!!.instructions.indexOfFirst(predicate)

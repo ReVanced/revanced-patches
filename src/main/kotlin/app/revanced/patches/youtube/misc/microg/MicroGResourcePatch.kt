@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.misc.microg
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.all.misc.packagename.ChangePackageNamePatch
 import app.revanced.patches.shared.settings.preference.impl.Preference
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.youtube.misc.microg.shared.Constants.PACKAGE_NAME
@@ -15,7 +16,12 @@ import app.revanced.util.microg.Constants.MICROG_VENDOR
 import app.revanced.util.microg.MicroGManifestHelper
 import app.revanced.util.microg.MicroGResourceHelper
 
-@Patch(dependencies = [SettingsPatch::class])
+@Patch(
+    dependencies = [
+        SettingsPatch::class,
+        ChangePackageNamePatch::class
+    ]
+)
 object MicroGResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         SettingsPatch.addPreference(
@@ -25,13 +31,16 @@ object MicroGResourcePatch : ResourcePatch() {
                 Preference.Intent("$MICROG_VENDOR.android.gms", "", "org.microg.gms.ui.SettingsActivity")
             )
         )
-        SettingsPatch.renameIntentsTargetPackage(REVANCED_PACKAGE_NAME)
+
+        val packageName = ChangePackageNamePatch.setOrGetFallbackPackageName(REVANCED_PACKAGE_NAME)
+
+        SettingsPatch.renameIntentsTargetPackage(packageName)
 
         // update manifest
         MicroGResourceHelper.patchManifest(
             context,
             PACKAGE_NAME,
-            REVANCED_PACKAGE_NAME,
+            packageName,
             REVANCED_APP_NAME
         )
 

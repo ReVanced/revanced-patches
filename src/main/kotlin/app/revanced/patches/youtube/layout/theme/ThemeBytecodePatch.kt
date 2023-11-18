@@ -32,7 +32,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
             "com.google.android.youtube",
             [
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.41"
             ]
         )
     ]
@@ -82,7 +85,7 @@ object ThemeBytecodePatch : BytecodePatch(
             "Light red" to "#FFFFD6D6"
         ),
         title = "Light theme background color",
-        description = "Can be a hex color or a color resource reference.",
+        description = "Can be a hex color (#AARRGGBB) or a color resource reference.",
     )
 
     override fun execute(context: BytecodeContext) {

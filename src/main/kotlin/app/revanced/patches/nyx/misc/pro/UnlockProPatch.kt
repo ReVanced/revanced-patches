@@ -10,7 +10,7 @@ import app.revanced.patches.nyx.misc.pro.fingerprints.CheckProFingerprint
 
 @Patch(
     name = "Unlock pro",
-    compatiblePackages = [CompatiblePackage("com.awedea.nyx")]
+    compatiblePackages = [CompatiblePackage("com.awedea.nyx", ["2.2.7"])]
 )
 @Suppress("unused")
 object UnlockProPatch : BytecodePatch(setOf(CheckProFingerprint)) {

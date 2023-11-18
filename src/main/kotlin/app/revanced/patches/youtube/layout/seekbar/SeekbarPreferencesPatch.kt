@@ -22,8 +22,12 @@ object SeekbarPreferencesPatch : ResourcePatch(), Closeable {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
                 "revanced_seekbar_preference_screen",
-                StringResource("revanced_seekbar_preference_screen_title", "Seekbar settings"),
-                seekbarPreferences
+                StringResource("revanced_seekbar_preference_screen_title", "Seekbar"),
+                seekbarPreferences,
+                StringResource(
+                    "revanced_seekbar_preference_screen_summary",
+                    "Settings for the seekbar."
+                )
             )
         )
     }

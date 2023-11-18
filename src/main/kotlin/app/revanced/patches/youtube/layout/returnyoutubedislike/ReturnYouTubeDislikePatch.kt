@@ -1,6 +1,8 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike
 
 import app.revanced.extensions.exception
+import app.revanced.extensions.getReference
+import app.revanced.extensions.indexOfFirstInstruction
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -9,6 +11,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.*
@@ -20,6 +23,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Return YouTube Dislike",
@@ -32,7 +36,13 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
         PlayerTypeHookPatch::class,
     ],
     compatiblePackages = [
-        CompatiblePackage("com.google.android.youtube", ["18.37.36", "18.38.44"])
+        CompatiblePackage(
+            "com.google.android.youtube", [
+                "18.43.45",
+                "18.44.41",
+                "18.45.41"
+            ]
+        )
     ]
 )
 @Suppress("unused")
@@ -44,6 +54,8 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
         LikeFingerprint,
         DislikeFingerprint,
         RemoveLikeFingerprint,
+        RollingNumberSetterFingerprint,
+        RollingNumberTextViewFingerprint
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -138,7 +150,77 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
 
         // endregion
 
-        // region Hook for non litho Short videos.
+        // region Hook rolling numbers.
+
+        RollingNumberSetterFingerprint.result?.let {
+            val dislikesIndex = it.scanResult.patternScanResult!!.endIndex
+
+            it.mutableMethod.apply {
+                val insertIndex = 1
+
+                val charSequenceInstanceRegister =
+                    getInstruction<OneRegisterInstruction>(0).registerA
+                val charSequenceFieldReference =
+                    getInstruction<ReferenceInstruction>(dislikesIndex).reference.toString()
+
+                val registerCount = implementation!!.registerCount
+
+                // This register is being overwritten, so it is free to use.
+                val freeRegister = registerCount - 1
+                val conversionContextRegister = registerCount - parameters.size + 1
+
+                addInstructions(
+                    insertIndex,
+                    """
+                        iget-object v$freeRegister, v$charSequenceInstanceRegister, $charSequenceFieldReference
+                        invoke-static {v$conversionContextRegister, v$freeRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->onRollingNumberLoaded(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$freeRegister
+                        iput-object v$freeRegister, v$charSequenceInstanceRegister, $charSequenceFieldReference
+                    """
+                )
+            }
+        } ?: throw RollingNumberSetterFingerprint.exception
+
+        // The rolling number Span is missing styling since it's initially set as a String.
+        // Modify the UI text view and use the styled like/dislike Span.
+        RollingNumberTextViewFingerprint.result?.let {
+            // Initial TextView is set in this method.
+            val initiallyCreatedTextViewMethod = it.mutableMethod
+
+            // Videos less than 24 hours after uploaded, like counts will be updated in real time.
+            // Whenever like counts are updated, TextView is set in this method.
+            val realTimeUpdateTextViewMethod = it.mutableClass.methods.find { method ->
+                method.parameterTypes.first() == "Landroid/graphics/Bitmap;"
+            } ?: throw PatchException("Failed to find realTimeUpdateTextViewMethod")
+
+            arrayOf(
+                initiallyCreatedTextViewMethod,
+                realTimeUpdateTextViewMethod
+            ).forEach { insertMethod ->
+                insertMethod.apply {
+                    val setTextIndex = indexOfFirstInstruction {
+                        getReference<MethodReference>()?.name == "setText"
+                    }
+
+                    val textViewRegister =
+                        getInstruction<FiveRegisterInstruction>(setTextIndex).registerC
+                    val textSpanRegister =
+                        getInstruction<FiveRegisterInstruction>(setTextIndex).registerD
+
+                    addInstructions(
+                        setTextIndex,
+                        """
+                            invoke-static {v$textViewRegister, v$textSpanRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->updateRollingNumber(Landroid/widget/TextView;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+                            move-result-object v$textSpanRegister
+                        """
+                    )
+                }
+            }
+        } ?: throw RollingNumberTextViewFingerprint.exception
+
+        // endregion
+
+        // region Hook for non-litho Short videos.
 
         ShortsTextViewFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -167,7 +249,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                         move-result v0
                         if-eqz v0, :ryd_disabled
                         return-void
-                       
+                        
                         :is_like
                         :ryd_disabled
                         nop

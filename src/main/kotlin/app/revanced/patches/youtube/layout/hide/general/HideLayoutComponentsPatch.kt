@@ -11,10 +11,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.settings.preference.impl.InputType
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
-import app.revanced.patches.shared.settings.preference.impl.TextPreference
+import app.revanced.patches.shared.settings.preference.impl.*
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ParseElementFromBufferFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.PlayerOverlayFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ShowWatermarkFingerprint
@@ -23,6 +20,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch.PreferenceScreen
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Hide layout components",
@@ -36,7 +34,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
             "com.google.android.youtube", [
                 "18.32.39",
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.41"
             ]
         )
     ]
@@ -45,8 +46,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 object HideLayoutComponentsPatch : BytecodePatch(
     setOf(ParseElementFromBufferFingerprint, PlayerOverlayFingerprint)
 ) {
-    private const val FILTER_CLASS_DESCRIPTOR =
+    private const val LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/patches/components/LayoutComponentsFilter;"
+    private const val DESCRIPTION_COMPONENTS_FILTER_CLASS_NAME =
+        "Lapp/revanced/integrations/patches/components/DescriptionComponentsFilter;"
 
     override fun execute(context: BytecodeContext) {
         PreferenceScreen.LAYOUT.addPreferences(
@@ -284,7 +287,95 @@ object HideLayoutComponentsPatch : BytecodePatch(
                 StringResource("revanced_hide_chips_shelf_on", "Chips shelf is hidden"),
                 StringResource("revanced_hide_chips_shelf_off", "Chips shelf is shown")
             ),
-            app.revanced.patches.shared.settings.preference.impl.PreferenceScreen(
+            PreferenceScreen(
+                "revanced_hide_description_components_preference_screen",
+                StringResource(
+                    "revanced_hide_description_components_preference_screen_title",
+                    "Hide components in the video description"
+                ),
+                listOf(
+                    SwitchPreference(
+                        "revanced_hide_info_cards_section",
+                        StringResource(
+                            "revanced_hide_info_cards_section_title",
+                            "Hide info cards section"
+                        ),
+                        StringResource(
+                            "revanced_hide_info_cards_section_summary_on",
+                            "Info cards section is hidden"
+                        ),
+                        StringResource(
+                            "revanced_hide_info_cards_section_summary_off",
+                            "Info cards section is shown"
+                        )
+                    ),
+                    SwitchPreference(
+                        "revanced_hide_game_section",
+                        StringResource(
+                            "revanced_hide_game_section_title",
+                            "Hide game section"
+                        ),
+                        StringResource(
+                            "revanced_hide_game_section_summary_on",
+                            "Game section is hidden"
+                        ),
+                        StringResource(
+                            "revanced_hide_game_section_summary_off",
+                            "Game section is shown"
+                        )
+                    ),
+                    SwitchPreference(
+                        "revanced_hide_music_section",
+                        StringResource(
+                            "revanced_hide_music_section_title",
+                            "Hide music section"
+                        ),
+                        StringResource(
+                            "revanced_hide_music_section_summary_on",
+                            "Music section is hidden"
+                        ),
+                        StringResource(
+                            "revanced_hide_music_section_summary_off",
+                            "Music section is shown"
+                        )
+                    ),
+                    SwitchPreference(
+                        "revanced_hide_podcast_section",
+                        StringResource(
+                            "revanced_hide_podcast_section_title",
+                            "Hide podcast section"
+                        ),
+                        StringResource(
+                            "revanced_hide_podcast_section_summary_on",
+                            "Podcast section is hidden"
+                        ),
+                        StringResource(
+                            "revanced_hide_podcast_section_summary_off",
+                            "Podcast section is shown"
+                        )
+                    ),
+                    SwitchPreference(
+                        "revanced_hide_transcript_section",
+                        StringResource(
+                            "revanced_hide_transcript_section_title",
+                            "Hide transcript section"
+                        ),
+                        StringResource(
+                            "revanced_hide_transcript_section_summary_on",
+                            "Transcript section is hidden"
+                        ),
+                        StringResource(
+                            "revanced_hide_transcript_section_summary_off",
+                            "Transcript section is shown"
+                        )
+                    ),
+                ),
+                StringResource(
+                    "revanced_hide_description_components_preference_screen_summary",
+                    "Hide components under the video description"
+                )
+            ),
+            PreferenceScreen(
                 "revanced_custom_filter_preference_screen",
                 StringResource("revanced_custom_filter_preference_screen_title", "Custom filter"),
                 listOf(
@@ -313,11 +404,16 @@ object HideLayoutComponentsPatch : BytecodePatch(
                         ),
                         inputType = InputType.TEXT_MULTI_LINE
                     )
+                ),
+                StringResource(
+                    "revanced_custom_filter_preference_screen_summary",
+                    "Hide components using custom filters"
                 )
             )
         )
 
-        LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
+        LithoFilterPatch.addFilter(LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR)
+        LithoFilterPatch.addFilter(DESCRIPTION_COMPONENTS_FILTER_CLASS_NAME)
 
         // region Mix playlists
 
@@ -327,12 +423,15 @@ object HideLayoutComponentsPatch : BytecodePatch(
 
             result.mutableMethod.apply {
                 val consumeByteBufferIndex = result.scanResult.patternScanResult!!.startIndex
-                val byteBufferRegister = getInstruction<FiveRegisterInstruction>(consumeByteBufferIndex).registerD
+                val conversionContextRegister =
+                    getInstruction<TwoRegisterInstruction>(consumeByteBufferIndex - 2).registerA
+                val byteBufferRegister =
+                    getInstruction<FiveRegisterInstruction>(consumeByteBufferIndex).registerD
 
                 addInstructionsWithLabels(
-                    result.scanResult.patternScanResult!!.startIndex,
+                    consumeByteBufferIndex,
                     """
-                        invoke-static {v$byteBufferRegister}, $FILTER_CLASS_DESCRIPTOR->filterMixPlaylists([B)Z
+                        invoke-static {v$conversionContextRegister, v$byteBufferRegister}, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->filterMixPlaylists(Ljava/lang/Object;[B)Z
                         move-result v0 # Conveniently same register happens to be free. 
                         if-nez v0, :return_empty_component
                     """,
@@ -355,7 +454,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
             addInstructions(
                 index,
                 """
-                    invoke-static {}, $FILTER_CLASS_DESCRIPTOR->showWatermark()Z
+                    invoke-static {}, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->showWatermark()Z
                     move-result p2
                 """
             )

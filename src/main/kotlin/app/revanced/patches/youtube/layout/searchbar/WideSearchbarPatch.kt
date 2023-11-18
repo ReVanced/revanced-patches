@@ -29,7 +29,9 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
                 "18.29.38",
                 "18.32.39",
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.45.41"
             ]
         )
     ]
@@ -69,7 +71,7 @@ object WideSearchbarPatch : BytecodePatch(
      * @param fromFingerprint The fingerprint to walk the method on.
      * @return The [MutableMethod] which was walked on.
      */
-    fun BytecodeContext.walkMutable(index: Int, fromFingerprint: MethodFingerprint) =
+    private fun BytecodeContext.walkMutable(index: Int, fromFingerprint: MethodFingerprint) =
         fromFingerprint.result?.let {
             toMethodWalker(it.method).nextMethod(index, true).getMethod() as MutableMethod
         } ?: throw fromFingerprint.exception
@@ -78,7 +80,7 @@ object WideSearchbarPatch : BytecodePatch(
     /**
      * Injects instructions required for certain methods.
      */
-    fun MutableMethod.injectSearchBarHook() {
+    private fun MutableMethod.injectSearchBarHook() {
         addInstructions(
             implementation!!.instructions.size - 1,
             """

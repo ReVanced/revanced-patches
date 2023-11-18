@@ -32,21 +32,29 @@ abstract class AbstractPreferenceScreen(
         preferences: MutableList<BasePreference> = mutableListOf(),
         val categories: MutableList<Category> = mutableListOf()
     ) : BasePreferenceCollection(key, title, preferences) {
-        override fun transform(): PreferenceScreen {
-            return PreferenceScreen(
-                key,
-                StringResource("${key}_title", title),
-                 preferences.sortedBy { it.title.value.removePunctuation().lowercase() } +
-                         categories.sortedBy { it.title.removePunctuation().lowercase() }.map { it.transform() },
-                summary?.let { summary ->
-                    StringResource("${key}_summary", summary)
-                }
-            )
-        }
+        override fun transform() = PreferenceScreen(
+            key,
+            StringResource(
+                "${key}_title", title
+            ),
+            preferences.sortedWith(
+                compareBy(
+                    { it is PreferenceScreen },
+                    { it.title.value.removePunctuation().lowercase() }
+                )
+            ) + categories.sortedBy {
+                it.title.removePunctuation().lowercase()
+            }.map {
+                it.transform()
+            },
+            summary?.let { summary ->
+                StringResource("${key}_summary", summary)
+            }
+        )
 
         private fun ensureScreenInserted() {
             // Add to screens if not yet done
-            if(!this@AbstractPreferenceScreen.root.contains(this))
+            if (!this@AbstractPreferenceScreen.root.contains(this))
                 this@AbstractPreferenceScreen.root.add(this)
         }
 
@@ -59,7 +67,7 @@ abstract class AbstractPreferenceScreen(
             key: String,
             title: String,
             preferences: MutableList<BasePreference> = mutableListOf()
-        ): BasePreferenceCollection(key, title, preferences) {
+        ) : BasePreferenceCollection(key, title, preferences) {
             override fun transform(): PreferenceCategory {
                 return PreferenceCategory(
                     key,
@@ -72,7 +80,7 @@ abstract class AbstractPreferenceScreen(
                 ensureScreenInserted()
 
                 // Add to categories if not yet done
-                if(!this@Screen.categories.contains(this))
+                if (!this@Screen.categories.contains(this))
                     this@Screen.categories.add(this)
 
                 this.preferences.addAll(preferences)
