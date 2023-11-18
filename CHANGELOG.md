@@ -1,3 +1,10 @@
+## [2.197.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.197.0...v2.197.1-dev.1) (2023-11-18)
+
+
+### Bug Fixes
+
+* **YouTube - ReturnYouTubeDislike:** Improve layout padding ([#3291](https://github.com/ReVanced/revanced-patches/issues/3291)) ([630b067](https://github.com/ReVanced/revanced-patches/commit/630b067b1828476708fd019e84153b0fb5e25d1c))
+
 # [2.197.0](https://github.com/ReVanced/revanced-patches/compare/v2.196.0...v2.197.0) (2023-11-18)
 
 
