@@ -404,6 +404,10 @@ object HideLayoutComponentsPatch : BytecodePatch(
                         ),
                         inputType = InputType.TEXT_MULTI_LINE
                     )
+                ),
+                StringResource(
+                    "revanced_custom_filter_preference_screen_summary",
+                    "Hide components using custom filters"
                 )
             )
         )
