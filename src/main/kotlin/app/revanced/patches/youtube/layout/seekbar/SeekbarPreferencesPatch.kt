@@ -26,7 +26,7 @@ object SeekbarPreferencesPatch : ResourcePatch(), Closeable {
                 seekbarPreferences,
                 StringResource(
                     "revanced_seekbar_preference_screen_summary",
-                    "Settings for the seekbar."
+                    "Settings for the seekbar"
                 )
             )
         )
