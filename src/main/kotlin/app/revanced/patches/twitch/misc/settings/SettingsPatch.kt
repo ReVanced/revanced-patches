@@ -30,7 +30,7 @@ import java.io.Closeable
     description = "Adds settings menu to Twitch.",
     dependencies = [IntegrationsPatch::class, SettingsResourcePatch::class],
     compatiblePackages = [
-        CompatiblePackage("tv.twitch.android.app")
+        CompatiblePackage("tv.twitch.android.app", ["16.9.1"])
     ]
 )
 object SettingsPatch : BytecodePatch(
