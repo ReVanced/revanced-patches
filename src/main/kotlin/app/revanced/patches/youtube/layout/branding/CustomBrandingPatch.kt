@@ -43,6 +43,7 @@ object CustomBrandingPatch : ResourcePatch() {
         default = APP_NAME,
         values = mapOf(
             "YouTube ReVanced" to APP_NAME,
+            "YT ReVanced" to "YT ReVanced",
             "YT" to "YT",
             "YouTube" to "YouTube",
         ),

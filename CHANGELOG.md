@@ -1,3 +1,24 @@
+# [2.198.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.197.1-dev.2...v2.198.0-dev.1) (2023-11-19)
+
+
+### Features
+
+* **YouTube - Custom branding:** Add "YT ReVanced" to the default app name options ([#3300](https://github.com/ReVanced/revanced-patches/issues/3300)) ([b86bac7](https://github.com/ReVanced/revanced-patches/commit/b86bac759ebad62173b644d4a74e7bed5f252d42))
+
+## [2.197.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.197.1-dev.1...v2.197.1-dev.2) (2023-11-18)
+
+
+### Bug Fixes
+
+* **YouTube - ReturnYouTubeDislike:** Fix text alignment on videos that don't use rolling number animations ([8fe9df7](https://github.com/ReVanced/revanced-patches/commit/8fe9df75efa59faa9586eda8462d97f81b9f8ed0))
+
+## [2.197.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.197.0...v2.197.1-dev.1) (2023-11-18)
+
+
+### Bug Fixes
+
+* **YouTube - ReturnYouTubeDislike:** Improve layout padding ([#3291](https://github.com/ReVanced/revanced-patches/issues/3291)) ([630b067](https://github.com/ReVanced/revanced-patches/commit/630b067b1828476708fd019e84153b0fb5e25d1c))
+
 # [2.197.0](https://github.com/ReVanced/revanced-patches/compare/v2.196.0...v2.197.0) (2023-11-18)
 
 
