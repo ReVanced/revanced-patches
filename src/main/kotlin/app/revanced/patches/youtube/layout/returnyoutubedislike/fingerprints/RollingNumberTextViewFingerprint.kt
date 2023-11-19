@@ -17,7 +17,7 @@ object RollingNumberTextViewFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_VOID
     ),
-    customFingerprint = custom@{ _, classDef ->
+    customFingerprint = { _, classDef ->
         classDef.superclass == "Landroid/support/v7/widget/AppCompatTextView;"
     }
 )
