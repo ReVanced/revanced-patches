@@ -4,7 +4,6 @@ import android.graphics.Rect;
 import android.graphics.drawable.ShapeDrawable;
 import android.os.Build;
 import android.text.*;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -310,39 +309,47 @@ public class ReturnYouTubeDislikePatch {
     }
 
     /**
-     * Remove Rolling Number text view modifications made by this patch.
-     * Required as it appears text views can be reused for other rolling numbers (view count, upload time, etc).
+     * Injection point.
+     *
+     * Called for all usage of Rolling Number.
+     * Modifies the measured String text width to include the left separator and padding, if needed.
      */
-    private static void removeRollingNumberPatchChanges(TextView view) {
-        if (view.getCompoundDrawablePadding() != 0) {
-            LogHelper.printDebug(() -> "Removing rolling number styling from TextView");
-            view.setCompoundDrawablePadding(0);
-            view.setCompoundDrawables(null, null, null, null);
-            view.setGravity(Gravity.NO_GRAVITY);
-            view.setTextAlignment(View.TEXT_ALIGNMENT_INHERIT);
-            view.setSingleLine(false);
+    public static float onRollingNumberMeasured(String text, float measuredTextWidth) {
+        try {
+            if (SettingsEnum.RYD_ENABLED.getBoolean() && !SettingsEnum.RYD_COMPACT_LAYOUT.getBoolean()) {
+                if (ReturnYouTubeDislike.isPreviouslyCreatedSegmentedSpan(text)) {
+                    return measuredTextWidth + ReturnYouTubeDislike.leftSeparatorBounds.right
+                            + ReturnYouTubeDislike.leftSeparatorShapePaddingPixels;
+                }
+            }
+        } catch (Exception ex) {
+            LogHelper.printException(() -> "onRollingNumberMeasured failure", ex);
         }
+        return measuredTextWidth;
     }
 
     /**
      * Add Rolling Number text view modifications.
      */
     private static void addRollingNumberPatchChanges(TextView view) {
+        // YouTube Rolling Numbers do not use compound drawables or drawable padding.
         if (view.getCompoundDrawablePadding() == 0) {
-            LogHelper.printDebug(() -> "Adding rolling number styling to TextView");
-            // YouTube Rolling Numbers do not use compound drawables or drawable padding.
-            //
-            // Single line mode prevents entire words from being entirely clipped,
-            // and instead only clips the portion of text that runs off.
-            // The text should not clip due to the empty end padding,
-            // but use the feature just in case.
-            view.setSingleLine(true);
-            // Center align to distribute the horizontal padding.
-            view.setGravity(Gravity.CENTER);
-            view.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-            ShapeDrawable shapeDrawable = ReturnYouTubeDislike.getLeftSeparatorDrawable();
-            view.setCompoundDrawables(shapeDrawable, null, null, null);
+            LogHelper.printDebug(() -> "Adding rolling number TextView changes");
+            ShapeDrawable leftSeparator = ReturnYouTubeDislike.getLeftSeparatorDrawable();
+            view.setCompoundDrawables(leftSeparator, null, null, null);
             view.setCompoundDrawablePadding(ReturnYouTubeDislike.leftSeparatorShapePaddingPixels);
+        }
+    }
+
+    /**
+     * Remove Rolling Number text view modifications made by this patch.
+     * Required as it appears text views can be reused for other rolling numbers (view count, upload time, etc).
+     */
+    private static void removeRollingNumberPatchChanges(TextView view) {
+        if (view.getCompoundDrawablePadding() != 0) {
+            LogHelper.printDebug(() -> "Removing rolling number TextView changes");
+            view.setCompoundDrawablePadding(0);
+            view.setCompoundDrawables(null, null, null, null);
         }
     }
 
@@ -372,14 +379,7 @@ public class ReturnYouTubeDislikePatch {
                 return original;
             }
 
-            // TextView does not display the tall left separator correctly,
-            // as it goes outside the height bounds and messes up the layout.
-            // Fix this by applying the left separator as a text view compound drawable.
-            // This creates a new issue as the compound drawable is not taken into the
-            // layout width sizing, but that is fixed in the span itself where it uses a blank
-            // padding string that adds to the layout width but is later ignored during UI drawing.
             if (SettingsEnum.RYD_COMPACT_LAYOUT.getBoolean()) {
-                // Do not apply any TextView changes, and text should always fit without clipping.
                 removeRollingNumberPatchChanges(view);
             } else {
                 addRollingNumberPatchChanges(view);
