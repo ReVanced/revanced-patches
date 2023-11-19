@@ -1,3 +1,10 @@
+# [2.198.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.197.1-dev.2...v2.198.0-dev.1) (2023-11-19)
+
+
+### Features
+
+* **YouTube - Custom branding:** Add "YT ReVanced" to the default app name options ([#3300](https://github.com/ReVanced/revanced-patches/issues/3300)) ([b86bac7](https://github.com/ReVanced/revanced-patches/commit/b86bac759ebad62173b644d4a74e7bed5f252d42))
+
 ## [2.197.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.197.1-dev.1...v2.197.1-dev.2) (2023-11-18)
 
 
