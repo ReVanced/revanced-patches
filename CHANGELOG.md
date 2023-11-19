@@ -1,3 +1,10 @@
+## [2.198.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.198.0...v2.198.1-dev.1) (2023-11-19)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Remove unnecessary punctuation ([#3301](https://github.com/ReVanced/revanced-patches/issues/3301)) ([c50ee82](https://github.com/ReVanced/revanced-patches/commit/c50ee8281f2b90a2721839047bdc8cd59c4c913a))
+
 # [2.198.0](https://github.com/ReVanced/revanced-patches/compare/v2.197.0...v2.198.0) (2023-11-19)
 
 
