@@ -62,6 +62,7 @@ public enum SettingsEnum {
     CUSTOM_FILTER_STRINGS("revanced_custom_filter_strings", STRING, "", true, parents(CUSTOM_FILTER)),
     DISABLE_FULLSCREEN_AMBIENT_MODE("revanced_disable_fullscreen_ambient_mode", BOOLEAN, TRUE, true),
     DISABLE_RESUMING_SHORTS_PLAYER("revanced_disable_resuming_shorts_player", BOOLEAN, FALSE),
+    DISABLE_ROLLING_NUMBER_ANIMATIONS("revanced_disable_rolling_number_animations", BOOLEAN, FALSE),
     DISABLE_SUGGESTED_VIDEO_END_SCREEN("revanced_disable_suggested_video_end_screen", BOOLEAN, TRUE),
     GRADIENT_LOADING_SCREEN("revanced_gradient_loading_screen", BOOLEAN, FALSE),
     HIDE_ALBUM_CARDS("revanced_hide_album_cards", BOOLEAN, FALSE, true),

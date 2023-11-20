@@ -247,7 +247,12 @@ public final class LayoutComponentsFilter extends Filter {
      * Injection point.
      * Called from a different place then the other filters.
      */
-    public static boolean filterMixPlaylists(final Object conversionContext, final byte[] bytes) {
+    public static boolean filterMixPlaylists(final Object conversionContext, @Nullable final byte[] bytes) {
+        if (bytes == null) {
+            LogHelper.printDebug(() -> "bytes is null");
+            return false;
+        }
+
         // Prevent playlist items being hidden, if a mix playlist is present in it.
         if (mixPlaylistsExceptions.matches(conversionContext.toString()))
             return false;

@@ -112,6 +112,26 @@ public class ReVancedUtils {
         return backgroundThreadPool.submit(call);
     }
 
+    /**
+     * Simulates a delay by doing meaningless calculations.
+     * Used for debugging to verify UI timeout logic.
+     */
+    @SuppressWarnings("UnusedReturnValue")
+    public static long doNothingForDuration(long amountOfTimeToWaste) {
+        final long timeCalculationStarted = System.currentTimeMillis();
+        LogHelper.printDebug(() -> "Artificially creating delay of: " + amountOfTimeToWaste + "ms");
+
+        long meaninglessValue = 0;
+        while (System.currentTimeMillis() - timeCalculationStarted < amountOfTimeToWaste) {
+            // could do a thread sleep, but that will trigger an exception if the thread is interrupted
+            meaninglessValue += Long.numberOfLeadingZeros((long) Math.exp(Math.random()));
+        }
+        // return the value, otherwise the compiler or VM might optimize and remove the meaningless time wasting work,
+        // leaving an empty loop that hammers on the System.currentTimeMillis native call
+        return meaninglessValue;
+    }
+
+
     public static boolean containsAny(@NonNull String value, @NonNull String... targets) {
         return indexOfFirstFound(value, targets) >= 0;
     }
