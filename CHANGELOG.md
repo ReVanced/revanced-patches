@@ -1,3 +1,10 @@
+# [2.200.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.200.0-dev.1...v2.200.0-dev.2) (2023-11-21)
+
+
+### Bug Fixes
+
+* **Spotify - Custom theme:** Add more background surfaces coloring options ([#3285](https://github.com/ReVanced/revanced-patches/issues/3285)) ([869ec26](https://github.com/ReVanced/revanced-patches/commit/869ec26966f7750c45355ac0acc18b81a2abce87))
+
 # [2.200.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.199.0...v2.200.0-dev.1) (2023-11-21)
 
 
