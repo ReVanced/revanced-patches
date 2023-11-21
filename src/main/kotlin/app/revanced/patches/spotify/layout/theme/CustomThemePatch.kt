@@ -17,25 +17,42 @@ object CustomThemePatch : ResourcePatch() {
     private var backgroundColor by stringPatchOption(
         key = "backgroundColor",
         default = "@android:color/black",
-        title = "Background color",
+        title = "Primary background color",
         description = "The background color. Can be a hex color or a resource reference.",
+        required = true
+    )
+
+    private var backgroundColorSecondary by stringPatchOption(
+        key = "backgroundColorSecondary",
+        default = "#ff282828",
+        title = "Secondary background color",
+        description = "The secondary background color. Can be a hex color or a resource reference.",
+        required = true
     )
 
     private var accentColor by stringPatchOption(
         key = "accentColor",
         default = "#ff1ed760",
         title = "Accent color",
-        description = "The accent color ('spotify green' by default). Can be a hex color or a resource reference.",
+        description = "The accent color ('Spotify green' by default). Can be a hex color or a resource reference.",
+        required = true
     )
 
-    private var accentPressedColor by stringPatchOption(
-        key = "accentPressedColor",
+    private var accentColorPressed by stringPatchOption(
+        key = "accentColorPressed",
         default = "#ff169c46",
-        title = "Pressed accent for the dark theme",
-        description = "The color when accented buttons are pressed, by default slightly darker than accent. Can be a hex color or a resource reference."
+        title = "Pressed dark theme accent color",
+        description = "The color when accented buttons are pressed, by default slightly darker than accent. "
+                + "Can be a hex color or a resource reference.",
+        required = true
     )
 
     override fun execute(context: ResourceContext) {
+        val backgroundColor = backgroundColor!!
+        val backgroundColorSecondary = backgroundColorSecondary!!
+        val accentColor = accentColor!!
+        val accentColorPressed = accentColorPressed!!
+
         context.xmlEditor["res/values/colors.xml"].use { editor ->
             val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
 
@@ -43,9 +60,15 @@ object CustomThemePatch : ResourcePatch() {
                 val node = resourcesNode.childNodes.item(i) as? Element ?: continue
 
                 node.textContent = when (node.getAttribute("name")) {
-                    "gray_7" -> backgroundColor!!
-                    "dark_brightaccent_background_base", "dark_base_text_brightaccent", "green_light" -> accentColor!!
-                    "dark_brightaccent_background_press" -> accentPressedColor!!
+                    "dark_base_background_elevated_base", "design_dark_default_color_background",
+                    "design_dark_default_color_surface", "gray_7", "gray_background", "gray_layer",
+                    "sthlm_blk" -> backgroundColor
+
+                    "gray_15" -> backgroundColorSecondary
+
+                    "dark_brightaccent_background_base", "dark_base_text_brightaccent", "green_light" -> accentColor
+
+                    "dark_brightaccent_background_press" -> accentColorPressed
                     else -> continue
                 }
             }
