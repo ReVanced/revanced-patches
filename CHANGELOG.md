@@ -1,3 +1,10 @@
+# [2.200.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v2.200.0-dev.2...v2.200.0-dev.3) (2023-11-21)
+
+
+### Bug Fixes
+
+* **YouTube - Remove tracking query parameter:** Sanitize shared URLs in remaining places ([2442902](https://github.com/ReVanced/revanced-patches/commit/2442902dacc25f2c932a6689e9788e5a02fdff6b))
+
 # [2.200.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.200.0-dev.1...v2.200.0-dev.2) (2023-11-21)
 
 
