@@ -22,7 +22,7 @@ import app.revanced.patches.twitch.misc.settings.SettingsPatch
     name = "Show deleted messages",
     description = "Shows deleted chat messages behind a clickable spoiler.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
-    compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0"])]
+    compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])]
 )
 @Suppress("unused")
 object ShowDeletedMessagesPatch : BytecodePatch(

@@ -18,7 +18,7 @@ import app.revanced.patches.twitch.misc.settings.SettingsPatch
     name = "Block embedded ads",
     description = "Blocks embedded stream ads using services like Luminous or PurpleAdBlocker.",
     dependencies = [VideoAdsPatch::class, IntegrationsPatch::class, SettingsPatch::class],
-    compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0"])]
+    compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])]
 )
 @Suppress("unused")
 object EmbeddedAdsPatch : BytecodePatch(

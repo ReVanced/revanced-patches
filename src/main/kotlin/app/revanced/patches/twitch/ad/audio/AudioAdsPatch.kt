@@ -17,7 +17,7 @@ import app.revanced.patches.twitch.misc.settings.SettingsPatch
     name = "Block audio ads",
     description = "Blocks audio ads in streams and VODs.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
-    compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0"])],
+    compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])],
 )
 @Suppress("unused")
 object AudioAdsPatch : BytecodePatch(

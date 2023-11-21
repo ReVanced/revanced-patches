@@ -21,7 +21,7 @@ import app.revanced.patches.twitch.misc.settings.SettingsPatch
     name = "Block video ads",
     description = "Blocks video ads in streams and VODs.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
-    compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0"])]
+    compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])]
 )
 object VideoAdsPatch : AbstractAdPatch(
     "Lapp/revanced/twitch/patches/VideoAdsPatch;->shouldBlockVideoAds()Z",
