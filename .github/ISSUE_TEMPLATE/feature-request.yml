@@ -9,6 +9,8 @@ body:
         # ReVanced Patches feature request
         
         Please check for existing feature requests [here](https://github.com/ReVanced/revanced-patches/labels/Feature%20request) before creating a new one.
+        Review the [contribution guidelines](https://github.com/ReVanced/revanced-patches/blob/main/CONTRIBUTING.md) before submitting a feature request.
+
   - type: textarea
     attributes:
       label: Feature description
