@@ -1,3 +1,11 @@
+# [2.200.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.199.0...v2.200.0-dev.1) (2023-11-21)
+
+
+### Features
+
+* **Twitch:** Constrain patches to versions known to work ([65b55a5](https://github.com/ReVanced/revanced-patches/commit/65b55a5189df52dc7e99b7e9c68b908fbca92434))
+* **Twitch:** Support version `16.9.1` ([c70e4a6](https://github.com/ReVanced/revanced-patches/commit/c70e4a66bd65b42db88dcabd412ec985226bd1e7))
+
 # [2.199.0](https://github.com/ReVanced/revanced-patches/compare/v2.198.0...v2.199.0) (2023-11-20)
 
 
