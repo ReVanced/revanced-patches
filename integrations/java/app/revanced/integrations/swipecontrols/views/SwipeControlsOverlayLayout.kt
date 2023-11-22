@@ -131,6 +131,7 @@ class SwipeControlsOverlayLayout(
 
     override fun onEnterSwipeSession() {
         if (config.shouldEnableHapticFeedback) {
+            @Suppress("DEPRECATION")
             performHapticFeedback(
                 HapticFeedbackConstants.LONG_PRESS,
                 HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING
