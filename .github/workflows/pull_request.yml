@@ -16,6 +16,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Open pull request
         uses: repo-sync/pull-request@v2
         with:

@@ -1,3 +1,25 @@
+# [2.200.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v2.200.0-dev.2...v2.200.0-dev.3) (2023-11-21)
+
+
+### Bug Fixes
+
+* **YouTube - Remove tracking query parameter:** Sanitize shared URLs in remaining places ([2442902](https://github.com/ReVanced/revanced-patches/commit/2442902dacc25f2c932a6689e9788e5a02fdff6b))
+
+# [2.200.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.200.0-dev.1...v2.200.0-dev.2) (2023-11-21)
+
+
+### Bug Fixes
+
+* **Spotify - Custom theme:** Add more background surfaces coloring options ([#3285](https://github.com/ReVanced/revanced-patches/issues/3285)) ([869ec26](https://github.com/ReVanced/revanced-patches/commit/869ec26966f7750c45355ac0acc18b81a2abce87))
+
+# [2.200.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.199.0...v2.200.0-dev.1) (2023-11-21)
+
+
+### Features
+
+* **Twitch:** Constrain patches to versions known to work ([65b55a5](https://github.com/ReVanced/revanced-patches/commit/65b55a5189df52dc7e99b7e9c68b908fbca92434))
+* **Twitch:** Support version `16.9.1` ([c70e4a6](https://github.com/ReVanced/revanced-patches/commit/c70e4a66bd65b42db88dcabd412ec985226bd1e7))
+
 # [2.199.0](https://github.com/ReVanced/revanced-patches/compare/v2.198.0...v2.199.0) (2023-11-20)
 
 
