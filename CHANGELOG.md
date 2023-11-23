@@ -1,3 +1,10 @@
+## [2.200.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.200.0...v2.200.1-dev.1) (2023-11-23)
+
+
+### Bug Fixes
+
+* **YouTube - Enable tablet layout:** Respect the original device layout ([1eb12cc](https://github.com/ReVanced/revanced-patches/commit/1eb12cc40ac5c25410dac9857ff4a9585c25f5cc))
+
 # [2.200.0](https://github.com/ReVanced/revanced-patches/compare/v2.199.0...v2.200.0) (2023-11-22)
 
 
