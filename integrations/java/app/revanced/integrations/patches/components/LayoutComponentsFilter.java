@@ -192,6 +192,11 @@ public final class LayoutComponentsFilter extends Filter {
                 "featured_channel_watermark_overlay"
         );
 
+        final var forYouShelf = new StringFilterGroup(
+                SettingsEnum.HIDE_FOR_YOU_SHELF,
+                "mixed_content_shelf"
+        );
+
         this.pathFilterGroupList.addAll(
                 channelBar,
                 communityPosts,
@@ -216,6 +221,7 @@ public final class LayoutComponentsFilter extends Filter {
                 timedReactions,
                 imageShelf,
                 channelMemberShelf,
+                forYouShelf,
                 custom
         );
 

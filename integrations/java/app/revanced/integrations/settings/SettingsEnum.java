@@ -114,6 +114,7 @@ public enum SettingsEnum {
     HIDE_TIMESTAMP("revanced_hide_timestamp", BOOLEAN, FALSE),
     @Deprecated HIDE_VIDEO_WATERMARK("revanced_hide_video_watermark", BOOLEAN, TRUE),
     HIDE_VIDEO_CHANNEL_WATERMARK("revanced_hide_channel_watermark", BOOLEAN, TRUE),
+    HIDE_FOR_YOU_SHELF("revanced_hide_for_you_shelf", BOOLEAN, TRUE),
     HIDE_VIDEO_QUALITY_MENU_FOOTER("revanced_hide_video_quality_menu_footer", BOOLEAN, TRUE),
     PLAYER_OVERLAY_OPACITY("revanced_player_overlay_opacity", INTEGER, 100, true),
     PLAYER_POPUP_PANELS("revanced_hide_player_popup_panels", BOOLEAN, FALSE),
