@@ -1,3 +1,10 @@
+## [2.201.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.201.0...v2.201.1-dev.1) (2023-11-23)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Clarify custom filter usage ([cc16db5](https://github.com/ReVanced/revanced-patches/commit/cc16db56d1c9925852265fcebb459d9620cd1b92))
+
 # [2.201.0](https://github.com/ReVanced/revanced-patches/compare/v2.200.0...v2.201.0) (2023-11-23)
 
 
