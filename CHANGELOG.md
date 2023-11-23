@@ -1,3 +1,11 @@
+# [2.201.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.200.1-dev.1...v2.201.0-dev.1) (2023-11-23)
+
+
+### Features
+
+* **YouTube - Hide ads:** Hide shopping links in video description ([50e0f77](https://github.com/ReVanced/revanced-patches/commit/50e0f775875d8b91612dafdb2ce2e0196f913a98))
+* **YouTube - Hide layout components:** Hide "For You" shelf in channel page ([207f02f](https://github.com/ReVanced/revanced-patches/commit/207f02faf956fe77be50b8ca9846a60b15ef4e25))
+
 ## [2.200.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.200.0...v2.200.1-dev.1) (2023-11-23)
 
 
