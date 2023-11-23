@@ -75,6 +75,12 @@ object HideLayoutComponentsPatch : BytecodePatch(
                 StringResource("revanced_hide_channel_watermark_title_summary_off", "Watermark is shown")
             ),
             SwitchPreference(
+                "revanced_hide_for_you_shelf",
+                StringResource("revanced_hide_for_you_shelf_title", "Hide \\\'For you\\\' shelf in channel page"),
+                StringResource("revanced_hide_for_you_shelf_summary_on", "Shelf is hidden"),
+                StringResource("revanced_hide_for_you_shelf_summary_off", "Shelf is shown")
+            ),
+            SwitchPreference(
                 "revanced_hide_notify_me_button",
                 StringResource("revanced_hide_notify_me_button_title", "Hide \\\'Notify me\\\' button"),
                 StringResource("revanced_hide_notify_me_button_summary_on", "Button is hidden"),
