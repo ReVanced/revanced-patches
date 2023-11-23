@@ -50,6 +50,7 @@ public enum SettingsEnum {
     HIDE_MERCHANDISE_BANNERS("revanced_hide_merchandise_banners", BOOLEAN, TRUE),
     HIDE_PAID_CONTENT("revanced_hide_paid_content_ads", BOOLEAN, TRUE),
     HIDE_PRODUCTS_BANNER("revanced_hide_products_banner", BOOLEAN, TRUE),
+    HIDE_SHOPPING_LINKS("revanced_hide_shopping_links", BOOLEAN, TRUE),
     HIDE_SELF_SPONSOR("revanced_hide_self_sponsor_ads", BOOLEAN, TRUE),
     HIDE_VIDEO_ADS("revanced_hide_video_ads", BOOLEAN, TRUE, true),
     HIDE_WEB_SEARCH_RESULTS("revanced_hide_web_search_results", BOOLEAN, TRUE),
