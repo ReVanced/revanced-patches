@@ -12,6 +12,7 @@ import app.revanced.integrations.utils.StringTrieSearch;
 
 public final class AdsFilter extends Filter {
     private final StringTrieSearch exceptions = new StringTrieSearch();
+    private final StringFilterGroup shoppingLinks;
 
     public AdsFilter() {
         exceptions.addPatterns(
@@ -71,6 +72,11 @@ public final class AdsFilter extends Filter {
                 "products_in_video"
         );
 
+        shoppingLinks = new StringFilterGroup(
+                SettingsEnum.HIDE_SHOPPING_LINKS,
+                "expandable_list"
+        );
+
         final var webLinkPanel = new StringFilterGroup(
                 SettingsEnum.HIDE_WEB_SEARCH_RESULTS,
                 "web_link_panel"
@@ -93,6 +99,7 @@ public final class AdsFilter extends Filter {
                 viewProducts,
                 selfSponsor,
                 webLinkPanel,
+                shoppingLinks,
                 movieAds
         );
         this.identifierFilterGroupList.addAll(carouselAd);
@@ -103,6 +110,10 @@ public final class AdsFilter extends Filter {
                               FilterGroupList matchedList, FilterGroup matchedGroup, int matchedIndex) {
         if (exceptions.matches(path))
            return false;
+
+        // Check for the index because of likelihood of false positives.
+        if (matchedGroup == shoppingLinks && matchedIndex != 0)
+            return false;
 
         return super.isFiltered(identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
     }

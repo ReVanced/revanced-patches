@@ -15,14 +15,22 @@ import java.util.Arrays;
 public class CustomPlaybackSpeedPatch {
     /**
      * Maximum playback speed, exclusive value.  Custom speeds must be less than this value.
-     * Limit is required otherwise double digit speeds show up out of order in the UI selector.
+     *
+     * Going over 8x does not increase the actual playback speed any higher,
+     * and the UI selector starts flickering and acting weird.
+     * Over 10x and the speeds show up out of order in the UI selector.
      */
-    public static final float MAXIMUM_PLAYBACK_SPEED = 10;
+    public static final float MAXIMUM_PLAYBACK_SPEED = 8;
 
     /**
      * Custom playback speeds.
      */
     public static float[] customPlaybackSpeeds;
+
+    /**
+     * The last time the old playback menu was forcefully called.
+     */
+    private static long lastTimeOldPlaybackMenuInvoked;
 
     /**
      * PreferenceList entries and values, of all available playback speeds.
@@ -101,36 +109,48 @@ public class CustomPlaybackSpeedPatch {
                 // For some reason, the custom playback speed flyout panel is activated when the user opens the share panel. (A/B tests)
                 // Check the child count of playback speed flyout panel to prevent this issue.
                 // Child count of playback speed flyout panel is always 8.
-                if (PlaybackSpeedMenuFilterPatch.isPlaybackSpeedMenuVisible
-                        && ((ViewGroup) recyclerView.getChildAt(0)).getChildCount() == 8) {
-                    PlaybackSpeedMenuFilterPatch.isPlaybackSpeedMenuVisible = false;
-                    ViewGroup parentView3rd = (ViewGroup) recyclerView.getParent().getParent().getParent();
-                    ViewGroup parentView4th = (ViewGroup) parentView3rd.getParent();
-
-                    // Dismiss View [R.id.touch_outside] is the 1st ChildView of the 4th ParentView.
-                    // This only shows in phone layout.
-
-                    final var touchInsidedView = parentView4th.getChildAt(0);
-                    touchInsidedView.setSoundEffectsEnabled(false);
-                    touchInsidedView.performClick();
-
-                    // In tablet layout there is no Dismiss View, instead we just hide all two parent views.
-                    parentView3rd.setVisibility(View.GONE);
-                    parentView4th.setVisibility(View.GONE);
-
-                    // This works without issues for both tablet and phone layouts,
-                    // So no code is needed to check whether the current device is a tablet or phone.
-
-                    // Close the new Playback speed menu and show the old one.
-                    showOldPlaybackSpeedMenu();
+                if (!PlaybackSpeedMenuFilterPatch.isPlaybackSpeedMenuVisible || recyclerView.getChildCount() == 0) {
+                    return;
                 }
+                ViewGroup PlaybackSpeedParentView = (ViewGroup) recyclerView.getChildAt(0);
+                if (PlaybackSpeedParentView == null || PlaybackSpeedParentView.getChildCount() != 8) {
+                    return;
+                }
+
+                PlaybackSpeedMenuFilterPatch.isPlaybackSpeedMenuVisible = false;
+                ViewGroup parentView3rd = (ViewGroup) recyclerView.getParent().getParent().getParent();
+                ViewGroup parentView4th = (ViewGroup) parentView3rd.getParent();
+
+                // Dismiss View [R.id.touch_outside] is the 1st ChildView of the 4th ParentView.
+                // This only shows in phone layout.
+                final var touchInsidedView = parentView4th.getChildAt(0);
+                touchInsidedView.setSoundEffectsEnabled(false);
+                touchInsidedView.performClick();
+
+                // In tablet layout there is no Dismiss View, instead we just hide all two parent views.
+                parentView3rd.setVisibility(View.GONE);
+                parentView4th.setVisibility(View.GONE);
+
+                // This works without issues for both tablet and phone layouts,
+                // So no code is needed to check whether the current device is a tablet or phone.
+
+                // Close the new Playback speed menu and show the old one.
+                showOldPlaybackSpeedMenu();
             } catch (Exception ex) {
                 LogHelper.printException(() -> "onFlyoutMenuCreate failure", ex);
             }
         });
     }
 
-    public static void showOldPlaybackSpeedMenu() {
+    private static void showOldPlaybackSpeedMenu() {
+        // This method is sometimes used multiple times.
+        // To prevent this, ignore method reuse within 1 second.
+        final long now = System.currentTimeMillis();
+        if (now - lastTimeOldPlaybackMenuInvoked < 1000) {
+            LogHelper.printDebug(() -> "Ignoring call to showOldPlaybackSpeedMenu");
+            return;
+        }
+        lastTimeOldPlaybackMenuInvoked = now;
         LogHelper.printDebug(() -> "Old video quality menu shown");
 
         // Rest of the implementation added by patch.

@@ -12,6 +12,7 @@ import java.util.Objects;
 
 /**
  * Hooking class for the current playing video.
+ * @noinspection unused
  */
 public final class VideoInformation {
     private static final float DEFAULT_YOUTUBE_PLAYBACK_SPEED = 1.0f;
@@ -89,7 +90,7 @@ public final class VideoInformation {
 
     /**
      * Overrides the current playback speed.
-     *
+     * <p>
      * <b> Used exclusively by {@link RememberPlaybackSpeedPatch} </b>
      */
     public static void overridePlaybackSpeed(float speedOverride) {
@@ -124,24 +125,33 @@ public final class VideoInformation {
     /**
      * Seek on the current video.
      * Does not function for playback of Shorts.
-     *
+     * <p>
      * Caution: If called from a videoTimeHook() callback,
      * this will cause a recursive call into the same videoTimeHook() callback.
      *
      * @param millisecond The millisecond to seek the video to.
-     * @return if the seek was successful
+     * @return true if the seek was successful.
      */
     public static boolean seekTo(final long millisecond) {
+        final long videoLength = getVideoLength();
+
+        // Don't seek more than the video length to prevent issues such as
+        // Play pause button or autoplay not working.
+        // TODO: These are arbitrarily chosen values and should be subject to be adjusted.
+        final long seekToMilliseconds = millisecond <= videoLength - 500 ? millisecond : millisecond - 100;
+
         ReVancedUtils.verifyOnMainThread();
         try {
-            LogHelper.printDebug(() -> "Seeking to " + millisecond);
-            return (Boolean) seekMethod.invoke(playerControllerRef.get(), millisecond);
+            LogHelper.printDebug(() -> "Seeking to " + seekToMilliseconds);
+            //noinspection DataFlowIssue
+            return (Boolean) seekMethod.invoke(playerControllerRef.get(), seekToMilliseconds);
         } catch (Exception ex) {
             LogHelper.printException(() -> "Failed to seek", ex);
             return false;
         }
     }
 
+    /** @noinspection UnusedReturnValue*/
     public static boolean seekToRelative(long millisecondsRelative) {
         return seekTo(videoTime + millisecondsRelative);
     }
@@ -159,10 +169,10 @@ public final class VideoInformation {
     /**
      * Differs from {@link #videoId} as this is the video id for the
      * last player response received, which may not be the current video playing.
-     *
+     * <p>
      * If Shorts are loading the background, this commonly will be
      * different from the Short that is currently on screen.
-     *
+     * <p>
      * For most use cases, you should instead use {@link #getVideoId()}.
      *
      * @return The id of the last video loaded. Empty string if not set yet.
@@ -192,9 +202,9 @@ public final class VideoInformation {
 
     /**
      * Playback time of the current video playing.  Includes Shorts.
-     *
+     * <p>
      * Value will lag behind the actual playback time by a variable amount based on the playback speed.
-     *
+     * <p>
      * If playback speed is 2.0x, this value may be up to 2000ms behind the actual playback time.
      * If playback speed is 1.0x, this value may be up to 1000ms behind the actual playback time.
      * If playback speed is 0.5x, this value may be up to 500ms behind the actual playback time.
@@ -208,12 +218,12 @@ public final class VideoInformation {
 
     /**
      * @return If the playback is at the end of the video.
-     *
+     *        <p>
      * If video is playing in the background with no video visible,
      * this always returns false (even if the video is actually at the end).
-     *
+     * <p>
      * This is equivalent to checking for {@link VideoState#ENDED},
-     * but can give a more up to date result for code calling from some hooks.
+     * but can give a more up-to-date result for code calling from some hooks.
      *
      * @see VideoState
      */
