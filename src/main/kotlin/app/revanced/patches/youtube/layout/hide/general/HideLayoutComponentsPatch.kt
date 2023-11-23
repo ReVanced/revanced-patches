@@ -406,7 +406,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
                         StringResource("revanced_custom_filter_strings_title", "Custom filter"),
                         StringResource(
                             "revanced_custom_filter_strings_summary",
-                            "List of components to filter separated by new line"
+                            "List of component path builder strings to filter separated by new line"
                         ),
                         inputType = InputType.TEXT_MULTI_LINE
                     )
