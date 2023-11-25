@@ -169,7 +169,17 @@ public class SpoofSignaturePatch {
      * if {@link SettingsEnum#SPOOF_STORYBOARD_RENDERER} is not enabled.
      */
     public static boolean getSeekbarThumbnailOverrideValue() {
-        return SettingsEnum.SPOOF_SIGNATURE.getBoolean();
+        if (!SettingsEnum.SPOOF_SIGNATURE.getBoolean()) {
+            return false;
+        }
+        StoryboardRenderer renderer = videoRenderer;
+        if (renderer == null) {
+            // Spoof storyboard renderer is turned off,
+            // video is paid, or the storyboard fetch timed out.
+            // Show empty thumbnails so the seek time and chapters still show up.
+            return true;
+        }
+        return renderer.getSpec() != null;
     }
 
     /**

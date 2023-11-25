@@ -1,23 +1,23 @@
 package app.revanced.integrations.patches.spoof;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.jetbrains.annotations.NotNull;
 
 public final class StoryboardRenderer {
+    @Nullable
     private final String spec;
     private final boolean isLiveStream;
     @Nullable
     private final Integer recommendedLevel;
 
-    public StoryboardRenderer(String spec, boolean isLiveStream, @Nullable Integer recommendedLevel) {
+    public StoryboardRenderer(@Nullable String spec, boolean isLiveStream, @Nullable Integer recommendedLevel) {
         this.spec = spec;
         this.isLiveStream = isLiveStream;
         this.recommendedLevel = recommendedLevel;
     }
 
-    @NonNull
+    @Nullable
     public String getSpec() {
         return spec;
     }
