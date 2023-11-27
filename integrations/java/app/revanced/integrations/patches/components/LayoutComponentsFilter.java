@@ -263,10 +263,12 @@ public final class LayoutComponentsFilter extends Filter {
         if (mixPlaylistsExceptions.matches(conversionContext.toString()))
             return false;
 
-        if (!mixPlaylists.check(bytes).isFiltered()) return false;
+        if (!mixPlaylists.check(bytes).isFiltered())
+            return false;
 
         // Prevent hiding the description of some videos accidentally.
-        if (mixPlaylistsExceptions2.check(bytes).isFiltered()) return false;
+        if (mixPlaylistsExceptions2.check(bytes).isFiltered())
+            return false;
 
         LogHelper.printDebug(() -> "Filtered mix playlist");
         return true;
