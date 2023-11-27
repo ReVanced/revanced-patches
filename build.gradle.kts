@@ -30,6 +30,22 @@ kotlin {
     jvmToolchain(11)
 }
 
+tasks.withType(Jar::class) {
+    exclude("app/revanced/meta")
+
+    manifest {
+        attributes["Name"] = "ReVanced Patches"
+        attributes["Description"] = "Patches for ReVanced."
+        attributes["Version"] = version
+        attributes["Timestamp"] = System.currentTimeMillis().toString()
+        attributes["Source"] = "git@github.com:revanced/revanced-patches.git"
+        attributes["Author"] = "ReVanced"
+        attributes["Contact"] = "contact@revanced.app"
+        attributes["Origin"] = "https://revanced.app"
+        attributes["License"] = "GNU General Public License v3.0"
+    }
+}
+
 tasks {
     register<DefaultTask>("generateBundle") {
         description = "Generate dex files from build and bundle them in the jar file"
