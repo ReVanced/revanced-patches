@@ -1,3 +1,11 @@
+## [2.201.1](https://github.com/ReVanced/revanced-patches/compare/v2.201.0...v2.201.1) (2023-11-27)
+
+
+### Bug Fixes
+
+* **Spotify - Hide premium navbar:** Support latest version ([b87005d](https://github.com/ReVanced/revanced-patches/commit/b87005de0c40293f85d3997f43b353a87a925156))
+* **YouTube - Hide layout components:** Clarify custom filter usage ([cc16db5](https://github.com/ReVanced/revanced-patches/commit/cc16db56d1c9925852265fcebb459d9620cd1b92))
+
 ## [2.201.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.201.1-dev.1...v2.201.1-dev.2) (2023-11-23)
 
 
