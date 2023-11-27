@@ -12,13 +12,6 @@ repositories {
     mavenLocal()
     google()
     maven { url = uri("https://jitpack.io") }
-    // Required for FlexVer-Java
-    maven {
-        url = uri("https://repo.sleeping.town")
-        content {
-            includeGroup("com.unascribed")
-        }
-    }
 }
 
 dependencies {
