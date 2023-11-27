@@ -335,9 +335,13 @@ public class ReturnYouTubeDislikePatch {
         // YouTube Rolling Numbers do not use compound drawables or drawable padding.
         if (view.getCompoundDrawablePadding() == 0) {
             LogHelper.printDebug(() -> "Adding rolling number TextView changes");
-            ShapeDrawable leftSeparator = ReturnYouTubeDislike.getLeftSeparatorDrawable();
-            view.setCompoundDrawables(leftSeparator, null, null, null);
             view.setCompoundDrawablePadding(ReturnYouTubeDislike.leftSeparatorShapePaddingPixels);
+            ShapeDrawable separator = ReturnYouTubeDislike.getLeftSeparatorDrawable();
+            if (ReVancedUtils.isRightToLeftTextLayout()) {
+                view.setCompoundDrawables(null, null, separator, null);
+            } else {
+                view.setCompoundDrawables(separator, null, null, null);
+            }
         }
     }
 
