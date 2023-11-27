@@ -12,8 +12,10 @@ import app.revanced.integrations.utils.StringTrieSearch;
 public final class LayoutComponentsFilter extends Filter {
     private final StringTrieSearch exceptions = new StringTrieSearch();
     private static final StringTrieSearch mixPlaylistsExceptions = new StringTrieSearch();
-    private static ByteArrayAsStringFilterGroup mixPlaylistsExceptions2;
-
+    private static final ByteArrayAsStringFilterGroup mixPlaylistsExceptions2 = new ByteArrayAsStringFilterGroup(
+            null,
+            "cell_description_body"
+    );
     private final CustomFilterGroup custom;
 
     private static final ByteArrayAsStringFilterGroup mixPlaylists = new ByteArrayAsStringFilterGroup(
@@ -25,6 +27,13 @@ public final class LayoutComponentsFilter extends Filter {
     private final StringFilterGroup notifyMe;
     private final StringFilterGroup expandableMetadata;
 
+    static {
+        mixPlaylistsExceptions.addPatterns(
+                "V.ED", // Playlist browse id.
+                "java.lang.ref.WeakReference"
+        );
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     public LayoutComponentsFilter() {
         exceptions.addPatterns(
@@ -33,16 +42,6 @@ public final class LayoutComponentsFilter extends Filter {
                 "comment_thread", // Whitelist comments
                 "|comment.", // Whitelist comment replies
                 "library_recent_shelf"
-        );
-
-        mixPlaylistsExceptions.addPatterns(
-                "V.ED", // Playlist browse id.
-                "java.lang.ref.WeakReference"
-        );
-
-        mixPlaylistsExceptions2 = new ByteArrayAsStringFilterGroup(
-                null,
-                "cell_description_body"
         );
 
         custom = new CustomFilterGroup(
@@ -272,7 +271,6 @@ public final class LayoutComponentsFilter extends Filter {
 
         LogHelper.printDebug(() -> "Filtered mix playlist");
         return true;
-
     }
 
     public static boolean showWatermark() {
