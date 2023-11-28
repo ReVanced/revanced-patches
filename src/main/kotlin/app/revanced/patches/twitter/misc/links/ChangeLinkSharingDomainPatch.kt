@@ -39,14 +39,14 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
 
     override fun execute(context: BytecodeContext) {
         // Replace the domain in the method that generates the share link
-        val linkBuilderMethod = LinkBuilderMethodFingerprint.result?.apply {
-
+        // This is used in the copy link button to generate the link that is copied to the clipboard
+        val linkBuilderMethod = LinkBuilderMethodFingerprint.result?.let {
             // Find the index of the string instruction that contains the link
-            val stringIndex = scanResult.stringsScanResult!!.matches.find { match ->
+            val stringIndex = it.scanResult.stringsScanResult!!.matches.find { match ->
                 (match.string == "https://twitter.com/%1\$s/status/%2\$d" || match.string == "https://x.com/%1\$s/status/%2\$d")
             }!!.index
 
-            val instruction = this.mutableMethod.getInstruction<OneRegisterInstruction>(stringIndex)
+            val instruction = it.mutableMethod.getInstruction<OneRegisterInstruction>(stringIndex)
             val overrideRegister = instruction.registerA
             val string = ((instruction as ReferenceInstruction).reference as StringReference).string
 
@@ -61,14 +61,16 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
                 }
             }
 
-            this.mutableMethod.replaceInstruction(
+            it.mutableMethod.replaceInstruction(
                 stringIndex,
-                """
-                    const-string v$overrideRegister, "$overrideString"
-                """
+                "const-string v$overrideRegister, \"$overrideString\""
             )
+
+            it.method
         } ?: throw LinkBuilderMethodFingerprint.exception
 
+        // Replace instruction that gets the link template from resources with a call to our patched method.
+        // It is used in the Share via... dialog to show the link that will be shared.
         LinkResourceGetterFingerprint.result?.apply {
             val instructions = this.mutableMethod.getInstructions()
 
@@ -107,9 +109,7 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
                     val sourceRegister = (instructions[index + 1] as OneRegisterInstruction).registerA
                     this.mutableMethod.addInstruction(
                         index + 2,
-                        """
-                            move-object v7, v$sourceRegister
-                        """
+                        "move-object v7, v$sourceRegister"
                     )
                     break
                 }
@@ -131,7 +131,7 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
                     this.mutableMethod.addInstructions(
                         index + 2,
                         """
-                            invoke-static { v$sourceRegister, v$sourcePlusOne, v7 }, ${linkBuilderMethod.method}
+                            invoke-static { v$sourceRegister, v$sourcePlusOne, v7 }, $linkBuilderMethod
                             move-result-object v$resultRegister
                         """
                     )
