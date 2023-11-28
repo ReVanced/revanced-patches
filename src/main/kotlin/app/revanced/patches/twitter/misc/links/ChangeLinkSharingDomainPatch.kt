@@ -123,9 +123,8 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
                         (instruction as ReferenceInstruction).reference as MethodReference
                     if (methodRef.definingClass != "Ljava/lang/Long;") continue
 
-                    // Get the first part of the tweet ID
+                    // Get the registers for tweet ID number (64 bits)
                     val sourceRegister = (instructions[index + 1] as OneRegisterInstruction).registerA
-                    // Get the second part of the tweet ID
                     val sourcePlusOne = sourceRegister + 1
 
                     // Call the patched method with the tweet ID and username and save the result to resultRegister
