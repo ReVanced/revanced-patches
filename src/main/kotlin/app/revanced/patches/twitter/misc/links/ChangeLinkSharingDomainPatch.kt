@@ -43,19 +43,22 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
 
             // Find the index of the string instruction that contains the link
             val stringIndex = scanResult.stringsScanResult!!.matches.find { match ->
-                (
-                        match.string == "https://twitter.com/%1\$s/status/%2\$d" || match.string == "https://x.com/%1\$s/status/%2\$d")
+                (match.string == "https://twitter.com/%1\$s/status/%2\$d" || match.string == "https://x.com/%1\$s/status/%2\$d")
             }!!.index
 
-            val instruction = this.mutableMethod.getInstruction(stringIndex)
-            val overrideRegister = (instruction as OneRegisterInstruction).registerA
+            val instruction = this.mutableMethod.getInstruction<OneRegisterInstruction>(stringIndex)
+            val overrideRegister = instruction.registerA
             val string = ((instruction as ReferenceInstruction).reference as StringReference).string
 
             var overrideString = string
-            if (string.contains("twitter.com")) {
-                overrideString = string.replace("twitter.com", domain.toString())
-            } else if (string.contains("x.com")) {
-                overrideString = string.replace("x.com", domain.toString())
+            when {
+                string.contains("twitter.com") -> {
+                    overrideString = string.replace("twitter.com", domain.toString())
+                }
+
+                string.contains("x.com") -> {
+                    overrideString = string.replace("x.com", domain.toString())
+                }
             }
 
             this.mutableMethod.replaceInstruction(
@@ -98,8 +101,8 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
 
                     val methodRef =
                         (instruction as ReferenceInstruction).reference as MethodReference
-                    if (
-                        methodRef.returnType != "Ljava/lang/String;") continue
+
+                    if (methodRef.returnType != "Ljava/lang/String;") continue
 
                     val sourceRegister = (instructions[index + 1] as OneRegisterInstruction).registerA
                     this.mutableMethod.addInstruction(
