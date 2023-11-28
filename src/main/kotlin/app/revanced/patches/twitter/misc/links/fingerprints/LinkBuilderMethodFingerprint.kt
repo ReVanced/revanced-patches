@@ -1,8 +1,6 @@
 package app.revanced.patches.twitter.misc.links.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.Opcode
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
 // Returns a shareable link string based on a tweet ID and a username
 object LinkBuilderMethodFingerprint : MethodFingerprint(

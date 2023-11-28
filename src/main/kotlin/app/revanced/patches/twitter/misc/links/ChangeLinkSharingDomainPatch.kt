@@ -12,7 +12,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patcher.patch.options.types.StringPatchOption.Companion.stringPatchOption
+import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.twitter.misc.links.fingerprints.LinkBuilderMethodFingerprint
 import app.revanced.patches.twitter.misc.links.fingerprints.LinkResourceGetterFingerprint
 import com.android.tools.smali.dexlib2.Opcode
