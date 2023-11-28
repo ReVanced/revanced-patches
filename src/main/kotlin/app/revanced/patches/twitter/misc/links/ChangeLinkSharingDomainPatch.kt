@@ -9,14 +9,17 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.types.StringPatchOption.Companion.stringPatchOption
 import app.revanced.patches.twitter.misc.links.fingerprints.LinkBuilderMethodFingerprint
 import app.revanced.patches.twitter.misc.links.fingerprints.LinkResourceGetterFingerprint
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.BuilderInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
@@ -97,7 +100,10 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
                 }
             }
 
-            // Save user nickname to v7
+            // Instruction that sets free register to "this", needed to restore the original value of the register
+            var instructionToGetThis: TwoRegisterInstruction? = null
+
+            // Save user nickname to free register
             for ((index, instruction) in instructions.withIndex()) {
                 if (instruction.opcode == Opcode.INVOKE_VIRTUAL) {
 
@@ -106,14 +112,21 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
 
                     if (methodRef.returnType != "Ljava/lang/String;") continue
 
-                    val sourceRegister = (instructions[index + 1] as OneRegisterInstruction).registerA
+                    // Get instruction that sets free register to "this"
+                    instructionToGetThis = this.mutableMethod.getInstruction<TwoRegisterInstruction>(index - 1)
+
+                    // Get the register for the username
+                    val sourceRegister = this.mutableMethod.getInstruction<OneRegisterInstruction>(index + 1).registerA
+
                     this.mutableMethod.addInstruction(
                         index + 2,
-                        "move-object v7, v$sourceRegister"
+                        "move-object v${instructionToGetThis.registerA}, v$sourceRegister"
                     )
                     break
                 }
             }
+
+            if (instructionToGetThis == null) throw PatchException("Instruction to get \"this\" not found")
 
             // Call the patched method and save the result to resultRegister
             for ((index, instruction) in instructions.withIndex()) {
@@ -131,10 +144,13 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
                     this.mutableMethod.addInstructions(
                         index + 2,
                         """
-                            invoke-static { v$sourceRegister, v$sourcePlusOne, v7 }, $linkBuilderMethod
+                            invoke-static { v$sourceRegister, v$sourcePlusOne, v${instructionToGetThis.registerA} }, $linkBuilderMethod
                             move-result-object v$resultRegister
                         """
                     )
+
+                    // Restore the register that was used to store our string by duplicating the instruction that got "this"
+                    this.mutableMethod.addInstruction(index+4, instructionToGetThis as BuilderInstruction)
                     break
                 }
             }
