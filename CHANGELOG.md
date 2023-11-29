@@ -1,3 +1,10 @@
+## [2.201.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.201.1...v2.201.2-dev.1) (2023-11-29)
+
+
+### Bug Fixes
+
+* **YouTube - Restore old seekbar thumbnails:** Move setting into 'Seekbar' submenu ([#3344](https://github.com/ReVanced/revanced-patches/issues/3344)) ([880091a](https://github.com/ReVanced/revanced-patches/commit/880091a96d1a628520732367c96c4c11fb93b72d))
+
 ## [2.201.1](https://github.com/ReVanced/revanced-patches/compare/v2.201.0...v2.201.1) (2023-11-27)
 
 
