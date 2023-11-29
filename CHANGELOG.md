@@ -1,3 +1,10 @@
+# [2.202.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.201.2-dev.1...v2.202.0-dev.1) (2023-11-29)
+
+
+### Features
+
+* Modernize restart app logic ([#3343](https://github.com/ReVanced/revanced-patches/issues/3343)) ([3897647](https://github.com/ReVanced/revanced-patches/commit/3897647321b6c1860dc9804cac6c6985da8bb675))
+
 ## [2.201.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.201.1...v2.201.2-dev.1) (2023-11-29)
 
 
