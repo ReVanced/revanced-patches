@@ -85,7 +85,7 @@ public class ImportExportPreference extends EditTextPreference implements Prefer
             ReVancedSettingsFragment.settingImportInProgress = true;
             final boolean rebootNeeded = SettingsEnum.importJSON(replacementSettings);
             if (rebootNeeded) {
-                ReVancedSettingsFragment.showRebootDialog(getContext());
+                ReVancedSettingsFragment.showRestartDialog(getContext());
             }
         } catch (Exception ex) {
             LogHelper.printException(() -> "importSettings failure", ex);
