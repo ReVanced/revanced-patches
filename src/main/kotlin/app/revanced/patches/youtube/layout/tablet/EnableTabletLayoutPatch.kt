@@ -2,11 +2,9 @@ package app.revanced.patches.youtube.layout.tablet
 
 import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
@@ -16,8 +14,6 @@ import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.layout.tablet.fingerprints.GetFormFactorFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction10x
 
 @Patch(
     name = "Enable tablet layout",
@@ -42,20 +38,11 @@ object EnableTabletLayoutPatch : BytecodePatch(
 
         GetFormFactorFingerprint.result?.let {
             it.mutableMethod.apply {
-                val returnCurrentFormFactorIndex = getInstructions().lastIndex - 2
+                val returnIsLargeFormFactorIndex = getInstructions().lastIndex - 4
+                val returnIsLargeFormFactorLabel = getInstruction(returnIsLargeFormFactorIndex)
 
-                val returnIsLargeFormFactorLabel = getInstruction(returnCurrentFormFactorIndex - 2)
-                val returnFormFactorIndex = getInstruction(returnCurrentFormFactorIndex)
-
-                val insertIndex = returnCurrentFormFactorIndex + 1
-
-                // Replace the labeled instruction with a nop and add the preserved instructions back
-                replaceInstruction(returnCurrentFormFactorIndex, BuilderInstruction10x(Opcode.NOP))
-                addInstruction(insertIndex, returnFormFactorIndex)
-
-                // Because the labeled instruction is now a nop, we can add our own instructions right after it
                 addInstructionsWithLabels(
-                    insertIndex,
+                    0,
                     """
                           invoke-static { }, Lapp/revanced/integrations/patches/EnableTabletLayoutPatch;->enableTabletLayout()Z
                           move-result v0 # Free register
