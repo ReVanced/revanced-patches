@@ -34,7 +34,7 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
     setOf(LinkBuilderMethodFingerprint, LinkResourceGetterFingerprint)
 ) {
     private var domain by stringPatchOption(
-        key = "domain",
+        key = "domainName",
         default = "fxtwitter.com",
         title = "Domain name",
         description = "The domain to use when sharing links.",

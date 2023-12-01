@@ -6,20 +6,20 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.twitter.misc.links.fingerprints.AddTelemetryToLinkFingerprint
+import app.revanced.patches.twitter.misc.links.fingerprints.AddTrackingQueryToLinkFingerprint
 
 @Patch(
-    name = "Remove link telemetry",
-    description = "Removes telemetry at the end of the links",
+    name = "Remove tracking query parameter",
+    description = "Remove the tracking query parameter from links.",
     compatiblePackages = [CompatiblePackage("com.twitter.android")]
 )
 @Suppress("unused")
-object RemoveLinkTelemetryPatch : BytecodePatch(
-    setOf(AddTelemetryToLinkFingerprint)
+object RemoveTrackingQueryParameterPatch : BytecodePatch(
+    setOf(AddTrackingQueryToLinkFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         // Remove telemetry from links
-        AddTelemetryToLinkFingerprint.result?.mutableMethod?.addInstruction(0, "return-object p0")
-            ?: throw AddTelemetryToLinkFingerprint.exception
+        AddTrackingQueryToLinkFingerprint.result?.mutableMethod?.addInstruction(0, "return-object p0")
+            ?: throw AddTrackingQueryToLinkFingerprint.exception
     }
 }
