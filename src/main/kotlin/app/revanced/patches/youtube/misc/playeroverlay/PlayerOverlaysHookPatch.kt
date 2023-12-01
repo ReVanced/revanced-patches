@@ -13,17 +13,12 @@ import app.revanced.patches.youtube.misc.playeroverlay.fingerprint.PlayerOverlay
     dependencies = [IntegrationsPatch::class],
     compatiblePackages = [
         CompatiblePackage("com.google.android.youtube", [
-            "18.16.37",
-            "18.19.35",
-            "18.20.39",
-            "18.23.35",
-            "18.29.38",
             "18.32.39"
         ])
     ]
 )
 @Suppress("unused")
-object PlayerOverlaysHookPatch : BytecodePatch(
+object PlayerOverlaysHookPatch : BytecodePatch( // TODO: delete this unused outdated patch and its integration code.
     setOf(PlayerOverlaysOnFinishInflateFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
