@@ -26,7 +26,7 @@ object CustomThemePatch : ResourcePatch() {
         key = "backgroundColorSecondary",
         default = "#ff282828",
         title = "Secondary background color",
-        description = "The secondary background color. Can be a hex color or a resource reference.",
+        description = "The secondary background color. (e.g. search box, artist & podcast). Can be a hex color or a resource reference.",
         required = true
     )
 
