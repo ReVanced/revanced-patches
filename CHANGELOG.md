@@ -1,3 +1,10 @@
+# [2.202.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v2.202.0-dev.3...v2.202.0-dev.4) (2023-12-01)
+
+
+### Features
+
+* **YouTube:** Support version `18.45.43` ([#3345](https://github.com/ReVanced/revanced-patches/issues/3345)) ([ff82a36](https://github.com/ReVanced/revanced-patches/commit/ff82a36e6cd661201169246497176493d7093b58))
+
 # [2.202.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v2.202.0-dev.2...v2.202.0-dev.3) (2023-12-01)
 
 
