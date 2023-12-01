@@ -38,6 +38,7 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
         default = "fxtwitter.com",
         title = "Domain name",
         description = "The domain to use when sharing links.",
+        required = true
     )
 
     override fun execute(context: BytecodeContext) {
