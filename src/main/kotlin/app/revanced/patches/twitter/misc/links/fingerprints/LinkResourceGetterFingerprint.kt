@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
 
-// Gets Resource string for share link view available by pressing "Share via" button
+// Gets Resource string for share link view available by pressing "Share via" button.
 object LinkResourceGetterFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
     opcodes = listOf(

@@ -18,7 +18,6 @@ object RemoveTrackingQueryParameterPatch : BytecodePatch(
     setOf(AddTrackingQueryToLinkFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
-        // Remove telemetry from links
         AddTrackingQueryToLinkFingerprint.result?.mutableMethod?.addInstruction(0, "return-object p0")
             ?: throw AddTrackingQueryToLinkFingerprint.exception
     }
