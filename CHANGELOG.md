@@ -1,3 +1,10 @@
+# [2.202.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.202.0-dev.1...v2.202.0-dev.2) (2023-12-01)
+
+
+### Bug Fixes
+
+* **Spotify - Custom Theme:** Clarify patch option description ([#3338](https://github.com/ReVanced/revanced-patches/issues/3338)) ([1b9a90f](https://github.com/ReVanced/revanced-patches/commit/1b9a90f9753e40cb07e270e7f5144cd57c3c3ce3))
+
 # [2.202.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.201.2-dev.1...v2.202.0-dev.1) (2023-11-29)
 
 
