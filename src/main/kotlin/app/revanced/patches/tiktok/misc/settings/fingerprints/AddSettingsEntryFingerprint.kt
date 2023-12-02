@@ -3,7 +3,7 @@ package app.revanced.patches.tiktok.misc.settings.fingerprints
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-object AddSettingsEntryFingerprint : MethodFingerprint(
+internal object AddSettingsEntryFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.CONST_CLASS,
         Opcode.APUT_OBJECT,

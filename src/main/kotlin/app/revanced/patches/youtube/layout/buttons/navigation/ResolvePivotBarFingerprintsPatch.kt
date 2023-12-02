@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.buttons.navigation
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
@@ -13,7 +13,7 @@ import app.revanced.patches.youtube.layout.buttons.navigation.fingerprints.Pivot
     description = "Resolves necessary fingerprints.",
     dependencies = [ResourceMappingPatch::class]
 )
-object ResolvePivotBarFingerprintsPatch : BytecodePatch(
+internal object ResolvePivotBarFingerprintsPatch : BytecodePatch(
     setOf(PivotBarConstructorFingerprint)
 ) {
     internal var imageOnlyTabResourceId: Long = -1

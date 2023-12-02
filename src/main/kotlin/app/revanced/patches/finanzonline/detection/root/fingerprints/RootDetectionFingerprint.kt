@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 // Located @ at.gv.bmf.bmf2go.taxequalization.tools.utils.RootDetection#isRooted (3.0.1)
-object RootDetectionFingerprint : MethodFingerprint(
+internal object RootDetectionFingerprint : MethodFingerprint(
     "L",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("L"),

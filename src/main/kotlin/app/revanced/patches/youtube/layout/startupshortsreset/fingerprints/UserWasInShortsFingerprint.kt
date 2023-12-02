@@ -8,7 +8,7 @@ import com.android.tools.smali.dexlib2.Opcode
 
 
 @FuzzyPatternScanMethod(3)
-object UserWasInShortsFingerprint : MethodFingerprint(
+internal object UserWasInShortsFingerprint : MethodFingerprint(
     "V", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf("L"),
     opcodes = listOf(
         Opcode.IGET_OBJECT,

@@ -1,6 +1,6 @@
 package app.revanced.patches.reddit.customclients
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.PatchClass
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.fingerprint.MethodFingerprint

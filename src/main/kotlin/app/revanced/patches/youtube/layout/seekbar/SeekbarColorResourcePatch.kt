@@ -9,7 +9,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import org.w3c.dom.Element
 
 @Patch(dependencies = [SettingsPatch::class, ResourceMappingPatch::class])
-object SeekbarColorResourcePatch : ResourcePatch(){
+internal object SeekbarColorResourcePatch : ResourcePatch(){
     internal var reelTimeBarPlayedColorId = -1L
     internal var inlineTimeBarColorizedBarPlayedColorDarkId = -1L
     internal var inlineTimeBarPlayedNotHighlightedColorId = -1L

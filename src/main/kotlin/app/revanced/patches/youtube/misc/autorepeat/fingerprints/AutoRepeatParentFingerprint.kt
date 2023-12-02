@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object AutoRepeatParentFingerprint : MethodFingerprint(
+internal object AutoRepeatParentFingerprint : MethodFingerprint(
     "V",
     AccessFlags.PUBLIC or AccessFlags.FINAL,
     strings = listOf(

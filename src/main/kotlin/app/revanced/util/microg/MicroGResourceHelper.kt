@@ -1,7 +1,7 @@
 package app.revanced.util.microg
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.util.resources.ResourceUtils.mergeStrings
+import app.revanced.util.mergeStrings
 
 /**
  * Helper class for applying resource patches needed for the microg-support patches.

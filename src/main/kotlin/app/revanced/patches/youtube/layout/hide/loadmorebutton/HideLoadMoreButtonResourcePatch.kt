@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
         ResourceMappingPatch::class
     ]
 )
-object HideLoadMoreButtonResourcePatch : ResourcePatch() {
+internal object HideLoadMoreButtonResourcePatch : ResourcePatch() {
     internal var expandButtonDownId: Long = -1
 
     override fun execute(context: ResourceContext) {

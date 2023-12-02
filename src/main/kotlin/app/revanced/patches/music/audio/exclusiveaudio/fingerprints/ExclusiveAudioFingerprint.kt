@@ -8,7 +8,7 @@ import com.android.tools.smali.dexlib2.Opcode
 
 
 @FuzzyPatternScanMethod(2) // FIXME: Test this threshold and find the best value.
-object ExclusiveAudioFingerprint : MethodFingerprint(
+internal object ExclusiveAudioFingerprint : MethodFingerprint(
     "V",
     AccessFlags.PUBLIC or AccessFlags.FINAL,
     listOf("L", "Z"),

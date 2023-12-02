@@ -1,8 +1,8 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike
 
-import app.revanced.extensions.exception
-import app.revanced.extensions.getReference
-import app.revanced.extensions.indexOfFirstInstruction
+import app.revanced.util.exception
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions

@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
         ResourceMappingPatch::class
     ],
 )
-object CrowdfundingBoxResourcePatch : ResourcePatch() {
+internal object CrowdfundingBoxResourcePatch : ResourcePatch() {
     internal var crowdfundingBoxId: Long = -1
 
     override fun execute(context: ResourceContext) {

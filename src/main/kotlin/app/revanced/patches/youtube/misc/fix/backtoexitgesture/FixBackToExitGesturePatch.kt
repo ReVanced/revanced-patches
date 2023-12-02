@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.fix.backtoexitgesture
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
@@ -13,7 +13,7 @@ import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fingerprints.Recy
 
 @Patch(description = "Fixes the swipe back to exit gesture.")
 @Suppress("unused")
-object FixBackToExitGesturePatch : BytecodePatch(
+internal object FixBackToExitGesturePatch : BytecodePatch(
     setOf(
         RecyclerViewTopScrollingParentFingerprint,
         RecyclerViewScrollingFingerprint,
@@ -47,7 +47,7 @@ object FixBackToExitGesturePatch : BytecodePatch(
      *
      * @param targetMethod The target method to call.
      */
-    fun MethodFingerprint.injectCall(targetMethod: IntegrationsMethod) = result?.apply {
+    private fun MethodFingerprint.injectCall(targetMethod: IntegrationsMethod) = result?.apply {
         mutableMethod.addInstruction(
             scanResult.patternScanResult!!.endIndex, targetMethod.toString()
         )
@@ -60,7 +60,7 @@ object FixBackToExitGesturePatch : BytecodePatch(
      * @param methodName The method name.
      * @param parameterTypes The parameters of the method.
      */
-    data class IntegrationsMethod(
+    internal data class IntegrationsMethod(
         val register: String = "", val methodName: String, val parameterTypes: String = ""
     ) {
         override fun toString() =

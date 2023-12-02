@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
         ResourceMappingPatch::class
     ],
 )
-object AlbumCardsResourcePatch : ResourcePatch() {
+internal object AlbumCardsResourcePatch : ResourcePatch() {
     internal var albumCardId: Long = -1
 
     override fun execute(context: ResourceContext) {

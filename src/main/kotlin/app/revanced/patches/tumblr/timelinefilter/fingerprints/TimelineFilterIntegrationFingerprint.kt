@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.Opcode
 // This fingerprints the Integration TimelineFilterPatch.filterTimeline method.
 // The opcode fingerprint is searching for
 //   if ("BLOCKED_OBJECT_DUMMY".equals(elementType)) iterator.remove();
-object TimelineFilterIntegrationFingerprint : MethodFingerprint(
+internal object TimelineFilterIntegrationFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("/TimelineFilterPatch;") },
     strings = listOf("BLOCKED_OBJECT_DUMMY"),
     opcodes = listOf(

@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object ACLCommonShareFingerprint3 : MethodFingerprint(
+internal object ACLCommonShareFingerprint3 : MethodFingerprint(
     "I",
     AccessFlags.PUBLIC or AccessFlags.FINAL,
     customFingerprint = { methodDef, _ ->

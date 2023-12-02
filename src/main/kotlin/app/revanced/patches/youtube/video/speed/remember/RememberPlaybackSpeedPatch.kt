@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.video.speed.remember
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -25,7 +25,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 object RememberPlaybackSpeedPatch : BytecodePatch(
     setOf(InitializePlaybackSpeedValuesFingerprint)
 ){
-    const val INTEGRATIONS_CLASS_DESCRIPTOR =
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/patches/playback/speed/RememberPlaybackSpeedPatch;"
 
     override fun execute(context: BytecodeContext) {

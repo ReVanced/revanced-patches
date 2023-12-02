@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object UnlockProFingerprint : MethodFingerprint(
+internal object UnlockProFingerprint : MethodFingerprint(
     "Z",
     AccessFlags.STATIC or AccessFlags.SYNTHETIC,
     parameters = listOf("L"),

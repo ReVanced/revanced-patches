@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.util.patch.AbstractTransformInstructionsPatch
+import app.revanced.patches.all.misc.transformation.AbstractTransformInstructionsPatch
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction

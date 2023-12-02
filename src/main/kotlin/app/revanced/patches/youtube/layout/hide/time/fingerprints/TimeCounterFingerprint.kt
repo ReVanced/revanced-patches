@@ -7,7 +7,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 @FuzzyPatternScanMethod(1)
-object TimeCounterFingerprint : MethodFingerprint(
+internal object TimeCounterFingerprint : MethodFingerprint(
     "V",
     AccessFlags.PUBLIC or AccessFlags.FINAL,
     emptyList(),

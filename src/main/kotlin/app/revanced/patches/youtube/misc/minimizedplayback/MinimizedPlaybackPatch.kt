@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.minimizedplayback
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -47,7 +47,7 @@ object MinimizedPlaybackPatch : BytecodePatch(
         KidsMinimizedPlaybackPolicyControllerFingerprint
     )
 ) {
-    const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/MinimizedPlaybackPatch;"
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/MinimizedPlaybackPatch;"
 
     override fun execute(context: BytecodeContext) {
         // TODO: remove this empty preference sometime after mid 2023

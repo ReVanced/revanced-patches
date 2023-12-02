@@ -8,7 +8,7 @@ import com.android.tools.smali.dexlib2.Opcode
 
 
 @FuzzyPatternScanMethod(2) // FIXME: Test this threshold and find the best value.
-object AllCodecsReferenceFingerprint : MethodFingerprint(
+internal object AllCodecsReferenceFingerprint : MethodFingerprint(
     "J", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf("L"), listOf(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,

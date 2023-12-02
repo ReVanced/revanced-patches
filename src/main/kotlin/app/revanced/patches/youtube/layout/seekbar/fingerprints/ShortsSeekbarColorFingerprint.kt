@@ -5,7 +5,7 @@ import app.revanced.patches.youtube.layout.seekbar.SeekbarColorResourcePatch
 import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object ShortsSeekbarColorFingerprint : LiteralValueFingerprint(
+internal object ShortsSeekbarColorFingerprint : LiteralValueFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     literalSupplier = { SeekbarColorResourcePatch.reelTimeBarPlayedColorId },
 )

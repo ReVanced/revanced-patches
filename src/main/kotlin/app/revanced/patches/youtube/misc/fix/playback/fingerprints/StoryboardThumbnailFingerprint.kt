@@ -8,7 +8,7 @@ import com.android.tools.smali.dexlib2.Opcode
 /**
  * Resolves using the class found in [StoryboardThumbnailParentFingerprint].
  */
-object StoryboardThumbnailFingerprint : MethodFingerprint(
+internal object StoryboardThumbnailFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "Z",
     parameters = listOf(),

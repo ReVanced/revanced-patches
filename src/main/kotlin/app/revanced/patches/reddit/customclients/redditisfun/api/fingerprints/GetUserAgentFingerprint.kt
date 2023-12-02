@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object GetUserAgentFingerprint : MethodFingerprint(
+internal object GetUserAgentFingerprint : MethodFingerprint(
     "Ljava/lang/String;",
     AccessFlags.PUBLIC or AccessFlags.STATIC,
     emptyList(),

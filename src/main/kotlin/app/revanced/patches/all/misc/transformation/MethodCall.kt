@@ -1,4 +1,4 @@
-package app.revanced.util.patch
+package app.revanced.patches.all.misc.transformation
 
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod

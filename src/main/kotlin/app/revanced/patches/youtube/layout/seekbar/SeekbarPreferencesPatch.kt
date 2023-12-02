@@ -11,7 +11,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import java.io.Closeable
 
 @Patch(dependencies = [SettingsPatch::class, ResourceMappingPatch::class])
-object SeekbarPreferencesPatch : ResourcePatch(), Closeable {
+internal object SeekbarPreferencesPatch : ResourcePatch(), Closeable {
     private val seekbarPreferences = mutableListOf<BasePreference>()
 
     override fun execute(context: ResourceContext) {

@@ -8,7 +8,7 @@ import com.android.tools.smali.dexlib2.Opcode
 /**
  * Resolves against the same method that [TextComponentContextFingerprint] resolves to.
  */
-object TextComponentAtomicReferenceFingerprint : MethodFingerprint(
+internal object TextComponentAtomicReferenceFingerprint : MethodFingerprint(
     returnType = "L",
     accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
     parameters = listOf("L"),

@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object FeedApiServiceLIZFingerprint : MethodFingerprint(
+internal object FeedApiServiceLIZFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC or AccessFlags.SYNTHETIC,
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("/FeedApiService;") && methodDef.name == "LIZ"

@@ -10,7 +10,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
  * Note: this fingerprint may no longer be needed, as it appears
  * [RemoteEmbedFragmentFingerprint] may be set before this hook is called.
  */
-object EmbeddedPlayerControlsOverlayFingerprint : IntegrationsFingerprint(
+internal object EmbeddedPlayerControlsOverlayFingerprint : IntegrationsFingerprint(
     accessFlags = AccessFlags.PRIVATE or AccessFlags.CONSTRUCTOR,
     returnType = "V",
     parameters = listOf("Landroid/content/Context;", "L", "L"),

@@ -8,7 +8,7 @@ import com.android.tools.smali.dexlib2.Opcode
 
 
 @FuzzyPatternScanMethod(2) // FIXME: Test this threshold and find the best value.
-object BackgroundPlaybackDisableFingerprint : MethodFingerprint(
+internal object BackgroundPlaybackDisableFingerprint : MethodFingerprint(
     "Z", AccessFlags.PUBLIC or AccessFlags.STATIC, listOf("L"), listOf(
         Opcode.CONST_4,
         Opcode.IF_EQZ,

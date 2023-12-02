@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object MiniPlayerDimensionsCalculatorParentFingerprint : MethodFingerprint(
+internal object MiniPlayerDimensionsCalculatorParentFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "V",
     parameters = listOf("F"),

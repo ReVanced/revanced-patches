@@ -7,9 +7,9 @@ import app.revanced.patches.shared.mapping.misc.ResourceMappingPatch
 import app.revanced.patches.shared.settings.AbstractSettingsResourcePatch
 import app.revanced.patches.shared.settings.preference.addPreference
 import app.revanced.patches.shared.settings.preference.impl.*
-import app.revanced.util.resources.ResourceUtils
-import app.revanced.util.resources.ResourceUtils.copyResources
-import app.revanced.util.resources.ResourceUtils.mergeStrings
+import app.revanced.util.ResourceGroup
+import app.revanced.util.copyResources
+import app.revanced.util.mergeStrings
 import org.w3c.dom.Element
 import org.w3c.dom.Node
 
@@ -46,7 +46,7 @@ object SettingsResourcePatch : AbstractSettingsResourcePatch(
          * copy layout resources
          */
         arrayOf(
-            ResourceUtils.ResourceGroup("layout", "revanced_settings_with_toolbar.xml")
+            ResourceGroup("layout", "revanced_settings_with_toolbar.xml")
         ).forEach { resourceGroup ->
             context.copyResources("settings", resourceGroup)
         }

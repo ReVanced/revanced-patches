@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.ad.general
 
-import app.revanced.extensions.findMutableMethodOf
-import app.revanced.extensions.injectHideViewCall
+import app.revanced.util.findMutableMethodOf
+import app.revanced.util.injectHideViewCall
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage

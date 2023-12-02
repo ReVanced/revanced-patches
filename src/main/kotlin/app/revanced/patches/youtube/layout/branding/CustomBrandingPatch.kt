@@ -5,8 +5,8 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
-import app.revanced.util.resources.ResourceUtils
-import app.revanced.util.resources.ResourceUtils.copyResources
+import app.revanced.util.ResourceGroup
+import app.revanced.util.copyResources
 import java.io.File
 import java.nio.file.Files
 
@@ -74,7 +74,7 @@ object CustomBrandingPatch : ResourcePatch() {
         icon?.let { icon ->
             // Change the app icon.
             mipmapDirectories.map { directory ->
-                ResourceUtils.ResourceGroup(
+                ResourceGroup(
                     directory, *iconResourceFileNames
                 )
             }.let { resourceGroups ->

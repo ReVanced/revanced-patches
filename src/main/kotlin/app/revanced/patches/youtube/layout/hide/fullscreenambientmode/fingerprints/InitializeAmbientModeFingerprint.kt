@@ -5,7 +5,7 @@ import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object InitializeAmbientModeFingerprint : LiteralValueFingerprint(
+internal object InitializeAmbientModeFingerprint : LiteralValueFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.CONSTRUCTOR or AccessFlags.PUBLIC,
     opcodes = listOf(Opcode.MOVE_RESULT),

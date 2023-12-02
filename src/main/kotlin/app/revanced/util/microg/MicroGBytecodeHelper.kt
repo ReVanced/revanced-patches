@@ -6,7 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.util.Utils.returnEarly
+import app.revanced.util.returnEarly
 import app.revanced.util.microg.Constants.ACTIONS
 import app.revanced.util.microg.Constants.AUTHORITIES
 import app.revanced.util.microg.Constants.MICROG_VENDOR

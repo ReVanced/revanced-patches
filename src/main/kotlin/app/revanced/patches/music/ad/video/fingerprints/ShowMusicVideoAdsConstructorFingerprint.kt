@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 @FuzzyPatternScanMethod(2) // FIXME: Test this threshold and find the best value.
-object ShowMusicVideoAdsConstructorFingerprint : MethodFingerprint(
+internal object ShowMusicVideoAdsConstructorFingerprint : MethodFingerprint(
     "V", AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR, listOf("L", "L", "L"), listOf(
         Opcode.INVOKE_DIRECT,
         Opcode.NEW_INSTANCE,

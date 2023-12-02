@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
 
-object IsNotPremiumFingerprint : MethodFingerprint(
+internal object IsNotPremiumFingerprint : MethodFingerprint(
     "V",
     AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     listOf("L"),

@@ -9,7 +9,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
 
 // Located @ com.sony.songpal.mdr.vim.activity.MdrRemoteBaseActivity.e#run (9.5.0)
-object ShowNotificationFingerprint : MethodFingerprint(
+internal object ShowNotificationFingerprint : MethodFingerprint(
     "V",
     accessFlags = AccessFlags.PUBLIC.value,
     customFingerprint = custom@{ methodDef, _ ->

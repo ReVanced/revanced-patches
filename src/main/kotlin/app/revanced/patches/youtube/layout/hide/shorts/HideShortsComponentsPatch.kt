@@ -1,8 +1,8 @@
 package app.revanced.patches.youtube.layout.hide.shorts
 
-import app.revanced.extensions.exception
-import app.revanced.extensions.findIndexForIdResource
-import app.revanced.extensions.injectHideViewCall
+import app.revanced.util.exception
+import app.revanced.util.findIndexForIdResource
+import app.revanced.util.injectHideViewCall
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction

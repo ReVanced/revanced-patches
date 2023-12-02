@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.reddit.customclients.infinityforreddit.api.SpoofClientPatch
 import app.revanced.patches.reddit.customclients.infinityforreddit.subscription.fingerprints.StartSubscriptionActivityFingerprint
-import app.revanced.util.Utils.returnEarly
+import app.revanced.util.returnEarly
 
 @Patch(
     name = "Unlock subscription",

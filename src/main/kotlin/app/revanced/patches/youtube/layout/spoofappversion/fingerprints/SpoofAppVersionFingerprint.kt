@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object SpoofAppVersionFingerprint : MethodFingerprint(
+internal object SpoofAppVersionFingerprint : MethodFingerprint(
     "L", AccessFlags.PUBLIC or AccessFlags.STATIC, listOf("L"), listOf(
         Opcode.IGET_OBJECT,
         Opcode.GOTO,

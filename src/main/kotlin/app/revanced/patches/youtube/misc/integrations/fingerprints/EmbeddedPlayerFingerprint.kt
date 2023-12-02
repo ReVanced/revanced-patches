@@ -10,7 +10,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
  * Note: this fingerprint may or may not be needed, as
  * [RemoteEmbedFragmentFingerprint] might be set before this is called.
  */
-object EmbeddedPlayerFingerprint : IntegrationsFingerprint(
+internal object EmbeddedPlayerFingerprint : IntegrationsFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     returnType = "L",
     parameters = listOf("L", "L", "Landroid/content/Context;"),

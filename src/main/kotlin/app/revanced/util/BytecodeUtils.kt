@@ -1,7 +1,8 @@
-package app.revanced.extensions
+package app.revanced.util
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
@@ -13,7 +14,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.Reference
 import com.android.tools.smali.dexlib2.util.MethodUtil
-import org.w3c.dom.Node
 
 /**
  * The [PatchException] of failing to resolve a [MethodFingerprint].
@@ -34,9 +34,9 @@ fun MutableClass.findMutableMethodOf(method: Method) = this.methods.first {
 }
 
 /**
- * apply a transform to all methods of the class.
+ * Apply a transform to all methods of the class.
  *
- * @param transform the transformation function. original method goes in, transformed method goes out.
+ * @param transform The transformation function. Accepts a [MutableMethod] and returns a transformed [MutableMethod].
  */
 fun MutableClass.transformMethods(transform: MutableMethod.() -> MutableMethod) {
     val transformedMethods = methods.map { it.transform() }
@@ -44,11 +44,14 @@ fun MutableClass.transformMethods(transform: MutableMethod.() -> MutableMethod) 
     methods.addAll(transformedMethods)
 }
 
-fun Node.doRecursively(action: (Node) -> Unit) {
-    action(this)
-    for (i in 0 until this.childNodes.length) this.childNodes.item(i).doRecursively(action)
-}
-
+/**
+ * Inject a call to a method that hides a view.
+ *
+ * @param insertIndex The index to insert the call at.
+ * @param viewRegister The register of the view to hide.
+ * @param classDescriptor The descriptor of the class that contains the method.
+ * @param targetMethod The name of the method to call.
+ */
 fun MutableMethod.injectHideViewCall(
     insertIndex: Int,
     viewRegister: Int,
@@ -84,7 +87,6 @@ fun Method.indexOfFirstWideLiteralInstructionValue(literal: Long) = implementati
     }
 } ?: -1
 
-
 /**
  * Check if the method contains a literal with the given value.
  *
@@ -92,7 +94,6 @@ fun Method.indexOfFirstWideLiteralInstructionValue(literal: Long) = implementati
  */
 fun Method.containsWideLiteralInstructionValue(literal: Long) =
     indexOfFirstWideLiteralInstructionValue(literal) >= 0
-
 
 /**
  * Traverse the class hierarchy starting from the given root class.
@@ -125,3 +126,28 @@ inline fun <reified T : Reference> Instruction.getReference() = (this as? Refere
  */
 fun Method.indexOfFirstInstruction(predicate: Instruction.() -> Boolean) =
     this.implementation!!.instructions.indexOfFirst(predicate)
+
+    /**
+     * Return the resolved methods of [MethodFingerprint]s early.
+     */
+    fun List<MethodFingerprint>.returnEarly(bool: Boolean = false) {
+        val const = if (bool) "0x1" else "0x0"
+        this.forEach { fingerprint ->
+            fingerprint.result?.let { result ->
+                val stringInstructions = when (result.method.returnType.first()) {
+                    'L' -> """
+                        const/4 v0, $const
+                        return-object v0
+                        """
+                    'V' -> "return-void"
+                    'I', 'Z' -> """
+                        const/4 v0, $const
+                        return v0
+                        """
+                    else -> throw Exception("This case should never happen.")
+                }
+
+                result.mutableMethod.addInstructions(0, stringInstructions)
+            } ?: throw fingerprint.exception
+        }
+    }

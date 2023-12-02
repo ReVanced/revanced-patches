@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.theme
 
-import app.revanced.extensions.exception
-import app.revanced.extensions.indexOfFirstWideLiteralInstructionValue
+import app.revanced.util.exception
+import app.revanced.util.indexOfFirstWideLiteralInstructionValue
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction

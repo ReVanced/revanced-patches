@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object GetPremiumViewFingerprint : MethodFingerprint(
+internal object GetPremiumViewFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
     returnType = "V",
     parameters = listOf("I", "I"),

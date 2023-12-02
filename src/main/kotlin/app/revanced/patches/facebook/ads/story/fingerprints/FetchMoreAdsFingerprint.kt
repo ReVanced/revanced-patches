@@ -1,3 +1,3 @@
 package app.revanced.patches.facebook.ads.story.fingerprints
 
-object FetchMoreAdsFingerprint : FieldMethodFingerprint(fieldValue = "AdBucketDataSourceUtil\$attemptFetchMoreAds\$1")
+internal object FetchMoreAdsFingerprint : FieldMethodFingerprint(fieldValue = "AdBucketDataSourceUtil\$attemptFetchMoreAds\$1")

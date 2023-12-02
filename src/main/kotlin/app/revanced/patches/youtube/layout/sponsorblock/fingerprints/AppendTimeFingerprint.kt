@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object AppendTimeFingerprint : MethodFingerprint(
+internal object AppendTimeFingerprint : MethodFingerprint(
     "V",
     AccessFlags.PUBLIC or AccessFlags.FINAL,
     listOf("Ljava/lang/CharSequence;", "Ljava/lang/CharSequence;", "Ljava/lang/CharSequence;"),
