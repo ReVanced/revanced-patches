@@ -12,13 +12,6 @@ repositories {
     mavenLocal()
     google()
     maven { url = uri("https://jitpack.io") }
-    // Required for FlexVer-Java
-    maven {
-        url = uri("https://repo.sleeping.town")
-        content {
-            includeGroup("com.unascribed")
-        }
-    }
 }
 
 dependencies {
@@ -35,6 +28,22 @@ dependencies {
 
 kotlin {
     jvmToolchain(11)
+}
+
+tasks.withType(Jar::class) {
+    exclude("app/revanced/meta")
+
+    manifest {
+        attributes["Name"] = "ReVanced Patches"
+        attributes["Description"] = "Patches for ReVanced."
+        attributes["Version"] = version
+        attributes["Timestamp"] = System.currentTimeMillis().toString()
+        attributes["Source"] = "git@github.com:revanced/revanced-patches.git"
+        attributes["Author"] = "ReVanced"
+        attributes["Contact"] = "contact@revanced.app"
+        attributes["Origin"] = "https://revanced.app"
+        attributes["License"] = "GNU General Public License v3.0"
+    }
 }
 
 tasks {
