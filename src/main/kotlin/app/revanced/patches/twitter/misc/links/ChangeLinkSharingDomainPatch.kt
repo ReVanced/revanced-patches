@@ -1,11 +1,12 @@
 package app.revanced.patches.twitter.misc.links
 
 import app.revanced.extensions.exception
+import app.revanced.extensions.getReference
+import app.revanced.extensions.indexOfFirstInstruction
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
@@ -18,7 +19,6 @@ import app.revanced.patches.twitter.misc.links.fingerprints.LinkResourceGetterFi
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.BuilderInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -60,82 +60,67 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
 
         // Used in the Share via... dialog.
         LinkResourceGetterFingerprint.result?.apply {
-            val instructions = mutableMethod.getInstructions()
-
-            // Result register of the original method call.
-            var shareLinkRegister = 0
-
             // Remove the original call to the method that uses the resources template to build the link.
-            for ((index, instruction) in instructions.withIndex()) {
-                if (instruction.opcode != Opcode.INVOKE_VIRTUAL) continue
+            val originalMethodIndex = mutableMethod.indexOfFirstInstruction {
+                opcode == Opcode.INVOKE_VIRTUAL &&
+                        getReference<MethodReference>()?.definingClass == "Landroid/content/res/Resources;"
+            }
+            if (originalMethodIndex == -1) throw PatchException("Could not find originalMethodIndex")
 
-                val methodRef =
-                    (instruction as ReferenceInstruction).reference as MethodReference
-                if (methodRef.definingClass != "Landroid/content/res/Resources;") continue
+            val shareLinkRegister =
+                mutableMethod.getInstruction<OneRegisterInstruction>(originalMethodIndex + 1).registerA
 
-                shareLinkRegister = (instructions[index + 1] as OneRegisterInstruction).registerA
+            mutableMethod.apply {
+                removeInstructions(originalMethodIndex, 2)
 
-                mutableMethod.apply {
-                    removeInstructions(index, 2)
-
-                    // Remove the instruction that uses the resultRegister as an array reference to prevent an error.
-                    removeInstructions(index - 2, 1)
-                }
-                break
+                // Remove the instruction that uses the resultRegister as an array reference to prevent an error.
+                removeInstructions(originalMethodIndex - 2, 1)
             }
 
-
-            var tempInstruction: TwoRegisterInstruction? = null
-            var nicknameRegister = -1
 
             // Get the nickname of the user that posted the tweet. This is used to build the link.
-            for ((index, instruction) in instructions.withIndex()) {
-                if (instruction.opcode != Opcode.INVOKE_VIRTUAL) continue
-                val methodReference = (instruction as ReferenceInstruction).reference.toString()
-                if (!methodReference.endsWith("Ljava/lang/String;")) continue
-
-                val sourceNicknameRegister =
-                    this.mutableMethod.getInstruction<OneRegisterInstruction>(index + 1).registerA
-
-                tempInstruction = mutableMethod.getInstruction<TwoRegisterInstruction>(index - 1)
-                nicknameRegister = tempInstruction.registerA
-
-                // Save the user nickname to the register that was used to store "this".
-                mutableMethod.addInstruction(
-                    index + 2,
-                    "move-object v${nicknameRegister}, v$sourceNicknameRegister"
-                )
-                break
-
+            val getNicknameIndex = mutableMethod.indexOfFirstInstruction {
+                opcode == Opcode.INVOKE_VIRTUAL &&
+                        getReference<MethodReference>().toString().endsWith("Ljava/lang/String;")
             }
-            if (tempInstruction == null) throw PatchException("Save user nickname to free register failed.")
+            if (getNicknameIndex == -1) throw PatchException("Could not find getNicknameIndex")
+
+            val sourceNicknameRegister =
+                this.mutableMethod.getInstruction<OneRegisterInstruction>(getNicknameIndex + 1).registerA
+
+            val tempInstruction = mutableMethod.getInstruction<TwoRegisterInstruction>(getNicknameIndex - 1)
+            val nicknameRegister = tempInstruction.registerA
+
+            // Save the user nickname to the register that was used to store "this".
+            mutableMethod.addInstruction(
+                getNicknameIndex + 2,
+                "move-object v${nicknameRegister}, v$sourceNicknameRegister"
+            )
 
 
             // Call the patched method and save the result to resultRegister.
-            for ((index, instruction) in instructions.withIndex()) {
-                if (instruction.opcode != Opcode.INVOKE_VIRTUAL) continue
-                val methodRef =
-                    (instruction as ReferenceInstruction).reference as MethodReference
-                if (methodRef.definingClass != "Ljava/lang/Long;") continue
-
-                // Get tweet id (long)
-                val tweetIdP1 = (instructions[index + 1] as OneRegisterInstruction).registerA
-                val tweetIdP2 = tweetIdP1 + 1
-
-                // Call the patched method with the tweet ID and username and save the result to resultRegister.
-                this.mutableMethod.addInstructions(
-                    index + 2,
-                    """
-                        invoke-static { v$tweetIdP1, v$tweetIdP2, v$nicknameRegister }, $buildShareLinkMethod
-                        move-result-object v$shareLinkRegister
-                    """
-                )
-
-                // Restore the register that was used to store our string by duplicating the instruction that got "this".
-                this.mutableMethod.addInstruction(index + 4, tempInstruction as BuilderInstruction)
-                break
+            val convertTweetIdToLongIndex = mutableMethod.indexOfFirstInstruction {
+                opcode == Opcode.INVOKE_VIRTUAL &&
+                        getReference<MethodReference>()?.definingClass == "Ljava/lang/Long;"
             }
+            if (convertTweetIdToLongIndex == -1) throw PatchException("Could not find convertTweetIdToLongIndex")
 
+            // Get tweet id (long)
+            val tweetIdP1 =
+                mutableMethod.getInstruction<OneRegisterInstruction>(convertTweetIdToLongIndex + 1).registerA
+            val tweetIdP2 = tweetIdP1 + 1
+
+            // Call the patched method with the tweet ID and username and save the result to shareLinkRegister.
+            this.mutableMethod.addInstructions(
+                convertTweetIdToLongIndex + 2,
+                """
+                    invoke-static { v$tweetIdP1, v$tweetIdP2, v$nicknameRegister }, $buildShareLinkMethod
+                    move-result-object v$shareLinkRegister
+                """
+            )
+
+            // Restore the register that was used to store our string by duplicating the instruction that got "this".
+            this.mutableMethod.addInstruction(convertTweetIdToLongIndex + 4, tempInstruction as BuilderInstruction)
         } ?: throw LinkResourceGetterFingerprint.exception
     }
 }
