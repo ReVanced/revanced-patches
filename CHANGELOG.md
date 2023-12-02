@@ -1,3 +1,10 @@
+# [2.203.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.203.0-dev.1...v2.203.0-dev.2) (2023-12-02)
+
+
+### Features
+
+* Publish as a library ([#3356](https://github.com/ReVanced/revanced-patches/issues/3356)) ([4b878ee](https://github.com/ReVanced/revanced-patches/commit/4b878eeeda7d8b97ddd0911077b701c36dec5e43))
+
 # [2.203.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.202.0...v2.203.0-dev.1) (2023-12-02)
 
 
