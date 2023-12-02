@@ -6,29 +6,24 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.fingerprint.MethodFingerprintResult.MethodFingerprintScanResult.StringsScanResult.StringMatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.reddit.customclients.AbstractSpoofClientPatch
 import app.revanced.patches.reddit.customclients.redditisfun.api.fingerprints.BasicAuthorizationFingerprint
 import app.revanced.patches.reddit.customclients.redditisfun.api.fingerprints.BuildAuthorizationStringFingerprint
 import app.revanced.patches.reddit.customclients.redditisfun.api.fingerprints.GetUserAgentFingerprint
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Patch(
-    name = "Spoof client",
-    description = "Restores functionality of the app by using custom client ID's.",
-    compatiblePackages = [
-        CompatiblePackage("com.andrewshu.android.reddit"),
-        CompatiblePackage("com.andrewshu.android.redditdonation")
-    ]
-)
+
 @Suppress("unused")
 object SpoofClientPatch : AbstractSpoofClientPatch(
-    "redditisfun://auth",
-    listOf(BuildAuthorizationStringFingerprint, BasicAuthorizationFingerprint),
-    listOf(GetUserAgentFingerprint)
+    redirectUri = "redditisfun://auth",
+    clientIdFingerprints = setOf(BuildAuthorizationStringFingerprint, BasicAuthorizationFingerprint),
+    userAgentFingerprints = setOf(GetUserAgentFingerprint),
+    compatiblePackages = setOf(
+        CompatiblePackage("com.andrewshu.android.reddit"),
+        CompatiblePackage("com.andrewshu.android.redditdonation")
+    )
 ) {
-    override fun List<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
+    override fun Set<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
         /**
          * Replaces a one register instruction with a const-string instruction
          * at the index returned by [getReplacementIndex].
@@ -54,7 +49,7 @@ object SpoofClientPatch : AbstractSpoofClientPatch(
         last().replaceWith("$clientId:") { last().index + 7 }
     }
 
-    override fun List<MethodFingerprintResult>.patchUserAgent(context: BytecodeContext) {
+    override fun Set<MethodFingerprintResult>.patchUserAgent(context: BytecodeContext) {
         // Use a random user agent.
         val randomName = (0..100000).random()
         val userAgent = "android:app.revanced.$randomName:v1.0.0 (by /u/revanced)"

@@ -11,10 +11,10 @@ import app.revanced.util.Utils.returnEarly
 @Patch(
     name = "Unlock subscription",
     description = "Unlocks the subscription feature but requires a custom client ID.",
-    dependencies = [SpoofClientPatch::class],
     compatiblePackages = [
         CompatiblePackage("ml.docilealligator.infinityforreddit")
-    ]
+    ],
+    dependencies = [SpoofClientPatch::class]
 )
 @Suppress("unused")
 object UnlockSubscriptionPatch : BytecodePatch(
