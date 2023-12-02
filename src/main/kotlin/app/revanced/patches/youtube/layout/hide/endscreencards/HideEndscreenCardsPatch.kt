@@ -16,7 +16,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
 
 @Patch(
     name = "Hide endscreen cards",
-    description = "Hides the suggested video cards at the end of a video in fullscreen.",
+    description = "Hides the suggested video cards at the end of videos.",
     dependencies = [
         IntegrationsPatch::class,
         HideEndscreenCardsResourcePatch::class

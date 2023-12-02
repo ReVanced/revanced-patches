@@ -18,7 +18,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction3rc
 
 @Patch(
     name = "Hide player buttons",
-    description = "Adds the option to hide video player previous and next buttons.",
+    description = "Hides previous and next buttons in the video player.",
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class

@@ -18,7 +18,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Disable rolling number animations",
-    description = "Disables rolling number animations of video view count, upload time, and user likes",
+    description = "Disables rolling number animations of video view count, user likes, and upload time.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

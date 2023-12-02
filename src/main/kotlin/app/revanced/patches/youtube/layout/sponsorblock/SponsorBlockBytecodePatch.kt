@@ -34,7 +34,7 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 @Patch(
     name = "SponsorBlock",
-    description = "Integrates SponsorBlock which allows skipping video segments such as sponsored content.",
+    description = "Integrates SponsorBlock, which can skip undesired video segments such as sponsored content.",
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [

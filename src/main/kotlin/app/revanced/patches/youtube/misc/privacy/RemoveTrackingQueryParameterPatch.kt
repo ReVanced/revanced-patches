@@ -22,7 +22,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Remove tracking query parameter",
-    description = "Remove the tracking query parameter from links.",
+    description = "Remove the tracking query parameter from links you share.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
