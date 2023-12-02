@@ -1,3 +1,10 @@
+# [3.0.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v3.0.0-dev.1...v3.0.0-dev.2) (2023-12-02)
+
+
+### Features
+
+* **YouTube:** Clarify patch descriptions ([#3350](https://github.com/ReVanced/revanced-patches/issues/3350)) ([f2b9df4](https://github.com/ReVanced/revanced-patches/commit/f2b9df4e22a1c537cbd383087a3d724c3cdc1784))
+
 # [3.0.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.203.0-dev.2...v3.0.0-dev.1) (2023-12-02)
 
 
