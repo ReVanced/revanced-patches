@@ -1,17 +1,22 @@
 package app.revanced.tiktok.settingsmenu;
 
 import android.app.Activity;
-import android.app.AlarmManager;
 import android.app.AlertDialog;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Process;
-import android.preference.*;
+import android.preference.EditTextPreference;
+import android.preference.ListPreference;
+import android.preference.Preference;
+import android.preference.PreferenceFragment;
+import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import app.revanced.integrations.utils.LogHelper;
+import app.revanced.shared.settings.SettingsUtils;
 import app.revanced.tiktok.settings.SettingsEnum;
 import app.revanced.tiktok.settings.SharedPrefCategory;
 import app.revanced.tiktok.settingsmenu.preference.DownloadPathPreference;
@@ -21,7 +26,6 @@ import app.revanced.tiktok.settingsmenu.preference.categories.FeedFilterPreferen
 import app.revanced.tiktok.settingsmenu.preference.categories.IntegrationsPreferenceCategory;
 import app.revanced.tiktok.settingsmenu.preference.categories.SimSpoofPreferenceCategory;
 import app.revanced.tiktok.utils.ReVancedUtils;
-import com.ss.android.ugc.aweme.splash.SplashActivity;
 
 @SuppressWarnings("deprecation")
 public class ReVancedPreferenceFragment extends PreferenceFragment {
@@ -107,13 +111,9 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         super.onDestroy();
     }
 
-    private void reboot(Activity activity) {
-        int intent = PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE;
-        ((AlarmManager) activity.getSystemService(Context.ALARM_SERVICE)).setExact(AlarmManager.ELAPSED_REALTIME, 1500L, PendingIntent.getActivity(activity, 0, new Intent(activity, SplashActivity.class), intent));
-        Process.killProcess(Process.myPid());
-    }
-
-    private void rebootDialog(final Activity activity) {
-        new AlertDialog.Builder(activity).setMessage("Refresh and restart").setPositiveButton("Restart", (dialog, i) -> reboot(activity)).setNegativeButton("Cancel", null).show();
+    private void rebootDialog(@NonNull Context context) {
+        new AlertDialog.Builder(context).setMessage("Refresh and restart")
+                .setPositiveButton("Restart", (dialog, i) -> SettingsUtils.restartApp(context))
+                .setNegativeButton(android.R.string.cancel, null).show();
     }
 }

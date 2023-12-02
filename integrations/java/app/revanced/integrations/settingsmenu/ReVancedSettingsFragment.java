@@ -3,15 +3,10 @@ package app.revanced.integrations.settingsmenu;
 import static app.revanced.integrations.utils.StringRef.str;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.AlarmManager;
 import android.app.AlertDialog;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Process;
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -22,13 +17,12 @@ import android.preference.SwitchPreference;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.google.android.apps.youtube.app.application.Shell_HomeActivity;
-
 import app.revanced.integrations.patches.playback.speed.CustomPlaybackSpeedPatch;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.settings.SharedPrefCategory;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.ReVancedUtils;
+import app.revanced.shared.settings.SettingsUtils;
 
 public class ReVancedSettingsFragment extends PreferenceFragment {
     /**
@@ -37,23 +31,13 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
      */
     static boolean settingImportInProgress;
 
-    private static void reboot(@NonNull Context activity) {
-        final int intentFlags = PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE;
-        PendingIntent intent = PendingIntent.getActivity(activity, 0,
-                new Intent(activity, Shell_HomeActivity.class), intentFlags);
-        AlarmManager systemService = (AlarmManager) activity.getSystemService(Context.ALARM_SERVICE);
-        systemService.setExact(AlarmManager.ELAPSED_REALTIME, 1500L, intent);
-        Process.killProcess(Process.myPid());
-    }
-
-    static void showRebootDialog(@NonNull Context activity) {
+    static void showRestartDialog(@NonNull Context contxt) {
         String positiveButton = str("in_app_update_restart_button");
-        String negativeButton = str("sign_in_cancel");
-        new AlertDialog.Builder(activity).setMessage(str("pref_refresh_config"))
+        new AlertDialog.Builder(contxt).setMessage(str("pref_refresh_config"))
                 .setPositiveButton(positiveButton, (dialog, id) -> {
-                    reboot(activity);
+                    SettingsUtils.restartApp(contxt);
                 })
-                .setNegativeButton(negativeButton,  null)
+                .setNegativeButton(android.R.string.cancel,  null)
                 .setCancelable(false)
                 .show();
     }
@@ -110,9 +94,9 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
 
             if (!showingUserDialogMessage) {
                 if (setting.userDialogMessage != null && ((SwitchPreference) pref).isChecked() != (Boolean) setting.defaultValue) {
-                    showSettingUserDialogConfirmation(getActivity(), (SwitchPreference) pref, setting);
+                    showSettingUserDialogConfirmation(getContext(), (SwitchPreference) pref, setting);
                 } else if (setting.rebootApp) {
-                    showRebootDialog(getActivity());
+                    showRestartDialog(getContext());
                 }
             }
 
@@ -188,14 +172,14 @@ public class ReVancedSettingsFragment extends PreferenceFragment {
         }
     }
 
-    private void showSettingUserDialogConfirmation(@NonNull Activity activity, SwitchPreference switchPref, SettingsEnum setting) {
+    private void showSettingUserDialogConfirmation(@NonNull Context context, SwitchPreference switchPref, SettingsEnum setting) {
         showingUserDialogMessage = true;
-        new AlertDialog.Builder(activity)
+        new AlertDialog.Builder(context)
                 .setTitle(str("revanced_settings_confirm_user_dialog_title"))
                 .setMessage(setting.userDialogMessage.toString())
                 .setPositiveButton(android.R.string.ok, (dialog, id) -> {
                     if (setting.rebootApp) {
-                        showRebootDialog(activity);
+                        showRestartDialog(context);
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, (dialog, id) -> {
