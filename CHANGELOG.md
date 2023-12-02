@@ -1,3 +1,11 @@
+# [2.203.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.202.0...v2.203.0-dev.1) (2023-12-02)
+
+
+### Features
+
+* **Infinity for Reddit - Spoof client:** Support latest version ([ca42fd9](https://github.com/ReVanced/revanced-patches/commit/ca42fd93656eae6a5f5f0086e3cf574fb6f4f11e))
+* **Infinity for Reddit:** Add `Unlock subscription` patch ([840b29e](https://github.com/ReVanced/revanced-patches/commit/840b29e9891243a4ccabb6ade5ad6ac92984efc2))
+
 # [2.202.0](https://github.com/ReVanced/revanced-patches/compare/v2.201.1...v2.202.0) (2023-12-02)
 
 
