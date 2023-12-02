@@ -135,10 +135,8 @@ public final class VideoInformation {
     public static boolean seekTo(final long millisecond) {
         final long videoLength = getVideoLength();
 
-        // Don't seek more than the video length to prevent issues such as
-        // Play pause button or autoplay not working.
-        // TODO: These are arbitrarily chosen values and should be subject to be adjusted.
-        final long seekToMilliseconds = millisecond <= videoLength - 500 ? millisecond : millisecond - 100;
+        // Prevent issues such as play/ pause button or autoplay not working.
+        final long seekToMilliseconds = millisecond > videoLength ? Integer.MAX_VALUE : millisecond;
 
         ReVancedUtils.verifyOnMainThread();
         try {
