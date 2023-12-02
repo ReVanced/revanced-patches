@@ -73,7 +73,7 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
             mutableMethod.apply {
                 removeInstructions(originalMethodIndex, 2)
 
-                // Remove the instruction that uses the resultRegister as an array reference to prevent an error.
+                // Remove the instruction that uses the shareLinkRegister as an array reference to prevent an error.
                 removeInstructions(originalMethodIndex - 2, 1)
             }
 
@@ -99,7 +99,7 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
             // endregion
 
 
-            // region Call the patched method and save the result to resultRegister.
+            // region Call the patched method and save the result to shareLinkRegister.
             val convertTweetIdToLongIndex = mutableMethod.indexOfFirstInstruction {
                 opcode == Opcode.INVOKE_VIRTUAL &&
                         getReference<MethodReference>()?.definingClass == "Ljava/lang/Long;"
