@@ -1,3 +1,15 @@
+# [3.0.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v2.203.0-dev.2...v3.0.0-dev.1) (2023-12-02)
+
+
+### Features
+
+* Allow choosing the vendor of GmsCore via patch options ([#3347](https://github.com/ReVanced/revanced-patches/issues/3347)) ([161261c](https://github.com/ReVanced/revanced-patches/commit/161261cfeab4616764d20efe46fcfd483299741c))
+
+
+### BREAKING CHANGES
+
+* Various APIs have been moved to `GmsCoreSupportAbstractPatch`
+
 # [2.203.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v2.203.0-dev.1...v2.203.0-dev.2) (2023-12-02)
 
 
