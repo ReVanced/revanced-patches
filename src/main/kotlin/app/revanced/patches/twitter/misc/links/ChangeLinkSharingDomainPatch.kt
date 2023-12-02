@@ -78,7 +78,7 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
             }
 
 
-            // Get the nickname of the user that posted the tweet. This is used to build the link.
+            // region Get the nickname of the user that posted the tweet. This is used to build the link.
             val getNicknameIndex = mutableMethod.indexOfFirstInstruction {
                 opcode == Opcode.INVOKE_VIRTUAL &&
                         getReference<MethodReference>().toString().endsWith("Ljava/lang/String;")
@@ -96,21 +96,20 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
                 getNicknameIndex + 2,
                 "move-object v${nicknameRegister}, v$sourceNicknameRegister"
             )
+            // endregion
 
 
-            // Call the patched method and save the result to resultRegister.
+            // region Call the patched method and save the result to resultRegister.
             val convertTweetIdToLongIndex = mutableMethod.indexOfFirstInstruction {
                 opcode == Opcode.INVOKE_VIRTUAL &&
                         getReference<MethodReference>()?.definingClass == "Ljava/lang/Long;"
             }
             if (convertTweetIdToLongIndex == -1) throw PatchException("Could not find convertTweetIdToLongIndex")
 
-            // Get tweet id (long)
             val tweetIdP1 =
                 mutableMethod.getInstruction<OneRegisterInstruction>(convertTweetIdToLongIndex + 1).registerA
             val tweetIdP2 = tweetIdP1 + 1
 
-            // Call the patched method with the tweet ID and username and save the result to shareLinkRegister.
             this.mutableMethod.addInstructions(
                 convertTweetIdToLongIndex + 2,
                 """
@@ -119,8 +118,9 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
                 """
             )
 
-            // Restore the register that was used to store our string by duplicating the instruction that got "this".
+            // Restore the borrowed nicknameRegister.
             this.mutableMethod.addInstruction(convertTweetIdToLongIndex + 4, tempInstruction as BuilderInstruction)
+            // endregion
         } ?: throw LinkResourceGetterFingerprint.exception
     }
 }
