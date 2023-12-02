@@ -2,6 +2,6 @@ package app.revanced.patches.reddit.customclients.infinityforreddit.api.fingerpr
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 
-object SetWebViewSettingsFingerprint : MethodFingerprint(
-    strings= listOf("https://www.reddit.com/api/v1/authorize.compact")
+object APIUtilsFingerprint : MethodFingerprint(
+    strings = listOf("native-lib")
 )
