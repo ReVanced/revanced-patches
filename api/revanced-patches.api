@@ -309,20 +309,16 @@ public final class app/revanced/patches/music/misc/androidauto/BypassCertificate
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/music/misc/microg/MicroGBytecodePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/misc/microg/MicroGBytecodePatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/music/misc/gms/Constants {
+	public static final field INSTANCE Lapp/revanced/patches/music/misc/gms/Constants;
 }
 
-public final class app/revanced/patches/music/misc/microg/MicroGResourcePatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/misc/microg/MicroGResourcePatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/music/misc/gms/GmsCoreSupportPatch : app/revanced/patches/shared/misc/gms/AbstractGmsCoreSupportPatch {
+	public static final field INSTANCE Lapp/revanced/patches/music/misc/gms/GmsCoreSupportPatch;
 }
 
-public final class app/revanced/patches/music/misc/microg/shared/Constants {
-	public static final field INSTANCE Lapp/revanced/patches/music/misc/microg/shared/Constants;
+public final class app/revanced/patches/music/misc/gms/GmsCoreSupportResourcePatch : app/revanced/patches/shared/misc/gms/AbstractGmsCoreSupportResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/music/misc/gms/GmsCoreSupportResourcePatch;
 }
 
 public final class app/revanced/patches/music/premium/backgroundplay/BackgroundPlayPatch : app/revanced/patcher/patch/BytecodePatch {
@@ -571,6 +567,26 @@ public final class app/revanced/patches/shared/misc/fix/verticalscroll/VerticalS
 	public static final field INSTANCE Lapp/revanced/patches/shared/misc/fix/verticalscroll/VerticalScrollPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public abstract class app/revanced/patches/shared/misc/gms/AbstractGmsCoreSupportPatch : app/revanced/patcher/patch/BytecodePatch {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Ljava/util/Set;Lapp/revanced/patches/shared/misc/gms/AbstractGmsCoreSupportResourcePatch;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Ljava/util/Set;Lapp/revanced/patches/shared/misc/gms/AbstractGmsCoreSupportResourcePatch;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public abstract class app/revanced/patches/shared/misc/gms/AbstractGmsCoreSupportResourcePatch : app/revanced/patcher/patch/ResourcePatch {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+	protected final fun getGmsCoreVendor ()Ljava/lang/String;
+}
+
+public final class app/revanced/patches/shared/misc/gms/fingerprints/GmsCoreSupportFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field GET_GMS_CORE_VENDOR_METHOD_NAME Ljava/lang/String;
+	public static final field INSTANCE Lapp/revanced/patches/shared/misc/gms/fingerprints/GmsCoreSupportFingerprint;
 }
 
 public abstract class app/revanced/patches/shared/settings/AbstractSettingsResourcePatch : app/revanced/patcher/patch/ResourcePatch, java/io/Closeable {
@@ -1394,6 +1410,18 @@ public final class app/revanced/patches/youtube/misc/fix/playback/SpoofSignature
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
+public final class app/revanced/patches/youtube/misc/gms/GmsCoreSupportPatch : app/revanced/patches/shared/misc/gms/AbstractGmsCoreSupportPatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/gms/GmsCoreSupportPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/youtube/misc/gms/GmsCoreSupportResourcePatch : app/revanced/patches/shared/misc/gms/AbstractGmsCoreSupportResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/gms/GmsCoreSupportResourcePatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
 public final class app/revanced/patches/youtube/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/integrations/AbstractIntegrationsPatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/integrations/IntegrationsPatch;
 }
@@ -1419,18 +1447,6 @@ public final class app/revanced/patches/youtube/misc/litho/filter/LithoFilterPat
 	public fun close ()V
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/misc/microg/MicroGBytecodePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/microg/MicroGBytecodePatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/misc/microg/MicroGResourcePatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/microg/MicroGResourcePatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
 public final class app/revanced/patches/youtube/misc/minimizedplayback/MinimizedPlaybackPatch : app/revanced/patcher/patch/BytecodePatch {
