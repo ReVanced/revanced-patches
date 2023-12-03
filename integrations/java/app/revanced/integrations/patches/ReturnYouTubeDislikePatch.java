@@ -318,8 +318,12 @@ public class ReturnYouTubeDislikePatch {
         try {
             if (SettingsEnum.RYD_ENABLED.getBoolean() && !SettingsEnum.RYD_COMPACT_LAYOUT.getBoolean()) {
                 if (ReturnYouTubeDislike.isPreviouslyCreatedSegmentedSpan(text)) {
+                    // +1 pixel is needed for some foreign languages that measure
+                    // the text different from what is used for layout (Greek in particular).
+                    // Probably a bug in Android, but who knows.
+                    // Single line mode is also used as an additional fix for this issue.
                     return measuredTextWidth + ReturnYouTubeDislike.leftSeparatorBounds.right
-                            + ReturnYouTubeDislike.leftSeparatorShapePaddingPixels;
+                            + ReturnYouTubeDislike.leftSeparatorShapePaddingPixels + 1;
                 }
             }
         } catch (Exception ex) {
@@ -342,6 +346,10 @@ public class ReturnYouTubeDislikePatch {
             } else {
                 view.setCompoundDrawables(separator, null, null, null);
             }
+            // Single line mode does not clip words if the span is larger than the view bounds.
+            // The styled span applied to the view should always have the same bounds,
+            // but use this feature just in case the measurements are somehow off by a few pixels.
+            view.setSingleLine(true);
         }
     }
 
@@ -354,6 +362,7 @@ public class ReturnYouTubeDislikePatch {
             LogHelper.printDebug(() -> "Removing rolling number TextView changes");
             view.setCompoundDrawablePadding(0);
             view.setCompoundDrawables(null, null, null, null);
+            view.setSingleLine(false);
         }
     }
 
