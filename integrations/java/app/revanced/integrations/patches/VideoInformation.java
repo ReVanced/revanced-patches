@@ -136,7 +136,7 @@ public final class VideoInformation {
         final long videoLength = getVideoLength();
 
         // Prevent issues such as play/ pause button or autoplay not working.
-        final long seekToMilliseconds = millisecond > videoLength ? Integer.MAX_VALUE : millisecond;
+        final long seekToMilliseconds = Math.min(millisecond, VideoInformation.getVideoLength() - 250);
 
         ReVancedUtils.verifyOnMainThread();
         try {
