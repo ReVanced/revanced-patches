@@ -104,7 +104,7 @@ object VideoIdPatch : BytecodePatch(
      * Supports all videos and functions in all situations.
      *
      * First parameter is the video id.
-     * Second parameter is if the video is being opened or is currently playing.
+     * Second parameter is if the video is a Short AND it is being opened or is currently playing.
      *
      * Hook is always called off the main thread.
      *

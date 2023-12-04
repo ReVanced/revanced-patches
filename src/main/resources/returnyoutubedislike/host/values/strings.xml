@@ -26,7 +26,7 @@
     <string name="revanced_ryd_compact_layout_summary_on">Like button styled for minimum width</string>
     <string name="revanced_ryd_compact_layout_summary_off">Like button styled for best appearance</string>
 
-    <string name="ryd_toast_on_connection_error_title">Show toast if API not available</string>
+    <string name="ryd_toast_on_connection_error_title">Show toast if API is not available</string>
     <string name="ryd_toast_on_connection_error_summary_on">Toast shown if ReturnYouTubeDislike API is not available</string>
     <string name="ryd_toast_on_connection_error_summary_off">Toast not shown if ReturnYouTubeDislike API is not available</string>
 

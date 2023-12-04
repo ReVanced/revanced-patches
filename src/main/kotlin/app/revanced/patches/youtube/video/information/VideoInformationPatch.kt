@@ -12,6 +12,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.video.information.fingerprints.*
+import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -26,7 +27,7 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 
 @Patch(
     description = "Hooks YouTube to get information about the current playing video.",
-    dependencies = [IntegrationsPatch::class, VideoIdPatch::class]
+    dependencies = [IntegrationsPatch::class, VideoIdPatch::class, PlayerResponseMethodHookPatch::class]
 )
 object VideoInformationPatch : BytecodePatch(
     setOf(
@@ -115,6 +116,10 @@ object VideoInformationPatch : BytecodePatch(
         VideoIdPatch.hookBackgroundPlayVideoId(videoIdMethodDescriptor)
         VideoIdPatch.hookPlayerResponseVideoId(
             "$INTEGRATIONS_CLASS_DESCRIPTOR->setPlayerResponseVideoId(Ljava/lang/String;Z)V")
+        // Call before any other video id hooks,
+        // so they can use VideoInformation and check if the video id is for a Short.
+        PlayerResponseMethodHookPatch += PlayerResponseMethodHookPatch.Hook.ProtoBufferParameterBeforeVideoId(
+            "$INTEGRATIONS_CLASS_DESCRIPTOR->newPlayerResponseSignature(Ljava/lang/String;Z)Ljava/lang/String;")
 
         /*
          * Set the video time method
