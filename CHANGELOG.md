@@ -1,3 +1,10 @@
+# [3.0.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v3.0.0-dev.2...v3.0.0-dev.3) (2023-12-04)
+
+
+### Bug Fixes
+
+* **YouTube - Return YouTube Dislike:** Prevent the first Short opened from freezing the UI ([#3359](https://github.com/ReVanced/revanced-patches/issues/3359)) ([e024409](https://github.com/ReVanced/revanced-patches/commit/e024409219bfbccc32c337d95da24b7146b6c7b7))
+
 # [3.0.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v3.0.0-dev.1...v3.0.0-dev.2) (2023-12-02)
 
 
