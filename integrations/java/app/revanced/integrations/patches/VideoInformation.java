@@ -17,6 +17,10 @@ import java.util.Objects;
 public final class VideoInformation {
     private static final float DEFAULT_YOUTUBE_PLAYBACK_SPEED = 1.0f;
     private static final String SEEK_METHOD_NAME = "seekTo";
+    /**
+     * Prefix present in all Short player parameters signature.
+     */
+    private static final String SHORTS_PLAYER_PARAMETERS = "8AEB";
 
     private static WeakReference<Object> playerControllerRef;
     private static Method seekMethod;
@@ -28,6 +32,7 @@ public final class VideoInformation {
 
     @NonNull
     private static volatile String playerResponseVideoId = "";
+    private static volatile boolean videoIdIsShort;
 
     /**
      * The current playback speed
@@ -66,11 +71,32 @@ public final class VideoInformation {
     }
 
     /**
+     * @return If the player parameters are for a Short.
+     */
+    public static boolean playerParametersAreShort(@NonNull String parameters) {
+        return parameters.startsWith(SHORTS_PLAYER_PARAMETERS);
+    }
+
+    /**
+     * Injection point.
+     */
+    public static String newPlayerResponseSignature(@NonNull String signature, boolean isShortAndOpeningOrPlaying) {
+        final boolean isShort = playerParametersAreShort(signature);
+        if (!isShort || isShortAndOpeningOrPlaying) {
+            if (videoIdIsShort != isShort) {
+                videoIdIsShort = isShort;
+                LogHelper.printDebug(() -> "videoIdIsShort: " + isShort);
+            }
+        }
+        return signature; // Return the original value since we are observing and not modifying.
+    }
+
+    /**
      * Injection point.  Called off the main thread.
      *
      * @param videoId The id of the last video loaded.
      */
-    public static void setPlayerResponseVideoId(@NonNull String videoId, boolean videoIsOpeningOrPlaying) {
+    public static void setPlayerResponseVideoId(@NonNull String videoId, boolean isShortAndOpeningOrPlaying) {
         if (!playerResponseVideoId.equals(videoId)) {
             LogHelper.printDebug(() -> "New player response video id: " + videoId);
             playerResponseVideoId = videoId;
@@ -155,9 +181,9 @@ public final class VideoInformation {
     }
 
     /**
-     * Id of the current video playing.  Includes Shorts.
+     * Id of the last video opened.  Includes Shorts.
      *
-     * @return The id of the video. Empty string if not set yet.
+     * @return The id of the video, or an empty string if no videos have been opened yet.
      */
     @NonNull
     public static String getVideoId() {
@@ -166,18 +192,28 @@ public final class VideoInformation {
 
     /**
      * Differs from {@link #videoId} as this is the video id for the
-     * last player response received, which may not be the current video playing.
+     * last player response received, which may not be the last video opened.
      * <p>
      * If Shorts are loading the background, this commonly will be
      * different from the Short that is currently on screen.
      * <p>
      * For most use cases, you should instead use {@link #getVideoId()}.
      *
-     * @return The id of the last video loaded. Empty string if not set yet.
+     * @return The id of the last video loaded, or an empty string if no videos have been loaded yet.
      */
     @NonNull
     public static String getPlayerResponseVideoId() {
         return playerResponseVideoId;
+    }
+
+    /**
+     * @return If the last player response video id _that was opened_ was a Short.
+     * <p>
+     * Note: This value returned may not match the status of  {@link #getPlayerResponseVideoId()}
+     * since that includes player responses for videos not opened.
+     */
+    public static boolean lastVideoIdIsShort() {
+        return videoIdIsShort;
     }
 
     /**

@@ -38,11 +38,6 @@ public class SpoofSignaturePatch {
     private static final String SCRIM_PARAMETER = "SAFgAXgB";
 
     /**
-     * Parameters used in YouTube Shorts.
-     */
-    private static final String SHORTS_PLAYER_PARAMETERS = "8AEB";
-
-    /**
      * Last video id loaded. Used to prevent reloading the same spec multiple times.
      */
     @Nullable
@@ -62,7 +57,7 @@ public class SpoofSignaturePatch {
      *
      * @param parameters Original protobuf parameter value.
      */
-    public static String spoofParameter(String parameters) {
+    public static String spoofParameter(String parameters, boolean isShortAndOpeningOrPlaying) {
         try {
             LogHelper.printDebug(() -> "Original protobuf parameter value: " + parameters);
 
@@ -74,7 +69,7 @@ public class SpoofSignaturePatch {
             if (useOriginalStoryboardRenderer = parameters.length() > 150) return parameters;
 
             // Shorts do not need to be spoofed.
-            if (useOriginalStoryboardRenderer = parameters.startsWith(SHORTS_PLAYER_PARAMETERS)) {
+            if (useOriginalStoryboardRenderer = VideoInformation.playerParametersAreShort(parameters)) {
                 isPlayingShorts = true;
                 return parameters;
             }
