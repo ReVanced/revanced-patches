@@ -8,6 +8,8 @@ import org.w3c.dom.Node
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 
+private val classLoader = object {}.javaClass.classLoader
+
 /**
  * Recursively traverse the DOM tree starting from the given root node.
  *
@@ -45,7 +47,6 @@ fun ResourceContext.mergeStrings(host: String) {
  * @param resources The resources to copy.
  */
 fun ResourceContext.copyResources(sourceResourceDirectory: String, vararg resources: ResourceGroup) {
-    val classLoader = javaClass.classLoader
     val targetResourceDirectory = this["res"]
 
     for (resourceGroup in resources) {
@@ -77,7 +78,7 @@ fun ResourceContext.iterateXmlNodeChildren(
     targetTag: String,
     callback: (node: Node) -> Unit
 ) =
-    xmlEditor[javaClass.classLoader.getResourceAsStream(resource)!!].use {
+    xmlEditor[classLoader.getResourceAsStream(resource)!!].use {
         val stringsNode = it.file.getElementsByTagName(targetTag).item(0).childNodes
         for (i in 1 until stringsNode.length - 1) callback(stringsNode.item(i))
     }
