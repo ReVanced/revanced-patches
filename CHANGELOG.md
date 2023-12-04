@@ -1,3 +1,10 @@
+# [3.0.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v3.0.0-dev.3...v3.0.0-dev.4) (2023-12-04)
+
+
+### Bug Fixes
+
+* **YouTube - Minimized playback:** Fix PIP incorrectly shown for some Shorts playback ([#3364](https://github.com/ReVanced/revanced-patches/issues/3364)) ([84607ff](https://github.com/ReVanced/revanced-patches/commit/84607ff5f4bd30d328cdc4e1d46070a86d6c56bf))
+
 # [3.0.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v3.0.0-dev.2...v3.0.0-dev.3) (2023-12-04)
 
 
