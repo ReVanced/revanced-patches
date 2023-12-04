@@ -17,13 +17,19 @@ import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.Minimize
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackSettingsParentFingerprint
 import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Minimized playback",
     description = "Enables minimized and background playback.",
-    dependencies = [IntegrationsPatch::class, PlayerTypeHookPatch::class, SettingsPatch::class],
+    dependencies = [
+        IntegrationsPatch::class,
+        PlayerTypeHookPatch::class,
+        VideoInformationPatch::class,
+        SettingsPatch::class
+    ],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
@@ -65,7 +71,7 @@ object MinimizedPlaybackPatch : BytecodePatch(
             mutableMethod.addInstructions(
                 0,
                 """
-                    invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->isPlaybackNotShort()Z
+                    invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->playbackIsNotShort()Z
                     move-result v0
                     return v0
                 """
