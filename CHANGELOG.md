@@ -1,3 +1,15 @@
+# [3.0.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v3.0.0-dev.4...v3.0.0-dev.5) (2023-12-04)
+
+
+### Bug Fixes
+
+* Use correct class loader to load resources ([1d5f1f8](https://github.com/ReVanced/revanced-patches/commit/1d5f1f83be1f4eb78381887cd59f1649f1ed6d71))
+
+
+### Features
+
+* **Photomath:** Constrain patches to last working version ([f9a5dc6](https://github.com/ReVanced/revanced-patches/commit/f9a5dc6c91f37e9d7018e631739ca61511940d29))
+
 # [3.0.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v3.0.0-dev.3...v3.0.0-dev.4) (2023-12-04)
 
 
