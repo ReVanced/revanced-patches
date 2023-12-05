@@ -1,3 +1,10 @@
+# [3.0.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v3.0.0-dev.5...v3.0.0-dev.6) (2023-12-05)
+
+
+### Features
+
+* **Twitch - Settings:** Support version `16.1.0` and `15.4.1` ([#3377](https://github.com/ReVanced/revanced-patches/issues/3377)) ([062310d](https://github.com/ReVanced/revanced-patches/commit/062310dcc3923568c96171420c7fb9c0c2144233))
+
 # [3.0.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v3.0.0-dev.4...v3.0.0-dev.5) (2023-12-04)
 
 
