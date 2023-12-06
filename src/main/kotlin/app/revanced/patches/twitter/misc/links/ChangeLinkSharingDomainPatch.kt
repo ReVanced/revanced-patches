@@ -139,7 +139,6 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
 
             // Restore the borrowed nicknameRegister.
             this.mutableMethod.addInstruction(
-                // This offset places after the instructions that were in the previous addInstructions call.
                 convertTweetIdToLongIndex + 4,
                 tempInstruction as BuilderInstruction
             )
