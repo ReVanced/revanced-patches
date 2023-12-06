@@ -104,7 +104,6 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
             )
 
             val tempInstruction = mutableMethod.getInstruction<TwoRegisterInstruction>(
-                // Smali: move-result-object v3 (v3 is the shareLinkRegister)
                 tempInstructionIndex
             )
             val nicknameRegister = tempInstruction.registerA
