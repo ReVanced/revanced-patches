@@ -62,37 +62,56 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
         LinkResourceGetterFingerprint.result?.apply {
             // Remove the original call to the method that uses the resources template to build the link.
             val originalMethodIndex = mutableMethod.indexOfFirstInstruction {
-                opcode == Opcode.INVOKE_VIRTUAL &&
-                        getReference<MethodReference>()?.definingClass == "Landroid/content/res/Resources;"
+                getReference<MethodReference>()?.definingClass == "Landroid/content/res/Resources;"
             }
             if (originalMethodIndex == -1) throw PatchException("Could not find originalMethodIndex")
 
             val shareLinkRegister =
-                mutableMethod.getInstruction<OneRegisterInstruction>(originalMethodIndex + 1).registerA
+                mutableMethod.getInstruction<OneRegisterInstruction>(
+                    // Offset to instruction that saves the result of the method call to the register.
+                    originalMethodIndex + 1
+                ).registerA
 
             mutableMethod.apply {
+                // Remove original method call and instruction to move the result to the shareLinkRegister.
                 removeInstructions(originalMethodIndex, 2)
 
                 // Remove the instruction that uses the shareLinkRegister as an array reference to prevent an error.
+                // Original smali aput-object v3, v1, v5 (v1 is the shareLinkRegister)
                 removeInstructions(originalMethodIndex - 2, 1)
             }
 
 
             // region Get the nickname of the user that posted the tweet. This is used to build the link.
             val getNicknameIndex = mutableMethod.indexOfFirstInstruction {
-                opcode == Opcode.INVOKE_VIRTUAL &&
-                        getReference<MethodReference>().toString().endsWith("Ljava/lang/String;")
+                getReference<MethodReference>().toString().endsWith("Ljava/lang/String;")
             }
             if (getNicknameIndex == -1) throw PatchException("Could not find getNicknameIndex")
 
             val sourceNicknameRegister =
-                this.mutableMethod.getInstruction<OneRegisterInstruction>(getNicknameIndex + 1).registerA
+                this.mutableMethod.getInstruction<OneRegisterInstruction>(
+                    // Offset to instruction that saves the result of the method call to the register.
+                    getNicknameIndex + 1
+                ).registerA
 
-            val tempInstruction = mutableMethod.getInstruction<TwoRegisterInstruction>(getNicknameIndex - 1)
+            // Instruction with a spare register that can be used to store the user nickname.
+            val tempInstructionIndex = mutableMethod.indexOfFirstInstruction {
+                opcode == Opcode.IGET_OBJECT
+            }
+            if (tempInstructionIndex == -1) throw PatchException("Could not find tempInstructionIndex")
+            if (tempInstructionIndex > getNicknameIndex) throw PatchException(
+                "tempInstructionIndex > getNicknameIndex, this indicates that the instruction was moved."
+            )
+
+            val tempInstruction = mutableMethod.getInstruction<TwoRegisterInstruction>(
+                // Smali: move-result-object v3 (v3 is the shareLinkRegister)
+                tempInstructionIndex
+            )
             val nicknameRegister = tempInstruction.registerA
 
             // Save the user nickname to the register that was used to store "this".
             mutableMethod.addInstruction(
+                // This offset is used to place the instruction after sourceNicknameRegister is filled with data.
                 getNicknameIndex + 2,
                 "move-object v${nicknameRegister}, v$sourceNicknameRegister"
             )
@@ -111,6 +130,7 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
             val tweetIdP2 = tweetIdP1 + 1
 
             this.mutableMethod.addInstructions(
+                // This offset is used to place the instruction after the save of the method result.
                 convertTweetIdToLongIndex + 2,
                 """
                     invoke-static { v$tweetIdP1, v$tweetIdP2, v$nicknameRegister }, $buildShareLinkMethod
@@ -119,7 +139,11 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
             )
 
             // Restore the borrowed nicknameRegister.
-            this.mutableMethod.addInstruction(convertTweetIdToLongIndex + 4, tempInstruction as BuilderInstruction)
+            this.mutableMethod.addInstruction(
+                // This offset places after the instructions that were in the previous addInstructions call.
+                convertTweetIdToLongIndex + 4,
+                tempInstruction as BuilderInstruction
+            )
             // endregion
         } ?: throw LinkResourceGetterFingerprint.exception
     }
