@@ -1,3 +1,10 @@
+# [3.0.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v3.0.0-dev.6...v3.0.0-dev.7) (2023-12-07)
+
+
+### Features
+
+* **Twitter - Dynamic Color:** Remove blue icon and update app name ([#3384](https://github.com/ReVanced/revanced-patches/issues/3384)) ([3db6615](https://github.com/ReVanced/revanced-patches/commit/3db6615568e399aa13dac093868df3d0e1ebc4c3))
+
 # [3.0.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v3.0.0-dev.5...v3.0.0-dev.6) (2023-12-05)
 
 
