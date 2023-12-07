@@ -1,18 +1,16 @@
 package app.revanced.integrations.patches.spoof;
 
-import static app.revanced.integrations.utils.ReVancedUtils.containsAny;
-
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
 import androidx.annotation.Nullable;
-
 import app.revanced.integrations.patches.VideoInformation;
 import app.revanced.integrations.patches.spoof.requests.StoryboardRendererRequester;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.shared.PlayerType;
 import app.revanced.integrations.utils.LogHelper;
+
+import static app.revanced.integrations.utils.ReVancedUtils.containsAny;
 
 /** @noinspection unused*/
 public class SpoofSignaturePatch {
@@ -22,6 +20,11 @@ public class SpoofSignaturePatch {
      * to fix playback issues.
      */
     private static final String INCOGNITO_PARAMETERS = "CgIQBg==";
+
+    /**
+     * Parameters used when playing clips.
+     */
+    private static final String CLIPS_PARAMETERS = "kAIB";
 
     /**
      * Parameters causing playback issues.
@@ -61,14 +64,20 @@ public class SpoofSignaturePatch {
         try {
             LogHelper.printDebug(() -> "Original protobuf parameter value: " + parameters);
 
-            if (!SettingsEnum.SPOOF_SIGNATURE.getBoolean()) return parameters;
+            if (!SettingsEnum.SPOOF_SIGNATURE.getBoolean()) {
+                return parameters;
+            }
 
             // Clip's player parameters contain a lot of information (e.g. video start and end time or whether it loops)
             // For this reason, the player parameters of a clip are usually very long (150~300 characters).
             // Clips are 60 seconds or less in length, so no spoofing.
-            if (useOriginalStoryboardRenderer = parameters.length() > 150) return parameters;
+            //noinspection AssignmentUsedAsCondition
+            if (useOriginalStoryboardRenderer = parameters.length() > 150 || containsAny(parameters, CLIPS_PARAMETERS)) {
+                return parameters;
+            }
 
             // Shorts do not need to be spoofed.
+            //noinspection AssignmentUsedAsCondition
             if (useOriginalStoryboardRenderer = VideoInformation.playerParametersAreShort(parameters)) {
                 isPlayingShorts = true;
                 return parameters;
@@ -78,6 +87,7 @@ public class SpoofSignaturePatch {
             boolean isPlayingFeed = PlayerType.getCurrent() == PlayerType.INLINE_MINIMAL
                     && containsAny(parameters, AUTOPLAY_PARAMETERS);
             if (isPlayingFeed) {
+                //noinspection AssignmentUsedAsCondition
                 if (useOriginalStoryboardRenderer = !SettingsEnum.SPOOF_SIGNATURE_IN_FEED.getBoolean()) {
                     // Don't spoof the feed video playback. This will cause video playback issues,
                     // but only if user continues watching for more than 1 minute.
