@@ -1,16 +1,24 @@
 package app.revanced.integrations.patches.spoof;
 
+import static app.revanced.integrations.patches.spoof.requests.StoryboardRendererRequester.getStoryboardRenderer;
+import static app.revanced.integrations.utils.ReVancedUtils.containsAny;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
 import androidx.annotation.Nullable;
+
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+
 import app.revanced.integrations.patches.VideoInformation;
-import app.revanced.integrations.patches.spoof.requests.StoryboardRendererRequester;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.shared.PlayerType;
 import app.revanced.integrations.utils.LogHelper;
-
-import static app.revanced.integrations.utils.ReVancedUtils.containsAny;
+import app.revanced.integrations.utils.ReVancedUtils;
 
 /** @noinspection unused*/
 public class SpoofSignaturePatch {
@@ -47,11 +55,29 @@ public class SpoofSignaturePatch {
     private static volatile String lastPlayerResponseVideoId;
 
     @Nullable
-    private static volatile StoryboardRenderer videoRenderer;
+    private static volatile Future<StoryboardRenderer> rendererFuture;
 
     private static volatile boolean useOriginalStoryboardRenderer;
 
     private static volatile boolean isPlayingShorts;
+
+    @Nullable
+    private static StoryboardRenderer getRenderer(boolean waitForCompletion) {
+        Future<StoryboardRenderer> future = rendererFuture;
+        if (future != null) {
+            try {
+                if (waitForCompletion || future.isDone()) {
+                    return future.get(20000, TimeUnit.MILLISECONDS); // Any arbitrarily large timeout.
+                } // else, return null.
+            } catch (TimeoutException ex) {
+                LogHelper.printDebug(() -> "Could not get renderer (get timed out)");
+            } catch (ExecutionException | InterruptedException ex) {
+                // Should never happen.
+                LogHelper.printException(() -> "Could not get renderer", ex);
+            }
+        }
+        return null;
+    }
 
     /**
      * Injection point.
@@ -108,27 +134,32 @@ public class SpoofSignaturePatch {
     private static void fetchStoryboardRenderer() {
         if (!SettingsEnum.SPOOF_STORYBOARD_RENDERER.getBoolean()) {
             lastPlayerResponseVideoId = null;
-            videoRenderer = null;
+            rendererFuture = null;
             return;
         }
         String videoId = VideoInformation.getPlayerResponseVideoId();
         if (!videoId.equals(lastPlayerResponseVideoId)) {
+            rendererFuture = ReVancedUtils.submitOnBackgroundThread(() -> getStoryboardRenderer(videoId));
             lastPlayerResponseVideoId = videoId;
-            // This will block starting video playback until the fetch completes.
-            // This is desired because if this returns without finishing the fetch,
-            // then video will start playback but the image will be frozen
-            // while the main thread call for the renderer waits for the fetch to complete.
-            videoRenderer = StoryboardRendererRequester.getStoryboardRenderer(videoId);
         }
+        // Block until the renderer fetch completes.
+        // This is desired because if this returns without finishing the fetch
+        // then video will start playback but the storyboard is not ready yet.
+        getRenderer(true);
     }
 
     private static String getStoryboardRendererSpec(String originalStoryboardRendererSpec,
                                                     boolean returnNullIfLiveStream) {
         if (SettingsEnum.SPOOF_SIGNATURE.getBoolean() && !useOriginalStoryboardRenderer) {
-            StoryboardRenderer renderer = videoRenderer;
+            StoryboardRenderer renderer = getRenderer(false);
             if (renderer != null) {
-                if (returnNullIfLiveStream && renderer.isLiveStream()) return null;
-                return renderer.getSpec();
+                if (returnNullIfLiveStream && renderer.isLiveStream()) {
+                    return null;
+                }
+                String spec = renderer.getSpec();
+                if (spec != null) {
+                    return spec;
+                }
             }
         }
 
@@ -159,7 +190,7 @@ public class SpoofSignaturePatch {
      */
     public static int getRecommendedLevel(int originalLevel) {
         if (SettingsEnum.SPOOF_SIGNATURE.getBoolean() && !useOriginalStoryboardRenderer) {
-            StoryboardRenderer renderer = videoRenderer;
+            StoryboardRenderer renderer = getRenderer(false);
             if (renderer != null) {
                 Integer recommendedLevel = renderer.getRecommendedLevel();
                 if (recommendedLevel != null) return recommendedLevel;
@@ -177,7 +208,7 @@ public class SpoofSignaturePatch {
         if (!SettingsEnum.SPOOF_SIGNATURE.getBoolean()) {
             return false;
         }
-        StoryboardRenderer renderer = videoRenderer;
+        StoryboardRenderer renderer = getRenderer(false);
         if (renderer == null) {
             // Spoof storyboard renderer is turned off,
             // video is paid, or the storyboard fetch timed out.
