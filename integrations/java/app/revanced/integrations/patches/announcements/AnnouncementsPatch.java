@@ -32,6 +32,9 @@ public final class AnnouncementsPatch {
     public static void showAnnouncement(final Activity context) {
         if (!SettingsEnum.ANNOUNCEMENTS.getBoolean()) return;
 
+        // Check if there is internet connection
+        if (!ReVancedUtils.isNetworkConnected()) return;
+
         ReVancedUtils.runOnBackgroundThread(() -> {
             try {
                 HttpURLConnection connection = AnnouncementsRoutes.getAnnouncementsConnectionFromRoute(GET_LATEST_ANNOUNCEMENT, CONSUMER);
