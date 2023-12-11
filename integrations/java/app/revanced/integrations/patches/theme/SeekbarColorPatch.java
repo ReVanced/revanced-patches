@@ -48,7 +48,7 @@ public final class SeekbarColorPatch {
             Color.colorToHSV(seekbarColor, customSeekbarColorHSV);
         } catch (Exception ex) {
             ReVancedUtils.showToastShort("Invalid seekbar color value. Using default value.");
-            SettingsEnum.SEEKBAR_CUSTOM_COLOR_VALUE.saveValue(SettingsEnum.SEEKBAR_CUSTOM_COLOR_VALUE.defaultValue);
+            SettingsEnum.SEEKBAR_CUSTOM_COLOR_VALUE.resetToDefault();
             loadCustomSeekbarColor();
         }
     }

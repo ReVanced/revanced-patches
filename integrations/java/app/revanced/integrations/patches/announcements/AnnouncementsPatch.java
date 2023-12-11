@@ -46,7 +46,7 @@ public final class AnnouncementsPatch {
                     if (connection.getResponseCode() != 200) {
                         if (SettingsEnum.ANNOUNCEMENT_LAST_HASH.getString().isEmpty()) return;
 
-                        SettingsEnum.ANNOUNCEMENT_LAST_HASH.saveValue("");
+                        SettingsEnum.ANNOUNCEMENT_LAST_HASH.resetToDefault();
                         ReVancedUtils.showToastLong("Failed to get announcement");
 
                         return;
@@ -121,7 +121,7 @@ public final class AnnouncementsPatch {
      */
     private static boolean emptyLastAnnouncementHash() {
         if (SettingsEnum.ANNOUNCEMENT_LAST_HASH.getString().isEmpty()) return true;
-        SettingsEnum.ANNOUNCEMENT_LAST_HASH.saveValue("");
+        SettingsEnum.ANNOUNCEMENT_LAST_HASH.resetToDefault();
 
         return false;
     }

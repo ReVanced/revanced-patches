@@ -43,7 +43,7 @@ public class CustomPlaybackSpeedPatch {
 
     private static void resetCustomSpeeds(@NonNull String toastMessage) {
         ReVancedUtils.showToastLong(toastMessage);
-        SettingsEnum.CUSTOM_PLAYBACK_SPEEDS.saveValue(SettingsEnum.CUSTOM_PLAYBACK_SPEEDS.defaultValue);
+        SettingsEnum.CUSTOM_PLAYBACK_SPEEDS.resetToDefault();
     }
 
     private static void loadCustomSpeeds() {
