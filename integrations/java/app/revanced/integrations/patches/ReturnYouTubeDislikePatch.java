@@ -579,8 +579,6 @@ public class ReturnYouTubeDislikePatch {
             }
             final boolean waitForFetchToComplete = !IS_SPOOFING_TO_NON_LITHO_SHORTS_PLAYER
                     && videoIdIsShort && !lastPlayerResponseWasShort;
-            lastPlayerResponseWasShort = videoIdIsShort;
-            lastPrefetchedVideoId = videoId;
 
             LogHelper.printDebug(() -> "Prefetching RYD for video: " + videoId);
             ReturnYouTubeDislike fetch = ReturnYouTubeDislike.getFetchForVideoId(videoId);
@@ -594,8 +592,11 @@ public class ReturnYouTubeDislikePatch {
                 //
                 // If an asynchronous litho Shorts solution is found, then this blocking call should be removed.
                 LogHelper.printDebug(() -> "Waiting for prefetch to complete: " + videoId);
-                fetch.getFetchData(10000); // Use any arbitrarily large max wait time.
+                fetch.getFetchData(20000); // Any arbitrarily large max wait time.
             }
+            // Set the fields after the fetch completes, so any concurrent calls will also wait.
+            lastPlayerResponseWasShort = videoIdIsShort;
+            lastPrefetchedVideoId = videoId;
         } catch (Exception ex) {
             LogHelper.printException(() -> "preloadVideoId failure", ex);
         }
