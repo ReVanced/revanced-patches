@@ -129,6 +129,8 @@ public enum SettingsEnum {
     TABLET_LAYOUT("revanced_tablet_layout", BOOLEAN, FALSE, true, "revanced_tablet_layout_user_dialog_message"),
     USE_TABLET_MINIPLAYER("revanced_tablet_miniplayer", BOOLEAN, FALSE, true),
     WIDE_SEARCHBAR("revanced_wide_searchbar", BOOLEAN, FALSE, true),
+    START_PAGE("revanced_start_page", STRING, ""),
+
     // Description
     HIDE_CHAPTERS("revanced_hide_chapters", BOOLEAN, TRUE),
     HIDE_INFO_CARDS_SECTION("revanced_hide_info_cards_section", BOOLEAN, TRUE),
