@@ -1,3 +1,10 @@
+# [3.0.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v3.0.0-dev.7...v3.0.0-dev.8) (2023-12-11)
+
+
+### Features
+
+* **YouTube - Alternative Thumbnails:** Add option to use DeArrow ([#3378](https://github.com/ReVanced/revanced-patches/issues/3378)) ([41217f6](https://github.com/ReVanced/revanced-patches/commit/41217f61e600e47dd6812864bff22ee054521d3c))
+
 # [3.0.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v3.0.0-dev.6...v3.0.0-dev.7) (2023-12-07)
 
 
