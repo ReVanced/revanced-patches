@@ -2,6 +2,7 @@ package app.revanced.patches.youtube.misc.gms
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patches.shared.fingerprints.HomeActivityFingerprint
 import app.revanced.patches.shared.misc.gms.AbstractGmsCoreSupportPatch
 import app.revanced.patches.youtube.layout.buttons.cast.HideCastButtonPatch
 import app.revanced.patches.youtube.misc.fix.playback.ClientSpoofPatch

@@ -521,6 +521,10 @@ public final class app/revanced/patches/serviceportalbund/detection/root/RootDet
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/shared/fingerprints/HomeActivityFingerprint : app/revanced/patches/shared/integrations/AbstractIntegrationsPatch$IntegrationsFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/shared/fingerprints/HomeActivityFingerprint;
+}
+
 public abstract class app/revanced/patches/shared/integrations/AbstractIntegrationsPatch : app/revanced/patcher/patch/BytecodePatch {
 	public fun <init> (Ljava/lang/String;Ljava/util/Set;)V
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -1338,6 +1342,16 @@ public final class app/revanced/patches/youtube/layout/spoofappversion/SpoofAppV
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/youtube/layout/startpage/ChangeStartPagePatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/startpage/ChangeStartPagePatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/youtube/layout/startpage/fingerprints/StartActivityFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/startpage/fingerprints/StartActivityFingerprint;
+}
+
 public final class app/revanced/patches/youtube/layout/startupshortsreset/DisableResumingShortsOnStartupPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/startupshortsreset/DisableResumingShortsOnStartupPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -1421,10 +1435,6 @@ public final class app/revanced/patches/youtube/misc/gms/GmsCoreSupportResourceP
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/gms/GmsCoreSupportResourcePatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-}
-
-public final class app/revanced/patches/youtube/misc/gms/fingerprints/HomeActivityFingerprint : app/revanced/patches/shared/integrations/AbstractIntegrationsPatch$IntegrationsFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/gms/fingerprints/HomeActivityFingerprint;
 }
 
 public final class app/revanced/patches/youtube/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/integrations/AbstractIntegrationsPatch {
