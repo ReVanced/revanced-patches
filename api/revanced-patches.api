@@ -1423,6 +1423,10 @@ public final class app/revanced/patches/youtube/misc/gms/GmsCoreSupportResourceP
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
+public final class app/revanced/patches/youtube/misc/gms/fingerprints/HomeActivityFingerprint : app/revanced/patches/shared/integrations/AbstractIntegrationsPatch$IntegrationsFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/gms/fingerprints/HomeActivityFingerprint;
+}
+
 public final class app/revanced/patches/youtube/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/integrations/AbstractIntegrationsPatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/integrations/IntegrationsPatch;
 }
