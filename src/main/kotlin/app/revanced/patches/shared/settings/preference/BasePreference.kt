@@ -9,7 +9,7 @@ import org.w3c.dom.Element
  *
  * @param key The key of the preference.
  * @param title The title of the preference.
- * @param tag The tag of the preference.
+ * @param tag The full class name for the preference.
  * @param summary The summary of the preference.
  */
 abstract class BasePreference(
