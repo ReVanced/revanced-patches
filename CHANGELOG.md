@@ -1,3 +1,10 @@
+# [3.0.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v3.0.0-dev.8...v3.0.0-dev.9) (2023-12-11)
+
+
+### Bug Fixes
+
+* **YouTube - GmsCore support:** Check for availability earlier to prevent crashing without any notice ([dab8900](https://github.com/ReVanced/revanced-patches/commit/dab8900e22498a86c7a1c2fd8f1bcc29dec1272c))
+
 # [3.0.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v3.0.0-dev.7...v3.0.0-dev.8) (2023-12-11)
 
 
