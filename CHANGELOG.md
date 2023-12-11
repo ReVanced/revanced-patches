@@ -1,3 +1,10 @@
+# [3.0.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v3.0.0-dev.9...v3.0.0-dev.10) (2023-12-11)
+
+
+### Features
+
+* **YouTube:** Add `Change start page` patch ([ad9ba37](https://github.com/ReVanced/revanced-patches/commit/ad9ba37c0568bd303d807b3ddf1a22daa8f8ec59))
+
 # [3.0.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v3.0.0-dev.8...v3.0.0-dev.9) (2023-12-11)
 
 
