@@ -1,18 +1,17 @@
 package app.revanced.patches.reddit.customclients.syncforreddit.api
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patches.reddit.customclients.AbstractSpoofClientPatch
-import app.revanced.patches.reddit.customclients.Constants.OAUTH_USER_AGENT
 import app.revanced.patches.reddit.customclients.syncforreddit.api.fingerprints.GetAuthorizationStringFingerprint
 import app.revanced.patches.reddit.customclients.syncforreddit.api.fingerprints.GetBearerTokenFingerprint
 import app.revanced.patches.reddit.customclients.syncforreddit.api.fingerprints.ImgurImageAPIFingerprint
 import app.revanced.patches.reddit.customclients.syncforreddit.api.fingerprints.LoadBrowserURLFingerprint
 import app.revanced.patches.reddit.customclients.syncforreddit.detection.piracy.DisablePiracyDetectionPatch
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
@@ -75,19 +74,5 @@ object SpoofClientPatch : AbstractSpoofClientPatch(
             apiUrlIndex,
             "const-string v1, \"https://api.imgur.com/3/image\""
         )
-    }
-
-    override fun Set<MethodFingerprintResult>.patchUserAgent(context: BytecodeContext) {
-        first().let { result ->
-            val insertIndex = result.scanResult.patternScanResult!!.startIndex
-
-            result.mutableMethod.addInstructions(
-                insertIndex,
-                """
-                    const-string v0, "$OAUTH_USER_AGENT"
-                    invoke-virtual {p1, v0}, Landroid/webkit/WebSettings;->setUserAgentString(Ljava/lang/String;)V
-                """
-            )
-        }
     }
 }
