@@ -1,3 +1,15 @@
+# [3.0.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v3.0.0-dev.10...v3.0.0-dev.11) (2023-12-12)
+
+
+### Features
+
+* **Tiktok:** Bump compatibility to `32.5.3` ([#3389](https://github.com/ReVanced/revanced-patches/issues/3389)) ([96cdc10](https://github.com/ReVanced/revanced-patches/commit/96cdc102dd64e3134ec0ac5cc22c956b80c95e0b))
+
+
+### BREAKING CHANGES
+
+* **Tiktok:** This removes a patch but consolidates it into another.
+
 # [3.0.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v3.0.0-dev.9...v3.0.0-dev.10) (2023-12-11)
 
 
