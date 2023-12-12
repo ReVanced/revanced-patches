@@ -125,9 +125,9 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                     ),
                     SwitchPreference(
                         "revanced_alt_thumbnail_dearrow_connection_toast",
-                        StringResource("revanced_alt_thumbnail_dearrow_connection_toast_title", "Show toast if API is not available"),
-                        StringResource("revanced_alt_thumbnail_dearrow_connection_toast_summary_on", "Toast shown if DeArrow is not available"),
-                        StringResource("revanced_alt_thumbnail_dearrow_connection_toast_summary_off", "Toast not shown if DeArrow is not available")
+                        StringResource("revanced_alt_thumbnail_dearrow_connection_toast_title", "Show a toast if API is not available"),
+                        StringResource("revanced_alt_thumbnail_dearrow_connection_toast_summary_on", "Toast is shown if DeArrow is not available"),
+                        StringResource("revanced_alt_thumbnail_dearrow_connection_toast_summary_off", "Toast is not shown if DeArrow is not available")
                     ),
                     TextPreference(
                         "revanced_alt_thumbnail_dearrow_api_url",
@@ -148,7 +148,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                         ),
                         StringResource(
                             "revanced_alt_thumbnail_dearrow_about_summary",
-                            "DeArrow provides crowd sourced thumbnails for YouTube videos. " +
+                            "DeArrow provides crowd-sourced thumbnails for YouTube videos. " +
                                     "These thumbnails are often more relevant than those provided by YouTube. " +
                                     "If enabled, video URLs will be sent to the API server and no other data is sent."
                                     + "\\n\\nTap here to learn more about DeArrow"
@@ -160,8 +160,8 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                     SwitchPreference(
                         "revanced_alt_thumbnail_stills",
                         StringResource("revanced_alt_thumbnail_stills_title", "Enable still video captures"),
-                        StringResource("revanced_alt_thumbnail_stills_summary_on", "Using YouTube video still captures"),
-                        StringResource("revanced_alt_thumbnail_stills_summary_off", "Not using YouTube video still captures")
+                        StringResource("revanced_alt_thumbnail_stills_summary_on", "Using YouTube still video captures"),
+                        StringResource("revanced_alt_thumbnail_stills_summary_off", "Not using YouTube still video captures")
                     ),
                     ListPreference(
                         "revanced_alt_thumbnail_stills_time",
