@@ -418,7 +418,6 @@ public final class app/revanced/patches/reddit/customclients/baconreader/api/Spo
 public final class app/revanced/patches/reddit/customclients/boostforreddit/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/AbstractSpoofClientPatch {
 	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/boostforreddit/api/SpoofClientPatch;
 	public fun patchClientId (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
-	public fun patchUserAgent (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
 }
 
 public final class app/revanced/patches/reddit/customclients/infinityforreddit/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/AbstractSpoofClientPatch {
@@ -482,7 +481,6 @@ public final class app/revanced/patches/reddit/customclients/syncforreddit/api/S
 	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/syncforreddit/api/SpoofClientPatch;
 	public fun patchClientId (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
 	public fun patchMiscellaneous (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
-	public fun patchUserAgent (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
 }
 
 public final class app/revanced/patches/reddit/customclients/syncforreddit/detection/piracy/DisablePiracyDetectionPatch : app/revanced/patcher/patch/BytecodePatch {

@@ -14,8 +14,8 @@
     <string name="sb_enable_auto_hide_skip_segment_button_sum_on">Skip button hides after a few seconds</string>
     <string name="sb_enable_auto_hide_skip_segment_button_sum_off">Skip button displayed for entire segment</string>
     <string name="sb_general_skiptoast">Show a toast when skipping automatically</string>
-    <string name="sb_general_skiptoast_sum_on">Toast shown when a segment is automatically skipped. Tap here to see an example</string>
-    <string name="sb_general_skiptoast_sum_off">Toast not shown. Tap here to see an example</string>
+    <string name="sb_general_skiptoast_sum_on">Toast is shown when a segment is automatically skipped. Tap here to see an example</string>
+    <string name="sb_general_skiptoast_sum_off">Toast is not shown. Tap here to see an example</string>
     <string name="sb_general_time_without">Show video length without segments</string>
     <string name="sb_general_time_without_sum_on">Video length minus all segments, shown in parentheses next to the full video length</string>
     <string name="sb_general_time_without_sum_off">Full video length shown</string>
@@ -35,9 +35,9 @@
     <string name="sb_guidelines_popup_open">Show me</string>
 
     <string name="sb_general">General</string>
-    <string name="sb_toast_on_connection_error_title">Show toast if API is not available</string>
-    <string name="sb_toast_on_connection_error_summary_on">Toast shown if SponsorBlock API is not available</string>
-    <string name="sb_toast_on_connection_error_summary_off">Toast not shown if SponsorBlock API is not available</string>
+    <string name="sb_toast_on_connection_error_title">Show a toast if API is not available</string>
+    <string name="sb_toast_on_connection_error_summary_on">Toast is shown if SponsorBlock is not available</string>
+    <string name="sb_toast_on_connection_error_summary_off">Toast is not shown if SponsorBlock is not available</string>
     <string name="sb_general_skipcount">Enable skip count tracking</string>
     <string name="sb_general_skipcount_sum_on">Lets the SponsorBlock leaderboard know how much time is saved. A message is sent to the leaderboard each time a segment is skipped</string>
     <string name="sb_general_skipcount_sum_off">Skip count tracking is not enabled</string>
