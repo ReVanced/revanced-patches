@@ -9,8 +9,8 @@ import app.revanced.patches.youtube.misc.gms.fingerprints.CastContextFetchFinger
 
 @Suppress("unused")
 object GmsCoreSupportPatch : AbstractGmsCoreSupportPatch(
-    fromPackageName = REVANCED_MUSIC_PACKAGE_NAME,
-    toPackageName = MUSIC_PACKAGE_NAME,
+    fromPackageName = MUSIC_PACKAGE_NAME,
+    toPackageName = REVANCED_MUSIC_PACKAGE_NAME,
     primeMethodFingerprint = PrimeMethodFingerprint,
     earlyReturnFingerprints = setOf(
         ServiceCheckFingerprint,

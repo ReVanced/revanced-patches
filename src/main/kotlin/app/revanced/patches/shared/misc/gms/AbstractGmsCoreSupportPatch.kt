@@ -13,9 +13,11 @@ import app.revanced.patches.shared.misc.gms.AbstractGmsCoreSupportPatch.Constant
 import app.revanced.patches.shared.misc.gms.fingerprints.GmsCoreSupportFingerprint
 import app.revanced.patches.shared.misc.gms.fingerprints.GmsCoreSupportFingerprint.GET_GMS_CORE_VENDOR_METHOD_NAME
 import app.revanced.util.exception
+import app.revanced.util.getReference
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableStringReference
@@ -169,23 +171,20 @@ abstract class AbstractGmsCoreSupportPatch(
         }
     }
 
-    private fun transformPrimeMethod(packageName: String) = primeMethodFingerprint.result?.mutableMethod?.apply {
-        var register = 2
-        val index = getInstructions().indexOfFirst {
-            if (it.opcode != Opcode.CONST_STRING) return@indexOfFirst false
+    private fun transformPrimeMethod(packageName: String) {
+        primeMethodFingerprint.result?.mutableMethod?.apply {
+            var register = 2
 
-            val instructionString = ((it as Instruction21c).reference as StringReference).string
-            if (instructionString != fromPackageName) return@indexOfFirst false
+            val index = getInstructions().indexOfFirst {
+                if (it.getReference<StringReference>()?.string != fromPackageName) return@indexOfFirst false
 
-            register = it.registerA
-            return@indexOfFirst true
-        }
+                register = (it as OneRegisterInstruction).registerA
+                return@indexOfFirst true
+            }
 
-        replaceInstruction(
-            index, "const-string v$register, \"$packageName\""
-        )
+            replaceInstruction(index, "const-string v$register, \"$packageName\"")
+        } ?: throw primeMethodFingerprint.exception
     }
-        ?: throw primeMethodFingerprint.exception
 
     /**
      * A collection of permissions, intents and content provider authorities

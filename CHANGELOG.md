@@ -1,3 +1,10 @@
+## [3.0.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v3.0.0...v3.0.1-dev.1) (2023-12-12)
+
+
+### Bug Fixes
+
+* **YouTube Music - GmsCore support:** Change from correct package name to prevent the patch from failing ([284a7f0](https://github.com/ReVanced/revanced-patches/commit/284a7f0b1a7b46e36b5f3dd132bb36d6d3fef584))
+
 # [3.0.0](https://github.com/ReVanced/revanced-patches/compare/v2.202.0...v3.0.0) (2023-12-12)
 
 
