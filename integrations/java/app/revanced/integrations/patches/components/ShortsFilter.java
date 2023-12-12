@@ -10,7 +10,7 @@ import com.google.android.libraries.youtube.rendering.ui.pivotbar.PivotBar;
 import static app.revanced.integrations.utils.ReVancedUtils.hideViewBy1dpUnderCondition;
 import static app.revanced.integrations.utils.ReVancedUtils.hideViewUnderCondition;
 
-/** @noinspection unused*/
+@SuppressWarnings("unused")
 @RequiresApi(api = Build.VERSION_CODES.N)
 public final class ShortsFilter extends Filter {
     public static PivotBar pivotBar; // Set by patch.
@@ -49,7 +49,7 @@ public final class ShortsFilter extends Filter {
                 "suggested_action"
         );
 
-        identifierFilterGroupList.addAll(shorts, shelfHeader, thanksButton);
+        addIdentifierCallbacks(shorts, shelfHeader, thanksButton);
 
         // Shorts player components.
         var joinButton = new StringFilterGroup(
@@ -87,22 +87,22 @@ public final class ShortsFilter extends Filter {
                 "ContainerType|shorts_video_action_button"
         );
 
-        pathFilterGroupList.addAll(
+        addPathCallbacks(
                 joinButton, subscribeButton, subscribeButtonPaused,
                 channelBar, soundButton, infoPanel, videoActionButton
         );
 
-        var shortsCommentButton = new ByteArrayAsStringFilterGroup(
+        var shortsCommentButton = new ByteArrayFilterGroup(
                 SettingsEnum.HIDE_SHORTS_COMMENTS_BUTTON,
                 "reel_comment_button"
         );
 
-        var shortsShareButton = new ByteArrayAsStringFilterGroup(
+        var shortsShareButton = new ByteArrayFilterGroup(
                 SettingsEnum.HIDE_SHORTS_SHARE_BUTTON,
                 "reel_share_button"
         );
 
-        var shortsRemixButton = new ByteArrayAsStringFilterGroup(
+        var shortsRemixButton = new ByteArrayFilterGroup(
                 SettingsEnum.HIDE_SHORTS_REMIX_BUTTON,
                 "reel_remix_button"
         );
@@ -112,19 +112,19 @@ public final class ShortsFilter extends Filter {
 
     @Override
     boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
-                       FilterGroupList matchedList, FilterGroup matchedGroup, int matchedIndex) {
-        if (matchedList == pathFilterGroupList) {
+                       StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+        if (contentType == FilterContentType.PATH) {
             // Always filter if matched.
             if (matchedGroup == soundButton ||
                     matchedGroup == infoPanel ||
                     matchedGroup == channelBar ||
                     matchedGroup == subscribeButtonPaused
-            ) return super.isFiltered(identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
+            ) return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
 
             // Video action buttons (comment, share, remix) have the same path.
             if (matchedGroup == videoActionButton) {
                 if (videoActionButtonGroupList.check(protobufBufferArray).isFiltered()) return super.isFiltered(
-                        identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex
+                        identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex
                 );
                 return false;
             }
@@ -133,18 +133,18 @@ public final class ShortsFilter extends Filter {
             // to avoid false positives.
             if (path.startsWith(REEL_CHANNEL_BAR_PATH))
                 if (matchedGroup == subscribeButton) return super.isFiltered(
-                        identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex
+                        identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex
                 );
 
             return false;
         } else if (matchedGroup == shelfHeader) {
             // Because the header is used in watch history and possibly other places, check for the index,
             // which is 0 when the shelf header is used for Shorts.
-            if (matchedIndex != 0) return false;
+            if (contentIndex != 0) return false;
         }
 
         // Super class handles logging.
-        return super.isFiltered(identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
+        return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
     }
 
     public static void hideShortsShelf(final View shortsShelfView) {

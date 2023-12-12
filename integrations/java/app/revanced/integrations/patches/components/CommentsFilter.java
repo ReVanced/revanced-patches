@@ -2,6 +2,7 @@ package app.revanced.integrations.patches.components;
 
 import app.revanced.integrations.settings.SettingsEnum;
 
+@SuppressWarnings("unused")
 final class CommentsFilter extends Filter {
 
     public CommentsFilter() {
@@ -18,7 +19,7 @@ final class CommentsFilter extends Filter {
                 "comments_entry_point_simplebox"
         );
 
-        this.pathFilterGroupList.addAll(
+        addPathCallbacks(
                 comments,
                 previewComment
         );

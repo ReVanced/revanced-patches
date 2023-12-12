@@ -7,6 +7,7 @@ import androidx.annotation.RequiresApi;
 
 import app.revanced.integrations.settings.SettingsEnum;
 
+@SuppressWarnings("unused")
 @RequiresApi(api = Build.VERSION_CODES.N)
 final class ButtonsFilter extends Filter {
     private static final String VIDEO_ACTION_BAR_PATH = "video_action_bar.eml";
@@ -20,14 +21,14 @@ final class ButtonsFilter extends Filter {
                 null,
                 VIDEO_ACTION_BAR_PATH
         );
-        identifierFilterGroupList.addAll(actionBarGroup);
+        addIdentifierCallbacks(actionBarGroup);
 
 
         bufferFilterPathGroup = new StringFilterGroup(
                 null,
                 "|CellType|CollectionType|CellType|ContainerType|button.eml|"
         );
-        pathFilterGroupList.addAll(
+        addPathCallbacks(
                 new StringFilterGroup(
                         SettingsEnum.HIDE_LIKE_DISLIKE_BUTTON,
                         "|segmented_like_dislike_button"
@@ -48,33 +49,33 @@ final class ButtonsFilter extends Filter {
         );
 
         bufferButtonsGroupList.addAll(
-                new ByteArrayAsStringFilterGroup(
+                new ByteArrayFilterGroup(
                         SettingsEnum.HIDE_LIVE_CHAT_BUTTON,
                         "yt_outline_message_bubble_overlap"
                 ),
-                new ByteArrayAsStringFilterGroup(
+                new ByteArrayFilterGroup(
                         SettingsEnum.HIDE_REPORT_BUTTON,
                         "yt_outline_flag"
                 ),
-                new ByteArrayAsStringFilterGroup(
+                new ByteArrayFilterGroup(
                         SettingsEnum.HIDE_SHARE_BUTTON,
                         "yt_outline_share"
                 ),
-                new ByteArrayAsStringFilterGroup(
+                new ByteArrayFilterGroup(
                         SettingsEnum.HIDE_REMIX_BUTTON,
                         "yt_outline_youtube_shorts_plus"
                 ),
                 // Check for clip button both here and using a path filter,
                 // as there's a chance the path is a generic action button and won't contain 'clip_button'
-                new ByteArrayAsStringFilterGroup(
+                new ByteArrayFilterGroup(
                         SettingsEnum.HIDE_CLIP_BUTTON,
                         "yt_outline_scissors"
                 ),
-                new ByteArrayAsStringFilterGroup(
+                new ByteArrayFilterGroup(
                         SettingsEnum.HIDE_SHOP_BUTTON,
                         "yt_outline_bag"
                 ),
-                new ByteArrayAsStringFilterGroup(
+                new ByteArrayFilterGroup(
                         SettingsEnum.HIDE_THANKS_BUTTON,
                         "yt_outline_dollar_sign_heart"
                 )
@@ -82,7 +83,7 @@ final class ButtonsFilter extends Filter {
     }
 
     private boolean isEveryFilterGroupEnabled() {
-        for (var group : pathFilterGroupList)
+        for (var group : pathCallbacks)
             if (!group.isEnabled()) return false;
 
         for (var group : bufferButtonsGroupList)
@@ -93,7 +94,7 @@ final class ButtonsFilter extends Filter {
 
     @Override
     public boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
-                              FilterGroupList matchedList, FilterGroup matchedGroup, int matchedIndex) {
+                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         // If the current matched group is the action bar group,
         // in case every filter group is enabled, hide the action bar.
         if (matchedGroup == actionBarGroup) {
@@ -109,6 +110,6 @@ final class ButtonsFilter extends Filter {
             if (!bufferButtonsGroupList.check(protobufBufferArray).isFiltered()) return false;
         }
 
-        return super.isFiltered(identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
+        return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
     }
 }

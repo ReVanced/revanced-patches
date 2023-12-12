@@ -1,6 +1,5 @@
 package app.revanced.integrations.patches.components;
 
-
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -9,7 +8,7 @@ import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.StringTrieSearch;
 
-
+@SuppressWarnings("unused")
 public final class AdsFilter extends Filter {
     private final StringTrieSearch exceptions = new StringTrieSearch();
     private final StringFilterGroup shoppingLinks;
@@ -22,6 +21,16 @@ public final class AdsFilter extends Filter {
                 "|comment.", // Don't filter anything in the comments replies.
                 "library_recent_shelf"
         );
+
+        // Identifiers.
+
+        final var carouselAd = new StringFilterGroup(
+                SettingsEnum.HIDE_GENERAL_ADS,
+                "carousel_ad"
+        );
+        addIdentifierCallbacks(carouselAd);
+
+        // Paths.
 
         final var buttonedAd = new StringFilterGroup(
                 SettingsEnum.HIDE_BUTTONED_ADS,
@@ -61,11 +70,6 @@ public final class AdsFilter extends Filter {
                 "offer_module_root"
         );
 
-        final var carouselAd = new StringFilterGroup(
-                SettingsEnum.HIDE_GENERAL_ADS,
-                "carousel_ad"
-        );
-
         final var viewProducts = new StringFilterGroup(
                 SettingsEnum.HIDE_PRODUCTS_BANNER,
                 "product_item",
@@ -92,7 +96,7 @@ public final class AdsFilter extends Filter {
                 "cta_shelf_card"
         );
 
-        this.pathFilterGroupList.addAll(
+        addPathCallbacks(
                 generalAds,
                 buttonedAd,
                 merchandise,
@@ -102,20 +106,19 @@ public final class AdsFilter extends Filter {
                 shoppingLinks,
                 movieAds
         );
-        this.identifierFilterGroupList.addAll(carouselAd);
     }
 
     @Override
     public boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
-                              FilterGroupList matchedList, FilterGroup matchedGroup, int matchedIndex) {
+                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (exceptions.matches(path))
            return false;
 
         // Check for the index because of likelihood of false positives.
-        if (matchedGroup == shoppingLinks && matchedIndex != 0)
+        if (matchedGroup == shoppingLinks && contentIndex != 0)
             return false;
 
-        return super.isFiltered(identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
+        return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
     }
 
     /**

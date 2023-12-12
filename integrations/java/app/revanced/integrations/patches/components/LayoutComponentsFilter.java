@@ -1,24 +1,26 @@
 package app.revanced.integrations.patches.components;
 
-
 import android.os.Build;
+
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.StringTrieSearch;
 
+@SuppressWarnings("unused")
 @RequiresApi(api = Build.VERSION_CODES.N)
 public final class LayoutComponentsFilter extends Filter {
     private final StringTrieSearch exceptions = new StringTrieSearch();
     private static final StringTrieSearch mixPlaylistsExceptions = new StringTrieSearch();
-    private static final ByteArrayAsStringFilterGroup mixPlaylistsExceptions2 = new ByteArrayAsStringFilterGroup(
+    private static final ByteArrayFilterGroup mixPlaylistsExceptions2 = new ByteArrayFilterGroup(
             null,
             "cell_description_body"
     );
     private final CustomFilterGroup custom;
 
-    private static final ByteArrayAsStringFilterGroup mixPlaylists = new ByteArrayAsStringFilterGroup(
+    private static final ByteArrayFilterGroup mixPlaylists = new ByteArrayFilterGroup(
             SettingsEnum.HIDE_MIX_PLAYLISTS,
             "&list="
     );
@@ -43,6 +45,25 @@ public final class LayoutComponentsFilter extends Filter {
                 "|comment.", // Whitelist comment replies
                 "library_recent_shelf"
         );
+
+        // Identifiers.
+
+        final var graySeparator = new StringFilterGroup(
+                SettingsEnum.HIDE_GRAY_SEPARATOR,
+                "cell_divider" // layout residue (gray line above the buttoned ad),
+        );
+
+        final var chipsShelf = new StringFilterGroup(
+                SettingsEnum.HIDE_CHIPS_SHELF,
+                "chips_shelf"
+        );
+
+        addIdentifierCallbacks(
+                graySeparator,
+                chipsShelf
+        );
+
+        // Paths.
 
         custom = new CustomFilterGroup(
                 SettingsEnum.CUSTOM_FILTER,
@@ -155,10 +176,6 @@ public final class LayoutComponentsFilter extends Filter {
                 "image_shelf"
         );
 
-        final var graySeparator = new StringFilterGroup(
-                SettingsEnum.HIDE_GRAY_SEPARATOR,
-                "cell_divider" // layout residue (gray line above the buttoned ad),
-        );
 
         final var timedReactions = new StringFilterGroup(
                 SettingsEnum.HIDE_TIMED_REACTIONS,
@@ -181,11 +198,6 @@ public final class LayoutComponentsFilter extends Filter {
                 "compact_sponsor_button"
         );
 
-        final var chipsShelf = new StringFilterGroup(
-                SettingsEnum.HIDE_CHIPS_SHELF,
-                "chips_shelf"
-        );
-
         final var channelWatermark = new StringFilterGroup(
                 SettingsEnum.HIDE_VIDEO_CHANNEL_WATERMARK,
                 "featured_channel_watermark_overlay"
@@ -196,7 +208,11 @@ public final class LayoutComponentsFilter extends Filter {
                 "mixed_content_shelf"
         );
 
-        this.pathFilterGroupList.addAll(
+        addPathCallbacks(
+                custom,
+                expandableMetadata,
+                inFeedSurvey,
+                notifyMe,
                 channelBar,
                 communityPosts,
                 paidContent,
@@ -204,13 +220,10 @@ public final class LayoutComponentsFilter extends Filter {
                 channelWatermark,
                 communityGuidelines,
                 quickActions,
-                expandableMetadata,
                 relatedVideos,
                 compactBanner,
-                inFeedSurvey,
                 joinMembership,
                 medicalPanel,
-                notifyMe,
                 videoQualityMenuFooter,
                 infoPanel,
                 subscribersCommunityGuidelines,
@@ -220,32 +233,26 @@ public final class LayoutComponentsFilter extends Filter {
                 timedReactions,
                 imageShelf,
                 channelMemberShelf,
-                forYouShelf,
-                custom
-        );
-
-        this.identifierFilterGroupList.addAll(
-                graySeparator,
-                chipsShelf
+                forYouShelf
         );
     }
 
     @Override
     public boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
-                              FilterGroupList matchedList, FilterGroup matchedGroup, int matchedIndex) {
+                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
 
         // The groups are excluded from the filter due to the exceptions list below.
         // Filter them separately here.
         if (matchedGroup == notifyMe || matchedGroup == inFeedSurvey || matchedGroup == expandableMetadata) 
-            return super.isFiltered(identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
+            return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
 
         if (matchedGroup != custom && exceptions.matches(path))
             return false; // Exceptions are not filtered.
 
         // TODO: This also hides the feed Shorts shelf header
-        if (matchedGroup == searchResultShelfHeader && matchedIndex != 0) return false;
+        if (matchedGroup == searchResultShelfHeader && contentIndex != 0) return false;
 
-        return super.isFiltered(identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
+        return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
     }
 
     /**

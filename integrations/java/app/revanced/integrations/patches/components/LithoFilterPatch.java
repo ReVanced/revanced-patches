@@ -195,6 +195,14 @@ class ByteArrayFilterGroup extends FilterGroup<byte[]> {
         super(setting, filters);
     }
 
+    /**
+     * Converts the Strings into byte arrays. Used to search for text in binary data.
+     */
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public ByteArrayFilterGroup(SettingsEnum setting, String... filters) {
+        super(setting, Arrays.stream(filters).map(String::getBytes).toArray(byte[][]::new));
+    }
+
     private synchronized void buildFailurePatterns() {
         if (failurePatterns != null) return; // Thread race and another thread already initialized the search.
         LogHelper.printDebug(() -> "Building failure array for: " + this);
@@ -211,12 +219,14 @@ class ByteArrayFilterGroup extends FilterGroup<byte[]> {
         int matchedLength = 0;
         int matchedIndex = -1;
         if (isEnabled()) {
-            if (failurePatterns == null) {
+            int[][] failures = failurePatterns;
+            if (failures == null) {
                 buildFailurePatterns(); // Lazy load.
+                failures = failurePatterns;
             }
             for (int i = 0, length = filters.length; i < length; i++) {
                 byte[] filter = filters[i];
-                matchedIndex = indexOf(bytes, filter, failurePatterns[i]);
+                matchedIndex = indexOf(bytes, filter, failures[i]);
                 if (matchedIndex >= 0) {
                     matchedLength = filter.length;
                     break;
@@ -228,34 +238,16 @@ class ByteArrayFilterGroup extends FilterGroup<byte[]> {
 }
 
 
-final class ByteArrayAsStringFilterGroup extends ByteArrayFilterGroup {
-
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    public ByteArrayAsStringFilterGroup(SettingsEnum setting, String... filters) {
-        super(setting, Arrays.stream(filters).map(String::getBytes).toArray(byte[][]::new));
-    }
-}
-
 abstract class FilterGroupList<V, T extends FilterGroup<V>> implements Iterable<T> {
 
     private final List<T> filterGroups = new ArrayList<>();
-    /**
-     * Search graph. Created only if needed.
-     */
-    private volatile TrieSearch<V> search;
+    private final TrieSearch<V> search = createSearchGraph();
 
     @SafeVarargs
     protected final void addAll(final T... groups) {
         filterGroups.addAll(Arrays.asList(groups));
-        search = null; // Rebuild, if already created.
-    }
 
-    protected final synchronized void buildSearch() {
-        // Since litho filtering is multi-threaded, this method can be concurrently called by multiple threads.
-        if (search != null) return; // Thread race and another thread already initialized the search.
-        LogHelper.printDebug(() -> "Creating prefix search tree for: " + this);
-        TrieSearch<V> search = createSearchGraph();
-        for (T group : filterGroups) {
+        for (T group : groups) {
             if (!group.includeInSearch()) {
                 continue;
             }
@@ -270,7 +262,6 @@ abstract class FilterGroupList<V, T extends FilterGroup<V>> implements Iterable<
                 });
             }
         }
-        this.search = search; // Must set after it's completely initialized.
     }
 
     @NonNull
@@ -293,9 +284,6 @@ abstract class FilterGroupList<V, T extends FilterGroup<V>> implements Iterable<
     }
 
     protected FilterGroup.FilterGroupResult check(V stack) {
-        if (search == null) {
-            buildSearch(); // Lazy load.
-        }
         FilterGroup.FilterGroupResult result = new FilterGroup.FilterGroupResult();
         search.matches(stack, result);
         return result;
@@ -322,41 +310,89 @@ final class ByteArrayFilterGroupList extends FilterGroupList<byte[], ByteArrayFi
     }
 }
 
+/**
+ * Filters litho based components.
+ *
+ * Callbacks to filter content are added using {@link #addIdentifierCallbacks(StringFilterGroup...)}
+ * and {@link #addPathCallbacks(StringFilterGroup...)}.
+ *
+ * To filter {@link FilterContentType#PROTOBUFFER}, first add a callback to
+ * either an identifier or a path.
+ * Then inside {@link #isFiltered(String, String, byte[], StringFilterGroup, FilterContentType, int)}
+ * search for the buffer content using either a {@link ByteArrayFilterGroup} (if searching for 1 pattern)
+ * or a {@link ByteArrayFilterGroupList} (if searching for more than 1 pattern).
+ *
+ * All callbacks must be registered before the constructor completes.
+ */
 abstract class Filter {
-    /**
-     * All group filters must be set before the constructor call completes.
-     * Otherwise {@link #isFiltered(String, String, byte[], FilterGroupList, FilterGroup, int)}
-     * will never be called for any matches.
-     */
 
-    protected final StringFilterGroupList pathFilterGroupList = new StringFilterGroupList();
-    protected final StringFilterGroupList identifierFilterGroupList = new StringFilterGroupList();
+    public enum FilterContentType {
+        IDENTIFIER,
+        PATH,
+        PROTOBUFFER
+    }
+
+    /**
+     * Identifier callbacks.  Do not add to this instance,
+     * and instead use {@link #addIdentifierCallbacks(StringFilterGroup...)}.
+     */
+    protected final List<StringFilterGroup> identifierCallbacks = new ArrayList<>();
+    /**
+     * Path callbacks. Do not add to this instance,
+     * and instead use {@link #addPathCallbacks(StringFilterGroup...)}.
+     */
+    protected final List<StringFilterGroup> pathCallbacks = new ArrayList<>();
+
+    /**
+     * Adds callbacks to {@link #isFiltered(String, String, byte[], StringFilterGroup, FilterContentType, int)}
+     * if any of the groups are found.
+     */
+    protected final void addIdentifierCallbacks(StringFilterGroup... groups) {
+        identifierCallbacks.addAll(Arrays.asList(groups));
+    }
+
+    /**
+     * Adds callbacks to {@link #isFiltered(String, String, byte[], StringFilterGroup, FilterContentType, int)}
+     * if any of the groups are found.
+     */
+    protected final void addPathCallbacks(StringFilterGroup... groups) {
+        pathCallbacks.addAll(Arrays.asList(groups));
+    }
 
     /**
      * Called after an enabled filter has been matched.
-     * Default implementation is to always filter the matched item.
+     * Default implementation is to always filter the matched component and log the action.
      * Subclasses can perform additional or different checks if needed.
+     * <p>
+     * If the content is to be filtered, subclasses should always
+     * call this method (and never return a plain 'true').
+     * That way the logs will always show when a component was filtered and which filter hide it.
      * <p>
      * Method is called off the main thread.
      *
-     * @param matchedList  The list the group filter belongs to.
      * @param matchedGroup The actual filter that matched.
-     * @param matchedIndex Matched index of string/array.
-     * @return True if the litho item should be filtered out.
+     * @param contentType  The type of content matched.
+     * @param contentIndex Matched index of the identifier or path.
+     * @return True if the litho component should be filtered out.
      */
-    @SuppressWarnings("rawtypes")
     boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
-                       FilterGroupList matchedList, FilterGroup matchedGroup, int matchedIndex) {
+                       StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (SettingsEnum.DEBUG.getBoolean()) {
-            if (matchedList == identifierFilterGroupList) {
-                LogHelper.printDebug(() -> getClass().getSimpleName() + " Filtered identifier: " + identifier);
+            String filterSimpleName = getClass().getSimpleName();
+            if (contentType == FilterContentType.IDENTIFIER) {
+                LogHelper.printDebug(() -> filterSimpleName + " Filtered identifier: " + identifier);
             } else {
-                LogHelper.printDebug(() -> getClass().getSimpleName() + " Filtered path: " + path);
+                LogHelper.printDebug(() -> filterSimpleName + " Filtered path: " + path);
             }
         }
         return true;
     }
 }
+
+/**
+ * Placeholder for actual filters.
+ */
+final class DummyFilter extends Filter { }
 
 @RequiresApi(api = Build.VERSION_CODES.N)
 @SuppressWarnings("unused")
@@ -437,8 +473,10 @@ public final class LithoFilterPatch {
 
     static {
         for (Filter filter : filters) {
-            filterGroupLists(identifierSearchTree, filter, filter.identifierFilterGroupList);
-            filterGroupLists(pathSearchTree, filter, filter.pathFilterGroupList);
+            filterUsingCallbacks(identifierSearchTree, filter,
+                    filter.identifierCallbacks, Filter.FilterContentType.IDENTIFIER);
+            filterUsingCallbacks(pathSearchTree, filter,
+                    filter.pathCallbacks, Filter.FilterContentType.PATH);
         }
 
         LogHelper.printDebug(() -> "Using: "
@@ -448,18 +486,19 @@ public final class LithoFilterPatch {
                 + " (" + pathSearchTree.getEstimatedMemorySize() + " KB)");
     }
 
-    private static <T> void filterGroupLists(TrieSearch<T> pathSearchTree,
-                                             Filter filter, FilterGroupList<T, ? extends FilterGroup<T>> list) {
-        for (FilterGroup<T> group : list) {
+    private static void filterUsingCallbacks(StringTrieSearch pathSearchTree,
+                                             Filter filter, List<StringFilterGroup> groups,
+                                             Filter.FilterContentType type) {
+        for (StringFilterGroup group : groups) {
             if (!group.includeInSearch()) {
                 continue;
             }
-            for (T pattern : group.filters) {
+            for (String pattern : group.filters) {
                 pathSearchTree.addPattern(pattern, (textSearched, matchedStartIndex, matchedLength, callbackParameter) -> {
                             if (!group.isEnabled()) return false;
                             LithoFilterParameters parameters = (LithoFilterParameters) callbackParameter;
                             return filter.isFiltered(parameters.identifier, parameters.path, parameters.protoBuffer,
-                                    list, group, matchedStartIndex);
+                                    group, type, matchedStartIndex);
                         }
                 );
             }

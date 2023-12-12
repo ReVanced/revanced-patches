@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.StringTrieSearch;
 
+@SuppressWarnings("unused")
 final class DescriptionComponentsFilter extends Filter {
 
     private final StringTrieSearch exceptions = new StringTrieSearch();
@@ -48,7 +49,7 @@ final class DescriptionComponentsFilter extends Filter {
                 "transcript_section"
         );
 
-        pathFilterGroupList.addAll(
+        addPathCallbacks(
                 chapterSection,
                 infoCardsSection,
                 gameSection,
@@ -61,9 +62,9 @@ final class DescriptionComponentsFilter extends Filter {
 
     @Override
     boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
-                       FilterGroupList matchedList, FilterGroup matchedGroup, int matchedIndex) {
+                       StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (exceptions.matches(path)) return false;
 
-        return super.isFiltered(path, identifier, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
+        return super.isFiltered(path, identifier, protobufBufferArray, matchedGroup, contentType, contentIndex);
     }
 }
