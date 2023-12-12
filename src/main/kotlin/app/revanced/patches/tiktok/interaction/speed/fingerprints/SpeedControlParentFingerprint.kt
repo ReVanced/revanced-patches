@@ -5,12 +5,9 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal object SpeedControlParentFingerprint : MethodFingerprint(
-    returnType = "L",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
-    parameters = listOf(
-        "L"
-    ),
     strings = listOf(
-        "playback_speed"
+        "onStopTrackingTouch, hasTouchMove=",
+        ", isCurVideoPaused: ",
+        "already_shown_edge_speed_guide"
     )
 )

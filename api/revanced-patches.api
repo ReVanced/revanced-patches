@@ -814,12 +814,6 @@ public final class app/revanced/patches/ticktick/misc/themeunlock/UnlockProPatch
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/tiktok/ad/HideAdsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/tiktok/ad/HideAdsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
 public final class app/revanced/patches/tiktok/feedfilter/FeedFilterPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/tiktok/feedfilter/FeedFilterPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
