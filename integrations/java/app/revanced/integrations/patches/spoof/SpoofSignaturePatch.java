@@ -1,5 +1,6 @@
 package app.revanced.integrations.patches.spoof;
 
+import static app.revanced.integrations.patches.spoof.requests.StoryboardRendererRequester.getStoryboardRenderer;
 import static app.revanced.integrations.utils.ReVancedUtils.containsAny;
 
 import android.view.View;
@@ -8,11 +9,16 @@ import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+
 import app.revanced.integrations.patches.VideoInformation;
-import app.revanced.integrations.patches.spoof.requests.StoryboardRendererRequester;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.shared.PlayerType;
 import app.revanced.integrations.utils.LogHelper;
+import app.revanced.integrations.utils.ReVancedUtils;
 
 /** @noinspection unused*/
 public class SpoofSignaturePatch {
@@ -22,6 +28,11 @@ public class SpoofSignaturePatch {
      * to fix playback issues.
      */
     private static final String INCOGNITO_PARAMETERS = "CgIQBg==";
+
+    /**
+     * Parameters used when playing clips.
+     */
+    private static final String CLIPS_PARAMETERS = "kAIB";
 
     /**
      * Parameters causing playback issues.
@@ -38,22 +49,35 @@ public class SpoofSignaturePatch {
     private static final String SCRIM_PARAMETER = "SAFgAXgB";
 
     /**
-     * Parameters used in YouTube Shorts.
-     */
-    private static final String SHORTS_PLAYER_PARAMETERS = "8AEB";
-
-    /**
      * Last video id loaded. Used to prevent reloading the same spec multiple times.
      */
     @Nullable
     private static volatile String lastPlayerResponseVideoId;
 
     @Nullable
-    private static volatile StoryboardRenderer videoRenderer;
+    private static volatile Future<StoryboardRenderer> rendererFuture;
 
     private static volatile boolean useOriginalStoryboardRenderer;
 
     private static volatile boolean isPlayingShorts;
+
+    @Nullable
+    private static StoryboardRenderer getRenderer(boolean waitForCompletion) {
+        Future<StoryboardRenderer> future = rendererFuture;
+        if (future != null) {
+            try {
+                if (waitForCompletion || future.isDone()) {
+                    return future.get(20000, TimeUnit.MILLISECONDS); // Any arbitrarily large timeout.
+                } // else, return null.
+            } catch (TimeoutException ex) {
+                LogHelper.printDebug(() -> "Could not get renderer (get timed out)");
+            } catch (ExecutionException | InterruptedException ex) {
+                // Should never happen.
+                LogHelper.printException(() -> "Could not get renderer", ex);
+            }
+        }
+        return null;
+    }
 
     /**
      * Injection point.
@@ -62,19 +86,25 @@ public class SpoofSignaturePatch {
      *
      * @param parameters Original protobuf parameter value.
      */
-    public static String spoofParameter(String parameters) {
+    public static String spoofParameter(String parameters, boolean isShortAndOpeningOrPlaying) {
         try {
             LogHelper.printDebug(() -> "Original protobuf parameter value: " + parameters);
 
-            if (!SettingsEnum.SPOOF_SIGNATURE.getBoolean()) return parameters;
+            if (!SettingsEnum.SPOOF_SIGNATURE.getBoolean()) {
+                return parameters;
+            }
 
             // Clip's player parameters contain a lot of information (e.g. video start and end time or whether it loops)
             // For this reason, the player parameters of a clip are usually very long (150~300 characters).
             // Clips are 60 seconds or less in length, so no spoofing.
-            if (useOriginalStoryboardRenderer = parameters.length() > 150) return parameters;
+            //noinspection AssignmentUsedAsCondition
+            if (useOriginalStoryboardRenderer = parameters.length() > 150 || containsAny(parameters, CLIPS_PARAMETERS)) {
+                return parameters;
+            }
 
             // Shorts do not need to be spoofed.
-            if (useOriginalStoryboardRenderer = parameters.startsWith(SHORTS_PLAYER_PARAMETERS)) {
+            //noinspection AssignmentUsedAsCondition
+            if (useOriginalStoryboardRenderer = VideoInformation.playerParametersAreShort(parameters)) {
                 isPlayingShorts = true;
                 return parameters;
             }
@@ -83,6 +113,7 @@ public class SpoofSignaturePatch {
             boolean isPlayingFeed = PlayerType.getCurrent() == PlayerType.INLINE_MINIMAL
                     && containsAny(parameters, AUTOPLAY_PARAMETERS);
             if (isPlayingFeed) {
+                //noinspection AssignmentUsedAsCondition
                 if (useOriginalStoryboardRenderer = !SettingsEnum.SPOOF_SIGNATURE_IN_FEED.getBoolean()) {
                     // Don't spoof the feed video playback. This will cause video playback issues,
                     // but only if user continues watching for more than 1 minute.
@@ -103,27 +134,32 @@ public class SpoofSignaturePatch {
     private static void fetchStoryboardRenderer() {
         if (!SettingsEnum.SPOOF_STORYBOARD_RENDERER.getBoolean()) {
             lastPlayerResponseVideoId = null;
-            videoRenderer = null;
+            rendererFuture = null;
             return;
         }
         String videoId = VideoInformation.getPlayerResponseVideoId();
         if (!videoId.equals(lastPlayerResponseVideoId)) {
+            rendererFuture = ReVancedUtils.submitOnBackgroundThread(() -> getStoryboardRenderer(videoId));
             lastPlayerResponseVideoId = videoId;
-            // This will block starting video playback until the fetch completes.
-            // This is desired because if this returns without finishing the fetch,
-            // then video will start playback but the image will be frozen
-            // while the main thread call for the renderer waits for the fetch to complete.
-            videoRenderer = StoryboardRendererRequester.getStoryboardRenderer(videoId);
         }
+        // Block until the renderer fetch completes.
+        // This is desired because if this returns without finishing the fetch
+        // then video will start playback but the storyboard is not ready yet.
+        getRenderer(true);
     }
 
     private static String getStoryboardRendererSpec(String originalStoryboardRendererSpec,
                                                     boolean returnNullIfLiveStream) {
         if (SettingsEnum.SPOOF_SIGNATURE.getBoolean() && !useOriginalStoryboardRenderer) {
-            StoryboardRenderer renderer = videoRenderer;
+            StoryboardRenderer renderer = getRenderer(false);
             if (renderer != null) {
-                if (returnNullIfLiveStream && renderer.isLiveStream()) return null;
-                return renderer.getSpec();
+                if (returnNullIfLiveStream && renderer.isLiveStream()) {
+                    return null;
+                }
+                String spec = renderer.getSpec();
+                if (spec != null) {
+                    return spec;
+                }
             }
         }
 
@@ -154,7 +190,7 @@ public class SpoofSignaturePatch {
      */
     public static int getRecommendedLevel(int originalLevel) {
         if (SettingsEnum.SPOOF_SIGNATURE.getBoolean() && !useOriginalStoryboardRenderer) {
-            StoryboardRenderer renderer = videoRenderer;
+            StoryboardRenderer renderer = getRenderer(false);
             if (renderer != null) {
                 Integer recommendedLevel = renderer.getRecommendedLevel();
                 if (recommendedLevel != null) return recommendedLevel;
@@ -172,7 +208,7 @@ public class SpoofSignaturePatch {
         if (!SettingsEnum.SPOOF_SIGNATURE.getBoolean()) {
             return false;
         }
-        StoryboardRenderer renderer = videoRenderer;
+        StoryboardRenderer renderer = getRenderer(false);
         if (renderer == null) {
             // Spoof storyboard renderer is turned off,
             // video is paid, or the storyboard fetch timed out.

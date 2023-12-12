@@ -62,12 +62,12 @@ public class ReturnYouTubeDislikeApi {
      * How long to wait until API calls are resumed, if the API requested a back off.
      * No clear guideline of how long to wait until resuming.
      */
-    private static final int BACKOFF_RATE_LIMIT_MILLISECONDS = 4 * 60 * 1000; // 4 Minutes.
+    private static final int BACKOFF_RATE_LIMIT_MILLISECONDS = 5 * 60 * 1000; // 5 Minutes.
 
     /**
      * How long to wait until API calls are resumed, if any connection error occurs.
      */
-    private static final int BACKOFF_CONNECTION_ERROR_MILLISECONDS = 60 * 1000; // 60 Seconds.
+    private static final int BACKOFF_CONNECTION_ERROR_MILLISECONDS = 2 * 60 * 1000; // 2 Minutes.
 
     /**
      * If non zero, then the system time of when API calls can resume.

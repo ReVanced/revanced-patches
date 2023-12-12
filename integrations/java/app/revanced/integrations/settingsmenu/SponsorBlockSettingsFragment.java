@@ -351,7 +351,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
 
             DialogInterface.OnClickListener urlChangeListener = (dialog, buttonPressed) -> {
                 if (buttonPressed == DialogInterface.BUTTON_NEUTRAL) {
-                    SettingsEnum.SB_API_URL.saveValue(SettingsEnum.SB_API_URL.defaultValue);
+                    SettingsEnum.SB_API_URL.resetToDefault();
                     ReVancedUtils.showToastLong(str("sb_api_url_reset"));
                 } else if (buttonPressed == DialogInterface.BUTTON_POSITIVE) {
                     String serverAddress = editText.getText().toString();
@@ -583,8 +583,8 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
             new AlertDialog.Builder(preference1.getContext())
                     .setTitle(str("sb_stats_self_saved_reset_title"))
                     .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
-                        SettingsEnum.SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS.saveValue(SettingsEnum.SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS.defaultValue);
-                        SettingsEnum.SB_LOCAL_TIME_SAVED_MILLISECONDS.saveValue(SettingsEnum.SB_LOCAL_TIME_SAVED_MILLISECONDS.defaultValue);
+                        SettingsEnum.SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS.resetToDefault();
+                        SettingsEnum.SB_LOCAL_TIME_SAVED_MILLISECONDS.resetToDefault();
                         updateStatsSelfSaved.run();
                     })
                     .setNegativeButton(android.R.string.no, null).show();

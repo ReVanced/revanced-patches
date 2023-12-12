@@ -32,6 +32,9 @@ public final class AnnouncementsPatch {
     public static void showAnnouncement(final Activity context) {
         if (!SettingsEnum.ANNOUNCEMENTS.getBoolean()) return;
 
+        // Check if there is internet connection
+        if (!ReVancedUtils.isNetworkConnected()) return;
+
         ReVancedUtils.runOnBackgroundThread(() -> {
             try {
                 HttpURLConnection connection = AnnouncementsRoutes.getAnnouncementsConnectionFromRoute(GET_LATEST_ANNOUNCEMENT, CONSUMER);
@@ -43,7 +46,7 @@ public final class AnnouncementsPatch {
                     if (connection.getResponseCode() != 200) {
                         if (SettingsEnum.ANNOUNCEMENT_LAST_HASH.getString().isEmpty()) return;
 
-                        SettingsEnum.ANNOUNCEMENT_LAST_HASH.saveValue("");
+                        SettingsEnum.ANNOUNCEMENT_LAST_HASH.resetToDefault();
                         ReVancedUtils.showToastLong("Failed to get announcement");
 
                         return;
@@ -118,7 +121,7 @@ public final class AnnouncementsPatch {
      */
     private static boolean emptyLastAnnouncementHash() {
         if (SettingsEnum.ANNOUNCEMENT_LAST_HASH.getString().isEmpty()) return true;
-        SettingsEnum.ANNOUNCEMENT_LAST_HASH.saveValue("");
+        SettingsEnum.ANNOUNCEMENT_LAST_HASH.resetToDefault();
 
         return false;
     }

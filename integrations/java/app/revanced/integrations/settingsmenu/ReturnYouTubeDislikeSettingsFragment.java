@@ -13,16 +13,12 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 
 import app.revanced.integrations.patches.ReturnYouTubeDislikePatch;
-import app.revanced.integrations.patches.spoof.SpoofAppVersionPatch;
 import app.revanced.integrations.returnyoutubedislike.ReturnYouTubeDislike;
 import app.revanced.integrations.returnyoutubedislike.requests.ReturnYouTubeDislikeApi;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.settings.SharedPrefCategory;
 
 public class ReturnYouTubeDislikeSettingsFragment extends PreferenceFragment {
-
-    private static final boolean IS_SPOOFING_TO_NON_LITHO_SHORTS_PLAYER =
-            SpoofAppVersionPatch.isSpoofingToEqualOrLessThan("18.33.40");
 
     /**
      * If dislikes are shown on Shorts.
@@ -79,7 +75,7 @@ public class ReturnYouTubeDislikeSettingsFragment extends PreferenceFragment {
         shortsPreference.setChecked(SettingsEnum.RYD_SHORTS.getBoolean());
         shortsPreference.setTitle(str("revanced_ryd_shorts_title"));
         String shortsSummary = str("revanced_ryd_shorts_summary_on",
-                IS_SPOOFING_TO_NON_LITHO_SHORTS_PLAYER
+                ReturnYouTubeDislikePatch.IS_SPOOFING_TO_NON_LITHO_SHORTS_PLAYER
                         ? ""
                         : "\n\n" + str("revanced_ryd_shorts_summary_disclaimer"));
         shortsPreference.setSummaryOn(shortsSummary);

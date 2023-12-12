@@ -53,14 +53,14 @@ public final class ReturnYouTubeDislikeFilterPatch extends Filter {
     /**
      * Injection point.
      */
-    public static void newPlayerResponseVideoId(String videoId, boolean videoIsOpeningOrPlaying) {
+    public static void newPlayerResponseVideoId(String videoId, boolean isShortAndOpeningOrPlaying) {
         try {
-            if (!videoIsOpeningOrPlaying || !SettingsEnum.RYD_SHORTS.getBoolean()) {
+            if (!isShortAndOpeningOrPlaying || !SettingsEnum.RYD_SHORTS.getBoolean()) {
                 return;
             }
             synchronized (lastVideoIds) {
                 if (lastVideoIds.put(videoId, Boolean.TRUE) == null) {
-                    LogHelper.printDebug(() -> "New video id: " + videoId);
+                    LogHelper.printDebug(() -> "New Short video id: " + videoId);
                 }
             }
         } catch (Exception ex) {

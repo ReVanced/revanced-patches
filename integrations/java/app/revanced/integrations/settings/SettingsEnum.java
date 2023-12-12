@@ -56,9 +56,13 @@ public enum SettingsEnum {
     HIDE_WEB_SEARCH_RESULTS("revanced_hide_web_search_results", BOOLEAN, TRUE),
 
     // Layout
-    ALT_THUMBNAIL("revanced_alt_thumbnail", BOOLEAN, FALSE),
-    ALT_THUMBNAIL_TYPE("revanced_alt_thumbnail_type", INTEGER, 2, parents(ALT_THUMBNAIL)),
-    ALT_THUMBNAIL_FAST_QUALITY("revanced_alt_thumbnail_fast_quality", BOOLEAN, FALSE, parents(ALT_THUMBNAIL)),
+    ALT_THUMBNAIL_STILLS("revanced_alt_thumbnail_stills", BOOLEAN, FALSE),
+    ALT_THUMBNAIL_STILLS_TIME("revanced_alt_thumbnail_stills_time", INTEGER, 2, parents(ALT_THUMBNAIL_STILLS)),
+    ALT_THUMBNAIL_STILLS_FAST("revanced_alt_thumbnail_stills_fast", BOOLEAN, FALSE, parents(ALT_THUMBNAIL_STILLS)),
+    ALT_THUMBNAIL_DEARROW("revanced_alt_thumbnail_dearrow", BOOLEAN, false),
+    ALT_THUMBNAIL_DEARROW_API_URL("revanced_alt_thumbnail_dearrow_api_url", STRING,
+            "https://dearrow-thumb.ajay.app/api/v1/getThumbnail", true, parents(ALT_THUMBNAIL_DEARROW)),
+    ALT_THUMBNAIL_DEARROW_CONNECTION_TOAST("revanced_alt_thumbnail_dearrow_connection_toast", BOOLEAN, TRUE, parents(ALT_THUMBNAIL_DEARROW)),
     CUSTOM_FILTER("revanced_custom_filter", BOOLEAN, FALSE),
     CUSTOM_FILTER_STRINGS("revanced_custom_filter_strings", STRING, "", true, parents(CUSTOM_FILTER)),
     DISABLE_FULLSCREEN_AMBIENT_MODE("revanced_disable_fullscreen_ambient_mode", BOOLEAN, TRUE, true),
@@ -125,6 +129,8 @@ public enum SettingsEnum {
     TABLET_LAYOUT("revanced_tablet_layout", BOOLEAN, FALSE, true, "revanced_tablet_layout_user_dialog_message"),
     USE_TABLET_MINIPLAYER("revanced_tablet_miniplayer", BOOLEAN, FALSE, true),
     WIDE_SEARCHBAR("revanced_wide_searchbar", BOOLEAN, FALSE, true),
+    START_PAGE("revanced_start_page", STRING, ""),
+
     // Description
     HIDE_CHAPTERS("revanced_hide_chapters", BOOLEAN, TRUE),
     HIDE_INFO_CARDS_SECTION("revanced_hide_info_cards_section", BOOLEAN, TRUE),
@@ -430,7 +436,7 @@ public enum SettingsEnum {
             LogHelper.printInfo(() -> "Migrating old setting of '" + oldSetting.value
                     + "' from: " + oldSetting + " into replacement setting: " + newSetting);
             newSetting.saveValue(oldSetting.value);
-            oldSetting.saveValue(oldSetting.defaultValue); // reset old value
+            oldSetting.resetToDefault();
         }
     }
 
@@ -520,6 +526,13 @@ public enum SettingsEnum {
             default:
                 throw new IllegalStateException(name());
         }
+    }
+
+    /**
+     * Identical to calling {@link #saveValue(Object)} using {@link #defaultValue}.
+     */
+    public void resetToDefault() {
+        saveValue(defaultValue);
     }
 
     /**
@@ -694,7 +707,7 @@ public enum SettingsEnum {
                 } else if (setting.includeWithImportExport() && !setting.isSetToDefault()) {
                     LogHelper.printDebug(() -> "Resetting to default: " + setting);
                     rebootSettingChanged |= setting.rebootApp;
-                    setting.saveValue(setting.defaultValue);
+                    setting.resetToDefault();
                 }
             }
             numberOfSettingsImported += SponsorBlockSettings.importCategoriesFromFlatJson(json);

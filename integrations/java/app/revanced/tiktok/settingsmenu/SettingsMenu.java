@@ -7,12 +7,14 @@ import android.preference.PreferenceFragment;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import app.revanced.tiktok.utils.LogHelper;
-import app.revanced.tiktok.utils.ReVancedUtils;
+
 import com.bytedance.ies.ugc.aweme.commercialize.compliance.personalization.AdPersonalizationActivity;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+
+import app.revanced.tiktok.utils.LogHelper;
+import app.revanced.tiktok.utils.ReVancedUtils;
 
 
 public class SettingsMenu {
@@ -22,10 +24,9 @@ public class SettingsMenu {
             Class<?> entryInfoClazz = Class.forName(entryInfoClazzName);
             Constructor<?> entryConstructor = entryClazz.getConstructor(entryInfoClazz);
             Constructor<?> entryInfoConstructor = entryInfoClazz.getDeclaredConstructors()[0];
-            Object buttonInfo = entryInfoConstructor.newInstance("Revanced settings", null, (View.OnClickListener) view -> startSettingsActivity());
+            Object buttonInfo = entryInfoConstructor.newInstance("ReVanced settings", null, (View.OnClickListener) view -> startSettingsActivity(), "revanced");
             return entryConstructor.newInstance(buttonInfo);
-        } catch (ClassNotFoundException | NoSuchMethodException | InvocationTargetException | IllegalAccessException |
-                 InstantiationException e) {
+        } catch (ClassNotFoundException | NoSuchMethodException | InvocationTargetException | IllegalAccessException | InstantiationException e) {
             throw new RuntimeException(e);
         }
     }

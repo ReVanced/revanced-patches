@@ -133,7 +133,7 @@ final class CustomFilterGroup extends StringFilterGroup {
         for (String pattern : patterns) {
             if (!StringTrieSearch.isValidPattern(pattern)) {
                 ReVancedUtils.showToastLong("Invalid custom filter, resetting to default");
-                setting.saveValue(setting.defaultValue);
+                setting.resetToDefault();
                 return getFilterPatterns(setting);
             }
         }
