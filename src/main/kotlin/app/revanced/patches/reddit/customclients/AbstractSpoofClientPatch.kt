@@ -1,6 +1,7 @@
 package app.revanced.patches.reddit.customclients
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
+import app.revanced.patcher.PatchClass
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.fingerprint.MethodFingerprintResult
@@ -9,14 +10,22 @@ import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatc
 
 abstract class AbstractSpoofClientPatch(
     redirectUri: String,
-    private val clientIdFingerprints: List<MethodFingerprint>,
-    private val userAgentFingerprints: List<MethodFingerprint>? = null,
-    private val miscellaneousFingerprints: List<MethodFingerprint>? = null
-) : BytecodePatch(buildSet {
-    addAll(clientIdFingerprints)
-    userAgentFingerprints?.let(::addAll)
-    miscellaneousFingerprints?.let(::addAll)
-}) {
+    private val miscellaneousFingerprints: Set<MethodFingerprint> = emptySet(),
+    private val clientIdFingerprints: Set<MethodFingerprint> = emptySet(),
+    private val userAgentFingerprints: Set<MethodFingerprint> = emptySet(),
+    compatiblePackages: Set<CompatiblePackage>,
+    dependencies: Set<PatchClass> = emptySet(),
+) : BytecodePatch(
+    name = "Spoof client",
+    description = "Restores functionality of the app by using custom client ID.",
+    fingerprints = buildSet {
+        addAll(clientIdFingerprints)
+        userAgentFingerprints.let(::addAll)
+        miscellaneousFingerprints.let(::addAll)
+    },
+    compatiblePackages = compatiblePackages,
+    dependencies = dependencies
+) {
     var clientId by stringPatchOption(
         "client-id",
         null,
@@ -30,9 +39,9 @@ abstract class AbstractSpoofClientPatch(
     )
 
     override fun execute(context: BytecodeContext) {
-        fun List<MethodFingerprint>?.executePatch(
-            patch: List<MethodFingerprintResult>.(BytecodeContext) -> Unit
-        ) = this?.map { it.result ?: throw it.exception }?.patch(context)
+        fun Set<MethodFingerprint>.executePatch(
+            patch: Set<MethodFingerprintResult>.(BytecodeContext) -> Unit
+        ) = this.map { it.result ?: throw it.exception }.toSet().patch(context)
 
         clientIdFingerprints.executePatch { patchClientId(context) }
         userAgentFingerprints.executePatch { patchUserAgent(context) }
@@ -46,7 +55,7 @@ abstract class AbstractSpoofClientPatch(
      * @param context The current [BytecodeContext].
      *
      */
-    abstract fun List<MethodFingerprintResult>.patchClientId(context: BytecodeContext)
+    open fun Set<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {}
 
     /**
      * Patch the user agent.
@@ -54,8 +63,7 @@ abstract class AbstractSpoofClientPatch(
      *
      * @param context The current [BytecodeContext].
      */
-    // Not every client needs to patch the user agent.
-    open fun List<MethodFingerprintResult>.patchUserAgent(context: BytecodeContext) {}
+    open fun Set<MethodFingerprintResult>.patchUserAgent(context: BytecodeContext) {}
 
     /**
      * Patch miscellaneous things such as protection measures.
@@ -63,6 +71,5 @@ abstract class AbstractSpoofClientPatch(
      *
      * @param context The current [BytecodeContext].
      */
-    // Not every client needs to patch miscellaneous things.
-    open fun List<MethodFingerprintResult>.patchMiscellaneous(context: BytecodeContext) {}
+    open fun Set<MethodFingerprintResult>.patchMiscellaneous(context: BytecodeContext) {}
 }

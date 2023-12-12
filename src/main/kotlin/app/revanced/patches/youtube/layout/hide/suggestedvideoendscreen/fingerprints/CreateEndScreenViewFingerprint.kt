@@ -6,7 +6,7 @@ import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object CreateEndScreenViewFingerprint : LiteralValueFingerprint(
+internal object CreateEndScreenViewFingerprint : LiteralValueFingerprint(
     returnType= "Landroid/view/View;",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Landroid/content/Context;"),

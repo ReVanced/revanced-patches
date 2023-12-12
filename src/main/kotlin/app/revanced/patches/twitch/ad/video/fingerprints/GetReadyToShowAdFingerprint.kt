@@ -2,7 +2,7 @@ package app.revanced.patches.twitch.ad.video.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 
-object GetReadyToShowAdFingerprint : MethodFingerprint(
+internal object GetReadyToShowAdFingerprint : MethodFingerprint(
     returnType = "Ltv/twitch/android/core/mvp/presenter/StateAndAction;",
     parameters = listOf("L", "L"),
     customFingerprint = { method, _ ->

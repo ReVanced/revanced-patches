@@ -15,7 +15,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
         ResourceMappingPatch::class
     ]
 )
-object HideFloatingMicrophoneButtonResourcePatch : ResourcePatch() {
+internal object HideFloatingMicrophoneButtonResourcePatch : ResourcePatch() {
     internal var fabButtonId: Long = -1
 
     override fun execute(context: ResourceContext) {

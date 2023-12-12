@@ -1,6 +1,6 @@
 package app.revanced.patches.twitch.misc.settings
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -30,7 +30,7 @@ import java.io.Closeable
     description = "Adds settings menu to Twitch.",
     dependencies = [IntegrationsPatch::class, SettingsResourcePatch::class],
     compatiblePackages = [
-        CompatiblePackage("tv.twitch.android.app", ["16.9.1"])
+        CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])
     ]
 )
 object SettingsPatch : BytecodePatch(

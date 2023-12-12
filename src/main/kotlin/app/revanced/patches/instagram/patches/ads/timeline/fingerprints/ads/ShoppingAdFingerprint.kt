@@ -2,7 +2,7 @@ package app.revanced.patches.instagram.patches.ads.timeline.fingerprints.ads
 
 import com.android.tools.smali.dexlib2.Opcode
 
-object ShoppingAdFingerprint : MediaAdFingerprint(
+internal object ShoppingAdFingerprint : MediaAdFingerprint(
     opcodes = listOf(
         Opcode.IF_EQZ,
         Opcode.IGET_OBJECT,

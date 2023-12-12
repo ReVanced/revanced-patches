@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
         ResourceMappingPatch::class
     ],
 )
-object DisableSuggestedVideoEndScreenResourcePatch : ResourcePatch() {
+internal object DisableSuggestedVideoEndScreenResourcePatch : ResourcePatch() {
     internal var sizeAdjustableLiteAutoNavOverlay: Long = -1
 
     override fun execute(context: ResourceContext) {

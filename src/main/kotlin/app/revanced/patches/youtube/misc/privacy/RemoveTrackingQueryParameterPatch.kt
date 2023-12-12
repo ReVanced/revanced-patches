@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.privacy
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -22,7 +22,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Remove tracking query parameter",
-    description = "Remove the tracking query parameter from links.",
+    description = "Remove the tracking query parameter from links you share.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -40,7 +40,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 object RemoveTrackingQueryParameterPatch : BytecodePatch(
     setOf(CopyTextFingerprint, SystemShareSheetFingerprint, YouTubeShareSheetFingerprint)
 ) {
-    const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/RemoveTrackingQueryParameterPatch;"
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/RemoveTrackingQueryParameterPatch;"
 
     override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.MISC.addPreferences(

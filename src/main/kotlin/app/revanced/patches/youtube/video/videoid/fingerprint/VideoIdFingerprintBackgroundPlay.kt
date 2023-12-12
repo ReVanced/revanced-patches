@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object VideoIdFingerprintBackgroundPlay : MethodFingerprint(
+internal object VideoIdFingerprintBackgroundPlay : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.DECLARED_SYNCHRONIZED or AccessFlags.FINAL or AccessFlags.PUBLIC,
     parameters = listOf("L"),

@@ -7,7 +7,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 @FuzzyPatternScanMethod(2)
-object VerifySignatureFingerprint : MethodFingerprint(
+internal object VerifySignatureFingerprint : MethodFingerprint(
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("Landroid/app/Activity;"),

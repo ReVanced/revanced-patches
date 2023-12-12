@@ -9,8 +9,8 @@ import app.revanced.patches.shared.settings.preference.addPreference
 import app.revanced.patches.shared.settings.preference.addResource
 import app.revanced.patches.shared.settings.preference.impl.ArrayResource
 import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.util.resources.ResourceUtils
-import app.revanced.util.resources.ResourceUtils.copyResources
+import app.revanced.util.ResourceGroup
+import app.revanced.util.copyResources
 import org.w3c.dom.Node
 import java.io.Closeable
 
@@ -28,7 +28,7 @@ abstract class AbstractSettingsResourcePatch(
         /* copy preference template from source dir */
         context.copyResources(
             sourceDirectory,
-            ResourceUtils.ResourceGroup(
+            ResourceGroup(
                 "xml", "$preferenceFileName.xml"
             )
         )

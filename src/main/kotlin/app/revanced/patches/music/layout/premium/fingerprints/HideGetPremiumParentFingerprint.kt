@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object HideGetPremiumParentFingerprint : MethodFingerprint(
+internal object HideGetPremiumParentFingerprint : MethodFingerprint(
     "V", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf(), listOf(
         Opcode.IGET_BOOLEAN,
         Opcode.CONST_4,

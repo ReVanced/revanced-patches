@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.interaction.swipecontrols
 
-import app.revanced.extensions.transformMethods
-import app.revanced.extensions.traverseClassHierarchy
+import app.revanced.util.transformMethods
+import app.revanced.util.traverseClassHierarchy
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage

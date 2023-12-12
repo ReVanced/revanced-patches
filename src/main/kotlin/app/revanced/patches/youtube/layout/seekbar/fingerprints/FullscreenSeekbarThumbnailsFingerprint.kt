@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.or
 import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object FullscreenSeekbarThumbnailsFingerprint : LiteralValueFingerprint(
+internal object FullscreenSeekbarThumbnailsFingerprint : LiteralValueFingerprint(
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = emptyList(),

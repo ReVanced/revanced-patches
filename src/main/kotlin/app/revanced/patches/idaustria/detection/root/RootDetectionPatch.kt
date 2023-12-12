@@ -7,7 +7,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.idaustria.detection.root.fingerprints.AttestationSupportedCheckFingerprint
 import app.revanced.patches.idaustria.detection.root.fingerprints.BootloaderCheckFingerprint
 import app.revanced.patches.idaustria.detection.root.fingerprints.RootCheckFingerprint
-import app.revanced.util.Utils.returnEarly
+import app.revanced.util.returnEarly
 
 @Patch(
     name = "Remove root detection",

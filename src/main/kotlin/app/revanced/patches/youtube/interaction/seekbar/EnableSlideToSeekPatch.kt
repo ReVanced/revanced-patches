@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.interaction.seekbar
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -17,7 +17,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Enable slide to seek",
-    description = "Enable slide to seek instead of playing at 2x speed.",
+    description = "Enable slide to seek instead of playing at 2x speed when pressing and holding in the video player.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -38,7 +38,7 @@ object EnableSlideToSeekPatch : BytecodePatch(
         DoubleSpeedSeekNoticeFingerprint
     )
 ) {
-    const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/SlideToSeekPatch;"
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/SlideToSeekPatch;"
 
     override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(

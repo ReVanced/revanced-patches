@@ -18,7 +18,7 @@ import org.w3c.dom.Element
 @Patch(
     dependencies = [SettingsPatch::class, ResourceMappingPatch::class, SeekbarPreferencesPatch::class]
 )
-object ThemeResourcePatch : ResourcePatch() {
+internal object ThemeResourcePatch : ResourcePatch() {
     private const val SPLASH_BACKGROUND_COLOR = "revanced_splash_background_color"
 
     override fun execute(context: ResourceContext) {

@@ -2,7 +2,7 @@ package app.revanced.patches.reddit.customclients.relayforreddit.api.fingerprint
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 
-object SetRemoteConfigFingerprint : MethodFingerprint(
+internal object SetRemoteConfigFingerprint : MethodFingerprint(
     strings = listOf("reddit_oauth_url"),
     parameters = listOf("Lcom/google/firebase/remoteconfig/FirebaseRemoteConfig;")
 )

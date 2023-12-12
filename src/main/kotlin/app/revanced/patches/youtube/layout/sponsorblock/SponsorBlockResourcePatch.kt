@@ -7,13 +7,13 @@ import app.revanced.patches.shared.mapping.misc.ResourceMappingPatch
 import app.revanced.patches.shared.settings.preference.impl.Preference
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.util.resources.ResourceUtils
-import app.revanced.util.resources.ResourceUtils.copyResources
-import app.revanced.util.resources.ResourceUtils.copyXmlNode
-import app.revanced.util.resources.ResourceUtils.mergeStrings
+import app.revanced.util.ResourceGroup
+import app.revanced.util.copyResources
+import app.revanced.util.copyXmlNode
+import app.revanced.util.mergeStrings
 
 @Patch(dependencies = [SettingsPatch::class, ResourceMappingPatch::class])
-object SponsorBlockResourcePatch : ResourcePatch() {
+internal object SponsorBlockResourcePatch : ResourcePatch() {
 
     override fun execute(context: ResourceContext) {
         SettingsPatch.addPreference(
@@ -35,13 +35,13 @@ object SponsorBlockResourcePatch : ResourcePatch() {
          */
 
         arrayOf(
-            ResourceUtils.ResourceGroup(
+            ResourceGroup(
                 "layout",
                 "inline_sponsor_overlay.xml",
                 "new_segment.xml",
                 "skip_sponsor_button.xml"
             ),
-            ResourceUtils.ResourceGroup(
+            ResourceGroup(
                 // required resource for back button, because when the base APK is used, this resource will not exist
                 "drawable",
                 "ic_sb_adjust.xml",
@@ -51,7 +51,7 @@ object SponsorBlockResourcePatch : ResourcePatch() {
                 "ic_sb_publish.xml",
                 "ic_sb_voting.xml"
             ),
-            ResourceUtils.ResourceGroup(
+            ResourceGroup(
                 // required resource for back button, because when the base APK is used, this resource will not exist
                 "drawable-xxxhdpi", "quantum_ic_skip_next_white_24.png"
             )

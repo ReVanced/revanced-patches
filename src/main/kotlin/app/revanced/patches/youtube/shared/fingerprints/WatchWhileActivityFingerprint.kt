@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object WatchWhileActivityFingerprint : MethodFingerprint(
+internal object WatchWhileActivityFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     parameters = listOf(),
     customFingerprint = { methodDef, _ ->

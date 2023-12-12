@@ -8,9 +8,9 @@ import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.playercontrols.BottomControlsResourcePatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.util.resources.ResourceUtils
-import app.revanced.util.resources.ResourceUtils.copyResources
-import app.revanced.util.resources.ResourceUtils.mergeStrings
+import app.revanced.util.ResourceGroup
+import app.revanced.util.copyResources
+import app.revanced.util.mergeStrings
 
 @Patch(
     dependencies = [
@@ -18,7 +18,7 @@ import app.revanced.util.resources.ResourceUtils.mergeStrings
         BottomControlsResourcePatch::class
     ]
 )
-object CopyVideoUrlResourcePatch : ResourcePatch() {
+internal object CopyVideoUrlResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
             PreferenceScreen(
@@ -42,11 +42,12 @@ object CopyVideoUrlResourcePatch : ResourcePatch() {
             )
         )
 
-        context.copyResources("copyvideourl", ResourceUtils.ResourceGroup(
+        context.copyResources("copyvideourl", ResourceGroup(
             resourceDirectoryName = "drawable",
             "revanced_yt_copy.xml",
             "revanced_yt_copy_timestamp.xml"
-        ))
+        )
+        )
 
         // merge strings
         context.mergeStrings("copyvideourl/host/values/strings.xml")

@@ -11,7 +11,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
  * but this may still be used by older apps:
  * https://developers.google.com/youtube/android/player
  */
-object StandalonePlayerActivityFingerprint : IntegrationsFingerprint(
+internal object StandalonePlayerActivityFingerprint : IntegrationsFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "V",
     parameters = listOf("L"),

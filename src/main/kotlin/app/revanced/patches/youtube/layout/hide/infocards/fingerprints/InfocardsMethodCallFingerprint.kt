@@ -4,7 +4,7 @@ import app.revanced.patches.youtube.layout.hide.infocards.HideInfocardsResourceP
 import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-object InfocardsMethodCallFingerprint : LiteralValueFingerprint(
+internal object InfocardsMethodCallFingerprint : LiteralValueFingerprint(
     opcodes = listOf(
         Opcode.INVOKE_VIRTUAL,
         Opcode.IGET_OBJECT,

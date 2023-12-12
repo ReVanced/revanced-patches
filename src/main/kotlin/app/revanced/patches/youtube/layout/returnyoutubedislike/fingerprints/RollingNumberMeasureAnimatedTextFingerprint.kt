@@ -8,7 +8,7 @@ import com.android.tools.smali.dexlib2.Opcode
 /**
  * Resolves to class found in [RollingNumberMeasureTextParentFingerprint].
  */
-object RollingNumberMeasureAnimatedTextFingerprint : MethodFingerprint(
+internal object RollingNumberMeasureAnimatedTextFingerprint : MethodFingerprint(
     returnType = "F",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Ljava/lang/String;"),

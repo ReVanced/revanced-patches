@@ -1,12 +1,12 @@
 package app.revanced.patches.reddit.customclients.syncforreddit.annoyances.startup
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.reddit.customclients.syncforreddit.annoyances.startup.fingerprints.MainActivityOnCreate
+import app.revanced.patches.reddit.customclients.syncforreddit.annoyances.startup.fingerprints.MainActivityOnCreateFingerprint
 
 
 @Patch(
@@ -19,12 +19,12 @@ import app.revanced.patches.reddit.customclients.syncforreddit.annoyances.startu
     ]
 )
 @Suppress("unused")
-object DisableSyncForLemmyBottomSheetPatch : BytecodePatch(setOf(MainActivityOnCreate)) {
+object DisableSyncForLemmyBottomSheetPatch : BytecodePatch(setOf(MainActivityOnCreateFingerprint)) {
     override fun execute(context: BytecodeContext) {
-        MainActivityOnCreate.result?.mutableMethod?.apply {
+        MainActivityOnCreateFingerprint.result?.mutableMethod?.apply {
             val showBottomSheetIndex = implementation!!.instructions.lastIndex - 1
 
             removeInstruction(showBottomSheetIndex)
-        }  ?: throw MainActivityOnCreate.exception
+        }  ?: throw MainActivityOnCreateFingerprint.exception
     }
 }

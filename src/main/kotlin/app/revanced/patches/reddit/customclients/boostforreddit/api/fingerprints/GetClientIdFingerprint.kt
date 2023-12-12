@@ -2,7 +2,7 @@ package app.revanced.patches.reddit.customclients.boostforreddit.api.fingerprint
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 
-object GetClientIdFingerprint : MethodFingerprint(
+internal object GetClientIdFingerprint : MethodFingerprint(
     customFingerprint = custom@{ methodDef, classDef ->
         if (!classDef.type.endsWith("Credentials;")) return@custom false
 

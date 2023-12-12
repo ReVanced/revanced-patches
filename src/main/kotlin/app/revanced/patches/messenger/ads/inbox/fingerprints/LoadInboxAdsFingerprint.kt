@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object LoadInboxAdsFingerprint : MethodFingerprint(
+internal object LoadInboxAdsFingerprint : MethodFingerprint(
     returnType = "V",
     strings = listOf(
         "ads_load_begin",

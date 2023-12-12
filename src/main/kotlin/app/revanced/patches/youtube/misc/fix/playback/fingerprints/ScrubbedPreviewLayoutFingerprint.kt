@@ -6,7 +6,7 @@ import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object ScrubbedPreviewLayoutFingerprint : LiteralValueFingerprint(
+internal object ScrubbedPreviewLayoutFingerprint : LiteralValueFingerprint(
     accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     returnType = "V",
     parameters = listOf("Landroid/content/Context;", "Landroid/util/AttributeSet;", "I", "I"),

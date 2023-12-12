@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.player.overlay
 
-import app.revanced.extensions.exception
-import app.revanced.extensions.indexOfFirstWideLiteralInstructionValue
+import app.revanced.util.exception
+import app.revanced.util.indexOfFirstWideLiteralInstructionValue
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -13,7 +13,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Custom player overlay opacity",
-    description = "Change the opacity of the player background, when player controls are visible.",
+    description = "Change the opacity of the player background when player controls are visible.",
     dependencies = [CustomPlayerOverlayOpacityResourcePatch::class],
     compatiblePackages = [
         CompatiblePackage("com.google.android.youtube")

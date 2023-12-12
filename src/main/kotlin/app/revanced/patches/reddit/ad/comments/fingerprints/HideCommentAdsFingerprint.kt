@@ -2,7 +2,7 @@ package app.revanced.patches.reddit.ad.comments.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 
-object HideCommentAdsFingerprint : MethodFingerprint(
+internal object HideCommentAdsFingerprint : MethodFingerprint(
     strings = listOf(
         "link",
         // CommentPageRepository is not returning a link object

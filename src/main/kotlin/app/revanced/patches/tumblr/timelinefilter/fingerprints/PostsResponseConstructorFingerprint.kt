@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 // This is the constructor of the PostsResponse class.
 // The same applies here as with the TimelineConstructorFingerprint.
-object PostsResponseConstructorFingerprint : MethodFingerprint(
+internal object PostsResponseConstructorFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.CONSTRUCTOR or AccessFlags.PUBLIC,
     customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("/PostsResponse;") && methodDef.parameters.size == 4 },
 )

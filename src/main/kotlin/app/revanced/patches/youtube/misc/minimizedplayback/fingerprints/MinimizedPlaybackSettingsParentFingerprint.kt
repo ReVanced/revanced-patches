@@ -7,7 +7,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 /**
  * Class fingerprint for [MinimizedPlaybackSettingsFingerprint]
  */
-object MinimizedPlaybackSettingsParentFingerprint : MethodFingerprint(
+internal object MinimizedPlaybackSettingsParentFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     returnType = "I",
     parameters = listOf(),

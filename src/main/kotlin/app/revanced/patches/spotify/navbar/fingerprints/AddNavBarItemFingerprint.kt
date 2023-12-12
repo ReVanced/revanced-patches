@@ -5,7 +5,7 @@ import app.revanced.patches.spotify.navbar.PremiumNavbarTabResourcePatch
 import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object AddNavBarItemFingerprint : LiteralValueFingerprint(
+internal object AddNavBarItemFingerprint : LiteralValueFingerprint(
      returnType = "V",
      accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
      literalSupplier = { PremiumNavbarTabResourcePatch.showBottomNavigationItemsTextId },

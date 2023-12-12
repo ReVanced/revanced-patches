@@ -1,5 +1,5 @@
 package app.revanced.patches.reddit.customclients.redditisfun.api.fingerprints
 
-object BuildAuthorizationStringFingerprint : AbstractClientIdFingerprint(
+internal object BuildAuthorizationStringFingerprint : AbstractClientIdFingerprint(
     string = "client_id"
 )

@@ -3,7 +3,7 @@ package app.revanced.patches.facebook.ads.story.fingerprints
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.iface.value.StringEncodedValue
 
-abstract class FieldMethodFingerprint(fieldValue: String) : MethodFingerprint(
+internal abstract class FieldMethodFingerprint(fieldValue: String) : MethodFingerprint(
     returnType = "V",
     parameters = listOf(),
     customFingerprint = { methodDef, classDef ->

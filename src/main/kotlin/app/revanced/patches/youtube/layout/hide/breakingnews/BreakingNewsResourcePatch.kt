@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
         ResourceMappingPatch::class
     ],
 )
-object BreakingNewsResourcePatch : ResourcePatch() {
+internal object BreakingNewsResourcePatch : ResourcePatch() {
     internal var horizontalCardListId: Long = -1
 
     override fun execute(context: ResourceContext) {

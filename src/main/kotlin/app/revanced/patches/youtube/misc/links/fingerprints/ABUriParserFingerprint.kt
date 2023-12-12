@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object ABUriParserFingerprint : MethodFingerprint(
+internal object ABUriParserFingerprint : MethodFingerprint(
     returnType = "Ljava/lang/Object",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Ljava/lang/Object"),

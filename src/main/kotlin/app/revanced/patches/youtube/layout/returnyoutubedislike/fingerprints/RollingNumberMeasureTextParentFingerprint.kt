@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object RollingNumberMeasureTextParentFingerprint : MethodFingerprint(
+internal object RollingNumberMeasureTextParentFingerprint : MethodFingerprint(
     returnType = "Ljava/lang/String;",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf(),

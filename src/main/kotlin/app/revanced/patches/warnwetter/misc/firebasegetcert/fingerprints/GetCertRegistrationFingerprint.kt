@@ -2,7 +2,7 @@ package app.revanced.patches.warnwetter.misc.firebasegetcert.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 
-object GetReqistrationCertFingerprint : MethodFingerprint(
+internal object GetReqistrationCertFingerprint : MethodFingerprint(
     "Ljava/lang/String;",
     strings = listOf(
         "FirebaseRemoteConfig",

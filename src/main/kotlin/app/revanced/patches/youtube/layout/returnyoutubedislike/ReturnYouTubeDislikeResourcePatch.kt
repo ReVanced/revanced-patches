@@ -7,12 +7,12 @@ import app.revanced.patches.shared.mapping.misc.ResourceMappingPatch
 import app.revanced.patches.shared.settings.preference.impl.Preference
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.util.resources.ResourceUtils.mergeStrings
+import app.revanced.util.mergeStrings
 
 @Patch(
     dependencies = [SettingsPatch::class]
 )
-object ReturnYouTubeDislikeResourcePatch : ResourcePatch() {
+internal object ReturnYouTubeDislikeResourcePatch : ResourcePatch() {
     internal var oldUIDislikeId: Long = -1
 
     override fun execute(context: ResourceContext) {

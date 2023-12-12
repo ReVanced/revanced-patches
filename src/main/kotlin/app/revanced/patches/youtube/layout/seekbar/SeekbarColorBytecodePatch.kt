@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.seekbar
 
-import app.revanced.extensions.exception
-import app.revanced.extensions.indexOfFirstWideLiteralInstructionValue
+import app.revanced.util.exception
+import app.revanced.util.indexOfFirstWideLiteralInstructionValue
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -23,7 +23,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
     dependencies = [IntegrationsPatch::class, LithoColorHookPatch::class, SeekbarColorResourcePatch::class],
     compatiblePackages = [CompatiblePackage("com.google.android.youtube")]
 )
-object SeekbarColorBytecodePatch : BytecodePatch(
+internal object SeekbarColorBytecodePatch : BytecodePatch(
     setOf(PlayerSeekbarColorFingerprint, ShortsSeekbarColorFingerprint, SetSeekbarClickedColorFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/theme/SeekbarColorPatch;"

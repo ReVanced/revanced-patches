@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object LithoThemeFingerprint : MethodFingerprint(
+internal object LithoThemeFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
     parameters = listOf("Landroid/graphics/Rect;"),

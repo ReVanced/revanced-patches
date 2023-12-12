@@ -7,7 +7,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 @FuzzyPatternScanMethod(3)
-object OnTouchEventHandlerFingerprint : MethodFingerprint(
+internal object OnTouchEventHandlerFingerprint : MethodFingerprint(
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.PUBLIC,
     parameters = listOf("L"),

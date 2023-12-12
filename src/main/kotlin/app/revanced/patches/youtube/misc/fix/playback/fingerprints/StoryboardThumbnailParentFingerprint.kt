@@ -10,7 +10,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
  * An additional change here might force the thumbnails to be created,
  * or possibly a change somewhere else (maybe involving YouTube 18.23.35 class `hte`)
  */
-object StoryboardThumbnailParentFingerprint : MethodFingerprint(
+internal object StoryboardThumbnailParentFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "Landroid/graphics/Bitmap;",
     strings = listOf("Storyboard regionDecoder.decodeRegion exception - "),

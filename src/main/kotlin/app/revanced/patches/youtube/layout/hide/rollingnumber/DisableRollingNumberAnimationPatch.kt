@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.rollingnumber
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -18,7 +18,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Disable rolling number animations",
-    description = "Disables rolling number animations of video view count, upload time, and user likes",
+    description = "Disables rolling number animations of video view count, user likes, and upload time.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object ContainsAdFingerprint: MethodFingerprint(
+internal object ContainsAdFingerprint: MethodFingerprint(
     returnType = "Z",
     parameters = listOf("L", "L"),
     accessFlags = AccessFlags.STATIC or AccessFlags.PUBLIC,

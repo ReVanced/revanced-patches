@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.video.speed.remember
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -19,13 +19,12 @@ import app.revanced.patches.youtube.video.speed.remember.fingerprint.InitializeP
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch(
-    description = "Adds the ability to remember the playback speed you chose in the playback speed flyout.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class, VideoInformationPatch::class, CustomPlaybackSpeedPatch::class]
 )
 object RememberPlaybackSpeedPatch : BytecodePatch(
     setOf(InitializePlaybackSpeedValuesFingerprint)
 ){
-    const val INTEGRATIONS_CLASS_DESCRIPTOR =
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/patches/playback/speed/RememberPlaybackSpeedPatch;"
 
     override fun execute(context: BytecodeContext) {

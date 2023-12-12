@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.buttons.player.hide
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -18,7 +18,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction3rc
 
 @Patch(
     name = "Hide player buttons",
-    description = "Adds the option to hide video player previous and next buttons.",
+    description = "Hides previous and next buttons in the video player.",
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class

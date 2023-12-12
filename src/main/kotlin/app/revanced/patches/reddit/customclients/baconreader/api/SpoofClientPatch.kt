@@ -4,27 +4,22 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprintResult
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.reddit.customclients.AbstractSpoofClientPatch
 import app.revanced.patches.reddit.customclients.baconreader.api.fingerprints.GetAuthorizationUrlFingerprint
 import app.revanced.patches.reddit.customclients.baconreader.api.fingerprints.RequestTokenFingerprint
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 
-@Patch(
-    name = "Spoof client",
-    description = "Restores functionality of the app by using custom client ID's.",
-    compatiblePackages = [
-        CompatiblePackage("com.onelouder.baconreader"),
-        CompatiblePackage("com.onelouder.baconreader.premium")
-    ]
-)
 @Suppress("unused")
 object SpoofClientPatch : AbstractSpoofClientPatch(
-    "http://baconreader.com/auth", listOf(GetAuthorizationUrlFingerprint, RequestTokenFingerprint)
+    redirectUri = "http://baconreader.com/auth",
+    clientIdFingerprints = setOf(GetAuthorizationUrlFingerprint, RequestTokenFingerprint),
+    compatiblePackages = setOf(
+        CompatiblePackage("com.onelouder.baconreader"),
+        CompatiblePackage("com.onelouder.baconreader.premium")
+    )
 ) {
-    override fun List<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
+    override fun Set<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
         fun MethodFingerprintResult.patch(replacementString: String) {
             val clientIdIndex = scanResult.stringsScanResult!!.matches.first().index
 

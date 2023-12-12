@@ -14,7 +14,7 @@ import com.android.tools.smali.dexlib2.Opcode
 
 @Patch(
     name = "Hide captions button",
-    description = "Hides the captions button on video player.",
+    description = "Hides the captions button in the video player.",
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class

@@ -1,6 +1,6 @@
 package app.revanced.patches.tudortmund.lockscreen.patch
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -25,7 +25,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 object ShowOnLockscreenPatch : BytecodePatch(
     setOf(BrightnessFingerprint)
 ) {
-    const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/tudortmund/lockscreen/ShowOnLockscreenPatch;"
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/tudortmund/lockscreen/ShowOnLockscreenPatch;"
 
     override fun execute(context: BytecodeContext) {
         BrightnessFingerprint.result?.mutableMethod?.apply {

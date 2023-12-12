@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.video.quality
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -26,7 +26,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Patch(
     name = "Remember video quality",
-    description = "Adds the ability to remember the video quality you chose in the video quality flyout.",
+    description = "Adds the ability to remember the last video quality selected.",
     dependencies = [IntegrationsPatch::class, VideoInformationPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

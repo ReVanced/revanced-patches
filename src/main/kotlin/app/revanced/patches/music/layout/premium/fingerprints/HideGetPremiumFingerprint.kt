@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object HideGetPremiumFingerprint : MethodFingerprint(
+internal object HideGetPremiumFingerprint : MethodFingerprint(
     "V", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf(), listOf(
         Opcode.IF_NEZ,
         Opcode.CONST_16,

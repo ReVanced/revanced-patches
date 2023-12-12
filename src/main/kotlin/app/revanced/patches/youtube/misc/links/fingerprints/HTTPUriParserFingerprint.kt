@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object HTTPUriParserFingerprint : MethodFingerprint(
+internal object HTTPUriParserFingerprint : MethodFingerprint(
     returnType = "Landroid/net/Uri",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("Ljava/lang/String"),

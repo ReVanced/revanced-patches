@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object MinimizedPlaybackManagerFingerprint : MethodFingerprint(
+internal object MinimizedPlaybackManagerFingerprint : MethodFingerprint(
     "Z",
     AccessFlags.PUBLIC or AccessFlags.STATIC,
     listOf("L"),

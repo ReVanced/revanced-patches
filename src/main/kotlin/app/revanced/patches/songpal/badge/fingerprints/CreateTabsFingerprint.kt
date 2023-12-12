@@ -8,7 +8,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 // Located @ ub.i0.h#p (9.5.0)
-object CreateTabsFingerprint : MethodFingerprint(
+internal object CreateTabsFingerprint : MethodFingerprint(
     "Ljava/util/List",
     accessFlags = AccessFlags.PRIVATE.value,
     customFingerprint = { methodDef, _ ->

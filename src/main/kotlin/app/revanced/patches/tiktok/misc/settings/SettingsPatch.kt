@@ -1,6 +1,5 @@
 package app.revanced.patches.tiktok.misc.settings
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -14,17 +13,19 @@ import app.revanced.patches.tiktok.misc.settings.fingerprints.AdPersonalizationA
 import app.revanced.patches.tiktok.misc.settings.fingerprints.AddSettingsEntryFingerprint
 import app.revanced.patches.tiktok.misc.settings.fingerprints.SettingsEntryFingerprint
 import app.revanced.patches.tiktok.misc.settings.fingerprints.SettingsEntryInfoFingerprint
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Patch(
     name = "Settings",
     description = "Adds ReVanced settings to TikTok.",
     dependencies = [IntegrationsPatch::class],
     compatiblePackages = [
-        CompatiblePackage("com.ss.android.ugc.trill", ["30.8.4"]),
-        CompatiblePackage("com.zhiliaoapp.musically", ["30.8.4"])
+        CompatiblePackage("com.ss.android.ugc.trill", ["32.5.3"]),
+        CompatiblePackage("com.zhiliaoapp.musically", ["32.5.3"])
     ]
 )
 object SettingsPatch : BytecodePatch(
@@ -57,31 +58,31 @@ object SettingsPatch : BytecodePatch(
             ?: throw SettingsEntryInfoFingerprint.exception
 
         // Create a settings entry for 'revanced settings' and add it to settings fragment
-        AddSettingsEntryFingerprint.result?.apply {
-            scanResult.patternScanResult?.startIndex?.let {
-                val settingsEntries = mutableMethod.getInstruction(it + 3)
-                val addEntry = mutableMethod.getInstruction<BuilderInstruction35c>(it + 5)
-                val register1 = addEntry.registerC
-                val register2 = addEntry.registerD
-                // Add the settings entry created to the settings fragment
-                mutableMethod.addInstructions(
-                    it + 6,
-                    listOf(
-                        settingsEntries,
-                        addEntry
-                    )
-                )
-                // These instructions call a method that create a settings entry use reflection base on the class name of classes that construct settings entry
-                mutableMethod.addInstructions(
-                    it + 6,
-                    """
-                        const-string v$register1, "$settingsButtonClass"
-                        const-string v$register2, "$settingsButtonInfoClass"
-                        invoke-static {v$register1, v$register2}, $CREATE_SETTINGS_ENTRY_METHOD_DESCRIPTOR
-                        move-result-object v$register2
-                    """
-                )
+        AddSettingsEntryFingerprint.result?.mutableMethod?.apply {
+            val markIndex = implementation!!.instructions.indexOfFirst {
+                it.opcode == Opcode.IGET_OBJECT && ((it as Instruction22c).reference as FieldReference).name == "headerUnit"
             }
+
+            val getUnitManager = getInstruction(markIndex + 2)
+            val addEntry = getInstruction(markIndex + 1)
+
+            addInstructions(
+                markIndex + 2,
+                listOf(
+                    getUnitManager,
+                    addEntry
+                )
+            )
+
+            addInstructions(
+                markIndex + 2,
+                """
+                    const-string v0, "$settingsButtonClass"
+                    const-string v1, "$settingsButtonInfoClass"
+                    invoke-static {v0, v1}, $CREATE_SETTINGS_ENTRY_METHOD_DESCRIPTOR
+                    move-result-object v0
+                """
+            )
         } ?: throw AddSettingsEntryFingerprint.exception
 
         // Initialize the settings menu once the replaced setting entry is clicked.
@@ -98,10 +99,10 @@ object SettingsPatch : BytecodePatch(
                 """
                     invoke-static {v$thisRegister}, $INITIALIZE_SETTINGS_METHOD_DESCRIPTOR
                     move-result v$usableRegister
-                    if-eqz v$usableRegister, :notrevanced
+                    if-eqz v$usableRegister, :do_not_open
                     return-void
                 """,
-                ExternalLabel("notrevanced", getInstruction(initializeSettingsIndex))
+                ExternalLabel("do_not_open", getInstruction(initializeSettingsIndex))
             )
         } ?: throw AdPersonalizationActivityOnCreateFingerprint.exception
     }

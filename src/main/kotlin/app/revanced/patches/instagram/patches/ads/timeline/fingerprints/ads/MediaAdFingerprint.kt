@@ -7,7 +7,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 
-abstract class MediaAdFingerprint(
+internal abstract class MediaAdFingerprint(
     returnType: String? = "Z",
     accessFlags: Int? = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters: Iterable<String>? = listOf(),

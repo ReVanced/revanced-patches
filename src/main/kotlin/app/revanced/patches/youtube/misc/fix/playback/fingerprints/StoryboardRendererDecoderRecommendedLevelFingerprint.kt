@@ -8,7 +8,7 @@ import com.android.tools.smali.dexlib2.Opcode
 /**
  * Resolves to the same method as [StoryboardRendererDecoderSpecFingerprint].
  */
-object StoryboardRendererDecoderRecommendedLevelFingerprint : MethodFingerprint(
+internal object StoryboardRendererDecoderRecommendedLevelFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;"),

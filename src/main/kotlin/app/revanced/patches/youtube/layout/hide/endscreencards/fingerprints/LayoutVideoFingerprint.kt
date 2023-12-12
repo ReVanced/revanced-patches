@@ -4,7 +4,7 @@ import app.revanced.patches.youtube.layout.hide.endscreencards.HideEndscreenCard
 import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-object LayoutVideoFingerprint : LiteralValueFingerprint(
+internal object LayoutVideoFingerprint : LiteralValueFingerprint(
     returnType = "Landroid/view/View;",
     opcodes = listOf(
         Opcode.CONST,

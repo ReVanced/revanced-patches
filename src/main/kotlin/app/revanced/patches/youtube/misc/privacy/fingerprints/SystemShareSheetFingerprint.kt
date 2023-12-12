@@ -3,7 +3,7 @@ package app.revanced.patches.youtube.misc.privacy.fingerprints
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-object SystemShareSheetFingerprint : MethodFingerprint(
+internal object SystemShareSheetFingerprint : MethodFingerprint(
     returnType = "V",
     parameters = listOf("L", "Ljava/util/Map;"),
     opcodes = listOf(

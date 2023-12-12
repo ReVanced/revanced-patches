@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.spoofappversion
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
@@ -18,7 +18,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Patch(
     name = "Spoof app version",
     description = "Tricks YouTube into thinking you are running an older version of the app. " +
-            "One of the side effects also includes restoring the old UI.",
+            "This can be used to restore old UI elements and features.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

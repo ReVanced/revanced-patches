@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
         ResourceMappingPatch::class
     ],
 )
-object HideEndscreenCardsResourcePatch : ResourcePatch() {
+internal object HideEndscreenCardsResourcePatch : ResourcePatch() {
     internal var layoutCircle: Long = -1
     internal var layoutIcon: Long = -1
     internal var layoutVideo: Long = -1

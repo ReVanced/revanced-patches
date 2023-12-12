@@ -1,13 +1,13 @@
 package app.revanced.patches.youtube.layout.player.overlay.fingerprints
 
-import app.revanced.extensions.containsWideLiteralInstructionValue
+import app.revanced.util.containsWideLiteralInstructionValue
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.layout.player.overlay.CustomPlayerOverlayOpacityResourcePatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object CreatePlayerOverviewFingerprint : MethodFingerprint(
+internal object CreatePlayerOverviewFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     opcodes = listOf(

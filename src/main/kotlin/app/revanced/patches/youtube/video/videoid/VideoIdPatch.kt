@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.video.videoid
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -104,7 +104,7 @@ object VideoIdPatch : BytecodePatch(
      * Supports all videos and functions in all situations.
      *
      * First parameter is the video id.
-     * Second parameter is if the video is being opened or is currently playing.
+     * Second parameter is if the video is a Short AND it is being opened or is currently playing.
      *
      * Hook is always called off the main thread.
      *

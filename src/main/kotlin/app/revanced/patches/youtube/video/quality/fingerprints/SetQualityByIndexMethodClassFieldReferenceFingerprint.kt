@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.Opcode
 /**
  * Resolves with the class found in [VideoQualitySetterFingerprint].
  */
-object SetQualityByIndexMethodClassFieldReferenceFingerprint : MethodFingerprint(
+internal object SetQualityByIndexMethodClassFieldReferenceFingerprint : MethodFingerprint(
     returnType = "V",
     parameters = listOf("L"),
     opcodes = listOf(

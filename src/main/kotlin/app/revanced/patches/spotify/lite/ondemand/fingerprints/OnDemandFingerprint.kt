@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
 @FuzzyPatternScanMethod(2)
-object OnDemandFingerprint : MethodFingerprint(
+internal object OnDemandFingerprint : MethodFingerprint(
     "L",
     parameters = listOf(),
     opcodes = listOf(

@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.sponsorblock
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -34,7 +34,7 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 @Patch(
     name = "SponsorBlock",
-    description = "Integrates SponsorBlock which allows skipping video segments such as sponsored content.",
+    description = "Integrates SponsorBlock, which can skip undesired video segments such as sponsored content.",
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
