@@ -1,9 +1,8 @@
 package app.revanced.util
 
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.DomFileEditor
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import org.w3c.dom.Node
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
@@ -21,40 +20,29 @@ fun Node.doRecursively(action: (Node) -> Unit) {
 }
 
 /**
- * Merge strings. This manages [StringResource]s automatically.
- *
- * @param host The hosting xml resource. Needs to be a valid strings.xml resource.
- */
-fun ResourceContext.mergeStrings(host: String) {
-    this.iterateXmlNodeChildren(host, "resources") {
-        // TODO: figure out why this is needed
-        if (!it.hasAttributes()) return@iterateXmlNodeChildren
-
-        val attributes = it.attributes
-        val key = attributes.getNamedItem("name")!!.nodeValue!!
-        val value = it.textContent!!
-
-        val formatted = attributes.getNamedItem("formatted") == null
-
-        SettingsPatch.addString(key, value, formatted)
-    }
-}
-
-/**
  * Copy resources from the current class loader to the resource directory.
  *
  * @param sourceResourceDirectory The source resource directory name.
  * @param resources The resources to copy.
+ * @param replaceDestinationFiles If any existing destination files should be replaced.
+ *                                If set to false, an exception is thrown if any source file
+ *                                would overwrite an existing file.
  */
-fun ResourceContext.copyResources(sourceResourceDirectory: String, vararg resources: ResourceGroup) {
+fun ResourceContext.copyResources(sourceResourceDirectory: String,
+                                  vararg resources: ResourceGroup,
+                                  replaceDestinationFiles: Boolean = true) {
     val targetResourceDirectory = this["res"]
 
     for (resourceGroup in resources) {
         resourceGroup.resources.forEach { resource ->
             val resourceFile = "${resourceGroup.resourceDirectoryName}/$resource"
+            val resourcePath = "$sourceResourceDirectory/$resourceFile"
+            val resourceAsStream = classLoader.getResourceAsStream(resourcePath)
+                    ?: throw PatchException("Could not find resource: $resourcePath")
             Files.copy(
-                classLoader.getResourceAsStream("$sourceResourceDirectory/$resourceFile")!!,
-                targetResourceDirectory.resolve(resourceFile).toPath(), StandardCopyOption.REPLACE_EXISTING
+                resourceAsStream,
+                targetResourceDirectory.resolve(resourceFile).toPath(),
+                *(if (replaceDestinationFiles) arrayOf(StandardCopyOption.REPLACE_EXISTING) else emptyArray())
             )
         }
     }
@@ -77,11 +65,14 @@ fun ResourceContext.iterateXmlNodeChildren(
     resource: String,
     targetTag: String,
     callback: (node: Node) -> Unit
-) =
-    xmlEditor[classLoader.getResourceAsStream(resource)!!].use {
+) {
+    val resourceAsStream = classLoader.getResourceAsStream(resource)
+        ?: throw PatchException("Could not find resource: $resource")
+    xmlEditor[resourceAsStream].use {
         val stringsNode = it.file.getElementsByTagName(targetTag).item(0).childNodes
         for (i in 1 until stringsNode.length - 1) callback(stringsNode.item(i))
     }
+}
 
 
 /**

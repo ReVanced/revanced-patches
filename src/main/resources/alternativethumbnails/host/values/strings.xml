@@ -1,9 +1,0 @@
-<resources>
-    <string name="revanced_alt_thumbnail_about_status_disabled">Showing original YouTube thumbnails</string>
-    <string name="revanced_alt_thumbnail_about_status_stills">Showing still video captures</string>
-    <string name="revanced_alt_thumbnail_about_status_dearrow">Showing DeArrow thumbnails. If a video has no DeArrow thumbnails then the original YouTube thumbnails are shown</string>
-    <string name="revanced_alt_thumbnail_about_status_dearrow_stills">Showing DeArrow thumbnails. If a video has no DeArrow thumbnails then still video captures are shown</string>
-
-    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow temporarily not available (status code: %s)</string>
-    <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow temporarily not available</string>
-</resources>

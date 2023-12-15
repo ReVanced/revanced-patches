@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_settings_title">ReVanced</string>
+    <string name="revanced_settings_summary">ReVanced specific settings</string>
+
+    <string name="revanced_ads_screen_title">Ads</string>
+    <string name="revanced_ads_screen_summary">Ad related settings</string>
+
+    <string name="revanced_interaction_screen_title">Interaction</string>
+    <string name="revanced_interaction_screen_summary">Settings related to interactions</string>
+
+    <string name="revanced_layout_screen_title">Layout</string>
+    <string name="revanced_layout_screen_summary">Settings related to the layout</string>
+
+    <string name="revanced_misc_screen_title">Misc</string>
+    <string name="revanced_misc_screen_summary">Miscellaneous patches</string>
+
+    <string name="revanced_video_screen_title">Video</string>
+    <string name="revanced_video_screen_summary">Settings related to the video player</string>
+
+    <string name="revanced_settings_confirm_user_dialog_title">Do you wish to proceed?</string>
+    <string name="revanced_settings_reset">Reset</string>
+
+    <string name="revanced_pref_import_export_title">Import / Export</string>
+    <string name="revanced_pref_import_export_summary">Import / Export ReVanced settings</string>
+
+    <string name="revanced_settings_import">Import</string>
+    <string name="revanced_settings_import_copy">Copy</string>
+    <string name="revanced_settings_import_reset">ReVanced settings reset to default</string>
+    <string name="revanced_settings_import_success">Imported %d settings</string>
+    <string name="revanced_settings_import_failure_parse">Import failed: %s</string>
+</resources>

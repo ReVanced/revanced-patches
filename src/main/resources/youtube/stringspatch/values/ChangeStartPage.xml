@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_start_page_title">Set start page</string>
+    <string name="revanced_start_page_home_entry_0">Default</string>
+    <string name="revanced_start_page_home_entry_1">Home</string>
+    <string name="revanced_start_page_home_entry_2">Search</string>
+    <string name="revanced_start_page_home_entry_3">Subscriptions</string>
+    <string name="revanced_start_page_home_entry_4">Explore</string>
+    <string name="revanced_start_page_home_entry_5">Shorts</string>
+</resources>

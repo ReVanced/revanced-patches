@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_seekbar_tapping_title">Enable seekbar tapping</string>
+    <string name="revanced_seekbar_tapping_summary_on">Seekbar tapping is enabled</string>
+    <string name="revanced_seekbar_tapping_summary_off">Seekbar tapping is disabled</string>
+</resources>

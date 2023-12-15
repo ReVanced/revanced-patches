@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_auto_repeat_title">Enable auto-repeat</string>
+    <string name="revanced_auto_repeat_summary_on">Auto-repeat is enabled</string>
+    <string name="revanced_auto_repeat_summary_off">Auto-repeat is disabled</string>
+</resources>

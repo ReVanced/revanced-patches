@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="revanced_share_copy_url_success">URL copied to clipboard</string>
-    <string name="revanced_share_copy_url_timestamp_success">URL with timestamp copied</string>
-</resources>

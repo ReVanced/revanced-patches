@@ -8,11 +8,12 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.settings.preference.impl.ArrayResource
 import app.revanced.patches.shared.settings.preference.impl.ListPreference
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.twitch.ad.embedded.fingerprints.CreateUsherClientFingerprint
 import app.revanced.patches.twitch.ad.video.VideoAdsPatch
 import app.revanced.patches.twitch.misc.integrations.IntegrationsPatch
 import app.revanced.patches.twitch.misc.settings.SettingsPatch
+import app.revanced.patches.twitch.misc.strings.StringsPatch
+
 
 @Patch(
     name = "Block embedded ads",
@@ -37,34 +38,30 @@ object EmbeddedAdsPatch : BytecodePatch(
             """
         )
 
+        StringsPatch.includePatchStrings("EmbeddedAds")
         SettingsPatch.PreferenceScreen.ADS.SURESTREAM.addPreferences(
             ListPreference(
                 "revanced_block_embedded_ads",
-                StringResource(
-                    "revanced_block_embedded_ads",
-                    "Block embedded video ads"
-                ),
+                "revanced_block_embedded_ads",
                 ArrayResource(
                     "revanced_hls_proxies",
                     listOf(
-                        StringResource("revanced_proxy_disabled", "Disabled"),
-                        StringResource("revanced_proxy_luminous", "Luminous proxy"),
-                        StringResource("revanced_proxy_purpleadblock", "PurpleAdBlock proxy"),
+                        "revanced_proxy_disabled",
+                        "revanced_proxy_luminous",
+                        "revanced_proxy_purpleadblock",
                     )
                 ),
                 ArrayResource(
                     "revanced_hls_proxies_values",
                     listOf(
-                        StringResource("key_revanced_proxy_disabled", "disabled"),
-                        StringResource("key_revanced_proxy_luminous", "luminous"),
-                        StringResource("key_revanced_proxy_purpleadblock", "purpleadblock")
-                    )
+                        "disabled",
+                        "luminous",
+                        "purpleadblock",
+                    ),
+                    literalValues = true
                 ),
                 default = "luminous"
             )
         )
-
-        SettingsPatch.addString("revanced_embedded_ads_service_unavailable", "%s is unavailable. Ads may show. Try switching to another ad block service in settings.")
-        SettingsPatch.addString("revanced_embedded_ads_service_failed", "%s server returned an error. Ads may show. Try switching to another ad block service in settings.")
     }
 }

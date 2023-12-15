@@ -8,7 +8,7 @@ import app.revanced.patches.youtube.layout.buttons.cast.HideCastButtonPatch
 import app.revanced.patches.youtube.misc.fix.playback.ClientSpoofPatch
 import app.revanced.patches.youtube.misc.gms.Constants.REVANCED_YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.gms.Constants.YOUTUBE_PACKAGE_NAME
-import app.revanced.patches.youtube.misc.gms.GmsCoreSupportResourcePatch.gmsCoreVendorOption
+import app.revanced.patches.youtube.misc.gms.YouTubeGmsCoreSupportResourcePatch.gmsCoreVendorOption
 import app.revanced.patches.youtube.misc.gms.fingerprints.*
 import app.revanced.util.exception
 
@@ -29,7 +29,7 @@ object GmsCoreSupportPatch : AbstractGmsCoreSupportPatch(
         HideCastButtonPatch::class,
         ClientSpoofPatch::class
     ),
-    abstractGmsCoreSupportResourcePatch = GmsCoreSupportResourcePatch,
+    abstractGmsCoreSupportResourcePatch = YouTubeGmsCoreSupportResourcePatch,
     compatiblePackages = setOf(
         CompatiblePackage(
             "com.google.android.youtube", setOf(

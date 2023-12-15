@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_show_deleted_messages_title">Show deleted messages</string>
+
+    <string name="revanced_deleted_messages_entry_hide">Do not show deleted messages</string>
+    <string name="revanced_deleted_messages_entry_spoiler">Hide deleted messages behind a spoiler</string>
+    <string name="revanced_deleted_messages_entry_cross_out">Show deleted messages as crossed-out text</string>
+
+    <string name="revanced_deleted_msg">message deleted</string>
+</resources>

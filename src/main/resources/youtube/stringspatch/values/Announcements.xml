@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_announcements_title">Show announcements from ReVanced</string>
+    <string name="revanced_announcements_summary_on">Announcements are shown on startup</string>
+    <string name="revanced_announcements_summary_off">Announcements are not shown on startup</string>
+
+    <string name="revanced_announcements_connection_failed">Failed connecting to announcements provider</string>
+</resources>

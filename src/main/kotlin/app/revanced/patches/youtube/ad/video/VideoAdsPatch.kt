@@ -7,10 +7,10 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.ad.video.fingerprints.LoadVideoAdsFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
+import app.revanced.patches.youtube.misc.strings.StringsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
@@ -40,12 +40,13 @@ object VideoAdsPatch : BytecodePatch(
     setOf(LoadVideoAdsFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
+        StringsPatch.includePatchStrings("VideoAds")
         SettingsPatch.PreferenceScreen.ADS.addPreferences(
             SwitchPreference(
                 "revanced_hide_video_ads",
-                StringResource("revanced_hide_video_ads_title", "Hide video ads"),
-                StringResource("revanced_hide_video_ads_summary_on", "Video ads are hidden"),
-                StringResource("revanced_hide_video_ads_summary_off", "Video ads are shown")
+                "revanced_hide_video_ads_title",
+                "revanced_hide_video_ads_summary_on",
+                "revanced_hide_video_ads_summary_off"
             )
         )
 

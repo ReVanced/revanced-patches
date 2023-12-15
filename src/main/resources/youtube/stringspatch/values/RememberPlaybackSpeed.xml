@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_playback_speed_default_title">Default playback speed</string>
+
+    <string name="revanced_remember_playback_speed_last_selected_title">Remember playback speed changes</string>
+    <string name="revanced_remember_playback_speed_last_selected_summary_on">Playback speed changes apply to all videos</string>
+    <string name="revanced_remember_playback_speed_last_selected_summary_off">Playback speed changes only apply to the current video</string>
+
+    <string name="revanced_remember_playback_speed_toast" formatted="false">Changed default speed to: %s</string>
+</resources>

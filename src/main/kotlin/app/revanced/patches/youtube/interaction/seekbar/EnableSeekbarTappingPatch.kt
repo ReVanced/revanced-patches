@@ -8,11 +8,11 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.interaction.seekbar.fingerprints.OnTouchEventHandlerFingerprint
 import app.revanced.patches.youtube.interaction.seekbar.fingerprints.SeekbarTappingFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
+import app.revanced.patches.youtube.misc.strings.StringsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
@@ -43,12 +43,13 @@ object EnableSeekbarTappingPatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext) {
+        StringsPatch.includePatchStrings("EnableSeekbarTapping")
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
             SwitchPreference(
                 "revanced_seekbar_tapping",
-                StringResource("revanced_seekbar_tapping_title", "Enable seekbar tapping"),
-                StringResource("revanced_seekbar_tapping_summary_on", "Seekbar tapping is enabled"),
-                StringResource("revanced_seekbar_tapping_summary_off", "Seekbar tapping is disabled")
+                "revanced_seekbar_tapping_title",
+                "revanced_seekbar_tapping_summary_on",
+                "revanced_seekbar_tapping_summary_off",
             )
         )
 
@@ -56,8 +57,9 @@ object EnableSeekbarTappingPatch : BytecodePatch(
         val seekbarTappingMethods = OnTouchEventHandlerFingerprint.result?.let {
             val patternScanResult = it.scanResult.patternScanResult!!
 
-            fun getReference(index: Int) = it.mutableMethod.getInstruction<ReferenceInstruction>(index)
-                .reference as MethodReference
+            fun getReference(index: Int) =
+                it.mutableMethod.getInstruction<ReferenceInstruction>(index)
+                    .reference as MethodReference
 
             buildMap {
                 put("N", getReference(patternScanResult.startIndex))

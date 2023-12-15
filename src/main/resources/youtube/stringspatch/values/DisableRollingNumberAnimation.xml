@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_disable_rolling_number_animations_title">Disable rolling number animations</string>
+    <string name="revanced_disable_rolling_number_animations_summary_on">Rolling numbers are not animated</string>
+    <string name="revanced_disable_rolling_number_animations_summary_off">Rolling numbers are animated</string>
+</resources>

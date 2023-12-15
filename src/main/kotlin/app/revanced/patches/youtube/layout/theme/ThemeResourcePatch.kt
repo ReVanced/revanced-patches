@@ -6,12 +6,12 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.mapping.misc.ResourceMappingPatch
 import app.revanced.patches.shared.settings.preference.impl.InputType
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.shared.settings.preference.impl.TextPreference
 import app.revanced.patches.youtube.layout.seekbar.SeekbarPreferencesPatch
 import app.revanced.patches.youtube.layout.theme.ThemeBytecodePatch.darkThemeBackgroundColor
 import app.revanced.patches.youtube.layout.theme.ThemeBytecodePatch.lightThemeBackgroundColor
+import app.revanced.patches.youtube.misc.strings.StringsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import org.w3c.dom.Element
 
@@ -22,17 +22,18 @@ internal object ThemeResourcePatch : ResourcePatch() {
     private const val SPLASH_BACKGROUND_COLOR = "revanced_splash_background_color"
 
     override fun execute(context: ResourceContext) {
+        StringsPatch.includePatchStrings("Theme")
         SeekbarPreferencesPatch.addPreferences(
             SwitchPreference(
                 "revanced_seekbar_custom_color",
-                StringResource("revanced_seekbar_custom_color_title", "Enable custom seekbar color"),
-                StringResource("revanced_seekbar_custom_color_summary_on", "Custom seekbar color is shown"),
-                StringResource("revanced_seekbar_custom_color_summary_off", "Original seekbar color is shown")
+                "revanced_seekbar_custom_color_title",
+                "revanced_seekbar_custom_color_summary_on",
+                "revanced_seekbar_custom_color_summary_off",
             ),
             TextPreference(
                 "revanced_seekbar_custom_color_value",
-                StringResource("revanced_seekbar_custom_color_value_title", "Custom seekbar color"),
-                StringResource("revanced_seekbar_custom_color_value_summary", "The color of the seekbar"),
+                "revanced_seekbar_custom_color_value_title",
+                "revanced_seekbar_custom_color_value_summary",
                 InputType.TEXT_CAP_CHARACTERS
             )
         )
@@ -73,9 +74,10 @@ internal object ThemeResourcePatch : ResourcePatch() {
         if (darkThemeBackgroundColor != null && lightThemeBackgroundColor != null) {
             val splashScreenResourceFiles = listOf(
                 "res/drawable/quantum_launchscreen_youtube.xml",
-                "res/drawable-sw600dp/quantum_launchscreen_youtube.xml")
+                "res/drawable-sw600dp/quantum_launchscreen_youtube.xml"
+            )
 
-            splashScreenResourceFiles.forEach editSplashScreen@ { resourceFile ->
+            splashScreenResourceFiles.forEach editSplashScreen@{ resourceFile ->
                 context.xmlEditor[resourceFile].use {
                     val layerList = it.file.getElementsByTagName("layer-list").item(0) as Element
 

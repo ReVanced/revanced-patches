@@ -7,9 +7,9 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
+import app.revanced.patches.youtube.misc.strings.StringsPatch
 import app.revanced.patches.youtube.misc.links.fingerprints.ABUriParserFingerprint
 import app.revanced.patches.youtube.misc.links.fingerprints.HTTPUriParserFingerprint
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
@@ -31,16 +31,18 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
         )
     ]
 )
+@Suppress("unused")
 object BypassURLRedirectsPatch : BytecodePatch(
     setOf(ABUriParserFingerprint, HTTPUriParserFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
+        StringsPatch.includePatchStrings("BypassURLRedirects")
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             SwitchPreference(
                 "revanced_bypass_url_redirects",
-                StringResource("revanced_bypass_url_redirects_title", "Bypass URL redirects"),
-                StringResource("revanced_bypass_url_redirects_summary_on", "URL redirects are bypassed"),
-                StringResource("revanced_bypass_url_redirects_summary_off", "URL redirects are not bypassed"),
+                "revanced_bypass_url_redirects_title",
+                "revanced_bypass_url_redirects_summary_on",
+                "revanced_bypass_url_redirects_summary_off",
             )
         )
 
@@ -52,7 +54,8 @@ object BypassURLRedirectsPatch : BytecodePatch(
         }.forEach { (result, offset) ->
             result.mutableMethod.apply {
                 val insertIndex = result.scanResult.patternScanResult!!.startIndex + offset
-                val uriStringRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
+                val uriStringRegister =
+                    getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 
                 replaceInstruction(
                     insertIndex,

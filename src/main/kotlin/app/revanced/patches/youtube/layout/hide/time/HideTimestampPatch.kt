@@ -6,10 +6,10 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.layout.hide.time.fingerprints.TimeCounterFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
+import app.revanced.patches.youtube.misc.strings.StringsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
@@ -35,19 +35,20 @@ object HideTimestampPatch : BytecodePatch(
     setOf(TimeCounterFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
+        StringsPatch.includePatchStrings("HideTimestamp")
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_hide_timestamp",
-                StringResource("revanced_hide_timestamp_title", "Hide video timestamp"),
-                StringResource("revanced_hide_timestamp_summary_on", "Timestamp is hidden"),
-                StringResource("revanced_hide_timestamp_summary_off", "Timestamp is shown")
+                "revanced_hide_timestamp_title",
+                "revanced_hide_timestamp_summary_on",
+                "revanced_hide_timestamp_summary_off"
             )
         )
 
         TimeCounterFingerprint.result?.apply {
             mutableMethod.addInstructionsWithLabels(
-            0,
-            """
+                0,
+                """
                 invoke-static { }, Lapp/revanced/integrations/patches/HideTimestampPatch;->hideTimestamp()Z
                 move-result v0
                 if-eqz v0, :hide_time

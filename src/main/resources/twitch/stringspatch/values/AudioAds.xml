@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_block_audio_ads">Block audio ads</string>
+    <string name="revanced_block_audio_ads_off">Audio ads are unblocked</string>
+    <string name="revanced_block_audio_ads_on">Audio ads are blocked</string>
+</resources>

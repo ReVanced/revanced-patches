@@ -4,8 +4,8 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.mapping.misc.ResourceMappingPatch
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.youtube.misc.strings.StringsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
@@ -18,12 +18,13 @@ object HideInfocardsResourcePatch : ResourcePatch() {
     internal var drawerResourceId: Long = -1
 
     override fun execute(context: ResourceContext) {
+        StringsPatch.includePatchStrings("HideInfocards")
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_hide_info_cards",
-                StringResource("revanced_hide_info_cards_title", "Hide info cards"),
-                StringResource("revanced_hide_info_cards_summary_on", "Info cards are hidden"),
-                StringResource("revanced_hide_info_cards_summary_off", "Info cards are shown")
+                "revanced_hide_info_cards_title",
+                "revanced_hide_info_cards_summary_on",
+                "revanced_hide_info_cards_summary_off"
             )
         )
 

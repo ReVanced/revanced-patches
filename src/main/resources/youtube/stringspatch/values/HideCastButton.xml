@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_hide_cast_button_title">Hide cast button</string>
+    <string name="revanced_hide_cast_button_summary_on">Cast button is hidden</string>
+    <string name="revanced_hide_cast_button_summary_off">Cast button is shown</string>
+</resources>

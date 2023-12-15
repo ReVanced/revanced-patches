@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_hide_seekbar_title">Hide seekbar in video player</string>
+    <string name="revanced_hide_seekbar_summary_on">Video player seekbar is hidden</string>
+    <string name="revanced_hide_seekbar_summary_off">Video player seekbar is shown</string>
+
+    <string name="revanced_hide_seekbar_thumbnail_title">Hide seekbar in video thumbnails</string>
+    <string name="revanced_hide_seekbar_thumbnail_summary_on">Thumbnail seekbar is hidden</string>
+    <string name="revanced_hide_seekbar_thumbnail_summary_off">Thumbnail seekbar is shown</string>
+</resources>

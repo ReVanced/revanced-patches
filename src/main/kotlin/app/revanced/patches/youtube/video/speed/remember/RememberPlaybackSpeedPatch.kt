@@ -7,11 +7,10 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.settings.preference.impl.ArrayResource
 import app.revanced.patches.shared.settings.preference.impl.ListPreference
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
+import app.revanced.patches.youtube.misc.strings.StringsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.patches.youtube.video.speed.custom.CustomPlaybackSpeedPatch
@@ -23,50 +22,32 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 )
 object RememberPlaybackSpeedPatch : BytecodePatch(
     setOf(InitializePlaybackSpeedValuesFingerprint)
-){
+) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/patches/playback/speed/RememberPlaybackSpeedPatch;"
 
     override fun execute(context: BytecodeContext) {
+        StringsPatch.includePatchStrings("RememberPlaybackSpeed")
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
             SwitchPreference(
                 "revanced_remember_playback_speed_last_selected",
-                StringResource(
-                    "revanced_remember_playback_speed_last_selected_title",
-                    "Remember playback speed changes"
-                ),
-                StringResource(
-                    "revanced_remember_playback_speed_last_selected_summary_on",
-                    "Playback speed changes apply to all videos"
-                ),
-                StringResource(
-                    "revanced_remember_playback_speed_last_selected_summary_off",
-                    "Playback speed changes only apply to the current video"
-                )
+                "revanced_remember_playback_speed_last_selected_title",
+                "revanced_remember_playback_speed_last_selected_summary_on",
+                "revanced_remember_playback_speed_last_selected_summary_off"
             ),
             ListPreference(
                 "revanced_playback_speed_default",
-                StringResource(
-                    "revanced_playback_speed_default_title",
-                    "Default playback speed"
-                ),
-                // Dummy data:
-                // Entries and values are set by Integrations code based on the actual speeds available,
-                // and the values set here are ignored and do nothing.
-                ArrayResource(
-                    "revanced_playback_speed_default_entries",
-                    listOf(StringResource("revanced_playback_speed_default_entries", "1.0x"))
-                ),
-                ArrayResource(
-                    "revanced_playback_speed_default_entry_values",
-                    listOf(StringResource("revanced_playback_speed_default_entry_value", "1.0"))
-                )
+                "revanced_playback_speed_default_title",
+                // Entries and values are set by Integrations code based on the actual speeds available.
+                null,
+                null
             )
         )
 
         VideoInformationPatch.onCreateHook(INTEGRATIONS_CLASS_DESCRIPTOR, "newVideoStarted")
         VideoInformationPatch.userSelectedPlaybackSpeedHook(
-            INTEGRATIONS_CLASS_DESCRIPTOR, "userSelectedPlaybackSpeed")
+            INTEGRATIONS_CLASS_DESCRIPTOR, "userSelectedPlaybackSpeed"
+        )
 
         /*
          * Hook the code that is called when the playback speeds are initialized, and sets the playback speed

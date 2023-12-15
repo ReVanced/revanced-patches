@@ -7,18 +7,17 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.autorepeat.fingerprints.AutoRepeatFingerprint
 import app.revanced.patches.youtube.misc.autorepeat.fingerprints.AutoRepeatParentFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
+import app.revanced.patches.youtube.misc.strings.StringsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-
 
 @Patch(
     name = "Always autorepeat",
     description = "Always repeats the playing video again.",
-    dependencies = [IntegrationsPatch::class],
+    dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
@@ -39,12 +38,13 @@ object AutoRepeatPatch : BytecodePatch(
     setOf(AutoRepeatParentFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
+        StringsPatch.includePatchStrings("AutoRepeat")
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             SwitchPreference(
                 "revanced_auto_repeat",
-                StringResource("revanced_auto_repeat_title", "Enable auto-repeat"),
-                StringResource("revanced_auto_repeat_summary_on", "Auto-repeat is enabled"),
-                StringResource("revanced_auto_repeat_summary_off", "Auto-repeat is disabled")
+                "revanced_auto_repeat_title",
+                "revanced_auto_repeat_summary_on",
+                "revanced_auto_repeat_summary_off"
             )
         )
 

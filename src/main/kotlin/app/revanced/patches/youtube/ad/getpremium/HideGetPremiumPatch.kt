@@ -7,10 +7,10 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.ad.getpremium.fingerprints.GetPremiumViewFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
+import app.revanced.patches.youtube.misc.strings.StringsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
@@ -36,29 +36,23 @@ object HideGetPremiumPatch : BytecodePatch(setOf(GetPremiumViewFingerprint)) {
         "Lapp/revanced/integrations/patches/HideGetPremiumPatch;"
 
     override fun execute(context: BytecodeContext) {
+        StringsPatch.includePatchStrings("HideGetPremium")
         SettingsPatch.PreferenceScreen.ADS.addPreferences(
             SwitchPreference(
                 "revanced_hide_get_premium",
-                StringResource(
-                    "revanced_hide_get_premium_title",
-                    "Hide YouTube Premium promotions"
-                ),
-                StringResource(
-                    "revanced_hide_get_premium_summary_on",
-                    "YouTube Premium promotions under video player is hidden"
-                ),
-                StringResource(
-                    "revanced_hide_get_premium_summary_off",
-                    "YouTube Premium promotions under video player is shown"
-                )
+                "revanced_hide_get_premium_title",
+                "revanced_hide_get_premium_summary_on",
+                "revanced_hide_get_premium_summary_off",
             )
         )
 
         GetPremiumViewFingerprint.result?.let {
             it.mutableMethod.apply {
                 val startIndex = it.scanResult.patternScanResult!!.startIndex
-                val measuredWidthRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
-                val measuredHeightInstruction = getInstruction<TwoRegisterInstruction>(startIndex + 1)
+                val measuredWidthRegister =
+                    getInstruction<TwoRegisterInstruction>(startIndex).registerA
+                val measuredHeightInstruction =
+                    getInstruction<TwoRegisterInstruction>(startIndex + 1)
 
                 val measuredHeightRegister = measuredHeightInstruction.registerA
                 val tempRegister = measuredHeightInstruction.registerB
@@ -79,5 +73,6 @@ object HideGetPremiumPatch : BytecodePatch(setOf(GetPremiumViewFingerprint)) {
                 )
             }
         } ?: throw GetPremiumViewFingerprint.exception
+
     }
 }

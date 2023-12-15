@@ -10,9 +10,9 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.mapping.misc.ResourceMappingPatch
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
+import app.revanced.patches.youtube.misc.strings.StringsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.shared.fingerprints.LayoutConstructorFingerprint
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
@@ -48,12 +48,13 @@ object HideAutoplayButtonPatch : BytecodePatch(
     setOf(LayoutConstructorFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
+        StringsPatch.includePatchStrings("HideAutoplayButton")
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_hide_autoplay_button",
-                StringResource("revanced_hide_autoplay_button_title", "Hide autoplay button"),
-                StringResource("revanced_hide_autoplay_button_summary_on", "Autoplay button is hidden"),
-                StringResource("revanced_hide_autoplay_button_summary_off", "Autoplay button is shown")
+                "revanced_hide_autoplay_button_title",
+                "revanced_hide_autoplay_button_summary_on",
+                "revanced_hide_autoplay_button_summary_off"
             ),
         )
 
@@ -65,12 +66,16 @@ object HideAutoplayButtonPatch : BytecodePatch(
 
             // where to branch away
             val branchIndex =
-                layoutGenMethodInstructions.subList(insertIndex + 1, layoutGenMethodInstructions.size - 1)
+                layoutGenMethodInstructions.subList(
+                    insertIndex + 1,
+                    layoutGenMethodInstructions.size - 1
+                )
                     .indexOfFirst {
                         ((it as? ReferenceInstruction)?.reference as? MethodReference)?.name == "addOnLayoutChangeListener"
                     } + 2
 
-            val jumpInstruction = layoutGenMethodInstructions[insertIndex + branchIndex] as Instruction
+            val jumpInstruction =
+                layoutGenMethodInstructions[insertIndex + branchIndex] as Instruction
 
             // can be clobbered because this register is overwritten after the injected code
             val clobberRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA

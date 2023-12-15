@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_block_embedded_ads">Block embedded video ads</string>
+
+    <string name="revanced_proxy_disabled">Disabled</string>
+    <string name="revanced_proxy_luminous">Luminous proxy</string>
+    <string name="revanced_proxy_purpleadblock">PurpleAdBlock proxy</string>
+
+    <string name="revanced_embedded_ads_service_unavailable">%s is unavailable. Ads may show. Try switching to another ad block service in settings.</string>
+    <string name="revanced_embedded_ads_service_failed">%s server returned an error. Ads may show. Try switching to another ad block service in settings.</string>
+</resources>

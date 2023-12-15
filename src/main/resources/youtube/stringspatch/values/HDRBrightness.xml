@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_hdr_auto_brightness_title">Enable auto HDR brightness</string>
+    <string name="revanced_hdr_auto_brightness_summary_on">Auto HDR brightness is enabled</string>
+    <string name="revanced_hdr_auto_brightness_summary_off">Auto HDR brightness is disabled</string>
+</resources>

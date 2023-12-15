@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_debug_preference_screen_title">Debugging</string>
+    <string name="revanced_debug_preference_screen_summary">Enable or disable debugging options</string>
+
+    <string name="revanced_debug_protobuffer_title">Log protocol buffer</string>
+    <string name="revanced_debug_protobuffer_summary_on">Debug logs include proto buffer</string>
+    <string name="revanced_debug_protobuffer_summary_off">Debug logs do not include proto buffer</string>
+
+    <string name="revanced_debug_stacktrace_title">Log stack traces</string>
+    <string name="revanced_debug_stacktrace_summary_on">Debug logs include stack trace</string>
+    <string name="revanced_debug_stacktrace_summary_off">Debug logs do not include stack trace</string>
+
+    <string name="revanced_debug_title">Debug logging</string>
+    <string name="revanced_debug_summary_on">Debug logs are enabled</string>
+    <string name="revanced_debug_summary_off">Debug logs are disabled</string>
+
+    <string name="revanced_debug_toast_on_error_title">Show toast on ReVanced error</string>
+    <string name="revanced_debug_toast_on_error_summary_on">Toast shown if error occurs</string>
+    <string name="revanced_debug_toast_on_error_summary_off">Toast not shown if error occurs</string>
+    <string name="revanced_debug_toast_on_error_user_dialog_message">Turning off error toasts hides all ReVanced error notifications.\n\nYou will not be notified of any unexpected events.</string>
+</resources>

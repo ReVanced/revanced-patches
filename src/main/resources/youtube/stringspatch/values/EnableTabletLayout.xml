@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_tablet_layout_enabled_title">Enable tablet layout</string>
+    <string name="revanced_tablet_layout_summary_on">Tablet layout is enabled</string>
+    <string name="revanced_tablet_layout_summary_off">Tablet layout is disabled</string>
+    <string name="revanced_tablet_layout_user_dialog_message">Community posts do not show up on tablet layouts</string>
+</resources>

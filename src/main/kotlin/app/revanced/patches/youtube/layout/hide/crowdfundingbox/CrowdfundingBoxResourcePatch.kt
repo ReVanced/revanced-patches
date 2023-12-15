@@ -4,8 +4,8 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.mapping.misc.ResourceMappingPatch
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.youtube.misc.strings.StringsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
@@ -18,12 +18,13 @@ internal object CrowdfundingBoxResourcePatch : ResourcePatch() {
     internal var crowdfundingBoxId: Long = -1
 
     override fun execute(context: ResourceContext) {
+        StringsPatch.includePatchStrings("CrowdfundingBox")
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference(
                 "revanced_hide_crowdfunding_box",
-                StringResource("revanced_hide_crowdfunding_box_title", "Hide crowdfunding box"),
-                StringResource("revanced_hide_crowdfunding_box_summary_on", "Crowdfunding box is hidden"),
-                StringResource("revanced_hide_crowdfunding_box_summary_off", "Crowdfunding box is shown")
+                "revanced_hide_crowdfunding_box_title",
+                "revanced_hide_crowdfunding_box_summary_on",
+                "revanced_hide_crowdfunding_box_summary_off"
             )
         )
 

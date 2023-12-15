@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_hide_general_ads_title">Hide general ads</string>
+    <string name="revanced_hide_general_ads_summary_on">General ads are hidden</string>
+    <string name="revanced_hide_general_ads_summary_off">General ads are shown</string>
+
+    <string name="revanced_hide_buttoned_ads_title">Hide buttoned ad</string>
+    <string name="revanced_hide_buttoned_ads_summary_on">Buttoned ads are hidden</string>
+    <string name="revanced_hide_buttoned_ads_summary_off">Buttoned ads are shown</string>
+
+    <string name="revanced_hide_paid_content_ads_title">Hide paid content</string>
+    <string name="revanced_hide_paid_content_ads_summary_on">Paid content is hidden</string>
+    <string name="revanced_hide_paid_content_ads_summary_off">Paid content is shown</string>
+
+    <string name="revanced_hide_self_sponsor_ads_title">Hide self sponsored cards</string>
+    <string name="revanced_hide_self_sponsor_ads_summary_on">Self sponsored cards are hidden</string>
+    <string name="revanced_hide_self_sponsor_ads_summary_off">Self sponsored cards are shown</string>
+
+    <string name="revanced_hide_products_banner_title">Hide banner to view products</string>
+    <string name="revanced_hide_products_banner_summary_on">Banner is hidden</string>
+    <string name="revanced_hide_products_banner_summary_off">Banner is shown</string>
+
+    <string name="revanced_hide_shopping_links_title">Hide shopping links in video description</string>
+    <string name="revanced_hide_shopping_links_summary_on">Shopping links are hidden</string>
+    <string name="revanced_hide_shopping_links_summary_off">Shopping links are shown</string>
+
+    <string name="revanced_hide_web_search_results_title">Hide web search results</string>
+    <string name="revanced_hide_web_search_results_summary_on">Web search results are hidden</string>
+    <string name="revanced_hide_web_search_results_summary_off">Web search results are shown</string>
+
+    <string name="revanced_hide_merchandise_banners_title">Hide merchandise banners</string>
+    <string name="revanced_hide_merchandise_banners_summary_on">Merchandise banners are hidden</string>
+    <string name="revanced_hide_merchandise_banners_summary_off">Merchandise banners are shown</string>
+</resources>

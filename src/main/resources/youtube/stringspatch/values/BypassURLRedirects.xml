@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_bypass_url_redirects_title">Bypass URL redirects</string>
+    <string name="revanced_bypass_url_redirects_summary_on">URL redirects are bypassed</string>
+    <string name="revanced_bypass_url_redirects_summary_off">URL redirects are not bypassed</string>
+</resources>

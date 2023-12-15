@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_hide_breaking_news_title">Hide breaking news</string>
+    <string name="revanced_hide_breaking_news_summary_on">Breaking news are hidden</string>
+    <string name="revanced_hide_breaking_news_summary_off">Breaking news are shown</string>
+</resources>

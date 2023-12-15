@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_hide_video_ads_title">Hide video ads</string>
+    <string name="revanced_hide_video_ads_summary_on">Video ads are hidden</string>
+    <string name="revanced_hide_video_ads_summary_off">Video ads are shown</string>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_remember_video_quality_last_selected_title">Remember video quality changes</string>
+    <string name="revanced_remember_video_quality_last_selected_summary_on">Quality changes apply to all videos</string>
+    <string name="revanced_remember_video_quality_last_selected_summary_off">Quality changes only apply to the current video</string>
+
+    <string name="revanced_video_quality_default_mobile_title">Default video quality on mobile network</string>
+    <string name="revanced_video_quality_default_wifi_title">Default video quality on Wi-Fi network</string>
+
+    <string name="revanced_video_quality_automatic">Automatic quality</string>
+    <string name="revanced_video_quality_default_entry_2">2160p</string>
+    <string name="revanced_video_quality_default_entry_3">1440p</string>
+    <string name="revanced_video_quality_default_entry_4">1080p</string>
+    <string name="revanced_video_quality_default_entry_5">720p</string>
+    <string name="revanced_video_quality_default_entry_6">480p</string>
+    <string name="revanced_video_quality_default_entry_7">360p</string>
+    <string name="revanced_video_quality_default_entry_8">240p</string>
+    <string name="revanced_video_quality_default_entry_9">144p</string>
+
+    <string name="revanced_remember_video_quality_toast" formatted="false">Changed default %s quality to: %s</string>
+    <string name="revanced_remember_video_quality_mobile">mobile</string>
+    <string name="revanced_remember_video_quality_wifi">wifi</string>
+</resources>

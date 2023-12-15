@@ -12,10 +12,11 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.shared.settings.AbstractSettingsResourcePatch.Companion.addPreference
 import app.revanced.patches.shared.settings.preference.impl.PreferenceCategory
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.util.AbstractPreferenceScreen
 import app.revanced.patches.twitch.misc.integrations.IntegrationsPatch
+import app.revanced.patches.twitch.misc.strings.StringsPatch
 import app.revanced.patches.twitch.misc.settings.fingerprints.MenuGroupsOnClickFingerprint
 import app.revanced.patches.twitch.misc.settings.fingerprints.MenuGroupsUpdatedFingerprint
 import app.revanced.patches.twitch.misc.settings.fingerprints.SettingsActivityOnCreateFingerprint
@@ -28,7 +29,7 @@ import java.io.Closeable
 @Patch(
     name = "Settings",
     description = "Adds settings menu to Twitch.",
-    dependencies = [IntegrationsPatch::class, SettingsResourcePatch::class],
+    dependencies = [IntegrationsPatch::class, StringsPatch::class, SettingsResourcePatch::class],
     compatiblePackages = [
         CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])
     ]
@@ -41,17 +42,21 @@ object SettingsPatch : BytecodePatch(
         MenuGroupsOnClickFingerprint
     )
 ), Closeable {
+    /* Private members */
     private const val REVANCED_SETTINGS_MENU_ITEM_NAME = "RevancedSettings"
     private const val REVANCED_SETTINGS_MENU_ITEM_ID = 0x7
     private const val REVANCED_SETTINGS_MENU_ITEM_TITLE_RES = "revanced_settings"
     private const val REVANCED_SETTINGS_MENU_ITEM_ICON_RES = "ic_settings"
 
-    private const val MENU_ITEM_ENUM_CLASS = "Ltv/twitch/android/feature/settings/menu/SettingsMenuItem;"
-    private const val MENU_DISMISS_EVENT_CLASS = "Ltv/twitch/android/feature/settings/menu/SettingsMenuViewDelegate\$Event\$OnDismissClicked;"
+    private const val MENU_ITEM_ENUM_CLASS =
+        "Ltv/twitch/android/feature/settings/menu/SettingsMenuItem;"
+    private const val MENU_DISMISS_EVENT_CLASS =
+        "Ltv/twitch/android/feature/settings/menu/SettingsMenuViewDelegate\$Event\$OnDismissClicked;"
 
     private const val INTEGRATIONS_PACKAGE = "app/revanced/twitch"
-    private const val SETTINGS_HOOKS_CLASS = "L$INTEGRATIONS_PACKAGE/settingsmenu/SettingsHooks;"
-    private const val REVANCED_UTILS_CLASS = "L$INTEGRATIONS_PACKAGE/utils/ReVancedUtils;"
+    private const val SETTINGS_HOOKS_CLASS =
+        "L$INTEGRATIONS_PACKAGE/settingsmenu/TwitchSettingsHooks;"
+    private const val REVANCED_UTILS_CLASS = "L$INTEGRATIONS_PACKAGE/utils/TwitchUtils;"
 
     override fun execute(context: BytecodeContext) {
         // Hook onCreate to handle fragment creation
@@ -106,18 +111,10 @@ object SettingsPatch : BytecodePatch(
                 """,
                 ExternalLabel("no_rv_settings_onclick", mutableMethod.getInstruction(insertIndex))
             )
-        }  ?: throw MenuGroupsOnClickFingerprint.exception
+        } ?: throw MenuGroupsOnClickFingerprint.exception
 
-        addString("revanced_settings", "ReVanced Settings", false)
-        addString("revanced_reboot_message", "Twitch needs to restart to apply your changes. Restart now?", false)
-        addString("revanced_reboot", "Restart", false)
+        StringsPatch.includePatchStrings("Settings")
     }
-
-    fun addString(identifier: String, value: String, formatted: Boolean = true) =
-        SettingsResourcePatch.addString(identifier, value, formatted)
-
-    fun addPreferenceScreen(preferenceScreen: app.revanced.patches.shared.settings.preference.impl.PreferenceScreen) =
-        SettingsResourcePatch.addPreferenceScreen(preferenceScreen)
 
     private fun MethodFingerprintResult.injectMenuItem(
         name: String,
@@ -161,32 +158,49 @@ object SettingsPatch : BytecodePatch(
      * Preference screens patches should add their settings to.
      */
     internal object PreferenceScreen : AbstractPreferenceScreen() {
-        val ADS = CustomScreen("ads", "Ads", "Ad blocking settings")
-        val CHAT = CustomScreen("chat", "Chat", "Chat settings")
-        val MISC = CustomScreen("misc", "Misc", "Miscellaneous patches")
+        val ADS = CustomScreen(
+            "revanced_twitch_ads_screen",
+            "revanced_twitch_ads_screen_title",
+            "revanced_twitch_ads_screen_summary"
+        )
+        val CHAT = CustomScreen(
+            "revanced_twitch_chat_screen",
+            "revanced_twitch_chat_screen_title",
+            "revanced_twitch_chat_screen_summary"
+        )
+        val MISC = CustomScreen(
+            "revanced_twitch_misc_screen",
+            "revanced_twitch_misc_screen_title",
+            "revanced_twitch_misc_screen_summary"
+        )
 
-        internal class CustomScreen(key: String, title: String, summary: String) : Screen(key, title, summary) {
+        internal class CustomScreen(key: String, titleKey: String, summaryKey: String) :
+            Screen(key, titleKey, summaryKey) {
             /* Categories */
-            val GENERAL = CustomCategory("general", "General settings")
-            val OTHER = CustomCategory("other", "Other settings")
-            val CLIENT_SIDE = CustomCategory("client_ads", "Client-side ads")
-            val SURESTREAM = CustomCategory("surestream_ads", "Server-side surestream ads")
+            val GENERAL = CustomCategory("twitch_general", "revanced_twitch_general_title")
+            val OTHER = CustomCategory("twitch_other", "revanced_twitch_other_title")
+            val CLIENT_SIDE =
+                CustomCategory("twitch_client_ads", "revanced_twitch_client_ads_title")
+            val SURESTREAM =
+                CustomCategory("twitch_surestream_ads", "revanced_twitch_surestream_ads_title")
 
-            internal inner class CustomCategory(key: String, title: String) : Screen.Category(key, title) {
+            internal inner class CustomCategory(key: String, title: String) :
+                Screen.Category(key, title) {
+
                 /* For Twitch, we need to load our CustomPreferenceCategory class instead of the default one. */
                 override fun transform(): PreferenceCategory {
                     return PreferenceCategory(
                         key,
-                        StringResource("${key}_title", title),
-                        preferences.sortedBy { it.title.value },
-                        "app.revanced.twitch.settingsmenu.preference.CustomPreferenceCategory"
+                        titleKey,
+                        preferences,
+                        "app.revanced.twitch.settingsmenu.preference.TwitchPreferenceCategory"
                     )
                 }
             }
         }
 
         override fun commit(screen: app.revanced.patches.shared.settings.preference.impl.PreferenceScreen) {
-            addPreferenceScreen(screen)
+            addPreference(screen)
         }
     }
 

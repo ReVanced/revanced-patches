@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_remove_tracking_query_parameter_title">Remove tracking query parameter</string>
+    <string name="revanced_remove_tracking_query_parameter_summary_on">Tracking query parameter is removed from links</string>
+    <string name="revanced_remove_tracking_query_parameter_summary_off">Tracking query parameter is not removed from links</string>
+</resources>

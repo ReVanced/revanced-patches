@@ -7,12 +7,12 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.interaction.seekbar.fingerprints.DoubleSpeedSeekNoticeFingerprint
 import app.revanced.patches.youtube.interaction.seekbar.fingerprints.SlideToSeekFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patches.youtube.misc.strings.StringsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -41,21 +41,13 @@ object EnableSlideToSeekPatch : BytecodePatch(
     private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/SlideToSeekPatch;"
 
     override fun execute(context: BytecodeContext) {
+        StringsPatch.includePatchStrings("EnableSlideToSeek")
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
             SwitchPreference(
                 "revanced_slide_to_seek",
-                StringResource(
-                    "revanced_slide_to_seek_title",
-                    "Enable slide to seek"
-                ),
-                StringResource(
-                    "revanced_slide_to_seek_summary_on",
-                    "Slide to seek is enabled"
-                ),
-                StringResource(
-                    "revanced_slide_to_seek_summary_off",
-                    "Slide to seek is not enabled"
-                ),
+                "revanced_slide_to_seek_title",
+                "revanced_slide_to_seek_summary_on",
+                "revanced_slide_to_seek_summary_off",
             )
         )
 

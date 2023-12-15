@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_external_browser_title">Open links in browser</string>
+    <string name="revanced_external_browser_summary_on">Opening links externally</string>
+    <string name="revanced_external_browser_summary_off">Opening links in app</string>
+</resources>

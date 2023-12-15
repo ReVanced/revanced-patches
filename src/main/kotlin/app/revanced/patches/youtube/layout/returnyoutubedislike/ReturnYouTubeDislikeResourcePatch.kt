@@ -5,9 +5,8 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.mapping.misc.ResourceMappingPatch
 import app.revanced.patches.shared.settings.preference.impl.Preference
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.util.mergeStrings
+import app.revanced.patches.youtube.misc.strings.StringsPatch
 
 @Patch(
     dependencies = [SettingsPatch::class]
@@ -16,15 +15,14 @@ internal object ReturnYouTubeDislikeResourcePatch : ResourcePatch() {
     internal var oldUIDislikeId: Long = -1
 
     override fun execute(context: ResourceContext) {
+        StringsPatch.includePatchStrings("ReturnYouTubeDislike")
         SettingsPatch.addPreference(
             Preference(
-                StringResource("revanced_ryd_settings_title", "Return YouTube Dislike"),
-                StringResource("revanced_ryd_settings_summary", "Settings for Return YouTube Dislike"),
-                SettingsPatch.createReVancedSettingsIntent("ryd_settings")
+                "revanced_ryd_settings_title",
+                "revanced_ryd_settings_summary",
+                SettingsPatch.createReVancedSettingsIntent("ryd_settings_intent")
             )
         )
-        // merge strings
-        context.mergeStrings("returnyoutubedislike/host/values/strings.xml")
 
         oldUIDislikeId = ResourceMappingPatch.resourceMappings.single {
             it.type == "id" && it.name == "dislike_button"

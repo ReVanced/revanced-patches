@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_settings">ReVanced Settings</string>
+
+    <string name="revanced_twitch_general_title">General settings</string>
+    <string name="revanced_twitch_other_title">Other settings</string>
+    <string name="revanced_twitch_client_ads_title">Client-side ads</string>
+    <string name="revanced_twitch_surestream_ads_title">Server-side surestream ads</string>
+
+    <string name="revanced_twitch_ads_screen_title">Ads</string>
+    <string name="revanced_twitch_ads_screen_summary">Ad blocking settings</string>
+
+    <string name="revanced_twitch_chat_screen_title">Chat</string>
+    <string name="revanced_twitch_chat_screen_summary">Chat settings</string>
+
+    <string name="revanced_twitch_misc_screen_title">Misc</string>
+    <string name="revanced_twitch_misc_screen_summary">Miscellaneous patches</string>
+
+    <string name="revanced_reboot_message">Twitch needs to restart to apply your changes. Restart now?</string>
+    <string name="revanced_reboot">Restart</string>
+</resources>

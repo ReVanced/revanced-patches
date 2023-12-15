@@ -6,6 +6,6 @@ import app.revanced.patches.tiktok.misc.integrations.fingerprints.InitFingerprin
 
 @Patch(requiresIntegrations = true)
 object IntegrationsPatch : AbstractIntegrationsPatch(
-    "Lapp/revanced/tiktok/utils/ReVancedUtils;",
+    "Lapp/revanced/tiktok/utils/Utils;",
     setOf(InitFingerprint)
 )
