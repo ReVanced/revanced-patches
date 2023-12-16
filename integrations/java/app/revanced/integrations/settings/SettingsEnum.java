@@ -597,8 +597,6 @@ public enum SettingsEnum {
             case SB_LAST_VIP_CHECK:
             case SB_HIDE_EXPORT_WARNING:
             case SB_SEEN_GUIDELINES:
-            case SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS:
-            case SB_LOCAL_TIME_SAVED_MILLISECONDS:
                 return false;
         }
         return true;

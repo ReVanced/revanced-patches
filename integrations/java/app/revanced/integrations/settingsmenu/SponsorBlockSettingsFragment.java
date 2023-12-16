@@ -26,8 +26,6 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import java.text.DecimalFormat;
-
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.settings.SharedPrefCategory;
 import app.revanced.integrations.sponsorblock.SegmentPlaybackController;
@@ -471,8 +469,6 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
         }
     }
 
-    private static final DecimalFormat statsNumberOfSegmentsSkippedFormatter = new DecimalFormat("#,###,###");
-
     private void addUserStats(@NonNull Preference loadingPlaceholder, @Nullable UserStats stats) {
         ReVancedUtils.verifyOnMainThread();
         try {
@@ -514,7 +510,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
                 // number of segment submissions (does not include ignored segments)
                 Preference preference = new Preference(context);
                 statsCategory.addPreference(preference);
-                String formatted = statsNumberOfSegmentsSkippedFormatter.format(stats.segmentCount);
+                String formatted = SponsorBlockUtils.getNumberOfSkipsString(stats.segmentCount);
                 preference.setTitle(fromHtml(str("sb_stats_submissions", formatted)));
                 if (stats.totalSegmentCountIncludingIgnored == 0) {
                     preference.setSelectable(false);
@@ -550,7 +546,8 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
                     stats_saved = str("sb_stats_saved_zero");
                     stats_saved_sum = str("sb_stats_saved_sum_zero");
                 } else {
-                    stats_saved = str("sb_stats_saved", statsNumberOfSegmentsSkippedFormatter.format(stats.viewCount));
+                    stats_saved = str("sb_stats_saved",
+                            SponsorBlockUtils.getNumberOfSkipsString(stats.viewCount));
                     stats_saved_sum = str("sb_stats_saved_sum", SponsorBlockUtils.getTimeSavedString((long) (60 * stats.minutesSaved)));
                 }
                 preference.setTitle(fromHtml(stats_saved));
@@ -573,7 +570,7 @@ public class SponsorBlockSettingsFragment extends PreferenceFragment {
         statsCategory.addPreference(preference);
 
         Runnable updateStatsSelfSaved = () -> {
-            String formatted = statsNumberOfSegmentsSkippedFormatter.format(SettingsEnum.SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS.getInt());
+            String formatted = SponsorBlockUtils.getNumberOfSkipsString(SettingsEnum.SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS.getInt());
             preference.setTitle(fromHtml(str("sb_stats_self_saved", formatted)));
             String formattedSaved = SponsorBlockUtils.getTimeSavedString(SettingsEnum.SB_LOCAL_TIME_SAVED_MILLISECONDS.getLong() / 1000);
             preference.setSummary(fromHtml(str("sb_stats_self_saved_sum", formattedSaved)));
