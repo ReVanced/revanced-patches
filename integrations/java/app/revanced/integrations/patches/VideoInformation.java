@@ -32,6 +32,7 @@ public final class VideoInformation {
 
     @NonNull
     private static volatile String playerResponseVideoId = "";
+    private static volatile boolean playerResponseVideoIdIsShort;
     private static volatile boolean videoIdIsShort;
 
     /**
@@ -82,6 +83,7 @@ public final class VideoInformation {
      */
     public static String newPlayerResponseSignature(@NonNull String signature, boolean isShortAndOpeningOrPlaying) {
         final boolean isShort = playerParametersAreShort(signature);
+        playerResponseVideoIdIsShort = isShort;
         if (!isShort || isShortAndOpeningOrPlaying) {
             if (videoIdIsShort != isShort) {
                 videoIdIsShort = isShort;
@@ -207,10 +209,16 @@ public final class VideoInformation {
     }
 
     /**
+     * @return If the last player response video id was a Short.
+     * Includes Shorts shelf items appearing in the feed that are not opened.
+     * @see #lastVideoIdIsShort()
+     */
+    public static boolean lastPlayerResponseIsShort() {
+        return playerResponseVideoIdIsShort;
+    }
+
+    /**
      * @return If the last player response video id _that was opened_ was a Short.
-     * <p>
-     * Note: This value returned may not match the status of  {@link #getPlayerResponseVideoId()}
-     * since that includes player responses for videos not opened.
      */
     public static boolean lastVideoIdIsShort() {
         return videoIdIsShort;
