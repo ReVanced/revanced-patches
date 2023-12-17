@@ -1,4 +1,4 @@
-name: Update Gradle Wrapper
+name: Update Gradle wrapper
 
 on:
   schedule:
@@ -6,10 +6,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  update-gradle-wrapper:
+  update:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout the code
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Update Gradle Wrapper
