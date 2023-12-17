@@ -4,7 +4,6 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 
 internal object GetSpeedFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
-        methodDef.definingClass.endsWith("/BaseListFragmentPanel;") &&
-                methodDef.name == "onFeedSpeedSelectedEvent"
+        methodDef.definingClass.endsWith("/BaseListFragmentPanel;") && methodDef.name == "onFeedSpeedSelectedEvent"
     }
 )
