@@ -1,6 +1,6 @@
 # 🔎 Fingerprinting
 
-Fingerprinting is the process of creating uniquely identifyable data about something arbitrarily large. In the context of ReVanced, fingerprinting is essential to be able to find classes, methods and fields without knowing their original names or certain other attributes, which would be used to identify them under normal circumstances.
+Fingerprinting is the process of creating uniquely identifiable data about something arbitrarily large. In the context of ReVanced, fingerprinting is essential to be able to find classes, methods and fields without knowing their original names or certain other attributes, which would be used to identify them under normal circumstances.
 
 ## ⛳️ Example fingerprint
 
@@ -24,33 +24,33 @@ object LoadAdsFingerprint : MethodFingerprint(
 
 ## 🆗 Understanding the example fingerprint
 
-The example fingerprint called `LoadAdsFingerprint` which extends on [`MethodFingerprint`](https://github.com/revanced/revanced-patcher/blob/d2f91a8545567429d64a1bcad6ca1dab62ec95bf/src/main/kotlin/app/revanced/patcher/fingerprint/method/impl/MethodFingerprint.kt#L28) is made to uniquely identify a certain method by capturing various attributes of the method such as the return type, access flags, an opcode pattern and more. The following code can be inferred just from the fingerprint:
+The example fingerprint called `LoadAdsFingerprint`, which extends on [`MethodFingerprint`](https://github.com/revanced/revanced-patcher/blob/d2f91a8545567429d64a1bcad6ca1dab62ec95bf/src/main/kotlin/app/revanced/patcher/fingerprint/method/impl/MethodFingerprint.kt#L28) is made to uniquely identify a certain method by capturing various attributes of the method such as the return type, access flags, an opcode pattern and more. The following Java code can be reconstructed from the fingerprint:
 
-```kt
-    package com.some.app.ads
+```java
+    import com.some.app.ads;
 
     // Imports
 
  4 <attributes> class Loader {
- 5     public final Boolean <methodName>(<field>: Boolean) {
+ 5     public final boolean <methodName>(boolean <field>) {
            // ...
 
- 8         val userStatus = "pro";
+ 8         var userStatus = "pro";
 
            // ...
 
-12         return <returnValue>
+12         return <returnValue>;
        }
     }
 ```
 
 ## 🚀 How it works
 
-Each attribute of the fingerprint is responsible to describe a specific but distinct part of the method.
+Each fingerprint attribute describes a specific but distinct part of the method.
 The combination out of those should be and ideally remain unique to all methods in all classes.
-In the case of the example fingerprint, the `customFingerprint` attribute is responsible to find the class
-the method is defined in. This greatly increases the uniqueness of the fingerprint, because now the possible methods
-reduce down to that class. Adding the signature of the method and a string the method implementation refers to in
+In the case of the example fingerprint, the `customFingerprint` attribute is responsible for finding the class
+the method is defined in. This greatly increases the uniqueness of the fingerprint because the possible methods
+are now reduced to that class. Adding the signature of the method and a string the method implementation refers to in
 combination now creates a unique fingerprint in the current example:
 
 - Package & class (Line 4)
@@ -103,9 +103,9 @@ object DisableAdsPatch : BytecodePatch(
 ```
 
 > **Note**: `MethodFingerprint.result` **can be null** if the fingerprint does not match any method.
-> In such case, the fingerprint needs to be fixed and made more resilient if the error is caused by a later version
-> of an app which the fingerprint was not tested on. A fingerprint is good, if it is _light_,
-> but still resilient - like Carbon fiber-reinforced polymers.
+> In such cases, the fingerprint needs to be fixed and made more resilient if a later version causes the error
+> of an app in which the fingerprint was not tested. A fingerprint is good if it is _light_,
+> but still resilient - like Carbon fibre-reinforced polymers.
 
 If the fingerprint resolved to a method, the following properties are now available:
 
@@ -127,19 +127,19 @@ data class MethodFingerprintResult(
 
 ## 🏹 Different ways to resolve a fingerprint
 
-Usually, fingerprints are mostly resolved by ReVanced Patcher, but it is also possible to manually resolve a
-fingerprint in a patch. This can be quite useful in lots of situations. To resolve a fingerprint you need
-a `BytecodeContext` to resolve it on. This context contains classes and thus methods to which the fingerprint
-can be resolved against. Example: _You have a fingerprint which you manually want to resolve
+Usually, fingerprints are resolved by ReVanced Patcher, but it is also possible to manually resolve a
+fingerprint in a patch. This can be quite useful in lots of situations. To resolve a fingerprint, you need
+a `BytecodeContext` to resolve it. This context contains classes and, thus, methods against which the fingerprint
+can be resolved. Example: _You have a fingerprint which you manually want to resolve
 **without** the help of ReVanced Patcher._
 
 > **Note**: A fingerprint should not be added to the constructor of `BytecodePatch` if manual resolution is intended,
-> because ReVanced Patcher would try resolve it before manual resolution.
+> because ReVanced Patcher would try to resolve it before manual resolution.
 
 - On a **list of classes** using [`MethodFingerprint.resolve`](https://github.com/ReVanced/revanced-patcher/blob/67b7dff67a212b4fc30eb4f0cbe58f0ba09fb09a/revanced-patcher/src/main/kotlin/app/revanced/patcher/fingerprint/method/impl/MethodFingerprint.kt#L263)
 
-  This can be useful, if a fingerprint should be resolved to a smaller subset of classes, 
-  otherwise the fingerprint can be resolved by ReVanced Patcher automatically.
+  This can be useful if a fingerprint should be resolved to a smaller subset of classes, 
+  Otherwise, the fingerprint can be resolved automatically by ReVanced Patcher.
 
   ```kt
   object DisableAdsPatch : BytecodePatch(
@@ -156,7 +156,7 @@ can be resolved against. Example: _You have a fingerprint which you manually wan
 
 - On a **single class** using [`MethodFingerprint.resolve`](https://github.com/revanced/revanced-patcher/blob/d2f91a8545567429d64a1bcad6ca1dab62ec95bf/src/main/kotlin/app/revanced/patcher/fingerprint/method/impl/MethodFingerprint.kt#L63)
 
-  Sometimes you know a class, but you need certain methods. In such case, you can resolve fingerprints on a class.
+  Sometimes, you know a class, but you need certain methods. In such cases, you can resolve fingerprints on a class.
 
   ```kt
    object DisableAdsPatch : BytecodePatch(
@@ -176,11 +176,11 @@ can be resolved against. Example: _You have a fingerprint which you manually wan
 - On a **method** using [`MethodFingerprint.resolve`](https://github.com/revanced/revanced-patcher/blob/d2f91a8545567429d64a1bcad6ca1dab62ec95bf/src/main/kotlin/app/revanced/patcher/fingerprint/method/impl/MethodFingerprint.kt#L78)
 
   Resolving a fingerprint on a method is mostly only useful
-  if the fingerprint is used to resolve certain information about a method such as `MethodFingerprintResult.scanResult`.
+  if the fingerprint is used to resolve certain information about a method, such as `MethodFingerprintResult.scanResult`.
   Example: _A fingerprint should be used to resolve the method which loads ads.
-  For that the fingerprint is added to the constructor of `BytecodePatch`.
+  For that, the fingerprint is added to the constructor of `BytecodePatch`.
   An additional fingerprint is responsible for finding the indices of the instructions with certain string references
-  in the implementation of the method the first fingerprint resolved to._
+  in implementing the method the first fingerprint resolved to._
 
   ```kt
   class DisableAdsPatch : BytecodePatch(
@@ -213,9 +213,9 @@ can be resolved against. Example: _You have a fingerprint which you manually wan
 ## 🎯 The result of a fingerprint
 
 After a `MethodFingerprint` resolves successfully, its result can be used.
-The result contains mutable and immutable references to the method and the class it is defined in.
+The result contains mutable and immutable references to the method and its defined class.
 
-> **Warning**: By default the immutable references **should be used** to prevent a mutable copy of the immutable references. For a patch to properly use a fingerprint though, usually write access is required. For that the mutable references can be used.
+> **Warning**: By default, the immutable references **should be used** to prevent a mutable copy of the immutable references. For a patch to properly use a fingerprint, though, usually write access is required. For that, mutable references can be used.
 
 Among them, the result also contains [MethodFingerprintResult.scanResult](https://github.com/revanced/revanced-patcher/blob/d2f91a8545567429d64a1bcad6ca1dab62ec95bf/src/main/kotlin/app/revanced/patcher/fingerprint/method/impl/MethodFingerprint.kt#L239) which contains additional useful properties:
 
@@ -238,20 +238,19 @@ data class MethodFingerprintScanResult(
 }
 ```
 
-The following properties are utilized by bytecode patches:
+Bytecode patches utilize the following properties:
 
 - The `MethodFingerprint.strings` allows patches to know the indices of the instructions
   which hold references to the strings.
 
 - If a fingerprint defines `MethodFingerprint.opcodes`, the start and end index of the first instructions
   matching that pattern will be available. These are useful to patch the implementation of methods
-  relative to the pattern. Ideally the pattern contains the instructions opcodes pattern
-  which is to be patched, in order to guarantee a successfull patch.
+  relative to the pattern. Ideally, the pattern contains instructions for patching the opcodes pattern to guarantee a successful patch.
 
   > **Note**: Sometimes long patterns might be necessary, but the bigger the pattern list, the higher the chance
-  it mutates if the app updates. For that reason the annotation `FuzzyPatternScanMethod` can be used
-  on a fingerprint. The `FuzzyPatternScanMethod.threshold` will define, how many opcodes can remain unmatched.
-  `PatternScanResult.warnings` can then be used, if is necessary to know where pattern missmatches occured.
+  it mutates if the app updates. Therefore, the annotation `FuzzyPatternScanMethod` can be used
+  on a fingerprint. The `FuzzyPatternScanMethod.threshold` will define how many opcodes can remain unmatched.
+  If necessary, `PatternScanResult.warnings` can then be used to know where pattern mismatches occurred.
 
 ## ⭐ Closely related code examples
 
@@ -267,6 +266,6 @@ The following properties are utilized by bytecode patches:
 
 ## ⏭️ Whats next
 
-The next section will give a suggestion on coding conventions and on the file structure of a patch.
+The next section will give a suggestion on coding conventions and the file structure of a patch.
 
 Continue: [📜 Patch file structure and conventions](4_structure_and_conventions.md)
