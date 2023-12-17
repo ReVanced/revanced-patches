@@ -1,4 +1,4 @@
-package app.revanced.patches.tiktok.interaction.speed.fingerprints
+package app.revanced.patches.tiktok.share.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 

@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.tiktok.interaction.speed.fingerprints.ChangeSpeedFingerprint
 import app.revanced.patches.tiktok.interaction.speed.fingerprints.GetSpeedFingerprint
-import app.revanced.patches.tiktok.interaction.speed.fingerprints.OnRenderFirstFrameFingerprint
+import app.revanced.patches.tiktok.share.fingerprints.OnRenderFirstFrameFingerprint
 import app.revanced.patches.tiktok.interaction.speed.fingerprints.SpeedControlParentFingerprint
 import app.revanced.util.exception
 import app.revanced.util.indexOfFirstInstruction
