@@ -49,7 +49,7 @@ tasks.withType(Jar::class) {
 
 tasks {
     register<DefaultTask>("generateBundle") {
-        description = "Generate dex files from build and bundle them in the jar file"
+        description = "Generate DEX files and add them in the JAR file"
 
         dependsOn(build)
 
