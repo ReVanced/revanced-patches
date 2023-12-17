@@ -15,7 +15,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
 
 @Patch(
     name = "Clear display",
-    description = "Retains the clear display configurations in between videos.",
+    description = "Remembers the clear display configurations in between videos.",
     compatiblePackages = [
         CompatiblePackage("com.ss.android.ugc.trill", ["32.5.3"]),
         CompatiblePackage("com.zhiliaoapp.musically", ["32.5.3"])
