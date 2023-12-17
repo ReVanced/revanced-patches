@@ -2,8 +2,8 @@ package app.revanced.patches.tiktok.interaction.clearmode.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 
-internal object OnClearModeEventFingerprint : MethodFingerprint(
+internal object OnRenderFirstFrameFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
-        methodDef.definingClass.endsWith("/ClearModePanelComponent;") && methodDef.name == "onClearModeEvent"
+        methodDef.definingClass.endsWith("/BaseListFragmentPanel;") && methodDef.name == "onRenderFirstFrame"
     }
 )

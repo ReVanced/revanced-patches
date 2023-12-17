@@ -7,7 +7,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.tiktok.interaction.clearmode.fingerprints.OnClearModeEventFingerprint
-import app.revanced.patches.tiktok.share.fingerprints.OnRenderFirstFrameFingerprint
+import app.revanced.patches.tiktok.interaction.clearmode.fingerprints.OnRenderFirstFrameFingerprint
 import app.revanced.util.exception
 import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.Opcode
@@ -29,33 +29,32 @@ object ClearModePatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext) {
-        OnClearModeEventFingerprint.result?.mutableMethod?.apply {
-            val injectIndex = indexOfFirstInstruction {
-                opcode == Opcode.IGET_BOOLEAN
-            } + 1
-            val reg = (getInstruction(injectIndex - 1) as Instruction22c).registerA
-            addInstructions(
-                injectIndex,
-                """
-                    invoke-static { v$reg }, Lapp/revanced/tiktok/clearmode/ClearModePatch;->saveClearModeState(Z)V
-                """
-            )
+        OnClearModeEventFingerprint.result?.mutableMethod?.let {
 
-            val clearModeEventClass = parameters[0].type
-            OnRenderFirstFrameFingerprint.result?.mutableMethod?.apply {
+            it.apply {
+                val injectIndex = indexOfFirstInstruction { opcode == Opcode.IGET_BOOLEAN } + 1
+                val register = getInstruction<Instruction22c>(injectIndex - 1).registerA
+
                 addInstructions(
-                    0,
-                    """
-                        new-instance v0, $clearModeEventClass
-                        const/4 v1, 0x0
-                        const-string v2, "long_press"
-                        invoke-static {}, Lapp/revanced/tiktok/clearmode/ClearModePatch;->getClearModeState()Z
-                        move-result v3
-                        invoke-direct {v0, v1, v2, v3}, $clearModeEventClass-><init>(ILjava/lang/String;Z)V
-                        invoke-virtual {v0}, $clearModeEventClass->post()Lcom/ss/android/ugc/governance/eventbus/IEvent;
-                    """
+                    injectIndex,
+                    "invoke-static { v$register }, " +
+                            "Lapp/revanced/tiktok/clearmode/ClearModePatch;->saveClearModeState(Z)V"
                 )
-            } ?: throw OnRenderFirstFrameFingerprint.exception
+            }
+
+            val clearModeEventClass = it.parameters[0].type
+            OnRenderFirstFrameFingerprint.result?.mutableMethod?.addInstructions(
+                0,
+                """
+                    new-instance v0, $clearModeEventClass
+                    const/4 v1, 0x0
+                    const-string v2, "long_press"
+                    invoke-static {}, Lapp/revanced/tiktok/clearmode/ClearModePatch;->getClearModeState()Z
+                    move-result v3
+                    invoke-direct {v0, v1, v2, v3}, $clearModeEventClass-><init>(ILjava/lang/String;Z)V
+                    invoke-virtual {v0}, $clearModeEventClass->post()Lcom/ss/android/ugc/governance/eventbus/IEvent;
+                """
+            ) ?: throw OnRenderFirstFrameFingerprint.exception
         } ?: throw OnClearModeEventFingerprint.exception
     }
 }
