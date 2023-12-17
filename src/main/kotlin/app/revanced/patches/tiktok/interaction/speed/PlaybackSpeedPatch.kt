@@ -74,7 +74,7 @@ object PlaybackSpeedPatch : BytecodePatch(
             ?: throw ChangeSpeedFingerprint.exception
         OnRenderFirstFrameFingerprint.result?.mutableMethod?.addInstructions(
             0,
-        """
+            """
                 const/4 v0, 0x1
                 invoke-virtual {p0, v0}, Lcom/ss/android/ugc/aweme/feed/panel/BaseListFragmentPanel;->getEnterFrom(Z)Ljava/lang/String;
                 move-result-object v0
