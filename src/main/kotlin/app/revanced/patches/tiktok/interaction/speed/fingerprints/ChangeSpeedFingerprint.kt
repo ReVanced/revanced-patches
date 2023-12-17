@@ -13,18 +13,5 @@ internal object ChangeSpeedFingerprint : MethodFingerprint(
         "Lcom/ss/android/ugc/aweme/feed/model/Aweme;",
         "F"
     ),
-    opcodes = listOf(
-        Opcode.CONST_STRING,
-        Opcode.INVOKE_STATIC,
-        Opcode.SGET,
-        Opcode.SPUT_OBJECT,
-        Opcode.SPUT,
-        Opcode.SPUT,
-        Opcode.SGET_OBJECT,
-        Opcode.IF_EQZ,
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.SGET_OBJECT
-    ),
     strings = listOf("enterFrom")
 )
