@@ -11,7 +11,7 @@ import java.io.Closeable
 object BottomControlsResourcePatch : ResourcePatch(), Closeable {
     internal var bottomUiContainerResourceId: Long = -1
 
-    internal const val TARGET_RESOURCE_NAME = "youtube_controls_bottom_ui_container.xml"
+    const val TARGET_RESOURCE_NAME = "youtube_controls_bottom_ui_container.xml"
     private const val TARGET_RESOURCE = "res/layout/$TARGET_RESOURCE_NAME"
 
     private lateinit var resourceContext: ResourceContext
@@ -32,7 +32,7 @@ object BottomControlsResourcePatch : ResourcePatch(), Closeable {
      * Add new controls to the bottom of the YouTube player.
      * @param hostYouTubeControlsBottomUiResourceName The hosting resource name containing the elements.
      */
-    internal fun addControls(hostYouTubeControlsBottomUiResourceName: String) {
+    fun addControls(hostYouTubeControlsBottomUiResourceName: String) {
         val sourceXmlEditor =
             resourceContext.xmlEditor[this::class.java.classLoader.getResourceAsStream(
                 hostYouTubeControlsBottomUiResourceName
