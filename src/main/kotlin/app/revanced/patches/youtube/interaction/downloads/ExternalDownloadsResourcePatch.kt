@@ -57,7 +57,6 @@ internal object ExternalDownloadsResourcePatch : ResourcePatch() {
             ResourceGroup("drawable", "revanced_yt_download_button.xml")
         )
 
-        // Add download button node.
         BottomControlsResourcePatch.addControls("downloads")
     }
 }
