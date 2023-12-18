@@ -1130,6 +1130,12 @@ public final class app/revanced/patches/youtube/layout/branding/header/PremiumHe
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
+public final class app/revanced/patches/youtube/layout/branding/header/ChangeHeaderPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/branding/header/ChangeHeaderPatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
 public final class app/revanced/patches/youtube/layout/buttons/action/HideButtonsPatch : app/revanced/patcher/patch/ResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/buttons/action/HideButtonsPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
