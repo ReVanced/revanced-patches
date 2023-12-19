@@ -1,3 +1,11 @@
+# [3.2.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v3.2.0-dev.1...v3.2.0-dev.2) (2023-12-19)
+
+
+### Features
+
+* **Public API:** Deprecate `HideEmailAddressPatch` ([866bceb](https://github.com/ReVanced/revanced-patches/commit/866bcebdd990b964d3dfd5aea792e7fffaedbf44))
+* **YouTube:** Remove `Hide email address` patch ([3b84305](https://github.com/ReVanced/revanced-patches/commit/3b84305a6b97800cb147f86c642f19689548aca5))
+
 # [3.2.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v3.1.0...v3.2.0-dev.1) (2023-12-18)
 
 
