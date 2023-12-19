@@ -17,7 +17,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Enable slide to seek",
-    description = "Enable slide to seek instead of playing at 2x speed when pressing and holding in the video player.",
+    description = "Adds option to enable slide to seek instead of playing at 2x speed when pressing and holding in the video player.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

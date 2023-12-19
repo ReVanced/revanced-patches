@@ -12,7 +12,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
     name = "Comments",
-    description = "Hides components related to comments.",
+    description = "Adds options to hide components related to comments.",
     dependencies = [
         SettingsPatch::class,
         LithoFilterPatch::class

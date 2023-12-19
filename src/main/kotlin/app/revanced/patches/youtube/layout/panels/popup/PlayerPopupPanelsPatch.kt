@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
     name = "Disable player popup panels",
-    description = "Disables panels (such as live chat) from opening automatically.",
+    description = "Adds option to disable panels (such as live chat) from opening automatically.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

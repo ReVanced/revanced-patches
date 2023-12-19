@@ -22,7 +22,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Tablet mini player",
-    description = "Enables the tablet mini player layout.",
+    description = "Adds option to enable the tablet mini player layout.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

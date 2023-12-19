@@ -27,7 +27,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Return YouTube Dislike",
-    description = "Shows the dislike count of videos using the Return YouTube Dislike API.",
+    description = "Adds option to show the dislike count of videos using the Return YouTube Dislike API.",
     dependencies = [
         IntegrationsPatch::class,
         LithoFilterPatch::class,

@@ -13,7 +13,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
     name = "Player flyout menu",
-    description = "Hides player flyout menu items.",
+    description = "Adds options to hide player flyout menu items.",
     dependencies = [
         LithoFilterPatch::class,
         PlayerTypeHookPatch::class,

@@ -9,7 +9,7 @@ import app.revanced.patches.youtube.video.information.VideoInformationPatch
 
 @Patch(
     name = "Copy video url",
-    description = "Adds buttons in player to copy video links.",
+    description = "Adds options to add buttons in the video player to copy video links.",
     dependencies = [
         CopyVideoUrlResourcePatch::class,
         PlayerControlsBytecodePatch::class,

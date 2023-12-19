@@ -18,7 +18,7 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 @Patch(
     name = "Open links externally",
-    description = "Open links outside of the app directly in your browser.",
+    description = "Adds option to open links outside of the app directly in your browser.",
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",

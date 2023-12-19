@@ -13,7 +13,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide breaking news shelf",
-    description = "Hides the breaking news shelf on the homepage tab.",
+    description = "Adds option to hide the breaking news shelf on the homepage tab.",
     dependencies = [
         IntegrationsPatch::class,
         BreakingNewsResourcePatch::class

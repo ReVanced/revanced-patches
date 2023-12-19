@@ -24,7 +24,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Hide layout components",
-    description = "Hides general layout components.",
+    description = "Adds options to hide general layout components.",
     dependencies = [
         LithoFilterPatch::class,
         SettingsPatch::class

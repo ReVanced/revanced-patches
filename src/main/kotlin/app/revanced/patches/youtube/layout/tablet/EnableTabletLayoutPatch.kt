@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
     name = "Enable tablet layout",
-    description = "Spoofs the device form factor to a tablet which enables the tablet layout.",
+    description = "Adds option to spoof the device form factor to a tablet which enables the tablet layout.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [CompatiblePackage("com.google.android.youtube")]
 )
