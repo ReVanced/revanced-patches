@@ -32,45 +32,48 @@ object RememberClearModePatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
         OnClearModeEventFingerprint.result?.mutableMethod?.let {
+            // region Hook the "Clear mode" configuration save event to remember the state of clear mode.
 
-            // Catches the clear mode configuration changed event and saved that configuration
-            // to apply to other videos.
-            it.apply {
-                val injectIndex = indexOfFirstInstruction { opcode == Opcode.IGET_BOOLEAN } + 1
-                val register = getInstruction<Instruction22c>(injectIndex - 1).registerA
+            val isEnabledIndex = it.indexOfFirstInstruction { opcode == Opcode.IGET_BOOLEAN } + 1
+            val isEnabledRegister = it.getInstruction<Instruction22c>(isEnabledIndex - 1).registerA
 
-                addInstructions(
-                    injectIndex,
-                    "invoke-static { v$register }, " +
-                            "Lapp/revanced/tiktok/clearmode/RememberClearModePatch;->rememberClearModeState(Z)V"
-                )
-            }
+            it.addInstructions(
+                isEnabledIndex,
+                "invoke-static { v$isEnabledRegister }, " +
+                        "Lapp/revanced/tiktok/clearmode/RememberClearModePatch;->rememberClearModeState(Z)V"
+            )
 
-            // Changes the clear mode configuration on the first frame of video.
-            // Because the default behavior of TikTok is turn off clear mode when swiping to next video.
+            // endregion
+
+            // region Override the "Clear mode" configuration load event to load the state of clear mode.
+
             val clearModeEventClass = it.parameters[0].type
             OnRenderFirstFrameFingerprint.result?.mutableMethod?.apply {
                 addInstructionsWithLabels(
                     0,
                     """
-                        # These instructions will create a clearModeEvent which will be posted to notify other 
-                        # app components. TikTok use https://github.com/greenrobot/EventBus 
-                        # To create a new clearModeEvent we need 3 arguments
-                        # Third is a Boolean which is the state of clear mode.
-                        invoke-static {}, Lapp/revanced/tiktok/clearmode/RememberClearModePatch;->getClearModeState()Z
+                        # Create a new clearModeEvent and post it to the EventBus (https://github.com/greenrobot/EventBus)
+
+                        # The state of clear mode.
+                        invoke-static { }, Lapp/revanced/tiktok/clearmode/RememberClearModePatch;->getClearModeState()Z
                         move-result v3
-                        if-eqz v3, :not_post_event
-                        # First is a Integer which present the type of clear mode such as 0 = LONG_PRESS, 1 = SCREEN_RECORD,...
-                        new-instance v0, $clearModeEventClass
+                        if-eqz v3, :clear_mode_disabled
+
+                        # Clear mode type such as 0 = LONG_PRESS, 1 = SCREEN_RECORD etc.
                         const/4 v1, 0x0
-                        # Second is a String which is similar to the first but as String.
+
+                        # Name of the clear mode type which is equivalent to the clear mode type.
                         const-string v2, "long_press"
-                        invoke-direct {v0, v1, v2, v3}, $clearModeEventClass-><init>(ILjava/lang/String;Z)V
-                        invoke-virtual {v0}, $clearModeEventClass->post()Lcom/ss/android/ugc/governance/eventbus/IEvent;
+
+                        new-instance v0, $clearModeEventClass
+                        invoke-direct { v0, v1, v2, v3 }, $clearModeEventClass-><init>(ILjava/lang/String;Z)V
+                        invoke-virtual { v0 }, $clearModeEventClass->post()Lcom/ss/android/ugc/governance/eventbus/IEvent;
                     """,
-                    ExternalLabel("not_post_event", getInstruction(0))
+                    ExternalLabel("clear_mode_disabled", getInstruction(0))
                 )
             } ?: throw OnRenderFirstFrameFingerprint.exception
+
+            // endregion
         } ?: throw OnClearModeEventFingerprint.exception
     }
 }
