@@ -12,7 +12,6 @@ import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
-    name = "Hide email address",
     description = "Hides the email address in the account switcher.",
     dependencies = [IntegrationsPatch::class, HideEmailAddressResourcePatch::class],
     compatiblePackages = [
