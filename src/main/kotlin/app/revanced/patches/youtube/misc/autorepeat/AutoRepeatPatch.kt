@@ -16,8 +16,8 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 
 @Patch(
-    name = "Always autorepeat",
-    description = "Adds option to always repeat the playing video again.",
+    name = "Always repeat",
+    description = "Adds option to always repeat videos when they end.",
     dependencies = [IntegrationsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
