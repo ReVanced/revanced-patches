@@ -13,7 +13,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
     name = "Hide video action buttons",
-    description = "Adds options to hide action buttons under videos.",
+    description = "Adds options to hide action buttons (such as the Download button) under videos.",
     dependencies = [
         ResourceMappingPatch::class,
         LithoFilterPatch::class
