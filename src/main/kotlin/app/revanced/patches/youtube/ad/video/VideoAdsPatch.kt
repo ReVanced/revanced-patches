@@ -15,7 +15,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
     name = "Video ads",
-    description = "Adds option to remove ads in the video player.",
+    description = "Adds an option to remove ads in the video player.",
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class

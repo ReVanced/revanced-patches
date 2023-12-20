@@ -13,7 +13,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
     name = "Hide cast button",
-    description = "Adds option to hide the cast button in the video player.",
+    description = "Adds an option to hide the cast button in the video player.",
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class

@@ -15,7 +15,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
     name = "Restore old seekbar thumbnails",
-    description = "Adds option to restore the old seekbar thumbnails that appear above the seekbar while seeking instead of fullscreen thumbnails.",
+    description = "Adds an option to restore the old seekbar thumbnails that appear above the seekbar while seeking instead of fullscreen thumbnails.",
     dependencies = [IntegrationsPatch::class, SeekbarPreferencesPatch::class],
     compatiblePackages = [
         CompatiblePackage(

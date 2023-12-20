@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
     name = "Disable resuming Shorts on startup",
-    description = "Adds option to disable the Shorts player from resuming on app startup when Shorts were last being watched.",
+    description = "Adds an option to disable the Shorts player from resuming on app startup when Shorts were last being watched.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

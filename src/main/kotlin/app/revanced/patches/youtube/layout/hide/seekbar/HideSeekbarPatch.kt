@@ -16,7 +16,7 @@ import app.revanced.patches.youtube.shared.fingerprints.SeekbarOnDrawFingerprint
 
 @Patch(
     name = "Hide seekbar",
-    description = "Adds option to hide the seekbar.",
+    description = "Adds an option to hide the seekbar.",
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class,

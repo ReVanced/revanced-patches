@@ -19,7 +19,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch(
     name = "Hide info cards",
-    description = "Adds option to hide info cards that creators add in the video player.",
+    description = "Adds an option to hide info cards that creators add in the video player.",
     dependencies = [
         IntegrationsPatch::class,
         LithoFilterPatch::class,

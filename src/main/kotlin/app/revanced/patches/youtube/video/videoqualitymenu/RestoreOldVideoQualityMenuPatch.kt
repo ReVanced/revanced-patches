@@ -14,7 +14,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Restore old video quality menu",
-    description = "Adds option to restore the old video quality menu with specific video resolution options.",
+    description = "Adds an option to restore the old video quality menu with specific video resolution options.",
     dependencies = [
         IntegrationsPatch::class,
         RestoreOldVideoQualityMenuResourcePatch::class,

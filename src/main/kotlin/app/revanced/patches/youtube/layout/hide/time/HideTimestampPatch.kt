@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
     name = "Hide timestamp",
-    description = "Adds option to hide the timestamp in the bottom left of the video player.",
+    description = "Adds an option to hide the timestamp in the bottom left of the video player.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

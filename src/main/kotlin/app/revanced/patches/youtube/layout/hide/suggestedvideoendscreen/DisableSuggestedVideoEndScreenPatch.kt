@@ -13,7 +13,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch(
     name = "Disable suggested video end screen",
-    description = "Adds option to disable the suggested video end screen at the end of videos.",
+    description = "Adds an option to disable the suggested video end screen at the end of videos.",
     dependencies = [IntegrationsPatch::class, DisableSuggestedVideoEndScreenResourcePatch::class],
     compatiblePackages = [
         CompatiblePackage(

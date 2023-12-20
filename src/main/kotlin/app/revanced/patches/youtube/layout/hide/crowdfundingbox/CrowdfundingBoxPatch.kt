@@ -13,7 +13,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Hide crowdfunding box",
-    description = "Adds option to hide the crowdfunding box between the player and video description.",
+    description = "Adds an option to hide the crowdfunding box between the player and video description.",
     dependencies = [
         IntegrationsPatch::class,
         CrowdfundingBoxResourcePatch::class

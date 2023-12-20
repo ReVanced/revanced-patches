@@ -16,7 +16,7 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Change start page",
-    description = "Adds option to set which page the app opens in instead of the homepage.",
+    description = "Adds an option to set which page the app opens in instead of the homepage.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
