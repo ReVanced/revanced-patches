@@ -16,7 +16,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Hide filter bar",
-    description = "Adds options to hide the filter bar in video feeds.",
+    description = "Adds options to hide the category bar at the top of video feeds.",
     dependencies = [HideFilterBarResourcePatch::class],
     compatiblePackages = [
         CompatiblePackage(

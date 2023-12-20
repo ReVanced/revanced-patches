@@ -13,7 +13,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide album cards",
-    description = "Adds option to hide album cards below the artist description.",
+    description = "Adds option to hide album cards below artist descriptions.",
     dependencies = [
         IntegrationsPatch::class,
         AlbumCardsResourcePatch::class

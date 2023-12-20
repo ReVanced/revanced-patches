@@ -9,7 +9,7 @@ import org.w3c.dom.Element
 
 @Patch(
     name = "Remove player controls background",
-    description = "Removes the background from the video player controls.",
+    description = "Removes the dark background surrounding the video player controls.",
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [

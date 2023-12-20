@@ -26,7 +26,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Patch(
     name = "Remember video quality",
-    description = "Adds option to remember and use the last video quality selected.",
+    description = "Adds option to remember the last video quality selected.",
     dependencies = [IntegrationsPatch::class, VideoInformationPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
