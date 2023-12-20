@@ -65,7 +65,7 @@ Let's start with understanding how a patch is structured. A patch is mainly buil
      and the patch itself. When executed, the dependency can prepare a preference screen and then initialize itself
      for further use by other patches._
 
-   - Patches may set `@Path.description`.
+   - Patches may set `@Patch.description`.
      This annotation is used to describe the patch briefly.
 
    - Patches may set `@Patch.dependencies`.
