@@ -19,7 +19,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Theme",
-    description = "Adds options for theming and applies a custom background theme.",
+    description = "Adds options for theming and applies a custom background theme (dark background defaults to amoled black).",
     dependencies = [
         LithoColorHookPatch::class,
         SeekbarColorBytecodePatch::class,
