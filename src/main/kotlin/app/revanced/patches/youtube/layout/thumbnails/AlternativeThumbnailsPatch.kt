@@ -150,7 +150,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                             "revanced_alt_thumbnail_dearrow_about_summary",
                             "DeArrow provides crowd-sourced thumbnails for YouTube videos. " +
                                     "These thumbnails are often more relevant than those provided by YouTube. " +
-                                    "If enabled, video URLs will be sent to the API server and no other data is sent."
+                                    "If enabled, video URLs will be sent to the API server and no other data is sent"
                                     + "\\n\\nTap here to learn more about DeArrow"
                         ),
                         // Custom about preference with link to the DeArrow website.
