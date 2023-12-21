@@ -1657,6 +1657,7 @@ public final class app/revanced/util/ResourceUtilsKt {
 	public static final fun copyResources (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;[Lapp/revanced/util/ResourceGroup;)V
 	public static final fun copyXmlNode (Ljava/lang/String;Lapp/revanced/patcher/util/DomFileEditor;Lapp/revanced/patcher/util/DomFileEditor;)Ljava/lang/AutoCloseable;
 	public static final fun doRecursively (Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
+	public static final fun inputStreamFromBundledResource (Ljava/lang/String;Ljava/lang/String;)Ljava/io/InputStream;
 	public static final fun iterateXmlNodeChildren (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
 	public static final fun mergeStrings (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;)V
 }
