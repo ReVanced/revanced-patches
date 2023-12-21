@@ -1,3 +1,10 @@
+# [3.2.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v3.2.0-dev.2...v3.2.0-dev.3) (2023-12-21)
+
+
+### Features
+
+* **Tiktok:** Add `Remember clear mode` patch ([#2509](https://github.com/ReVanced/revanced-patches/issues/2509)) ([048bf59](https://github.com/ReVanced/revanced-patches/commit/048bf592ef93ee5138aa1886be1644501f88964a))
+
 # [3.2.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v3.2.0-dev.1...v3.2.0-dev.2) (2023-12-19)
 
 
