@@ -1,3 +1,10 @@
+# [3.2.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v3.2.0-dev.3...v3.2.0-dev.4) (2023-12-21)
+
+
+### Bug Fixes
+
+* **Tiktok - Remember clear display:** Use correct name ([d7e44cb](https://github.com/ReVanced/revanced-patches/commit/d7e44cb887396bba27ee81c70c006f0cc247c56d))
+
 # [3.2.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v3.2.0-dev.2...v3.2.0-dev.3) (2023-12-21)
 
 
