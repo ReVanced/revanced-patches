@@ -1,4 +1,4 @@
-package app.revanced.patches.tiktok.interaction.clearmode.fingerprints
+package app.revanced.patches.tiktok.interaction.cleardisplay.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 
