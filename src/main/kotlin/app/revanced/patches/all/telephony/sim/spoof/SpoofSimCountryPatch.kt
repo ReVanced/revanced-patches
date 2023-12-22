@@ -3,7 +3,7 @@ package app.revanced.patches.all.telephony.sim.spoof
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patcher.patch.options.PatchOption
+import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.all.misc.transformation.AbstractTransformInstructionsPatch
 import com.android.tools.smali.dexlib2.iface.ClassDef
@@ -39,16 +39,15 @@ object SpoofSimCountryPatch : AbstractTransformInstructionsPatch<Pair<Int, Strin
     private fun isoCountryPatchOption(
         key: String,
         title: String,
-    ) = PatchOption(
+    ) = stringPatchOption(
         key,
         null,
         countries,
         title,
         "ISO-3166-1 alpha-2 country code equivalent for the SIM provider's country code.",
         false,
-        valueType = "String",
         validator = { it: String? -> it?.uppercase() in countries.keys || it == null }
-    ).also(options::register)
+    )
 
     override fun filterMap(
         classDef: ClassDef,
