@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.layout.branding.header
 
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
@@ -112,6 +113,7 @@ object ChangeHeaderPatch : ResourcePatch() {
             toHeader()
         }
         val toCustom = {
+            var foundImageResources = false
             // For all the resource groups in the custom header folder, copy them to the resource directories.
             File(header!!).listFiles { file -> file.isDirectory }?.forEach { folder ->
                 val targetDirectory = context["res"].resolve(folder.name)
@@ -123,7 +125,10 @@ object ChangeHeaderPatch : ResourcePatch() {
 
                     it.copyTo(targetResourceFile, true)
                 }
+                foundImageResources = true
             }
+
+            if (!foundImageResources) throw PatchException("Could not find any custom images resources in directory: $header")
 
             // Overwrite the premium with the custom header as well.
             toHeader()
