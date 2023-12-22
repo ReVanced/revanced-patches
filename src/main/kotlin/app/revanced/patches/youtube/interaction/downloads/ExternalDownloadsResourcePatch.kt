@@ -32,7 +32,8 @@ internal object ExternalDownloadsResourcePatch : ResourcePatch() {
                         "revanced_external_downloader",
                         "revanced_external_downloader_title",
                         "revanced_external_downloader_summary_on",
-                        "revanced_external_downloader_summary_off"
+
+                            "revanced_external_downloader_summary_off"
                     ),
                     TextPreference(
                         "revanced_external_downloader_name",
@@ -41,17 +42,17 @@ internal object ExternalDownloadsResourcePatch : ResourcePatch() {
                         InputType.TEXT
                     )
                 ),
-                "revanced_external_downloader_preference_screen_summary"
+
+                    "revanced_external_downloader_preference_screen_summary"
             )
         )
 
-        // Copy resources
+
         context.copyResources(
             "youtube/downloads",
             ResourceGroup("drawable", "revanced_ic_download_button.xml")
         )
 
-        // Add download button node
-        BottomControlsResourcePatch.addControls("youtube/downloads/host/layout/${BottomControlsResourcePatch.TARGET_RESOURCE_NAME}")
+        BottomControlsResourcePatch.addControls("youtube/downloads")
     }
 }

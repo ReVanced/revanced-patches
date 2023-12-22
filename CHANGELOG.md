@@ -1,3 +1,37 @@
+# [3.2.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v3.2.0-dev.3...v3.2.0-dev.4) (2023-12-21)
+
+
+### Bug Fixes
+
+* **Tiktok - Remember clear display:** Use correct name ([d7e44cb](https://github.com/ReVanced/revanced-patches/commit/d7e44cb887396bba27ee81c70c006f0cc247c56d))
+
+# [3.2.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v3.2.0-dev.2...v3.2.0-dev.3) (2023-12-21)
+
+
+### Features
+
+* **Tiktok:** Add `Remember clear mode` patch ([#2509](https://github.com/ReVanced/revanced-patches/issues/2509)) ([048bf59](https://github.com/ReVanced/revanced-patches/commit/048bf592ef93ee5138aa1886be1644501f88964a))
+
+# [3.2.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v3.2.0-dev.1...v3.2.0-dev.2) (2023-12-19)
+
+
+### Features
+
+* **Public API:** Deprecate `HideEmailAddressPatch` ([866bceb](https://github.com/ReVanced/revanced-patches/commit/866bcebdd990b964d3dfd5aea792e7fffaedbf44))
+* **YouTube:** Remove `Hide email address` patch ([3b84305](https://github.com/ReVanced/revanced-patches/commit/3b84305a6b97800cb147f86c642f19689548aca5))
+
+# [3.2.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v3.1.0...v3.2.0-dev.1) (2023-12-18)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Export local statistics with saved settings ([f8365b4](https://github.com/ReVanced/revanced-patches/commit/f8365b4e3585328506887022ac6168045ac110b9))
+
+
+### Features
+
+* **Public API:** Make `BottomControlsResource#addControls` public ([#2514](https://github.com/ReVanced/revanced-patches/issues/2514)) ([f4e2257](https://github.com/ReVanced/revanced-patches/commit/f4e2257072ca02003f7c272d6c0c8ef1aa6032ae))
+
 # [3.1.0](https://github.com/ReVanced/revanced-patches/compare/v3.0.1...v3.1.0) (2023-12-12)
 
 

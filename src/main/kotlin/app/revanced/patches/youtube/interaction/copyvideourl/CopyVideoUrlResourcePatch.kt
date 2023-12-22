@@ -38,7 +38,8 @@ internal object CopyVideoUrlResourcePatch : ResourcePatch() {
                         "revanced_copy_video_url_timestamp_summary_off"
                     )
                 ),
-                "revanced_copy_video_url_preference_screen_summary"
+
+                    "revanced_copy_video_url_preference_screen_summary"
             )
         )
 
@@ -51,6 +52,6 @@ internal object CopyVideoUrlResourcePatch : ResourcePatch() {
             )
         )
 
-        BottomControlsResourcePatch.addControls("youtube/copyvideourl/host/layout/${BottomControlsResourcePatch.TARGET_RESOURCE_NAME}")
+        BottomControlsResourcePatch.addControls("copyvideourl")
     }
 }
