@@ -4,7 +4,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption
-import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.all.misc.transformation.AbstractTransformInstructionsPatch
 import com.android.tools.smali.dexlib2.iface.ClassDef
@@ -25,27 +24,31 @@ import java.util.*
 )
 @Suppress("unused")
 object SpoofSimCountryPatch : AbstractTransformInstructionsPatch<Pair<Int, String>>() {
-    private val isoValidator: PatchOption<String>.(String?) -> Boolean =
-        { it: String? -> it?.uppercase() in Locale.getISOCountries() || it == null }
+    private val countries = Locale.getISOCountries().associateBy { Locale("", it).displayCountry }
 
-    private val networkCountryIso by stringPatchOption(
+    private val networkCountryIso by isoCountryPatchOption(
         "networkCountryIso",
-        null,
-        null,
         "Network ISO Country Code",
-        "ISO-3166-1 alpha-2 country code equivalent of the MCC (Mobile Country Code) " +
-                "of the current registered operator or the cell nearby.",
-        validator = isoValidator
     )
 
-    private val simCountryIso by stringPatchOption(
+    private val simCountryIso by isoCountryPatchOption(
         "simCountryIso",
-        null,
-        null,
         "Sim ISO Country Code",
-        "ISO-3166-1 alpha-2 country code equivalent for the SIM provider's country code.",
-        validator = isoValidator
     )
+
+    private fun isoCountryPatchOption(
+        key: String,
+        title: String,
+    ) = PatchOption(
+        key,
+        null,
+        countries,
+        title,
+        "ISO-3166-1 alpha-2 country code equivalent for the SIM provider's country code.",
+        false,
+        valueType = "String",
+        validator = { it: String? -> it?.uppercase() in countries.keys || it == null }
+    ).also(options::register)
 
     override fun filterMap(
         classDef: ClassDef,
