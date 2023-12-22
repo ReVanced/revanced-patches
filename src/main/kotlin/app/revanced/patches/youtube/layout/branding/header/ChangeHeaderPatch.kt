@@ -8,16 +8,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
-import app.revanced.util.inputStreamFromBundledResource
-import java.awt.Graphics2D
-import java.awt.GraphicsConfiguration
-import java.awt.GraphicsEnvironment
-import java.awt.Transparency
-import java.awt.image.BufferedImage
-import java.awt.image.ColorConvertOp
 import java.io.File
-import java.io.InputStream
-import javax.imageio.ImageIO
 
 @Patch(
     name = "Change header",
@@ -31,7 +22,7 @@ object ChangeHeaderPatch : ResourcePatch() {
     private const val HEADER_NAME = "yt_wordmark_header"
     private const val PREMIUM_HEADER_NAME = "yt_premium_wordmark_header"
     private const val REVANCED_HEADER_NAME = "ReVanced"
-    private const val REVANCED_YOUTUBE_HEADER_NAME = "ReVanced YouTube"
+    private const val REVANCED_MINIMAL_HEADER_NAME = "ReVanced minimal"
 
     private val targetResourceDirectoryNames = arrayOf(
         "xxxhdpi",
@@ -47,12 +38,12 @@ object ChangeHeaderPatch : ResourcePatch() {
 
     private val header by stringPatchOption(
         key = "header",
-        default = "ReVanced YouTube",
+        default = "ReVanced minimal",
         values = mapOf(
             "YouTube" to HEADER_NAME,
             "YouTube Premium" to PREMIUM_HEADER_NAME,
             "ReVanced" to REVANCED_HEADER_NAME,
-            "ReVanced YouTube" to REVANCED_YOUTUBE_HEADER_NAME,
+            "ReVanced minimal" to REVANCED_MINIMAL_HEADER_NAME,
         ),
         title = "Header",
         description = """
@@ -99,16 +90,10 @@ object ChangeHeaderPatch : ResourcePatch() {
             // Overwrite the premium with the custom header as well.
             toHeader()
         }
-        val toReVancedYouTube = {
-            targetResourceFiles.forEach {
-                it.resources.forEach { resource ->
-                    val relativeFilePath = "${it.resourceDirectoryName}/$resource"
-                    val targetFilePath = context["res"].resolve(relativeFilePath)
-                    val overlayImage = inputStreamFromBundledResource(
-                        "change-header/revanced-youtube", relativeFilePath)!!
-                    applyOverlayImage(targetFilePath, overlayImage, targetFilePath)
-                }
-            }
+        val toReVancedMinimal = {
+            // Copy the ReVanced header to the resource directories.
+            targetResourceFiles.forEach { context.copyResources("change-header/revanced-minimal", it) }
+
             // Overwrite the premium with the custom header as well.
             toHeader()
         }
@@ -138,45 +123,8 @@ object ChangeHeaderPatch : ResourcePatch() {
             HEADER_NAME -> toHeader
             PREMIUM_HEADER_NAME -> toPremium
             REVANCED_HEADER_NAME -> toReVanced
-            REVANCED_YOUTUBE_HEADER_NAME -> toReVancedYouTube
+            REVANCED_MINIMAL_HEADER_NAME -> toReVancedMinimal
             else -> toCustom
         }()
-    }
-
-    /**
-     * Applies an overlay image to an original image.
-     * Does not retain any content from the original image where the overlay overlaps
-     * (even if the overlay replacement is transparent in those areas).
-     */
-    private fun applyOverlayImage(originalImageFile: File, overlayImageInput: InputStream, outputImageFile: File) {
-        val originalImage = convertToARGB(ImageIO.read(originalImageFile))
-        val overlayImage = convertToARGB(ImageIO.read(overlayImageInput))
-
-        for (x in 0 until overlayImage.width) {
-            for (y in 0 until overlayImage.height) {
-                originalImage.setRGB(x, y, overlayImage.getRGB(x, y))
-            }
-        }
-
-        ImageIO.write(originalImage, outputImageFile.extension, outputImageFile)
-    }
-
-    private fun convertToARGB(inputImage: BufferedImage): BufferedImage {
-        val graphicsEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment()
-        val graphicsDevice = graphicsEnvironment.defaultScreenDevice
-        val graphicsConfiguration: GraphicsConfiguration = graphicsDevice.defaultConfiguration
-        val argbImage = graphicsConfiguration.createCompatibleImage(
-            inputImage.width,
-            inputImage.height,
-            Transparency.TRANSLUCENT
-        )
-        val g2d: Graphics2D = argbImage.createGraphics()
-
-        val colorConvertOp =
-            ColorConvertOp(inputImage.colorModel.colorSpace, argbImage.colorModel.colorSpace, null)
-        colorConvertOp.filter(inputImage, argbImage)
-
-        g2d.dispose()
-        return argbImage
     }
 }

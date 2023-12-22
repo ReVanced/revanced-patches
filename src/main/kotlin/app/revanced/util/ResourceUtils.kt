@@ -61,7 +61,7 @@ fun ResourceContext.copyResources(sourceResourceDirectory: String, vararg resour
     }
 }
 
-fun inputStreamFromBundledResource(
+internal fun inputStreamFromBundledResource(
     sourceResourceDirectory: String,
     resourceFile: String
 ): InputStream? = classLoader.getResourceAsStream("$sourceResourceDirectory/$resourceFile")
