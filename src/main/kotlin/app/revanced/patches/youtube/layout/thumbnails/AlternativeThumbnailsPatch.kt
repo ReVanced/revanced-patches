@@ -119,7 +119,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                     ),
                     SwitchPreference(
                         "revanced_alt_thumbnail_dearrow",
-                        StringResource("revanced_alt_thumbnail_dearrow_title", "Enable DeArrow"),
+                        StringResource("revanced_alt_thumbnail_dearrow_title", "Enable DeArrow thumbnails"),
                         StringResource("revanced_alt_thumbnail_dearrow_summary_on", "Using DeArrow"),
                         StringResource("revanced_alt_thumbnail_dearrow_summary_off", "Not using DeArrow")
                     ),
