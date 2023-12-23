@@ -52,6 +52,6 @@ internal object CopyVideoUrlResourcePatch : ResourcePatch() {
             )
         )
 
-        BottomControlsResourcePatch.addControls("copyvideourl")
+        BottomControlsResourcePatch.addControls("youtube/copyvideourl")
     }
 }

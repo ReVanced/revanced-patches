@@ -166,9 +166,9 @@
     <string name="revanced_sb_stats_self_saved" formatted="false">You\'ve skipped &lt;b>%s&lt;/b> segments</string>
     <string name="revanced_sb_stats_self_saved_sum" formatted="false">That\'s &lt;b>%s&lt;/b></string>
     <string name="revanced_sb_stats_self_saved_reset_title">Reset skipped segments counter?</string>
-    <string name="revanced_sb_stats_saved_hour_format" formatted="false">%d hours %d minutes</string>
-    <string name="revanced_sb_stats_saved_minute_format" formatted="false">%d minutes %d seconds</string>
-    <string name="revanced_sb_stats_saved_second_format" formatted="false">%d seconds</string>
+    <string name="revanced_sb_stats_saved_hour_format" formatted="false">%s hours %s minutes</string>
+    <string name="revanced_sb_stats_saved_minute_format" formatted="false">%s minutes %s seconds</string>
+    <string name="revanced_sb_stats_saved_second_format" formatted="false">%s seconds</string>
     <string name="revanced_sb_color_dot_label">Color:</string>
     <string name="revanced_sb_color_changed">Color changed</string>
     <string name="revanced_sb_color_reset">Color reset</string>
