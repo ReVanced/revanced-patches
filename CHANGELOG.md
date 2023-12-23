@@ -1,3 +1,10 @@
+# [3.2.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v3.2.0-dev.4...v3.2.0-dev.5) (2023-12-23)
+
+
+### Bug Fixes
+
+* **YouTube - Alternative thumbnails:** Clarify DeArrow support is for thumbnails ([#2531](https://github.com/ReVanced/revanced-patches/issues/2531)) ([828abb0](https://github.com/ReVanced/revanced-patches/commit/828abb0558926cd6557c79abcf1a04bfe2c719e6))
+
 # [3.2.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v3.2.0-dev.3...v3.2.0-dev.4) (2023-12-21)
 
 
