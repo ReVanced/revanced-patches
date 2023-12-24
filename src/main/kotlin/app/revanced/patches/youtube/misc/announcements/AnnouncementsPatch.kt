@@ -24,7 +24,7 @@ object AnnouncementsPatch : BytecodePatch(
     setOf(WatchWhileActivityFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/announcements/AnnouncementsPatch;"
+        "Lapp/revanced/integrations/youtube/patches/announcements/AnnouncementsPatch;"
 
     override fun execute(context: BytecodeContext) {
         val onCreateMethod = WatchWhileActivityFingerprint.result?.let {

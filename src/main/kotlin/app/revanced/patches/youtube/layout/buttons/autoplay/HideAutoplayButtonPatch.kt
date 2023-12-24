@@ -78,7 +78,7 @@ object HideAutoplayButtonPatch : BytecodePatch(
             addInstructionsWithLabels(
                 insertIndex,
                 """
-                    invoke-static {}, Lapp/revanced/integrations/patches/HideAutoplayButtonPatch;->isButtonShown()Z
+                    invoke-static {}, Lapp/revanced/integrations/youtube/patches/HideAutoplayButtonPatch;->isButtonShown()Z
                     move-result v$clobberRegister
                     if-eqz v$clobberRegister, :hidden
                 """,

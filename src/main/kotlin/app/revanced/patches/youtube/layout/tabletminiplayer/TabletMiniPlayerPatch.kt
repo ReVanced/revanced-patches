@@ -120,7 +120,7 @@ object TabletMiniPlayerPatch : BytecodePatch(
         this.addInstructions(
             index,
             """
-                    invoke-static {v$overrideRegister}, Lapp/revanced/integrations/patches/TabletMiniPlayerOverridePatch;->getTabletMiniPlayerOverride(Z)Z
+                    invoke-static {v$overrideRegister}, Lapp/revanced/integrations/youtube/patches/TabletMiniPlayerOverridePatch;->getTabletMiniPlayerOverride(Z)Z
                     move-result v$overrideRegister
                 """
         )

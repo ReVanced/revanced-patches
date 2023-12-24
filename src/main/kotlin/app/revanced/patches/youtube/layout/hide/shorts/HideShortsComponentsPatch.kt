@@ -51,7 +51,7 @@ object HideShortsComponentsPatch : BytecodePatch(
         SetPivotBarVisibilityParentFingerprint
     )
 ) {
-    private const val FILTER_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/components/ShortsFilter;"
+    private const val FILTER_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/components/ShortsFilter;"
 
     override fun execute(context: BytecodeContext) {
         // region Hide the Shorts shelf.

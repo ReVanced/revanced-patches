@@ -35,7 +35,7 @@ object RestoreOldSeekbarThumbnailsPatch : BytecodePatch(
     setOf(FullscreenSeekbarThumbnailsFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/RestoreOldSeekbarThumbnailsPatch;"
+        "Lapp/revanced/integrations/youtube/patches/RestoreOldSeekbarThumbnailsPatch;"
 
     override fun execute(context: BytecodeContext) {
         SeekbarPreferencesPatch.addPreferences(

@@ -42,7 +42,7 @@ object HideFilterBarPatch : BytecodePatch(
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/HideFilterBarPatch;"
+        "Lapp/revanced/integrations/youtube/patches/HideFilterBarPatch;"
 
     override fun execute(context: BytecodeContext) {
         FilterBarHeightFingerprint.patch<TwoRegisterInstruction> { register ->

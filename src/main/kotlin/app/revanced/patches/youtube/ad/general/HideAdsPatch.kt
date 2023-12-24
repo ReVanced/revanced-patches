@@ -65,7 +65,7 @@ object HideAdsPatch : BytecodePatch() {
                                 .injectHideViewCall(
                                     insertIndex,
                                     viewRegister,
-                                    "Lapp/revanced/integrations/patches/components/AdsFilter;",
+                                    "Lapp/revanced/integrations/youtube/patches/components/AdsFilter;",
                                     "hideAdAttributionView"
                                 )
                         }

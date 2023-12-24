@@ -44,7 +44,7 @@ object EnableTabletLayoutPatch : BytecodePatch(
                 addInstructionsWithLabels(
                     0,
                     """
-                          invoke-static { }, Lapp/revanced/integrations/patches/EnableTabletLayoutPatch;->enableTabletLayout()Z
+                          invoke-static { }, Lapp/revanced/integrations/youtube/patches/EnableTabletLayoutPatch;->enableTabletLayout()Z
                           move-result v0 # Free register
                           if-nez v0, :is_large_form_factor
                     """,

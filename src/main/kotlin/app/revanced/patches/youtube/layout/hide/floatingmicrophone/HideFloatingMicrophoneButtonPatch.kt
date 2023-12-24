@@ -34,7 +34,7 @@ object HideFloatingMicrophoneButtonPatch : BytecodePatch(
     setOf(ShowFloatingMicrophoneButtonFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/HideFloatingMicrophoneButtonPatch;"
+        "Lapp/revanced/integrations/youtube/patches/HideFloatingMicrophoneButtonPatch;"
 
     override fun execute(context: BytecodeContext) {
         ShowFloatingMicrophoneButtonFingerprint.result?.let { result ->

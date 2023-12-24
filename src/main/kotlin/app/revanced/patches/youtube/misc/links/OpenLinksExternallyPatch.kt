@@ -55,7 +55,7 @@ object OpenLinksExternallyPatch : AbstractTransformInstructionsPatch<Pair<Int, I
         mutableMethod.addInstructions(
             intentStringIndex + 1,
             """
-                invoke-static {v$register}, Lapp/revanced/integrations/patches/OpenLinksExternallyPatch;->getIntent(Ljava/lang/String;)Ljava/lang/String;
+                invoke-static {v$register}, Lapp/revanced/integrations/youtube/patches/OpenLinksExternallyPatch;->getIntent(Ljava/lang/String;)Ljava/lang/String;
                 move-result-object v$register
             """
         )

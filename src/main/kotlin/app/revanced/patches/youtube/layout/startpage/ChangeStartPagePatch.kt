@@ -29,7 +29,7 @@ object ChangeStartPagePatch : BytecodePatch(
     setOf(HomeActivityFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/ChangeStartPagePatch;"
+        "Lapp/revanced/integrations/youtube/patches/ChangeStartPagePatch;"
 
     override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(

@@ -50,7 +50,7 @@ object BreakingNewsPatch : BytecodePatch(
                     insertIndex,
                     """
                         invoke-static {v$breakingNewsViewRegister}, 
-                        Lapp/revanced/integrations/patches/HideBreakingNewsPatch;
+                        Lapp/revanced/integrations/youtube/patches/HideBreakingNewsPatch;
                         ->
                         hideBreakingNews(Landroid/view/View;)V
                     """

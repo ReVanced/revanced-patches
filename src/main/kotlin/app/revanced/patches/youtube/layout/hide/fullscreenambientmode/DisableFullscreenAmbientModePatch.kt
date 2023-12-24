@@ -34,7 +34,7 @@ object DisableFullscreenAmbientModePatch : BytecodePatch(
     setOf(InitializeAmbientModeFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/DisableFullscreenAmbientModePatch;"
+        "Lapp/revanced/integrations/youtube/patches/DisableFullscreenAmbientModePatch;"
 
     override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(

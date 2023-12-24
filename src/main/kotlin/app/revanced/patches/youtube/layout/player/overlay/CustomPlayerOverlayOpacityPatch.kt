@@ -21,7 +21,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 )
 @Suppress("unused")
 object CustomPlayerOverlayOpacityPatch : BytecodePatch(setOf(CreatePlayerOverviewFingerprint)) {
-    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/CustomPlayerOverlayOpacityPatch;"
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/CustomPlayerOverlayOpacityPatch;"
 
     override fun execute(context: BytecodeContext) {
         CreatePlayerOverviewFingerprint.result?.let { result ->

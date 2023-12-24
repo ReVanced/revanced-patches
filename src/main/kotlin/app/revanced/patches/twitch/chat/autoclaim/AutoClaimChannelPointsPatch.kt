@@ -48,7 +48,7 @@ object AutoClaimChannelPointPatch : BytecodePatch(
             addInstructionsWithLabels(
                 lastIndex, // place in front of return-void
                 """
-                    invoke-static {}, Lapp/revanced/twitch/patches/AutoClaimChannelPointsPatch;->shouldAutoClaim()Z
+                    invoke-static {}, Lapp/revanced/integrations/twitch/patches/AutoClaimChannelPointsPatch;->shouldAutoClaim()Z
                     move-result v0
                     if-eqz v0, :auto_claim
 

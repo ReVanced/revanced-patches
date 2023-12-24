@@ -34,7 +34,7 @@ object SpoofDeviceDimensionsPatch : BytecodePatch(
     setOf(DeviceDimensionsModelToStringFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/spoof/SpoofDeviceDimensionsPatch;"
+        "Lapp/revanced/integrations/youtube/patches/spoof/SpoofDeviceDimensionsPatch;"
 
     override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.MISC.addPreferences(

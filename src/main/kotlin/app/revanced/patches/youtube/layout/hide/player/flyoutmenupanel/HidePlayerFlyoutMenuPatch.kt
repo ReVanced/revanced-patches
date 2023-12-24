@@ -36,7 +36,7 @@ object HidePlayerFlyoutMenuPatch : ResourcePatch() {
     private const val KEY = "revanced_hide_player_flyout"
 
     private const val FILTER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/components/PlayerFlyoutMenuItemsFilter;"
+        "Lapp/revanced/integrations/youtube/patches/components/PlayerFlyoutMenuItemsFilter;"
 
     override fun execute(context: ResourceContext) {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(

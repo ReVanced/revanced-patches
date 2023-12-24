@@ -37,7 +37,7 @@ object SettingsPatch : BytecodePatch(
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/tiktok/settingsmenu/SettingsMenu;"
+        "Lapp/revanced/integrations/tiktok/settingsmenu/SettingsMenu;"
 
     private const val INITIALIZE_SETTINGS_METHOD_DESCRIPTOR =
         "$INTEGRATIONS_CLASS_DESCRIPTOR->initializeSettings(" +

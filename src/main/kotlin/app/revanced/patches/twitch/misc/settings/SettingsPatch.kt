@@ -49,7 +49,7 @@ object SettingsPatch : BytecodePatch(
     private const val MENU_ITEM_ENUM_CLASS = "Ltv/twitch/android/feature/settings/menu/SettingsMenuItem;"
     private const val MENU_DISMISS_EVENT_CLASS = "Ltv/twitch/android/feature/settings/menu/SettingsMenuViewDelegate\$Event\$OnDismissClicked;"
 
-    private const val INTEGRATIONS_PACKAGE = "app/revanced/twitch"
+    private const val INTEGRATIONS_PACKAGE = "app/revanced/integrations/twitch"
     private const val SETTINGS_HOOKS_CLASS = "L$INTEGRATIONS_PACKAGE/settingsmenu/SettingsHooks;"
     private const val REVANCED_UTILS_CLASS = "L$INTEGRATIONS_PACKAGE/utils/ReVancedUtils;"
 
@@ -179,7 +179,7 @@ object SettingsPatch : BytecodePatch(
                         key,
                         StringResource("${key}_title", title),
                         preferences.sortedBy { it.title.value },
-                        "app.revanced.twitch.settingsmenu.preference.CustomPreferenceCategory"
+                        "app.revanced.integrations.twitch.settingsmenu.preference.CustomPreferenceCategory"
                     )
                 }
             }

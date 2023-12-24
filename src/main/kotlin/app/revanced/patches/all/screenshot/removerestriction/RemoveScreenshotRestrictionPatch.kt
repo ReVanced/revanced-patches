@@ -24,7 +24,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 @Suppress("unused")
 object RemoveScreenshotRestrictionPatch : AbstractTransformInstructionsPatch<Instruction35cInfo>() {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX =
-            "Lapp/revanced/all/screenshot/removerestriction/RemoveScreenshotRestrictionPatch"
+            "Lapp/revanced/integrations/all/screenshot/removerestriction/RemoveScreenshotRestrictionPatch"
     private const val INTEGRATIONS_CLASS_DESCRIPTOR = "$INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX;"
 
     override fun execute(context: BytecodeContext) {

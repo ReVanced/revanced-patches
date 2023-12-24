@@ -51,7 +51,7 @@ object RememberVideoQualityPatch : BytecodePatch(
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-            "Lapp/revanced/integrations/patches/playback/quality/RememberVideoQualityPatch;"
+            "Lapp/revanced/integrations/youtube/patches/playback/quality/RememberVideoQualityPatch;"
 
     override fun execute(context: BytecodeContext) {
         // This is bloated as each value has it's own String key/value

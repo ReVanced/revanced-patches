@@ -25,7 +25,7 @@ import java.io.Closeable
 object SettingsPatch : BytecodePatch(
     setOf(LicenseActivityFingerprint, SetThemeFingerprint)
 ), Closeable {
-    private const val INTEGRATIONS_PACKAGE = "app/revanced/integrations"
+    private const val INTEGRATIONS_PACKAGE = "app/revanced/integrations/youtube"
     private const val SETTINGS_ACTIVITY_DESCRIPTOR = "L$INTEGRATIONS_PACKAGE/settingsmenu/ReVancedSettingActivity;"
     private const val THEME_HELPER_DESCRIPTOR = "L$INTEGRATIONS_PACKAGE/utils/ThemeHelper;"
     private const val SET_THEME_METHOD_NAME = "setTheme"

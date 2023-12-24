@@ -55,7 +55,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/AlternativeThumbnailsPatch;"
+        "Lapp/revanced/integrations/youtube/patches/AlternativeThumbnailsPatch;"
 
     private lateinit var loadImageUrlMethod: MutableMethod
     private var loadImageUrlIndex = 0
@@ -115,7 +115,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                     NonInteractivePreference(
                         StringResource("revanced_alt_thumbnail_about_title", "Thumbnails in use"),
                         null, // Summary is dynamically updated based on the current settings.
-                        tag = "app.revanced.integrations.settingsmenu.AlternativeThumbnailsStatusPreference"
+                        tag = "app.revanced.integrations.youtube.settingsmenu.AlternativeThumbnailsStatusPreference"
                     ),
                     SwitchPreference(
                         "revanced_alt_thumbnail_dearrow",
@@ -154,7 +154,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                                     + "\\n\\nTap here to learn more about DeArrow"
                         ),
                         // Custom about preference with link to the DeArrow website.
-                        tag = "app.revanced.integrations.settingsmenu.AlternativeThumbnailsAboutDeArrowPreference",
+                        tag = "app.revanced.integrations.youtube.settingsmenu.AlternativeThumbnailsAboutDeArrowPreference",
                         selectable = true
                     ),
                     SwitchPreference(

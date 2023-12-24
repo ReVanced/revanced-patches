@@ -38,7 +38,7 @@ object CrowdfundingBoxPatch : BytecodePatch(
     setOf(CrowdfundingBoxFingerprint)
 ) {
     private const val INTEGRATIONS_METHOD_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/HideCrowdfundingBoxPatch;->hideCrowdfundingBox(Landroid/view/View;)V"
+        "Lapp/revanced/integrations/youtube/patches/HideCrowdfundingBoxPatch;->hideCrowdfundingBox(Landroid/view/View;)V"
 
     override fun execute(context: BytecodeContext) {
         CrowdfundingBoxFingerprint.result?.let {

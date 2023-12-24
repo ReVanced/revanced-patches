@@ -45,7 +45,7 @@ object NavigationButtonsPatch : BytecodePatch(
     setOf(AddCreateButtonViewFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/NavigationButtonsPatch;"
+        "Lapp/revanced/integrations/youtube/patches/NavigationButtonsPatch;"
 
     override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(

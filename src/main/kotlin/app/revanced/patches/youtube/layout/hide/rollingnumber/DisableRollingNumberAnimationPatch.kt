@@ -38,7 +38,7 @@ object DisableRollingNumberAnimationPatch : BytecodePatch(
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/DisableRollingNumberAnimationsPatch;"
+        "Lapp/revanced/integrations/youtube/patches/DisableRollingNumberAnimationsPatch;"
 
     override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(

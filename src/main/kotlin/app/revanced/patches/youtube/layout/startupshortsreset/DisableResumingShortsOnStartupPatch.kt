@@ -36,7 +36,7 @@ object DisableResumingShortsOnStartupPatch : BytecodePatch(
 ) {
 
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/DisableResumingStartupShortsPlayerPatch;"
+        "Lapp/revanced/integrations/youtube/patches/DisableResumingStartupShortsPlayerPatch;"
 
     override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(

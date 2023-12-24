@@ -6,7 +6,7 @@ import app.revanced.patches.youtube.misc.integrations.fingerprints.*
 
 @Patch(requiresIntegrations = true)
 object IntegrationsPatch : AbstractIntegrationsPatch(
-    "Lapp/revanced/integrations/utils/ReVancedUtils;",
+    "Lapp/revanced/integrations/youtube/utils/ReVancedUtils;",
     setOf(
         ApplicationInitFingerprint,
         StandalonePlayerActivityFingerprint,

@@ -19,7 +19,7 @@ class TextPreference(
     summary: StringResource?,
     val inputType: InputType = InputType.TEXT,
     default: String? = null,
-    tag: String = "app.revanced.integrations.settingsmenu.ResettableEditTextPreference"
+    tag: String = "app.revanced.integrations.youtube.settingsmenu.ResettableEditTextPreference"
 ) : DefaultBasePreference<String>(key, title, summary, tag, default) {
 
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
