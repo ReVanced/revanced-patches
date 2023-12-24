@@ -1,3 +1,11 @@
+# [3.2.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v3.2.0-dev.6...v3.2.0-dev.7) (2023-12-24)
+
+
+### Features
+
+* **YouTube - Hide ads:** Hide fullscreen ads ([bdc9a12](https://github.com/ReVanced/revanced-patches/commit/bdc9a129eff3a5051b8b37665b3243a8b61cbbac))
+* **YouTube - Hide layout components:** Hide search result recommendations ([55cc7f1](https://github.com/ReVanced/revanced-patches/commit/55cc7f1c7722f56af6d33ea2bd09a1b99d635209))
+
 # [3.2.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v3.2.0-dev.5...v3.2.0-dev.6) (2023-12-24)
 
 
