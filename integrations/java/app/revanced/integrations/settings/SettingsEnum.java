@@ -121,6 +121,7 @@ public enum SettingsEnum {
     HIDE_VIDEO_CHANNEL_WATERMARK("revanced_hide_channel_watermark", BOOLEAN, TRUE),
     HIDE_FOR_YOU_SHELF("revanced_hide_for_you_shelf", BOOLEAN, TRUE),
     HIDE_VIDEO_QUALITY_MENU_FOOTER("revanced_hide_video_quality_menu_footer", BOOLEAN, TRUE),
+    HIDE_SEARCH_RESULT_RECOMMENDATIONS("revanced_hide_search_result_recommendations", BOOLEAN, TRUE),
     PLAYER_OVERLAY_OPACITY("revanced_player_overlay_opacity", INTEGER, 100, true),
     PLAYER_POPUP_PANELS("revanced_hide_player_popup_panels", BOOLEAN, FALSE),
     SPOOF_APP_VERSION("revanced_spoof_app_version", BOOLEAN, FALSE, true, "revanced_spoof_app_version_user_dialog_message"),

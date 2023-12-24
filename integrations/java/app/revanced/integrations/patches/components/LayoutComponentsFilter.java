@@ -28,6 +28,8 @@ public final class LayoutComponentsFilter extends Filter {
     private final StringFilterGroup inFeedSurvey;
     private final StringFilterGroup notifyMe;
     private final StringFilterGroup expandableMetadata;
+    private final ByteArrayFilterGroup searchResultRecommendations;
+    private final StringFilterGroup searchResultVideo;
 
     static {
         mixPlaylistsExceptions.addPatterns(
@@ -84,7 +86,6 @@ public final class LayoutComponentsFilter extends Filter {
                 SettingsEnum.HIDE_SUBSCRIBERS_COMMUNITY_GUIDELINES,
                 "sponsorships_comments_upsell"
         );
-
 
         final var channelMemberShelf = new StringFilterGroup(
                 SettingsEnum.HIDE_CHANNEL_MEMBER_SHELF,
@@ -208,6 +209,16 @@ public final class LayoutComponentsFilter extends Filter {
                 "mixed_content_shelf"
         );
 
+        searchResultVideo = new StringFilterGroup(
+                SettingsEnum.HIDE_SEARCH_RESULT_RECOMMENDATIONS,
+                "search_video_with_context.eml"
+        );
+
+        searchResultRecommendations = new ByteArrayFilterGroup(
+                SettingsEnum.HIDE_SEARCH_RESULT_RECOMMENDATIONS,
+                "endorsement_header_footer"
+        );
+
         addPathCallbacks(
                 custom,
                 expandableMetadata,
@@ -216,6 +227,7 @@ public final class LayoutComponentsFilter extends Filter {
                 channelBar,
                 communityPosts,
                 paidContent,
+                searchResultVideo,
                 latestPosts,
                 channelWatermark,
                 communityGuidelines,
@@ -240,6 +252,8 @@ public final class LayoutComponentsFilter extends Filter {
     @Override
     public boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+        if (matchedGroup == searchResultVideo)
+            return searchResultRecommendations.check(protobufBufferArray).isFiltered();
 
         // The groups are excluded from the filter due to the exceptions list below.
         // Filter them separately here.
