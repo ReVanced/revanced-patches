@@ -32,6 +32,12 @@ object HideAdsResourcePatch : ResourcePatch() {
                 StringResource("revanced_hide_general_ads_summary_off", "General ads are shown")
             ),
             SwitchPreference(
+                "revanced_hide_fullscreen_ads",
+                StringResource("revanced_hide_fullscreen_ads_title", "Hide fullscreen ads"),
+                StringResource("revanced_hide_fullscreen_ads_summary_on", "Fullscreen ads are hidden"),
+                StringResource("revanced_hide_fullscreen_ads_summary_off", "Fullscreen ads are shown")
+            ),
+            SwitchPreference(
                 "revanced_hide_buttoned_ads",
                 StringResource("revanced_hide_buttoned_ads_title", "Hide buttoned ad"),
                 StringResource("revanced_hide_buttoned_ads_summary_on", "Buttoned ads are hidden"),
