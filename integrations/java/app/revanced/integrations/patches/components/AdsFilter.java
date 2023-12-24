@@ -1,15 +1,22 @@
 package app.revanced.integrations.patches.components;
 
+import android.app.Instrumentation;
+import android.view.KeyEvent;
 import android.view.View;
-
 import androidx.annotation.Nullable;
-
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.ReVancedUtils;
 import app.revanced.integrations.utils.StringTrieSearch;
 
 @SuppressWarnings("unused")
 public final class AdsFilter extends Filter {
+    // region Fullscreen ad
+    private static long lastTimeClosedFullscreenAd = 0;
+    private static final Instrumentation instrumentation = new Instrumentation();
+    private final StringFilterGroup fullscreenAd;
+
+    // endregion
+
     private final StringTrieSearch exceptions = new StringTrieSearch();
     private final StringFilterGroup shoppingLinks;
 
@@ -24,6 +31,7 @@ public final class AdsFilter extends Filter {
 
         // Identifiers.
 
+
         final var carouselAd = new StringFilterGroup(
                 SettingsEnum.HIDE_GENERAL_ADS,
                 "carousel_ad"
@@ -31,6 +39,11 @@ public final class AdsFilter extends Filter {
         addIdentifierCallbacks(carouselAd);
 
         // Paths.
+
+        fullscreenAd = new StringFilterGroup(
+                SettingsEnum.HIDE_FULLSCREEN_ADS,
+                "fullscreen_ad"
+        );
 
         final var buttonedAd = new StringFilterGroup(
                 SettingsEnum.HIDE_BUTTONED_ADS,
@@ -102,6 +115,7 @@ public final class AdsFilter extends Filter {
                 merchandise,
                 viewProducts,
                 selfSponsor,
+                fullscreenAd,
                 webLinkPanel,
                 shoppingLinks,
                 movieAds
@@ -112,7 +126,11 @@ public final class AdsFilter extends Filter {
     public boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (exceptions.matches(path))
-           return false;
+            return false;
+
+        if (matchedGroup == fullscreenAd && path.contains("|ImageType|")) {
+            closeFullscreenAd();
+        }
 
         // Check for the index because of likelihood of false positives.
         if (matchedGroup == shoppingLinks && contentIndex != 0)
@@ -128,5 +146,20 @@ public final class AdsFilter extends Filter {
      */
     public static void hideAdAttributionView(View view) {
         ReVancedUtils.hideViewBy1dpUnderCondition(SettingsEnum.HIDE_GENERAL_ADS, view);
+    }
+
+    /**
+     * Close the fullscreen ad.
+     * <p>
+     * The strategy is to send a back button event to the app to close the fullscreen ad using the back button event.
+     */
+    private static void closeFullscreenAd() {
+        final var currentTime = System.currentTimeMillis();
+
+        // Prevent spamming the back button.
+        if (currentTime - lastTimeClosedFullscreenAd < 10000) return;
+        lastTimeClosedFullscreenAd = currentTime;
+
+        ReVancedUtils.runOnMainThreadDelayed(() -> instrumentation.sendKeyDownUpSync(KeyEvent.KEYCODE_BACK), 1000);
     }
 }

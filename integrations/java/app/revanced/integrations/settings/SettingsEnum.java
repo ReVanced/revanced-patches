@@ -43,6 +43,7 @@ public enum SettingsEnum {
             "0.25\n0.5\n0.75\n0.9\n0.95\n1.0\n1.05\n1.1\n1.25\n1.5\n1.75\n2.0\n3.0\n4.0\n5.0", true),
 
     // Ads
+    HIDE_FULLSCREEN_ADS("revanced_hide_fullscreen_ads", BOOLEAN, TRUE),
     HIDE_BUTTONED_ADS("revanced_hide_buttoned_ads", BOOLEAN, TRUE),
     HIDE_GENERAL_ADS("revanced_hide_general_ads", BOOLEAN, TRUE),
     HIDE_GET_PREMIUM("revanced_hide_get_premium", BOOLEAN, TRUE),
