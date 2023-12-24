@@ -46,7 +46,7 @@ object SpoofSimCountryPatch : AbstractTransformInstructionsPatch<Pair<Int, Strin
         title,
         "ISO-3166-1 alpha-2 country code equivalent for the SIM provider's country code.",
         false,
-        validator = { it: String? -> it?.uppercase() in countries.keys || it == null }
+        validator = { it: String? -> it == null || it.uppercase() in countries.values }
     )
 
     override fun filterMap(
