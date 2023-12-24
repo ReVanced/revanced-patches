@@ -1,3 +1,10 @@
+# [3.2.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v3.2.0-dev.5...v3.2.0-dev.6) (2023-12-24)
+
+
+### Bug Fixes
+
+* **Spoof SIM country:** Validate patch option value correctly ([8105463](https://github.com/ReVanced/revanced-patches/commit/81054637915a5399d15f546b2290b5d939e15732))
+
 # [3.2.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v3.2.0-dev.4...v3.2.0-dev.5) (2023-12-23)
 
 
