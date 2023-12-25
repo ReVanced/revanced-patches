@@ -41,7 +41,11 @@ object SpoofDeviceDimensionsPatch : BytecodePatch(
                 "revanced_spoof_device_dimensions",
                 StringResource("revanced_spoof_device_dimensions_title", "Spoof device dimensions"),
                 StringResource("revanced_spoof_device_dimensions_summary_on", "Device dimensions spoofed"),
-                StringResource("revanced_spoof_device_dimensions_summary_off", "Device dimensions not spoofed"),
+                StringResource(
+                    "revanced_spoof_device_dimensions_summary_off",
+                    "Device dimensions not spoofed\\n\\n"
+                        + "Spoofing the device dimensions can unlock higher video qualities but unkown side effects may occur"
+                    ),
             )
         )
 
