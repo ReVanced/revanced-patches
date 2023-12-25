@@ -43,6 +43,7 @@ public final class LayoutComponentsFilter extends Filter {
         exceptions.addPatterns(
                 "home_video_with_context",
                 "related_video_with_context",
+                "search_video_with_context",
                 "comment_thread", // Whitelist comments
                 "|comment.", // Whitelist comment replies
                 "library_recent_shelf"
@@ -252,9 +253,12 @@ public final class LayoutComponentsFilter extends Filter {
     @Override
     public boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
-        if (matchedGroup == searchResultVideo)
-            return searchResultRecommendations.check(protobufBufferArray).isFiltered();
-
+        if (matchedGroup == searchResultVideo) {
+            if (searchResultRecommendations.check(protobufBufferArray).isFiltered()) {
+                return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
+            }
+        }
+        
         // The groups are excluded from the filter due to the exceptions list below.
         // Filter them separately here.
         if (matchedGroup == notifyMe || matchedGroup == inFeedSurvey || matchedGroup == expandableMetadata) 
