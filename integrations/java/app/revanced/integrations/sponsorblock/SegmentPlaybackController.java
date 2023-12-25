@@ -510,15 +510,18 @@ public class SegmentPlaybackController {
             SponsorBlockViewController.hideSkipHighlightButton();
             SponsorBlockViewController.hideSkipSegmentButton();
 
-            // If trying to seek to end of the video, YouTube can seek just before of the actual end.
-            // (especially if the video does not end on a whole second boundary).
-            // This causes additional segment skip attempts, even though it cannot seek any closer to the desired time.
-            // Check for and ignore repeated skip attempts of the same segment over a small time period.
             final long now = System.currentTimeMillis();
-            final long minimumMillisecondsBetweenSkippingSameSegment = 500;
-            if ((lastSegmentSkipped == segmentToSkip) && (now - lastSegmentSkippedTime < minimumMillisecondsBetweenSkippingSameSegment)) {
-                LogHelper.printDebug(() -> "Ignoring skip segment request (already skipped as close as possible): " + segmentToSkip);
-                return;
+            if (lastSegmentSkipped == segmentToSkip) {
+                // If trying to seek to end of the video, YouTube can seek just before of the actual end.
+                // (especially if the video does not end on a whole second boundary).
+                // This causes additional segment skip attempts, even though it cannot seek any closer to the desired time.
+                // Check for and ignore repeated skip attempts of the same segment over a small time period.
+                final long minTimeBetweenSkippingSameSegment = Math.max(500,
+                        (long) (500 / VideoInformation.getPlaybackSpeed()));
+                if (now - lastSegmentSkippedTime < minTimeBetweenSkippingSameSegment) {
+                    LogHelper.printDebug(() -> "Ignoring skip segment request (already skipped as close as possible): " + segmentToSkip);
+                    return;
+                }
             }
 
             LogHelper.printDebug(() -> "Skipping segment: " + segmentToSkip);
