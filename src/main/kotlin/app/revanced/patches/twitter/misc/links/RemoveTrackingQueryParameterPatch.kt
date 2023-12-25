@@ -1,12 +1,12 @@
 package app.revanced.patches.twitter.misc.links
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.twitter.misc.links.fingerprints.AddTrackingQueryToLinkFingerprint
+import app.revanced.util.exception
 
 @Patch(
     name = "Remove tracking query parameter",

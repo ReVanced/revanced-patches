@@ -1,8 +1,5 @@
 package app.revanced.patches.twitter.misc.links
 
-import app.revanced.extensions.exception
-import app.revanced.extensions.getReference
-import app.revanced.extensions.indexOfFirstInstruction
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -16,6 +13,9 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.twitter.misc.links.fingerprints.LinkBuilderFingerprint
 import app.revanced.patches.twitter.misc.links.fingerprints.LinkResourceGetterFingerprint
+import app.revanced.util.exception
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.BuilderInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
