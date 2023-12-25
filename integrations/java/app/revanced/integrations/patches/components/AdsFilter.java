@@ -45,7 +45,7 @@ public final class AdsFilter extends Filter {
 
         fullscreenAd = new StringFilterGroup(
                 SettingsEnum.HIDE_FULLSCREEN_ADS,
-                "fullscreen_ad"
+                "_interstitial"
         );
 
         final var buttonedAd = new StringFilterGroup(
