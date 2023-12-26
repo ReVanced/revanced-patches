@@ -300,8 +300,8 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference(
                 "revanced_hide_artist_cards",
                 StringResource("revanced_hide_artist_cards_title", "Hide artist cards"),
-                StringResource("revanced_hide_artist_cards_on", "Artist cards is hidden"),
-                StringResource("revanced_hide_artist_cards_off", "Artist cards is shown")
+                StringResource("revanced_hide_artist_cards_on", "Artist cards are hidden"),
+                StringResource("revanced_hide_artist_cards_off", "Artist cards are shown")
             ),
             SwitchPreference(
                 "revanced_hide_chips_shelf",
