@@ -45,11 +45,11 @@ object HideGetPremiumPatch : BytecodePatch(setOf(GetPremiumViewFingerprint)) {
                 ),
                 StringResource(
                     "revanced_hide_get_premium_summary_on",
-                    "YouTube Premium promotions under video player is hidden"
+                    "YouTube Premium promotions under video player are hidden"
                 ),
                 StringResource(
                     "revanced_hide_get_premium_summary_off",
-                    "YouTube Premium promotions under video player is shown"
+                    "YouTube Premium promotions under video player are shown"
                 )
             )
         )
