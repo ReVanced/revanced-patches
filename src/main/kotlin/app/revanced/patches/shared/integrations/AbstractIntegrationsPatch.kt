@@ -15,7 +15,7 @@ abstract class AbstractIntegrationsPatch(
 ) : BytecodePatch(hooks) {
 
     @Deprecated(
-        "Use the constructor withouth the integrationsDescriptor parameter",
+        "Use the constructor without the integrationsDescriptor parameter",
         ReplaceWith("AbstractIntegrationsPatch(hooks)")
     )
     @Suppress("UNUSED_PARAMETER")
