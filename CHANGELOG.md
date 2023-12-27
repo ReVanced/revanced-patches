@@ -1,3 +1,10 @@
+# [3.2.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v3.2.0-dev.7...v3.2.0-dev.8) (2023-12-26)
+
+
+### Bug Fixes
+
+* **YouTube:** Fix grammer mistakes in patch descriptions ([#2543](https://github.com/ReVanced/revanced-patches/issues/2543)) ([ebf5993](https://github.com/ReVanced/revanced-patches/commit/ebf599349c508067a28526267d82030b679df045))
+
 # [3.2.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v3.2.0-dev.6...v3.2.0-dev.7) (2023-12-24)
 
 
