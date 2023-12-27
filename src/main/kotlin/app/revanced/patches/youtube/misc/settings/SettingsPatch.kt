@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.misc.settings
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -13,6 +12,7 @@ import app.revanced.patches.shared.settings.util.AbstractPreferenceScreen
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.fingerprints.LicenseActivityFingerprint
 import app.revanced.patches.youtube.misc.settings.fingerprints.SetThemeFingerprint
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.util.MethodUtil
@@ -27,7 +27,7 @@ object SettingsPatch : BytecodePatch(
 ), Closeable {
     private const val INTEGRATIONS_PACKAGE = "app/revanced/integrations/youtube"
     private const val SETTINGS_ACTIVITY_DESCRIPTOR = "L$INTEGRATIONS_PACKAGE/settingsmenu/ReVancedSettingActivity;"
-    private const val THEME_HELPER_DESCRIPTOR = "L$INTEGRATIONS_PACKAGE/utils/ThemeHelper;"
+    private const val THEME_HELPER_DESCRIPTOR = "L$INTEGRATIONS_PACKAGE/ThemeHelper;"
     private const val SET_THEME_METHOD_NAME = "setTheme"
 
     override fun execute(context: BytecodeContext) {

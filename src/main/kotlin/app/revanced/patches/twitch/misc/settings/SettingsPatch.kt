@@ -1,6 +1,5 @@
 package app.revanced.patches.twitch.misc.settings
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -20,6 +19,7 @@ import app.revanced.patches.twitch.misc.settings.fingerprints.MenuGroupsOnClickF
 import app.revanced.patches.twitch.misc.settings.fingerprints.MenuGroupsUpdatedFingerprint
 import app.revanced.patches.twitch.misc.settings.fingerprints.SettingsActivityOnCreateFingerprint
 import app.revanced.patches.twitch.misc.settings.fingerprints.SettingsMenuItemEnumFingerprint
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import java.io.Closeable
@@ -51,7 +51,7 @@ object SettingsPatch : BytecodePatch(
 
     private const val INTEGRATIONS_PACKAGE = "app/revanced/integrations/twitch"
     private const val SETTINGS_HOOKS_CLASS = "L$INTEGRATIONS_PACKAGE/settingsmenu/SettingsHooks;"
-    private const val REVANCED_UTILS_CLASS = "L$INTEGRATIONS_PACKAGE/utils/ReVancedUtils;"
+    private const val UTILS_CLASS = "L$INTEGRATIONS_PACKAGE/Utils;"
 
     override fun execute(context: BytecodeContext) {
         // Hook onCreate to handle fragment creation
@@ -144,10 +144,10 @@ object SettingsPatch : BytecodePatch(
             """   
                 new-instance        v0, $MENU_ITEM_ENUM_CLASS
                 const-string        v1, "$titleResourceName"
-                invoke-static       {v1}, $REVANCED_UTILS_CLASS->getStringId(Ljava/lang/String;)I
+                invoke-static       {v1}, $UTILS_CLASS->getStringId(Ljava/lang/String;)I
                 move-result         v1
                 const-string        v3, "$iconResourceName"
-                invoke-static       {v3}, $REVANCED_UTILS_CLASS->getDrawableId(Ljava/lang/String;)I
+                invoke-static       {v3}, $UTILS_CLASS->getDrawableId(Ljava/lang/String;)I
                 move-result         v3
                 const-string        v4, "$name"
                 const/4             v5, $value
