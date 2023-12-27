@@ -130,6 +130,11 @@ public final class LayoutComponentsFilter extends Filter {
                 "channel_guidelines_entry_banner"
         );
 
+        final var emergencyBox = new StringFilterGroup(
+                SettingsEnum.HIDE_EMERGENCY_BOX,
+                "emergency_onebox"
+        );
+
         // The player audio track button does the exact same function as the audio track flyout menu option.
         // But if the copy url button is shown, these button clashes and the the audio button does not work.
         // Previously this was a setting to show/hide the player button.
@@ -239,6 +244,7 @@ public final class LayoutComponentsFilter extends Filter {
                 medicalPanel,
                 videoQualityMenuFooter,
                 infoPanel,
+                emergencyBox,
                 subscribersCommunityGuidelines,
                 channelGuidelines,
                 audioTrackButton,
@@ -258,10 +264,10 @@ public final class LayoutComponentsFilter extends Filter {
                 return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
             }
         }
-        
+
         // The groups are excluded from the filter due to the exceptions list below.
         // Filter them separately here.
-        if (matchedGroup == notifyMe || matchedGroup == inFeedSurvey || matchedGroup == expandableMetadata) 
+        if (matchedGroup == notifyMe || matchedGroup == inFeedSurvey || matchedGroup == expandableMetadata)
             return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
 
         if (matchedGroup != custom && exceptions.matches(path))
