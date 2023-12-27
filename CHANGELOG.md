@@ -1,3 +1,11 @@
+# [3.2.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v3.2.0-dev.8...v3.2.0-dev.9) (2023-12-27)
+
+
+### Features
+
+* **YouTube - Theme:** Add classic dark color to presets ([#2542](https://github.com/ReVanced/revanced-patches/issues/2542)) ([4e1dc00](https://github.com/ReVanced/revanced-patches/commit/4e1dc0041d6693fba08e78514787407f933a6e41))
+* **YouTube:** Add `Remove viewer discretion dialog` patch ([a07f83f](https://github.com/ReVanced/revanced-patches/commit/a07f83fe89ce577fc8bd904eacad5383a639b09b))
+
 # [3.2.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v3.2.0-dev.7...v3.2.0-dev.8) (2023-12-26)
 
 
