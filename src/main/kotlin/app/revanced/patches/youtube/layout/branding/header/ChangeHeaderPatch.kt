@@ -22,7 +22,7 @@ object ChangeHeaderPatch : ResourcePatch() {
     private const val HEADER_NAME = "yt_wordmark_header"
     private const val PREMIUM_HEADER_NAME = "yt_premium_wordmark_header"
     private const val REVANCED_HEADER_NAME = "ReVanced"
-    private const val REVANCED_MINIMAL_HEADER_NAME = "ReVanced minimal"
+    private const val REVANCED_BORDERLESS_HEADER_NAME = "ReVanced (borderless logo)"
 
     private val targetResourceDirectoryNames = arrayOf(
         "xxxhdpi",
@@ -38,12 +38,12 @@ object ChangeHeaderPatch : ResourcePatch() {
 
     private val header by stringPatchOption(
         key = "header",
-        default = "ReVanced minimal",
+        default = "ReVanced (borderless logo)",
         values = mapOf(
             "YouTube" to HEADER_NAME,
             "YouTube Premium" to PREMIUM_HEADER_NAME,
             "ReVanced" to REVANCED_HEADER_NAME,
-            "ReVanced minimal" to REVANCED_MINIMAL_HEADER_NAME,
+            "ReVanced (borderless logo)" to REVANCED_BORDERLESS_HEADER_NAME,
         ),
         title = "Header",
         description = """
@@ -92,7 +92,7 @@ object ChangeHeaderPatch : ResourcePatch() {
         }
         val toReVancedMinimal = {
             // Copy the ReVanced header to the resource directories.
-            targetResourceFiles.forEach { context.copyResources("change-header/revanced-minimal", it) }
+            targetResourceFiles.forEach { context.copyResources("change-header/revanced-borderless", it) }
 
             // Overwrite the premium with the custom header as well.
             toHeader()
@@ -123,7 +123,7 @@ object ChangeHeaderPatch : ResourcePatch() {
             HEADER_NAME -> toHeader
             PREMIUM_HEADER_NAME -> toPremium
             REVANCED_HEADER_NAME -> toReVanced
-            REVANCED_MINIMAL_HEADER_NAME -> toReVancedMinimal
+            REVANCED_BORDERLESS_HEADER_NAME -> toReVancedMinimal
             else -> toCustom
         }()
     }
