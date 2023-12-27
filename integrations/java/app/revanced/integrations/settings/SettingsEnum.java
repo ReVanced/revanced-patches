@@ -209,6 +209,8 @@ public enum SettingsEnum {
     ANNOUNCEMENT_CONSUMER("revanced_announcement_consumer", STRING, ""),
     ANNOUNCEMENT_LAST_HASH("revanced_announcement_last_hash", STRING, ""),
     REMOVE_TRACKING_QUERY_PARAMETER("revanced_remove_tracking_query_parameter", BOOLEAN, TRUE),
+    REMOVE_VIEWER_DISCRETION_DIALOG("revanced_remove_viewer_discretion_dialog", BOOLEAN, FALSE,
+            "revanced_remove_viewer_discretion_dialog_user_dialog_message"),
 
     // Swipe controls
     SWIPE_BRIGHTNESS("revanced_swipe_brightness", BOOLEAN, TRUE),
