@@ -16,7 +16,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch(
     name = "Remove viewer discretion dialog",
-    description = "Removes the dialog that appears when you try to watch a video that has been age-restricted " +
+    description = "Adds an option to remove the dialog that appears when opening a video that has been age-restricted " +
             "by accepting it automatically. This does not bypass the age restriction.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
@@ -51,7 +51,7 @@ object RemoveViewerDiscretionDialogPatch : BytecodePatch(
                 ),
                 StringResource(
                     "revanced_remove_viewer_discretion_dialog_user_dialog_message",
-                    "This does not bypass the age restriction, it just accepts it automatically."
+                    "This does not bypass the age restriction. It just accepts it automatically."
                 )
             )
         )
