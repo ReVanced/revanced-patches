@@ -1,3 +1,10 @@
+# [3.3.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v3.2.0...v3.3.0-dev.1) (2023-12-28)
+
+
+### Features
+
+* **ID Austria:** Remove constraint on any version ([#2526](https://github.com/ReVanced/revanced-patches/issues/2526)) ([de2cb88](https://github.com/ReVanced/revanced-patches/commit/de2cb886169b3963b9ed70154bde0b7c6baaae40))
+
 # [3.2.0](https://github.com/ReVanced/revanced-patches/compare/v3.1.0...v3.2.0) (2023-12-28)
 
 
