@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.layout.hide.general
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -18,6 +17,7 @@ import app.revanced.patches.youtube.layout.hide.general.fingerprints.ShowWaterma
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch.PreferenceScreen
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -92,6 +92,21 @@ object HideLayoutComponentsPatch : BytecodePatch(
                 StringResource("revanced_hide_timed_reactions_title", "Hide timed reactions"),
                 StringResource("revanced_hide_timed_reactions_summary_on", "Timed reactions are hidden"),
                 StringResource("revanced_hide_timed_reactions_summary_off", "Timed reactions are shown")
+            ),
+            SwitchPreference(
+                "revanced_hide_search_result_recommendations",
+                StringResource(
+                    "revanced_hide_search_result_recommendations_title",
+                    "Hide search result recommendations (e.g People also watched)"
+                ),
+                StringResource(
+                    "revanced_hide_search_result_recommendations_summary_on",
+                    "Recommendations are hidden"
+                ),
+                StringResource(
+                    "revanced_hide_search_result_recommendations_summary_off",
+                    "Recommendations are shown"
+                )
             ),
             SwitchPreference(
                 "revanced_hide_search_result_shelf_header",
@@ -285,8 +300,8 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference(
                 "revanced_hide_artist_cards",
                 StringResource("revanced_hide_artist_cards_title", "Hide artist cards"),
-                StringResource("revanced_hide_artist_cards_on", "Artist cards is hidden"),
-                StringResource("revanced_hide_artist_cards_off", "Artist cards is shown")
+                StringResource("revanced_hide_artist_cards_on", "Artist cards are hidden"),
+                StringResource("revanced_hide_artist_cards_off", "Artist cards are shown")
             ),
             SwitchPreference(
                 "revanced_hide_chips_shelf",

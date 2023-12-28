@@ -1,7 +1,7 @@
 import org.gradle.kotlin.dsl.support.listFilesOrdered
 
 plugins {
-    kotlin("jvm") version "1.9.10"
+    kotlin("jvm") version "1.9.21"
     alias(libs.plugins.binary.compatibility.validator)
     `maven-publish`
 }
@@ -49,7 +49,7 @@ tasks.withType(Jar::class) {
 
 tasks {
     register<DefaultTask>("generateBundle") {
-        description = "Generate dex files from build and bundle them in the jar file"
+        description = "Generate DEX files and add them in the JAR file"
 
         dependsOn(build)
 

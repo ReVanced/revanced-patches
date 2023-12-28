@@ -1,3 +1,74 @@
+# [3.2.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v3.2.0-dev.8...v3.2.0-dev.9) (2023-12-27)
+
+
+### Features
+
+* **YouTube - Theme:** Add classic dark color to presets ([#2542](https://github.com/ReVanced/revanced-patches/issues/2542)) ([4e1dc00](https://github.com/ReVanced/revanced-patches/commit/4e1dc0041d6693fba08e78514787407f933a6e41))
+* **YouTube:** Add `Remove viewer discretion dialog` patch ([a07f83f](https://github.com/ReVanced/revanced-patches/commit/a07f83fe89ce577fc8bd904eacad5383a639b09b))
+
+# [3.2.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v3.2.0-dev.7...v3.2.0-dev.8) (2023-12-26)
+
+
+### Bug Fixes
+
+* **YouTube:** Fix grammer mistakes in patch descriptions ([#2543](https://github.com/ReVanced/revanced-patches/issues/2543)) ([ebf5993](https://github.com/ReVanced/revanced-patches/commit/ebf599349c508067a28526267d82030b679df045))
+
+# [3.2.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v3.2.0-dev.6...v3.2.0-dev.7) (2023-12-24)
+
+
+### Features
+
+* **YouTube - Hide ads:** Hide fullscreen ads ([bdc9a12](https://github.com/ReVanced/revanced-patches/commit/bdc9a129eff3a5051b8b37665b3243a8b61cbbac))
+* **YouTube - Hide layout components:** Hide search result recommendations ([55cc7f1](https://github.com/ReVanced/revanced-patches/commit/55cc7f1c7722f56af6d33ea2bd09a1b99d635209))
+
+# [3.2.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v3.2.0-dev.5...v3.2.0-dev.6) (2023-12-24)
+
+
+### Bug Fixes
+
+* **Spoof SIM country:** Validate patch option value correctly ([8105463](https://github.com/ReVanced/revanced-patches/commit/81054637915a5399d15f546b2290b5d939e15732))
+
+# [3.2.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v3.2.0-dev.4...v3.2.0-dev.5) (2023-12-23)
+
+
+### Bug Fixes
+
+* **YouTube - Alternative thumbnails:** Clarify DeArrow support is for thumbnails ([#2531](https://github.com/ReVanced/revanced-patches/issues/2531)) ([828abb0](https://github.com/ReVanced/revanced-patches/commit/828abb0558926cd6557c79abcf1a04bfe2c719e6))
+
+# [3.2.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v3.2.0-dev.3...v3.2.0-dev.4) (2023-12-21)
+
+
+### Bug Fixes
+
+* **Tiktok - Remember clear display:** Use correct name ([d7e44cb](https://github.com/ReVanced/revanced-patches/commit/d7e44cb887396bba27ee81c70c006f0cc247c56d))
+
+# [3.2.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v3.2.0-dev.2...v3.2.0-dev.3) (2023-12-21)
+
+
+### Features
+
+* **Tiktok:** Add `Remember clear mode` patch ([#2509](https://github.com/ReVanced/revanced-patches/issues/2509)) ([048bf59](https://github.com/ReVanced/revanced-patches/commit/048bf592ef93ee5138aa1886be1644501f88964a))
+
+# [3.2.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v3.2.0-dev.1...v3.2.0-dev.2) (2023-12-19)
+
+
+### Features
+
+* **Public API:** Deprecate `HideEmailAddressPatch` ([866bceb](https://github.com/ReVanced/revanced-patches/commit/866bcebdd990b964d3dfd5aea792e7fffaedbf44))
+* **YouTube:** Remove `Hide email address` patch ([3b84305](https://github.com/ReVanced/revanced-patches/commit/3b84305a6b97800cb147f86c642f19689548aca5))
+
+# [3.2.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v3.1.0...v3.2.0-dev.1) (2023-12-18)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Export local statistics with saved settings ([f8365b4](https://github.com/ReVanced/revanced-patches/commit/f8365b4e3585328506887022ac6168045ac110b9))
+
+
+### Features
+
+* **Public API:** Make `BottomControlsResource#addControls` public ([#2514](https://github.com/ReVanced/revanced-patches/issues/2514)) ([f4e2257](https://github.com/ReVanced/revanced-patches/commit/f4e2257072ca02003f7c272d6c0c8ef1aa6032ae))
+
 # [3.1.0](https://github.com/ReVanced/revanced-patches/compare/v3.0.1...v3.1.0) (2023-12-12)
 
 
