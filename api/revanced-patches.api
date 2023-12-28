@@ -818,6 +818,12 @@ public final class app/revanced/patches/tiktok/feedfilter/FeedFilterPatch : app/
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/tiktok/interaction/cleardisplay/RememberClearDisplayPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/tiktok/interaction/cleardisplay/RememberClearDisplayPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/tiktok/interaction/downloads/DownloadsPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/tiktok/interaction/downloads/DownloadsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -1078,6 +1084,12 @@ public final class app/revanced/patches/youtube/ad/video/VideoAdsPatch : app/rev
 
 public final class app/revanced/patches/youtube/interaction/copyvideourl/CopyVideoUrlBytecodePatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/interaction/copyvideourl/CopyVideoUrlBytecodePatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/youtube/interaction/dialog/RemoveViewerDiscretionDialogPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/interaction/dialog/RemoveViewerDiscretionDialogPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -1464,6 +1476,7 @@ public final class app/revanced/patches/youtube/misc/minimizedplayback/Minimized
 
 public final class app/revanced/patches/youtube/misc/playercontrols/BottomControlsResourcePatch : app/revanced/patcher/patch/ResourcePatch, java/io/Closeable {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/playercontrols/BottomControlsResourcePatch;
+	public final fun addControls (Ljava/lang/String;)V
 	public fun close ()V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V

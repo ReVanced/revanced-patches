@@ -28,30 +28,39 @@ internal object CopyVideoUrlResourcePatch : ResourcePatch() {
                     SwitchPreference(
                         "revanced_copy_video_url",
                         StringResource("revanced_copy_video_url_title", "Show copy video URL button"),
-                        StringResource("revanced_copy_video_url_summary_on", "Button is shown. Tap to copy video URL. Tap and hold to copy video URL with timestamp"),
+                        StringResource(
+                            "revanced_copy_video_url_summary_on",
+                            "Button is shown. Tap to copy video URL. Tap and hold to copy video URL with timestamp"
+                        ),
                         StringResource("revanced_copy_video_url_summary_off", "Button is not shown")
                     ),
                     SwitchPreference(
                         "revanced_copy_video_url_timestamp",
                         StringResource("revanced_copy_video_url_timestamp_title", "Show copy timestamp URL button"),
-                        StringResource("revanced_copy_video_url_timestamp_summary_on", "Button is shown.  Tap to copy video URL with timestamp. Tap and hold to copy video without timestamp"),
+                        StringResource(
+                            "revanced_copy_video_url_timestamp_summary_on",
+                            "Button is shown.  Tap to copy video URL with timestamp. Tap and hold to copy video without timestamp"
+                        ),
                         StringResource("revanced_copy_video_url_timestamp_summary_off", "Button is not shown")
                     )
                 ),
-                StringResource("revanced_copy_video_url_preference_screen_summary", "Settings related to copy URL buttons in video player")
+                StringResource(
+                    "revanced_copy_video_url_preference_screen_summary",
+                    "Settings related to copy URL buttons in video player"
+                )
             )
         )
 
-        context.copyResources("copyvideourl", ResourceGroup(
-            resourceDirectoryName = "drawable",
-            "revanced_yt_copy.xml",
-            "revanced_yt_copy_timestamp.xml"
-        )
+        context.copyResources(
+            "copyvideourl", ResourceGroup(
+                resourceDirectoryName = "drawable",
+                "revanced_yt_copy.xml",
+                "revanced_yt_copy_timestamp.xml"
+            )
         )
 
-        // merge strings
         context.mergeStrings("copyvideourl/host/values/strings.xml")
 
-        BottomControlsResourcePatch.addControls("copyvideourl/host/layout/${BottomControlsResourcePatch.TARGET_RESOURCE_NAME}")
+        BottomControlsResourcePatch.addControls("copyvideourl")
     }
 }

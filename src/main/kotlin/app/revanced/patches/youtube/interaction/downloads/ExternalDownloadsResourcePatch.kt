@@ -28,27 +28,35 @@ internal object ExternalDownloadsResourcePatch : ResourcePatch() {
                         "revanced_external_downloader",
                         StringResource("revanced_external_downloader_title", "Show external download button"),
                         StringResource("revanced_external_downloader_summary_on", "Download button shown in player"),
-                        StringResource("revanced_external_downloader_summary_off", "Download button not shown in player")
+                        StringResource(
+                            "revanced_external_downloader_summary_off",
+                            "Download button not shown in player"
+                        )
                     ),
                     TextPreference(
                         "revanced_external_downloader_name",
                         StringResource("revanced_external_downloader_name_title", "Downloader package name"),
-                        StringResource("revanced_external_downloader_name_summary", "Package name of your installed external downloader app, such as NewPipe or Seal"),
+                        StringResource(
+                            "revanced_external_downloader_name_summary",
+                            "Package name of your installed external downloader app, such as NewPipe or Seal"
+                        ),
                         InputType.TEXT
                     )
                 ),
-                StringResource("revanced_external_downloader_preference_screen_summary", "Settings for using an external downloader")
+                StringResource(
+                    "revanced_external_downloader_preference_screen_summary",
+                    "Settings for using an external downloader"
+                )
             )
         )
 
-
-        // Copy strings
         context.mergeStrings("downloads/host/values/strings.xml")
 
-        // Copy resources
-        context.copyResources("downloads", ResourceGroup("drawable", "revanced_yt_download_button.xml"))
+        context.copyResources(
+            "downloads",
+            ResourceGroup("drawable", "revanced_yt_download_button.xml")
+        )
 
-        // Add download button node
-        BottomControlsResourcePatch.addControls("downloads/host/layout/${BottomControlsResourcePatch.TARGET_RESOURCE_NAME}")
+        BottomControlsResourcePatch.addControls("downloads")
     }
 }
