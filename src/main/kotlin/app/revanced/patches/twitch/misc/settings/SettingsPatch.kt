@@ -110,8 +110,6 @@ object SettingsPatch : BytecodePatch(
         }  ?: throw MenuGroupsOnClickFingerprint.exception
 
         addString("revanced_settings", "ReVanced Settings", false)
-        addString("revanced_reboot_message", "Twitch needs to restart to apply your changes. Restart now?", false)
-        addString("revanced_reboot", "Restart", false)
 
         PreferenceScreen.MISC.OTHER.addPreferences(
             SwitchPreference(
