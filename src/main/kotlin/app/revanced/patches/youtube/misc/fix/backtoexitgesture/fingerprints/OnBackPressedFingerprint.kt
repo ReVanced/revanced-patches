@@ -12,7 +12,7 @@ internal object OnBackPressedFingerprint : MethodFingerprint(
         Opcode.RETURN_VOID
     ),
     customFingerprint = { methodDef, _ ->
-        methodDef.definingClass.endsWith("WatchWhileActivity;")
+        methodDef.definingClass.endsWith("MainActivity;")
         && methodDef.name == "onBackPressed"
     }
 )
