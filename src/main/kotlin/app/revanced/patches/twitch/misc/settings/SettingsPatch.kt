@@ -13,6 +13,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMut
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.settings.preference.impl.PreferenceCategory
 import app.revanced.patches.shared.settings.preference.impl.StringResource
+import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.shared.settings.util.AbstractPreferenceScreen
 import app.revanced.patches.twitch.misc.integrations.IntegrationsPatch
 import app.revanced.patches.twitch.misc.settings.fingerprints.MenuGroupsOnClickFingerprint
@@ -111,6 +112,15 @@ object SettingsPatch : BytecodePatch(
         addString("revanced_settings", "ReVanced Settings", false)
         addString("revanced_reboot_message", "Twitch needs to restart to apply your changes. Restart now?", false)
         addString("revanced_reboot", "Restart", false)
+
+        PreferenceScreen.MISC.OTHER.addPreferences(
+            SwitchPreference(
+                "revanced_debug",
+                StringResource("revanced_debug_title", "Debug logging"),
+                StringResource("revanced_debug_summary_on", "Debug logs are enabled"),
+                StringResource("revanced_debug_summary_off", "Debug logs are disabled")
+            ),
+        )
     }
 
     fun addString(identifier: String, value: String, formatted: Boolean = true) =
