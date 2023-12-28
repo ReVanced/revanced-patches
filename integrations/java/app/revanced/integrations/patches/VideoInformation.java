@@ -32,6 +32,7 @@ public final class VideoInformation {
 
     @NonNull
     private static volatile String playerResponseVideoId = "";
+    private static volatile boolean playerResponseVideoIdIsShort;
     private static volatile boolean videoIdIsShort;
 
     /**
@@ -82,6 +83,7 @@ public final class VideoInformation {
      */
     public static String newPlayerResponseSignature(@NonNull String signature, boolean isShortAndOpeningOrPlaying) {
         final boolean isShort = playerParametersAreShort(signature);
+        playerResponseVideoIdIsShort = isShort;
         if (!isShort || isShortAndOpeningOrPlaying) {
             if (videoIdIsShort != isShort) {
                 videoIdIsShort = isShort;
@@ -155,20 +157,29 @@ public final class VideoInformation {
      * Caution: If called from a videoTimeHook() callback,
      * this will cause a recursive call into the same videoTimeHook() callback.
      *
-     * @param millisecond The millisecond to seek the video to.
+     * @param seekTime The seekTime to seek the video to.
      * @return true if the seek was successful.
      */
-    public static boolean seekTo(final long millisecond) {
-        final long videoLength = getVideoLength();
-
-        // Prevent issues such as play/ pause button or autoplay not working.
-        final long seekToMilliseconds = Math.min(millisecond, VideoInformation.getVideoLength() - 250);
-
+    public static boolean seekTo(final long seekTime) {
         ReVancedUtils.verifyOnMainThread();
         try {
-            LogHelper.printDebug(() -> "Seeking to " + seekToMilliseconds);
+            final long videoTime = getVideoTime();
+            final long videoLength = getVideoLength();
+
+            // Prevent issues such as play/ pause button or autoplay not working.
+            final long adjustedSeekTime = Math.min(seekTime, videoLength - 250);
+            if (videoTime <= seekTime && videoTime >= adjustedSeekTime) {
+                // Both the current video time and the seekTo are in the last 250ms of the video.
+                // Ignore this seek call, otherwise if a video ends with multiple closely timed segments
+                // then seeking here can create an infinite loop of skip attempts.
+                LogHelper.printDebug(() -> "Ignoring seekTo call as video playback is almost finished. "
+                        + " videoTime: " + videoTime + " videoLength: " + videoLength + " seekTo: " + seekTime);
+                return false;
+            }
+
+            LogHelper.printDebug(() -> "Seeking to " + adjustedSeekTime);
             //noinspection DataFlowIssue
-            return (Boolean) seekMethod.invoke(playerControllerRef.get(), seekToMilliseconds);
+            return (Boolean) seekMethod.invoke(playerControllerRef.get(), adjustedSeekTime);
         } catch (Exception ex) {
             LogHelper.printException(() -> "Failed to seek", ex);
             return false;
@@ -207,10 +218,16 @@ public final class VideoInformation {
     }
 
     /**
+     * @return If the last player response video id was a Short.
+     * Includes Shorts shelf items appearing in the feed that are not opened.
+     * @see #lastVideoIdIsShort()
+     */
+    public static boolean lastPlayerResponseIsShort() {
+        return playerResponseVideoIdIsShort;
+    }
+
+    /**
      * @return If the last player response video id _that was opened_ was a Short.
-     * <p>
-     * Note: This value returned may not match the status of  {@link #getPlayerResponseVideoId()}
-     * since that includes player responses for videos not opened.
      */
     public static boolean lastVideoIdIsShort() {
         return videoIdIsShort;

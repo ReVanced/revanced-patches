@@ -71,21 +71,21 @@ public final class ReturnYouTubeDislikeFilterPatch extends Filter {
     private final ByteArrayFilterGroupList videoIdFilterGroup = new ByteArrayFilterGroupList();
 
     public ReturnYouTubeDislikeFilterPatch() {
-        pathFilterGroupList.addAll(
+        addPathCallbacks(
                 new StringFilterGroup(SettingsEnum.RYD_SHORTS, "|shorts_dislike_button.eml|")
         );
         // After the dislikes icon name is some binary data and then the video id for that specific short.
         videoIdFilterGroup.addAll(
                 // Video was previously disliked before video was opened.
-                new ByteArrayAsStringFilterGroup(null, "ic_right_dislike_on_shadowed"),
+                new ByteArrayFilterGroup(null, "ic_right_dislike_on_shadowed"),
                 // Video was not already disliked.
-                new ByteArrayAsStringFilterGroup(null, "ic_right_dislike_off_shadowed")
+                new ByteArrayFilterGroup(null, "ic_right_dislike_off_shadowed")
         );
     }
 
     @Override
     public boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
-                              FilterGroupList matchedList, FilterGroup matchedGroup, int matchedIndex) {
+                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         FilterGroup.FilterGroupResult result = videoIdFilterGroup.check(protobufBufferArray);
         if (result.isFiltered()) {
             String matchedVideoId = findVideoId(protobufBufferArray);
@@ -112,7 +112,7 @@ public final class ReturnYouTubeDislikeFilterPatch extends Filter {
     }
 
     /**
-     * This could use {@link TrieSearch}, but since the video ids are constantly changing
+     * This could use {@link TrieSearch}, but since the patterns are constantly changing
      * the overhead of updating the Trie might negate the search performance gain.
      */
     private static boolean byteArrayContainsString(@NonNull byte[] array, @NonNull String text) {

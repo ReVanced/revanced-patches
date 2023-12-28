@@ -1,24 +1,26 @@
 package app.revanced.integrations.patches.components;
 
-
 import android.os.Build;
+
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.utils.LogHelper;
 import app.revanced.integrations.utils.StringTrieSearch;
 
+@SuppressWarnings("unused")
 @RequiresApi(api = Build.VERSION_CODES.N)
 public final class LayoutComponentsFilter extends Filter {
     private final StringTrieSearch exceptions = new StringTrieSearch();
     private static final StringTrieSearch mixPlaylistsExceptions = new StringTrieSearch();
-    private static final ByteArrayAsStringFilterGroup mixPlaylistsExceptions2 = new ByteArrayAsStringFilterGroup(
+    private static final ByteArrayFilterGroup mixPlaylistsExceptions2 = new ByteArrayFilterGroup(
             null,
             "cell_description_body"
     );
     private final CustomFilterGroup custom;
 
-    private static final ByteArrayAsStringFilterGroup mixPlaylists = new ByteArrayAsStringFilterGroup(
+    private static final ByteArrayFilterGroup mixPlaylists = new ByteArrayFilterGroup(
             SettingsEnum.HIDE_MIX_PLAYLISTS,
             "&list="
     );
@@ -26,6 +28,8 @@ public final class LayoutComponentsFilter extends Filter {
     private final StringFilterGroup inFeedSurvey;
     private final StringFilterGroup notifyMe;
     private final StringFilterGroup expandableMetadata;
+    private final ByteArrayFilterGroup searchResultRecommendations;
+    private final StringFilterGroup searchResultVideo;
 
     static {
         mixPlaylistsExceptions.addPatterns(
@@ -39,10 +43,30 @@ public final class LayoutComponentsFilter extends Filter {
         exceptions.addPatterns(
                 "home_video_with_context",
                 "related_video_with_context",
+                "search_video_with_context",
                 "comment_thread", // Whitelist comments
                 "|comment.", // Whitelist comment replies
                 "library_recent_shelf"
         );
+
+        // Identifiers.
+
+        final var graySeparator = new StringFilterGroup(
+                SettingsEnum.HIDE_GRAY_SEPARATOR,
+                "cell_divider" // layout residue (gray line above the buttoned ad),
+        );
+
+        final var chipsShelf = new StringFilterGroup(
+                SettingsEnum.HIDE_CHIPS_SHELF,
+                "chips_shelf"
+        );
+
+        addIdentifierCallbacks(
+                graySeparator,
+                chipsShelf
+        );
+
+        // Paths.
 
         custom = new CustomFilterGroup(
                 SettingsEnum.CUSTOM_FILTER,
@@ -63,7 +87,6 @@ public final class LayoutComponentsFilter extends Filter {
                 SettingsEnum.HIDE_SUBSCRIBERS_COMMUNITY_GUIDELINES,
                 "sponsorships_comments_upsell"
         );
-
 
         final var channelMemberShelf = new StringFilterGroup(
                 SettingsEnum.HIDE_CHANNEL_MEMBER_SHELF,
@@ -105,6 +128,11 @@ public final class LayoutComponentsFilter extends Filter {
         final var channelGuidelines = new StringFilterGroup(
                 SettingsEnum.HIDE_HIDE_CHANNEL_GUIDELINES,
                 "channel_guidelines_entry_banner"
+        );
+
+        final var emergencyBox = new StringFilterGroup(
+                SettingsEnum.HIDE_EMERGENCY_BOX,
+                "emergency_onebox"
         );
 
         // The player audio track button does the exact same function as the audio track flyout menu option.
@@ -155,10 +183,6 @@ public final class LayoutComponentsFilter extends Filter {
                 "image_shelf"
         );
 
-        final var graySeparator = new StringFilterGroup(
-                SettingsEnum.HIDE_GRAY_SEPARATOR,
-                "cell_divider" // layout residue (gray line above the buttoned ad),
-        );
 
         final var timedReactions = new StringFilterGroup(
                 SettingsEnum.HIDE_TIMED_REACTIONS,
@@ -181,11 +205,6 @@ public final class LayoutComponentsFilter extends Filter {
                 "compact_sponsor_button"
         );
 
-        final var chipsShelf = new StringFilterGroup(
-                SettingsEnum.HIDE_CHIPS_SHELF,
-                "chips_shelf"
-        );
-
         final var channelWatermark = new StringFilterGroup(
                 SettingsEnum.HIDE_VIDEO_CHANNEL_WATERMARK,
                 "featured_channel_watermark_overlay"
@@ -196,23 +215,36 @@ public final class LayoutComponentsFilter extends Filter {
                 "mixed_content_shelf"
         );
 
-        this.pathFilterGroupList.addAll(
+        searchResultVideo = new StringFilterGroup(
+                SettingsEnum.HIDE_SEARCH_RESULT_RECOMMENDATIONS,
+                "search_video_with_context.eml"
+        );
+
+        searchResultRecommendations = new ByteArrayFilterGroup(
+                SettingsEnum.HIDE_SEARCH_RESULT_RECOMMENDATIONS,
+                "endorsement_header_footer"
+        );
+
+        addPathCallbacks(
+                custom,
+                expandableMetadata,
+                inFeedSurvey,
+                notifyMe,
                 channelBar,
                 communityPosts,
                 paidContent,
+                searchResultVideo,
                 latestPosts,
                 channelWatermark,
                 communityGuidelines,
                 quickActions,
-                expandableMetadata,
                 relatedVideos,
                 compactBanner,
-                inFeedSurvey,
                 joinMembership,
                 medicalPanel,
-                notifyMe,
                 videoQualityMenuFooter,
                 infoPanel,
+                emergencyBox,
                 subscribersCommunityGuidelines,
                 channelGuidelines,
                 audioTrackButton,
@@ -220,32 +252,31 @@ public final class LayoutComponentsFilter extends Filter {
                 timedReactions,
                 imageShelf,
                 channelMemberShelf,
-                forYouShelf,
-                custom
-        );
-
-        this.identifierFilterGroupList.addAll(
-                graySeparator,
-                chipsShelf
+                forYouShelf
         );
     }
 
     @Override
     public boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
-                              FilterGroupList matchedList, FilterGroup matchedGroup, int matchedIndex) {
+                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+        if (matchedGroup == searchResultVideo) {
+            if (searchResultRecommendations.check(protobufBufferArray).isFiltered()) {
+                return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
+            }
+        }
 
         // The groups are excluded from the filter due to the exceptions list below.
         // Filter them separately here.
-        if (matchedGroup == notifyMe || matchedGroup == inFeedSurvey || matchedGroup == expandableMetadata) 
-            return super.isFiltered(identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
+        if (matchedGroup == notifyMe || matchedGroup == inFeedSurvey || matchedGroup == expandableMetadata)
+            return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
 
         if (matchedGroup != custom && exceptions.matches(path))
             return false; // Exceptions are not filtered.
 
         // TODO: This also hides the feed Shorts shelf header
-        if (matchedGroup == searchResultShelfHeader && matchedIndex != 0) return false;
+        if (matchedGroup == searchResultShelfHeader && contentIndex != 0) return false;
 
-        return super.isFiltered(identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
+        return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
     }
 
     /**

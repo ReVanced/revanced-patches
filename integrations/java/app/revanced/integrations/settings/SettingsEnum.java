@@ -43,6 +43,7 @@ public enum SettingsEnum {
             "0.25\n0.5\n0.75\n0.9\n0.95\n1.0\n1.05\n1.1\n1.25\n1.5\n1.75\n2.0\n3.0\n4.0\n5.0", true),
 
     // Ads
+    HIDE_FULLSCREEN_ADS("revanced_hide_fullscreen_ads", BOOLEAN, TRUE),
     HIDE_BUTTONED_ADS("revanced_hide_buttoned_ads", BOOLEAN, TRUE),
     HIDE_GENERAL_ADS("revanced_hide_general_ads", BOOLEAN, TRUE),
     HIDE_GET_PREMIUM("revanced_hide_get_premium", BOOLEAN, TRUE),
@@ -121,6 +122,7 @@ public enum SettingsEnum {
     HIDE_VIDEO_CHANNEL_WATERMARK("revanced_hide_channel_watermark", BOOLEAN, TRUE),
     HIDE_FOR_YOU_SHELF("revanced_hide_for_you_shelf", BOOLEAN, TRUE),
     HIDE_VIDEO_QUALITY_MENU_FOOTER("revanced_hide_video_quality_menu_footer", BOOLEAN, TRUE),
+    HIDE_SEARCH_RESULT_RECOMMENDATIONS("revanced_hide_search_result_recommendations", BOOLEAN, TRUE),
     PLAYER_OVERLAY_OPACITY("revanced_player_overlay_opacity", INTEGER, 100, true),
     PLAYER_POPUP_PANELS("revanced_hide_player_popup_panels", BOOLEAN, FALSE),
     SPOOF_APP_VERSION("revanced_spoof_app_version", BOOLEAN, FALSE, true, "revanced_spoof_app_version_user_dialog_message"),
@@ -207,6 +209,8 @@ public enum SettingsEnum {
     ANNOUNCEMENT_CONSUMER("revanced_announcement_consumer", STRING, ""),
     ANNOUNCEMENT_LAST_HASH("revanced_announcement_last_hash", STRING, ""),
     REMOVE_TRACKING_QUERY_PARAMETER("revanced_remove_tracking_query_parameter", BOOLEAN, TRUE),
+    REMOVE_VIEWER_DISCRETION_DIALOG("revanced_remove_viewer_discretion_dialog", BOOLEAN, FALSE,
+            "revanced_remove_viewer_discretion_dialog_user_dialog_message"),
 
     // Swipe controls
     SWIPE_BRIGHTNESS("revanced_swipe_brightness", BOOLEAN, TRUE),
@@ -597,8 +601,6 @@ public enum SettingsEnum {
             case SB_LAST_VIP_CHECK:
             case SB_HIDE_EXPORT_WARNING:
             case SB_SEEN_GUIDELINES:
-            case SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS:
-            case SB_LOCAL_TIME_SAVED_MILLISECONDS:
                 return false;
         }
         return true;

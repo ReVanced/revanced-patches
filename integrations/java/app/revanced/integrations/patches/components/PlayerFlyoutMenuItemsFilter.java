@@ -8,65 +8,64 @@ import androidx.annotation.RequiresApi;
 import app.revanced.integrations.settings.SettingsEnum;
 import app.revanced.integrations.shared.PlayerType;
 
+@SuppressWarnings("unused")
 public class PlayerFlyoutMenuItemsFilter extends Filter {
 
-    // Search the buffer only if the flyout menu path is found.
-    // Handle the searching in this class instead of adding to the global filter group (which searches all the time)
     private final ByteArrayFilterGroupList flyoutFilterGroupList = new ByteArrayFilterGroupList();
 
     private final ByteArrayFilterGroup exception;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public PlayerFlyoutMenuItemsFilter() {
-        exception = new ByteArrayAsStringFilterGroup(
+        exception = new ByteArrayFilterGroup(
                 // Whitelist Quality menu item when "Hide Additional settings menu" is enabled
                 SettingsEnum.HIDE_ADDITIONAL_SETTINGS_MENU,
                 "quality_sheet"
         );
 
         // Using pathFilterGroupList due to new flyout panel(A/B)
-        pathFilterGroupList.addAll(
+        addPathCallbacks(
                 new StringFilterGroup(null, "overflow_menu_item.eml|")
         );
 
         flyoutFilterGroupList.addAll(
-                new ByteArrayAsStringFilterGroup(
+                new ByteArrayFilterGroup(
                         SettingsEnum.HIDE_CAPTIONS_MENU,
                         "closed_caption"
                 ),
-                new ByteArrayAsStringFilterGroup(
+                new ByteArrayFilterGroup(
                         SettingsEnum.HIDE_ADDITIONAL_SETTINGS_MENU,
                         "yt_outline_gear"
                 ),
-                new ByteArrayAsStringFilterGroup(
+                new ByteArrayFilterGroup(
                         SettingsEnum.HIDE_LOOP_VIDEO_MENU,
                         "yt_outline_arrow_repeat_1_"
                 ),
-                new ByteArrayAsStringFilterGroup(
+                new ByteArrayFilterGroup(
                         SettingsEnum.HIDE_AMBIENT_MODE_MENU,
                         "yt_outline_screen_light"
                 ),
-                new ByteArrayAsStringFilterGroup(
+                new ByteArrayFilterGroup(
                         SettingsEnum.HIDE_REPORT_MENU,
                         "yt_outline_flag"
                 ),
-                new ByteArrayAsStringFilterGroup(
+                new ByteArrayFilterGroup(
                         SettingsEnum.HIDE_HELP_MENU,
                         "yt_outline_question_circle"
                 ),
-                new ByteArrayAsStringFilterGroup(
+                new ByteArrayFilterGroup(
                         SettingsEnum.HIDE_MORE_INFO_MENU,
                         "yt_outline_info_circle"
                 ),
-                new ByteArrayAsStringFilterGroup(
+                new ByteArrayFilterGroup(
                         SettingsEnum.HIDE_SPEED_MENU,
                         "yt_outline_play_arrow_half_circle"
                 ),
-                new ByteArrayAsStringFilterGroup(
+                new ByteArrayFilterGroup(
                         SettingsEnum.HIDE_AUDIO_TRACK_MENU,
                         "yt_outline_person_radar"
                 ),
-                new ByteArrayAsStringFilterGroup(
+                new ByteArrayFilterGroup(
                         SettingsEnum.HIDE_WATCH_IN_VR_MENU,
                         "yt_outline_vr"
                 )
@@ -75,15 +74,15 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
 
     @Override
     boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
-                       FilterGroupList matchedList, FilterGroup matchedGroup, int matchedIndex) {
+                       StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         // Shorts also use this player flyout panel
         if (PlayerType.getCurrent().isNoneOrHidden() || exception.check(protobufBufferArray).isFiltered())
             return false;
 
-        // Only 1 group is added to the parent class, so the matched group must be the overflow menu.
-        if (matchedIndex == 0 && flyoutFilterGroupList.check(protobufBufferArray).isFiltered()) {
+        // Only 1 path callback was added, so the matched group must be the overflow menu.
+        if (contentIndex == 0 && flyoutFilterGroupList.check(protobufBufferArray).isFiltered()) {
             // Super class handles logging.
-            return super.isFiltered(identifier, path, protobufBufferArray, matchedList, matchedGroup, matchedIndex);
+            return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
         }
         return false;
     }

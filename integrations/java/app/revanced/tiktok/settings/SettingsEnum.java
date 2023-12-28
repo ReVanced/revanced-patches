@@ -25,6 +25,7 @@ public enum SettingsEnum {
     MIN_MAX_LIKES("min_max_likes", STRING, "0-" + Long.MAX_VALUE, true),
     DOWNLOAD_PATH("down_path", STRING, "DCIM/TikTok"),
     DOWNLOAD_WATERMARK("down_watermark", BOOLEAN, TRUE),
+    CLEAR_DISPLAY("clear_display", BOOLEAN, FALSE),
     SIM_SPOOF("simspoof", BOOLEAN, TRUE, true),
     SIM_SPOOF_ISO("simspoof_iso", STRING, "us"),
     SIMSPOOF_MCCMNC("simspoof_mccmnc", STRING, "310160"),

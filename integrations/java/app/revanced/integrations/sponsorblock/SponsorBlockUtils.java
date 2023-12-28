@@ -12,6 +12,7 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 
 import java.lang.ref.WeakReference;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -39,6 +40,7 @@ public class SponsorBlockUtils {
     private static final SimpleDateFormat manualEditTimeFormatter = new SimpleDateFormat(MANUAL_EDIT_TIME_FORMAT);
     @SuppressLint("SimpleDateFormat")
     private static final SimpleDateFormat voteSegmentTimeFormatter = new SimpleDateFormat();
+    private static final NumberFormat statsNumberFormatter = NumberFormat.getNumberInstance();
     static {
         TimeZone utc = TimeZone.getTimeZone("UTC");
         manualEditTimeFormatter.setTimeZone(utc);
@@ -402,19 +404,27 @@ public class SponsorBlockUtils {
         }
     }
 
+    public static String getNumberOfSkipsString(int viewCount) {
+        return statsNumberFormatter.format(viewCount);
+    }
+
     public static String getTimeSavedString(long totalSecondsSaved) {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             Duration duration = Duration.ofSeconds(totalSecondsSaved);
-            final long hoursSaved = duration.toHours();
-            final long minutesSaved = duration.toMinutes() % 60;
-            if (hoursSaved > 0) {
-                return str("sb_stats_saved_hour_format", hoursSaved, minutesSaved);
+            final long hours = duration.toHours();
+            final long minutes = duration.toMinutes() % 60;
+            // Format all numbers so non-western numbers use a consistent appearance.
+            String minutesFormatted = statsNumberFormatter.format(minutes);
+            if (hours > 0) {
+                String hoursFormatted = statsNumberFormatter.format(hours);
+                return str("sb_stats_saved_hour_format", hoursFormatted, minutesFormatted);
             }
-            final long secondsSaved = duration.getSeconds() % 60;
-            if (minutesSaved > 0) {
-                return str("sb_stats_saved_minute_format", minutesSaved, secondsSaved);
+            final long seconds = duration.getSeconds() % 60;
+            String secondsFormatted = statsNumberFormatter.format(seconds);
+            if (minutes > 0) {
+                return str("sb_stats_saved_minute_format", minutesFormatted, secondsFormatted);
             }
-            return str("sb_stats_saved_second_format", secondsSaved);
+            return str("sb_stats_saved_second_format", secondsFormatted);
         }
         return "error"; // will never be reached.  YouTube requires Android O or greater
     }
