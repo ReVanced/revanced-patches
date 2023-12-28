@@ -12,10 +12,11 @@ import java.io.File
 
 @Patch(
     name = "Change header",
-    description = "Change the header in top bar. Defaults to the ReVanced header.",
+    description = "Change the in app header. Defaults to the ReVanced header.",
     compatiblePackages = [
         CompatiblePackage("com.google.android.youtube")
-    ]
+    ],
+    use = false
 )
 @Suppress("unused")
 object ChangeHeaderPatch : ResourcePatch() {
