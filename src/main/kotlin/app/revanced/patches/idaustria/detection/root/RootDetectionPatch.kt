@@ -12,7 +12,7 @@ import app.revanced.util.returnEarly
 @Patch(
     name = "Remove root detection",
     description = "Removes the check for root permissions and unlocked bootloader.",
-    compatiblePackages = [CompatiblePackage("at.gv.oe.app", ["3.0.2"])]
+    compatiblePackages = [CompatiblePackage("at.gv.oe.app")]
 )
 @Suppress("unused")
 object RootDetectionPatch : BytecodePatch(
