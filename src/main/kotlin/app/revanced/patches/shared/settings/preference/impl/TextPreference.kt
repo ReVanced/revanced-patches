@@ -1,7 +1,8 @@
 package app.revanced.patches.shared.settings.preference.impl
 
-import app.revanced.patches.shared.settings.preference.BaseResource
 import app.revanced.patches.shared.settings.preference.DefaultBasePreference
+import app.revanced.util.resource.BaseResource
+import app.revanced.util.resource.StringResource
 import org.w3c.dom.Document
 
 /**
@@ -21,7 +22,6 @@ class TextPreference(
     default: String? = null,
     tag: String = "app.revanced.integrations.settingsmenu.ResettableEditTextPreference"
 ) : DefaultBasePreference<String>(key, title, summary, tag, default) {
-
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
         super.serialize(ownerDocument, resourceCallback).apply {
             setAttribute("android:inputType", inputType.type)

@@ -1,6 +1,5 @@
-package app.revanced.patches.shared.settings.preference.impl
+package app.revanced.util.resource
 
-import app.revanced.patches.shared.settings.preference.BaseResource
 import org.w3c.dom.Document
 
 /**
@@ -16,7 +15,6 @@ class StringResource(
     val value: String,
     val formatted: Boolean = true
 ) : BaseResource(name, "string") {
-
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
         super.serialize(ownerDocument, resourceCallback).apply {
             // if the string is un-formatted, explicitly add the formatted attribute

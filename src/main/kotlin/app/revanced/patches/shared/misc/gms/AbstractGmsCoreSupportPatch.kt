@@ -2,6 +2,7 @@ package app.revanced.patches.shared.misc.gms
 
 import app.revanced.patcher.PatchClass
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
@@ -31,6 +32,8 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
  * @param toPackageName The package name to fall back to if no custom package name is specified in patch options.
  * @param primeMethodFingerprint The fingerprint of the "prime" method that needs to be patched.
  * @param earlyReturnFingerprints The fingerprints of methods that need to be returned early.
+ * @param mainActivityOnCreateFingerprint The fingerprint of the main activity's onCreate method.
+ * @param integrationsPatchDependency The patch responsible for the integrations.
  * @param abstractGmsCoreSupportResourcePatch The corresponding resource patch that is used to patch the resources.
  * @param dependencies Additional dependencies of this patch.
  * @param compatiblePackages The compatible packages of this patch.
@@ -41,6 +44,8 @@ abstract class AbstractGmsCoreSupportPatch(
     private val toPackageName: String,
     private val primeMethodFingerprint: MethodFingerprint,
     private val earlyReturnFingerprints: Set<MethodFingerprint>,
+    private val mainActivityOnCreateFingerprint: MethodFingerprint,
+    private val integrationsPatchDependency: PatchClass,
     abstractGmsCoreSupportResourcePatch: AbstractGmsCoreSupportResourcePatch,
     dependencies: Set<PatchClass> = setOf(),
     compatiblePackages: Set<CompatiblePackage>? = null,
@@ -49,9 +54,13 @@ abstract class AbstractGmsCoreSupportPatch(
     name = "GmsCore support",
     description = "Allows Google apps to run without root and under a different package name " +
             "by using GmsCore instead of Google Play Services.",
-    dependencies = setOf(ChangePackageNamePatch::class, abstractGmsCoreSupportResourcePatch::class) + dependencies,
+    dependencies = setOf(
+        ChangePackageNamePatch::class,
+        abstractGmsCoreSupportResourcePatch::class,
+        integrationsPatchDependency
+    ) + dependencies,
     compatiblePackages = compatiblePackages,
-    fingerprints = setOf(GmsCoreSupportFingerprint) + fingerprints,
+    fingerprints = setOf(GmsCoreSupportFingerprint, mainActivityOnCreateFingerprint) + fingerprints,
     requiresIntegrations = true
 ) {
     init {
@@ -83,6 +92,12 @@ abstract class AbstractGmsCoreSupportPatch(
 
         // Return these methods early to prevent the app from crashing.
         earlyReturnFingerprints.toList().returnEarly()
+
+        // Check the availability of GmsCore.
+        mainActivityOnCreateFingerprint.result?.mutableMethod?.addInstruction(
+            1, // Hack to not disturb other patches (such as the integrations patch).
+            "invoke-static {}, Lapp/revanced/integrations/patches/GmsCoreSupport;->checkAvailability()V"
+        ) ?: throw mainActivityOnCreateFingerprint.exception
 
         // Change the vendor of GmsCore in ReVanced Integrations.
         GmsCoreSupportFingerprint.result?.mutableClass?.methods

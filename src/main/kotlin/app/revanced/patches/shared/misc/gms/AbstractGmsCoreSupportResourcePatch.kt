@@ -5,7 +5,8 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.all.misc.packagename.ChangePackageNamePatch
-import app.revanced.util.mergeStrings
+import app.revanced.patches.all.misc.strings.AddResourcesPatch
+import app.revanced.util.copyStrings
 import org.w3c.dom.Element
 import org.w3c.dom.Node
 
@@ -23,7 +24,7 @@ abstract class AbstractGmsCoreSupportResourcePatch(
     private val toPackageName: String,
     private val spoofedPackageSignature: String,
     dependencies: Set<PatchClass> = setOf()
-) : ResourcePatch(dependencies = setOf(ChangePackageNamePatch::class) + dependencies) {
+) : ResourcePatch(dependencies = setOf(ChangePackageNamePatch::class, AddResourcesPatch::class) + dependencies) {
     internal val gmsCoreVendorOption = stringPatchOption(
         key = "gmsCoreVendor",
         default = "com.mgoogle",
@@ -39,7 +40,7 @@ abstract class AbstractGmsCoreSupportResourcePatch(
     protected val gmsCoreVendor by gmsCoreVendorOption
 
     override fun execute(context: ResourceContext) {
-        context.mergeStrings("gms/host/values/strings.xml")
+        context.copyStrings("gms/host/values/strings.xml")
         context.patchManifest()
         context.addSpoofingMetadata()
     }

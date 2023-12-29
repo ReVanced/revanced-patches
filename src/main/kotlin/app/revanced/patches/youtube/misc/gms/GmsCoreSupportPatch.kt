@@ -1,8 +1,6 @@
 package app.revanced.patches.youtube.misc.gms
 
-import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patches.shared.fingerprints.HomeActivityFingerprint
+import app.revanced.patches.shared.fingerprints.CastContextFetchFingerprint
 import app.revanced.patches.shared.misc.gms.AbstractGmsCoreSupportPatch
 import app.revanced.patches.youtube.layout.buttons.cast.HideCastButtonPatch
 import app.revanced.patches.youtube.misc.fix.playback.ClientSpoofPatch
@@ -10,7 +8,8 @@ import app.revanced.patches.youtube.misc.gms.Constants.REVANCED_YOUTUBE_PACKAGE_
 import app.revanced.patches.youtube.misc.gms.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.gms.GmsCoreSupportResourcePatch.gmsCoreVendorOption
 import app.revanced.patches.youtube.misc.gms.fingerprints.*
-import app.revanced.util.exception
+import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
+import app.revanced.patches.youtube.shared.fingerprints.HomeActivityFingerprint
 
 
 @Suppress("unused")
@@ -25,6 +24,8 @@ object GmsCoreSupportPatch : AbstractGmsCoreSupportPatch(
         CastDynamiteModuleV2Fingerprint,
         CastContextFetchFingerprint
     ),
+    mainActivityOnCreateFingerprint = HomeActivityFingerprint,
+    integrationsPatchDependency = IntegrationsPatch::class,
     dependencies = setOf(
         HideCastButtonPatch::class,
         ClientSpoofPatch::class
@@ -50,18 +51,7 @@ object GmsCoreSupportPatch : AbstractGmsCoreSupportPatch(
         CastDynamiteModuleV2Fingerprint,
         CastContextFetchFingerprint,
         PrimeMethodFingerprint,
-        HomeActivityFingerprint,
     )
 ) {
     override val gmsCoreVendor by gmsCoreVendorOption
-
-    override fun execute(context: BytecodeContext) {
-        // Check the availability of GmsCore.
-        HomeActivityFingerprint.result?.mutableMethod?.addInstruction(
-            0,
-            "invoke-static {}, Lapp/revanced/integrations/patches/GmsCoreSupport;->checkAvailability()V"
-        ) ?: throw HomeActivityFingerprint.exception
-
-        super.execute(context)
-    }
 }

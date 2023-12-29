@@ -1,13 +1,12 @@
 package app.revanced.patches.youtube.misc.gms
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patches.all.misc.packagename.ChangePackageNamePatch
 import app.revanced.patches.shared.misc.gms.AbstractGmsCoreSupportResourcePatch
-import app.revanced.patches.shared.settings.preference.impl.Preference
-import app.revanced.patches.shared.settings.preference.impl.StringResource
+import app.revanced.patches.shared.settings.preference.impl.IntentPreference
 import app.revanced.patches.youtube.misc.gms.Constants.REVANCED_YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.gms.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.util.resource.StringResource
 
 
 object GmsCoreSupportResourcePatch : AbstractGmsCoreSupportResourcePatch(
@@ -17,16 +16,15 @@ object GmsCoreSupportResourcePatch : AbstractGmsCoreSupportResourcePatch(
     dependencies = setOf(SettingsPatch::class)
 ) {
     override fun execute(context: ResourceContext) {
-        SettingsPatch.addPreference(
-            Preference(
+        SettingsPatch.PreferenceScreen.MISC.addPreferences(
+            IntentPreference(
                 StringResource("microg_settings", "GmsCore Settings"),
                 StringResource("microg_settings_summary", "Settings for GmsCore"),
-                Preference.Intent("$gmsCoreVendor.android.gms", "", "org.microg.gms.ui.SettingsActivity")
+                IntentPreference.Intent("", "org.microg.gms.ui.SettingsActivity") {
+                    "$gmsCoreVendor.android.gms"
+                }
             )
         )
-
-        val packageName = ChangePackageNamePatch.setOrGetFallbackPackageName(REVANCED_YOUTUBE_PACKAGE_NAME)
-        SettingsPatch.renameIntentsTargetPackage(packageName)
 
         super.execute(context)
     }

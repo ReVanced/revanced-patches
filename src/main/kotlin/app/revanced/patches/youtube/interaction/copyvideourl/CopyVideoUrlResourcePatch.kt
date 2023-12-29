@@ -3,19 +3,21 @@ package app.revanced.patches.youtube.interaction.copyvideourl
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.all.misc.strings.AddResourcesPatch
 import app.revanced.patches.shared.settings.preference.impl.PreferenceScreen
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.playercontrols.BottomControlsResourcePatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
-import app.revanced.util.mergeStrings
+import app.revanced.util.copyStrings
+import app.revanced.util.resource.StringResource
 
 @Patch(
     dependencies = [
         SettingsPatch::class,
-        BottomControlsResourcePatch::class
+        BottomControlsResourcePatch::class,
+        AddResourcesPatch::class,
     ]
 )
 internal object CopyVideoUrlResourcePatch : ResourcePatch() {
@@ -59,7 +61,7 @@ internal object CopyVideoUrlResourcePatch : ResourcePatch() {
             )
         )
 
-        context.mergeStrings("copyvideourl/host/values/strings.xml")
+        context.copyStrings("copyvideourl/host/values/strings.xml")
 
         BottomControlsResourcePatch.addControls("copyvideourl")
     }

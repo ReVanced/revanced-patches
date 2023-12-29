@@ -3,24 +3,29 @@ package app.revanced.patches.youtube.layout.sponsorblock
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.all.misc.strings.AddResourcesPatch
 import app.revanced.patches.shared.mapping.misc.ResourceMappingPatch
-import app.revanced.patches.shared.settings.preference.impl.Preference
-import app.revanced.patches.shared.settings.preference.impl.StringResource
+import app.revanced.patches.shared.settings.preference.impl.IntentPreference
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
+import app.revanced.util.copyStrings
 import app.revanced.util.copyXmlNode
-import app.revanced.util.mergeStrings
+import app.revanced.util.resource.StringResource
 
-@Patch(dependencies = [SettingsPatch::class, ResourceMappingPatch::class])
+@Patch(dependencies = [
+    SettingsPatch::class,
+    ResourceMappingPatch::class,
+    AddResourcesPatch::class
+])
 internal object SponsorBlockResourcePatch : ResourcePatch() {
 
     override fun execute(context: ResourceContext) {
-        SettingsPatch.addPreference(
-            Preference(
+        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
+            IntentPreference(
                 StringResource("revanced_sponsorblock_settings_title", "SponsorBlock"),
                 StringResource("revanced_sponsorblock_settings_summary", "SponsorBlock related settings"),
-                SettingsPatch.createReVancedSettingsIntent("sponsorblock_settings")
+                SettingsPatch.newIntent("sponsorblock_settings")
             )
         )
         val classLoader = this.javaClass.classLoader
@@ -28,7 +33,7 @@ internal object SponsorBlockResourcePatch : ResourcePatch() {
         /*
          merge SponsorBlock strings to main strings
          */
-        context.mergeStrings("sponsorblock/host/values/strings.xml")
+        context.copyStrings("sponsorblock/host/values/strings.xml")
 
         /*
          merge SponsorBlock drawables to main drawables

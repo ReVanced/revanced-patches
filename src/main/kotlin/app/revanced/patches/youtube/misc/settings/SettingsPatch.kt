@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.misc.settings
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -8,11 +7,16 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.settings.preference.impl.Preference
+import app.revanced.patches.all.misc.packagename.ChangePackageNamePatch
+import app.revanced.patches.shared.settings.preference.impl.InputType
+import app.revanced.patches.shared.settings.preference.impl.IntentPreference
+import app.revanced.patches.shared.settings.preference.impl.TextPreference
 import app.revanced.patches.shared.settings.util.AbstractPreferenceScreen
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.fingerprints.LicenseActivityFingerprint
 import app.revanced.patches.youtube.misc.settings.fingerprints.SetThemeFingerprint
+import app.revanced.util.exception
+import app.revanced.util.resource.StringResource
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.util.MethodUtil
@@ -33,16 +37,16 @@ object SettingsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         // TODO: Remove this when it is only required at one place.
         fun getSetThemeInstructionString(
-                registers: String = "v0",
-                classDescriptor: String = THEME_HELPER_DESCRIPTOR,
-                methodName: String = SET_THEME_METHOD_NAME,
-                parameters: String = "Ljava/lang/Object;"
+            registers: String = "v0",
+            classDescriptor: String = THEME_HELPER_DESCRIPTOR,
+            methodName: String = SET_THEME_METHOD_NAME,
+            parameters: String = "Ljava/lang/Object;"
         ) = "invoke-static { $registers }, $classDescriptor->$methodName($parameters)V"
 
         SetThemeFingerprint.result?.mutableMethod?.let { setThemeMethod ->
             setThemeMethod.implementation!!.instructions.mapIndexedNotNull { i, instruction ->
-                    if (instruction.opcode == Opcode.RETURN_OBJECT) i else null
-                }
+                if (instruction.opcode == Opcode.RETURN_OBJECT) i else null
+            }
                 .asReversed() // Prevent index shifting.
                 .forEach { returnIndex ->
                     // The following strategy is to replace the return instruction with the setTheme instruction,
@@ -60,61 +64,54 @@ object SettingsPatch : BytecodePatch(
                 }
         } ?: throw SetThemeFingerprint.exception
 
-
         // Modify the license activity and remove all existing layout code.
         // Must modify an existing activity and cannot add a new activity to the manifest,
         // as that fails for root installations.
         LicenseActivityFingerprint.result!!.apply licenseActivity@{
-            mutableMethod.apply {
-                fun buildSettingsActivityInvokeString(
-                        registers: String = "p0",
-                        classDescriptor: String = SETTINGS_ACTIVITY_DESCRIPTOR,
-                        methodName: String = "initializeSettings",
-                        parameters: String = "Landroid/app/Activity;"
-                ) = getSetThemeInstructionString(registers, classDescriptor, methodName, parameters)
+            fun buildSettingsActivityInvokeString(
+                registers: String = "p0",
+                classDescriptor: String = SETTINGS_ACTIVITY_DESCRIPTOR,
+                methodName: String = "initializeSettings",
+                parameters: String = "Landroid/app/Activity;"
+            ) = getSetThemeInstructionString(registers, classDescriptor, methodName, parameters)
 
-                // initialize the settings
-                addInstructions(
-                    1,
-                    """
-                        ${buildSettingsActivityInvokeString()}
-                        return-void
-                    """
-                )
-            }
+            // Initialize settings.
+            mutableMethod.addInstructions(
+                1,
+                """
+                    ${buildSettingsActivityInvokeString()}
+                    return-void
+                """
+            )
 
-            // remove method overrides
+            // Remove method overrides.
             mutableClass.apply {
                 methods.removeIf { it.name != "onCreate" && !MethodUtil.isConstructor(it) }
             }
         }
 
-    }
-
-    fun addString(identifier: String, value: String, formatted: Boolean = true) =
-        SettingsResourcePatch.addString(identifier, value, formatted)
-
-    fun addPreferenceScreen(preferenceScreen: app.revanced.patches.shared.settings.preference.impl.PreferenceScreen) =
-        SettingsResourcePatch.addPreferenceScreen(preferenceScreen)
-
-    fun addPreference(preference: Preference) = SettingsResourcePatch.addPreference(preference)
-
-    fun renameIntentsTargetPackage(newPackage: String) {
-        SettingsResourcePatch.overrideIntentsTargetPackage = newPackage
+        PreferenceScreen.MISC.addPreferences(
+            TextPreference(
+                key = null,
+                title = StringResource("revanced_pref_import_export_title", "Import / Export"),
+                summary = StringResource("revanced_pref_import_export_summary", "Import / Export ReVanced settings"),
+                inputType = InputType.TEXT_MULTI_LINE,
+                tag = "app.revanced.integrations.settingsmenu.ImportExportPreference"
+            )
+        )
     }
 
     /**
-     * Creates an intent to open ReVanced settings of the given name
+     * Creates an intent to open ReVanced settings.
      */
-    fun createReVancedSettingsIntent(settingsName: String) = Preference.Intent(
-        "com.google.android.youtube",
-        settingsName,
-        "com.google.android.libraries.social.licenses.LicenseActivity"
-    )
+    fun newIntent(settingsName: String) = IntentPreference.Intent(
+        data = settingsName,
+        targetClass = "com.google.android.libraries.social.licenses.LicenseActivity"
+    ) {
+        // The package name change has to be reflected in the intent.
+        ChangePackageNamePatch.setOrGetFallbackPackageName("com.google.android.apps.youtube")
+    }
 
-    /**
-     * Preference screens patches should add their settings to.
-     */
     object PreferenceScreen : AbstractPreferenceScreen() {
         val ADS = Screen("ads", "Ads", "Ad related settings")
         val INTERACTIONS = Screen("interactions", "Interaction", "Settings related to interactions")
@@ -122,9 +119,8 @@ object SettingsPatch : BytecodePatch(
         val VIDEO = Screen("video", "Video", "Settings related to the video player")
         val MISC = Screen("misc", "Misc", "Miscellaneous patches")
 
-        override fun commit(screen: app.revanced.patches.shared.settings.preference.impl.PreferenceScreen) {
-            addPreferenceScreen(screen)
-        }
+        override fun commit(screen: app.revanced.patches.shared.settings.preference.impl.PreferenceScreen) =
+            SettingsResourcePatch.addPreference(screen)
     }
 
     override fun close() = PreferenceScreen.close()

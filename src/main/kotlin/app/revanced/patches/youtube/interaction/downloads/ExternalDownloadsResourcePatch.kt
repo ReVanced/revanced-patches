@@ -3,17 +3,23 @@ package app.revanced.patches.youtube.interaction.downloads
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.settings.preference.impl.*
+import app.revanced.patches.all.misc.strings.AddResourcesPatch
+import app.revanced.patches.shared.settings.preference.impl.InputType
+import app.revanced.patches.shared.settings.preference.impl.PreferenceScreen
+import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.shared.settings.preference.impl.TextPreference
 import app.revanced.patches.youtube.misc.playercontrols.BottomControlsResourcePatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
-import app.revanced.util.mergeStrings
+import app.revanced.util.copyStrings
+import app.revanced.util.resource.StringResource
 
 @Patch(
     dependencies = [
         BottomControlsResourcePatch::class,
-        SettingsPatch::class
+        SettingsPatch::class,
+        AddResourcesPatch::class
     ]
 )
 internal object ExternalDownloadsResourcePatch : ResourcePatch() {
@@ -50,7 +56,7 @@ internal object ExternalDownloadsResourcePatch : ResourcePatch() {
             )
         )
 
-        context.mergeStrings("downloads/host/values/strings.xml")
+        context.copyStrings("downloads/host/values/strings.xml")
 
         context.copyResources(
             "downloads",

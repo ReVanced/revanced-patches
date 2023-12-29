@@ -1,6 +1,5 @@
 package app.revanced.patches.twitch.misc.settings
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -12,14 +11,17 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.all.misc.strings.AddResourcesPatch
+import app.revanced.patches.all.misc.strings.AddResourcesPatch.addString
 import app.revanced.patches.shared.settings.preference.impl.PreferenceCategory
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.util.AbstractPreferenceScreen
 import app.revanced.patches.twitch.misc.integrations.IntegrationsPatch
 import app.revanced.patches.twitch.misc.settings.fingerprints.MenuGroupsOnClickFingerprint
 import app.revanced.patches.twitch.misc.settings.fingerprints.MenuGroupsUpdatedFingerprint
 import app.revanced.patches.twitch.misc.settings.fingerprints.SettingsActivityOnCreateFingerprint
 import app.revanced.patches.twitch.misc.settings.fingerprints.SettingsMenuItemEnumFingerprint
+import app.revanced.util.exception
+import app.revanced.util.resource.StringResource
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import java.io.Closeable
@@ -28,7 +30,11 @@ import java.io.Closeable
 @Patch(
     name = "Settings",
     description = "Adds settings menu to Twitch.",
-    dependencies = [IntegrationsPatch::class, SettingsResourcePatch::class],
+    dependencies = [
+        IntegrationsPatch::class,
+        SettingsResourcePatch::class,
+        AddResourcesPatch::class,
+    ],
     compatiblePackages = [
         CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])
     ]
@@ -47,7 +53,8 @@ object SettingsPatch : BytecodePatch(
     private const val REVANCED_SETTINGS_MENU_ITEM_ICON_RES = "ic_settings"
 
     private const val MENU_ITEM_ENUM_CLASS = "Ltv/twitch/android/feature/settings/menu/SettingsMenuItem;"
-    private const val MENU_DISMISS_EVENT_CLASS = "Ltv/twitch/android/feature/settings/menu/SettingsMenuViewDelegate\$Event\$OnDismissClicked;"
+    private const val MENU_DISMISS_EVENT_CLASS =
+        "Ltv/twitch/android/feature/settings/menu/SettingsMenuViewDelegate\$Event\$OnDismissClicked;"
 
     private const val INTEGRATIONS_PACKAGE = "app/revanced/twitch"
     private const val SETTINGS_HOOKS_CLASS = "L$INTEGRATIONS_PACKAGE/settingsmenu/SettingsHooks;"
@@ -106,18 +113,12 @@ object SettingsPatch : BytecodePatch(
                 """,
                 ExternalLabel("no_rv_settings_onclick", mutableMethod.getInstruction(insertIndex))
             )
-        }  ?: throw MenuGroupsOnClickFingerprint.exception
+        } ?: throw MenuGroupsOnClickFingerprint.exception
 
         addString("revanced_settings", "ReVanced Settings", false)
         addString("revanced_reboot_message", "Twitch needs to restart to apply your changes. Restart now?", false)
         addString("revanced_reboot", "Restart", false)
     }
-
-    fun addString(identifier: String, value: String, formatted: Boolean = true) =
-        SettingsResourcePatch.addString(identifier, value, formatted)
-
-    fun addPreferenceScreen(preferenceScreen: app.revanced.patches.shared.settings.preference.impl.PreferenceScreen) =
-        SettingsResourcePatch.addPreferenceScreen(preferenceScreen)
 
     private fun MethodFingerprintResult.injectMenuItem(
         name: String,
@@ -185,9 +186,8 @@ object SettingsPatch : BytecodePatch(
             }
         }
 
-        override fun commit(screen: app.revanced.patches.shared.settings.preference.impl.PreferenceScreen) {
-            addPreferenceScreen(screen)
-        }
+        override fun commit(screen: app.revanced.patches.shared.settings.preference.impl.PreferenceScreen) =
+            SettingsResourcePatch.addPreference(screen)
     }
 
     override fun close() = PreferenceScreen.close()

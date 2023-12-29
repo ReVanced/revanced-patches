@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.gms.fingerprints
+package app.revanced.patches.shared.fingerprints
 
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
