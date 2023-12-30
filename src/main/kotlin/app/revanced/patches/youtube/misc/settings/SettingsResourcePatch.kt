@@ -99,8 +99,6 @@ object SettingsResourcePatch : AbstractSettingsResourcePatch(
                 tag = "app.revanced.integrations.youtube.settingsmenu.ImportExportPreference"
             )
         )
-
-        context.mergeStrings("settings/host/values/strings.xml")
     }
 
     override fun close() {
