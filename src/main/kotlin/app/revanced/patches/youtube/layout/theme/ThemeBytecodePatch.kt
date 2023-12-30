@@ -59,6 +59,7 @@ object ThemeBytecodePatch : BytecodePatch(
         values = mapOf(
             "Amoled black" to AMOLED_BLACK_COLOR,
             "Material You" to "@android:color/system_neutral1_900",
+            "Classic (old YouTube)" to "#FF212121",
             "Catppuccin (Mocha)" to "#FF181825",
             "Dark pink" to "#FF290025",
             "Dark blue" to "#FF001029",

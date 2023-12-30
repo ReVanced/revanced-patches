@@ -10,7 +10,7 @@ import app.revanced.patches.idaustria.detection.signature.fingerprints.SpoofSign
 @Patch(
     name = "Spoof signature",
     description = "Spoofs the signature of the app.",
-    compatiblePackages = [CompatiblePackage("at.gv.oe.app", ["3.0.2"])]
+    compatiblePackages = [CompatiblePackage("at.gv.oe.app")]
 )
 @Suppress("unused")
 object SpoofSignaturePatch : BytecodePatch(
