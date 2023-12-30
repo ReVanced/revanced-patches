@@ -24,6 +24,10 @@
     <string name="revanced_hide_timed_reactions_summary_on">Timed reactions are hidden</string>
     <string name="revanced_hide_timed_reactions_summary_off">Timed reactions are shown</string>
 
+    <string name="revanced_hide_search_result_recommendations_title">Hide search result recommendations (e.g People also watched</string>
+    <string name="revanced_hide_search_result_recommendations_summary_on">Recommendations are hidden</string>
+    <string name="revanced_hide_search_result_recommendations_summary_off">Recommendations are shown</string>
+
     <string name="revanced_hide_search_result_shelf_header_title">Hide search result shelf header</string>
     <string name="revanced_hide_search_result_shelf_header_summary_on">Shelf header is hidden</string>
     <string name="revanced_hide_search_result_shelf_header_summary_off">Shelf header is shown</string>
@@ -132,8 +136,8 @@
     <string name="revanced_hide_transcript_section_summary_off">Transcript section is shown</string>
 
     <string name="revanced_hide_artist_cards_title">Hide artist cards</string>
-    <string name="revanced_hide_artist_cards_on">Artist cards is hidden</string>
-    <string name="revanced_hide_artist_cards_off">Artist cards is shown</string>
+    <string name="revanced_hide_artist_cards_on">Artist cards are hidden</string>
+    <string name="revanced_hide_artist_cards_off">Artist cards are shown</string>
 
     <string name="revanced_hide_mix_playlists_title">Hide mix playlists</string>
     <string name="revanced_hide_mix_playlists_summary_on">Mix playlists are hidden</string>

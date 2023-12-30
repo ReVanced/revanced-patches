@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.layout.hide.general
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -21,6 +20,7 @@ import app.revanced.patches.youtube.layout.hide.general.fingerprints.ShowWaterma
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.misc.strings.StringsPatch
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -94,6 +94,12 @@ object HideLayoutComponentsPatch : BytecodePatch(
                 "revanced_hide_timed_reactions_summary_on",
                 "revanced_hide_timed_reactions_summary_off",
             ),
+            SwitchPreference(
+                "revanced_hide_search_result_recommendations",
+                "revanced_hide_search_result_recommendations_title",
+                "revanced_hide_search_result_recommendations_summary_on",
+                "revanced_hide_search_result_recommendations_summary_off",
+                ),
             SwitchPreference(
                 "revanced_hide_search_result_shelf_header",
                 "revanced_hide_search_result_shelf_header_title",
@@ -325,7 +331,8 @@ object HideLayoutComponentsPatch : BytecodePatch(
         // region Watermark (legacy code for old versions of YouTube)
 
         ShowWatermarkFingerprint.also {
-            it.resolve(context,
+            it.resolve(
+                context,
                 PlayerOverlayFingerprint.result?.classDef
                     ?: throw PlayerOverlayFingerprint.exception
             )

@@ -8,6 +8,10 @@
     <string name="revanced_hide_buttoned_ads_summary_on">Buttoned ads are hidden</string>
     <string name="revanced_hide_buttoned_ads_summary_off">Buttoned ads are shown</string>
 
+    <string name="revanced_hide_fullscreen_ads_title">Hide fullscreen ads</string>
+    <string name="revanced_hide_fullscreen_ads_summary_on">Fullscreen ads are hidden</string>
+    <string name="revanced_hide_fullscreen_ads_summary_off">Fullscreen ads are shown</string>
+
     <string name="revanced_hide_paid_content_ads_title">Hide paid content</string>
     <string name="revanced_hide_paid_content_ads_summary_on">Paid content is hidden</string>
     <string name="revanced_hide_paid_content_ads_summary_off">Paid content is shown</string>

@@ -33,6 +33,12 @@ object HideAdsResourcePatch : ResourcePatch() {
                 "revanced_hide_general_ads_summary_off"
             ),
             SwitchPreference(
+                "revanced_hide_fullscreen_ads",
+                "revanced_hide_fullscreen_ads_title",
+                "revanced_hide_fullscreen_ads_summary_on",
+                "revanced_hide_fullscreen_ads_summary_off"
+            ),
+            SwitchPreference(
                 "revanced_hide_buttoned_ads",
                 "revanced_hide_buttoned_ads_title",
                 "revanced_hide_buttoned_ads_summary_on",
