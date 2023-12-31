@@ -10,6 +10,7 @@ import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.interaction.dialog.fingerprints.CreateDialogFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patches.youtube.misc.strings.StringsPatch
 import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
@@ -33,6 +34,7 @@ object RemoveViewerDiscretionDialogPatch : BytecodePatch(
                 "confirmDialog(Landroid/app/AlertDialog;)V"
 
     override fun execute(context: BytecodeContext) {
+        StringsPatch.includePatchStrings("RemoveViewerDiscretionDialog")
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
             SwitchPreference(
                 "revanced_remove_viewer_discretion_dialog",
