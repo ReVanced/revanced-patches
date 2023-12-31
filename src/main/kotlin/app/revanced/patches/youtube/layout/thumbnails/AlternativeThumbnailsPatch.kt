@@ -117,30 +117,15 @@ object AlternativeThumbnailsPatch : BytecodePatch(
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
                 "revanced_alt_thumbnail_preference_screen",
-                "revanced_alt_thumbnail_preference_screen_title",
                 listOf(
                     NonInteractivePreference(
                         "revanced_alt_thumbnail_about_title",
                         null, // Summary is dynamically updated based on the current settings.
                         tag = "app.revanced.integrations.settingsmenu.AlternativeThumbnailsStatusPreference"
                     ),
-                    SwitchPreference(
-                        "revanced_alt_thumbnail_dearrow",
-                        "revanced_alt_thumbnail_dearrow_title",
-                        "revanced_alt_thumbnail_dearrow_summary_on",
-                        "revanced_alt_thumbnail_dearrow_summary_off",
-                    ),
-                    SwitchPreference(
-                        "revanced_alt_thumbnail_dearrow_connection_toast",
-                        "revanced_alt_thumbnail_dearrow_connection_toast_title",
-                        "revanced_alt_thumbnail_dearrow_connection_toast_summary_on",
-                        "revanced_alt_thumbnail_dearrow_connection_toast_summary_off",
-                    ),
-                    TextPreference(
-                        "revanced_alt_thumbnail_dearrow_api_url",
-                        "revanced_alt_thumbnail_dearrow_api_url_title",
-                        "revanced_alt_thumbnail_dearrow_api_url_summary",
-                    ),
+                    SwitchPreference("revanced_alt_thumbnail_dearrow"),
+                    SwitchPreference("revanced_alt_thumbnail_dearrow_connection_toast"),
+                    TextPreference("revanced_alt_thumbnail_dearrow_api_url"),
                     NonInteractivePreference(
                         "revanced_alt_thumbnail_dearrow_about_title",
                         "revanced_alt_thumbnail_dearrow_about_summary",
@@ -148,16 +133,12 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                         tag = "app.revanced.integrations.settingsmenu.AlternativeThumbnailsAboutDeArrowPreference",
                         selectable = true
                     ),
-                    SwitchPreference(
-                        "revanced_alt_thumbnail_stills",
-                        "revanced_alt_thumbnail_stills_title",
-                        "revanced_alt_thumbnail_stills_summary_on",
-                        "revanced_alt_thumbnail_stills_summary_off",
-                    ),
+                    SwitchPreference("revanced_alt_thumbnail_stills"),
                     ListPreference(
-                        "revanced_alt_thumbnail_stills_time",
-                        "revanced_alt_thumbnail_stills_time_title",
-                        ArrayResource(
+                        key = "revanced_alt_thumbnail_stills_time",
+                        titleKey = "revanced_alt_thumbnail_stills_time_title",
+                        summaryKey = null,
+                        entries = ArrayResource(
                             "revanced_alt_thumbnail_type_entries",
                             listOf(
                                 "revanced_alt_thumbnail_stills_time_entry_1",
@@ -165,7 +146,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                                 "revanced_alt_thumbnail_stills_time_entry_3",
                             )
                         ),
-                        ArrayResource(
+                        entryValues = ArrayResource(
                             "revanced_alt_thumbnail_stills_time_entry_values",
                             listOf(
                                 "1",
@@ -175,20 +156,14 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                             literalValues = true
                         )
                     ),
-                    SwitchPreference(
-                        "revanced_alt_thumbnail_stills_fast",
-                        "revanced_alt_thumbnail_stills_fast_title",
-                        "revanced_alt_thumbnail_stills_fast_summary_on",
-                        "revanced_alt_thumbnail_stills_fast_summary_off",
-                    ),
+                    SwitchPreference("revanced_alt_thumbnail_stills_fast"),
                     NonInteractivePreference(
-                        "revanced_alt_thumbnail_stills_about_title",
-                        "revanced_alt_thumbnail_stills_about_summary",
+                        titleKey = "revanced_alt_thumbnail_stills_about_title",
+                        summaryKey = "revanced_alt_thumbnail_stills_about_summary",
                         // Restore the preference dividers to keep it from looking weird.
                         selectable = true
                     )
-                ),
-                "revanced_alt_thumbnail_preference_screen_summary",
+                )
             )
         )
 

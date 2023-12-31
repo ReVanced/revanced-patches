@@ -53,8 +53,6 @@ object CustomPlaybackSpeedPatch : BytecodePatch(
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
             TextPreference(
                 key = "revanced_custom_playback_speeds",
-                titleKey = "revanced_custom_playback_speeds_title",
-                summaryKey = "revanced_custom_playback_speeds_summary",
                 inputType = InputType.TEXT_MULTI_LINE
             )
         )

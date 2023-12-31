@@ -36,12 +36,7 @@ object RemoveViewerDiscretionDialogPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("RemoveViewerDiscretionDialog")
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
-            SwitchPreference(
-                "revanced_remove_viewer_discretion_dialog",
-                "revanced_remove_viewer_discretion_dialog_title",
-                "revanced_remove_viewer_discretion_dialog_summary_on",
-                "revanced_remove_viewer_discretion_dialog_summary_off",
-            )
+            SwitchPreference("revanced_remove_viewer_discretion_dialog")
         )
 
         CreateDialogFingerprint.result?.mutableMethod?.apply {

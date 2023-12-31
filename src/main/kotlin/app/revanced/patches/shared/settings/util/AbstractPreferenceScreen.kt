@@ -26,18 +26,26 @@ abstract class AbstractPreferenceScreen(
     open inner class Screen(
         key: String,
         titleKey: String,
-        val summaryKey: String? = null,
+        private val summaryKey: String? = null,
         preferences: MutableList<BasePreference> = mutableListOf(),
         val categories: MutableList<Category> = mutableListOf()
     ) : BasePreferenceCollection(key, titleKey, preferences) {
+
+        /**
+         * Initialize using title and summary keys with suffix "_title" and "_summary".
+         */
+        constructor(
+            key: String, preferences: MutableList<BasePreference> = mutableListOf(), categories: MutableList<Category> = mutableListOf()
+        ) : this(key, key + "_title", key + "_summary", preferences, categories)
+
         override fun transform(): PreferenceScreen {
             return PreferenceScreen(
                 key,
                 titleKey,
+                summaryKey,
                 // Screens and preferences are sorted at runtime by integrations code,
                 // so they appear in alphabetical order for the localized language in use.
-                 preferences + categories.map { it.transform() },
-                summaryKey
+                 preferences + categories.map { it.transform() }
             )
         }
 

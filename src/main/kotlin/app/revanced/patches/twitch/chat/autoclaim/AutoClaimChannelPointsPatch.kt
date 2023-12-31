@@ -28,9 +28,6 @@ object AutoClaimChannelPointPatch : BytecodePatch(
         SettingsPatch.PreferenceScreen.CHAT.GENERAL.addPreferences(
             SwitchPreference(
                 "revanced_auto_claim_channel_points",
-                "revanced_auto_claim_channel_points",
-                "revanced_auto_claim_channel_points_on",
-                "revanced_auto_claim_channel_points_off",
                 default = true
             )
         )

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="revanced_wide_searchbar_enabled_title">Enable wide search bar</string>
+    <string name="revanced_wide_searchbar_title">Enable wide search bar</string>
     <string name="revanced_wide_searchbar_summary_on">Wide search bar is enabled</string>
     <string name="revanced_wide_searchbar_summary_off">Wide search bar is disabled</string>
 </resources>

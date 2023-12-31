@@ -43,12 +43,7 @@ object DisableRollingNumberAnimationPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("DisableRollingNumberAnimation")
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_disable_rolling_number_animations",
-                "revanced_disable_rolling_number_animations_title",
-                "revanced_disable_rolling_number_animations_summary_on",
-                "revanced_disable_rolling_number_animations_summary_off",
-            )
+            SwitchPreference("revanced_disable_rolling_number_animations")
         )
 
         // Animations are disabled by preventing an Image from being applied to the text span,

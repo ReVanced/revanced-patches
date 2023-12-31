@@ -21,6 +21,15 @@ class TextPreference(
     tag: String = "app.revanced.integrations.settingsmenu.ResettableEditTextPreference"
 ) : DefaultBasePreference<String>(key, titleKey, summaryKey, tag, default) {
 
+    /**
+     * Initialize using title and summary keys with the suffix "_title", "_summary_on", "_summary_off"
+     */
+    constructor(
+        key: String, inputType: InputType = InputType.TEXT, default: String? = null,
+        tag: String = "app.revanced.integrations.settingsmenu.ResettableEditTextPreference"
+    ) : this(key, "${key}_title", "${key}_summary", inputType, default, tag)
+
+
     override fun serialize(ownerDocument: Document) =
         super.serialize(ownerDocument).apply {
             setAttribute("android:inputType", inputType.type)

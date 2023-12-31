@@ -44,22 +44,10 @@ object CommentsPatch : ResourcePatch() {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
                 "revanced_comments_preference_screen",
-                "revanced_comments_preference_screen_title",
                 listOf(
-                    SwitchPreference(
-                        "revanced_hide_comments_section",
-                        "revanced_hide_comments_section_title",
-                        "revanced_hide_comments_section_summary_on",
-                        "revanced_hide_comments_section_summary_off"
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_preview_comment",
-                        "revanced_hide_preview_comment_title",
-                        "revanced_hide_preview_comment_on",
-                        "revanced_hide_preview_comment_off"
-                    )
-                ),
-                "revanced_comments_preference_screen_summary"
+                    SwitchPreference("revanced_hide_comments_section"),
+                    SwitchPreference("revanced_hide_preview_comment")
+                )
             )
         )
     }

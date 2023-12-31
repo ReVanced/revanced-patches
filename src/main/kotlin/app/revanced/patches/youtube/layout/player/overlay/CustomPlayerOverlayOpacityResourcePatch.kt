@@ -19,8 +19,6 @@ internal object CustomPlayerOverlayOpacityResourcePatch : ResourcePatch() {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             TextPreference(
                 "revanced_player_overlay_opacity",
-                "revanced_player_overlay_opacity_title",
-                "revanced_player_overlay_opacity_summary",
                 InputType.NUMBER
             )
         )

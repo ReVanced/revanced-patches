@@ -49,12 +49,7 @@ object TabletMiniPlayerPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("TabletMiniPlayer")
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_tablet_miniplayer",
-                "revanced_tablet_miniplayer_title",
-                "revanced_tablet_miniplayer_summary_on",
-                "revanced_tablet_miniplayer_summary_off"
-            )
+            SwitchPreference("revanced_tablet_miniplayer")
         )
 
         // First resolve the fingerprints via the parent fingerprint.

@@ -43,12 +43,7 @@ object EnableSlideToSeekPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("EnableSlideToSeek")
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
-            SwitchPreference(
-                "revanced_slide_to_seek",
-                "revanced_slide_to_seek_title",
-                "revanced_slide_to_seek_summary_on",
-                "revanced_slide_to_seek_summary_off",
-            )
+            SwitchPreference("revanced_slide_to_seek")
         )
 
         arrayOf(

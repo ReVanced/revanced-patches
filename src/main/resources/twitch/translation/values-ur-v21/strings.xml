@@ -19,7 +19,7 @@
     <string name="revanced_auto_claim_channel_points">خودکار طور پر چینل پوائنٹس کا دعوی کریں۔</string>
     <string name="revanced_block_audio_ads_off">آڈیو اشتہارات غیر مسدود ہیں۔</string>
     <string name="revanced_block_audio_ads_on">آڈیو اشتہارات مسدود ہیں۔</string>
-    <string name="revanced_block_audio_ads">آڈیو اشتہارات کو مسدود کریں۔</string>
+    <string name="revanced_block_audio_ads_title">آڈیو اشتہارات کو مسدود کریں۔</string>
     <string name="revanced_block_embedded_ads">ایمبیڈڈ ویڈیو اشتہارات کو مسدود کریں۔</string>
     <string name="revanced_block_video_ads_off">ویڈیو اشتہارات غیر مسدود ہیں۔</string>
     <string name="revanced_block_video_ads_on">ویڈیو اشتہارات مسدود ہیں۔</string>

@@ -40,12 +40,7 @@ object SpoofDeviceDimensionsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("SpoofDeviceDimensions")
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            SwitchPreference(
-                "revanced_spoof_device_dimensions",
-                "revanced_spoof_device_dimensions_title",
-                "revanced_spoof_device_dimensions_summary_on",
-                "revanced_spoof_device_dimensions_summary_off",
-            )
+            SwitchPreference("revanced_spoof_device_dimensions")
         )
 
         DeviceDimensionsModelToStringFingerprint.result

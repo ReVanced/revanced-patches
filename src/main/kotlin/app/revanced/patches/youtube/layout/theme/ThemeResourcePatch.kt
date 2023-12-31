@@ -24,16 +24,9 @@ internal object ThemeResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         StringsPatch.includePatchStrings("Theme")
         SeekbarPreferencesPatch.addPreferences(
-            SwitchPreference(
-                "revanced_seekbar_custom_color",
-                "revanced_seekbar_custom_color_title",
-                "revanced_seekbar_custom_color_summary_on",
-                "revanced_seekbar_custom_color_summary_off",
-            ),
+            SwitchPreference("revanced_seekbar_custom_color"),
             TextPreference(
                 "revanced_seekbar_custom_color_value",
-                "revanced_seekbar_custom_color_value_title",
-                "revanced_seekbar_custom_color_value_summary",
                 InputType.TEXT_CAP_CHARACTERS
             )
         )

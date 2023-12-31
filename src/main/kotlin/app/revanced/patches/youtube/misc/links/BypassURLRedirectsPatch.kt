@@ -38,12 +38,7 @@ object BypassURLRedirectsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("BypassURLRedirects")
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            SwitchPreference(
-                "revanced_bypass_url_redirects",
-                "revanced_bypass_url_redirects_title",
-                "revanced_bypass_url_redirects_summary_on",
-                "revanced_bypass_url_redirects_summary_off",
-            )
+            SwitchPreference("revanced_bypass_url_redirects")
         )
 
         mapOf(

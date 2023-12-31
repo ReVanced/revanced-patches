@@ -81,17 +81,13 @@ object RememberVideoQualityPatch : BytecodePatch(
 
         StringsPatch.includePatchStrings("RememberVideoQuality")
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
-            SwitchPreference(
-                "revanced_remember_video_quality_last_selected",
-                "revanced_remember_video_quality_last_selected_title",
-                "revanced_remember_video_quality_last_selected_summary_on",
-                "revanced_remember_video_quality_last_selected_summary_off"
-            ),
+            SwitchPreference("revanced_remember_video_quality_last_selected"),
             ListPreference(
-                "revanced_video_quality_default_wifi",
-                "revanced_video_quality_default_wifi_title",
-                ArrayResource("revanced_video_quality_default_wifi_entry", entries),
-                ArrayResource(
+                key = "revanced_video_quality_default_wifi",
+                titleKey = "revanced_video_quality_default_wifi_title",
+                summaryKey = null,
+                entries = ArrayResource("revanced_video_quality_default_wifi_entry", entries),
+                entryValues = ArrayResource(
                     "revanced_video_quality_default_wifi_entry_values",
                     entryValues,
                     literalValues = true
@@ -99,10 +95,11 @@ object RememberVideoQualityPatch : BytecodePatch(
                 // default value and summary are set by integrations after loading
             ),
             ListPreference(
-                "revanced_video_quality_default_mobile",
-                "revanced_video_quality_default_mobile_title",
-                ArrayResource("revanced_video_quality_default_mobile_entries", entries),
-                ArrayResource(
+                key = "revanced_video_quality_default_mobile",
+                titleKey = "revanced_video_quality_default_mobile_title",
+                summaryKey = null,
+                entries = ArrayResource("revanced_video_quality_default_mobile_entries", entries),
+                entryValues = ArrayResource(
                     "revanced_video_quality_default_mobile_values",
                     entryValues,
                     literalValues = true

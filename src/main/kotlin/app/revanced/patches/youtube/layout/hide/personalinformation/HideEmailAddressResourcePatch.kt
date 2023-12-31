@@ -16,12 +16,7 @@ internal object HideEmailAddressResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         StringsPatch.includePatchStrings("HideEmailAddress")
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_hide_email_address",
-                "revanced_hide_email_address_title",
-                "revanced_hide_email_address_summary_on",
-                "revanced_hide_email_address_summary_off"
-            )
+            SwitchPreference("revanced_hide_email_address")
         )
 
         accountSwitcherAccessibilityLabelId = ResourceMappingPatch.resourceMappings.single {

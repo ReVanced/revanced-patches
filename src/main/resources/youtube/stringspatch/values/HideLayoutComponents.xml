@@ -9,8 +9,8 @@
     <string name="revanced_hide_join_membership_button_summary_off">Button is shown</string>
 
     <string name="revanced_hide_channel_watermark_title">Hide creator watermark on videos</string>
-    <string name="revanced_hide_channel_watermark_title_summary_on">Watermark is hidden</string>
-    <string name="revanced_hide_channel_watermark_title_summary_off">Watermark is shown</string>
+    <string name="revanced_hide_channel_watermark_summary_on">Watermark is hidden</string>
+    <string name="revanced_hide_channel_watermark_summary_off">Watermark is shown</string>
 
     <string name="revanced_hide_for_you_shelf_title">Hide \'For you\' shelf in channel page</string>
     <string name="revanced_hide_for_you_shelf_summary_on">Shelf is hidden</string>
@@ -109,8 +109,8 @@
     <string name="revanced_hide_latest_posts_ads_summary_off">Latest posts are shown</string>
 
     <string name="revanced_hide_chips_shelf_title">Hide chips shelf</string>
-    <string name="revanced_hide_chips_shelf_on">Chips shelf is hidden</string>
-    <string name="revanced_hide_chips_shelf_off">Chips shelf is shown</string>
+    <string name="revanced_hide_chips_shelf_summary_on">Chips shelf is hidden</string>
+    <string name="revanced_hide_chips_shelf_summary_off">Chips shelf is shown</string>
 
     <string name="revanced_hide_description_components_preference_screen_title">Hide components in the video description</string>
     <string name="revanced_hide_description_components_preference_screen_summary">Hide components under the video description</string>
@@ -136,8 +136,8 @@
     <string name="revanced_hide_transcript_section_summary_off">Transcript section is shown</string>
 
     <string name="revanced_hide_artist_cards_title">Hide artist cards</string>
-    <string name="revanced_hide_artist_cards_on">Artist cards are hidden</string>
-    <string name="revanced_hide_artist_cards_off">Artist cards are shown</string>
+    <string name="revanced_hide_artist_cards_summary_on">Artist cards are hidden</string>
+    <string name="revanced_hide_artist_cards_summary_off">Artist cards are shown</string>
 
     <string name="revanced_hide_mix_playlists_title">Hide mix playlists</string>
     <string name="revanced_hide_mix_playlists_summary_on">Mix playlists are hidden</string>

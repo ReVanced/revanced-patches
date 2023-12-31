@@ -19,7 +19,7 @@
     <string name="revanced_auto_claim_channel_points">תבע אוטומטית נקודות ערוץ</string>
     <string name="revanced_block_audio_ads_off">חסימת מודעות אודיו בוטלה</string>
     <string name="revanced_block_audio_ads_on">מודעות אודיו חסומות</string>
-    <string name="revanced_block_audio_ads">חסום מודעות אודיו</string>
+    <string name="revanced_block_audio_ads_title">חסום מודעות אודיו</string>
     <string name="revanced_block_embedded_ads">חסום מודעות וידאו משובצות</string>
     <string name="revanced_block_video_ads_off">חסימת מודעות וידאו בוטלה</string>
     <string name="revanced_block_video_ads_on">מודעות וידאו חסומות</string>

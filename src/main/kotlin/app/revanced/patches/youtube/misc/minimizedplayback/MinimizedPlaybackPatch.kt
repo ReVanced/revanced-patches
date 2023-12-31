@@ -58,12 +58,10 @@ object MinimizedPlaybackPatch : BytecodePatch(
 
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("MinimizedPlayback")
-        // TODO: remove this empty preference sometime after mid 2023
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             NonInteractivePreference(
                 "revanced_minimized_playback_title",
                 "revanced_minimized_playback_summary"
-
             )
         )
 

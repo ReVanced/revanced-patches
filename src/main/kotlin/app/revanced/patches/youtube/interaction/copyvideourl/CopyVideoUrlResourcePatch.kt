@@ -23,23 +23,10 @@ internal object CopyVideoUrlResourcePatch : ResourcePatch() {
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
             PreferenceScreen(
                 "revanced_copy_video_url_preference_screen",
-                "revanced_copy_video_url_preference_screen_title",
                 listOf(
-                    SwitchPreference(
-                        "revanced_copy_video_url",
-                        "revanced_copy_video_url_title",
-                        "revanced_copy_video_url_summary_on",
-                        "revanced_copy_video_url_summary_off"
-                    ),
-                    SwitchPreference(
-                        "revanced_copy_video_url_timestamp",
-                        "revanced_copy_video_url_timestamp_title",
-                        "revanced_copy_video_url_timestamp_summary_on",
-                        "revanced_copy_video_url_timestamp_summary_off"
-                    )
-                ),
-
-                    "revanced_copy_video_url_preference_screen_summary"
+                    SwitchPreference("revanced_copy_video_url"),
+                    SwitchPreference("revanced_copy_video_url_timestamp")
+                )
             )
         )
 

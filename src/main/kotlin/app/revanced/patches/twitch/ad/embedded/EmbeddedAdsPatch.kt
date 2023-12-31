@@ -41,9 +41,10 @@ object EmbeddedAdsPatch : BytecodePatch(
         StringsPatch.includePatchStrings("EmbeddedAds")
         SettingsPatch.PreferenceScreen.ADS.SURESTREAM.addPreferences(
             ListPreference(
-                "revanced_block_embedded_ads",
-                "revanced_block_embedded_ads",
-                ArrayResource(
+                key = "revanced_block_embedded_ads",
+                titleKey = "revanced_block_embedded_ads",
+                summaryKey = null,
+                entries = ArrayResource(
                     "revanced_hls_proxies",
                     listOf(
                         "revanced_proxy_disabled",
@@ -51,7 +52,7 @@ object EmbeddedAdsPatch : BytecodePatch(
                         "revanced_proxy_purpleadblock",
                     )
                 ),
-                ArrayResource(
+                entryValues = ArrayResource(
                     "revanced_hls_proxies_values",
                     listOf(
                         "disabled",

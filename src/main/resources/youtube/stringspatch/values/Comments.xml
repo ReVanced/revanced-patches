@@ -8,6 +8,6 @@
     <string name="revanced_hide_comments_section_summary_off">Comment section is shown</string>
 
     <string name="revanced_hide_preview_comment_title">Hide preview comment</string>
-    <string name="revanced_hide_preview_comment_on">Preview comment is hidden</string>
-    <string name="revanced_hide_preview_comment_off">Preview comment is shown</string>
+    <string name="revanced_hide_preview_comment_summary_on">Preview comment is hidden</string>
+    <string name="revanced_hide_preview_comment_summary_off">Preview comment is shown</string>
 </resources>

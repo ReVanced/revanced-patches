@@ -44,16 +44,12 @@ object SpoofAppVersionPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("SpoofAppVersion")
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_spoof_app_version",
-                "revanced_spoof_app_version_title",
-                "revanced_spoof_app_version_summary_on",
-                "revanced_spoof_app_version_summary_off"
-            ),
+            SwitchPreference("revanced_spoof_app_version"),
             ListPreference(
-                "revanced_spoof_app_version_target",
-                "revanced_spoof_app_version_target_title",
-                ArrayResource(
+                key = "revanced_spoof_app_version_target",
+                titleKey = "revanced_spoof_app_version_target_title",
+                summaryKey = null,
+                entries = ArrayResource(
                     "revanced_spoof_app_version_target_entries",
                     listOf(
                         "revanced_spoof_app_version_target_entry_1",
@@ -63,7 +59,7 @@ object SpoofAppVersionPatch : BytecodePatch(
                         "revanced_spoof_app_version_target_entry_5",
                     )
                 ),
-                ArrayResource(
+                entryValues = ArrayResource(
                     "revanced_spoof_app_version_target_entry_values",
                     listOf(
                         "18.33.40",

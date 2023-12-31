@@ -20,12 +20,7 @@ internal object AlbumCardsResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         StringsPatch.includePatchStrings("AlbumCards")
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_hide_album_cards",
-                "revanced_hide_album_cards_title",
-                "revanced_hide_album_cards_summary_on",
-                "revanced_hide_album_cards_summary_off"
-            )
+            SwitchPreference("revanced_hide_album_cards")
         )
 
         albumCardId = ResourceMappingPatch.resourceMappings.single {

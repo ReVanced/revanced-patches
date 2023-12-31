@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.interaction.downloads
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.settings.preference.impl.InputType
 import app.revanced.patches.shared.settings.preference.impl.PreferenceScreen
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.shared.settings.preference.impl.TextPreference
@@ -26,24 +25,10 @@ internal object ExternalDownloadsResourcePatch : ResourcePatch() {
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
             PreferenceScreen(
                 "revanced_external_downloader_preference_screen",
-                "revanced_external_downloader_preference_screen_title",
                 listOf(
-                    SwitchPreference(
-                        "revanced_external_downloader",
-                        "revanced_external_downloader_title",
-                        "revanced_external_downloader_summary_on",
-
-                            "revanced_external_downloader_summary_off"
-                    ),
-                    TextPreference(
-                        "revanced_external_downloader_name",
-                        "revanced_external_downloader_name_title",
-                        "revanced_external_downloader_name_summary",
-                        InputType.TEXT
-                    )
-                ),
-
-                    "revanced_external_downloader_preference_screen_summary"
+                    SwitchPreference("revanced_external_downloader"),
+                    TextPreference("revanced_external_downloader_name")
+                )
             )
         )
 

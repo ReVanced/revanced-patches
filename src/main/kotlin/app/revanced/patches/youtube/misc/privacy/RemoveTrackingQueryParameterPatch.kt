@@ -46,12 +46,7 @@ object RemoveTrackingQueryParameterPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("RemoveTrackingQueryParameter")
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            SwitchPreference(
-                "revanced_remove_tracking_query_parameter",
-                "revanced_remove_tracking_query_parameter_title",
-                "revanced_remove_tracking_query_parameter_summary_on",
-                "revanced_remove_tracking_query_parameter_summary_off",
-            )
+            SwitchPreference("revanced_remove_tracking_query_parameter")
         )
 
         fun MethodFingerprint.hook(

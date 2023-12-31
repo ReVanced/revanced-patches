@@ -18,10 +18,16 @@ import org.w3c.dom.Element
 class SwitchPreference(
     key: String,
     titleKey: String,
-    val summaryOnKey: String,
-    val summaryOffKey: String,
+    private val summaryOnKey: String,
+    private val summaryOffKey: String,
     default: Boolean = false,
 ) : DefaultBasePreference<Boolean>( key, titleKey, null, "SwitchPreference", default) {
+
+    /**
+     * Initialize using title and summary keys with the suffix "_title", "_summary_on", "_summary_off"
+     */
+    constructor(key: String, default: Boolean = false) : this(key, "${key}_title",
+        "${key}_summary_on", "${key}_summary_off", default)
 
     override fun serialize(ownerDocument: Document): Element {
         return super.serialize(ownerDocument).apply {

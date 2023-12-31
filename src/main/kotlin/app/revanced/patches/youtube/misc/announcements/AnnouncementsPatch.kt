@@ -41,12 +41,7 @@ object AnnouncementsPatch : BytecodePatch(
 
         StringsPatch.includePatchStrings("Announcements")
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            SwitchPreference(
-                "revanced_announcements",
-                "revanced_announcements_title",
-                "revanced_announcements_summary_on",
-                "revanced_announcements_summary_off",
-            )
+            SwitchPreference("revanced_announcements")
         )
     }
 }

@@ -35,9 +35,10 @@ object ChangeStartPagePatch : BytecodePatch(
         StringsPatch.includePatchStrings("ChangeStartPage")
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             ListPreference(
-                "revanced_start_page",
-                "revanced_start_page_title",
-                ArrayResource(
+                key = "revanced_start_page",
+                titleKey = "revanced_start_page_title",
+                summaryKey = null,
+                entries = ArrayResource(
                     "revanced_start_page_entries",
                     listOf(
                         "revanced_start_page_home_entry_0",
@@ -48,7 +49,7 @@ object ChangeStartPagePatch : BytecodePatch(
                         "revanced_start_page_home_entry_5",
                     )
                 ),
-                ArrayResource(
+                entryValues = ArrayResource(
                     "revanced_start_page_values",
                     listOf(
                         "",

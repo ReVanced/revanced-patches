@@ -41,12 +41,7 @@ object HideCaptionsButtonPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("HideCaptionsButton")
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_hide_captions_button",
-                "revanced_hide_captions_button_title",
-                "revanced_hide_captions_button_summary_on",
-                "revanced_hide_captions_button_summary_off"
-            )
+            SwitchPreference("revanced_hide_captions_button")
         )
 
         val subtitleButtonControllerMethod =

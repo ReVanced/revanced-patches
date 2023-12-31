@@ -52,40 +52,13 @@ object NavigationButtonsPatch : BytecodePatch(
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
                 "revanced_navigation_buttons_preference_screen",
-                "revanced_navigation_buttons_preference_screen_title",
                 listOf(
-                    SwitchPreference(
-                        "revanced_hide_home_button",
-                        "revanced_hide_home_button_title",
-                        "revanced_hide_home_button_summary_on",
-                        "revanced_hide_home_button_summary_off"
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_shorts_button",
-                        "revanced_hide_shorts_button_title",
-                        "revanced_hide_shorts_button_summary_on",
-                        "revanced_hide_shorts_button_summary_off"
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_create_button",
-                        "revanced_hide_create_button_title",
-                        "revanced_hide_create_button_summary_on",
-                        "revanced_hide_create_button_summary_off"
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_subscriptions_button",
-                        "revanced_hide_subscriptions_button_title",
-                        "revanced_hide_subscriptions_button_summary_on",
-                        "revanced_hide_subscriptions_button_summary_off"
-                    ),
-                    SwitchPreference(
-                        "revanced_switch_create_with_notifications_button",
-                        "revanced_switch_create_with_notifications_button_title",
-                        "revanced_switch_create_with_notifications_button_summary_on",
-                        "revanced_switch_create_with_notifications_button_summary_off",
-                    ),
-                ),
-                "revanced_navigation_buttons_preference_screen_summary"
+                    SwitchPreference("revanced_hide_home_button"),
+                    SwitchPreference("revanced_hide_shorts_button"),
+                    SwitchPreference("revanced_hide_create_button"),
+                    SwitchPreference("revanced_hide_subscriptions_button"),
+                    SwitchPreference("revanced_switch_create_with_notifications_button")
+                )
             )
         )
 

@@ -44,70 +44,18 @@ object HideButtonsPatch : ResourcePatch() {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
                 "revanced_hide_buttons_preference_screen",
-                "revanced_hide_buttons_preference_screen_title",
                 listOf(
-                    SwitchPreference(
-                        "revanced_hide_like_dislike_button",
-                        "revanced_hide_like_dislike_button_title",
-                        "revanced_hide_like_dislike_button_summary_on",
-                        "revanced_hide_like_dislike_button_summary_off"
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_live_chat_button",
-                        "revanced_hide_live_chat_button_title",
-                        "revanced_hide_live_chat_button_summary_on",
-                        "revanced_hide_live_chat_button_summary_off",
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_share_button",
-                        "revanced_hide_share_button_title",
-                        "revanced_hide_share_button_summary_on",
-                        "revanced_hide_share_button_summary_off"
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_report_button",
-                        "revanced_hide_report_button_title",
-                        "revanced_hide_report_button_summary_on",
-                        "revanced_hide_report_button_summary_off",
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_remix_button",
-                        "revanced_hide_remix_button_title",
-                        "revanced_hide_remix_button_summary_on",
-                        "revanced_hide_remix_button_summary_off",
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_download_button",
-                        "revanced_hide_download_button_title",
-                        "revanced_hide_download_button_summary_on",
-                        "revanced_hide_download_button_summary_off"
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_thanks_button",
-                        "revanced_hide_thanks_button_title",
-                        "revanced_hide_thanks_button_summary_on",
-                        "revanced_hide_thanks_button_summary_off",
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_clip_button",
-                        "revanced_hide_clip_button_title",
-                        "revanced_hide_clip_button_summary_on",
-                        "revanced_hide_clip_button_summary_off",
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_playlist_button",
-                        "revanced_hide_playlist_button_title",
-                        "revanced_hide_playlist_button_summary_on",
-                        "revanced_hide_playlist_button_summary_off",
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_shop_button",
-                        "revanced_hide_shop_button_title",
-                        "revanced_hide_shop_button_summary_on",
-                        "revanced_hide_shop_button_summary_off",
-                    )
-                ),
-                "revanced_hide_buttons_preference_screen_summary"
+                    SwitchPreference("revanced_hide_like_dislike_button"),
+                    SwitchPreference("revanced_hide_live_chat_button"),
+                    SwitchPreference("revanced_hide_share_button"),
+                    SwitchPreference("revanced_hide_report_button"),
+                    SwitchPreference("revanced_hide_remix_button"),
+                    SwitchPreference("revanced_hide_download_button"),
+                    SwitchPreference("revanced_hide_thanks_button"),
+                    SwitchPreference("revanced_hide_clip_button"),
+                    SwitchPreference("revanced_hide_playlist_button"),
+                    SwitchPreference("revanced_hide_shop_button")
+                )
             )
         )
 

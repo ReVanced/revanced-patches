@@ -58,28 +58,11 @@ object SpoofSignaturePatch : BytecodePatch(
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             PreferenceScreen(
                 "revanced_spoof_signature_verification_screen",
-                "revanced_spoof_signature_verification_screen_title",
                 listOf(
-                    SwitchPreference(
-                        "revanced_spoof_signature_verification_enabled",
-                        "revanced_spoof_signature_verification_enabled_title",
-                        "revanced_spoof_signature_verification_enabled_summary_on",
-                        "revanced_spoof_signature_verification_enabled_summary_off"
-                    ),
-                    SwitchPreference(
-                        "revanced_spoof_signature_in_feed_enabled",
-                        "revanced_spoof_signature_in_feed_enabled_title",
-                        "revanced_spoof_signature_in_feed_enabled_summary_on",
-                        "revanced_spoof_signature_in_feed_enabled_summary_off"
-                    ),
-                    SwitchPreference(
-                        "revanced_spoof_storyboard",
-                        "revanced_spoof_storyboard_title",
-                        "revanced_spoof_storyboard_summary_on",
-                        "revanced_spoof_storyboard_summary_off"
-                    )
-                ),
-                "revanced_spoof_signature_verification_screen_summary"
+                    SwitchPreference("revanced_spoof_signature_verification_enabled"),
+                    SwitchPreference("revanced_spoof_signature_in_feed_enabled"),
+                    SwitchPreference("revanced_spoof_storyboard")
+                )
             )
         )
 

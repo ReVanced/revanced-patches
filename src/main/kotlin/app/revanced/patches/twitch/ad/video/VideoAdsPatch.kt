@@ -133,9 +133,6 @@ object VideoAdsPatch : AbstractAdPatch(
         SettingsPatch.PreferenceScreen.ADS.CLIENT_SIDE.addPreferences(
             SwitchPreference(
                 "revanced_block_video_ads",
-                "revanced_block_video_ads",
-                "revanced_block_video_ads_on",
-                "revanced_block_video_ads_off",
                 default = true
             )
         )

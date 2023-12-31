@@ -19,7 +19,7 @@
     <string name="revanced_auto_claim_channel_points">Réclamez automatiquement des points de chaîne</string>
     <string name="revanced_block_audio_ads_off">Les publicités audio ne sont pas bloquées</string>
     <string name="revanced_block_audio_ads_on">Les publicités audio sont bloquées</string>
-    <string name="revanced_block_audio_ads">Bloquer les publicités audio</string>
+    <string name="revanced_block_audio_ads_title">Bloquer les publicités audio</string>
     <string name="revanced_block_embedded_ads">Bloquer les publicités vidéo intégrées</string>
     <string name="revanced_block_video_ads_off">Les publicités vidéo ne sont pas bloquées</string>
     <string name="revanced_block_video_ads_on">Les publicités vidéo sont bloquées</string>

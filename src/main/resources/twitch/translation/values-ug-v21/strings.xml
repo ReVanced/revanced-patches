@@ -19,7 +19,7 @@
     <string name="revanced_auto_claim_channel_points">قانال نۇقتىلىرىنى ئاپتوماتىك تەلەپ قىلىدۇ.</string>
     <string name="revanced_block_audio_ads_off">ئاۋازلىق ئېلانلار چەكلەنگەن.</string>
     <string name="revanced_block_audio_ads_on">ئاۋازلىق ئېلانلار چەكلەنگەن.</string>
-    <string name="revanced_block_audio_ads">ئاۋازلىق ئېلانلارنى چەكلەڭ.</string>
+    <string name="revanced_block_audio_ads_title">ئاۋازلىق ئېلانلارنى چەكلەڭ.</string>
     <string name="revanced_block_embedded_ads">قىستۇرۇلغان سىن ئېلانىنى چەكلەڭ.</string>
     <string name="revanced_block_video_ads_off">سىنلىق ئېلانلار چەكلەنگەن.</string>
     <string name="revanced_block_video_ads_on">سىنلىق ئېلانلار چەكلەنگەن.</string>

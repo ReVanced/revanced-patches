@@ -39,12 +39,7 @@ object RestoreOldSeekbarThumbnailsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("RestoreOldSeekbarThumbnails")
         SeekbarPreferencesPatch.addPreferences(
-            SwitchPreference(
-                "revanced_restore_old_seekbar_thumbnails",
-                "revanced_restore_old_seekbar_thumbnails_title",
-                "revanced_restore_old_seekbar_thumbnails_summary_on",
-                "revanced_restore_old_seekbar_thumbnails_summary_off"
-            )
+            SwitchPreference("revanced_restore_old_seekbar_thumbnails")
         )
 
         FullscreenSeekbarThumbnailsFingerprint.result?.mutableMethod?.apply {

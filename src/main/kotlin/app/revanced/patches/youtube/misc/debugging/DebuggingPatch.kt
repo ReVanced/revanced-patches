@@ -22,34 +22,12 @@ object DebuggingPatch : ResourcePatch() {
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             app.revanced.patches.shared.settings.preference.impl.PreferenceScreen(
                 "revanced_debug_preference_screen",
-                "revanced_debug_preference_screen_title",
                 listOf(
-                    SwitchPreference(
-                        "revanced_debug",
-                        "revanced_debug_title",
-                        "revanced_debug_summary_on",
-                        "revanced_debug_summary_off"
-                    ),
-                    SwitchPreference(
-                        "revanced_debug_protobuffer",
-                        "revanced_debug_protobuffer_title",
-                        "revanced_debug_protobuffer_summary_on",
-                        "revanced_debug_protobuffer_summary_off",
-                    ),
-                    SwitchPreference(
-                        "revanced_debug_stacktrace",
-                        "revanced_debug_stacktrace_title",
-                        "revanced_debug_stacktrace_summary_on",
-                        "revanced_debug_stacktrace_summary_off"
-                    ),
-                    SwitchPreference(
-                        "revanced_debug_toast_on_error",
-                        "revanced_debug_toast_on_error_title",
-                        "revanced_debug_toast_on_error_summary_on",
-                        "revanced_debug_toast_on_error_summary_off"
-                    ),
-                ),
-                "revanced_debug_preference_screen_summary"
+                    SwitchPreference("revanced_debug"),
+                    SwitchPreference("revanced_debug_protobuffer"),
+                    SwitchPreference("revanced_debug_stacktrace"),
+                    SwitchPreference("revanced_debug_toast_on_error")
+                )
             )
         )
     }

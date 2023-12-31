@@ -37,12 +37,7 @@ object HideTimestampPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("HideTimestamp")
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_hide_timestamp",
-                "revanced_hide_timestamp_title",
-                "revanced_hide_timestamp_summary_on",
-                "revanced_hide_timestamp_summary_off"
-            )
+            SwitchPreference("revanced_hide_timestamp")
         )
 
         TimeCounterFingerprint.result?.apply {

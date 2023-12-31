@@ -41,12 +41,7 @@ object AutoCaptionsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("AutoCaptions")
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_auto_captions",
-                "revanced_auto_captions_title",
-                "revanced_auto_captions_summary_on",
-                "revanced_auto_captions_summary_off"
-            )
+            SwitchPreference("revanced_auto_captions")
         )
 
         mapOf(

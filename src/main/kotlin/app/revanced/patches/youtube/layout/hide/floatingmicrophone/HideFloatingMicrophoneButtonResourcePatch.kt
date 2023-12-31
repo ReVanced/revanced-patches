@@ -21,12 +21,7 @@ internal object HideFloatingMicrophoneButtonResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         StringsPatch.includePatchStrings("HideFloatingMicrophoneButton")
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_hide_floating_microphone_button",
-                "revanced_hide_floating_microphone_button_enabled_title",
-                "revanced_hide_floating_microphone_button_summary_on",
-                "revanced_hide_floating_microphone_button_summary_off"
-            )
+            SwitchPreference("revanced_hide_floating_microphone_button")
         )
 
         fabButtonId =

@@ -44,12 +44,7 @@ object DisablePreciseSeekingGesturePatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("DisablePreciseSeekingGesture")
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
-            SwitchPreference(
-                "revanced_disable_precise_seeking_gesture",
-                "revanced_disable_precise_seeking_gesture_title",
-                "revanced_disable_precise_seeking_gesture_summary_on",
-                "revanced_disable_precise_seeking_gesture_summary_off",
-            )
+            SwitchPreference("revanced_disable_precise_seeking_gesture")
         )
 
         IsSwipingUpFingerprint.result?.let {

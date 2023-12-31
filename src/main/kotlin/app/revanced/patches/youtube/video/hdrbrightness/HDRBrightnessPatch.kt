@@ -39,12 +39,7 @@ object HDRBrightnessPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("HDRBrightness")
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
-            SwitchPreference(
-                "revanced_hdr_auto_brightness",
-                "revanced_hdr_auto_brightness_title",
-                "revanced_hdr_auto_brightness_summary_on",
-                "revanced_hdr_auto_brightness_summary_off"
-            )
+            SwitchPreference("revanced_hdr_auto_brightness")
         )
 
         val method = HDRBrightnessFingerprint.result!!.mutableMethod

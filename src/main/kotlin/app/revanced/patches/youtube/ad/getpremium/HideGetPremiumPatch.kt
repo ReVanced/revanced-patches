@@ -38,12 +38,7 @@ object HideGetPremiumPatch : BytecodePatch(setOf(GetPremiumViewFingerprint)) {
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("HideGetPremium")
         SettingsPatch.PreferenceScreen.ADS.addPreferences(
-            SwitchPreference(
-                "revanced_hide_get_premium",
-                "revanced_hide_get_premium_title",
-                "revanced_hide_get_premium_summary_on",
-                "revanced_hide_get_premium_summary_off",
-            )
+            SwitchPreference("revanced_hide_get_premium")
         )
 
         GetPremiumViewFingerprint.result?.let {

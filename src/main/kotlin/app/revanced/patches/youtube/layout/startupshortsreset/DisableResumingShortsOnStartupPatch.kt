@@ -41,12 +41,7 @@ object DisableResumingShortsOnStartupPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("DisableResumingShortsOnStartup")
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_disable_resuming_shorts_player",
-                "revanced_disable_resuming_shorts_player_title",
-                "revanced_disable_resuming_shorts_player_summary_on",
-                "revanced_disable_resuming_shorts_player_summary_off"
-            )
+            SwitchPreference("revanced_disable_resuming_shorts_player")
         )
 
         UserWasInShortsFingerprint.result?.apply {

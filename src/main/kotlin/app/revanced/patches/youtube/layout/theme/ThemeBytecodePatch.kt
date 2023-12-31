@@ -93,12 +93,7 @@ object ThemeBytecodePatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("ThemeBytecode")
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_gradient_loading_screen",
-                "revanced_gradient_loading_screen_title",
-                "revanced_gradient_loading_screen_summary_on",
-                "revanced_gradient_loading_screen_summary_off"
-            )
+            SwitchPreference("revanced_gradient_loading_screen")
         )
 
         UseGradientLoadingScreenFingerprint.result?.mutableMethod?.apply {

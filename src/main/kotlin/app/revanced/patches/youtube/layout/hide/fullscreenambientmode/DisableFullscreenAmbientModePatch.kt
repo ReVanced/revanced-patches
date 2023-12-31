@@ -39,12 +39,7 @@ object DisableFullscreenAmbientModePatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("DisableFullscreenAmbientMode")
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_disable_fullscreen_ambient_mode",
-                "revanced_disable_fullscreen_ambient_mode_title",
-                "revanced_disable_fullscreen_ambient_mode_summary_on",
-                "revanced_disable_fullscreen_ambient_mode_summary_off",
-            )
+            SwitchPreference("revanced_disable_fullscreen_ambient_mode")
         )
 
         InitializeAmbientModeFingerprint.result?.let {

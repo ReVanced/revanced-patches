@@ -43,70 +43,18 @@ object HidePlayerFlyoutMenuPatch : ResourcePatch() {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
                 "revanced_hide_player_flyout_screen",
-                "revanced_hide_player_flyout_screen_title",
                 listOf(
-                    SwitchPreference(
-                        "revanced_hide_player_flyout_captions",
-                        "revanced_hide_player_flyout_captions_title",
-                        "revanced_hide_player_flyout_captions_on",
-                        "revanced_hide_player_flyout_captions_off",
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_player_flyout_additional_settings",
-                        "revanced_hide_player_flyout_additional_settings_title",
-                        "revanced_hide_player_flyout_additional_settings_on",
-                        "revanced_hide_player_flyout_additional_settings_off",
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_player_flyout_loop_video",
-                        "revanced_hide_player_flyout_loop_video_title",
-                        "revanced_hide_player_flyout_loop_video_on",
-                        "revanced_hide_player_flyout_loop_video_off",
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_player_flyout_ambient_mode",
-                        "revanced_hide_player_flyout_ambient_mode_title",
-                        "revanced_hide_player_flyout_ambient_mode_on",
-                        "revanced_hide_player_flyout_ambient_mode_off",
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_player_flyout_report",
-                        "revanced_hide_player_flyout_report_title",
-                        "revanced_hide_player_flyout_report_on",
-                        "revanced_hide_player_flyout_report_off",
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_player_flyout_help",
-                        "revanced_hide_player_flyout_help_title",
-                        "revanced_hide_player_flyout_help_on",
-                        "revanced_hide_player_flyout_help_off",
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_player_flyout_speed",
-                        "revanced_hide_player_flyout_speed_title",
-                        "revanced_hide_player_flyout_speed_on",
-                        "revanced_hide_player_flyout_speed_off",
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_player_flyout_more_info",
-                        "revanced_hide_player_flyout_more_info_title",
-                        "revanced_hide_player_flyout_more_info_on",
-                        "revanced_hide_player_flyout_more_info_off",
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_player_flyout_audio_track",
-                        "revanced_hide_player_flyout_audio_track_title",
-                        "revanced_hide_player_flyout_audio_track_on",
-                        "revanced_hide_player_flyout_audio_track_off",
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_player_flyout_watch_in_vr",
-                        "revanced_hide_player_flyout_watch_in_vr_title",
-                        "revanced_hide_player_flyout_watch_in_vr_on",
-                        "revanced_hide_player_flyout_watch_in_vr_off",
-                    ),
+                    SwitchPreference("revanced_hide_player_flyout_captions"),
+                    SwitchPreference("revanced_hide_player_flyout_additional_settings"),
+                    SwitchPreference("revanced_hide_player_flyout_loop_video"),
+                    SwitchPreference("revanced_hide_player_flyout_ambient_mode"),
+                    SwitchPreference("revanced_hide_player_flyout_report"),
+                    SwitchPreference("revanced_hide_player_flyout_help"),
+                    SwitchPreference("revanced_hide_player_flyout_speed"),
+                    SwitchPreference("revanced_hide_player_flyout_more_info"),
+                    SwitchPreference("revanced_hide_player_flyout_audio_track"),
+                    SwitchPreference("revanced_hide_player_flyout_watch_in_vr")
                 ),
-                "revanced_hide_player_flyout_screen_summary",
             )
         )
 

@@ -15,9 +15,16 @@ import org.w3c.dom.Document
 open class PreferenceScreen(
     key: String,
     titleKey: String,
-    var preferences: List<BasePreference>,
-    summaryKey: String? = null
+    summaryKey: String? = null,
+    var preferences: List<BasePreference>
 ) : BasePreference(key, titleKey, summaryKey, "PreferenceScreen") {
+
+    /**
+     * Initialize using title and summary keys with suffix "_title" and "_summary".
+     */
+    constructor(
+        key: String, preferences: List<BasePreference>
+    ) : this(key, "${key}_title", "${key}_summary", preferences)
 
     override fun serialize(ownerDocument: Document) =
         super.serialize(ownerDocument).apply {

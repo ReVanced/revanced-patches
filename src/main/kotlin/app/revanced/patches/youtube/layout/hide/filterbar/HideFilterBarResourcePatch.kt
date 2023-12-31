@@ -20,28 +20,11 @@ internal object HideFilterBarResourcePatch : ResourcePatch() {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
                 "revanced_hide_filter_bar_screen",
-                "revanced_hide_filter_bar_screen_title",
                 listOf(
-                    SwitchPreference(
-                        "revanced_hide_filter_bar_feed_in_feed",
-                        "revanced_hide_filter_bar_feed_in_feed_title",
-                        "revanced_hide_filter_bar_feed_in_feed_summary_on",
-                        "revanced_hide_filter_bar_feed_in_feed_summary_off"
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_filter_bar_feed_in_search",
-                        "revanced_hide_filter_bar_feed_in_search_title",
-                        "revanced_hide_filter_bar_feed_in_search_summary_on",
-                        "revanced_hide_filter_bar_feed_in_search_summary_off"
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_filter_bar_feed_in_related_videos",
-                        "revanced_hide_filter_bar_feed_in_related_videos_title",
-                        "revanced_hide_filter_bar_feed_in_related_videos_summary_on",
-                        "revanced_hide_filter_bar_feed_in_related_videos_summary_off"
-                    ),
-                ),
-                "revanced_hide_filter_bar_screen_summary"
+                    SwitchPreference("revanced_hide_filter_bar_feed_in_feed"),
+                    SwitchPreference("revanced_hide_filter_bar_feed_in_search"),
+                    SwitchPreference("revanced_hide_filter_bar_feed_in_related_videos")
+                )
             )
         )
 

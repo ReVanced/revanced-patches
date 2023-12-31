@@ -19,7 +19,7 @@
     <string name="revanced_auto_claim_channel_points">Thola Amaphuzu Esiteshi ngokuzenzakalelayo</string>
     <string name="revanced_block_audio_ads_off">Izikhangiso zomsindo zivuliwe</string>
     <string name="revanced_block_audio_ads_on">Izikhangiso zomsindo zivinjelwe</string>
-    <string name="revanced_block_audio_ads">Vimba izikhangiso ezilalelwayo</string>
+    <string name="revanced_block_audio_ads_title">Vimba izikhangiso ezilalelwayo</string>
     <string name="revanced_block_embedded_ads">Vimba izikhangiso zevidiyo ezishumekiwe</string>
     <string name="revanced_block_video_ads_off">Izikhangiso zevidiyo azivinjiwe</string>
     <string name="revanced_block_video_ads_on">Izikhangiso zevidiyo zivinjelwe</string>

@@ -18,64 +18,17 @@ internal object SwipeControlsResourcePatch : ResourcePatch() {
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
             PreferenceScreen(
                 "revanced_swipe_controls_preference_screen",
-                "revanced_swipe_controls_preference_screen_title",
                 listOf(
-                    SwitchPreference(
-                        "revanced_swipe_brightness",
-                        "revanced_swipe_brightness_title",
-                        "revanced_swipe_brightness_summary_on",
-                        "revanced_swipe_brightness_summary_off"
-                    ),
-                    SwitchPreference(
-                        "revanced_swipe_volume",
-                        "revanced_swipe_volume_title",
-                        "revanced_swipe_volume_summary_on",
-                        "revanced_swipe_volume_summary_off"
-                    ),
-                    SwitchPreference(
-                        "revanced_swipe_press_to_engage",
-                        "revanced_swipe_press_to_engage_title",
-                        "revanced_swipe_press_to_engage_summary_on",
-                        "revanced_swipe_press_to_engage_summary_off"
-                    ),
-                    SwitchPreference(
-                        "revanced_swipe_haptic_feedback",
-                        "revanced_swipe_haptic_feedback_title",
-                        "revanced_swipe_haptic_feedback_summary_on",
-                        "revanced_swipe_haptic_feedback_summary_off"
-                    ),
-                    SwitchPreference(
-                        "revanced_swipe_save_and_restore_brightness",
-                        "revanced_swipe_save_and_restore_brightness_title",
-                        "revanced_swipe_save_and_restore_brightness_summary_on",
-                        "revanced_swipe_save_and_restore_brightness_summary_off"
-                    ),
-                    TextPreference(
-                        "revanced_swipe_overlay_timeout",
-                        "revanced_swipe_overlay_timeout_title",
-                        "revanced_swipe_overlay_timeout_summary",
-                        InputType.NUMBER
-                    ),
-                    TextPreference(
-                        "revanced_swipe_text_overlay_size",
-                        "revanced_swipe_text_overlay_size_title",
-                        "revanced_swipe_text_overlay_size_summary",
-                        InputType.NUMBER
-                    ),
-                    TextPreference(
-                        "revanced_swipe_overlay_background_alpha",
-                        "revanced_swipe_overlay_background_alpha_title",
-                        "revanced_swipe_overlay_background_alpha_summary",
-                        InputType.NUMBER
-                    ),
-                    TextPreference(
-                        "revanced_swipe_threshold",
-                        "revanced_swipe_threshold_title",
-                        "revanced_swipe_threshold_summary",
-                        InputType.NUMBER
-                    )
-                ),
-                "revanced_swipe_controls_preference_screen_summary"
+                    SwitchPreference("revanced_swipe_brightness"),
+                    SwitchPreference("revanced_swipe_volume"),
+                    SwitchPreference("revanced_swipe_press_to_engage"),
+                    SwitchPreference("revanced_swipe_haptic_feedback"),
+                    SwitchPreference("revanced_swipe_save_and_restore_brightness"),
+                    TextPreference("revanced_swipe_overlay_timeout", InputType.NUMBER),
+                    TextPreference("revanced_swipe_text_overlay_size", InputType.NUMBER),
+                    TextPreference("revanced_swipe_overlay_background_alpha", InputType.NUMBER),
+                    TextPreference("revanced_swipe_threshold", InputType.NUMBER)
+                )
             )
         )
 

@@ -40,12 +40,7 @@ object AutoRepeatPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("AutoRepeat")
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            SwitchPreference(
-                "revanced_auto_repeat",
-                "revanced_auto_repeat_title",
-                "revanced_auto_repeat_summary_on",
-                "revanced_auto_repeat_summary_off"
-            )
+            SwitchPreference("revanced_auto_repeat")
         )
 
         //Get Result from the ParentFingerprint which is the playMethod we need to get.

@@ -17,9 +17,9 @@ import org.w3c.dom.Document
 class ListPreference(
     key: String,
     titleKey: String,
+    summaryKey: String?,
     val entries: ArrayResource?,
     val entryValues: ArrayResource?,
-    summaryKey: String? = null,
     default: String? = null,
 ) : DefaultBasePreference<String>(key, titleKey, summaryKey, "ListPreference", default) {
 

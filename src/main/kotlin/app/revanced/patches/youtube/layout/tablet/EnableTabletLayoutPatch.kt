@@ -28,12 +28,7 @@ object EnableTabletLayoutPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("EnableTabletLayout")
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_tablet_layout",
-                "revanced_tablet_layout_enabled_title",
-                "revanced_tablet_layout_summary_on",
-                "revanced_tablet_layout_summary_off",
-            )
+            SwitchPreference("revanced_tablet_layout")
         )
 
         GetFormFactorFingerprint.result?.let {

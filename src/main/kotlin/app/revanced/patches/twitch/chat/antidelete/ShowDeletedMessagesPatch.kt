@@ -73,9 +73,10 @@ object ShowDeletedMessagesPatch : BytecodePatch(
         StringsPatch.includePatchStrings("ShowDeletedMessages")
         SettingsPatch.PreferenceScreen.CHAT.GENERAL.addPreferences(
             ListPreference(
-                "revanced_show_deleted_messages",
-                "revanced_show_deleted_messages_title",
-                ArrayResource(
+                key = "revanced_show_deleted_messages",
+                titleKey = "revanced_show_deleted_messages_title",
+                summaryKey = null,
+                entries = ArrayResource(
                     "revanced_deleted_messages_entries",
                     listOf(
                         "revanced_deleted_messages_entry_hide",
@@ -83,7 +84,7 @@ object ShowDeletedMessagesPatch : BytecodePatch(
                         "revanced_deleted_messages_entry_cross_out",
                     )
                 ),
-                ArrayResource(
+                entryValues = ArrayResource(
                     "revanced_deleted_messages_values",
                     listOf(
                         "hide",

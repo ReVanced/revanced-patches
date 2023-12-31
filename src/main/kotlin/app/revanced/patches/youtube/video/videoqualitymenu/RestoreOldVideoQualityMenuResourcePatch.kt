@@ -18,12 +18,7 @@ object RestoreOldVideoQualityMenuResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         StringsPatch.includePatchStrings("RestoreOldVideoQualityMenu")
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
-            SwitchPreference(
-                "revanced_restore_old_video_quality_menu",
-                "revanced_restore_old_video_quality_menu_title",
-                "revanced_restore_old_video_quality_menu_summary_on",
-                "revanced_restore_old_video_quality_menu_summary_off"
-            )
+            SwitchPreference("revanced_restore_old_video_quality_menu")
         )
 
         fun findResource(name: String) =

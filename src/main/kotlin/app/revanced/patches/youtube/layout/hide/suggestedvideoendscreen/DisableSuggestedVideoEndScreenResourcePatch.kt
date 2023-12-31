@@ -20,12 +20,7 @@ internal object DisableSuggestedVideoEndScreenResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         StringsPatch.includePatchStrings("DisableSuggestedVideoEndScreen")
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_disable_suggested_video_end_screen",
-                "revanced_disable_suggested_video_end_screen_title",
-                "revanced_disable_suggested_video_end_screen_summary_on",
-                "revanced_disable_suggested_video_end_screen_summary_off",
-            )
+            SwitchPreference("revanced_disable_suggested_video_end_screen")
         )
 
         sizeAdjustableLiteAutoNavOverlay = ResourceMappingPatch.resourceMappings.single {

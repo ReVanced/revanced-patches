@@ -42,12 +42,7 @@ object VideoAdsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("VideoAds")
         SettingsPatch.PreferenceScreen.ADS.addPreferences(
-            SwitchPreference(
-                "revanced_hide_video_ads",
-                "revanced_hide_video_ads_title",
-                "revanced_hide_video_ads_summary_on",
-                "revanced_hide_video_ads_summary_off"
-            )
+            SwitchPreference("revanced_hide_video_ads")
         )
 
         val loadVideoAdsFingerprintMethod = LoadVideoAdsFingerprint.result!!.mutableMethod

@@ -20,12 +20,7 @@ internal object BreakingNewsResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         StringsPatch.includePatchStrings("BreakingNews")
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_hide_breaking_news",
-                "revanced_hide_breaking_news_title",
-                "revanced_hide_breaking_news_summary_on",
-                "revanced_hide_breaking_news_summary_off"
-            )
+            SwitchPreference("revanced_hide_breaking_news")
         )
 
         horizontalCardListId = ResourceMappingPatch.resourceMappings.single {

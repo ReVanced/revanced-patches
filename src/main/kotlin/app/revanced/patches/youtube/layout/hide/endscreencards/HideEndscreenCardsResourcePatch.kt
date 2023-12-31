@@ -22,12 +22,7 @@ internal object HideEndscreenCardsResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         StringsPatch.includePatchStrings("HideEndscreenCards")
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_hide_endscreen_cards",
-                "revanced_hide_endscreen_cards_title",
-                "revanced_hide_endscreen_cards_summary_on",
-                "revanced_hide_endscreen_cards_summary_off"
-            ),
+            SwitchPreference("revanced_hide_endscreen_cards")
         )
 
         fun findEndscreenResourceId(name: String) = ResourceMappingPatch.resourceMappings.single {

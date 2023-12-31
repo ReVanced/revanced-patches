@@ -29,18 +29,14 @@ object RememberPlaybackSpeedPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("RememberPlaybackSpeed")
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
-            SwitchPreference(
-                "revanced_remember_playback_speed_last_selected",
-                "revanced_remember_playback_speed_last_selected_title",
-                "revanced_remember_playback_speed_last_selected_summary_on",
-                "revanced_remember_playback_speed_last_selected_summary_off"
-            ),
+            SwitchPreference("revanced_remember_playback_speed_last_selected"),
             ListPreference(
-                "revanced_playback_speed_default",
-                "revanced_playback_speed_default_title",
+                key = "revanced_playback_speed_default",
+                titleKey = "revanced_playback_speed_default_title",
+                summaryKey = null,
                 // Entries and values are set by Integrations code based on the actual speeds available.
-                null,
-                null
+                entries = null,
+                entryValues = null
             )
         )
 

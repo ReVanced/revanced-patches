@@ -122,31 +122,11 @@ object SettingsPatch : BytecodePatch(
      * Preference screens patches should add their settings to.
      */
     object PreferenceScreen : AbstractPreferenceScreen() {
-        val ADS = Screen(
-            "revanced_ads_screen",
-            "revanced_ads_screen_title",
-            "revanced_ads_screen_summary"
-        )
-        val INTERACTIONS = Screen(
-            "revanced_interaction_screen",
-            "revanced_interaction_screen_title",
-            "revanced_interaction_screen_summary"
-        )
-        val LAYOUT = Screen(
-            "revanced_layout_screen",
-            "revanced_layout_screen_title",
-            "revanced_layout_screen_summary"
-        )
-        val MISC = Screen(
-            "revanced_misc_screen",
-            "revanced_misc_screen_title",
-            "revanced_misc_screen_summary"
-        )
-        val VIDEO = Screen(
-            "revanced_video_screen",
-            "revanced_video_screen_title",
-            "revanced_video_screen_summary"
-        )
+        val ADS = Screen("revanced_ads_screen")
+        val INTERACTIONS = Screen("revanced_interaction_screen")
+        val LAYOUT = Screen("revanced_layout_screen")
+        val MISC = Screen("revanced_misc_screen")
+        val VIDEO = Screen("revanced_video_screen")
 
         override fun commit(screen: app.revanced.patches.shared.settings.preference.impl.PreferenceScreen) {
             addPreference(screen)

@@ -45,12 +45,7 @@ object EnableSeekbarTappingPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("EnableSeekbarTapping")
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
-            SwitchPreference(
-                "revanced_seekbar_tapping",
-                "revanced_seekbar_tapping_title",
-                "revanced_seekbar_tapping_summary_on",
-                "revanced_seekbar_tapping_summary_off",
-            )
+            SwitchPreference("revanced_seekbar_tapping")
         )
 
         // Find the required methods to tap the seekbar.

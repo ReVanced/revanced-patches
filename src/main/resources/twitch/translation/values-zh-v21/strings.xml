@@ -19,7 +19,7 @@
     <string name="revanced_auto_claim_channel_points">自动索取频道点数</string>
     <string name="revanced_block_audio_ads_off">音频广告已解锁</string>
     <string name="revanced_block_audio_ads_on">音频广告被屏蔽</string>
-    <string name="revanced_block_audio_ads">屏蔽音频广告</string>
+    <string name="revanced_block_audio_ads_title">屏蔽音频广告</string>
     <string name="revanced_block_embedded_ads">屏蔽嵌入式视频广告</string>
     <string name="revanced_block_video_ads_off">视频广告畅通无阻</string>
     <string name="revanced_block_video_ads_on">视频广告被屏蔽</string>

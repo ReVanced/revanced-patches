@@ -26,60 +26,15 @@ object HideAdsResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         StringsPatch.includePatchStrings("HideAds")
         PreferenceScreen.ADS.addPreferences(
-            SwitchPreference(
-                "revanced_hide_general_ads",
-                "revanced_hide_general_ads_title",
-                "revanced_hide_general_ads_summary_on",
-                "revanced_hide_general_ads_summary_off"
-            ),
-            SwitchPreference(
-                "revanced_hide_fullscreen_ads",
-                "revanced_hide_fullscreen_ads_title",
-                "revanced_hide_fullscreen_ads_summary_on",
-                "revanced_hide_fullscreen_ads_summary_off"
-            ),
-            SwitchPreference(
-                "revanced_hide_buttoned_ads",
-                "revanced_hide_buttoned_ads_title",
-                "revanced_hide_buttoned_ads_summary_on",
-                "revanced_hide_buttoned_ads_summary_off"
-            ),
-            SwitchPreference(
-                "revanced_hide_paid_content_ads",
-                "revanced_hide_paid_content_ads_title",
-                "revanced_hide_paid_content_ads_summary_on",
-                "revanced_hide_paid_content_ads_summary_off"
-            ),
-            SwitchPreference(
-                "revanced_hide_self_sponsor_ads",
-                "revanced_hide_self_sponsor_ads_title",
-                "revanced_hide_self_sponsor_ads_summary_on",
-                "revanced_hide_self_sponsor_ads_summary_off"
-            ),
-            SwitchPreference(
-                "revanced_hide_products_banner",
-                "revanced_hide_products_banner_title",
-                "revanced_hide_products_banner_summary_on",
-                "revanced_hide_products_banner_summary_off"
-            ),
-            SwitchPreference(
-                "revanced_hide_shopping_links",
-                "revanced_hide_shopping_links_title",
-                "revanced_hide_shopping_links_summary_on",
-                "revanced_hide_shopping_links_summary_off",
-            ),
-            SwitchPreference(
-                "revanced_hide_web_search_results",
-                "revanced_hide_web_search_results_title",
-                "revanced_hide_web_search_results_summary_on",
-                "revanced_hide_web_search_results_summary_off",
-            ),
-            SwitchPreference(
-                "revanced_hide_merchandise_banners",
-                "revanced_hide_merchandise_banners_title",
-                "revanced_hide_merchandise_banners_summary_on",
-                "revanced_hide_merchandise_banners_summary_off",
-            )
+            SwitchPreference("revanced_hide_general_ads"),
+            SwitchPreference("revanced_hide_fullscreen_ads"),
+            SwitchPreference("revanced_hide_buttoned_ads"),
+            SwitchPreference("revanced_hide_paid_content_ads"),
+            SwitchPreference("revanced_hide_self_sponsor_ads"),
+            SwitchPreference("revanced_hide_products_banner"),
+            SwitchPreference("revanced_hide_shopping_links"),
+            SwitchPreference("revanced_hide_web_search_results"),
+            SwitchPreference("revanced_hide_merchandise_banners")
         )
 
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)

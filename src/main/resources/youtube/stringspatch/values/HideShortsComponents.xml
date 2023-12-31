@@ -4,50 +4,50 @@
     <string name="revanced_shorts_preference_screen_title">Shorts components</string>
 
     <string name="revanced_hide_shorts_title">Hide Shorts in feed</string>
-    <string name="revanced_hide_shorts_on">Shorts are hidden</string>
-    <string name="revanced_hide_shorts_off">Shorts are shown</string>
+    <string name="revanced_hide_shorts_summary_on">Shorts are hidden</string>
+    <string name="revanced_hide_shorts_summary_off">Shorts are shown</string>
 
     <string name="revanced_hide_shorts_channel_bar_title">Hide channel bar</string>
-    <string name="revanced_hide_shorts_channel_bar_on">Channel bar is hidden</string>
-    <string name="revanced_hide_shorts_channel_bar_off">Channel bar is shown</string>
+    <string name="revanced_hide_shorts_channel_bar_summary_on">Channel bar is hidden</string>
+    <string name="revanced_hide_shorts_channel_bar_summary_off">Channel bar is shown</string>
 
     <string name="revanced_hide_shorts_comments_button_title">Hide comments button</string>
-    <string name="revanced_hide_shorts_comments_button_on">Comments button is hidden</string>
-    <string name="revanced_hide_shorts_comments_button_off">Comments button is shown</string>
+    <string name="revanced_hide_shorts_comments_button_summary_on">Comments button is hidden</string>
+    <string name="revanced_hide_shorts_comments_button_summary_off">Comments button is shown</string>
 
     <string name="revanced_hide_shorts_info_panel_title">Hide info panel</string>
-    <string name="revanced_hide_shorts_info_panel_on">Info panel is hidden</string>
-    <string name="revanced_hide_shorts_info_panel_off">Info panel is shown</string>
+    <string name="revanced_hide_shorts_info_panel_summary_on">Info panel is hidden</string>
+    <string name="revanced_hide_shorts_info_panel_summary_off">Info panel is shown</string>
 
     <string name="revanced_hide_shorts_join_button_title">Hide join button</string>
-    <string name="revanced_hide_shorts_join_button_on">Join button is hidden</string>
-    <string name="revanced_hide_shorts_join_button_off">Join button is shown</string>
+    <string name="revanced_hide_shorts_join_button_summary_on">Join button is hidden</string>
+    <string name="revanced_hide_shorts_join_button_summary_off">Join button is shown</string>
 
     <string name="revanced_hide_shorts_navigation_bar_title">Hide navigation bar</string>
-    <string name="revanced_hide_shorts_navigation_bar_on">Navigation bar is hidden</string>
-    <string name="revanced_hide_shorts_navigation_bar_off">Navigation bar is shown</string>
+    <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigation bar is hidden</string>
+    <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigation bar is shown</string>
 
     <string name="revanced_hide_shorts_remix_button_title">Hide remix button</string>
-    <string name="revanced_hide_shorts_remix_button_on">Remix button is hidden</string>
-    <string name="revanced_hide_shorts_remix_button_off">Remix button is shown</string>
+    <string name="revanced_hide_shorts_remix_button_summary_on">Remix button is hidden</string>
+    <string name="revanced_hide_shorts_remix_button_summary_off">Remix button is shown</string>
 
     <string name="revanced_hide_shorts_share_button_title">Hide share button</string>
-    <string name="revanced_hide_shorts_share_button_on">Share button is hidden</string>
-    <string name="revanced_hide_shorts_share_button_off">Share button is shown</string>
+    <string name="revanced_hide_shorts_share_button_summary_on">Share button is hidden</string>
+    <string name="revanced_hide_shorts_share_button_summary_off">Share button is shown</string>
 
     <string name="revanced_hide_shorts_sound_button_title">Hide sound button</string>
-    <string name="revanced_hide_shorts_sound_button_on">Sound button is hidden</string>
-    <string name="revanced_hide_shorts_sound_button_off">Sound button is shown</string>
+    <string name="revanced_hide_shorts_sound_button_summary_on">Sound button is hidden</string>
+    <string name="revanced_hide_shorts_sound_button_summary_off">Sound button is shown</string>
 
     <string name="revanced_hide_shorts_subscribe_button_title">Hide subscribe button</string>
-    <string name="revanced_hide_shorts_subscribe_button_on">Subscribe button is hidden</string>
-    <string name="revanced_hide_shorts_subscribe_button_off">Subscribe button is shown</string>
+    <string name="revanced_hide_shorts_subscribe_button_summary_on">Subscribe button is hidden</string>
+    <string name="revanced_hide_shorts_subscribe_button_summary_off">Subscribe button is shown</string>
 
     <string name="revanced_hide_shorts_subscribe_button_paused_title">Hide subscribe button when paused</string>
-    <string name="revanced_hide_shorts_subscribe_button_paused_on">Subscribe button is hidden</string>
-    <string name="revanced_hide_shorts_subscribe_button_paused_off">Subscribe button is shown</string>
+    <string name="revanced_hide_shorts_subscribe_button_paused_summary_on">Subscribe button is hidden</string>
+    <string name="revanced_hide_shorts_subscribe_button_paused_summary_off">Subscribe button is shown</string>
 
     <string name="revanced_hide_shorts_thanks_button_title">Hide thanks button</string>
-    <string name="revanced_hide_shorts_thanks_button_on">Thanks button is hidden</string>
-    <string name="revanced_hide_shorts_thanks_button_off">Thanks button is shown</string>
+    <string name="revanced_hide_shorts_thanks_button_summary_on">Thanks button is hidden</string>
+    <string name="revanced_hide_shorts_thanks_button_summary_off">Thanks button is shown</string>
 </resources>
