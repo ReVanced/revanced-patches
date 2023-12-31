@@ -115,7 +115,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                     NonInteractivePreference(
                         StringResource("revanced_alt_thumbnail_about_title", "Thumbnails in use"),
                         null, // Summary is dynamically updated based on the current settings.
-                        tag = "app.revanced.integrations.youtube.settingsmenu.AlternativeThumbnailsStatusPreference"
+                        tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsStatusPreference"
                     ),
                     SwitchPreference(
                         "revanced_alt_thumbnail_dearrow",
@@ -154,7 +154,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                                     + "\\n\\nTap here to learn more about DeArrow"
                         ),
                         // Custom about preference with link to the DeArrow website.
-                        tag = "app.revanced.integrations.youtube.settingsmenu.AlternativeThumbnailsAboutDeArrowPreference",
+                        tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsAboutDeArrowPreference",
                         selectable = true
                     ),
                     SwitchPreference(

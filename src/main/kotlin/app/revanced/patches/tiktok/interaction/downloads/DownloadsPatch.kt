@@ -115,7 +115,7 @@ object DownloadsPatch : BytecodePatch(
             SettingsStatusLoadFingerprint to {
                 addInstruction(
                     0,
-                    "invoke-static {}, Lapp/revanced/integrations/tiktok/settingsmenu/SettingsStatus;->enableDownload()V"
+                    "invoke-static {}, Lapp/revanced/integrations/tiktok/settings/SettingsStatus;->enableDownload()V"
                 )
             }
         ).forEach { (fingerprint, patch) ->

@@ -42,7 +42,7 @@ object FeedFilterPatch : BytecodePatch(
 
         SettingsStatusLoadFingerprint.result?.mutableMethod?.addInstruction(
             0,
-            "invoke-static {}, Lapp/revanced/integrations/tiktok/settingsmenu/SettingsStatus;->enableFeedFilter()V"
+            "invoke-static {}, Lapp/revanced/integrations/tiktok/settings/SettingsStatus;->enableFeedFilter()V"
         ) ?: throw SettingsStatusLoadFingerprint.exception
     }
 }

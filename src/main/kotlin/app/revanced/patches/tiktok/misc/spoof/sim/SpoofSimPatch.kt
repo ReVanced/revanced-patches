@@ -85,7 +85,7 @@ object SpoofSimPatch : BytecodePatch() {
         with(SettingsStatusLoadFingerprint.result!!.mutableMethod) {
             addInstruction(
                 0,
-                "invoke-static {}, Lapp/revanced/integrations/tiktok/settingsmenu/SettingsStatus;->enableSimSpoof()V"
+                "invoke-static {}, Lapp/revanced/integrations/tiktok/settings/SettingsStatus;->enableSimSpoof()V"
             )
         }
     }
