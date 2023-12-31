@@ -20,10 +20,6 @@ abstract class AbstractStringsResourcePatch(
     private var rootResourcePath : String
 ) : ResourcePatch(), Closeable {
 
-    companion object {
-        private const val SHARED_PATCH_STRINGS_RESOURCE_PATH = "shared/stringspatch/values"
-    }
-
     private lateinit var resourceContext: ResourceContext
     private lateinit var stringsEditor: DomFileEditor
     private lateinit var stringsNode: Node
@@ -118,6 +114,10 @@ abstract class AbstractStringsResourcePatch(
 
     override fun close() {
         stringsEditor.close()
+    }
+
+    companion object {
+        private const val SHARED_PATCH_STRINGS_RESOURCE_PATH = "shared/stringspatch/values"
     }
 }
 
