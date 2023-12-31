@@ -59,8 +59,7 @@ object EmbeddedAdsPatch : BytecodePatch(
                         StringResource("key_revanced_proxy_luminous", "luminous"),
                         StringResource("key_revanced_proxy_purpleadblock", "purpleadblock")
                     )
-                ),
-                default = "luminous"
+                )
             )
         )
 

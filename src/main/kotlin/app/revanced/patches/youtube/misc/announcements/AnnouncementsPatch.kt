@@ -48,10 +48,12 @@ object AnnouncementsPatch : BytecodePatch(
                 StringResource(
                     "revanced_announcements_summary_on",
                     "Announcements are shown on startup"
-                ), StringResource(
+                ),
+                StringResource(
                     "revanced_announcements_summary_off",
                     "Announcements are not shown on startup"
-                ), StringResource(
+                ),
+                StringResource(
                     "revanced_announcements_enabled_summary",
                     "Show announcements on startup"
                 ),

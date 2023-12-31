@@ -61,8 +61,7 @@ object DebugModePatch : BytecodePatch(
                 StringResource(
                     "revanced_debug_mode_off",
                     "Debug mode is disabled"
-                ),
-                default = false,
+                )
             )
         )
     }

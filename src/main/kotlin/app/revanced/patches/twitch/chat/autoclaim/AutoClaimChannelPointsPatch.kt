@@ -38,8 +38,7 @@ object AutoClaimChannelPointPatch : BytecodePatch(
                 StringResource(
                     "revanced_auto_claim_channel_points_off",
                     "Channel Points are not claimed automatically"
-                ),
-                default = true
+                )
             )
         )
 

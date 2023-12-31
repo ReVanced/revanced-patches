@@ -52,8 +52,7 @@ object AudioAdsPatch : BytecodePatch(
                 StringResource(
                     "revanced_block_audio_ads_off",
                     "Audio ads are unblocked"
-                ),
-                default = true,
+                )
             )
         )
     }

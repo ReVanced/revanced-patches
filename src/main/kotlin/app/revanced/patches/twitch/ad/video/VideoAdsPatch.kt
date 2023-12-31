@@ -135,8 +135,7 @@ object VideoAdsPatch : AbstractAdPatch(
                 StringResource(
                     "revanced_block_video_ads_off",
                     "Video ads are unblocked"
-                ),
-                default = true
+                )
             )
         )
     }
