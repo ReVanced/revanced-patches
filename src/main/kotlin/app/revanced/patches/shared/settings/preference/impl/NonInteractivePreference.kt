@@ -1,7 +1,6 @@
 package app.revanced.patches.shared.settings.preference.impl
 
 import app.revanced.patches.shared.settings.preference.BasePreference
-import app.revanced.patches.shared.settings.preference.BaseResource
 import app.revanced.patches.shared.settings.preference.addSummary
 import org.w3c.dom.Document
 import org.w3c.dom.Element
@@ -19,12 +18,12 @@ import org.w3c.dom.Element
  *                   but tapping will still do nothing since this Preference has no key.
  */
 class NonInteractivePreference(
-    title: String,
-    summary: String?,
+    titleKey: String,
+    summaryKey: String?,
     tag: String = "Preference",
     // If androidx.preference is later used, this can be changed to the show top/bottom dividers feature.
     val selectable: Boolean = false
-) : BasePreference(null, title, summary, tag) {
+) : BasePreference(null, titleKey, summaryKey, tag) {
     override fun serialize(ownerDocument: Document): Element {
         return super.serialize(ownerDocument).apply {
             addSummary(summaryKey?.also {
