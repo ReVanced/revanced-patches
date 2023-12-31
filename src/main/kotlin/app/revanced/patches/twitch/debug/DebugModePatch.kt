@@ -49,18 +49,18 @@ object DebugModePatch : BytecodePatch(
 
         SettingsPatch.PreferenceScreen.MISC.OTHER.addPreferences(
             SwitchPreference(
-                "revanced_debug_mode",
+                "revanced_twitch_debug_mode",
                 StringResource(
-                    "revanced_debug_mode_enable",
-                    "Enable debug mode"
+                    "revanced_twitch_debug_mode_title",
+                    "Enable Twitch debug mode"
                 ),
                 StringResource(
-                    "revanced_debug_mode_on",
-                    "Debug mode is enabled (not recommended)"
+                    "revanced_twitch_debug_mode_summary_on",
+                    "Twitch debug mode is enabled (not recommended)"
                 ),
                 StringResource(
-                    "revanced_debug_mode_off",
-                    "Debug mode is disabled"
+                    "revanced_twitch_debug_mode_summary_off",
+                    "Twitch debug mode is disabled"
                 )
             )
         )
