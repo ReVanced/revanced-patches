@@ -10,7 +10,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.misc.strings.StringsPatch
 
 
-object YouTubeGmsCoreSupportResourcePatch : AbstractGmsCoreSupportResourcePatch(
+object GmsCoreSupportResourcePatch : AbstractGmsCoreSupportResourcePatch(
     fromPackageName = YOUTUBE_PACKAGE_NAME,
     toPackageName = REVANCED_YOUTUBE_PACKAGE_NAME,
     spoofedPackageSignature = "24bb24c05e47e0aefa68a58a766179d9b613a600",
