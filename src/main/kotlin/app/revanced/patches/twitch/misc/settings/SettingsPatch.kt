@@ -162,34 +162,24 @@ object SettingsPatch : BytecodePatch(
      * Preference screens patches should add their settings to.
      */
     internal object PreferenceScreen : AbstractPreferenceScreen() {
-        val ADS = CustomScreen(
-            "revanced_twitch_ads_screen",
-            "revanced_twitch_ads_screen_title",
-            "revanced_twitch_ads_screen_summary"
-        )
-        val CHAT = CustomScreen(
-            "revanced_twitch_chat_screen",
-            "revanced_twitch_chat_screen_title",
-            "revanced_twitch_chat_screen_summary"
-        )
-        val MISC = CustomScreen(
-            "revanced_twitch_misc_screen",
-            "revanced_twitch_misc_screen_title",
-            "revanced_twitch_misc_screen_summary"
-        )
+        val ADS = CustomScreen("revanced_twitch_ads_screen")
+        val CHAT = CustomScreen("revanced_twitch_chat_screen")
+        val MISC = CustomScreen("revanced_twitch_misc_screen")
 
         internal class CustomScreen(key: String, titleKey: String, summaryKey: String) :
             Screen(key, titleKey, summaryKey) {
             /* Categories */
-            val GENERAL = CustomCategory("twitch_general", "revanced_twitch_general_title")
-            val OTHER = CustomCategory("twitch_other", "revanced_twitch_other_title")
-            val CLIENT_SIDE =
-                CustomCategory("twitch_client_ads", "revanced_twitch_client_ads_title")
-            val SURESTREAM =
-                CustomCategory("twitch_surestream_ads", "revanced_twitch_surestream_ads_title")
+            val GENERAL = CustomCategory("twitch_general")
+            val OTHER = CustomCategory("twitch_other")
+            val CLIENT_SIDE = CustomCategory("twitch_client_ads")
+            val SURESTREAM = CustomCategory("twitch_surestream_ads")
+
+            constructor(key: String) : this(key, key + "_title", key + "_summary")
 
             internal inner class CustomCategory(key: String, title: String) :
                 Screen.Category(key, title) {
+
+                constructor(key: String) : this(key, key + "_title")
 
                 /* For Twitch, we need to load our CustomPreferenceCategory class instead of the default one. */
                 override fun transform(): PreferenceCategory {
