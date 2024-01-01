@@ -132,8 +132,7 @@ object VideoAdsPatch : AbstractAdPatch(
         StringsPatch.includePatchStrings("VideoAds")
         SettingsPatch.PreferenceScreen.ADS.CLIENT_SIDE.addPreferences(
             SwitchPreference(
-                "revanced_block_video_ads",
-                default = true
+                "revanced_block_video_ads"
             )
         )
     }

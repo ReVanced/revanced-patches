@@ -13,19 +13,18 @@ import org.w3c.dom.Element
  * @param titleKey The title of the switch.
  * @param summaryOnKey The summary to show when the preference is enabled.
  * @param summaryOffKey The summary to show when the preference is disabled.
- * @param default The default value of the switch.
  */
 class SwitchPreference(
     key: String,
     titleKey: String,
     private val summaryOnKey: String,
     private val summaryOffKey: String,
-) : BasePreference( key, titleKey, null, "SwitchPreference") {
+) : BasePreference(key, titleKey, null, "SwitchPreference") {
 
     /**
      * Initialize using title and summary keys with the suffix "_title", "_summary_on", "_summary_off"
      */
-    constructor(key: String, default: Boolean = false) : this(key, "${key}_title",
+    constructor(key: String) : this(key, "${key}_title",
         "${key}_summary_on", "${key}_summary_off")
 
     override fun serialize(ownerDocument: Document): Element {

@@ -1,6 +1,6 @@
 package app.revanced.patches.shared.settings.preference.impl
 
-import app.revanced.patches.shared.settings.preference.DefaultBasePreference
+import app.revanced.patches.shared.settings.preference.BasePreference
 import app.revanced.patches.shared.settings.preference.addSummary
 import org.w3c.dom.Document
 
@@ -18,9 +18,8 @@ class ListPreference(
     titleKey: String,
     summaryKey: String?,
     val entries: ArrayResource?,
-    val entryValues: ArrayResource?,
-    default: String? = null,
-) : DefaultBasePreference<String>(key, titleKey, summaryKey, "ListPreference", default) {
+    val entryValues: ArrayResource?
+) : BasePreference(key, titleKey, summaryKey, "ListPreference") {
 
     override fun serialize(ownerDocument: Document) =
         super.serialize(ownerDocument).apply {

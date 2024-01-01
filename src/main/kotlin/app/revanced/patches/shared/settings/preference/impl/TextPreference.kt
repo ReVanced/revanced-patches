@@ -1,6 +1,6 @@
 package app.revanced.patches.shared.settings.preference.impl
 
-import app.revanced.patches.shared.settings.preference.DefaultBasePreference
+import app.revanced.patches.shared.settings.preference.BasePreference
 import org.w3c.dom.Document
 
 /**
@@ -16,17 +16,17 @@ class TextPreference(
     titleKey: String,
     summaryKey: String?,
     val inputType: InputType = InputType.TEXT,
-    default: String? = null,
     tag: String = "app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference"
-) : DefaultBasePreference<String>(key, titleKey, summaryKey, tag, default) {
+) : BasePreference(key, titleKey, summaryKey, tag) {
 
     /**
      * Initialize using title and summary keys with the suffix "_title", "_summary_on", "_summary_off"
      */
     constructor(
-        key: String, inputType: InputType = InputType.TEXT, default: String? = null,
+        key: String,
+        inputType: InputType = InputType.TEXT,
         tag: String = "app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference"
-    ) : this(key, "${key}_title", "${key}_summary", inputType, default, tag)
+    ) : this(key, "${key}_title", "${key}_summary", inputType, tag)
 
 
     override fun serialize(ownerDocument: Document) =
