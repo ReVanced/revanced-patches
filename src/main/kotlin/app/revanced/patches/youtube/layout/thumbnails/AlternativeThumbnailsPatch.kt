@@ -29,7 +29,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
 @Patch(
     name = "Alternative thumbnails",
-    description = "Adds options to replace video thumbnails with still image captures of the video.",
+    description = "Adds options to replace video thumbnails using the DeArrow API or image captures from the video.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class, AlternativeThumbnailsResourcePatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -150,7 +150,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                             "revanced_alt_thumbnail_dearrow_about_summary",
                             "DeArrow provides crowd-sourced thumbnails for YouTube videos. " +
                                     "These thumbnails are often more relevant than those provided by YouTube. " +
-                                    "If enabled, video URLs will be sent to the API server and no other data is sent."
+                                    "If enabled, video URLs will be sent to the API server and no other data is sent"
                                     + "\\n\\nTap here to learn more about DeArrow"
                         ),
                         // Custom about preference with link to the DeArrow website.

@@ -23,7 +23,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Minimized playback",
-    description = "Enables minimized and background playback.",
+    description = "Unlocks options for picture-in-picture and background playback.",
     dependencies = [
         IntegrationsPatch::class,
         PlayerTypeHookPatch::class,

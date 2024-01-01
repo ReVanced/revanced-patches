@@ -15,7 +15,7 @@ import com.android.tools.smali.dexlib2.Opcode
 
 @Patch(
     name = "Announcements",
-    description = "Shows ReVanced announcements on startup.",
+    description = "Adds an option to show announcements from ReVanced on app startup.",
     compatiblePackages = [CompatiblePackage("com.google.android.youtube")],
     dependencies = [SettingsPatch::class]
 )
