@@ -104,7 +104,7 @@ object SettingsResourcePatch : AbstractSettingsResourcePatch(
                 titleKey = "revanced_pref_import_export_title",
                 summaryKey = "revanced_pref_import_export_summary",
                 inputType = InputType.TEXT_MULTI_LINE,
-                tag = "app.revanced.integrations.settingsmenu.ImportExportPreference"
+                tag = "app.revanced.integrations.shared.settings.preference.ImportExportPreference"
             )
         )
     }

@@ -12,5 +12,5 @@ import app.revanced.patches.twitter.misc.hook.patch.BaseHookPatchPatch
 )
 @Suppress("unused")
 object HideRecommendedUsersPatch : BaseHookPatchPatch(
-    "Lapp/revanced/twitter/patches/hook/patch/recommendation/RecommendedUsersHook;"
+    "Lapp/revanced/integrations/twitter/patches/hook/patch/recommendation/RecommendedUsersHook;"
 )

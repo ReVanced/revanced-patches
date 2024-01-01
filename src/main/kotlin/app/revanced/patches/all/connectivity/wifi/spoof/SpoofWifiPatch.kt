@@ -18,7 +18,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 )
 @Suppress("unused")
 object SpoofWifiPatch : AbstractTransformInstructionsPatch<Instruction35cInfo>() {
-    private const val INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX = "Lapp/revanced/all/connectivity/wifi/spoof/SpoofWifiPatch"
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX = "Lapp/revanced/integrations/all/connectivity/wifi/spoof/SpoofWifiPatch"
     private const val INTEGRATIONS_CLASS_DESCRIPTOR = "$INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX;"
 
     override fun filterMap(

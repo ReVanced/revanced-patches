@@ -10,7 +10,6 @@ import org.w3c.dom.Document
  * @param titleKey The title of the text preference.
  * @param inputType The input type of the text preference.
  * @param summaryKey The summary of the text preference.
- * @param default The default value of the text preference.
  */
 class TextPreference(
     key: String?,

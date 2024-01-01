@@ -23,7 +23,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Remove tracking query parameter",
-    description = "Remove the tracking query parameter from links you share.",
+    description = "Adds an option to remove the tracking info from links you share.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -41,7 +41,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 object RemoveTrackingQueryParameterPatch : BytecodePatch(
     setOf(CopyTextFingerprint, SystemShareSheetFingerprint, YouTubeShareSheetFingerprint)
 ) {
-    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/RemoveTrackingQueryParameterPatch;"
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/RemoveTrackingQueryParameterPatch;"
 
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("RemoveTrackingQueryParameter")

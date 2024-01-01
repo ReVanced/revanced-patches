@@ -10,7 +10,7 @@ import kotlin.io.path.copyTo
 
 @Patch(
     name = "Premium heading",
-    description = "Show or hide the premium heading.",
+    description = "Adds or removes the YouTube Premium logo at the top of feeds.",
     compatiblePackages = [
         CompatiblePackage("com.google.android.youtube")
     ]
@@ -24,7 +24,7 @@ object PremiumHeadingPatch : ResourcePatch() {
         key = "usePremiumHeading",
         default = true,
         title = "Use premium heading",
-        description = "Whether to use the premium heading.",
+        description = "Whether to use the YouTube Premium logo.",
         required = true,
     )
 

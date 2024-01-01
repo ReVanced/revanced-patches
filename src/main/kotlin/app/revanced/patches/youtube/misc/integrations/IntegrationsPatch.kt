@@ -12,7 +12,7 @@ import app.revanced.patches.youtube.misc.integrations.fingerprints.StandalonePla
 
 @Patch(requiresIntegrations = true)
 object IntegrationsPatch : AbstractIntegrationsPatch(
-    "Lapp/revanced/integrations/utils/Utils;",
+    "Lapp/revanced/integrations/shared/Utils;",
     setOf(
         ApplicationInitFingerprint,
         StandalonePlayerActivityFingerprint,

@@ -9,7 +9,7 @@ import app.revanced.patches.youtube.video.speed.remember.RememberPlaybackSpeedPa
 
 @Patch(
     name = "Playback speed",
-    description = "Adds custom playback speeds and ability to remember the last playback speed selected.",
+    description = "Adds options to customize available playback speeds and to remember the last playback speed selected.",
     dependencies = [CustomPlaybackSpeedPatch::class, RememberPlaybackSpeedPatch::class],
     compatiblePackages = [
         CompatiblePackage(

@@ -12,7 +12,7 @@ import java.nio.file.Files
 
 @Patch(
     name = "Custom branding",
-    description = "Changes the app name and icon to your choice (defaults to \"YouTube ReVanced\" and the ReVanced logo).",
+    description = "Applies a custom app name and icon. Defaults to \"YouTube ReVanced\" and the ReVanced logo.",
     compatiblePackages = [
         CompatiblePackage("com.google.android.youtube")
     ],

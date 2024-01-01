@@ -9,7 +9,7 @@ import app.revanced.patches.youtube.video.information.VideoInformationPatch
 
 @Patch(
     name = "External downloads",
-    description = "Adds support to download and save YouTube videos using an external app.",
+    description = "Adds support to download and save YouTube videos using an external downloader app.",
     dependencies = [
         ExternalDownloadsResourcePatch::class,
         PlayerControlsBytecodePatch::class,
@@ -32,7 +32,7 @@ import app.revanced.patches.youtube.video.information.VideoInformationPatch
 )
 @Suppress("unused")
 object ExternalDownloadsBytecodePatch : BytecodePatch() {
-    private const val BUTTON_DESCRIPTOR = "Lapp/revanced/integrations/videoplayer/ExternalDownloadButton;"
+    private const val BUTTON_DESCRIPTOR = "Lapp/revanced/integrations/youtube/videoplayer/ExternalDownloadButton;"
 
     override fun execute(context: BytecodeContext) {
         /*

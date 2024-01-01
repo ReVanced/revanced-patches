@@ -12,7 +12,6 @@ import org.w3c.dom.Document
  * @param entries The human-readable entries of the list preference.
  * @param entryValues The entry values of the list preference.
  * @param summaryKey The summary of the list preference.
- * @param default The default entry value of the list preference.
  */
 class ListPreference(
     key: String,

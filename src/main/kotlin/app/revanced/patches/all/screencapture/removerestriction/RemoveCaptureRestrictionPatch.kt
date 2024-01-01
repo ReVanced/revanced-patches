@@ -20,7 +20,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 @Suppress("unused")
 object RemoveCaptureRestrictionPatch : AbstractTransformInstructionsPatch<Instruction35cInfo>() {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX =
-        "Lapp/revanced/all/screencapture/removerestriction/RemoveScreencaptureRestrictionPatch"
+        "Lapp/revanced/integrations/all/screencapture/removerestriction/RemoveScreencaptureRestrictionPatch"
     private const val INTEGRATIONS_CLASS_DESCRIPTOR = "$INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX;"
     // Information about method calls we want to replace
     enum class MethodCall(

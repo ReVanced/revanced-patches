@@ -14,8 +14,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
     name = "Spoof device dimensions",
-    description = "Spoofs the device dimensions in order to unlock higher video qualities " +
-            "that may not be available on your device.",
+    description = "Adds an option to spoof the device dimensions which unlocks higher video qualities if they aren't available on the device.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -35,7 +34,7 @@ object SpoofDeviceDimensionsPatch : BytecodePatch(
     setOf(DeviceDimensionsModelToStringFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/spoof/SpoofDeviceDimensionsPatch;"
+        "Lapp/revanced/integrations/youtube/patches/spoof/SpoofDeviceDimensionsPatch;"
 
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("SpoofDeviceDimensions")

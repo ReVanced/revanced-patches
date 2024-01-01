@@ -51,7 +51,7 @@ object SpoofSignaturePatch : BytecodePatch(
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/spoof/SpoofSignaturePatch;"
+        "Lapp/revanced/integrations/youtube/patches/spoof/SpoofSignaturePatch;"
 
     override fun execute(context: BytecodeContext) {
         StringsPatch.includePatchStrings("SpoofSignature")

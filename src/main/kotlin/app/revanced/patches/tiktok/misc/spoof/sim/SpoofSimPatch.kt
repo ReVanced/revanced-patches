@@ -85,7 +85,7 @@ object SpoofSimPatch : BytecodePatch() {
         with(SettingsStatusLoadFingerprint.result!!.mutableMethod) {
             addInstruction(
                 0,
-                "invoke-static {}, Lapp/revanced/tiktok/settingsmenu/SettingsStatus;->enableSimSpoof()V"
+                "invoke-static {}, Lapp/revanced/integrations/tiktok/settings/SettingsStatus;->enableSimSpoof()V"
             )
         }
     }
@@ -97,7 +97,7 @@ object SpoofSimPatch : BytecodePatch() {
         addInstructions(
             index + 2,
             """
-                invoke-static {v$resultReg}, Lapp/revanced/tiktok/spoof/sim/SpoofSimPatch;->$replacement(Ljava/lang/String;)Ljava/lang/String;
+                invoke-static {v$resultReg}, Lapp/revanced/integrations/tiktok/spoof/sim/SpoofSimPatch;->$replacement(Ljava/lang/String;)Ljava/lang/String;
                 move-result-object v$resultReg
             """
         )

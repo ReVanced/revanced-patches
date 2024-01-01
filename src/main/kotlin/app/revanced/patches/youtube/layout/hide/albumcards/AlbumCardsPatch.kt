@@ -13,7 +13,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide album cards",
-    description = "Hides the album cards below the artist description.",
+    description = "Adds an option to hide album cards below artist descriptions.",
     dependencies = [
         IntegrationsPatch::class,
         AlbumCardsResourcePatch::class
@@ -48,7 +48,7 @@ object AlbumCardsPatch : BytecodePatch(
                 addInstruction(
                     insertIndex,
                     "invoke-static {v$albumCardViewRegister}, " +
-                            "Lapp/revanced/integrations/patches/HideAlbumCardsPatch;" +
+                            "Lapp/revanced/integrations/youtube/patches/HideAlbumCardsPatch;" +
                             "->" +
                             "hideAlbumCard(Landroid/view/View;)V"
                 )

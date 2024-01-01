@@ -39,7 +39,7 @@ object DebugModePatch : BytecodePatch(
                 addInstructions(
                     0,
                     """
-                         invoke-static {}, Lapp/revanced/twitch/patches/DebugModePatch;->isDebugModeEnabled()Z
+                         invoke-static {}, Lapp/revanced/integrations/twitch/patches/DebugModePatch;->isDebugModeEnabled()Z
                          move-result v0
                          return v0
                       """

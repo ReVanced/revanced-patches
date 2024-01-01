@@ -37,7 +37,7 @@ object LithoFilterPatch : BytecodePatch(
     private val Instruction.descriptor
         get() = (this as ReferenceInstruction).reference.toString()
 
-    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/components/LithoFilterPatch;"
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/components/LithoFilterPatch;"
 
     internal lateinit var addFilter: (String) -> Unit
         private set
