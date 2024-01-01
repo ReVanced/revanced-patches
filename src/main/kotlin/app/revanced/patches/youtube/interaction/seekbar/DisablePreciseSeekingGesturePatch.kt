@@ -38,7 +38,7 @@ object DisablePreciseSeekingGesturePatch : BytecodePatch(
     setOf(IsSwipingUpFingerprint)
 ) {
     private const val INTEGRATIONS_METHOD_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/DisablePreciseSeekingGesturePatch;->" +
+        "Lapp/revanced/integrations/youtube/patches/DisablePreciseSeekingGesturePatch;->" +
                 "disableGesture(Landroid/view/VelocityTracker;Landroid/view/MotionEvent;)V"
 
     override fun execute(context: BytecodeContext) {

@@ -48,7 +48,7 @@ object AlbumCardsPatch : BytecodePatch(
                 addInstruction(
                     insertIndex,
                     "invoke-static {v$albumCardViewRegister}, " +
-                            "Lapp/revanced/integrations/patches/HideAlbumCardsPatch;" +
+                            "Lapp/revanced/integrations/youtube/patches/HideAlbumCardsPatch;" +
                             "->" +
                             "hideAlbumCard(Landroid/view/View;)V"
                 )

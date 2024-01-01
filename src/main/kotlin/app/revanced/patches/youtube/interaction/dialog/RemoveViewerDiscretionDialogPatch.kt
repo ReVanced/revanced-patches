@@ -30,7 +30,7 @@ object RemoveViewerDiscretionDialogPatch : BytecodePatch(
     setOf(CreateDialogFingerprint)
 ) {
     private const val INTEGRATIONS_METHOD_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/RemoveViewerDiscretionDialogPatch;->" +
+        "Lapp/revanced/integrations/youtube/patches/RemoveViewerDiscretionDialogPatch;->" +
                 "confirmDialog(Landroid/app/AlertDialog;)V"
 
     override fun execute(context: BytecodeContext) {

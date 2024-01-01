@@ -59,7 +59,7 @@ object GmsCoreSupportPatch : AbstractGmsCoreSupportPatch(
         // Check the availability of GmsCore.
         HomeActivityFingerprint.result?.mutableMethod?.addInstruction(
             0,
-            "invoke-static {}, Lapp/revanced/integrations/patches/GmsCoreSupport;->checkAvailability()V"
+            "invoke-static {}, Lapp/revanced/integrations/youtube/patches/GmsCoreSupport;->checkAvailability()V"
         ) ?: throw HomeActivityFingerprint.exception
 
         super.execute(context)

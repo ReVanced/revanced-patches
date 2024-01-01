@@ -40,7 +40,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 object RemoveTrackingQueryParameterPatch : BytecodePatch(
     setOf(CopyTextFingerprint, SystemShareSheetFingerprint, YouTubeShareSheetFingerprint)
 ) {
-    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/RemoveTrackingQueryParameterPatch;"
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/RemoveTrackingQueryParameterPatch;"
 
     override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.MISC.addPreferences(

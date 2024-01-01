@@ -58,7 +58,7 @@ object HideCaptionsButtonPatch : BytecodePatch(
         subtitleButtonControllerMethod.addInstruction(
             insertIndex,
             """
-                invoke-static {v0}, Lapp/revanced/integrations/patches/HideCaptionsButtonPatch;->hideCaptionsButton(Landroid/widget/ImageView;)V
+                invoke-static {v0}, Lapp/revanced/integrations/youtube/patches/HideCaptionsButtonPatch;->hideCaptionsButton(Landroid/widget/ImageView;)V
             """
         )
     }

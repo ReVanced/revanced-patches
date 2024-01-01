@@ -44,7 +44,7 @@ object HideEmailAddressPatch : BytecodePatch(
                 addInstructions(
                     setVisibilityConstIndex,
                     """
-                        invoke-static {v$setVisibilityConstRegister}, Lapp/revanced/integrations/patches/HideEmailAddressPatch;->hideEmailAddress(I)I
+                        invoke-static {v$setVisibilityConstRegister}, Lapp/revanced/integrations/youtube/patches/HideEmailAddressPatch;->hideEmailAddress(I)I
                         move-result v$setVisibilityConstRegister
                     """
                 )

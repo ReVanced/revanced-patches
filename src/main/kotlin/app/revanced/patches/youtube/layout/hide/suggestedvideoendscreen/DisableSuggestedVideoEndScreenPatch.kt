@@ -33,7 +33,7 @@ object DisableSuggestedVideoEndScreenPatch : BytecodePatch(
     setOf(CreateEndScreenViewFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/DisableSuggestedVideoEndScreenPatch;"
+        "Lapp/revanced/integrations/youtube/patches/DisableSuggestedVideoEndScreenPatch;"
 
     override fun execute(context: BytecodeContext) {
         CreateEndScreenViewFingerprint.result?.let {

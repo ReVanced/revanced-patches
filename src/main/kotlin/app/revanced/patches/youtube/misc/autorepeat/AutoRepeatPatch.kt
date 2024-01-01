@@ -52,7 +52,7 @@ object AutoRepeatPatch : BytecodePatch(
         val parentResult = AutoRepeatParentFingerprint.result
             ?: throw PatchException("ParentFingerprint did not resolve.")
 
-        //this one needs to be called when app/revanced/integrations/patches/AutoRepeatPatch;->shouldAutoRepeat() returns true
+        //this one needs to be called when app/revanced/integrations/youtube/patches/AutoRepeatPatch;->shouldAutoRepeat() returns true
         val playMethod = parentResult.mutableMethod
         AutoRepeatFingerprint.resolve(context, parentResult.classDef)
         //String is: Laamp;->E()V
@@ -65,7 +65,7 @@ object AutoRepeatPatch : BytecodePatch(
 
         //Instructions to add to the smali code
         val instructions = """
-            invoke-static {}, Lapp/revanced/integrations/patches/AutoRepeatPatch;->shouldAutoRepeat()Z
+            invoke-static {}, Lapp/revanced/integrations/youtube/patches/AutoRepeatPatch;->shouldAutoRepeat()Z
             move-result v0
             if-eqz v0, :noautorepeat
             invoke-virtual {p0}, $methodToCall

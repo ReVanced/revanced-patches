@@ -48,7 +48,7 @@ object HideTimestampPatch : BytecodePatch(
             mutableMethod.addInstructionsWithLabels(
             0,
             """
-                invoke-static { }, Lapp/revanced/integrations/patches/HideTimestampPatch;->hideTimestamp()Z
+                invoke-static { }, Lapp/revanced/integrations/youtube/patches/HideTimestampPatch;->hideTimestamp()Z
                 move-result v0
                 if-eqz v0, :hide_time
                 return-void

@@ -50,7 +50,7 @@ object PlayerPopupPanelsPatch : BytecodePatch(
         engagementPanelControllerMethod.addInstructionsWithLabels(
             0,
             """
-                invoke-static { }, Lapp/revanced/integrations/patches/DisablePlayerPopupPanelsPatch;->disablePlayerPopupPanels()Z
+                invoke-static { }, Lapp/revanced/integrations/youtube/patches/DisablePlayerPopupPanelsPatch;->disablePlayerPopupPanels()Z
                 move-result v0
                 if-eqz v0, :player_popup_panels
                 if-eqz p4, :player_popup_panels
