@@ -31,7 +31,7 @@ object EmbeddedAdsPatch : BytecodePatch(
         result.mutableMethod.addInstructions(
             3,
             """
-                invoke-static  {}, Lapp/revanced/twitch/patches/EmbeddedAdsPatch;->createRequestInterceptor()Lapp/revanced/twitch/api/RequestInterceptor;
+                invoke-static  {}, Lapp/revanced/integrations/twitch/patches/EmbeddedAdsPatch;->createRequestInterceptor()Lapp/revanced/integrations/twitch/api/RequestInterceptor;
                 move-result-object v2
                 invoke-virtual {v0, v2}, Lokhttp3/OkHttpClient${"$"}Builder;->addInterceptor(Lokhttp3/Interceptor;)Lokhttp3/OkHttpClient${"$"}Builder;
             """
@@ -59,8 +59,7 @@ object EmbeddedAdsPatch : BytecodePatch(
                         StringResource("key_revanced_proxy_luminous", "luminous"),
                         StringResource("key_revanced_proxy_purpleadblock", "purpleadblock")
                     )
-                ),
-                default = "luminous"
+                )
             )
         )
 

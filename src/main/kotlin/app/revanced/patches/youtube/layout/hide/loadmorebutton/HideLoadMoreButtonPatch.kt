@@ -34,7 +34,7 @@ object HideLoadMoreButtonPatch : BytecodePatch(
     setOf(HideLoadMoreButtonFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/HideLoadMoreButtonPatch;"
+        "Lapp/revanced/integrations/youtube/patches/HideLoadMoreButtonPatch;"
 
     override fun execute(context: BytecodeContext) {
         HideLoadMoreButtonFingerprint.result?.let {

@@ -6,6 +6,5 @@ import app.revanced.patches.twitch.misc.integrations.fingerprints.InitFingerprin
 
 @Patch(requiresIntegrations = true)
 object IntegrationsPatch : AbstractIntegrationsPatch(
-    "Lapp/revanced/twitch/utils/ReVancedUtils;",
     setOf(InitFingerprint)
 )

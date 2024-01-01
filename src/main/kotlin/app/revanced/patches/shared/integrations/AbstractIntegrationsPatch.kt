@@ -11,9 +11,27 @@ import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 
 abstract class AbstractIntegrationsPatch(
-    private val integrationsDescriptor: String,
     private val hooks: Set<IntegrationsFingerprint>
 ) : BytecodePatch(hooks) {
+
+    @Deprecated(
+        "Use the constructor without the integrationsDescriptor parameter",
+        ReplaceWith("AbstractIntegrationsPatch(hooks)")
+    )
+    @Suppress("UNUSED_PARAMETER")
+    constructor(
+        integrationsDescriptor: String,
+        hooks: Set<IntegrationsFingerprint>
+    ) : this(hooks)
+
+    override fun execute(context: BytecodeContext) {
+        if (context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR) == null) throw PatchException(
+            "Integrations have not been merged yet. This patch can not succeed without merging the integrations."
+        )
+
+        for (hook in hooks) hook.invoke(INTEGRATIONS_CLASS_DESCRIPTOR)
+    }
+
     /**
      * [MethodFingerprint] for integrations.
      *
@@ -53,11 +71,7 @@ abstract class AbstractIntegrationsPatch(
         }
     }
 
-    override fun execute(context: BytecodeContext) {
-        if (context.findClass(integrationsDescriptor) == null) throw PatchException(
-            "Integrations have not been merged yet. This patch can not succeed without merging the integrations."
-        )
-
-        for (hook in hooks) hook.invoke(integrationsDescriptor)
+    private companion object {
+        private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/shared/Utils;"
     }
 }

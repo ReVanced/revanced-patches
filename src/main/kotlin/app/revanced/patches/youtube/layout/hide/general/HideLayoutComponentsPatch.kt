@@ -48,9 +48,9 @@ object HideLayoutComponentsPatch : BytecodePatch(
     setOf(ParseElementFromBufferFingerprint, PlayerOverlayFingerprint)
 ) {
     private const val LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/components/LayoutComponentsFilter;"
+        "Lapp/revanced/integrations/youtube/patches/components/LayoutComponentsFilter;"
     private const val DESCRIPTION_COMPONENTS_FILTER_CLASS_NAME =
-        "Lapp/revanced/integrations/patches/components/DescriptionComponentsFilter;"
+        "Lapp/revanced/integrations/youtube/patches/components/DescriptionComponentsFilter;"
 
     override fun execute(context: BytecodeContext) {
         PreferenceScreen.LAYOUT.addPreferences(

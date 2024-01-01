@@ -85,7 +85,7 @@ object EnableSeekbarTappingPatch : BytecodePatch(
                 addInstructionsWithLabels(
                     insertIndex,
                     """
-                        invoke-static { }, Lapp/revanced/integrations/patches/SeekbarTappingPatch;->seekbarTappingEnabled()Z
+                        invoke-static { }, Lapp/revanced/integrations/youtube/patches/SeekbarTappingPatch;->seekbarTappingEnabled()Z
                         move-result v$freeRegister
                         if-eqz v$freeRegister, :disabled
                         ${oMethod.toInvokeInstructionString()}

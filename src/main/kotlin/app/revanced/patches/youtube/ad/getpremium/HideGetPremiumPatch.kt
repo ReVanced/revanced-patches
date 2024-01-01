@@ -33,7 +33,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 )
 object HideGetPremiumPatch : BytecodePatch(setOf(GetPremiumViewFingerprint)) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/HideGetPremiumPatch;"
+        "Lapp/revanced/integrations/youtube/patches/HideGetPremiumPatch;"
 
     override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.ADS.addPreferences(

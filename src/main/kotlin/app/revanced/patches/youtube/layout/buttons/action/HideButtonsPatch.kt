@@ -36,7 +36,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 @Suppress("unused")
 object HideButtonsPatch : ResourcePatch() {
     private const val FILTER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/components/ButtonsFilter;"
+        "Lapp/revanced/integrations/youtube/patches/components/ButtonsFilter;"
 
     override fun execute(context: ResourceContext) {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(

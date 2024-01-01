@@ -80,7 +80,7 @@ object WideSearchbarPatch : BytecodePatch(
         addInstructions(
             implementation!!.instructions.size - 1,
             """
-                    invoke-static {}, Lapp/revanced/integrations/patches/WideSearchbarPatch;->enableWideSearchbar()Z
+                    invoke-static {}, Lapp/revanced/integrations/youtube/patches/WideSearchbarPatch;->enableWideSearchbar()Z
                     move-result p0
                 """
         )

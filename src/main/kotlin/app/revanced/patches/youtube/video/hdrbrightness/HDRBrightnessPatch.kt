@@ -59,7 +59,7 @@ object HDRBrightnessPatch : BytecodePatch(
             method.addInstructions(
                 insertIndex,
                 """
-                   invoke-static {v$register}, Lapp/revanced/integrations/patches/HDRAutoBrightnessPatch;->getHDRBrightness(F)F
+                   invoke-static {v$register}, Lapp/revanced/integrations/youtube/patches/HDRAutoBrightnessPatch;->getHDRBrightness(F)F
                    move-result v$register
                 """
             )

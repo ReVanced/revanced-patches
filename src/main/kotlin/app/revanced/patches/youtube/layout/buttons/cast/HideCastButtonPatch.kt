@@ -40,7 +40,7 @@ object HideCastButtonPatch : BytecodePatch() {
             addInstructions(
                 0,
                 """
-                    invoke-static {p1}, Lapp/revanced/integrations/patches/HideCastButtonPatch;->getCastButtonOverrideV2(I)I
+                    invoke-static {p1}, Lapp/revanced/integrations/youtube/patches/HideCastButtonPatch;->getCastButtonOverrideV2(I)I
                     move-result p1
                 """
             )

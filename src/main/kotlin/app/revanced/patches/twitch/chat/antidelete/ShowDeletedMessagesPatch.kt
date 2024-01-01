@@ -33,7 +33,7 @@ object ShowDeletedMessagesPatch : BytecodePatch(
     )
 ) {
     private fun createSpoilerConditionInstructions(register: String = "v0") = """
-        invoke-static {}, Lapp/revanced/twitch/patches/ShowDeletedMessagesPatch;->shouldUseSpoiler()Z
+        invoke-static {}, Lapp/revanced/integrations/twitch/patches/ShowDeletedMessagesPatch;->shouldUseSpoiler()Z
         move-result $register
         if-eqz $register, :no_spoiler
     """
@@ -61,7 +61,7 @@ object ShowDeletedMessagesPatch : BytecodePatch(
             addInstructionsWithLabels(
                 0,
                 """
-                    invoke-static {p2}, Lapp/revanced/twitch/patches/ShowDeletedMessagesPatch;->reformatDeletedMessage(Landroid/text/Spanned;)Landroid/text/Spanned;
+                    invoke-static {p2}, Lapp/revanced/integrations/twitch/patches/ShowDeletedMessagesPatch;->reformatDeletedMessage(Landroid/text/Spanned;)Landroid/text/Spanned;
                     move-result-object v0
                     if-eqz v0, :no_reformat
                     return-object v0
@@ -92,8 +92,7 @@ object ShowDeletedMessagesPatch : BytecodePatch(
                         StringResource("key_revanced_deleted_messages_spoiler", "spoiler"),
                         StringResource("key_revanced_deleted_messages_cross_out", "cross-out")
                     )
-                ),
-                default = "cross-out"
+                )
             )
         )
 

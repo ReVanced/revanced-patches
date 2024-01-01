@@ -38,8 +38,7 @@ object AutoClaimChannelPointPatch : BytecodePatch(
                 StringResource(
                     "revanced_auto_claim_channel_points_off",
                     "Channel Points are not claimed automatically"
-                ),
-                default = true
+                )
             )
         )
 
@@ -48,7 +47,7 @@ object AutoClaimChannelPointPatch : BytecodePatch(
             addInstructionsWithLabels(
                 lastIndex, // place in front of return-void
                 """
-                    invoke-static {}, Lapp/revanced/twitch/patches/AutoClaimChannelPointsPatch;->shouldAutoClaim()Z
+                    invoke-static {}, Lapp/revanced/integrations/twitch/patches/AutoClaimChannelPointsPatch;->shouldAutoClaim()Z
                     move-result v0
                     if-eqz v0, :auto_claim
 

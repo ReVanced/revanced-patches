@@ -46,7 +46,7 @@ object ThemeBytecodePatch : BytecodePatch(
     setOf(UseGradientLoadingScreenFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/theme/ThemePatch;"
+        "Lapp/revanced/integrations/youtube/patches/theme/ThemePatch;"
 
     internal const val GRADIENT_LOADING_SCREEN_AB_CONSTANT = 45412406L
 
