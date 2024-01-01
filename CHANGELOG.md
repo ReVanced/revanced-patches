@@ -1,3 +1,15 @@
+# [4.0.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v3.3.0-dev.2...v4.0.0-dev.1) (2024-01-01)
+
+
+### Code Refactoring
+
+* Fix package and code structure ([#2541](https://github.com/ReVanced/revanced-patches/issues/2541)) ([a08457e](https://github.com/ReVanced/revanced-patches/commit/a08457e406f4b2e37458a4835c11d370a02d2ce6))
+
+
+### BREAKING CHANGES
+
+* Various public APIs have changed names and packages or were removed entirely
+
 # [3.3.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v3.3.0-dev.1...v3.3.0-dev.2) (2024-01-01)
 
 
