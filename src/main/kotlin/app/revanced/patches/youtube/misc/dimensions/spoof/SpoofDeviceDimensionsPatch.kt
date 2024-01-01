@@ -14,8 +14,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
     name = "Spoof device dimensions",
-    description = "Spoofs the device dimensions in order to unlock higher video qualities " +
-            "that may not be available on your device.",
+    description = "Adds an option to spoof the device dimensions which unlocks higher video qualities if they aren't available on the device.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -42,7 +41,11 @@ object SpoofDeviceDimensionsPatch : BytecodePatch(
                 "revanced_spoof_device_dimensions",
                 StringResource("revanced_spoof_device_dimensions_title", "Spoof device dimensions"),
                 StringResource("revanced_spoof_device_dimensions_summary_on", "Device dimensions spoofed"),
-                StringResource("revanced_spoof_device_dimensions_summary_off", "Device dimensions not spoofed"),
+                StringResource(
+                    "revanced_spoof_device_dimensions_summary_off",
+                    "Device dimensions not spoofed\\n\\n"
+                        + "Spoofing the device dimensions can unlock higher video qualities but unknown side effects may occur"
+                    ),
             )
         )
 

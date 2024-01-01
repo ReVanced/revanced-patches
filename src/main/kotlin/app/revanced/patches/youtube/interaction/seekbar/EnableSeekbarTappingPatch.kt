@@ -20,7 +20,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Seekbar tapping",
-    description = "Enables tap-to-seek on the seekbar of the video player.",
+    description = "Adds an option to enable tap-to-seek on the seekbar of the video player.",
     dependencies = [
         IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [

@@ -15,7 +15,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch(
     name = "Hide ads",
-    description = "Removes general ads.",
+    description = "Adds options to remove general ads.",
     dependencies = [
         HideGetPremiumPatch::class,
         HideAdsResourcePatch::class,

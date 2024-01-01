@@ -16,7 +16,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch(
     name = "Disable precise seeking gesture",
-    description = "Disables the gesture that is used to seek precisely when swiping up on the seekbar.",
+    description = "Adds an option to disable precise seeking when swiping up on the seekbar.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

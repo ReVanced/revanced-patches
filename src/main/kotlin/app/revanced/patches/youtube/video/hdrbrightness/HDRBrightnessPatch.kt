@@ -16,7 +16,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Patch(
     name = "HDR auto brightness",
-    description = "Makes the brightness of HDR videos follow the system default.",
+    description = "Adds an option to make the brightness of HDR videos follow the system default.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(

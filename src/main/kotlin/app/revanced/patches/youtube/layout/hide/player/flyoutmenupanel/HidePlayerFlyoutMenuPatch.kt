@@ -13,7 +13,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
     name = "Player flyout menu",
-    description = "Hides player flyout menu items.",
+    description = "Adds options to hide menu items that appear when pressing the gear icon in the video player.",
     dependencies = [
         LithoFilterPatch::class,
         PlayerTypeHookPatch::class,
