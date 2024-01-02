@@ -130,6 +130,7 @@ public enum SegmentCategory {
         for (SegmentCategory category : values()) {
             category.loadFromSettings();
         }
+        updateEnabledCategories();
     }
 
     @NonNull
