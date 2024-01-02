@@ -16,7 +16,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
 @Patch(
     name = "Swipe controls",
-    description = "Adds volume and brightness swipe controls.",
+    description = "Adds options to enable and configure volume and brightness swipe controls.",
     dependencies = [
         IntegrationsPatch::class,
         PlayerTypeHookPatch::class,

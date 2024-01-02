@@ -69,7 +69,7 @@ object DownloadsPatch : BytecodePatch(
                 addInstructionsWithLabels(
                     0,
                     """
-                    invoke-static {}, Lapp/revanced/tiktok/download/DownloadsPatch;->shouldRemoveWatermark()Z
+                    invoke-static {}, Lapp/revanced/integrations/tiktok/download/DownloadsPatch;->shouldRemoveWatermark()Z
                     move-result v0
                     if-eqz v0, :noremovewatermark
                     const/4 v0, 0x1
@@ -99,7 +99,7 @@ object DownloadsPatch : BytecodePatch(
                 downloadUriMethod.addInstructions(
                     secondIndex,
                     """
-                    invoke-static {}, Lapp/revanced/tiktok/download/DownloadsPatch;->getDownloadPath()Ljava/lang/String;
+                    invoke-static {}, Lapp/revanced/integrations/tiktok/download/DownloadsPatch;->getDownloadPath()Ljava/lang/String;
                     move-result-object v0
                 """
                 )
@@ -107,7 +107,7 @@ object DownloadsPatch : BytecodePatch(
                 downloadUriMethod.addInstructions(
                     firstIndex,
                     """
-                    invoke-static {}, Lapp/revanced/tiktok/download/DownloadsPatch;->getDownloadPath()Ljava/lang/String;
+                    invoke-static {}, Lapp/revanced/integrations/tiktok/download/DownloadsPatch;->getDownloadPath()Ljava/lang/String;
                     move-result-object v0
                 """
                 )
@@ -115,7 +115,7 @@ object DownloadsPatch : BytecodePatch(
             SettingsStatusLoadFingerprint to {
                 addInstruction(
                     0,
-                    "invoke-static {}, Lapp/revanced/tiktok/settingsmenu/SettingsStatus;->enableDownload()V"
+                    "invoke-static {}, Lapp/revanced/integrations/tiktok/settings/SettingsStatus;->enableDownload()V"
                 )
             }
         ).forEach { (fingerprint, patch) ->

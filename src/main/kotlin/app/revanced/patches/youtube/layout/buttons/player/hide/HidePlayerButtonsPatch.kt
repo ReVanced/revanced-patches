@@ -18,7 +18,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction3rc
 
 @Patch(
     name = "Hide player buttons",
-    description = "Hides previous and next buttons in the video player.",
+    description = "Adds an option to hide the previous and next buttons in the video player.",
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class
@@ -72,10 +72,10 @@ object HidePlayerButtonsPatch : BytecodePatch(
             mutableMethod.addInstructions(
                 callIndex,
                 """
-                    invoke-static { v$hasNextParameterRegister }, Lapp/revanced/integrations/patches/HidePlayerButtonsPatch;->previousOrNextButtonIsVisible(Z)Z
+                    invoke-static { v$hasNextParameterRegister }, Lapp/revanced/integrations/youtube/patches/HidePlayerButtonsPatch;->previousOrNextButtonIsVisible(Z)Z
                     move-result v$hasNextParameterRegister
                     
-                    invoke-static { v$hasPreviousParameterRegister }, Lapp/revanced/integrations/patches/HidePlayerButtonsPatch;->previousOrNextButtonIsVisible(Z)Z
+                    invoke-static { v$hasPreviousParameterRegister }, Lapp/revanced/integrations/youtube/patches/HidePlayerButtonsPatch;->previousOrNextButtonIsVisible(Z)Z
                     move-result v$hasPreviousParameterRegister
                 """
             )

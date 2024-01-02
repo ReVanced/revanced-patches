@@ -96,11 +96,9 @@ object SettingsResourcePatch : AbstractSettingsResourcePatch(
                 title = StringResource("revanced_pref_import_export_title", "Import / Export"),
                 summary = StringResource("revanced_pref_import_export_summary", "Import / Export ReVanced settings"),
                 inputType = InputType.TEXT_MULTI_LINE,
-                tag = "app.revanced.integrations.settingsmenu.ImportExportPreference"
+                tag = "app.revanced.integrations.shared.settings.preference.ImportExportPreference"
             )
         )
-
-        context.mergeStrings("settings/host/values/strings.xml")
     }
 
     override fun close() {

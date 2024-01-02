@@ -11,11 +11,10 @@ import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.layout.seekbar.fingerprints.FullscreenSeekbarThumbnailsFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
-import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
     name = "Restore old seekbar thumbnails",
-    description = "Restores the old seekbar thumbnails that appear above the seekbar instead of fullscreen thumbnails.",
+    description = "Adds an option to restore the old seekbar thumbnails that appear above the seekbar while seeking instead of fullscreen thumbnails.",
     dependencies = [IntegrationsPatch::class, SeekbarPreferencesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -35,7 +34,7 @@ object RestoreOldSeekbarThumbnailsPatch : BytecodePatch(
     setOf(FullscreenSeekbarThumbnailsFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/RestoreOldSeekbarThumbnailsPatch;"
+        "Lapp/revanced/integrations/youtube/patches/RestoreOldSeekbarThumbnailsPatch;"
 
     override fun execute(context: BytecodeContext) {
         SeekbarPreferencesPatch.addPreferences(

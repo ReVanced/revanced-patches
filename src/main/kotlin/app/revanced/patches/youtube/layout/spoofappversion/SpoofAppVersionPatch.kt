@@ -17,7 +17,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Spoof app version",
-    description = "Tricks YouTube into thinking you are running an older version of the app. " +
+    description = "Adds an option to trick YouTube into thinking you are running an older version of the app. " +
             "This can be used to restore old UI elements and features.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
@@ -38,7 +38,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 object SpoofAppVersionPatch : BytecodePatch(
     setOf(SpoofAppVersionFingerprint)
 ) {
-    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/spoof/SpoofAppVersionPatch;"
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/spoof/SpoofAppVersionPatch;"
 
     override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(

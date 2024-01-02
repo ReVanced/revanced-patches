@@ -1,7 +1,7 @@
 package app.revanced.patches.shared.settings.preference.impl
 
+import app.revanced.patches.shared.settings.preference.BasePreference
 import app.revanced.patches.shared.settings.preference.BaseResource
-import app.revanced.patches.shared.settings.preference.DefaultBasePreference
 import app.revanced.patches.shared.settings.preference.addSummary
 import org.w3c.dom.Document
 
@@ -13,16 +13,14 @@ import org.w3c.dom.Document
  * @param entries The human-readable entries of the list preference.
  * @param entryValues The entry values of the list preference.
  * @param summary The summary of the list preference.
- * @param default The default entry value of the list preference.
  */
 class ListPreference(
     key: String,
     title: StringResource,
-    val entries: ArrayResource,
-    val entryValues: ArrayResource,
-    summary: StringResource? = null,
-    default: String? = null,
-) : DefaultBasePreference<String>(key, title, summary, "ListPreference", default) {
+    private val entries: ArrayResource,
+    private val entryValues: ArrayResource,
+    summary: StringResource? = null
+) : BasePreference(key, title, summary, "ListPreference") {
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
         super.serialize(ownerDocument, resourceCallback).apply {
             setAttribute("android:entries", "@array/${entries.also { resourceCallback.invoke(it) }.name}")

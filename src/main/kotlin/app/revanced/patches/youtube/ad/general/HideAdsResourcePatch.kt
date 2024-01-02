@@ -19,7 +19,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch.PreferenceScreen
 )
 object HideAdsResourcePatch : ResourcePatch() {
     private const val FILTER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/components/AdsFilter;"
+        "Lapp/revanced/integrations/youtube/patches/components/AdsFilter;"
 
     internal var adAttributionId: Long = -1
 
@@ -30,6 +30,12 @@ object HideAdsResourcePatch : ResourcePatch() {
                 StringResource("revanced_hide_general_ads_title", "Hide general ads"),
                 StringResource("revanced_hide_general_ads_summary_on", "General ads are hidden"),
                 StringResource("revanced_hide_general_ads_summary_off", "General ads are shown")
+            ),
+            SwitchPreference(
+                "revanced_hide_fullscreen_ads",
+                StringResource("revanced_hide_fullscreen_ads_title", "Hide fullscreen ads"),
+                StringResource("revanced_hide_fullscreen_ads_summary_on", "Fullscreen ads are hidden"),
+                StringResource("revanced_hide_fullscreen_ads_summary_off", "Fullscreen ads are shown")
             ),
             SwitchPreference(
                 "revanced_hide_buttoned_ads",

@@ -20,7 +20,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Hide Shorts components",
-    description = "Hides components from YouTube Shorts.",
+    description = "Adds options to hide components related to YouTube Shorts.",
     dependencies = [
         IntegrationsPatch::class,
         LithoFilterPatch::class,
@@ -51,7 +51,7 @@ object HideShortsComponentsPatch : BytecodePatch(
         SetPivotBarVisibilityParentFingerprint
     )
 ) {
-    private const val FILTER_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/components/ShortsFilter;"
+    private const val FILTER_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/components/ShortsFilter;"
 
     override fun execute(context: BytecodeContext) {
         // region Hide the Shorts shelf.
