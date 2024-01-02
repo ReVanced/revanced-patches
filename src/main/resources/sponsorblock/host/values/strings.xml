@@ -13,7 +13,7 @@
     <string name="sb_enable_auto_hide_skip_segment_button">Automatically hide skip button</string>
     <string name="sb_enable_auto_hide_skip_segment_button_sum_on">Skip button hides after a few seconds</string>
     <string name="sb_enable_auto_hide_skip_segment_button_sum_off">Skip button displayed for entire segment</string>
-    <string name="sb_general_skiptoast">Show a toast when skipping automatically</string>
+    <string name="sb_general_skiptoast">Notify when skipping automatically</string>
     <string name="sb_general_skiptoast_sum_on">Toast is shown when a segment is automatically skipped. Tap here to see an example</string>
     <string name="sb_general_skiptoast_sum_off">Toast is not shown. Tap here to see an example</string>
     <string name="sb_general_time_without">Show video length without segments</string>

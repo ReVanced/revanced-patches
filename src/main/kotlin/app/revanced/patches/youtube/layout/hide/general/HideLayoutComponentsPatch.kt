@@ -97,15 +97,15 @@ object HideLayoutComponentsPatch : BytecodePatch(
                 "revanced_hide_search_result_recommendations",
                 StringResource(
                     "revanced_hide_search_result_recommendations_title",
-                    "Hide search result recommendations (e.g People also watched)"
+                    "Hide search result recommendations"
                 ),
                 StringResource(
                     "revanced_hide_search_result_recommendations_summary_on",
-                    "Recommendations are hidden"
+                    "Recommendations such as People also watched are hidden"
                 ),
                 StringResource(
                     "revanced_hide_search_result_recommendations_summary_off",
-                    "Recommendations are shown"
+                    "Recommendations such as People also watched are shown"
                 )
             ),
             SwitchPreference(
