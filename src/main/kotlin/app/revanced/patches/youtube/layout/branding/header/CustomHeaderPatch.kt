@@ -11,7 +11,7 @@ import app.revanced.util.copyResources
 import java.io.File
 
 @Patch(
-    name = "Change header",
+    name = "Custom header",
     description = "Change the in app header. Defaults to the ReVanced header.",
     compatiblePackages = [
         CompatiblePackage("com.google.android.youtube")
@@ -19,7 +19,7 @@ import java.io.File
     use = false
 )
 @Suppress("unused")
-object ChangeHeaderPatch : ResourcePatch() {
+object CustomHeaderPatch : ResourcePatch() {
     private const val HEADER_NAME = "yt_wordmark_header"
     private const val PREMIUM_HEADER_NAME = "yt_premium_wordmark_header"
     private const val REVANCED_HEADER_NAME = "ReVanced"
