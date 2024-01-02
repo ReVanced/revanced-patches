@@ -2,10 +2,10 @@ package app.revanced.patches.twitter.misc.links
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
@@ -48,7 +48,7 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
                 if (it == -1) throw PatchException(errorMessage)
             }
 
-        // region Replace the domain name when copying a link with the button.
+        // region Replace the domain name when copying a link with "Copy link" button.
 
         val buildShareLinkMethod = LinkBuilderFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -126,9 +126,9 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
             val tweetIdP1 = getInstruction<OneRegisterInstruction>(convertTweetIdToLongIndex + 1).registerA
             val tweetIdP2 = tweetIdP1 + 1
 
-            addInstructions(
+            replaceInstructions(
                 // This offset is used to place the instruction after the save of the method result.
-                convertTweetIdToLongIndex + 2,
+                convertTweetIdToLongIndex,
                 """
                     invoke-static { v$tweetIdP1, v$tweetIdP2, v$tempNicknameRegister }, $buildShareLinkMethod
                     move-result-object v$shareLinkRegister
@@ -137,6 +137,7 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
 
             // Restore the borrowed nicknameRegister.
             addInstruction(
+                // TODO: Comment this offset.
                 convertTweetIdToLongIndex + 4,
                 tempInstruction as BuilderInstruction
             )
