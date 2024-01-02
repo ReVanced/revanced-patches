@@ -91,8 +91,8 @@ object ChangeHeaderPatch : ResourcePatch() {
             // Overwrite the premium with the custom header as well.
             toHeader()
         }
-        val toReVancedMinimal = {
-            // Copy the ReVanced header to the resource directories.
+        val toReVancedBorderless = {
+            // Copy the ReVanced borderless header to the resource directories.
             targetResourceFiles.forEach { context.copyResources("change-header/revanced-borderless", it) }
 
             // Overwrite the premium with the custom header as well.
@@ -124,7 +124,7 @@ object ChangeHeaderPatch : ResourcePatch() {
             HEADER_NAME -> toHeader
             PREMIUM_HEADER_NAME -> toPremium
             REVANCED_HEADER_NAME -> toReVanced
-            REVANCED_BORDERLESS_HEADER_NAME -> toReVancedMinimal
+            REVANCED_BORDERLESS_HEADER_NAME -> toReVancedBorderless
             else -> toCustom
         }()
     }
