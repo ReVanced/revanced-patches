@@ -35,7 +35,7 @@
     <string name="revanced_sb_guidelines_popup_already_read">Already read</string>
     <string name="revanced_sb_guidelines_popup_open">Show me</string>
     <string name="revanced_sb_general">General</string>
-    <string name="revanced_sb_toast_on_connection_error_title">Show s toast if API is not available</string>
+    <string name="revanced_sb_toast_on_connection_error_title">Show a toast if API is not available</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">Toast is shown if SponsorBlock API is not available</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">Toast is not shown if SponsorBlock API is not available</string>
     <string name="revanced_sb_general_skipcount">Enable skip count tracking</string>
