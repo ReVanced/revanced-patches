@@ -5,6 +5,7 @@ import app.revanced.patcher.util.DomFileEditor
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import org.w3c.dom.Node
+import java.io.InputStream
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 
@@ -53,12 +54,17 @@ fun ResourceContext.copyResources(sourceResourceDirectory: String, vararg resour
         resourceGroup.resources.forEach { resource ->
             val resourceFile = "${resourceGroup.resourceDirectoryName}/$resource"
             Files.copy(
-                classLoader.getResourceAsStream("$sourceResourceDirectory/$resourceFile")!!,
+                inputStreamFromBundledResource(sourceResourceDirectory, resourceFile)!!,
                 targetResourceDirectory.resolve(resourceFile).toPath(), StandardCopyOption.REPLACE_EXISTING
             )
         }
     }
 }
+
+internal fun inputStreamFromBundledResource(
+    sourceResourceDirectory: String,
+    resourceFile: String
+): InputStream? = classLoader.getResourceAsStream("$sourceResourceDirectory/$resourceFile")
 
 /**
  * Resource names mapped to their corresponding resource data.
