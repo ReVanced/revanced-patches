@@ -39,7 +39,7 @@ object ChangeHeaderPatch : ResourcePatch() {
 
     private val header by stringPatchOption(
         key = "header",
-        default = "ReVanced (borderless logo)",
+        default = REVANCED_BORDERLESS_HEADER_NAME,
         values = mapOf(
             "YouTube" to HEADER_NAME,
             "YouTube Premium" to PREMIUM_HEADER_NAME,
