@@ -4,6 +4,7 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.DomFileEditor
 import org.w3c.dom.Node
+import java.io.InputStream
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 
@@ -36,17 +37,19 @@ fun ResourceContext.copyResources(sourceResourceDirectory: String,
     for (resourceGroup in resources) {
         resourceGroup.resources.forEach { resource ->
             val resourceFile = "${resourceGroup.resourceDirectoryName}/$resource"
-            val resourcePath = "$sourceResourceDirectory/$resourceFile"
-            val resourceAsStream = classLoader.getResourceAsStream(resourcePath)
-                    ?: throw PatchException("Could not find resource: $resourcePath")
             Files.copy(
-                resourceAsStream,
+                inputStreamFromBundledResource(sourceResourceDirectory, resourceFile)!!,
                 targetResourceDirectory.resolve(resourceFile).toPath(),
                 *(if (replaceDestinationFiles) arrayOf(StandardCopyOption.REPLACE_EXISTING) else emptyArray())
             )
         }
     }
 }
+
+internal fun inputStreamFromBundledResource(
+    sourceResourceDirectory: String,
+    resourceFile: String
+): InputStream? = classLoader.getResourceAsStream("$sourceResourceDirectory/$resourceFile")
 
 /**
  * Resource names mapped to their corresponding resource data.
