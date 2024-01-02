@@ -1,3 +1,10 @@
+# [4.0.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.1...v4.0.0-dev.2) (2024-01-02)
+
+
+### Features
+
+* **YouTube - Change header:** Change to ReVanced borderless logo header by default ([#2512](https://github.com/ReVanced/revanced-patches/issues/2512)) ([75f785d](https://github.com/ReVanced/revanced-patches/commit/75f785d1ef6026cbbdf7073c10aace1b28d93a30))
+
 # [4.0.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v3.3.0-dev.2...v4.0.0-dev.1) (2024-01-01)
 
 
