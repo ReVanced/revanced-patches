@@ -5,11 +5,12 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.tiktok.interaction.speed.fingerprints.ChangeSpeedFingerprint
 import app.revanced.patches.tiktok.interaction.speed.fingerprints.GetSpeedFingerprint
 import app.revanced.patches.tiktok.interaction.speed.fingerprints.OnRenderFirstFrameFingerprint
+import app.revanced.patches.tiktok.interaction.speed.fingerprints.OnVideoSwipedFingerprint
 import app.revanced.util.exception
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -30,59 +31,52 @@ object PlaybackSpeedPatch : BytecodePatch(
     setOf(
         GetSpeedFingerprint,
         OnRenderFirstFrameFingerprint,
-        ChangeSpeedFingerprint
+        OnVideoSwipedFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
-        val changeSpeedMethod = ChangeSpeedFingerprint.result?.mutableMethod
-            ?: throw ChangeSpeedFingerprint.exception
+        OnVideoSwipedFingerprint.result?.let { onVideoSwiped ->
+            // Remember the playback speed of the current video.
+            GetSpeedFingerprint.result?.mutableMethod?.apply {
+                val injectIndex = indexOfFirstInstruction { getReference<MethodReference>()?.returnType == "F" } + 2
+                val register = getInstruction<Instruction11x>(injectIndex - 1).registerA
 
-        // Enables playback speed option for all videos.
-        val enableSpeedControlMethod =
-            context.findClass(changeSpeedMethod.definingClass)?.mutableClass?.methods?.first {
-                it.returnType == "Z"
-            }
-        enableSpeedControlMethod?.addInstructions(
-            0,
-            """
-                    const/4 v0, 0x1
-                    return v0
+                addInstruction(
+                    injectIndex,
+                    "invoke-static { v$register }," +
+                            " Lapp/revanced/tiktok/speed/SpeedPatch;->rememberPlaybackSpeed(F)V"
+                )
+            } ?: throw GetSpeedFingerprint.exception
+
+            // By default, the playback speed will reset to 1.0 at the start of each video.
+            // Instead, override it with the desired playback speed.
+            OnRenderFirstFrameFingerprint.result?.mutableMethod?.addInstructions(
+                0,
                 """
-        )
-
-        // Catches the playback speed changed event at current video and saves it to apply to other videos.
-        GetSpeedFingerprint.result?.mutableMethod?.apply {
-            val injectIndex = indexOfFirstInstruction { getReference<MethodReference>()?.returnType == "F" } + 2
-            val register = getInstruction<Instruction11x>(injectIndex - 1).registerA
-
-            addInstruction(
-                injectIndex,
-                "invoke-static { v$register }," +
-                        " Lapp/revanced/tiktok/speed/SpeedPatch;->rememberPlaybackSpeed(F)V"
-            )
-        } ?: throw GetSpeedFingerprint.exception
-
-        // Changes current video playback speed at the first frame of video using the saved playback speed.
-        // Because the default behavior of the TikTok app is that playback speed will reset to 1.0
-        // when swiping to the next video.
-        OnRenderFirstFrameFingerprint.result?.mutableMethod?.addInstructions(
-            0,
-            """
-                # The changeSpeedMethod have 3 arguments.
-                # First argument is a String. It changed depend on where video playing such as home page, following page, search result page, ...
-                # We are able to get it use getEnterFrom method.
+                # Video playback location (e.g. home page, following page or search result page) retrieved using getEnterFrom method.
                 const/4 v0, 0x1
                 invoke-virtual {p0, v0}, Lcom/ss/android/ugc/aweme/feed/panel/BaseListFragmentPanel;->getEnterFrom(Z)Ljava/lang/String;
                 move-result-object v0
-                # Second argument is a Aweme. It is some kind of data for a TikTok video.
-                # We can get it use getCurrentAweme method.
+
+                # Model of current video retrieved using getCurrentAweme method.
                 invoke-virtual {p0}, Lcom/ss/android/ugc/aweme/feed/panel/BaseListFragmentPanel;->getCurrentAweme()Lcom/ss/android/ugc/aweme/feed/model/Aweme;
                 move-result-object v1
-                # Third argument is a float. It is the playback speed value to apply to the TikTok video.
+
+                # Desired playback speed retrieved using getPlaybackSpeed method.
                 invoke-static {}, Lapp/revanced/tiktok/speed/SpeedPatch;->getPlaybackSpeed()F
                 move-result-object v2
-                invoke-static { v0, v1, v2 }, $changeSpeedMethod
+                invoke-static { v0, v1, v2 }, ${onVideoSwiped.method}
             """
-        ) ?: throw OnRenderFirstFrameFingerprint.exception
+            ) ?: throw OnRenderFirstFrameFingerprint.exception
+
+            // Force enable the playback speed option for all videos.
+            onVideoSwiped.mutableClass.methods.find { method -> method.returnType == "Z" }?.addInstructions(
+                0,
+                """
+                const/4 v0, 0x1
+                return v0
+            """
+            ) ?: throw PatchException("Failed to force enable the playback speed option.")
+        } ?: throw OnVideoSwipedFingerprint.exception
     }
 }
