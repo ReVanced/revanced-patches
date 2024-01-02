@@ -61,9 +61,11 @@ object ChangeHeaderPatch : ResourcePatch() {
     )
 
     override fun execute(context: ResourceContext) {
+        // The directories to copy the header to.
         val targetResourceDirectories = targetResourceDirectoryNames.mapNotNull {
             context["res"].resolve(it).takeIf(File::exists)
         }
+        // The files to replace in the target directories.
         val targetResourceFiles = targetResourceDirectoryNames.map { directoryName ->
             ResourceGroup(
                 directoryName,
@@ -71,6 +73,9 @@ object ChangeHeaderPatch : ResourcePatch() {
             )
         }
 
+        /**
+         * A function that overwrites both header variants from [from] to [to] in the target resource directories.
+         */
         val overwriteFromTo: (String, String) -> Unit = { from: String, to: String ->
             targetResourceDirectories.forEach { directory ->
                 variants.forEach { variant ->
@@ -82,6 +87,7 @@ object ChangeHeaderPatch : ResourcePatch() {
             }
         }
 
+        // Functions to overwrite the header to the different variants.
         val toPremium = { overwriteFromTo(PREMIUM_HEADER_NAME, HEADER_NAME) }
         val toHeader = { overwriteFromTo(HEADER_NAME, PREMIUM_HEADER_NAME) }
         val toReVanced = {
