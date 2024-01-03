@@ -26,7 +26,7 @@ object PlayerOverlaysHookPatch : BytecodePatch( // TODO: delete this unused outd
         val method = PlayerOverlaysOnFinishInflateFingerprint.result!!.mutableMethod
         method.addInstruction(
             method.implementation!!.instructions.size - 2,
-            "invoke-static { p0 }, Lapp/revanced/integrations/patches/PlayerOverlaysHookPatch;->YouTubePlayerOverlaysLayout_onFinishInflateHook(Ljava/lang/Object;)V"
+            "invoke-static { p0 }, Lapp/revanced/integrations/youtube/patches/PlayerOverlaysHookPatch;->YouTubePlayerOverlaysLayout_onFinishInflateHook(Ljava/lang/Object;)V"
         )
     }
 }

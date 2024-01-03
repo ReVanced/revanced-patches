@@ -37,7 +37,7 @@ object VideoInformationPatch : BytecodePatch(
         OnPlaybackSpeedItemClickFingerprint
     )
 ) {
-    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/VideoInformation;"
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/VideoInformation;"
 
     private lateinit var playerInitMethod: MutableMethod
     private var playerInitInsertIndex = 4

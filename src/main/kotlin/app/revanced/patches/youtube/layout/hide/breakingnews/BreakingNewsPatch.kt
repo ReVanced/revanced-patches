@@ -13,7 +13,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide breaking news shelf",
-    description = "Hides the breaking news shelf on the homepage tab.",
+    description = "Adds an option to hide the breaking news shelf on the homepage tab.",
     dependencies = [
         IntegrationsPatch::class,
         BreakingNewsResourcePatch::class
@@ -50,7 +50,7 @@ object BreakingNewsPatch : BytecodePatch(
                     insertIndex,
                     """
                         invoke-static {v$breakingNewsViewRegister}, 
-                        Lapp/revanced/integrations/patches/HideBreakingNewsPatch;
+                        Lapp/revanced/integrations/youtube/patches/HideBreakingNewsPatch;
                         ->
                         hideBreakingNews(Landroid/view/View;)V
                     """

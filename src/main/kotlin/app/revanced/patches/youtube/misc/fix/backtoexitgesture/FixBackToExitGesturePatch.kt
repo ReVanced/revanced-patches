@@ -64,6 +64,6 @@ internal object FixBackToExitGesturePatch : BytecodePatch(
         val register: String = "", val methodName: String, val parameterTypes: String = ""
     ) {
         override fun toString() =
-            "invoke-static {$register}, Lapp/revanced/integrations/patches/FixBackToExitGesturePatch;->$methodName($parameterTypes)V"
+            "invoke-static {$register}, Lapp/revanced/integrations/youtube/patches/FixBackToExitGesturePatch;->$methodName($parameterTypes)V"
     }
 }

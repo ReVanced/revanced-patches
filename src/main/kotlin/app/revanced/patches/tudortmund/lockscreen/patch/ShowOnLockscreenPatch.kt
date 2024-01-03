@@ -25,7 +25,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 object ShowOnLockscreenPatch : BytecodePatch(
     setOf(BrightnessFingerprint)
 ) {
-    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/tudortmund/lockscreen/ShowOnLockscreenPatch;"
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/tudortmund/lockscreen/ShowOnLockscreenPatch;"
 
     override fun execute(context: BytecodeContext) {
         BrightnessFingerprint.result?.mutableMethod?.apply {

@@ -20,7 +20,7 @@ import java.io.InvalidClassException
 object JsonHookPatch : BytecodePatch(
     setOf(LoganSquareFingerprint)
 ), Closeable {
-    private const val JSON_HOOK_CLASS_NAMESPACE = "app/revanced/twitter/patches/hook/json"
+    private const val JSON_HOOK_CLASS_NAMESPACE = "app/revanced/integrations/twitter/patches/hook/json"
     private const val JSON_HOOK_PATCH_CLASS_DESCRIPTOR = "L$JSON_HOOK_CLASS_NAMESPACE/JsonHookPatch;"
     private const val BASE_PATCH_CLASS_NAME = "BaseJsonHook"
     private const val JSON_HOOK_CLASS_DESCRIPTOR = "L$JSON_HOOK_CLASS_NAMESPACE/$BASE_PATCH_CLASS_NAME;"

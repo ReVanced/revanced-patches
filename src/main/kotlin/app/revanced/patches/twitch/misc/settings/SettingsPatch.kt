@@ -1,6 +1,5 @@
 package app.revanced.patches.twitch.misc.settings
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -14,12 +13,14 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMut
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.settings.preference.impl.PreferenceCategory
 import app.revanced.patches.shared.settings.preference.impl.StringResource
+import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.shared.settings.util.AbstractPreferenceScreen
 import app.revanced.patches.twitch.misc.integrations.IntegrationsPatch
 import app.revanced.patches.twitch.misc.settings.fingerprints.MenuGroupsOnClickFingerprint
 import app.revanced.patches.twitch.misc.settings.fingerprints.MenuGroupsUpdatedFingerprint
 import app.revanced.patches.twitch.misc.settings.fingerprints.SettingsActivityOnCreateFingerprint
 import app.revanced.patches.twitch.misc.settings.fingerprints.SettingsMenuItemEnumFingerprint
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import java.io.Closeable
@@ -46,12 +47,12 @@ object SettingsPatch : BytecodePatch(
     private const val REVANCED_SETTINGS_MENU_ITEM_TITLE_RES = "revanced_settings"
     private const val REVANCED_SETTINGS_MENU_ITEM_ICON_RES = "ic_settings"
 
-    private const val MENU_ITEM_ENUM_CLASS = "Ltv/twitch/android/feature/settings/menu/SettingsMenuItem;"
-    private const val MENU_DISMISS_EVENT_CLASS = "Ltv/twitch/android/feature/settings/menu/SettingsMenuViewDelegate\$Event\$OnDismissClicked;"
+    private const val MENU_ITEM_ENUM_CLASS_DESCRIPTOR = "Ltv/twitch/android/feature/settings/menu/SettingsMenuItem;"
+    private const val MENU_DISMISS_EVENT_CLASS_DESCRIPTOR = "Ltv/twitch/android/feature/settings/menu/SettingsMenuViewDelegate\$Event\$OnDismissClicked;"
 
-    private const val INTEGRATIONS_PACKAGE = "app/revanced/twitch"
-    private const val SETTINGS_HOOKS_CLASS = "L$INTEGRATIONS_PACKAGE/settingsmenu/SettingsHooks;"
-    private const val REVANCED_UTILS_CLASS = "L$INTEGRATIONS_PACKAGE/utils/ReVancedUtils;"
+    private const val INTEGRATIONS_PACKAGE = "app/revanced/integrations/twitch"
+    private const val ACTIVITY_HOOKS_CLASS_DESCRIPTOR = "L$INTEGRATIONS_PACKAGE/settings/AppCompatActivityHook;"
+    private const val UTILS_CLASS_DESCRIPTOR = "L$INTEGRATIONS_PACKAGE/Utils;"
 
     override fun execute(context: BytecodeContext) {
         // Hook onCreate to handle fragment creation
@@ -60,7 +61,7 @@ object SettingsPatch : BytecodePatch(
             mutableMethod.addInstructionsWithLabels(
                 insertIndex,
                 """
-                    invoke-static       {p0}, $SETTINGS_HOOKS_CLASS->handleSettingsCreation(Landroidx/appcompat/app/AppCompatActivity;)Z
+                    invoke-static       {p0}, $ACTIVITY_HOOKS_CLASS_DESCRIPTOR->handleSettingsCreation(Landroidx/appcompat/app/AppCompatActivity;)Z
                     move-result         v0
                     if-eqz              v0, :no_rv_settings_init
                     return-void
@@ -84,8 +85,8 @@ object SettingsPatch : BytecodePatch(
             mutableMethod.addInstructions(
                 0,
                 """
-                    sget-object             v0, $MENU_ITEM_ENUM_CLASS->$REVANCED_SETTINGS_MENU_ITEM_NAME:$MENU_ITEM_ENUM_CLASS 
-                    invoke-static           {p1, v0}, $SETTINGS_HOOKS_CLASS->handleSettingMenuCreation(Ljava/util/List;Ljava/lang/Object;)Ljava/util/List;
+                    sget-object             v0, $MENU_ITEM_ENUM_CLASS_DESCRIPTOR->$REVANCED_SETTINGS_MENU_ITEM_NAME:$MENU_ITEM_ENUM_CLASS_DESCRIPTOR 
+                    invoke-static           {p1, v0}, $ACTIVITY_HOOKS_CLASS_DESCRIPTOR->handleSettingMenuCreation(Ljava/util/List;Ljava/lang/Object;)Ljava/util/List;
                     move-result-object      p1
                 """
             )
@@ -97,10 +98,10 @@ object SettingsPatch : BytecodePatch(
             mutableMethod.addInstructionsWithLabels(
                 insertIndex,
                 """
-                        invoke-static       {p1}, $SETTINGS_HOOKS_CLASS->handleSettingMenuOnClick(Ljava/lang/Enum;)Z
+                        invoke-static       {p1}, $ACTIVITY_HOOKS_CLASS_DESCRIPTOR->handleSettingMenuOnClick(Ljava/lang/Enum;)Z
                         move-result         p2
                         if-eqz              p2, :no_rv_settings_onclick
-                        sget-object         p1, $MENU_DISMISS_EVENT_CLASS->INSTANCE:$MENU_DISMISS_EVENT_CLASS
+                        sget-object         p1, $MENU_DISMISS_EVENT_CLASS_DESCRIPTOR->INSTANCE:$MENU_DISMISS_EVENT_CLASS_DESCRIPTOR
                         invoke-virtual      {p0, p1}, Ltv/twitch/android/core/mvp/viewdelegate/RxViewDelegate;->pushEvent(Ltv/twitch/android/core/mvp/viewdelegate/ViewDelegateEvent;)V
                         return-void
                 """,
@@ -109,8 +110,15 @@ object SettingsPatch : BytecodePatch(
         }  ?: throw MenuGroupsOnClickFingerprint.exception
 
         addString("revanced_settings", "ReVanced Settings", false)
-        addString("revanced_reboot_message", "Twitch needs to restart to apply your changes. Restart now?", false)
-        addString("revanced_reboot", "Restart", false)
+
+        PreferenceScreen.MISC.OTHER.addPreferences(
+            SwitchPreference(
+                "revanced_debug",
+                StringResource("revanced_debug_title", "Debug logging"),
+                StringResource("revanced_debug_summary_on", "Debug logs are enabled"),
+                StringResource("revanced_debug_summary_off", "Debug logs are disabled")
+            ),
+        )
     }
 
     fun addString(identifier: String, value: String, formatted: Boolean = true) =
@@ -130,7 +138,7 @@ object SettingsPatch : BytecodePatch(
             ImmutableField(
                 mutableMethod.definingClass,
                 name,
-                MENU_ITEM_ENUM_CLASS,
+                MENU_ITEM_ENUM_CLASS_DESCRIPTOR,
                 AccessFlags.PUBLIC or AccessFlags.FINAL or AccessFlags.ENUM or AccessFlags.STATIC,
                 null,
                 null,
@@ -142,17 +150,17 @@ object SettingsPatch : BytecodePatch(
         mutableMethod.addInstructions(
             mutableMethod.implementation!!.instructions.size - 4,
             """   
-                new-instance        v0, $MENU_ITEM_ENUM_CLASS
+                new-instance        v0, $MENU_ITEM_ENUM_CLASS_DESCRIPTOR
                 const-string        v1, "$titleResourceName"
-                invoke-static       {v1}, $REVANCED_UTILS_CLASS->getStringId(Ljava/lang/String;)I
+                invoke-static       {v1}, $UTILS_CLASS_DESCRIPTOR->getStringId(Ljava/lang/String;)I
                 move-result         v1
                 const-string        v3, "$iconResourceName"
-                invoke-static       {v3}, $REVANCED_UTILS_CLASS->getDrawableId(Ljava/lang/String;)I
+                invoke-static       {v3}, $UTILS_CLASS_DESCRIPTOR->getDrawableId(Ljava/lang/String;)I
                 move-result         v3
                 const-string        v4, "$name"
                 const/4             v5, $value
-                invoke-direct       {v0, v4, v5, v1, v3}, $MENU_ITEM_ENUM_CLASS-><init>(Ljava/lang/String;III)V 
-                sput-object         v0, $MENU_ITEM_ENUM_CLASS->$name:$MENU_ITEM_ENUM_CLASS
+                invoke-direct       {v0, v4, v5, v1, v3}, $MENU_ITEM_ENUM_CLASS_DESCRIPTOR-><init>(Ljava/lang/String;III)V 
+                sput-object         v0, $MENU_ITEM_ENUM_CLASS_DESCRIPTOR->$name:$MENU_ITEM_ENUM_CLASS_DESCRIPTOR
             """
         )
     }
@@ -179,7 +187,7 @@ object SettingsPatch : BytecodePatch(
                         key,
                         StringResource("${key}_title", title),
                         preferences.sortedBy { it.title.value },
-                        "app.revanced.twitch.settingsmenu.preference.CustomPreferenceCategory"
+                        "app.revanced.integrations.twitch.settings.preference.CustomPreferenceCategory"
                     )
                 }
             }

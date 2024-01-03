@@ -15,7 +15,7 @@ import com.android.tools.smali.dexlib2.Opcode
 
 @Patch(
     name = "Announcements",
-    description = "Shows ReVanced announcements on startup.",
+    description = "Adds an option to show announcements from ReVanced on app startup.",
     compatiblePackages = [CompatiblePackage("com.google.android.youtube")],
     dependencies = [SettingsPatch::class]
 )
@@ -24,7 +24,7 @@ object AnnouncementsPatch : BytecodePatch(
     setOf(MainActivityFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/announcements/AnnouncementsPatch;"
+        "Lapp/revanced/integrations/youtube/patches/announcements/AnnouncementsPatch;"
 
     override fun execute(context: BytecodeContext) {
         val onCreateMethod = MainActivityFingerprint.result?.let {
@@ -48,10 +48,12 @@ object AnnouncementsPatch : BytecodePatch(
                 StringResource(
                     "revanced_announcements_summary_on",
                     "Announcements are shown on startup"
-                ), StringResource(
+                ),
+                StringResource(
                     "revanced_announcements_summary_off",
                     "Announcements are not shown on startup"
-                ), StringResource(
+                ),
+                StringResource(
                     "revanced_announcements_enabled_summary",
                     "Show announcements on startup"
                 ),
