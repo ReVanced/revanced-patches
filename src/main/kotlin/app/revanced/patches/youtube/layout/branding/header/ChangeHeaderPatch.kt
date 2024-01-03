@@ -48,8 +48,8 @@ object ChangeHeaderPatch : ResourcePatch() {
         ),
         title = "Header",
         description = """
-            Can be a header name or a path to a custom header folder to use in the top bar.
-            A path to a folder must contain one or more of the following folders matching the DPI of your device:
+            Either a header name or a path to a custom header folder to use in the top bar.
+            The path to a folder must contain one or more of the following folders matching the DPI of your device:
 
             ${targetResourceDirectoryNames.joinToString("\n") { "- $it" }}
 
