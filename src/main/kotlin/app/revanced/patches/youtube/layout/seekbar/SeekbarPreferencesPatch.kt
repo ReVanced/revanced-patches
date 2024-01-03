@@ -15,11 +15,11 @@ internal object SeekbarPreferencesPatch : ResourcePatch(), Closeable {
     private val seekbarPreferences = mutableListOf<BasePreference>()
 
     override fun execute(context: ResourceContext) {
-        // Nothing to do here. All work is done in close method.
+        StringsPatch.includePatchStrings("SeekbarPreferences")
+        // All other work is done in close method.
     }
 
     override fun close() {
-        StringsPatch.includePatchStrings("SeekbarPreferences")
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
                 "revanced_seekbar_preference_screen",
