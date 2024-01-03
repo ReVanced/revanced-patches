@@ -49,9 +49,7 @@ object DebugModePatch : BytecodePatch(
 
         StringsPatch.includePatchStrings("DebugMode")
         SettingsPatch.PreferenceScreen.MISC.OTHER.addPreferences(
-            SwitchPreference(
-                "revanced_debug_mode",
-            )
+            SwitchPreference("revanced_debug_mode")
         )
     }
 }
