@@ -65,7 +65,7 @@ object SpoofAppVersionPatch : BytecodePatch(
                         StringResource("revanced_spoof_app_version_target_entry_2", "18.20.39 - Restore wide video speed & quality menu"),
                         StringResource("revanced_spoof_app_version_target_entry_3", "17.08.35 - Restore old UI layout"),
                         StringResource("revanced_spoof_app_version_target_entry_4", "16.08.35 - Restore explore tab"),
-                        StringResource("revanced_spoof_app_version_target_entry_5", "16.01.35 - Restore old Shorts player"),
+                        StringResource("revanced_spoof_app_version_target_entry_5", "16.01.35 - Restore fewer video player action buttons"),
                     )
                 ),
                 ArrayResource(
