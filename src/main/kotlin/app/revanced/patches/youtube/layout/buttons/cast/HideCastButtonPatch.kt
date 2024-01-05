@@ -13,7 +13,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
     name = "Hide cast button",
-    description = "Hides the cast button in the video player.",
+    description = "Adds an option to hide the cast button in the video player.",
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class
@@ -40,7 +40,7 @@ object HideCastButtonPatch : BytecodePatch() {
             addInstructions(
                 0,
                 """
-                    invoke-static {p1}, Lapp/revanced/integrations/patches/HideCastButtonPatch;->getCastButtonOverrideV2(I)I
+                    invoke-static {p1}, Lapp/revanced/integrations/youtube/patches/HideCastButtonPatch;->getCastButtonOverrideV2(I)I
                     move-result p1
                 """
             )

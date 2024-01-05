@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
     name = "Disable player popup panels",
-    description = "Disables panels (such as live chat) from opening automatically.",
+    description = "Adds an option to disable panels (such as live chat) from opening automatically.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -50,7 +50,7 @@ object PlayerPopupPanelsPatch : BytecodePatch(
         engagementPanelControllerMethod.addInstructionsWithLabels(
             0,
             """
-                invoke-static { }, Lapp/revanced/integrations/patches/DisablePlayerPopupPanelsPatch;->disablePlayerPopupPanels()Z
+                invoke-static { }, Lapp/revanced/integrations/youtube/patches/DisablePlayerPopupPanelsPatch;->disablePlayerPopupPanels()Z
                 move-result v0
                 if-eqz v0, :player_popup_panels
                 if-eqz p4, :player_popup_panels

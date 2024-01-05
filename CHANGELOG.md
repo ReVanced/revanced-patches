@@ -1,3 +1,29 @@
+# [4.0.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.1...v4.0.0-dev.2) (2024-01-02)
+
+
+### Features
+
+* **YouTube - Change header:** Change to ReVanced borderless logo header by default ([#2512](https://github.com/ReVanced/revanced-patches/issues/2512)) ([75f785d](https://github.com/ReVanced/revanced-patches/commit/75f785d1ef6026cbbdf7073c10aace1b28d93a30))
+
+# [4.0.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v3.3.0-dev.2...v4.0.0-dev.1) (2024-01-01)
+
+
+### Code Refactoring
+
+* Fix package and code structure ([#2541](https://github.com/ReVanced/revanced-patches/issues/2541)) ([a08457e](https://github.com/ReVanced/revanced-patches/commit/a08457e406f4b2e37458a4835c11d370a02d2ce6))
+
+
+### BREAKING CHANGES
+
+* Various public APIs have changed names and packages or were removed entirely
+
+# [3.3.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v3.3.0-dev.1...v3.3.0-dev.2) (2024-01-01)
+
+
+### Features
+
+* **YouTube:** Improve patch descriptions ([#2519](https://github.com/ReVanced/revanced-patches/issues/2519)) ([e8d1389](https://github.com/ReVanced/revanced-patches/commit/e8d1389d3367b2fb688f0b85c136c512981b4fdc))
+
 # [3.3.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v3.2.0...v3.3.0-dev.1) (2023-12-28)
 
 

@@ -65,7 +65,5 @@ object SettingsResourcePatch : AbstractSettingsResourcePatch(
                 }
             }
         }
-
-        context.copyStrings("settings/host/values/strings.xml")
     }
 }

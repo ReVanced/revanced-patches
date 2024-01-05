@@ -27,7 +27,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Return YouTube Dislike",
-    description = "Shows the dislike count of videos using the Return YouTube Dislike API.",
+    description = "Adds an option to show the dislike count of videos using the Return YouTube Dislike API.",
     dependencies = [
         IntegrationsPatch::class,
         LithoFilterPatch::class,
@@ -62,10 +62,10 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/ReturnYouTubeDislikePatch;"
+        "Lapp/revanced/integrations/youtube/patches/ReturnYouTubeDislikePatch;"
 
     private const val FILTER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/components/ReturnYouTubeDislikeFilterPatch;"
+        "Lapp/revanced/integrations/youtube/patches/components/ReturnYouTubeDislikeFilterPatch;"
 
     override fun execute(context: BytecodeContext) {
         // region Inject newVideoLoaded event handler to update dislikes when a new video is loaded.

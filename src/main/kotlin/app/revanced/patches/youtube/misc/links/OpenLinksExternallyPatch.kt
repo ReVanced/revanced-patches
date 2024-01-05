@@ -18,7 +18,7 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 @Patch(
     name = "Open links externally",
-    description = "Open links outside of the app directly in your browser.",
+    description = "Adds an option to always open links in your browser instead of in the in-app-browser.",
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
@@ -55,7 +55,7 @@ object OpenLinksExternallyPatch : AbstractTransformInstructionsPatch<Pair<Int, I
         mutableMethod.addInstructions(
             intentStringIndex + 1,
             """
-                invoke-static {v$register}, Lapp/revanced/integrations/patches/OpenLinksExternallyPatch;->getIntent(Ljava/lang/String;)Ljava/lang/String;
+                invoke-static {v$register}, Lapp/revanced/integrations/youtube/patches/OpenLinksExternallyPatch;->getIntent(Ljava/lang/String;)Ljava/lang/String;
                 move-result-object v$register
             """
         )

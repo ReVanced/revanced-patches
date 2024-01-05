@@ -551,6 +551,7 @@ public final class app/revanced/patches/serviceportalbund/detection/root/RootDet
 
 public abstract class app/revanced/patches/shared/integrations/AbstractIntegrationsPatch : app/revanced/patcher/patch/BytecodePatch {
 	public fun <init> (Ljava/lang/String;Ljava/util/Set;)V
+	public fun <init> (Ljava/util/Set;)V
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -632,13 +633,6 @@ public abstract class app/revanced/patches/shared/settings/preference/BasePrefer
 	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
 }
 
-public abstract class app/revanced/patches/shared/settings/preference/DefaultBasePreference : app/revanced/patches/shared/settings/preference/BasePreference {
-	public fun <init> (Ljava/lang/String;Lapp/revanced/util/resource/StringResource;Lapp/revanced/util/resource/StringResource;Ljava/lang/String;Ljava/lang/Object;)V
-	public synthetic fun <init> (Ljava/lang/String;Lapp/revanced/util/resource/StringResource;Lapp/revanced/util/resource/StringResource;Ljava/lang/String;Ljava/lang/Object;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun getDefault ()Ljava/lang/Object;
-	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
-}
-
 public final class app/revanced/patches/shared/settings/preference/SummaryType : java/lang/Enum {
 	public static final field DEFAULT Lapp/revanced/patches/shared/settings/preference/SummaryType;
 	public static final field OFF Lapp/revanced/patches/shared/settings/preference/SummaryType;
@@ -671,11 +665,9 @@ public final class app/revanced/patches/shared/settings/preference/impl/IntentPr
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function0;)V
 }
 
-public final class app/revanced/patches/shared/settings/preference/impl/ListPreference : app/revanced/patches/shared/settings/preference/DefaultBasePreference {
-	public fun <init> (Ljava/lang/String;Lapp/revanced/util/resource/StringResource;Lapp/revanced/util/resource/ArrayResource;Lapp/revanced/util/resource/ArrayResource;Lapp/revanced/util/resource/StringResource;Ljava/lang/String;)V
-	public synthetic fun <init> (Ljava/lang/String;Lapp/revanced/util/resource/StringResource;Lapp/revanced/util/resource/ArrayResource;Lapp/revanced/util/resource/ArrayResource;Lapp/revanced/util/resource/StringResource;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun getEntries ()Lapp/revanced/util/resource/ArrayResource;
-	public final fun getEntryValues ()Lapp/revanced/util/resource/ArrayResource;
+public final class app/revanced/patches/shared/settings/preference/impl/ListPreference : app/revanced/patches/shared/settings/preference/BasePreference {
+	public fun <init> (Ljava/lang/String;Lapp/revanced/util/resource/StringResource;Lapp/revanced/util/resource/ArrayResource;Lapp/revanced/util/resource/ArrayResource;Lapp/revanced/util/resource/StringResource;)V
+	public synthetic fun <init> (Ljava/lang/String;Lapp/revanced/util/resource/StringResource;Lapp/revanced/util/resource/ArrayResource;Lapp/revanced/util/resource/ArrayResource;Lapp/revanced/util/resource/StringResource;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
 }
 
@@ -702,18 +694,18 @@ public class app/revanced/patches/shared/settings/preference/impl/PreferenceScre
 	public final fun setPreferences (Ljava/util/List;)V
 }
 
-public final class app/revanced/patches/shared/settings/preference/impl/SwitchPreference : app/revanced/patches/shared/settings/preference/DefaultBasePreference {
-	public fun <init> (Ljava/lang/String;Lapp/revanced/util/resource/StringResource;Lapp/revanced/util/resource/StringResource;Lapp/revanced/util/resource/StringResource;Lapp/revanced/util/resource/StringResource;Z)V
-	public synthetic fun <init> (Ljava/lang/String;Lapp/revanced/util/resource/StringResource;Lapp/revanced/util/resource/StringResource;Lapp/revanced/util/resource/StringResource;Lapp/revanced/util/resource/StringResource;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+public final class app/revanced/patches/shared/settings/preference/impl/SwitchPreference : app/revanced/patches/shared/settings/preference/BasePreference {
+	public fun <init> (Ljava/lang/String;Lapp/revanced/util/resource/StringResource;Lapp/revanced/util/resource/StringResource;Lapp/revanced/util/resource/StringResource;Lapp/revanced/util/resource/StringResource;)V
+	public synthetic fun <init> (Ljava/lang/String;Lapp/revanced/util/resource/StringResource;Lapp/revanced/util/resource/StringResource;Lapp/revanced/util/resource/StringResource;Lapp/revanced/util/resource/StringResource;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun getSummaryOff ()Lapp/revanced/util/resource/StringResource;
 	public final fun getSummaryOn ()Lapp/revanced/util/resource/StringResource;
 	public final fun getUserDialogMessage ()Lapp/revanced/util/resource/StringResource;
 	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
 }
 
-public final class app/revanced/patches/shared/settings/preference/impl/TextPreference : app/revanced/patches/shared/settings/preference/DefaultBasePreference {
-	public fun <init> (Ljava/lang/String;Lapp/revanced/util/resource/StringResource;Lapp/revanced/util/resource/StringResource;Lapp/revanced/patches/shared/settings/preference/impl/InputType;Ljava/lang/String;Ljava/lang/String;)V
-	public synthetic fun <init> (Ljava/lang/String;Lapp/revanced/util/resource/StringResource;Lapp/revanced/util/resource/StringResource;Lapp/revanced/patches/shared/settings/preference/impl/InputType;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+public final class app/revanced/patches/shared/settings/preference/impl/TextPreference : app/revanced/patches/shared/settings/preference/BasePreference {
+	public fun <init> (Ljava/lang/String;Lapp/revanced/util/resource/StringResource;Lapp/revanced/util/resource/StringResource;Lapp/revanced/patches/shared/settings/preference/impl/InputType;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Lapp/revanced/util/resource/StringResource;Lapp/revanced/util/resource/StringResource;Lapp/revanced/patches/shared/settings/preference/impl/InputType;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun getInputType ()Lapp/revanced/patches/shared/settings/preference/impl/InputType;
 	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
 }
@@ -1128,6 +1120,12 @@ public final class app/revanced/patches/youtube/layout/autocaptions/AutoCaptions
 
 public final class app/revanced/patches/youtube/layout/branding/CustomBrandingPatch : app/revanced/patcher/patch/ResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/branding/CustomBrandingPatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
+public final class app/revanced/patches/youtube/layout/branding/header/ChangeHeaderPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/branding/header/ChangeHeaderPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }

@@ -31,7 +31,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
 @Patch(
     name = "Alternative thumbnails",
-    description = "Adds options to replace video thumbnails with still image captures of the video.",
+    description = "Adds options to replace video thumbnails using the DeArrow API or image captures from the video.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class, AlternativeThumbnailsResourcePatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -57,7 +57,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/AlternativeThumbnailsPatch;"
+        "Lapp/revanced/integrations/youtube/patches/AlternativeThumbnailsPatch;"
 
     private lateinit var loadImageUrlMethod: MutableMethod
     private var loadImageUrlIndex = 0
@@ -117,7 +117,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                     NonInteractivePreference(
                         StringResource("revanced_alt_thumbnail_about_title", "Thumbnails in use"),
                         null, // Summary is dynamically updated based on the current settings.
-                        tag = "app.revanced.integrations.settingsmenu.AlternativeThumbnailsStatusPreference"
+                        tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsStatusPreference"
                     ),
                     SwitchPreference(
                         "revanced_alt_thumbnail_dearrow",
@@ -152,11 +152,11 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                             "revanced_alt_thumbnail_dearrow_about_summary",
                             "DeArrow provides crowd-sourced thumbnails for YouTube videos. " +
                                     "These thumbnails are often more relevant than those provided by YouTube. " +
-                                    "If enabled, video URLs will be sent to the API server and no other data is sent."
+                                    "If enabled, video URLs will be sent to the API server and no other data is sent"
                                     + "\\n\\nTap here to learn more about DeArrow"
                         ),
                         // Custom about preference with link to the DeArrow website.
-                        tag = "app.revanced.integrations.settingsmenu.AlternativeThumbnailsAboutDeArrowPreference",
+                        tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsAboutDeArrowPreference",
                         selectable = true
                     ),
                     SwitchPreference(

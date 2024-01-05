@@ -12,7 +12,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide \'Load more\' button",
-    description = "Hides the button under videos that loads similar videos.",
+    description = "Adds an option to hide the button under videos that loads similar videos.",
     dependencies = [HideLoadMoreButtonResourcePatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -34,7 +34,7 @@ object HideLoadMoreButtonPatch : BytecodePatch(
     setOf(HideLoadMoreButtonFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/HideLoadMoreButtonPatch;"
+        "Lapp/revanced/integrations/youtube/patches/HideLoadMoreButtonPatch;"
 
     override fun execute(context: BytecodeContext) {
         HideLoadMoreButtonFingerprint.result?.let {
