@@ -132,8 +132,9 @@ public final class AdsFilter extends Filter {
         if (exceptions.matches(path))
             return false;
 
-        if (matchedGroup == fullscreenAd && path.contains("|ImageType|")) {
-            closeFullscreenAd();
+        if (matchedGroup == fullscreenAd) {
+            if (path.contains("|ImageType|")) closeFullscreenAd();
+
             return false; // Do not actually filter the fullscreen ad otherwise it will leave a dimmed screen.
         }
 
