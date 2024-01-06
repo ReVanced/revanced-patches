@@ -18,10 +18,10 @@ object GmsCoreSupportResourcePatch : AbstractGmsCoreSupportResourcePatch(
 ) {
     override fun execute(context: ResourceContext) {
         // Strings used by different target apps.
-        StringsPatch.includeSharedPatchStrings("GmsCoreSupport");
+        StringsPatch.includeSharedPatchStrings("GmsCoreSupport")
 
         // YouTube specific strings.
-        StringsPatch.includePatchStrings("YouTubeGmsCoreSupport");
+        StringsPatch.includePatchStrings("YouTubeGmsCoreSupport")
 
         SettingsPatch.addPreference(
             Preference(
