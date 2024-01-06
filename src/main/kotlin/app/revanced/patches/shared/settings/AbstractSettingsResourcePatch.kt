@@ -4,7 +4,7 @@ import app.revanced.patcher.PatchClass
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.util.DomFileEditor
-import app.revanced.patches.all.misc.strings.AddResourcesPatch
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.settings.preference.BasePreference
 import app.revanced.patches.shared.settings.preference.impl.IntentPreference
 import app.revanced.util.ResourceGroup

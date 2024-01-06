@@ -8,7 +8,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.all.misc.strings.AddResourcesPatch
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.settings.preference.impl.ListPreference
 import app.revanced.patches.twitch.chat.antidelete.fingerprints.ChatUtilCreateDeletedSpanFingerprint
 import app.revanced.patches.twitch.chat.antidelete.fingerprints.DeletedMessageClickableSpanCtorFingerprint

@@ -1,4 +1,4 @@
-package app.revanced.patches.all.misc.strings
+package app.revanced.patches.all.misc.resources
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch

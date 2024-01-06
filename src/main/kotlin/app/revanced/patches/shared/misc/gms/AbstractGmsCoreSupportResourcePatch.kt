@@ -5,7 +5,7 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.all.misc.packagename.ChangePackageNamePatch
-import app.revanced.patches.all.misc.strings.AddResourcesPatch
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.util.copyStrings
 import org.w3c.dom.Element
 import org.w3c.dom.Node

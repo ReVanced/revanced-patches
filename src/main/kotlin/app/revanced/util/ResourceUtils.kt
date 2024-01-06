@@ -2,7 +2,7 @@ package app.revanced.util
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.util.DomFileEditor
-import app.revanced.patches.all.misc.strings.AddResourcesPatch
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.util.resource.BaseResource
 import org.w3c.dom.Node
 import java.io.InputStream
