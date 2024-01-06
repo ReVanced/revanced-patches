@@ -1,13 +1,12 @@
 package app.revanced.patches.youtube.misc.settings
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patches.all.misc.strings.AddResourcesPatch
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.mapping.misc.ResourceMappingPatch
 import app.revanced.patches.shared.settings.AbstractSettingsResourcePatch
 import app.revanced.patches.shared.settings.preference.impl.IntentPreference
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
-import app.revanced.util.copyStrings
 import app.revanced.util.resource.StringResource
 import org.w3c.dom.Element
 

@@ -11,8 +11,8 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.all.misc.strings.AddResourcesPatch
-import app.revanced.patches.all.misc.strings.AddResourcesPatch.addString
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.all.misc.resources.AddResourcesPatch.addString
 import app.revanced.patches.shared.settings.preference.impl.PreferenceCategory
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.shared.settings.util.AbstractPreferenceScreen

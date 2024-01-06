@@ -5,8 +5,8 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.all.misc.strings.AddResourcesPatch
-import app.revanced.patches.all.misc.strings.AddResourcesPatch.addString
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.all.misc.resources.AddResourcesPatch.addString
 import app.revanced.patches.shared.settings.preference.impl.ListPreference
 import app.revanced.patches.twitch.ad.embedded.fingerprints.CreateUsherClientFingerprint
 import app.revanced.patches.twitch.ad.video.VideoAdsPatch
