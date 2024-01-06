@@ -12,8 +12,6 @@ import app.revanced.integrations.shared.Utils;
 import app.revanced.integrations.shared.settings.BooleanSetting;
 import app.revanced.integrations.shared.settings.Setting;
 
-import java.security.InvalidParameterException;
-
 import static app.revanced.integrations.shared.StringRef.str;
 
 /**
@@ -150,7 +148,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     protected void updatePreference(@NonNull Preference pref, @NonNull Setting<?> setting,
                                     boolean syncSetting, boolean applySettingToPreference) {
         if (!syncSetting && applySettingToPreference) {
-            throw new InvalidParameterException();
+            throw new IllegalArgumentException();
         }
         if (syncSetting) {
             if (pref instanceof SwitchPreference) {
