@@ -14,12 +14,12 @@ import app.revanced.integrations.youtube.settings.Settings;
 public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
     @Override
     protected void initialize() {
+        super.initialize();
+
         // If the preference was included, then initialize it based on the available playback speed
         Preference defaultSpeedPreference = findPreference(Settings.PLAYBACK_SPEED_DEFAULT.key);
         if (defaultSpeedPreference instanceof ListPreference) {
             CustomPlaybackSpeedPatch.initializeListPreference((ListPreference) defaultSpeedPreference);
         }
-
-        super.initialize();
     }
 }

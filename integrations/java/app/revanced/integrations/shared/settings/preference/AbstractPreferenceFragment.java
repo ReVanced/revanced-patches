@@ -164,7 +164,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
             } else if (pref instanceof EditTextPreference) {
                 EditTextPreference editPreference = (EditTextPreference) pref;
                 if (applySettingToPreference) {
-                    editPreference.getEditText().setText(setting.get().toString());
+                    editPreference.setText(setting.get().toString());
                 } else {
                     Setting.privateSetValueFromString(setting, editPreference.getText());
                 }
