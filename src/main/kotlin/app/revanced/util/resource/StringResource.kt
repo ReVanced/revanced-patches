@@ -1,6 +1,7 @@
 package app.revanced.util.resource
 
 import org.w3c.dom.Document
+import java.util.*
 
 /**
  * A string value.
@@ -8,12 +9,14 @@ import org.w3c.dom.Document
  *
  * @param name The name of the string.
  * @param value The value of the string.
- * @param formatted If the string is formatted. If false, the attribute will be set.
+ * @param formatted If the string is formatted. Defaults to `true`.
+ * @param language The language of the string. Defaults to [Locale.ENGLISH].
  */
 class StringResource(
     name: String,
     val value: String,
-    val formatted: Boolean = true
+    val formatted: Boolean = true,
+    val language: String = Locale.ENGLISH.language
 ) : BaseResource(name, "string") {
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
         super.serialize(ownerDocument, resourceCallback).apply {
