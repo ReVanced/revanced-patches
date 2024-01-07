@@ -333,18 +333,18 @@ public final class app/revanced/patches/myexpenses/misc/pro/UnlockProPatch : app
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/myfitnesspal/AdsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/myfitnesspal/AdsPatch;
+public final class app/revanced/patches/myfitnesspal/ads/HideAdsPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/myfitnesspal/ads/HideAdsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/myfitnesspal/fingerprints/IsPremiumUseCaseImplFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/myfitnesspal/fingerprints/IsPremiumUseCaseImplFingerprint;
+public final class app/revanced/patches/myfitnesspal/ads/fingerprints/IsPremiumUseCaseImplFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/myfitnesspal/ads/fingerprints/IsPremiumUseCaseImplFingerprint;
 }
 
-public final class app/revanced/patches/myfitnesspal/fingerprints/MainActivity_navigateToNativePremiumUpsellFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/myfitnesspal/fingerprints/MainActivity_navigateToNativePremiumUpsellFingerprint;
+public final class app/revanced/patches/myfitnesspal/ads/fingerprints/MainActivityNavigateToNativePremiumUpsellFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/myfitnesspal/ads/fingerprints/MainActivityNavigateToNativePremiumUpsellFingerprint;
 }
 
 public final class app/revanced/patches/netguard/broadcasts/removerestriction/RemoveBroadcastsRestrictionPatch : app/revanced/patcher/patch/ResourcePatch {
