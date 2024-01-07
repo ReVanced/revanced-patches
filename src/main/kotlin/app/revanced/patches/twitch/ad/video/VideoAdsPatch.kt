@@ -35,7 +35,7 @@ object VideoAdsPatch : AbstractAdPatch(
 ) {
     override fun execute(context: BytecodeContext) {
         // TODO: Populate this to all other patches that use AddResourcesPatch.
-        AddResourcesPatch(this)
+        AddResourcesPatch(this::class)
 
         /* Amazon ads SDK */
         context.blockMethods(

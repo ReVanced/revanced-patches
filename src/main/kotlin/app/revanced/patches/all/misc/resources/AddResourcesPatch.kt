@@ -1,5 +1,6 @@
 package app.revanced.patches.all.misc.resources
 
+import app.revanced.patcher.PatchClass
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
@@ -34,7 +35,6 @@ object AddResourcesPatch : ResourcePatch(), MutableSet<BaseResource> by mutableS
         language: String = Locale.ENGLISH.language
     ) = add(StringResource(name, value, formatted, language))
 
-
     /**
      * Adds an [ArrayResource].
      *
@@ -54,10 +54,10 @@ object AddResourcesPatch : ResourcePatch(), MutableSet<BaseResource> by mutableS
      * and sets [StringResource.language] to `<language>`.
      * - Adds arrays under `resources/addresources/arrays.json` as [ArrayResource].
      *
-     * @param patch The patch to add resources for.
+     * @param patch The class of the patch to add resources for.
      * @see AddResourcesPatch.close
      */
-    operator fun invoke(patch: app.revanced.patcher.patch.Patch<*>) {
+    operator fun invoke(patch: PatchClass) {
         // TODO Implement this.
     }
 
