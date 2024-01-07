@@ -1,6 +1,5 @@
 package app.revanced.patches.twitch.ad.video
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -8,7 +7,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.util.resource.StringResource
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.twitch.ad.shared.util.AbstractAdPatch
 import app.revanced.patches.twitch.ad.video.fingerprints.CheckAdEligibilityLambdaFingerprint
@@ -16,6 +15,8 @@ import app.revanced.patches.twitch.ad.video.fingerprints.ContentConfigShowAdsFin
 import app.revanced.patches.twitch.ad.video.fingerprints.GetReadyToShowAdFingerprint
 import app.revanced.patches.twitch.misc.integrations.IntegrationsPatch
 import app.revanced.patches.twitch.misc.settings.SettingsPatch
+import app.revanced.util.exception
+import app.revanced.util.resource.StringResource
 
 @Patch(
     name = "Block video ads",
@@ -33,6 +34,9 @@ object VideoAdsPatch : AbstractAdPatch(
     )
 ) {
     override fun execute(context: BytecodeContext) {
+        // TODO: Populate this to all other patches that use AddResourcesPatch.
+        AddResourcesPatch(this)
+
         /* Amazon ads SDK */
         context.blockMethods(
             "Lcom/amazon/ads/video/player/AdsManagerImpl;",

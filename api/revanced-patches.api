@@ -38,13 +38,11 @@ public final class app/revanced/patches/all/misc/packagename/ChangePackageNamePa
 	public final fun setOrGetFallbackPackageName (Ljava/lang/String;)Ljava/lang/String;
 }
 
-public final class app/revanced/patches/all/misc/strings/AddResourcesPatch : app/revanced/patcher/patch/ResourcePatch, java/io/Closeable, java/util/Set, kotlin/jvm/internal/markers/KMutableSet {
-	public static final field INSTANCE Lapp/revanced/patches/all/misc/strings/AddResourcesPatch;
+public final class app/revanced/patches/all/misc/resources/AddResourcesPatch : app/revanced/patcher/patch/ResourcePatch, java/io/Closeable, java/util/Set, kotlin/jvm/internal/markers/KMutableSet {
+	public static final field INSTANCE Lapp/revanced/patches/all/misc/resources/AddResourcesPatch;
 	public fun add (Lapp/revanced/util/resource/BaseResource;)Z
 	public synthetic fun add (Ljava/lang/Object;)Z
 	public fun addAll (Ljava/util/Collection;)Z
-	public final fun addString (Ljava/lang/String;Ljava/lang/String;Z)Z
-	public static synthetic fun addString$default (Lapp/revanced/patches/all/misc/strings/AddResourcesPatch;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 	public fun clear ()V
 	public fun close ()V
 	public fun contains (Lapp/revanced/util/resource/BaseResource;)Z
@@ -53,6 +51,10 @@ public final class app/revanced/patches/all/misc/strings/AddResourcesPatch : app
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 	public fun getSize ()I
+	public final fun invoke (Lapp/revanced/patcher/patch/Patch;)V
+	public final fun invoke (Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;)Z
+	public final fun invoke (Ljava/lang/String;Ljava/util/List;)Z
+	public static synthetic fun invoke$default (Lapp/revanced/patches/all/misc/resources/AddResourcesPatch;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;ILjava/lang/Object;)Z
 	public fun isEmpty ()Z
 	public fun iterator ()Ljava/util/Iterator;
 	public fun remove (Lapp/revanced/util/resource/BaseResource;)Z
@@ -1670,9 +1672,10 @@ public abstract class app/revanced/util/resource/BaseResource {
 }
 
 public final class app/revanced/util/resource/StringResource : app/revanced/util/resource/BaseResource {
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Z)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun getFormatted ()Z
+	public final fun getLanguage ()Ljava/lang/String;
 	public final fun getValue ()Ljava/lang/String;
 	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
 }

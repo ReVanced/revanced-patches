@@ -6,7 +6,6 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
-import app.revanced.patches.all.misc.resources.AddResourcesPatch.addString
 import app.revanced.patches.shared.settings.preference.impl.ListPreference
 import app.revanced.patches.twitch.ad.embedded.fingerprints.CreateUsherClientFingerprint
 import app.revanced.patches.twitch.ad.video.VideoAdsPatch
@@ -70,11 +69,11 @@ object EmbeddedAdsPatch : BytecodePatch(
             )
         )
 
-        addString(
+        AddResourcesPatch(
             "revanced_embedded_ads_service_unavailable",
             "%s is unavailable. Ads may show. Try switching to another ad block service in settings."
         )
-        addString(
+        AddResourcesPatch(
             "revanced_embedded_ads_service_failed",
             "%s server returned an error. Ads may show. Try switching to another ad block service in settings."
         )

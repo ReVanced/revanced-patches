@@ -9,19 +9,66 @@ import app.revanced.util.resource.ArrayResource
 import app.revanced.util.resource.BaseResource
 import app.revanced.util.resource.StringResource
 import java.io.Closeable
+import java.util.*
 
-@Patch(
-    description = "Add resources such as strings or arrays to the app.",
-)
-object AddResourcesPatch : ResourcePatch(), Closeable, MutableSet<BaseResource> by mutableSetOf() {
+@Patch(description = "Add resources such as strings or arrays to the app.")
+object AddResourcesPatch : ResourcePatch(), MutableSet<BaseResource> by mutableSetOf(), Closeable {
     private lateinit var xmlFileHolder: ResourceContext.XmlFileHolder
 
     override fun execute(context: ResourceContext) {
         xmlFileHolder = context.xmlEditor
     }
 
-    fun addString(name: String, value: String, formatted: Boolean = false) = add(StringResource(name, value, formatted))
+    /**
+     * Adds a [StringResource].
+     *
+     * @param name The name of the string resource.
+     * @param value The value of the string resource.
+     * @param formatted Whether the string resource is formatted. Defaults to `true`.
+     * @param language The language of the string resource. Defaults to [Locale.ENGLISH].
+     */
+    operator fun invoke(
+        name: String,
+        value: String,
+        formatted: Boolean = true,
+        language: String = Locale.ENGLISH.language
+    ) = add(StringResource(name, value, formatted, language))
 
+
+    /**
+     * Adds an [ArrayResource].
+     *
+     * @param name The name of the array resource.
+     * @param items The items of the array resource.
+     */
+    operator fun invoke(
+        name: String,
+        items: List<StringResource>
+    ) = add(ArrayResource(name, items))
+
+    /**
+     * Adds all resources from the given [patch] present under `resources/addresources`.
+     *
+     * - Adds strings under `resources/addresources/strings.json` as [StringResource].
+     * - Adds strings under `resources/addresources/values-<language>/strings.xml` as [StringResource]
+     * and sets [StringResource.language] to `<language>`.
+     * - Adds arrays under `resources/addresources/arrays.json` as [ArrayResource].
+     *
+     * @param patch The patch to add resources for.
+     * @see AddResourcesPatch.close
+     */
+    operator fun invoke(patch: app.revanced.patcher.patch.Patch<*>) {
+        // TODO Implement this.
+    }
+
+    // TODO: Rewrite this accordingly so that it does what the description says.
+    /**
+     * Adds all [BaseResource] to the app resources.
+     *
+     * - Adds [StringResource] to `res/values-<language code>/strings.xml`
+     * or `res/values/strings.xml`if [StringResource.language] is [Locale.ENGLISH].
+     * - Adds [ArrayResource] to `res/values/arrays.xml`.
+     */
     override fun close() {
         val strings = xmlFileHolder["res/values/strings.xml"]
         val stringResources = strings.getNode("resources")
@@ -40,6 +87,7 @@ object AddResourcesPatch : ResourcePatch(), Closeable, MutableSet<BaseResource> 
 
                     stringResources.addResource(resource)
                 }
+
                 is ArrayResource -> arraysResources.addResource(resource) { addResource(it) }
                 else -> throw NotImplementedError("Unsupported resource type")
             }

@@ -37,7 +37,7 @@ fun ResourceContext.copyStrings(host: String) {
 
         val formatted = attributes.getNamedItem("formatted") == null
 
-        AddResourcesPatch.addString(key, value, formatted)
+        AddResourcesPatch(key, value, formatted)
     }
 }
 
