@@ -22,6 +22,7 @@ object AdsPatch : BytecodePatch(setOf(
     override fun execute(context: BytecodeContext) {
 
         // patch ads lib to "return true"
+        // this method is used by the ad code to determine if the user is paid
         IsPremiumUseCaseImplFingerprint.result?.mutableMethod?.apply {
             replaceInstructions(
                 0,
@@ -32,7 +33,10 @@ object AdsPatch : BytecodePatch(setOf(
             )
         } ?: throw PatchException("IsPremiumUseCaseImpl fingerprint not found")
 
-        // stop MainActivity ever throwing the premium upsell dialog
+        // stop MainActivity ever showing the premium upsell dialog that periodically
+        //  pops on app launch
+        // there is a duplicate method in the diary code but it only fires if someone
+        //  tries to access the premium-only sections, so haven't bothered patching
         MainActivity_navigateToNativePremiumUpsellFingerprint.result?.mutableMethod?.apply {
             replaceInstructions(
                 0,
