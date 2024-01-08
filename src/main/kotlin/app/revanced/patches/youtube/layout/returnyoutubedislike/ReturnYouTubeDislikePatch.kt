@@ -11,6 +11,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.*
@@ -38,6 +39,8 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
+                "18.38.44",
+                "18.39.40",
                 "18.43.45",
                 "18.44.41",
                 "18.45.41",
@@ -49,6 +52,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 @Suppress("unused")
 object ReturnYouTubeDislikePatch : BytecodePatch(
     setOf(
+        ConversionContextFingerprint,
         TextComponentConstructorFingerprint,
         ShortsTextViewFingerprint,
         DislikesOldLayoutTextViewFingerprint,
@@ -103,31 +107,21 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
         // And it works in all situations except it fails to update the Span when the user dislikes,
         // since the underlying (likes only) text did not change.
         // This hook handles all situations, as it's where the created Spans are stored and later reused.
-        TextComponentContextFingerprint.also {
-            if (!it.resolve(context, TextComponentConstructorFingerprint.result!!.classDef))
-                throw it.exception
-        }.result?.also { result ->
-            if (!TextComponentAtomicReferenceFingerprint.resolve(context, result.method, result.classDef))
+        var conversionContextResult = ConversionContextFingerprint.result ?: throw ConversionContextFingerprint.exception
+        var constructorResult = TextComponentConstructorFingerprint.result ?: throw TextComponentConstructorFingerprint.exception
+        // Find the field name of the conversion context.
+        val conversionContextFieldName = constructorResult.classDef.fields.find {
+            it.type == conversionContextResult.classDef.type
+        } ?: throw PatchException("Could not find conversion context field")
+
+        if (!TextComponentAtomicReferenceFingerprint.resolve(context, constructorResult.classDef))
                 throw TextComponentAtomicReferenceFingerprint.exception
-        }?.let { textComponentContextFingerprintResult ->
-            val conversionContextIndex = textComponentContextFingerprintResult
-                .scanResult.patternScanResult!!.endIndex
-            val atomicReferenceStartIndex = TextComponentAtomicReferenceFingerprint.result!!
-                .scanResult.patternScanResult!!.startIndex
-
-            val insertIndex = atomicReferenceStartIndex + 9
-
-            textComponentContextFingerprintResult.mutableMethod.apply {
-                // Get the conversion context obfuscated field name
-                val conversionContextFieldReference =
-                    getInstruction<ReferenceInstruction>(conversionContextIndex).reference
-
-                // Free register to hold the conversion context
-                val freeRegister =
-                    getInstruction<TwoRegisterInstruction>(atomicReferenceStartIndex).registerB
-
-                val atomicReferenceRegister =
-                    getInstruction<FiveRegisterInstruction>(atomicReferenceStartIndex + 6).registerC
+        TextComponentAtomicReferenceFingerprint.result!!.apply {
+            val atomicReferenceStartIndex = scanResult.patternScanResult!!.startIndex
+            val insertIndex = atomicReferenceStartIndex + 3
+            mutableMethod.apply {
+                // Reuse atomic register to hold the conversion context.
+                val freeRegister = getInstruction<FiveRegisterInstruction>(atomicReferenceStartIndex).registerC
 
                 // Instruction that is replaced, and also has the CharacterSequence register.
                 val moveCharSequenceInstruction = getInstruction<TwoRegisterInstruction>(insertIndex)
@@ -141,15 +135,15 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                     insertIndex + 1,
                     """
                         # Move context to free register
-                        iget-object v$freeRegister, v$freeRegister, $conversionContextFieldReference
-                        invoke-static {v$freeRegister, v$atomicReferenceRegister, v$charSequenceSourceRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->onLithoTextLoaded(Ljava/lang/Object;Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+                        iget-object v$freeRegister, v$freeRegister, $conversionContextFieldName
+                        invoke-static {v$freeRegister, v$charSequenceSourceRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->onLithoTextLoaded(Ljava/lang/Object;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
                         move-result-object v$freeRegister
                         # Replace the original instruction
                         move-object v${charSequenceTargetRegister}, v${freeRegister}
                     """
                 )
             }
-        } ?: throw TextComponentContextFingerprint.exception
+        }
 
         // endregion
 

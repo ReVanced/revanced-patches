@@ -6,19 +6,13 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 /**
- * Resolves against the same method that [TextComponentContextFingerprint] resolves to.
+ * Resolves against the same class that [TextComponentConstructorFingerprint] resolves to.
  */
 internal object TextComponentAtomicReferenceFingerprint : MethodFingerprint(
     returnType = "L",
     accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
     parameters = listOf("L"),
     opcodes = listOf(
-        Opcode.MOVE_OBJECT, // Register B is free register
-        Opcode.MOVE_OBJECT_FROM16,
-        Opcode.MOVE_OBJECT_FROM16,
-        Opcode.MOVE_OBJECT_FROM16,
-        Opcode.MOVE_OBJECT_FROM16,
-        null,
         Opcode.INVOKE_VIRTUAL, // Register C is atomic reference
         Opcode.MOVE_RESULT_OBJECT, // Register A is char sequence
         Opcode.CHECK_CAST,
