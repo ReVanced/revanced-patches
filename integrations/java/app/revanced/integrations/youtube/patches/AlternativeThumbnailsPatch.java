@@ -28,7 +28,7 @@ import static app.revanced.integrations.shared.StringRef.str;
  * Can show YouTube provided screen captures of beginning/middle/end of the video.
  * (ie: sd1.jpg, sd2.jpg, sd3.jpg).
  * <p>
- * Or can show crowdsourced thumbnails provided by DeArrow (<a href="http://dearrow.ajay.app">...</a>).
+ * Or can show crowd-sourced thumbnails provided by DeArrow (<a href="http://dearrow.ajay.app">...</a>).
  * <p>
  * Or can use DeArrow and fall back to screen captures if DeArrow is not available.
  * <p>
@@ -234,39 +234,45 @@ public final class AlternativeThumbnailsPatch {
     public static void handleCronetSuccess(UrlRequest request, @NonNull UrlResponseInfo responseInfo) {
         try {
             final int statusCode = responseInfo.getHttpStatusCode();
-            if (statusCode != 200) {
-                String url = responseInfo.getUrl();
+            if (statusCode == 200) {
+                return;
+            }
 
-                if (usingDeArrow() && urlIsDeArrow(url)) {
-                    Logger.printDebug(() -> "handleCronetSuccess, statusCode: " + statusCode);
-                    handleDeArrowError(url, statusCode);
+            String url = responseInfo.getUrl();
+
+            if (usingDeArrow() && urlIsDeArrow(url)) {
+                Logger.printDebug(() -> "handleCronetSuccess, statusCode: " + statusCode);
+                if (statusCode == 304) {
+                    // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/304
+                    return; // Normal response.
+                }
+                handleDeArrowError(url, statusCode);
+                return;
+            }
+
+            if (usingVideoStills() && statusCode == 404) {
+                // Fast alt thumbnails is enabled and the thumbnail is not available.
+                // The video is:
+                // - live stream
+                // - upcoming unreleased video
+                // - very old
+                // - very low view count
+                // Take note of this, so if the image reloads the original thumbnail will be used.
+                DecodedThumbnailUrl decodedUrl = DecodedThumbnailUrl.decodeImageUrl(url);
+                if (decodedUrl == null) {
+                    return; // Not a thumbnail.
+                }
+
+                Logger.printDebug(() -> "handleCronetSuccess, image not available: " + url);
+
+                ThumbnailQuality quality = ThumbnailQuality.altImageNameToQuality(decodedUrl.imageQuality);
+                if (quality == null) {
+                    // Video is a short or a seekbar thumbnail, but somehow did not load.  Should not happen.
+                    Logger.printDebug(() -> "Failed to recognize image quality of url: " + decodedUrl.sanitizedUrl);
                     return;
                 }
 
-                if (usingVideoStills() && statusCode == 404) {
-                    // Fast alt thumbnails is enabled and the thumbnail is not available.
-                    // The video is:
-                    // - live stream
-                    // - upcoming unreleased video
-                    // - very old
-                    // - very low view count
-                    // Take note of this, so if the image reloads the original thumbnail will be used.
-                    DecodedThumbnailUrl decodedUrl = DecodedThumbnailUrl.decodeImageUrl(url);
-                    if (decodedUrl == null) {
-                        return; // Not a thumbnail.
-                    }
-
-                    Logger.printDebug(() -> "handleCronetSuccess, image not available: " + url);
-
-                    ThumbnailQuality quality = ThumbnailQuality.altImageNameToQuality(decodedUrl.imageQuality);
-                    if (quality == null) {
-                        // Video is a short or a seekbar thumbnail, but somehow did not load.  Should not happen.
-                        Logger.printDebug(() -> "Failed to recognize image quality of url: " + decodedUrl.sanitizedUrl);
-                        return;
-                    }
-
-                    VerifiedQualities.setAltThumbnailDoesNotExist(decodedUrl.videoId, quality);
-                }
+                VerifiedQualities.setAltThumbnailDoesNotExist(decodedUrl.videoId, quality);
             }
         } catch (Exception ex) {
             Logger.printException(() -> "Callback success error", ex);
@@ -280,7 +286,7 @@ public final class AlternativeThumbnailsPatch {
      * - A non-existent domain.
      * - A url path of something incorrect (ie: /v1/nonExistentEndPoint).
      * <p>
-     * Known limitation: YT uses an infinite timeout, so this hook is never called if a host never responds.
+     * Cronet uses a very timeout (several minutes), so if the API never responds this hook can take a while to be called.
      * But this does not appear to be a problem, as the DeArrow API has not been observed to 'go silent'
      * Instead if there's a problem it returns an error code status response, which is handled in this patch.
      */
