@@ -147,7 +147,78 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
 
         // endregion
 
+        // region Hook for non-litho Short videos.
+
+        ShortsTextViewFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val patternResult = it.scanResult.patternScanResult!!
+
+                // If the field is true, the TextView is for a dislike button.
+                val isDisLikesBooleanReference = getInstruction<ReferenceInstruction>(patternResult.endIndex).reference
+
+                val textViewFieldReference = // Like/Dislike button TextView field
+                    getInstruction<ReferenceInstruction>(patternResult.endIndex - 1).reference
+
+                // Check if the hooked TextView object is that of the dislike button.
+                // If RYD is disabled, or the TextView object is not that of the dislike button, the execution flow is not interrupted.
+                // Otherwise, the TextView object is modified, and the execution flow is interrupted to prevent it from being changed afterward.
+                val insertIndex = patternResult.startIndex + 6
+                addInstructionsWithLabels(
+                    insertIndex,
+                    """
+                        # Check, if the TextView is for a dislike button
+                        iget-boolean v0, p0, $isDisLikesBooleanReference
+                        if-eqz v0, :is_like
+                        
+                        # Hook the TextView, if it is for the dislike button
+                        iget-object v0, p0, $textViewFieldReference
+                        invoke-static {v0}, $INTEGRATIONS_CLASS_DESCRIPTOR->setShortsDislikes(Landroid/view/View;)Z
+                        move-result v0
+                        if-eqz v0, :ryd_disabled
+                        return-void
+                        
+                        :is_like
+                        :ryd_disabled
+                        nop
+                    """
+                )
+            }
+        } ?: throw ShortsTextViewFingerprint.exception
+
+        // endregion
+
+        // region Hook for litho Shorts
+
+        // Filter that parses the video id from the UI
+        LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
+
+        // Player response video id is needed to search for the video ids in Shorts litho components.
+        VideoIdPatch.hookPlayerResponseVideoId("$FILTER_CLASS_DESCRIPTOR->newPlayerResponseVideoId(Ljava/lang/String;Z)V")
+
+        // endregion
+
+        // region Hook old UI layout dislikes, for the older app spoofs used with spoof-app-version.
+
+        DislikesOldLayoutTextViewFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val startIndex = it.scanResult.patternScanResult!!.startIndex
+
+                val resourceIdentifierRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
+                val textViewRegister = getInstruction<OneRegisterInstruction>(startIndex + 4).registerA
+
+                addInstruction(
+                    startIndex + 4,
+                    "invoke-static {v$resourceIdentifierRegister, v$textViewRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->setOldUILayoutDislikes(ILandroid/widget/TextView;)V"
+                )
+            }
+        } ?: throw DislikesOldLayoutTextViewFingerprint.exception
+
+        // endregion
+
+
         // region Hook rolling numbers.
+        // Do this last to allow patching old unsupported versions (if the user really wants),
+        // as this will fail to resolve on older versions (but everything will still work correctly anyways).
 
         RollingNumberSetterFingerprint.result?.let {
             val dislikesIndex = it.scanResult.patternScanResult!!.endIndex
@@ -262,73 +333,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
 
         // endregion
 
-        // region Hook for non-litho Short videos.
 
-        ShortsTextViewFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val patternResult = it.scanResult.patternScanResult!!
-
-                // If the field is true, the TextView is for a dislike button.
-                val isDisLikesBooleanReference = getInstruction<ReferenceInstruction>(patternResult.endIndex).reference
-
-                val textViewFieldReference = // Like/Dislike button TextView field
-                    getInstruction<ReferenceInstruction>(patternResult.endIndex - 1).reference
-
-                // Check if the hooked TextView object is that of the dislike button.
-                // If RYD is disabled, or the TextView object is not that of the dislike button, the execution flow is not interrupted.
-                // Otherwise, the TextView object is modified, and the execution flow is interrupted to prevent it from being changed afterward.
-                val insertIndex = patternResult.startIndex + 6
-                addInstructionsWithLabels(
-                    insertIndex,
-                    """
-                        # Check, if the TextView is for a dislike button
-                        iget-boolean v0, p0, $isDisLikesBooleanReference
-                        if-eqz v0, :is_like
-                        
-                        # Hook the TextView, if it is for the dislike button
-                        iget-object v0, p0, $textViewFieldReference
-                        invoke-static {v0}, $INTEGRATIONS_CLASS_DESCRIPTOR->setShortsDislikes(Landroid/view/View;)Z
-                        move-result v0
-                        if-eqz v0, :ryd_disabled
-                        return-void
-                        
-                        :is_like
-                        :ryd_disabled
-                        nop
-                    """
-                )
-            }
-        } ?: throw ShortsTextViewFingerprint.exception
-
-        // endregion
-
-        // region Hook for litho Shorts
-
-        // Filter that parses the video id from the UI
-        LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
-
-        // Player response video id is needed to search for the video ids in Shorts litho components.
-        VideoIdPatch.hookPlayerResponseVideoId("$FILTER_CLASS_DESCRIPTOR->newPlayerResponseVideoId(Ljava/lang/String;Z)V")
-
-        // endregion
-
-        // region Hook old UI layout dislikes, for the older app spoofs used with spoof-app-version.
-
-        DislikesOldLayoutTextViewFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val startIndex = it.scanResult.patternScanResult!!.startIndex
-
-                val resourceIdentifierRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
-                val textViewRegister = getInstruction<OneRegisterInstruction>(startIndex + 4).registerA
-
-                addInstruction(
-                    startIndex + 4,
-                    "invoke-static {v$resourceIdentifierRegister, v$textViewRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->setOldUILayoutDislikes(ILandroid/widget/TextView;)V"
-                )
-            }
-        } ?: throw DislikesOldLayoutTextViewFingerprint.exception
-
-        // endregion
     }
 
     private fun MethodFingerprint.toPatch(voteKind: Vote) = VotePatch(this, voteKind)
