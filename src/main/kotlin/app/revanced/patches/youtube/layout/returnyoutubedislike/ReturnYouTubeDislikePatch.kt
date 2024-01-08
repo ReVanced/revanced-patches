@@ -1,8 +1,5 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike
 
-import app.revanced.util.exception
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -14,12 +11,29 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.*
+import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.ConversionContextFingerprint
+import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.DislikeFingerprint
+import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.DislikesOldLayoutTextViewFingerprint
+import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.LikeFingerprint
+import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.RemoveLikeFingerprint
+import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.RollingNumberMeasureAnimatedTextFingerprint
+import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.RollingNumberMeasureStaticLabelFingerprint
+import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.RollingNumberMeasureTextParentFingerprint
+import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.RollingNumberSetterFingerprint
+import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.RollingNumberTextViewFingerprint
+import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.ShortsTextViewFingerprint
+import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.TextComponentConstructorFingerprint
+import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.TextComponentDataFingerprint
+import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.TextComponentLookupFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.shared.fingerprints.RollingNumberTextViewAnimationUpdateFingerprint
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
+import app.revanced.util.exception
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -40,7 +54,6 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
         CompatiblePackage(
             "com.google.android.youtube", [
                 "18.38.44",
-                "18.39.40",
                 "18.43.45",
                 "18.44.41",
                 "18.45.41",
@@ -54,6 +67,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
     setOf(
         ConversionContextFingerprint,
         TextComponentConstructorFingerprint,
+        TextComponentDataFingerprint,
         ShortsTextViewFingerprint,
         DislikesOldLayoutTextViewFingerprint,
         LikeFingerprint,
@@ -70,6 +84,8 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
 
     private const val FILTER_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/components/ReturnYouTubeDislikeFilterPatch;"
+
+    private fun MethodFingerprint.resultOrThrow() = result ?: throw exception
 
     override fun execute(context: BytecodeContext) {
         // region Inject newVideoLoaded event handler to update dislikes when a new video is loaded.
@@ -101,46 +117,57 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
 
         // endregion
 
-        // region Hook creation of Spans and the cached lookup of them.
+        // region Hook code for creation and cached lookup of text Spans.
 
         // Alternatively the hook can be made at the creation of Spans in TextComponentSpec,
         // And it works in all situations except it fails to update the Span when the user dislikes,
         // since the underlying (likes only) text did not change.
         // This hook handles all situations, as it's where the created Spans are stored and later reused.
-        var conversionContextResult = ConversionContextFingerprint.result ?: throw ConversionContextFingerprint.exception
-        var constructorResult = TextComponentConstructorFingerprint.result ?: throw TextComponentConstructorFingerprint.exception
-        // Find the field name of the conversion context.
-        val conversionContextFieldName = constructorResult.classDef.fields.find {
-            it.type == conversionContextResult.classDef.type
-        } ?: throw PatchException("Could not find conversion context field")
+        TextComponentConstructorFingerprint.result?.let { constructorResult ->
+            // Find the field name of the conversion context.
+            val constructorClassDef = constructorResult.classDef
+            val conversionContextClassType = ConversionContextFingerprint.resultOrThrow().classDef.type
+            val conversionContextFieldName = constructorClassDef.fields.find {
+                it.type == conversionContextClassType
+            } ?: throw PatchException("Could not find conversion context field")
 
-        if (!TextComponentAtomicReferenceFingerprint.resolve(context, constructorResult.classDef))
-                throw TextComponentAtomicReferenceFingerprint.exception
-        TextComponentAtomicReferenceFingerprint.result!!.apply {
-            val atomicReferenceStartIndex = scanResult.patternScanResult!!.startIndex
-            val insertIndex = atomicReferenceStartIndex + 3
-            mutableMethod.apply {
-                // Reuse atomic register to hold the conversion context.
-                val freeRegister = getInstruction<FiveRegisterInstruction>(atomicReferenceStartIndex).registerC
+            TextComponentLookupFingerprint.resolve(context, constructorClassDef)
+            TextComponentLookupFingerprint.resultOrThrow().mutableMethod.apply {
+                // Find the instruction for creating the text data object.
+                val textDataClassName = TextComponentDataFingerprint.resultOrThrow().classDef.type
+                val insertIndex = indexOfFirstInstruction {
+                    opcode == Opcode.NEW_INSTANCE &&
+                            (this as ReferenceInstruction).reference.toString() == textDataClassName
+                }
+                if (insertIndex < 0) throw PatchException("Could not find data creation instruction")
+                val tempRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-                // Instruction that is replaced, and also has the CharacterSequence register.
-                val moveCharSequenceInstruction = getInstruction<TwoRegisterInstruction>(insertIndex)
-                val charSequenceSourceRegister = moveCharSequenceInstruction.registerB
-                val charSequenceTargetRegister = moveCharSequenceInstruction.registerA
+                // Find the instruction that sets the span to an instance field.
+                // The instruction is only a few lines after the creation of the instance.
+                // The method has multiple iput-object instructions using a CharSequence,
+                // so verify the found instruction is in the expected location.
+                var index = 0
+                // Max number of instructions between the new instance instruction and setting of the field.
+                val maxInstructionDistance = 20
+                val putFieldInstructionIndex = indexOfFirstInstruction {
+                    index++ > insertIndex &&
+                            index < insertIndex + maxInstructionDistance &&
+                            opcode == Opcode.IPUT_OBJECT &&
+                            (this as ReferenceInstruction).reference.toString()
+                                .endsWith(":Ljava/lang/CharSequence;")
+                }
+                if (putFieldInstructionIndex < 0) throw PatchException("Could not find put object instruction")
+                val charSequenceRegister = getInstruction<TwoRegisterInstruction>(putFieldInstructionIndex).registerA
 
-                // Move the current instance to the free register, and get the conversion context from it.
-                // Must replace the instruction to preserve the control flow label.
-                replaceInstruction(insertIndex, "move-object/from16 v$freeRegister, p0")
                 addInstructions(
-                    insertIndex + 1,
+                    insertIndex,
                     """
-                        # Move context to free register
-                        iget-object v$freeRegister, v$freeRegister, $conversionContextFieldName
-                        invoke-static {v$freeRegister, v$charSequenceSourceRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->onLithoTextLoaded(Ljava/lang/Object;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-                        move-result-object v$freeRegister
-                        # Replace the original instruction
-                        move-object v${charSequenceTargetRegister}, v${freeRegister}
-                    """
+                    # Copy conversion context
+                    move-object/from16 v$tempRegister, p0
+                    iget-object v$tempRegister, v$tempRegister, $conversionContextFieldName
+                    invoke-static {v$tempRegister, v$charSequenceRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->onLithoTextLoaded(Ljava/lang/Object;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+                    move-result-object v$charSequenceRegister
+                """
                 )
             }
         }
@@ -217,8 +244,10 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
 
 
         // region Hook rolling numbers.
+
         // Do this last to allow patching old unsupported versions (if the user really wants),
-        // as this will fail to resolve on older versions (but everything will still work correctly anyways).
+        // On older unsupported version this will fail to resolve and throw an exception,
+        // but everything will still work correctly anyways.
 
         RollingNumberSetterFingerprint.result?.let {
             val dislikesIndex = it.scanResult.patternScanResult!!.endIndex
@@ -332,7 +361,6 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
         } ?: throw RollingNumberTextViewFingerprint.exception
 
         // endregion
-
 
     }
 
