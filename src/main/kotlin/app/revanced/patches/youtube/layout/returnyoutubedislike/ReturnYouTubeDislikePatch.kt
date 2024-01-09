@@ -38,7 +38,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 @Patch(
     name = "Return YouTube Dislike",
@@ -123,21 +125,20 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
         // And it works in all situations except it fails to update the Span when the user dislikes,
         // since the underlying (likes only) text did not change.
         // This hook handles all situations, as it's where the created Spans are stored and later reused.
-        TextComponentConstructorFingerprint.result?.let { constructorResult ->
+        TextComponentConstructorFingerprint.result?.let { textConstructorResult ->
             // Find the field name of the conversion context.
-            val constructorClassDef = constructorResult.classDef
             val conversionContextClassType = ConversionContextFingerprint.resultOrThrow().classDef.type
-            val conversionContextFieldName = constructorClassDef.fields.find {
+            val conversionContextField = textConstructorResult.classDef.fields.find {
                 it.type == conversionContextClassType
             } ?: throw PatchException("Could not find conversion context field")
 
-            TextComponentLookupFingerprint.resolve(context, constructorClassDef)
+            TextComponentLookupFingerprint.resolve(context, textConstructorResult.classDef)
             TextComponentLookupFingerprint.resultOrThrow().mutableMethod.apply {
                 // Find the instruction for creating the text data object.
-                val textDataClassName = TextComponentDataFingerprint.resultOrThrow().classDef.type
+                val textDataClassType = TextComponentDataFingerprint.resultOrThrow().classDef.type
                 val insertIndex = indexOfFirstInstruction {
                     opcode == Opcode.NEW_INSTANCE &&
-                            (this as ReferenceInstruction).reference.toString() == textDataClassName
+                            getReference<TypeReference>()?.type == textDataClassType
                 }
                 if (insertIndex < 0) throw PatchException("Could not find data creation instruction")
                 val tempRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
@@ -146,31 +147,26 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                 // The instruction is only a few lines after the creation of the instance.
                 // The method has multiple iput-object instructions using a CharSequence,
                 // so verify the found instruction is in the expected location.
-                var index = 0
-                // Max number of instructions between the new instance instruction and setting of the field.
-                val maxInstructionDistance = 20
-                val putFieldInstructionIndex = indexOfFirstInstruction {
-                    index++ > insertIndex &&
-                            index < insertIndex + maxInstructionDistance &&
-                            opcode == Opcode.IPUT_OBJECT &&
-                            (this as ReferenceInstruction).reference.toString()
-                                .endsWith(":Ljava/lang/CharSequence;")
-                }
-                if (putFieldInstructionIndex < 0) throw PatchException("Could not find put object instruction")
-                val charSequenceRegister = getInstruction<TwoRegisterInstruction>(putFieldInstructionIndex).registerA
+                val putFieldInstruction = implementation!!.instructions
+                    .subList(insertIndex, insertIndex + 20)
+                    .find {
+                        it.opcode == Opcode.IPUT_OBJECT &&
+                                it.getReference<FieldReference>()?.type == "Ljava/lang/CharSequence;"
+                    } ?: throw PatchException("Could not find put object instruction")
+                val charSequenceRegister = (putFieldInstruction as TwoRegisterInstruction).registerA
 
                 addInstructions(
                     insertIndex,
                     """
                     # Copy conversion context
                     move-object/from16 v$tempRegister, p0
-                    iget-object v$tempRegister, v$tempRegister, $conversionContextFieldName
+                    iget-object v$tempRegister, v$tempRegister, $conversionContextField
                     invoke-static {v$tempRegister, v$charSequenceRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->onLithoTextLoaded(Ljava/lang/Object;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
                     move-result-object v$charSequenceRegister
                 """
                 )
             }
-        }
+        } ?: throw TextComponentConstructorFingerprint.exception
 
         // endregion
 
@@ -258,7 +254,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                 val charSequenceInstanceRegister =
                     getInstruction<OneRegisterInstruction>(0).registerA
                 val charSequenceFieldReference =
-                    getInstruction<ReferenceInstruction>(dislikesIndex).reference.toString()
+                    getInstruction<ReferenceInstruction>(dislikesIndex).reference
 
                 val registerCount = implementation!!.registerCount
 
