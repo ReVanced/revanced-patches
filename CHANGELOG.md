@@ -1,3 +1,10 @@
+# [4.0.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.2...v4.0.0-dev.3) (2024-01-09)
+
+
+### Features
+
+* **Change package name:** Mention caveat of the patch in the description ([427b81a](https://github.com/ReVanced/revanced-patches/commit/427b81a79a5a1de79f14d2261059fb098b22227f))
+
 # [4.0.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.1...v4.0.0-dev.2) (2024-01-02)
 
 
