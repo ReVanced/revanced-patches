@@ -23,7 +23,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Minimized playback",
-    description = "Enables minimized and background playback.",
+    description = "Unlocks options for picture-in-picture and background playback.",
     dependencies = [
         IntegrationsPatch::class,
         PlayerTypeHookPatch::class,
@@ -53,7 +53,7 @@ object MinimizedPlaybackPatch : BytecodePatch(
         KidsMinimizedPlaybackPolicyControllerFingerprint
     )
 ) {
-    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/MinimizedPlaybackPatch;"
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/MinimizedPlaybackPatch;"
 
     override fun execute(context: BytecodeContext) {
         // TODO: remove this empty preference sometime after mid 2023

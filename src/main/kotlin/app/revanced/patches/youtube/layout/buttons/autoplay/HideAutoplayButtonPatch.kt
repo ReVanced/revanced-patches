@@ -22,7 +22,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Hide autoplay button",
-    description = "Hides the autoplay button in the video player.",
+    description = "Adds an option to hide the autoplay button in the video player.",
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class,
@@ -78,7 +78,7 @@ object HideAutoplayButtonPatch : BytecodePatch(
             addInstructionsWithLabels(
                 insertIndex,
                 """
-                    invoke-static {}, Lapp/revanced/integrations/patches/HideAutoplayButtonPatch;->isButtonShown()Z
+                    invoke-static {}, Lapp/revanced/integrations/youtube/patches/HideAutoplayButtonPatch;->isButtonShown()Z
                     move-result v$clobberRegister
                     if-eqz v$clobberRegister, :hidden
                 """,

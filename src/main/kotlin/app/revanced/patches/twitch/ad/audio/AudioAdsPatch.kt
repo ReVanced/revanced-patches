@@ -29,7 +29,7 @@ object AudioAdsPatch : BytecodePatch(
             mutableMethod.addInstructionsWithLabels(
                 0,
                 """
-                    invoke-static { }, Lapp/revanced/twitch/patches/AudioAdsPatch;->shouldBlockAudioAds()Z
+                    invoke-static { }, Lapp/revanced/integrations/twitch/patches/AudioAdsPatch;->shouldBlockAudioAds()Z
                     move-result v0
                     if-eqz v0, :show_audio_ads
                     return-void
@@ -52,8 +52,7 @@ object AudioAdsPatch : BytecodePatch(
                 StringResource(
                     "revanced_block_audio_ads_off",
                     "Audio ads are unblocked"
-                ),
-                default = true,
+                )
             )
         )
     }

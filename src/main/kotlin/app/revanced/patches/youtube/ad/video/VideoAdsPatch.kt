@@ -15,7 +15,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
     name = "Video ads",
-    description = "Removes ads in the video player.",
+    description = "Adds an option to remove ads in the video player.",
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class
@@ -53,7 +53,7 @@ object VideoAdsPatch : BytecodePatch(
 
         loadVideoAdsFingerprintMethod.addInstructionsWithLabels(
             0, """
-                invoke-static { }, Lapp/revanced/integrations/patches/VideoAdsPatch;->shouldShowAds()Z
+                invoke-static { }, Lapp/revanced/integrations/youtube/patches/VideoAdsPatch;->shouldShowAds()Z
                 move-result v0
                 if-nez v0, :show_video_ads
                 return-void

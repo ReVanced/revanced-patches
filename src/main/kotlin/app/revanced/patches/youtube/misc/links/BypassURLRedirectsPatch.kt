@@ -17,7 +17,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch(
     name = "Bypass URL redirects",
-    description = "Bypass URL redirects and open the original URL directly.",
+    description = "Adds an option to bypass URL redirects and open the original URL directly.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -57,7 +57,7 @@ object BypassURLRedirectsPatch : BytecodePatch(
                 replaceInstruction(
                     insertIndex,
                     "invoke-static {v$uriStringRegister}," +
-                            "Lapp/revanced/integrations/patches/BypassURLRedirectsPatch;" +
+                            "Lapp/revanced/integrations/youtube/patches/BypassURLRedirectsPatch;" +
                             "->" +
                             "parseRedirectUri(Ljava/lang/String;)Landroid/net/Uri;"
                 )

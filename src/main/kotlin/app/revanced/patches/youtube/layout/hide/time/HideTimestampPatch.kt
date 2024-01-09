@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
     name = "Hide timestamp",
-    description = "Hides timestamp in video player.",
+    description = "Adds an option to hide the timestamp in the bottom left of the video player.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -48,7 +48,7 @@ object HideTimestampPatch : BytecodePatch(
             mutableMethod.addInstructionsWithLabels(
             0,
             """
-                invoke-static { }, Lapp/revanced/integrations/patches/HideTimestampPatch;->hideTimestamp()Z
+                invoke-static { }, Lapp/revanced/integrations/youtube/patches/HideTimestampPatch;->hideTimestamp()Z
                 move-result v0
                 if-eqz v0, :hide_time
                 return-void

@@ -34,7 +34,7 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 @Patch(
     name = "SponsorBlock",
-    description = "Integrates SponsorBlock, which can skip undesired video segments such as sponsored content.",
+    description = "Adds options to enable and configure SponsorBlock, which can skip undesired video segments such as sponsored content.",
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
@@ -69,13 +69,13 @@ object SponsorBlockBytecodePatch : BytecodePatch(
     )
 ) {
     private const val INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/sponsorblock/SegmentPlaybackController;"
+        "Lapp/revanced/integrations/youtube/sponsorblock/SegmentPlaybackController;"
     private const val INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/sponsorblock/ui/CreateSegmentButtonController;"
+        "Lapp/revanced/integrations/youtube/sponsorblock/ui/CreateSegmentButtonController;"
     private const val INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/sponsorblock/ui/VotingButtonController;"
+        "Lapp/revanced/integrations/youtube/sponsorblock/ui/VotingButtonController;"
     private const val INTEGRATIONS_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/sponsorblock/ui/SponsorBlockViewController;"
+        "Lapp/revanced/integrations/youtube/sponsorblock/ui/SponsorBlockViewController;"
 
     override fun execute(context: BytecodeContext) {
         LayoutConstructorFingerprint.result?.let {

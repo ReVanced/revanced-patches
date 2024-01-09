@@ -19,7 +19,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch.PreferenceScreen
 )
 object HideAdsResourcePatch : ResourcePatch() {
     private const val FILTER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/components/AdsFilter;"
+        "Lapp/revanced/integrations/youtube/patches/components/AdsFilter;"
 
     internal var adAttributionId: Long = -1
 

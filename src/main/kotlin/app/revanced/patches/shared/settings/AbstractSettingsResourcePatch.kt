@@ -11,6 +11,7 @@ import app.revanced.patches.shared.settings.preference.impl.ArrayResource
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
+import app.revanced.util.mergeStrings
 import org.w3c.dom.Node
 import java.io.Closeable
 
@@ -37,6 +38,8 @@ abstract class AbstractSettingsResourcePatch(
         stringsEditor = context.xmlEditor["res/values/strings.xml"]
         arraysEditor = context.xmlEditor["res/values/arrays.xml"]
         revancedPreferencesEditor = context.xmlEditor["res/xml/$preferenceFileName.xml"]
+
+        context.mergeStrings("settings/host/values/strings.xml")
     }
 
     internal companion object {

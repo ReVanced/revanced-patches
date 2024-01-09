@@ -17,7 +17,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Spoof app version",
-    description = "Tricks YouTube into thinking you are running an older version of the app. " +
+    description = "Adds an option to trick YouTube into thinking you are running an older version of the app. " +
             "This can be used to restore old UI elements and features.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
@@ -38,7 +38,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 object SpoofAppVersionPatch : BytecodePatch(
     setOf(SpoofAppVersionFingerprint)
 ) {
-    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/spoof/SpoofAppVersionPatch;"
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/spoof/SpoofAppVersionPatch;"
 
     override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
@@ -65,7 +65,7 @@ object SpoofAppVersionPatch : BytecodePatch(
                         StringResource("revanced_spoof_app_version_target_entry_2", "18.20.39 - Restore wide video speed & quality menu"),
                         StringResource("revanced_spoof_app_version_target_entry_3", "17.08.35 - Restore old UI layout"),
                         StringResource("revanced_spoof_app_version_target_entry_4", "16.08.35 - Restore explore tab"),
-                        StringResource("revanced_spoof_app_version_target_entry_5", "16.01.35 - Restore old Shorts player"),
+                        StringResource("revanced_spoof_app_version_target_entry_5", "16.01.35 - Restore fewer video player action buttons"),
                     )
                 ),
                 ArrayResource(

@@ -16,7 +16,7 @@ import app.revanced.patches.youtube.shared.fingerprints.SeekbarOnDrawFingerprint
 
 @Patch(
     name = "Hide seekbar",
-    description = "Hides the seekbar.",
+    description = "Adds an option to hide the seekbar.",
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class,
@@ -63,7 +63,7 @@ object HideSeekbarPatch : BytecodePatch(
             0,
             """
                 const/4 v0, 0x0
-                invoke-static { }, Lapp/revanced/integrations/patches/HideSeekbarPatch;->hideSeekbar()Z
+                invoke-static { }, Lapp/revanced/integrations/youtube/patches/HideSeekbarPatch;->hideSeekbar()Z
                 move-result v0
                 if-eqz v0, :hide_seekbar
                 return-void

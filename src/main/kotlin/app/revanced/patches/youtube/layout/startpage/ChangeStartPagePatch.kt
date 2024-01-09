@@ -16,7 +16,7 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Change start page",
-    description = "Changes the start page of the app.",
+    description = "Adds an option to set which page the app opens in instead of the homepage.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -29,7 +29,7 @@ object ChangeStartPagePatch : BytecodePatch(
     setOf(HomeActivityFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/ChangeStartPagePatch;"
+        "Lapp/revanced/integrations/youtube/patches/ChangeStartPagePatch;"
 
     override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
@@ -60,8 +60,7 @@ object ChangeStartPagePatch : BytecodePatch(
                         StringResource("revanced_start_page_explore_value_4", "open.explore"),
                         StringResource("revanced_start_page_shorts_value_5", "open.shorts"),
                     )
-                ),
-                default = ""
+                )
             )
         )
 

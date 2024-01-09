@@ -24,7 +24,7 @@ import com.android.tools.smali.dexlib2.immutable.reference.ImmutableStringRefere
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
 /**
- * A patch that allows Google apps to run without root and under a different package name
+ * A patch that allows patched Google apps to run without root and under a different package name
  * by using GmsCore instead of Google Play Services.
  *
  * @param fromPackageName The package name of the original app.
@@ -47,7 +47,7 @@ abstract class AbstractGmsCoreSupportPatch(
     fingerprints: Set<MethodFingerprint> = emptySet(),
 ) : BytecodePatch(
     name = "GmsCore support",
-    description = "Allows Google apps to run without root and under a different package name " +
+    description = "Allows patched Google apps to run without root and under a different package name " +
             "by using GmsCore instead of Google Play Services.",
     dependencies = setOf(ChangePackageNamePatch::class, abstractGmsCoreSupportResourcePatch::class) + dependencies,
     compatiblePackages = compatiblePackages,

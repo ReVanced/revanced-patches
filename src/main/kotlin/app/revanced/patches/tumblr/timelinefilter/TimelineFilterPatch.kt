@@ -60,7 +60,7 @@ object TimelineFilterPatch : BytecodePatch(
             fingerprint.result?.mutableMethod?.addInstructions(
                 0,
                 "invoke-static {p$timelineObjectsRegister}, " +
-                        "Lapp/revanced/tumblr/patches/TimelineFilterPatch;->" +
+                        "Lapp/revanced/integrations/tumblr/patches/TimelineFilterPatch;->" +
                         "filterTimeline(Ljava/util/List;)V"
             ) ?: throw fingerprint.exception
         }

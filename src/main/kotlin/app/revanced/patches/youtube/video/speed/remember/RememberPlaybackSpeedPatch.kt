@@ -25,7 +25,7 @@ object RememberPlaybackSpeedPatch : BytecodePatch(
     setOf(InitializePlaybackSpeedValuesFingerprint)
 ){
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/playback/speed/RememberPlaybackSpeedPatch;"
+        "Lapp/revanced/integrations/youtube/patches/playback/speed/RememberPlaybackSpeedPatch;"
 
     override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(

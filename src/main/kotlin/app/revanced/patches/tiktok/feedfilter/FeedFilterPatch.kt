@@ -36,13 +36,13 @@ object FeedFilterPatch : BytecodePatch(
             addInstruction(
                 returnFeedItemInstruction.location.index,
                 "invoke-static { v$feedItemsRegister }, " +
-                        "Lapp/revanced/tiktok/feedfilter/FeedItemsFilter;->filter(Lcom/ss/android/ugc/aweme/feed/model/FeedItemList;)V"
+                        "Lapp/revanced/integrations/tiktok/feedfilter/FeedItemsFilter;->filter(Lcom/ss/android/ugc/aweme/feed/model/FeedItemList;)V"
             )
         } ?: throw FeedApiServiceLIZFingerprint.exception
 
         SettingsStatusLoadFingerprint.result?.mutableMethod?.addInstruction(
             0,
-            "invoke-static {}, Lapp/revanced/tiktok/settingsmenu/SettingsStatus;->enableFeedFilter()V"
+            "invoke-static {}, Lapp/revanced/integrations/tiktok/settings/SettingsStatus;->enableFeedFilter()V"
         ) ?: throw SettingsStatusLoadFingerprint.exception
     }
 }

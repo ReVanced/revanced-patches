@@ -24,7 +24,7 @@ import app.revanced.patches.twitch.misc.settings.SettingsPatch
     compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])]
 )
 object VideoAdsPatch : AbstractAdPatch(
-    "Lapp/revanced/twitch/patches/VideoAdsPatch;->shouldBlockVideoAds()Z",
+    "Lapp/revanced/integrations/twitch/patches/VideoAdsPatch;->shouldBlockVideoAds()Z",
     "show_video_ads",
     setOf(
         ContentConfigShowAdsFingerprint,
@@ -135,8 +135,7 @@ object VideoAdsPatch : AbstractAdPatch(
                 StringResource(
                     "revanced_block_video_ads_off",
                     "Video ads are unblocked"
-                ),
-                default = true
+                )
             )
         )
     }

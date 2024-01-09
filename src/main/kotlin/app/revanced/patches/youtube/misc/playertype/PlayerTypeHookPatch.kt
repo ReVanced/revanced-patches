@@ -20,7 +20,7 @@ object PlayerTypeHookPatch : BytecodePatch(
     setOf(PlayerTypeFingerprint, VideoStateFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/PlayerTypeHookPatch;"
+        "Lapp/revanced/integrations/youtube/patches/PlayerTypeHookPatch;"
 
     override fun execute(context: BytecodeContext) {
         PlayerTypeFingerprint.result?.mutableMethod?.addInstruction(

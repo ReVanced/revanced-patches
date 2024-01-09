@@ -15,7 +15,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch(
     name = "Hide ads",
-    description = "Removes general ads.",
+    description = "Adds options to remove general ads.",
     dependencies = [
         HideGetPremiumPatch::class,
         HideAdsResourcePatch::class,
@@ -65,7 +65,7 @@ object HideAdsPatch : BytecodePatch() {
                                 .injectHideViewCall(
                                     insertIndex,
                                     viewRegister,
-                                    "Lapp/revanced/integrations/patches/components/AdsFilter;",
+                                    "Lapp/revanced/integrations/youtube/patches/components/AdsFilter;",
                                     "hideAdAttributionView"
                                 )
                         }

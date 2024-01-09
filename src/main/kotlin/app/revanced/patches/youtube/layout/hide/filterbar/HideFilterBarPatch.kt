@@ -16,7 +16,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Hide filter bar",
-    description = "Hides the filter bar in video feeds.",
+    description = "Adds options to hide the category bar at the top of video feeds.",
     dependencies = [HideFilterBarResourcePatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -42,7 +42,7 @@ object HideFilterBarPatch : BytecodePatch(
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/HideFilterBarPatch;"
+        "Lapp/revanced/integrations/youtube/patches/HideFilterBarPatch;"
 
     override fun execute(context: BytecodeContext) {
         FilterBarHeightFingerprint.patch<TwoRegisterInstruction> { register ->
