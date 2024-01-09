@@ -1,3 +1,10 @@
+# [4.0.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.4...v4.0.0-dev.5) (2024-01-09)
+
+
+### Bug Fixes
+
+* **YouTube - Change header:** Improve patch descriptions ([#2581](https://github.com/ReVanced/revanced-patches/issues/2581)) ([43a5677](https://github.com/ReVanced/revanced-patches/commit/43a5677397380f14a049ae95532fd5096b94c938))
+
 # [4.0.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.3...v4.0.0-dev.4) (2024-01-09)
 
 
