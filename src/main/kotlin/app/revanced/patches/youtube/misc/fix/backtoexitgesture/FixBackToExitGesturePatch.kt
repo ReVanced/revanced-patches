@@ -37,7 +37,7 @@ internal object FixBackToExitGesturePatch : BytecodePatch(
                 methodName = "onScrollingViews"
             ),
             OnBackPressedFingerprint to IntegrationsMethod(
-                "p0", "onBackPressed", "Lcom/google/android/apps/youtube/app/watchwhile/MainActivity;"
+                "p0", "onBackPressed", "Landroid/app/Activity;"
             )
         ).forEach { (fingerprint, target) -> fingerprint.injectCall(target) }
     }
