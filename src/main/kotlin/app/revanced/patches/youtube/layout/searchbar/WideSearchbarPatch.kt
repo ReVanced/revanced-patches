@@ -8,11 +8,11 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.layout.searchbar.fingerprints.CreateSearchSuggestionsFingerprint
 import app.revanced.patches.youtube.layout.searchbar.fingerprints.SetWordmarkHeaderFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
+import app.revanced.patches.youtube.misc.strings.StringsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
@@ -40,16 +40,13 @@ object WideSearchbarPatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext) {
+        StringsPatch.includePatchStrings("WideSearchbar")
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_wide_searchbar",
-                StringResource("revanced_wide_searchbar_enabled_title", "Enable wide search bar"),
-                StringResource("revanced_wide_searchbar_summary_on", "Wide search bar is enabled"),
-                StringResource("revanced_wide_searchbar_summary_off", "Wide search bar is disabled")
-            )
+            SwitchPreference("revanced_wide_searchbar")
         )
 
-        val result = CreateSearchSuggestionsFingerprint.result ?: throw CreateSearchSuggestionsFingerprint.exception
+        val result = CreateSearchSuggestionsFingerprint.result
+            ?: throw CreateSearchSuggestionsFingerprint.exception
 
         // patch methods
         mapOf(

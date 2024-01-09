@@ -6,8 +6,8 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.mapping.misc.ResourceMappingPatch
 import app.revanced.patches.shared.settings.preference.BasePreference
 import app.revanced.patches.shared.settings.preference.impl.PreferenceScreen
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patches.youtube.misc.strings.StringsPatch
 import java.io.Closeable
 
 @Patch(dependencies = [SettingsPatch::class, ResourceMappingPatch::class])
@@ -15,19 +15,15 @@ internal object SeekbarPreferencesPatch : ResourcePatch(), Closeable {
     private val seekbarPreferences = mutableListOf<BasePreference>()
 
     override fun execute(context: ResourceContext) {
-        // Nothing to do here. All work is done in close method.
+        StringsPatch.includePatchStrings("SeekbarPreferences")
+        // All other work is done in close method.
     }
 
     override fun close() {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
                 "revanced_seekbar_preference_screen",
-                StringResource("revanced_seekbar_preference_screen_title", "Seekbar"),
-                seekbarPreferences,
-                StringResource(
-                    "revanced_seekbar_preference_screen_summary",
-                    "Settings for the seekbar"
-                )
+                seekbarPreferences
             )
         )
     }

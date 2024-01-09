@@ -5,8 +5,8 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.youtube.misc.strings.StringsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.all.misc.transformation.AbstractTransformInstructionsPatch
 import com.android.tools.smali.dexlib2.iface.ClassDef
@@ -62,13 +62,9 @@ object OpenLinksExternallyPatch : AbstractTransformInstructionsPatch<Pair<Int, I
     }
 
     override fun execute(context: BytecodeContext) {
+        StringsPatch.includePatchStrings("OpenLinksExternally")
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            SwitchPreference(
-                "revanced_external_browser",
-                StringResource("revanced_external_browser_title", "Open links in browser"),
-                StringResource("revanced_external_browser_summary_on", "Opening links externally"),
-                StringResource("revanced_external_browser_summary_off", "Opening links in app")
-            )
+            SwitchPreference("revanced_external_browser")
         )
 
         super.execute(context)

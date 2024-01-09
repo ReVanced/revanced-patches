@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_hide_info_cards_title">Hide info cards</string>
+    <string name="revanced_hide_info_cards_summary_on">Info cards are hidden</string>
+    <string name="revanced_hide_info_cards_summary_off">Info cards are shown</string>
+</resources>

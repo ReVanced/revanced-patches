@@ -1,24 +1,28 @@
 package app.revanced.patches.youtube.misc.settings
 
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.DomFileEditor
 import app.revanced.patches.shared.mapping.misc.ResourceMappingPatch
 import app.revanced.patches.shared.settings.AbstractSettingsResourcePatch
 import app.revanced.patches.shared.settings.preference.addPreference
-import app.revanced.patches.shared.settings.preference.impl.*
+import app.revanced.patches.shared.settings.preference.impl.InputType
+import app.revanced.patches.shared.settings.preference.impl.Preference
+import app.revanced.patches.shared.settings.preference.impl.TextPreference
+import app.revanced.patches.youtube.misc.settings.SettingsPatch.HOOKED_SETTINGS_ACTIVITY_NAME
+import app.revanced.patches.youtube.misc.strings.StringsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
-import app.revanced.util.mergeStrings
 import org.w3c.dom.Element
 import org.w3c.dom.Node
 
 @Patch(
-    dependencies = [ResourceMappingPatch::class]
+    dependencies = [StringsPatch::class, ResourceMappingPatch::class]
 )
 object SettingsResourcePatch : AbstractSettingsResourcePatch(
     "revanced_prefs",
-    "settings"
+    "youtube/settings"
 ) {
     // Used for a fingerprint from SettingsPatch.
     internal var appearanceStringId = -1L
@@ -48,7 +52,7 @@ object SettingsResourcePatch : AbstractSettingsResourcePatch(
         arrayOf(
             ResourceGroup("layout", "revanced_settings_with_toolbar.xml")
         ).forEach { resourceGroup ->
-            context.copyResources("settings", resourceGroup)
+            context.copyResources("youtube/settings", resourceGroup)
         }
 
         preferencesEditor = context.xmlEditor["res/xml/settings_fragment.xml"]
@@ -56,6 +60,7 @@ object SettingsResourcePatch : AbstractSettingsResourcePatch(
         // Modify the manifest and add an data intent filter to the LicenseActivity.
         // Some devices freak out if undeclared data is passed to an intent,
         // and this change appears to fix the issue.
+        var modifiedIntentFilter = false
         context.xmlEditor["AndroidManifest.xml"].use { editor ->
             // An xml regular expression would probably work better than this manual searching.
             val manifestNodes = editor.file.getElementsByTagName("manifest").item(0).childNodes
@@ -66,40 +71,50 @@ object SettingsResourcePatch : AbstractSettingsResourcePatch(
                     for (j in 0..applicationNodes.length) {
                         val applicationChild = applicationNodes.item(j)
                         if (applicationChild is Element && applicationChild.nodeName == "activity"
-                            && applicationChild.getAttribute("android:name") == "com.google.android.libraries.social.licenses.LicenseActivity"
+                            && applicationChild.getAttribute("android:name") == HOOKED_SETTINGS_ACTIVITY_NAME
                         ) {
                             val intentFilter = editor.file.createElement("intent-filter")
                             val mimeType = editor.file.createElement("data")
                             mimeType.setAttribute("android:mimeType", "text/plain")
                             intentFilter.appendChild(mimeType)
                             applicationChild.appendChild(intentFilter)
+                            modifiedIntentFilter = true
                             break
                         }
                     }
                 }
             }
         }
-
+        if (!modifiedIntentFilter) throw PatchException("Could not modify intent filter")
 
         // Add the ReVanced settings to the YouTube settings
+        StringsPatch.includePatchStrings("Settings")
+
         SettingsPatch.addPreference(
             Preference(
-                StringResource("revanced_settings", "ReVanced"),
-                StringResource("revanced_settings_summary", "ReVanced specific settings"),
-                SettingsPatch.createReVancedSettingsIntent("revanced_settings")
+                "revanced_settings_title",
+                "revanced_settings_summary",
+                SettingsPatch.createReVancedSettingsIntent("revanced_settings_intent")
             )
         )
 
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             TextPreference(
                 key = null,
-                title = StringResource("revanced_pref_import_export_title", "Import / Export"),
-                summary = StringResource("revanced_pref_import_export_summary", "Import / Export ReVanced settings"),
+                titleKey = "revanced_pref_import_export_title",
+                summaryKey = "revanced_pref_import_export_summary",
                 inputType = InputType.TEXT_MULTI_LINE,
                 tag = "app.revanced.integrations.shared.settings.preference.ImportExportPreference"
             )
         )
     }
+
+    /**
+     * Add a preference fragment to the main preferences.
+     *
+     * @param preference The preference to add.
+     */
+    fun addPreference(preference: Preference) = preferencesNode!!.addPreference(preference)
 
     override fun close() {
         super.close()
@@ -131,36 +146,4 @@ object SettingsResourcePatch : AbstractSettingsResourcePatch(
 
         preferencesEditor?.close()
     }
-
-    /**
-     * Add a preference fragment to the main preferences.
-     *
-     * @param preference The preference to add.
-     */
-    internal fun addPreference(preference: Preference) =
-        preferencesNode!!.addPreference(preference) { it.include() }
-
-    /**
-     * Add a new string to the resources.
-     *
-     * @param identifier The key of the string.
-     * @param value The value of the string.
-     * @throws IllegalArgumentException if the string already exists.
-     */
-    internal fun addString(identifier: String, value: String, formatted: Boolean) =
-        AbstractSettingsResourcePatch.addString(identifier, value, formatted)
-
-    /**
-     * Add an array to the resources.
-     *
-     * @param arrayResource The array resource to add.
-     */
-    internal fun addArray(arrayResource: ArrayResource) = AbstractSettingsResourcePatch.addArray(arrayResource)
-
-    /**
-     * Add a preference to the settings.
-     *
-     * @param preferenceScreen The name of the preference screen.
-     */
-    internal fun addPreferenceScreen(preferenceScreen: PreferenceScreen) = addPreference(preferenceScreen)
 }

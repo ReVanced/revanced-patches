@@ -9,8 +9,8 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.settings.preference.impl.NonInteractivePreference
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
+import app.revanced.patches.youtube.misc.strings.StringsPatch
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.KidsMinimizedPlaybackPolicyControllerFingerprint
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackManagerFingerprint
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackSettingsFingerprint
@@ -53,17 +53,15 @@ object MinimizedPlaybackPatch : BytecodePatch(
         KidsMinimizedPlaybackPolicyControllerFingerprint
     )
 ) {
-    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/MinimizedPlaybackPatch;"
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR =
+        "Lapp/revanced/integrations/youtube/patches/MinimizedPlaybackPatch;"
 
     override fun execute(context: BytecodeContext) {
-        // TODO: remove this empty preference sometime after mid 2023
+        StringsPatch.includePatchStrings("MinimizedPlayback")
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             NonInteractivePreference(
-                StringResource("revanced_minimized_playback_enabled_title", "Minimized playback"),
-                StringResource(
-                    "revanced_minimized_playback_summary_on",
-                    "This setting can be found in Settings -> Background"
-                )
+                "revanced_minimized_playback_title",
+                "revanced_minimized_playback_summary"
             )
         )
 
@@ -79,7 +77,8 @@ object MinimizedPlaybackPatch : BytecodePatch(
         } ?: throw MinimizedPlaybackManagerFingerprint.exception
 
         // Enable minimized playback option in YouTube settings
-        MinimizedPlaybackSettingsParentFingerprint.result ?: throw MinimizedPlaybackSettingsParentFingerprint.exception
+        MinimizedPlaybackSettingsParentFingerprint.result
+            ?: throw MinimizedPlaybackSettingsParentFingerprint.exception
         MinimizedPlaybackSettingsFingerprint.resolve(
             context,
             MinimizedPlaybackSettingsParentFingerprint.result!!.classDef
@@ -90,7 +89,8 @@ object MinimizedPlaybackPatch : BytecodePatch(
 
             val settingsBooleanIndex = booleanCalls.elementAt(1).index
             val settingsBooleanMethod =
-                context.toMethodWalker(method).nextMethod(settingsBooleanIndex, true).getMethod() as MutableMethod
+                context.toMethodWalker(method).nextMethod(settingsBooleanIndex, true)
+                    .getMethod() as MutableMethod
 
             settingsBooleanMethod.addInstructions(
                 0,

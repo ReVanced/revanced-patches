@@ -6,11 +6,11 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.interaction.dialog.fingerprints.CreateDialogFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patches.youtube.misc.strings.StringsPatch
 import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
@@ -34,26 +34,9 @@ object RemoveViewerDiscretionDialogPatch : BytecodePatch(
                 "confirmDialog(Landroid/app/AlertDialog;)V"
 
     override fun execute(context: BytecodeContext) {
+        StringsPatch.includePatchStrings("RemoveViewerDiscretionDialog")
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
-            SwitchPreference(
-                "revanced_remove_viewer_discretion_dialog",
-                StringResource(
-                    "revanced_remove_viewer_discretion_dialog_title",
-                    "Remove viewer discretion dialog"
-                ),
-                StringResource(
-                    "revanced_remove_viewer_discretion_dialog_summary_on",
-                    "Dialog will be removed"
-                ),
-                StringResource(
-                    "revanced_remove_viewer_discretion_dialog_summary_off",
-                    "Dialog will be shown"
-                ),
-                StringResource(
-                    "revanced_remove_viewer_discretion_dialog_user_dialog_message",
-                    "This does not bypass the age restriction. It just accepts it automatically."
-                )
-            )
+            SwitchPreference("revanced_remove_viewer_discretion_dialog")
         )
 
         CreateDialogFingerprint.result?.mutableMethod?.apply {

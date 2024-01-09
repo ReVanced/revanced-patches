@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_hide_gray_separator_title">Hide gray separator</string>
+    <string name="revanced_hide_gray_separator_summary_on">Gray separators are hidden</string>
+    <string name="revanced_hide_gray_separator_summary_off">Gray separators are shown</string>
+
+    <string name="revanced_hide_join_membership_button_title">Hide \'Join\' button</string>
+    <string name="revanced_hide_join_membership_button_summary_on">Button is hidden</string>
+    <string name="revanced_hide_join_membership_button_summary_off">Button is shown</string>
+
+    <string name="revanced_hide_channel_watermark_title">Hide creator watermark on videos</string>
+    <string name="revanced_hide_channel_watermark_summary_on">Watermark is hidden</string>
+    <string name="revanced_hide_channel_watermark_summary_off">Watermark is shown</string>
+
+    <string name="revanced_hide_for_you_shelf_title">Hide \'For you\' shelf in channel page</string>
+    <string name="revanced_hide_for_you_shelf_summary_on">Shelf is hidden</string>
+    <string name="revanced_hide_for_you_shelf_summary_off">Shelf is shown</string>
+
+    <string name="revanced_hide_notify_me_button_title">Hide \'Notify me\' button</string>
+    <string name="revanced_hide_notify_me_button_summary_on">Button is hidden</string>
+    <string name="revanced_hide_notify_me_button_summary_off">Button is shown</string>
+
+    <string name="revanced_hide_timed_reactions_title">Hide timed reactions</string>
+    <string name="revanced_hide_timed_reactions_summary_on">Timed reactions are hidden</string>
+    <string name="revanced_hide_timed_reactions_summary_off">Timed reactions are shown</string>
+
+    <string name="revanced_hide_search_result_recommendations_title">Hide search result recommendations (e.g People also watched)</string>
+    <string name="revanced_hide_search_result_recommendations_summary_on">Recommendations are hidden</string>
+    <string name="revanced_hide_search_result_recommendations_summary_off">Recommendations are shown</string>
+
+    <string name="revanced_hide_search_result_shelf_header_title">Hide search result shelf header</string>
+    <string name="revanced_hide_search_result_shelf_header_summary_on">Shelf header is hidden</string>
+    <string name="revanced_hide_search_result_shelf_header_summary_off">Shelf header is shown</string>
+
+    <string name="revanced_hide_channel_guidelines_title">Hide channel guidelines</string>
+    <string name="revanced_hide_channel_guidelines_summary_on">Channel guidelines are hidden</string>
+    <string name="revanced_hide_channel_guidelines_summary_off">Channel guidelines are shown</string>
+
+    <string name="revanced_hide_expandable_chip_title">Hide expandable chip under videos</string>
+    <string name="revanced_hide_expandable_chip_summary_on">Expandable chips are hidden</string>
+    <string name="revanced_hide_expandable_chip_summary_off">Expandable chips are shown</string>
+
+    <string name="revanced_hide_video_quality_menu_footer_title">Hide video quality menu footer</string>
+    <string name="revanced_hide_video_quality_menu_footer_summary_on">Video quality menu footer is hidden</string>
+    <string name="revanced_hide_video_quality_menu_footer_summary_off">Video quality menu footer is shown</string>
+
+    <string name="revanced_hide_chapters_title">Hide chapters in the video description</string>
+    <string name="revanced_hide_chapters_summary_on">Chapters are hidden</string>
+    <string name="revanced_hide_chapters_summary_off">Chapters are shown</string>
+
+    <string name="revanced_hide_community_posts_title">Hide community posts</string>
+    <string name="revanced_hide_community_posts_summary_on">Community posts are hidden</string>
+    <string name="revanced_hide_community_posts_summary_off">Community posts are shown</string>
+
+    <string name="revanced_hide_compact_banner_title">Hide compact banners</string>
+    <string name="revanced_hide_compact_banner_summary_on">Compact banners are hidden</string>
+    <string name="revanced_hide_compact_banner_summary_off">Compact banners are shown</string>
+
+    <string name="revanced_hide_movies_section_title">Hide movies section</string>
+    <string name="revanced_hide_movies_section_summary_on">Movies section is hidden</string>
+    <string name="revanced_hide_movies_section_summary_off">Movies section is shown</string>
+
+    <string name="revanced_hide_feed_survey_title">Hide feed surveys</string>
+    <string name="revanced_hide_feed_survey_summary_on">Feed surveys are hidden</string>
+    <string name="revanced_hide_feed_survey_summary_off">Feed surveys are shown</string>
+
+    <string name="revanced_hide_community_guidelines_title">Hide community guidelines</string>
+    <string name="revanced_hide_community_guidelines_summary_on">Community guidelines are hidden</string>
+    <string name="revanced_hide_community_guidelines_summary_off">Community guidelines are shown</string>
+
+    <string name="revanced_hide_subscribers_community_guidelines_title">Hide subscribers community guidelines</string>
+    <string name="revanced_hide_subscribers_community_guidelines_summary_on">Subscribers community guidelines are hidden</string>
+    <string name="revanced_hide_subscribers_community_guidelines_summary_off">Subscribers community guidelines are shown</string>
+
+    <string name="revanced_hide_channel_member_shelf_title">Hide channel member shelf</string>
+    <string name="revanced_hide_channel_member_shelf_summary_on">Channel member shelf is hidden</string>
+    <string name="revanced_hide_channel_member_shelf_summary_off">Channel member shelf is shown</string>
+
+    <string name="revanced_hide_emergency_box_title">Hide emergency boxes</string>
+    <string name="revanced_hide_emergency_box_summary_on">Emergency boxes are hidden</string>
+    <string name="revanced_hide_emergency_box_summary_off">Emergency boxes are shown</string>
+
+    <string name="revanced_hide_info_panels_title">Hide info panels</string>
+    <string name="revanced_hide_info_panels_summary_on">Info panels are hidden</string>
+    <string name="revanced_hide_info_panels_summary_off">Info panels are shown</string>
+
+    <string name="revanced_hide_medical_panels_title">Hide medical panels</string>
+    <string name="revanced_hide_medical_panels_summary_on">Medical panels are hidden</string>
+    <string name="revanced_hide_medical_panels_summary_off">Medical panels are shown</string>
+
+    <string name="revanced_hide_channel_bar_title">Hide channel bar</string>
+    <string name="revanced_hide_channel_bar_summary_on">Channel bar is hidden</string>
+    <string name="revanced_hide_channel_bar_summary_off">Channel bar is shown</string>
+
+    <string name="revanced_hide_quick_actions_title">Hide quick actions in fullscreen</string>
+    <string name="revanced_hide_quick_actions_summary_on">Quick actions are hidden</string>
+    <string name="revanced_hide_quick_actions_summary_off">Quick actions are shown</string>
+
+    <string name="revanced_hide_related_videos_title">Hide related videos in quick actions</string>
+    <string name="revanced_hide_related_videos_summary_on">Related videos are hidden</string>
+    <string name="revanced_hide_related_videos_summary_off">Related videos are shown</string>
+
+    <string name="revanced_hide_image_shelf_title">Hide image shelf in search results</string>
+    <string name="revanced_hide_image_shelf_summary_on">Image shelf is hidden</string>
+    <string name="revanced_hide_image_shelf_summary_off">Image shelf is shown</string>
+
+    <string name="revanced_hide_latest_posts_ads_title">Hide latest posts</string>
+    <string name="revanced_hide_latest_posts_ads_summary_on">Latest posts are hidden</string>
+    <string name="revanced_hide_latest_posts_ads_summary_off">Latest posts are shown</string>
+
+    <string name="revanced_hide_chips_shelf_title">Hide chips shelf</string>
+    <string name="revanced_hide_chips_shelf_summary_on">Chips shelf is hidden</string>
+    <string name="revanced_hide_chips_shelf_summary_off">Chips shelf is shown</string>
+
+    <string name="revanced_hide_description_components_preference_screen_title">Hide components in the video description</string>
+    <string name="revanced_hide_description_components_preference_screen_summary">Hide components under the video description</string>
+
+    <string name="revanced_hide_info_cards_section_title">Hide info cards section</string>
+    <string name="revanced_hide_info_cards_section_summary_on">Info cards section is hidden</string>
+    <string name="revanced_hide_info_cards_section_summary_off">Info cards section is shown</string>
+
+    <string name="revanced_hide_game_section_title">Hide game section</string>
+    <string name="revanced_hide_game_section_summary_on">Game section is hidden</string>
+    <string name="revanced_hide_game_section_summary_off">Game section is shown</string>
+
+    <string name="revanced_hide_music_section_title">Hide music section</string>
+    <string name="revanced_hide_music_section_summary_on">Music section is hidden</string>
+    <string name="revanced_hide_music_section_summary_off">Music section is shown</string>
+
+    <string name="revanced_hide_podcast_section_title">Hide podcast section</string>
+    <string name="revanced_hide_podcast_section_summary_on">Podcast section is hidden</string>
+    <string name="revanced_hide_podcast_section_summary_off">Podcast section is shown</string>
+
+    <string name="revanced_hide_transcript_section_title">Hide transcript section</string>
+    <string name="revanced_hide_transcript_section_summary_on">Transcript section is hidden</string>
+    <string name="revanced_hide_transcript_section_summary_off">Transcript section is shown</string>
+
+    <string name="revanced_hide_artist_cards_title">Hide artist cards</string>
+    <string name="revanced_hide_artist_cards_summary_on">Artist cards are hidden</string>
+    <string name="revanced_hide_artist_cards_summary_off">Artist cards are shown</string>
+
+    <string name="revanced_hide_mix_playlists_title">Hide mix playlists</string>
+    <string name="revanced_hide_mix_playlists_summary_on">Mix playlists are hidden</string>
+    <string name="revanced_hide_mix_playlists_summary_off">Mix playlists are shown</string>
+
+    <string name="revanced_custom_filter_preference_screen_title">Custom filter</string>
+    <string name="revanced_custom_filter_preference_screen_summary">Hide components using custom filters</string>
+
+    <string name="revanced_custom_filter_title">Enable custom filter</string>
+    <string name="revanced_custom_filter_summary_on">Custom filter is enabled</string>
+    <string name="revanced_custom_filter_summary_off">Custom filter is disabled</string>
+
+    <string name="revanced_custom_filter_strings_title">Custom filter</string>
+    <string name="revanced_custom_filter_strings_summary">List of component path builder strings to filter separated by new lin</string>
+</resources>

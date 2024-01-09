@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_hide_captions_button_title">Hide captions button</string>
+    <string name="revanced_hide_captions_button_summary_on">Captions button is hidden</string>
+    <string name="revanced_hide_captions_button_summary_off">Captions button is shown</string>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_slide_to_seek_title">Enable slide to seek</string>
+    <string name="revanced_slide_to_seek_summary_on">Slide to seek is enabled</string>
+    <string name="revanced_slide_to_seek_summary_off">Slide to seek is not enabled</string>
+</resources>

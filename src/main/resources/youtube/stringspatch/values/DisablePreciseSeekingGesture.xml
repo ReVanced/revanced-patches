@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_disable_precise_seeking_gesture_title">Disable precise seeking gesture</string>
+    <string name="revanced_disable_precise_seeking_gesture_summary_on">Gesture is disabled</string>
+    <string name="revanced_disable_precise_seeking_gesture_summary_off">Gesture is enabled</string>
+</resources>

@@ -92,14 +92,14 @@ object ChangeHeaderPatch : ResourcePatch() {
         val toHeader = { overwriteFromTo(HEADER_NAME, PREMIUM_HEADER_NAME) }
         val toReVanced = {
             // Copy the ReVanced header to the resource directories.
-            targetResourceFiles.forEach { context.copyResources("change-header/revanced", it) }
+            targetResourceFiles.forEach { context.copyResources("youtube/change-header/revanced", it) }
 
             // Overwrite the premium with the custom header as well.
             toHeader()
         }
         val toReVancedBorderless = {
             // Copy the ReVanced borderless header to the resource directories.
-            targetResourceFiles.forEach { context.copyResources("change-header/revanced-borderless", it) }
+            targetResourceFiles.forEach { context.copyResources("youtube/change-header/revanced-borderless", it) }
 
             // Overwrite the premium with the custom header as well.
             toHeader()

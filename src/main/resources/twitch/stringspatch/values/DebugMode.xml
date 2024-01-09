@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_debug_mode_title">Enable debug mode</string>
+    <string name="revanced_debug_mode_on">Debug mode is enabled (not recommended)</string>
+    <string name="revanced_debug_mode_off">Debug mode is disabled</string>
+</resources>

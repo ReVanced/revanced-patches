@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_restore_old_seekbar_thumbnails_title">Restore old seekbar thumbnails</string>
+    <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Seekbar thumbnails will appear above the seekbar</string>
+    <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Seekbar thumbnails will appear fullscreen</string>
+</resources>

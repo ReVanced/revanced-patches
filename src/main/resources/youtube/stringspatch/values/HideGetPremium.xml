@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_hide_get_premium_title">Hide YouTube Premium promotions</string>
+    <string name="revanced_hide_get_premium_summary_on">YouTube Premium promotions under video player are hidden</string>
+    <string name="revanced_hide_get_premium_summary_off">YouTube Premium promotions under video player are shown</string>
+</resources>

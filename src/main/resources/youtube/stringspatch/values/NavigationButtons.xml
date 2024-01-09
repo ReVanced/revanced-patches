@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_navigation_buttons_preference_screen_title">Navigation buttons</string>
+    <string name="revanced_navigation_buttons_preference_screen_summary">Hide or change buttons in the navigation bar</string>
+
+    <string name="revanced_hide_home_button_title">Hide home button</string>
+    <string name="revanced_hide_home_button_summary_on">Home button is hidden</string>
+    <string name="revanced_hide_home_button_summary_off">Home button is shown</string>
+
+    <string name="revanced_hide_shorts_button_title">Hide Shorts button</string>
+    <string name="revanced_hide_shorts_button_summary_on">Shorts button is hidden</string>
+    <string name="revanced_hide_shorts_button_summary_off">Shorts button is shown</string>
+
+    <string name="revanced_hide_create_button_title">Hide create button</string>
+    <string name="revanced_hide_create_button_summary_on">Create button is hidden</string>
+    <string name="revanced_hide_create_button_summary_off">Create button is shown</string>
+
+    <string name="revanced_hide_subscriptions_button_title">Hide subscriptions button</string>
+    <string name="revanced_hide_subscriptions_button_summary_on">Home subscriptions is hidden</string>
+    <string name="revanced_hide_subscriptions_button_summary_off">Home subscriptions is shown</string>
+
+    <string name="revanced_switch_create_with_notifications_button_title">Switch create with notifications button</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_on">Create button is switched with notifications</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_off">Create button is not switched with notifications</string>
+</resources>

@@ -10,13 +10,14 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.settings.preference.impl.StringResource
+
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.privacy.fingerprints.CopyTextFingerprint
 import app.revanced.patches.youtube.misc.privacy.fingerprints.SystemShareSheetFingerprint
 import app.revanced.patches.youtube.misc.privacy.fingerprints.YouTubeShareSheetFingerprint
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patches.youtube.misc.strings.StringsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
@@ -43,22 +44,9 @@ object RemoveTrackingQueryParameterPatch : BytecodePatch(
     private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/RemoveTrackingQueryParameterPatch;"
 
     override fun execute(context: BytecodeContext) {
+        StringsPatch.includePatchStrings("RemoveTrackingQueryParameter")
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            SwitchPreference(
-                "revanced_remove_tracking_query_parameter",
-                StringResource(
-                    "revanced_remove_tracking_query_parameter_title",
-                    "Remove tracking query parameter"
-                ),
-                StringResource(
-                    "revanced_remove_tracking_query_parameter_summary_on",
-                    "Tracking query parameter is removed from links"
-                ),
-                StringResource(
-                    "revanced_remove_tracking_query_parameter_summary_off",
-                    "Tracking query parameter is not removed from links"
-                ),
-            )
+            SwitchPreference("revanced_remove_tracking_query_parameter")
         )
 
         fun MethodFingerprint.hook(

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_disable_fullscreen_ambient_mode_title">Disable ambient mode in fullscreen</string>
+    <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Ambient mode disabled</string>
+    <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Ambient mode enabled</string>
+</resources>

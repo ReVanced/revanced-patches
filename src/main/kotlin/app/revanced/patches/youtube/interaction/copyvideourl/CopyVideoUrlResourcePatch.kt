@@ -4,13 +4,12 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.settings.preference.impl.PreferenceScreen
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.playercontrols.BottomControlsResourcePatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patches.youtube.misc.strings.StringsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
-import app.revanced.util.mergeStrings
 
 @Patch(
     dependencies = [
@@ -20,47 +19,26 @@ import app.revanced.util.mergeStrings
 )
 internal object CopyVideoUrlResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
+        StringsPatch.includePatchStrings("CopyVideoUrl")
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
             PreferenceScreen(
                 "revanced_copy_video_url_preference_screen",
-                StringResource("revanced_copy_video_url_preference_screen_title", "Copy video URL settings"),
                 listOf(
-                    SwitchPreference(
-                        "revanced_copy_video_url",
-                        StringResource("revanced_copy_video_url_title", "Show copy video URL button"),
-                        StringResource(
-                            "revanced_copy_video_url_summary_on",
-                            "Button is shown. Tap to copy video URL. Tap and hold to copy video URL with timestamp"
-                        ),
-                        StringResource("revanced_copy_video_url_summary_off", "Button is not shown")
-                    ),
-                    SwitchPreference(
-                        "revanced_copy_video_url_timestamp",
-                        StringResource("revanced_copy_video_url_timestamp_title", "Show copy timestamp URL button"),
-                        StringResource(
-                            "revanced_copy_video_url_timestamp_summary_on",
-                            "Button is shown.  Tap to copy video URL with timestamp. Tap and hold to copy video without timestamp"
-                        ),
-                        StringResource("revanced_copy_video_url_timestamp_summary_off", "Button is not shown")
-                    )
-                ),
-                StringResource(
-                    "revanced_copy_video_url_preference_screen_summary",
-                    "Settings related to copy URL buttons in video player"
+                    SwitchPreference("revanced_copy_video_url"),
+                    SwitchPreference("revanced_copy_video_url_timestamp")
                 )
             )
         )
 
         context.copyResources(
-            "copyvideourl", ResourceGroup(
+            "youtube/copyvideourl",
+            ResourceGroup(
                 resourceDirectoryName = "drawable",
-                "revanced_yt_copy.xml",
-                "revanced_yt_copy_timestamp.xml"
+                "revanced_ic_copy_video_url.xml",
+                "revanced_ic_copy_video_timestamp.xml"
             )
         )
 
-        context.mergeStrings("copyvideourl/host/values/strings.xml")
-
-        BottomControlsResourcePatch.addControls("copyvideourl")
+        BottomControlsResourcePatch.addControls("youtube/copyvideourl")
     }
 }

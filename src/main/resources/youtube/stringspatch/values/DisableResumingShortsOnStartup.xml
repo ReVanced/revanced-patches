@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_disable_resuming_shorts_player_title">Disable resuming Shorts player</string>
+    <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts player will not resume on app startup</string>
+    <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts player will resume on app startup</string>
+</resources>

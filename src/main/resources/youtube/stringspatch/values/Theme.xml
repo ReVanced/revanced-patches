@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_seekbar_custom_color_title">Enable custom seekbar color</string>
+    <string name="revanced_seekbar_custom_color_summary_on">Custom seekbar color is shown</string>
+    <string name="revanced_seekbar_custom_color_summary_off">Original seekbar color is shown</string>
+
+    <string name="revanced_seekbar_custom_color_value_title">Custom seekbar color</string>
+    <string name="revanced_seekbar_custom_color_value_summary">The color of the seekbar</string>
+
+    <string name="revanced_seekbar_custom_color_invalid">Invalid seekbar color value. Using default value.</string>
+</resources>

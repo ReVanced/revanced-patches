@@ -7,12 +7,14 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.shared.settings.AbstractSettingsResourcePatch.Companion.addPreference
 import app.revanced.patches.shared.settings.preference.impl.Preference
 import app.revanced.patches.shared.settings.util.AbstractPreferenceScreen
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.fingerprints.LicenseActivityOnCreateFingerprint
 import app.revanced.patches.youtube.misc.settings.fingerprints.SetThemeFingerprint
 import app.revanced.util.exception
+import app.revanced.patches.youtube.misc.strings.StringsPatch
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.util.MethodUtil
@@ -20,7 +22,7 @@ import java.io.Closeable
 
 @Patch(
     description = "Adds settings for ReVanced to YouTube.",
-    dependencies = [IntegrationsPatch::class, SettingsResourcePatch::class]
+    dependencies = [IntegrationsPatch::class, SettingsResourcePatch::class, StringsPatch::class]
 )
 object SettingsPatch : BytecodePatch(
     setOf(LicenseActivityOnCreateFingerprint, SetThemeFingerprint)
@@ -30,6 +32,16 @@ object SettingsPatch : BytecodePatch(
 
     private const val THEME_HELPER_DESCRIPTOR = "L$INTEGRATIONS_PACKAGE/ThemeHelper;"
     private const val SET_THEME_METHOD_NAME: String = "setTheme"
+
+    /**
+     * To add ReVanced settings to YouTube, it must be thru an Activity,
+     * and all Activities must be declared in the app manifest.
+     *
+     * But root installs cannot use a modified manifest,
+     * so an existing Activity is hooked and the selected
+     * ReVanced Preference screen is passed thru as an Activity intent.
+     */
+    internal const val HOOKED_SETTINGS_ACTIVITY_NAME = "com.google.android.libraries.social.licenses.LicenseActivity"
 
     override fun execute(context: BytecodeContext) {
         SetThemeFingerprint.result?.mutableMethod?.let { setThemeMethod ->
@@ -72,12 +84,6 @@ object SettingsPatch : BytecodePatch(
         } ?: throw LicenseActivityOnCreateFingerprint.exception
     }
 
-    fun addString(identifier: String, value: String, formatted: Boolean = true) =
-        SettingsResourcePatch.addString(identifier, value, formatted)
-
-    fun addPreferenceScreen(preferenceScreen: app.revanced.patches.shared.settings.preference.impl.PreferenceScreen) =
-        SettingsResourcePatch.addPreferenceScreen(preferenceScreen)
-
     fun addPreference(preference: Preference) = SettingsResourcePatch.addPreference(preference)
 
     fun renameIntentsTargetPackage(newPackage: String) {
@@ -90,21 +96,21 @@ object SettingsPatch : BytecodePatch(
     fun createReVancedSettingsIntent(settingsName: String) = Preference.Intent(
         "com.google.android.youtube",
         settingsName,
-        "com.google.android.libraries.social.licenses.LicenseActivity"
+        HOOKED_SETTINGS_ACTIVITY_NAME
     )
 
     /**
      * Preference screens patches should add their settings to.
      */
     object PreferenceScreen : AbstractPreferenceScreen() {
-        val ADS = Screen("ads", "Ads", "Ad related settings")
-        val INTERACTIONS = Screen("interactions", "Interaction", "Settings related to interactions")
-        val LAYOUT = Screen("layout", "Layout", "Settings related to the layout")
-        val VIDEO = Screen("video", "Video", "Settings related to the video player")
-        val MISC = Screen("misc", "Misc", "Miscellaneous patches")
+        val ADS = Screen("revanced_ads_screen")
+        val INTERACTIONS = Screen("revanced_interaction_screen")
+        val LAYOUT = Screen("revanced_layout_screen")
+        val MISC = Screen("revanced_misc_screen")
+        val VIDEO = Screen("revanced_video_screen")
 
         override fun commit(screen: app.revanced.patches.shared.settings.preference.impl.PreferenceScreen) {
-            addPreferenceScreen(screen)
+            addPreference(screen)
         }
     }
 

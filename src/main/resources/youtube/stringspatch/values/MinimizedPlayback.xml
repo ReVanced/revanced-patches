@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_minimized_playback_title">Minimized playback</string>
+    <string name="revanced_minimized_playback_summary">This setting can be found in Settings -> Background</string>
+</resources>

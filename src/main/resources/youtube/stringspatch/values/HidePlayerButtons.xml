@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_hide_player_buttons_title">Hide previous &amp; next video buttons</string>
+    <string name="revanced_hide_player_buttons_summary_on">Buttons are hidden</string>
+    <string name="revanced_hide_player_buttons_summary_off">Buttons are shown</string>
+</resources>

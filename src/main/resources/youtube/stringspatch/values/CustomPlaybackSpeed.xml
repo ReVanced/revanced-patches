@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_custom_playback_speeds_title">Custom playback speeds</string>
+    <string name="revanced_custom_playback_speeds_summary">Add or change the video speeds available</string>
+
+    <string name="revanced_custom_playback_speeds_invalid" formatted="false">Custom speeds must be less than %s  Using default values.</string>
+    <string name="revanced_custom_playback_speeds_parse_exception">Invalid custom playback speeds. Using default values.</string>
+</resources>

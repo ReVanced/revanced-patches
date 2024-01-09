@@ -7,8 +7,8 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.youtube.misc.strings.StringsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.misc.zoomhaptics.fingerprints.ZoomHapticsFingerprint
 
@@ -23,13 +23,9 @@ object ZoomHapticsPatch : BytecodePatch(
     setOf(ZoomHapticsFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
+        StringsPatch.includePatchStrings("ZoomHaptics")
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            SwitchPreference(
-                "revanced_disable_zoom_haptics",
-                StringResource("revanced_disable_zoom_haptics_title", "Disable zoom haptics"),
-                StringResource("revanced_disable_zoom_haptics_summary_on", "Haptics are disabled"),
-                StringResource("revanced_disable_zoom_haptics_summary_off", "Haptics are enabled")
-            )
+            SwitchPreference("revanced_disable_zoom_haptics")
         )
 
         val zoomHapticsFingerprintMethod = ZoomHapticsFingerprint.result!!.mutableMethod

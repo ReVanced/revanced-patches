@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_hide_crowdfunding_box_title">Hide crowdfunding box</string>
+    <string name="revanced_hide_crowdfunding_box_summary_on">Crowdfunding box is hidden</string>
+    <string name="revanced_hide_crowdfunding_box_summary_off">Crowdfunding box is shown</string>
+</resources>

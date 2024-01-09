@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_remove_viewer_discretion_dialog_title">Remove viewer discretion dialog</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary_on">Dialog will be removed</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialog will be shown</string>
+    <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">This does not bypass the age restriction, it just accepts it automatically.</string>
+</resources>

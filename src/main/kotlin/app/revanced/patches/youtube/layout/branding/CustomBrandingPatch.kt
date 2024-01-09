@@ -93,7 +93,7 @@ object CustomBrandingPatch : ResourcePatch() {
                             )
                         }
                     }
-                } else resourceGroups.forEach { context.copyResources("custom-branding", it) }
+                } else resourceGroups.forEach { context.copyResources("youtube/custom-branding", it) }
             }
         }
 

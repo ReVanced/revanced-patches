@@ -17,9 +17,8 @@ abstract class BaseResource(
      * Serialize resource element to XML.
      * Overriding methods should invoke super and operate on its return value.
      * @param ownerDocument Target document to create elements from.
-     * @param resourceCallback Called when a resource has been processed.
      */
-    open fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit = { }): Element {
+    open fun serialize(ownerDocument: Document): Element {
         return ownerDocument.createElement(tag).apply {
             setAttribute("name", name)
         }

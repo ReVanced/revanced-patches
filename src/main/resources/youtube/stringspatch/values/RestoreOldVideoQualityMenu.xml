@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_restore_old_video_quality_menu_title">Restore old video quality menu</string>
+    <string name="revanced_restore_old_video_quality_menu_summary_on">Old video quality menu is shown</string>
+    <string name="revanced_restore_old_video_quality_menu_summary_off">Old video quality menu is not shown</string>
+</resources>

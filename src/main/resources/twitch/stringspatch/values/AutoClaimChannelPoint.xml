@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_auto_claim_channel_points">Automatically claim Channel Points</string>
+    <string name="revanced_auto_claim_channel_points_off">Channel Points are not claimed automatically</string>
+    <string name="revanced_auto_claim_channel_points_on">Channel Points are claimed automatically</string>
+</resources>

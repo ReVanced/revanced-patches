@@ -11,9 +11,9 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.settings.preference.impl.ArrayResource
 import app.revanced.patches.shared.settings.preference.impl.ListPreference
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
+import app.revanced.patches.youtube.misc.strings.StringsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.patches.youtube.video.quality.fingerprints.NewVideoQualityChangedFingerprint
@@ -51,68 +51,59 @@ object RememberVideoQualityPatch : BytecodePatch(
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-            "Lapp/revanced/integrations/youtube/patches/playback/quality/RememberVideoQualityPatch;"
+        "Lapp/revanced/integrations/youtube/patches/playback/quality/RememberVideoQualityPatch;"
 
     override fun execute(context: BytecodeContext) {
-        // This is bloated as each value has it's own String key/value
-        // ideally the entries would be raw values (and not a key to a String resource)
+        // Must specify the entire list as localized strings,
+        // Because the first entry is localized text ("Automatic quality")
         val entries = listOf(
-            StringResource("revanced_video_quality_default_entry_1", "Automatic quality"),
-            StringResource("revanced_video_quality_default_entry_2", "2160p"),
-            StringResource("revanced_video_quality_default_entry_3", "1440p"),
-            StringResource("revanced_video_quality_default_entry_4", "1080p"),
-            StringResource("revanced_video_quality_default_entry_5", "720p"),
-            StringResource("revanced_video_quality_default_entry_6", "480p"),
-            StringResource("revanced_video_quality_default_entry_7", "360p"),
-            StringResource("revanced_video_quality_default_entry_8", "240p"),
-            StringResource("revanced_video_quality_default_entry_9", "144p"),
+            "revanced_video_quality_automatic",
+            "revanced_video_quality_default_entry_2",
+            "revanced_video_quality_default_entry_3",
+            "revanced_video_quality_default_entry_4",
+            "revanced_video_quality_default_entry_5",
+            "revanced_video_quality_default_entry_6",
+            "revanced_video_quality_default_entry_7",
+            "revanced_video_quality_default_entry_8",
+            "revanced_video_quality_default_entry_9",
         )
         val entryValues = listOf(
-            StringResource("revanced_video_quality_default_entry_value_1", "-2"),
-            StringResource("revanced_video_quality_default_entry_value_2", "2160"),
-            StringResource("revanced_video_quality_default_entry_value_3", "1440"),
-            StringResource("revanced_video_quality_default_entry_value_4", "1080"),
-            StringResource("revanced_video_quality_default_entry_value_5", "720"),
-            StringResource("revanced_video_quality_default_entry_value_6", "480"),
-            StringResource("revanced_video_quality_default_entry_value_7", "360"),
-            StringResource("revanced_video_quality_default_entry_value_8", "240"),
-            StringResource("revanced_video_quality_default_entry_value_9", "144"),
+            "-2",
+            "2160",
+            "1440",
+            "1080",
+            "720",
+            "480",
+            "360",
+            "240",
+            "144",
         )
 
+        StringsPatch.includePatchStrings("RememberVideoQuality")
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
-            SwitchPreference(
-                "revanced_remember_video_quality_last_selected",
-                StringResource(
-                    "revanced_remember_video_quality_last_selected_title",
-                    "Remember video quality changes"
-                ),
-                StringResource(
-                    "revanced_remember_video_quality_last_selected_summary_on",
-                    "Quality changes apply to all videos"
-                ),
-                StringResource(
-                    "revanced_remember_video_quality_last_selected_summary_off",
-                    "Quality changes only apply to the current video"
-                )
-            ),
+            SwitchPreference("revanced_remember_video_quality_last_selected"),
             ListPreference(
-                "revanced_video_quality_default_wifi",
-                StringResource(
-                    "revanced_video_quality_default_wifi_title",
-                    "Default video quality on Wi-Fi network"
-                ),
-                ArrayResource("revanced_video_quality_default_wifi_entry", entries),
-                ArrayResource("revanced_video_quality_default_wifi_entry_values", entryValues)
+                key = "revanced_video_quality_default_wifi",
+                titleKey = "revanced_video_quality_default_wifi_title",
+                summaryKey = null,
+                entries = ArrayResource("revanced_video_quality_default_wifi_entry", entries),
+                entryValues = ArrayResource(
+                    "revanced_video_quality_default_wifi_entry_values",
+                    entryValues,
+                    literalValues = true
+                )
                 // default value and summary are set by integrations after loading
             ),
             ListPreference(
-                "revanced_video_quality_default_mobile",
-                StringResource(
-                    "revanced_video_quality_default_mobile_title",
-                    "Default video quality on mobile network"
-                ),
-                ArrayResource("revanced_video_quality_default_mobile_entries", entries),
-                ArrayResource("revanced_video_quality_default_mobile_values", entryValues)
+                key = "revanced_video_quality_default_mobile",
+                titleKey = "revanced_video_quality_default_mobile_title",
+                summaryKey = null,
+                entries = ArrayResource("revanced_video_quality_default_mobile_entries", entries),
+                entryValues = ArrayResource(
+                    "revanced_video_quality_default_mobile_values",
+                    entryValues,
+                    literalValues = true
+                )
             )
         )
 
@@ -128,7 +119,11 @@ object RememberVideoQualityPatch : BytecodePatch(
 
         // Inject a call to set the remembered quality once a video loads.
         VideoQualitySetterFingerprint.result?.also {
-            if (!SetQualityByIndexMethodClassFieldReferenceFingerprint.resolve(context, it.classDef))
+            if (!SetQualityByIndexMethodClassFieldReferenceFingerprint.resolve(
+                    context,
+                    it.classDef
+                )
+            )
                 throw PatchException("Could not resolve fingerprint to find setQualityByIndex method")
         }?.let {
             // This instruction refers to the field with the type that contains the setQualityByIndex method.
@@ -175,7 +170,8 @@ object RememberVideoQualityPatch : BytecodePatch(
 
         // Inject a call to remember the selected quality.
         VideoQualityItemOnClickParentFingerprint.result?.let {
-            val onItemClickMethod = it.mutableClass.methods.find { method -> method.name == "onItemClick" }
+            val onItemClickMethod =
+                it.mutableClass.methods.find { method -> method.name == "onItemClick" }
 
             onItemClickMethod?.apply {
                 val listItemIndexParameter = 3

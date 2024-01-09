@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_disable_zoom_haptics_title">Disable zoom haptics</string>
+    <string name="revanced_disable_zoom_haptics_summary_on">Haptics are disabled</string>
+    <string name="revanced_disable_zoom_haptics_summary_off">Haptics are enabled</string>
+</resources>

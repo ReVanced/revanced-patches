@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_hide_autoplay_button_title">Hide autoplay button</string>
+    <string name="revanced_hide_autoplay_button_summary_on">Autoplay button is hidden</string>
+    <string name="revanced_hide_autoplay_button_summary_off">Autoplay button is shown</string>
+</resources>

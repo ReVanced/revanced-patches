@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_disable_suggested_video_end_screen_title">Disable suggested video end screen</string>
+    <string name="revanced_disable_suggested_video_end_screen_summary_on">Suggested videos will be disabled</string>
+    <string name="revanced_disable_suggested_video_end_screen_summary_off">Suggested videos will be shown</string>
+</resources>

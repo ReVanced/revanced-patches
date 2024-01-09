@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_hide_email_address_title">Hide email in account switcher</string>
+    <string name="revanced_hide_email_address_summary_on">Email address is hidden</string>
+    <string name="revanced_hide_email_address_summary_off">Email address is shown</string>
+</resources>

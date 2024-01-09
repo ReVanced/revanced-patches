@@ -11,9 +11,9 @@ import app.revanced.patches.youtube.video.information.VideoInformationPatch
     name = "Copy video URL",
     description = "Adds options to display buttons in the video player to copy video URLs.",
     dependencies = [
-        CopyVideoUrlResourcePatch::class,
         PlayerControlsBytecodePatch::class,
-        VideoInformationPatch::class
+        VideoInformationPatch::class,
+        CopyVideoUrlResourcePatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
