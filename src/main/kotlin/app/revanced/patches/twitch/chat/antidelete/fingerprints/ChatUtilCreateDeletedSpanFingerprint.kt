@@ -1,8 +1,8 @@
 package app.revanced.patches.twitch.chat.antidelete.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
-object ChatUtilCreateDeletedSpanFingerprint : MethodFingerprint(
+internal object ChatUtilCreateDeletedSpanFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("/ChatUtil\$Companion;") && methodDef.name == "createDeletedSpanFromChatMessageSpan"
     }

@@ -26,7 +26,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 @Suppress("unused")
 object HideAdsPatch : BytecodePatch(setOf(AdPostFingerprint, NewAdPostFingerprint)) {
     private const val FILTER_METHOD_DESCRIPTOR =
-        "Lapp/revanced/reddit/patches/FilterPromotedLinksPatch;" +
+        "Lapp/revanced/integrations/reddit/patches/FilterPromotedLinksPatch;" +
                 "->filterChildren(Ljava/lang/Iterable;)Ljava/util/List;"
 
     override fun execute(context: BytecodeContext) {

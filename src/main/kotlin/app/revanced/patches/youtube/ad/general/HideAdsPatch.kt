@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.ad.general
 
-import app.revanced.extensions.findMutableMethodOf
-import app.revanced.extensions.injectHideViewCall
+import app.revanced.util.findMutableMethodOf
+import app.revanced.util.injectHideViewCall
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
@@ -15,7 +15,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 
 @Patch(
     name = "Hide ads",
-    description = "Removes general ads.",
+    description = "Adds options to remove general ads.",
     dependencies = [
         HideGetPremiumPatch::class,
         HideAdsResourcePatch::class,
@@ -26,14 +26,13 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
         CompatiblePackage(
             "com.google.android.youtube",
             [
-                "18.16.37",
-                "18.19.35",
-                "18.20.39",
-                "18.23.35",
-                "18.29.38",
                 "18.32.39",
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.41",
+                "18.45.43"
             ]
         )
     ]
@@ -66,7 +65,7 @@ object HideAdsPatch : BytecodePatch() {
                                 .injectHideViewCall(
                                     insertIndex,
                                     viewRegister,
-                                    "Lapp/revanced/integrations/patches/components/AdsFilter;",
+                                    "Lapp/revanced/integrations/youtube/patches/components/AdsFilter;",
                                     "hideAdAttributionView"
                                 )
                         }

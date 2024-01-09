@@ -19,7 +19,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch.PreferenceScreen
 )
 object HideAdsResourcePatch : ResourcePatch() {
     private const val FILTER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/components/AdsFilter;"
+        "Lapp/revanced/integrations/youtube/patches/components/AdsFilter;"
 
     internal var adAttributionId: Long = -1
 
@@ -30,6 +30,12 @@ object HideAdsResourcePatch : ResourcePatch() {
                 StringResource("revanced_hide_general_ads_title", "Hide general ads"),
                 StringResource("revanced_hide_general_ads_summary_on", "General ads are hidden"),
                 StringResource("revanced_hide_general_ads_summary_off", "General ads are shown")
+            ),
+            SwitchPreference(
+                "revanced_hide_fullscreen_ads",
+                StringResource("revanced_hide_fullscreen_ads_title", "Hide fullscreen ads"),
+                StringResource("revanced_hide_fullscreen_ads_summary_on", "Fullscreen ads are hidden"),
+                StringResource("revanced_hide_fullscreen_ads_summary_off", "Fullscreen ads are shown")
             ),
             SwitchPreference(
                 "revanced_hide_buttoned_ads",
@@ -54,6 +60,12 @@ object HideAdsResourcePatch : ResourcePatch() {
                 StringResource("revanced_hide_products_banner_title", "Hide banner to view products"),
                 StringResource("revanced_hide_products_banner_summary_on", "Banner is hidden"),
                 StringResource("revanced_hide_products_banner_summary_off", "Banner is shown")
+            ),
+            SwitchPreference(
+                "revanced_hide_shopping_links",
+                StringResource("revanced_hide_shopping_links_title", "Hide shopping links in video description"),
+                StringResource("revanced_hide_shopping_links_summary_on", "Shopping links are hidden"),
+                StringResource("revanced_hide_shopping_links_summary_off", "Shopping links are shown")
             ),
             SwitchPreference(
                 "revanced_hide_web_search_results",

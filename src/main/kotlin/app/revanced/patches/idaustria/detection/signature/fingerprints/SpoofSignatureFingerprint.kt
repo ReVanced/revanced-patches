@@ -1,9 +1,9 @@
 package app.revanced.patches.idaustria.detection.signature.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object SpoofSignatureFingerprint : MethodFingerprint(
+internal object SpoofSignatureFingerprint : MethodFingerprint(
     "L",
     parameters = listOf("L"),
     accessFlags = AccessFlags.PRIVATE.value,

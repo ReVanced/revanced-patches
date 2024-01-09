@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.buttons.player.hide
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -18,7 +18,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction3rc
 
 @Patch(
     name = "Hide player buttons",
-    description = "Adds the option to hide video player previous and next buttons.",
+    description = "Adds an option to hide the previous and next buttons in the video player.",
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class
@@ -27,14 +27,13 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction3rc
         CompatiblePackage(
             "com.google.android.youtube",
             [
-                "18.16.37",
-                "18.19.35",
-                "18.20.39",
-                "18.23.35",
-                "18.29.38",
                 "18.32.39",
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.41",
+                "18.45.43"
             ]
         )
     ]
@@ -73,10 +72,10 @@ object HidePlayerButtonsPatch : BytecodePatch(
             mutableMethod.addInstructions(
                 callIndex,
                 """
-                    invoke-static { v$hasNextParameterRegister }, Lapp/revanced/integrations/patches/HidePlayerButtonsPatch;->previousOrNextButtonIsVisible(Z)Z
+                    invoke-static { v$hasNextParameterRegister }, Lapp/revanced/integrations/youtube/patches/HidePlayerButtonsPatch;->previousOrNextButtonIsVisible(Z)Z
                     move-result v$hasNextParameterRegister
                     
-                    invoke-static { v$hasPreviousParameterRegister }, Lapp/revanced/integrations/patches/HidePlayerButtonsPatch;->previousOrNextButtonIsVisible(Z)Z
+                    invoke-static { v$hasPreviousParameterRegister }, Lapp/revanced/integrations/youtube/patches/HidePlayerButtonsPatch;->previousOrNextButtonIsVisible(Z)Z
                     move-result v$hasPreviousParameterRegister
                 """
             )

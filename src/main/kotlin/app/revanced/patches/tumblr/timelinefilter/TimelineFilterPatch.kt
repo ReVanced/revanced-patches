@@ -1,6 +1,6 @@
 package app.revanced.patches.tumblr.timelinefilter
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -60,7 +60,7 @@ object TimelineFilterPatch : BytecodePatch(
             fingerprint.result?.mutableMethod?.addInstructions(
                 0,
                 "invoke-static {p$timelineObjectsRegister}, " +
-                        "Lapp/revanced/tumblr/patches/TimelineFilterPatch;->" +
+                        "Lapp/revanced/integrations/tumblr/patches/TimelineFilterPatch;->" +
                         "filterTimeline(Ljava/util/List;)V"
             ) ?: throw fingerprint.exception
         }

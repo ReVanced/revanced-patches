@@ -4,7 +4,6 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
@@ -20,7 +19,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch(
     name = "Hide info cards",
-    description = "Hides info cards in videos.",
+    description = "Adds an option to hide info cards that creators add in the video player.",
     dependencies = [
         IntegrationsPatch::class,
         LithoFilterPatch::class,
@@ -30,14 +29,13 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
         CompatiblePackage(
             "com.google.android.youtube",
             [
-                "18.16.37",
-                "18.19.35",
-                "18.20.39",
-                "18.23.35",
-                "18.29.38",
                 "18.32.39",
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.41",
+                "18.45.43"
             ]
         )
     ]
@@ -50,7 +48,7 @@ object HideInfoCardsPatch : BytecodePatch(
     )
 ) {
     private const val FILTER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/components/HideInfoCardsFilterPatch;"
+        "Lapp/revanced/integrations/youtube/patches/components/HideInfoCardsFilterPatch;"
 
     override fun execute(context: BytecodeContext) {
         InfocardsIncognitoFingerprint.also {
@@ -64,7 +62,7 @@ object HideInfoCardsPatch : BytecodePatch(
            addInstruction(
                invokeInstructionIndex,
                "invoke-static {v${getInstruction<FiveRegisterInstruction>(invokeInstructionIndex).registerC}}," +
-                       " Lapp/revanced/integrations/patches/HideInfoCardsPatch;->hideInfoCardsIncognito(Landroid/view/View;)V"
+                       " Lapp/revanced/integrations/youtube/patches/HideInfoCardsPatch;->hideInfoCardsIncognito(Landroid/view/View;)V"
            )
         }
 
@@ -77,7 +75,7 @@ object HideInfoCardsPatch : BytecodePatch(
             hideInfoCardsCallMethod.addInstructionsWithLabels(
                 invokeInterfaceIndex,
                 """
-                    invoke-static {}, Lapp/revanced/integrations/patches/HideInfoCardsPatch;->hideInfoCardsMethodCall()Z
+                    invoke-static {}, Lapp/revanced/integrations/youtube/patches/HideInfoCardsPatch;->hideInfoCardsMethodCall()Z
                     move-result v$toggleRegister
                     if-nez v$toggleRegister, :hide_info_cards
                 """,

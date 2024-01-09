@@ -1,10 +1,9 @@
 package app.revanced.patches.youtube.layout.tabletminiplayer
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
@@ -23,19 +22,18 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Tablet mini player",
-    description = "Enables the tablet mini player layout.",
+    description = "Adds an option to enable the tablet mini player layout.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", arrayOf(
-                "18.16.37",
-                "18.19.35",
-                "18.20.39",
-                "18.23.35",
-                "18.29.38",
                 "18.32.39",
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.41",
+                "18.45.43"
             )
         )
     ]
@@ -122,7 +120,7 @@ object TabletMiniPlayerPatch : BytecodePatch(
         this.addInstructions(
             index,
             """
-                    invoke-static {v$overrideRegister}, Lapp/revanced/integrations/patches/TabletMiniPlayerOverridePatch;->getTabletMiniPlayerOverride(Z)Z
+                    invoke-static {v$overrideRegister}, Lapp/revanced/integrations/youtube/patches/TabletMiniPlayerOverridePatch;->getTabletMiniPlayerOverride(Z)Z
                     move-result v$overrideRegister
                 """
         )

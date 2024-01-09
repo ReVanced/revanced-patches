@@ -9,7 +9,7 @@ import app.revanced.patches.iconpackstudio.misc.pro.fingerprints.CheckProFingerp
 
 @Patch(
     name = "Unlock pro",
-    compatiblePackages = [CompatiblePackage("ginlemon.iconpackstudio")]
+    compatiblePackages = [CompatiblePackage("ginlemon.iconpackstudio", ["2.2 build 016"])]
 )
 @Suppress("unused")
 object UnlockProPatch : BytecodePatch(

@@ -1,8 +1,8 @@
 package app.revanced.patches.reddit.layout.disablescreenshotpopup.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
-object DisableScreenshotPopupFingerprint : MethodFingerprint(
+internal object DisableScreenshotPopupFingerprint : MethodFingerprint(
     "V",
     parameters = listOf("Landroidx/compose/runtime/", "I"),
     customFingerprint = custom@{ methodDef, classDef ->

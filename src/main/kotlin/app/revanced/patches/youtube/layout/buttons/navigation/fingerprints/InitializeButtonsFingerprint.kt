@@ -5,7 +5,7 @@ import app.revanced.patches.youtube.layout.buttons.navigation.ResolvePivotBarFin
 import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object InitializeButtonsFingerprint : LiteralValueFingerprint(
+internal object InitializeButtonsFingerprint : LiteralValueFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "V",
     parameters = listOf(),

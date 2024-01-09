@@ -1,9 +1,10 @@
 package app.revanced.patches.youtube.layout.tablet
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
@@ -16,7 +17,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
     name = "Enable tablet layout",
-    description = "Spoofs the device form factor to a tablet which enables the tablet layout.",
+    description = "Adds an option to spoof the device form factor to a tablet which enables the tablet layout.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [CompatiblePackage("com.google.android.youtube")]
 )
@@ -37,18 +38,19 @@ object EnableTabletLayoutPatch : BytecodePatch(
 
         GetFormFactorFingerprint.result?.let {
             it.mutableMethod.apply {
-                val returnLargeFormFactorIndex = it.scanResult.patternScanResult!!.endIndex - 4
+                val returnIsLargeFormFactorIndex = getInstructions().lastIndex - 4
+                val returnIsLargeFormFactorLabel = getInstruction(returnIsLargeFormFactorIndex)
 
                 addInstructionsWithLabels(
                     0,
                     """
-                          invoke-static {}, Lapp/revanced/integrations/patches/EnableTabletLayoutPatch;->enableTabletLayout()Z
-                          move-result v0
+                          invoke-static { }, Lapp/revanced/integrations/youtube/patches/EnableTabletLayoutPatch;->enableTabletLayout()Z
+                          move-result v0 # Free register
                           if-nez v0, :is_large_form_factor
                     """,
                     ExternalLabel(
                         "is_large_form_factor",
-                        getInstruction(returnLargeFormFactorIndex)
+                        returnIsLargeFormFactorLabel
                     )
                 )
             }

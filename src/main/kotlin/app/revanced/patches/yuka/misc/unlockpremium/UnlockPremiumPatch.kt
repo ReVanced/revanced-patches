@@ -2,7 +2,6 @@ package app.revanced.patches.yuka.misc.unlockpremium
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
@@ -11,7 +10,7 @@ import app.revanced.patches.yuka.misc.unlockpremium.fingerprints.YukaUserConstru
 
 @Patch(
     name = "Unlock premium",
-    compatiblePackages = [CompatiblePackage("io.yuka.android")]
+    compatiblePackages = [CompatiblePackage("io.yuka.android", ["4.29"])]
 )
 @Suppress("unused")
 object UnlockPremiumPatch : BytecodePatch(

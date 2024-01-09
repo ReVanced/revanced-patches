@@ -4,7 +4,7 @@ import app.revanced.patches.youtube.layout.hide.loadmorebutton.HideLoadMoreButto
 import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-object HideLoadMoreButtonFingerprint : LiteralValueFingerprint(
+internal object HideLoadMoreButtonFingerprint : LiteralValueFingerprint(
     opcodes = listOf(
         Opcode.CONST,
         Opcode.CONST_4,

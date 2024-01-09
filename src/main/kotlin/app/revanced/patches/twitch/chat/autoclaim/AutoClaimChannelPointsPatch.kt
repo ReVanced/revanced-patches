@@ -1,6 +1,6 @@
 package app.revanced.patches.twitch.chat.autoclaim
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -17,7 +17,7 @@ import app.revanced.patches.twitch.misc.settings.SettingsPatch
     name = "Auto claim channel points",
     description = "Automatically claim Channel Points.",
     dependencies = [SettingsPatch::class],
-    compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0"])]
+    compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])]
 )
 @Suppress("unused")
 object AutoClaimChannelPointPatch : BytecodePatch(
@@ -38,8 +38,7 @@ object AutoClaimChannelPointPatch : BytecodePatch(
                 StringResource(
                     "revanced_auto_claim_channel_points_off",
                     "Channel Points are not claimed automatically"
-                ),
-                default = true
+                )
             )
         )
 
@@ -48,7 +47,7 @@ object AutoClaimChannelPointPatch : BytecodePatch(
             addInstructionsWithLabels(
                 lastIndex, // place in front of return-void
                 """
-                    invoke-static {}, Lapp/revanced/twitch/patches/AutoClaimChannelPointsPatch;->shouldAutoClaim()Z
+                    invoke-static {}, Lapp/revanced/integrations/twitch/patches/AutoClaimChannelPointsPatch;->shouldAutoClaim()Z
                     move-result v0
                     if-eqz v0, :auto_claim
 

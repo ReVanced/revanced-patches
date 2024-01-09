@@ -1,13 +1,13 @@
 package app.revanced.patches.youtube.layout.player.overlay.fingerprints
 
-import app.revanced.extensions.containsConstantInstructionValue
+import app.revanced.util.containsWideLiteralInstructionValue
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.layout.player.overlay.CustomPlayerOverlayOpacityResourcePatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object CreatePlayerOverviewFingerprint : MethodFingerprint(
+internal object CreatePlayerOverviewFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     opcodes = listOf(
@@ -17,6 +17,6 @@ object CreatePlayerOverviewFingerprint : MethodFingerprint(
         Opcode.CHECK_CAST
     ),
     customFingerprint = { methodDef, _ ->
-        methodDef.containsConstantInstructionValue(CustomPlayerOverlayOpacityResourcePatch.scrimOverlayId)
+        methodDef.containsWideLiteralInstructionValue(CustomPlayerOverlayOpacityResourcePatch.scrimOverlayId)
     }
 )

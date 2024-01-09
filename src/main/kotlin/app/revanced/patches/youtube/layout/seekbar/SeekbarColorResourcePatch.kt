@@ -9,7 +9,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import org.w3c.dom.Element
 
 @Patch(dependencies = [SettingsPatch::class, ResourceMappingPatch::class])
-object SeekbarColorResourcePatch : ResourcePatch(){
+internal object SeekbarColorResourcePatch : ResourcePatch(){
     internal var reelTimeBarPlayedColorId = -1L
     internal var inlineTimeBarColorizedBarPlayedColorDarkId = -1L
     internal var inlineTimeBarPlayedNotHighlightedColorId = -1L
@@ -38,7 +38,7 @@ object SeekbarColorResourcePatch : ResourcePatch(){
             val scaleNode = progressNode.getElementsByTagName("scale").item(0) as Element
             val shapeNode = scaleNode.getElementsByTagName("shape").item(0) as Element
             val replacementNode = editor.file.createElement(
-                "app.revanced.integrations.patches.theme.ProgressBarDrawable")
+                "app.revanced.integrations.youtube.patches.theme.ProgressBarDrawable")
             scaleNode.replaceChild(replacementNode, shapeNode)
         }
     }

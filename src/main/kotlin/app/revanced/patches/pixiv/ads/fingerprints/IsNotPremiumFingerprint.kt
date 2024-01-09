@@ -1,11 +1,11 @@
 package app.revanced.patches.pixiv.ads.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
 
-object IsNotPremiumFingerprint : MethodFingerprint(
+internal object IsNotPremiumFingerprint : MethodFingerprint(
     "V",
     AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     listOf("L"),

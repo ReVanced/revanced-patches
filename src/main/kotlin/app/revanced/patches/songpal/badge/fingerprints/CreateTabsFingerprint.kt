@@ -1,6 +1,6 @@
 package app.revanced.patches.songpal.badge.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.songpal.badge.BadgeTabPatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -8,7 +8,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 // Located @ ub.i0.h#p (9.5.0)
-object CreateTabsFingerprint : MethodFingerprint(
+internal object CreateTabsFingerprint : MethodFingerprint(
     "Ljava/util/List",
     accessFlags = AccessFlags.PRIVATE.value,
     customFingerprint = { methodDef, _ ->

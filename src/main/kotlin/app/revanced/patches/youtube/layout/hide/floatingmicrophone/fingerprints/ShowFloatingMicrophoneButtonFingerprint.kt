@@ -6,7 +6,7 @@ import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object ShowFloatingMicrophoneButtonFingerprint : LiteralValueFingerprint(
+internal object ShowFloatingMicrophoneButtonFingerprint : LiteralValueFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "V",
     parameters = listOf(),

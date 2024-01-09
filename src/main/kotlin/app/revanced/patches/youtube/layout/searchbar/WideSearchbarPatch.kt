@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.layout.searchbar
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
@@ -17,19 +17,17 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
     name = "Wide searchbar",
-    description = "Replaces the search icon with a wide search bar. This will hide the YouTube logo when active.",
+    description = "Adds an option to replace the search icon with a wide search bar. This will hide the YouTube logo when active.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
-                "18.16.37",
-                "18.19.35",
-                "18.20.39",
-                "18.23.35",
-                "18.29.38",
                 "18.32.39",
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.45.41",
+                "18.45.43"
             ]
         )
     ]
@@ -69,7 +67,7 @@ object WideSearchbarPatch : BytecodePatch(
      * @param fromFingerprint The fingerprint to walk the method on.
      * @return The [MutableMethod] which was walked on.
      */
-    fun BytecodeContext.walkMutable(index: Int, fromFingerprint: MethodFingerprint) =
+    private fun BytecodeContext.walkMutable(index: Int, fromFingerprint: MethodFingerprint) =
         fromFingerprint.result?.let {
             toMethodWalker(it.method).nextMethod(index, true).getMethod() as MutableMethod
         } ?: throw fromFingerprint.exception
@@ -78,11 +76,11 @@ object WideSearchbarPatch : BytecodePatch(
     /**
      * Injects instructions required for certain methods.
      */
-    fun MutableMethod.injectSearchBarHook() {
+    private fun MutableMethod.injectSearchBarHook() {
         addInstructions(
             implementation!!.instructions.size - 1,
             """
-                    invoke-static {}, Lapp/revanced/integrations/patches/WideSearchbarPatch;->enableWideSearchbar()Z
+                    invoke-static {}, Lapp/revanced/integrations/youtube/patches/WideSearchbarPatch;->enableWideSearchbar()Z
                     move-result p0
                 """
         )

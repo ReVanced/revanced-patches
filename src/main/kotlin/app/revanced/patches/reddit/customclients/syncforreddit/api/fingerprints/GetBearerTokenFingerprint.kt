@@ -1,7 +1,7 @@
 package app.revanced.patches.reddit.customclients.syncforreddit.api.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
-object GetBearerTokenFingerprint : MethodFingerprint(
+internal object GetBearerTokenFingerprint : MethodFingerprint(
     strings = listOf("Basic")
 )

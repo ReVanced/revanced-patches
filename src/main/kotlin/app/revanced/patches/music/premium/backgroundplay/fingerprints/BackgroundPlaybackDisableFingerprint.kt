@@ -1,14 +1,14 @@
 package app.revanced.patches.music.premium.backgroundplay.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.method.annotation.FuzzyPatternScanMethod
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.annotation.FuzzyPatternScanMethod
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 
 @FuzzyPatternScanMethod(2) // FIXME: Test this threshold and find the best value.
-object BackgroundPlaybackDisableFingerprint : MethodFingerprint(
+internal object BackgroundPlaybackDisableFingerprint : MethodFingerprint(
     "Z", AccessFlags.PUBLIC or AccessFlags.STATIC, listOf("L"), listOf(
         Opcode.CONST_4,
         Opcode.IF_EQZ,

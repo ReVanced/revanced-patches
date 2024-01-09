@@ -1,22 +1,22 @@
 package app.revanced.patches.youtube.interaction.swipecontrols
 
-import app.revanced.extensions.transformMethods
-import app.revanced.extensions.traverseClassHierarchy
+import app.revanced.util.transformMethods
+import app.revanced.util.traverseClassHierarchy
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
-import app.revanced.patches.shared.fingerprints.WatchWhileActivityFingerprint
 import app.revanced.patches.youtube.interaction.swipecontrols.fingerprints.SwipeControlsHostActivityFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
+import app.revanced.patches.youtube.shared.fingerprints.WatchWhileActivityFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
 @Patch(
     name = "Swipe controls",
-    description = "Adds volume and brightness swipe controls.",
+    description = "Adds options to enable and configure volume and brightness swipe controls.",
     dependencies = [
         IntegrationsPatch::class,
         PlayerTypeHookPatch::class,
@@ -26,14 +26,13 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
         CompatiblePackage(
             "com.google.android.youtube",
             [
-                "18.16.37",
-                "18.19.35",
-                "18.20.39",
-                "18.23.35",
-                "18.29.38",
                 "18.32.39",
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.41",
+                "18.45.43"
             ]
         )
     ]

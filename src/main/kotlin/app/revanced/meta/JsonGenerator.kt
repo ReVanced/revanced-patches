@@ -14,7 +14,14 @@ internal class JsonGenerator : PatchesFileGenerator {
             it.use,
             it.requiresIntegrations,
             it.options.values.map { option ->
-                JsonPatch.Option(option.key, option.value, option.title, option.description, option.required)
+                JsonPatch.Option(
+                    option.key,
+                    option.default,
+                    option.values,
+                    option.title,
+                    option.description,
+                    option.required
+                )
             }
         )
     }.let {
@@ -33,6 +40,7 @@ internal class JsonGenerator : PatchesFileGenerator {
         class Option(
             val key: String,
             val default: Any?,
+            val values: Map<String, Any?>?,
             val title: String?,
             val description: String?,
             val required: Boolean,

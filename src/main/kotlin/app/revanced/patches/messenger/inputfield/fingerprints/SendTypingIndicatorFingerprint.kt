@@ -1,9 +1,9 @@
 package app.revanced.patches.messenger.inputfield.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.dexbacked.value.DexBackedStringEncodedValue
 
-object SendTypingIndicatorFingerprint : MethodFingerprint(
+internal object SendTypingIndicatorFingerprint : MethodFingerprint(
     returnType = "V",
     parameters = listOf(),
     customFingerprint = { methodDef, classDef ->

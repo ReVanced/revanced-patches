@@ -4,7 +4,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-object PaidPartnershipAdFingerprint : MediaAdFingerprint(
+internal object PaidPartnershipAdFingerprint : MediaAdFingerprint(
     "V",
     null,
     listOf("L", "L"),

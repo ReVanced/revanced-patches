@@ -1,7 +1,7 @@
 package app.revanced.patches.reddit.customclients.syncforreddit.api.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
-object GetAuthorizationStringFingerprint : MethodFingerprint(
+internal object GetAuthorizationStringFingerprint : MethodFingerprint(
     strings = listOf("authorize.compact?client_id")
 )

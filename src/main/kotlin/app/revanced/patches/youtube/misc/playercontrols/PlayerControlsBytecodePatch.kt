@@ -1,13 +1,12 @@
 package app.revanced.patches.youtube.misc.playercontrols
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
+import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.fingerprints.LayoutConstructorFingerprint
+import app.revanced.patches.youtube.shared.fingerprints.LayoutConstructorFingerprint
 import app.revanced.patches.youtube.misc.playercontrols.fingerprints.BottomControlsInflateFingerprint
 import app.revanced.patches.youtube.misc.playercontrols.fingerprints.PlayerControlsVisibilityFingerprint
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction

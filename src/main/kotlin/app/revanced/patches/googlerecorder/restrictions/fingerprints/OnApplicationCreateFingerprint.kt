@@ -1,8 +1,8 @@
 package app.revanced.patches.googlerecorder.restrictions.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
-object OnApplicationCreateFingerprint : MethodFingerprint(
+internal object OnApplicationCreateFingerprint : MethodFingerprint(
     strings = listOf("com.google.android.feature.PIXEL_2017_EXPERIENCE"),
     customFingerprint = custom@{ methodDef, classDef ->
         if (methodDef.name != "onCreate") return@custom false

@@ -1,11 +1,11 @@
 package app.revanced.patches.reddit.customclients.redditisfun.api.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object GetUserAgentFingerprint : MethodFingerprint(
+internal object GetUserAgentFingerprint : MethodFingerprint(
     "Ljava/lang/String;",
     AccessFlags.PUBLIC or AccessFlags.STATIC,
     emptyList(),

@@ -1,11 +1,11 @@
 package app.revanced.patches.youtube.misc.playertype.fingerprint
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object VideoStateFingerprint : MethodFingerprint(
+internal object VideoStateFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "V",
     parameters = listOf("L"),

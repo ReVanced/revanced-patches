@@ -5,7 +5,7 @@ import app.revanced.patches.youtube.layout.hide.shorts.HideShortsComponentsResou
 import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object CreateShortsButtonsFingerprint : LiteralValueFingerprint(
+internal object CreateShortsButtonsFingerprint : LiteralValueFingerprint(
     accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     returnType = "V",
     parameters = listOf("Z", "Z", "L"),

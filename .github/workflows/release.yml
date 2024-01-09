@@ -23,21 +23,25 @@ jobs:
           # https://github.com/cycjimmy/semantic-release-action#private-packages
           persist-credentials: false
           fetch-depth: 0
-      - name: Cache
+
+      - name: Cache Node modules
         uses: actions/cache@v3
         with:
           path: |
-            ${{ runner.home }}/.gradle/caches
-            ${{ runner.home }}/.gradle/wrapper
-            .gradle
             node_modules
-          key: ${{ runner.os }}-gradle-npm-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties', 'package-lock.json') }}
+          key: npm-${{ hashFiles('package-lock.json') }}
+
+      - name: Cache Gradle
+        uses: burrunan/gradle-cache-action@v1
+
       - name: Build with Gradle
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ./gradlew generateMeta clean
+
       - name: Setup semantic-release
         run: npm install
+
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.REPOSITORY_PUSH_ACCESS }}

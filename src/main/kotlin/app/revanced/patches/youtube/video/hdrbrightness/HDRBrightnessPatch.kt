@@ -16,19 +16,18 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Patch(
     name = "HDR auto brightness",
-    description = "Makes the brightness of HDR videos follow the system default.",
+    description = "Adds an option to make the brightness of HDR videos follow the system default.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
-                "18.16.37",
-                "18.19.35",
-                "18.20.39",
-                "18.23.35",
-                "18.29.38",
                 "18.32.39",
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.41",
+                "18.45.43"
             ]
         )
     ]
@@ -60,7 +59,7 @@ object HDRBrightnessPatch : BytecodePatch(
             method.addInstructions(
                 insertIndex,
                 """
-                   invoke-static {v$register}, Lapp/revanced/integrations/patches/HDRAutoBrightnessPatch;->getHDRBrightness(F)F
+                   invoke-static {v$register}, Lapp/revanced/integrations/youtube/patches/HDRAutoBrightnessPatch;->getHDRBrightness(F)F
                    move-result v$register
                 """
             )

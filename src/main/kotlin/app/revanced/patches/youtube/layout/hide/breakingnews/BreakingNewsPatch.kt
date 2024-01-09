@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.breakingnews
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -13,7 +13,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide breaking news shelf",
-    description = "Hides the breaking news shelf on the homepage tab.",
+    description = "Adds an option to hide the breaking news shelf on the homepage tab.",
     dependencies = [
         IntegrationsPatch::class,
         BreakingNewsResourcePatch::class
@@ -22,14 +22,13 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
         CompatiblePackage(
             "com.google.android.youtube",
             [
-                "18.16.37",
-                "18.19.35",
-                "18.20.39",
-                "18.23.35",
-                "18.29.38",
                 "18.32.39",
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.41",
+                "18.45.43"
             ]
         )
     ]
@@ -51,7 +50,7 @@ object BreakingNewsPatch : BytecodePatch(
                     insertIndex,
                     """
                         invoke-static {v$breakingNewsViewRegister}, 
-                        Lapp/revanced/integrations/patches/HideBreakingNewsPatch;
+                        Lapp/revanced/integrations/youtube/patches/HideBreakingNewsPatch;
                         ->
                         hideBreakingNews(Landroid/view/View;)V
                     """

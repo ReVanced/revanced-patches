@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.playertype
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -20,7 +20,7 @@ object PlayerTypeHookPatch : BytecodePatch(
     setOf(PlayerTypeFingerprint, VideoStateFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/PlayerTypeHookPatch;"
+        "Lapp/revanced/integrations/youtube/patches/PlayerTypeHookPatch;"
 
     override fun execute(context: BytecodeContext) {
         PlayerTypeFingerprint.result?.mutableMethod?.addInstruction(

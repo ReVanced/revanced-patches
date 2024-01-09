@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.layout.hide.shorts.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-object RenderBottomNavigationBarFingerprint : MethodFingerprint(
+internal object RenderBottomNavigationBarFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.IGET_OBJECT,
         Opcode.MONITOR_ENTER,

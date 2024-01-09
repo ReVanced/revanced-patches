@@ -12,7 +12,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
     name = "Comments",
-    description = "Hides components related to comments.",
+    description = "Adds options to hide components related to comments.",
     dependencies = [
         SettingsPatch::class,
         LithoFilterPatch::class
@@ -21,14 +21,13 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
         CompatiblePackage(
             "com.google.android.youtube",
             [
-                "18.16.37",
-                "18.19.35",
-                "18.20.39",
-                "18.23.35",
-                "18.29.38",
                 "18.32.39",
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.41",
+                "18.45.43"
             ]
         )
     ]
@@ -36,7 +35,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 @Suppress("unused")
 object CommentsPatch : ResourcePatch() {
     private const val FILTER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/components/CommentsFilter;"
+        "Lapp/revanced/integrations/youtube/patches/components/CommentsFilter;"
 
     override fun execute(context: ResourceContext) {
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)

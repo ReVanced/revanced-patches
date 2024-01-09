@@ -15,7 +15,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
     name = "Video ads",
-    description = "Removes ads in the video player.",
+    description = "Adds an option to remove ads in the video player.",
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class
@@ -24,14 +24,13 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
         CompatiblePackage(
             "com.google.android.youtube",
             [
-                "18.16.37",
-                "18.19.35",
-                "18.20.39",
-                "18.23.35",
-                "18.29.38",
                 "18.32.39",
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.41",
+                "18.45.43"
             ]
         )
     ]
@@ -54,7 +53,7 @@ object VideoAdsPatch : BytecodePatch(
 
         loadVideoAdsFingerprintMethod.addInstructionsWithLabels(
             0, """
-                invoke-static { }, Lapp/revanced/integrations/patches/VideoAdsPatch;->shouldShowAds()Z
+                invoke-static { }, Lapp/revanced/integrations/youtube/patches/VideoAdsPatch;->shouldShowAds()Z
                 move-result v0
                 if-nez v0, :show_video_ads
                 return-void

@@ -1,12 +1,11 @@
 package app.revanced.patches.youtube.layout.hide.shorts
 
-import app.revanced.extensions.exception
-import app.revanced.extensions.findIndexForIdResource
-import app.revanced.extensions.injectHideViewCall
+import app.revanced.util.exception
+import app.revanced.util.findIndexForIdResource
+import app.revanced.util.injectHideViewCall
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
@@ -21,7 +20,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Hide Shorts components",
-    description = "Hides components from YouTube Shorts.",
+    description = "Adds options to hide components related to YouTube Shorts.",
     dependencies = [
         IntegrationsPatch::class,
         LithoFilterPatch::class,
@@ -31,14 +30,13 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
-                "18.16.37",
-                "18.19.35",
-                "18.20.39",
-                "18.23.35",
-                "18.29.38",
                 "18.32.39",
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.41",
+                "18.45.43"
             ]
         )
     ]
@@ -53,7 +51,7 @@ object HideShortsComponentsPatch : BytecodePatch(
         SetPivotBarVisibilityParentFingerprint
     )
 ) {
-    private const val FILTER_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/components/ShortsFilter;"
+    private const val FILTER_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/components/ShortsFilter;"
 
     override fun execute(context: BytecodeContext) {
         // region Hide the Shorts shelf.

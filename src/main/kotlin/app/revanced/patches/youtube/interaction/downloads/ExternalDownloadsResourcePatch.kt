@@ -6,9 +6,9 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.settings.preference.impl.*
 import app.revanced.patches.youtube.misc.playercontrols.BottomControlsResourcePatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.util.resources.ResourceUtils
-import app.revanced.util.resources.ResourceUtils.copyResources
-import app.revanced.util.resources.ResourceUtils.mergeStrings
+import app.revanced.util.ResourceGroup
+import app.revanced.util.copyResources
+import app.revanced.util.mergeStrings
 
 @Patch(
     dependencies = [
@@ -16,7 +16,7 @@ import app.revanced.util.resources.ResourceUtils.mergeStrings
         SettingsPatch::class
     ]
 )
-object ExternalDownloadsResourcePatch : ResourcePatch() {
+internal object ExternalDownloadsResourcePatch : ResourcePatch() {
 
     override fun execute(context: ResourceContext) {
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
@@ -28,27 +28,35 @@ object ExternalDownloadsResourcePatch : ResourcePatch() {
                         "revanced_external_downloader",
                         StringResource("revanced_external_downloader_title", "Show external download button"),
                         StringResource("revanced_external_downloader_summary_on", "Download button shown in player"),
-                        StringResource("revanced_external_downloader_summary_off", "Download button not shown in player")
+                        StringResource(
+                            "revanced_external_downloader_summary_off",
+                            "Download button not shown in player"
+                        )
                     ),
                     TextPreference(
                         "revanced_external_downloader_name",
                         StringResource("revanced_external_downloader_name_title", "Downloader package name"),
-                        StringResource("revanced_external_downloader_name_summary", "Package name of your installed external downloader app, such as NewPipe or Seal"),
+                        StringResource(
+                            "revanced_external_downloader_name_summary",
+                            "Package name of your installed external downloader app, such as NewPipe or Seal"
+                        ),
                         InputType.TEXT
                     )
                 ),
-                StringResource("revanced_external_downloader_preference_screen_summary", "Settings for using an external downloader")
+                StringResource(
+                    "revanced_external_downloader_preference_screen_summary",
+                    "Settings for using an external downloader"
+                )
             )
         )
 
-
-        // Copy strings
         context.mergeStrings("downloads/host/values/strings.xml")
 
-        // Copy resources
-        context.copyResources("downloads", ResourceUtils.ResourceGroup("drawable", "revanced_yt_download_button.xml"))
+        context.copyResources(
+            "downloads",
+            ResourceGroup("drawable", "revanced_yt_download_button.xml")
+        )
 
-        // Add download button node
-        BottomControlsResourcePatch.addControls("downloads/host/layout/${BottomControlsResourcePatch.TARGET_RESOURCE_NAME}")
+        BottomControlsResourcePatch.addControls("downloads")
     }
 }

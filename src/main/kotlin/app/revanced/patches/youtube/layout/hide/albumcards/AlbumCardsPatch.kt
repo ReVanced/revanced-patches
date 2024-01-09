@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.albumcards
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -13,7 +13,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide album cards",
-    description = "Hides the album cards below the artist description.",
+    description = "Adds an option to hide album cards below artist descriptions.",
     dependencies = [
         IntegrationsPatch::class,
         AlbumCardsResourcePatch::class
@@ -22,14 +22,13 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
         CompatiblePackage(
             "com.google.android.youtube",
             [
-                "18.16.37",
-                "18.19.35",
-                "18.20.39",
-                "18.23.35",
-                "18.29.38",
                 "18.32.39",
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.41",
+                "18.45.43"
             ]
         )
     ]
@@ -49,7 +48,7 @@ object AlbumCardsPatch : BytecodePatch(
                 addInstruction(
                     insertIndex,
                     "invoke-static {v$albumCardViewRegister}, " +
-                            "Lapp/revanced/integrations/patches/HideAlbumCardsPatch;" +
+                            "Lapp/revanced/integrations/youtube/patches/HideAlbumCardsPatch;" +
                             "->" +
                             "hideAlbumCard(Landroid/view/View;)V"
                 )

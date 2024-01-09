@@ -3,8 +3,7 @@ package app.revanced.patches.twitter.misc.hook.json
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
@@ -21,7 +20,7 @@ import java.io.InvalidClassException
 object JsonHookPatch : BytecodePatch(
     setOf(LoganSquareFingerprint)
 ), Closeable {
-    private const val JSON_HOOK_CLASS_NAMESPACE = "app/revanced/twitter/patches/hook/json"
+    private const val JSON_HOOK_CLASS_NAMESPACE = "app/revanced/integrations/twitter/patches/hook/json"
     private const val JSON_HOOK_PATCH_CLASS_DESCRIPTOR = "L$JSON_HOOK_CLASS_NAMESPACE/JsonHookPatch;"
     private const val BASE_PATCH_CLASS_NAME = "BaseJsonHook"
     private const val JSON_HOOK_CLASS_DESCRIPTOR = "L$JSON_HOOK_CLASS_NAMESPACE/$BASE_PATCH_CLASS_NAME;"

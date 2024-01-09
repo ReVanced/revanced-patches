@@ -6,7 +6,7 @@ import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object BreakingNewsFingerprint : LiteralValueFingerprint(
+internal object BreakingNewsFingerprint : LiteralValueFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     opcodes = listOf(
         Opcode.CONST,

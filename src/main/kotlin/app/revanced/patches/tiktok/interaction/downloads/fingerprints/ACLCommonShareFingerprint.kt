@@ -1,10 +1,10 @@
 package app.revanced.patches.tiktok.interaction.downloads.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object ACLCommonShareFingerprint : MethodFingerprint(
+internal object ACLCommonShareFingerprint : MethodFingerprint(
     "I",
     AccessFlags.PUBLIC or AccessFlags.FINAL,
     customFingerprint = { methodDef, _ ->

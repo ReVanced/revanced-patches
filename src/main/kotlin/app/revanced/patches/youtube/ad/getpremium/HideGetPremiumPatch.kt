@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.ad.getpremium
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -20,21 +20,20 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
-                "18.16.37",
-                "18.19.35",
-                "18.20.39",
-                "18.23.35",
-                "18.29.38",
                 "18.32.39",
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.41",
+                "18.45.43"
             ]
         )
     ]
 )
 object HideGetPremiumPatch : BytecodePatch(setOf(GetPremiumViewFingerprint)) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/HideGetPremiumPatch;"
+        "Lapp/revanced/integrations/youtube/patches/HideGetPremiumPatch;"
 
     override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.ADS.addPreferences(
@@ -46,11 +45,11 @@ object HideGetPremiumPatch : BytecodePatch(setOf(GetPremiumViewFingerprint)) {
                 ),
                 StringResource(
                     "revanced_hide_get_premium_summary_on",
-                    "YouTube Premium promotions under video player is hidden"
+                    "YouTube Premium promotions under video player are hidden"
                 ),
                 StringResource(
                     "revanced_hide_get_premium_summary_off",
-                    "YouTube Premium promotions under video player is shown"
+                    "YouTube Premium promotions under video player are shown"
                 )
             )
         )

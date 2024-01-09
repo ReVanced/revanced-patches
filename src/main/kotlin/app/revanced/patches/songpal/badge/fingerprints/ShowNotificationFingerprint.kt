@@ -1,6 +1,6 @@
 package app.revanced.patches.songpal.badge.fingerprints
 
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.songpal.badge.fingerprints.ShowNotificationFingerprint.expectedReference
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -9,7 +9,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
 
 // Located @ com.sony.songpal.mdr.vim.activity.MdrRemoteBaseActivity.e#run (9.5.0)
-object ShowNotificationFingerprint : MethodFingerprint(
+internal object ShowNotificationFingerprint : MethodFingerprint(
     "V",
     accessFlags = AccessFlags.PUBLIC.value,
     customFingerprint = custom@{ methodDef, _ ->

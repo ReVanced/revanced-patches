@@ -9,18 +9,18 @@ import app.revanced.patches.youtube.video.speed.remember.RememberPlaybackSpeedPa
 
 @Patch(
     name = "Playback speed",
-    description = "Adds custom playback speeds and ability " +
-            "to remember the playback speed you chose in the video playback speed flyout.",
+    description = "Adds options to customize available playback speeds and to remember the last playback speed selected.",
     dependencies = [CustomPlaybackSpeedPatch::class, RememberPlaybackSpeedPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
-                "18.20.39",
-                "18.23.35",
-                "18.29.38",
                 "18.32.39",
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.41",
+                "18.45.43"
             ]
         )
     ]

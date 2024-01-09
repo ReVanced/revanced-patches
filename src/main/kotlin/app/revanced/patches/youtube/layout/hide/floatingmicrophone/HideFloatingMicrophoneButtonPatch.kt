@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.floatingmicrophone
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -12,20 +12,19 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Hide floating microphone button",
-    description = "Hides the floating microphone button which appears in search.",
+    description = "Adds an option to hide the floating microphone button when searching.",
     dependencies = [HideFloatingMicrophoneButtonResourcePatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
             [
-                "18.16.37",
-                "18.19.35",
-                "18.20.39",
-                "18.23.35",
-                "18.29.38",
                 "18.32.39",
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.41",
+                "18.45.43"
             ]
         )
     ]
@@ -35,7 +34,7 @@ object HideFloatingMicrophoneButtonPatch : BytecodePatch(
     setOf(ShowFloatingMicrophoneButtonFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/HideFloatingMicrophoneButtonPatch;"
+        "Lapp/revanced/integrations/youtube/patches/HideFloatingMicrophoneButtonPatch;"
 
     override fun execute(context: BytecodeContext) {
         ShowFloatingMicrophoneButtonFingerprint.result?.let { result ->

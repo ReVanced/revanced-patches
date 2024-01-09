@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.layout.hide.personalinformation
 
-import app.revanced.extensions.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -9,23 +8,23 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.layout.hide.personalinformation.fingerprints.AccountSwitcherAccessibilityLabelFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
+@Deprecated("This patch is no longer working and will be removed in a future release.")
 @Patch(
-    name = "Hide email address",
     description = "Hides the email address in the account switcher.",
     dependencies = [IntegrationsPatch::class, HideEmailAddressResourcePatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
-                "18.16.37",
-                "18.19.35",
-                "18.20.39",
-                "18.23.35",
-                "18.29.38",
                 "18.32.39",
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.41",
+                "18.45.43"
             ]
         )
     ]
@@ -45,7 +44,7 @@ object HideEmailAddressPatch : BytecodePatch(
                 addInstructions(
                     setVisibilityConstIndex,
                     """
-                        invoke-static {v$setVisibilityConstRegister}, Lapp/revanced/integrations/patches/HideEmailAddressPatch;->hideEmailAddress(I)I
+                        invoke-static {v$setVisibilityConstRegister}, Lapp/revanced/integrations/youtube/patches/HideEmailAddressPatch;->hideEmailAddress(I)I
                         move-result v$setVisibilityConstRegister
                     """
                 )

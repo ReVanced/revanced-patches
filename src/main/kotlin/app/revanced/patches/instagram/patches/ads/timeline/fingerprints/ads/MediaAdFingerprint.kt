@@ -1,13 +1,13 @@
 package app.revanced.patches.instagram.patches.ads.timeline.fingerprints.ads
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 
-abstract class MediaAdFingerprint(
+internal abstract class MediaAdFingerprint(
     returnType: String? = "Z",
     accessFlags: Int? = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters: Iterable<String>? = listOf(),

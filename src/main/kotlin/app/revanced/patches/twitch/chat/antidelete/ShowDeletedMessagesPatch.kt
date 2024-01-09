@@ -1,6 +1,6 @@
 package app.revanced.patches.twitch.chat.antidelete
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -22,7 +22,7 @@ import app.revanced.patches.twitch.misc.settings.SettingsPatch
     name = "Show deleted messages",
     description = "Shows deleted chat messages behind a clickable spoiler.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
-    compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0"])]
+    compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])]
 )
 @Suppress("unused")
 object ShowDeletedMessagesPatch : BytecodePatch(
@@ -33,7 +33,7 @@ object ShowDeletedMessagesPatch : BytecodePatch(
     )
 ) {
     private fun createSpoilerConditionInstructions(register: String = "v0") = """
-        invoke-static {}, Lapp/revanced/twitch/patches/ShowDeletedMessagesPatch;->shouldUseSpoiler()Z
+        invoke-static {}, Lapp/revanced/integrations/twitch/patches/ShowDeletedMessagesPatch;->shouldUseSpoiler()Z
         move-result $register
         if-eqz $register, :no_spoiler
     """
@@ -61,7 +61,7 @@ object ShowDeletedMessagesPatch : BytecodePatch(
             addInstructionsWithLabels(
                 0,
                 """
-                    invoke-static {p2}, Lapp/revanced/twitch/patches/ShowDeletedMessagesPatch;->reformatDeletedMessage(Landroid/text/Spanned;)Landroid/text/Spanned;
+                    invoke-static {p2}, Lapp/revanced/integrations/twitch/patches/ShowDeletedMessagesPatch;->reformatDeletedMessage(Landroid/text/Spanned;)Landroid/text/Spanned;
                     move-result-object v0
                     if-eqz v0, :no_reformat
                     return-object v0
@@ -92,8 +92,7 @@ object ShowDeletedMessagesPatch : BytecodePatch(
                         StringResource("key_revanced_deleted_messages_spoiler", "spoiler"),
                         StringResource("key_revanced_deleted_messages_cross_out", "cross-out")
                     )
-                ),
-                default = "cross-out"
+                )
             )
         )
 

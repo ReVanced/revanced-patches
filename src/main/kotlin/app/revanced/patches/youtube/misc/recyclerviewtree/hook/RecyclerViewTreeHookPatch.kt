@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.recyclerviewtree.hook
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
@@ -11,7 +11,7 @@ import app.revanced.patches.youtube.misc.recyclerviewtree.hook.fingerprints.Recy
 @Patch(
     dependencies = [IntegrationsPatch::class]
 )
-object RecyclerViewTreeHookPatch : BytecodePatch(
+internal object RecyclerViewTreeHookPatch : BytecodePatch(
     setOf(RecyclerViewTreeObserverFingerprint)
 ) {
     internal lateinit var addHook: (String) -> Unit
@@ -21,7 +21,7 @@ object RecyclerViewTreeHookPatch : BytecodePatch(
 
         RecyclerViewTreeObserverFingerprint.result?.let {
             it.mutableMethod.apply {
-                val insertIndex = it.scanResult.patternScanResult!!.startIndex + 5
+                val insertIndex = it.scanResult.patternScanResult!!.startIndex
                 val recyclerViewParameter = 2
 
                 addHook = { classDescriptor ->

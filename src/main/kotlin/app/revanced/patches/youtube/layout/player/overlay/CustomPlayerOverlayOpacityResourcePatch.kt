@@ -12,7 +12,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 @Patch(
     dependencies = [SettingsPatch::class, ResourceMappingPatch::class]
 )
-object CustomPlayerOverlayOpacityResourcePatch : ResourcePatch() {
+internal object CustomPlayerOverlayOpacityResourcePatch : ResourcePatch() {
     internal var scrimOverlayId = -1L
 
     override fun execute(context: ResourceContext) {

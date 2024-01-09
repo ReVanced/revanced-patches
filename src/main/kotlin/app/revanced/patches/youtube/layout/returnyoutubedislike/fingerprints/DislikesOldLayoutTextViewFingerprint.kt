@@ -6,7 +6,7 @@ import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object DislikesOldLayoutTextViewFingerprint : LiteralValueFingerprint(
+internal object DislikesOldLayoutTextViewFingerprint : LiteralValueFingerprint(
     returnType = "V",
     parameters = listOf("L"),
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,

@@ -1,13 +1,13 @@
 package app.revanced.patches.youtube.interaction.swipecontrols.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object SwipeControlsHostActivityFingerprint : MethodFingerprint(
+internal object SwipeControlsHostActivityFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     parameters = listOf(),
     customFingerprint = { methodDef, _ ->
-        methodDef.definingClass == "Lapp/revanced/integrations/swipecontrols/SwipeControlsHostActivity;"
+        methodDef.definingClass == "Lapp/revanced/integrations/youtube/swipecontrols/SwipeControlsHostActivity;"
     }
 )

@@ -1,10 +1,9 @@
 package app.revanced.patches.youtube.layout.buttons.navigation
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
@@ -16,12 +15,11 @@ import app.revanced.patches.youtube.layout.buttons.navigation.utils.InjectionUti
 import app.revanced.patches.youtube.layout.buttons.navigation.utils.InjectionUtils.injectHook
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Navigation buttons",
-    description = "Adds options to hide or change navigation buttons.",
+    description = "Adds options to hide and change navigation buttons (such as the Shorts button).",
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class,
@@ -31,14 +29,13 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
         CompatiblePackage(
             "com.google.android.youtube",
             [
-                "18.16.37",
-                "18.19.35",
-                "18.20.39",
-                "18.23.35",
-                "18.29.38",
                 "18.32.39",
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.41",
+                "18.45.43"
             ]
         )
     ]
@@ -48,7 +45,7 @@ object NavigationButtonsPatch : BytecodePatch(
     setOf(AddCreateButtonViewFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/NavigationButtonsPatch;"
+        "Lapp/revanced/integrations/youtube/patches/NavigationButtonsPatch;"
 
     override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
@@ -99,6 +96,10 @@ object NavigationButtonsPatch : BytecodePatch(
                         ),
                     ),
                 ),
+                StringResource(
+                    "revanced_navigation_buttons_preference_screen_summary",
+                    "Hide or change buttons in the navigation bar"
+                )
             )
         )
 
@@ -178,13 +179,7 @@ object NavigationButtonsPatch : BytecodePatch(
         }
 
         PivotBarCreateButtonViewFingerprint.result!!.apply {
-            val insertIndex = mutableMethod.implementation!!.instructions.let {
-                val scanStart = scanResult.patternScanResult!!.endIndex
-
-                scanStart + it.subList(scanStart, it.size - 1).indexOfFirst { instruction ->
-                    instruction.opcode == Opcode.INVOKE_STATIC
-                }
-            }
+            val insertIndex = scanResult.patternScanResult!!.endIndex
 
             /*
              * Inject hooks

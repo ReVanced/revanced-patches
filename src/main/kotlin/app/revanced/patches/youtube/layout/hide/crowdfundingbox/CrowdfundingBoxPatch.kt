@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.crowdfundingbox
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -13,7 +13,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Hide crowdfunding box",
-    description = "Hides the crowdfunding box between the player and video description.",
+    description = "Adds an option to hide the crowdfunding box between the player and video description.",
     dependencies = [
         IntegrationsPatch::class,
         CrowdfundingBoxResourcePatch::class
@@ -22,14 +22,13 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
         CompatiblePackage(
             "com.google.android.youtube",
             [
-                "18.16.37",
-                "18.19.35",
-                "18.20.39",
-                "18.23.35",
-                "18.29.38",
                 "18.32.39",
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.41",
+                "18.45.43"
             ]
         )
     ]
@@ -39,7 +38,7 @@ object CrowdfundingBoxPatch : BytecodePatch(
     setOf(CrowdfundingBoxFingerprint)
 ) {
     private const val INTEGRATIONS_METHOD_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/HideCrowdfundingBoxPatch;->hideCrowdfundingBox(Landroid/view/View;)V"
+        "Lapp/revanced/integrations/youtube/patches/HideCrowdfundingBoxPatch;->hideCrowdfundingBox(Landroid/view/View;)V"
 
     override fun execute(context: BytecodeContext) {
         CrowdfundingBoxFingerprint.result?.let {

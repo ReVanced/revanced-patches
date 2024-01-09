@@ -4,7 +4,7 @@ import app.revanced.patches.youtube.layout.hide.personalinformation.HideEmailAdd
 import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-object AccountSwitcherAccessibilityLabelFingerprint : LiteralValueFingerprint(
+internal object AccountSwitcherAccessibilityLabelFingerprint : LiteralValueFingerprint(
     returnType = "V",
     parameters = listOf("L", "Ljava/lang/Object;"),
     opcodes = listOf(

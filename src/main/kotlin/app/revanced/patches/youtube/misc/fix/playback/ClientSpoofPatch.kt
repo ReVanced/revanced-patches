@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.fix.playback
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -13,20 +13,19 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch(
     name = "Client spoof",
-    description = "Spoofs the client to allow playback.",
+    description = "Adds options to spoof the client to allow video playback.",
     dependencies = [SpoofSignaturePatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
             [
-                "18.16.37",
-                "18.19.35",
-                "18.20.39",
-                "18.23.35",
-                "18.29.38",
                 "18.32.39",
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.41",
+                "18.45.43"
             ]
         )
     ]

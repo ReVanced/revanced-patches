@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.theme
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
@@ -15,7 +15,7 @@ import app.revanced.patches.youtube.layout.theme.fingerprints.LithoThemeFingerpr
         CompatiblePackage("com.google.android.youtube"),
     ]
 )
-object LithoColorHookPatch : BytecodePatch(setOf(LithoThemeFingerprint)) {
+internal object LithoColorHookPatch : BytecodePatch(setOf(LithoThemeFingerprint)) {
     private var insertionIndex : Int = -1
     private lateinit var colorRegister : String
     private lateinit var insertionMethod : MutableMethod

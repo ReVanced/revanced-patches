@@ -1,6 +1,6 @@
 package app.revanced.patches.nyx.misc.pro
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
@@ -10,7 +10,7 @@ import app.revanced.patches.nyx.misc.pro.fingerprints.CheckProFingerprint
 
 @Patch(
     name = "Unlock pro",
-    compatiblePackages = [CompatiblePackage("com.awedea.nyx")]
+    compatiblePackages = [CompatiblePackage("com.awedea.nyx", ["2.2.7"])]
 )
 @Suppress("unused")
 object UnlockProPatch : BytecodePatch(setOf(CheckProFingerprint)) {

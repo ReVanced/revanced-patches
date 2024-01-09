@@ -1,11 +1,11 @@
 package app.revanced.patches.lightroom.misc.login.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object IsLoggedInFingerprint : MethodFingerprint(
+internal object IsLoggedInFingerprint : MethodFingerprint(
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC or AccessFlags.FINAL,
     opcodes = listOf(

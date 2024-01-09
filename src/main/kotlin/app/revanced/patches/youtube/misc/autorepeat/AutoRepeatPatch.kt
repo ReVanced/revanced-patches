@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.misc.autorepeat
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
@@ -17,21 +16,20 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 
 @Patch(
-    name = "Always autorepeat",
-    description = "Always repeats the playing video again.",
+    name = "Always repeat",
+    description = "Adds an option to always repeat videos when they end.",
     dependencies = [IntegrationsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
             [
-                "18.16.37",
-                "18.19.35",
-                "18.20.39",
-                "18.23.35",
-                "18.29.38",
                 "18.32.39",
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.41",
+                "18.45.43"
             ]
         )
     ]
@@ -54,7 +52,7 @@ object AutoRepeatPatch : BytecodePatch(
         val parentResult = AutoRepeatParentFingerprint.result
             ?: throw PatchException("ParentFingerprint did not resolve.")
 
-        //this one needs to be called when app/revanced/integrations/patches/AutoRepeatPatch;->shouldAutoRepeat() returns true
+        //this one needs to be called when app/revanced/integrations/youtube/patches/AutoRepeatPatch;->shouldAutoRepeat() returns true
         val playMethod = parentResult.mutableMethod
         AutoRepeatFingerprint.resolve(context, parentResult.classDef)
         //String is: Laamp;->E()V
@@ -67,7 +65,7 @@ object AutoRepeatPatch : BytecodePatch(
 
         //Instructions to add to the smali code
         val instructions = """
-            invoke-static {}, Lapp/revanced/integrations/patches/AutoRepeatPatch;->shouldAutoRepeat()Z
+            invoke-static {}, Lapp/revanced/integrations/youtube/patches/AutoRepeatPatch;->shouldAutoRepeat()Z
             move-result v0
             if-eqz v0, :noautorepeat
             invoke-virtual {p0}, $methodToCall

@@ -10,7 +10,7 @@ import java.nio.file.Files
 
 @Patch(
     name = "Dynamic color",
-    description = "Replaces the default Twitter Blue with the user's Material You palette.",
+    description = "Replaces the default X (Formerly Twitter) Blue with the user's Material You palette.",
     compatiblePackages = [CompatiblePackage("com.twitter.android")]
 )
 @Suppress("unused")
@@ -46,8 +46,7 @@ object DynamicColorPatch : ResourcePatch() {
                 "twitter_blue_opacity_30" to "@android:color/system_accent1_100",
                 "twitter_blue_opacity_50" to "@android:color/system_accent1_200",
                 "twitter_blue_opacity_58" to "@android:color/system_accent1_300",
-                "deep_transparent_twitter_blue" to "@android:color/system_accent1_200",
-                "ic_launcher_background" to "#1DA1F2"
+                "deep_transparent_twitter_blue" to "@android:color/system_accent1_200"
             ).forEach { (k, v) ->
                 val colorElement = document.createElement("color")
 

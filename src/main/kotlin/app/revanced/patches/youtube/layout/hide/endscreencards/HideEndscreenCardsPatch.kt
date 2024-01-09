@@ -1,10 +1,10 @@
 package app.revanced.patches.youtube.layout.hide.endscreencards
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
@@ -16,7 +16,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
 
 @Patch(
     name = "Hide endscreen cards",
-    description = "Hides the suggested video cards at the end of a video in fullscreen.",
+    description = "Adds an option to hide suggested video cards at the end of videos.",
     dependencies = [
         IntegrationsPatch::class,
         HideEndscreenCardsResourcePatch::class
@@ -25,14 +25,13 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
         CompatiblePackage(
             "com.google.android.youtube",
             [
-                "18.16.37",
-                "18.19.35",
-                "18.20.39",
-                "18.23.35",
-                "18.29.38",
                 "18.32.39",
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.41",
+                "18.45.43"
             ]
         )
     ]
@@ -54,7 +53,7 @@ object HideEndscreenCardsPatch : BytecodePatch(
 
                 addInstruction(
                     insertIndex,
-                    "invoke-static { v$viewRegister }, Lapp/revanced/integrations/patches/HideEndscreenCardsPatch;->hideEndscreen(Landroid/view/View;)V"
+                    "invoke-static { v$viewRegister }, Lapp/revanced/integrations/youtube/patches/HideEndscreenCardsPatch;->hideEndscreen(Landroid/view/View;)V"
                 )
             }
         }

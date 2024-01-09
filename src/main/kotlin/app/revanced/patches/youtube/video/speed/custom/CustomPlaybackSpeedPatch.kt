@@ -1,13 +1,12 @@
 package app.revanced.patches.youtube.video.speed.custom
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
@@ -41,10 +40,10 @@ object CustomPlaybackSpeedPatch : BytecodePatch(
     )
 ) {
     private const val FILTER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/components/PlaybackSpeedMenuFilterPatch;"
+        "Lapp/revanced/integrations/youtube/patches/components/PlaybackSpeedMenuFilterPatch;"
 
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/playback/speed/CustomPlaybackSpeedPatch;"
+        "Lapp/revanced/integrations/youtube/patches/playback/speed/CustomPlaybackSpeedPatch;"
 
     override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(

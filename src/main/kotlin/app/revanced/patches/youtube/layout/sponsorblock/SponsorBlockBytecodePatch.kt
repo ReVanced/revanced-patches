@@ -1,20 +1,16 @@
 package app.revanced.patches.youtube.layout.sponsorblock
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.fingerprints.LayoutConstructorFingerprint
-import app.revanced.patches.youtube.shared.fingerprints.SeekbarFingerprint
-import app.revanced.patches.shared.fingerprints.SeekbarOnDrawFingerprint
 import app.revanced.patches.shared.mapping.misc.ResourceMappingPatch
 import app.revanced.patches.youtube.layout.sponsorblock.fingerprints.AppendTimeFingerprint
 import app.revanced.patches.youtube.layout.sponsorblock.fingerprints.ControlsOverlayFingerprint
@@ -24,6 +20,9 @@ import app.revanced.patches.youtube.misc.autorepeat.fingerprints.AutoRepeatParen
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playercontrols.PlayerControlsBytecodePatch
 import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
+import app.revanced.patches.youtube.shared.fingerprints.LayoutConstructorFingerprint
+import app.revanced.patches.youtube.shared.fingerprints.SeekbarFingerprint
+import app.revanced.patches.youtube.shared.fingerprints.SeekbarOnDrawFingerprint
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import com.android.tools.smali.dexlib2.Opcode
@@ -35,18 +34,17 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 @Patch(
     name = "SponsorBlock",
-    description = "Integrates SponsorBlock which allows skipping video segments such as sponsored content.",
+    description = "Adds options to enable and configure SponsorBlock, which can skip undesired video segments such as sponsored content.",
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
-                "18.16.37",
-                "18.19.35",
-                "18.20.39",
-                "18.23.35",
-                "18.29.38",
                 "18.32.39",
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.41",
+                "18.45.43"
             ]
         )
     ],
@@ -71,13 +69,13 @@ object SponsorBlockBytecodePatch : BytecodePatch(
     )
 ) {
     private const val INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/sponsorblock/SegmentPlaybackController;"
+        "Lapp/revanced/integrations/youtube/sponsorblock/SegmentPlaybackController;"
     private const val INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/sponsorblock/ui/CreateSegmentButtonController;"
+        "Lapp/revanced/integrations/youtube/sponsorblock/ui/CreateSegmentButtonController;"
     private const val INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/sponsorblock/ui/VotingButtonController;"
+        "Lapp/revanced/integrations/youtube/sponsorblock/ui/VotingButtonController;"
     private const val INTEGRATIONS_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/sponsorblock/ui/SponsorBlockViewController;"
+        "Lapp/revanced/integrations/youtube/sponsorblock/ui/SponsorBlockViewController;"
 
     override fun execute(context: BytecodeContext) {
         LayoutConstructorFingerprint.result?.let {

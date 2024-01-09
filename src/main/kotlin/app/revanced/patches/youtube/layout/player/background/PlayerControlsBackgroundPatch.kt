@@ -1,26 +1,25 @@
 package app.revanced.patches.youtube.layout.player.background
 
-import app.revanced.extensions.doRecursively
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.util.doRecursively
 import org.w3c.dom.Element
 
 @Patch(
     name = "Remove player controls background",
-    description = "Removes the background from the video player controls.",
+    description = "Removes the dark background surrounding the video player controls.",
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
-                "18.16.37",
-                "18.19.35",
-                "18.20.39",
-                "18.23.35",
-                "18.29.38",
                 "18.32.39",
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.41",
+                "18.45.43"
             ]
         )
     ],

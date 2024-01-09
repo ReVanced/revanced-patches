@@ -17,7 +17,7 @@ import app.revanced.patches.twitch.misc.settings.SettingsPatch
     name = "Block audio ads",
     description = "Blocks audio ads in streams and VODs.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
-    compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0"])],
+    compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])],
 )
 @Suppress("unused")
 object AudioAdsPatch : BytecodePatch(
@@ -29,7 +29,7 @@ object AudioAdsPatch : BytecodePatch(
             mutableMethod.addInstructionsWithLabels(
                 0,
                 """
-                    invoke-static { }, Lapp/revanced/twitch/patches/AudioAdsPatch;->shouldBlockAudioAds()Z
+                    invoke-static { }, Lapp/revanced/integrations/twitch/patches/AudioAdsPatch;->shouldBlockAudioAds()Z
                     move-result v0
                     if-eqz v0, :show_audio_ads
                     return-void
@@ -52,8 +52,7 @@ object AudioAdsPatch : BytecodePatch(
                 StringResource(
                     "revanced_block_audio_ads_off",
                     "Audio ads are unblocked"
-                ),
-                default = true,
+                )
             )
         )
     }

@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.panels.popup
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.BytecodePatch
@@ -14,19 +14,18 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
     name = "Disable player popup panels",
-    description = "Disables panels from appearing automatically when going into fullscreen (playlist or live chat).",
+    description = "Adds an option to disable panels (such as live chat) from opening automatically.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
-                "18.16.37",
-                "18.19.35",
-                "18.20.39",
-                "18.23.35",
-                "18.29.38",
                 "18.32.39",
                 "18.37.36",
-                "18.38.44"
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.41",
+                "18.45.43"
             ]
         )
     ]
@@ -51,7 +50,7 @@ object PlayerPopupPanelsPatch : BytecodePatch(
         engagementPanelControllerMethod.addInstructionsWithLabels(
             0,
             """
-                invoke-static { }, Lapp/revanced/integrations/patches/DisablePlayerPopupPanelsPatch;->disablePlayerPopupPanels()Z
+                invoke-static { }, Lapp/revanced/integrations/youtube/patches/DisablePlayerPopupPanelsPatch;->disablePlayerPopupPanels()Z
                 move-result v0
                 if-eqz v0, :player_popup_panels
                 if-eqz p4, :player_popup_panels

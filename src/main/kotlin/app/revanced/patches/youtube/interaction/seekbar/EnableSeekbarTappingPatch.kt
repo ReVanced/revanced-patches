@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.interaction.seekbar
 
-import app.revanced.extensions.exception
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -20,21 +20,17 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Seekbar tapping",
-    description = "Enables tap-to-seek on the seekbar of the video player.",
+    description = "Adds an option to enable tap-to-seek on the seekbar of the video player.",
     dependencies = [
         IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
             [
-                "18.16.37",
-                "18.19.35",
-                "18.20.39",
-                "18.23.35",
-                "18.29.38",
-                "18.32.39",
-                "18.37.36",
-                "18.38.44"
+                "18.43.45",
+                "18.44.41",
+                "18.45.41",
+                "18.45.43"
             ]
         )
     ]
@@ -64,8 +60,8 @@ object EnableSeekbarTappingPatch : BytecodePatch(
                 .reference as MethodReference
 
             buildMap {
-                put("O", getReference(patternScanResult.endIndex))
                 put("N", getReference(patternScanResult.startIndex))
+                put("O", getReference(patternScanResult.endIndex))
             }
         }
 
@@ -89,7 +85,7 @@ object EnableSeekbarTappingPatch : BytecodePatch(
                 addInstructionsWithLabels(
                     insertIndex,
                     """
-                        invoke-static { }, Lapp/revanced/integrations/patches/SeekbarTappingPatch;->seekbarTappingEnabled()Z
+                        invoke-static { }, Lapp/revanced/integrations/youtube/patches/SeekbarTappingPatch;->seekbarTappingEnabled()Z
                         move-result v$freeRegister
                         if-eqz v$freeRegister, :disabled
                         ${oMethod.toInvokeInstructionString()}
