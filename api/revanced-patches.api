@@ -333,6 +333,20 @@ public final class app/revanced/patches/myexpenses/misc/pro/UnlockProPatch : app
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/myfitnesspal/ads/HideAdsPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/myfitnesspal/ads/HideAdsPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/myfitnesspal/ads/fingerprints/IsPremiumUseCaseImplFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/myfitnesspal/ads/fingerprints/IsPremiumUseCaseImplFingerprint;
+}
+
+public final class app/revanced/patches/myfitnesspal/ads/fingerprints/MainActivityNavigateToNativePremiumUpsellFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/myfitnesspal/ads/fingerprints/MainActivityNavigateToNativePremiumUpsellFingerprint;
+}
+
 public final class app/revanced/patches/netguard/broadcasts/removerestriction/RemoveBroadcastsRestrictionPatch : app/revanced/patcher/patch/ResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/netguard/broadcasts/removerestriction/RemoveBroadcastsRestrictionPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V

@@ -1,3 +1,31 @@
+# [4.0.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.5...v4.0.0-dev.6) (2024-01-09)
+
+
+### Features
+
+* **Tiktok - Playback speed:** Remember playback speed ([#2506](https://github.com/ReVanced/revanced-patches/issues/2506)) ([d2970e5](https://github.com/ReVanced/revanced-patches/commit/d2970e54fbbd7e4b1ae1d354ae2d5c4bbe9336b0))
+
+# [4.0.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.4...v4.0.0-dev.5) (2024-01-09)
+
+
+### Bug Fixes
+
+* **YouTube - Change header:** Improve patch descriptions ([#2581](https://github.com/ReVanced/revanced-patches/issues/2581)) ([43a5677](https://github.com/ReVanced/revanced-patches/commit/43a5677397380f14a049ae95532fd5096b94c938))
+
+# [4.0.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.3...v4.0.0-dev.4) (2024-01-09)
+
+
+### Features
+
+* **MyFitnessPal:** Add `Hide ads` patch ([#2594](https://github.com/ReVanced/revanced-patches/issues/2594)) ([fd4b3c7](https://github.com/ReVanced/revanced-patches/commit/fd4b3c79a83f8de6256611629263d3e29e66f2c2))
+
+# [4.0.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.2...v4.0.0-dev.3) (2024-01-09)
+
+
+### Features
+
+* **Change package name:** Mention caveat of the patch in the description ([427b81a](https://github.com/ReVanced/revanced-patches/commit/427b81a79a5a1de79f14d2261059fb098b22227f))
+
 # [4.0.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.1...v4.0.0-dev.2) (2024-01-02)
 
 
