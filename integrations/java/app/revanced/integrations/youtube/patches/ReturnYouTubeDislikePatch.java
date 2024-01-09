@@ -202,9 +202,8 @@ public class ReturnYouTubeDislikePatch {
      */
     @NonNull
     public static CharSequence onLithoTextLoaded(@NonNull Object conversionContext,
-                                                 @Nullable AtomicReference<CharSequence> textRef,
                                                  @NonNull CharSequence original) {
-        return onLithoTextLoaded(conversionContext, textRef, original, false);
+        return onLithoTextLoaded(conversionContext, original, false);
     }
 
     /**
@@ -214,16 +213,12 @@ public class ReturnYouTubeDislikePatch {
      * This method is sometimes called on the main thread, but it usually is called _off_ the main thread.
      * This method can be called multiple times for the same UI element (including after dislikes was added).
      *
-     * @param textRef Optional cache reference to the like/dislike char sequence,
-     *                which may or may not be the same as the original span parameter.
-     *                If dislikes are added, the atomic reference must be set to the replacement span.
      * @param original Original char sequence was created or reused by Litho.
      * @param isRollingNumber If the span is for a Rolling Number.
      * @return The original char sequence (if nothing should change), or a replacement char sequence that contains dislikes.
      */
     @NonNull
     private static CharSequence onLithoTextLoaded(@NonNull Object conversionContext,
-                                                  @Nullable AtomicReference<CharSequence> textRef,
                                                   @NonNull CharSequence original,
                                                   boolean isRollingNumber) {
         try {
@@ -280,7 +275,6 @@ public class ReturnYouTubeDislikePatch {
                 return original;
             }
 
-            if (textRef != null) textRef.set(replacement);
             return replacement;
         } catch (Exception ex) {
             Logger.printException(() -> "onLithoTextLoaded failure", ex);
@@ -305,7 +299,7 @@ public class ReturnYouTubeDislikePatch {
     public static String onRollingNumberLoaded(@NonNull Object conversionContext,
                                                @NonNull String original) {
         try {
-            CharSequence replacement = onLithoTextLoaded(conversionContext, null, original, true);
+            CharSequence replacement = onLithoTextLoaded(conversionContext, original, true);
             if (!replacement.toString().equals(original)) {
                 rollingNumberSpan = replacement;
                 return replacement.toString();
