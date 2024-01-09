@@ -6,6 +6,6 @@ import com.android.tools.smali.dexlib2.AccessFlags
 object IsPremiumUseCaseImplFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC.value,
     customFingerprint = { methodDef, classDef ->
-        classDef.type.endsWith("myfitnesspal/libs/ads/usecases/IsPremiumUseCaseImpl;") && methodDef.name == "isPremium"
+        classDef.type.endsWith("myfitnesspal/libs/ads/usecases/IsPremiumUseCaseImpl;") && methodDef.name == "doWork"
     }
 )
