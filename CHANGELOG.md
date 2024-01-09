@@ -1,3 +1,10 @@
+# [4.0.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.5...v4.0.0-dev.6) (2024-01-09)
+
+
+### Features
+
+* **Tiktok - Playback speed:** Remember playback speed ([#2506](https://github.com/ReVanced/revanced-patches/issues/2506)) ([d2970e5](https://github.com/ReVanced/revanced-patches/commit/d2970e54fbbd7e4b1ae1d354ae2d5c4bbe9336b0))
+
 # [4.0.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.4...v4.0.0-dev.5) (2024-01-09)
 
 
