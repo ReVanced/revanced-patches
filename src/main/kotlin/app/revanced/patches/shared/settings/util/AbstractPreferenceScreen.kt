@@ -1,16 +1,16 @@
 package app.revanced.patches.shared.settings.util
 
 import app.revanced.patches.shared.settings.preference.BasePreference
+import app.revanced.patches.shared.settings.preference.impl.IntentPreference
 import app.revanced.patches.shared.settings.preference.impl.PreferenceCategory
 import app.revanced.patches.shared.settings.preference.impl.PreferenceScreen
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.removePunctuation
+import app.revanced.util.resource.StringResource
 import java.io.Closeable
 
 abstract class AbstractPreferenceScreen(
     private val root: MutableList<Screen> = mutableListOf()
 ) : Closeable {
-
     override fun close() {
         if (root.isEmpty())
             return
@@ -39,8 +39,9 @@ abstract class AbstractPreferenceScreen(
             ),
             preferences.sortedWith(
                 compareBy(
+                    { it is IntentPreference },
                     { it is PreferenceScreen },
-                    { it.title.value.removePunctuation().lowercase() }
+                    { it.title.value.removePunctuation().lowercase() },
                 )
             ) + categories.sortedBy {
                 it.title.removePunctuation().lowercase()

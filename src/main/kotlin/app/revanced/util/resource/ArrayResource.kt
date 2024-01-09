@@ -1,6 +1,5 @@
-package app.revanced.patches.shared.settings.preference.impl
+package app.revanced.util.resource
 
-import app.revanced.patches.shared.settings.preference.BaseResource
 import org.w3c.dom.Document
 
 // TODO: allow specifying an array resource file instead of using a list of StringResources

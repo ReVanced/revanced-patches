@@ -1,11 +1,11 @@
 package app.revanced.patches.shared.settings.preference.impl
 
-import app.revanced.patches.shared.settings.AbstractSettingsResourcePatch.Companion.include
-import app.revanced.patches.shared.settings.preference.BasePreference
-import app.revanced.patches.shared.settings.preference.BaseResource
 import app.revanced.patches.shared.settings.preference.SummaryType
+import app.revanced.patches.shared.settings.preference.BasePreference
 import app.revanced.patches.shared.settings.preference.addSummary
 import org.w3c.dom.Document
+import app.revanced.util.resource.BaseResource
+import app.revanced.util.resource.StringResource
 import org.w3c.dom.Element
 
 /**
@@ -24,7 +24,7 @@ class SwitchPreference(
     val userDialogMessage: StringResource? = null,
 ) : BasePreference(key, title, null, "SwitchPreference") {
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit): Element {
-        userDialogMessage?.include()
+        userDialogMessage?.let(resourceCallback::invoke)
 
         return super.serialize(ownerDocument, resourceCallback).apply {
             addSummary(summaryOn.also { resourceCallback.invoke(it) }, SummaryType.ON)

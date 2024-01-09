@@ -10,6 +10,8 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.revanced.util.resource.ArrayResource
+import app.revanced.util.resource.StringResource
 import app.revanced.patches.shared.settings.preference.impl.*
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.MessageDigestImageUrlFingerprint
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.MessageDigestImageUrlParentFingerprint

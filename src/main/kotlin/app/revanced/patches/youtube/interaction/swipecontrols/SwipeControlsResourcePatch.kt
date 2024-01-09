@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.interaction.swipecontrols
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.util.resource.StringResource
 import app.revanced.patches.shared.settings.preference.impl.*
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.ResourceGroup

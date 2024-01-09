@@ -7,12 +7,16 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.settings.preference.impl.Preference
+import app.revanced.patches.all.misc.packagename.ChangePackageNamePatch
+import app.revanced.patches.shared.settings.preference.impl.InputType
+import app.revanced.patches.shared.settings.preference.impl.IntentPreference
+import app.revanced.patches.shared.settings.preference.impl.TextPreference
 import app.revanced.patches.shared.settings.util.AbstractPreferenceScreen
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.fingerprints.LicenseActivityOnCreateFingerprint
 import app.revanced.patches.youtube.misc.settings.fingerprints.SetThemeFingerprint
 import app.revanced.util.exception
+import app.revanced.util.resource.StringResource
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.util.MethodUtil
@@ -70,32 +74,29 @@ object SettingsPatch : BytecodePatch(
                 methods.removeIf { it.name != "onCreate" && !MethodUtil.isConstructor(it) }
             }
         } ?: throw LicenseActivityOnCreateFingerprint.exception
-    }
 
-    fun addString(identifier: String, value: String, formatted: Boolean = true) =
-        SettingsResourcePatch.addString(identifier, value, formatted)
-
-    fun addPreferenceScreen(preferenceScreen: app.revanced.patches.shared.settings.preference.impl.PreferenceScreen) =
-        SettingsResourcePatch.addPreferenceScreen(preferenceScreen)
-
-    fun addPreference(preference: Preference) = SettingsResourcePatch.addPreference(preference)
-
-    fun renameIntentsTargetPackage(newPackage: String) {
-        SettingsResourcePatch.overrideIntentsTargetPackage = newPackage
+        PreferenceScreen.MISC.addPreferences(
+            TextPreference(
+                key = null,
+                title = StringResource("revanced_pref_import_export_title", "Import / Export"),
+                summary = StringResource("revanced_pref_import_export_summary", "Import / Export ReVanced settings"),
+                inputType = InputType.TEXT_MULTI_LINE,
+                tag = "app.revanced.integrations.shared.settings.preference.ImportExportPreference"
+            )
+        )
     }
 
     /**
-     * Creates an intent to open ReVanced settings of the given name
+     * Creates an intent to open ReVanced settings.
      */
-    fun createReVancedSettingsIntent(settingsName: String) = Preference.Intent(
-        "com.google.android.youtube",
-        settingsName,
-        "com.google.android.libraries.social.licenses.LicenseActivity"
-    )
+    fun newIntent(settingsName: String) = IntentPreference.Intent(
+        data = settingsName,
+        targetClass = "com.google.android.libraries.social.licenses.LicenseActivity"
+    ) {
+        // The package name change has to be reflected in the intent.
+        ChangePackageNamePatch.setOrGetFallbackPackageName("com.google.android.apps.youtube")
+    }
 
-    /**
-     * Preference screens patches should add their settings to.
-     */
     object PreferenceScreen : AbstractPreferenceScreen() {
         val ADS = Screen("ads", "Ads", "Ad related settings")
         val INTERACTIONS = Screen("interactions", "Interaction", "Settings related to interactions")
@@ -103,9 +104,8 @@ object SettingsPatch : BytecodePatch(
         val VIDEO = Screen("video", "Video", "Settings related to the video player")
         val MISC = Screen("misc", "Misc", "Miscellaneous patches")
 
-        override fun commit(screen: app.revanced.patches.shared.settings.preference.impl.PreferenceScreen) {
-            addPreferenceScreen(screen)
-        }
+        override fun commit(screen: app.revanced.patches.shared.settings.preference.impl.PreferenceScreen) =
+            SettingsResourcePatch.addPreference(screen)
     }
 
     override fun close() = PreferenceScreen.close()

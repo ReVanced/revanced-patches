@@ -1,4 +1,4 @@
-package app.revanced.patches.shared.settings.preference
+package app.revanced.util.resource
 
 import org.w3c.dom.Document
 import org.w3c.dom.Element
@@ -23,5 +23,20 @@ abstract class BaseResource(
         return ownerDocument.createElement(tag).apply {
             setAttribute("name", name)
         }
+    }
+
+    override fun hashCode(): Int {
+        var result = name.hashCode()
+        result = 31 * result + tag.hashCode()
+        return result
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as BaseResource
+
+        return name == other.name
     }
 }

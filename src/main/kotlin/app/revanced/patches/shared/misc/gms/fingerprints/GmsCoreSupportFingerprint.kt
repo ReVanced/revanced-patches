@@ -2,7 +2,7 @@ package app.revanced.patches.shared.misc.gms.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 
-object GmsCoreSupportFingerprint : MethodFingerprint(
+internal object GmsCoreSupportFingerprint : MethodFingerprint(
     customFingerprint = { _, classDef ->
         classDef.type.endsWith("GmsCoreSupport;")
     }

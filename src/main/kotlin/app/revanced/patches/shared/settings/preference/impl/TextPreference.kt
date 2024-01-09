@@ -1,7 +1,8 @@
 package app.revanced.patches.shared.settings.preference.impl
 
 import app.revanced.patches.shared.settings.preference.BasePreference
-import app.revanced.patches.shared.settings.preference.BaseResource
+import app.revanced.util.resource.BaseResource
+import app.revanced.util.resource.StringResource
 import org.w3c.dom.Document
 
 /**
@@ -19,7 +20,6 @@ class TextPreference(
     val inputType: InputType = InputType.TEXT,
     tag: String = "app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference"
 ) : BasePreference(key, title, summary, tag) {
-
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
         super.serialize(ownerDocument, resourceCallback).apply {
             setAttribute("android:inputType", inputType.type)

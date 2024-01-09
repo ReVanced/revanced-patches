@@ -4,8 +4,10 @@ import app.revanced.patches.music.misc.gms.Constants.MUSIC_PACKAGE_NAME
 import app.revanced.patches.music.misc.gms.Constants.REVANCED_MUSIC_PACKAGE_NAME
 import app.revanced.patches.music.misc.gms.GmsCoreSupportResourcePatch.gmsCoreVendorOption
 import app.revanced.patches.music.misc.gms.fingerprints.*
+import app.revanced.patches.music.misc.integrations.fingerprints.ApplicationInitFingerprint
+import app.revanced.patches.music.misc.integrations.IntegrationsPatch
 import app.revanced.patches.shared.misc.gms.AbstractGmsCoreSupportPatch
-import app.revanced.patches.youtube.misc.gms.fingerprints.CastContextFetchFingerprint
+import app.revanced.patches.shared.fingerprints.CastContextFetchFingerprint
 
 @Suppress("unused")
 object GmsCoreSupportPatch : AbstractGmsCoreSupportPatch(
@@ -19,6 +21,8 @@ object GmsCoreSupportPatch : AbstractGmsCoreSupportPatch(
         CastDynamiteModuleV2Fingerprint,
         CastContextFetchFingerprint,
     ),
+    mainActivityOnCreateFingerprint = ApplicationInitFingerprint,
+    integrationsPatchDependency = IntegrationsPatch::class,
     abstractGmsCoreSupportResourcePatch = GmsCoreSupportResourcePatch,
     compatiblePackages = setOf(CompatiblePackage("com.google.android.apps.youtube.music")),
     fingerprints = setOf(

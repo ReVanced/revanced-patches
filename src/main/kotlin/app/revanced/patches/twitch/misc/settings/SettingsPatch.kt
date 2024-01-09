@@ -11,8 +11,9 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.all.misc.resources.AddResourcesPatch.addString
 import app.revanced.patches.shared.settings.preference.impl.PreferenceCategory
-import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.shared.settings.util.AbstractPreferenceScreen
 import app.revanced.patches.twitch.misc.integrations.IntegrationsPatch
@@ -21,6 +22,7 @@ import app.revanced.patches.twitch.misc.settings.fingerprints.MenuGroupsUpdatedF
 import app.revanced.patches.twitch.misc.settings.fingerprints.SettingsActivityOnCreateFingerprint
 import app.revanced.patches.twitch.misc.settings.fingerprints.SettingsMenuItemEnumFingerprint
 import app.revanced.util.exception
+import app.revanced.util.resource.StringResource
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import java.io.Closeable
@@ -29,7 +31,11 @@ import java.io.Closeable
 @Patch(
     name = "Settings",
     description = "Adds settings menu to Twitch.",
-    dependencies = [IntegrationsPatch::class, SettingsResourcePatch::class],
+    dependencies = [
+        IntegrationsPatch::class,
+        SettingsResourcePatch::class,
+        AddResourcesPatch::class,
+    ],
     compatiblePackages = [
         CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])
     ]
@@ -107,7 +113,7 @@ object SettingsPatch : BytecodePatch(
                 """,
                 ExternalLabel("no_rv_settings_onclick", mutableMethod.getInstruction(insertIndex))
             )
-        }  ?: throw MenuGroupsOnClickFingerprint.exception
+        } ?: throw MenuGroupsOnClickFingerprint.exception
 
         addString("revanced_settings", "ReVanced Settings", false)
 
@@ -120,12 +126,6 @@ object SettingsPatch : BytecodePatch(
             ),
         )
     }
-
-    fun addString(identifier: String, value: String, formatted: Boolean = true) =
-        SettingsResourcePatch.addString(identifier, value, formatted)
-
-    fun addPreferenceScreen(preferenceScreen: app.revanced.patches.shared.settings.preference.impl.PreferenceScreen) =
-        SettingsResourcePatch.addPreferenceScreen(preferenceScreen)
 
     private fun MethodFingerprintResult.injectMenuItem(
         name: String,
@@ -193,9 +193,8 @@ object SettingsPatch : BytecodePatch(
             }
         }
 
-        override fun commit(screen: app.revanced.patches.shared.settings.preference.impl.PreferenceScreen) {
-            addPreferenceScreen(screen)
-        }
+        override fun commit(screen: app.revanced.patches.shared.settings.preference.impl.PreferenceScreen) =
+            SettingsResourcePatch.addPreference(screen)
     }
 
     override fun close() = PreferenceScreen.close()
