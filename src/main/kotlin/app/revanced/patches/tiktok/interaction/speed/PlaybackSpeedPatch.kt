@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.tiktok.interaction.speed.fingerprints.GetSpeedFingerprint
 import app.revanced.patches.tiktok.interaction.speed.fingerprints.OnRenderFirstFrameFingerprint
-import app.revanced.patches.tiktok.interaction.speed.fingerprints.OnVideoSwipedFingerprint
+import app.revanced.patches.tiktok.interaction.speed.fingerprints.SetSpeedFingerprint
 import app.revanced.util.exception
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -31,11 +31,11 @@ object PlaybackSpeedPatch : BytecodePatch(
     setOf(
         GetSpeedFingerprint,
         OnRenderFirstFrameFingerprint,
-        OnVideoSwipedFingerprint
+        SetSpeedFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
-        OnVideoSwipedFingerprint.result?.let { onVideoSwiped ->
+        SetSpeedFingerprint.result?.let { onVideoSwiped ->
             // Remember the playback speed of the current video.
             GetSpeedFingerprint.result?.mutableMethod?.apply {
                 val injectIndex = indexOfFirstInstruction { getReference<MethodReference>()?.returnType == "F" } + 2
@@ -77,6 +77,6 @@ object PlaybackSpeedPatch : BytecodePatch(
                 return v0
             """
             ) ?: throw PatchException("Failed to force enable the playback speed option.")
-        } ?: throw OnVideoSwipedFingerprint.exception
+        } ?: throw SetSpeedFingerprint.exception
     }
 }
