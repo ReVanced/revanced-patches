@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.video.videoid
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -13,6 +12,7 @@ import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
 import app.revanced.patches.youtube.video.videoid.fingerprint.VideoIdFingerprint
 import app.revanced.patches.youtube.video.videoid.fingerprint.VideoIdFingerprintBackgroundPlay
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -49,7 +49,7 @@ object VideoIdPatch : BytecodePatch(
                 consumer(it, insertIndex, videoIdRegister)
 
             }
-        } ?: throw VideoIdFingerprint.exception
+        } ?: throw exception
 
         VideoIdFingerprint.setFields { method, index, register ->
             videoIdMethod = method

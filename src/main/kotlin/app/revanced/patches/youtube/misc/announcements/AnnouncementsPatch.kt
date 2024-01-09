@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.settings.preference.impl.StringResource
 import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.patches.youtube.shared.fingerprints.WatchWhileActivityFingerprint
+import app.revanced.patches.youtube.shared.fingerprints.MainActivityFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
 @Patch(
@@ -21,15 +21,15 @@ import com.android.tools.smali.dexlib2.Opcode
 )
 @Suppress("unused")
 object AnnouncementsPatch : BytecodePatch(
-    setOf(WatchWhileActivityFingerprint)
+    setOf(MainActivityFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/announcements/AnnouncementsPatch;"
 
     override fun execute(context: BytecodeContext) {
-        val onCreateMethod = WatchWhileActivityFingerprint.result?.let {
+        val onCreateMethod = MainActivityFingerprint.result?.let {
             it.mutableClass.methods.find { method -> method.name == "onCreate" }
-        } ?: throw WatchWhileActivityFingerprint.exception
+        } ?: throw MainActivityFingerprint.exception
 
         val superCallIndex = onCreateMethod.getInstructions().indexOfFirst { it.opcode == Opcode.INVOKE_SUPER_RANGE }
 
