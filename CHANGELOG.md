@@ -1,3 +1,10 @@
+# [4.0.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.3...v4.0.0-dev.4) (2024-01-09)
+
+
+### Features
+
+* **MyFitnessPal:** Add `Hide ads` patch ([#2594](https://github.com/ReVanced/revanced-patches/issues/2594)) ([fd4b3c7](https://github.com/ReVanced/revanced-patches/commit/fd4b3c79a83f8de6256611629263d3e29e66f2c2))
+
 # [4.0.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.2...v4.0.0-dev.3) (2024-01-09)
 
 
