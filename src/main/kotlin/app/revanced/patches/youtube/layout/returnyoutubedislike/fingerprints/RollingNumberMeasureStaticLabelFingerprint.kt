@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 /**
- * Resolves to class found in [RollingNumberMeasureTextParentFingerprint].
+ * Resolves to class found in [RollingNumberMeasureStaticLabelParentFingerprint].
  */
 internal object RollingNumberMeasureStaticLabelFingerprint : MethodFingerprint(
     returnType = "F",
