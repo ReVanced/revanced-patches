@@ -25,12 +25,14 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
             [
                 "18.43.45",
                 "18.44.41",
-                "18.45.41",
-                "18.45.43"
+                "18.45.43",
+                "18.48.39",
+                "18.49.37"
             ]
         )
     ]
 )
+@Suppress("unused")
 object BypassURLRedirectsPatch : BytecodePatch(
     setOf(ABUriParserFingerprint, HTTPUriParserFingerprint)
 ) {

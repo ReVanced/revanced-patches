@@ -54,7 +54,7 @@ import com.android.tools.smali.dexlib2.iface.reference.TypeReference
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
-                "18.49.36"
+                "18.49.37"
             ]
         )
     ]
