@@ -44,7 +44,7 @@ object PlaybackSpeedPatch : BytecodePatch(
                 addInstruction(
                     injectIndex,
                     "invoke-static { v$register }," +
-                            " Lapp/revanced/tiktok/speed/SpeedPatch;->rememberPlaybackSpeed(F)V"
+                            " Lapp/revanced/integrations/tiktok/speed/PlaybackSpeedPatch;->rememberPlaybackSpeed(F)V"
                 )
             } ?: throw GetSpeedFingerprint.exception
 
@@ -63,7 +63,7 @@ object PlaybackSpeedPatch : BytecodePatch(
                 move-result-object v1
 
                 # Desired playback speed retrieved using getPlaybackSpeed method.
-                invoke-static {}, Lapp/revanced/tiktok/speed/SpeedPatch;->getPlaybackSpeed()F
+                invoke-static {}, Lapp/revanced/integrations/tiktok/speed/PlaybackSpeedPatch;->getPlaybackSpeed()F
                 move-result-object v2
                 invoke-static { v0, v1, v2 }, ${onVideoSwiped.method}
             """
