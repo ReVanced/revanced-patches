@@ -1,3 +1,10 @@
+# [4.0.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.7...v4.0.0-dev.8) (2024-01-10)
+
+
+### Bug Fixes
+
+* **YouTube:** Shorten setting titles to fit on screen ([#2579](https://github.com/ReVanced/revanced-patches/issues/2579)) ([b2a5dd3](https://github.com/ReVanced/revanced-patches/commit/b2a5dd3efc39ae8a42159858b9c00b5b2f8655a4))
+
 # [4.0.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.6...v4.0.0-dev.7) (2024-01-10)
 
 
