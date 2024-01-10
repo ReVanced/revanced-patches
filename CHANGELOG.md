@@ -1,3 +1,10 @@
+# [4.0.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.6...v4.0.0-dev.7) (2024-01-10)
+
+
+### Bug Fixes
+
+* Use new integrations patch path ([51e2f3b](https://github.com/ReVanced/revanced-patches/commit/51e2f3b476b49460e2f3fc2b5f302a3a72d7963f))
+
 # [4.0.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.5...v4.0.0-dev.6) (2024-01-09)
 
 
