@@ -17,7 +17,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Enable slide to seek",
-    description = "Adds an option to enable slide to seek instead of playing at 2x speed when pressing and holding in the video player.",
+    description = "Adds an option to enable slide to seek instead of playing at 2x speed when pressing and holding in the video player.  Including this patch may cause issues with tapping or double tapping the video player overlay.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -29,7 +29,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "18.45.43"
             ]
         )
-    ]
+    ],
+    use = false
 )
 @Suppress("unused")
 object EnableSlideToSeekPatch : BytecodePatch(
