@@ -12,7 +12,7 @@ import java.io.File
 
 @Patch(
     name = "Change header",
-    description = "Change the in app header. Defaults to the ReVanced header.",
+    description = "Applies a custom header in the top left corner within the app. Defaults to the ReVanced header.",
     compatiblePackages = [
         CompatiblePackage("com.google.android.youtube")
     ],
@@ -48,8 +48,8 @@ object ChangeHeaderPatch : ResourcePatch() {
         ),
         title = "Header",
         description = """
-            The header to use in top bar or the path to a custom header.
-            The path to a folder containing one or more of the following folders matching the DPI of your device:
+            Either a header name or a path to a custom header folder to use in the top bar.
+            The path to a folder must contain one or more of the following folders matching the DPI of your device:
 
             ${targetResourceDirectoryNames.joinToString("\n") { "- $it" }}
 
