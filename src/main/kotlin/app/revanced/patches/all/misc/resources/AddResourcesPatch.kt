@@ -79,6 +79,9 @@ object AddResourcesPatch : ResourcePatch(), MutableSet<BaseResource> by mutableS
                 // TODO: Below strongly violates the open-closed principle.
                 //  This should be rewritten to be more flexible in order to support any kind of resource
                 //  that may be added in the future, otherwise as of now, only strings and arrays can be added.
+
+                // TODO: This does not yet add strings other than English. Scan for all available languages and add
+                //  them as well.
                 addResources("strings", StringResource::fromNode)
                 addResources("arrays", ArrayResource::fromNode)
             } catch (e: Exception) {
