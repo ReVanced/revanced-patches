@@ -163,6 +163,10 @@ object AddResourcesPatch : ResourcePatch(), MutableSet<BaseResource> by mutableS
 
         fun addResource(resource: BaseResource) {
             when (resource) {
+                // TODO: Duplicates may be an issue here. I am not sure if these should be checked at all.
+                //  In theory no duplicates should be added at all.
+                // TODO: This only supports adding resources to the default language.
+                //  Instead, read StringResource#language and add the resource to the corresponding language.
                 is StringResource -> stringResources.addResource(resource)
                 is ArrayResource -> arraysResources.addResource(resource) { addResource(it) }
                 else -> throw NotImplementedError("Unsupported resource type")
