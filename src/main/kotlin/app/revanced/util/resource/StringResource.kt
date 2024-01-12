@@ -1,6 +1,7 @@
 package app.revanced.util.resource
 
 import org.w3c.dom.Document
+import org.w3c.dom.Node
 import java.util.*
 
 /**
@@ -25,4 +26,16 @@ class StringResource(
 
             textContent = value
         }
+
+    companion object {
+        fun fromNode(node: Node): StringResource {
+            val name = node.attributes.getNamedItem("name").textContent
+            val value = node.textContent
+            // TODO: Should this be true by default? It is too in the constructor of StringResource.
+            val formatted = node.attributes.getNamedItem("formatted")?.textContent?.toBoolean() ?: true
+            val language = node.attributes.getNamedItem("language")?.textContent ?: Locale.ENGLISH.language
+
+            return StringResource(name, value, formatted, language)
+        }
+    }
 }

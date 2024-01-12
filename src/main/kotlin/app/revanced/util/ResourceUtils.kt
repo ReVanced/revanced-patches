@@ -5,11 +5,29 @@ import app.revanced.patcher.util.DomFileEditor
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.util.resource.BaseResource
 import org.w3c.dom.Node
+import org.w3c.dom.NodeList
 import java.io.InputStream
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 
 private val classLoader = object {}.javaClass.classLoader
+
+/**
+ * Returns a sequence for all child nodes.
+ */
+fun NodeList.asSequence() = (0 until this.length).asSequence().map { this.item(it) }
+
+/**
+ * Returns a sequence for all child nodes.
+ */
+fun Node.childNodesSequence() = this.childNodes.asSequence()
+
+/**
+ * Performs the given [action] on each child node.
+ */
+fun Node.forEachChild(action: (Node) -> Unit) {
+    for (i in 0 until this.childNodes.length) action(this.childNodes.item(i))
+}
 
 /**
  * Recursively traverse the DOM tree starting from the given root node.

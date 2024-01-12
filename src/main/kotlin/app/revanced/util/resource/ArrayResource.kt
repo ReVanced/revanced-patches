@@ -1,8 +1,9 @@
 package app.revanced.util.resource
 
+import app.revanced.util.childNodesSequence
 import org.w3c.dom.Document
+import org.w3c.dom.Node
 
-// TODO: allow specifying an array resource file instead of using a list of StringResources
 /**
  *  An array resource.
  *
@@ -25,4 +26,14 @@ class ArrayResource(
                 })
             }
         }
+
+    companion object {
+        fun fromNode(node: Node): ArrayResource {
+            val key = node.attributes.getNamedItem("name").textContent
+
+            val items = node.childNodesSequence().map(StringResource::fromNode).toList()
+
+            return ArrayResource(key, items)
+        }
+    }
 }
