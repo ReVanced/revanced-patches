@@ -33,7 +33,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
                 "18.45.43",
                 "18.48.39",
                 "18.49.37",
-                "19.01.33"
+                "19.01.34"
             ]
         )
     ]
