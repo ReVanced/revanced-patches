@@ -1,3 +1,24 @@
+# [4.0.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.8...v4.0.0-dev.9) (2024-01-11)
+
+
+### Bug Fixes
+
+* **YouTube - Enable slide to seek:** Change patch default to excluded and add description disclaimer ([#2610](https://github.com/ReVanced/revanced-patches/issues/2610)) ([2fdc4c2](https://github.com/ReVanced/revanced-patches/commit/2fdc4c23b5f39153ad71071359274c39129d691f))
+
+# [4.0.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.7...v4.0.0-dev.8) (2024-01-10)
+
+
+### Bug Fixes
+
+* **YouTube:** Shorten setting titles to fit on screen ([#2579](https://github.com/ReVanced/revanced-patches/issues/2579)) ([b2a5dd3](https://github.com/ReVanced/revanced-patches/commit/b2a5dd3efc39ae8a42159858b9c00b5b2f8655a4))
+
+# [4.0.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.6...v4.0.0-dev.7) (2024-01-10)
+
+
+### Bug Fixes
+
+* Use new integrations patch path ([51e2f3b](https://github.com/ReVanced/revanced-patches/commit/51e2f3b476b49460e2f3fc2b5f302a3a72d7963f))
+
 # [4.0.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.5...v4.0.0-dev.6) (2024-01-09)
 
 
