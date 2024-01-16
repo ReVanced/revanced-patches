@@ -1,8 +1,10 @@
 package app.revanced.integrations.youtube.patches;
 
-import com.google.android.apps.youtube.app.watchwhile.WatchWhileActivity;
+import android.app.Activity;
+
 import app.revanced.integrations.shared.Logger;
 
+@SuppressWarnings("unused")
 public class FixBackToExitGesturePatch {
     /**
      * State whether the scroll position reaches the top.
@@ -14,7 +16,7 @@ public class FixBackToExitGesturePatch {
      *
      * @param activity The activity, the app is launched with to finish.
      */
-    public static void onBackPressed(WatchWhileActivity activity) {
+    public static void onBackPressed(Activity activity) {
         if (!isTopView) return;
 
         Logger.printDebug(() -> "Activity is closed");

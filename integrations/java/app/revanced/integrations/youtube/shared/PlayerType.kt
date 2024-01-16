@@ -5,7 +5,7 @@ import app.revanced.integrations.youtube.Event
 import app.revanced.integrations.shared.Logger
 
 /**
- * WatchWhile player type.
+ * Main player type.
  */
 enum class PlayerType {
     /**

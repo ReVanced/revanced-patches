@@ -348,6 +348,11 @@ public class ReturnYouTubeDislikePatch {
             } else {
                 view.setCompoundDrawables(separator, null, null, null);
             }
+            // Liking/disliking can cause the span to grow in size,
+            // which is ok and is laid out correctly,
+            // but if the user then undoes their action the layout will not remove the extra padding.
+            // Use a center alignment to take up any extra space.
+            view.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
             // Single line mode does not clip words if the span is larger than the view bounds.
             // The styled span applied to the view should always have the same bounds,
             // but use this feature just in case the measurements are somehow off by a few pixels.
@@ -364,6 +369,7 @@ public class ReturnYouTubeDislikePatch {
             Logger.printDebug(() -> "Removing rolling number TextView changes");
             view.setCompoundDrawablePadding(0);
             view.setCompoundDrawables(null, null, null, null);
+            view.setTextAlignment(View.TEXT_ALIGNMENT_GRAVITY); // Default alignment
             view.setSingleLine(false);
         }
     }
