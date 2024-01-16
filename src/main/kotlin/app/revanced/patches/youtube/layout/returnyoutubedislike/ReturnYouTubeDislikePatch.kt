@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
@@ -18,7 +17,7 @@ import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.Lik
 import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.RemoveLikeFingerprint
 import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.RollingNumberMeasureAnimatedTextFingerprint
 import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.RollingNumberMeasureStaticLabelFingerprint
-import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.RollingNumberMeasureTextParentFingerprint
+import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.RollingNumberMeasureStaticLabelParentFingerprint
 import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.RollingNumberSetterFingerprint
 import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.RollingNumberTextViewFingerprint
 import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.ShortsTextViewFingerprint
@@ -55,11 +54,8 @@ import com.android.tools.smali.dexlib2.iface.reference.TypeReference
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
-                "18.38.44",
-                "18.43.45",
-                "18.44.41",
-                "18.45.41",
-                "18.45.43"
+                "18.49.37",
+                "19.01.34"
             ]
         )
     ]
@@ -76,7 +72,8 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
         DislikeFingerprint,
         RemoveLikeFingerprint,
         RollingNumberSetterFingerprint,
-        RollingNumberMeasureTextParentFingerprint,
+        RollingNumberMeasureStaticLabelParentFingerprint,
+        RollingNumberMeasureAnimatedTextFingerprint,
         RollingNumberTextViewFingerprint,
         RollingNumberTextViewAnimationUpdateFingerprint
     )
@@ -276,37 +273,30 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
 
         // Rolling Number text views use the measured width of the raw string for layout.
         // Modify the measure text calculation to include the left drawable separator if needed.
-        RollingNumberMeasureAnimatedTextFingerprint.also {
-            if (!it.resolve(context, RollingNumberMeasureTextParentFingerprint.result!!.classDef))
-                throw it.exception
-        }.result?.also {
+        RollingNumberMeasureAnimatedTextFingerprint.result?.also {
+            val scanResult = it.scanResult.patternScanResult!!
+            // Additional check to verify the opcodes are at the start of the method
+            if (scanResult.startIndex != 0) throw PatchException("Unexpected opcode location")
+            val endIndex = scanResult.endIndex
             it.mutableMethod.apply {
-                val returnInstructionIndex = it.scanResult.patternScanResult!!.endIndex
-                val measuredTextWidthRegister =
-                    getInstruction<OneRegisterInstruction>(returnInstructionIndex).registerA
+                val measuredTextWidthRegister = getInstruction<OneRegisterInstruction>(endIndex).registerA
 
-                replaceInstruction( // Replace instruction to preserve control flow label.
-                    returnInstructionIndex,
-                    "invoke-static {p1, v$measuredTextWidthRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->onRollingNumberMeasured(Ljava/lang/String;F)F"
-                )
                 addInstructions(
-                    returnInstructionIndex + 1,
+                    endIndex + 1,
                     """
-                        move-result v$measuredTextWidthRegister
-                        return v$measuredTextWidthRegister
-                    """
+                    invoke-static {p1, v$measuredTextWidthRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->onRollingNumberMeasured(Ljava/lang/String;F)F
+                    move-result v$measuredTextWidthRegister
+                """
                 )
             }
         } ?: throw RollingNumberMeasureAnimatedTextFingerprint.exception
 
         // Additional text measurement method. Used if YouTube decides not to animate the likes count
         // and sometimes used for initial video load.
-        RollingNumberMeasureStaticLabelFingerprint.also {
-            if (!it.resolve(context, RollingNumberMeasureTextParentFingerprint.result!!.classDef))
-                throw it.exception
-        }.result?.also {
+        RollingNumberMeasureStaticLabelFingerprint.resolve(context, RollingNumberMeasureStaticLabelParentFingerprint.resultOrThrow().classDef)
+        RollingNumberMeasureStaticLabelFingerprint.result?.also {
+            val measureTextIndex = it.scanResult.patternScanResult!!.startIndex + 1
             it.mutableMethod.apply {
-                val measureTextIndex = it.scanResult.patternScanResult!!.startIndex + 1
                 val freeRegister = getInstruction<TwoRegisterInstruction>(0).registerA
 
                 addInstructions(

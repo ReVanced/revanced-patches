@@ -1,7 +1,5 @@
 package app.revanced.patches.youtube.interaction.swipecontrols
 
-import app.revanced.util.transformMethods
-import app.revanced.util.traverseClassHierarchy
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
@@ -10,7 +8,9 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMu
 import app.revanced.patches.youtube.interaction.swipecontrols.fingerprints.SwipeControlsHostActivityFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
-import app.revanced.patches.youtube.shared.fingerprints.WatchWhileActivityFingerprint
+import app.revanced.patches.youtube.shared.fingerprints.MainActivityFingerprint
+import app.revanced.util.transformMethods
+import app.revanced.util.traverseClassHierarchy
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
@@ -31,8 +31,10 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
                 "18.38.44",
                 "18.43.45",
                 "18.44.41",
-                "18.45.41",
-                "18.45.43"
+                "18.45.43",
+                "18.48.39",
+                "18.49.37",
+                "19.01.34"
             ]
         )
     ]
@@ -40,19 +42,19 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 @Suppress("unused")
 object SwipeControlsBytecodePatch : BytecodePatch(
     setOf(
-        WatchWhileActivityFingerprint,
+        MainActivityFingerprint,
         SwipeControlsHostActivityFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
         val wrapperClass = SwipeControlsHostActivityFingerprint.result!!.mutableClass
-        val targetClass = WatchWhileActivityFingerprint.result!!.mutableClass
+        val targetClass = MainActivityFingerprint.result!!.mutableClass
 
-        // inject the wrapper class from integrations into the class hierarchy of WatchWhileActivity
+        // Inject the wrapper class from integrations into the class hierarchy of MainActivity.
         wrapperClass.setSuperClass(targetClass.superclass)
         targetClass.setSuperClass(wrapperClass.type)
 
-        // ensure all classes and methods in the hierarchy are non-final, so we can override them in integrations
+        // Ensure all classes and methods in the hierarchy are non-final, so we can override them in integrations.
         context.traverseClassHierarchy(targetClass) {
             accessFlags = accessFlags and AccessFlags.FINAL.value.inv()
             transformMethods {
