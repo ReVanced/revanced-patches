@@ -5,66 +5,100 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.all.misc.resources.AddResourcesPatch.resources
 import app.revanced.util.*
 import app.revanced.util.resource.ArrayResource
 import app.revanced.util.resource.BaseResource
 import app.revanced.util.resource.StringResource
 import org.w3c.dom.Node
 import java.io.Closeable
-import java.util.*
 
+/**
+ * An identifier of an app. For example, `youtube`.
+ */
 private typealias AppId = String
+/**
+ * An identifier of a patch. For example, `ad.general.HideAdsPatch`.
+ */
 private typealias PatchId = String
 
-// It may be more efficient to use a set of Node instead of BaseResource.
-// This would avoid having to first create a BaseResource and then back to a Node
-// and would allow to retain custom attributes not considered by implementations of BaseResource.
-// BaseResource is currently used anyway because it is more readable in terms of what's going on in the code.
-// First BaseResource is created and added to the AddResourcesPatch and then the AddResourcesPatch is closed
-// which adds all BaseResource to the app resources.
+/**
+ * A set of resources of a patch.
+ */
 private typealias PatchResources = Set<BaseResource>
-private typealias AppResources = Map<String, PatchResources>
-private typealias Resources = Map<String, AppResources>
+/**
+ * A map of resources belonging to a patch.
+ */
+private typealias AppResources = Map<PatchId, PatchResources>
+/**
+ * A map of resources belonging to an app.
+ */
+private typealias Resources = MutableMap<AppId, AppResources>
+
+/**
+ * The value of a resource.
+ * For example, `values` or `values-de`.
+ */
+private typealias Value = String
 
 @Patch(description = "Add resources such as strings or arrays to the app.")
-object AddResourcesPatch : ResourcePatch(), MutableSet<BaseResource> by mutableSetOf(), Closeable {
+object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseResource>> by mutableMapOf(), Closeable {
     private lateinit var xmlFileHolder: ResourceContext.XmlFileHolder
 
-    // A map of all the bundled resources.
-    private lateinit var resources: Set<Resources>
+    /**
+     * A map of all resources associated by their value staged by [execute].
+     */
+    private lateinit var resources: Map<Value, Resources>
 
+    /*
+    The strategy of this patch is to stage resources present in `/resources/addresources`.
+    These resources are organized by their respective value and patch.
+
+    On AddResourcesPatch#execute, all resources are staged in a temporary map.
+    After that, other patches that depend on AddResourcesPatch can call
+    AddResourcesPatch#invoke(PatchClass) to stage resources belonging to that patch
+    from the temporary map to AddResourcesPatch.
+
+    After all patches that depend on AddResourcesPatch have been executed,
+    AddResourcesPatch#close is finally called to add all staged resources to the app.
+     */
     override fun execute(context: ResourceContext) {
         xmlFileHolder = context.xmlEditor
-
-        resources = buildSet {
+        resources = buildMap {
             /**
-             * Reads all resources from the given [resourceKind].xml file present under `resources/addresources`
-             * and adds them to the map.
+             * Puts resources under `/resources/addresources/<value>/<resourceKind>.xml` into the map.
              *
-             * @param resourceKind The kind of resources to read.
-             * @param transform A function that transforms a [Node] to a [BaseResource].
+             * @param value The value of the resource. For example, `values` or `values-de`.
+             * @param resourceKind The kind of the resource. For example, `strings` or `arrays`.
+             * @param transform A function that transforms the [Node]s from the XML files to a [BaseResource].
              */
             fun addResources(
+                value: Value,
                 resourceKind: String,
                 transform: (Node) -> BaseResource,
-            ) = add(buildMap {
-                inputStreamFromBundledResource(
-                    "resources",
-                    "addresources/$resourceKind.xml"
-                )?.let { stream ->
-                    xmlFileHolder[stream].use {
-                        it.file.getElementsByTagName("app").asSequence().forEach { app ->
-                            val appName = app.attributes.getNamedItem("id").textContent
+            ) {
+                // Add the resources associated with the given value to the map,
+                // instead of overwriting it.
+                // This covers the example case such as adding strings and arrays of the same value.
+                getOrPut(value, ::mutableMapOf).apply {
+                    inputStreamFromBundledResource(
+                        "resources",
+                        "addresources/$value/$resourceKind.xml"
+                    )?.let { stream ->
+                        xmlFileHolder[stream].use {
+                            it.file.getElementsByTagName("app").asSequence().forEach { app ->
+                                val appName = app.attributes.getNamedItem("id").textContent
 
-                            this[appName] = buildMap {
-                                app.forEachChild { patch ->
-                                    val patchName = patch.attributes.getNamedItem("name").textContent
+                                this[appName] = buildMap {
+                                    app.forEachChild { patch ->
+                                        val patchName = patch.attributes.getNamedItem("name").textContent
 
-                                    this[patchName] = mutableSetOf<BaseResource>().apply {
-                                        patch.forEachChild { resourceNode ->
-                                            val resource = transform(resourceNode)
+                                        this[patchName] = mutableSetOf<BaseResource>().apply {
+                                            patch.forEachChild { resourceNode ->
+                                                val resource = transform(resourceNode)
 
-                                            add(resource)
+                                                add(resource)
+                                            }
                                         }
                                     }
                                 }
@@ -72,18 +106,15 @@ object AddResourcesPatch : ResourcePatch(), MutableSet<BaseResource> by mutableS
                         }
                     }
                 }
-            })
+            }
 
-            // Stage all resources to a temporary list.
+            // Stage all resources to a temporary map.
+            // Staged resources consumed by AddResourcesPatch#invoke(PatchClass)
+            // are later used in AddResourcesPatch#close.
             try {
-                // TODO: Below strongly violates the open-closed principle.
-                //  This should be rewritten to be more flexible in order to support any kind of resource
-                //  that may be added in the future, otherwise as of now, only strings and arrays can be added.
-
-                // TODO: This does not yet add strings other than English. Scan for all available languages and add
-                //  them as well.
-                addResources("strings", StringResource::fromNode)
-                addResources("arrays", ArrayResource::fromNode)
+                // TODO: Add all resources inside `resources/addresources`, not just from "values".
+                addResources("values", "strings", StringResource::fromNode)
+                addResources("values", "arrays", ArrayResource::fromNode)
             } catch (e: Exception) {
                 throw PatchException("Failed to read resources", e)
             }
@@ -91,19 +122,36 @@ object AddResourcesPatch : ResourcePatch(), MutableSet<BaseResource> by mutableS
     }
 
     /**
+     * Adds a [BaseResource] to the map using [MutableMap.getOrPut].
+     *
+     * @param value The value of the resource. For example, `values` or `values-de`.
+     * @param resource The resource to add.
+     */
+    operator fun invoke(value: Value, resource: BaseResource) {
+        getOrPut(value, ::mutableSetOf) += resource
+    }
+
+    /**
+     * Adds a [BaseResource] but uses `values` as the value for the resource.
+     *
+     * @param resource The string resource to add.
+     */
+    operator fun plusAssign(resource: BaseResource) = invoke("values", resource)
+
+    /**
      * Adds a [StringResource].
      *
      * @param name The name of the string resource.
      * @param value The value of the string resource.
      * @param formatted Whether the string resource is formatted. Defaults to `true`.
-     * @param language The language of the string resource. Defaults to [Locale.ENGLISH].
+     * @param resourceValue The value of the resource. For example, `values` or `values-de`.
      */
     operator fun invoke(
         name: String,
         value: String,
         formatted: Boolean = true,
-        language: String = Locale.ENGLISH.language
-    ) = add(StringResource(name, value, formatted, language))
+        resourceValue: Value = "values",
+    ) = invoke(resourceValue, StringResource(name, value, formatted))
 
     /**
      * Adds an [ArrayResource].
@@ -114,48 +162,46 @@ object AddResourcesPatch : ResourcePatch(), MutableSet<BaseResource> by mutableS
     operator fun invoke(
         name: String,
         items: List<StringResource>
-    ) = add(ArrayResource(name, items))
-
-    /**
-     * Adds all resources from the given [patch] present under `resources/addresources`.
-     *
-     * - Adds strings under `resources/addresources/strings.xml` as [StringResource].
-     * - Adds strings under `resources/addresources/values-<language>/strings.xml` as [StringResource]
-     * and sets [StringResource.language] to `<language>`.
-     * - Adds arrays under `resources/addresources/arrays.json` as [ArrayResource].
-     *
-     * @param patch The class of the patch to add resources for.
-     * @see AddResourcesPatch.close
-     */
-    operator fun invoke(patch: PatchClass) {
-        patch.qualifiedName ?: throw PatchException("Patch class name is null")
-
-        // TODO: This is not good. As this patch is subject to public API, it should be rewritten to be more flexible.
-        //  This may require dropping the convention of the current xml structures and instead qualify each string
-        //  resource with the full patch class qualifier.
-        /**
-         * Extracts the app id and patch id from the given [PatchClass]
-         * in order to add the resources for the given [PatchClass] to [AddResourcesPatch].
-         *
-         * This requires the [PatchClass] to be named as follows:
-         * `app.revanced.patches.<app id>.<patch name>`
-         */
-        fun PatchClass.extractResourceIds(): Pair<AppId, PatchId> = with(
-            this.qualifiedName!!.split(".")
-        ) { this[2] to subList(3, size).joinToString(".") }
-
-        val (appId, patchId) = patch.extractResourceIds()
-
-        // From all available resources, add the resources for the given patch.
-        resources.forEach { it[appId]?.get(patchId)?.forEach(::add) }
+    ) {
+        this += ArrayResource(name, items)
     }
 
     /**
-     * Adds all [BaseResource] to the app resources.
+     * Puts all resources of any [Value] staged in [resources] for the given [PatchClass] to [AddResourcesPatch].
      *
-     * - Adds [StringResource] to `res/values-<language code>/strings.xml`
-     * or `res/values/strings.xml`if [StringResource.language] is [Locale.ENGLISH].
-     * - Adds [ArrayResource] to `res/values/arrays.xml`.
+     * @param patch The class of the patch to add resources for.
+     * @param parseIds A function that parses the [AppId] and [PatchId] from the given [PatchClass].
+     * This is used to access the resources in [resources] to stage them in [AddResourcesPatch].
+     * The default implementation assumes that the [PatchClass] name has the following format:
+     * `<any>.<any>.<any>.<app id>.<patch id>`
+     * @see AddResourcesPatch.close
+     */
+    operator fun invoke(
+        patch: PatchClass,
+        parseIds: PatchClass.() -> Pair<AppId, PatchId> = {
+            val qualifiedName = qualifiedName ?: throw PatchException("Patch class name is null")
+
+            // This requires qualifiedName to have the following format:
+            // `<any>.<any>.<any>.<app id>.<patch id>`
+            with(qualifiedName.split(".")) {
+                this[2] to subList(3, size).joinToString(".")
+            }
+        }
+    ) {
+        val (appId, patchId) = patch.parseIds()
+
+        // Stage resources for the given patch to AddResourcesPatch associated with their value.
+        resources.forEach { (value, resources) ->
+            resources[appId]?.get(patchId)?.forEach { resource -> invoke(value, resource) }
+        }
+    }
+
+    // TODO: For all kinds of resources staged in AddResourcesPatch,
+    //  open the respective XML file and add the resources to the app
+    //  while respecting the value of the resource.
+    /**
+     * Adds all resources staged in [AddResourcesPatch] to the app.
+     * This is called after all patches that depend on [AddResourcesPatch] have been executed.
      */
     override fun close() {
         val strings = xmlFileHolder["res/values/strings.xml"]
@@ -164,18 +210,19 @@ object AddResourcesPatch : ResourcePatch(), MutableSet<BaseResource> by mutableS
         val stringResources = strings.getNode("resources")
         val arraysResources = arrays.getNode("resources")
 
-        fun addResource(resource: BaseResource) {
+        fun Node.add(value: Value, resource: BaseResource) {
             when (resource) {
                 // TODO: Duplicates may be an issue here. I am not sure if these should be checked at all.
                 //  In theory no duplicates should be added at all.
-                // TODO: This only supports adding resources to the default language.
-                //  Instead, read StringResource#language and add the resource to the corresponding language.
-                is StringResource -> stringResources.addResource(resource)
-                is ArrayResource -> arraysResources.addResource(resource) { addResource(it) }
+                is StringResource -> addResource(resource)
+                is ArrayResource -> addResource(resource) { add(value, it) }
                 else -> throw NotImplementedError("Unsupported resource type")
             }
         }
-        forEach(::addResource)
+
+        forEach { (value, resources) ->
+            // resources.forEach { resource -> add(value, resource) }
+        }
 
         strings.close()
         arrays.close()

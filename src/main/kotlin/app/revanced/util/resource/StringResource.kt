@@ -6,18 +6,16 @@ import java.util.*
 
 /**
  * A string value.
- * Represets a string in the strings.xml file.
+ * Represents a string in the strings.xml file.
  *
  * @param name The name of the string.
  * @param value The value of the string.
  * @param formatted If the string is formatted. Defaults to `true`.
- * @param language The language of the string. Defaults to [Locale.ENGLISH].
  */
 class StringResource(
     name: String,
     val value: String,
     val formatted: Boolean = true,
-    val language: String = Locale.ENGLISH.language
 ) : BaseResource(name, "string") {
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
         super.serialize(ownerDocument, resourceCallback).apply {
@@ -33,9 +31,8 @@ class StringResource(
             val value = node.textContent
             // TODO: Should this be true by default? It is too in the constructor of StringResource.
             val formatted = node.attributes.getNamedItem("formatted")?.textContent?.toBoolean() ?: true
-            val language = node.attributes.getNamedItem("language")?.textContent ?: Locale.ENGLISH.language
 
-            return StringResource(name, value, formatted, language)
+            return StringResource(name, value, formatted)
         }
     }
 }
