@@ -1,3 +1,17 @@
+# [4.0.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.9...v4.0.0-dev.10) (2024-01-16)
+
+
+### Features
+
+* **YouTube:** Support versions `18.48.39`, `18.49.37` and `19.01.34` ([#2551](https://github.com/ReVanced/revanced-patches/issues/2551)) ([a938e73](https://github.com/ReVanced/revanced-patches/commit/a938e736fa2aed1792cfdce5656efa15d0791d71))
+
+# [4.0.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.8...v4.0.0-dev.9) (2024-01-11)
+
+
+### Bug Fixes
+
+* **YouTube - Enable slide to seek:** Change patch default to excluded and add description disclaimer ([#2610](https://github.com/ReVanced/revanced-patches/issues/2610)) ([2fdc4c2](https://github.com/ReVanced/revanced-patches/commit/2fdc4c23b5f39153ad71071359274c39129d691f))
+
 # [4.0.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.7...v4.0.0-dev.8) (2024-01-10)
 
 
