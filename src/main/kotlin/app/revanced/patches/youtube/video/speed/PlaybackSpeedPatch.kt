@@ -16,7 +16,8 @@ import app.revanced.patches.youtube.video.speed.remember.RememberPlaybackSpeedPa
             "com.google.android.youtube", [
                 "18.48.39",
                 "18.49.37",
-                "19.01.34"
+                "19.01.34",
+                "19.02.34"
             ]
         )
     ]
