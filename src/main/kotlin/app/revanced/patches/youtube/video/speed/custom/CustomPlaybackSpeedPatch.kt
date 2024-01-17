@@ -29,7 +29,13 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableField
 
 @Patch(
     description = "Adds custom playback speed options.",
-    dependencies = [IntegrationsPatch::class, LithoFilterPatch::class, SettingsPatch::class, RecyclerViewTreeHookPatch::class]
+    dependencies = [
+        IntegrationsPatch::class,
+        LithoFilterPatch::class,
+        SettingsPatch::class,
+        RecyclerViewTreeHookPatch::class,
+        CustomPlaybackSpeedResourcePatch::class
+    ]
 )
 object CustomPlaybackSpeedPatch : BytecodePatch(
     setOf(

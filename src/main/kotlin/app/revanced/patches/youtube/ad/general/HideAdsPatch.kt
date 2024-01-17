@@ -24,15 +24,16 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
     ],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube",
-            [
+            "com.google.android.youtube", [
                 "18.32.39",
                 "18.37.36",
                 "18.38.44",
                 "18.43.45",
                 "18.44.41",
-                "18.45.41",
-                "18.45.43"
+                "18.45.43",
+                "18.48.39",
+                "18.49.37",
+                "19.01.34"
             ]
         )
     ]

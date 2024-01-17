@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.misc.fix.backtoexitgesture
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
@@ -10,6 +9,7 @@ import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fingerprints.OnBa
 import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fingerprints.RecyclerViewScrollingFingerprint
 import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fingerprints.RecyclerViewTopScrollingFingerprint
 import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fingerprints.RecyclerViewTopScrollingParentFingerprint
+import app.revanced.util.exception
 
 @Patch(description = "Fixes the swipe back to exit gesture.")
 @Suppress("unused")
@@ -37,7 +37,7 @@ internal object FixBackToExitGesturePatch : BytecodePatch(
                 methodName = "onScrollingViews"
             ),
             OnBackPressedFingerprint to IntegrationsMethod(
-                "p0", "onBackPressed", "Lcom/google/android/apps/youtube/app/watchwhile/WatchWhileActivity;"
+                "p0", "onBackPressed", "Landroid/app/Activity;"
             )
         ).forEach { (fingerprint, target) -> fingerprint.injectCall(target) }
     }
