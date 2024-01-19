@@ -10,6 +10,9 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.shared.misc.settings.preference.impl.InputType
+import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
+import app.revanced.patches.shared.misc.settings.preference.impl.TextPreference
 import app.revanced.util.resource.StringResource
 import app.revanced.patches.shared.settings.preference.impl.*
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ParseElementFromBufferFingerprint
@@ -312,7 +315,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
                 StringResource("revanced_hide_chips_shelf_on", "Chips shelf is hidden"),
                 StringResource("revanced_hide_chips_shelf_off", "Chips shelf is shown")
             ),
-            PreferenceScreen(
+            app.revanced.patches.shared.misc.settings.preference.impl.PreferenceScreen(
                 "revanced_hide_description_components_preference_screen",
                 StringResource(
                     "revanced_hide_description_components_preference_screen_title",
@@ -400,7 +403,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
                     "Hide components under the video description"
                 )
             ),
-            PreferenceScreen(
+            app.revanced.patches.shared.misc.settings.preference.impl.PreferenceScreen(
                 "revanced_custom_filter_preference_screen",
                 StringResource("revanced_custom_filter_preference_screen_title", "Custom filter"),
                 listOf(

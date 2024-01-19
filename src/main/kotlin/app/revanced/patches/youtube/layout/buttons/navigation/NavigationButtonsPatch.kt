@@ -7,9 +7,9 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.settings.preference.impl.PreferenceScreen
+import app.revanced.patches.shared.misc.settings.preference.impl.PreferenceScreen
 import app.revanced.util.resource.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.layout.buttons.navigation.fingerprints.*
 import app.revanced.patches.youtube.layout.buttons.navigation.utils.InjectionUtils.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.patches.youtube.layout.buttons.navigation.utils.InjectionUtils.injectHook

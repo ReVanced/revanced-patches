@@ -1,4 +1,4 @@
-package app.revanced.patches.shared.settings.preference
+package app.revanced.patches.shared.misc.settings.preference
 
 import app.revanced.util.resource.BaseResource
 import app.revanced.util.resource.StringResource

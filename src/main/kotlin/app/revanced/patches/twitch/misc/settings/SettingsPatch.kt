@@ -12,9 +12,10 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
-import app.revanced.patches.shared.settings.preference.impl.PreferenceCategory
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
-import app.revanced.patches.shared.settings.util.AbstractPreferenceScreen
+import app.revanced.patches.shared.misc.settings.preference.impl.PreferenceCategory
+import app.revanced.patches.shared.misc.settings.preference.impl.PreferenceScreen
+import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
+import app.revanced.patches.shared.misc.settings.util.AbstractPreferenceScreen
 import app.revanced.patches.twitch.misc.integrations.IntegrationsPatch
 import app.revanced.patches.twitch.misc.settings.fingerprints.MenuGroupsOnClickFingerprint
 import app.revanced.patches.twitch.misc.settings.fingerprints.MenuGroupsUpdatedFingerprint
@@ -192,7 +193,7 @@ object SettingsPatch : BytecodePatch(
             }
         }
 
-        override fun commit(screen: app.revanced.patches.shared.settings.preference.impl.PreferenceScreen) =
+        override fun commit(screen: app.revanced.patches.shared.misc.settings.preference.impl.PreferenceScreen) =
             SettingsResourcePatch.addPreference(screen)
     }
 

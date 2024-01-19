@@ -11,9 +11,9 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
-import app.revanced.patches.shared.settings.preference.impl.InputType
+import app.revanced.patches.shared.misc.settings.preference.impl.InputType
 import app.revanced.util.resource.StringResource
-import app.revanced.patches.shared.settings.preference.impl.TextPreference
+import app.revanced.patches.shared.misc.settings.preference.impl.TextPreference
 import app.revanced.patches.youtube.misc.recyclerviewtree.hook.RecyclerViewTreeHookPatch
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch

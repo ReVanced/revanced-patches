@@ -1,11 +1,11 @@
-package app.revanced.patches.shared.integrations
+package app.revanced.patches.shared.misc.integrations
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patches.shared.integrations.AbstractIntegrationsPatch.IntegrationsFingerprint.RegisterResolver
+import app.revanced.patches.shared.misc.integrations.AbstractIntegrationsPatch.IntegrationsFingerprint.RegisterResolver
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method

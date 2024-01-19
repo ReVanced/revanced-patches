@@ -1,10 +1,10 @@
-package app.revanced.patches.shared.settings.util
+package app.revanced.patches.shared.misc.settings.util
 
-import app.revanced.patches.shared.settings.preference.BasePreference
-import app.revanced.patches.shared.settings.preference.impl.IntentPreference
-import app.revanced.patches.shared.settings.preference.impl.PreferenceCategory
-import app.revanced.patches.shared.settings.preference.impl.PreferenceScreen
-import app.revanced.patches.shared.settings.preference.removePunctuation
+import app.revanced.patches.shared.misc.settings.preference.BasePreference
+import app.revanced.patches.shared.misc.settings.preference.impl.IntentPreference
+import app.revanced.patches.shared.misc.settings.preference.impl.PreferenceCategory
+import app.revanced.patches.shared.misc.settings.preference.impl.PreferenceScreen
+import app.revanced.patches.shared.misc.settings.preference.removePunctuation
 import app.revanced.util.resource.StringResource
 import java.io.Closeable
 
