@@ -44,6 +44,7 @@ fun Node.doRecursively(action: (Node) -> Unit) {
  *
  * @param host The hosting xml resource. Needs to be a valid strings.xml resource.
  */
+@Deprecated("Use AddResourcesPatch operators instead")
 fun ResourceContext.copyStrings(host: String) {
     this.iterateXmlNodeChildren(host, "resources") {
         // TODO: figure out why this is needed
