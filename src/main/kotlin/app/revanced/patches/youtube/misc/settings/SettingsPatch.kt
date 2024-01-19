@@ -25,7 +25,11 @@ import java.io.Closeable
 
 @Patch(
     description = "Adds settings for ReVanced to YouTube.",
-    dependencies = [IntegrationsPatch::class, SettingsResourcePatch::class]
+    dependencies = [
+        ChangePackageNamePatch::class,
+        IntegrationsPatch::class,
+        SettingsResourcePatch::class
+    ]
 )
 object SettingsPatch : BytecodePatch(
     setOf(LicenseActivityOnCreateFingerprint, SetThemeFingerprint)
