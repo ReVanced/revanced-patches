@@ -14,7 +14,6 @@ import app.revanced.patches.shared.misc.settings.preference.impl.InputType
 import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.impl.TextPreference
 import app.revanced.util.resource.StringResource
-import app.revanced.patches.shared.settings.preference.impl.*
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ParseElementFromBufferFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.PlayerOverlayFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ShowWatermarkFingerprint

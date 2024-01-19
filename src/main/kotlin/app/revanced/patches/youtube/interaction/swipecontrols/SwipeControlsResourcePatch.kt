@@ -8,7 +8,6 @@ import app.revanced.patches.shared.misc.settings.preference.impl.PreferenceScree
 import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.impl.TextPreference
 import app.revanced.util.resource.StringResource
-import app.revanced.patches.shared.settings.preference.impl.*
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
