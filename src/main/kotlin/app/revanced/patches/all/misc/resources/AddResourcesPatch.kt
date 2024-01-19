@@ -77,14 +77,14 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
                 resourceKind: String,
                 transform: (Node) -> BaseResource,
             ) {
-                // Add the resources associated with the given value to the map,
-                // instead of overwriting it.
-                // This covers the example case such as adding strings and arrays of the same value.
-                getOrPut(value, ::mutableMapOf).apply {
-                    inputStreamFromBundledResource(
-                        "addresources",
-                        "$value/$resourceKind.xml"
-                    )?.let { stream ->
+                inputStreamFromBundledResource(
+                    "addresources",
+                    "$value/$resourceKind.xml"
+                )?.let { stream ->
+                    // Add the resources associated with the given value to the map,
+                    // instead of overwriting it.
+                    // This covers the example case such as adding strings and arrays of the same value.
+                    getOrPut(value, ::mutableMapOf).apply {
                         xmlFileHolder[stream].use {
                             it.file.getElementsByTagName("app").asSequence().forEach { app ->
                                 val appId = app.attributes.getNamedItem("id").textContent
