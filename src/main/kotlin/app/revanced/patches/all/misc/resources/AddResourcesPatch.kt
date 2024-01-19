@@ -5,6 +5,7 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.util.DomFileEditor
 import app.revanced.patches.all.misc.resources.AddResourcesPatch.resources
 import app.revanced.util.*
 import app.revanced.util.resource.ArrayResource
@@ -12,6 +13,7 @@ import app.revanced.util.resource.BaseResource
 import app.revanced.util.resource.StringResource
 import org.w3c.dom.Node
 import java.io.Closeable
+import java.util.*
 
 /**
  * An identifier of an app. For example, `youtube`.
@@ -43,7 +45,7 @@ private typealias Value = String
 
 @Patch(description = "Add resources such as strings or arrays to the app.")
 object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseResource>> by mutableMapOf(), Closeable {
-    private lateinit var xmlFileHolder: ResourceContext.XmlFileHolder
+    private lateinit var context: ResourceContext
 
     /**
      * A map of all resources associated by their value staged by [execute].
@@ -63,7 +65,8 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
     AddResourcesPatch#close is finally called to add all staged resources to the app.
      */
     override fun execute(context: ResourceContext) {
-        xmlFileHolder = context.xmlEditor
+        this.context = context
+
         resources = buildMap {
             /**
              * Puts resources under `/resources/addresources/<value>/<resourceKind>.xml` into the map.
@@ -85,7 +88,7 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
                     // instead of overwriting it.
                     // This covers the example case such as adding strings and arrays of the same value.
                     getOrPut(value, ::mutableMapOf).apply {
-                        xmlFileHolder[stream].use {
+                        context.xmlEditor[stream].use {
                             it.file.getElementsByTagName("app").asSequence().forEach { app ->
                                 val appId = app.attributes.getNamedItem("id").textContent
 
@@ -112,14 +115,25 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
             // Staged resources consumed by AddResourcesPatch#invoke(PatchClass)
             // are later used in AddResourcesPatch#close.
             try {
-                // TODO: Add all resources inside `resources/addresources`, not just from "values".
-                addResources("values", "strings", StringResource::fromNode)
+                val addStringResources = { value: Value ->
+                    addResources(value, "strings", StringResource::fromNode)
+                }
+                Locale.getISOLanguages().asSequence().map { "values-$it" }.forEach { addStringResources(it) }
+                addStringResources("values")
+
                 addResources("values", "arrays", ArrayResource::fromNode)
             } catch (e: Exception) {
                 throw PatchException("Failed to read resources", e)
             }
         }
     }
+
+    /**
+     * Adds a [BaseResource] but uses `values` as the value for the resource.
+     *
+     * @param resource The string resource to add.
+     */
+    operator fun plusAssign(resource: BaseResource) = invoke("values", resource)
 
     /**
      * Adds a [BaseResource] to the map using [MutableMap.getOrPut].
@@ -140,13 +154,6 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
     operator fun invoke(value: Value, resources: Iterable<BaseResource>) {
         getOrPut(value, ::mutableSetOf) += resources
     }
-
-    /**
-     * Adds a [BaseResource] but uses `values` as the value for the resource.
-     *
-     * @param resource The string resource to add.
-     */
-    operator fun plusAssign(resource: BaseResource) = invoke("values", resource)
 
     /**
      * Adds a [StringResource].
@@ -182,19 +189,24 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
      * @param patch The class of the patch to add resources for.
      * @param parseIds A function that parses the [AppId] and [PatchId] from the given [PatchClass].
      * This is used to access the resources in [resources] to stage them in [AddResourcesPatch].
-     * The default implementation assumes that the [PatchClass] name has the following format:
+     * The default implementation assumes that the [PatchClass] qualified name has the following format:
      * `<any>.<any>.<any>.<app id>.<patch id>`
      * @see AddResourcesPatch.close
      */
     operator fun invoke(
         patch: PatchClass,
         parseIds: PatchClass.() -> Pair<AppId, PatchId> = {
-            val qualifiedName = qualifiedName ?: throw PatchException("Patch class name is null")
+            val qualifiedName = qualifiedName ?: throw PatchException("Patch qualified name is null")
 
             // This requires qualifiedName to have the following format:
             // `<any>.<any>.<any>.<app id>.<patch id>`
             with(qualifiedName.split(".")) {
-                this[3] to subList(4, size).joinToString(".")
+                if (size < 5) throw PatchException("Patch qualified name has invalid format")
+
+                val appId = this[3]
+                val patchId = subList(4, size).joinToString(".")
+
+                appId to patchId
             }
         }
     ) {
@@ -207,35 +219,54 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
         }
     }
 
-    // TODO: For all kinds of resources staged in AddResourcesPatch,
-    //  open the respective XML file and add the resources to the app
-    //  while respecting the value of the resource.
     /**
      * Adds all resources staged in [AddResourcesPatch] to the app.
      * This is called after all patches that depend on [AddResourcesPatch] have been executed.
      */
     override fun close() {
-        val strings = xmlFileHolder["res/values/strings.xml"]
-        val arrays = xmlFileHolder["res/values/arrays.xml"]
-
-        val stringResources = strings.getNode("resources")
-        val arraysResources = arrays.getNode("resources")
-
-        fun Node.add(value: Value, resource: BaseResource) {
-            when (resource) {
-                // TODO: Duplicates may be an issue here. I am not sure if these should be checked at all.
-                //  In theory no duplicates should be added at all.
-                is StringResource -> addResource(resource)
-                is ArrayResource -> addResource(resource) { add(value, it) }
+        // TODO: Fix open-closed principle violation by modifying BaseResource#serialize so that it accepts
+        //  a Value and the map of editors. It will then get or put the editor suitable for its resource type
+        //  to serialize itself to it.
+        operator fun MutableMap<String, Pair<DomFileEditor, Node>>.invoke(
+            value: Value,
+            resource: BaseResource
+        ) {
+            val resourceFileName = when (resource) {
+                is StringResource -> "strings"
+                is ArrayResource -> "arrays"
                 else -> throw NotImplementedError("Unsupported resource type")
+            }
+
+            getOrPut(resourceFileName) {
+                val targetFile = context["res/$value/$resourceFileName.xml"].also {
+                    it.parentFile?.mkdirs()
+                    it.createNewFile()
+                }
+
+                context.xmlEditor[targetFile.path].let { editor ->
+                    // Save the target node here as well
+                    // in order to avoid having to call editor.getNode("resources")
+                    // every time addUsingEditors is called but also save the editor so that it can be closed later.
+                    editor to editor.getNode("resources")
+                }
+            }.let { (_, targetNode) ->
+                // TODO: Fix duplication issue. Not sure why it happens, no duplicate resources are found.
+                targetNode.addResource(resource) { invoke(value, it) }
             }
         }
 
         forEach { (value, resources) ->
-            // resources.forEach { resource -> add(value, resource) }
-        }
+            // A map of editors associated by their kind (e.g. strings, arrays).
+            // Each editor is accompanied by the target node to which resources are added.
+            // A map is used because Map#getOrPut allows opening a new editor for the duration of a resource value.
+            // This is done to prevent having to open the files for every resource that is added.
+            // Instead, it is cached once and reused for resources of the same value.
+            // This map is later accessed to close all editors for the current resource value.
+            val resourceFileEditors = mutableMapOf<String, Pair<DomFileEditor, Node>>()
 
-        strings.close()
-        arrays.close()
+            resources.forEach { resource -> resourceFileEditors(value, resource) }
+
+            resourceFileEditors.values.forEach { (editor, _) -> editor.close() }
+        }
     }
 }
