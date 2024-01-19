@@ -104,6 +104,6 @@ object ShowDeletedMessagesPatch : BytecodePatch(
             )
         )
 
-        AddResourcesPatch.invoke("revanced_deleted_msg", "message deleted")
+        AddResourcesPatch("revanced_deleted_msg", "message deleted")
     }
 }
