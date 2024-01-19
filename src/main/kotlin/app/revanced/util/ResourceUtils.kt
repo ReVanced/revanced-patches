@@ -23,10 +23,12 @@ fun NodeList.asSequence() = (0 until this.length).asSequence().map { this.item(i
 fun Node.childNodesSequence() = this.childNodes.asSequence()
 
 /**
- * Performs the given [action] on each child node.
+ * Performs the given [action] on each child element.
  */
-fun Node.forEachChild(action: (Node) -> Unit) {
-    for (i in 0 until this.childNodes.length) action(this.childNodes.item(i))
+fun Node.forEachChildElement(action: (Node) -> Unit) {
+    for (i in 0 until this.childNodes.length) {
+        this.childNodes.item(i).let { if (it.nodeType == Node.ELEMENT_NODE) action(it) }
+    }
 }
 
 /**
