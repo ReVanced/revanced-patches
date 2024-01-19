@@ -82,19 +82,19 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
                 // This covers the example case such as adding strings and arrays of the same value.
                 getOrPut(value, ::mutableMapOf).apply {
                     inputStreamFromBundledResource(
-                        "resources",
-                        "addresources/$value/$resourceKind.xml"
+                        "addresources",
+                        "$value/$resourceKind.xml"
                     )?.let { stream ->
                         xmlFileHolder[stream].use {
                             it.file.getElementsByTagName("app").asSequence().forEach { app ->
-                                val appName = app.attributes.getNamedItem("id").textContent
+                                val appId = app.attributes.getNamedItem("id").textContent
 
-                                this[appName] = buildMap {
-                                    app.forEachChild { patch ->
-                                        val patchName = patch.attributes.getNamedItem("name").textContent
+                                this[appId] = buildMap {
+                                    app.forEachChildElement { patch ->
+                                        val patchId = patch.attributes.getNamedItem("id").textContent
 
-                                        this[patchName] = mutableSetOf<BaseResource>().apply {
-                                            patch.forEachChild { resourceNode ->
+                                        this[patchId] = mutableSetOf<BaseResource>().apply {
+                                            patch.forEachChildElement { resourceNode ->
                                                 val resource = transform(resourceNode)
 
                                                 add(resource)
@@ -129,6 +129,16 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
      */
     operator fun invoke(value: Value, resource: BaseResource) {
         getOrPut(value, ::mutableSetOf) += resource
+    }
+
+    /**
+     * Adds a list of [BaseResource]s to the map using [MutableMap.getOrPut].
+     *
+     * @param value The value of the resource. For example, `values` or `values-de`.
+     * @param resources The resources to add.
+     */
+    operator fun invoke(value: Value, resources: Iterable<BaseResource>) {
+        getOrPut(value, ::mutableSetOf) += resources
     }
 
     /**
@@ -184,7 +194,7 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
             // This requires qualifiedName to have the following format:
             // `<any>.<any>.<any>.<app id>.<patch id>`
             with(qualifiedName.split(".")) {
-                this[2] to subList(3, size).joinToString(".")
+                this[3] to subList(4, size).joinToString(".")
             }
         }
     ) {
@@ -192,7 +202,7 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
 
         // Stage resources for the given patch to AddResourcesPatch associated with their value.
         resources.forEach { (value, resources) ->
-            resources[appId]?.get(patchId)?.forEach { resource -> invoke(value, resource) }
+            resources[appId]?.get(patchId)?.let { patchResources -> invoke(value, patchResources) }
         }
     }
 

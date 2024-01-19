@@ -57,6 +57,7 @@ public final class app/revanced/patches/all/misc/resources/AddResourcesPatch : a
 	public fun getSize ()I
 	public fun getValues ()Ljava/util/Collection;
 	public final fun invoke (Ljava/lang/String;Lapp/revanced/util/resource/BaseResource;)V
+	public final fun invoke (Ljava/lang/String;Ljava/lang/Iterable;)V
 	public final fun invoke (Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;)V
 	public final fun invoke (Ljava/lang/String;Ljava/util/List;)V
 	public final fun invoke (Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function1;)V
@@ -1672,7 +1673,7 @@ public final class app/revanced/util/ResourceUtilsKt {
 	public static final fun copyStrings (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;)V
 	public static final fun copyXmlNode (Ljava/lang/String;Lapp/revanced/patcher/util/DomFileEditor;Lapp/revanced/patcher/util/DomFileEditor;)Ljava/lang/AutoCloseable;
 	public static final fun doRecursively (Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
-	public static final fun forEachChild (Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
+	public static final fun forEachChildElement (Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
 	public static final fun iterateXmlNodeChildren (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
 }
 
