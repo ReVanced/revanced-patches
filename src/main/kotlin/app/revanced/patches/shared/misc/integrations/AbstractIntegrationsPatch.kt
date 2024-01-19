@@ -29,7 +29,9 @@ abstract class AbstractIntegrationsPatch(
             "Integrations have not been merged yet. This patch can not succeed without merging the integrations."
         )
 
-        for (hook in hooks) hook.invoke(INTEGRATIONS_CLASS_DESCRIPTOR)
+        hooks.forEach { hook ->
+            hook.invoke(INTEGRATIONS_CLASS_DESCRIPTOR)
+        }
     }
 
     /**
