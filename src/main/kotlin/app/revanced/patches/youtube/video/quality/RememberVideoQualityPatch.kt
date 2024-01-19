@@ -51,29 +51,35 @@ object RememberVideoQualityPatch : BytecodePatch(
             "Lapp/revanced/integrations/youtube/patches/playback/quality/RememberVideoQualityPatch;"
 
     override fun execute(context: BytecodeContext) {
+        val entriesArray = ArrayResource(
+            "revanced_video_quality_default_wifi_entry",
+            listOf(
+                StringResource("revanced_video_quality_default_entry_1", "Automatic quality"),
+                StringResource("revanced_video_quality_default_entry_2", "2160p"),
+                StringResource("revanced_video_quality_default_entry_3", "1440p"),
+                StringResource("revanced_video_quality_default_entry_4", "1080p"),
+                StringResource("revanced_video_quality_default_entry_5", "720p"),
+                StringResource("revanced_video_quality_default_entry_6", "480p"),
+                StringResource("revanced_video_quality_default_entry_7", "360p"),
+                StringResource("revanced_video_quality_default_entry_8", "240p"),
+                StringResource("revanced_video_quality_default_entry_9", "144p"),
+            )
+        )
         // This is bloated as each value has it's own String key/value
         // ideally the entries would be raw values (and not a key to a String resource)
-        val entries = listOf(
-            StringResource("revanced_video_quality_default_entry_1", "Automatic quality"),
-            StringResource("revanced_video_quality_default_entry_2", "2160p"),
-            StringResource("revanced_video_quality_default_entry_3", "1440p"),
-            StringResource("revanced_video_quality_default_entry_4", "1080p"),
-            StringResource("revanced_video_quality_default_entry_5", "720p"),
-            StringResource("revanced_video_quality_default_entry_6", "480p"),
-            StringResource("revanced_video_quality_default_entry_7", "360p"),
-            StringResource("revanced_video_quality_default_entry_8", "240p"),
-            StringResource("revanced_video_quality_default_entry_9", "144p"),
-        )
-        val entryValues = listOf(
-            StringResource("revanced_video_quality_default_entry_value_1", "-2"),
-            StringResource("revanced_video_quality_default_entry_value_2", "2160"),
-            StringResource("revanced_video_quality_default_entry_value_3", "1440"),
-            StringResource("revanced_video_quality_default_entry_value_4", "1080"),
-            StringResource("revanced_video_quality_default_entry_value_5", "720"),
-            StringResource("revanced_video_quality_default_entry_value_6", "480"),
-            StringResource("revanced_video_quality_default_entry_value_7", "360"),
-            StringResource("revanced_video_quality_default_entry_value_8", "240"),
-            StringResource("revanced_video_quality_default_entry_value_9", "144"),
+        val entryValuesArray = ArrayResource(
+            "revanced_video_quality_default_wifi_entry_values",
+            listOf(
+                StringResource("revanced_video_quality_default_entry_value_1", "-2"),
+                StringResource("revanced_video_quality_default_entry_value_2", "2160"),
+                StringResource("revanced_video_quality_default_entry_value_3", "1440"),
+                StringResource("revanced_video_quality_default_entry_value_4", "1080"),
+                StringResource("revanced_video_quality_default_entry_value_5", "720"),
+                StringResource("revanced_video_quality_default_entry_value_6", "480"),
+                StringResource("revanced_video_quality_default_entry_value_7", "360"),
+                StringResource("revanced_video_quality_default_entry_value_8", "240"),
+                StringResource("revanced_video_quality_default_entry_value_9", "144"),
+            )
         )
 
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
@@ -98,8 +104,8 @@ object RememberVideoQualityPatch : BytecodePatch(
                     "revanced_video_quality_default_wifi_title",
                     "Default video quality on Wi-Fi network"
                 ),
-                ArrayResource("revanced_video_quality_default_wifi_entry", entries),
-                ArrayResource("revanced_video_quality_default_wifi_entry_values", entryValues)
+                entriesArray,
+                entryValuesArray
                 // default value and summary are set by integrations after loading
             ),
             ListPreference(
@@ -108,8 +114,8 @@ object RememberVideoQualityPatch : BytecodePatch(
                     "revanced_video_quality_default_mobile_title",
                     "Default video quality on mobile network"
                 ),
-                ArrayResource("revanced_video_quality_default_mobile_entries", entries),
-                ArrayResource("revanced_video_quality_default_mobile_values", entryValues)
+                entriesArray,
+                entryValuesArray
             )
         )
 
