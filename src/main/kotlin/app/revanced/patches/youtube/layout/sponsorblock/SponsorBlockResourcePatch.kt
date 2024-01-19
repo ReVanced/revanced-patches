@@ -9,7 +9,6 @@ import app.revanced.patches.shared.settings.preference.impl.IntentPreference
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
-import app.revanced.util.copyStrings
 import app.revanced.util.copyXmlNode
 import app.revanced.util.resource.StringResource
 
@@ -30,14 +29,7 @@ internal object SponsorBlockResourcePatch : ResourcePatch() {
         )
         val classLoader = this.javaClass.classLoader
 
-        /*
-         merge SponsorBlock strings to main strings
-         */
-        context.copyStrings("sponsorblock/host/values/strings.xml")
-
-        /*
-         merge SponsorBlock drawables to main drawables
-         */
+        AddResourcesPatch(this::class)
 
         arrayOf(
             ResourceGroup(
@@ -64,10 +56,6 @@ internal object SponsorBlockResourcePatch : ResourcePatch() {
             context.copyResources("sponsorblock", resourceGroup)
         }
 
-        /*
-        merge xml nodes from the host to their real xml files
-         */
-
         // copy nodes from host resources to their real xml files
         val hostingResourceStream =
             classLoader.getResourceAsStream("sponsorblock/host/layout/youtube_controls_layout.xml")!!
@@ -93,6 +81,6 @@ internal object SponsorBlockResourcePatch : ResourcePatch() {
 
                 break
             }
-        }.close() // close afterwards
+        }.close()
     }
 }

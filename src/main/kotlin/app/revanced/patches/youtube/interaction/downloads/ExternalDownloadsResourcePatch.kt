@@ -12,7 +12,6 @@ import app.revanced.patches.youtube.misc.playercontrols.BottomControlsResourcePa
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
-import app.revanced.util.copyStrings
 import app.revanced.util.resource.StringResource
 
 @Patch(
@@ -56,7 +55,7 @@ internal object ExternalDownloadsResourcePatch : ResourcePatch() {
             )
         )
 
-        context.copyStrings("downloads/host/values/strings.xml")
+        AddResourcesPatch(this::class)
 
         context.copyResources(
             "downloads",

@@ -10,7 +10,6 @@ import app.revanced.patches.shared.settings.preference.impl.IntentPreference
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import app.revanced.util.getNode
-import app.revanced.util.copyStrings
 import org.w3c.dom.Node
 import java.io.Closeable
 
@@ -45,7 +44,7 @@ abstract class AbstractSettingsResourcePatch(
         revancedPreferencesEditor = context.xmlEditor["res/xml/revanced_prefs.xml"]
         revancedPreferenceScreenNode = revancedPreferencesEditor.getNode("PreferenceScreen")
 
-        context.copyStrings("settings/host/values/strings.xml")
+        AddResourcesPatch(AbstractSettingsResourcePatch::class)
     }
 
     /**

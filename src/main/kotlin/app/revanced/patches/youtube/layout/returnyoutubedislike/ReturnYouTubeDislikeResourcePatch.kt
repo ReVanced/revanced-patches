@@ -7,7 +7,6 @@ import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.mapping.misc.ResourceMappingPatch
 import app.revanced.patches.shared.settings.preference.impl.IntentPreference
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.util.copyStrings
 import app.revanced.util.resource.StringResource
 
 @Patch(
@@ -28,8 +27,7 @@ internal object ReturnYouTubeDislikeResourcePatch : ResourcePatch() {
             )
         )
 
-        // merge strings
-        context.copyStrings("returnyoutubedislike/host/values/strings.xml")
+        AddResourcesPatch(this::class)
 
         oldUIDislikeId = ResourceMappingPatch.resourceMappings.single {
             it.type == "id" && it.name == "dislike_button"

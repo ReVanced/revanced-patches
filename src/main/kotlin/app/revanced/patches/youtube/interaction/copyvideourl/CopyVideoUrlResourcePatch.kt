@@ -10,7 +10,6 @@ import app.revanced.patches.youtube.misc.playercontrols.BottomControlsResourcePa
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
-import app.revanced.util.copyStrings
 import app.revanced.util.resource.StringResource
 
 @Patch(
@@ -61,7 +60,7 @@ internal object CopyVideoUrlResourcePatch : ResourcePatch() {
             )
         )
 
-        context.copyStrings("copyvideourl/host/values/strings.xml")
+        AddResourcesPatch(this::class)
 
         BottomControlsResourcePatch.addControls("copyvideourl")
     }
