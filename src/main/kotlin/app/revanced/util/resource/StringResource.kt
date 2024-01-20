@@ -1,8 +1,8 @@
 package app.revanced.util.resource
 
+import app.revanced.patcher.patch.PatchException
 import org.w3c.dom.Document
 import org.w3c.dom.Node
-import java.util.*
 
 /**
  * A string value.
@@ -21,6 +21,9 @@ class StringResource(
         super.serialize(ownerDocument, resourceCallback).apply {
             // if the string is un-formatted, explicitly add the formatted attribute
             if (!formatted) setAttribute("formatted", "false")
+
+            if (value.contains(Regex("(?<!\\\\)['\"]")))
+                throw PatchException("String $name cannot contain unescaped quotes in value \"$value\".")
 
             textContent = value
         }
