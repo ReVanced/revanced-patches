@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.misc.gms
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patches.shared.misc.gms.AbstractGmsCoreSupportResourcePatch
+import app.revanced.patches.shared.misc.gms.BaseGmsCoreSupportResourcePatch
 import app.revanced.patches.shared.misc.settings.preference.impl.IntentPreference
 import app.revanced.patches.youtube.misc.gms.Constants.REVANCED_YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.gms.Constants.YOUTUBE_PACKAGE_NAME
@@ -9,7 +9,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.resource.StringResource
 
 
-object GmsCoreSupportResourcePatch : AbstractGmsCoreSupportResourcePatch(
+object GmsCoreSupportResourcePatch : BaseGmsCoreSupportResourcePatch(
     fromPackageName = YOUTUBE_PACKAGE_NAME,
     toPackageName = REVANCED_YOUTUBE_PACKAGE_NAME,
     spoofedPackageSignature = "24bb24c05e47e0aefa68a58a766179d9b613a600",

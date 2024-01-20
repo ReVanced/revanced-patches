@@ -3,13 +3,13 @@ package app.revanced.patches.reddit.customclients.boostforreddit.api
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.fingerprint.MethodFingerprintResult
-import app.revanced.patches.reddit.customclients.AbstractSpoofClientPatch
+import app.revanced.patches.reddit.customclients.BaseSpoofClientPatch
 import app.revanced.patches.reddit.customclients.boostforreddit.api.fingerprints.GetClientIdFingerprint
 import app.revanced.patches.reddit.customclients.boostforreddit.api.fingerprints.LoginActivityOnCreateFingerprint
 
 
 @Suppress("unused")
-object SpoofClientPatch : AbstractSpoofClientPatch(
+object SpoofClientPatch : BaseSpoofClientPatch(
     redirectUri = "http://rubenmayayo.com",
     clientIdFingerprints = setOf(GetClientIdFingerprint),
     userAgentFingerprints = setOf(LoginActivityOnCreateFingerprint),

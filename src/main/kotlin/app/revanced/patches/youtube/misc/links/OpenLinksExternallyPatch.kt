@@ -8,7 +8,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.util.resource.StringResource
 import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.patches.all.misc.transformation.AbstractTransformInstructionsPatch
+import app.revanced.patches.all.misc.transformation.BaseTransformInstructionsPatch
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
@@ -38,7 +38,7 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
     ]
 )
 @Suppress("unused")
-object OpenLinksExternallyPatch : AbstractTransformInstructionsPatch<Pair<Int, Int>>(
+object OpenLinksExternallyPatch : BaseTransformInstructionsPatch<Pair<Int, Int>>(
 ) {
     override fun filterMap(
         classDef: ClassDef, method: Method, instruction: Instruction, instructionIndex: Int

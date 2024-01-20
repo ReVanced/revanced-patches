@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.Patch
 import com.google.gson.GsonBuilder
 import java.io.File
 
-internal class JsonGenerator : PatchesFileGenerator {
+internal class JsonPatchesFileGenerator : IPatchesFileGenerator {
     override fun generate(patches: PatchSet) = patches.map {
         JsonPatch(
             it.name!!,

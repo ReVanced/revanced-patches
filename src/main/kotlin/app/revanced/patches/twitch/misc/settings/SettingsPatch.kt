@@ -13,9 +13,8 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMut
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.impl.PreferenceCategory
-import app.revanced.patches.shared.misc.settings.preference.impl.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
-import app.revanced.patches.shared.misc.settings.util.AbstractPreferenceScreen
+import app.revanced.patches.shared.misc.settings.util.BasePreferenceScreen
 import app.revanced.patches.twitch.misc.integrations.IntegrationsPatch
 import app.revanced.patches.twitch.misc.settings.fingerprints.MenuGroupsOnClickFingerprint
 import app.revanced.patches.twitch.misc.settings.fingerprints.MenuGroupsUpdatedFingerprint
@@ -168,7 +167,7 @@ object SettingsPatch : BytecodePatch(
     /**
      * Preference screens patches should add their settings to.
      */
-    internal object PreferenceScreen : AbstractPreferenceScreen() {
+    internal object PreferenceScreen : BasePreferenceScreen() {
         val ADS = CustomScreen("ads", "Ads", "Ad blocking settings")
         val CHAT = CustomScreen("chat", "Chat", "Chat settings")
         val MISC = CustomScreen("misc", "Misc", "Miscellaneous patches")

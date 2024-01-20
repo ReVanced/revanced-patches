@@ -8,9 +8,9 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patches.all.misc.packagename.ChangePackageNamePatch
-import app.revanced.patches.shared.misc.gms.AbstractGmsCoreSupportPatch.Constants.ACTIONS
-import app.revanced.patches.shared.misc.gms.AbstractGmsCoreSupportPatch.Constants.AUTHORITIES
-import app.revanced.patches.shared.misc.gms.AbstractGmsCoreSupportPatch.Constants.PERMISSIONS
+import app.revanced.patches.shared.misc.gms.BaseGmsCoreSupportPatch.Constants.ACTIONS
+import app.revanced.patches.shared.misc.gms.BaseGmsCoreSupportPatch.Constants.AUTHORITIES
+import app.revanced.patches.shared.misc.gms.BaseGmsCoreSupportPatch.Constants.PERMISSIONS
 import app.revanced.patches.shared.misc.gms.fingerprints.GmsCoreSupportFingerprint
 import app.revanced.patches.shared.misc.gms.fingerprints.GmsCoreSupportFingerprint.GET_GMS_CORE_VENDOR_METHOD_NAME
 import app.revanced.util.exception
@@ -34,19 +34,19 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
  * @param earlyReturnFingerprints The fingerprints of methods that need to be returned early.
  * @param mainActivityOnCreateFingerprint The fingerprint of the main activity's onCreate method.
  * @param integrationsPatchDependency The patch responsible for the integrations.
- * @param abstractGmsCoreSupportResourcePatch The corresponding resource patch that is used to patch the resources.
+ * @param gmsCoreSupportResourcePatch The corresponding resource patch that is used to patch the resources.
  * @param dependencies Additional dependencies of this patch.
  * @param compatiblePackages The compatible packages of this patch.
  * @param fingerprints The fingerprints of this patch.
  */
-abstract class AbstractGmsCoreSupportPatch(
+abstract class BaseGmsCoreSupportPatch(
     private val fromPackageName: String,
     private val toPackageName: String,
     private val primeMethodFingerprint: MethodFingerprint,
     private val earlyReturnFingerprints: Set<MethodFingerprint>,
     private val mainActivityOnCreateFingerprint: MethodFingerprint,
     private val integrationsPatchDependency: PatchClass,
-    abstractGmsCoreSupportResourcePatch: AbstractGmsCoreSupportResourcePatch,
+    gmsCoreSupportResourcePatch: BaseGmsCoreSupportResourcePatch,
     dependencies: Set<PatchClass> = setOf(),
     compatiblePackages: Set<CompatiblePackage>? = null,
     fingerprints: Set<MethodFingerprint> = emptySet(),
@@ -56,7 +56,7 @@ abstract class AbstractGmsCoreSupportPatch(
             "by using GmsCore instead of Google Play Services.",
     dependencies = setOf(
         ChangePackageNamePatch::class,
-        abstractGmsCoreSupportResourcePatch::class,
+        gmsCoreSupportResourcePatch::class,
         integrationsPatchDependency
     ) + dependencies,
     compatiblePackages = compatiblePackages,
@@ -65,7 +65,7 @@ abstract class AbstractGmsCoreSupportPatch(
 ) {
     init {
         // Manually register all options of the resource patch so that they are visible in the patch API.
-        abstractGmsCoreSupportResourcePatch.options.values.forEach(options::register)
+        gmsCoreSupportResourcePatch.options.values.forEach(options::register)
     }
 
     internal abstract val gmsCoreVendor: String?

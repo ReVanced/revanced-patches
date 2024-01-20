@@ -3,14 +3,14 @@ package app.revanced.patches.youtube.misc.settings
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
-import app.revanced.patches.shared.misc.settings.AbstractSettingsResourcePatch
+import app.revanced.patches.shared.misc.settings.BaseSettingsResourcePatch
 import app.revanced.patches.shared.misc.settings.preference.impl.IntentPreference
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import app.revanced.util.resource.StringResource
 import org.w3c.dom.Element
 
-object SettingsResourcePatch : AbstractSettingsResourcePatch(
+object SettingsResourcePatch : BaseSettingsResourcePatch(
     IntentPreference(
         StringResource("revanced_settings", "ReVanced"),
         StringResource("revanced_settings_summary", "Settings for ReVanced"),

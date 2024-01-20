@@ -5,12 +5,12 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patches.shared.misc.integrations.AbstractIntegrationsPatch.IntegrationsFingerprint.RegisterResolver
+import app.revanced.patches.shared.misc.integrations.BaseIntegrationsPatch.IntegrationsFingerprint.IRegisterResolver
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 
-abstract class AbstractIntegrationsPatch(
+abstract class BaseIntegrationsPatch(
     private val hooks: Set<IntegrationsFingerprint>
 ) : BytecodePatch(hooks) {
 
@@ -37,7 +37,7 @@ abstract class AbstractIntegrationsPatch(
     /**
      * [MethodFingerprint] for integrations.
      *
-     * @param contextRegisterResolver A [RegisterResolver] to get the register.
+     * @param contextRegisterResolver A [IRegisterResolver] to get the register.
      * @see MethodFingerprint
      */
     abstract class IntegrationsFingerprint(
@@ -47,7 +47,7 @@ abstract class AbstractIntegrationsPatch(
         opcodes: Iterable<Opcode?>? = null,
         strings: Iterable<String>? = null,
         customFingerprint: ((methodDef: Method, classDef: ClassDef) -> Boolean)? = null,
-        private val contextRegisterResolver: (Method) -> Int = object : RegisterResolver {}
+        private val contextRegisterResolver: (Method) -> Int = object : IRegisterResolver {}
     ) : MethodFingerprint(
         returnType,
         accessFlags,
@@ -68,7 +68,7 @@ abstract class AbstractIntegrationsPatch(
             } ?: throw PatchException("Could not find hook target fingerprint.")
         }
 
-        interface RegisterResolver : (Method) -> Int {
+        interface IRegisterResolver : (Method) -> Int {
             override operator fun invoke(method: Method) = method.implementation!!.registerCount - 1
         }
     }

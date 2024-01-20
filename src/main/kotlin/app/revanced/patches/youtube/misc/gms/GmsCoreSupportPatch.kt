@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.misc.gms
 
 import app.revanced.patches.shared.fingerprints.CastContextFetchFingerprint
-import app.revanced.patches.shared.misc.gms.AbstractGmsCoreSupportPatch
+import app.revanced.patches.shared.misc.gms.BaseGmsCoreSupportPatch
 import app.revanced.patches.youtube.layout.buttons.cast.HideCastButtonPatch
 import app.revanced.patches.youtube.misc.fix.playback.ClientSpoofPatch
 import app.revanced.patches.youtube.misc.gms.Constants.REVANCED_YOUTUBE_PACKAGE_NAME
@@ -13,7 +13,7 @@ import app.revanced.patches.youtube.shared.fingerprints.HomeActivityFingerprint
 
 
 @Suppress("unused")
-object GmsCoreSupportPatch : AbstractGmsCoreSupportPatch(
+object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
     fromPackageName = YOUTUBE_PACKAGE_NAME,
     toPackageName = REVANCED_YOUTUBE_PACKAGE_NAME,
     primeMethodFingerprint = PrimeMethodFingerprint,
@@ -30,7 +30,7 @@ object GmsCoreSupportPatch : AbstractGmsCoreSupportPatch(
         HideCastButtonPatch::class,
         ClientSpoofPatch::class
     ),
-    abstractGmsCoreSupportResourcePatch = GmsCoreSupportResourcePatch,
+    gmsCoreSupportResourcePatch = GmsCoreSupportResourcePatch,
     compatiblePackages = setOf(
         CompatiblePackage(
             "com.google.android.youtube", setOf(

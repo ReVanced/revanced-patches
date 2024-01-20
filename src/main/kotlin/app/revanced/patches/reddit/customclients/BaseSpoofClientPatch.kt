@@ -1,14 +1,14 @@
 package app.revanced.patches.reddit.customclients
 
-import app.revanced.util.exception
 import app.revanced.patcher.PatchClass
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
+import app.revanced.util.exception
 
-abstract class AbstractSpoofClientPatch(
+abstract class BaseSpoofClientPatch(
     redirectUri: String,
     private val miscellaneousFingerprints: Set<MethodFingerprint> = emptySet(),
     private val clientIdFingerprints: Set<MethodFingerprint> = emptySet(),

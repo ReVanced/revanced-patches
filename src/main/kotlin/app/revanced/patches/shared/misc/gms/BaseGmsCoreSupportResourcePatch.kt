@@ -18,7 +18,7 @@ import org.w3c.dom.Node
  * @param spoofedPackageSignature The signature of the package to spoof to.
  * @param dependencies Additional dependencies of this patch.
  */
-abstract class AbstractGmsCoreSupportResourcePatch(
+abstract class BaseGmsCoreSupportResourcePatch(
     private val fromPackageName: String,
     private val toPackageName: String,
     private val spoofedPackageSignature: String,
@@ -39,7 +39,7 @@ abstract class AbstractGmsCoreSupportResourcePatch(
     protected val gmsCoreVendor by gmsCoreVendorOption
 
     override fun execute(context: ResourceContext) {
-        AddResourcesPatch(AbstractGmsCoreSupportResourcePatch::class)
+        AddResourcesPatch(BaseGmsCoreSupportResourcePatch::class)
 
         context.patchManifest()
         context.addSpoofingMetadata()

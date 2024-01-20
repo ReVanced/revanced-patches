@@ -9,7 +9,7 @@ import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 
 @Suppress("MemberVisibilityCanBePrivate")
-abstract class AbstractTransformInstructionsPatch<T> : BytecodePatch() {
+abstract class BaseTransformInstructionsPatch<T> : BytecodePatch() {
     abstract fun filterMap(
         classDef: ClassDef,
         method: Method,

@@ -7,7 +7,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 
-abstract class AbstractAdPatch(
+abstract class BaseAdPatch(
     val conditionCall: String,
     val skipLabelName: String,
     internal val fingerprints: Set<MethodFingerprint> = emptySet(),

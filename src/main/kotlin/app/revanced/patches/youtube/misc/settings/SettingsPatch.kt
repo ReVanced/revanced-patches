@@ -10,9 +10,8 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.packagename.ChangePackageNamePatch
 import app.revanced.patches.shared.misc.settings.preference.impl.InputType
 import app.revanced.patches.shared.misc.settings.preference.impl.IntentPreference
-import app.revanced.patches.shared.misc.settings.preference.impl.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.impl.TextPreference
-import app.revanced.patches.shared.misc.settings.util.AbstractPreferenceScreen
+import app.revanced.patches.shared.misc.settings.util.BasePreferenceScreen
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.fingerprints.LicenseActivityOnCreateFingerprint
 import app.revanced.patches.youtube.misc.settings.fingerprints.SetThemeFingerprint
@@ -102,7 +101,7 @@ object SettingsPatch : BytecodePatch(
         ChangePackageNamePatch.setOrGetFallbackPackageName("com.google.android.apps.youtube")
     }
 
-    object PreferenceScreen : AbstractPreferenceScreen() {
+    object PreferenceScreen : BasePreferenceScreen() {
         val ADS = Screen("ads", "Ads", "Ad related settings")
         val INTERACTIONS = Screen("interactions", "Interaction", "Settings related to interactions")
         val LAYOUT = Screen("layout", "Layout", "Settings related to the layout")

@@ -8,7 +8,7 @@ import app.revanced.patches.shared.misc.settings.preference.removePunctuation
 import app.revanced.util.resource.StringResource
 import java.io.Closeable
 
-abstract class AbstractPreferenceScreen(
+abstract class BasePreferenceScreen(
     private val root: MutableList<Screen> = mutableListOf()
 ) : Closeable {
     override fun close() {
@@ -55,8 +55,8 @@ abstract class AbstractPreferenceScreen(
 
         private fun ensureScreenInserted() {
             // Add to screens if not yet done
-            if (!this@AbstractPreferenceScreen.root.contains(this))
-                this@AbstractPreferenceScreen.root.add(this)
+            if (!this@BasePreferenceScreen.root.contains(this))
+                this@BasePreferenceScreen.root.add(this)
         }
 
         fun addPreferences(vararg preferences: BasePreference) {

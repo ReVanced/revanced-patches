@@ -20,7 +20,7 @@ import java.io.Closeable
  * If null, no preference will be added.
  * @param dependencies Additional dependencies of this patch.
  */
-abstract class AbstractSettingsResourcePatch(
+abstract class BaseSettingsResourcePatch(
     private val rootPreference: Pair<IntentPreference, String>? = null,
     dependencies: Set<PatchClass> = emptySet()
 ) : ResourcePatch(
@@ -36,7 +36,7 @@ abstract class AbstractSettingsResourcePatch(
 
         this.context = context
 
-        AddResourcesPatch(AbstractSettingsResourcePatch::class)
+        AddResourcesPatch(BaseSettingsResourcePatch::class)
     }
 
     override fun close() {
