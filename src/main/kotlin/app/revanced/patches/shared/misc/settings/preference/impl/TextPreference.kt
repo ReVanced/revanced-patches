@@ -2,24 +2,36 @@ package app.revanced.patches.shared.misc.settings.preference.impl
 
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
 import app.revanced.util.resource.BaseResource
-import app.revanced.util.resource.StringResource
 import org.w3c.dom.Document
 
 /**
  * A text preference.
- *
- * @param key The key of the text preference.
- * @param title The title of the text preference.
- * @param inputType The input type of the text preference.
- * @param summary The summary of the text preference.
  */
-class TextPreference(
-    key: String?,
-    title: StringResource,
-    summary: StringResource?,
-    val inputType: InputType = InputType.TEXT,
-    tag: String = "app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference"
-) : BasePreference(key, title, summary, tag) {
+@Suppress("MemberVisibilityCanBePrivate")
+class TextPreference : BasePreference {
+    val inputType: InputType
+
+    constructor(
+        key: String? = null,
+        titleKey: String,
+        summaryKey: String?,
+        inputType: InputType = InputType.TEXT,
+    ) : super(
+        key,
+        titleKey,
+        summaryKey,
+        "app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference"
+    ) {
+        this.inputType = inputType
+    }
+
+    constructor(
+        key: String,
+        inputType: InputType = InputType.TEXT,
+    ) : super(key, "app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference") {
+        this.inputType = inputType
+    }
+
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
         super.serialize(ownerDocument, resourceCallback).apply {
             setAttribute("android:inputType", inputType.type)

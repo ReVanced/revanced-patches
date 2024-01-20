@@ -5,7 +5,6 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.misc.settings.preference.impl.PreferenceScreen
-import app.revanced.util.resource.StringResource
 import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
@@ -42,26 +41,14 @@ object CommentsPatch : ResourcePatch() {
 
     override fun execute(context: ResourceContext) {
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
-        
+
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
                 "revanced_comments_preference_screen",
-                StringResource("revanced_comments_preference_screen_title", "Comments"),
-                listOf(
-                    SwitchPreference(
-                        "revanced_hide_comments_section",
-                        StringResource("revanced_hide_comments_section_title", "Hide comments section"),
-                        StringResource("revanced_hide_comments_section_summary_on", "Comment section is hidden"),
-                        StringResource("revanced_hide_comments_section_summary_off", "Comment section is shown")
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_preview_comment",
-                        StringResource("revanced_hide_preview_comment_title", "Hide preview comment"),
-                        StringResource("revanced_hide_preview_comment_on", "Preview comment is hidden"),
-                        StringResource("revanced_hide_preview_comment_off", "Preview comment is shown")
-                    )
-                ),
-                StringResource("revanced_comments_preference_screen_summary", "Manage the visibility of comments section components")
+                setOf(
+                    SwitchPreference("revanced_hide_comments_section"),
+                    SwitchPreference("revanced_hide_preview_comment")
+                )
             )
         )
     }

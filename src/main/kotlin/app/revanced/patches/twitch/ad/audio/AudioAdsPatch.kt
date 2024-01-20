@@ -7,7 +7,6 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.util.resource.StringResource
 import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
 import app.revanced.patches.twitch.ad.audio.fingerprints.AudioAdsPresenterPlayFingerprint
 import app.revanced.patches.twitch.misc.integrations.IntegrationsPatch
@@ -38,22 +37,6 @@ object AudioAdsPatch : BytecodePatch(
             )
         }
 
-        SettingsPatch.PreferenceScreen.ADS.CLIENT_SIDE.addPreferences(
-            SwitchPreference(
-                "revanced_block_audio_ads",
-                StringResource(
-                    "revanced_block_audio_ads",
-                    "Block audio ads"
-                ),
-                StringResource(
-                    "revanced_block_audio_ads_on",
-                    "Audio ads are blocked"
-                ),
-                StringResource(
-                    "revanced_block_audio_ads_off",
-                    "Audio ads are unblocked"
-                )
-            )
-        )
+        SettingsPatch.PreferenceScreen.ADS.CLIENT_SIDE.addPreferences(SwitchPreference("revanced_block_audio_ads"))
     }
 }

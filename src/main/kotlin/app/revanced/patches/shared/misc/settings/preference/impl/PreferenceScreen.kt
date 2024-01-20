@@ -1,30 +1,36 @@
 package app.revanced.patches.shared.misc.settings.preference.impl
 
-import app.revanced.util.resource.BaseResource
-import app.revanced.util.resource.StringResource
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
-import app.revanced.patches.shared.misc.settings.preference.addSummary
+import app.revanced.util.resource.BaseResource
 import org.w3c.dom.Document
 
 /**
  * A preference screen.
- *
- * @param key The key of the preference.
- * @param title The title of the preference.
- * @param preferences Child preferences of this screen.
- * @param summary The summary of the text preference.
  */
-open class PreferenceScreen(
-    key: String,
-    title: StringResource,
-    var preferences: List<BasePreference>,
-    summary: StringResource? = null
-) : BasePreference(key, title, summary, "PreferenceScreen") {
+@Suppress("MemberVisibilityCanBePrivate")
+open class PreferenceScreen : BasePreference {
+    val preferences: Set<BasePreference>
+
+    constructor(
+        key: String? = null,
+        titleKey: String,
+        summaryKey: String? = null,
+        preferences: Set<BasePreference>,
+    ) : super(key, titleKey, summaryKey, "PreferenceScreen") {
+        this.preferences = preferences
+    }
+
+    constructor(
+        key: String,
+        preferences: Set<BasePreference>,
+    ) : super(key, "PreferenceScreen") {
+        this.preferences = preferences
+    }
+
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
         super.serialize(ownerDocument, resourceCallback).apply {
-            addSummary(summary?.also { resourceCallback.invoke(it) })
-
-            for (childPreference in preferences)
-                this.appendChild(childPreference.serialize(ownerDocument, resourceCallback))
+            preferences.forEach {
+                this.appendChild(it.serialize(ownerDocument, resourceCallback))
+            }
         }
 }

@@ -1,21 +1,18 @@
 package app.revanced.patches.shared.misc.settings.util
 
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
-import app.revanced.patches.shared.misc.settings.preference.impl.IntentPreference
 import app.revanced.patches.shared.misc.settings.preference.impl.PreferenceCategory
 import app.revanced.patches.shared.misc.settings.preference.impl.PreferenceScreen
-import app.revanced.patches.shared.misc.settings.preference.removePunctuation
-import app.revanced.util.resource.StringResource
 import java.io.Closeable
 
 abstract class BasePreferenceScreen(
-    private val root: MutableList<Screen> = mutableListOf()
+    private val root: MutableSet<Screen> = mutableSetOf()
 ) : Closeable {
-    override fun close() {
-        if (root.isEmpty())
-            return
 
-        for (preference in root.sortedBy { it.title }) {
+    override fun close() {
+        if (root.isEmpty()) return
+
+        root.forEach { preference ->
             commit(preference.transform())
         }
     }
@@ -27,36 +24,36 @@ abstract class BasePreferenceScreen(
 
     open inner class Screen(
         key: String,
-        title: String,
-        val summary: String? = null,
-        preferences: MutableList<BasePreference> = mutableListOf(),
-        val categories: MutableList<Category> = mutableListOf()
-    ) : BasePreferenceCollection(key, title, preferences) {
-        override fun transform() = PreferenceScreen(
-            key,
-            StringResource(
-                "${key}_title", title
-            ),
-            preferences.sortedWith(
-                compareBy(
-                    { it is IntentPreference },
-                    { it is PreferenceScreen },
-                    { it.title.value.removePunctuation().lowercase() },
-                )
-            ) + categories.sortedBy {
-                it.title.removePunctuation().lowercase()
-            }.map {
-                it.transform()
-            },
-            summary?.let { summary ->
-                StringResource("${key}_summary", summary)
-            }
-        )
+        titleKey: String,
+        private val summaryKey: String? = null,
+        preferences: MutableSet<BasePreference> = mutableSetOf(),
+        val categories: MutableSet<Category> = mutableSetOf()
+    ) : BasePreferenceCollection(key, titleKey, preferences) {
+
+        /**
+         * Initialize using title and summary keys with suffix "_title" and "_summary".
+         */
+        constructor(
+            key: String,
+            preferences: MutableSet<BasePreference> = mutableSetOf(),
+            categories: MutableSet<Category> = mutableSetOf()
+        ) : this(key, key + "_title", key + "_summary", preferences, categories)
+
+        override fun transform(): PreferenceScreen {
+            return PreferenceScreen(
+                key,
+                titleKey,
+                summaryKey,
+                // Screens and preferences are sorted at runtime by integrations code,
+                // so they appear in alphabetical order for the localized language in use.
+                preferences + categories.map { it.transform() }
+            )
+        }
 
         private fun ensureScreenInserted() {
             // Add to screens if not yet done
-            if (!this@BasePreferenceScreen.root.contains(this))
-                this@BasePreferenceScreen.root.add(this)
+            if (!root.contains(this))
+                root.add(this)
         }
 
         fun addPreferences(vararg preferences: BasePreference) {
@@ -66,23 +63,23 @@ abstract class BasePreferenceScreen(
 
         open inner class Category(
             key: String,
-            title: String,
-            preferences: MutableList<BasePreference> = mutableListOf()
-        ) : BasePreferenceCollection(key, title, preferences) {
+            titleKey: String,
+            preferences: MutableSet<BasePreference> = mutableSetOf()
+        ) : BasePreferenceCollection(key, titleKey, preferences) {
             override fun transform(): PreferenceCategory {
                 return PreferenceCategory(
                     key,
-                    StringResource("${key}_title", title),
-                    preferences.sortedBy { it.title.value.removePunctuation().lowercase() }
+                    titleKey,
+                    preferences
                 )
             }
 
             fun addPreferences(vararg preferences: BasePreference) {
                 ensureScreenInserted()
 
-                // Add to categories if not yet done
-                if (!this@Screen.categories.contains(this))
-                    this@Screen.categories.add(this)
+                // Add to the categories if not done yet.
+                if (!categories.contains(this))
+                    categories.add(this)
 
                 this.preferences.addAll(preferences)
             }
@@ -91,8 +88,8 @@ abstract class BasePreferenceScreen(
 
     abstract class BasePreferenceCollection(
         val key: String,
-        val title: String,
-        val preferences: MutableList<BasePreference> = mutableListOf()
+        val titleKey: String,
+        val preferences: MutableSet<BasePreference> = mutableSetOf()
     ) {
         abstract fun transform(): BasePreference
     }

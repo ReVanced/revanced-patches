@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.layout.hide.rollingnumber
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -9,11 +8,11 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.util.resource.StringResource
 import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.shared.fingerprints.RollingNumberTextViewAnimationUpdateFingerprint
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -45,12 +44,7 @@ object DisableRollingNumberAnimationPatch : BytecodePatch(
 
     override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_disable_rolling_number_animations",
-                StringResource("revanced_disable_rolling_number_animations_title", "Disable rolling number animations"),
-                StringResource("revanced_disable_rolling_number_animations_summary_on", "Rolling numbers are not animated"),
-                StringResource("revanced_disable_rolling_number_animations_summary_off", "Rolling numbers are animated")
-            )
+            SwitchPreference("revanced_disable_rolling_number_animations")
         )
 
         // Animations are disabled by preventing an Image from being applied to the text span,

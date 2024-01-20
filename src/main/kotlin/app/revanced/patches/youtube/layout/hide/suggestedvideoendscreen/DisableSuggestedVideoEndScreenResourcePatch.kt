@@ -4,7 +4,6 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
-import app.revanced.util.resource.StringResource
 import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
@@ -19,21 +18,7 @@ internal object DisableSuggestedVideoEndScreenResourcePatch : ResourcePatch() {
 
     override fun execute(context: ResourceContext) {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_disable_suggested_video_end_screen",
-                StringResource(
-                    "revanced_disable_suggested_video_end_screen_title",
-                    "Disable suggested video end screen"
-                ),
-                StringResource(
-                    "revanced_disable_suggested_video_end_screen_summary_on",
-                    "Suggested videos will be disabled"
-                ),
-                StringResource(
-                    "revanced_disable_suggested_video_end_screen_summary_off",
-                    "Suggested videos will be shown"
-                ),
-            )
+            SwitchPreference("revanced_disable_suggested_video_end_screen")
         )
 
         sizeAdjustableLiteAutoNavOverlay = ResourceMappingPatch.resourceMappings.single {

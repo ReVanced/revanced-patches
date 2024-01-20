@@ -2,26 +2,34 @@ package app.revanced.patches.shared.misc.settings.preference.impl
 
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
 import app.revanced.util.resource.BaseResource
-import app.revanced.util.resource.StringResource
 import org.w3c.dom.Document
 
 /**
  * A preference category.
- *
- * @param key The key of the preference.
- * @param title The title of the preference.
- * @param preferences Child preferences of this category.
  */
-open class PreferenceCategory(
-    key: String,
-    title: StringResource,
-    var preferences: List<BasePreference>,
-    tag: String = "PreferenceCategory"
-) : BasePreference(key, title, null, tag) {
+@Suppress("MemberVisibilityCanBePrivate")
+open class PreferenceCategory : BasePreference {
+    val preferences: Set<BasePreference>
+
+    constructor(
+        key: String? = null,
+        titleKey: String,
+        preferences: Set<BasePreference>,
+    ) : super(key, titleKey, null, "PreferenceCategory") {
+        this.preferences = preferences
+    }
+
+    constructor(
+        key: String,
+        preferences: Set<BasePreference>,
+    ) : super(key, "PreferenceCategory") {
+        this.preferences = preferences
+    }
+
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
         super.serialize(ownerDocument, resourceCallback).apply {
-            for (childPreference in preferences) {
-                this.appendChild(childPreference.serialize(ownerDocument, resourceCallback))
+            preferences.forEach {
+                appendChild(it.serialize(ownerDocument, resourceCallback))
             }
         }
 }

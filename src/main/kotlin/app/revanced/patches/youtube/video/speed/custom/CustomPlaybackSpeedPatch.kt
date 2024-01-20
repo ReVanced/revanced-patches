@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.video.speed.custom
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -12,13 +11,13 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patches.shared.misc.settings.preference.impl.InputType
-import app.revanced.util.resource.StringResource
 import app.revanced.patches.shared.misc.settings.preference.impl.TextPreference
-import app.revanced.patches.youtube.misc.recyclerviewtree.hook.RecyclerViewTreeHookPatch
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
+import app.revanced.patches.youtube.misc.recyclerviewtree.hook.RecyclerViewTreeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.video.speed.custom.fingerprints.*
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -53,18 +52,7 @@ object CustomPlaybackSpeedPatch : BytecodePatch(
 
     override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
-            TextPreference(
-                key = "revanced_custom_playback_speeds",
-                title = StringResource(
-                    "revanced_custom_playback_speeds_title",
-                    "Custom playback speeds"
-                ),
-                inputType = InputType.TEXT_MULTI_LINE,
-                summary = StringResource(
-                    "revanced_custom_playback_speeds_summary",
-                    "Add or change the available playback speeds"
-                )
-            )
+            TextPreference("revanced_custom_playback_speeds", InputType.TEXT_MULTI_LINE)
         )
 
         val arrayGenMethod = SpeedArrayGeneratorFingerprint.result?.mutableMethod!!

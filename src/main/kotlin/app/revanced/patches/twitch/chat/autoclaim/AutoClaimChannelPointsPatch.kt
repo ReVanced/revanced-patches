@@ -1,6 +1,5 @@
 package app.revanced.patches.twitch.chat.autoclaim
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -8,10 +7,10 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.util.resource.StringResource
 import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
 import app.revanced.patches.twitch.chat.autoclaim.fingerprints.CommunityPointsButtonViewDelegateFingerprint
 import app.revanced.patches.twitch.misc.settings.SettingsPatch
+import app.revanced.util.exception
 
 @Patch(
     name = "Auto claim channel points",
@@ -25,21 +24,7 @@ object AutoClaimChannelPointPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.CHAT.GENERAL.addPreferences(
-            SwitchPreference(
-                "revanced_auto_claim_channel_points",
-                StringResource(
-                    "revanced_auto_claim_channel_points",
-                    "Automatically claim Channel Points"
-                ),
-                StringResource(
-                    "revanced_auto_claim_channel_points_on",
-                    "Channel Points are claimed automatically"
-                ),
-                StringResource(
-                    "revanced_auto_claim_channel_points_off",
-                    "Channel Points are not claimed automatically"
-                )
-            )
+            SwitchPreference("revanced_auto_claim_channel_points")
         )
 
         CommunityPointsButtonViewDelegateFingerprint.result?.mutableMethod?.apply {

@@ -12,8 +12,6 @@ import app.revanced.patches.twitch.ad.video.VideoAdsPatch
 import app.revanced.patches.twitch.misc.integrations.IntegrationsPatch
 import app.revanced.patches.twitch.misc.settings.SettingsPatch
 import app.revanced.util.exception
-import app.revanced.util.resource.ArrayResource
-import app.revanced.util.resource.StringResource
 
 @Patch(
     name = "Block embedded ads",
@@ -43,31 +41,7 @@ object EmbeddedAdsPatch : BytecodePatch(
             """
         )
 
-        SettingsPatch.PreferenceScreen.ADS.SURESTREAM.addPreferences(
-            ListPreference(
-                "revanced_block_embedded_ads",
-                StringResource(
-                    "revanced_block_embedded_ads",
-                    "Block embedded video ads"
-                ),
-                ArrayResource(
-                    "revanced_hls_proxies",
-                    listOf(
-                        StringResource("revanced_proxy_disabled", "Disabled"),
-                        StringResource("revanced_proxy_luminous", "Luminous proxy"),
-                        StringResource("revanced_proxy_purpleadblock", "PurpleAdBlock proxy"),
-                    )
-                ),
-                ArrayResource(
-                    "revanced_hls_proxies_values",
-                    listOf(
-                        StringResource("key_revanced_proxy_disabled", "disabled"),
-                        StringResource("key_revanced_proxy_luminous", "luminous"),
-                        StringResource("key_revanced_proxy_purpleadblock", "purpleadblock")
-                    )
-                )
-            )
-        )
+        SettingsPatch.PreferenceScreen.ADS.SURESTREAM.addPreferences(ListPreference("revanced_block_embedded_ads"))
 
         AddResourcesPatch(
             "revanced_embedded_ads_service_unavailable",

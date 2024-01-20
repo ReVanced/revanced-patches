@@ -5,7 +5,6 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.impl.InputType
-import app.revanced.util.resource.StringResource
 import app.revanced.patches.shared.misc.settings.preference.impl.TextPreference
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
@@ -17,18 +16,7 @@ internal object CustomPlayerOverlayOpacityResourcePatch : ResourcePatch() {
 
     override fun execute(context: ResourceContext) {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            TextPreference(
-                "revanced_player_overlay_opacity",
-                StringResource(
-                    "revanced_player_overlay_opacity_title",
-                    "Player overlay opacity"
-                ),
-                StringResource(
-                    "revanced_player_overlay_opacity_summary",
-                    "Opacity value between 0-100, where 0 is transparent"
-                ),
-                InputType.NUMBER
-            )
+            TextPreference("revanced_player_overlay_opacity", InputType.NUMBER)
         )
 
         scrimOverlayId = ResourceMappingPatch.resourceMappings.single {

@@ -11,8 +11,6 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.shared.misc.settings.preference.impl.*
-import app.revanced.util.resource.ArrayResource
-import app.revanced.util.resource.StringResource
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.MessageDigestImageUrlFingerprint
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.MessageDigestImageUrlParentFingerprint
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.cronet.RequestFingerprint
@@ -22,6 +20,8 @@ import app.revanced.patches.youtube.layout.thumbnails.fingerprints.cronet.reques
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.exception
+import app.revanced.util.resource.ArrayResource
+import app.revanced.util.resource.StringResource
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -115,111 +115,52 @@ object AlternativeThumbnailsPatch : BytecodePatch(
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
                 "revanced_alt_thumbnail_preference_screen",
-                StringResource("revanced_alt_thumbnail_preference_screen_title", "Alternative thumbnails"),
-                listOf(
+                setOf(
                     NonInteractivePreference(
-                        StringResource("revanced_alt_thumbnail_about_title", "Thumbnails in use"),
+                        "revanced_alt_thumbnail_about_title",
                         null, // Summary is dynamically updated based on the current settings.
                         tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsStatusPreference"
                     ),
                     SwitchPreference(
-                        "revanced_alt_thumbnail_dearrow",
-                        StringResource("revanced_alt_thumbnail_dearrow_title", "Enable DeArrow thumbnails"),
-                        StringResource("revanced_alt_thumbnail_dearrow_summary_on", "Using DeArrow thumbnails"),
-                        StringResource("revanced_alt_thumbnail_dearrow_summary_off", "Not using DeArrow thumbnails")
+                        "revanced_alt_thumbnail_dearrow"
                     ),
                     SwitchPreference(
-                        "revanced_alt_thumbnail_dearrow_connection_toast",
-                        StringResource("revanced_alt_thumbnail_dearrow_connection_toast_title", "Show a toast if API is not available"),
-                        StringResource("revanced_alt_thumbnail_dearrow_connection_toast_summary_on", "Toast is shown if DeArrow is not available"),
-                        StringResource("revanced_alt_thumbnail_dearrow_connection_toast_summary_off", "Toast is not shown if DeArrow is not available")
+                        "revanced_alt_thumbnail_dearrow_connection_toast"
                     ),
                     TextPreference(
-                        "revanced_alt_thumbnail_dearrow_api_url",
-                        StringResource(
-                            "revanced_alt_thumbnail_dearrow_api_url_title",
-                            "DeArrow API endpoint"
-                        ),
-                        StringResource(
-                            "revanced_alt_thumbnail_dearrow_api_url_summary",
-                            "The URL of the DeArrow thumbnail cache endpoint. " +
-                                    "Do not change this unless you know what you\\\'re doing"
-                        ),
+                        "revanced_alt_thumbnail_dearrow_api_url"
                     ),
                     NonInteractivePreference(
-                        StringResource(
-                            "revanced_alt_thumbnail_dearrow_about_title",
-                            "About DeArrow"
-                        ),
-                        StringResource(
-                            "revanced_alt_thumbnail_dearrow_about_summary",
-                            "DeArrow provides crowd-sourced thumbnails for YouTube videos. " +
-                                    "These thumbnails are often more relevant than those provided by YouTube. " +
-                                    "If enabled, video URLs will be sent to the API server and no other data is sent"
-                                    + "\\n\\nTap here to learn more about DeArrow"
-                        ),
+                        "revanced_alt_thumbnail_dearrow_about_title",
+
+                        "revanced_alt_thumbnail_dearrow_about_summary",
+
                         // Custom about preference with link to the DeArrow website.
                         tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsAboutDeArrowPreference",
                         selectable = true
                     ),
-                    SwitchPreference(
-                        "revanced_alt_thumbnail_stills",
-                        StringResource("revanced_alt_thumbnail_stills_title", "Enable still video captures"),
-                        StringResource("revanced_alt_thumbnail_stills_summary_on", "Using YouTube still video captures"),
-                        StringResource("revanced_alt_thumbnail_stills_summary_off", "Not using YouTube still video captures")
-                    ),
+                    SwitchPreference("revanced_alt_thumbnail_stills"),
                     ListPreference(
                         "revanced_alt_thumbnail_stills_time",
-                        StringResource("revanced_alt_thumbnail_stills_time_title", "Video time to take the still from"),
+                        "revanced_alt_thumbnail_stills_time_title",
+                        null,
                         ArrayResource(
                             "revanced_alt_thumbnail_type_entries",
-                            listOf(
-                                StringResource("revanced_alt_thumbnail_stills_time_entry_1", "Beginning of video"),
-                                StringResource("revanced_alt_thumbnail_stills_time_entry_2", "Middle of video"),
-                                StringResource("revanced_alt_thumbnail_stills_time_entry_3", "End of video"),
-                            )
+
                         ),
                         ArrayResource(
                             "revanced_alt_thumbnail_stills_time_entry_values",
-                            listOf(
-                                StringResource("revanced_alt_thumbnail_stills_time_entry_value_1", "1"),
-                                StringResource("revanced_alt_thumbnail_stills_time_entry_value_2", "2"),
-                                StringResource("revanced_alt_thumbnail_stills_time_entry_value_3", "3"),
-                            )
+
                         )
                     ),
-                    SwitchPreference(
-                        "revanced_alt_thumbnail_stills_fast",
-                        StringResource(
-                            "revanced_alt_thumbnail_stills_fast_title",
-                            "Use fast still captures"
-                        ),
-                        StringResource(
-                            "revanced_alt_thumbnail_stills_fast_summary_on",
-                            "Using medium quality still captures. " +
-                                    "Thumbnails will load faster, but live streams, unreleased, " +
-                                    "or very old videos may show blank thumbnails"
-                        ),
-                        StringResource(
-                            "revanced_alt_thumbnail_stills_fast_summary_off",
-                            "Using high quality still captures"
-                        )
-                    ),
+                    SwitchPreference("revanced_alt_thumbnail_stills_fast"),
                     NonInteractivePreference(
-                        StringResource(
-                            "revanced_alt_thumbnail_stills_about_title",
-                            "About still video captures"
-                        ),
-                        StringResource(
-                            "revanced_alt_thumbnail_stills_about_summary",
-                            "Still captures are taken from the beginning/middle/end of each video. " +
-                                    "These images are built into YouTube and no external API is used"
-                        ),
+                        "revanced_alt_thumbnail_stills_about_title",
+                        "revanced_alt_thumbnail_stills_about_summary",
                         // Restore the preference dividers to keep it from looking weird.
                         selectable = true
                     )
-                ),
-                StringResource("revanced_alt_thumbnail_preference_screen_summary", "Video thumbnail settings")
+                )
             )
         )
 

@@ -1,34 +1,38 @@
 package app.revanced.patches.shared.misc.settings.preference.impl
 
-import app.revanced.patches.shared.misc.settings.preference.SummaryType
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
-import app.revanced.patches.shared.misc.settings.preference.addSummary
-import org.w3c.dom.Document
+import app.revanced.patches.shared.misc.settings.preference.SummaryType
 import app.revanced.util.resource.BaseResource
-import app.revanced.util.resource.StringResource
-import org.w3c.dom.Element
+import org.w3c.dom.Document
 
 /**
  * A switch preference.
- *
- * @param key The key of the switch.
- * @param title The title of the switch.
- * @param summaryOn The summary to show when the preference is enabled.
- * @param summaryOff The summary to show when the preference is disabled.
- * @param userDialogMessage The message to show in a dialog when the user toggles the preference.
  */
-class SwitchPreference(
-    key: String, title: StringResource,
-    val summaryOn: StringResource,
-    val summaryOff: StringResource,
-    val userDialogMessage: StringResource? = null,
-) : BasePreference(key, title, null, "SwitchPreference") {
-    override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit): Element {
-        userDialogMessage?.let(resourceCallback::invoke)
+@Suppress("MemberVisibilityCanBePrivate")
+class SwitchPreference : BasePreference {
+    val summaryOnKey: String
+    val summaryOffKey: String
 
-        return super.serialize(ownerDocument, resourceCallback).apply {
-            addSummary(summaryOn.also { resourceCallback.invoke(it) }, SummaryType.ON)
-            addSummary(summaryOff.also { resourceCallback.invoke(it) }, SummaryType.OFF)
-        }
+    constructor(
+        key: String? = null,
+        titleKey: String,
+        summaryOnKey: String,
+        summaryOffKey: String,
+    ) : super(key, titleKey, null, "SwitchPreference") {
+        this.summaryOnKey = summaryOnKey
+        this.summaryOffKey = summaryOffKey
     }
+
+    constructor(
+        key: String,
+    ) : super(key, "SwitchPreference") {
+        this.summaryOnKey = "${key}_summary_on"
+        this.summaryOffKey = "${key}_summary_off"
+    }
+
+    override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
+        super.serialize(ownerDocument, resourceCallback).apply {
+            addSummary(summaryOnKey, SummaryType.ON)
+            addSummary(summaryOffKey, SummaryType.OFF)
+        }
 }

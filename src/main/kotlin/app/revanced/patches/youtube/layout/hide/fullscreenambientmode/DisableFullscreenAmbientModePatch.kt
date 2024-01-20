@@ -1,16 +1,15 @@
 package app.revanced.patches.youtube.layout.hide.fullscreenambientmode
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.util.resource.StringResource
 import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.layout.hide.fullscreenambientmode.fingerprints.InitializeAmbientModeFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.util.exception
 
 @Patch(
     name = "Disable fullscreen ambient mode",
@@ -41,21 +40,7 @@ object DisableFullscreenAmbientModePatch : BytecodePatch(
 
     override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_disable_fullscreen_ambient_mode",
-                StringResource(
-                    "revanced_disable_fullscreen_ambient_mode_title",
-                    "Disable ambient mode in fullscreen"
-                ),
-                StringResource(
-                    "revanced_disable_fullscreen_ambient_mode_summary_on",
-                    "Ambient mode disabled"
-                ),
-                StringResource(
-                    "revanced_disable_fullscreen_ambient_mode_summary_off",
-                    "Ambient mode enabled"
-                ),
-            )
+            SwitchPreference("revanced_disable_fullscreen_ambient_mode")
         )
 
         InitializeAmbientModeFingerprint.result?.let {

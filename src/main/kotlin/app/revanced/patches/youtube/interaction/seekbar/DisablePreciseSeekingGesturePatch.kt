@@ -1,17 +1,16 @@
 package app.revanced.patches.youtube.interaction.seekbar
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.util.resource.StringResource
 import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.interaction.seekbar.fingerprints.IsSwipingUpFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch(
@@ -46,12 +45,7 @@ object DisablePreciseSeekingGesturePatch : BytecodePatch(
 
     override fun execute(context: BytecodeContext) {
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
-            SwitchPreference(
-                "revanced_disable_precise_seeking_gesture",
-                StringResource("revanced_disable_precise_seeking_gesture_title", "Disable precise seeking gesture"),
-                StringResource("revanced_disable_precise_seeking_gesture_summary_on", "Gesture is disabled"),
-                StringResource("revanced_disable_precise_seeking_gesture_summary_off", "Gesture is enabled"),
-            )
+            SwitchPreference("revanced_disable_precise_seeking_gesture")
         )
 
         IsSwipingUpFingerprint.result?.let {

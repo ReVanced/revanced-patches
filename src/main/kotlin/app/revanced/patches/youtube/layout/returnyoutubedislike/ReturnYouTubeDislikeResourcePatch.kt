@@ -7,7 +7,6 @@ import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.impl.IntentPreference
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.util.resource.StringResource
 
 @Patch(
     dependencies = [
@@ -21,8 +20,8 @@ internal object ReturnYouTubeDislikeResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             IntentPreference(
-                StringResource("revanced_ryd_settings_title", "Return YouTube Dislike"),
-                StringResource("revanced_ryd_settings_summary", "Settings for Return YouTube Dislike"),
+                "revanced_ryd_settings_title",
+                "revanced_ryd_settings_summary",
                 SettingsPatch.newIntent("ryd_settings")
             )
         )

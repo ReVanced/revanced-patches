@@ -5,7 +5,6 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
-import app.revanced.util.resource.StringResource
 import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
@@ -17,12 +16,7 @@ object RestoreOldVideoQualityMenuResourcePatch : ResourcePatch() {
 
     override fun execute(context: ResourceContext) {
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
-            SwitchPreference(
-                "revanced_restore_old_video_quality_menu",
-                StringResource("revanced_restore_old_video_quality_menu_title", "Restore old video quality menu"),
-                StringResource("revanced_restore_old_video_quality_menu_summary_on", "Old video quality menu is shown"),
-                StringResource("revanced_restore_old_video_quality_menu_summary_off", "Old video quality menu is not shown")
-            )
+            SwitchPreference("revanced_restore_old_video_quality_menu")
         )
 
         fun findResource(name: String) = ResourceMappingPatch.resourceMappings.find { it.name == name }?.id

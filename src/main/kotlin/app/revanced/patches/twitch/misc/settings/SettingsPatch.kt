@@ -53,7 +53,8 @@ object SettingsPatch : BytecodePatch(
     private const val REVANCED_SETTINGS_MENU_ITEM_ICON_RES = "ic_settings"
 
     private const val MENU_ITEM_ENUM_CLASS_DESCRIPTOR = "Ltv/twitch/android/feature/settings/menu/SettingsMenuItem;"
-    private const val MENU_DISMISS_EVENT_CLASS_DESCRIPTOR = "Ltv/twitch/android/feature/settings/menu/SettingsMenuViewDelegate\$Event\$OnDismissClicked;"
+    private const val MENU_DISMISS_EVENT_CLASS_DESCRIPTOR =
+        "Ltv/twitch/android/feature/settings/menu/SettingsMenuViewDelegate\$Event\$OnDismissClicked;"
 
     private const val INTEGRATIONS_PACKAGE = "app/revanced/integrations/twitch"
     private const val ACTIVITY_HOOKS_CLASS_DESCRIPTOR = "L$INTEGRATIONS_PACKAGE/settings/AppCompatActivityHook;"
@@ -116,14 +117,7 @@ object SettingsPatch : BytecodePatch(
 
         AddResourcesPatch("revanced_settings", "ReVanced Settings", false)
 
-        PreferenceScreen.MISC.OTHER.addPreferences(
-            SwitchPreference(
-                "revanced_debug",
-                StringResource("revanced_debug_title", "Debug logging"),
-                StringResource("revanced_debug_summary_on", "Debug logs are enabled"),
-                StringResource("revanced_debug_summary_off", "Debug logs are disabled")
-            ),
-        )
+        PreferenceScreen.MISC.OTHER.addPreferences(SwitchPreference("revanced_debug"))
     }
 
     private fun MethodFingerprintResult.injectMenuItem(
