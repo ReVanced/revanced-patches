@@ -639,14 +639,30 @@ public final class app/revanced/patches/shared/misc/mapping/ResourceMappingPatch
 	public fun toString ()Ljava/lang/String;
 }
 
-public abstract class app/revanced/patches/shared/misc/settings/AbstractSettingsResourcePatch : app/revanced/patcher/patch/ResourcePatch, java/io/Closeable {
+public abstract class app/revanced/patches/shared/misc/settings/AbstractSettingsResourcePatch : app/revanced/patcher/patch/ResourcePatch, java/io/Closeable, java/util/Set, kotlin/jvm/internal/markers/KMutableSet {
 	public fun <init> ()V
 	public fun <init> (Lkotlin/Pair;Ljava/util/Set;)V
 	public synthetic fun <init> (Lkotlin/Pair;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun addPreference (Lapp/revanced/patches/shared/misc/settings/preference/BasePreference;)V
+	public fun add (Lapp/revanced/patches/shared/misc/settings/preference/BasePreference;)Z
+	public synthetic fun add (Ljava/lang/Object;)Z
+	public fun addAll (Ljava/util/Collection;)Z
+	public fun clear ()V
 	public fun close ()V
+	public fun contains (Lapp/revanced/patches/shared/misc/settings/preference/BasePreference;)Z
+	public final fun contains (Ljava/lang/Object;)Z
+	public fun containsAll (Ljava/util/Collection;)Z
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+	public fun getSize ()I
+	public fun isEmpty ()Z
+	public fun iterator ()Ljava/util/Iterator;
+	public fun remove (Lapp/revanced/patches/shared/misc/settings/preference/BasePreference;)Z
+	public final fun remove (Ljava/lang/Object;)Z
+	public fun removeAll (Ljava/util/Collection;)Z
+	public fun retainAll (Ljava/util/Collection;)Z
+	public final fun size ()I
+	public fun toArray ()[Ljava/lang/Object;
+	public fun toArray ([Ljava/lang/Object;)[Ljava/lang/Object;
 }
 
 public abstract class app/revanced/patches/shared/misc/settings/preference/BasePreference {

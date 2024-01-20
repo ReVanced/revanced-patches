@@ -193,8 +193,9 @@ object SettingsPatch : BytecodePatch(
             }
         }
 
-        override fun commit(screen: app.revanced.patches.shared.misc.settings.preference.impl.PreferenceScreen) =
-            SettingsResourcePatch.addPreference(screen)
+        override fun commit(screen: app.revanced.patches.shared.misc.settings.preference.impl.PreferenceScreen) {
+            SettingsResourcePatch += screen
+        }
     }
 
     override fun close() = PreferenceScreen.close()

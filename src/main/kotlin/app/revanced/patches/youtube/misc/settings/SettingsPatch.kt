@@ -109,8 +109,9 @@ object SettingsPatch : BytecodePatch(
         val VIDEO = Screen("video", "Video", "Settings related to the video player")
         val MISC = Screen("misc", "Misc", "Miscellaneous patches")
 
-        override fun commit(screen: app.revanced.patches.shared.misc.settings.preference.impl.PreferenceScreen) =
-            SettingsResourcePatch.addPreference(screen)
+        override fun commit(screen: app.revanced.patches.shared.misc.settings.preference.impl.PreferenceScreen) {
+            SettingsResourcePatch += screen
+        }
     }
 
     override fun close() = PreferenceScreen.close()
