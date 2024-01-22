@@ -3,17 +3,20 @@ package app.revanced.patches.youtube.layout.hide.shorts
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.impl.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
-@Patch(dependencies = [SettingsPatch::class, ResourceMappingPatch::class])
+@Patch(dependencies = [SettingsPatch::class, ResourceMappingPatch::class, AddResourcesPatch::class])
 object HideShortsComponentsResourcePatch : ResourcePatch() {
     internal var reelMultipleItemShelfId = -1L
     internal var reelPlayerRightCellButtonHeight = -1L
 
     override fun execute(context: ResourceContext) {
+        AddResourcesPatch(this::class)
+
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
                 "revanced_shorts_preference_screen",

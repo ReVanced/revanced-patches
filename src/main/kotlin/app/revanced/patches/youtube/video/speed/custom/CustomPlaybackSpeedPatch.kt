@@ -10,6 +10,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.impl.InputType
 import app.revanced.patches.shared.misc.settings.preference.impl.TextPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
@@ -33,7 +34,8 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableField
         LithoFilterPatch::class,
         SettingsPatch::class,
         RecyclerViewTreeHookPatch::class,
-        CustomPlaybackSpeedResourcePatch::class
+        CustomPlaybackSpeedResourcePatch::class,
+        AddResourcesPatch::class
     ]
 )
 object CustomPlaybackSpeedPatch : BytecodePatch(
@@ -51,6 +53,8 @@ object CustomPlaybackSpeedPatch : BytecodePatch(
         "Lapp/revanced/integrations/youtube/patches/playback/speed/CustomPlaybackSpeedPatch;"
 
     override fun execute(context: BytecodeContext) {
+        AddResourcesPatch(this::class)
+
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
             TextPreference("revanced_custom_playback_speeds", InputType.TEXT_MULTI_LINE)
         )

@@ -10,7 +10,6 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import app.revanced.util.copyXmlNode
-import app.revanced.util.resource.StringResource
 
 @Patch(dependencies = [
     SettingsPatch::class,
@@ -20,10 +19,12 @@ import app.revanced.util.resource.StringResource
 internal object SponsorBlockResourcePatch : ResourcePatch() {
 
     override fun execute(context: ResourceContext) {
+        AddResourcesPatch(this::class)
+
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             IntentPreference(
-                StringResource("revanced_sponsorblock_settings_title", "SponsorBlock"),
-                StringResource("revanced_sponsorblock_settings_summary", "SponsorBlock related settings"),
+                "revanced_sponsorblock_settings_title",
+                "revanced_sponsorblock_settings_summary",
                 SettingsPatch.newIntent("sponsorblock_settings")
             )
         )

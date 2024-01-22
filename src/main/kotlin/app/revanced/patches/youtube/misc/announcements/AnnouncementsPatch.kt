@@ -6,6 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.shared.fingerprints.MainActivityFingerprint
@@ -16,7 +17,7 @@ import com.android.tools.smali.dexlib2.Opcode
     name = "Announcements",
     description = "Adds an option to show announcements from ReVanced on app startup.",
     compatiblePackages = [CompatiblePackage("com.google.android.youtube")],
-    dependencies = [SettingsPatch::class]
+    dependencies = [SettingsPatch::class,AddResourcesPatch::class]
 )
 @Suppress("unused")
 object AnnouncementsPatch : BytecodePatch(
@@ -26,6 +27,10 @@ object AnnouncementsPatch : BytecodePatch(
         "Lapp/revanced/integrations/youtube/patches/announcements/AnnouncementsPatch;"
 
     override fun execute(context: BytecodeContext) {
+        AddResourcesPatch(this::class)
+
+        SettingsPatch.PreferenceScreen.MISC.addPreferences(SwitchPreference("revanced_announcements"))
+
         val onCreateMethod = MainActivityFingerprint.result?.let {
             it.mutableClass.methods.find { method -> method.name == "onCreate" }
         } ?: throw MainActivityFingerprint.exception
@@ -37,6 +42,5 @@ object AnnouncementsPatch : BytecodePatch(
             "invoke-static { v1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->showAnnouncement(Landroid/app/Activity;)V"
         )
 
-        SettingsPatch.PreferenceScreen.MISC.addPreferences(SwitchPreference("revanced_announcements"))
     }
 }

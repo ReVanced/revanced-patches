@@ -20,7 +20,7 @@ import app.revanced.util.exception
         VideoAdsPatch::class,
         IntegrationsPatch::class,
         SettingsPatch::class,
-        AddResourcesPatch::class,
+        AddResourcesPatch::class
     ],
     compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])]
 )
@@ -29,6 +29,18 @@ object EmbeddedAdsPatch : BytecodePatch(
     setOf(CreateUsherClientFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
+        AddResourcesPatch(this::class)
+        AddResourcesPatch(
+            "revanced_embedded_ads_service_unavailable",
+            "%s is unavailable. Ads may show. Try switching to another ad block service in settings."
+        )
+        AddResourcesPatch(
+            "revanced_embedded_ads_service_failed",
+            "%s server returned an error. Ads may show. Try switching to another ad block service in settings."
+        )
+
+        SettingsPatch.PreferenceScreen.ADS.SURESTREAM.addPreferences(ListPreference("revanced_block_embedded_ads"))
+
         val result = CreateUsherClientFingerprint.result ?: throw CreateUsherClientFingerprint.exception
 
         // Inject OkHttp3 application interceptor
@@ -39,17 +51,6 @@ object EmbeddedAdsPatch : BytecodePatch(
                 move-result-object v2
                 invoke-virtual {v0, v2}, Lokhttp3/OkHttpClient${"$"}Builder;->addInterceptor(Lokhttp3/Interceptor;)Lokhttp3/OkHttpClient${"$"}Builder;
             """
-        )
-
-        SettingsPatch.PreferenceScreen.ADS.SURESTREAM.addPreferences(ListPreference("revanced_block_embedded_ads"))
-
-        AddResourcesPatch(
-            "revanced_embedded_ads_service_unavailable",
-            "%s is unavailable. Ads may show. Try switching to another ad block service in settings."
-        )
-        AddResourcesPatch(
-            "revanced_embedded_ads_service_failed",
-            "%s server returned an error. Ads may show. Try switching to another ad block service in settings."
         )
     }
 }

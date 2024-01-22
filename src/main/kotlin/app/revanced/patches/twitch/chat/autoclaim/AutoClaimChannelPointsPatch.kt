@@ -7,6 +7,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
 import app.revanced.patches.twitch.chat.autoclaim.fingerprints.CommunityPointsButtonViewDelegateFingerprint
 import app.revanced.patches.twitch.misc.settings.SettingsPatch
@@ -15,14 +16,16 @@ import app.revanced.util.exception
 @Patch(
     name = "Auto claim channel points",
     description = "Automatically claim Channel Points.",
-    dependencies = [SettingsPatch::class],
+    dependencies = [SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])]
 )
 @Suppress("unused")
-object AutoClaimChannelPointPatch : BytecodePatch(
+object AutoClaimChannelPointsPatch : BytecodePatch(
     setOf(CommunityPointsButtonViewDelegateFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
+        AddResourcesPatch(this::class)
+
         SettingsPatch.PreferenceScreen.CHAT.GENERAL.addPreferences(
             SwitchPreference("revanced_auto_claim_channel_points")
         )

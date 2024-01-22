@@ -4,6 +4,7 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.impl.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
@@ -15,7 +16,8 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
     description = "Adds options to hide action buttons (such as the Download button) under videos.",
     dependencies = [
         ResourceMappingPatch::class,
-        LithoFilterPatch::class
+        LithoFilterPatch::class,
+        AddResourcesPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -41,6 +43,8 @@ object HideButtonsPatch : ResourcePatch() {
         "Lapp/revanced/integrations/youtube/patches/components/ButtonsFilter;"
 
     override fun execute(context: ResourceContext) {
+        AddResourcesPatch(this::class)
+
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
                 "revanced_hide_buttons_preference_screen",

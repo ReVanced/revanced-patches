@@ -10,6 +10,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.impl.InputType
 import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.impl.TextPreference
@@ -27,7 +28,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 @Patch(
     name = "Hide layout components",
     description = "Adds options to hide general layout components.",
-    dependencies = [LithoFilterPatch::class, SettingsPatch::class],
+    dependencies = [LithoFilterPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [CompatiblePackage(
         "com.google.android.youtube",
         ["18.32.39", "18.37.36", "18.38.44", "18.43.45", "18.44.41", "18.45.43", "18.48.39", "18.49.37", "19.01.34", "19.02.34"]
@@ -43,6 +44,8 @@ object HideLayoutComponentsPatch : BytecodePatch(
         "Lapp/revanced/integrations/youtube/patches/components/DescriptionComponentsFilter;"
 
     override fun execute(context: BytecodeContext) {
+        AddResourcesPatch(this::class)
+
         PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference("revanced_hide_gray_separator"),
             SwitchPreference("revanced_hide_join_membership_button"),

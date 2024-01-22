@@ -178,7 +178,7 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
      */
     operator fun invoke(
         name: String,
-        items: List<StringResource>
+        items: List<String>
     ) {
         this += ArrayResource(name, items)
     }

@@ -21,7 +21,6 @@ import app.revanced.patches.twitch.misc.settings.fingerprints.MenuGroupsUpdatedF
 import app.revanced.patches.twitch.misc.settings.fingerprints.SettingsActivityOnCreateFingerprint
 import app.revanced.patches.twitch.misc.settings.fingerprints.SettingsMenuItemEnumFingerprint
 import app.revanced.util.exception
-import app.revanced.util.resource.StringResource
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import java.io.Closeable
@@ -33,7 +32,7 @@ import java.io.Closeable
     dependencies = [
         IntegrationsPatch::class,
         SettingsResourcePatch::class,
-        AddResourcesPatch::class,
+        AddResourcesPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])
@@ -61,6 +60,11 @@ object SettingsPatch : BytecodePatch(
     private const val UTILS_CLASS_DESCRIPTOR = "L$INTEGRATIONS_PACKAGE/Utils;"
 
     override fun execute(context: BytecodeContext) {
+        AddResourcesPatch(this::class)
+        AddResourcesPatch("revanced_settings", "ReVanced Settings", false)
+
+        PreferenceScreen.MISC.OTHER.addPreferences(SwitchPreference("revanced_debug"))
+
         // Hook onCreate to handle fragment creation
         SettingsActivityOnCreateFingerprint.result?.apply {
             val insertIndex = mutableMethod.implementation!!.instructions.size - 2
@@ -114,10 +118,6 @@ object SettingsPatch : BytecodePatch(
                 ExternalLabel("no_rv_settings_onclick", mutableMethod.getInstruction(insertIndex))
             )
         } ?: throw MenuGroupsOnClickFingerprint.exception
-
-        AddResourcesPatch("revanced_settings", "ReVanced Settings", false)
-
-        PreferenceScreen.MISC.OTHER.addPreferences(SwitchPreference("revanced_debug"))
     }
 
     private fun MethodFingerprintResult.injectMenuItem(
@@ -178,8 +178,7 @@ object SettingsPatch : BytecodePatch(
                 override fun transform(): PreferenceCategory {
                     return PreferenceCategory(
                         key,
-                        StringResource("${key}_title", title),
-                        preferences.sortedBy { it.title.value },
+                        preferences,
                         "app.revanced.integrations.twitch.settings.preference.CustomPreferenceCategory"
                     )
                 }

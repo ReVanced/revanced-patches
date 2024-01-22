@@ -16,11 +16,12 @@ class TextPreference : BasePreference {
         titleKey: String,
         summaryKey: String?,
         inputType: InputType = InputType.TEXT,
+        tag: String = "app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference"
     ) : super(
         key,
         titleKey,
         summaryKey,
-        "app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference"
+        tag
     ) {
         this.inputType = inputType
     }
@@ -28,7 +29,8 @@ class TextPreference : BasePreference {
     constructor(
         key: String,
         inputType: InputType = InputType.TEXT,
-    ) : super(key, "app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference") {
+        tag: String = "app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference"
+    ) : super(key, tag) {
         this.inputType = inputType
     }
 

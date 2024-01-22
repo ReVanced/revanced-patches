@@ -7,13 +7,12 @@ import app.revanced.patches.shared.misc.settings.BaseSettingsResourcePatch
 import app.revanced.patches.shared.misc.settings.preference.impl.IntentPreference
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
-import app.revanced.util.resource.StringResource
 import org.w3c.dom.Element
 
 object SettingsResourcePatch : BaseSettingsResourcePatch(
     IntentPreference(
-        StringResource("revanced_settings", "ReVanced"),
-        StringResource("revanced_settings_summary", "Settings for ReVanced"),
+        "revanced_settings",
+        "revanced_settings_summary",
         SettingsPatch.newIntent("revanced_settings")
     ) to "settings_fragment",
     dependencies = setOf(
@@ -26,6 +25,8 @@ object SettingsResourcePatch : BaseSettingsResourcePatch(
 
     override fun execute(context: ResourceContext) {
         super.execute(context)
+
+        AddResourcesPatch(this::class)
 
         // Used for a fingerprint from SettingsPatch.
         appearanceStringId = ResourceMappingPatch.resourceMappings.find {

@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
 import app.revanced.patches.twitch.debug.fingerprints.IsDebugConfigEnabledFingerprint
 import app.revanced.patches.twitch.debug.fingerprints.IsOmVerificationEnabledFingerprint
@@ -16,7 +17,7 @@ import app.revanced.util.exception
 @Patch(
     name = "Debug mode",
     description = "Enables Twitch's internal debugging mode.",
-    dependencies = [IntegrationsPatch::class, SettingsPatch::class],
+    dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [CompatiblePackage("tv.twitch.android.app")],
     use = false
 )
@@ -29,6 +30,8 @@ object DebugModePatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext) {
+        AddResourcesPatch(this::class)
+
         SettingsPatch.PreferenceScreen.MISC.OTHER.addPreferences(SwitchPreference("revanced_twitch_debug_mode"))
 
         listOf(

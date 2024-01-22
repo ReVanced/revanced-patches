@@ -7,6 +7,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.autorepeat.fingerprints.AutoRepeatFingerprint
 import app.revanced.patches.youtube.misc.autorepeat.fingerprints.AutoRepeatParentFingerprint
@@ -17,7 +18,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 @Patch(
     name = "Always repeat",
     description = "Adds an option to always repeat videos when they end.",
-    dependencies = [IntegrationsPatch::class],
+    dependencies = [IntegrationsPatch::class,AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
@@ -41,6 +42,8 @@ object AutoRepeatPatch : BytecodePatch(
     setOf(AutoRepeatParentFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
+        AddResourcesPatch(this::class)
+
         SettingsPatch.PreferenceScreen.MISC.addPreferences(SwitchPreference("revanced_auto_repeat"))
 
         //Get Result from the ParentFingerprint which is the playMethod we need to get.

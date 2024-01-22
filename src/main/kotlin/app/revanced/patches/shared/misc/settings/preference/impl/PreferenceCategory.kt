@@ -15,14 +15,16 @@ open class PreferenceCategory : BasePreference {
         key: String? = null,
         titleKey: String,
         preferences: Set<BasePreference>,
-    ) : super(key, titleKey, null, "PreferenceCategory") {
+        tag: String = "PreferenceCategory",
+    ) : super(key, titleKey, null, tag) {
         this.preferences = preferences
     }
 
     constructor(
         key: String,
         preferences: Set<BasePreference>,
-    ) : super(key, "PreferenceCategory") {
+        tag: String = "PreferenceCategory",
+    ) : super(key, tag) {
         this.preferences = preferences
     }
 

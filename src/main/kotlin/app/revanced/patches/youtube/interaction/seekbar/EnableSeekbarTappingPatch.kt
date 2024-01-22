@@ -7,6 +7,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.interaction.seekbar.fingerprints.OnTouchEventHandlerFingerprint
 import app.revanced.patches.youtube.interaction.seekbar.fingerprints.SeekbarTappingFingerprint
@@ -21,7 +22,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
     name = "Seekbar tapping",
     description = "Adds an option to enable tap-to-seek on the seekbar of the video player.",
     dependencies = [
-        IntegrationsPatch::class, SettingsPatch::class],
+        IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
@@ -45,6 +46,8 @@ object EnableSeekbarTappingPatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext) {
+        AddResourcesPatch(this::class)
+
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(SwitchPreference("revanced_seekbar_tapping"))
 
         // Find the required methods to tap the seekbar.

@@ -17,12 +17,13 @@ import app.revanced.util.copyResources
     dependencies = [
         BottomControlsResourcePatch::class,
         SettingsPatch::class,
-        AddResourcesPatch::class
+        AddResourcesPatch::class,
     ]
 )
 internal object ExternalDownloadsResourcePatch : ResourcePatch() {
-
     override fun execute(context: ResourceContext) {
+        AddResourcesPatch(this::class)
+
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
             PreferenceScreen(
                 "revanced_external_downloader_preference_screen",
@@ -32,8 +33,6 @@ internal object ExternalDownloadsResourcePatch : ResourcePatch() {
                 ),
             )
         )
-
-        AddResourcesPatch(this::class)
 
         context.copyResources(
             "downloads",

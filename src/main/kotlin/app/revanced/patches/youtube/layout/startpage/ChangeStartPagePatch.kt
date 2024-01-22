@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.impl.ListPreference
 import app.revanced.patches.youtube.layout.startpage.fingerprints.StartActivityFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
@@ -16,7 +17,7 @@ import app.revanced.util.resource.ArrayResource
 @Patch(
     name = "Change start page",
     description = "Adds an option to set which page the app opens in instead of the homepage.",
-    dependencies = [IntegrationsPatch::class, SettingsPatch::class],
+    dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube"
@@ -31,6 +32,8 @@ object ChangeStartPagePatch : BytecodePatch(
         "Lapp/revanced/integrations/youtube/patches/ChangeStartPagePatch;"
 
     override fun execute(context: BytecodeContext) {
+        AddResourcesPatch(this::class)
+
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             ListPreference(
                 key = "revanced_start_page",

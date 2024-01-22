@@ -15,11 +15,13 @@ import app.revanced.util.copyResources
     dependencies = [
         SettingsPatch::class,
         BottomControlsResourcePatch::class,
-        AddResourcesPatch::class,
+        AddResourcesPatch::class
     ]
 )
 internal object CopyVideoUrlResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
+        AddResourcesPatch(this::class)
+
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
             PreferenceScreen(
                 "revanced_copy_video_url_preference_screen",

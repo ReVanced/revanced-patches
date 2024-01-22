@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.ad.general
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
@@ -13,7 +14,8 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch.PreferenceScreen
     dependencies = [
         LithoFilterPatch::class,
         SettingsPatch::class,
-        ResourceMappingPatch::class
+        ResourceMappingPatch::class,
+        AddResourcesPatch::class
     ]
 )
 object HideAdsResourcePatch : ResourcePatch() {
@@ -23,6 +25,8 @@ object HideAdsResourcePatch : ResourcePatch() {
     internal var adAttributionId: Long = -1
 
     override fun execute(context: ResourceContext) {
+        AddResourcesPatch(this::class)
+
         PreferenceScreen.ADS.addPreferences(
             SwitchPreference("revanced_hide_general_ads"),
             SwitchPreference("revanced_hide_fullscreen_ads"),

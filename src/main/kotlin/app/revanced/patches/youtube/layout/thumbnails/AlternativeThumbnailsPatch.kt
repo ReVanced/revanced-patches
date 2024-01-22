@@ -10,6 +10,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.impl.*
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.MessageDigestImageUrlFingerprint
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.MessageDigestImageUrlParentFingerprint
@@ -20,8 +21,6 @@ import app.revanced.patches.youtube.layout.thumbnails.fingerprints.cronet.reques
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.exception
-import app.revanced.util.resource.ArrayResource
-import app.revanced.util.resource.StringResource
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -32,7 +31,12 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 @Patch(
     name = "Alternative thumbnails",
     description = "Adds options to replace video thumbnails using the DeArrow API or image captures from the video.",
-    dependencies = [IntegrationsPatch::class, SettingsPatch::class, AlternativeThumbnailsResourcePatch::class],
+    dependencies = [
+        IntegrationsPatch::class,
+        SettingsPatch::class,
+        AlternativeThumbnailsResourcePatch::class,
+        AddResourcesPatch::class
+    ],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
@@ -112,6 +116,8 @@ object AlternativeThumbnailsPatch : BytecodePatch(
     }
 
     override fun execute(context: BytecodeContext) {
+        AddResourcesPatch(this::class)
+
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
                 "revanced_alt_thumbnail_preference_screen",
@@ -121,20 +127,12 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                         null, // Summary is dynamically updated based on the current settings.
                         tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsStatusPreference"
                     ),
-                    SwitchPreference(
-                        "revanced_alt_thumbnail_dearrow"
-                    ),
-                    SwitchPreference(
-                        "revanced_alt_thumbnail_dearrow_connection_toast"
-                    ),
-                    TextPreference(
-                        "revanced_alt_thumbnail_dearrow_api_url"
-                    ),
+                    SwitchPreference("revanced_alt_thumbnail_dearrow"),
+                    SwitchPreference("revanced_alt_thumbnail_dearrow_connection_toast"),
+                    TextPreference("revanced_alt_thumbnail_dearrow_api_url"),
                     NonInteractivePreference(
                         "revanced_alt_thumbnail_dearrow_about_title",
-
                         "revanced_alt_thumbnail_dearrow_about_summary",
-
                         // Custom about preference with link to the DeArrow website.
                         tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsAboutDeArrowPreference",
                         selectable = true
@@ -142,16 +140,10 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                     SwitchPreference("revanced_alt_thumbnail_stills"),
                     ListPreference(
                         "revanced_alt_thumbnail_stills_time",
-                        "revanced_alt_thumbnail_stills_time_title",
-                        null,
-                        ArrayResource(
-                            "revanced_alt_thumbnail_type_entries",
-
-                        ),
-                        ArrayResource(
-                            "revanced_alt_thumbnail_stills_time_entry_values",
-
-                        )
+                        titleKey = "revanced_alt_thumbnail_stills_time_title",
+                        summaryKey = null,
+                        entriesKey = "revanced_alt_thumbnail_type_entries",
+                        entryValuesKey = "revanced_alt_thumbnail_stills_time_entry_values",
                     ),
                     SwitchPreference("revanced_alt_thumbnail_stills_fast"),
                     NonInteractivePreference(

@@ -4,6 +4,7 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.impl.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
@@ -14,7 +15,8 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
     description = "Adds options to hide components related to comments.",
     dependencies = [
         SettingsPatch::class,
-        LithoFilterPatch::class
+        LithoFilterPatch::class,
+        AddResourcesPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -40,7 +42,7 @@ object CommentsPatch : ResourcePatch() {
         "Lapp/revanced/integrations/youtube/patches/components/CommentsFilter;"
 
     override fun execute(context: ResourceContext) {
-        LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
+        AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
@@ -51,5 +53,7 @@ object CommentsPatch : ResourcePatch() {
                 )
             )
         )
+
+        LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
     }
 }
