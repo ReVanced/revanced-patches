@@ -3,7 +3,7 @@ package app.revanced.patches.youtube.misc.gms
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.gms.BaseGmsCoreSupportResourcePatch
-import app.revanced.patches.shared.misc.settings.preference.impl.IntentPreference
+import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.patches.youtube.misc.gms.Constants.REVANCED_YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.gms.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.settings.SettingsPatch

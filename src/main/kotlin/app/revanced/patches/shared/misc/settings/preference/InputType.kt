@@ -1,4 +1,4 @@
-package app.revanced.patches.shared.misc.settings.preference.impl
+package app.revanced.patches.shared.misc.settings.preference
 
 enum class InputType(val type: String) {
     TEXT("text"),

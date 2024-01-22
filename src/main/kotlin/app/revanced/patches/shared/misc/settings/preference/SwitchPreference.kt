@@ -1,7 +1,5 @@
-package app.revanced.patches.shared.misc.settings.preference.impl
+package app.revanced.patches.shared.misc.settings.preference
 
-import app.revanced.patches.shared.misc.settings.preference.BasePreference
-import app.revanced.patches.shared.misc.settings.preference.SummaryType
 import app.revanced.util.resource.BaseResource
 import org.w3c.dom.Document
 

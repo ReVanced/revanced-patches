@@ -7,7 +7,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.all.misc.transformation.BaseTransformInstructionsPatch
-import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method

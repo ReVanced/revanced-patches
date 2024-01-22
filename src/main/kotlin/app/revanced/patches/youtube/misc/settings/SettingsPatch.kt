@@ -9,10 +9,10 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.packagename.ChangePackageNamePatch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
-import app.revanced.patches.shared.misc.settings.preference.impl.InputType
-import app.revanced.patches.shared.misc.settings.preference.impl.IntentPreference
-import app.revanced.patches.shared.misc.settings.preference.impl.TextPreference
-import app.revanced.patches.shared.misc.settings.util.BasePreferenceScreen
+import app.revanced.patches.shared.misc.settings.preference.InputType
+import app.revanced.patches.shared.misc.settings.preference.IntentPreference
+import app.revanced.patches.shared.misc.settings.preference.TextPreference
+import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.fingerprints.LicenseActivityOnCreateFingerprint
 import app.revanced.patches.youtube.misc.settings.fingerprints.SetThemeFingerprint
@@ -111,7 +111,7 @@ object SettingsPatch : BytecodePatch(
         val VIDEO = Screen("video", "Video", "Settings related to the video player")
         val MISC = Screen("misc", "Misc", "Miscellaneous patches")
 
-        override fun commit(screen: app.revanced.patches.shared.misc.settings.preference.impl.PreferenceScreen) {
+        override fun commit(screen: app.revanced.patches.shared.misc.settings.preference.PreferenceScreen) {
             SettingsResourcePatch += screen
         }
     }

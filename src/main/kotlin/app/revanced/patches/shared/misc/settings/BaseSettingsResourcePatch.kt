@@ -3,10 +3,9 @@ package app.revanced.patches.shared.misc.settings
 import app.revanced.patcher.PatchClass
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.util.DomFileEditor
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
-import app.revanced.patches.shared.misc.settings.preference.impl.IntentPreference
+import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import app.revanced.util.getNode

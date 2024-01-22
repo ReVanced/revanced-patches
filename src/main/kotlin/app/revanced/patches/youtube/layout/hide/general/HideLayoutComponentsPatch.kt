@@ -11,9 +11,9 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
-import app.revanced.patches.shared.misc.settings.preference.impl.InputType
-import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
-import app.revanced.patches.shared.misc.settings.preference.impl.TextPreference
+import app.revanced.patches.shared.misc.settings.preference.InputType
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ParseElementFromBufferFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.PlayerOverlayFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ShowWatermarkFingerprint
@@ -77,7 +77,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_mix_playlists"),
             SwitchPreference("revanced_hide_artist_cards"),
             SwitchPreference("revanced_hide_chips_shelf"),
-            app.revanced.patches.shared.misc.settings.preference.impl.PreferenceScreen(
+            app.revanced.patches.shared.misc.settings.preference.PreferenceScreen(
                 "revanced_hide_description_components_preference_screen",
                 preferences = setOf(
                     SwitchPreference("revanced_hide_info_cards_section"),
@@ -87,7 +87,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
                     SwitchPreference("revanced_hide_transcript_section"),
                 )
             ),
-            app.revanced.patches.shared.misc.settings.preference.impl.PreferenceScreen(
+            app.revanced.patches.shared.misc.settings.preference.PreferenceScreen(
                 "revanced_custom_filter_preference_screen",
                 preferences = setOf(
                     SwitchPreference("revanced_custom_filter"),

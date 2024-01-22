@@ -1,8 +1,5 @@
-package app.revanced.patches.shared.misc.settings.util
+package app.revanced.patches.shared.misc.settings.preference
 
-import app.revanced.patches.shared.misc.settings.preference.BasePreference
-import app.revanced.patches.shared.misc.settings.preference.impl.PreferenceCategory
-import app.revanced.patches.shared.misc.settings.preference.impl.PreferenceScreen
 import java.io.Closeable
 
 abstract class BasePreferenceScreen(

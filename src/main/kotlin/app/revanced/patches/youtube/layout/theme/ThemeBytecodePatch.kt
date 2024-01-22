@@ -8,7 +8,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
-import app.revanced.patches.shared.misc.settings.preference.impl.SwitchPreference
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.layout.seekbar.SeekbarColorBytecodePatch
 import app.revanced.patches.youtube.layout.theme.fingerprints.UseGradientLoadingScreenFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch

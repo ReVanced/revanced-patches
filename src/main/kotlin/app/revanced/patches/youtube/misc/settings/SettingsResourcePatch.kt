@@ -4,7 +4,7 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 import app.revanced.patches.shared.misc.settings.BaseSettingsResourcePatch
-import app.revanced.patches.shared.misc.settings.preference.impl.IntentPreference
+import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import org.w3c.dom.Element

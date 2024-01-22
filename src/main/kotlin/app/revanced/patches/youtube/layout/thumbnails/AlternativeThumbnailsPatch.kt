@@ -11,7 +11,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
-import app.revanced.patches.shared.misc.settings.preference.impl.*
+import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.MessageDigestImageUrlFingerprint
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.MessageDigestImageUrlParentFingerprint
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.cronet.RequestFingerprint
