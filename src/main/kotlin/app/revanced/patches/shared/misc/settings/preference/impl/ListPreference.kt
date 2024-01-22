@@ -62,8 +62,8 @@ class ListPreference : BasePreference {
         entries = null
         entryValues = null
 
-        entriesKey = null
-        entryValuesKey = null
+        entriesKey = "${key}_entries"
+        entryValuesKey = "${key}_entry_values"
     }
 
 
