@@ -39,12 +39,10 @@ object RememberPlaybackSpeedPatch : BytecodePatch(
             SwitchPreference("revanced_remember_playback_speed_last_selected"),
             ListPreference(
                 key = "revanced_playback_speed_default",
-                titleKey = "revanced_playback_speed_default_title",
                 summaryKey = null,
-                // Dummy data:
                 // Entries and values are set by Integrations code based on the actual speeds available.
-                entries = null,
-                entryValues = null
+                entriesKey = null,
+                entryValuesKey = null
             )
         )
 

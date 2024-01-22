@@ -24,7 +24,7 @@ internal object SeekbarPreferencesPatch : ResourcePatch(), Closeable {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
                 "revanced_seekbar_preference_screen",
-                seekbarPreferences,
+                preferences = seekbarPreferences,
             )
         )
     }

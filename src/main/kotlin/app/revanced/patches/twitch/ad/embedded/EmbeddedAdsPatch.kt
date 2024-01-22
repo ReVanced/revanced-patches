@@ -39,7 +39,9 @@ object EmbeddedAdsPatch : BytecodePatch(
             "%s server returned an error. Ads may show. Try switching to another ad block service in settings."
         )
 
-        SettingsPatch.PreferenceScreen.ADS.SURESTREAM.addPreferences(ListPreference("revanced_block_embedded_ads"))
+        SettingsPatch.PreferenceScreen.ADS.SURESTREAM.addPreferences(
+            ListPreference("revanced_block_embedded_ads")
+        )
 
         val result = CreateUsherClientFingerprint.result ?: throw CreateUsherClientFingerprint.exception
 

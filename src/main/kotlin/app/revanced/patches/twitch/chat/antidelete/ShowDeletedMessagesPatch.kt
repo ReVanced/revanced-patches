@@ -48,10 +48,7 @@ object ShowDeletedMessagesPatch : BytecodePatch(
         SettingsPatch.PreferenceScreen.CHAT.GENERAL.addPreferences(
             ListPreference(
                 key = "revanced_show_deleted_messages",
-                titleKey = "revanced_show_deleted_messages_title",
                 summaryKey = null,
-                entriesKey = "revanced_show_deleted_messages_entries",
-                entryValuesKey = "revanced_show_deleted_messages_entry_values"
             )
         )
 

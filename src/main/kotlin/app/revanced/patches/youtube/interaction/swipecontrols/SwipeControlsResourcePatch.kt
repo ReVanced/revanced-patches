@@ -28,10 +28,10 @@ internal object SwipeControlsResourcePatch : ResourcePatch() {
                     SwitchPreference("revanced_swipe_press_to_engage"),
                     SwitchPreference("revanced_swipe_haptic_feedback"),
                     SwitchPreference("revanced_swipe_save_and_restore_brightness"),
-                    TextPreference("revanced_swipe_overlay_timeout", InputType.NUMBER),
-                    TextPreference("revanced_swipe_text_overlay_size", InputType.NUMBER),
-                    TextPreference("revanced_swipe_overlay_background_alpha", InputType.NUMBER),
-                    TextPreference("revanced_swipe_threshold", InputType.NUMBER)
+                    TextPreference("revanced_swipe_overlay_timeout", inputType = InputType.NUMBER),
+                    TextPreference("revanced_swipe_text_overlay_size", inputType = InputType.NUMBER),
+                    TextPreference("revanced_swipe_overlay_background_alpha", inputType = InputType.NUMBER),
+                    TextPreference("revanced_swipe_threshold", inputType = InputType.NUMBER)
                 ),
             )
         )

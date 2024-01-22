@@ -11,11 +11,13 @@ import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import app.revanced.util.copyXmlNode
 
-@Patch(dependencies = [
-    SettingsPatch::class,
-    ResourceMappingPatch::class,
-    AddResourcesPatch::class
-])
+@Patch(
+    dependencies = [
+        SettingsPatch::class,
+        ResourceMappingPatch::class,
+        AddResourcesPatch::class
+    ]
+)
 internal object SponsorBlockResourcePatch : ResourcePatch() {
 
     override fun execute(context: ResourceContext) {
@@ -24,8 +26,7 @@ internal object SponsorBlockResourcePatch : ResourcePatch() {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             IntentPreference(
                 "revanced_sponsorblock_settings_title",
-                "revanced_sponsorblock_settings_summary",
-                SettingsPatch.newIntent("sponsorblock_settings")
+                intent = SettingsPatch.newIntent("sponsorblock_settings")
             )
         )
         val classLoader = this.javaClass.classLoader

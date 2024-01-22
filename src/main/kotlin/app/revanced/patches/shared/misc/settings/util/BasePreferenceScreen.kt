@@ -46,7 +46,7 @@ abstract class BasePreferenceScreen(
                 summaryKey,
                 // Screens and preferences are sorted at runtime by integrations code,
                 // so they appear in alphabetical order for the localized language in use.
-                preferences + categories.map { it.transform() }
+                preferences = preferences + categories.map { it.transform() }
             )
         }
 
@@ -70,7 +70,7 @@ abstract class BasePreferenceScreen(
                 return PreferenceCategory(
                     key,
                     titleKey,
-                    preferences
+                    preferences = preferences
                 )
             }
 

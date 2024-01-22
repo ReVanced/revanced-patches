@@ -50,10 +50,7 @@ object SpoofAppVersionPatch : BytecodePatch(
             SwitchPreference("revanced_spoof_app_version"),
             ListPreference(
                 key = "revanced_spoof_app_version_target",
-                titleKey = "revanced_spoof_app_version_target_title",
                 summaryKey = null,
-                entriesKey = "revanced_spoof_app_version_target_entries",
-                entryValuesKey = "revanced_spoof_app_version_target_entry_values"
             )
         )
 

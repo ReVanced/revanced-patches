@@ -24,7 +24,7 @@ object DebuggingPatch : ResourcePatch() {
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             PreferenceScreen(
                 "revanced_debug_preference_screen",
-                setOf(
+                preferences = setOf(
                     SwitchPreference("revanced_debug"),
                     SwitchPreference("revanced_debug_protobuffer"),
                     SwitchPreference("revanced_debug_stacktrace"),

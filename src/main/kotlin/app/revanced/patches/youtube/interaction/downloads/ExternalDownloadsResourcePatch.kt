@@ -27,9 +27,9 @@ internal object ExternalDownloadsResourcePatch : ResourcePatch() {
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
             PreferenceScreen(
                 "revanced_external_downloader_preference_screen",
-                setOf(
+                preferences = setOf(
                     SwitchPreference("revanced_external_downloader"),
-                    TextPreference("revanced_external_downloader_name", InputType.TEXT)
+                    TextPreference("revanced_external_downloader_name", inputType = InputType.TEXT)
                 ),
             )
         )

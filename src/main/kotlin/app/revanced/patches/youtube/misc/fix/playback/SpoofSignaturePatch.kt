@@ -52,7 +52,7 @@ object SpoofSignaturePatch : BytecodePatch(
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             PreferenceScreen(
                 "revanced_spoof_signature_verification",
-                setOf(
+                preferences = setOf(
                     SwitchPreference("revanced_spoof_signature_verification_enabled"),
                     SwitchPreference("revanced_spoof_signature_in_feed_enabled"),
                     SwitchPreference("revanced_spoof_storyboard")

@@ -60,7 +60,7 @@ object MinimizedPlaybackPatch : BytecodePatch(
         // TODO: remove this empty preference sometime after mid 2023
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             NonInteractivePreference(
-                "revanced_minimized_playback_enabled_title",
+                "revanced_minimized_playback_enabled",
                 "revanced_minimized_playback_summary_on"
             )
         )

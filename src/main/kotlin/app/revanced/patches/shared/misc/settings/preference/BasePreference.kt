@@ -7,7 +7,7 @@ import org.w3c.dom.Element
 /**
  * Base preference class for all preferences.
  *
- * @param key The key of the preference.
+ * @param key The key of the preference. If null, other parameters must be specified.
  * @param titleKey The key of the preference title.
  * @param summaryKey The key of the preference summary.
  * @param tag The tag or full class name of the preference.
@@ -15,12 +15,10 @@ import org.w3c.dom.Element
 @Suppress("MemberVisibilityCanBePrivate")
 abstract class BasePreference(
     val key: String? = null,
-    val titleKey: String,
-    val summaryKey: String?,
+    val titleKey: String = "${key}_title",
+    val summaryKey: String? = "${key}_summary",
     val tag: String
 ) {
-    constructor(key: String, tag: String) : this(key, "${key}_title", "${key}_summary", tag)
-
     /**
      * Serialize preference element to XML.
      * Overriding methods should invoke super and operate on its return value.

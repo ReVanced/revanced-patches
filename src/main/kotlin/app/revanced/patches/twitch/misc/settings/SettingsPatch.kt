@@ -178,8 +178,8 @@ object SettingsPatch : BytecodePatch(
                 override fun transform(): PreferenceCategory {
                     return PreferenceCategory(
                         key,
-                        preferences,
-                        "app.revanced.integrations.twitch.settings.preference.CustomPreferenceCategory"
+                        preferences = preferences,
+                        tag = "app.revanced.integrations.twitch.settings.preference.CustomPreferenceCategory"
                     )
                 }
             }

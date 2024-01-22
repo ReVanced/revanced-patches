@@ -25,9 +25,9 @@ internal object CopyVideoUrlResourcePatch : ResourcePatch() {
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
             PreferenceScreen(
                 "revanced_copy_video_url_preference_screen",
-                setOf(
-                    SwitchPreference("revanced_copy_video_url",),
-                    SwitchPreference("revanced_copy_video_url_timestamp",)
+                preferences = setOf(
+                    SwitchPreference("revanced_copy_video_url"),
+                    SwitchPreference("revanced_copy_video_url_timestamp")
                 )
             )
         )

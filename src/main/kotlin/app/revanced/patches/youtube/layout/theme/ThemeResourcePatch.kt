@@ -31,7 +31,7 @@ internal object ThemeResourcePatch : ResourcePatch() {
 
         SeekbarPreferencesPatch.addPreferences(
             SwitchPreference("revanced_seekbar_custom_color"),
-            TextPreference("revanced_seekbar_custom_color_value", InputType.TEXT_CAP_CHARACTERS)
+            TextPreference("revanced_seekbar_custom_color_value", inputType = InputType.TEXT_CAP_CHARACTERS)
         )
 
         // Edit theme colors via resources.

@@ -12,7 +12,6 @@ import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.shared.fingerprints.HomeActivityFingerprint
 import app.revanced.util.exception
-import app.revanced.util.resource.ArrayResource
 
 @Patch(
     name = "Change start page",
@@ -37,31 +36,7 @@ object ChangeStartPagePatch : BytecodePatch(
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             ListPreference(
                 key = "revanced_start_page",
-                titleKey = "revanced_start_page_title",
                 summaryKey = null,
-                entries = ArrayResource(
-                    "revanced_start_page_entries",
-                    listOf(
-                        "revanced_start_page_home_entry_0",
-                        "revanced_start_page_home_entry_1",
-                        "revanced_start_page_home_entry_2",
-                        "revanced_start_page_home_entry_3",
-                        "revanced_start_page_home_entry_4",
-                        "revanced_start_page_home_entry_5",
-                    )
-                ),
-                entryValues = ArrayResource(
-                    "revanced_start_page_values",
-                    listOf(
-                        "",
-                        "MAIN",
-                        "open.search",
-                        "open.subscriptions",
-                        "open.explore",
-                        "open.shorts",
-                    ),
-                    literalValues = true
-                )
             )
         )
 

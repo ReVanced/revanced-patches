@@ -56,7 +56,7 @@ object CustomPlaybackSpeedPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
-            TextPreference("revanced_custom_playback_speeds", InputType.TEXT_MULTI_LINE)
+            TextPreference("revanced_custom_playback_speeds", inputType = InputType.TEXT_MULTI_LINE)
         )
 
         val arrayGenMethod = SpeedArrayGeneratorFingerprint.result?.mutableMethod!!

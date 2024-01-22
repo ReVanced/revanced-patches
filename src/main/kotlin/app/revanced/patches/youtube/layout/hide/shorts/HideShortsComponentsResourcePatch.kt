@@ -20,7 +20,7 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
                 "revanced_shorts_preference_screen",
-                setOf(
+                preferences = setOf(
                     SwitchPreference("revanced_hide_shorts"),
                     SwitchPreference("revanced_hide_shorts_join_button"),
                     SwitchPreference("revanced_hide_shorts_subscribe_button"),

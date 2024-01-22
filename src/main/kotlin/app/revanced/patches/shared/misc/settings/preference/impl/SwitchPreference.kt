@@ -7,29 +7,21 @@ import org.w3c.dom.Document
 
 /**
  * A switch preference.
+ *
+ * @param key The preference key. If null, other parameters must be specified.
+ * @param titleKey The preference title key.
+ * @param tag The preference tag.
+ * @param summaryOnKey The preference summary-on key.
+ * @param summaryOffKey The preference summary-off key.
  */
 @Suppress("MemberVisibilityCanBePrivate")
-class SwitchPreference : BasePreference {
-    val summaryOnKey: String
-    val summaryOffKey: String
-
-    constructor(
-        key: String? = null,
-        titleKey: String,
-        summaryOnKey: String,
-        summaryOffKey: String,
-    ) : super(key, titleKey, null, "SwitchPreference") {
-        this.summaryOnKey = summaryOnKey
-        this.summaryOffKey = summaryOffKey
-    }
-
-    constructor(
-        key: String,
-    ) : super(key, "SwitchPreference") {
-        this.summaryOnKey = "${key}_summary_on"
-        this.summaryOffKey = "${key}_summary_off"
-    }
-
+class SwitchPreference(
+    key: String? = null,
+    titleKey: String = "${key}_title",
+    tag: String = "SwitchPreference",
+    val summaryOnKey: String = "${key}_summary_on",
+    val summaryOffKey: String = "${key}_summary_off"
+) : BasePreference(key, titleKey, null, tag) {
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
         super.serialize(ownerDocument, resourceCallback).apply {
             addSummary(summaryOnKey, SummaryType.ON)

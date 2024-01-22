@@ -121,9 +121,9 @@ object AlternativeThumbnailsPatch : BytecodePatch(
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
                 "revanced_alt_thumbnail_preference_screen",
-                setOf(
+                preferences = setOf(
                     NonInteractivePreference(
-                        "revanced_alt_thumbnail_about_title",
+                        "revanced_alt_thumbnail_about",
                         null, // Summary is dynamically updated based on the current settings.
                         tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsStatusPreference"
                     ),
@@ -131,8 +131,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                     SwitchPreference("revanced_alt_thumbnail_dearrow_connection_toast"),
                     TextPreference("revanced_alt_thumbnail_dearrow_api_url"),
                     NonInteractivePreference(
-                        "revanced_alt_thumbnail_dearrow_about_title",
-                        "revanced_alt_thumbnail_dearrow_about_summary",
+                        "revanced_alt_thumbnail_dearrow_about",
                         // Custom about preference with link to the DeArrow website.
                         tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsAboutDeArrowPreference",
                         selectable = true
@@ -140,15 +139,11 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                     SwitchPreference("revanced_alt_thumbnail_stills"),
                     ListPreference(
                         "revanced_alt_thumbnail_stills_time",
-                        titleKey = "revanced_alt_thumbnail_stills_time_title",
                         summaryKey = null,
-                        entriesKey = "revanced_alt_thumbnail_type_entries",
-                        entryValuesKey = "revanced_alt_thumbnail_stills_time_entry_values",
                     ),
                     SwitchPreference("revanced_alt_thumbnail_stills_fast"),
                     NonInteractivePreference(
-                        "revanced_alt_thumbnail_stills_about_title",
-                        "revanced_alt_thumbnail_stills_about_summary",
+                        "revanced_alt_thumbnail_stills_about",
                         // Restore the preference dividers to keep it from looking weird.
                         selectable = true
                     )

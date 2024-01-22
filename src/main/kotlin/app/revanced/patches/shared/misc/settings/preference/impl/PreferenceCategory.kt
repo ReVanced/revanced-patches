@@ -6,27 +6,19 @@ import org.w3c.dom.Document
 
 /**
  * A preference category.
+ *
+ * @param key The key of the preference. If null, other parameters must be specified.
+ * @param titleKey The key of the preference title.
+ * @param tag The tag or full class name of the preference.
+ * @param preferences The preferences in this category.
  */
 @Suppress("MemberVisibilityCanBePrivate")
-open class PreferenceCategory : BasePreference {
+open class PreferenceCategory(
+    key: String? = null,
+    titleKey: String = "${key}_title",
+    tag: String = "PreferenceCategory",
     val preferences: Set<BasePreference>
-
-    constructor(
-        key: String? = null,
-        titleKey: String,
-        preferences: Set<BasePreference>,
-        tag: String = "PreferenceCategory",
-    ) : super(key, titleKey, null, tag) {
-        this.preferences = preferences
-    }
-
-    constructor(
-        key: String,
-        preferences: Set<BasePreference>,
-        tag: String = "PreferenceCategory",
-    ) : super(key, tag) {
-        this.preferences = preferences
-    }
+) : BasePreference(key, titleKey, null, tag) {
 
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
         super.serialize(ownerDocument, resourceCallback).apply {

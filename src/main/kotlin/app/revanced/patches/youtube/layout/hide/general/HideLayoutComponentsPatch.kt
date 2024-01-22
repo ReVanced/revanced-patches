@@ -79,7 +79,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_chips_shelf"),
             app.revanced.patches.shared.misc.settings.preference.impl.PreferenceScreen(
                 "revanced_hide_description_components_preference_screen",
-                setOf(
+                preferences = setOf(
                     SwitchPreference("revanced_hide_info_cards_section"),
                     SwitchPreference("revanced_hide_game_section"),
                     SwitchPreference("revanced_hide_music_section"),
@@ -89,7 +89,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
             ),
             app.revanced.patches.shared.misc.settings.preference.impl.PreferenceScreen(
                 "revanced_custom_filter_preference_screen",
-                setOf(
+                preferences = setOf(
                     SwitchPreference("revanced_custom_filter"),
                     // TODO: This should be a dynamic ListPreference, which does not exist yet
                     TextPreference("revanced_custom_filter_strings", inputType = InputType.TEXT_MULTI_LINE)

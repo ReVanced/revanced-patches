@@ -19,7 +19,7 @@ internal object CustomPlayerOverlayOpacityResourcePatch : ResourcePatch() {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            TextPreference("revanced_player_overlay_opacity", InputType.NUMBER)
+            TextPreference("revanced_player_overlay_opacity", inputType = InputType.NUMBER)
         )
 
         scrimOverlayId = ResourceMappingPatch.resourceMappings.single {
