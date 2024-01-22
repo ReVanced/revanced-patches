@@ -13,6 +13,9 @@ class ListPreference : BasePreference {
     val entries: ArrayResource?
     val entryValues: ArrayResource?
 
+    val entriesKey: String?
+    val entryValuesKey: String?
+
     constructor(
         key: String? = null,
         titleKey: String,
@@ -22,6 +25,35 @@ class ListPreference : BasePreference {
     ) : super(key, titleKey, summaryKey, "ListPreference") {
         this.entries = entries
         this.entryValues = entryValues
+
+        entriesKey = entries?.name
+        entryValuesKey = entryValues?.name
+    }
+
+    constructor(
+        key: String? = null,
+        titleKey: String,
+        summaryKey: String?,
+        entriesKey: String?,
+        entryValuesKey: String?,
+    ) : super(key, titleKey, summaryKey, "ListPreference") {
+        entries = null
+        entryValues = null
+
+        this.entriesKey = entriesKey
+        this.entryValuesKey = entryValuesKey
+    }
+
+    constructor(
+        key: String,
+        entriesKey: String,
+        entryValuesKey: String,
+    ) : super(key, "ListPreference") {
+        entries = null
+        entryValues = null
+
+        this.entriesKey = entriesKey
+        this.entryValuesKey = entryValuesKey
     }
 
     constructor(
@@ -29,21 +61,28 @@ class ListPreference : BasePreference {
     ) : super(key, "ListPreference") {
         entries = null
         entryValues = null
+
+        entriesKey = null
+        entryValuesKey = null
     }
 
 
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
         super.serialize(ownerDocument, resourceCallback).apply {
-            entries?.let {
+            val entriesArrayName = entries?.also { resourceCallback.invoke(it) }?.name ?: entriesKey
+            val entryValuesArrayName = entryValues?.also { resourceCallback.invoke(it) }?.name ?: entryValuesKey
+
+            entriesArrayName?.let {
                 setAttribute(
                     "android:entries",
-                    "@array/${entries.also { resourceCallback.invoke(it) }.name}"
+                    "@array/$it"
                 )
             }
-            entryValues?.let {
+
+            entryValuesArrayName?.let {
                 setAttribute(
                     "android:entryValues",
-                    "@array/${entryValues.also { resourceCallback.invoke(it) }.name}"
+                    "@array/$it"
                 )
             }
         }
