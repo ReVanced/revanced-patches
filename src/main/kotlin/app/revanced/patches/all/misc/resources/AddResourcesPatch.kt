@@ -250,7 +250,6 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
                     editor to editor.getNode("resources")
                 }
             }.let { (_, targetNode) ->
-                // TODO: Fix duplication issue. Not sure why it happens, no duplicate resources are found.
                 targetNode.addResource(resource) { invoke(value, it) }
             }
         }
