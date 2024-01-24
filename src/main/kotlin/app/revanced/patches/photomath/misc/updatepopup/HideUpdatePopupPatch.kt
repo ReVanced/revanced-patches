@@ -21,8 +21,6 @@ object HideUpdatePopupPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) = HideUpdatePopupFingerprint.result?.mutableMethod?.addInstructions(
         2, // Insert after the null check
-        """
-            return-void
-        """
+        "return-void"
     ) ?: throw HideUpdatePopupFingerprint.exception
 }
