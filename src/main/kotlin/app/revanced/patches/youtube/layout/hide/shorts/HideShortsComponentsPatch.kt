@@ -59,6 +59,8 @@ object HideShortsComponentsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         // region Hide the Shorts shelf.
 
+        // This patch point is not present in 19.03.x and greater.
+        // If 19.02.x and lower is dropped, then this section of code and the fingerprint should be removed.
         ReelConstructorFingerprint.result?.let {
             it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.startIndex + 2
@@ -71,7 +73,7 @@ object HideShortsComponentsPatch : BytecodePatch(
                     "hideShortsShelf"
                 )
             }
-        } ?: throw ReelConstructorFingerprint.exception
+        } // Do not throw an exception if not resolved.
 
         // endregion
 

@@ -97,9 +97,15 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
             )
         )
 
-        fun String.getId() = ResourceMappingPatch.resourceMappings.single { it.name == this }.id
+        ResourceMappingPatch.resourceMappings.find {
+            it.type == "layout" && it.name == "reel_multiple_items_shelf"
+        }?.also {
+            reelMultipleItemShelfId = it.id
+        }
 
-        reelMultipleItemShelfId = "reel_multiple_items_shelf".getId()
-        reelPlayerRightCellButtonHeight = "reel_player_right_cell_button_height".getId()
+        reelPlayerRightCellButtonHeight =
+            ResourceMappingPatch.resourceMappings.single {
+                it.type == "dimen" && it.name == "reel_player_right_cell_button_height"
+            }.id
     }
 }
