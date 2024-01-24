@@ -1343,15 +1343,6 @@
             <string name="revanced_video_quality_default_entry_7">360p</string>
             <string name="revanced_video_quality_default_entry_8">240p</string>
             <string name="revanced_video_quality_default_entry_9">144p</string>
-            <string name="revanced_video_quality_default_entry_value_1">-2</string>
-            <string name="revanced_video_quality_default_entry_value_2">2160</string>
-            <string name="revanced_video_quality_default_entry_value_3">1440</string>
-            <string name="revanced_video_quality_default_entry_value_4">1080</string>
-            <string name="revanced_video_quality_default_entry_value_5">720</string>
-            <string name="revanced_video_quality_default_entry_value_6">480</string>
-            <string name="revanced_video_quality_default_entry_value_7">360</string>
-            <string name="revanced_video_quality_default_entry_value_8">240</string>
-            <string name="revanced_video_quality_default_entry_value_9">144</string>
             <string name="revanced_remember_video_quality_last_selected_title">Remember video
                 quality
                 changes</string>
