@@ -36,7 +36,8 @@ object GmsCoreSupportPatch : AbstractGmsCoreSupportPatch(
                 "18.48.39",
                 "18.49.37",
                 "19.01.34",
-                "19.02.34"
+                "19.02.39",
+                "19.03.35"
             )
         )
     ),
