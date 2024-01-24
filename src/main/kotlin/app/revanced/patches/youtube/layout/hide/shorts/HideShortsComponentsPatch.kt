@@ -39,7 +39,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
                 "18.48.39",
                 "18.49.37",
                 "19.01.34",
-                "19.02.34"
+                "19.02.39",
+                "19.03.35"
             ]
         )
     ]
@@ -59,6 +60,8 @@ object HideShortsComponentsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         // region Hide the Shorts shelf.
 
+        // This patch point is not present in 19.03.x and greater.
+        // If 19.02.x and lower is dropped, then this section of code and the fingerprint should be removed.
         ReelConstructorFingerprint.result?.let {
             it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.startIndex + 2
@@ -71,7 +74,7 @@ object HideShortsComponentsPatch : BytecodePatch(
                     "hideShortsShelf"
                 )
             }
-        } ?: throw ReelConstructorFingerprint.exception
+        } // Do not throw an exception if not resolved.
 
         // endregion
 
