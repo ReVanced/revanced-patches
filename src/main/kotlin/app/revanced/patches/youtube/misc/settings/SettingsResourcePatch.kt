@@ -12,7 +12,7 @@ import org.w3c.dom.Element
 object SettingsResourcePatch : BaseSettingsResourcePatch(
     IntentPreference(
         "revanced_settings",
-        intent = SettingsPatch.newIntent("revanced_settings")
+        intent = SettingsPatch.newIntent("revanced_settings_intent")
     ) to "settings_fragment",
     dependencies = setOf(
         ResourceMappingPatch::class,

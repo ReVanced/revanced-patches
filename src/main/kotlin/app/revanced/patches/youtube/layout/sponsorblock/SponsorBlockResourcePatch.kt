@@ -26,7 +26,7 @@ internal object SponsorBlockResourcePatch : ResourcePatch() {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             IntentPreference(
                 "revanced_sponsorblock_settings_title",
-                intent = SettingsPatch.newIntent("sponsorblock_settings")
+                intent = SettingsPatch.newIntent("sponsorblock_settings_intent")
             )
         )
         val classLoader = this.javaClass.classLoader
