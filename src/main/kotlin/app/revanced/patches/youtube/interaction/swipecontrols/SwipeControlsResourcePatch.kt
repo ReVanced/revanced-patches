@@ -40,10 +40,10 @@ internal object SwipeControlsResourcePatch : ResourcePatch() {
             "swipecontrols",
             ResourceGroup(
                 "drawable",
-                "ic_sc_brightness_auto.xml",
-                "ic_sc_brightness_manual.xml",
-                "ic_sc_volume_mute.xml",
-                "ic_sc_volume_normal.xml"
+                "revanced_ic_sc_brightness_auto.xml",
+                "revanced_ic_sc_brightness_manual.xml",
+                "revanced_ic_sc_volume_mute.xml",
+                "revanced_ic_sc_volume_normal.xml"
             )
         )
     }
