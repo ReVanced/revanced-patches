@@ -24,7 +24,7 @@ open class PreferenceScreen(
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
         super.serialize(ownerDocument, resourceCallback).apply {
             preferences.forEach {
-                this.appendChild(it.serialize(ownerDocument, resourceCallback))
+                appendChild(it.serialize(ownerDocument, resourceCallback))
             }
         }
 }

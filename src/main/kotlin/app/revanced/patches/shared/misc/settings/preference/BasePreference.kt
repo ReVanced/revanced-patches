@@ -37,6 +37,7 @@ abstract class BasePreference(
 
     override fun hashCode(): Int {
         var result = key?.hashCode() ?: 0
+        result = 31 * result + titleKey.hashCode()
         result = 31 * result + tag.hashCode()
         return result
     }
@@ -48,6 +49,7 @@ abstract class BasePreference(
         other as BasePreference
 
         if (key != other.key) return false
+        if (titleKey != other.titleKey) return false
         if (tag != other.tag) return false
 
         return true
