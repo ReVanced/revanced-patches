@@ -59,7 +59,7 @@
                 <item>@string/revanced_video_quality_default_entry_9</item>
             </string-array>
             <string-array name="revanced_video_quality_default_wifi_entry_values">
-                <item>-</item>
+                <item>-2</item>
                 <item>2160</item>
                 <item>1440</item>
                 <item>1080</item>
@@ -81,7 +81,7 @@
                 <item>@string/revanced_video_quality_default_entry_9</item>
             </string-array>
             <string-array name="revanced_video_quality_default_mobile_entry_values">
-                <item>-</item>
+                <item>-2</item>
                 <item>2160</item>
                 <item>1440</item>
                 <item>1080</item>
