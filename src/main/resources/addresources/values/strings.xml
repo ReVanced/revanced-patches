@@ -12,7 +12,7 @@
             <string name="revanced_settings_import_success">Imported %d settings</string>
             <string name="revanced_settings_import_failure_parse">Import failed: %s</string>
         </patch>
-        <patch id="misc.gms.c">
+        <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
             <string name="gms_core_not_installed_warning">GmsCore is not installed. Please install.</string>
             <string name="gms_core_not_running_warning">GmsCore is failing to run. Please follow the \"Don\'t kill my app\" guide for GmsCore.</string>
         </patch>
