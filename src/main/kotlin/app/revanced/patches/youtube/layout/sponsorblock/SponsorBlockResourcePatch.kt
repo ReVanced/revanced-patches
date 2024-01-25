@@ -11,6 +11,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import app.revanced.util.copyXmlNode
+import app.revanced.util.inputStreamFromBundledResource
 
 @Patch(
     dependencies = [
@@ -26,7 +27,7 @@ internal object SponsorBlockResourcePatch : ResourcePatch() {
 
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             IntentPreference(
-                "revanced_sb_settings_title",
+                "revanced_sb_settings",
                 intent = SettingsPatch.newIntent("revanced_sb_settings_intent")
             )
         )
