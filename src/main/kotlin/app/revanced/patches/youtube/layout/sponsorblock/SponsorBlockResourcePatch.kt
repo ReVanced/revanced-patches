@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.layout.sponsorblock
 
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
@@ -60,6 +61,7 @@ internal object SponsorBlockResourcePatch : ResourcePatch() {
         val hostingResourceStream =
             classLoader.getResourceAsStream("sponsorblock/host/layout/youtube_controls_layout.xml")!!
 
+        var modifiedControlsLayout = false
         val targetXmlEditor = context.xmlEditor["res/layout/youtube_controls_layout.xml"]
         "RelativeLayout".copyXmlNode(
             context.xmlEditor[hostingResourceStream],
@@ -79,8 +81,11 @@ internal object SponsorBlockResourcePatch : ResourcePatch() {
 
                 view.attributes.getNamedItem("android:layout_toStartOf").nodeValue = votingButtonId
 
+                modifiedControlsLayout = true
                 break
             }
         }.close()
+
+        if (!modifiedControlsLayout) throw PatchException("Could not modify controls layout")
     }
 }
