@@ -23,7 +23,7 @@ internal object ReturnYouTubeDislikeResourcePatch : ResourcePatch() {
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             IntentPreference(
                 "revanced_ryd_settings",
-                intent = SettingsPatch.newIntent("ryd_settings_intent")
+                intent = SettingsPatch.newIntent("revanced_ryd_settings_intent")
             )
         )
 

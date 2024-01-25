@@ -788,8 +788,8 @@
             <string name="revanced_seekbar_preference_screen_summary">Settings for the seekbar</string>
         </patch>
         <patch id="layout.sponsorblock.SponsorBlockResourcePatch">
-            <string name="revanced_sponsorblock_settings_title">SponsorBlock</string>
-            <string name="revanced_sponsorblock_settings_summary">SponsorBlock related settings</string>
+            <string name="revanced_sb_settings_title">SponsorBlock</string>
+            <string name="revanced_sb_settings_summary">SponsorBlock related settings</string>
             <string name="revanced_sb_enable_sb">Enable SponsorBlock</string>
             <string name="revanced_sb_enable_sb_sum">SponsorBlock is a crowd-sourced system for
                 skipping
