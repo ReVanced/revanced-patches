@@ -66,7 +66,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
         PreferenceScreen.LAYOUT.addPreferences(
             SwitchPreference("revanced_hide_gray_separator"),
             SwitchPreference("revanced_hide_join_membership_button"),
-            SwitchPreference("revanced_hide_channel_watermark_title"),
+            SwitchPreference("revanced_hide_channel_watermark"),
             SwitchPreference("revanced_hide_for_you_shelf"),
             SwitchPreference("revanced_hide_notify_me_button"),
             SwitchPreference("revanced_hide_timed_reactions"),

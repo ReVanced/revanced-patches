@@ -50,7 +50,7 @@ object HidePlayerFlyoutMenuPatch : ResourcePatch() {
 
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
-                titleKey = KEY,
+                key = KEY,
                 preferences = setOf(
                     SwitchPreference("${KEY}_captions"),
                     SwitchPreference("${KEY}_additional_settings"),

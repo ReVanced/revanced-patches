@@ -105,11 +105,11 @@ object SettingsPatch : BytecodePatch(
     }
 
     object PreferenceScreen : BasePreferenceScreen() {
-        val ADS = Screen("ads", "Ads", "Ad related settings")
-        val INTERACTIONS = Screen("interactions", "Interaction", "Settings related to interactions")
-        val LAYOUT = Screen("layout", "Layout", "Settings related to the layout")
-        val VIDEO = Screen("video", "Video", "Settings related to the video player")
-        val MISC = Screen("misc", "Misc", "Miscellaneous patches")
+        val ADS = Screen("revanced_ads_screen")
+        val INTERACTIONS = Screen("revanced_interactions_screen")
+        val LAYOUT = Screen("revanced_layout_screen")
+        val VIDEO = Screen("revanced_video_screen")
+        val MISC = Screen("revanced_misc_screen")
 
         override fun commit(screen: app.revanced.patches.shared.misc.settings.preference.PreferenceScreen) {
             SettingsResourcePatch += screen

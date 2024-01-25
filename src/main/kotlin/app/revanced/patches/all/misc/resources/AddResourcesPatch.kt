@@ -27,11 +27,11 @@ private typealias PatchId = String
 /**
  * A set of resources of a patch.
  */
-private typealias PatchResources = Set<BaseResource>
+private typealias PatchResources = MutableSet<BaseResource>
 /**
  * A map of resources belonging to a patch.
  */
-private typealias AppResources = Map<PatchId, PatchResources>
+private typealias AppResources = MutableMap<PatchId, PatchResources>
 /**
  * A map of resources belonging to an app.
  */
@@ -92,11 +92,11 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
                             it.file.getElementsByTagName("app").asSequence().forEach { app ->
                                 val appId = app.attributes.getNamedItem("id").textContent
 
-                                this[appId] = buildMap {
+                                getOrPut(appId, ::mutableMapOf).apply {
                                     app.forEachChildElement { patch ->
                                         val patchId = patch.attributes.getNamedItem("id").textContent
 
-                                        this[patchId] = mutableSetOf<BaseResource>().apply {
+                                        getOrPut(patchId, ::mutableSetOf).apply {
                                             patch.forEachChildElement { resourceNode ->
                                                 val resource = transform(resourceNode)
 

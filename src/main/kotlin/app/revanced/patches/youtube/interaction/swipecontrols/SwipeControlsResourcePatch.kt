@@ -21,7 +21,7 @@ internal object SwipeControlsResourcePatch : ResourcePatch() {
 
         SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
             PreferenceScreen(
-                titleKey = "revanced_swipe_controls_preference_screen",
+                key = "revanced_swipe_controls_preference_screen",
                 preferences = setOf(
                     SwitchPreference("revanced_swipe_brightness"),
                     SwitchPreference("revanced_swipe_volume"),

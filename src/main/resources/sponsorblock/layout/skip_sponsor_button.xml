@@ -18,7 +18,7 @@
             android:includeFontPadding="false"
             android:paddingRight="@dimen/ad_overlay_ad_text_padding"
             android:singleLine="true"
-            android:text="@string/sb_skip_button_compact"
+            android:text="@string/revanced_sb_skip_button_compact"
             android:textColor="@color/skip_ad_button_foreground_color"
             android:textSize="@dimen/extra_small_font_size"
             yt:robotoFont="light" />

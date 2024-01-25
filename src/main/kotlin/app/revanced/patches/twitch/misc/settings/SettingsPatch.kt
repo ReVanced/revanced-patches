@@ -162,18 +162,18 @@ object SettingsPatch : BytecodePatch(
      * Preference screens patches should add their settings to.
      */
     internal object PreferenceScreen : BasePreferenceScreen() {
-        val ADS = CustomScreen("ads", "Ads", "Ad blocking settings")
-        val CHAT = CustomScreen("chat", "Chat", "Chat settings")
-        val MISC = CustomScreen("misc", "Misc", "Miscellaneous patches")
+        val ADS = CustomScreen("revanced_ads_screen")
+        val CHAT = CustomScreen("revanced_chat_screen")
+        val MISC = CustomScreen("revanced_misc_screen")
 
-        internal class CustomScreen(key: String, title: String, summary: String) : Screen(key, title, summary) {
+        internal class CustomScreen(key: String) : Screen(key) {
             /* Categories */
-            val GENERAL = CustomCategory("general", "General settings")
-            val OTHER = CustomCategory("other", "Other settings")
-            val CLIENT_SIDE = CustomCategory("client_ads", "Client-side ads")
-            val SURESTREAM = CustomCategory("surestream_ads", "Server-side surestream ads")
+            val GENERAL = CustomCategory("revanced_general_category")
+            val OTHER = CustomCategory("revanced_other_category")
+            val CLIENT_SIDE = CustomCategory("revanced_client_ads_category")
+            val SURESTREAM = CustomCategory("revanced_surestream_ads_category")
 
-            internal inner class CustomCategory(key: String, title: String) : Screen.Category(key, title) {
+            internal inner class CustomCategory(key: String) : Screen.Category(key) {
                 /* For Twitch, we need to load our CustomPreferenceCategory class instead of the default one. */
                 override fun transform(): PreferenceCategory {
                     return PreferenceCategory(

@@ -20,9 +20,9 @@ abstract class BasePreferenceScreen(
     abstract fun commit(screen: PreferenceScreen)
 
     open inner class Screen(
-        key: String,
-        titleKey: String,
-        private val summaryKey: String? = null,
+        key: String? = null,
+        titleKey: String = "${key}_title",
+        private val summaryKey: String? = "${key}_summary",
         preferences: MutableSet<BasePreference> = mutableSetOf(),
         val categories: MutableSet<Category> = mutableSetOf()
     ) : BasePreferenceCollection(key, titleKey, preferences) {
@@ -31,7 +31,7 @@ abstract class BasePreferenceScreen(
          * Initialize using title and summary keys with suffix "_title" and "_summary".
          */
         constructor(
-            key: String,
+            key: String? = null,
             preferences: MutableSet<BasePreference> = mutableSetOf(),
             categories: MutableSet<Category> = mutableSetOf()
         ) : this(key, key + "_title", key + "_summary", preferences, categories)
@@ -59,8 +59,8 @@ abstract class BasePreferenceScreen(
         }
 
         open inner class Category(
-            key: String,
-            titleKey: String,
+            key: String? = null,
+            titleKey: String = "${key}_title",
             preferences: MutableSet<BasePreference> = mutableSetOf()
         ) : BasePreferenceCollection(key, titleKey, preferences) {
             override fun transform(): PreferenceCategory {
@@ -84,8 +84,8 @@ abstract class BasePreferenceScreen(
     }
 
     abstract class BasePreferenceCollection(
-        val key: String,
-        val titleKey: String,
+        val key: String? = null,
+        val titleKey: String = "${key}_title",
         val preferences: MutableSet<BasePreference> = mutableSetOf()
     ) {
         abstract fun transform(): BasePreference
