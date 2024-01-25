@@ -31,8 +31,6 @@ internal object SponsorBlockResourcePatch : ResourcePatch() {
                 intent = SettingsPatch.newIntent("revanced_sb_settings_intent")
             )
         )
-        val classLoader = this.javaClass.classLoader
-
         arrayOf(
             ResourceGroup(
                 "layout",
@@ -59,8 +57,11 @@ internal object SponsorBlockResourcePatch : ResourcePatch() {
         }
 
         // copy nodes from host resources to their real xml files
-        val hostingResourceStream =
-            classLoader.getResourceAsStream("sponsorblock/host/layout/youtube_controls_layout.xml")!!
+
+        val hostingResourceStream = inputStreamFromBundledResource(
+            "sponsorblock",
+            "host/layout/youtube_controls_layout.xml"
+        )!!
 
         var modifiedControlsLayout = false
         val targetXmlEditor = context.xmlEditor["res/layout/youtube_controls_layout.xml"]
