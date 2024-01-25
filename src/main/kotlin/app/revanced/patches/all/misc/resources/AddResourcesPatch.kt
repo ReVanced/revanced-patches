@@ -215,7 +215,6 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
         // Stage resources for the given patch to AddResourcesPatch associated with their value.
         resources.forEach { (value, resources) ->
             resources[appId]?.get(patchId)?.let { patchResources -> invoke(value, patchResources) }
-                ?: throw PatchException("Resources for patch with id $patchId not found for app with id $appId")
         }
     }
 
