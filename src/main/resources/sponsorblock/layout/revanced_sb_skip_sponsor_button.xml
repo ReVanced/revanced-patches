@@ -3,7 +3,7 @@
     xmlns:yt="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
-        android:id="@+id/sb_skip_sponsor_button_container"
+        android:id="@+id/revanced_sb_skip_sponsor_button_container"
         android:layout_width="wrap_content"
         android:layout_height="32dp"
         android:layout_gravity="center_vertical"
@@ -11,7 +11,7 @@
         android:padding="8dp">
 
         <com.google.android.libraries.youtube.common.ui.YouTubeTextView
-            android:id="@+id/sb_skip_sponsor_button_text"
+            android:id="@+id/revanced_sb_skip_sponsor_button_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -24,7 +24,7 @@
             yt:robotoFont="light" />
 
         <ImageView
-            android:id="@+id/sb_skip_sponsor_button_icon"
+            android:id="@+id/revanced_sb_skip_sponsor_button_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"

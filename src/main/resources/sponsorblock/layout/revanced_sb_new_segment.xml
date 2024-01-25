@@ -3,7 +3,7 @@
     xmlns:yt="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
-        android:id="@+id/sb_new_segment_container"
+        android:id="@+id/revanced_sb_new_segment_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#66000000"
@@ -15,7 +15,7 @@
             android:layout_height="36.0dip">
 
             <ImageButton
-                android:id="@+id/sb_new_segment_rewind"
+                android:id="@+id/revanced_sb_new_segment_rewind"
                 android:layout_width="45.0dip"
                 android:layout_height="36.0dip"
                 android:layout_gravity="start|center"
@@ -29,7 +29,7 @@
                 android:src="@drawable/player_fast_rewind" />
 
             <ImageButton
-                android:id="@+id/sb_new_segment_forward"
+                android:id="@+id/revanced_sb_new_segment_forward"
                 android:layout_width="45.0dip"
                 android:layout_height="36.0dip"
                 android:layout_gravity="start|center"
@@ -43,7 +43,7 @@
                 android:src="@drawable/player_fast_forward" />
 
             <ImageButton
-                android:id="@+id/sb_new_segment_adjust"
+                android:id="@+id/revanced_sb_new_segment_adjust"
                 android:layout_width="45.0dip"
                 android:layout_height="36.0dip"
                 android:layout_gravity="start|center"
@@ -54,7 +54,7 @@
                 android:paddingTop="3.0dip"
                 android:paddingEnd="10.0dip"
                 android:paddingBottom="3.0dip"
-                android:src="@drawable/ic_sb_adjust" />
+                android:src="@drawable/revanced_sb_adjust" />
         </LinearLayout>
 
         <LinearLayout
@@ -62,7 +62,7 @@
             android:layout_height="36.0dip">
 
             <ImageButton
-                android:id="@+id/sb_new_segment_compare"
+                android:id="@+id/revanced_sb_new_segment_compare"
                 android:layout_width="45.0dip"
                 android:layout_height="36.0dip"
                 android:layout_gravity="start|center"
@@ -73,10 +73,10 @@
                 android:paddingTop="3.0dip"
                 android:paddingEnd="5.0dip"
                 android:paddingBottom="3.0dip"
-                android:src="@drawable/ic_sb_compare" />
+                android:src="@drawable/revanced_sb_compare" />
 
             <ImageButton
-                android:id="@+id/sb_new_segment_edit"
+                android:id="@+id/revanced_sb_new_segment_edit"
                 android:layout_width="45.0dip"
                 android:layout_height="36.0dip"
                 android:layout_gravity="start|center"
@@ -87,10 +87,10 @@
                 android:paddingTop="3.0dip"
                 android:paddingEnd="5.0dip"
                 android:paddingBottom="3.0dip"
-                android:src="@drawable/ic_sb_edit" />
+                android:src="@drawable/revanced_sb_edit" />
 
             <ImageButton
-                android:id="@+id/sb_new_segment_publish"
+                android:id="@+id/revanced_sb_new_segment_publish"
                 android:layout_width="45.0dip"
                 android:layout_height="36.0dip"
                 android:layout_gravity="start|center"
@@ -101,7 +101,7 @@
                 android:paddingTop="3.0dip"
                 android:paddingEnd="10.0dip"
                 android:paddingBottom="3.0dip"
-                android:src="@drawable/ic_sb_publish" />
+                android:src="@drawable/revanced_sb_publish" />
         </LinearLayout>
     </LinearLayout>
 </merge>

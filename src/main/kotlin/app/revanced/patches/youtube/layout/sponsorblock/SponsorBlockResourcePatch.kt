@@ -31,24 +31,22 @@ internal object SponsorBlockResourcePatch : ResourcePatch() {
         )
         val classLoader = this.javaClass.classLoader
 
-        AddResourcesPatch(this::class)
-
         arrayOf(
             ResourceGroup(
                 "layout",
-                "inline_sponsor_overlay.xml",
-                "new_segment.xml",
-                "skip_sponsor_button.xml"
+                "revanced_sb_inline_sponsor_overlay.xml",
+                "revanced_sb_new_segment.xml",
+                "revanced_sb_skip_sponsor_button.xml"
             ),
             ResourceGroup(
                 // required resource for back button, because when the base APK is used, this resource will not exist
                 "drawable",
-                "ic_sb_adjust.xml",
-                "ic_sb_compare.xml",
-                "ic_sb_edit.xml",
-                "ic_sb_logo.xml",
-                "ic_sb_publish.xml",
-                "ic_sb_voting.xml"
+                "revanced_sb_adjust.xml",
+                "revanced_sb_compare.xml",
+                "revanced_sb_edit.xml",
+                "revanced_sb_logo.xml",
+                "revanced_sb_publish.xml",
+                "revanced_sb_voting.xml"
             ),
             ResourceGroup(
                 // required resource for back button, because when the base APK is used, this resource will not exist
@@ -77,7 +75,7 @@ internal object SponsorBlockResourcePatch : ResourcePatch() {
                 if (!(view.hasAttributes() && view.attributes.getNamedItem("android:id").nodeValue.endsWith("live_chat_overlay_button"))) continue
 
                 // voting button id from the voting button view from the youtube_controls_layout.xml host file
-                val votingButtonId = "@+id/sb_voting_button"
+                val votingButtonId = "@+id/revanced_sb_voting_button"
 
                 view.attributes.getNamedItem("android:layout_toStartOf").nodeValue = votingButtonId
 
