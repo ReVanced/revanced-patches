@@ -14,10 +14,10 @@
         </patch>
         <patch id="misc.gms.c">
             <string name="gms_core_not_installed_warning">GmsCore is not installed. Please install.</string>
-            <string name="gms_core_not_running_warning">GmsCore is failing to run. Please follow the
-                "Don't kill my app"
-                guide for GmsCore.
-            </string>
+            <string name="gms_core_not_running_warning">
+                GmsCore is failing to run. Please follow the
+                \"Don\'t kill my app\"
+                guide for GmsCore.</string>
         </patch>
     </app>
     <app id="youtube">
