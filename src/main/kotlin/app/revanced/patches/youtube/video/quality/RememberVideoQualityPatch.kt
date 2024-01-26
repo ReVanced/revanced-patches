@@ -63,10 +63,14 @@ object RememberVideoQualityPatch : BytecodePatch(
             ListPreference(
                 key = "revanced_video_quality_default_wifi",
                 summaryKey = null,
+                entriesKey = "revanced_video_quality_default_entries",
+                entryValuesKey = "revanced_video_quality_default_entry_values"
             ),
             ListPreference(
                 key = "revanced_video_quality_default_mobile",
                 summaryKey = null,
+                entriesKey = "revanced_video_quality_default_entries",
+                entryValuesKey = "revanced_video_quality_default_entry_values"
             )
         )
 
