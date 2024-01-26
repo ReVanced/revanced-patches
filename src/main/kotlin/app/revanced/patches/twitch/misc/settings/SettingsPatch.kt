@@ -61,7 +61,6 @@ object SettingsPatch : BytecodePatch(
 
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
-        AddResourcesPatch("revanced_settings", "ReVanced Settings", false)
 
         PreferenceScreen.MISC.OTHER.addPreferences(SwitchPreference("revanced_debug"))
 

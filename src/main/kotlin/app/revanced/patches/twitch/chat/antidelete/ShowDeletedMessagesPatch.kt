@@ -43,7 +43,6 @@ object ShowDeletedMessagesPatch : BytecodePatch(
 
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
-        AddResourcesPatch("revanced_deleted_msg", "message deleted")
 
         SettingsPatch.PreferenceScreen.CHAT.GENERAL.addPreferences(
             ListPreference(

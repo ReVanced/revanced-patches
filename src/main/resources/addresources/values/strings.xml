@@ -948,7 +948,6 @@
             <string name="revanced_remember_playback_speed_last_selected_summary_on">Playback speed changes apply to all videos</string>
             <string name="revanced_remember_playback_speed_last_selected_summary_off">Playback speed changes only apply to the current video</string>
             <string name="revanced_playback_speed_default_title">Default playback speed</string>
-            <string name="revanced_playback_speed_default_entries">1.0x</string>
             <string name="revanced_remember_playback_speed_toast" formatted="false">Changed default speed to: %s</string>
         </patch>
         <patch id="video.videoqualitymenu.RestoreOldVideoQualityMenuResourcePatch">
@@ -969,6 +968,8 @@
             <string name="revanced_block_audio_ads_summary_off">Audio ads are unblocked</string>
         </patch>
         <patch id="ad.embedded.EmbeddedAdsPatch">
+            <string name="revanced_embedded_ads_service_unavailable">%s is unavailable. Ads may show. Try switching to another ad block service in settings.</string>
+            <string name="revanced_embedded_ads_service_failed">%s server returned an error. Ads may show. Try switching to another ad block service in settings.</string>
             <string name="revanced_block_embedded_ads_title">Block embedded video ads</string>
             <string name="revanced_block_embedded_ads_summary_on">Embedded video ads are blocked</string>
             <string name="revanced_block_embedded_ads_summary_off">Embedded video ads are unblocked</string>
@@ -982,6 +983,7 @@
             <string name="revanced_block_video_ads_summary_off">Video ads are unblocked</string>
         </patch>
         <patch id="chat.antidelete.ShowDeletedMessagesPatch">
+            <string name="revanced_deleted_msg">message deleted</string>
             <string name="revanced_show_deleted_messages_title">Show deleted messages</string>
             <string name="revanced_deleted_messages_entry_1">Do not show deleted messages</string>
             <string name="revanced_deleted_messages_entry_2">Hide deleted messages behind a spoiler</string>
@@ -998,6 +1000,7 @@
             <string name="revanced_twitch_debug_mode_summary_off">Twitch debug mode is disabled</string>
         </patch>
         <patch id="settings.SettingsPatch">
+            <string name="revanced_settings">ReVanced Settings</string>
             <string name="revanced_debug_title">Debug logging</string>
             <string name="revanced_debug_summary_on">Debug logs are enabled</string>
             <string name="revanced_debug_summary_off">Debug logs are disabled</string>
