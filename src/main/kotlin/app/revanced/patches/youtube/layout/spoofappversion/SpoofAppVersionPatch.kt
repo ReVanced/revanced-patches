@@ -67,9 +67,10 @@ object SpoofAppVersionPatch : BytecodePatch(
                     listOf(
                         StringResource("revanced_spoof_app_version_target_entry_1", "18.33.40 - Restore RYD Shorts incognito mode"),
                         StringResource("revanced_spoof_app_version_target_entry_2", "18.20.39 - Restore wide video speed & quality menu"),
-                        StringResource("revanced_spoof_app_version_target_entry_3", "17.08.35 - Restore old UI layout"),
-                        StringResource("revanced_spoof_app_version_target_entry_4", "16.08.35 - Restore explore tab"),
-                        StringResource("revanced_spoof_app_version_target_entry_5", "16.01.35 - Restore fewer video player action buttons"),
+                        StringResource("revanced_spoof_app_version_target_entry_3", "18.09.39 - Restore library tab"),
+                        StringResource("revanced_spoof_app_version_target_entry_4", "17.08.35 - Restore old UI layout"),
+                        StringResource("revanced_spoof_app_version_target_entry_5", "16.08.35 - Restore explore tab"),
+                        StringResource("revanced_spoof_app_version_target_entry_6", "16.01.35 - Restore fewer video player action buttons"),
                     )
                 ),
                 ArrayResource(
@@ -77,9 +78,10 @@ object SpoofAppVersionPatch : BytecodePatch(
                     listOf(
                         StringResource("revanced_spoof_app_version_target_entry_value_1", "18.33.40"),
                         StringResource("revanced_spoof_app_version_target_entry_value_2", "18.20.39"),
-                        StringResource("revanced_spoof_app_version_target_entry_value_3", "17.08.35"),
-                        StringResource("revanced_spoof_app_version_target_entry_value_4", "16.08.35"),
-                        StringResource("revanced_spoof_app_version_target_entry_value_5", "16.01.35"),
+                        StringResource("revanced_spoof_app_version_target_entry_value_3", "18.09.39"),
+                        StringResource("revanced_spoof_app_version_target_entry_value_4", "17.08.35"),
+                        StringResource("revanced_spoof_app_version_target_entry_value_5", "16.08.35"),
+                        StringResource("revanced_spoof_app_version_target_entry_value_6", "16.01.35"),
                     )
                 )
             )
