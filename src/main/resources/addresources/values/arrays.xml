@@ -70,14 +70,6 @@
                 <item>144</item>
             </string-array>
         </patch>
-        <patch id="video.speed.remember.RememberPlaybackSpeedPatch">
-            <string-array name="revanced_playback_speed_default_entries">
-                <item>@string/revanced_playback_speed_default_entries</item>
-            </string-array>
-            <string-array name="revanced_playback_speed_default_entry_values">
-                <item>1.0</item>
-            </string-array>
-        </patch>
     </app>
     <app id="twitch">
         <patch id="chat.autoclaim.AutoClaimChannelPointsPatch">
