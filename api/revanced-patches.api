@@ -734,12 +734,19 @@ public final class app/revanced/patches/shared/misc/settings/preference/InputTyp
 public final class app/revanced/patches/shared/misc/settings/preference/IntentPreference : app/revanced/patches/shared/misc/settings/preference/BasePreference {
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patches/shared/misc/settings/preference/IntentPreference$Intent;)V
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patches/shared/misc/settings/preference/IntentPreference$Intent;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
 	public final fun getIntent ()Lapp/revanced/patches/shared/misc/settings/preference/IntentPreference$Intent;
+	public fun hashCode ()I
 	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
 }
 
 public final class app/revanced/patches/shared/misc/settings/preference/IntentPreference$Intent {
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function0;)V
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function0;)Lapp/revanced/patches/shared/misc/settings/preference/IntentPreference$Intent;
+	public static synthetic fun copy$default (Lapp/revanced/patches/shared/misc/settings/preference/IntentPreference$Intent;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lapp/revanced/patches/shared/misc/settings/preference/IntentPreference$Intent;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class app/revanced/patches/shared/misc/settings/preference/ListPreference : app/revanced/patches/shared/misc/settings/preference/BasePreference {
@@ -1700,7 +1707,7 @@ public final class app/revanced/util/ResourceGroup {
 
 public final class app/revanced/util/ResourceUtilsKt {
 	public static final fun asSequence (Lorg/w3c/dom/NodeList;)Lkotlin/sequences/Sequence;
-	public static final fun childNodesSequence (Lorg/w3c/dom/Node;)Lkotlin/sequences/Sequence;
+	public static final fun childElementsSequence (Lorg/w3c/dom/Node;)Lkotlin/sequences/Sequence;
 	public static final fun copyResources (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;[Lapp/revanced/util/ResourceGroup;)V
 	public static final fun copyStrings (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;)V
 	public static final fun copyXmlNode (Ljava/lang/String;Lapp/revanced/patcher/util/DomFileEditor;Lapp/revanced/patcher/util/DomFileEditor;)Ljava/lang/AutoCloseable;
@@ -1716,10 +1723,8 @@ public abstract class app/revanced/util/patch/LiteralValueFingerprint : app/reva
 
 public final class app/revanced/util/resource/ArrayResource : app/revanced/util/resource/BaseResource {
 	public static final field Companion Lapp/revanced/util/resource/ArrayResource$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/util/List;Z)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
 	public final fun getItems ()Ljava/util/List;
-	public final fun getLiteralValues ()Z
 	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
 }
 
