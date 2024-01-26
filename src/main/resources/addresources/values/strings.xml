@@ -956,6 +956,11 @@
             <string name="revanced_restore_old_video_quality_menu_summary_on">Old video quality menu is shown</string>
             <string name="revanced_restore_old_video_quality_menu_summary_off">Old video quality menu is not shown</string>
         </patch>
+        <patch id="interaction.seekbar.EnableSlideToSeekPatch">
+            <string name="revanced_slide_to_seek_title">Enable slide to seek</string>
+            <string name="revanced_slide_to_seek_summary_on">Slide to seek is enabled</string>
+            <string name="revanced_slide_to_seek_summary_off">Slide to seek is not enabled</string>
+        </patch>
     </app>
     <app id="twitch">
         <patch id="ad.audio.AudioAdsPatch">
