@@ -6,6 +6,18 @@ updates:
     target-branch: dev
     schedule:
       interval: monthly
+    commit-message:
+      prefix: fix
+      prefix-development: build
+      include: scope
+    groups:
+      actions-dependencies:
+        update-types:
+        - "minor"
+        - "patch"
+        - "major"
+        patterns:
+          - "*"
 
   - package-ecosystem: npm
     labels: []
@@ -13,6 +25,18 @@ updates:
     target-branch: dev
     schedule:
       interval: monthly
+    commit-message:
+      prefix: fix
+      prefix-development: build
+      include: scope
+    groups:
+      dev-dependencies:
+        update-types:
+        - "minor"
+        - "patch"
+        - "major"
+        patterns:
+          - "*"
 
   - package-ecosystem: gradle
     labels: []
@@ -20,3 +44,15 @@ updates:
     target-branch: dev
     schedule:
       interval: monthly
+    commit-message:
+      prefix: fix
+      prefix-development: build
+      include: scope
+    groups:
+      maven-dependencies:
+        update-types:
+        - "minor"
+        - "patch"
+        - "major"
+        patterns:
+          - "*"
