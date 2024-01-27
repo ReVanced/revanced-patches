@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.integrations.fingerprints
 
-import app.revanced.patches.shared.integrations.AbstractIntegrationsPatch.IntegrationsFingerprint
+import app.revanced.patches.shared.misc.integrations.BaseIntegrationsPatch.IntegrationsFingerprint
 
 /**
  * Hooks the context when the app is launched as a regular application (and is not an embedded video playback).

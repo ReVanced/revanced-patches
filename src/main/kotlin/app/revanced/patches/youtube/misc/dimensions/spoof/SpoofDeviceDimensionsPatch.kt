@@ -1,21 +1,21 @@
 package app.revanced.patches.youtube.misc.dimensions.spoof
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.dimensions.spoof.fingerprints.DeviceDimensionsModelToStringFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.util.exception
 
 @Patch(
     name = "Spoof device dimensions",
     description = "Adds an option to spoof the device dimensions which unlocks higher video qualities if they aren't available on the device.",
-    dependencies = [IntegrationsPatch::class, SettingsPatch::class],
+    dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
@@ -41,18 +41,9 @@ object SpoofDeviceDimensionsPatch : BytecodePatch(
         "Lapp/revanced/integrations/youtube/patches/spoof/SpoofDeviceDimensionsPatch;"
 
     override fun execute(context: BytecodeContext) {
-        SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            SwitchPreference(
-                "revanced_spoof_device_dimensions",
-                StringResource("revanced_spoof_device_dimensions_title", "Spoof device dimensions"),
-                StringResource("revanced_spoof_device_dimensions_summary_on", "Device dimensions spoofed"),
-                StringResource(
-                    "revanced_spoof_device_dimensions_summary_off",
-                    "Device dimensions not spoofed\\n\\n"
-                        + "Spoofing the device dimensions can unlock higher video qualities but unknown side effects may occur"
-                    ),
-            )
-        )
+        AddResourcesPatch(this::class)
+
+        SettingsPatch.PreferenceScreen.MISC.addPreferences(SwitchPreference("revanced_spoof_device_dimensions",))
 
         DeviceDimensionsModelToStringFingerprint.result
             ?.mutableClass?.methods?.find { method -> method.name == "<init>" }

@@ -5,10 +5,10 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.all.misc.transformation.BaseTransformInstructionsPatch
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.patches.all.misc.transformation.AbstractTransformInstructionsPatch
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
@@ -19,6 +19,7 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 @Patch(
     name = "Open links externally",
     description = "Adds an option to always open links in your browser instead of in the in-app-browser.",
+    dependencies = [SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
@@ -39,7 +40,7 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
     ]
 )
 @Suppress("unused")
-object OpenLinksExternallyPatch : AbstractTransformInstructionsPatch<Pair<Int, Int>>(
+object OpenLinksExternallyPatch : BaseTransformInstructionsPatch<Pair<Int, Int>>(
 ) {
     override fun filterMap(
         classDef: ClassDef, method: Method, instruction: Instruction, instructionIndex: Int
@@ -66,14 +67,9 @@ object OpenLinksExternallyPatch : AbstractTransformInstructionsPatch<Pair<Int, I
     }
 
     override fun execute(context: BytecodeContext) {
-        SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            SwitchPreference(
-                "revanced_external_browser",
-                StringResource("revanced_external_browser_title", "Open links in browser"),
-                StringResource("revanced_external_browser_summary_on", "Opening links externally"),
-                StringResource("revanced_external_browser_summary_off", "Opening links in app")
-            )
-        )
+        AddResourcesPatch(this::class)
+
+        SettingsPatch.PreferenceScreen.MISC.addPreferences(SwitchPreference("revanced_external_browser"))
 
         super.execute(context)
     }

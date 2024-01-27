@@ -3,12 +3,12 @@ package app.revanced.patches.reddit.customclients.slide.api
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.fingerprint.MethodFingerprintResult
-import app.revanced.patches.reddit.customclients.AbstractSpoofClientPatch
+import app.revanced.patches.reddit.customclients.BaseSpoofClientPatch
 import app.revanced.patches.reddit.customclients.boostforreddit.api.fingerprints.GetClientIdFingerprint
 
 
 @Suppress("unused")
-object SpoofClientPatch : AbstractSpoofClientPatch(
+object SpoofClientPatch : BaseSpoofClientPatch(
     redirectUri = "http://www.ccrama.me",
     clientIdFingerprints = setOf(GetClientIdFingerprint),
     compatiblePackages = setOf(CompatiblePackage("me.ccrama.redditslide"))

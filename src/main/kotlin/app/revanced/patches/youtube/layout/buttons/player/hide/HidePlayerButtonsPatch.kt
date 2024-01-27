@@ -1,19 +1,19 @@
 package app.revanced.patches.youtube.layout.buttons.player.hide
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.layout.buttons.player.hide.HidePlayerButtonsPatch.ParameterOffsets.HAS_NEXT
 import app.revanced.patches.youtube.layout.buttons.player.hide.HidePlayerButtonsPatch.ParameterOffsets.HAS_PREVIOUS
 import app.revanced.patches.youtube.layout.buttons.player.hide.fingerprints.PlayerControlsVisibilityModelFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction3rc
 
 @Patch(
@@ -21,7 +21,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction3rc
     description = "Adds an option to hide the previous and next buttons in the video player.",
     dependencies = [
         IntegrationsPatch::class,
-        SettingsPatch::class
+        SettingsPatch::class,
+        AddResourcesPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -47,23 +48,9 @@ object HidePlayerButtonsPatch : BytecodePatch(
     setOf(PlayerControlsVisibilityModelFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
-        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_hide_player_buttons",
-                StringResource(
-                    "revanced_hide_player_buttons_title",
-                    "Hide previous & next video buttons"
-                ),
-                StringResource(
-                    "revanced_hide_player_buttons_summary_on",
-                    "Buttons are hidden"
-                ),
-                StringResource(
-                    "revanced_hide_player_buttons_summary_off",
-                    "Buttons are shown"
-                )
-            )
-        )
+        AddResourcesPatch(this::class)
+
+        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(SwitchPreference("revanced_hide_player_buttons"))
 
         PlayerControlsVisibilityModelFingerprint.result?.apply {
             val callIndex = scanResult.patternScanResult!!.endIndex

@@ -5,8 +5,8 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.video.hdrbrightness.fingerprints.HDRBrightnessFingerprint
@@ -17,7 +17,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 @Patch(
     name = "HDR auto brightness",
     description = "Adds an option to make the brightness of HDR videos follow the system default.",
-    dependencies = [IntegrationsPatch::class, SettingsPatch::class],
+    dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
@@ -41,14 +41,9 @@ object HDRBrightnessPatch : BytecodePatch(
     setOf(HDRBrightnessFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
-        SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
-            SwitchPreference(
-                "revanced_hdr_auto_brightness",
-                StringResource("revanced_hdr_auto_brightness_title", "Enable auto HDR brightness"),
-                StringResource("revanced_hdr_auto_brightness_summary_on", "Auto HDR brightness is enabled"),
-                StringResource("revanced_hdr_auto_brightness_summary_off", "Auto HDR brightness is disabled")
-            )
-        )
+        AddResourcesPatch(this::class)
+
+        SettingsPatch.PreferenceScreen.VIDEO.addPreferences(SwitchPreference("revanced_hdr_auto_brightness"))
 
         val method = HDRBrightnessFingerprint.result!!.mutableMethod
 
