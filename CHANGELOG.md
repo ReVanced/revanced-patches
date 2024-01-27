@@ -1,3 +1,10 @@
+## [4.0.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.0.1-dev.1...v4.0.1-dev.2) (2024-01-27)
+
+
+### Bug Fixes
+
+* Only set Android key if not null to prevent build errors ([1181b0b](https://github.com/ReVanced/revanced-patches/commit/1181b0bca24c524c376f7ea26ae02ee771645e6b))
+
 ## [4.0.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.0.0...v4.0.1-dev.1) (2024-01-27)
 
 
