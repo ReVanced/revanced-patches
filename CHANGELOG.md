@@ -1,3 +1,15 @@
+# [4.0.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.14...v4.0.0-dev.15) (2024-01-27)
+
+
+### Features
+
+* **Photomath:** Add `Hide update popup` patch ([#2637](https://github.com/ReVanced/revanced-patches/issues/2637)) ([fbbecd3](https://github.com/ReVanced/revanced-patches/commit/fbbecd33bbc92999d79d74f0abf54d129e3ee407))
+
+
+### BREAKING CHANGES
+
+* **Photomath:** Some packages have changed locations.
+
 # [4.0.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.13...v4.0.0-dev.14) (2024-01-27)
 
 
