@@ -1,4 +1,4 @@
-package app.revanced.patches.photomath.misc.unlockplus
+package app.revanced.patches.photomath.misc.unlock.plus
 
 import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
@@ -7,8 +7,8 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.photomath.detection.signature.SignatureDetectionPatch
-import app.revanced.patches.photomath.misc.bookpoint.EnableBookpointPatch
-import app.revanced.patches.photomath.misc.unlockplus.fingerprints.IsPlusUnlockedFingerprint
+import app.revanced.patches.photomath.misc.unlock.bookpoint.EnableBookpointPatch
+import app.revanced.patches.photomath.misc.unlock.plus.fingerprints.IsPlusUnlockedFingerprint
 
 @Patch(
     name = "Unlock plus",
