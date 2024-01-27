@@ -9,7 +9,6 @@ updates:
     commit-message:
       prefix: fix
       prefix-development: build
-      include: scope
     groups:
       actions-dependencies:
         update-types:
@@ -28,7 +27,6 @@ updates:
     commit-message:
       prefix: fix
       prefix-development: build
-      include: scope
     groups:
       dev-dependencies:
         update-types:
@@ -47,7 +45,6 @@ updates:
     commit-message:
       prefix: fix
       prefix-development: build
-      include: scope
     groups:
       maven-dependencies:
         update-types:
