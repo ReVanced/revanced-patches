@@ -129,31 +129,26 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
     }
 
     /**
-     * Adds a [BaseResource] but uses `values` as the value for the resource.
-     *
-     * @param resource The string resource to add.
-     */
-    operator fun plusAssign(resource: BaseResource) = invoke("values", resource)
-
-    /**
      * Adds a [BaseResource] to the map using [MutableMap.getOrPut].
      *
      * @param value The value of the resource. For example, `values` or `values-de`.
      * @param resource The resource to add.
+     *
+     * @return True if the resource was added, false if it already existed.
      */
-    operator fun invoke(value: Value, resource: BaseResource) {
-        getOrPut(value, ::mutableSetOf) += resource
-    }
+    operator fun invoke(value: Value, resource: BaseResource) =
+        getOrPut(value, ::mutableSetOf).add(resource)
 
     /**
      * Adds a list of [BaseResource]s to the map using [MutableMap.getOrPut].
      *
      * @param value The value of the resource. For example, `values` or `values-de`.
      * @param resources The resources to add.
+     *
+     * @return True if the resources were added, false if they already existed.
      */
-    operator fun invoke(value: Value, resources: Iterable<BaseResource>) {
-        getOrPut(value, ::mutableSetOf) += resources
-    }
+    operator fun invoke(value: Value, resources: Iterable<BaseResource>) =
+        getOrPut(value, ::mutableSetOf).addAll(resources)
 
     /**
      * Adds a [StringResource].
@@ -162,6 +157,8 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
      * @param value The value of the string resource.
      * @param formatted Whether the string resource is formatted. Defaults to `true`.
      * @param resourceValue The value of the resource. For example, `values` or `values-de`.
+     *
+     * @return True if the resource was added, false if it already existed.
      */
     operator fun invoke(
         name: String,
@@ -175,13 +172,14 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
      *
      * @param name The name of the array resource.
      * @param items The items of the array resource.
+     *
+     * @return True if the resource was added, false if it already existed.
      */
     operator fun invoke(
         name: String,
         items: List<String>
-    ) {
-        this += ArrayResource(name, items)
-    }
+    ) = invoke("values", ArrayResource(name, items))
+
 
     /**
      * Puts all resources of any [Value] staged in [resources] for the given [PatchClass] to [AddResourcesPatch].
@@ -190,7 +188,10 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
      * @param parseIds A function that parses the [AppId] and [PatchId] from the given [PatchClass].
      * This is used to access the resources in [resources] to stage them in [AddResourcesPatch].
      * The default implementation assumes that the [PatchClass] qualified name has the following format:
-     * `<any>.<any>.<any>.<app id>.<patch id>`
+     * `<any>.<any>.<any>.<app id>.<patch id>`.
+     *
+     * @return True if any resources were added, false if none were added.
+     *
      * @see AddResourcesPatch.close
      */
     operator fun invoke(
@@ -209,13 +210,19 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
                 appId to patchId
             }
         }
-    ) {
+    ): Boolean {
         val (appId, patchId) = patch.parseIds()
+
+        var result = false
 
         // Stage resources for the given patch to AddResourcesPatch associated with their value.
         resources.forEach { (value, resources) ->
-            resources[appId]?.get(patchId)?.let { patchResources -> invoke(value, patchResources) }
+            resources[appId]?.get(patchId)?.let { patchResources ->
+               if (invoke(value, patchResources)) result = true
+            }
         }
+
+        return result
     }
 
     /**
@@ -223,13 +230,13 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
      * This is called after all patches that depend on [AddResourcesPatch] have been executed.
      */
     override fun close() {
-        // TODO: Fix open-closed principle violation by modifying BaseResource#serialize so that it accepts
-        //  a Value and the map of editors. It will then get or put the editor suitable for its resource type
-        //  to serialize itself to it.
         operator fun MutableMap<String, Pair<DomFileEditor, Node>>.invoke(
             value: Value,
             resource: BaseResource
         ) {
+            // TODO: Fix open-closed principle violation by modifying BaseResource#serialize so that it accepts
+            //  a Value and the map of editors. It will then get or put the editor suitable for its resource type
+            //  to serialize itself to it.
             val resourceFileName = when (resource) {
                 is StringResource -> "strings"
                 is ArrayResource -> "arrays"

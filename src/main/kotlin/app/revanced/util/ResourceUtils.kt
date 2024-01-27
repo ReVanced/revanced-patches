@@ -40,27 +40,6 @@ fun Node.doRecursively(action: (Node) -> Unit) {
 }
 
 /**
- * Add strings from a hosting xml resource.
- *
- * @param host The hosting xml resource. Needs to be a valid strings.xml resource.
- */
-@Deprecated("Use AddResourcesPatch operators instead")
-fun ResourceContext.copyStrings(host: String) {
-    this.iterateXmlNodeChildren(host, "resources") {
-        // TODO: figure out why this is needed
-        if (!it.hasAttributes()) return@iterateXmlNodeChildren
-
-        val attributes = it.attributes
-        val key = attributes.getNamedItem("name")!!.nodeValue!!
-        val value = it.textContent!!
-
-        val formatted = attributes.getNamedItem("formatted") == null
-
-        AddResourcesPatch(key, value, formatted)
-    }
-}
-
-/**
  * Copy resources from the current class loader to the resource directory.
  *
  * @param sourceResourceDirectory The source resource directory name.

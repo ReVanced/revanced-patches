@@ -41,7 +41,9 @@ abstract class BaseSettingsResourcePatch(
     override fun close() {
         fun Node.addPreference(preference: BasePreference) {
             preference.serialize(ownerDocument) { resource ->
-                AddResourcesPatch += resource
+                // TODO: Currently, resources can only be added to "values", which may not be the correct place.
+                //  It may be necessary to ask for the desired resourceValue in the future.
+                AddResourcesPatch("values", resource)
             }.let(this::appendChild)
         }
 

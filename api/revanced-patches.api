@@ -56,16 +56,15 @@ public final class app/revanced/patches/all/misc/resources/AddResourcesPatch : a
 	public fun getKeys ()Ljava/util/Set;
 	public fun getSize ()I
 	public fun getValues ()Ljava/util/Collection;
-	public final fun invoke (Ljava/lang/String;Lapp/revanced/util/resource/BaseResource;)V
-	public final fun invoke (Ljava/lang/String;Ljava/lang/Iterable;)V
-	public final fun invoke (Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;)V
-	public final fun invoke (Ljava/lang/String;Ljava/util/List;)V
-	public final fun invoke (Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function1;)V
-	public static synthetic fun invoke$default (Lapp/revanced/patches/all/misc/resources/AddResourcesPatch;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;ILjava/lang/Object;)V
-	public static synthetic fun invoke$default (Lapp/revanced/patches/all/misc/resources/AddResourcesPatch;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+	public final fun invoke (Ljava/lang/String;Lapp/revanced/util/resource/BaseResource;)Z
+	public final fun invoke (Ljava/lang/String;Ljava/lang/Iterable;)Z
+	public final fun invoke (Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;)Z
+	public final fun invoke (Ljava/lang/String;Ljava/util/List;)Z
+	public final fun invoke (Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function1;)Z
+	public static synthetic fun invoke$default (Lapp/revanced/patches/all/misc/resources/AddResourcesPatch;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;ILjava/lang/Object;)Z
+	public static synthetic fun invoke$default (Lapp/revanced/patches/all/misc/resources/AddResourcesPatch;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Z
 	public fun isEmpty ()Z
 	public final fun keySet ()Ljava/util/Set;
-	public final fun plusAssign (Lapp/revanced/util/resource/BaseResource;)V
 	public synthetic fun put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 	public fun put (Ljava/lang/String;Ljava/util/Set;)Ljava/util/Set;
 	public fun putAll (Ljava/util/Map;)V
@@ -1709,7 +1708,6 @@ public final class app/revanced/util/ResourceUtilsKt {
 	public static final fun asSequence (Lorg/w3c/dom/NodeList;)Lkotlin/sequences/Sequence;
 	public static final fun childElementsSequence (Lorg/w3c/dom/Node;)Lkotlin/sequences/Sequence;
 	public static final fun copyResources (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;[Lapp/revanced/util/ResourceGroup;)V
-	public static final fun copyStrings (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;)V
 	public static final fun copyXmlNode (Ljava/lang/String;Lapp/revanced/patcher/util/DomFileEditor;Lapp/revanced/patcher/util/DomFileEditor;)Ljava/lang/AutoCloseable;
 	public static final fun doRecursively (Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
 	public static final fun forEachChildElement (Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
