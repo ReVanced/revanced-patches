@@ -16,7 +16,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
 
 @Patch(
     name = "Hide endscreen cards",
-    description = "Hides the suggested video cards at the end of videos.",
+    description = "Adds an option to hide suggested video cards at the end of videos.",
     dependencies = [
         IntegrationsPatch::class,
         HideEndscreenCardsResourcePatch::class
@@ -30,8 +30,12 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
                 "18.38.44",
                 "18.43.45",
                 "18.44.41",
-                "18.45.41",
-                "18.45.43"
+                "18.45.43",
+                "18.48.39",
+                "18.49.37",
+                "19.01.34",
+                "19.02.39",
+                "19.03.35"
             ]
         )
     ]
@@ -53,7 +57,7 @@ object HideEndscreenCardsPatch : BytecodePatch(
 
                 addInstruction(
                     insertIndex,
-                    "invoke-static { v$viewRegister }, Lapp/revanced/integrations/patches/HideEndscreenCardsPatch;->hideEndscreen(Landroid/view/View;)V"
+                    "invoke-static { v$viewRegister }, Lapp/revanced/integrations/youtube/patches/HideEndscreenCardsPatch;->hideEndscreen(Landroid/view/View;)V"
                 )
             }
         }

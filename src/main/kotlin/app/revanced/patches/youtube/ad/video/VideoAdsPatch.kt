@@ -7,18 +7,19 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.ad.video.fingerprints.LoadVideoAdsFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
     name = "Video ads",
-    description = "Removes ads in the video player.",
+    description = "Adds an option to remove ads in the video player.",
     dependencies = [
         IntegrationsPatch::class,
-        SettingsPatch::class
+        SettingsPatch::class,
+        AddResourcesPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -29,8 +30,12 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
                 "18.38.44",
                 "18.43.45",
                 "18.44.41",
-                "18.45.41",
-                "18.45.43"
+                "18.45.43",
+                "18.48.39",
+                "18.49.37",
+                "19.01.34",
+                "19.02.39",
+                "19.03.35"
             ]
         )
     ]
@@ -40,20 +45,15 @@ object VideoAdsPatch : BytecodePatch(
     setOf(LoadVideoAdsFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
-        SettingsPatch.PreferenceScreen.ADS.addPreferences(
-            SwitchPreference(
-                "revanced_hide_video_ads",
-                StringResource("revanced_hide_video_ads_title", "Hide video ads"),
-                StringResource("revanced_hide_video_ads_summary_on", "Video ads are hidden"),
-                StringResource("revanced_hide_video_ads_summary_off", "Video ads are shown")
-            )
-        )
+        AddResourcesPatch(this::class)
+
+        SettingsPatch.PreferenceScreen.ADS.addPreferences(SwitchPreference("revanced_hide_video_ads"))
 
         val loadVideoAdsFingerprintMethod = LoadVideoAdsFingerprint.result!!.mutableMethod
 
         loadVideoAdsFingerprintMethod.addInstructionsWithLabels(
             0, """
-                invoke-static { }, Lapp/revanced/integrations/patches/VideoAdsPatch;->shouldShowAds()Z
+                invoke-static { }, Lapp/revanced/integrations/youtube/patches/VideoAdsPatch;->shouldShowAds()Z
                 move-result v0
                 if-nez v0, :show_video_ads
                 return-void

@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.layout.searchbar
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.fingerprint.MethodFingerprint
@@ -8,17 +7,18 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.layout.searchbar.fingerprints.CreateSearchSuggestionsFingerprint
 import app.revanced.patches.youtube.layout.searchbar.fingerprints.SetWordmarkHeaderFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.util.exception
 
 @Patch(
     name = "Wide searchbar",
-    description = "Replaces the search icon with a wide search bar. This will hide the YouTube logo when active.",
-    dependencies = [IntegrationsPatch::class, SettingsPatch::class],
+    description = "Adds an option to replace the search icon with a wide search bar. This will hide the YouTube logo when active.",
+    dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
@@ -26,8 +26,12 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
                 "18.37.36",
                 "18.38.44",
                 "18.43.45",
-                "18.45.41",
-                "18.45.43"
+                "18.45.43",
+                "18.48.39",
+                "18.49.37",
+                "19.01.34",
+                "19.02.39",
+                "19.03.35"
             ]
         )
     ]
@@ -40,14 +44,9 @@ object WideSearchbarPatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext) {
-        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_wide_searchbar",
-                StringResource("revanced_wide_searchbar_enabled_title", "Enable wide search bar"),
-                StringResource("revanced_wide_searchbar_summary_on", "Wide search bar is enabled"),
-                StringResource("revanced_wide_searchbar_summary_off", "Wide search bar is disabled")
-            )
-        )
+        AddResourcesPatch(this::class)
+
+        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(SwitchPreference("revanced_wide_searchbar"))
 
         val result = CreateSearchSuggestionsFingerprint.result ?: throw CreateSearchSuggestionsFingerprint.exception
 
@@ -80,7 +79,7 @@ object WideSearchbarPatch : BytecodePatch(
         addInstructions(
             implementation!!.instructions.size - 1,
             """
-                    invoke-static {}, Lapp/revanced/integrations/patches/WideSearchbarPatch;->enableWideSearchbar()Z
+                    invoke-static {}, Lapp/revanced/integrations/youtube/patches/WideSearchbarPatch;->enableWideSearchbar()Z
                     move-result p0
                 """
         )

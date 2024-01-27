@@ -1,12 +1,11 @@
 package app.revanced.patches.youtube.misc.integrations
 
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.integrations.AbstractIntegrationsPatch
+import app.revanced.patches.shared.misc.integrations.BaseIntegrationsPatch
 import app.revanced.patches.youtube.misc.integrations.fingerprints.*
 
 @Patch(requiresIntegrations = true)
-object IntegrationsPatch : AbstractIntegrationsPatch(
-    "Lapp/revanced/integrations/utils/ReVancedUtils;",
+object IntegrationsPatch : BaseIntegrationsPatch(
     setOf(
         ApplicationInitFingerprint,
         StandalonePlayerActivityFingerprint,

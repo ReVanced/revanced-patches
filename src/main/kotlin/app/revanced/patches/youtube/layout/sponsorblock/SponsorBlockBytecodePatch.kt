@@ -11,7 +11,7 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.mapping.misc.ResourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 import app.revanced.patches.youtube.layout.sponsorblock.fingerprints.AppendTimeFingerprint
 import app.revanced.patches.youtube.layout.sponsorblock.fingerprints.ControlsOverlayFingerprint
 import app.revanced.patches.youtube.layout.sponsorblock.fingerprints.RectangleFieldInvalidatorFingerprint
@@ -34,17 +34,15 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 @Patch(
     name = "SponsorBlock",
-    description = "Integrates SponsorBlock, which can skip undesired video segments such as sponsored content.",
+    description = "Adds options to enable and configure SponsorBlock, which can skip undesired video segments such as sponsored content.",
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
-                "18.32.39",
-                "18.37.36",
-                "18.38.44",
-                "18.43.45",
-                "18.44.41",
-                "18.45.41",
-                "18.45.43"
+                "18.48.39",
+                "18.49.37",
+                "19.01.34",
+                "19.02.39",
+                "19.03.35"
             ]
         )
     ],
@@ -69,13 +67,13 @@ object SponsorBlockBytecodePatch : BytecodePatch(
     )
 ) {
     private const val INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/sponsorblock/SegmentPlaybackController;"
+        "Lapp/revanced/integrations/youtube/sponsorblock/SegmentPlaybackController;"
     private const val INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/sponsorblock/ui/CreateSegmentButtonController;"
+        "Lapp/revanced/integrations/youtube/sponsorblock/ui/CreateSegmentButtonController;"
     private const val INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/sponsorblock/ui/VotingButtonController;"
+        "Lapp/revanced/integrations/youtube/sponsorblock/ui/VotingButtonController;"
     private const val INTEGRATIONS_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/sponsorblock/ui/SponsorBlockViewController;"
+        "Lapp/revanced/integrations/youtube/sponsorblock/ui/SponsorBlockViewController;"
 
     override fun execute(context: BytecodeContext) {
         LayoutConstructorFingerprint.result?.let {

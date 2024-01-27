@@ -5,19 +5,24 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-/**
- * Resolves to class found in [RollingNumberMeasureTextParentFingerprint].
- */
 internal object RollingNumberMeasureAnimatedTextFingerprint : MethodFingerprint(
-    returnType = "F",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("Ljava/lang/String;"),
+    returnType = "Lj\$/util/Optional;",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    parameters = listOf(
+        "L",
+        "Ljava/lang/String;",
+        "L"
+    ),
     opcodes = listOf(
-        Opcode.INVOKE_VIRTUAL,
+        Opcode.IGET, // First instruction of method
+        Opcode.IGET_OBJECT,
+        Opcode.IGET_OBJECT,
+        Opcode.CONST_HIGH16,
+        Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT,
-        Opcode.ADD_FLOAT_2ADDR,
-        Opcode.ADD_INT_LIT8,
-        Opcode.GOTO,
-        Opcode.RETURN
+        Opcode.CONST_4,
+        Opcode.AGET,
+        Opcode.CONST_4,
+        Opcode.CONST_4, // Measured text width
     )
 )

@@ -1,3 +1,3 @@
 package app.revanced.patches.reddit.customclients.relayforreddit.api.fingerprints
 
-internal object GetLoggedInBearerTokenFingerprint : AbstractClientIdFingerprint("authorization_code")
+internal object GetLoggedInBearerTokenFingerprint : BaseClientIdFingerprint("authorization_code")

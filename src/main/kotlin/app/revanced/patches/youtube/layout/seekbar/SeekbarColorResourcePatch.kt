@@ -4,7 +4,7 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.mapping.misc.ResourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import org.w3c.dom.Element
 
@@ -38,7 +38,7 @@ internal object SeekbarColorResourcePatch : ResourcePatch(){
             val scaleNode = progressNode.getElementsByTagName("scale").item(0) as Element
             val shapeNode = scaleNode.getElementsByTagName("shape").item(0) as Element
             val replacementNode = editor.file.createElement(
-                "app.revanced.integrations.patches.theme.ProgressBarDrawable")
+                "app.revanced.integrations.youtube.patches.theme.ProgressBarDrawable")
             scaleNode.replaceChild(replacementNode, shapeNode)
         }
     }

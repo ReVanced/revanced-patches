@@ -14,7 +14,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Restore old video quality menu",
-    description = "Restores the old video quality with advanced video quality options.",
+    description = "Adds an option to restore the old video quality menu with specific video resolution options.",
     dependencies = [
         IntegrationsPatch::class,
         RestoreOldVideoQualityMenuResourcePatch::class,
@@ -30,8 +30,12 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "18.38.44",
                 "18.43.45",
                 "18.44.41",
-                "18.45.41",
-                "18.45.43"
+                "18.45.43",
+                "18.48.39",
+                "18.49.37",
+                "19.01.34",
+                "19.02.39",
+                "19.03.35"
             ]
         )
     ]
@@ -41,10 +45,10 @@ object RestoreOldVideoQualityMenuPatch : BytecodePatch(
     setOf(VideoQualityMenuViewInflateFingerprint)
 ) {
     private const val FILTER_CLASS_DESCRIPTOR =
-            "Lapp/revanced/integrations/patches/components/VideoQualityMenuFilterPatch;"
+            "Lapp/revanced/integrations/youtube/patches/components/VideoQualityMenuFilterPatch;"
 
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-            "Lapp/revanced/integrations/patches/playback/quality/RestoreOldVideoQualityMenuPatch;"
+            "Lapp/revanced/integrations/youtube/patches/playback/quality/RestoreOldVideoQualityMenuPatch;"
 
     override fun execute(context: BytecodeContext) {
         // region Patch for the old type of the video quality menu.

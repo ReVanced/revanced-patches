@@ -1,35 +1,40 @@
 package app.revanced.patches.youtube.interaction.seekbar
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.interaction.seekbar.fingerprints.DoubleSpeedSeekNoticeFingerprint
 import app.revanced.patches.youtube.interaction.seekbar.fingerprints.SlideToSeekFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Enable slide to seek",
-    description = "Enable slide to seek instead of playing at 2x speed when pressing and holding in the video player.",
-    dependencies = [IntegrationsPatch::class, SettingsPatch::class],
+    description = "Adds an option to enable slide to seek instead of playing at 2x speed when pressing and holding in the video player.  Including this patch may cause issues with tapping or double tapping the video player overlay.",
+    dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
             [
                 "18.43.45",
                 "18.44.41",
-                "18.45.41",
-                "18.45.43"
+                "18.45.43",
+                "18.48.39",
+                "18.49.37",
+                "19.01.34",
+                "19.02.39",
+                "19.03.35"
             ]
         )
-    ]
+    ],
+    use = false
 )
 @Suppress("unused")
 object EnableSlideToSeekPatch : BytecodePatch(
@@ -38,26 +43,12 @@ object EnableSlideToSeekPatch : BytecodePatch(
         DoubleSpeedSeekNoticeFingerprint
     )
 ) {
-    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/SlideToSeekPatch;"
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/SlideToSeekPatch;"
 
     override fun execute(context: BytecodeContext) {
-        SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
-            SwitchPreference(
-                "revanced_slide_to_seek",
-                StringResource(
-                    "revanced_slide_to_seek_title",
-                    "Enable slide to seek"
-                ),
-                StringResource(
-                    "revanced_slide_to_seek_summary_on",
-                    "Slide to seek is enabled"
-                ),
-                StringResource(
-                    "revanced_slide_to_seek_summary_off",
-                    "Slide to seek is not enabled"
-                ),
-            )
-        )
+        AddResourcesPatch(this::class)
+
+        SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(SwitchPreference("revanced_slide_to_seek"))
 
         arrayOf(
             // Restore the behaviour to slide to seek.

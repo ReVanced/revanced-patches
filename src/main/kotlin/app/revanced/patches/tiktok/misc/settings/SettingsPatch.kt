@@ -37,10 +37,10 @@ object SettingsPatch : BytecodePatch(
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/tiktok/settingsmenu/SettingsMenu;"
+        "Lapp/revanced/integrations/tiktok/settings/AdPersonalizationActivityHook;"
 
     private const val INITIALIZE_SETTINGS_METHOD_DESCRIPTOR =
-        "$INTEGRATIONS_CLASS_DESCRIPTOR->initializeSettings(" +
+        "$INTEGRATIONS_CLASS_DESCRIPTOR->initialize(" +
                 "Lcom/bytedance/ies/ugc/aweme/commercialize/compliance/personalization/AdPersonalizationActivity;" +
                 ")Z"
 

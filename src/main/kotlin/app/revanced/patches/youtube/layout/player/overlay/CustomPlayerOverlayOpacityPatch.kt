@@ -13,7 +13,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Custom player overlay opacity",
-    description = "Change the opacity of the player background when player controls are visible.",
+    description = "Adds an option to change the opacity of the video player background when player controls are visible.",
     dependencies = [CustomPlayerOverlayOpacityResourcePatch::class],
     compatiblePackages = [
         CompatiblePackage("com.google.android.youtube")
@@ -21,7 +21,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 )
 @Suppress("unused")
 object CustomPlayerOverlayOpacityPatch : BytecodePatch(setOf(CreatePlayerOverviewFingerprint)) {
-    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/CustomPlayerOverlayOpacityPatch;"
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/CustomPlayerOverlayOpacityPatch;"
 
     override fun execute(context: BytecodeContext) {
         CreatePlayerOverviewFingerprint.result?.let { result ->

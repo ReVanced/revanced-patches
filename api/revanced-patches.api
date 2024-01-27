@@ -4,7 +4,7 @@ public final class app/revanced/patches/all/activity/exportall/ExportAllActiviti
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
-public final class app/revanced/patches/all/connectivity/wifi/spoof/SpoofWifiPatch : app/revanced/patches/all/misc/transformation/AbstractTransformInstructionsPatch {
+public final class app/revanced/patches/all/connectivity/wifi/spoof/SpoofWifiPatch : app/revanced/patches/all/misc/transformation/BaseTransformInstructionsPatch {
 	public static final field INSTANCE Lapp/revanced/patches/all/connectivity/wifi/spoof/SpoofWifiPatch;
 	public synthetic fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Object;
 	public fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Lkotlin/Triple;
@@ -38,7 +38,44 @@ public final class app/revanced/patches/all/misc/packagename/ChangePackageNamePa
 	public final fun setOrGetFallbackPackageName (Ljava/lang/String;)Ljava/lang/String;
 }
 
-public abstract class app/revanced/patches/all/misc/transformation/AbstractTransformInstructionsPatch : app/revanced/patcher/patch/BytecodePatch {
+public final class app/revanced/patches/all/misc/resources/AddResourcesPatch : app/revanced/patcher/patch/ResourcePatch, java/io/Closeable, java/util/Map, kotlin/jvm/internal/markers/KMutableMap {
+	public static final field INSTANCE Lapp/revanced/patches/all/misc/resources/AddResourcesPatch;
+	public fun clear ()V
+	public fun close ()V
+	public final fun containsKey (Ljava/lang/Object;)Z
+	public fun containsKey (Ljava/lang/String;)Z
+	public final fun containsValue (Ljava/lang/Object;)Z
+	public fun containsValue (Ljava/util/Set;)Z
+	public final fun entrySet ()Ljava/util/Set;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+	public final synthetic fun get (Ljava/lang/Object;)Ljava/lang/Object;
+	public final fun get (Ljava/lang/Object;)Ljava/util/Set;
+	public fun get (Ljava/lang/String;)Ljava/util/Set;
+	public fun getEntries ()Ljava/util/Set;
+	public fun getKeys ()Ljava/util/Set;
+	public fun getSize ()I
+	public fun getValues ()Ljava/util/Collection;
+	public final fun invoke (Ljava/lang/String;Lapp/revanced/util/resource/BaseResource;)Z
+	public final fun invoke (Ljava/lang/String;Ljava/lang/Iterable;)Z
+	public final fun invoke (Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;)Z
+	public final fun invoke (Ljava/lang/String;Ljava/util/List;)Z
+	public final fun invoke (Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function1;)Z
+	public static synthetic fun invoke$default (Lapp/revanced/patches/all/misc/resources/AddResourcesPatch;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;ILjava/lang/Object;)Z
+	public static synthetic fun invoke$default (Lapp/revanced/patches/all/misc/resources/AddResourcesPatch;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Z
+	public fun isEmpty ()Z
+	public final fun keySet ()Ljava/util/Set;
+	public synthetic fun put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+	public fun put (Ljava/lang/String;Ljava/util/Set;)Ljava/util/Set;
+	public fun putAll (Ljava/util/Map;)V
+	public final synthetic fun remove (Ljava/lang/Object;)Ljava/lang/Object;
+	public final fun remove (Ljava/lang/Object;)Ljava/util/Set;
+	public fun remove (Ljava/lang/String;)Ljava/util/Set;
+	public final fun size ()I
+	public final fun values ()Ljava/util/Collection;
+}
+
+public abstract class app/revanced/patches/all/misc/transformation/BaseTransformInstructionsPatch : app/revanced/patcher/patch/BytecodePatch {
 	public fun <init> ()V
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
@@ -59,7 +96,7 @@ public final class app/revanced/patches/all/misc/transformation/IMethodCall$Defa
 	public static fun replaceInvokeVirtualWithIntegrations (Lapp/revanced/patches/all/misc/transformation/IMethodCall;Ljava/lang/String;Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lcom/android/tools/smali/dexlib2/iface/instruction/formats/Instruction35c;I)V
 }
 
-public final class app/revanced/patches/all/screencapture/removerestriction/RemoveCaptureRestrictionPatch : app/revanced/patches/all/misc/transformation/AbstractTransformInstructionsPatch {
+public final class app/revanced/patches/all/screencapture/removerestriction/RemoveCaptureRestrictionPatch : app/revanced/patches/all/misc/transformation/BaseTransformInstructionsPatch {
 	public static final field INSTANCE Lapp/revanced/patches/all/screencapture/removerestriction/RemoveCaptureRestrictionPatch;
 	public synthetic fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Object;
 	public fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Lkotlin/Triple;
@@ -80,7 +117,7 @@ public final class app/revanced/patches/all/screencapture/removerestriction/Remo
 	public static fun values ()[Lapp/revanced/patches/all/screencapture/removerestriction/RemoveCaptureRestrictionPatch$MethodCall;
 }
 
-public final class app/revanced/patches/all/screenshot/removerestriction/RemoveScreenshotRestrictionPatch : app/revanced/patches/all/misc/transformation/AbstractTransformInstructionsPatch {
+public final class app/revanced/patches/all/screenshot/removerestriction/RemoveScreenshotRestrictionPatch : app/revanced/patches/all/misc/transformation/BaseTransformInstructionsPatch {
 	public static final field INSTANCE Lapp/revanced/patches/all/screenshot/removerestriction/RemoveScreenshotRestrictionPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
@@ -103,7 +140,7 @@ public final class app/revanced/patches/all/screenshot/removerestriction/RemoveS
 	public static fun values ()[Lapp/revanced/patches/all/screenshot/removerestriction/RemoveScreenshotRestrictionPatch$MethodCall;
 }
 
-public final class app/revanced/patches/all/telephony/sim/spoof/SpoofSimCountryPatch : app/revanced/patches/all/misc/transformation/AbstractTransformInstructionsPatch {
+public final class app/revanced/patches/all/telephony/sim/spoof/SpoofSimCountryPatch : app/revanced/patches/all/misc/transformation/BaseTransformInstructionsPatch {
 	public static final field INSTANCE Lapp/revanced/patches/all/telephony/sim/spoof/SpoofSimCountryPatch;
 	public synthetic fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Object;
 	public fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Lkotlin/Pair;
@@ -313,12 +350,16 @@ public final class app/revanced/patches/music/misc/gms/Constants {
 	public static final field INSTANCE Lapp/revanced/patches/music/misc/gms/Constants;
 }
 
-public final class app/revanced/patches/music/misc/gms/GmsCoreSupportPatch : app/revanced/patches/shared/misc/gms/AbstractGmsCoreSupportPatch {
+public final class app/revanced/patches/music/misc/gms/GmsCoreSupportPatch : app/revanced/patches/shared/misc/gms/BaseGmsCoreSupportPatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/misc/gms/GmsCoreSupportPatch;
 }
 
-public final class app/revanced/patches/music/misc/gms/GmsCoreSupportResourcePatch : app/revanced/patches/shared/misc/gms/AbstractGmsCoreSupportResourcePatch {
+public final class app/revanced/patches/music/misc/gms/GmsCoreSupportResourcePatch : app/revanced/patches/shared/misc/gms/BaseGmsCoreSupportResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/misc/gms/GmsCoreSupportResourcePatch;
+}
+
+public final class app/revanced/patches/music/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch {
+	public static final field INSTANCE Lapp/revanced/patches/music/misc/integrations/IntegrationsPatch;
 }
 
 public final class app/revanced/patches/music/premium/backgroundplay/BackgroundPlayPatch : app/revanced/patcher/patch/BytecodePatch {
@@ -331,6 +372,20 @@ public final class app/revanced/patches/myexpenses/misc/pro/UnlockProPatch : app
 	public static final field INSTANCE Lapp/revanced/patches/myexpenses/misc/pro/UnlockProPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/myfitnesspal/ads/HideAdsPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/myfitnesspal/ads/HideAdsPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/myfitnesspal/ads/fingerprints/IsPremiumUseCaseImplFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/myfitnesspal/ads/fingerprints/IsPremiumUseCaseImplFingerprint;
+}
+
+public final class app/revanced/patches/myfitnesspal/ads/fingerprints/MainActivityNavigateToNativePremiumUpsellFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/myfitnesspal/ads/fingerprints/MainActivityNavigateToNativePremiumUpsellFingerprint;
 }
 
 public final class app/revanced/patches/netguard/broadcasts/removerestriction/RemoveBroadcastsRestrictionPatch : app/revanced/patcher/patch/ResourcePatch {
@@ -363,8 +418,14 @@ public final class app/revanced/patches/photomath/detection/signature/SignatureD
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/photomath/misc/unlockplus/UnlockPlusPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/photomath/misc/unlockplus/UnlockPlusPatch;
+public final class app/revanced/patches/photomath/misc/annoyances/HideUpdatePopupPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/photomath/misc/annoyances/HideUpdatePopupPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/photomath/misc/unlock/plus/UnlockPlusPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/photomath/misc/unlock/plus/UnlockPlusPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -393,7 +454,7 @@ public final class app/revanced/patches/reddit/ad/general/HideAdsPatch : app/rev
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public abstract class app/revanced/patches/reddit/customclients/AbstractSpoofClientPatch : app/revanced/patcher/patch/BytecodePatch {
+public abstract class app/revanced/patches/reddit/customclients/BaseSpoofClientPatch : app/revanced/patcher/patch/BytecodePatch {
 	public fun <init> (Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;)V
 	public synthetic fun <init> (Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -410,17 +471,17 @@ public final class app/revanced/patches/reddit/customclients/Constants {
 	public static final field OAUTH_USER_AGENT Ljava/lang/String;
 }
 
-public final class app/revanced/patches/reddit/customclients/baconreader/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/AbstractSpoofClientPatch {
+public final class app/revanced/patches/reddit/customclients/baconreader/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/BaseSpoofClientPatch {
 	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/baconreader/api/SpoofClientPatch;
 	public fun patchClientId (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
 }
 
-public final class app/revanced/patches/reddit/customclients/boostforreddit/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/AbstractSpoofClientPatch {
+public final class app/revanced/patches/reddit/customclients/boostforreddit/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/BaseSpoofClientPatch {
 	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/boostforreddit/api/SpoofClientPatch;
 	public fun patchClientId (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
 }
 
-public final class app/revanced/patches/reddit/customclients/infinityforreddit/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/AbstractSpoofClientPatch {
+public final class app/revanced/patches/reddit/customclients/infinityforreddit/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/BaseSpoofClientPatch {
 	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/infinityforreddit/api/SpoofClientPatch;
 	public fun patchClientId (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
 }
@@ -437,7 +498,7 @@ public final class app/revanced/patches/reddit/customclients/joeyforreddit/ads/D
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/reddit/customclients/joeyforreddit/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/AbstractSpoofClientPatch {
+public final class app/revanced/patches/reddit/customclients/joeyforreddit/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/BaseSpoofClientPatch {
 	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/joeyforreddit/api/SpoofClientPatch;
 	public fun patchClientId (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
 }
@@ -448,19 +509,19 @@ public final class app/revanced/patches/reddit/customclients/joeyforreddit/detec
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/reddit/customclients/redditisfun/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/AbstractSpoofClientPatch {
+public final class app/revanced/patches/reddit/customclients/redditisfun/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/BaseSpoofClientPatch {
 	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/redditisfun/api/SpoofClientPatch;
 	public fun patchClientId (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
 	public fun patchUserAgent (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
 }
 
-public final class app/revanced/patches/reddit/customclients/relayforreddit/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/AbstractSpoofClientPatch {
+public final class app/revanced/patches/reddit/customclients/relayforreddit/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/BaseSpoofClientPatch {
 	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/relayforreddit/api/SpoofClientPatch;
 	public fun patchClientId (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
 	public fun patchMiscellaneous (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
 }
 
-public final class app/revanced/patches/reddit/customclients/slide/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/AbstractSpoofClientPatch {
+public final class app/revanced/patches/reddit/customclients/slide/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/BaseSpoofClientPatch {
 	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/slide/api/SpoofClientPatch;
 	public fun patchClientId (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
 }
@@ -477,7 +538,7 @@ public final class app/revanced/patches/reddit/customclients/syncforreddit/annoy
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/reddit/customclients/syncforreddit/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/AbstractSpoofClientPatch {
+public final class app/revanced/patches/reddit/customclients/syncforreddit/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/BaseSpoofClientPatch {
 	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/syncforreddit/api/SpoofClientPatch;
 	public fun patchClientId (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
 	public fun patchMiscellaneous (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -519,44 +580,62 @@ public final class app/revanced/patches/serviceportalbund/detection/root/RootDet
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/shared/fingerprints/HomeActivityFingerprint : app/revanced/patches/shared/integrations/AbstractIntegrationsPatch$IntegrationsFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/shared/fingerprints/HomeActivityFingerprint;
-}
-
-public abstract class app/revanced/patches/shared/integrations/AbstractIntegrationsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public fun <init> (Ljava/lang/String;Ljava/util/Set;)V
+public final class app/revanced/patches/shared/misc/fix/verticalscroll/VerticalScrollPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/shared/misc/fix/verticalscroll/VerticalScrollPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public abstract class app/revanced/patches/shared/integrations/AbstractIntegrationsPatch$IntegrationsFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+public abstract class app/revanced/patches/shared/misc/gms/BaseGmsCoreSupportPatch : app/revanced/patcher/patch/BytecodePatch {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Ljava/util/Set;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Lkotlin/reflect/KClass;Lapp/revanced/patches/shared/misc/gms/BaseGmsCoreSupportResourcePatch;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Ljava/util/Set;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Lkotlin/reflect/KClass;Lapp/revanced/patches/shared/misc/gms/BaseGmsCoreSupportResourcePatch;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public abstract class app/revanced/patches/shared/misc/gms/BaseGmsCoreSupportResourcePatch : app/revanced/patcher/patch/ResourcePatch {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+	protected final fun getGmsCoreVendor ()Ljava/lang/String;
+}
+
+public abstract class app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch : app/revanced/patcher/patch/BytecodePatch {
+	public fun <init> (Ljava/lang/String;Ljava/util/Set;)V
+	public fun <init> (Ljava/util/Set;)V
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public abstract class app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch$IntegrationsFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
 	public fun <init> ()V
 	public fun <init> (Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)V
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun invoke (Ljava/lang/String;)V
 }
 
-public abstract interface class app/revanced/patches/shared/integrations/AbstractIntegrationsPatch$IntegrationsFingerprint$RegisterResolver : kotlin/jvm/functions/Function1 {
+public abstract interface class app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch$IntegrationsFingerprint$IRegisterResolver : kotlin/jvm/functions/Function1 {
 	public abstract fun invoke (Lcom/android/tools/smali/dexlib2/iface/Method;)Ljava/lang/Integer;
 }
 
-public final class app/revanced/patches/shared/integrations/AbstractIntegrationsPatch$IntegrationsFingerprint$RegisterResolver$DefaultImpls {
-	public static fun invoke (Lapp/revanced/patches/shared/integrations/AbstractIntegrationsPatch$IntegrationsFingerprint$RegisterResolver;Lcom/android/tools/smali/dexlib2/iface/Method;)Ljava/lang/Integer;
+public final class app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch$IntegrationsFingerprint$IRegisterResolver$DefaultImpls {
+	public static fun invoke (Lapp/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch$IntegrationsFingerprint$IRegisterResolver;Lcom/android/tools/smali/dexlib2/iface/Method;)Ljava/lang/Integer;
 }
 
-public final class app/revanced/patches/shared/mapping/misc/ResourceMappingPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/shared/mapping/misc/ResourceMappingPatch;
+public final class app/revanced/patches/shared/misc/mapping/ResourceMappingPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/shared/misc/mapping/ResourceMappingPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
-public final class app/revanced/patches/shared/mapping/misc/ResourceMappingPatch$ResourceElement {
+public final class app/revanced/patches/shared/misc/mapping/ResourceMappingPatch$ResourceElement {
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;J)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()J
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;J)Lapp/revanced/patches/shared/mapping/misc/ResourceMappingPatch$ResourceElement;
-	public static synthetic fun copy$default (Lapp/revanced/patches/shared/mapping/misc/ResourceMappingPatch$ResourceElement;Ljava/lang/String;Ljava/lang/String;JILjava/lang/Object;)Lapp/revanced/patches/shared/mapping/misc/ResourceMappingPatch$ResourceElement;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;J)Lapp/revanced/patches/shared/misc/mapping/ResourceMappingPatch$ResourceElement;
+	public static synthetic fun copy$default (Lapp/revanced/patches/shared/misc/mapping/ResourceMappingPatch$ResourceElement;Ljava/lang/String;Ljava/lang/String;JILjava/lang/Object;)Lapp/revanced/patches/shared/misc/mapping/ResourceMappingPatch$ResourceElement;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getId ()J
 	public final fun getName ()Ljava/lang/String;
@@ -565,190 +644,175 @@ public final class app/revanced/patches/shared/mapping/misc/ResourceMappingPatch
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class app/revanced/patches/shared/misc/fix/verticalscroll/VerticalScrollPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/shared/misc/fix/verticalscroll/VerticalScrollPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public abstract class app/revanced/patches/shared/misc/gms/AbstractGmsCoreSupportPatch : app/revanced/patcher/patch/BytecodePatch {
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Ljava/util/Set;Lapp/revanced/patches/shared/misc/gms/AbstractGmsCoreSupportResourcePatch;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Ljava/util/Set;Lapp/revanced/patches/shared/misc/gms/AbstractGmsCoreSupportResourcePatch;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public abstract class app/revanced/patches/shared/misc/gms/AbstractGmsCoreSupportResourcePatch : app/revanced/patcher/patch/ResourcePatch {
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-	protected final fun getGmsCoreVendor ()Ljava/lang/String;
-}
-
-public final class app/revanced/patches/shared/misc/gms/fingerprints/GmsCoreSupportFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field GET_GMS_CORE_VENDOR_METHOD_NAME Ljava/lang/String;
-	public static final field INSTANCE Lapp/revanced/patches/shared/misc/gms/fingerprints/GmsCoreSupportFingerprint;
-}
-
-public abstract class app/revanced/patches/shared/settings/AbstractSettingsResourcePatch : app/revanced/patcher/patch/ResourcePatch, java/io/Closeable {
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+public abstract class app/revanced/patches/shared/misc/settings/BaseSettingsResourcePatch : app/revanced/patcher/patch/ResourcePatch, java/io/Closeable, java/util/Set, kotlin/jvm/internal/markers/KMutableSet {
+	public fun <init> ()V
+	public fun <init> (Lkotlin/Pair;Ljava/util/Set;)V
+	public synthetic fun <init> (Lkotlin/Pair;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun add (Lapp/revanced/patches/shared/misc/settings/preference/BasePreference;)Z
+	public synthetic fun add (Ljava/lang/Object;)Z
+	public fun addAll (Ljava/util/Collection;)Z
+	public fun clear ()V
 	public fun close ()V
+	public fun contains (Lapp/revanced/patches/shared/misc/settings/preference/BasePreference;)Z
+	public final fun contains (Ljava/lang/Object;)Z
+	public fun containsAll (Ljava/util/Collection;)Z
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+	public fun getSize ()I
+	public fun isEmpty ()Z
+	public fun iterator ()Ljava/util/Iterator;
+	public fun remove (Lapp/revanced/patches/shared/misc/settings/preference/BasePreference;)Z
+	public final fun remove (Ljava/lang/Object;)Z
+	public fun removeAll (Ljava/util/Collection;)Z
+	public fun retainAll (Ljava/util/Collection;)Z
+	public final fun size ()I
+	public fun toArray ()[Ljava/lang/Object;
+	public fun toArray ([Ljava/lang/Object;)[Ljava/lang/Object;
 }
 
-public abstract class app/revanced/patches/shared/settings/preference/BasePreference {
-	public fun <init> (Ljava/lang/String;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Ljava/lang/String;)V
-	public synthetic fun <init> (Ljava/lang/String;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+public abstract class app/revanced/patches/shared/misc/settings/preference/BasePreference {
+	public static final field Companion Lapp/revanced/patches/shared/misc/settings/preference/BasePreference$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
 	public final fun getKey ()Ljava/lang/String;
-	public final fun getSummary ()Lapp/revanced/patches/shared/settings/preference/impl/StringResource;
+	public final fun getSummaryKey ()Ljava/lang/String;
 	public final fun getTag ()Ljava/lang/String;
-	public final fun getTitle ()Lapp/revanced/patches/shared/settings/preference/impl/StringResource;
+	public final fun getTitleKey ()Ljava/lang/String;
+	public fun hashCode ()I
 	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
 }
 
-public abstract class app/revanced/patches/shared/settings/preference/BaseResource {
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
-	public final fun getName ()Ljava/lang/String;
-	public final fun getTag ()Ljava/lang/String;
-	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
-	public static synthetic fun serialize$default (Lapp/revanced/patches/shared/settings/preference/BaseResource;Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/w3c/dom/Element;
+public final class app/revanced/patches/shared/misc/settings/preference/BasePreference$Companion {
+	public final fun addSummary (Lorg/w3c/dom/Element;Ljava/lang/String;Lapp/revanced/patches/shared/misc/settings/preference/SummaryType;)V
+	public static synthetic fun addSummary$default (Lapp/revanced/patches/shared/misc/settings/preference/BasePreference$Companion;Lorg/w3c/dom/Element;Ljava/lang/String;Lapp/revanced/patches/shared/misc/settings/preference/SummaryType;ILjava/lang/Object;)V
 }
 
-public abstract class app/revanced/patches/shared/settings/preference/DefaultBasePreference : app/revanced/patches/shared/settings/preference/BasePreference {
-	public fun <init> (Ljava/lang/String;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Ljava/lang/String;Ljava/lang/Object;)V
-	public synthetic fun <init> (Ljava/lang/String;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Ljava/lang/String;Ljava/lang/Object;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun getDefault ()Ljava/lang/Object;
-	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
+public abstract class app/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen : java/io/Closeable {
+	public fun <init> ()V
+	public fun <init> (Ljava/util/Set;)V
+	public synthetic fun <init> (Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun close ()V
+	public abstract fun commit (Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen;)V
 }
 
-public final class app/revanced/patches/shared/settings/preference/SummaryType : java/lang/Enum {
-	public static final field DEFAULT Lapp/revanced/patches/shared/settings/preference/SummaryType;
-	public static final field OFF Lapp/revanced/patches/shared/settings/preference/SummaryType;
-	public static final field ON Lapp/revanced/patches/shared/settings/preference/SummaryType;
+public abstract class app/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$BasePreferenceCollection {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getKey ()Ljava/lang/String;
+	public final fun getPreferences ()Ljava/util/Set;
+	public final fun getTitleKey ()Ljava/lang/String;
+	public abstract fun transform ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreference;
+}
+
+public class app/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen : app/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$BasePreferenceCollection {
+	public fun <init> (Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;)V
+	public synthetic fun <init> (Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen;Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;)V
+	public synthetic fun <init> (Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen;Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun addPreferences ([Lapp/revanced/patches/shared/misc/settings/preference/BasePreference;)V
+	public final fun getCategories ()Ljava/util/Set;
+	public synthetic fun transform ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreference;
+	public fun transform ()Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen;
+}
+
+public class app/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen$Category : app/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$BasePreferenceCollection {
+	public fun <init> (Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;)V
+	public synthetic fun <init> (Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun addPreferences ([Lapp/revanced/patches/shared/misc/settings/preference/BasePreference;)V
+	public synthetic fun transform ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreference;
+	public fun transform ()Lapp/revanced/patches/shared/misc/settings/preference/PreferenceCategory;
+}
+
+public final class app/revanced/patches/shared/misc/settings/preference/InputType : java/lang/Enum {
+	public static final field NUMBER Lapp/revanced/patches/shared/misc/settings/preference/InputType;
+	public static final field TEXT Lapp/revanced/patches/shared/misc/settings/preference/InputType;
+	public static final field TEXT_CAP_CHARACTERS Lapp/revanced/patches/shared/misc/settings/preference/InputType;
+	public static final field TEXT_MULTI_LINE Lapp/revanced/patches/shared/misc/settings/preference/InputType;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public final fun getType ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lapp/revanced/patches/shared/settings/preference/SummaryType;
-	public static fun values ()[Lapp/revanced/patches/shared/settings/preference/SummaryType;
+	public static fun valueOf (Ljava/lang/String;)Lapp/revanced/patches/shared/misc/settings/preference/InputType;
+	public static fun values ()[Lapp/revanced/patches/shared/misc/settings/preference/InputType;
 }
 
-public final class app/revanced/patches/shared/settings/preference/impl/ArrayResource : app/revanced/patches/shared/settings/preference/BaseResource {
-	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
-	public final fun getItems ()Ljava/util/List;
+public final class app/revanced/patches/shared/misc/settings/preference/IntentPreference : app/revanced/patches/shared/misc/settings/preference/BasePreference {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patches/shared/misc/settings/preference/IntentPreference$Intent;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patches/shared/misc/settings/preference/IntentPreference$Intent;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getIntent ()Lapp/revanced/patches/shared/misc/settings/preference/IntentPreference$Intent;
+	public fun hashCode ()I
 	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
 }
 
-public final class app/revanced/patches/shared/settings/preference/impl/InputType : java/lang/Enum {
-	public static final field NUMBER Lapp/revanced/patches/shared/settings/preference/impl/InputType;
-	public static final field TEXT Lapp/revanced/patches/shared/settings/preference/impl/InputType;
-	public static final field TEXT_CAP_CHARACTERS Lapp/revanced/patches/shared/settings/preference/impl/InputType;
-	public static final field TEXT_MULTI_LINE Lapp/revanced/patches/shared/settings/preference/impl/InputType;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
-	public final fun getType ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lapp/revanced/patches/shared/settings/preference/impl/InputType;
-	public static fun values ()[Lapp/revanced/patches/shared/settings/preference/impl/InputType;
+public final class app/revanced/patches/shared/misc/settings/preference/IntentPreference$Intent {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function0;)V
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function0;)Lapp/revanced/patches/shared/misc/settings/preference/IntentPreference$Intent;
+	public static synthetic fun copy$default (Lapp/revanced/patches/shared/misc/settings/preference/IntentPreference$Intent;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lapp/revanced/patches/shared/misc/settings/preference/IntentPreference$Intent;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
-public final class app/revanced/patches/shared/settings/preference/impl/ListPreference : app/revanced/patches/shared/settings/preference/DefaultBasePreference {
-	public fun <init> (Ljava/lang/String;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Lapp/revanced/patches/shared/settings/preference/impl/ArrayResource;Lapp/revanced/patches/shared/settings/preference/impl/ArrayResource;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Ljava/lang/String;)V
-	public synthetic fun <init> (Ljava/lang/String;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Lapp/revanced/patches/shared/settings/preference/impl/ArrayResource;Lapp/revanced/patches/shared/settings/preference/impl/ArrayResource;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun getEntries ()Lapp/revanced/patches/shared/settings/preference/impl/ArrayResource;
-	public final fun getEntryValues ()Lapp/revanced/patches/shared/settings/preference/impl/ArrayResource;
+public final class app/revanced/patches/shared/misc/settings/preference/ListPreference : app/revanced/patches/shared/misc/settings/preference/BasePreference {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/util/resource/ArrayResource;Lapp/revanced/util/resource/ArrayResource;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/util/resource/ArrayResource;Lapp/revanced/util/resource/ArrayResource;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getEntries ()Lapp/revanced/util/resource/ArrayResource;
+	public final fun getEntriesKey ()Ljava/lang/String;
+	public final fun getEntryValues ()Lapp/revanced/util/resource/ArrayResource;
+	public final fun getEntryValuesKey ()Ljava/lang/String;
 	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
 }
 
-public final class app/revanced/patches/shared/settings/preference/impl/NonInteractivePreference : app/revanced/patches/shared/settings/preference/BasePreference {
-	public fun <init> (Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Ljava/lang/String;Z)V
-	public synthetic fun <init> (Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Ljava/lang/String;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+public final class app/revanced/patches/shared/misc/settings/preference/NonInteractivePreference : app/revanced/patches/shared/misc/settings/preference/BasePreference {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun getSelectable ()Z
 	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
 }
 
-public final class app/revanced/patches/shared/settings/preference/impl/Preference : app/revanced/patches/shared/settings/preference/BasePreference {
-	public fun <init> (Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Lapp/revanced/patches/shared/settings/preference/impl/Preference$Intent;)V
-	public fun <init> (Ljava/lang/String;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Lapp/revanced/patches/shared/settings/preference/impl/Preference$Intent;)V
-	public final fun getIntent ()Lapp/revanced/patches/shared/settings/preference/impl/Preference$Intent;
+public class app/revanced/patches/shared/misc/settings/preference/PreferenceCategory : app/revanced/patches/shared/misc/settings/preference/BasePreference {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getPreferences ()Ljava/util/Set;
 	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
 }
 
-public final class app/revanced/patches/shared/settings/preference/impl/Preference$Intent {
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-}
-
-public class app/revanced/patches/shared/settings/preference/impl/PreferenceCategory : app/revanced/patches/shared/settings/preference/BasePreference {
-	public fun <init> (Ljava/lang/String;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Ljava/util/List;Ljava/lang/String;)V
-	public synthetic fun <init> (Ljava/lang/String;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun getPreferences ()Ljava/util/List;
-	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
-	public final fun setPreferences (Ljava/util/List;)V
-}
-
-public class app/revanced/patches/shared/settings/preference/impl/PreferenceScreen : app/revanced/patches/shared/settings/preference/BasePreference {
-	public fun <init> (Ljava/lang/String;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Ljava/util/List;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;)V
-	public synthetic fun <init> (Ljava/lang/String;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Ljava/util/List;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun getPreferences ()Ljava/util/List;
-	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
-	public final fun setPreferences (Ljava/util/List;)V
-}
-
-public final class app/revanced/patches/shared/settings/preference/impl/StringResource : app/revanced/patches/shared/settings/preference/BaseResource {
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Z)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun getFormatted ()Z
-	public final fun getValue ()Ljava/lang/String;
+public class app/revanced/patches/shared/misc/settings/preference/PreferenceScreen : app/revanced/patches/shared/misc/settings/preference/BasePreference {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getPreferences ()Ljava/util/Set;
 	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
 }
 
-public final class app/revanced/patches/shared/settings/preference/impl/SwitchPreference : app/revanced/patches/shared/settings/preference/DefaultBasePreference {
-	public fun <init> (Ljava/lang/String;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Z)V
-	public synthetic fun <init> (Ljava/lang/String;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun getSummaryOff ()Lapp/revanced/patches/shared/settings/preference/impl/StringResource;
-	public final fun getSummaryOn ()Lapp/revanced/patches/shared/settings/preference/impl/StringResource;
-	public final fun getUserDialogMessage ()Lapp/revanced/patches/shared/settings/preference/impl/StringResource;
-	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
+public final class app/revanced/patches/shared/misc/settings/preference/SummaryType : java/lang/Enum {
+	public static final field DEFAULT Lapp/revanced/patches/shared/misc/settings/preference/SummaryType;
+	public static final field OFF Lapp/revanced/patches/shared/misc/settings/preference/SummaryType;
+	public static final field ON Lapp/revanced/patches/shared/misc/settings/preference/SummaryType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getType ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lapp/revanced/patches/shared/misc/settings/preference/SummaryType;
+	public static fun values ()[Lapp/revanced/patches/shared/misc/settings/preference/SummaryType;
 }
 
-public final class app/revanced/patches/shared/settings/preference/impl/TextPreference : app/revanced/patches/shared/settings/preference/DefaultBasePreference {
-	public fun <init> (Ljava/lang/String;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Lapp/revanced/patches/shared/settings/preference/impl/InputType;Ljava/lang/String;Ljava/lang/String;)V
-	public synthetic fun <init> (Ljava/lang/String;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Lapp/revanced/patches/shared/settings/preference/impl/StringResource;Lapp/revanced/patches/shared/settings/preference/impl/InputType;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun getInputType ()Lapp/revanced/patches/shared/settings/preference/impl/InputType;
-	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
-}
-
-public abstract class app/revanced/patches/shared/settings/util/AbstractPreferenceScreen : java/io/Closeable {
+public final class app/revanced/patches/shared/misc/settings/preference/SwitchPreference : app/revanced/patches/shared/misc/settings/preference/BasePreference {
 	public fun <init> ()V
-	public fun <init> (Ljava/util/List;)V
-	public synthetic fun <init> (Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public fun close ()V
-	public abstract fun commit (Lapp/revanced/patches/shared/settings/preference/impl/PreferenceScreen;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getSummaryOffKey ()Ljava/lang/String;
+	public final fun getSummaryOnKey ()Ljava/lang/String;
+	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
 }
 
-public abstract class app/revanced/patches/shared/settings/util/AbstractPreferenceScreen$BasePreferenceCollection {
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun getKey ()Ljava/lang/String;
-	public final fun getPreferences ()Ljava/util/List;
-	public final fun getTitle ()Ljava/lang/String;
-	public abstract fun transform ()Lapp/revanced/patches/shared/settings/preference/BasePreference;
-}
-
-public class app/revanced/patches/shared/settings/util/AbstractPreferenceScreen$Screen : app/revanced/patches/shared/settings/util/AbstractPreferenceScreen$BasePreferenceCollection {
-	public fun <init> (Lapp/revanced/patches/shared/settings/util/AbstractPreferenceScreen;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;)V
-	public synthetic fun <init> (Lapp/revanced/patches/shared/settings/util/AbstractPreferenceScreen;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun addPreferences ([Lapp/revanced/patches/shared/settings/preference/BasePreference;)V
-	public final fun getCategories ()Ljava/util/List;
-	public final fun getSummary ()Ljava/lang/String;
-	public synthetic fun transform ()Lapp/revanced/patches/shared/settings/preference/BasePreference;
-	public fun transform ()Lapp/revanced/patches/shared/settings/preference/impl/PreferenceScreen;
-}
-
-public class app/revanced/patches/shared/settings/util/AbstractPreferenceScreen$Screen$Category : app/revanced/patches/shared/settings/util/AbstractPreferenceScreen$BasePreferenceCollection {
-	public fun <init> (Lapp/revanced/patches/shared/settings/util/AbstractPreferenceScreen$Screen;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
-	public synthetic fun <init> (Lapp/revanced/patches/shared/settings/util/AbstractPreferenceScreen$Screen;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun addPreferences ([Lapp/revanced/patches/shared/settings/preference/BasePreference;)V
-	public synthetic fun transform ()Lapp/revanced/patches/shared/settings/preference/BasePreference;
-	public fun transform ()Lapp/revanced/patches/shared/settings/preference/impl/PreferenceCategory;
+public final class app/revanced/patches/shared/misc/settings/preference/TextPreference : app/revanced/patches/shared/misc/settings/preference/BasePreference {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patches/shared/misc/settings/preference/InputType;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patches/shared/misc/settings/preference/InputType;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getInputType ()Lapp/revanced/patches/shared/misc/settings/preference/InputType;
+	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
 }
 
 public final class app/revanced/patches/solidexplorer2/functionality/filesize/RemoveFileSizeLimitPatch : app/revanced/patcher/patch/BytecodePatch {
@@ -842,7 +906,7 @@ public final class app/revanced/patches/tiktok/interaction/speed/PlaybackSpeedPa
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/tiktok/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/integrations/AbstractIntegrationsPatch {
+public final class app/revanced/patches/tiktok/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch {
 	public static final field INSTANCE Lapp/revanced/patches/tiktok/misc/integrations/IntegrationsPatch;
 }
 
@@ -936,25 +1000,25 @@ public final class app/revanced/patches/twitch/ad/embedded/EmbeddedAdsPatch : ap
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public abstract class app/revanced/patches/twitch/ad/shared/util/AbstractAdPatch : app/revanced/patcher/patch/BytecodePatch {
+public abstract class app/revanced/patches/twitch/ad/shared/util/BaseAdPatch : app/revanced/patcher/patch/BytecodePatch {
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;)V
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	protected final fun blockMethods (Lapp/revanced/patcher/data/BytecodeContext;Ljava/lang/String;[Ljava/lang/String;Lapp/revanced/patches/twitch/ad/shared/util/AbstractAdPatch$ReturnMethod;)Z
-	public static synthetic fun blockMethods$default (Lapp/revanced/patches/twitch/ad/shared/util/AbstractAdPatch;Lapp/revanced/patcher/data/BytecodeContext;Ljava/lang/String;[Ljava/lang/String;Lapp/revanced/patches/twitch/ad/shared/util/AbstractAdPatch$ReturnMethod;ILjava/lang/Object;)Z
+	protected final fun blockMethods (Lapp/revanced/patcher/data/BytecodeContext;Ljava/lang/String;[Ljava/lang/String;Lapp/revanced/patches/twitch/ad/shared/util/BaseAdPatch$ReturnMethod;)Z
+	public static synthetic fun blockMethods$default (Lapp/revanced/patches/twitch/ad/shared/util/BaseAdPatch;Lapp/revanced/patcher/data/BytecodeContext;Ljava/lang/String;[Ljava/lang/String;Lapp/revanced/patches/twitch/ad/shared/util/BaseAdPatch$ReturnMethod;ILjava/lang/Object;)Z
 	protected final fun createConditionInstructions (Ljava/lang/String;)Ljava/lang/String;
-	public static synthetic fun createConditionInstructions$default (Lapp/revanced/patches/twitch/ad/shared/util/AbstractAdPatch;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
+	public static synthetic fun createConditionInstructions$default (Lapp/revanced/patches/twitch/ad/shared/util/BaseAdPatch;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
 	public final fun getConditionCall ()Ljava/lang/String;
 	public final fun getSkipLabelName ()Ljava/lang/String;
 }
 
-protected final class app/revanced/patches/twitch/ad/shared/util/AbstractAdPatch$ReturnMethod {
+protected final class app/revanced/patches/twitch/ad/shared/util/BaseAdPatch$ReturnMethod {
 	public fun <init> ()V
 	public fun <init> (CLjava/lang/String;)V
 	public synthetic fun <init> (CLjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()C
 	public final fun component2 ()Ljava/lang/String;
-	public final fun copy (CLjava/lang/String;)Lapp/revanced/patches/twitch/ad/shared/util/AbstractAdPatch$ReturnMethod;
-	public static synthetic fun copy$default (Lapp/revanced/patches/twitch/ad/shared/util/AbstractAdPatch$ReturnMethod;CLjava/lang/String;ILjava/lang/Object;)Lapp/revanced/patches/twitch/ad/shared/util/AbstractAdPatch$ReturnMethod;
+	public final fun copy (CLjava/lang/String;)Lapp/revanced/patches/twitch/ad/shared/util/BaseAdPatch$ReturnMethod;
+	public static synthetic fun copy$default (Lapp/revanced/patches/twitch/ad/shared/util/BaseAdPatch$ReturnMethod;CLjava/lang/String;ILjava/lang/Object;)Lapp/revanced/patches/twitch/ad/shared/util/BaseAdPatch$ReturnMethod;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getReturnType ()C
 	public final fun getValue ()Ljava/lang/String;
@@ -962,7 +1026,7 @@ protected final class app/revanced/patches/twitch/ad/shared/util/AbstractAdPatch
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class app/revanced/patches/twitch/ad/video/VideoAdsPatch : app/revanced/patches/twitch/ad/shared/util/AbstractAdPatch {
+public final class app/revanced/patches/twitch/ad/video/VideoAdsPatch : app/revanced/patches/twitch/ad/shared/util/BaseAdPatch {
 	public static final field INSTANCE Lapp/revanced/patches/twitch/ad/video/VideoAdsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
@@ -974,8 +1038,8 @@ public final class app/revanced/patches/twitch/chat/antidelete/ShowDeletedMessag
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/twitch/chat/autoclaim/AutoClaimChannelPointPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/twitch/chat/autoclaim/AutoClaimChannelPointPatch;
+public final class app/revanced/patches/twitch/chat/autoclaim/AutoClaimChannelPointsPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/twitch/chat/autoclaim/AutoClaimChannelPointsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -986,25 +1050,19 @@ public final class app/revanced/patches/twitch/debug/DebugModePatch : app/revanc
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/twitch/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/integrations/AbstractIntegrationsPatch {
+public final class app/revanced/patches/twitch/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch {
 	public static final field INSTANCE Lapp/revanced/patches/twitch/misc/integrations/IntegrationsPatch;
 }
 
 public final class app/revanced/patches/twitch/misc/settings/SettingsPatch : app/revanced/patcher/patch/BytecodePatch, java/io/Closeable {
 	public static final field INSTANCE Lapp/revanced/patches/twitch/misc/settings/SettingsPatch;
-	public final fun addPreferenceScreen (Lapp/revanced/patches/shared/settings/preference/impl/PreferenceScreen;)V
-	public final fun addString (Ljava/lang/String;Ljava/lang/String;Z)V
-	public static synthetic fun addString$default (Lapp/revanced/patches/twitch/misc/settings/SettingsPatch;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)V
 	public fun close ()V
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/twitch/misc/settings/SettingsResourcePatch : app/revanced/patches/shared/settings/AbstractSettingsResourcePatch {
+public final class app/revanced/patches/twitch/misc/settings/SettingsResourcePatch : app/revanced/patches/shared/misc/settings/BaseSettingsResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/twitch/misc/settings/SettingsResourcePatch;
-	public final fun addArray (Lapp/revanced/patches/shared/settings/preference/impl/ArrayResource;)V
-	public final fun addPreferenceScreen (Lapp/revanced/patches/shared/settings/preference/impl/PreferenceScreen;)V
-	public final fun addString (Ljava/lang/String;Ljava/lang/String;Z)V
 }
 
 public final class app/revanced/patches/twitter/misc/dynamiccolor/DynamicColorPatch : app/revanced/patcher/patch/ResourcePatch {
@@ -1020,17 +1078,17 @@ public final class app/revanced/patches/twitter/misc/hook/json/JsonHookPatch : a
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public abstract class app/revanced/patches/twitter/misc/hook/patch/BaseHookPatchPatch : app/revanced/patcher/patch/BytecodePatch {
+public abstract class app/revanced/patches/twitter/misc/hook/patch/BaseHookPatch : app/revanced/patcher/patch/BytecodePatch {
 	public fun <init> (Ljava/lang/String;)V
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/twitter/misc/hook/patch/ads/HideAdsPatch : app/revanced/patches/twitter/misc/hook/patch/BaseHookPatchPatch {
-	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/hook/patch/ads/HideAdsPatch;
+public final class app/revanced/patches/twitter/misc/hook/patch/ads/HideAdsHookPatch : app/revanced/patches/twitter/misc/hook/patch/BaseHookPatch {
+	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/hook/patch/ads/HideAdsHookPatch;
 }
 
-public final class app/revanced/patches/twitter/misc/hook/patch/recommendation/HideRecommendedUsersPatch : app/revanced/patches/twitter/misc/hook/patch/BaseHookPatchPatch {
+public final class app/revanced/patches/twitter/misc/hook/patch/recommendation/HideRecommendedUsersPatch : app/revanced/patches/twitter/misc/hook/patch/BaseHookPatch {
 	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/hook/patch/recommendation/HideRecommendedUsersPatch;
 }
 
@@ -1132,6 +1190,12 @@ public final class app/revanced/patches/youtube/layout/autocaptions/AutoCaptions
 
 public final class app/revanced/patches/youtube/layout/branding/CustomBrandingPatch : app/revanced/patcher/patch/ResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/branding/CustomBrandingPatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
+public final class app/revanced/patches/youtube/layout/branding/header/ChangeHeaderPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/branding/header/ChangeHeaderPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
@@ -1246,12 +1310,6 @@ public final class app/revanced/patches/youtube/layout/hide/infocards/HideInfoca
 
 public final class app/revanced/patches/youtube/layout/hide/loadmorebutton/HideLoadMoreButtonPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/loadmorebutton/HideLoadMoreButtonPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/layout/hide/personalinformation/HideEmailAddressPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/personalinformation/HideEmailAddressPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -1429,19 +1487,17 @@ public final class app/revanced/patches/youtube/misc/fix/playback/SpoofSignature
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
-public final class app/revanced/patches/youtube/misc/gms/GmsCoreSupportPatch : app/revanced/patches/shared/misc/gms/AbstractGmsCoreSupportPatch {
+public final class app/revanced/patches/youtube/misc/gms/GmsCoreSupportPatch : app/revanced/patches/shared/misc/gms/BaseGmsCoreSupportPatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/gms/GmsCoreSupportPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/youtube/misc/gms/GmsCoreSupportResourcePatch : app/revanced/patches/shared/misc/gms/AbstractGmsCoreSupportResourcePatch {
+public final class app/revanced/patches/youtube/misc/gms/GmsCoreSupportResourcePatch : app/revanced/patches/shared/misc/gms/BaseGmsCoreSupportResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/gms/GmsCoreSupportResourcePatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
-public final class app/revanced/patches/youtube/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/integrations/AbstractIntegrationsPatch {
+public final class app/revanced/patches/youtube/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/integrations/IntegrationsPatch;
 }
 
@@ -1451,7 +1507,7 @@ public final class app/revanced/patches/youtube/misc/links/BypassURLRedirectsPat
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/youtube/misc/links/OpenLinksExternallyPatch : app/revanced/patches/all/misc/transformation/AbstractTransformInstructionsPatch {
+public final class app/revanced/patches/youtube/misc/links/OpenLinksExternallyPatch : app/revanced/patches/all/misc/transformation/BaseTransformInstructionsPatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/links/OpenLinksExternallyPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
@@ -1513,30 +1569,24 @@ public final class app/revanced/patches/youtube/misc/privacy/RemoveTrackingQuery
 
 public final class app/revanced/patches/youtube/misc/settings/SettingsPatch : app/revanced/patcher/patch/BytecodePatch, java/io/Closeable {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/settings/SettingsPatch;
-	public final fun addPreference (Lapp/revanced/patches/shared/settings/preference/impl/Preference;)V
-	public final fun addPreferenceScreen (Lapp/revanced/patches/shared/settings/preference/impl/PreferenceScreen;)V
-	public final fun addString (Ljava/lang/String;Ljava/lang/String;Z)V
-	public static synthetic fun addString$default (Lapp/revanced/patches/youtube/misc/settings/SettingsPatch;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)V
 	public fun close ()V
-	public final fun createReVancedSettingsIntent (Ljava/lang/String;)Lapp/revanced/patches/shared/settings/preference/impl/Preference$Intent;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public final fun renameIntentsTargetPackage (Ljava/lang/String;)V
+	public final fun newIntent (Ljava/lang/String;)Lapp/revanced/patches/shared/misc/settings/preference/IntentPreference$Intent;
 }
 
-public final class app/revanced/patches/youtube/misc/settings/SettingsPatch$PreferenceScreen : app/revanced/patches/shared/settings/util/AbstractPreferenceScreen {
+public final class app/revanced/patches/youtube/misc/settings/SettingsPatch$PreferenceScreen : app/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/settings/SettingsPatch$PreferenceScreen;
-	public fun commit (Lapp/revanced/patches/shared/settings/preference/impl/PreferenceScreen;)V
-	public final fun getADS ()Lapp/revanced/patches/shared/settings/util/AbstractPreferenceScreen$Screen;
-	public final fun getINTERACTIONS ()Lapp/revanced/patches/shared/settings/util/AbstractPreferenceScreen$Screen;
-	public final fun getLAYOUT ()Lapp/revanced/patches/shared/settings/util/AbstractPreferenceScreen$Screen;
-	public final fun getMISC ()Lapp/revanced/patches/shared/settings/util/AbstractPreferenceScreen$Screen;
-	public final fun getVIDEO ()Lapp/revanced/patches/shared/settings/util/AbstractPreferenceScreen$Screen;
+	public fun commit (Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen;)V
+	public final fun getADS ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
+	public final fun getINTERACTIONS ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
+	public final fun getLAYOUT ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
+	public final fun getMISC ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
+	public final fun getVIDEO ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
 }
 
-public final class app/revanced/patches/youtube/misc/settings/SettingsResourcePatch : app/revanced/patches/shared/settings/AbstractSettingsResourcePatch {
+public final class app/revanced/patches/youtube/misc/settings/SettingsResourcePatch : app/revanced/patches/shared/misc/settings/BaseSettingsResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/settings/SettingsResourcePatch;
-	public fun close ()V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
@@ -1661,15 +1711,51 @@ public final class app/revanced/util/ResourceGroup {
 }
 
 public final class app/revanced/util/ResourceUtilsKt {
+	public static final fun asSequence (Lorg/w3c/dom/NodeList;)Lkotlin/sequences/Sequence;
+	public static final fun childElementsSequence (Lorg/w3c/dom/Node;)Lkotlin/sequences/Sequence;
 	public static final fun copyResources (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;[Lapp/revanced/util/ResourceGroup;)V
 	public static final fun copyXmlNode (Ljava/lang/String;Lapp/revanced/patcher/util/DomFileEditor;Lapp/revanced/patcher/util/DomFileEditor;)Ljava/lang/AutoCloseable;
 	public static final fun doRecursively (Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
+	public static final fun forEachChildElement (Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
 	public static final fun iterateXmlNodeChildren (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
-	public static final fun mergeStrings (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;)V
 }
 
 public abstract class app/revanced/util/patch/LiteralValueFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
 	public fun <init> (Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;Lkotlin/jvm/functions/Function0;)V
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;Lkotlin/jvm/functions/Function0;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class app/revanced/util/resource/ArrayResource : app/revanced/util/resource/BaseResource {
+	public static final field Companion Lapp/revanced/util/resource/ArrayResource$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public final fun getItems ()Ljava/util/List;
+	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
+}
+
+public final class app/revanced/util/resource/ArrayResource$Companion {
+	public final fun fromNode (Lorg/w3c/dom/Node;)Lapp/revanced/util/resource/ArrayResource;
+}
+
+public abstract class app/revanced/util/resource/BaseResource {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getName ()Ljava/lang/String;
+	public final fun getTag ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
+	public static synthetic fun serialize$default (Lapp/revanced/util/resource/BaseResource;Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/w3c/dom/Element;
+}
+
+public final class app/revanced/util/resource/StringResource : app/revanced/util/resource/BaseResource {
+	public static final field Companion Lapp/revanced/util/resource/StringResource$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Z)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getFormatted ()Z
+	public final fun getValue ()Ljava/lang/String;
+	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
+}
+
+public final class app/revanced/util/resource/StringResource$Companion {
+	public final fun fromNode (Lorg/w3c/dom/Node;)Lapp/revanced/util/resource/StringResource;
 }
 
