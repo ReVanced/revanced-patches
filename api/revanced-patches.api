@@ -418,8 +418,14 @@ public final class app/revanced/patches/photomath/detection/signature/SignatureD
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/photomath/misc/unlockplus/UnlockPlusPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/photomath/misc/unlockplus/UnlockPlusPatch;
+public final class app/revanced/patches/photomath/misc/annoyances/HideUpdatePopupPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/photomath/misc/annoyances/HideUpdatePopupPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/photomath/misc/unlock/plus/UnlockPlusPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/photomath/misc/unlock/plus/UnlockPlusPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
