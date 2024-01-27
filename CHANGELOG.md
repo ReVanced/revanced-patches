@@ -1,3 +1,11 @@
+## [4.0.1](https://github.com/ReVanced/revanced-patches/compare/v4.0.0...v4.0.1) (2024-01-27)
+
+
+### Bug Fixes
+
+* Indent patch option description correctly ([bd86ef6](https://github.com/ReVanced/revanced-patches/commit/bd86ef6fc2344fa049077e9aa4bcd5d7ffa4c7f9))
+* Only set Android key if not null to prevent build errors ([1181b0b](https://github.com/ReVanced/revanced-patches/commit/1181b0bca24c524c376f7ea26ae02ee771645e6b))
+
 ## [4.0.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.0.1-dev.1...v4.0.1-dev.2) (2024-01-27)
 
 
