@@ -4,7 +4,7 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.all.misc.transformation.AbstractTransformInstructionsPatch
+import app.revanced.patches.all.misc.transformation.BaseTransformInstructionsPatch
 import app.revanced.patches.all.misc.transformation.IMethodCall
 import app.revanced.patches.all.misc.transformation.Instruction35cInfo
 import app.revanced.patches.all.misc.transformation.filterMapInstruction35c
@@ -22,9 +22,9 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
     requiresIntegrations = true,
 )
 @Suppress("unused")
-object RemoveScreenshotRestrictionPatch : AbstractTransformInstructionsPatch<Instruction35cInfo>() {
+object RemoveScreenshotRestrictionPatch : BaseTransformInstructionsPatch<Instruction35cInfo>() {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX =
-            "Lapp/revanced/all/screenshot/removerestriction/RemoveScreenshotRestrictionPatch"
+            "Lapp/revanced/integrations/all/screenshot/removerestriction/RemoveScreenshotRestrictionPatch"
     private const val INTEGRATIONS_CLASS_DESCRIPTOR = "$INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX;"
 
     override fun execute(context: BytecodeContext) {
@@ -71,7 +71,7 @@ object RemoveScreenshotRestrictionPatch : AbstractTransformInstructionsPatch<Ins
     }
 }
 
-private class ModifyLayoutParamsFlags : AbstractTransformInstructionsPatch<Pair<Instruction22c, Int>>() {
+private class ModifyLayoutParamsFlags : BaseTransformInstructionsPatch<Pair<Instruction22c, Int>>() {
     override fun filterMap(
         classDef: ClassDef,
         method: Method,

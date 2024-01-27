@@ -5,7 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprintResult
-import app.revanced.patches.reddit.customclients.AbstractSpoofClientPatch
+import app.revanced.patches.reddit.customclients.BaseSpoofClientPatch
 import app.revanced.patches.reddit.customclients.relayforreddit.api.fingerprints.*
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction10t
@@ -14,7 +14,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 
 @Suppress("unused")
-object SpoofClientPatch : AbstractSpoofClientPatch(
+object SpoofClientPatch : BaseSpoofClientPatch(
     redirectUri = "dbrady://relay",
     miscellaneousFingerprints = setOf(
         SetRemoteConfigFingerprint,

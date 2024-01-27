@@ -9,7 +9,7 @@ import app.revanced.patches.youtube.video.information.VideoInformationPatch
 
 @Patch(
     name = "External downloads",
-    description = "Adds support to download and save YouTube videos using an external app.",
+    description = "Adds support to download and save YouTube videos using an external downloader app.",
     dependencies = [
         ExternalDownloadsResourcePatch::class,
         PlayerControlsBytecodePatch::class,
@@ -17,22 +17,19 @@ import app.revanced.patches.youtube.video.information.VideoInformationPatch
     ],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube",
-            [
-                "18.32.39",
-                "18.37.36",
-                "18.38.44",
-                "18.43.45",
-                "18.44.41",
-                "18.45.41",
-                "18.45.43"
+            "com.google.android.youtube", [
+                "18.48.39",
+                "18.49.37",
+                "19.01.34",
+                "19.02.39",
+                "19.03.35"
             ]
         ),
     ]
 )
 @Suppress("unused")
 object ExternalDownloadsBytecodePatch : BytecodePatch() {
-    private const val BUTTON_DESCRIPTOR = "Lapp/revanced/integrations/videoplayer/ExternalDownloadButton;"
+    private const val BUTTON_DESCRIPTOR = "Lapp/revanced/integrations/youtube/videoplayer/ExternalDownloadButton;"
 
     override fun execute(context: BytecodeContext) {
         /*

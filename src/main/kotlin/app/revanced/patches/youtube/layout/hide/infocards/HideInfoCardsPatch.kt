@@ -19,7 +19,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch(
     name = "Hide info cards",
-    description = "Hides info cards in videos.",
+    description = "Adds an option to hide info cards that creators add in the video player.",
     dependencies = [
         IntegrationsPatch::class,
         LithoFilterPatch::class,
@@ -34,8 +34,12 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
                 "18.38.44",
                 "18.43.45",
                 "18.44.41",
-                "18.45.41",
-                "18.45.43"
+                "18.45.43",
+                "18.48.39",
+                "18.49.37",
+                "19.01.34",
+                "19.02.39",
+                "19.03.35"
             ]
         )
     ]
@@ -48,7 +52,7 @@ object HideInfoCardsPatch : BytecodePatch(
     )
 ) {
     private const val FILTER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/components/HideInfoCardsFilterPatch;"
+        "Lapp/revanced/integrations/youtube/patches/components/HideInfoCardsFilterPatch;"
 
     override fun execute(context: BytecodeContext) {
         InfocardsIncognitoFingerprint.also {
@@ -62,7 +66,7 @@ object HideInfoCardsPatch : BytecodePatch(
            addInstruction(
                invokeInstructionIndex,
                "invoke-static {v${getInstruction<FiveRegisterInstruction>(invokeInstructionIndex).registerC}}," +
-                       " Lapp/revanced/integrations/patches/HideInfoCardsPatch;->hideInfoCardsIncognito(Landroid/view/View;)V"
+                       " Lapp/revanced/integrations/youtube/patches/HideInfoCardsPatch;->hideInfoCardsIncognito(Landroid/view/View;)V"
            )
         }
 
@@ -75,7 +79,7 @@ object HideInfoCardsPatch : BytecodePatch(
             hideInfoCardsCallMethod.addInstructionsWithLabels(
                 invokeInterfaceIndex,
                 """
-                    invoke-static {}, Lapp/revanced/integrations/patches/HideInfoCardsPatch;->hideInfoCardsMethodCall()Z
+                    invoke-static {}, Lapp/revanced/integrations/youtube/patches/HideInfoCardsPatch;->hideInfoCardsMethodCall()Z
                     move-result v$toggleRegister
                     if-nez v$toggleRegister, :hide_info_cards
                 """,

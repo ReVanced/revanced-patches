@@ -13,7 +13,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch(
     name = "Disable suggested video end screen",
-    description = "Disables the suggested video end screen at the end of a video.",
+    description = "Adds an option to disable the suggested video end screen at the end of videos.",
     dependencies = [IntegrationsPatch::class, DisableSuggestedVideoEndScreenResourcePatch::class],
     compatiblePackages = [
         CompatiblePackage(
@@ -22,8 +22,12 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
                 "18.38.44",
                 "18.43.45",
                 "18.44.41",
-                "18.45.41",
-                "18.45.43"
+                "18.45.43",
+                "18.48.39",
+                "18.49.37",
+                "19.01.34",
+                "19.02.39",
+                "19.03.35"
             ]
         )
     ]
@@ -33,7 +37,7 @@ object DisableSuggestedVideoEndScreenPatch : BytecodePatch(
     setOf(CreateEndScreenViewFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/DisableSuggestedVideoEndScreenPatch;"
+        "Lapp/revanced/integrations/youtube/patches/DisableSuggestedVideoEndScreenPatch;"
 
     override fun execute(context: BytecodeContext) {
         CreateEndScreenViewFingerprint.result?.let {

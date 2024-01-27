@@ -1,21 +1,21 @@
 package app.revanced.patches.youtube.layout.panels.popup
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.layout.panels.popup.fingerprints.EngagementPanelControllerFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.util.exception
 
 @Patch(
     name = "Disable player popup panels",
-    description = "Disables panels (such as live chat) from opening automatically.",
-    dependencies = [IntegrationsPatch::class, SettingsPatch::class],
+    description = "Adds an option to disable panels (such as live chat) from opening automatically.",
+    dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
@@ -24,8 +24,12 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
                 "18.38.44",
                 "18.43.45",
                 "18.44.41",
-                "18.45.41",
-                "18.45.43"
+                "18.45.43",
+                "18.48.39",
+                "18.49.37",
+                "19.01.34",
+                "19.02.39",
+                "19.03.35"
             ]
         )
     ]
@@ -35,14 +39,9 @@ object PlayerPopupPanelsPatch : BytecodePatch(
     setOf(EngagementPanelControllerFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
-        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_hide_player_popup_panels",
-                StringResource("revanced_hide_player_popup_panels_title", "Hide player popup panels"),
-                StringResource("revanced_hide_player_popup_panels_summary_on", "Player popup panels are hidden"),
-                StringResource("revanced_hide_player_popup_panels_summary_off", "Player popup panels are shown")
-            )
-        )
+        AddResourcesPatch(this::class)
+
+        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(SwitchPreference("revanced_hide_player_popup_panels"))
 
         val engagementPanelControllerMethod = EngagementPanelControllerFingerprint
             .result?.mutableMethod ?: throw EngagementPanelControllerFingerprint.exception
@@ -50,7 +49,7 @@ object PlayerPopupPanelsPatch : BytecodePatch(
         engagementPanelControllerMethod.addInstructionsWithLabels(
             0,
             """
-                invoke-static { }, Lapp/revanced/integrations/patches/DisablePlayerPopupPanelsPatch;->disablePlayerPopupPanels()Z
+                invoke-static { }, Lapp/revanced/integrations/youtube/patches/DisablePlayerPopupPanelsPatch;->disablePlayerPopupPanels()Z
                 move-result v0
                 if-eqz v0, :player_popup_panels
                 if-eqz p4, :player_popup_panels

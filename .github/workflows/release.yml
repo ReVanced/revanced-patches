@@ -24,22 +24,21 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
-      - name: Cache Node modules
-        uses: actions/cache@v3
-        with:
-          path: |
-            node_modules
-          key: npm-${{ hashFiles('package-lock.json') }}
-
       - name: Cache Gradle
         uses: burrunan/gradle-cache-action@v1
 
-      - name: Build with Gradle
+      - name: Build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ./gradlew generateMeta clean
 
-      - name: Setup semantic-release
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          cache: 'npm'
+
+      - name: Install dependencies
         run: npm install
 
       - name: Release

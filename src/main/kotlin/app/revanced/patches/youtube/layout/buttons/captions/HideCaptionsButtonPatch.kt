@@ -5,8 +5,8 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.layout.autocaptions.fingerprints.SubtitleButtonControllerFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
@@ -14,10 +14,11 @@ import com.android.tools.smali.dexlib2.Opcode
 
 @Patch(
     name = "Hide captions button",
-    description = "Hides the captions button in the video player.",
+    description = "Adds an option to hide the captions button in the video player.",
     dependencies = [
         IntegrationsPatch::class,
-        SettingsPatch::class
+        SettingsPatch::class,
+        AddResourcesPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -28,8 +29,12 @@ import com.android.tools.smali.dexlib2.Opcode
                 "18.38.44",
                 "18.43.45",
                 "18.44.41",
-                "18.45.41",
-                "18.45.43"
+                "18.45.43",
+                "18.48.39",
+                "18.49.37",
+                "19.01.34",
+                "19.02.39",
+                "19.03.35"
             ]
         )
     ]
@@ -39,14 +44,9 @@ object HideCaptionsButtonPatch : BytecodePatch(
     setOf(SubtitleButtonControllerFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
-        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_hide_captions_button",
-                StringResource("revanced_hide_captions_button_title", "Hide captions button"),
-                StringResource("revanced_hide_captions_button_summary_on", "Captions button is hidden"),
-                StringResource("revanced_hide_captions_button_summary_off", "Captions button is shown")
-            )
-        )
+        AddResourcesPatch(this::class)
+
+        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(SwitchPreference("revanced_hide_captions_button"))
 
         val subtitleButtonControllerMethod = SubtitleButtonControllerFingerprint.result!!.mutableMethod
 
@@ -58,7 +58,7 @@ object HideCaptionsButtonPatch : BytecodePatch(
         subtitleButtonControllerMethod.addInstruction(
             insertIndex,
             """
-                invoke-static {v0}, Lapp/revanced/integrations/patches/HideCaptionsButtonPatch;->hideCaptionsButton(Landroid/widget/ImageView;)V
+                invoke-static {v0}, Lapp/revanced/integrations/youtube/patches/HideCaptionsButtonPatch;->hideCaptionsButton(Landroid/widget/ImageView;)V
             """
         )
     }

@@ -1,6 +1,5 @@
 package app.revanced.patches.twitch.chat.autoclaim
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -8,39 +7,27 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.twitch.chat.autoclaim.fingerprints.CommunityPointsButtonViewDelegateFingerprint
 import app.revanced.patches.twitch.misc.settings.SettingsPatch
+import app.revanced.util.exception
 
 @Patch(
     name = "Auto claim channel points",
     description = "Automatically claim Channel Points.",
-    dependencies = [SettingsPatch::class],
+    dependencies = [SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])]
 )
 @Suppress("unused")
-object AutoClaimChannelPointPatch : BytecodePatch(
+object AutoClaimChannelPointsPatch : BytecodePatch(
     setOf(CommunityPointsButtonViewDelegateFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
+        AddResourcesPatch(this::class)
+
         SettingsPatch.PreferenceScreen.CHAT.GENERAL.addPreferences(
-            SwitchPreference(
-                "revanced_auto_claim_channel_points",
-                StringResource(
-                    "revanced_auto_claim_channel_points",
-                    "Automatically claim Channel Points"
-                ),
-                StringResource(
-                    "revanced_auto_claim_channel_points_on",
-                    "Channel Points are claimed automatically"
-                ),
-                StringResource(
-                    "revanced_auto_claim_channel_points_off",
-                    "Channel Points are not claimed automatically"
-                ),
-                default = true
-            )
+            SwitchPreference("revanced_auto_claim_channel_points")
         )
 
         CommunityPointsButtonViewDelegateFingerprint.result?.mutableMethod?.apply {
@@ -48,7 +35,7 @@ object AutoClaimChannelPointPatch : BytecodePatch(
             addInstructionsWithLabels(
                 lastIndex, // place in front of return-void
                 """
-                    invoke-static {}, Lapp/revanced/twitch/patches/AutoClaimChannelPointsPatch;->shouldAutoClaim()Z
+                    invoke-static {}, Lapp/revanced/integrations/twitch/patches/AutoClaimChannelPointsPatch;->shouldAutoClaim()Z
                     move-result v0
                     if-eqz v0, :auto_claim
 

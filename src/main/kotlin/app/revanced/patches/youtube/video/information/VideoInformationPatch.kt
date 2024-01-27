@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.video.information
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -14,13 +13,14 @@ import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.video.information.fingerprints.*
 import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.BuilderInstruction
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
@@ -37,7 +37,7 @@ object VideoInformationPatch : BytecodePatch(
         OnPlaybackSpeedItemClickFingerprint
     )
 ) {
-    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/patches/VideoInformation;"
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/VideoInformation;"
 
     private lateinit var playerInitMethod: MutableMethod
     private var playerInitInsertIndex = 4
@@ -135,23 +135,24 @@ object VideoInformationPatch : BytecodePatch(
          */
         videoTimeHook(INTEGRATIONS_CLASS_DESCRIPTOR, "setVideoTime")
 
-
         /*
          * Hook the user playback speed selection
          */
-        OnPlaybackSpeedItemClickFingerprint.result?.apply {
-            speedSelectionInsertMethod = mutableMethod
-            speedSelectionInsertIndex = scanResult.patternScanResult!!.startIndex - 3
+        OnPlaybackSpeedItemClickFingerprint.result?.mutableMethod?.apply {
+            speedSelectionInsertMethod = this
+            val speedSelectionMethodInstructions = this.implementation!!.instructions
+            val speedSelectionValueInstructionIndex = speedSelectionMethodInstructions.indexOfFirst {
+                it.opcode == Opcode.IGET
+            }
             speedSelectionValueRegister =
-                mutableMethod.getInstruction<FiveRegisterInstruction>(speedSelectionInsertIndex).registerD
-
-            val speedSelectionMethodInstructions = mutableMethod.implementation!!.instructions
+                getInstruction<TwoRegisterInstruction>(speedSelectionValueInstructionIndex).registerA
+            setPlaybackSpeedClassFieldReference =
+                getInstruction<ReferenceInstruction>(speedSelectionValueInstructionIndex + 1).reference.toString()
+            setPlaybackSpeedMethodReference =
+                getInstruction<ReferenceInstruction>(speedSelectionValueInstructionIndex + 2).reference.toString()
             setPlaybackSpeedContainerClassFieldReference =
                 getReference(speedSelectionMethodInstructions, -1, Opcode.IF_EQZ)
-            setPlaybackSpeedClassFieldReference =
-                getReference(speedSelectionMethodInstructions, 1, Opcode.IGET)
-            setPlaybackSpeedMethodReference =
-                getReference(speedSelectionMethodInstructions, 2, Opcode.IGET)
+            speedSelectionInsertIndex = speedSelectionValueInstructionIndex + 1
         } ?: throw OnPlaybackSpeedItemClickFingerprint.exception
 
         userSelectedPlaybackSpeedHook(INTEGRATIONS_CLASS_DESCRIPTOR, "userSelectedPlaybackSpeed")

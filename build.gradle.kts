@@ -1,7 +1,7 @@
 import org.gradle.kotlin.dsl.support.listFilesOrdered
 
 plugins {
-    kotlin("jvm") version "1.9.21"
+    kotlin("jvm") version "1.9.22"
     alias(libs.plugins.binary.compatibility.validator)
     `maven-publish`
 }
@@ -78,7 +78,7 @@ tasks {
         dependsOn(build)
 
         classpath = sourceSets["main"].runtimeClasspath
-        mainClass.set("app.revanced.meta.PatchesFileGenerator")
+        mainClass.set("app.revanced.meta.IPatchesFileGenerator")
     }
 
     // Required to run tasks because Gradle semantic-release plugin runs the publish task.

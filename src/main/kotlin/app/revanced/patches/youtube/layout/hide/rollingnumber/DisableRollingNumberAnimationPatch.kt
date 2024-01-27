@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.layout.hide.rollingnumber
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -9,24 +8,29 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.shared.fingerprints.RollingNumberTextViewAnimationUpdateFingerprint
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Disable rolling number animations",
-    description = "Disables rolling number animations of video view count, user likes, and upload time.",
-    dependencies = [IntegrationsPatch::class, SettingsPatch::class],
+    description = "Adds an option to disable rolling number animations of video view count, user likes, and upload time.",
+    dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
                 "18.43.45",
                 "18.44.41",
-                "18.45.41",
-                "18.45.43"
+                "18.45.43",
+                "18.48.39",
+                "18.49.37",
+                "19.01.34",
+                "19.02.39",
+                "19.03.35"
             ]
         )
     ]
@@ -38,16 +42,13 @@ object DisableRollingNumberAnimationPatch : BytecodePatch(
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/patches/DisableRollingNumberAnimationsPatch;"
+        "Lapp/revanced/integrations/youtube/patches/DisableRollingNumberAnimationsPatch;"
 
     override fun execute(context: BytecodeContext) {
+        AddResourcesPatch(this::class)
+
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_disable_rolling_number_animations",
-                StringResource("revanced_disable_rolling_number_animations_title", "Disable rolling number animations"),
-                StringResource("revanced_disable_rolling_number_animations_summary_on", "Rolling numbers are not animated"),
-                StringResource("revanced_disable_rolling_number_animations_summary_off", "Rolling numbers are animated")
-            )
+            SwitchPreference("revanced_disable_rolling_number_animations")
         )
 
         // Animations are disabled by preventing an Image from being applied to the text span,
