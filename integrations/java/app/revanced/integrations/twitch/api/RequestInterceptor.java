@@ -17,9 +17,9 @@ import static app.revanced.integrations.shared.StringRef.str;
 public class RequestInterceptor implements Interceptor {
     private IAdblockService activeService = null;
 
-    private static final String PROXY_DISABLED = str("key_revanced_proxy_disabled");
-    private static final String LUMINOUS_SERVICE = str("key_revanced_proxy_luminous");
-    private static final String PURPLE_ADBLOCK_SERVICE = str("key_revanced_proxy_purpleadblock");
+    private static final String PROXY_DISABLED = str("revanced_block_embedded_ads_entry_1");
+    private static final String LUMINOUS_SERVICE = str("revanced_block_embedded_ads_entry_2");
+    private static final String PURPLE_ADBLOCK_SERVICE = str("revanced_block_embedded_ads_entry_3");
 
 
     @NonNull
