@@ -46,14 +46,16 @@ public class GmsCoreSupport {
             Logger.printInfo(() -> "GmsCore was not found", exception);
             search(context, getGmsCoreDownloadLink(), str("gms_core_not_installed_warning"));
 
-            // Gracefully exit the app, so it does not crash.
             System.exit(0);
         }
 
         try (var client = context.getContentResolver().acquireContentProviderClient(GMS_CORE_PROVIDER)) {
             if (client != null) return;
+
             Logger.printInfo(() -> "GmsCore is not running in the background");
             search(context, DONT_KILL_MY_APP_LINK, str("gms_core_not_running_warning"));
+
+            System.exit(0);
         }
     }
 

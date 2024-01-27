@@ -120,9 +120,9 @@ public class ReturnYouTubeDislikePreferenceFragment extends PreferenceFragment {
 
             toastOnRYDNotAvailable = new SwitchPreference(context);
             toastOnRYDNotAvailable.setChecked(Settings.RYD_TOAST_ON_CONNECTION_ERROR.get());
-            toastOnRYDNotAvailable.setTitle(str("ryd_toast_on_connection_error_title"));
-            toastOnRYDNotAvailable.setSummaryOn(str("ryd_toast_on_connection_error_summary_on"));
-            toastOnRYDNotAvailable.setSummaryOff(str("ryd_toast_on_connection_error_summary_off"));
+            toastOnRYDNotAvailable.setTitle(str("revanced_ryd_toast_on_connection_error_title"));
+            toastOnRYDNotAvailable.setSummaryOn(str("revanced_ryd_toast_on_connection_error_summary_on"));
+            toastOnRYDNotAvailable.setSummaryOff(str("revanced_ryd_toast_on_connection_error_summary_off"));
             toastOnRYDNotAvailable.setOnPreferenceChangeListener((pref, newValue) -> {
                 Settings.RYD_TOAST_ON_CONNECTION_ERROR.save((Boolean) newValue);
                 updateUIState();

@@ -97,13 +97,13 @@ public class SBRequester {
                 // no segments are found.  a normal response
                 Logger.printDebug(() -> "No segments found for video: " + videoId);
             } else {
-                handleConnectionError(str("sb_sponsorblock_connection_failure_status", responseCode), null);
+                handleConnectionError(str("revanced_sb_sponsorblock_connection_failure_status", responseCode), null);
                 connection.disconnect(); // something went wrong, might as well disconnect
             }
         } catch (SocketTimeoutException ex) {
-            handleConnectionError(str("sb_sponsorblock_connection_failure_timeout"), ex);
+            handleConnectionError(str("revanced_sb_sponsorblock_connection_failure_timeout"), ex);
         } catch (IOException ex) {
-            handleConnectionError(str("sb_sponsorblock_connection_failure_generic"), ex);
+            handleConnectionError(str("revanced_sb_sponsorblock_connection_failure_generic"), ex);
         } catch (Exception ex) {
             // Should never happen
             Logger.printException(() -> "getSegments failure", ex);
@@ -153,30 +153,30 @@ public class SBRequester {
             final String messageToToast;
             switch (responseCode) {
                 case HTTP_STATUS_CODE_SUCCESS:
-                    messageToToast = str("sb_submit_succeeded");
+                    messageToToast = str("revanced_sb_submit_succeeded");
                     break;
                 case 409:
-                    messageToToast = str("sb_submit_failed_duplicate");
+                    messageToToast = str("revanced_sb_submit_failed_duplicate");
                     break;
                 case 403:
-                    messageToToast = str("sb_submit_failed_forbidden", Requester.parseErrorJsonAndDisconnect(connection));
+                    messageToToast = str("revanced_sb_submit_failed_forbidden", Requester.parseErrorJsonAndDisconnect(connection));
                     break;
                 case 429:
-                    messageToToast = str("sb_submit_failed_rate_limit");
+                    messageToToast = str("revanced_sb_submit_failed_rate_limit");
                     break;
                 case 400:
-                    messageToToast = str("sb_submit_failed_invalid", Requester.parseErrorJsonAndDisconnect(connection));
+                    messageToToast = str("revanced_sb_submit_failed_invalid", Requester.parseErrorJsonAndDisconnect(connection));
                     break;
                 default:
-                    messageToToast = str("sb_submit_failed_unknown_error", responseCode, connection.getResponseMessage());
+                    messageToToast = str("revanced_sb_submit_failed_unknown_error", responseCode, connection.getResponseMessage());
                     break;
             }
             Utils.showToastLong(messageToToast);
         } catch (SocketTimeoutException ex) {
             // Always show, even if show connection toasts is turned off
-            Utils.showToastLong(str("sb_submit_failed_timeout"));
+            Utils.showToastLong(str("revanced_sb_submit_failed_timeout"));
         } catch (IOException ex) {
-            Utils.showToastLong(str("sb_submit_failed_unknown_error", 0, ex.getMessage()));
+            Utils.showToastLong(str("revanced_sb_submit_failed_unknown_error", 0, ex.getMessage()));
         } catch (Exception ex) {
             Logger.printException(() -> "failed to submit segments", ex);
         }
@@ -223,17 +223,17 @@ public class SBRequester {
                         break;
                     case 403:
                         Utils.showToastLong(
-                                str("sb_vote_failed_forbidden", Requester.parseErrorJsonAndDisconnect(connection)));
+                                str("revanced_sb_vote_failed_forbidden", Requester.parseErrorJsonAndDisconnect(connection)));
                         break;
                     default:
                         Utils.showToastLong(
-                                str("sb_vote_failed_unknown_error", responseCode, connection.getResponseMessage()));
+                                str("revanced_sb_vote_failed_unknown_error", responseCode, connection.getResponseMessage()));
                         break;
                 }
             } catch (SocketTimeoutException ex) {
-                Utils.showToastShort(str("sb_vote_failed_timeout"));
+                Utils.showToastShort(str("revanced_sb_vote_failed_timeout"));
             } catch (IOException ex) {
-                Utils.showToastShort(str("sb_vote_failed_unknown_error", 0, ex.getMessage()));
+                Utils.showToastShort(str("revanced_sb_vote_failed_unknown_error", 0, ex.getMessage()));
             } catch (Exception ex) {
                 Logger.printException(() -> "failed to vote for segment", ex); // should never happen
             }
@@ -271,10 +271,10 @@ public class SBRequester {
             if (responseCode == HTTP_STATUS_CODE_SUCCESS) {
                 return null;
             }
-            return str("sb_stats_username_change_unknown_error", responseCode, responseMessage);
+            return str("revanced_sb_stats_username_change_unknown_error", responseCode, responseMessage);
         } catch (Exception ex) { // should never happen
             Logger.printInfo(() -> "failed to set username", ex); // do not toast
-            return str("sb_stats_username_change_unknown_error", 0, ex.getMessage());
+            return str("revanced_sb_stats_username_change_unknown_error", 0, ex.getMessage());
         }
     }
 

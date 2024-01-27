@@ -7,7 +7,7 @@ import app.revanced.integrations.shared.Logger;
 
 @SuppressWarnings("unused")
 public final class ChangeStartPagePatch {
-    public static void changeIntent(Intent intent) {
+    public static void changeIntent(final Intent intent) {
         final var startPage = Settings.START_PAGE.get();
         if (startPage.isEmpty()) return;
 

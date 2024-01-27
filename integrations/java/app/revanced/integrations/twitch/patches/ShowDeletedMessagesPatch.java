@@ -18,6 +18,10 @@ import tv.twitch.android.shared.chat.util.ClickableUsernameSpan;
 
 @SuppressWarnings("unused")
 public class ShowDeletedMessagesPatch {
+
+    /**
+     * Injection point.
+     */
     public static boolean shouldUseSpoiler() {
         return "spoiler".equals(Settings.SHOW_DELETED_MESSAGES.get());
     }

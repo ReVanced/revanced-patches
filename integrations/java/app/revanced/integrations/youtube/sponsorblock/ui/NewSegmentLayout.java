@@ -44,7 +44,7 @@ public final class NewSegmentLayout extends FrameLayout {
         super(context, attributeSet, defStyleAttr, defStyleRes);
 
         LayoutInflater.from(context).inflate(
-                getResourceIdentifier(context, "new_segment", "layout"), this, true
+                getResourceIdentifier(context, "revanced_sb_new_segment", "layout"), this, true
         );
 
         TypedValue rippleEffect = new TypedValue();
@@ -53,42 +53,42 @@ public final class NewSegmentLayout extends FrameLayout {
 
         initializeButton(
                 context,
-                "sb_new_segment_rewind",
+                "revanced_sb_new_segment_rewind",
                 () -> VideoInformation.seekToRelative(-Settings.SB_CREATE_NEW_SEGMENT_STEP.get()),
                 "Rewind button clicked"
         );
 
         initializeButton(
                 context,
-                "sb_new_segment_forward",
+                "revanced_sb_new_segment_forward",
                 () -> VideoInformation.seekToRelative(Settings.SB_CREATE_NEW_SEGMENT_STEP.get()),
                 "Forward button clicked"
         );
 
         initializeButton(
                 context,
-                "sb_new_segment_adjust",
+                "revanced_sb_new_segment_adjust",
                 SponsorBlockUtils::onMarkLocationClicked,
                 "Adjust button clicked"
         );
 
         initializeButton(
                 context,
-                "sb_new_segment_compare",
+                "revanced_sb_new_segment_compare",
                 SponsorBlockUtils::onPreviewClicked,
                 "Compare button clicked"
         );
 
         initializeButton(
                 context,
-                "sb_new_segment_edit",
+                "revanced_sb_new_segment_edit",
                 SponsorBlockUtils::onEditByHandClicked,
                 "Edit button clicked"
         );
 
         initializeButton(
                 context,
-                "sb_new_segment_publish",
+                "revanced_sb_new_segment_publish",
                 SponsorBlockUtils::onPublishClicked,
                 "Publish button clicked"
         );

@@ -55,7 +55,7 @@ public class SponsorBlockSettings {
                 final int desktopValue = categorySelectionObject.getInt("option");
                 CategoryBehaviour behaviour = CategoryBehaviour.byDesktopKeyValue(desktopValue);
                 if (behaviour == null) {
-                    Utils.showToastLong(categoryKey + " unknown desktop behavior value: " + desktopValue);
+                    Utils.showToastLong(categoryKey + " unknown behavior key: " + categoryKey);
                 } else if (category == SegmentCategory.HIGHLIGHT && behaviour == CategoryBehaviour.SKIP_AUTOMATICALLY_ONCE) {
                     Utils.showToastLong("Skip-once behavior not allowed for " + category.keyValue);
                     category.setBehaviour(CategoryBehaviour.SKIP_AUTOMATICALLY); // use closest match
@@ -104,10 +104,10 @@ public class SponsorBlockSettings {
                 Settings.SB_LOCAL_TIME_SAVED_MILLISECONDS.save((long) (minutesSaved * 60 * 1000));
             }
 
-            Utils.showToastLong(str("sb_settings_import_successful"));
+            Utils.showToastLong(str("revanced_sb_settings_import_successful"));
         } catch (Exception ex) {
             Logger.printInfo(() -> "failed to import settings", ex); // use info level, as we are showing our own toast
-            Utils.showToastLong(str("sb_settings_import_failed", ex.getMessage()));
+            Utils.showToastLong(str("revanced_sb_settings_import_failed", ex.getMessage()));
         }
     }
 
@@ -153,7 +153,7 @@ public class SponsorBlockSettings {
             return json.toString(2);
         } catch (Exception ex) {
             Logger.printInfo(() -> "failed to export settings", ex); // use info level, as we are showing our own toast
-            Utils.showToastLong(str("sb_settings_export_failed", ex));
+            Utils.showToastLong(str("revanced_sb_settings_export_failed", ex));
             return "";
         }
     }
@@ -169,8 +169,8 @@ public class SponsorBlockSettings {
         if (dialogContext != null && SponsorBlockSettings.userHasSBPrivateId()
                 && !Settings.SB_HIDE_EXPORT_WARNING.get()) {
             new AlertDialog.Builder(dialogContext)
-                    .setMessage(str("sb_settings_revanced_export_user_id_warning"))
-                    .setNeutralButton(str("sb_settings_revanced_export_user_id_warning_dismiss"),
+                    .setMessage(str("revanced_sb_settings_revanced_export_user_id_warning"))
+                    .setNeutralButton(str("revanced_sb_settings_revanced_export_user_id_warning_dismiss"),
                             (dialog, which) -> Settings.SB_HIDE_EXPORT_WARNING.save(true))
                     .setPositiveButton(android.R.string.ok, null)
                     .setCancelable(false)

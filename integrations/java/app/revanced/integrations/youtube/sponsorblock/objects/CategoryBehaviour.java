@@ -11,13 +11,13 @@ import app.revanced.integrations.shared.Utils;
 import app.revanced.integrations.shared.StringRef;
 
 public enum CategoryBehaviour {
-    SKIP_AUTOMATICALLY("skip", 2, true, sf("sb_skip_automatically")),
+    SKIP_AUTOMATICALLY("skip", 2, true, sf("revanced_sb_skip_automatically")),
     // desktop does not have skip-once behavior. Key is unique to ReVanced
-    SKIP_AUTOMATICALLY_ONCE("skip-once", 3, true, sf("sb_skip_automatically_once")),
-    MANUAL_SKIP("manual-skip", 1, false, sf("sb_skip_showbutton")),
-    SHOW_IN_SEEKBAR("seekbar-only", 0, false, sf("sb_skip_seekbaronly")),
+    SKIP_AUTOMATICALLY_ONCE("skip-once", 3, true, sf("revanced_sb_skip_automatically_once")),
+    MANUAL_SKIP("manual-skip", 1, false, sf("revanced_sb_skip_showbutton")),
+    SHOW_IN_SEEKBAR("seekbar-only", 0, false, sf("revanced_sb_skip_seekbaronly")),
     // ignored categories are not exported to json, and ignore is the default behavior when importing
-    IGNORE("ignore", -1, false, sf("sb_skip_ignore"));
+    IGNORE("ignore", -1, false, sf("revanced_sb_skip_ignore"));
 
     /**
      * ReVanced specific value.

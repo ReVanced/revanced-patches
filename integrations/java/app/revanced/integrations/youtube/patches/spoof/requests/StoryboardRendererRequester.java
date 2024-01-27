@@ -16,6 +16,7 @@ import java.net.SocketTimeoutException;
 import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 
+import static app.revanced.integrations.shared.StringRef.str;
 import static app.revanced.integrations.youtube.patches.spoof.requests.PlayerRoutes.*;
 
 public class StoryboardRendererRequester {
@@ -62,14 +63,14 @@ public class StoryboardRendererRequester {
             if (responseCode == 200) return Requester.parseJSONObject(connection);
 
             // Always show a toast for this, as a non 200 response means something is broken.
+            // Not a normal code path and should not be reached, so no translations are needed.
             handleConnectionError("Spoof storyboard not available: " + responseCode,
                     null, showToastOnIOException || BaseSettings.DEBUG_TOAST_ON_ERROR.get());
             connection.disconnect();
         } catch (SocketTimeoutException ex) {
-            handleConnectionError("Spoof storyboard temporarily not available (API timed out)",
-                    ex, showToastOnIOException);
+            handleConnectionError(str("revanced_spoof_storyboard_timeout"), ex, showToastOnIOException);
         } catch (IOException ex) {
-            handleConnectionError("Spoof storyboard temporarily not available: " + ex.getMessage(),
+            handleConnectionError(str("revanced_spoof_storyboard_io_exception", ex.getMessage()),
                     ex, showToastOnIOException);
         } catch (Exception ex) {
             Logger.printException(() -> "Spoof storyboard fetch failed", ex); // Should never happen.

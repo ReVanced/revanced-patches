@@ -82,10 +82,10 @@ class SwipeControlsOverlayLayout(
 
         // get icons scaled, assuming square icons
         val iconHeight = round(feedbackTextView.lineHeight * .8).toInt()
-        autoBrightnessIcon = getDrawable("ic_sc_brightness_auto", iconHeight, iconHeight)
-        manualBrightnessIcon = getDrawable("ic_sc_brightness_manual", iconHeight, iconHeight)
-        mutedVolumeIcon = getDrawable("ic_sc_volume_mute", iconHeight, iconHeight)
-        normalVolumeIcon = getDrawable("ic_sc_volume_normal", iconHeight, iconHeight)
+        autoBrightnessIcon = getDrawable("revanced_ic_sc_brightness_auto", iconHeight, iconHeight)
+        manualBrightnessIcon = getDrawable("revanced_ic_sc_brightness_manual", iconHeight, iconHeight)
+        mutedVolumeIcon = getDrawable("revanced_ic_sc_volume_mute", iconHeight, iconHeight)
+        normalVolumeIcon = getDrawable("revanced_ic_sc_volume_normal", iconHeight, iconHeight)
     }
 
     private val feedbackHideHandler = Handler(Looper.getMainLooper())

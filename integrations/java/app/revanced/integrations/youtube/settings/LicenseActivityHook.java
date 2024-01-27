@@ -41,15 +41,15 @@ public class LicenseActivityHook {
             String toolbarTitleResourceName;
             String dataString = licenseActivity.getIntent().getDataString();
             switch (dataString) {
-                case "sponsorblock_settings":
-                    toolbarTitleResourceName = "revanced_sponsorblock_settings_title";
+                case "revanced_sb_settings_intent":
+                    toolbarTitleResourceName = "revanced_sb_settings_title";
                     fragment = new SponsorBlockPreferenceFragment();
                     break;
-                case "ryd_settings":
+                case "revanced_ryd_settings_intent":
                     toolbarTitleResourceName = "revanced_ryd_settings_title";
                     fragment = new ReturnYouTubeDislikePreferenceFragment();
                     break;
-                case "revanced_settings":
+                case "revanced_settings_intent":
                     toolbarTitleResourceName = "revanced_settings_title";
                     fragment = new ReVancedPreferenceFragment();
                     break;

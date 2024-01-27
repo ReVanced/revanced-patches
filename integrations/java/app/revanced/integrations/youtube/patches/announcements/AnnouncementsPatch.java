@@ -18,9 +18,11 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
+import java.util.Locale;
 import java.util.UUID;
 
 import static android.text.Html.FROM_HTML_MODE_COMPACT;
+import static app.revanced.integrations.shared.StringRef.str;
 import static app.revanced.integrations.youtube.patches.announcements.requests.AnnouncementsRoutes.GET_LATEST_ANNOUNCEMENT;
 
 @SuppressWarnings("unused")
@@ -39,9 +41,10 @@ public final class AnnouncementsPatch {
 
         Utils.runOnBackgroundThread(() -> {
             try {
-                HttpURLConnection connection = AnnouncementsRoutes.getAnnouncementsConnectionFromRoute(GET_LATEST_ANNOUNCEMENT, CONSUMER);
+                HttpURLConnection connection = AnnouncementsRoutes.getAnnouncementsConnectionFromRoute(
+                        GET_LATEST_ANNOUNCEMENT, CONSUMER, Locale.getDefault().toLanguageTag());
 
-                Logger.printDebug(() -> "Get latest announcement route connection url: " + connection.getURL().toString());
+                Logger.printDebug(() -> "Get latest announcement route connection url: " + connection.getURL());
 
                 try {
                     // Do not show the announcement if the request failed.
@@ -49,7 +52,7 @@ public final class AnnouncementsPatch {
                         if (Settings.ANNOUNCEMENT_LAST_HASH.get().isEmpty()) return;
 
                         Settings.ANNOUNCEMENT_LAST_HASH.resetToDefault();
-                        Utils.showToastLong("Failed to get announcement");
+                        Utils.showToastLong(str("revanced_announcements_connection_failed"));
 
                         return;
                     }

@@ -21,7 +21,7 @@ public class ExternalDownloadButton extends BottomControlButton {
     public ExternalDownloadButton(ViewGroup viewGroup) {
         super(
                 viewGroup,
-                "external_download_button",
+                "revanced_external_download_button",
                 Settings.EXTERNAL_DOWNLOADER,
                 ExternalDownloadButton::onDownloadClick,
                 null
@@ -62,7 +62,7 @@ public class ExternalDownloadButton extends BottomControlButton {
 
         // If the package is not installed, show the toast
         if (!packageEnabled) {
-            Utils.showToastLong(downloaderPackageName + " " + StringRef.str("external_downloader_not_installed_warning"));
+            Utils.showToastLong(StringRef.str("revanced_external_downloader_not_installed_warning", downloaderPackageName));
             return;
         }
 

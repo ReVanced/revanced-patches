@@ -10,6 +10,8 @@ import android.net.ConnectivityManager;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
+import android.preference.Preference;
+import android.preference.PreferenceGroup;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -26,6 +28,8 @@ import androidx.annotation.Nullable;
 import java.text.Bidi;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.SortedMap;
+import java.util.TreeMap;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.SynchronousQueue;
@@ -33,6 +37,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import app.revanced.integrations.shared.settings.BooleanSetting;
+import kotlin.text.Regex;
 
 public class Utils {
 
@@ -386,6 +391,45 @@ public class Utils {
         } else {
             Logger.printDebug(() -> "Hidden view with id " + view.getId());
         }
+    }
+
+    private static final Regex punctuationRegex = new Regex("\\p{P}+");
+
+    /**
+     * Sort the preferences by title and ignore the casing.
+     *
+     * Android Preferences are automatically sorted by title,
+     * but if using a localized string key it sorts on the key and not the actual title text that's used at runtime.
+     *
+     * @param menuDepthToSort Maximum menu depth to sort. Menus deeper than this value
+     *                        will show preferences in the order created in patches.
+     */
+    public static void sortPreferenceGroupByTitle(PreferenceGroup group, int menuDepthToSort) {
+        if (menuDepthToSort == 0) return;
+
+        SortedMap<String, Preference> preferences = new TreeMap<>();
+        for (int i = 0, prefCount = group.getPreferenceCount(); i < prefCount; i++) {
+            Preference preference = group.getPreference(i);
+            if (preference instanceof PreferenceGroup) {
+                sortPreferenceGroupByTitle((PreferenceGroup) preference, menuDepthToSort - 1);
+            }
+            preferences.put(removePunctuationConvertToLowercase(preference.getTitle()), preference);
+        }
+
+        int prefIndex = 0;
+        for (Preference pref : preferences.values()) {
+            int indexToSet = prefIndex++;
+            if (pref instanceof PreferenceGroup || pref.getIntent() != null) {
+                // Place preference groups last.
+                // Use an offset to push the group to the end.
+                indexToSet += 1000;
+            }
+            pref.setOrder(indexToSet);
+        }
+    }
+
+    public static String removePunctuationConvertToLowercase(CharSequence original) {
+        return punctuationRegex.replace(original, "").toLowerCase();
     }
 
     public enum NetworkType {

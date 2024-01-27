@@ -61,7 +61,7 @@ public class SponsorBlockViewController {
             Context context = Utils.getContext();
             RelativeLayout layout = new RelativeLayout(context);
             layout.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.MATCH_PARENT));
-            LayoutInflater.from(context).inflate(getResourceIdentifier("inline_sponsor_overlay", "layout"), layout);
+            LayoutInflater.from(context).inflate(getResourceIdentifier("revanced_sb_inline_sponsor_overlay", "layout"), layout);
             inlineSponsorOverlayRef = new WeakReference<>(layout);
 
             viewGroup.addView(layout);
@@ -81,11 +81,11 @@ public class SponsorBlockViewController {
             youtubeOverlaysLayoutRef = new WeakReference<>(viewGroup);
 
             skipHighlightButtonRef = new WeakReference<>(
-                    Objects.requireNonNull(layout.findViewById(getResourceIdentifier("sb_skip_highlight_button", "id"))));
+                    Objects.requireNonNull(layout.findViewById(getResourceIdentifier("revanced_sb_skip_highlight_button", "id"))));
             skipSponsorButtonRef = new WeakReference<>(
-                    Objects.requireNonNull(layout.findViewById(getResourceIdentifier("sb_skip_sponsor_button", "id"))));
+                    Objects.requireNonNull(layout.findViewById(getResourceIdentifier("revanced_sb_skip_sponsor_button", "id"))));
             newSegmentLayoutRef = new WeakReference<>(
-                    Objects.requireNonNull(layout.findViewById(getResourceIdentifier("sb_new_segment_view", "id"))));
+                    Objects.requireNonNull(layout.findViewById(getResourceIdentifier("revanced_sb_new_segment_view", "id"))));
 
             newSegmentLayoutVisible = false;
             skipHighlight = null;

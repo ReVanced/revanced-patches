@@ -12,6 +12,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
+import static app.revanced.integrations.shared.StringRef.str;
 import static app.revanced.integrations.shared.Utils.NetworkType;
 
 @SuppressWarnings("unused")
@@ -43,13 +44,13 @@ public class RememberVideoQualityPatch {
         String networkTypeMessage;
         if (Utils.getNetworkType() == NetworkType.MOBILE) {
             mobileQualitySetting.save(defaultQuality);
-            networkTypeMessage = "mobile";
+            networkTypeMessage = str("revanced_remember_video_quality_mobile");
         } else {
             wifiQualitySetting.save(defaultQuality);
-            networkTypeMessage = "Wi-Fi";
+            networkTypeMessage = str("revanced_remember_video_quality_wifi");
         }
-        Utils.showToastShort("Changed default " + networkTypeMessage
-                + " quality to: " + defaultQuality +"p");
+        Utils.showToastShort(
+                str("revanced_remember_video_quality_toast", networkTypeMessage, (defaultQuality + "p")));
     }
 
     /**

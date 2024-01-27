@@ -11,8 +11,10 @@ import static app.revanced.integrations.youtube.requests.Route.Method.GET;
 public class AnnouncementsRoutes {
     private static final String ANNOUNCEMENTS_PROVIDER = "https://api.revanced.app/v2";
 
-
-    public static final Route GET_LATEST_ANNOUNCEMENT = new Route(GET, "/announcements/youtube/latest?consumer={consumer}");
+    /**
+     * 'language' parameter is IETF format (for USA it would be 'en-us').
+     */
+    public static final Route GET_LATEST_ANNOUNCEMENT = new Route(GET, "/announcements/youtube/latest?consumer={consumer}&language={language}");
 
     private AnnouncementsRoutes() {
     }

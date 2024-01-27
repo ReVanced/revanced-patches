@@ -1,5 +1,7 @@
 package app.revanced.integrations.youtube.patches.theme;
 
+import static app.revanced.integrations.shared.StringRef.str;
+
 import android.graphics.Color;
 
 import app.revanced.integrations.youtube.settings.Settings;
@@ -48,7 +50,7 @@ public final class SeekbarColorPatch {
             seekbarColor = Color.parseColor(Settings.SEEKBAR_CUSTOM_COLOR_VALUE.get());
             Color.colorToHSV(seekbarColor, customSeekbarColorHSV);
         } catch (Exception ex) {
-            Utils.showToastShort("Invalid seekbar color value. Using default value.");
+            Utils.showToastShort(str("revanced_seekbar_custom_color_invalid"));
             Settings.SEEKBAR_CUSTOM_COLOR_VALUE.resetToDefault();
             loadCustomSeekbarColor();
         }

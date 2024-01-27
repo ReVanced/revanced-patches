@@ -53,7 +53,7 @@ public class SegmentCategoryListPreference extends ListPreference {
             TableRow row = new TableRow(context);
 
             TextView colorTextLabel = new TextView(context);
-            colorTextLabel.setText(str("sb_color_dot_label"));
+            colorTextLabel.setText(str("revanced_sb_color_dot_label"));
             row.addView(colorTextLabel);
 
             TextView colorDotView = new TextView(context);
@@ -102,11 +102,11 @@ public class SegmentCategoryListPreference extends ListPreference {
             builder.setPositiveButton(android.R.string.ok, (dialog, which) -> {
                 onClick(dialog, DialogInterface.BUTTON_POSITIVE);
             });
-            builder.setNeutralButton(str("sb_reset_color"), (dialog, which) -> {
+            builder.setNeutralButton(str("revanced_sb_reset_color"), (dialog, which) -> {
                 try {
                     category.resetColor();
                     updateTitle();
-                    Utils.showToastShort(str("sb_color_reset"));
+                    Utils.showToastShort(str("revanced_sb_color_reset"));
                 } catch (Exception ex) {
                     Logger.printException(() -> "setNeutralButton failure", ex);
                 }
@@ -134,10 +134,10 @@ public class SegmentCategoryListPreference extends ListPreference {
                 try {
                     if (!colorString.equals(category.colorString())) {
                         category.setColor(colorString);
-                        Utils.showToastShort(str("sb_color_changed"));
+                        Utils.showToastShort(str("revanced_sb_color_changed"));
                     }
                 } catch (IllegalArgumentException ex) {
-                    Utils.showToastShort(str("sb_color_invalid"));
+                    Utils.showToastShort(str("revanced_sb_color_invalid"));
                 }
                 updateTitle();
             }

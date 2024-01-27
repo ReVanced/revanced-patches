@@ -25,7 +25,7 @@ public class CreateSegmentButtonController {
         try {
             Logger.printDebug(() -> "initializing new segment button");
             ImageView imageView = Objects.requireNonNull(youtubeControlsLayout.findViewById(
-                    getResourceIdentifier("sb_sponsorblock_button", "id")));
+                    getResourceIdentifier("revanced_sb_create_segment_button", "id")));
             imageView.setVisibility(View.GONE);
             imageView.setOnClickListener(v -> {
                 SponsorBlockViewController.toggleNewSegmentLayoutVisibility();

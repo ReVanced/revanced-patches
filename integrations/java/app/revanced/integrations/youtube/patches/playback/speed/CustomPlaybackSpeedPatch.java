@@ -1,5 +1,7 @@
 package app.revanced.integrations.youtube.patches.playback.speed;
 
+import static app.revanced.integrations.shared.StringRef.str;
+
 import android.preference.ListPreference;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -62,8 +64,7 @@ public class CustomPlaybackSpeedPatch {
                     throw new IllegalArgumentException();
                 }
                 if (speed >= MAXIMUM_PLAYBACK_SPEED) {
-                    resetCustomSpeeds("Custom speeds must be less than " + MAXIMUM_PLAYBACK_SPEED
-                            + ".  Using default values.");
+                    resetCustomSpeeds(str("revanced_custom_playback_speeds_invalid", MAXIMUM_PLAYBACK_SPEED));
                     loadCustomSpeeds();
                     return;
                 }
@@ -71,7 +72,7 @@ public class CustomPlaybackSpeedPatch {
             }
         } catch (Exception ex) {
             Logger.printInfo(() -> "parse error", ex);
-            resetCustomSpeeds("Invalid custom playback speeds. Using default values.");
+            resetCustomSpeeds(str("revanced_custom_playback_speeds_parse_exception"));
             loadCustomSpeeds();
         }
     }
