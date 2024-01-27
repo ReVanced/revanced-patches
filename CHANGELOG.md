@@ -1,3 +1,10 @@
+# [4.0.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.13...v4.0.0-dev.14) (2024-01-27)
+
+
+### Features
+
+* **YouTube - Spoof app version:** Add `18.09.39` to restore library tab ([#2643](https://github.com/ReVanced/revanced-patches/issues/2643)) ([dd108ff](https://github.com/ReVanced/revanced-patches/commit/dd108ff70f54c16694624ab30d3e1085ac0c215a))
+
 # [4.0.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.12...v4.0.0-dev.13) (2024-01-27)
 
 
