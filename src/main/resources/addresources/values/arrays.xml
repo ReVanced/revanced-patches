@@ -1,0 +1,100 @@
+<resources>
+    <app id="youtube">
+        <patch id="layout.spoofappversion.SpoofAppVersionPatch">
+            <string-array name="revanced_spoof_app_version_target_entries">
+                <item>@string/revanced_spoof_app_version_target_entry_1</item>
+                <item>@string/revanced_spoof_app_version_target_entry_2</item>
+                <item>@string/revanced_spoof_app_version_target_entry_3</item>
+                <item>@string/revanced_spoof_app_version_target_entry_4</item>
+                <item>@string/revanced_spoof_app_version_target_entry_5</item>
+            </string-array>
+            <string-array name="revanced_spoof_app_version_target_entry_values">
+                <item>18.33.40</item>
+                <item>18.20.39</item>
+                <item>17.08.35</item>
+                <item>16.08.35</item>
+                <item>16.01.35</item>
+            </string-array>
+        </patch>
+        <patch id="layout.startpage.ChangeStartPagePatch">
+            <string-array name="revanced_start_page_entries">
+                <item>@string/revanced_start_page_home_entry_0</item>
+                <item>@string/revanced_start_page_home_entry_1</item>
+                <item>@string/revanced_start_page_search_entry_2</item>
+                <item>@string/revanced_start_page_subscriptions_entry_3</item>
+                <item>@string/revanced_start_page_explore_entry_4</item>
+                <item>@string/revanced_start_page_shorts_entry_5</item>
+            </string-array>
+            <string-array name="revanced_start_page_entry_values">
+                <item/>
+                <item>MAIN</item>
+                <item>open.search</item>
+                <item>open.subscriptions</item>
+                <item>open.explore</item>
+                <item>open.shorts</item>
+            </string-array>
+        </patch>
+        <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
+            <string-array name="revanced_alt_thumbnail_stills_time_entries">
+                <item>@string/revanced_alt_thumbnail_stills_time_entry_1</item>
+                <item>@string/revanced_alt_thumbnail_stills_time_entry_2</item>
+                <item>@string/revanced_alt_thumbnail_stills_time_entry_3</item>
+            </string-array>
+            <string-array name="revanced_alt_thumbnail_stills_time_entry_values">
+                <item>1</item>
+                <item>2</item>
+                <item>3</item>
+            </string-array>
+        </patch>
+        <patch id="video.quality.RememberVideoQualityPatch">
+            <string-array name="revanced_video_quality_default_entries">
+                <item>@string/revanced_video_quality_default_entry_1</item>
+                <item>@string/revanced_video_quality_default_entry_2</item>
+                <item>@string/revanced_video_quality_default_entry_3</item>
+                <item>@string/revanced_video_quality_default_entry_4</item>
+                <item>@string/revanced_video_quality_default_entry_5</item>
+                <item>@string/revanced_video_quality_default_entry_6</item>
+                <item>@string/revanced_video_quality_default_entry_7</item>
+                <item>@string/revanced_video_quality_default_entry_8</item>
+                <item>@string/revanced_video_quality_default_entry_9</item>
+            </string-array>
+            <string-array name="revanced_video_quality_default_entry_values">
+                <item>-2</item>
+                <item>2160</item>
+                <item>1440</item>
+                <item>1080</item>
+                <item>720</item>
+                <item>480</item>
+                <item>360</item>
+                <item>240</item>
+                <item>144</item>
+            </string-array>
+        </patch>
+    </app>
+    <app id="twitch">
+        <patch id="chat.autoclaim.AutoClaimChannelPointsPatch">
+            <string-array name="revanced_deleted_messages_entries">
+                <item>@string/revanced_deleted_messages_entry_1</item>
+                <item>@string/revanced_deleted_messages_entry_2</item>
+                <item>@string/revanced_deleted_messages_entry_3</item>
+            </string-array>
+            <string-array name="revanced_deleted_messages_entry_values">
+                <item>hide</item>
+                <item>spoiler</item>
+                <item>cross-out</item>
+            </string-array>
+        </patch>
+        <patch id="ad.embedded.EmbeddedAdsPatch">
+            <string-array name="revanced_hls_proxies_entries">
+                <item>@string/revanced_hls_proxies_entry_1</item>
+                <item>@string/revanced_hls_proxies_entry_2</item>
+                <item>@string/revanced_hls_proxies_entry_3</item>
+            </string-array>
+            <string-array name="revanced_hls_proxies_entry_values">
+                <item>disabled</item>
+                <item>luminous</item>
+                <item>purpleadblock</item>
+            </string-array>
+        </patch>
+    </app>
+</resources>

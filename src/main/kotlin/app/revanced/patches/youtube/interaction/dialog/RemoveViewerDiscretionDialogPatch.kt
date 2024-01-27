@@ -6,8 +6,8 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.interaction.dialog.fingerprints.CreateDialogFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
@@ -18,7 +18,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
     name = "Remove viewer discretion dialog",
     description = "Adds an option to remove the dialog that appears when opening a video that has been age-restricted " +
             "by accepting it automatically. This does not bypass the age restriction.",
-    dependencies = [IntegrationsPatch::class, SettingsPatch::class],
+    dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
@@ -46,27 +46,9 @@ object RemoveViewerDiscretionDialogPatch : BytecodePatch(
                 "confirmDialog(Landroid/app/AlertDialog;)V"
 
     override fun execute(context: BytecodeContext) {
-        SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
-            SwitchPreference(
-                "revanced_remove_viewer_discretion_dialog",
-                StringResource(
-                    "revanced_remove_viewer_discretion_dialog_title",
-                    "Remove viewer discretion dialog"
-                ),
-                StringResource(
-                    "revanced_remove_viewer_discretion_dialog_summary_on",
-                    "Dialog will be removed"
-                ),
-                StringResource(
-                    "revanced_remove_viewer_discretion_dialog_summary_off",
-                    "Dialog will be shown"
-                ),
-                StringResource(
-                    "revanced_remove_viewer_discretion_dialog_user_dialog_message",
-                    "This does not bypass the age restriction. It just accepts it automatically."
-                )
-            )
-        )
+        AddResourcesPatch(this::class)
+
+        SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(SwitchPreference("revanced_remove_viewer_discretion_dialog"))
 
         CreateDialogFingerprint.result?.mutableMethod?.apply {
             val showDialogIndex = implementation!!.instructions.lastIndex - 2

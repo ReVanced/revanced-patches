@@ -5,7 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprintResult
-import app.revanced.patches.reddit.customclients.AbstractSpoofClientPatch
+import app.revanced.patches.reddit.customclients.BaseSpoofClientPatch
 import app.revanced.patches.reddit.customclients.syncforreddit.api.fingerprints.GetAuthorizationStringFingerprint
 import app.revanced.patches.reddit.customclients.syncforreddit.api.fingerprints.GetBearerTokenFingerprint
 import app.revanced.patches.reddit.customclients.syncforreddit.api.fingerprints.ImgurImageAPIFingerprint
@@ -19,7 +19,7 @@ import java.util.*
 
 
 @Suppress("unused")
-object SpoofClientPatch : AbstractSpoofClientPatch(
+object SpoofClientPatch : BaseSpoofClientPatch(
     redirectUri = "http://redditsync/auth",
     miscellaneousFingerprints = setOf(ImgurImageAPIFingerprint),
     clientIdFingerprints = setOf(GetAuthorizationStringFingerprint),

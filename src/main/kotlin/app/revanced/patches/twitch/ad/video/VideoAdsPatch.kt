@@ -1,6 +1,5 @@
 package app.revanced.patches.twitch.ad.video
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -8,22 +7,23 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
-import app.revanced.patches.twitch.ad.shared.util.AbstractAdPatch
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.twitch.ad.shared.util.BaseAdPatch
 import app.revanced.patches.twitch.ad.video.fingerprints.CheckAdEligibilityLambdaFingerprint
 import app.revanced.patches.twitch.ad.video.fingerprints.ContentConfigShowAdsFingerprint
 import app.revanced.patches.twitch.ad.video.fingerprints.GetReadyToShowAdFingerprint
 import app.revanced.patches.twitch.misc.integrations.IntegrationsPatch
 import app.revanced.patches.twitch.misc.settings.SettingsPatch
+import app.revanced.util.exception
 
 @Patch(
     name = "Block video ads",
     description = "Blocks video ads in streams and VODs.",
-    dependencies = [IntegrationsPatch::class, SettingsPatch::class],
+    dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])]
 )
-object VideoAdsPatch : AbstractAdPatch(
+object VideoAdsPatch : BaseAdPatch(
     "Lapp/revanced/integrations/twitch/patches/VideoAdsPatch;->shouldBlockVideoAds()Z",
     "show_video_ads",
     setOf(
@@ -33,6 +33,10 @@ object VideoAdsPatch : AbstractAdPatch(
     )
 ) {
     override fun execute(context: BytecodeContext) {
+        AddResourcesPatch(this::class)
+
+        SettingsPatch.PreferenceScreen.ADS.CLIENT_SIDE.addPreferences(SwitchPreference("revanced_block_video_ads"))
+
         /* Amazon ads SDK */
         context.blockMethods(
             "Lcom/amazon/ads/video/player/AdsManagerImpl;",
@@ -120,23 +124,5 @@ object VideoAdsPatch : AbstractAdPatch(
                 """
             )
         }  ?: throw ContentConfigShowAdsFingerprint.exception
-
-        SettingsPatch.PreferenceScreen.ADS.CLIENT_SIDE.addPreferences(
-            SwitchPreference(
-                "revanced_block_video_ads",
-                StringResource(
-                    "revanced_block_video_ads",
-                    "Block video ads"
-                ),
-                StringResource(
-                    "revanced_block_video_ads_on",
-                    "Video ads are blocked"
-                ),
-                StringResource(
-                    "revanced_block_video_ads_off",
-                    "Video ads are unblocked"
-                )
-            )
-        )
     }
 }

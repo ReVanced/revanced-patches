@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.video.quality
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -9,10 +8,9 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.settings.preference.impl.ArrayResource
-import app.revanced.patches.shared.settings.preference.impl.ListPreference
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.ListPreference
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
@@ -20,6 +18,7 @@ import app.revanced.patches.youtube.video.quality.fingerprints.NewVideoQualityCh
 import app.revanced.patches.youtube.video.quality.fingerprints.SetQualityByIndexMethodClassFieldReferenceFingerprint
 import app.revanced.patches.youtube.video.quality.fingerprints.VideoQualityItemOnClickParentFingerprint
 import app.revanced.patches.youtube.video.quality.fingerprints.VideoQualitySetterFingerprint
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -27,7 +26,12 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 @Patch(
     name = "Remember video quality",
     description = "Adds an option to remember the last video quality selected.",
-    dependencies = [IntegrationsPatch::class, VideoInformationPatch::class, SettingsPatch::class],
+    dependencies = [
+        IntegrationsPatch::class,
+        VideoInformationPatch::class,
+        SettingsPatch::class,
+        AddResourcesPatch::class
+    ],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
@@ -49,68 +53,24 @@ object RememberVideoQualityPatch : BytecodePatch(
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-            "Lapp/revanced/integrations/youtube/patches/playback/quality/RememberVideoQualityPatch;"
+        "Lapp/revanced/integrations/youtube/patches/playback/quality/RememberVideoQualityPatch;"
 
     override fun execute(context: BytecodeContext) {
-        // This is bloated as each value has it's own String key/value
-        // ideally the entries would be raw values (and not a key to a String resource)
-        val entries = listOf(
-            StringResource("revanced_video_quality_default_entry_1", "Automatic quality"),
-            StringResource("revanced_video_quality_default_entry_2", "2160p"),
-            StringResource("revanced_video_quality_default_entry_3", "1440p"),
-            StringResource("revanced_video_quality_default_entry_4", "1080p"),
-            StringResource("revanced_video_quality_default_entry_5", "720p"),
-            StringResource("revanced_video_quality_default_entry_6", "480p"),
-            StringResource("revanced_video_quality_default_entry_7", "360p"),
-            StringResource("revanced_video_quality_default_entry_8", "240p"),
-            StringResource("revanced_video_quality_default_entry_9", "144p"),
-        )
-        val entryValues = listOf(
-            StringResource("revanced_video_quality_default_entry_value_1", "-2"),
-            StringResource("revanced_video_quality_default_entry_value_2", "2160"),
-            StringResource("revanced_video_quality_default_entry_value_3", "1440"),
-            StringResource("revanced_video_quality_default_entry_value_4", "1080"),
-            StringResource("revanced_video_quality_default_entry_value_5", "720"),
-            StringResource("revanced_video_quality_default_entry_value_6", "480"),
-            StringResource("revanced_video_quality_default_entry_value_7", "360"),
-            StringResource("revanced_video_quality_default_entry_value_8", "240"),
-            StringResource("revanced_video_quality_default_entry_value_9", "144"),
-        )
+        AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
-            SwitchPreference(
-                "revanced_remember_video_quality_last_selected",
-                StringResource(
-                    "revanced_remember_video_quality_last_selected_title",
-                    "Remember video quality changes"
-                ),
-                StringResource(
-                    "revanced_remember_video_quality_last_selected_summary_on",
-                    "Quality changes apply to all videos"
-                ),
-                StringResource(
-                    "revanced_remember_video_quality_last_selected_summary_off",
-                    "Quality changes only apply to the current video"
-                )
+            SwitchPreference("revanced_remember_video_quality_last_selected"),
+            ListPreference(
+                key = "revanced_video_quality_default_wifi",
+                summaryKey = null,
+                entriesKey = "revanced_video_quality_default_entries",
+                entryValuesKey = "revanced_video_quality_default_entry_values"
             ),
             ListPreference(
-                "revanced_video_quality_default_wifi",
-                StringResource(
-                    "revanced_video_quality_default_wifi_title",
-                    "Default video quality on Wi-Fi network"
-                ),
-                ArrayResource("revanced_video_quality_default_wifi_entry", entries),
-                ArrayResource("revanced_video_quality_default_wifi_entry_values", entryValues)
-                // default value and summary are set by integrations after loading
-            ),
-            ListPreference(
-                "revanced_video_quality_default_mobile",
-                StringResource(
-                    "revanced_video_quality_default_mobile_title",
-                    "Default video quality on mobile network"
-                ),
-                ArrayResource("revanced_video_quality_default_mobile_entries", entries),
-                ArrayResource("revanced_video_quality_default_mobile_values", entryValues)
+                key = "revanced_video_quality_default_mobile",
+                summaryKey = null,
+                entriesKey = "revanced_video_quality_default_entries",
+                entryValuesKey = "revanced_video_quality_default_entry_values"
             )
         )
 

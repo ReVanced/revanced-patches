@@ -1,23 +1,23 @@
 package app.revanced.patches.twitch.debug
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.twitch.debug.fingerprints.IsDebugConfigEnabledFingerprint
 import app.revanced.patches.twitch.debug.fingerprints.IsOmVerificationEnabledFingerprint
 import app.revanced.patches.twitch.debug.fingerprints.ShouldShowDebugOptionsFingerprint
 import app.revanced.patches.twitch.misc.integrations.IntegrationsPatch
 import app.revanced.patches.twitch.misc.settings.SettingsPatch
+import app.revanced.util.exception
 
 @Patch(
     name = "Debug mode",
     description = "Enables Twitch's internal debugging mode.",
-    dependencies = [IntegrationsPatch::class, SettingsPatch::class],
+    dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [CompatiblePackage("tv.twitch.android.app")],
     use = false
 )
@@ -30,6 +30,10 @@ object DebugModePatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext) {
+        AddResourcesPatch(this::class)
+
+        SettingsPatch.PreferenceScreen.MISC.OTHER.addPreferences(SwitchPreference("revanced_twitch_debug_mode"))
+
         listOf(
             IsDebugConfigEnabledFingerprint,
             IsOmVerificationEnabledFingerprint,
@@ -46,23 +50,5 @@ object DebugModePatch : BytecodePatch(
                 )
             } ?: throw it.exception
         }
-
-        SettingsPatch.PreferenceScreen.MISC.OTHER.addPreferences(
-            SwitchPreference(
-                "revanced_twitch_debug_mode",
-                StringResource(
-                    "revanced_twitch_debug_mode_title",
-                    "Enable Twitch debug mode"
-                ),
-                StringResource(
-                    "revanced_twitch_debug_mode_summary_on",
-                    "Twitch debug mode is enabled (not recommended)"
-                ),
-                StringResource(
-                    "revanced_twitch_debug_mode_summary_off",
-                    "Twitch debug mode is disabled"
-                )
-            )
-        )
     }
 }
