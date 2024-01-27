@@ -7,6 +7,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.util.ResourceGroup
+import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyResources
 import java.io.File
 
@@ -56,7 +57,7 @@ object ChangeHeaderPatch : ResourcePatch() {
             These folders must contain the following files:
 
             ${variants.joinToString("\n") { variant -> "- ${HEADER_NAME}_$variant.png" }}
-        """.trimIndent(),
+        """.trimIndentMultiline(),
         required = true,
     )
 

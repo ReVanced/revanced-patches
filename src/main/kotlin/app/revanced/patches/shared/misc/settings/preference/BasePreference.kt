@@ -30,7 +30,7 @@ abstract class BasePreference(
      */
     open fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit): Element =
         ownerDocument.createElement(tag).apply {
-            setAttribute("android:key", key)
+            key?.let { setAttribute("android:key", it) }
             setAttribute("android:title", "@string/${titleKey}")
             summaryKey?.let { addSummary(it) }
         }
