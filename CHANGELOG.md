@@ -1,3 +1,10 @@
+## [4.0.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.0.0...v4.0.1-dev.1) (2024-01-27)
+
+
+### Bug Fixes
+
+* Indent patch option description correctly ([bd86ef6](https://github.com/ReVanced/revanced-patches/commit/bd86ef6fc2344fa049077e9aa4bcd5d7ffa4c7f9))
+
 # [4.0.0](https://github.com/ReVanced/revanced-patches/compare/v3.2.0...v4.0.0) (2024-01-27)
 
 
