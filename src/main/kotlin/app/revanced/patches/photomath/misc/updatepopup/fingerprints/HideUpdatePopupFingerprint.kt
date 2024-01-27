@@ -6,7 +6,11 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal object HideUpdatePopupFingerprint : MethodFingerprint(
-    customFingerprint = { _, classDef -> classDef.type == "Lcom/microblink/photomath/main/activity/MainActivity;" }, // The popup is shown only in the main activity
+
+    customFingerprint = { _, classDef ->
+        // The popup is shown only in the main activity
+        classDef.type == "Lcom/microblink/photomath/main/activity/MainActivity;"
+    },
     opcodes = listOf(
         Opcode.CONST_HIGH16,
         Opcode.INVOKE_VIRTUAL, // ViewPropertyAnimator.alpha(1.0f)
