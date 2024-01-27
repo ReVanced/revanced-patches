@@ -878,7 +878,7 @@
             <string name="revanced_spoof_signature_verification_enabled_user_dialog_message">Turning off this setting will cause video playback issues.</string>
             <string name="revanced_spoof_signature_in_feed_enabled_title">Spoof app signature in feed</string>
             <string name="revanced_spoof_signature_in_feed_enabled_summary_on">App signature spoofed\n\nSide effects include:\n• Feed videos are missing subtitles\n• Automatically played feed videos will show up in your watch history</string>
-            <string name="revanced_spoof_signature_in_feed_enabled_summary_off">App signature not spoofed for feed videos\n\nFeed videos will play for less than 1 minute beforeencountering playback issues</string>
+            <string name="revanced_spoof_signature_in_feed_enabled_summary_off">App signature not spoofed for feed videos\n\nFeed videos will play for less than 1 minute before encountering playback issues</string>
             <string name="revanced_spoof_storyboard_title">Spoof storyboard</string>
             <string name="revanced_spoof_storyboard_summary_on">Storyboard spoofed</string>
             <string name="revanced_spoof_storyboard_summary_off">Storyboard not spoofed\n\nSide effects include:\n• No ambient mode\n• Seekbar thumbnails are hidden</string>
