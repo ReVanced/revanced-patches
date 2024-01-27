@@ -972,11 +972,9 @@
             <string name="revanced_embedded_ads_service_unavailable">%s is unavailable. Ads may show. Try switching to another ad block service in settings.</string>
             <string name="revanced_embedded_ads_service_failed">%s server returned an error. Ads may show. Try switching to another ad block service in settings.</string>
             <string name="revanced_block_embedded_ads_title">Block embedded video ads</string>
-            <string name="revanced_block_embedded_ads_summary_on">Embedded video ads are blocked</string>
-            <string name="revanced_block_embedded_ads_summary_off">Embedded video ads are unblocked</string>
-            <string name="revanced_hls_proxies_entry_1">Disabled</string>
-            <string name="revanced_hls_proxies_entry_2">Luminous proxy</string>
-            <string name="revanced_hls_proxies_entry_3">PurpleAdBlock proxy</string>
+            <string name="revanced_block_embedded_ads_entry_1">Disabled</string>
+            <string name="revanced_block_embedded_ads_entry_2">Luminous proxy</string>
+            <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock proxy</string>
         </patch>
         <patch id="ad.video.VideoAdsPatch">
             <string name="revanced_block_video_ads_title">Block video ads</string>
@@ -986,9 +984,9 @@
         <patch id="chat.antidelete.ShowDeletedMessagesPatch">
             <string name="revanced_deleted_msg">message deleted</string>
             <string name="revanced_show_deleted_messages_title">Show deleted messages</string>
-            <string name="revanced_deleted_messages_entry_1">Do not show deleted messages</string>
-            <string name="revanced_deleted_messages_entry_2">Hide deleted messages behind a spoiler</string>
-            <string name="revanced_deleted_messages_entry_3">Show deleted messages as crossed-out text</string>
+            <string name="revanced_show_deleted_messages_entry_1">Do not show deleted messages</string>
+            <string name="revanced_show_deleted_messages_entry_2">Hide deleted messages behind a spoiler</string>
+            <string name="revanced_show_deleted_messages_entry_3">Show deleted messages as crossed-out text</string>
         </patch>
         <patch id="chat.autoclaim.AutoClaimChannelPointsPatch">
             <string name="revanced_auto_claim_channel_points_title">Automatically claim Channel Points</string>
@@ -1000,7 +998,7 @@
             <string name="revanced_twitch_debug_mode_summary_on">Twitch debug mode is enabled (not recommended)</string>
             <string name="revanced_twitch_debug_mode_summary_off">Twitch debug mode is disabled</string>
         </patch>
-        <patch id="settings.SettingsPatch">
+        <patch id="misc.settings.SettingsPatch">
             <string name="revanced_settings">ReVanced Settings</string>
             <string name="revanced_debug_title">Debug logging</string>
             <string name="revanced_debug_summary_on">Debug logs are enabled</string>
