@@ -237,7 +237,7 @@
             <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">This does not bypass the age restriction. It just accepts it automatically.</string>
         </patch>
         <patch id="interaction.downloads.ExternalDownloadsResourcePatch">
-            <string name="revanced_external_downloader_not_installed_warning">is not installed. Please install it.</string>
+            <string name="revanced_external_downloader_not_installed_warning">%s is not installed. Please install it.</string>
             <string name="revanced_external_downloader_preference_screen_title">External download settings</string>
             <string name="revanced_external_downloader_title">Show external download button</string>
             <string name="revanced_external_downloader_summary_on">Download button shown in player</string>
