@@ -11,7 +11,7 @@
       "@semantic-release/commit-analyzer", {
         "preset": "conventionalcommits",
         "releaseRules": [
-          { "type": "build", "scope": "deps", "release": "patch" }
+          { "type": "build", "scope": "Needs bump", "release": "patch" }
         ]
       }
     ],
