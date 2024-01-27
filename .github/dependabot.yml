@@ -7,8 +7,7 @@ updates:
     schedule:
       interval: monthly
     commit-message:
-      prefix: fix
-      prefix-development: build
+      prefix: build
     groups:
       actions-dependencies:
         update-types:
@@ -25,8 +24,7 @@ updates:
     schedule:
       interval: monthly
     commit-message:
-      prefix: fix
-      prefix-development: build
+      prefix: build
     groups:
       dev-dependencies:
         update-types:
@@ -43,8 +41,7 @@ updates:
     schedule:
       interval: monthly
     commit-message:
-      prefix: fix
-      prefix-development: build
+      prefix: build
     groups:
       maven-dependencies:
         update-types:
