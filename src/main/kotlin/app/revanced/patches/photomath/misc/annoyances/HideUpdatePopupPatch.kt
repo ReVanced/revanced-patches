@@ -1,4 +1,4 @@
-package app.revanced.patches.photomath.misc.updatepopup
+package app.revanced.patches.photomath.misc.annoyances
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.photomath.detection.signature.SignatureDetectionPatch
-import app.revanced.patches.photomath.misc.updatepopup.fingerprints.HideUpdatePopupFingerprint
+import app.revanced.patches.photomath.misc.annoyances.fingerprints.HideUpdatePopupFingerprint
 import app.revanced.util.exception
 
 @Patch(

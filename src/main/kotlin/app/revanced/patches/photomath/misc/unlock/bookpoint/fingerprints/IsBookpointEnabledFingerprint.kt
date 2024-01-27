@@ -1,4 +1,4 @@
-package app.revanced.patches.photomath.misc.bookpoint.fingerprints
+package app.revanced.patches.photomath.misc.unlock.bookpoint.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint

@@ -1,4 +1,4 @@
-package app.revanced.patches.photomath.misc.updatepopup.fingerprints
+package app.revanced.patches.photomath.misc.annoyances.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
@@ -6,7 +6,6 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal object HideUpdatePopupFingerprint : MethodFingerprint(
-
     customFingerprint = { _, classDef ->
         // The popup is shown only in the main activity
         classDef.type == "Lcom/microblink/photomath/main/activity/MainActivity;"
