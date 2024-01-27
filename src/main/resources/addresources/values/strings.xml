@@ -782,9 +782,10 @@
             <string name="revanced_spoof_app_version_target_title">Spoof app version target</string>
             <string name="revanced_spoof_app_version_target_entry_1">18.33.40 - Restore RYD Shorts incognito mode</string>
             <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Restore wide video speed &amp; quality menu</string>
-            <string name="revanced_spoof_app_version_target_entry_3">17.08.35 - Restore old UI layout</string>
-            <string name="revanced_spoof_app_version_target_entry_4">16.08.35 - Restore explore tab</string>
-            <string name="revanced_spoof_app_version_target_entry_5">16.01.35 - Restore fewer video player action buttons</string>
+            <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Restore library tab</string>
+            <string name="revanced_spoof_app_version_target_entry_4">17.08.35 - Restore old UI layout</string>
+            <string name="revanced_spoof_app_version_target_entry_5">16.08.35 - Restore explore tab</string>
+            <string name="revanced_spoof_app_version_target_entry_6">16.01.35 - Restore fewer video player action buttons</string>
         </patch>
         <patch id="layout.startpage.ChangeStartPagePatch">
             <string name="revanced_start_page_title">Set start page</string>
