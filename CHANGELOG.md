@@ -1,3 +1,15 @@
+# [4.0.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.12...v4.0.0-dev.13) (2024-01-27)
+
+
+### Features
+
+* Move strings to resources for localization ([#2440](https://github.com/ReVanced/revanced-patches/issues/2440)) ([060ab8f](https://github.com/ReVanced/revanced-patches/commit/060ab8fbfeee212f9a93f52f4d24584f2c630047))
+
+
+### BREAKING CHANGES
+
+* Various APIs have been changed.
+
 # [4.0.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v4.0.0-dev.11...v4.0.0-dev.12) (2024-01-24)
 
 
