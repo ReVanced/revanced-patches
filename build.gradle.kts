@@ -78,7 +78,7 @@ tasks {
         dependsOn(build)
 
         classpath = sourceSets["main"].runtimeClasspath
-        mainClass.set("app.revanced.meta.PatchesFileGenerator")
+        mainClass.set("app.revanced.meta.IPatchesFileGenerator")
     }
 
     // Required to run tasks because Gradle semantic-release plugin runs the publish task.
