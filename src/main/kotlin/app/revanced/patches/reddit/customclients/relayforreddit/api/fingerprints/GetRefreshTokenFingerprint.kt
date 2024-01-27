@@ -1,3 +1,3 @@
 package app.revanced.patches.reddit.customclients.relayforreddit.api.fingerprints
 
-internal object GetRefreshTokenFingerprint : AbstractClientIdFingerprint("refresh_token")
+internal object GetRefreshTokenFingerprint : BaseClientIdFingerprint("refresh_token")

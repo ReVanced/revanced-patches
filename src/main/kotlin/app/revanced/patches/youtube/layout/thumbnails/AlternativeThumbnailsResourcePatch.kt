@@ -5,7 +5,6 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.util.copyStrings
 
 @Patch(
     dependencies = [
@@ -15,6 +14,6 @@ import app.revanced.util.copyStrings
 )
 internal object AlternativeThumbnailsResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
-        context.copyStrings("alternativethumbnails/host/values/strings.xml")
+        AddResourcesPatch(this::class)
     }
 }

@@ -2,7 +2,7 @@ package app.revanced.patches.all.screencapture.removerestriction
 
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.all.misc.transformation.AbstractTransformInstructionsPatch
+import app.revanced.patches.all.misc.transformation.BaseTransformInstructionsPatch
 import app.revanced.patches.all.misc.transformation.IMethodCall
 import app.revanced.patches.all.misc.transformation.Instruction35cInfo
 import app.revanced.patches.all.misc.transformation.filterMapInstruction35c
@@ -18,7 +18,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.Instruction
     requiresIntegrations = true
 )
 @Suppress("unused")
-object RemoveCaptureRestrictionPatch : AbstractTransformInstructionsPatch<Instruction35cInfo>() {
+object RemoveCaptureRestrictionPatch : BaseTransformInstructionsPatch<Instruction35cInfo>() {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX =
         "Lapp/revanced/integrations/all/screencapture/removerestriction/RemoveScreencaptureRestrictionPatch"
     private const val INTEGRATIONS_CLASS_DESCRIPTOR = "$INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX;"

@@ -6,15 +6,12 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
-import app.revanced.patches.all.misc.resources.AddResourcesPatch.addString
-import app.revanced.patches.shared.settings.preference.impl.ListPreference
+import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.twitch.ad.embedded.fingerprints.CreateUsherClientFingerprint
 import app.revanced.patches.twitch.ad.video.VideoAdsPatch
 import app.revanced.patches.twitch.misc.integrations.IntegrationsPatch
 import app.revanced.patches.twitch.misc.settings.SettingsPatch
 import app.revanced.util.exception
-import app.revanced.util.resource.ArrayResource
-import app.revanced.util.resource.StringResource
 
 @Patch(
     name = "Block embedded ads",
@@ -23,7 +20,7 @@ import app.revanced.util.resource.StringResource
         VideoAdsPatch::class,
         IntegrationsPatch::class,
         SettingsPatch::class,
-        AddResourcesPatch::class,
+        AddResourcesPatch::class
     ],
     compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])]
 )
@@ -32,6 +29,12 @@ object EmbeddedAdsPatch : BytecodePatch(
     setOf(CreateUsherClientFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
+        AddResourcesPatch(this::class)
+
+        SettingsPatch.PreferenceScreen.ADS.SURESTREAM.addPreferences(
+            ListPreference("revanced_block_embedded_ads")
+        )
+
         val result = CreateUsherClientFingerprint.result ?: throw CreateUsherClientFingerprint.exception
 
         // Inject OkHttp3 application interceptor
@@ -42,41 +45,6 @@ object EmbeddedAdsPatch : BytecodePatch(
                 move-result-object v2
                 invoke-virtual {v0, v2}, Lokhttp3/OkHttpClient${"$"}Builder;->addInterceptor(Lokhttp3/Interceptor;)Lokhttp3/OkHttpClient${"$"}Builder;
             """
-        )
-
-        SettingsPatch.PreferenceScreen.ADS.SURESTREAM.addPreferences(
-            ListPreference(
-                "revanced_block_embedded_ads",
-                StringResource(
-                    "revanced_block_embedded_ads",
-                    "Block embedded video ads"
-                ),
-                ArrayResource(
-                    "revanced_hls_proxies",
-                    listOf(
-                        StringResource("revanced_proxy_disabled", "Disabled"),
-                        StringResource("revanced_proxy_luminous", "Luminous proxy"),
-                        StringResource("revanced_proxy_purpleadblock", "PurpleAdBlock proxy"),
-                    )
-                ),
-                ArrayResource(
-                    "revanced_hls_proxies_values",
-                    listOf(
-                        StringResource("key_revanced_proxy_disabled", "disabled"),
-                        StringResource("key_revanced_proxy_luminous", "luminous"),
-                        StringResource("key_revanced_proxy_purpleadblock", "purpleadblock")
-                    )
-                )
-            )
-        )
-
-        addString(
-            "revanced_embedded_ads_service_unavailable",
-            "%s is unavailable. Ads may show. Try switching to another ad block service in settings."
-        )
-        addString(
-            "revanced_embedded_ads_service_failed",
-            "%s server returned an error. Ads may show. Try switching to another ad block service in settings."
         )
     }
 }

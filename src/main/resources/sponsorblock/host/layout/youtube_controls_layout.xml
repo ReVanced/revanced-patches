@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <com.google.android.libraries.youtube.common.ui.TouchImageView
-        android:id="@+id/sb_sponsorblock_button"
+        android:id="@+id/revanced_sb_create_segment_button"
         style="@style/YouTubePlayerButton"
         android:layout_width="@dimen/controls_overlay_action_button_size"
         android:layout_height="@dimen/controls_overlay_action_button_size"
@@ -11,10 +11,10 @@
         android:layout_marginEnd="4dp"
         android:layout_toStartOf="@+id/player_additional_view_container"
         android:padding="@dimen/controls_overlay_action_button_padding"
-        android:src="@drawable/ic_sb_logo" />
+        android:src="@drawable/revanced_sb_logo" />
 
     <com.google.android.libraries.youtube.common.ui.TouchImageView
-        android:id="@+id/sb_voting_button"
+        android:id="@+id/revanced_sb_voting_button"
         style="@style/YouTubePlayerButton"
         android:layout_width="@dimen/controls_overlay_action_button_size"
         android:layout_height="@dimen/controls_overlay_action_button_size"
@@ -22,7 +22,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="4dp"
-        android:layout_toStartOf="@+id/sb_sponsorblock_button"
+        android:layout_toStartOf="@+id/revanced_sb_create_segment_button"
         android:padding="@dimen/controls_overlay_action_button_padding"
-        android:src="@drawable/ic_sb_voting" />
+        android:src="@drawable/revanced_sb_voting" />
 </RelativeLayout>

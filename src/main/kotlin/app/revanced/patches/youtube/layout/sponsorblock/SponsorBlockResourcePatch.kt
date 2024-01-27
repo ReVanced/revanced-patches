@@ -1,60 +1,52 @@
 package app.revanced.patches.youtube.layout.sponsorblock
 
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
-import app.revanced.patches.shared.mapping.misc.ResourceMappingPatch
-import app.revanced.patches.shared.settings.preference.impl.IntentPreference
+import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
+import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
-import app.revanced.util.copyStrings
 import app.revanced.util.copyXmlNode
-import app.revanced.util.resource.StringResource
+import app.revanced.util.inputStreamFromBundledResource
 
-@Patch(dependencies = [
-    SettingsPatch::class,
-    ResourceMappingPatch::class,
-    AddResourcesPatch::class
-])
+@Patch(
+    dependencies = [
+        SettingsPatch::class,
+        ResourceMappingPatch::class,
+        AddResourcesPatch::class
+    ]
+)
 internal object SponsorBlockResourcePatch : ResourcePatch() {
 
     override fun execute(context: ResourceContext) {
+        AddResourcesPatch(this::class)
+
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             IntentPreference(
-                StringResource("revanced_sponsorblock_settings_title", "SponsorBlock"),
-                StringResource("revanced_sponsorblock_settings_summary", "SponsorBlock related settings"),
-                SettingsPatch.newIntent("sponsorblock_settings")
+                "revanced_sb_settings",
+                intent = SettingsPatch.newIntent("revanced_sb_settings_intent")
             )
         )
-        val classLoader = this.javaClass.classLoader
-
-        /*
-         merge SponsorBlock strings to main strings
-         */
-        context.copyStrings("sponsorblock/host/values/strings.xml")
-
-        /*
-         merge SponsorBlock drawables to main drawables
-         */
-
         arrayOf(
             ResourceGroup(
                 "layout",
-                "inline_sponsor_overlay.xml",
-                "new_segment.xml",
-                "skip_sponsor_button.xml"
+                "revanced_sb_inline_sponsor_overlay.xml",
+                "revanced_sb_new_segment.xml",
+                "revanced_sb_skip_sponsor_button.xml"
             ),
             ResourceGroup(
                 // required resource for back button, because when the base APK is used, this resource will not exist
                 "drawable",
-                "ic_sb_adjust.xml",
-                "ic_sb_compare.xml",
-                "ic_sb_edit.xml",
-                "ic_sb_logo.xml",
-                "ic_sb_publish.xml",
-                "ic_sb_voting.xml"
+                "revanced_sb_adjust.xml",
+                "revanced_sb_compare.xml",
+                "revanced_sb_edit.xml",
+                "revanced_sb_logo.xml",
+                "revanced_sb_publish.xml",
+                "revanced_sb_voting.xml"
             ),
             ResourceGroup(
                 // required resource for back button, because when the base APK is used, this resource will not exist
@@ -64,14 +56,14 @@ internal object SponsorBlockResourcePatch : ResourcePatch() {
             context.copyResources("sponsorblock", resourceGroup)
         }
 
-        /*
-        merge xml nodes from the host to their real xml files
-         */
-
         // copy nodes from host resources to their real xml files
-        val hostingResourceStream =
-            classLoader.getResourceAsStream("sponsorblock/host/layout/youtube_controls_layout.xml")!!
 
+        val hostingResourceStream = inputStreamFromBundledResource(
+            "sponsorblock",
+            "host/layout/youtube_controls_layout.xml"
+        )!!
+
+        var modifiedControlsLayout = false
         val targetXmlEditor = context.xmlEditor["res/layout/youtube_controls_layout.xml"]
         "RelativeLayout".copyXmlNode(
             context.xmlEditor[hostingResourceStream],
@@ -87,12 +79,15 @@ internal object SponsorBlockResourcePatch : ResourcePatch() {
                 if (!(view.hasAttributes() && view.attributes.getNamedItem("android:id").nodeValue.endsWith("live_chat_overlay_button"))) continue
 
                 // voting button id from the voting button view from the youtube_controls_layout.xml host file
-                val votingButtonId = "@+id/sb_voting_button"
+                val votingButtonId = "@+id/revanced_sb_voting_button"
 
                 view.attributes.getNamedItem("android:layout_toStartOf").nodeValue = votingButtonId
 
+                modifiedControlsLayout = true
                 break
             }
-        }.close() // close afterwards
+        }.close()
+
+        if (!modifiedControlsLayout) throw PatchException("Could not modify controls layout")
     }
 }

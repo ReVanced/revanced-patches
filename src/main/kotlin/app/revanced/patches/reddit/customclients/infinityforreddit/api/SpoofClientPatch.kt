@@ -5,14 +5,14 @@ import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
-import app.revanced.patches.reddit.customclients.AbstractSpoofClientPatch
+import app.revanced.patches.reddit.customclients.BaseSpoofClientPatch
 import app.revanced.patches.reddit.customclients.infinityforreddit.api.fingerprints.APIUtilsFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodImplementation
 
 @Suppress("unused")
-object SpoofClientPatch : AbstractSpoofClientPatch(
+object SpoofClientPatch : BaseSpoofClientPatch(
     redirectUri = "infinity://localhost",
     clientIdFingerprints = setOf(APIUtilsFingerprint),
     compatiblePackages = setOf(CompatiblePackage("ml.docilealligator.infinityforreddit"))

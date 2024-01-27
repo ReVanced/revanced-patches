@@ -1,6 +1,6 @@
 package app.revanced.patches.music.misc.integrations.fingerprints
 
-import app.revanced.patches.shared.integrations.AbstractIntegrationsPatch.IntegrationsFingerprint
+import app.revanced.patches.shared.misc.integrations.BaseIntegrationsPatch.IntegrationsFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
 internal object ApplicationInitFingerprint : IntegrationsFingerprint(

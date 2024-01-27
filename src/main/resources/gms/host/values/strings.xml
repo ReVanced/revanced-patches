@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="gms_core_not_installed_warning">GmsCore is not installed. Please install it.</string>
-    <string name="gms_core_not_running_warning">GmsCore is failing to run. Please follow the "Don't kill my app" guide for GmsCore.</string>
-</resources>

@@ -41,22 +41,22 @@ object ChangePackageNamePatch : ResourcePatch(), Closeable {
      * @throws PatchOptionException.ValueValidationException If the package name is invalid.
      */
     fun setOrGetFallbackPackageName(fallbackPackageName: String): String {
-        val packageName = this.packageNameOption.value!!
+        val packageName = packageNameOption.value!!
 
-        return if (packageName == this.packageNameOption.default)
-            fallbackPackageName.also { this.packageNameOption.value = it }
+        return if (packageName == packageNameOption.default)
+            fallbackPackageName.also { packageNameOption.value = it }
         else
             packageName
     }
 
     override fun close() = context.xmlEditor["AndroidManifest.xml"].use { editor ->
+        val replacementPackageName = packageNameOption.value
+
         val manifest = editor.file.getElementsByTagName("manifest").item(0) as Element
-        val originalPackageName = manifest.getAttribute("package")
-
-        var replacementPackageName = this.packageNameOption.value
-        if (replacementPackageName == this.packageNameOption.default)
-            replacementPackageName = "$originalPackageName.revanced"
-
-        manifest.setAttribute("package", replacementPackageName)
+        manifest.setAttribute(
+            "package",
+            if (replacementPackageName != packageNameOption.default) replacementPackageName
+            else "${manifest.getAttribute("package")}.revanced"
+        )
     }
 }
