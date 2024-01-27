@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.misc.minimizedplayback
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -8,8 +7,8 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.settings.preference.impl.NonInteractivePreference
-import app.revanced.patches.shared.settings.preference.impl.StringResource
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.KidsMinimizedPlaybackPolicyControllerFingerprint
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackManagerFingerprint
@@ -18,6 +17,7 @@ import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.Minimize
 import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -28,7 +28,8 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
         IntegrationsPatch::class,
         PlayerTypeHookPatch::class,
         VideoInformationPatch::class,
-        SettingsPatch::class
+        SettingsPatch::class,
+        AddResourcesPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -51,17 +52,19 @@ object MinimizedPlaybackPatch : BytecodePatch(
         KidsMinimizedPlaybackPolicyControllerFingerprint
     )
 ) {
-    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/MinimizedPlaybackPatch;"
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR =
+        "Lapp/revanced/integrations/youtube/patches/MinimizedPlaybackPatch;"
 
     override fun execute(context: BytecodeContext) {
-        // TODO: remove this empty preference sometime after mid 2023
+        AddResourcesPatch(this::class)
+
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             NonInteractivePreference(
-                StringResource("revanced_minimized_playback_enabled_title", "Minimized playback"),
-                StringResource(
-                    "revanced_minimized_playback_summary_on",
-                    "This setting can be found in Settings -> Background"
-                )
+                "revanced_minimized_playback_enabled",
+                "revanced_minimized_playback_summary_on",
+                // Use horizontal dividers to keep the settings from looking weird.
+                // If PreferenceCategories are added, then this should be removed.
+                selectable = true
             )
         )
 

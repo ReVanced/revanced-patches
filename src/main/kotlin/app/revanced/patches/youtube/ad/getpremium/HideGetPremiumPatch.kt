@@ -1,22 +1,22 @@
 package app.revanced.patches.youtube.ad.getpremium
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.ad.getpremium.fingerprints.GetPremiumViewFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     description = "Hides YouTube Premium signup promotions under the video player.",
-    dependencies = [IntegrationsPatch::class, SettingsPatch::class],
+    dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
@@ -40,23 +40,9 @@ object HideGetPremiumPatch : BytecodePatch(setOf(GetPremiumViewFingerprint)) {
         "Lapp/revanced/integrations/youtube/patches/HideGetPremiumPatch;"
 
     override fun execute(context: BytecodeContext) {
-        SettingsPatch.PreferenceScreen.ADS.addPreferences(
-            SwitchPreference(
-                "revanced_hide_get_premium",
-                StringResource(
-                    "revanced_hide_get_premium_title",
-                    "Hide YouTube Premium promotions"
-                ),
-                StringResource(
-                    "revanced_hide_get_premium_summary_on",
-                    "YouTube Premium promotions under video player are hidden"
-                ),
-                StringResource(
-                    "revanced_hide_get_premium_summary_off",
-                    "YouTube Premium promotions under video player are shown"
-                )
-            )
-        )
+        AddResourcesPatch(this::class)
+
+        SettingsPatch.PreferenceScreen.ADS.addPreferences(SwitchPreference("revanced_hide_get_premium"))
 
         GetPremiumViewFingerprint.result?.let {
             it.mutableMethod.apply {

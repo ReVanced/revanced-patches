@@ -1,21 +1,21 @@
 package app.revanced.patches.youtube.layout.startupshortsreset
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.layout.startupshortsreset.fingerprints.UserWasInShortsFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.util.exception
 
 @Patch(
     name = "Disable resuming Shorts on startup",
     description = "Adds an option to disable the Shorts player from resuming on app startup when Shorts were last being watched.",
-    dependencies = [IntegrationsPatch::class, SettingsPatch::class],
+    dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
@@ -43,13 +43,10 @@ object DisableResumingShortsOnStartupPatch : BytecodePatch(
         "Lapp/revanced/integrations/youtube/patches/DisableResumingStartupShortsPlayerPatch;"
 
     override fun execute(context: BytecodeContext) {
+        AddResourcesPatch(this::class)
+
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference(
-                "revanced_disable_resuming_shorts_player",
-                StringResource("revanced_disable_resuming_shorts_player_title", "Disable resuming Shorts player"),
-                StringResource("revanced_disable_resuming_shorts_player_summary_on", "Shorts player will not resume on app startup"),
-                StringResource("revanced_disable_resuming_shorts_player_summary_off", "Shorts player will resume on app startup")
-            )
+            SwitchPreference("revanced_disable_resuming_shorts_player")
         )
 
         UserWasInShortsFingerprint.result?.apply {

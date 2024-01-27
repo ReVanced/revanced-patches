@@ -1,24 +1,24 @@
 package app.revanced.patches.youtube.misc.links
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.links.fingerprints.ABUriParserFingerprint
 import app.revanced.patches.youtube.misc.links.fingerprints.HTTPUriParserFingerprint
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch(
     name = "Bypass URL redirects",
     description = "Adds an option to bypass URL redirects and open the original URL directly.",
-    dependencies = [IntegrationsPatch::class, SettingsPatch::class],
+    dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
@@ -40,14 +40,9 @@ object BypassURLRedirectsPatch : BytecodePatch(
     setOf(ABUriParserFingerprint, HTTPUriParserFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
-        SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            SwitchPreference(
-                "revanced_bypass_url_redirects",
-                StringResource("revanced_bypass_url_redirects_title", "Bypass URL redirects"),
-                StringResource("revanced_bypass_url_redirects_summary_on", "URL redirects are bypassed"),
-                StringResource("revanced_bypass_url_redirects_summary_off", "URL redirects are not bypassed"),
-            )
-        )
+        AddResourcesPatch(this::class)
+
+        SettingsPatch.PreferenceScreen.MISC.addPreferences(SwitchPreference("revanced_bypass_url_redirects" ))
 
         mapOf(
             ABUriParserFingerprint to 7, // Offset to Uri.parse.

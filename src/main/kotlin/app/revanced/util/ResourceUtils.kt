@@ -2,14 +2,32 @@ package app.revanced.util
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.util.DomFileEditor
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.util.resource.BaseResource
 import org.w3c.dom.Node
+import org.w3c.dom.NodeList
 import java.io.InputStream
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 
 private val classLoader = object {}.javaClass.classLoader
+
+/**
+ * Returns a sequence for all child nodes.
+ */
+fun NodeList.asSequence() = (0 until this.length).asSequence().map { this.item(it) }
+
+/**
+ * Returns a sequence for all child nodes.
+ */
+fun Node.childElementsSequence() = this.childNodes.asSequence().filter { it.nodeType == Node.ELEMENT_NODE }
+
+/**
+ * Performs the given [action] on each child element.
+ */
+fun Node.forEachChildElement(action: (Node) -> Unit) = childElementsSequence().forEach {
+    action(it)
+}
 
 /**
  * Recursively traverse the DOM tree starting from the given root node.
@@ -19,26 +37,6 @@ private val classLoader = object {}.javaClass.classLoader
 fun Node.doRecursively(action: (Node) -> Unit) {
     action(this)
     for (i in 0 until this.childNodes.length) this.childNodes.item(i).doRecursively(action)
-}
-
-/**
- * Merge strings. This manages [StringResource]s automatically.
- *
- * @param host The hosting xml resource. Needs to be a valid strings.xml resource.
- */
-fun ResourceContext.mergeStrings(host: String) {
-    this.iterateXmlNodeChildren(host, "resources") {
-        // TODO: figure out why this is needed
-        if (!it.hasAttributes()) return@iterateXmlNodeChildren
-
-        val attributes = it.attributes
-        val key = attributes.getNamedItem("name")!!.nodeValue!!
-        val value = it.textContent!!
-
-        val formatted = attributes.getNamedItem("formatted") == null
-
-        SettingsPatch.addString(key, value, formatted)
-    }
 }
 
 /**
@@ -113,3 +111,15 @@ fun String.copyXmlNode(source: DomFileEditor, target: DomFileEditor): AutoClosea
         target.close()
     }
 }
+
+/**
+ * Add a resource node child.
+ *
+ * @param resource The resource to add.
+ * @param resourceCallback Called when a resource has been processed.
+ */
+internal fun Node.addResource(resource: BaseResource, resourceCallback: (BaseResource) -> Unit = { }) {
+    appendChild(resource.serialize(ownerDocument, resourceCallback))
+}
+
+internal fun DomFileEditor?.getNode(tagName: String) = this!!.file.getElementsByTagName(tagName).item(0)

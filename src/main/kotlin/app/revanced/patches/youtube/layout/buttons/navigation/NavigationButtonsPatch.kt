@@ -1,20 +1,20 @@
 package app.revanced.patches.youtube.layout.buttons.navigation
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.settings.preference.impl.PreferenceScreen
-import app.revanced.patches.shared.settings.preference.impl.StringResource
-import app.revanced.patches.shared.settings.preference.impl.SwitchPreference
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.layout.buttons.navigation.fingerprints.*
 import app.revanced.patches.youtube.layout.buttons.navigation.utils.InjectionUtils.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.patches.youtube.layout.buttons.navigation.utils.InjectionUtils.injectHook
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -23,7 +23,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class,
-        ResolvePivotBarFingerprintsPatch::class
+        ResolvePivotBarFingerprintsPatch::class,
+        AddResourcesPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -52,58 +53,18 @@ object NavigationButtonsPatch : BytecodePatch(
         "Lapp/revanced/integrations/youtube/patches/NavigationButtonsPatch;"
 
     override fun execute(context: BytecodeContext) {
+        AddResourcesPatch(this::class)
+
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             PreferenceScreen(
-                "revanced_navigation_buttons_preference_screen",
-                StringResource("revanced_navigation_buttons_preference_screen_title", "Navigation buttons"),
-                listOf(
-                    SwitchPreference(
-                        "revanced_hide_home_button",
-                        StringResource("revanced_hide_home_button_title", "Hide home button"),
-                        StringResource("revanced_hide_home_button_summary_on", "Home button is hidden"),
-                        StringResource("revanced_hide_home_button_summary_off", "Home button is shown")
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_shorts_button",
-                        StringResource("revanced_hide_shorts_button_title", "Hide Shorts button"),
-                        StringResource("revanced_hide_shorts_button_summary_on", "Shorts button is hidden"),
-                        StringResource("revanced_hide_shorts_button_summary_off", "Shorts button is shown")
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_subscriptions_button",
-                        StringResource("revanced_hide_subscriptions_button_title", "Hide subscriptions button"),
-                        StringResource(
-                            "revanced_hide_subscriptions_button_summary_on",
-                            "Home subscriptions is hidden"
-                        ),
-                        StringResource("revanced_hide_subscriptions_button_summary_off", "Home subscriptions is shown")
-                    ),
-                    SwitchPreference(
-                        "revanced_hide_create_button",
-                        StringResource("revanced_hide_create_button_title", "Hide create button"),
-                        StringResource("revanced_hide_create_button_summary_on", "Create button is hidden"),
-                        StringResource("revanced_hide_create_button_summary_off", "Create button is shown")
-                    ),
-                    SwitchPreference(
-                        "revanced_switch_create_with_notifications_button",
-                        StringResource(
-                            "revanced_switch_create_with_notifications_button_title",
-                            "Switch create with notifications button"
-                        ),
-                        StringResource(
-                            "revanced_switch_create_with_notifications_button_summary_on",
-                            "Create button is switched with notifications"
-                        ),
-                        StringResource(
-                            "revanced_switch_create_with_notifications_button_summary_off",
-                            "Create button is not switched with notifications"
-                        ),
-                    ),
+                key = "revanced_navigation_buttons_preference_screen",
+                preferences = setOf(
+                    SwitchPreference("revanced_hide_home_button"),
+                    SwitchPreference("revanced_hide_shorts_button"),
+                    SwitchPreference("revanced_hide_subscriptions_button"),
+                    SwitchPreference("revanced_hide_create_button"),
+                    SwitchPreference("revanced_switch_create_with_notifications_button"),
                 ),
-                StringResource(
-                    "revanced_navigation_buttons_preference_screen_summary",
-                    "Hide or change buttons in the navigation bar"
-                )
             )
         )
 
@@ -156,8 +117,8 @@ object NavigationButtonsPatch : BytecodePatch(
 
         AddCreateButtonViewFingerprint.result?.let {
             it.mutableMethod.apply {
-                val stringIndex = it.scanResult.stringsScanResult!!.matches.find {
-                        match -> match.string == ANDROID_AUTOMOTIVE_STRING
+                val stringIndex = it.scanResult.stringsScanResult!!.matches.find { match ->
+                    match.string == ANDROID_AUTOMOTIVE_STRING
                 }!!.index
 
                 val conditionalCheckIndex = stringIndex - 1
