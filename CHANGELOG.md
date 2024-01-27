@@ -1,3 +1,10 @@
+## [4.0.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.0.1...v4.0.2-dev.1) (2024-01-27)
+
+
+### Bug Fixes
+
+* **Twitch:** Correct patch resources to fix build ([1b63898](https://github.com/ReVanced/revanced-patches/commit/1b63898413b24693b0b737df29adcf9142963dfa))
+
 ## [4.0.1](https://github.com/ReVanced/revanced-patches/compare/v4.0.0...v4.0.1) (2024-01-27)
 
 
