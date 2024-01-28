@@ -87,9 +87,9 @@ object WideSearchbarPatch : BytecodePatch(
 
         addInstructions(
             """
-                    invoke-static {v$insertRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->enableWideSearchbar(Z)Z
-                    move-result v$insertRegister
-                """
+                invoke-static {v$insertRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->enableWideSearchbar(Z)Z
+                move-result v$insertRegister
+            """
         )
     }
 }
