@@ -32,7 +32,7 @@ object EmbeddedAdsPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.ADS.SURESTREAM.addPreferences(
-            ListPreference("revanced_block_embedded_ads")
+            ListPreference("revanced_block_embedded_ads", summaryKey = null)
         )
 
         val result = CreateUsherClientFingerprint.result ?: throw CreateUsherClientFingerprint.exception
