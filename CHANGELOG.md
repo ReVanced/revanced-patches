@@ -1,3 +1,10 @@
+## [4.0.3-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.0.2...v4.0.3-dev.1) (2024-01-28)
+
+
+### Bug Fixes
+
+* **YouTube:** Correctly show channel page on tablet devices ([#2656](https://github.com/ReVanced/revanced-patches/issues/2656)) ([c7c9700](https://github.com/ReVanced/revanced-patches/commit/c7c9700d93caeae105916d33376670f525276fac))
+
 ## [4.0.2](https://github.com/ReVanced/revanced-patches/compare/v4.0.1...v4.0.2) (2024-01-28)
 
 
