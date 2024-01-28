@@ -25,7 +25,6 @@ import java.io.Closeable
 @Patch(
     description = "Adds settings for ReVanced to YouTube.",
     dependencies = [
-        ChangePackageNamePatch::class,
         IntegrationsPatch::class,
         SettingsResourcePatch::class,
         AddResourcesPatch::class
@@ -101,7 +100,7 @@ object SettingsPatch : BytecodePatch(
         targetClass = "com.google.android.libraries.social.licenses.LicenseActivity"
     ) {
         // The package name change has to be reflected in the intent.
-        ChangePackageNamePatch.setOrGetFallbackPackageName("com.google.android.apps.youtube")
+        ChangePackageNamePatch.setOrGetFallbackPackageName("com.google.android.youtube")
     }
 
     object PreferenceScreen : BasePreferenceScreen() {

@@ -74,25 +74,28 @@
         </patch>
     </app>
     <app id="twitch">
-        <patch id="chat.autoclaim.AutoClaimChannelPointsPatch">
-            <string-array name="revanced_deleted_messages_entries">
-                <item>@string/revanced_deleted_messages_entry_1</item>
-                <item>@string/revanced_deleted_messages_entry_2</item>
-                <item>@string/revanced_deleted_messages_entry_3</item>
+        <patch id="chat.antidelete.ShowDeletedMessagesPatch">
+            <string-array name="revanced_show_deleted_messages_entries">
+                <item>@string/revanced_show_deleted_messages_entry_1</item>
+                <item>@string/revanced_show_deleted_messages_entry_2</item>
+                <item>@string/revanced_show_deleted_messages_entry_3</item>
             </string-array>
-            <string-array name="revanced_deleted_messages_entry_values">
+            <string-array name="revanced_show_deleted_messages_entry_values">
                 <item>hide</item>
                 <item>spoiler</item>
                 <item>cross-out</item>
             </string-array>
         </patch>
+        <patch id="chat.autoclaim.AutoClaimChannelPointsPatch">
+
+        </patch>
         <patch id="ad.embedded.EmbeddedAdsPatch">
-            <string-array name="revanced_hls_proxies_entries">
-                <item>@string/revanced_hls_proxies_entry_1</item>
-                <item>@string/revanced_hls_proxies_entry_2</item>
-                <item>@string/revanced_hls_proxies_entry_3</item>
+            <string-array name="revanced_block_embedded_ads_entries">
+                <item>@string/revanced_block_embedded_ads_entry_1</item>
+                <item>@string/revanced_block_embedded_ads_entry_2</item>
+                <item>@string/revanced_block_embedded_ads_entry_3</item>
             </string-array>
-            <string-array name="revanced_hls_proxies_entry_values">
+            <string-array name="revanced_block_embedded_ads_entry_values">
                 <item>disabled</item>
                 <item>luminous</item>
                 <item>purpleadblock</item>
