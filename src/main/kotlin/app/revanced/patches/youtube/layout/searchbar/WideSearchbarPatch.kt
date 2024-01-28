@@ -2,6 +2,7 @@ package app.revanced.patches.youtube.layout.searchbar
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
@@ -14,6 +15,7 @@ import app.revanced.patches.youtube.layout.searchbar.fingerprints.SetWordmarkHea
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.exception
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Wide searchbar",
@@ -43,6 +45,10 @@ object WideSearchbarPatch : BytecodePatch(
         CreateSearchSuggestionsFingerprint
     )
 ) {
+
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR =
+        "Lapp/revanced/integrations/youtube/patches/WideSearchbarPatch;"
+
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
@@ -76,12 +82,14 @@ object WideSearchbarPatch : BytecodePatch(
      * Injects instructions required for certain methods.
      */
     private fun MutableMethod.injectSearchBarHook() {
+        val insertIndex = implementation!!.instructions.size - 1
+        val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
         addInstructions(
-            implementation!!.instructions.size - 1,
             """
-                    invoke-static {}, Lapp/revanced/integrations/youtube/patches/WideSearchbarPatch;->enableWideSearchbar()Z
-                    move-result p0
-                """
+                invoke-static {v$insertRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->enableWideSearchbar(Z)Z
+                move-result v$insertRegister
+            """
         )
     }
 }
