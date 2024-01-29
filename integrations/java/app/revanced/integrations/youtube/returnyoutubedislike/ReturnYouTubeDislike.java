@@ -151,7 +151,7 @@ public class ReturnYouTubeDislike {
     private final Future<RYDVoteData> future;
 
     /**
-     * Time this instance and the future was created.
+     * Time this instance and the fetch future was created.
      */
     private final long timeFetched;
 
@@ -185,12 +185,12 @@ public class ReturnYouTubeDislike {
 
     /**
      * Color of the left and middle separator, based on the color of the right separator.
-     * It's unknown where YT gets the color from, and the colors here are approximated by hand.
-     * Ideally, the color here would be the actual color YT uses at runtime.
+     * It's unknown where YT gets the color from, and the values here are approximated by hand.
+     * Ideally, this would be the actual color YT uses at runtime.
      *
      * Older versions before the 'Me' library tab use a slightly different color.
      * If spoofing was previously used and is now turned off,
-     * or an old version was recently upgraded then the old colors are sometimes used.
+     * or an old version was recently upgraded then the old colors are sometimes still used.
      */
     private static int getSeparatorColor() {
         if (IS_SPOOFING_TO_OLD_SEPARATOR_COLOR) {
@@ -411,7 +411,7 @@ public class ReturnYouTubeDislike {
     }
 
     /**
-     * Should be called if the user changes settings for dislikes appearance.
+     * Should be called if the user changes dislikes appearance settings.
      */
     public static void clearAllUICaches() {
         synchronized (fetchCache) {

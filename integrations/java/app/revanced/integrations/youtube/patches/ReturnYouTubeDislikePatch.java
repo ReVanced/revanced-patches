@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import app.revanced.integrations.youtube.patches.components.ReturnYouTubeDislikeFilterPatch;
 import app.revanced.integrations.youtube.patches.spoof.SpoofAppVersionPatch;
 import app.revanced.integrations.youtube.returnyoutubedislike.ReturnYouTubeDislike;
+import app.revanced.integrations.youtube.returnyoutubedislike.requests.ReturnYouTubeDislikeApi;
 import app.revanced.integrations.youtube.settings.Settings;
 import app.revanced.integrations.youtube.shared.PlayerType;
 import app.revanced.integrations.shared.Logger;
@@ -21,7 +22,6 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.concurrent.atomic.AtomicReference;
 
 import static app.revanced.integrations.youtube.returnyoutubedislike.ReturnYouTubeDislike.Vote;
 
@@ -70,17 +70,16 @@ public class ReturnYouTubeDislikePatch {
     private static volatile boolean lithoShortsShouldUseCurrentData;
 
     /**
-     * Last video id prefetched. Field is prevent prefetching the same video id multiple times in a row.
+     * Last video id prefetched. Field is to prevent prefetching the same video id multiple times in a row.
      */
     @Nullable
     private static volatile String lastPrefetchedVideoId;
 
     public static void onRYDStatusChange(boolean rydEnabled) {
-        if (!rydEnabled) {
-            // Must remove all values to protect against using stale data
-            // if the user enables RYD while a video is on screen.
-            clearData();
-        }
+        ReturnYouTubeDislikeApi.resetRateLimits();
+        // Must remove all values to protect against using stale data
+        // if the user enables RYD while a video is on screen.
+        clearData();
     }
 
     private static void clearData() {
@@ -240,10 +239,6 @@ public class ReturnYouTubeDislikePatch {
                 }
                 replacement = videoData.getDislikesSpanForRegularVideo((Spanned) original,
                         true, isRollingNumber);
-
-                // When spoofing between 17.09.xx and 17.30.xx the UI is the old layout
-                // but uses litho and the dislikes is "|dislike_button.eml|".
-                // But spoofing to that range gives a broken UI layout so no point checking for that.
             } else if (!isRollingNumber && conversionContextString.contains("|shorts_dislike_button.eml|")) {
                 // Litho Shorts player.
                 if (!Settings.RYD_SHORTS.get()) {
@@ -300,9 +295,10 @@ public class ReturnYouTubeDislikePatch {
                                                @NonNull String original) {
         try {
             CharSequence replacement = onLithoTextLoaded(conversionContext, original, true);
-            if (!replacement.toString().equals(original)) {
+            String replacementString = replacement.toString();
+            if (!replacementString.equals(original)) {
                 rollingNumberSpan = replacement;
-                return replacement.toString();
+                return replacementString;
             } // Else, the text was not a likes count but instead the view count or something else.
         } catch (Exception ex) {
             Logger.printException(() -> "onRollingNumberLoaded failure", ex);
@@ -348,9 +344,8 @@ public class ReturnYouTubeDislikePatch {
             } else {
                 view.setCompoundDrawables(separator, null, null, null);
             }
-            // Liking/disliking can cause the span to grow in size,
-            // which is ok and is laid out correctly,
-            // but if the user then undoes their action the layout will not remove the extra padding.
+            // Disliking can cause the span to grow in size, which is ok and is laid out correctly,
+            // but if the user then removes their dislike the layout will not adjust to the new shorter width.
             // Use a center alignment to take up any extra space.
             view.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
             // Single line mode does not clip words if the span is larger than the view bounds.
