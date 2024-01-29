@@ -86,6 +86,7 @@ object WideSearchbarPatch : BytecodePatch(
         val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
         addInstructions(
+            insertIndex,
             """
                 invoke-static {v$insertRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->enableWideSearchbar(Z)Z
                 move-result v$insertRegister
