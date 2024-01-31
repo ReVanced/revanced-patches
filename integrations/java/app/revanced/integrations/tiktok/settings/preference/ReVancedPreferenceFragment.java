@@ -17,6 +17,12 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
     protected void initialize() {
         final var context = getContext();
 
+        // Currently no resources can be compiled for TikTok (fails with aapt error).
+        // So all TikTok Strings are hard coded in integrations.
+        restartDialogTitle = "Refresh and restart";
+        restartDialogButtonText = "Restart";
+        confirmDialogTitle = "Do you wish to proceed?";
+
         PreferenceScreen preferenceScreen = getPreferenceManager().createPreferenceScreen(context);
         setPreferenceScreen(preferenceScreen);
 
