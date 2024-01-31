@@ -59,6 +59,9 @@ object HideLayoutComponentsPatch : BytecodePatch(
         "Lapp/revanced/integrations/youtube/patches/components/LayoutComponentsFilter;"
     private const val DESCRIPTION_COMPONENTS_FILTER_CLASS_NAME =
         "Lapp/revanced/integrations/youtube/patches/components/DescriptionComponentsFilter;"
+    private const val CUSTOM_FILTER_CLASS_NAME =
+        "Lapp/revanced/integrations/youtube/patches/components/CustomFilter;"
+
 
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
@@ -116,6 +119,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
 
         LithoFilterPatch.addFilter(LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR)
         LithoFilterPatch.addFilter(DESCRIPTION_COMPONENTS_FILTER_CLASS_NAME)
+        LithoFilterPatch.addFilter(CUSTOM_FILTER_CLASS_NAME)
 
         // region Mix playlists
 

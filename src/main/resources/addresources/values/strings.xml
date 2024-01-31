@@ -178,6 +178,9 @@
             <string name="revanced_custom_filter_strings_title">Custom filter</string>
             <string name="revanced_custom_filter_strings_summary">List of component path builder strings to filter separated by new line</string>
             <string name="revanced_custom_filter_preference_screen_summary">Hide components using custom filters</string>
+            <string name="revanced_custom_filter_toast_invalid_characters">Invalid custom filter (must be ASCII only): %s</string>
+            <string name="revanced_custom_filter_toast_invalid_syntax">Invalid custom filter: %s</string>
+            <string name="revanced_custom_filter_toast_reset">Custom filter reset to default</string>
         </patch>
         <patch id="ad.general.HideAdsResourcePatch">
             <string name="revanced_hide_general_ads_title">Hide general ads</string>
