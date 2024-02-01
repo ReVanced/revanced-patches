@@ -6,6 +6,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.reddit.customclients.infinityforreddit.api.SpoofClientPatch
 import app.revanced.patches.reddit.customclients.infinityforreddit.subscription.fingerprints.StartSubscriptionActivityFingerprint
+import app.revanced.patches.reddit.customclients.infinityforreddit.subscription.fingerprints.SubscriptionActivityOnCreateFingerprint
 import app.revanced.util.returnEarly
 
 @Patch(
@@ -18,7 +19,8 @@ import app.revanced.util.returnEarly
 )
 @Suppress("unused")
 object UnlockSubscriptionPatch : BytecodePatch(
-    setOf(StartSubscriptionActivityFingerprint)
+    setOf(StartSubscriptionActivityFingerprint, SubscriptionActivityOnCreateFingerprint)
 ) {
-    override fun execute(context: BytecodeContext) = listOf(StartSubscriptionActivityFingerprint).returnEarly()
+    override fun execute(context: BytecodeContext) =
+        listOf(StartSubscriptionActivityFingerprint, SubscriptionActivityOnCreateFingerprint).returnEarly()
 }
