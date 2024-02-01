@@ -1,3 +1,10 @@
+## [4.0.3-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.0.3-dev.1...v4.0.3-dev.2) (2024-02-01)
+
+
+### Bug Fixes
+
+* **Infinity for Reddit - Unlock subscription:** Restore functionality on v7.0.0 ([bf19af9](https://github.com/ReVanced/revanced-patches/commit/bf19af99cb522f9027a4b3ae42d6258ac71758e5))
+
 ## [4.0.3-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.0.2...v4.0.3-dev.1) (2024-01-28)
 
 
