@@ -1,3 +1,10 @@
+# [4.1.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.0.3-dev.2...v4.1.0-dev.1) (2024-02-02)
+
+
+### Features
+
+* **YouTube - Custom filter:** Custom filtering of the protocol buffer ([#2682](https://github.com/ReVanced/revanced-patches/issues/2682)) ([872a5b6](https://github.com/ReVanced/revanced-patches/commit/872a5b6d8969ab1569cd57ece3c400c3741049be))
+
 ## [4.0.3-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.0.3-dev.1...v4.0.3-dev.2) (2024-02-01)
 
 
