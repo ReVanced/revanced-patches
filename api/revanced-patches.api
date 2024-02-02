@@ -1420,6 +1420,10 @@ public final class app/revanced/patches/youtube/layout/startupshortsreset/Disabl
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/youtube/layout/startupshortsreset/fingerprints/UserWasInShortsFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/startupshortsreset/fingerprints/UserWasInShortsFingerprint;
+}
+
 public final class app/revanced/patches/youtube/layout/tablet/EnableTabletLayoutPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/tablet/EnableTabletLayoutPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
