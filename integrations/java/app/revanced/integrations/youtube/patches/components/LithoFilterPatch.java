@@ -18,7 +18,6 @@ import app.revanced.integrations.shared.Logger;
 import app.revanced.integrations.shared.Utils;
 import app.revanced.integrations.shared.settings.BooleanSetting;
 import app.revanced.integrations.shared.settings.BaseSettings;
-import app.revanced.integrations.shared.settings.StringSetting;
 import app.revanced.integrations.youtube.ByteTrieSearch;
 import app.revanced.integrations.youtube.StringTrieSearch;
 import app.revanced.integrations.youtube.TrieSearch;
@@ -135,25 +134,6 @@ class StringFilterGroup extends FilterGroup<String> {
             }
         }
         return new FilterGroupResult(setting, matchedIndex, matchedLength);
-    }
-}
-
-final class CustomFilterGroup extends StringFilterGroup {
-
-    private static String[] getFilterPatterns(StringSetting setting) {
-        String[] patterns = setting.get().split("\\s+");
-        for (String pattern : patterns) {
-            if (!StringTrieSearch.isValidPattern(pattern)) {
-                Utils.showToastLong("Invalid custom filter, resetting to default");
-                setting.resetToDefault();
-                return getFilterPatterns(setting);
-            }
-        }
-        return patterns;
-    }
-
-    public CustomFilterGroup(BooleanSetting setting, StringSetting filter) {
-        super(setting, getFilterPatterns(filter));
     }
 }
 

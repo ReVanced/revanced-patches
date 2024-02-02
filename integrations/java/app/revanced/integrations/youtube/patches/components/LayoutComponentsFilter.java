@@ -18,7 +18,6 @@ public final class LayoutComponentsFilter extends Filter {
             null,
             "cell_description_body"
     );
-    private final CustomFilterGroup custom;
 
     private static final ByteArrayFilterGroup mixPlaylists = new ByteArrayFilterGroup(
             Settings.HIDE_MIX_PLAYLISTS,
@@ -67,11 +66,6 @@ public final class LayoutComponentsFilter extends Filter {
         );
 
         // Paths.
-
-        custom = new CustomFilterGroup(
-                Settings.CUSTOM_FILTER,
-                Settings.CUSTOM_FILTER_STRINGS
-        );
 
         final var communityPosts = new StringFilterGroup(
                 Settings.HIDE_COMMUNITY_POSTS,
@@ -226,7 +220,6 @@ public final class LayoutComponentsFilter extends Filter {
         );
 
         addPathCallbacks(
-                custom,
                 expandableMetadata,
                 inFeedSurvey,
                 notifyMe,
@@ -270,8 +263,7 @@ public final class LayoutComponentsFilter extends Filter {
         if (matchedGroup == notifyMe || matchedGroup == inFeedSurvey || matchedGroup == expandableMetadata)
             return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
 
-        if (matchedGroup != custom && exceptions.matches(path))
-            return false; // Exceptions are not filtered.
+        if (exceptions.matches(path)) return false; // Exceptions are not filtered.
 
         // TODO: This also hides the feed Shorts shelf header
         if (matchedGroup == searchResultShelfHeader && contentIndex != 0) return false;
