@@ -2,7 +2,10 @@ package app.revanced.patches.youtube.layout.startupshortsreset
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
@@ -11,6 +14,12 @@ import app.revanced.patches.youtube.layout.startupshortsreset.fingerprints.UserW
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.exception
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Disable resuming Shorts on startup",
@@ -29,7 +38,9 @@ import app.revanced.util.exception
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
-                "19.03.35"
+                "19.03.35",
+                "19.03.36",
+                "19.04.37"
             ]
         )
     ]
@@ -49,19 +60,30 @@ object DisableResumingShortsOnStartupPatch : BytecodePatch(
             SwitchPreference("revanced_disable_resuming_shorts_player")
         )
 
-        UserWasInShortsFingerprint.result?.apply {
-            val moveResultIndex = scanResult.patternScanResult!!.endIndex
+        UserWasInShortsFingerprint.result?.mutableMethod?.apply {
+            val listenableInstructionIndex = indexOfFirstInstruction {
+                opcode == Opcode.INVOKE_INTERFACE &&
+                        getReference<MethodReference>()?.definingClass == "Lcom/google/common/util/concurrent/ListenableFuture;" &&
+                        getReference<MethodReference>()?.name == "isDone"
+            }
+            if (listenableInstructionIndex < 0) throw PatchException("Could not find instruction index")
+            val originalInstructionRegister = getInstruction<FiveRegisterInstruction>(listenableInstructionIndex).registerC
+            val freeRegister = getInstruction<OneRegisterInstruction>(listenableInstructionIndex + 1).registerA
 
-            mutableMethod.addInstructionsWithLabels(
-                moveResultIndex + 1,
+            // Replace original instruction to preserve control flow label.
+            replaceInstruction(
+                listenableInstructionIndex,
+                "invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer()Z"
+            )
+            addInstructionsWithLabels(
+                listenableInstructionIndex + 1,
                 """
-                invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer()Z
-                move-result v5
-                if-eqz v5, :disable_shorts_player
-                return-void
-                :disable_shorts_player
-                nop
-            """
+                    move-result v$freeRegister
+                    if-eqz v$freeRegister, :show_startup_shorts_player
+                    return-void
+                    :show_startup_shorts_player
+                    invoke-interface {v$originalInstructionRegister}, Lcom/google/common/util/concurrent/ListenableFuture;->isDone()Z
+                """
             )
         } ?: throw UserWasInShortsFingerprint.exception
     }
