@@ -71,7 +71,7 @@ body:
         Before creating a new feature request, please keep the following in mind:
 
         - **Do not submit a duplicate feature request**: You can review existing feature requests [here](https://github.com/ReVanced/revanced-patches/labels/Feature%20request).
-        - **Review the contribution guidelines**: Make sure your bug report adheres to it. You can find the guidelines [here](https://github.com/ReVanced/revanced-patches/blob/main/CONTRIBUTING.md).
+        - **Review the contribution guidelines**: Make sure your feature request adheres to it. You can find the guidelines [here](https://github.com/ReVanced/revanced-patches/blob/main/CONTRIBUTING.md).
         - **Do not use the issue page for support**: If you need help or have questions, check out other platforms on [revanced.app](https://revanced.app).
   - type: textarea
     attributes:

@@ -46,7 +46,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
-                "19.03.35"
+                "19.03.35",
+                "19.03.36",
+                "19.04.37"
             ]
         )
     ]
@@ -59,6 +61,9 @@ object HideLayoutComponentsPatch : BytecodePatch(
         "Lapp/revanced/integrations/youtube/patches/components/LayoutComponentsFilter;"
     private const val DESCRIPTION_COMPONENTS_FILTER_CLASS_NAME =
         "Lapp/revanced/integrations/youtube/patches/components/DescriptionComponentsFilter;"
+    private const val CUSTOM_FILTER_CLASS_NAME =
+        "Lapp/revanced/integrations/youtube/patches/components/CustomFilter;"
+
 
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
@@ -116,6 +121,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
 
         LithoFilterPatch.addFilter(LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR)
         LithoFilterPatch.addFilter(DESCRIPTION_COMPONENTS_FILTER_CLASS_NAME)
+        LithoFilterPatch.addFilter(CUSTOM_FILTER_CLASS_NAME)
 
         // region Mix playlists
 

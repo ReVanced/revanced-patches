@@ -1,3 +1,31 @@
+# [4.1.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.1.0-dev.1...v4.1.0-dev.2) (2024-02-04)
+
+
+### Features
+
+* **YouTube:** Support version `19.04.37` ([#2687](https://github.com/ReVanced/revanced-patches/issues/2687)) ([c23e023](https://github.com/ReVanced/revanced-patches/commit/c23e0233cf5c28d354132443d227b42ddc4a3dad))
+
+# [4.1.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.0.3-dev.2...v4.1.0-dev.1) (2024-02-02)
+
+
+### Features
+
+* **YouTube - Custom filter:** Custom filtering of the protocol buffer ([#2682](https://github.com/ReVanced/revanced-patches/issues/2682)) ([872a5b6](https://github.com/ReVanced/revanced-patches/commit/872a5b6d8969ab1569cd57ece3c400c3741049be))
+
+## [4.0.3-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.0.3-dev.1...v4.0.3-dev.2) (2024-02-01)
+
+
+### Bug Fixes
+
+* **Infinity for Reddit - Unlock subscription:** Restore functionality on v7.0.0 ([bf19af9](https://github.com/ReVanced/revanced-patches/commit/bf19af99cb522f9027a4b3ae42d6258ac71758e5))
+
+## [4.0.3-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.0.2...v4.0.3-dev.1) (2024-01-28)
+
+
+### Bug Fixes
+
+* **YouTube:** Correctly show channel page on tablet devices ([#2656](https://github.com/ReVanced/revanced-patches/issues/2656)) ([c7c9700](https://github.com/ReVanced/revanced-patches/commit/c7c9700d93caeae105916d33376670f525276fac))
+
 ## [4.0.2](https://github.com/ReVanced/revanced-patches/compare/v4.0.1...v4.0.2) (2024-01-28)
 
 
