@@ -105,5 +105,5 @@ In order to build ReVanced Patches, you can follow the [ReVanced documentation](
 ## 📜 Licence
 
 ReVanced Patches is licensed under the GPLv3 licence. Please see the [licence file](LICENSE) for more information.
-[tl;dr](https://www.tldrlegal.com/license/gnu-general-public-license-v3-gpl-3) you may copy, distribute and modify ReVanced patches as long as you track changes/dates in source files.
+[tl;dr](https://www.tldrlegal.com/license/gnu-general-public-license-v3-gpl-3) you may copy, distribute and modify ReVanced Patches as long as you track changes/dates in source files.
 Any modifications to ReVanced Patches must also be made available under the GPL along with build & install instructions.
