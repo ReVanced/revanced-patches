@@ -97,7 +97,7 @@ public abstract class Setting<T> {
     @NonNull
     private static List<Setting<?>> allLoadedSettingsSorted() {
         Collections.sort(SETTINGS, (Setting<?> o1, Setting<?> o2) -> o1.key.compareTo(o2.key));
-        return Collections.unmodifiableList(SETTINGS);
+        return allLoadedSettings();
     }
 
     /**
@@ -131,6 +131,7 @@ public abstract class Setting<T> {
 
     /**
      * Confirmation message to display, if the user tries to change the setting from the default value.
+     * Currently this works only for Boolean setting types.
      */
     @Nullable
     public final StringRef userDialogMessage;
@@ -206,10 +207,9 @@ public abstract class Setting<T> {
     /**
      * Migrate a setting value if the path is renamed but otherwise the old and new settings are identical.
      */
-    public static void migrateOldSettingToNew(@NonNull Setting<?> oldSetting, @NonNull Setting newSetting) {
+    public static <T> void migrateOldSettingToNew(@NonNull Setting<T> oldSetting, @NonNull Setting<T> newSetting) {
         if (!oldSetting.isSetToDefault()) {
             Logger.printInfo(() -> "Migrating old setting value: " + oldSetting + " into replacement setting: " + newSetting);
-            //noinspection unchecked
             newSetting.save(oldSetting.value);
             oldSetting.resetToDefault();
         }

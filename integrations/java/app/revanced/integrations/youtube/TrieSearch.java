@@ -231,47 +231,57 @@ public abstract class TrieSearch<T> {
         }
 
         /**
+         * This method is static and uses a loop to avoid all recursion.
+         * This is done for performance since the JVM does not do tail recursion optimization.
+         *
+         * @param startNode          Node to start the search from.
          * @param searchText         Text to search for patterns in.
          * @param searchTextLength   Length of the search text.
          * @param searchTextIndex    Current recursive search text index. Also, the end index of the current pattern match.
-         * @param currentMatchLength current search depth, and also the length of the current pattern match.
          * @return If any pattern matches, and it's associated callback halted the search.
          */
-        private boolean matches(T searchText, int searchTextLength, int searchTextIndex, int currentMatchLength,
-                                Object callbackParameter) {
-            if (leaf != null && leaf.matches(this,
-                    searchText, searchTextLength, searchTextIndex, callbackParameter)) {
-                return true; // Leaf exists and it matched the search text.
-            }
-            if (endOfPatternCallback != null) {
-                final int matchStartIndex = searchTextIndex - currentMatchLength;
-                for (@Nullable TriePatternMatchedCallback<T> callback : endOfPatternCallback) {
-                    if (callback == null) {
-                        return true; // No callback and all matches are valid.
-                    }
-                    if (callback.patternMatched(searchText, matchStartIndex, currentMatchLength, callbackParameter)) {
-                        return true; // Callback confirmed the match.
+        private static <T> boolean matches(final TrieNode<T> startNode, final T searchText, final int searchTextLength,
+                                           int searchTextIndex, final Object callbackParameter) {
+            TrieNode<T> node = startNode;
+            int currentMatchLength = 0;
+
+            while (true) {
+                TrieCompressedPath<T> leaf = node.leaf;
+                if (leaf != null && leaf.matches(node, searchText, searchTextLength, searchTextIndex, callbackParameter)) {
+                    return true; // Leaf exists and it matched the search text.
+                }
+                List<TriePatternMatchedCallback<T>> endOfPatternCallback = node.endOfPatternCallback;
+                if (endOfPatternCallback != null) {
+                    final int matchStartIndex = searchTextIndex - currentMatchLength;
+                    for (@Nullable TriePatternMatchedCallback<T> callback : endOfPatternCallback) {
+                        if (callback == null) {
+                            return true; // No callback and all matches are valid.
+                        }
+                        if (callback.patternMatched(searchText, matchStartIndex, currentMatchLength, callbackParameter)) {
+                            return true; // Callback confirmed the match.
+                        }
                     }
                 }
-            }
-            if (children == null) {
-                return false; // Reached a graph end point and there's no further patterns to search.
-            }
-            if (searchTextIndex == searchTextLength) {
-                return false; // Reached end of the search text and found no matches.
-            }
+                TrieNode<T>[] children = node.children;
+                if (children == null) {
+                    return false; // Reached a graph end point and there's no further patterns to search.
+                }
+                if (searchTextIndex == searchTextLength) {
+                    return false; // Reached end of the search text and found no matches.
+                }
 
-            final char character = getCharValue(searchText, searchTextIndex);
-            if (isInvalidRange(character)) {
-                return false; // Not an ASCII letter/number/symbol.
+                // Use the start node to reduce VM method lookup, since all nodes are the same class type.
+                final char character = startNode.getCharValue(searchText, searchTextIndex);
+                final int arrayIndex = hashIndexForTableSize(children.length, character);
+                TrieNode<T> child = children[arrayIndex];
+                if (child == null || child.nodeValue != character) {
+                    return false;
+                }
+
+                node = child;
+                searchTextIndex++;
+                currentMatchLength++;
             }
-            final int arrayIndex = hashIndexForTableSize(children.length, character);
-            TrieNode<T> child = children[arrayIndex];
-            if (child == null || child.nodeValue != character) {
-                return false;
-            }
-            return child.matches(searchText, searchTextLength, searchTextIndex + 1,
-                    currentMatchLength + 1, callbackParameter);
         }
 
         /**
@@ -388,7 +398,7 @@ public abstract class TrieSearch<T> {
             return false; // No patterns were added.
         }
         for (int i = startIndex; i < endIndex; i++) {
-            if (root.matches(textToSearch, endIndex, i, 0, callbackParameter)) return true;
+            if (TrieNode.matches(root, textToSearch, endIndex, i, callbackParameter)) return true;
         }
         return false;
     }

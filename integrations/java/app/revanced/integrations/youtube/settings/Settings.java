@@ -292,7 +292,7 @@ public class Settings extends BaseSettings {
     static {
         // region Migration
 
-        // region Migrate settings from old Preference categories into replacement "revanced_prefs" category.
+        // Migrate settings from old Preference categories into replacement "revanced_prefs" category.
         // This region must run before all other migration code.
 
         // The YT and RYD migration portion of this can be removed anytime,
@@ -338,23 +338,12 @@ public class Settings extends BaseSettings {
                 migrateFromOldPreferences(ytPrefs, setting, key);
             }
         }
-        // end region
 
 
         // Do _not_ delete this SB private user id migration property until sometime in 2024.
         // This is the only setting that cannot be reconfigured if lost,
         // and more time should be given for users who rarely upgrade.
         migrateOldSettingToNew(DEPRECATED_SB_UUID_OLD_MIGRATION_SETTING, SB_PRIVATE_USER_ID);
-
-        // This migration may need to remain here for a while.
-        // Older online guides will still reference using commas,
-        // and this code will automatically convert anything the user enters to newline format,
-        // and also migrate any imported older settings that using commas.
-        String componentsToFilter = Settings.CUSTOM_FILTER_STRINGS.get();
-        if (componentsToFilter.contains(",")) {
-            Logger.printInfo(() -> "Migrating custom filter strings to new line format");
-            Settings.CUSTOM_FILTER_STRINGS.save(componentsToFilter.replace(",", "\n"));
-        }
 
         // endregion
     }

@@ -7,6 +7,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.*;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import app.revanced.integrations.shared.Logger;
 import app.revanced.integrations.shared.Utils;
 import app.revanced.integrations.shared.settings.BooleanSetting;
@@ -24,6 +26,13 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
      * to apply the change from the Setting to the UI component.
      */
     public static boolean settingImportInProgress;
+
+    /**
+     * Confirm and restart dialog button text and title.
+     * Set by subclasses if Strings cannot be added as a resource.
+     */
+    @Nullable
+    protected static String restartDialogButtonText, restartDialogTitle, confirmDialogTitle;
 
     /**
      * Used to prevent showing reboot dialog, if user cancels a setting user dialog.
@@ -80,11 +89,15 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     }
 
     private void showSettingUserDialogConfirmation(SwitchPreference switchPref, BooleanSetting setting) {
-        final var context = getContext();
+        Utils.verifyOnMainThread();
 
+        final var context = getContext();
+        if (confirmDialogTitle == null) {
+            confirmDialogTitle = str("revanced_settings_confirm_user_dialog_title");
+        }
         showingUserDialogMessage = true;
         new AlertDialog.Builder(context)
-                .setTitle(str("revanced_settings_confirm_user_dialog_title"))
+                .setTitle(confirmDialogTitle)
                 .setMessage(setting.userDialogMessage.toString())
                 .setPositiveButton(android.R.string.ok, (dialog, id) -> {
                     if (setting.rebootApp) {
@@ -201,12 +214,17 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     }
 
     public static void showRestartDialog(@NonNull final Context context) {
-        String positiveButton = str("revanced_settings_restart");
-
-        new AlertDialog.Builder(context).setMessage(str("revanced_settings_restart_title"))
-                .setPositiveButton(positiveButton, (dialog, id) -> {
-                    Utils.restartApp(context);
-                })
+        Utils.verifyOnMainThread();
+        if (restartDialogTitle == null) {
+            restartDialogTitle = str("revanced_settings_restart_title");
+        }
+        if (restartDialogButtonText == null) {
+            restartDialogButtonText = str("revanced_settings_restart");
+        }
+        new AlertDialog.Builder(context)
+                .setMessage(restartDialogTitle)
+                .setPositiveButton(restartDialogButtonText, (dialog, id)
+                        -> Utils.restartApp(context))
                 .setNegativeButton(android.R.string.cancel, null)
                 .setCancelable(false)
                 .show();
