@@ -503,12 +503,18 @@ public final class LithoFilterPatch {
      * Injection point.  Called off the main thread.
      */
     @SuppressWarnings("unused")
-    public static void setProtoBuffer(@NonNull ByteBuffer protobufBuffer) {
+    public static void setProtoBuffer(@Nullable ByteBuffer protobufBuffer) {
         // Set the buffer to a thread local.  The buffer will remain in memory, even after the call to #filter completes.
         // This is intentional, as it appears the buffer can be set once and then filtered multiple times.
         // The buffer will be cleared from memory after a new buffer is set by the same thread,
         // or when the calling thread eventually dies.
-        bufferThreadLocal.set(protobufBuffer);
+        if (protobufBuffer == null) {
+            // It appears the buffer can be cleared out just before the call to #filter()
+            // Ignore this null value and retain the last buffer that was set.
+            Logger.printDebug(() -> "Ignoring null protobuffer");
+        } else {
+            bufferThreadLocal.set(protobufBuffer);
+        }
     }
 
     /**
@@ -523,15 +529,13 @@ public final class LithoFilterPatch {
 
             ByteBuffer protobufBuffer = bufferThreadLocal.get();
             final byte[] bufferArray;
-            // The buffer can be null or empty when using YT 19.x.
-            // This is likely caused by different threads setting the buffer and calling this method.
-            // 100% fixing this would require passing the buffer into this method (which may not be so simple).
-            // For now, still filter with an empty buffer so the non proto buffer filters work correctly.
+            // Potentially the buffer may have been null or never set up until now.
+            // Use an empty buffer so the litho id/path filters still work correctly.
             if (protobufBuffer == null) {
-                Logger.printDebug(() -> "Proto buffer is null");
+                Logger.printDebug(() -> "Proto buffer is null, using an empty buffer array");
                 bufferArray = EMPTY_BYTE_ARRAY;
             } else if (!protobufBuffer.hasArray()) {
-                Logger.printDebug(() -> "Proto buffer does not have an array");
+                Logger.printDebug(() -> "Proto buffer does not have an array, using an empty buffer array");
                 bufferArray = EMPTY_BYTE_ARRAY;
             } else {
                 bufferArray = protobufBuffer.array();
