@@ -398,17 +398,17 @@ public final class LithoFilterPatch {
         final String path;
         final byte[] protoBuffer;
 
-        LithoFilterParameters(@Nullable String lithoIdentifier, StringBuilder lithoPath, ByteBuffer protoBuffer) {
+        LithoFilterParameters(@Nullable String lithoIdentifier, String lithoPath, byte[] protoBuffer) {
             this.identifier = lithoIdentifier;
-            this.path = lithoPath.toString();
-            this.protoBuffer = protoBuffer.array();
+            this.path = lithoPath;
+            this.protoBuffer = protoBuffer;
         }
 
         @NonNull
         @Override
         public String toString() {
             // Estimate the percentage of the buffer that are Strings.
-            StringBuilder builder = new StringBuilder(protoBuffer.length / 2);
+            StringBuilder builder = new StringBuilder(Math.max(100, protoBuffer.length / 2));
             builder.append( "ID: ");
             builder.append(identifier);
             builder.append(" Path: ");
@@ -456,6 +456,8 @@ public final class LithoFilterPatch {
 
     private static final StringTrieSearch pathSearchTree = new StringTrieSearch();
     private static final StringTrieSearch identifierSearchTree = new StringTrieSearch();
+
+    private static final byte[] EMPTY_BYTE_ARRAY = new byte[0];
 
     /**
      * Because litho filtering is multi-threaded and the buffer is passed in from a different injection point,
@@ -520,17 +522,23 @@ public final class LithoFilterPatch {
                 return false;
 
             ByteBuffer protobufBuffer = bufferThreadLocal.get();
+            final byte[] bufferArray;
+            // The buffer can be null or empty when using YT 19.x.
+            // This is likely caused by different threads setting the buffer and calling this method.
+            // 100% fixing this would require passing the buffer into this method (which may not be so simple).
+            // For now, still filter with an empty buffer so the non proto buffer filters work correctly.
             if (protobufBuffer == null) {
-                Logger.printException(() -> "Proto buffer is null"); // Should never happen.
-                return false;
-            }
-
-            if (!protobufBuffer.hasArray()) {
+                Logger.printDebug(() -> "Proto buffer is null");
+                bufferArray = EMPTY_BYTE_ARRAY;
+            } else if (!protobufBuffer.hasArray()) {
                 Logger.printDebug(() -> "Proto buffer does not have an array");
-                return false;
+                bufferArray = EMPTY_BYTE_ARRAY;
+            } else {
+                bufferArray = protobufBuffer.array();
             }
 
-            LithoFilterParameters parameter = new LithoFilterParameters(lithoIdentifier, pathBuilder, protobufBuffer);
+            LithoFilterParameters parameter = new LithoFilterParameters(lithoIdentifier,
+                    pathBuilder.toString(), bufferArray);
             Logger.printDebug(() -> "Searching " + parameter);
 
             if (parameter.identifier != null) {
