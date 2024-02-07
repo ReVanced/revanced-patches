@@ -1,3 +1,10 @@
+## [4.1.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.1.0...v4.1.1-dev.1) (2024-02-07)
+
+
+### Bug Fixes
+
+* **Infinity for Reddit - Unlock subscription:** Do not crash by patching billing client ([7d76e2e](https://github.com/ReVanced/revanced-patches/commit/7d76e2e43c69b2b75f40a15a9147d041c77cbcd9))
+
 # [4.1.0](https://github.com/ReVanced/revanced-patches/compare/v4.0.2...v4.1.0) (2024-02-05)
 
 
