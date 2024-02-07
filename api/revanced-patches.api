@@ -406,6 +406,12 @@ public final class app/revanced/patches/nyx/misc/pro/UnlockProPatch : app/revanc
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/openinghours/crash/CrashPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/openinghours/crash/CrashPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/photomath/detection/deviceid/SpoofDeviceIdPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/photomath/detection/deviceid/SpoofDeviceIdPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
