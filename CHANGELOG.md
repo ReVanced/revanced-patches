@@ -1,3 +1,11 @@
+# [4.2.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.1.1-dev.1...v4.2.0-dev.1) (2024-02-08)
+
+
+### Features
+
+* **X:** Add `Hide view count` patch ([bf064ec](https://github.com/ReVanced/revanced-patches/commit/bf064ecc1d5de8b592d14d34acfa1a4314c374ba))
+* **X:** Add `Unlock downloads` patch ([2c20844](https://github.com/ReVanced/revanced-patches/commit/2c20844eaae698f185a9d321e2c70bde4b485cee))
+
 ## [4.1.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.1.0...v4.1.1-dev.1) (2024-02-07)
 
 
