@@ -1065,6 +1065,18 @@ public final class app/revanced/patches/twitch/misc/settings/SettingsResourcePat
 	public static final field INSTANCE Lapp/revanced/patches/twitch/misc/settings/SettingsResourcePatch;
 }
 
+public final class app/revanced/patches/twitter/interaction/downloads/UnlockDownloadsPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/twitter/interaction/downloads/UnlockDownloadsPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/twitter/layout/viewcount/HideViewCountPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/twitter/layout/viewcount/HideViewCountPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/twitter/misc/dynamiccolor/DynamicColorPatch : app/revanced/patcher/patch/ResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/dynamiccolor/DynamicColorPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
