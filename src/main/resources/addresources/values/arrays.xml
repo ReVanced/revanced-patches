@@ -20,12 +20,16 @@
         </patch>
         <patch id="layout.startpage.ChangeStartPagePatch">
             <string-array name="revanced_start_page_entries">
-                <item>@string/revanced_start_page_home_entry_0</item>
-                <item>@string/revanced_start_page_home_entry_1</item>
-                <item>@string/revanced_start_page_search_entry_2</item>
-                <item>@string/revanced_start_page_subscriptions_entry_3</item>
-                <item>@string/revanced_start_page_explore_entry_4</item>
-                <item>@string/revanced_start_page_shorts_entry_5</item>
+                <item>@string/revanced_start_page_entry_0</item>
+                <item>@string/revanced_start_page_entry_1</item>
+                <item>@string/revanced_start_page_entry_2</item>
+                <item>@string/revanced_start_page_entry_3</item>
+                <item>@string/revanced_start_page_entry_4</item>
+                <item>@string/revanced_start_page_entry_5</item>
+                <item>@string/revanced_start_page_entry_6</item>
+                <item>@string/revanced_start_page_entry_7</item>
+                <item>@string/revanced_start_page_entry_8</item>
+                <item>@string/revanced_start_page_entry_9</item>
             </string-array>
             <string-array name="revanced_start_page_entry_values">
                 <item/>
@@ -34,6 +38,11 @@
                 <item>open.subscriptions</item>
                 <item>open.explore</item>
                 <item>open.shorts</item>
+                <item>www.youtube.com/feed/library</item>
+                <!-- Liked videos -->
+                <item>www.youtube.com/playlist?list=LL</item>
+                <item>www.youtube.com/feed/history</item>
+                <item>www.youtube.com/feed/trending</item>
             </string-array>
         </patch>
         <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
