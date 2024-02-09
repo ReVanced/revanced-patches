@@ -1,3 +1,10 @@
+# [4.3.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.2.0...v4.3.0-dev.1) (2024-02-09)
+
+
+### Features
+
+* **YouTube - Change start page:** Add more start pages ([cc1d9b7](https://github.com/ReVanced/revanced-patches/commit/cc1d9b743633c619fb6acc428e884c1c9b53e10b))
+
 # [4.2.0](https://github.com/ReVanced/revanced-patches/compare/v4.1.0...v4.2.0) (2024-02-08)
 
 
