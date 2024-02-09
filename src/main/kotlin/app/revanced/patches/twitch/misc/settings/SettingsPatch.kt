@@ -12,9 +12,9 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
 import app.revanced.patches.twitch.misc.integrations.IntegrationsPatch
 import app.revanced.patches.twitch.misc.settings.fingerprints.MenuGroupsOnClickFingerprint
 import app.revanced.patches.twitch.misc.settings.fingerprints.MenuGroupsUpdatedFingerprint
@@ -48,7 +48,7 @@ object SettingsPatch : BytecodePatch(
 ), Closeable {
     private const val REVANCED_SETTINGS_MENU_ITEM_NAME = "RevancedSettings"
     private const val REVANCED_SETTINGS_MENU_ITEM_ID = 0x7
-    private const val REVANCED_SETTINGS_MENU_ITEM_TITLE_RES = "revanced_settings"
+    private const val REVANCED_SETTINGS_MENU_ITEM_TITLE_RES = "revanced_settings_title"
     private const val REVANCED_SETTINGS_MENU_ITEM_ICON_RES = "ic_settings"
 
     private const val MENU_ITEM_ENUM_CLASS_DESCRIPTOR = "Ltv/twitch/android/feature/settings/menu/SettingsMenuItem;"

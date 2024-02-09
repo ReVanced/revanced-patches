@@ -346,6 +346,10 @@ public final class app/revanced/patches/music/misc/androidauto/BypassCertificate
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/music/misc/debugging/DebuggingPatch : app/revanced/patches/shared/misc/debugging/BaseDebuggingPatch {
+	public static final field INSTANCE Lapp/revanced/patches/music/misc/debugging/DebuggingPatch;
+}
+
 public final class app/revanced/patches/music/misc/gms/Constants {
 	public static final field INSTANCE Lapp/revanced/patches/music/misc/gms/Constants;
 }
@@ -360,6 +364,26 @@ public final class app/revanced/patches/music/misc/gms/GmsCoreSupportResourcePat
 
 public final class app/revanced/patches/music/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/misc/integrations/IntegrationsPatch;
+}
+
+public final class app/revanced/patches/music/misc/settings/SettingsPatch : app/revanced/patcher/patch/BytecodePatch, java/io/Closeable {
+	public static final field INSTANCE Lapp/revanced/patches/music/misc/settings/SettingsPatch;
+	public fun close ()V
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public final fun newIntent (Ljava/lang/String;)Lapp/revanced/patches/shared/misc/settings/preference/IntentPreference$Intent;
+}
+
+public final class app/revanced/patches/music/misc/settings/SettingsPatch$PreferenceScreen : app/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen {
+	public static final field INSTANCE Lapp/revanced/patches/music/misc/settings/SettingsPatch$PreferenceScreen;
+	public fun commit (Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen;)V
+	public final fun getMISC ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
+}
+
+public final class app/revanced/patches/music/misc/settings/SettingsResourcePatch : app/revanced/patches/shared/misc/settings/BaseSettingsResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/music/misc/settings/SettingsResourcePatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
 public final class app/revanced/patches/music/premium/backgroundplay/BackgroundPlayPatch : app/revanced/patcher/patch/BytecodePatch {
@@ -578,6 +602,13 @@ public final class app/revanced/patches/serviceportalbund/detection/root/RootDet
 	public static final field INSTANCE Lapp/revanced/patches/serviceportalbund/detection/root/RootDetectionPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public abstract class app/revanced/patches/shared/misc/debugging/BaseDebuggingPatch : app/revanced/patcher/patch/ResourcePatch {
+	public fun <init> (Lkotlin/reflect/KClass;Lkotlin/reflect/KClass;Ljava/util/Set;Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;Ljava/util/Set;Ljava/util/Set;)V
+	public synthetic fun <init> (Lkotlin/reflect/KClass;Lkotlin/reflect/KClass;Ljava/util/Set;Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
 public final class app/revanced/patches/shared/misc/fix/verticalscroll/VerticalScrollPatch : app/revanced/patcher/patch/BytecodePatch {
@@ -1473,7 +1504,7 @@ public final class app/revanced/patches/youtube/misc/autorepeat/AutoRepeatPatch 
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/youtube/misc/debugging/DebuggingPatch : app/revanced/patcher/patch/ResourcePatch {
+public final class app/revanced/patches/youtube/misc/debugging/DebuggingPatch : app/revanced/patches/shared/misc/debugging/BaseDebuggingPatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/debugging/DebuggingPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V

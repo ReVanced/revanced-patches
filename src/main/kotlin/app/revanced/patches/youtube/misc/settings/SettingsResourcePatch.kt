@@ -32,11 +32,10 @@ object SettingsResourcePatch : BaseSettingsResourcePatch(
             it.type == "string" && it.name == "app_theme_appearance_dark"
         }!!.id
 
-        arrayOf(
+        context.copyResources(
+            "settings",
             ResourceGroup("layout", "revanced_settings_with_toolbar.xml")
-        ).forEach { resourceGroup ->
-            context.copyResources("settings", resourceGroup)
-        }
+        )
 
         // Modify the manifest and add a data intent filter to the LicenseActivity.
         // Some devices freak out if undeclared data is passed to an intent,
