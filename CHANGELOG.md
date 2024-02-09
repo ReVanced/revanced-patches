@@ -1,3 +1,10 @@
+# [4.3.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.1...v4.3.0-dev.2) (2024-02-09)
+
+
+### Features
+
+* **Sync for Reddit:** Add `Fix /s/ links` patch ([f15ef3f](https://github.com/ReVanced/revanced-patches/commit/f15ef3f63460254236185f8e22c9395db4db9465))
+
 # [4.3.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.2.0...v4.3.0-dev.1) (2024-02-09)
 
 
