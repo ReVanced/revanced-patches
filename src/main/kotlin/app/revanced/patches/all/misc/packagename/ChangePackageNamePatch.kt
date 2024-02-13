@@ -11,20 +11,21 @@ import java.io.Closeable
 @Patch(
     name = "Change package name",
     description = "Appends \".revanced\" to the package name by default. Changing the package name of the app can lead to unexpected issues.",
-    use = false
+    use = false,
 )
 @Suppress("unused")
 object ChangePackageNamePatch : ResourcePatch(), Closeable {
-    private val packageNameOption = stringPatchOption(
-        key = "packageName",
-        default = "Default",
-        values = mapOf("Default" to "Default"),
-        title = "Package name",
-        description = "The name of the package to rename the app to.",
-        required = true
-    ) {
-        it == "Default" || it!!.matches(Regex("^[a-z]\\w*(\\.[a-z]\\w*)+\$"))
-    }
+    private val packageNameOption =
+        stringPatchOption(
+            key = "packageName",
+            default = "Default",
+            values = mapOf("Default" to "Default"),
+            title = "Package name",
+            description = "The name of the package to rename the app to.",
+            required = true,
+        ) {
+            it == "Default" || it!!.matches(Regex("^[a-z]\\w*(\\.[a-z]\\w*)+\$"))
+        }
 
     private lateinit var context: ResourceContext
 
@@ -43,20 +44,25 @@ object ChangePackageNamePatch : ResourcePatch(), Closeable {
     fun setOrGetFallbackPackageName(fallbackPackageName: String): String {
         val packageName = packageNameOption.value!!
 
-        return if (packageName == packageNameOption.default)
+        return if (packageName == packageNameOption.default) {
             fallbackPackageName.also { packageNameOption.value = it }
-        else
+        } else {
             packageName
+        }
     }
 
-    override fun close() = context.xmlEditor["AndroidManifest.xml"].use { editor ->
-        val replacementPackageName = packageNameOption.value
+    override fun close() =
+        context.document["AndroidManifest.xml"].use { document ->
+            val replacementPackageName = packageNameOption.value
 
-        val manifest = editor.file.getElementsByTagName("manifest").item(0) as Element
-        manifest.setAttribute(
-            "package",
-            if (replacementPackageName != packageNameOption.default) replacementPackageName
-            else "${manifest.getAttribute("package")}.revanced"
-        )
-    }
+            val manifest = document.getElementsByTagName("manifest").item(0) as Element
+            manifest.setAttribute(
+                "package",
+                if (replacementPackageName != packageNameOption.default) {
+                    replacementPackageName
+                } else {
+                    "${manifest.getAttribute("package")}.revanced"
+                },
+            )
+        }
 }

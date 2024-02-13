@@ -81,7 +81,7 @@ object CustomBrandingPatch : ResourcePatch() {
             }.let { resourceGroups ->
                 if (icon != REVANCED_ICON) {
                     val path = File(icon)
-                    val resourceDirectory = context["res"]
+                    val resourceDirectory = context.get("res", false)
 
                     resourceGroups.forEach { group ->
                         val fromDirectory = path.resolve(group.resourceDirectoryName)
@@ -102,7 +102,7 @@ object CustomBrandingPatch : ResourcePatch() {
 
         appName?.let { name ->
             // Change the app name.
-            val manifest = context["AndroidManifest.xml"]
+            val manifest = context.get("AndroidManifest.xml", false)
             manifest.writeText(
                 manifest.readText()
                     .replace(
