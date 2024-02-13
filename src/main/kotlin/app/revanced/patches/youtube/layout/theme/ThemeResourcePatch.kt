@@ -20,8 +20,8 @@ import org.w3c.dom.Element
         SettingsPatch::class,
         ResourceMappingPatch::class,
         SeekbarPreferencesPatch::class,
-        AddResourcesPatch::class
-    ]
+        AddResourcesPatch::class,
+    ],
 )
 internal object ThemeResourcePatch : ResourcePatch() {
     private const val SPLASH_BACKGROUND_COLOR = "revanced_splash_background_color"
@@ -31,28 +31,29 @@ internal object ThemeResourcePatch : ResourcePatch() {
 
         SeekbarPreferencesPatch.addPreferences(
             SwitchPreference("revanced_seekbar_custom_color"),
-            TextPreference("revanced_seekbar_custom_color_value", inputType = InputType.TEXT_CAP_CHARACTERS)
+            TextPreference("revanced_seekbar_custom_color_value", inputType = InputType.TEXT_CAP_CHARACTERS),
         )
 
         // Edit theme colors via resources.
-        context.xmlEditor["res/values/colors.xml"].use { editor ->
-            val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
+        context.document["res/values/colors.xml"].use { document ->
+            val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
 
             val children = resourcesNode.childNodes
             for (i in 0 until children.length) {
                 val node = children.item(i) as? Element ?: continue
 
-                node.textContent = when (node.getAttribute("name")) {
-                    "yt_black0", "yt_black1", "yt_black1_opacity95", "yt_black1_opacity98", "yt_black2", "yt_black3",
-                    "yt_black4", "yt_status_bar_background_dark", "material_grey_850"
-                    -> darkThemeBackgroundColor ?: continue
+                node.textContent =
+                    when (node.getAttribute("name")) {
+                        "yt_black0", "yt_black1", "yt_black1_opacity95", "yt_black1_opacity98", "yt_black2", "yt_black3",
+                        "yt_black4", "yt_status_bar_background_dark", "material_grey_850",
+                        -> darkThemeBackgroundColor ?: continue
 
-                    "yt_white1", "yt_white1_opacity95", "yt_white1_opacity98",
-                    "yt_white2", "yt_white3", "yt_white4",
-                    -> lightThemeBackgroundColor ?: continue
+                        "yt_white1", "yt_white1_opacity95", "yt_white1_opacity98",
+                        "yt_white2", "yt_white3", "yt_white4",
+                        -> lightThemeBackgroundColor ?: continue
 
-                    else -> continue
-                }
+                        else -> continue
+                    }
             }
         }
 
@@ -68,14 +69,15 @@ internal object ThemeResourcePatch : ResourcePatch() {
         // Edit splash screen files and change the background color,
         // if the background colors are set.
         if (darkThemeBackgroundColor != null && lightThemeBackgroundColor != null) {
-            val splashScreenResourceFiles = listOf(
-                "res/drawable/quantum_launchscreen_youtube.xml",
-                "res/drawable-sw600dp/quantum_launchscreen_youtube.xml"
-            )
+            val splashScreenResourceFiles =
+                listOf(
+                    "res/drawable/quantum_launchscreen_youtube.xml",
+                    "res/drawable-sw600dp/quantum_launchscreen_youtube.xml",
+                )
 
             splashScreenResourceFiles.forEach editSplashScreen@{ resourceFile ->
-                context.xmlEditor[resourceFile].use {
-                    val layerList = it.file.getElementsByTagName("layer-list").item(0) as Element
+                context.document[resourceFile].use {
+                    val layerList = it.getElementsByTagName("layer-list").item(0) as Element
 
                     val childNodes = layerList.childNodes
                     for (i in 0 until childNodes.length) {
@@ -89,24 +91,24 @@ internal object ThemeResourcePatch : ResourcePatch() {
                 }
             }
         }
-
     }
 
     private fun addColorResource(
         context: ResourceContext,
         resourceFile: String,
         colorName: String,
-        colorValue: String
+        colorValue: String,
     ) {
-        context.xmlEditor[resourceFile].use {
-            val resourcesNode = it.file.getElementsByTagName("resources").item(0) as Element
+        context.document[resourceFile].use {
+            val resourcesNode = it.getElementsByTagName("resources").item(0) as Element
 
             resourcesNode.appendChild(
-                it.file.createElement("color").apply {
+                it.createElement("color").apply {
                     setAttribute("name", colorName)
                     setAttribute("category", "color")
                     textContent = colorValue
-                })
+                },
+            )
         }
     }
 }

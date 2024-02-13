@@ -1736,6 +1736,7 @@ public final class app/revanced/util/ResourceUtilsKt {
 	public static final fun asSequence (Lorg/w3c/dom/NodeList;)Lkotlin/sequences/Sequence;
 	public static final fun childElementsSequence (Lorg/w3c/dom/Node;)Lkotlin/sequences/Sequence;
 	public static final fun copyResources (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;[Lapp/revanced/util/ResourceGroup;)V
+	public static final fun copyXmlNode (Ljava/lang/String;Lapp/revanced/patcher/util/Document;Lapp/revanced/patcher/util/Document;)Ljava/lang/AutoCloseable;
 	public static final fun copyXmlNode (Ljava/lang/String;Lapp/revanced/patcher/util/DomFileEditor;Lapp/revanced/patcher/util/DomFileEditor;)Ljava/lang/AutoCloseable;
 	public static final fun doRecursively (Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
 	public static final fun forEachChildElement (Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V

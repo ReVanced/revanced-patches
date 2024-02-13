@@ -1,7 +1,5 @@
 package app.revanced.patches.youtube.ad.general
 
-import app.revanced.util.findMutableMethodOf
-import app.revanced.util.injectHideViewCall
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
@@ -9,6 +7,8 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.misc.fix.verticalscroll.VerticalScrollPatch
 import app.revanced.patches.youtube.ad.getpremium.HideGetPremiumPatch
 import app.revanced.patches.youtube.misc.fix.backtoexitgesture.FixBackToExitGesturePatch
+import app.revanced.util.findMutableMethodOf
+import app.revanced.util.injectHideViewCall
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
@@ -20,11 +20,12 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
         HideGetPremiumPatch::class,
         HideAdsResourcePatch::class,
         VerticalScrollPatch::class,
-        FixBackToExitGesturePatch::class
+        FixBackToExitGesturePatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube",
+            [
                 "18.32.39",
                 "18.37.36",
                 "18.38.44",
@@ -37,30 +38,33 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            ]
-        )
-    ]
+                "19.04.37",
+            ],
+        ),
+    ],
 )
 @Suppress("unused")
-object HideAdsPatch : BytecodePatch() {
+object HideAdsPatch : BytecodePatch(emptySet()) {
     override fun execute(context: BytecodeContext) {
         context.classes.forEach { classDef ->
             classDef.methods.forEach { method ->
                 with(method.implementation) {
                     this?.instructions?.forEachIndexed { index, instruction ->
-                        if (instruction.opcode != Opcode.CONST)
+                        if (instruction.opcode != Opcode.CONST) {
                             return@forEachIndexed
+                        }
                         // Instruction to store the id adAttribution into a register
-                        if ((instruction as Instruction31i).wideLiteral != HideAdsResourcePatch.adAttributionId)
+                        if ((instruction as Instruction31i).wideLiteral != HideAdsResourcePatch.adAttributionId) {
                             return@forEachIndexed
+                        }
 
                         val insertIndex = index + 1
 
                         // Call to get the view with the id adAttribution
                         with(instructions.elementAt(insertIndex)) {
-                            if (opcode != Opcode.INVOKE_VIRTUAL)
+                            if (opcode != Opcode.INVOKE_VIRTUAL) {
                                 return@forEachIndexed
+                            }
 
                             // Hide the view
                             val viewRegister = (this as Instruction35c).registerC
@@ -71,7 +75,7 @@ object HideAdsPatch : BytecodePatch() {
                                     insertIndex,
                                     viewRegister,
                                     "Lapp/revanced/integrations/youtube/patches/components/AdsFilter;",
-                                    "hideAdAttributionView"
+                                    "hideAdAttributionView",
                                 )
                         }
                     }
