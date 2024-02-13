@@ -22,9 +22,6 @@ dependencies {
     implementation(libs.guava)
     // Used in JsonGenerator.
     implementation(libs.gson)
-
-    // A dependency to the Android library unfortunately fails the build, which is why this is required.
-    compileOnly(project("dummy"))
 }
 
 kotlin {
