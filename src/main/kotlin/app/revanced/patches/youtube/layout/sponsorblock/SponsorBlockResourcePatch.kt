@@ -17,26 +17,25 @@ import app.revanced.util.inputStreamFromBundledResource
     dependencies = [
         SettingsPatch::class,
         ResourceMappingPatch::class,
-        AddResourcesPatch::class
-    ]
+        AddResourcesPatch::class,
+    ],
 )
 internal object SponsorBlockResourcePatch : ResourcePatch() {
-
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
             IntentPreference(
                 "revanced_sb_settings",
-                intent = SettingsPatch.newIntent("revanced_sb_settings_intent")
-            )
+                intent = SettingsPatch.newIntent("revanced_sb_settings_intent"),
+            ),
         )
         arrayOf(
             ResourceGroup(
                 "layout",
                 "revanced_sb_inline_sponsor_overlay.xml",
                 "revanced_sb_new_segment.xml",
-                "revanced_sb_skip_sponsor_button.xml"
+                "revanced_sb_skip_sponsor_button.xml",
             ),
             ResourceGroup(
                 // required resource for back button, because when the base APK is used, this resource will not exist
@@ -46,37 +45,47 @@ internal object SponsorBlockResourcePatch : ResourcePatch() {
                 "revanced_sb_edit.xml",
                 "revanced_sb_logo.xml",
                 "revanced_sb_publish.xml",
-                "revanced_sb_voting.xml"
+                "revanced_sb_voting.xml",
             ),
             ResourceGroup(
                 // required resource for back button, because when the base APK is used, this resource will not exist
-                "drawable-xxxhdpi", "quantum_ic_skip_next_white_24.png"
-            )
+                "drawable-xxxhdpi",
+                "quantum_ic_skip_next_white_24.png",
+            ),
         ).forEach { resourceGroup ->
             context.copyResources("sponsorblock", resourceGroup)
         }
 
         // copy nodes from host resources to their real xml files
 
-        val hostingResourceStream = inputStreamFromBundledResource(
-            "sponsorblock",
-            "host/layout/youtube_controls_layout.xml"
-        )!!
+        val hostingResourceStream =
+            inputStreamFromBundledResource(
+                "sponsorblock",
+                "host/layout/youtube_controls_layout.xml",
+            )!!
 
         var modifiedControlsLayout = false
-        val targetXmlEditor = context.xmlEditor["res/layout/youtube_controls_layout.xml"]
+        val targetDocument = context.document["res/layout/youtube_controls_layout.xml"]
         "RelativeLayout".copyXmlNode(
-            context.xmlEditor[hostingResourceStream],
-            targetXmlEditor
+            context.document[hostingResourceStream],
+            targetDocument,
         ).also {
-            val children = targetXmlEditor.file.getElementsByTagName("RelativeLayout").item(0).childNodes
+            val children = targetDocument.getElementsByTagName("RelativeLayout").item(0).childNodes
 
             // Replace the startOf with the voting button view so that the button does not overlap
             for (i in 1 until children.length) {
                 val view = children.item(i)
 
                 // Replace the attribute for a specific node only
-                if (!(view.hasAttributes() && view.attributes.getNamedItem("android:id").nodeValue.endsWith("live_chat_overlay_button"))) continue
+                if (!(
+                        view.hasAttributes() &&
+                            view.attributes.getNamedItem(
+                                "android:id",
+                            ).nodeValue.endsWith("live_chat_overlay_button")
+                    )
+                ) {
+                    continue
+                }
 
                 // voting button id from the voting button view from the youtube_controls_layout.xml host file
                 val votingButtonId = "@+id/revanced_sb_voting_button"

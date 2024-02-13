@@ -10,11 +10,11 @@ import app.revanced.patches.tumblr.timelinefilter.TimelineFilterPatch
     name = "Disable dashboard ads",
     description = "Disables ads in the dashboard.",
     compatiblePackages = [CompatiblePackage("com.tumblr")],
-    dependencies = [TimelineFilterPatch::class]
+    dependencies = [TimelineFilterPatch::class],
 )
 @Suppress("unused")
-object DisableDashboardAds : BytecodePatch() {
-    override fun execute(context: BytecodeContext)  {
+object DisableDashboardAds : BytecodePatch(emptySet()) {
+    override fun execute(context: BytecodeContext) {
         // The timeline object types are filtered by their name in the TimelineObjectType enum.
         // This is often different from the "object_type" returned in the api (noted in comments here)
         arrayOf(
@@ -29,7 +29,7 @@ object DisableDashboardAds : BytecodePatch() {
             "DISPLAY_IO_INTERSCROLLER_AD", // "display_io_interscroller"
             "DISPLAY_IO_HEADLINE_VIDEO_AD", // "display_io_headline_video"
             "FACEBOOK_BIDDAABLE", // "facebook_biddable_sdk_ad"
-            "GOOGLE_NATIVE" // "google_native_ad"
+            "GOOGLE_NATIVE", // "google_native_ad"
         ).forEach {
             TimelineFilterPatch.addObjectTypeFilter(it)
         }

@@ -1,8 +1,8 @@
 package app.revanced.util
 
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.util.Document
 import app.revanced.patcher.util.DomFileEditor
-import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.util.resource.BaseResource
 import org.w3c.dom.Node
 import org.w3c.dom.NodeList
@@ -25,9 +25,10 @@ fun Node.childElementsSequence() = this.childNodes.asSequence().filter { it.node
 /**
  * Performs the given [action] on each child element.
  */
-fun Node.forEachChildElement(action: (Node) -> Unit) = childElementsSequence().forEach {
-    action(it)
-}
+fun Node.forEachChildElement(action: (Node) -> Unit) =
+    childElementsSequence().forEach {
+        action(it)
+    }
 
 /**
  * Recursively traverse the DOM tree starting from the given root node.
@@ -45,15 +46,19 @@ fun Node.doRecursively(action: (Node) -> Unit) {
  * @param sourceResourceDirectory The source resource directory name.
  * @param resources The resources to copy.
  */
-fun ResourceContext.copyResources(sourceResourceDirectory: String, vararg resources: ResourceGroup) {
-    val targetResourceDirectory = this["res"]
+fun ResourceContext.copyResources(
+    sourceResourceDirectory: String,
+    vararg resources: ResourceGroup,
+) {
+    val targetResourceDirectory = this.get("res", false)
 
     for (resourceGroup in resources) {
         resourceGroup.resources.forEach { resource ->
             val resourceFile = "${resourceGroup.resourceDirectoryName}/$resource"
             Files.copy(
                 inputStreamFromBundledResource(sourceResourceDirectory, resourceFile)!!,
-                targetResourceDirectory.resolve(resourceFile).toPath(), StandardCopyOption.REPLACE_EXISTING
+                targetResourceDirectory.resolve(resourceFile).toPath(),
+                StandardCopyOption.REPLACE_EXISTING,
             )
         }
     }
@@ -61,7 +66,7 @@ fun ResourceContext.copyResources(sourceResourceDirectory: String, vararg resour
 
 internal fun inputStreamFromBundledResource(
     sourceResourceDirectory: String,
-    resourceFile: String
+    resourceFile: String,
 ): InputStream? = classLoader.getResourceAsStream("$sourceResourceDirectory/$resourceFile")
 
 /**
@@ -80,29 +85,29 @@ class ResourceGroup(val resourceDirectoryName: String, vararg val resources: Str
 fun ResourceContext.iterateXmlNodeChildren(
     resource: String,
     targetTag: String,
-    callback: (node: Node) -> Unit
-) =
-    xmlEditor[classLoader.getResourceAsStream(resource)!!].use {
-        val stringsNode = it.file.getElementsByTagName(targetTag).item(0).childNodes
-        for (i in 1 until stringsNode.length - 1) callback(stringsNode.item(i))
-    }
-
+    callback: (node: Node) -> Unit,
+) = document[classLoader.getResourceAsStream(resource)!!].use {
+    val stringsNode = it.getElementsByTagName(targetTag).item(0).childNodes
+    for (i in 1 until stringsNode.length - 1) callback(stringsNode.item(i))
+}
 
 /**
- * Copies the specified node of the source [DomFileEditor] to the target [DomFileEditor].
- * @param source the source [DomFileEditor].
- * @param target the target [DomFileEditor]-
- * @return AutoCloseable that closes the target [DomFileEditor]s.
+ * Copies the specified node of the source [Document] to the target [Document].
+ * @param source the source [Document].
+ * @param target the target [Document]-
+ * @return AutoCloseable that closes the [Document]s.
  */
-fun String.copyXmlNode(source: DomFileEditor, target: DomFileEditor): AutoCloseable {
-    val hostNodes = source.file.getElementsByTagName(this).item(0).childNodes
+fun String.copyXmlNode(
+    source: Document,
+    target: Document,
+): AutoCloseable {
+    val hostNodes = source.getElementsByTagName(this).item(0).childNodes
 
-    val destinationResourceFile = target.file
-    val destinationNode = destinationResourceFile.getElementsByTagName(this).item(0)
+    val destinationNode = target.getElementsByTagName(this).item(0)
 
     for (index in 0 until hostNodes.length) {
         val node = hostNodes.item(index).cloneNode(true)
-        destinationResourceFile.adoptNode(node)
+        target.adoptNode(node)
         destinationNode.appendChild(node)
     }
 
@@ -112,14 +117,30 @@ fun String.copyXmlNode(source: DomFileEditor, target: DomFileEditor): AutoClosea
     }
 }
 
+@Deprecated(
+    "Use copyXmlNode(Document, Document) instead.",
+    ReplaceWith(
+        "this.copyXmlNode(source.file as Document, target.file as Document)",
+        "app.revanced.patcher.util.Document",
+        "app.revanced.patcher.util.Document",
+    ),
+)
+fun String.copyXmlNode(
+    source: DomFileEditor,
+    target: DomFileEditor,
+) = this.copyXmlNode(source.file as Document, target.file as Document)
+
 /**
  * Add a resource node child.
  *
  * @param resource The resource to add.
  * @param resourceCallback Called when a resource has been processed.
  */
-internal fun Node.addResource(resource: BaseResource, resourceCallback: (BaseResource) -> Unit = { }) {
+internal fun Node.addResource(
+    resource: BaseResource,
+    resourceCallback: (BaseResource) -> Unit = { },
+) {
     appendChild(resource.serialize(ownerDocument, resourceCallback))
 }
 
-internal fun DomFileEditor?.getNode(tagName: String) = this!!.file.getElementsByTagName(tagName).item(0)
+internal fun Document?.getNode(tagName: String) = this!!.getElementsByTagName(tagName).item(0)

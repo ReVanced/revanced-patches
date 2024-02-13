@@ -7,7 +7,6 @@ import java.util.*
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
-
 object ResourceMappingPatch : ResourcePatch() {
     internal lateinit var resourceMappings: List<ResourceElement>
         private set
@@ -17,15 +16,15 @@ object ResourceMappingPatch : ResourcePatch() {
 
     override fun execute(context: ResourceContext) {
         // save the file in memory to concurrently read from
-        val resourceXmlFile = context["res/values/public.xml"].readBytes()
+        val resourceXmlFile = context.get("res/values/public.xml", false).readBytes()
 
         // create a synchronized list to store the resource mappings
         val mappings = Collections.synchronizedList(mutableListOf<ResourceElement>())
 
         for (threadIndex in 0 until THREAD_COUNT) {
             threadPoolExecutor.execute thread@{
-                context.xmlEditor[resourceXmlFile.inputStream()].use { editor ->
-                    val resources = editor.file.documentElement.childNodes
+                context.document[resourceXmlFile.inputStream()].use { document ->
+                    val resources = document.documentElement.childNodes
                     val resourcesLength = resources.length
                     val jobSize = resourcesLength / THREAD_COUNT
 
