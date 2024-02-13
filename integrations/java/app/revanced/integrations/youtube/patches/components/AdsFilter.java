@@ -14,7 +14,7 @@ import app.revanced.integrations.youtube.StringTrieSearch;
 @SuppressWarnings("unused")
 public final class AdsFilter extends Filter {
     // region Fullscreen ad
-    private static long lastTimeClosedFullscreenAd = 0;
+    private static volatile long lastTimeClosedFullscreenAd;
     private static final Instrumentation instrumentation = new Instrumentation();
     private final StringFilterGroup fullscreenAd;
 
@@ -168,6 +168,9 @@ public final class AdsFilter extends Filter {
 
         Logger.printDebug(() -> "Closing fullscreen ad");
 
-        Utils.runOnMainThreadDelayed(() -> instrumentation.sendKeyDownUpSync(KeyEvent.KEYCODE_BACK), 1000);
+        Utils.runOnMainThreadDelayed(() -> {
+            // Must run off main thread (Odd, but whatever).
+            Utils.runOnBackgroundThread(() -> instrumentation.sendKeyDownUpSync(KeyEvent.KEYCODE_BACK));
+        }, 1000);
     }
 }
