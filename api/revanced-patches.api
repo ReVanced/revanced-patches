@@ -562,6 +562,12 @@ public final class app/revanced/patches/reddit/customclients/syncforreddit/detec
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/reddit/customclients/syncforreddit/fix/slink/FixSLinksPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/syncforreddit/fix/slink/FixSLinksPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/reddit/layout/disablescreenshotpopup/DisableScreenshotPopupPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/reddit/layout/disablescreenshotpopup/DisableScreenshotPopupPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -1075,6 +1081,18 @@ public final class app/revanced/patches/twitch/misc/settings/SettingsPatch : app
 
 public final class app/revanced/patches/twitch/misc/settings/SettingsResourcePatch : app/revanced/patches/shared/misc/settings/BaseSettingsResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/twitch/misc/settings/SettingsResourcePatch;
+}
+
+public final class app/revanced/patches/twitter/interaction/downloads/UnlockDownloadsPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/twitter/interaction/downloads/UnlockDownloadsPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/twitter/layout/viewcount/HideViewCountPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/twitter/layout/viewcount/HideViewCountPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
 public final class app/revanced/patches/twitter/misc/dynamiccolor/DynamicColorPatch : app/revanced/patcher/patch/ResourcePatch {
