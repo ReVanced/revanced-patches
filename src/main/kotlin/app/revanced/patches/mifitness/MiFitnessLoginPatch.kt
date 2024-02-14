@@ -9,7 +9,7 @@ import app.revanced.patches.mifitness.fingerprints.MiFitnessLoginFingerprint
 import app.revanced.util.exception
 
 @Patch(
-    name = "Allow login to Xiaomi in Mi Fitness",
+    name = "Remove login region restriction",
     description = "Fixes login for uncertified Mi Fitness app.",
     compatiblePackages = [CompatiblePackage("com.xiaomi.wearable")]
 )
