@@ -9,7 +9,7 @@ import app.revanced.patches.mifitness.device.fingerprints.MiFitnessBandLanguageF
 import app.revanced.util.exception
 
 @Patch(
-    name = "Set ENG to all Mi Wear devices like Mi Band CN",
+    name = "Force English",
     description = "Sets language to EN for all wear devices like Mi Band 8 CN.",
     compatiblePackages = [CompatiblePackage("com.xiaomi.wearable")],
     dependencies = [MiFitnessBandLanguagePatch::class]
