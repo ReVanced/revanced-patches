@@ -6,7 +6,7 @@ plugins {
     `maven-publish`
 }
 
-group = "app.revanced"
+group = "app.revaanced"
 
 repositories {
     mavenCentral()
