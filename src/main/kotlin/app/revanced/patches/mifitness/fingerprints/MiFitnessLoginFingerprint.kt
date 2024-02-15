@@ -8,5 +8,9 @@ internal object MiFitnessLoginFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PRIVATE or AccessFlags.CONSTRUCTOR,
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass == "Lcom/xiaomi/passport/accountmanager/XiaomiAccountManager;"
-    }
+    },
+    parameters = listOf(
+        "Landroid/content/Context;",
+        "Z"
+    )
 )
