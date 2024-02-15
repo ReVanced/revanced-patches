@@ -1,3 +1,7 @@
+public final class app/revanced/generator/MainKt {
+	public static synthetic fun main ([Ljava/lang/String;)V
+}
+
 public final class app/revanced/patches/all/activity/exportall/ExportAllActivitiesPatch : app/revanced/patcher/patch/ResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/all/activity/exportall/ExportAllActivitiesPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
