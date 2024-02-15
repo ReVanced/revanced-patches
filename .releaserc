@@ -33,7 +33,7 @@
       {
         "assets": [
           {
-            "path": "build/libs/*.jar"
+            "path": "build/libs/revanced-patches*"
           },
           {
             "path": "patches.json"
