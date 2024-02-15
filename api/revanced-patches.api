@@ -158,18 +158,6 @@ public final class app/revanced/patches/backdrops/misc/pro/ProUnlockPatch : app/
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/mifitness/MiFitnessLoginPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/mifitness/MiFitnessLoginPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/mifitness/device/MiFitnessBandLanguagePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/mifitness/device/MiFitnessBandLanguagePatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
 public final class app/revanced/patches/candylinkvpn/UnlockProPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/candylinkvpn/UnlockProPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -292,6 +280,18 @@ public final class app/revanced/patches/messenger/inputfield/patch/DisableSwitch
 
 public final class app/revanced/patches/messenger/inputfield/patch/DisableTypingIndicatorPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/messenger/inputfield/patch/DisableTypingIndicatorPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/mifitness/MiFitnessLoginPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/mifitness/MiFitnessLoginPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/mifitness/device/MiFitnessBandLanguagePatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/mifitness/device/MiFitnessBandLanguagePatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
