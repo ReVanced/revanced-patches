@@ -1083,12 +1083,6 @@ public final class app/revanced/patches/twitter/layout/viewcount/HideViewCountPa
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/twitter/misc/browserchooser/BrowserChooserPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/browserchooser/BrowserChooserPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
 public final class app/revanced/patches/twitter/misc/dynamiccolor/DynamicColorPatch : app/revanced/patcher/patch/ResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/dynamiccolor/DynamicColorPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
@@ -1114,6 +1108,12 @@ public final class app/revanced/patches/twitter/misc/hook/patch/ads/HideAdsHookP
 
 public final class app/revanced/patches/twitter/misc/hook/patch/recommendation/HideRecommendedUsersPatch : app/revanced/patches/twitter/misc/hook/patch/BaseHookPatch {
 	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/hook/patch/recommendation/HideRecommendedUsersPatch;
+}
+
+public final class app/revanced/patches/twitter/misc/links/OpenLinksWithAppChooserPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/links/OpenLinksWithAppChooserPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
 public final class app/revanced/patches/vsco/misc/pro/UnlockProPatch : app/revanced/patcher/patch/BytecodePatch {
