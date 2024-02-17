@@ -146,9 +146,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                     ),
                     SwitchPreference("revanced_alt_thumbnail_stills_fast"),
                     NonInteractivePreference(
-                        "revanced_alt_thumbnail_stills_about",
-                        // Restore the preference dividers to keep it from looking weird.
-                        selectable = true
+                        "revanced_alt_thumbnail_stills_about"
                     )
                 )
             )

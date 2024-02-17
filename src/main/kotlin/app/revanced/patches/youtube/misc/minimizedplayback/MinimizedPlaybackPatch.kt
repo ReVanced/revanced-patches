@@ -63,10 +63,7 @@ object MinimizedPlaybackPatch : BytecodePatch(
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             NonInteractivePreference(
                 "revanced_minimized_playback_enabled",
-                "revanced_minimized_playback_summary_on",
-                // Use horizontal dividers to keep the settings from looking weird.
-                // If PreferenceCategories are added, then this should be removed.
-                selectable = true
+                "revanced_minimized_playback_summary_on"
             )
         )
 
