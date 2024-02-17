@@ -22,7 +22,7 @@ internal object CopyVideoUrlResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
+        SettingsPatch.PreferenceScreen.LAYOUT_PLAYER.addPreferences(
             PreferenceScreen(
                 "revanced_copy_video_url_preference_screen",
                 preferences = setOf(

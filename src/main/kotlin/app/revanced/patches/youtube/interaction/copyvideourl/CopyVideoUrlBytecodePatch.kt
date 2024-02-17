@@ -30,7 +30,7 @@ import app.revanced.patches.youtube.video.information.VideoInformationPatch
     ]
 )
 @Suppress("unused")
-object CopyVideoUrlBytecodePatch : BytecodePatch() {
+object CopyVideoUrlBytecodePatch : BytecodePatch(emptySet()) {
     private const val INTEGRATIONS_PLAYER_PACKAGE = "Lapp/revanced/integrations/youtube/videoplayer"
     private val BUTTONS_DESCRIPTORS = listOf(
         "$INTEGRATIONS_PLAYER_PACKAGE/CopyVideoUrlButton;",

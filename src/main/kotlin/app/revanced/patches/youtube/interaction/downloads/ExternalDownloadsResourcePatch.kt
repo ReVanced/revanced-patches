@@ -24,7 +24,7 @@ internal object ExternalDownloadsResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
+        SettingsPatch.PreferenceScreen.LAYOUT_PLAYER.addPreferences(
             PreferenceScreen(
                 "revanced_external_downloader_preference_screen",
                 preferences = setOf(

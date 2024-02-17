@@ -19,7 +19,7 @@ internal object SwipeControlsResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
+        SettingsPatch.PreferenceScreen.LAYOUT_PLAYER.addPreferences(
             PreferenceScreen(
                 key = "revanced_swipe_controls_preference_screen",
                 preferences = setOf(

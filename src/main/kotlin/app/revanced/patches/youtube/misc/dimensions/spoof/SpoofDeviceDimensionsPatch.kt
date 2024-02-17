@@ -45,7 +45,9 @@ object SpoofDeviceDimensionsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.MISC.addPreferences(SwitchPreference("revanced_spoof_device_dimensions",))
+        SettingsPatch.PreferenceScreen.MISC.addPreferences(
+            SwitchPreference("revanced_spoof_device_dimensions")
+        )
 
         DeviceDimensionsModelToStringFingerprint.result
             ?.mutableClass?.methods?.find { method -> method.name == "<init>" }

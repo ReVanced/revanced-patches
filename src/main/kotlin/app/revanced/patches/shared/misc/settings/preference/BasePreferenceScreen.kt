@@ -27,15 +27,6 @@ abstract class BasePreferenceScreen(
         val categories: MutableSet<Category> = mutableSetOf()
     ) : BasePreferenceCollection(key, titleKey, preferences) {
 
-        /**
-         * Initialize using title and summary keys with suffix "_title" and "_summary".
-         */
-        constructor(
-            key: String? = null,
-            preferences: MutableSet<BasePreference> = mutableSetOf(),
-            categories: MutableSet<Category> = mutableSetOf()
-        ) : this(key, key + "_title", key + "_summary", preferences, categories)
-
         override fun transform(): PreferenceScreen {
             return PreferenceScreen(
                 key,

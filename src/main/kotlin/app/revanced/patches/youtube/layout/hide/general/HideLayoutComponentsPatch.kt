@@ -68,37 +68,14 @@ object HideLayoutComponentsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference("revanced_hide_gray_separator"),
-            SwitchPreference("revanced_hide_join_membership_button"),
-            SwitchPreference("revanced_hide_channel_watermark"),
-            SwitchPreference("revanced_hide_for_you_shelf"),
-            SwitchPreference("revanced_hide_notify_me_button"),
-            SwitchPreference("revanced_hide_timed_reactions"),
-            SwitchPreference("revanced_hide_search_result_recommendations"),
-            SwitchPreference("revanced_hide_search_result_shelf_header"),
-            SwitchPreference("revanced_hide_channel_guidelines"),
-            SwitchPreference("revanced_hide_expandable_chip"),
-            SwitchPreference("revanced_hide_video_quality_menu_footer"),
-            SwitchPreference("revanced_hide_chapters"),
-            SwitchPreference("revanced_hide_community_posts"),
-            SwitchPreference("revanced_hide_compact_banner"),
-            SwitchPreference("revanced_hide_movies_section"),
-            SwitchPreference("revanced_hide_feed_survey"),
-            SwitchPreference("revanced_hide_community_guidelines"),
-            SwitchPreference("revanced_hide_subscribers_community_guidelines"),
-            SwitchPreference("revanced_hide_channel_member_shelf"),
-            SwitchPreference("revanced_hide_emergency_box"),
-            SwitchPreference("revanced_hide_info_panels"),
-            SwitchPreference("revanced_hide_medical_panels"),
+        PreferenceScreen.LAYOUT_PLAYER.addPreferences(
             SwitchPreference("revanced_hide_channel_bar"),
-            SwitchPreference("revanced_hide_quick_actions"),
-            SwitchPreference("revanced_hide_related_videos"),
-            SwitchPreference("revanced_hide_image_shelf"),
-            SwitchPreference("revanced_hide_latest_posts_ads"),
-            SwitchPreference("revanced_hide_mix_playlists"),
-            SwitchPreference("revanced_hide_artist_cards"),
+            SwitchPreference("revanced_hide_channel_guidelines"),
+            SwitchPreference("revanced_hide_channel_member_shelf"),
+            SwitchPreference("revanced_hide_channel_watermark"),
+            SwitchPreference("revanced_hide_chapters"),
             SwitchPreference("revanced_hide_chips_shelf"),
+            SwitchPreference("revanced_hide_community_guidelines"),
             app.revanced.patches.shared.misc.settings.preference.PreferenceScreen(
                 "revanced_hide_description_components_preference_screen",
                 preferences = setOf(
@@ -109,6 +86,35 @@ object HideLayoutComponentsPatch : BytecodePatch(
                     SwitchPreference("revanced_hide_transcript_section"),
                 )
             ),
+            SwitchPreference("revanced_hide_emergency_box"),
+            SwitchPreference("revanced_hide_expandable_chip"),
+            SwitchPreference("revanced_hide_gray_separator"),
+            SwitchPreference("revanced_hide_info_panels"),
+            SwitchPreference("revanced_hide_medical_panels"),
+            SwitchPreference("revanced_hide_quick_actions"),
+            SwitchPreference("revanced_hide_related_videos"),
+            SwitchPreference("revanced_hide_subscribers_community_guidelines"),
+            SwitchPreference("revanced_hide_timed_reactions"),
+            SwitchPreference("revanced_hide_video_quality_menu_footer"),
+        )
+
+        PreferenceScreen.LAYOUT_FEED.addPreferences(
+            SwitchPreference("revanced_hide_artist_cards"),
+            SwitchPreference("revanced_hide_community_posts"),
+            SwitchPreference("revanced_hide_compact_banner"),
+            SwitchPreference("revanced_hide_feed_survey"),
+            SwitchPreference("revanced_hide_for_you_shelf"),
+            SwitchPreference("revanced_hide_image_shelf"),
+            SwitchPreference("revanced_hide_join_membership_button"),
+            SwitchPreference("revanced_hide_latest_posts_ads"),
+            SwitchPreference("revanced_hide_mix_playlists"),
+            SwitchPreference("revanced_hide_movies_section"),
+            SwitchPreference("revanced_hide_notify_me_button"),
+            SwitchPreference("revanced_hide_search_result_recommendations"),
+            SwitchPreference("revanced_hide_search_result_shelf_header"),
+        )
+
+        PreferenceScreen.LAYOUT_OTHER.addPreferences(
             app.revanced.patches.shared.misc.settings.preference.PreferenceScreen(
                 "revanced_custom_filter_preference_screen",
                 preferences = setOf(

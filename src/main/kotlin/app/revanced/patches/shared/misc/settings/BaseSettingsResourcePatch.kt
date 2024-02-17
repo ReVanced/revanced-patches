@@ -39,18 +39,23 @@ abstract class BaseSettingsResourcePatch(
     }
 
     override fun close() {
-        fun Node.addPreference(preference: BasePreference) {
-            preference.serialize(ownerDocument) { resource ->
+        fun Node.addPreference(preference: BasePreference, addFirst: Boolean = false) {
+            val node = preference.serialize(ownerDocument) { resource ->
                 // TODO: Currently, resources can only be added to "values", which may not be the correct place.
                 //  It may be necessary to ask for the desired resourceValue in the future.
                 AddResourcesPatch("values", resource)
-            }.let(this::appendChild)
+            }
+            if (addFirst && firstChild != null) {
+                insertBefore(node, firstChild)
+            } else {
+                appendChild(node)
+            }
         }
 
         // Add the root preference to an existing fragment if needed.
         rootPreference?.let { (intentPreference, fragment) ->
             context.xmlEditor["res/xml/$fragment.xml"].use {
-                it.getNode("PreferenceScreen").addPreference(intentPreference)
+                it.getNode("PreferenceScreen").addPreference(intentPreference, true)
             }
         }
 

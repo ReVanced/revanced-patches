@@ -28,21 +28,18 @@
         </patch>
         <patch id="misc.settings.SettingsResourcePatch">
             <string name="revanced_settings">ReVanced</string>
-            <string name="revanced_settings_summary">ReVanced specific settings</string>
             <string name="revanced_pref_import_export_title">Import / Export</string>
             <string name="revanced_pref_import_export_summary">Import / Export ReVanced settings</string>
         </patch>
         <patch id="misc.settings.SettingsPatch">
             <string name="revanced_ads_screen_title">Ads</string>
-            <string name="revanced_ads_screen_summary">Ad related settings</string>
-            <string name="revanced_interactions_screen_title">Interactions</string>
-            <string name="revanced_interactions_screen_summary">Settings related to interactions</string>
-            <string name="revanced_layout_screen_title">Layout</string>
-            <string name="revanced_layout_screen_summary">Settings related to the layout</string>
-            <string name="revanced_video_screen_title">Video</string>
-            <string name="revanced_video_screen_summary">Settings related to the video player</string>
+            <string name="revanced_layout_feed_screen_title">Feed layout</string>
+            <string name="revanced_layout_player_screen_title">Player layout</string>
+            <string name="revanced_layout_other_screen_title">Other layout</string>
+            <string name="revanced_shorts_screen_title">Shorts</string>
+            <string name="revanced_seekbar_screen_title">Seekbar</string>
             <string name="revanced_misc_screen_title">Misc</string>
-            <string name="revanced_misc_screen_summary">Miscellaneous patches</string>
+            <string name="revanced_video_screen_title">Video</string>
         </patch>
         <patch id="misc.debugging.DebuggingPatch">
             <string name="revanced_debug_title">Debug logging</string>
@@ -478,7 +475,6 @@
             <string name="revanced_hide_seekbar_thumbnail_summary_off">Thumbnail seekbar is shown</string>
         </patch>
         <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
-            <string name="revanced_shorts_preference_screen_title">Shorts components</string>
             <string name="revanced_hide_shorts_title">Hide Shorts in feed</string>
             <string name="revanced_hide_shorts_summary_on">Shorts are hidden</string>
             <string name="revanced_hide_shorts_summary_off">Shorts are shown</string>
@@ -515,7 +511,6 @@
             <string name="revanced_hide_shorts_navigation_bar_title">Hide navigation bar</string>
             <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigation bar is hidden</string>
             <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigation bar is shown</string>
-            <string name="revanced_shorts_preference_screen_summary">Manage the visibility of Shorts components</string>
         </patch>
         <patch id="layout.hide.suggestedvideoendscreen.DisableSuggestedVideoEndScreenResourcePatch">
             <string name="revanced_disable_suggested_video_end_screen_title">Disable suggested video end screen</string>
@@ -538,7 +533,6 @@
         </patch>
         <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
             <string name="revanced_ryd_settings_title">Return YouTube Dislike</string>
-            <string name="revanced_ryd_settings_summary">Settings for Return YouTube Dislike</string>
             <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden</string>
             <string name="revanced_ryd_failure_connection_timeout">Dislikes temporarily not available (API timed out)</string>
             <string name="revanced_ryd_failure_connection_status_code" formatted="false">Dislikes not available (status %d)</string>
@@ -594,13 +588,8 @@
             <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Seekbar thumbnails will appear above the seekbar</string>
             <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Seekbar thumbnails will appear in fullscreen</string>
         </patch>
-        <patch id="layout.seekbar.SeekbarPreferencesPatch">
-            <string name="revanced_seekbar_preference_screen_title">Seekbar</string>
-            <string name="revanced_seekbar_preference_screen_summary">Settings for the seekbar</string>
-        </patch>
         <patch id="layout.sponsorblock.SponsorBlockResourcePatch">
             <string name="revanced_sb_settings_title">SponsorBlock</string>
-            <string name="revanced_sb_settings_summary">SponsorBlock related settings</string>
             <string name="revanced_sb_enable_sb">Enable SponsorBlock</string>
             <string name="revanced_sb_enable_sb_sum">SponsorBlock is a crowd-sourced system for skipping annoying parts of YouTube videos</string>
             <string name="revanced_sb_appearance_category">Appearance</string>

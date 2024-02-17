@@ -121,7 +121,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
+        SettingsPatch.PreferenceScreen.LAYOUT_FEED.addPreferences(
             PreferenceScreen(
                 "revanced_alt_thumbnail_preference_screen",
                 preferences = setOf(

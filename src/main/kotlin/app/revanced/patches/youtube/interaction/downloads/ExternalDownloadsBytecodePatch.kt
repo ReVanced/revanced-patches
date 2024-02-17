@@ -30,7 +30,7 @@ import app.revanced.patches.youtube.video.information.VideoInformationPatch
     ]
 )
 @Suppress("unused")
-object ExternalDownloadsBytecodePatch : BytecodePatch() {
+object ExternalDownloadsBytecodePatch : BytecodePatch(emptySet()) {
     private const val BUTTON_DESCRIPTOR = "Lapp/revanced/integrations/youtube/videoplayer/ExternalDownloadButton;"
 
     override fun execute(context: BytecodeContext) {

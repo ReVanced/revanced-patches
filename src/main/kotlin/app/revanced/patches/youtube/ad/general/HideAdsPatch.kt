@@ -43,7 +43,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
     ]
 )
 @Suppress("unused")
-object HideAdsPatch : BytecodePatch() {
+object HideAdsPatch : BytecodePatch(emptySet()) {
     override fun execute(context: BytecodeContext) {
         context.classes.forEach { classDef ->
             classDef.methods.forEach { method ->

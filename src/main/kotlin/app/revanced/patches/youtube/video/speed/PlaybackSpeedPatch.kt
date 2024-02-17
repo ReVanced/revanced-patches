@@ -26,7 +26,7 @@ import app.revanced.patches.youtube.video.speed.remember.RememberPlaybackSpeedPa
     ]
 )
 @Suppress("unused")
-object PlaybackSpeedPatch : BytecodePatch() {
+object PlaybackSpeedPatch : BytecodePatch(emptySet()) {
     override fun execute(context: BytecodeContext) {
         // All patches this patch depends on succeed.
     }
