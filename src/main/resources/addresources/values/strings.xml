@@ -281,9 +281,6 @@
             <string name="revanced_hide_like_dislike_button_title">Hide Like and Dislike</string>
             <string name="revanced_hide_like_dislike_button_summary_on">Like and Dislike buttons are hidden</string>
             <string name="revanced_hide_like_dislike_button_summary_off">Like and Dislike buttons are shown</string>
-            <string name="revanced_hide_live_chat_button_title">Hide Live chat</string>
-            <string name="revanced_hide_live_chat_button_summary_on">Live chat button is hidden</string>
-            <string name="revanced_hide_live_chat_button_summary_off">Live chat button is shown</string>
             <string name="revanced_hide_share_button_title">Hide Share</string>
             <string name="revanced_hide_share_button_summary_on">Share button is hidden</string>
             <string name="revanced_hide_share_button_summary_off">Share button is shown</string>
