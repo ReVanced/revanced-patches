@@ -67,7 +67,7 @@
             <string name="revanced_hide_join_membership_button_title">Hide \'Join\' button</string>
             <string name="revanced_hide_join_membership_button_summary_on">Button is hidden</string>
             <string name="revanced_hide_join_membership_button_summary_off">Button is shown</string>
-            <string name="revanced_hide_channel_watermark_title">Hide channel watermark in video player</string>
+            <string name="revanced_hide_channel_watermark_title">Hide channel watermark</string>
             <string name="revanced_hide_channel_watermark_summary_on">Watermark is hidden</string>
             <string name="revanced_hide_channel_watermark_summary_off">Watermark is shown</string>
             <string name="revanced_hide_for_you_shelf_title">Hide \'For you\' shelf in channel page</string>
