@@ -354,7 +354,7 @@
             <string name="revanced_navigation_buttons_preference_screen_summary">Hide or change buttons in the navigation bar</string>
         </patch>
         <patch id="layout.hide.player.flyoutmenupanel.HidePlayerFlyoutMenuPatch">
-            <string name="revanced_hide_player_flyout_title">Player flyout menu items</string>
+            <string name="revanced_hide_player_flyout_title">Flyout menu items</string>
             <string name="revanced_hide_player_flyout_summary">Manage the visibility of player flyout menu items</string>
             <string name="revanced_hide_player_flyout_captions_title">Hide Captions menu</string>
             <string name="revanced_hide_player_flyout_captions_summary_on">Captions menu item is hidden</string>
