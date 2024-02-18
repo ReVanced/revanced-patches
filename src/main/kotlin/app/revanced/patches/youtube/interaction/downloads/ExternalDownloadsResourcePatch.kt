@@ -6,6 +6,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.SortStyle
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.playercontrols.BottomControlsResourcePatch
@@ -26,7 +27,8 @@ internal object ExternalDownloadsResourcePatch : ResourcePatch() {
 
         SettingsPatch.PreferenceScreen.LAYOUT_PLAYER.addPreferences(
             PreferenceScreen(
-                "revanced_external_downloader_preference_screen",
+                key = "revanced_external_downloader_preference_screen",
+                sortStyle = SortStyle.UNSORTED,
                 preferences = setOf(
                     SwitchPreference("revanced_external_downloader"),
                     TextPreference("revanced_external_downloader_name", inputType = InputType.TEXT)

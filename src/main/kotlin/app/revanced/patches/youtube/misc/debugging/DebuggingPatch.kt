@@ -6,6 +6,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.SortStyle
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
@@ -23,7 +24,8 @@ object DebuggingPatch : ResourcePatch() {
 
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             PreferenceScreen(
-                "revanced_debug_preference_screen",
+                key = "revanced_debug_preference_screen",
+                sortStyle = SortStyle.UNSORTED,
                 preferences = setOf(
                     SwitchPreference("revanced_debug"),
                     SwitchPreference("revanced_debug_protobuffer"),

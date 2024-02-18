@@ -12,6 +12,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.InputType
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.SortStyle
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ParseElementFromBufferFingerprint
@@ -77,7 +78,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_chips_shelf"),
             SwitchPreference("revanced_hide_community_guidelines"),
             app.revanced.patches.shared.misc.settings.preference.PreferenceScreen(
-                "revanced_hide_description_components_preference_screen",
+                key = "revanced_hide_description_components_preference_screen",
                 preferences = setOf(
                     SwitchPreference("revanced_hide_info_cards_section"),
                     SwitchPreference("revanced_hide_game_section"),
@@ -115,7 +116,8 @@ object HideLayoutComponentsPatch : BytecodePatch(
 
         PreferenceScreen.LAYOUT_OTHER.addPreferences(
             app.revanced.patches.shared.misc.settings.preference.PreferenceScreen(
-                "revanced_custom_filter_preference_screen",
+                key = "revanced_custom_filter_preference_screen",
+                sortStyle = SortStyle.UNSORTED,
                 preferences = setOf(
                     SwitchPreference("revanced_custom_filter"),
                     // TODO: This should be a dynamic ListPreference, which does not exist yet

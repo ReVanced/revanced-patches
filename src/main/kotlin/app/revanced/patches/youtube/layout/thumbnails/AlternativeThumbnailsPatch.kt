@@ -11,7 +11,12 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
-import app.revanced.patches.shared.misc.settings.preference.*
+import app.revanced.patches.shared.misc.settings.preference.ListPreference
+import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.SortStyle
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.MessageDigestImageUrlFingerprint
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.MessageDigestImageUrlParentFingerprint
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.cronet.RequestFingerprint
@@ -123,7 +128,8 @@ object AlternativeThumbnailsPatch : BytecodePatch(
 
         SettingsPatch.PreferenceScreen.LAYOUT_FEED.addPreferences(
             PreferenceScreen(
-                "revanced_alt_thumbnail_preference_screen",
+                key = "revanced_alt_thumbnail_preference_screen",
+                sortStyle = SortStyle.UNSORTED,
                 preferences = setOf(
                     NonInteractivePreference(
                         "revanced_alt_thumbnail_about",
