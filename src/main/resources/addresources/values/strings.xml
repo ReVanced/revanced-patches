@@ -281,7 +281,6 @@
             <string name="revanced_swipe_overlay_background_alpha_summary">The visibility of swipe overlay background</string>
             <string name="revanced_swipe_threshold_title">Swipe magnitude threshold</string>
             <string name="revanced_swipe_threshold_summary">The amount of threshold for swipe to occur</string>
-            <string name="revanced_swipe_controls_preference_screen_summary">Control volume and brightness</string>
         </patch>
         <patch id="layout.autocaptions.AutoCaptionsPatch">
             <string name="revanced_auto_captions_title">Disable auto captions</string>
@@ -847,7 +846,6 @@
             <string name="revanced_alt_thumbnail_stills_fast_summary_off">Using high quality still captures</string>
             <string name="revanced_alt_thumbnail_stills_about_title">About still video captures</string>
             <string name="revanced_alt_thumbnail_stills_about_summary">Still captures are taken from the beginning/middle/end of each video. These images are built into YouTube and no external API is used</string>
-            <string name="revanced_alt_thumbnail_preference_screen_summary">Video thumbnail settings</string>
         </patch>
         <patch id="misc.announcements.AnnouncementsPatch">
             <string name="revanced_announcements_title">Show ReVanced announcements</string>

@@ -25,6 +25,7 @@ import app.revanced.patches.youtube.layout.thumbnails.fingerprints.cronet.reques
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.cronet.request.callback.OnSucceededFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patches.youtube.misc.settings.SettingsResourcePatch
 import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -126,35 +127,30 @@ object AlternativeThumbnailsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT_FEED.addPreferences(
-            PreferenceScreen(
-                key = "revanced_alt_thumbnail_preference_screen",
-                sortStyle = SortStyle.UNSORTED,
-                preferences = setOf(
-                    NonInteractivePreference(
-                        "revanced_alt_thumbnail_about",
-                        null, // Summary is dynamically updated based on the current settings.
-                        tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsStatusPreference"
-                    ),
-                    SwitchPreference("revanced_alt_thumbnail_dearrow"),
-                    SwitchPreference("revanced_alt_thumbnail_dearrow_connection_toast"),
-                    TextPreference("revanced_alt_thumbnail_dearrow_api_url"),
-                    NonInteractivePreference(
-                        "revanced_alt_thumbnail_dearrow_about",
-                        // Custom about preference with link to the DeArrow website.
-                        tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsAboutDeArrowPreference",
-                        selectable = true
-                    ),
-                    SwitchPreference("revanced_alt_thumbnail_stills"),
-                    ListPreference(
-                        "revanced_alt_thumbnail_stills_time",
-                        summaryKey = null,
-                    ),
-                    SwitchPreference("revanced_alt_thumbnail_stills_fast"),
-                    NonInteractivePreference(
-                        "revanced_alt_thumbnail_stills_about"
-                    )
-                )
+        SettingsResourcePatch += PreferenceScreen(
+            key = "revanced_setting_screen_02",
+            titleKey = "revanced_alt_thumbnail_preference_screen_title",
+            summaryKey = null,
+            sortStyle = SortStyle.UNSORTED,
+            preferences = setOf(
+                NonInteractivePreference(
+                    "revanced_alt_thumbnail_about",
+                    null, // Summary is dynamically updated based on the current settings.
+                    tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsStatusPreference"
+                ),
+                SwitchPreference("revanced_alt_thumbnail_dearrow"),
+                SwitchPreference("revanced_alt_thumbnail_dearrow_connection_toast"),
+                TextPreference("revanced_alt_thumbnail_dearrow_api_url"),
+                NonInteractivePreference(
+                    "revanced_alt_thumbnail_dearrow_about",
+                    // Custom about preference with link to the DeArrow website.
+                    tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsAboutDeArrowPreference",
+                    selectable = true
+                ),
+                SwitchPreference("revanced_alt_thumbnail_stills"),
+                ListPreference("revanced_alt_thumbnail_stills_time", summaryKey = null,),
+                SwitchPreference("revanced_alt_thumbnail_stills_fast"),
+                NonInteractivePreference("revanced_alt_thumbnail_stills_about")
             )
         )
 

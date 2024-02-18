@@ -9,10 +9,11 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.packagename.ChangePackageNamePatch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.IntentPreference
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.SortStyle
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
-import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.fingerprints.LicenseActivityOnCreateFingerprint
 import app.revanced.patches.youtube.misc.settings.fingerprints.SetThemeFingerprint
@@ -108,15 +109,24 @@ object SettingsPatch : BytecodePatch(
         // This is done because alphabetical ordering scatters related items apart,
         // and there is no way to specify an ordering here without refactoring other code.
         // Screens are bundled only if one or more preference is added during patching.
-        val ADS = Screen("revanced_setting_screen_01", "revanced_ads_screen_title", null)
-        val LAYOUT_FEED = Screen("revanced_setting_screen_02", "revanced_layout_feed_screen_title", null)
-        val LAYOUT_PLAYER = Screen("revanced_setting_screen_03", "revanced_layout_player_screen_title", null)
-        val LAYOUT_OTHER = Screen("revanced_setting_screen_04", "revanced_layout_other_screen_title", null)
-        val SHORTS = Screen("revanced_setting_screen_05", "revanced_shorts_screen_title", null)
-        val SEEKBAR = Screen("revanced_setting_screen_06", "revanced_seekbar_screen_title", null)
-        // RYD and SB are items 7 and 8,and use an Intent preference as they have their own custom Integrations fragments.
-        val MISC = Screen("revanced_setting_screen_09", "revanced_misc_screen_title", null)
-        val VIDEO = Screen("revanced_setting_screen_10", "revanced_video_screen_title", null)
+        val ADS = Screen("revanced_setting_screen_01",
+            "revanced_ads_screen_title", null)
+        // Alternative thumbnails is item 2
+        val LAYOUT_FEED = Screen("revanced_setting_screen_03",
+            "revanced_layout_feed_screen_title", null)
+        val LAYOUT_PLAYER = Screen("revanced_setting_screen_04",
+            "revanced_layout_player_screen_title", null)
+        val LAYOUT_OTHER = Screen("revanced_setting_screen_05",
+            "revanced_layout_other_screen_title", null)
+        val SHORTS = Screen("revanced_setting_screen_06",
+            "revanced_shorts_screen_title", null)
+        val SEEKBAR = Screen("revanced_setting_screen_07",
+            "revanced_seekbar_screen_title", null)
+        // Swipe controls is item 8
+        // RYD is item 9
+        // SB is item 10
+        val MISC = Screen("revanced_setting_screen_11", "revanced_misc_screen_title", null)
+        val VIDEO = Screen("revanced_setting_screen_12", "revanced_video_screen_title", null)
 
         override fun commit(screen: app.revanced.patches.shared.misc.settings.preference.PreferenceScreen) {
             SettingsResourcePatch += screen

@@ -27,7 +27,7 @@ internal object SponsorBlockResourcePatch : ResourcePatch() {
         AddResourcesPatch(this::class)
 
         SettingsResourcePatch += IntentPreference(
-            key = "revanced_setting_screen_08",
+            key = "revanced_setting_screen_10",
             titleKey = "revanced_sb_settings_title",
             summaryKey = null,
             intent = SettingsPatch.newIntent("revanced_sb_settings_intent")
