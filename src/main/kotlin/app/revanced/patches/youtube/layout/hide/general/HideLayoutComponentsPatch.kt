@@ -95,7 +95,6 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_related_videos"),
             SwitchPreference("revanced_hide_subscribers_community_guidelines"),
             SwitchPreference("revanced_hide_timed_reactions"),
-            SwitchPreference("revanced_hide_video_quality_menu_footer"),
         )
 
         PreferenceScreen.LAYOUT_FEED.addPreferences(
@@ -123,6 +122,10 @@ object HideLayoutComponentsPatch : BytecodePatch(
                     TextPreference("revanced_custom_filter_strings", inputType = InputType.TEXT_MULTI_LINE)
                 )
             )
+        )
+
+        PreferenceScreen.VIDEO.addPreferences(
+            SwitchPreference("revanced_hide_video_quality_menu_footer")
         )
 
         LithoFilterPatch.addFilter(LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR)
