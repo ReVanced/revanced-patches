@@ -423,7 +423,7 @@
             <string name="revanced_hide_endscreen_cards_summary_off">End screen cards are shown</string>
         </patch>
         <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-            <string name="revanced_hide_filter_bar_preference_title">Hide filter bar</string>
+            <string name="revanced_hide_filter_bar_preference_title">Filter bar</string>
             <string name="revanced_hide_filter_bar_feed_in_feed_title">Hide in feed</string>
             <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Hidden in feed</string>
             <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Shown in feed</string>
