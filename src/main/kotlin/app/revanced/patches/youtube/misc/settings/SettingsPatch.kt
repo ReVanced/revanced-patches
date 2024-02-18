@@ -12,6 +12,7 @@ import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.IntentPreference
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.SortStyle
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.fingerprints.LicenseActivityOnCreateFingerprint
@@ -105,7 +106,7 @@ object SettingsPatch : BytecodePatch(
 
     object PreferenceScreen : BasePreferenceScreen() {
         // Screens are sorted in the UI by the screen key.
-        // This is done because alphabetical ordering scatters related items apart,
+        // This is done because sorting by title scatters related items apart,
         // and there is no other way to specify an ordering here without refactoring other code.
         // Each screen is bundled only if one or more preference is added during patching.
         val ADS = Screen("revanced_settings_screen_01",
@@ -119,8 +120,10 @@ object SettingsPatch : BytecodePatch(
             "revanced_layout_other_screen_title", null)
         val SHORTS = Screen("revanced_settings_screen_06",
             "revanced_shorts_screen_title", null)
+        // Use no sorting for the Seekbar because title sorting scatters the custom color preferences.
+        // Can use title sorting when PreferenceCategory support is added.
         val SEEKBAR = Screen("revanced_settings_screen_07",
-            "revanced_seekbar_screen_title", null)
+            "revanced_seekbar_screen_title", null, sortStyle = SortStyle.UNSORTED)
         // Swipe controls is item 8
         // RYD is item 9
         // SB is item 10

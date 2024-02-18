@@ -24,7 +24,8 @@ abstract class BasePreferenceScreen(
         titleKey: String = "${key}_title",
         private val summaryKey: String? = "${key}_summary",
         preferences: MutableSet<BasePreference> = mutableSetOf(),
-        val categories: MutableSet<Category> = mutableSetOf()
+        val categories: MutableSet<Category> = mutableSetOf(),
+        private val sortStyle: PreferenceScreen.SortStyle? = null,
     ) : BasePreferenceCollection(key, titleKey, preferences) {
 
         override fun transform(): PreferenceScreen {
@@ -32,6 +33,7 @@ abstract class BasePreferenceScreen(
                 key,
                 titleKey,
                 summaryKey,
+                sortStyle,
                 // Screens and preferences are sorted at runtime by integrations code,
                 // so they appear in alphabetical order for the localized language in use.
                 preferences = preferences + categories.map { it.transform() }
