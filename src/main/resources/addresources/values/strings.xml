@@ -148,7 +148,7 @@
             <string name="revanced_hide_chips_shelf_title">Hide chips shelf</string>
             <string name="revanced_hide_chips_shelf_summary_on">Chips shelf is hidden</string>
             <string name="revanced_hide_chips_shelf_summary_off">Chips shelf is shown</string>
-            <string name="revanced_hide_description_components_preference_screen_title">Hide components in the video description</string>
+            <string name="revanced_hide_description_components_preference_screen_title">Components in the video description</string>
             <string name="revanced_hide_info_cards_section_title">Hide info cards section</string>
             <string name="revanced_hide_info_cards_section_summary_on">Info cards section is hidden</string>
             <string name="revanced_hide_info_cards_section_summary_off">Info cards section is shown</string>
@@ -286,7 +286,7 @@
             <string name="revanced_auto_captions_summary_off">Auto captions are enabled</string>
         </patch>
         <patch id="layout.buttons.action.HideButtonsPatch">
-            <string name="revanced_hide_buttons_preference_screen_title">Hide action buttons</string>
+            <string name="revanced_hide_buttons_preference_screen_title">Action buttons</string>
             <string name="revanced_hide_like_dislike_button_title">Hide like and dislike buttons</string>
             <string name="revanced_hide_like_dislike_button_summary_on">Like and dislike buttons are hidden</string>
             <string name="revanced_hide_like_dislike_button_summary_off">Like and dislike buttons are shown</string>
