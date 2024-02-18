@@ -236,13 +236,13 @@
         </patch>
         <patch id="interaction.downloads.ExternalDownloadsResourcePatch">
             <string name="revanced_external_downloader_not_installed_warning">%s is not installed. Please install it.</string>
-            <string name="revanced_external_downloader_preference_screen_title">External download settings</string>
+            <string name="revanced_external_downloader_preference_screen_title">External downloads</string>
+            <string name="revanced_external_downloader_preference_screen_summary">Settings for using an external downloader</string>
             <string name="revanced_external_downloader_title">Show external download button</string>
             <string name="revanced_external_downloader_summary_on">Download button shown in player</string>
             <string name="revanced_external_downloader_summary_off">Download button not shown in player</string>
             <string name="revanced_external_downloader_name_title">Downloader package name</string>
             <string name="revanced_external_downloader_name_summary">Package name of your installed external downloader app, such as NewPipe or Seal</string>
-            <string name="revanced_external_downloader_preference_screen_summary">Settings for using an external downloader</string>
         </patch>
         <patch id="interaction.seekbar.DisablePreciseSeekingGesturePatch">
             <string name="revanced_disable_precise_seeking_gesture_title">Disable precise seeking gesture</string>
