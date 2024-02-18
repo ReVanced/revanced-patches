@@ -118,10 +118,12 @@ object SettingsPatch : BytecodePatch(
             "revanced_layout_player_screen_title", null)
         val LAYOUT_OTHER = Screen("revanced_settings_screen_05",
             "revanced_layout_other_screen_title", null)
-        val SHORTS = Screen("revanced_settings_screen_06",
-            "revanced_shorts_screen_title", null)
-        // Use no sorting for the Seekbar because title sorting scatters the custom color preferences.
+        // Use no sorting for Shorts, because the 'hide shorts in feed' gets mixed into the
+        // huge list of hide Shorts player buttons and the layout looks weird.
         // Can use title sorting when PreferenceCategory support is added.
+        val SHORTS = Screen("revanced_settings_screen_06",
+            "revanced_shorts_screen_title", null, sortStyle = SortStyle.UNSORTED)
+        // Use no sorting for the Seekbar because title sorting scatters the custom color preferences.
         val SEEKBAR = Screen("revanced_settings_screen_07",
             "revanced_seekbar_screen_title", null, sortStyle = SortStyle.UNSORTED)
         // Swipe controls is item 8
