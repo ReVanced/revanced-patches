@@ -34,8 +34,6 @@ internal object CopyVideoUrlResourcePatch : ResourcePatch() {
             )
         )
 
-        AddResourcesPatch(this::class)
-
         BottomControlsResourcePatch.addControls("copyvideourl")
     }
 }
