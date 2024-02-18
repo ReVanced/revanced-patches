@@ -8,6 +8,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.SortStyle
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.layout.buttons.navigation.fingerprints.*
 import app.revanced.patches.youtube.layout.buttons.navigation.utils.InjectionUtils.REGISTER_TEMPLATE_REPLACEMENT
@@ -60,11 +61,12 @@ object NavigationButtonsPatch : BytecodePatch(
         SettingsPatch.PreferenceScreen.LAYOUT_OTHER.addPreferences(
             PreferenceScreen(
                 key = "revanced_navigation_buttons_screen",
+                sortStyle = SortStyle.UNSORTED,
                 preferences = setOf(
                     SwitchPreference("revanced_hide_home_button"),
                     SwitchPreference("revanced_hide_shorts_button"),
-                    SwitchPreference("revanced_hide_subscriptions_button"),
                     SwitchPreference("revanced_hide_create_button"),
+                    SwitchPreference("revanced_hide_subscriptions_button"),
                     SwitchPreference("revanced_switch_create_with_notifications_button"),
                 ),
             )
