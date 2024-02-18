@@ -61,10 +61,7 @@ object MinimizedPlaybackPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            NonInteractivePreference(
-                "revanced_minimized_playback_enabled",
-                "revanced_minimized_playback_summary_on"
-            )
+            NonInteractivePreference("revanced_minimized_playback")
         )
 
         MinimizedPlaybackManagerFingerprint.result?.apply {

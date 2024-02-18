@@ -20,7 +20,7 @@ internal object HideFilterBarResourcePatch : ResourcePatch() {
 
         SettingsPatch.PreferenceScreen.LAYOUT_FEED.addPreferences(
             PreferenceScreen(
-                key = "revanced_hide_filter_bar_preference",
+                key = "revanced_hide_filter_bar_screen",
                 preferences = setOf(
                     SwitchPreference("revanced_hide_filter_bar_feed_in_feed"),
                     SwitchPreference("revanced_hide_filter_bar_feed_in_search"),

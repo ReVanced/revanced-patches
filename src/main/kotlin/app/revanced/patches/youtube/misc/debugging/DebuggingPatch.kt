@@ -24,7 +24,7 @@ object DebuggingPatch : ResourcePatch() {
 
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             PreferenceScreen(
-                key = "revanced_debug_preference_screen",
+                key = "revanced_debug_screen",
                 sortStyle = SortStyle.UNSORTED,
                 preferences = setOf(
                     SwitchPreference("revanced_debug"),

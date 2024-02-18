@@ -12,6 +12,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.InputType
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.SortStyle
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
@@ -20,7 +21,6 @@ import app.revanced.patches.youtube.layout.hide.general.fingerprints.PlayerOverl
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ShowWatermarkFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.patches.youtube.misc.settings.SettingsPatch.PreferenceScreen
 import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -69,15 +69,15 @@ object HideLayoutComponentsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        PreferenceScreen.LAYOUT_PLAYER.addPreferences(
+        SettingsPatch.PreferenceScreen.LAYOUT_PLAYER.addPreferences(
             SwitchPreference("revanced_hide_channel_bar"),
             SwitchPreference("revanced_hide_channel_guidelines"),
             SwitchPreference("revanced_hide_channel_member_shelf"),
             SwitchPreference("revanced_hide_channel_watermark"),
             SwitchPreference("revanced_hide_chips_shelf"),
             SwitchPreference("revanced_hide_community_guidelines"),
-            app.revanced.patches.shared.misc.settings.preference.PreferenceScreen(
-                key = "revanced_hide_description_components_preference_screen",
+            PreferenceScreen(
+                key = "revanced_hide_description_components_screen",
                 preferences = setOf(
                     SwitchPreference("revanced_hide_chapters"),
                     SwitchPreference("revanced_hide_info_cards_section"),
@@ -98,7 +98,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_timed_reactions"),
         )
 
-        PreferenceScreen.LAYOUT_FEED.addPreferences(
+        SettingsPatch.PreferenceScreen.LAYOUT_FEED.addPreferences(
             SwitchPreference("revanced_hide_artist_cards"),
             SwitchPreference("revanced_hide_community_posts"),
             SwitchPreference("revanced_hide_compact_banner"),
@@ -114,9 +114,9 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_search_result_shelf_header"),
         )
 
-        PreferenceScreen.LAYOUT_OTHER.addPreferences(
-            app.revanced.patches.shared.misc.settings.preference.PreferenceScreen(
-                key = "revanced_custom_filter_preference_screen",
+        SettingsPatch.PreferenceScreen.LAYOUT_OTHER.addPreferences(
+            PreferenceScreen(
+                key = "revanced_custom_filter_screen",
                 sortStyle = SortStyle.UNSORTED,
                 preferences = setOf(
                     SwitchPreference("revanced_custom_filter"),
@@ -126,7 +126,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
             )
         )
 
-        PreferenceScreen.VIDEO.addPreferences(
+        SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
             SwitchPreference("revanced_hide_video_quality_menu_footer")
         )
 

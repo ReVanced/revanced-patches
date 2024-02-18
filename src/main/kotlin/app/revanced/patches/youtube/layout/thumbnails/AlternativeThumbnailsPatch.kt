@@ -40,7 +40,6 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class,
-        AlternativeThumbnailsResourcePatch::class,
         AddResourcesPatch::class
     ],
     compatiblePackages = [
@@ -128,8 +127,8 @@ object AlternativeThumbnailsPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         SettingsResourcePatch += PreferenceScreen(
-            key = "revanced_setting_screen_02",
-            titleKey = "revanced_alt_thumbnail_preference_screen_title",
+            key = "revanced_settings_screen_02",
+            titleKey = "revanced_alt_thumbnail_screen_title",
             summaryKey = null,
             sortStyle = SortStyle.UNSORTED,
             preferences = setOf(

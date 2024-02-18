@@ -27,7 +27,7 @@ internal object ExternalDownloadsResourcePatch : ResourcePatch() {
 
         SettingsPatch.PreferenceScreen.LAYOUT_PLAYER.addPreferences(
             PreferenceScreen(
-                key = "revanced_external_downloader_preference_screen",
+                key = "revanced_external_downloader_screen",
                 sortStyle = SortStyle.UNSORTED,
                 preferences = setOf(
                     SwitchPreference("revanced_external_downloader"),

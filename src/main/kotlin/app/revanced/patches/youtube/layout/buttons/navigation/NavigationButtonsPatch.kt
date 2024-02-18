@@ -59,7 +59,7 @@ object NavigationButtonsPatch : BytecodePatch(
 
         SettingsPatch.PreferenceScreen.LAYOUT_OTHER.addPreferences(
             PreferenceScreen(
-                key = "revanced_navigation_buttons_preference_screen",
+                key = "revanced_navigation_buttons_screen",
                 preferences = setOf(
                     SwitchPreference("revanced_hide_home_button"),
                     SwitchPreference("revanced_hide_shorts_button"),

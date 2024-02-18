@@ -106,26 +106,26 @@ object SettingsPatch : BytecodePatch(
     object PreferenceScreen : BasePreferenceScreen() {
         // Screens are sorted in the UI by the screen key.
         // This is done because alphabetical ordering scatters related items apart,
-        // and there is no way to specify an ordering here without refactoring other code.
-        // Screens are bundled only if one or more preference is added during patching.
-        val ADS = Screen("revanced_setting_screen_01",
+        // and there is no other way to specify an ordering here without refactoring other code.
+        // Each screen is bundled only if one or more preference is added during patching.
+        val ADS = Screen("revanced_settings_screen_01",
             "revanced_ads_screen_title", null)
         // Alternative thumbnails is item 2
-        val LAYOUT_FEED = Screen("revanced_setting_screen_03",
+        val LAYOUT_FEED = Screen("revanced_settings_screen_03",
             "revanced_layout_feed_screen_title", null)
-        val LAYOUT_PLAYER = Screen("revanced_setting_screen_04",
+        val LAYOUT_PLAYER = Screen("revanced_settings_screen_04",
             "revanced_layout_player_screen_title", null)
-        val LAYOUT_OTHER = Screen("revanced_setting_screen_05",
+        val LAYOUT_OTHER = Screen("revanced_settings_screen_05",
             "revanced_layout_other_screen_title", null)
-        val SHORTS = Screen("revanced_setting_screen_06",
+        val SHORTS = Screen("revanced_settings_screen_06",
             "revanced_shorts_screen_title", null)
-        val SEEKBAR = Screen("revanced_setting_screen_07",
+        val SEEKBAR = Screen("revanced_settings_screen_07",
             "revanced_seekbar_screen_title", null)
         // Swipe controls is item 8
         // RYD is item 9
         // SB is item 10
-        val MISC = Screen("revanced_setting_screen_11", "revanced_misc_screen_title", null)
-        val VIDEO = Screen("revanced_setting_screen_12", "revanced_video_screen_title", null)
+        val MISC = Screen("revanced_settings_screen_11", "revanced_misc_screen_title", null)
+        val VIDEO = Screen("revanced_settings_screen_12", "revanced_video_screen_title", null)
 
         override fun commit(screen: app.revanced.patches.shared.misc.settings.preference.PreferenceScreen) {
             SettingsResourcePatch += screen

@@ -22,7 +22,7 @@ internal object ReturnYouTubeDislikeResourcePatch : ResourcePatch() {
         AddResourcesPatch(this::class)
 
         SettingsResourcePatch += IntentPreference(
-            key = "revanced_setting_screen_09",
+            key = "revanced_settings_screen_09",
             titleKey = "revanced_ryd_settings_title",
             summaryKey = null,
             intent = SettingsPatch.newIntent("revanced_ryd_settings_intent")

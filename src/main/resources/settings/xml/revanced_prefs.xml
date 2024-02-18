@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen android:key="revanced_root_preference_screen_sort_key"
-        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yt="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yt="http://schemas.android.com/apk/res-auto"
+    android:key="revanced_settings_root_screen_sort_key"> <!-- Sort by preference key -->
 </PreferenceScreen>

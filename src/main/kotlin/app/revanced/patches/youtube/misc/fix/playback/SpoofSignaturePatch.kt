@@ -60,7 +60,7 @@ object SpoofSignaturePatch : BytecodePatch(
 
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             PreferenceScreen(
-                key = "revanced_spoof_signature_verification",
+                key = "revanced_spoof_signature_verification_screen",
                 sortStyle = SortStyle.UNSORTED,
                 preferences = setOf(
                     SwitchPreference("revanced_spoof_signature_verification_enabled"),

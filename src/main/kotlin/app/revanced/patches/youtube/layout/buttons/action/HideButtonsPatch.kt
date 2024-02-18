@@ -50,7 +50,7 @@ object HideButtonsPatch : ResourcePatch() {
 
         SettingsPatch.PreferenceScreen.LAYOUT_PLAYER.addPreferences(
             PreferenceScreen(
-                "revanced_hide_buttons_preference_screen",
+                "revanced_hide_buttons_screen",
                 preferences = setOf(
                     SwitchPreference("revanced_hide_like_dislike_button"),
                     SwitchPreference("revanced_hide_live_chat_button"),

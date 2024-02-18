@@ -22,8 +22,8 @@ internal object SwipeControlsResourcePatch : ResourcePatch() {
         AddResourcesPatch(this::class)
 
         SettingsResourcePatch += PreferenceScreen(
-            key = "revanced_setting_screen_08",
-            titleKey = "revanced_swipe_controls_preference_screen_title",
+            key = "revanced_settings_screen_08",
+            titleKey = "revanced_swipe_controls_screen_title",
             summaryKey = null,
             sortStyle = SortStyle.UNSORTED,
             preferences = setOf(
