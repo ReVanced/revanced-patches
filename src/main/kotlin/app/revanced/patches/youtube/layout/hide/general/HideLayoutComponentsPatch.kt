@@ -74,12 +74,12 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_channel_guidelines"),
             SwitchPreference("revanced_hide_channel_member_shelf"),
             SwitchPreference("revanced_hide_channel_watermark"),
-            SwitchPreference("revanced_hide_chapters"),
             SwitchPreference("revanced_hide_chips_shelf"),
             SwitchPreference("revanced_hide_community_guidelines"),
             app.revanced.patches.shared.misc.settings.preference.PreferenceScreen(
                 key = "revanced_hide_description_components_preference_screen",
                 preferences = setOf(
+                    SwitchPreference("revanced_hide_chapters"),
                     SwitchPreference("revanced_hide_info_cards_section"),
                     SwitchPreference("revanced_hide_game_section"),
                     SwitchPreference("revanced_hide_music_section"),

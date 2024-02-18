@@ -94,9 +94,6 @@
             <string name="revanced_hide_video_quality_menu_footer_title">Hide video quality menu footer</string>
             <string name="revanced_hide_video_quality_menu_footer_summary_on">Video quality menu footer is hidden</string>
             <string name="revanced_hide_video_quality_menu_footer_summary_off">Video quality menu footer is shown</string>
-            <string name="revanced_hide_chapters_title">Hide chapters in the video description</string>
-            <string name="revanced_hide_chapters_summary_on">Chapters are hidden</string>
-            <string name="revanced_hide_chapters_summary_off">Chapters are shown</string>
             <string name="revanced_hide_community_posts_title">Hide community posts</string>
             <string name="revanced_hide_community_posts_summary_on">Community posts are hidden</string>
             <string name="revanced_hide_community_posts_summary_off">Community posts are shown</string>
@@ -155,6 +152,9 @@
             <string name="revanced_hide_info_cards_section_title">Hide info cards section</string>
             <string name="revanced_hide_info_cards_section_summary_on">Info cards section is hidden</string>
             <string name="revanced_hide_info_cards_section_summary_off">Info cards section is shown</string>
+            <string name="revanced_hide_chapters_title">Hide chapters</string>
+            <string name="revanced_hide_chapters_summary_on">Chapters are hidden</string>
+            <string name="revanced_hide_chapters_summary_off">Chapters are shown</string>
             <string name="revanced_hide_game_section_title">Hide game section</string>
             <string name="revanced_hide_game_section_summary_on">Game section is hidden</string>
             <string name="revanced_hide_game_section_summary_off">Game section is shown</string>
