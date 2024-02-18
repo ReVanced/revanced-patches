@@ -46,14 +46,13 @@ object SettingsResourcePatch : BaseSettingsResourcePatch(
         context.xmlEditor["res/values/styles.xml"].use { editor ->
             val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
 
-            val listDividerNode = editor.file.createElement("item")
-            listDividerNode.setAttribute("name", "android:listDivider")
-            listDividerNode.appendChild(editor.file.createTextNode("@null"))
-
             for (i in 0 until resourcesNode.childNodes.length) {
                 val node = resourcesNode.childNodes.item(i) as? Element ?: continue
                 val name = node.getAttribute("name")
                 if (name == "Theme.YouTube.Settings" || name == "Theme.YouTube.Settings.Dark") {
+                    val listDividerNode = editor.file.createElement("item")
+                    listDividerNode.setAttribute("name", "android:listDivider")
+                    listDividerNode.appendChild(editor.file.createTextNode("@null"))
                     node.appendChild(listDividerNode)
                 }
             }
