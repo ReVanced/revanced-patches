@@ -55,7 +55,9 @@ object TabletMiniPlayerPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT_OTHER.addPreferences(SwitchPreference("revanced_tablet_miniplayer"))
+        SettingsPatch.PreferenceScreen.LAYOUT_OTHER.addPreferences(
+            SwitchPreference("revanced_tablet_miniplayer")
+        )
 
         // First resolve the fingerprints via the parent fingerprint.
         MiniPlayerDimensionsCalculatorParentFingerprint.result

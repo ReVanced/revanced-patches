@@ -13,7 +13,7 @@ import app.revanced.patches.tumblr.timelinefilter.TimelineFilterPatch
     dependencies = [TimelineFilterPatch::class]
 )
 @Suppress("unused")
-object DisableDashboardAds : BytecodePatch() {
+object DisableDashboardAds : BytecodePatch(emptySet()) {
     override fun execute(context: BytecodeContext)  {
         // The timeline object types are filtered by their name in the TimelineObjectType enum.
         // This is often different from the "object_type" returned in the api (noted in comments here)

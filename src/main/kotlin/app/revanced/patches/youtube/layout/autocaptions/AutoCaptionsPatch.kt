@@ -48,7 +48,9 @@ object AutoCaptionsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT_PLAYER.addPreferences(SwitchPreference("revanced_auto_captions"))
+        SettingsPatch.PreferenceScreen.LAYOUT_PLAYER.addPreferences(
+            SwitchPreference("revanced_auto_captions")
+        )
 
         mapOf(
             StartVideoInformerFingerprint to 0,

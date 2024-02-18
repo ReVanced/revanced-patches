@@ -6,6 +6,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.SortStyle
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
@@ -24,7 +25,7 @@ internal object SwipeControlsResourcePatch : ResourcePatch() {
             key = "revanced_setting_screen_08",
             titleKey = "revanced_swipe_controls_preference_screen_title",
             summaryKey = null,
-            sortStyle = PreferenceScreen.SortStyle.UNSORTED,
+            sortStyle = SortStyle.UNSORTED,
             preferences = setOf(
                 SwitchPreference("revanced_swipe_brightness"),
                 SwitchPreference("revanced_swipe_volume"),

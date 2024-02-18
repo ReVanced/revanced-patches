@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.reddit.customclients.syncforreddit.detection.piracy.fingerprints.PiracyDetectionFingerprint
 
-@Patch(description = "Disables detection of modified versions.",)
+@Patch(description = "Disables detection of modified versions.")
 object DisablePiracyDetectionPatch : BytecodePatch(setOf(PiracyDetectionFingerprint)) {
     override fun execute(context: BytecodeContext) {
         // Do not throw an error if the fingerprint is not resolved.

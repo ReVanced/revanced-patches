@@ -148,7 +148,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                     selectable = true
                 ),
                 SwitchPreference("revanced_alt_thumbnail_stills"),
-                ListPreference("revanced_alt_thumbnail_stills_time", summaryKey = null,),
+                ListPreference("revanced_alt_thumbnail_stills_time", summaryKey = null),
                 SwitchPreference("revanced_alt_thumbnail_stills_fast"),
                 NonInteractivePreference("revanced_alt_thumbnail_stills_about")
             )

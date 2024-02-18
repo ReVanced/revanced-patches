@@ -14,7 +14,7 @@ import app.revanced.patches.tumblr.timelinefilter.TimelineFilterPatch
     compatiblePackages = [CompatiblePackage("com.tumblr")]
 )
 @Suppress("unused")
-object DisableTumblrLivePatch : BytecodePatch() {
+object DisableTumblrLivePatch : BytecodePatch(emptySet()) {
     override fun execute(context: BytecodeContext) {
         // Hide the LIVE_MARQUEE timeline element that appears in the feed
         // Called "live_marquee" in api response

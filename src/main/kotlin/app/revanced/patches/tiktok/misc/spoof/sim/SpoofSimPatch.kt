@@ -28,7 +28,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
     use = false
 )
 @Suppress("unused")
-object SpoofSimPatch : BytecodePatch() {
+object SpoofSimPatch : BytecodePatch(emptySet()) {
     private val replacements = hashMapOf(
         "getSimCountryIso" to "getCountryIso",
         "getNetworkCountryIso" to "getCountryIso",

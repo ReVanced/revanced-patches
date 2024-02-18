@@ -46,7 +46,9 @@ object RestoreOldSeekbarThumbnailsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.SEEKBAR.addPreferences(SwitchPreference("revanced_restore_old_seekbar_thumbnails"))
+        SettingsPatch.PreferenceScreen.SEEKBAR.addPreferences(
+            SwitchPreference("revanced_restore_old_seekbar_thumbnails")
+        )
 
         FullscreenSeekbarThumbnailsFingerprint.result?.mutableMethod?.apply {
             val moveResultIndex = getInstructions().lastIndex - 1
