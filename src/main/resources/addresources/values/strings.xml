@@ -167,7 +167,7 @@
             <string name="revanced_hide_transcript_section_title">Hide transcript section</string>
             <string name="revanced_hide_transcript_section_summary_on">Transcript section is hidden</string>
             <string name="revanced_hide_transcript_section_summary_off">Transcript section is shown</string>
-            <string name="revanced_hide_description_components_preference_screen_summary">Hide components under the video description</string>
+            <string name="revanced_hide_description_components_preference_screen_summary">Hide or show video description components</string>
             <string name="revanced_custom_filter_preference_screen_title">Custom filter</string>
             <string name="revanced_custom_filter_title">Enable custom filter</string>
             <string name="revanced_custom_filter_summary_on">Custom filter is enabled</string>
@@ -354,8 +354,8 @@
             <string name="revanced_navigation_buttons_preference_screen_summary">Hide or change buttons in the navigation bar</string>
         </patch>
         <patch id="layout.hide.player.flyoutmenupanel.HidePlayerFlyoutMenuPatch">
-            <string name="revanced_hide_player_flyout_title">Flyout menu items</string>
-            <string name="revanced_hide_player_flyout_summary">Manage the visibility of player flyout menu items</string>
+            <string name="revanced_hide_player_flyout_title">Flyout menu</string>
+            <string name="revanced_hide_player_flyout_summary">Hide or show player flyout menu items</string>
             <string name="revanced_hide_player_flyout_captions_title">Hide Captions menu</string>
             <string name="revanced_hide_player_flyout_captions_summary_on">Captions menu item is hidden</string>
             <string name="revanced_hide_player_flyout_captions_summary_off">Captions menu item is shown</string>
@@ -410,7 +410,7 @@
             <string name="revanced_hide_preview_comment_title">Hide preview comment</string>
             <string name="revanced_hide_preview_comment_summary_on">Preview comment is hidden</string>
             <string name="revanced_hide_preview_comment_summary_off">Preview comment is shown</string>
-            <string name="revanced_comments_preference_screen_summary">Manage the visibility of comments section components</string>
+            <string name="revanced_comments_preference_screen_summary">Hide or show comments section components</string>
         </patch>
         <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
             <string name="revanced_hide_crowdfunding_box_title">Hide crowdfunding box</string>
@@ -433,7 +433,7 @@
             <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Hide in related videos</string>
             <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Hidden in related videos</string>
             <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Shown in related videos</string>
-            <string name="revanced_hide_filter_bar_preference_summary">Manage the visibility of the filter bar in the feed, search and related videos</string>
+            <string name="revanced_hide_filter_bar_preference_summary">Hide or show the filter bar in the feed, search, and related videos</string>
         </patch>
         <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
             <string name="revanced_hide_floating_microphone_button_title">Hide floating microphone button</string>
