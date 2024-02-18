@@ -4,7 +4,6 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
-import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.playercontrols.BottomControlsResourcePatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
@@ -23,13 +22,8 @@ internal object CopyVideoUrlResourcePatch : ResourcePatch() {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.LAYOUT_PLAYER.addPreferences(
-            PreferenceScreen(
-                "revanced_copy_video_url_preference_screen",
-                preferences = setOf(
-                    SwitchPreference("revanced_copy_video_url"),
-                    SwitchPreference("revanced_copy_video_url_timestamp")
-                )
-            )
+            SwitchPreference("revanced_copy_video_url"),
+            SwitchPreference("revanced_copy_video_url_timestamp")
         )
 
         context.copyResources(
