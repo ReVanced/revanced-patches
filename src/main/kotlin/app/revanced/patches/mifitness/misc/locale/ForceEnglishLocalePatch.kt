@@ -23,13 +23,13 @@ object ForceEnglishLocalePatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
         SyncBluetoothLanguageFingerprint.result?.apply {
-            val instructionIndex = scanResult.patternScanResult!!.startIndex
+            val resolvePhoneLocaleInstruction = scanResult.patternScanResult!!.startIndex
 
             mutableMethod.apply {
-                val registerIndexToUpdate = getInstruction<OneRegisterInstruction>(instructionIndex).registerA
+                val registerIndexToUpdate = getInstruction<OneRegisterInstruction>(resolvePhoneLocaleInstruction).registerA
 
                 replaceInstruction(
-                    instructionIndex,
+                    resolvePhoneLocaleInstruction,
                     "const-string v$registerIndexToUpdate, \"en_gb\"",
                 )
             }
