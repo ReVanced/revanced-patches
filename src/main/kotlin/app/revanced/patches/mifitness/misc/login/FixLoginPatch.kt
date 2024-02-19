@@ -15,12 +15,12 @@ import app.revanced.util.exception
 )
 @Suppress("unused")
 object FixLoginPatch : BytecodePatch(
-    setOf(LoginFingerprint),
+    setOf(XiaomiAccountManagerConstructorFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
-        LoginFingerprint.result?.mutableMethod?.addInstruction(
+        XiaomiAccountManagerConstructorFingerprint.result?.mutableMethod?.addInstruction(
             0,
             "const/4 p2, 0x0",
-        ) ?: throw LoginFingerprint.exception
+        ) ?: throw XiaomiAccountManagerConstructorFingerprint.exception
     }
 }
