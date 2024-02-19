@@ -334,8 +334,8 @@
             <string name="revanced_hide_create_button_summary_on">Create button is hidden</string>
             <string name="revanced_hide_create_button_summary_off">Create button is shown</string>
             <string name="revanced_hide_subscriptions_button_title">Hide Subscriptions</string>
-            <string name="revanced_hide_subscriptions_button_summary_on">Home Subscriptions is hidden</string>
-            <string name="revanced_hide_subscriptions_button_summary_off">Home Subscriptions is shown</string>
+            <string name="revanced_hide_subscriptions_button_summary_on">Subscriptions button is hidden</string>
+            <string name="revanced_hide_subscriptions_button_summary_off">Subscriptions button is shown</string>
             <string name="revanced_switch_create_with_notifications_button_title">Switch Create with Notifications</string>
             <string name="revanced_switch_create_with_notifications_button_summary_on">Create button is switched with Notifications button</string>
             <string name="revanced_switch_create_with_notifications_button_summary_off">Create button is not switched with Notifications button</string>
