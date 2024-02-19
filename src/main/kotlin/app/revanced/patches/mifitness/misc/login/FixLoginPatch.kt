@@ -5,7 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.mifitness.misc.login.fingerprints.LoginFingerprint
+import app.revanced.patches.mifitness.misc.login.fingerprints.XiaomiAccountManagerConstructorFingerprint
 import app.revanced.util.exception
 
 @Patch(
