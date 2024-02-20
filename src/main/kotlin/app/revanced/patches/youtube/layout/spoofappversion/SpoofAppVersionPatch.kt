@@ -49,7 +49,7 @@ object SpoofAppVersionPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT_OTHER.addPreferences(
+        SettingsPatch.PreferenceScreen.LAYOUT_GENERAL.addPreferences(
             SwitchPreference("revanced_spoof_app_version"),
             ListPreference(
                 key = "revanced_spoof_app_version_target",

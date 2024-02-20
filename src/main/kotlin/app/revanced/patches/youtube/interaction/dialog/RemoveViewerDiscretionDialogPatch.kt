@@ -50,7 +50,7 @@ object RemoveViewerDiscretionDialogPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT_OTHER.addPreferences(
+        SettingsPatch.PreferenceScreen.LAYOUT_GENERAL.addPreferences(
             SwitchPreference("revanced_remove_viewer_discretion_dialog")
         )
 

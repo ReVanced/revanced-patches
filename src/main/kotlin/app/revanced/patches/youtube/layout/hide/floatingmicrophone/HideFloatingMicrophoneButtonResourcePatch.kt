@@ -22,7 +22,7 @@ internal object HideFloatingMicrophoneButtonResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT_OTHER.addPreferences(
+        SettingsPatch.PreferenceScreen.LAYOUT_GENERAL.addPreferences(
             SwitchPreference("revanced_hide_floating_microphone_button")
         )
 

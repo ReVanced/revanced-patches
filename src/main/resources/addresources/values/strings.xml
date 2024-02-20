@@ -27,7 +27,7 @@
             <string name="revanced_ads_screen_title">Ads</string>
             <string name="revanced_layout_feed_screen_title">Feed layout</string>
             <string name="revanced_layout_player_screen_title">Player layout</string>
-            <string name="revanced_layout_other_screen_title">Other layout</string>
+            <string name="revanced_layout_general_screen_title">General layout</string>
             <string name="revanced_shorts_screen_title">Shorts</string>
             <string name="revanced_seekbar_screen_title">Seekbar</string>
             <string name="revanced_misc_screen_title">Misc</string>

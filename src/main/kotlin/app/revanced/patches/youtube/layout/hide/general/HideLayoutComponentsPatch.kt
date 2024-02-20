@@ -114,7 +114,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_search_result_shelf_header"),
         )
 
-        SettingsPatch.PreferenceScreen.LAYOUT_OTHER.addPreferences(
+        SettingsPatch.PreferenceScreen.LAYOUT_GENERAL.addPreferences(
             PreferenceScreen(
                 key = "revanced_custom_filter_screen",
                 sortStyle = SortStyle.UNSORTED,
