@@ -2,10 +2,10 @@ package app.revanced.integrations.youtube.requests;
 
 public class Route {
     private final String route;
-    private final Route.Method method;
+    private final Method method;
     private final int paramCount;
 
-    public Route(Route.Method method, String route) {
+    public Route(Method method, String route) {
         this.method = method;
         this.route = route;
         this.paramCount = countMatches(route, '{');
@@ -14,11 +14,11 @@ public class Route {
             throw new IllegalArgumentException("Not enough parameters");
     }
 
-    public Route.Method getMethod() {
+    public Method getMethod() {
         return method;
     }
 
-    public Route.CompiledRoute compile(String... params) {
+    public CompiledRoute compile(String... params) {
         if (params.length != paramCount)
             throw new IllegalArgumentException("Error compiling route [" + route + "], incorrect amount of parameters provided. " +
                     "Expected: " + paramCount + ", provided: " + params.length);
@@ -29,7 +29,7 @@ public class Route {
             int paramEnd = compiledRoute.indexOf("}");
             compiledRoute.replace(paramStart, paramEnd + 1, params[i]);
         }
-        return new Route.CompiledRoute(this, compiledRoute.toString());
+        return new CompiledRoute(this, compiledRoute.toString());
     }
 
     public static class CompiledRoute {
@@ -45,7 +45,7 @@ public class Route {
             return compiledRoute;
         }
 
-        public Route.Method getMethod() {
+        public Method getMethod() {
             return baseRoute.method;
         }
     }
