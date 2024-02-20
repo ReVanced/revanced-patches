@@ -1,3 +1,11 @@
+# [4.3.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.2...v4.3.0-dev.3) (2024-02-20)
+
+
+### Features
+
+* **YouTube - Change header:** Improve patch option description ([3b8bc08](https://github.com/ReVanced/revanced-patches/commit/3b8bc08d4ed3a3a0f96d2f476e5059840b9f9d9b))
+* **YouTube - Custom branding:** Improve patch option description ([e27f56c](https://github.com/ReVanced/revanced-patches/commit/e27f56c8a34d41167b290f47280276c1c6003876))
+
 # [4.3.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.1...v4.3.0-dev.2) (2024-02-09)
 
 
