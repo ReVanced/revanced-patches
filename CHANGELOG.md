@@ -1,3 +1,10 @@
+# [4.3.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.3...v4.3.0-dev.4) (2024-02-21)
+
+
+### Bug Fixes
+
+* Compile DEX without debugging information ([f2e154f](https://github.com/ReVanced/revanced-patches/commit/f2e154ffd91991a6f571436c7da70e611f283807))
+
 # [4.3.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.2...v4.3.0-dev.3) (2024-02-20)
 
 
