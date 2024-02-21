@@ -22,6 +22,7 @@ object OpenLinksWithAppChooserPatch : BytecodePatch(
     private const val METHOD_REFERENCE =
         "Lapp/revanced/integrations/twitter/patches/links/OpenLinksWithAppChooserPatch;->" +
             "openWithChooser(Landroid/content/Context;Landroid/content/Intent;)V"
+
     override fun execute(context: BytecodeContext) {
         OpenLinkFingerprint.result?.mutableMethod?.addInstructions(
             0,
