@@ -13,7 +13,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Force English locale",
-    description = "Forces the app to use the English locale.",
+    description = "Forces wearable devices to use the English locale.",
     compatiblePackages = [CompatiblePackage("com.xiaomi.wearable")],
     dependencies = [FixLoginPatch::class],
 )
