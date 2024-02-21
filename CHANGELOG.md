@@ -3,6 +3,18 @@
 
 ### Bug Fixes
 
+* Compile DEX without debugging information ([f5df957](https://github.com/ReVanced/revanced-patches/commit/f5df9578669f71a67411bc93a25a7e8da43610d0))
+
+
+### Features
+
+* **X:** Add `Open links as query` patch ([#2730](https://github.com/ReVanced/revanced-patches/issues/2730)) ([75f1646](https://github.com/ReVanced/revanced-patches/commit/75f164623fe39ab8f226ce6673d78b155bf47504))
+
+# [4.3.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.3...v4.3.0-dev.4) (2024-02-21)
+
+
+### Bug Fixes
+
 * Compile DEX without debugging information ([f2e154f](https://github.com/ReVanced/revanced-patches/commit/f2e154ffd91991a6f571436c7da70e611f283807))
 
 # [4.3.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.2...v4.3.0-dev.3) (2024-02-20)

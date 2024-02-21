@@ -141,6 +141,6 @@ publishing {
 
 signing {
     useGpgCmd()
+
     sign(publishing.publications["revanced-patches-publication"])
-    sign(configurations.archives.get()).first().dependsOn("buildDexJar")
 }
