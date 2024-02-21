@@ -156,7 +156,7 @@
             <string name="revanced_hide_transcript_section_title">Hide transcript section</string>
             <string name="revanced_hide_transcript_section_summary_on">Transcript section is hidden</string>
             <string name="revanced_hide_transcript_section_summary_off">Transcript section is shown</string>
-            <string name="revanced_hide_description_components_screen_title">Video description components</string>
+            <string name="revanced_hide_description_components_screen_title">Video description</string>
             <string name="revanced_hide_description_components_screen_summary">Hide or show video description components</string>
             <string name="revanced_custom_filter_screen_title">Custom filter</string>
             <string name="revanced_custom_filter_screen_summary">Hide components using custom filters</string>
