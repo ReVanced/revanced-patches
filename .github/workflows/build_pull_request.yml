@@ -20,4 +20,4 @@ jobs:
         uses: burrunan/gradle-cache-action@v1
 
       - name: Build
-        run: ./gradlew build clean
+        run: ./gradlew build --no-daemon
