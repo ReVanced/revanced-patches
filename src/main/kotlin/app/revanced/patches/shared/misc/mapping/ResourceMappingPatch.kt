@@ -16,14 +16,16 @@ object ResourceMappingPatch : ResourcePatch() {
 
     override fun execute(context: ResourceContext) {
         // save the file in memory to concurrently read from
-        val resourceXmlFile = context.get("res/values/public.xml", false).readBytes()
+        val resourceXmlFile = context.get("res/values/public.xml").readBytes()
 
         // create a synchronized list to store the resource mappings
         val mappings = Collections.synchronizedList(mutableListOf<ResourceElement>())
 
         for (threadIndex in 0 until THREAD_COUNT) {
             threadPoolExecutor.execute thread@{
-                context.document[resourceXmlFile.inputStream()].use { document ->
+                context.xmlEditor[resourceXmlFile.inputStream()].use { editor ->
+                    val document = editor.file
+
                     val resources = document.documentElement.childNodes
                     val resourcesLength = resources.length
                     val jobSize = resourcesLength / THREAD_COUNT

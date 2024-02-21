@@ -8,7 +8,9 @@ import org.w3c.dom.Element
 @Patch(description = "Sets allowAudioPlaybackCapture in manifest to true.")
 internal object RemoveCaptureRestrictionResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
-        context.document["AndroidManifest.xml"].use { document ->
+        context.xmlEditor["AndroidManifest.xml"].use { editor ->
+            val document = editor.file
+
             // get the application node
             val applicationNode =
                 document

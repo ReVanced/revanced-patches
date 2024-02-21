@@ -35,7 +35,9 @@ internal object ThemeResourcePatch : ResourcePatch() {
         )
 
         // Edit theme colors via resources.
-        context.document["res/values/colors.xml"].use { document ->
+        context.xmlEditor["res/values/colors.xml"].use { editor ->
+            val document = editor.file
+
             val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
 
             val children = resourcesNode.childNodes
@@ -76,8 +78,10 @@ internal object ThemeResourcePatch : ResourcePatch() {
                 )
 
             splashScreenResourceFiles.forEach editSplashScreen@{ resourceFile ->
-                context.document[resourceFile].use {
-                    val layerList = it.getElementsByTagName("layer-list").item(0) as Element
+                context.xmlEditor[resourceFile].use { editor ->
+                    val document = editor.file
+
+                    val layerList = document.getElementsByTagName("layer-list").item(0) as Element
 
                     val childNodes = layerList.childNodes
                     for (i in 0 until childNodes.length) {
@@ -99,11 +103,13 @@ internal object ThemeResourcePatch : ResourcePatch() {
         colorName: String,
         colorValue: String,
     ) {
-        context.document[resourceFile].use {
-            val resourcesNode = it.getElementsByTagName("resources").item(0) as Element
+        context.xmlEditor[resourceFile].use { editor ->
+            val document = editor.file
+
+            val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
 
             resourcesNode.appendChild(
-                it.createElement("color").apply {
+                document.createElement("color").apply {
                     setAttribute("name", colorName)
                     setAttribute("category", "color")
                     textContent = colorValue

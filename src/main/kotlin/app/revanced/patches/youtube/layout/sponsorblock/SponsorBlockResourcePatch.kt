@@ -65,12 +65,14 @@ internal object SponsorBlockResourcePatch : ResourcePatch() {
             )!!
 
         var modifiedControlsLayout = false
-        val targetDocument = context.document["res/layout/youtube_controls_layout.xml"]
+        val editor = context.xmlEditor["res/layout/youtube_controls_layout.xml"]
         "RelativeLayout".copyXmlNode(
-            context.document[hostingResourceStream],
-            targetDocument,
+            context.xmlEditor[hostingResourceStream],
+            editor,
         ).also {
-            val children = targetDocument.getElementsByTagName("RelativeLayout").item(0).childNodes
+            val document = editor.file
+
+            val children = document.getElementsByTagName("RelativeLayout").item(0).childNodes
 
             // Replace the startOf with the voting button view so that the button does not overlap
             for (i in 1 until children.length) {
@@ -82,7 +84,7 @@ internal object SponsorBlockResourcePatch : ResourcePatch() {
                             view.attributes.getNamedItem(
                                 "android:id",
                             ).nodeValue.endsWith("live_chat_overlay_button")
-                    )
+                        )
                 ) {
                     continue
                 }

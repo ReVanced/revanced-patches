@@ -16,10 +16,12 @@ import java.io.File
 @Suppress("unused")
 object OverrideCertificatePinningPatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
-        val resXmlDirectory = context.get("res/xml", false)
+        val resXmlDirectory = context.get("res/xml")
 
         // Add android:networkSecurityConfig="@xml/network_security_config" and the "networkSecurityConfig" attribute if it does not exist.
-        context.document["AndroidManifest.xml"].use { document ->
+        context.xmlEditor["AndroidManifest.xml"].use { editor ->
+            val document = editor.file
+
             val applicationNode = document.getElementsByTagName("application").item(0) as Element
 
             if (!applicationNode.hasAttribute("networkSecurityConfig")) {

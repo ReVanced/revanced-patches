@@ -23,8 +23,8 @@ abstract class BaseSettingsResourcePatch(
     private val rootPreference: Pair<IntentPreference, String>? = null,
     dependencies: Set<PatchClass> = emptySet(),
 ) : ResourcePatch(
-        dependencies = setOf(AddResourcesPatch::class) + dependencies,
-    ),
+    dependencies = setOf(AddResourcesPatch::class) + dependencies,
+),
     MutableSet<BasePreference> by mutableSetOf(),
     Closeable {
     private lateinit var context: ResourceContext
@@ -51,13 +51,17 @@ abstract class BaseSettingsResourcePatch(
 
         // Add the root preference to an existing fragment if needed.
         rootPreference?.let { (intentPreference, fragment) ->
-            context.document["res/xml/$fragment.xml"].use {
-                it.getNode("PreferenceScreen").addPreference(intentPreference)
+            context.xmlEditor["res/xml/$fragment.xml"].use { editor ->
+                val document = editor.file
+
+                document.getNode("PreferenceScreen").addPreference(intentPreference)
             }
         }
 
         // Add all preferences to the ReVanced fragment.
-        context.document["res/xml/revanced_prefs.xml"].use { document ->
+        context.xmlEditor["res/xml/revanced_prefs.xml"].use { editor ->
+            val document = editor.file
+
             val revancedPreferenceScreenNode = document.getNode("PreferenceScreen")
             forEach { revancedPreferenceScreenNode.addPreference(it) }
         }

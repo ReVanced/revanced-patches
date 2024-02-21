@@ -43,8 +43,8 @@ object CustomThemePatch : ResourcePatch() {
         default = "#ff169c46",
         title = "Pressed dark theme accent color",
         description =
-            "The color when accented buttons are pressed, by default slightly darker than accent. " +
-                "Can be a hex color or a resource reference.",
+        "The color when accented buttons are pressed, by default slightly darker than accent. " +
+            "Can be a hex color or a resource reference.",
         required = true,
     )
 
@@ -54,7 +54,9 @@ object CustomThemePatch : ResourcePatch() {
         val accentColor = accentColor!!
         val accentColorPressed = accentColorPressed!!
 
-        context.document["res/values/colors.xml"].use { document ->
+        context.xmlEditor["res/values/colors.xml"].use { editor ->
+            val document = editor.file
+
             val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
 
             for (i in 0 until resourcesNode.childNodes.length) {

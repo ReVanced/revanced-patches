@@ -60,7 +60,9 @@ abstract class BaseGmsCoreSupportResourcePatch(
             appendChild(child)
         }
 
-        document["AndroidManifest.xml"].use { document ->
+        xmlEditor["AndroidManifest.xml"].use { editor ->
+            val document = editor.file
+
             val applicationNode =
                 document
                     .getElementsByTagName("application")
@@ -92,8 +94,8 @@ abstract class BaseGmsCoreSupportResourcePatch(
     private fun ResourceContext.patchManifest() {
         val packageName = ChangePackageNamePatch.setOrGetFallbackPackageName(toPackageName)
 
-        val manifest = this.get("AndroidManifest.xml", false).readText()
-        this.get("AndroidManifest.xml", false).writeText(
+        val manifest = this.get("AndroidManifest.xml").readText()
+        this.get("AndroidManifest.xml").writeText(
             manifest.replace(
                 "package=\"$fromPackageName",
                 "package=\"$packageName",
