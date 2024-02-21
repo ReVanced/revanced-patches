@@ -68,7 +68,7 @@ tasks {
 
             exec {
                 workingDir = workingDirectory
-                commandLine = listOf(d8, patchesJar)
+                commandLine = listOf(d8, "--release", patchesJar)
             }
 
             exec {
