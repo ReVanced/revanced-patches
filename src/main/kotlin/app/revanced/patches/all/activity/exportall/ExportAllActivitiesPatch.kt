@@ -14,7 +14,9 @@ object ExportAllActivitiesPatch : ResourcePatch() {
     private const val EXPORTED_FLAG = "android:exported"
 
     override fun execute(context: ResourceContext) {
-        context.document["AndroidManifest.xml"].use { document ->
+        context.xmlEditor["AndroidManifest.xml"].use { editor ->
+            val document = editor.file
+
             val activities = document.getElementsByTagName("activity")
 
             for (i in 0..activities.length) {

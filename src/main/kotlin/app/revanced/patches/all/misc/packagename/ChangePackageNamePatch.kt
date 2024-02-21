@@ -52,7 +52,9 @@ object ChangePackageNamePatch : ResourcePatch(), Closeable {
     }
 
     override fun close() =
-        context.document["AndroidManifest.xml"].use { document ->
+        context.xmlEditor["AndroidManifest.xml"].use { editor ->
+            val document = editor.file
+
             val replacementPackageName = packageNameOption.value
 
             val manifest = document.getElementsByTagName("manifest").item(0) as Element
