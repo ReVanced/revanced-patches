@@ -107,8 +107,7 @@ this patch was confirmed to work on, it is constrained to those versions only._
    Example: _The class for a patch that disables ads should be called `DisableAdsPatch`,
    for a patch that adds a new download feature, it should be called `DownloadsPatch`._
 
-   Each patch implicitly extends the [Patch](https://github.com/ReVanced/revanced-patcher/blob/67b7dff67a212b4fc30eb4f0cbe58f0ba09fb09a/revanced-patcher/src/main/kotlin/app/revanced/patcher/patch/BytecodePatch.kt#L27) class
-3. when extending off [ResourcePatch](https://github.com/revanced/revanced-patcher/blob/d2f91a8545567429d64a1bcad6ca1dab62ec95bf/src/main/kotlin/app/revanced/patcher/patch/Patch.kt#L35) or [BytecodePatch](https://github.com/revanced/revanced-patcher/blob/d2f91a8545567429d64a1bcad6ca1dab62ec95bf/src/main/kotlin/app/revanced/patcher/patch/Patch.kt#L42). The current example extends off `BytecodePatch`:
+   Each patch implicitly extends the [Patch](https://github.com/ReVanced/revanced-patcher/blob/67b7dff67a212b4fc30eb4f0cbe58f0ba09fb09a/revanced-patcher/src/main/kotlin/app/revanced/patcher/patch/BytecodePatch.kt#L27) class when extending off [ResourcePatch](https://github.com/revanced/revanced-patcher/blob/d2f91a8545567429d64a1bcad6ca1dab62ec95bf/src/main/kotlin/app/revanced/patcher/patch/Patch.kt#L35) or [BytecodePatch](https://github.com/revanced/revanced-patcher/blob/d2f91a8545567429d64a1bcad6ca1dab62ec95bf/src/main/kotlin/app/revanced/patcher/patch/Patch.kt#L42). The current example extends off `BytecodePatch`:
 
    ```kt
    object DisableAdsPatch : BytecodePatch( /* Parameters */ ) {
