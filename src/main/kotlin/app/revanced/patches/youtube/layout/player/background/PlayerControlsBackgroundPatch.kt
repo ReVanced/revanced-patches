@@ -12,7 +12,8 @@ import org.w3c.dom.Element
     description = "Removes the dark background surrounding the video player controls.",
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube",
+            [
                 "18.32.39",
                 "18.37.36",
                 "18.38.44",
@@ -25,19 +26,19 @@ import org.w3c.dom.Element
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            ]
-        )
+                "19.04.37",
+            ],
+        ),
     ],
-    use = false
+    use = false,
 )
 @Suppress("unused")
 object PlayerControlsBackgroundPatch : ResourcePatch() {
     private const val RESOURCE_FILE_PATH = "res/drawable/player_button_circle_background.xml"
 
     override fun execute(context: ResourceContext) {
-        context.xmlEditor[RESOURCE_FILE_PATH].use { editor ->
-            editor.file.doRecursively node@{ node ->
+        context.document[RESOURCE_FILE_PATH].use { document ->
+            document.doRecursively node@{ node ->
                 if (node !is Element) return@node
 
                 node.getAttributeNode("android:color")?.let { attribute ->

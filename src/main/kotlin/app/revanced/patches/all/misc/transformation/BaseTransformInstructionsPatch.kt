@@ -14,7 +14,7 @@ abstract class BaseTransformInstructionsPatch<T> : BytecodePatch(emptySet()) {
         classDef: ClassDef,
         method: Method,
         instruction: Instruction,
-        instructionIndex: Int
+        instructionIndex: Int,
     ): T?
 
     abstract fun transform(mutableMethod: MutableMethod, entry: T)

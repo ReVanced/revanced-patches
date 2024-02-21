@@ -6,8 +6,5 @@ import app.revanced.patches.shared.misc.integrations.BaseIntegrationsPatch
 
 @Patch(requiresIntegrations = true)
 object IntegrationsPatch : BaseIntegrationsPatch(
-    "Lapp/revanced/integrations/utils/ReVancedUtils;",
-    setOf(
-        ApplicationInitFingerprint,
-    ),
+    setOf(ApplicationInitFingerprint),
 )

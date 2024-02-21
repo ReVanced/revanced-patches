@@ -7,16 +7,14 @@ import app.revanced.patcher.patch.annotation.Patch
 @Patch(
     name = "Predictive back gesture",
     description = "Enables the predictive back gesture introduced on Android 13.",
-    use = false
+    use = false,
 )
 @Suppress("unused")
 object PredictiveBackGesturePatch : ResourcePatch() {
     private const val FLAG = "android:enableOnBackInvokedCallback"
 
     override fun execute(context: ResourceContext) {
-        context.xmlEditor["AndroidManifest.xml"].use { editor ->
-            val document = editor.file
-
+        context.document["AndroidManifest.xml"].use { document ->
             with(document.getElementsByTagName("application").item(0)) {
                 if (attributes.getNamedItem(FLAG) != null) return@with
 
