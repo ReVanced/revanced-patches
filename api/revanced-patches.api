@@ -1618,6 +1618,7 @@ public final class app/revanced/patches/youtube/misc/settings/SettingsPatch$Pref
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/settings/SettingsPatch$PreferenceScreen;
 	public fun commit (Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen;)V
 	public final fun getADS ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
+	public final fun getALTERNATIVE_THUMBNAILS ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
 	public final fun getLAYOUT_FEED ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
 	public final fun getLAYOUT_GENERAL ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
 	public final fun getLAYOUT_PLAYER ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
