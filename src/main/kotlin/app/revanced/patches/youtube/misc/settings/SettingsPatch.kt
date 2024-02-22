@@ -161,8 +161,9 @@ object SettingsPatch :
             sorting = Sorting.UNSORTED,
         )
 
-        // RYD is item 9
-        // SB is item 10
+        // RYD and SB are items 9 and 10.
+        // Menus are added in their own patch because they use an Intent and not a Screen.
+
         val MISC = Screen("revanced_settings_screen_11", "revanced_misc_screen_title", null)
         val VIDEO = Screen("revanced_settings_screen_12", "revanced_video_screen_title", null)
 
