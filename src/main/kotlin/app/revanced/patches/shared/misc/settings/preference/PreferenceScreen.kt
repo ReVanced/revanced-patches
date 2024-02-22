@@ -1,6 +1,6 @@
 package app.revanced.patches.shared.misc.settings.preference
 
-import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.SortStyle
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.util.resource.BaseResource
 import org.w3c.dom.Document
 
@@ -10,7 +10,7 @@ import org.w3c.dom.Document
  * @param key The key of the preference. If null, other parameters must be specified.
  * @param titleKey The key of the preference title.
  * @param summaryKey The key of the preference summary.
- * @param sortStyle Sorting style to use. A null value gives [SortStyle.TITLE].
+ * @param sorting Sorting to use. If null, the preference will be sorted according to [Sorting.BY_TITLE].
  * @param tag The tag or full class name of the preference.
  * @param preferences The preferences in this screen.
  */
@@ -19,43 +19,38 @@ open class PreferenceScreen(
     key: String? = null,
     titleKey: String = "${key}_title",
     summaryKey: String? = "${key}_summary",
-    sortStyle: SortStyle? = null,
+    sorting: Sorting? = null,
     tag: String = "PreferenceScreen",
-    val preferences: Set<BasePreference>
-    // Alternatively instead of repurposing the group key for sorting, this could be done adding an extra
-    // bundle to the preference xml.  But doing that appears to require bundling and referencing
-    // an additional xml file or adding new attributes to the attrs.xml file.
-    // Since the group key is unused, for now repurposing the unused key is much simpler.
-) : BasePreference(if (sortStyle == null) key else (key + sortStyle.sortSuffix), titleKey, summaryKey, tag) {
-
-    /**
-     * Specifies how Integrations should sort a PreferenceScreen or PreferenceGroup.
-     */
-    enum class SortStyle {
-        /**
-         * Sort by localized preference title
-         */
-        TITLE("_sort_title"),
-        /**
-         * Sort by the preference keys.
-         */
-        KEY("_sort_key"),
-        /**
-         * Use original order creating during patching.
-         */
-        UNSORTED("_sort_ignore");
-
-        constructor(sortSuffix: String) {
-            this.sortSuffix = sortSuffix
-        }
-
-        val sortSuffix: String
-    }
-
+    val preferences: Set<BasePreference>,
+    // Alternatively, instead of repurposing the key for sorting, an extra
+    // bundle can be added to the preferences XML file. This would require bundling and referencing
+    // an additional XML file or adding new attributes to the attrs.xml file.
+    // Since the key is unused, for now repurposing the unused key is much simpler.
+) : BasePreference(if (sorting == null) key else (key + sorting.keySuffix), titleKey, summaryKey, tag) {
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
         super.serialize(ownerDocument, resourceCallback).apply {
             preferences.forEach {
                 appendChild(it.serialize(ownerDocument, resourceCallback))
             }
         }
+
+    /**
+     * How a PreferenceScreen or PreferenceGroup should be sorted.
+     */
+    enum class Sorting(val keySuffix: String) {
+        /**
+         * Sort by the localized preference title.
+         */
+        BY_TITLE("_sort_by_title"),
+
+        /**
+         * Sort by the preference keys.
+         */
+        BY_KEY("_sort_by_key"),
+
+        /**
+         * Unspecified sorting.
+         */
+        UNSORTED("_sort_by_unsorted"),
+    }
 }

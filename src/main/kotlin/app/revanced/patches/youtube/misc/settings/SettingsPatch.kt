@@ -12,7 +12,7 @@ import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.IntentPreference
-import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.SortStyle
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.fingerprints.LicenseActivityOnCreateFingerprint
@@ -28,12 +28,14 @@ import java.io.Closeable
     dependencies = [
         IntegrationsPatch::class,
         SettingsResourcePatch::class,
-        AddResourcesPatch::class
-    ]
+        AddResourcesPatch::class,
+    ],
 )
-object SettingsPatch : BytecodePatch(
-    setOf(LicenseActivityOnCreateFingerprint, SetThemeFingerprint)
-), Closeable {
+object SettingsPatch :
+    BytecodePatch(
+        setOf(LicenseActivityOnCreateFingerprint, SetThemeFingerprint),
+    ),
+    Closeable {
     private const val INTEGRATIONS_PACKAGE = "app/revanced/integrations/youtube"
     private const val ACTIVITY_HOOK_CLASS_DESCRIPTOR = "L$INTEGRATIONS_PACKAGE/settings/LicenseActivityHook;"
 
@@ -49,8 +51,8 @@ object SettingsPatch : BytecodePatch(
                 titleKey = "revanced_pref_import_export_title",
                 summaryKey = "revanced_pref_import_export_summary",
                 inputType = InputType.TEXT_MULTI_LINE,
-                tag = "app.revanced.integrations.shared.settings.preference.ImportExportPreference"
-            )
+                tag = "app.revanced.integrations.shared.settings.preference.ImportExportPreference",
+            ),
         )
 
         SetThemeFingerprint.result?.mutableMethod?.let { setThemeMethod ->
@@ -67,7 +69,7 @@ object SettingsPatch : BytecodePatch(
                     replaceInstruction(
                         returnIndex,
                         "invoke-static { v$register }, " +
-                                "$THEME_HELPER_DESCRIPTOR->$SET_THEME_METHOD_NAME(Ljava/lang/Object;)V"
+                            "$THEME_HELPER_DESCRIPTOR->$SET_THEME_METHOD_NAME(Ljava/lang/Object;)V",
                     )
                     addInstruction(returnIndex + 1, "return-object v$register")
                 }
@@ -83,7 +85,7 @@ object SettingsPatch : BytecodePatch(
                 """
                     invoke-static { p0 }, $ACTIVITY_HOOK_CLASS_DESCRIPTOR->initialize(Landroid/app/Activity;)V
                     return-void
-                """
+                """,
             )
 
             // Remove other methods as they will break as the onCreate method is modified above.
@@ -98,34 +100,55 @@ object SettingsPatch : BytecodePatch(
      */
     fun newIntent(settingsName: String) = IntentPreference.Intent(
         data = settingsName,
-        targetClass = "com.google.android.libraries.social.licenses.LicenseActivity"
+        targetClass = "com.google.android.libraries.social.licenses.LicenseActivity",
     ) {
         // The package name change has to be reflected in the intent.
         ChangePackageNamePatch.setOrGetFallbackPackageName("com.google.android.youtube")
     }
 
     object PreferenceScreen : BasePreferenceScreen() {
-        // Screens are sorted in the UI by the screen key.
-        // This is done because sorting by title scatters related items apart,
-        // and there is no other way to specify an ordering here without refactoring other code.
-        // Each screen is bundled only if one or more preference is added during patching.
-        val ADS = Screen("revanced_settings_screen_01",
-            "revanced_ads_screen_title", null)
+        // Sort screens by key, to not scatter related items apart.
+        // If no preferences are added to a screen, the screen will not be added to the settings.
+        val ADS = Screen(
+            "revanced_settings_screen_01",
+            "revanced_ads_screen_title",
+            null,
+        )
+
         // Alternative thumbnails is item 2
-        val LAYOUT_FEED = Screen("revanced_settings_screen_03",
-            "revanced_layout_feed_screen_title", null)
-        val LAYOUT_PLAYER = Screen("revanced_settings_screen_04",
-            "revanced_layout_player_screen_title", null)
-        val LAYOUT_GENERAL = Screen("revanced_settings_screen_05",
-            "revanced_layout_general_screen_title", null)
-        // Use no sorting for Shorts, because the 'hide shorts in feed' gets mixed into the
-        // huge list of hide Shorts player buttons and the layout looks weird.
+        val LAYOUT_FEED = Screen(
+            "revanced_settings_screen_03",
+            "revanced_layout_feed_screen_title",
+            null,
+        )
+        val LAYOUT_PLAYER = Screen(
+            "revanced_settings_screen_04",
+            "revanced_layout_player_screen_title",
+            null,
+        )
+        val LAYOUT_GENERAL = Screen(
+            "revanced_settings_screen_05",
+            "revanced_layout_general_screen_title",
+            null,
+        )
+
+        // Don't sort, as preferences are scattered apart.
         // Can use title sorting after PreferenceCategory support is added.
-        val SHORTS = Screen("revanced_settings_screen_06",
-            "revanced_shorts_screen_title", null, sortStyle = SortStyle.UNSORTED)
-        // Use no sorting for the Seekbar because title sorting scatters the custom color preferences.
-        val SEEKBAR = Screen("revanced_settings_screen_07",
-            "revanced_seekbar_screen_title", null, sortStyle = SortStyle.UNSORTED)
+        val SHORTS = Screen(
+            "revanced_settings_screen_06",
+            "revanced_shorts_screen_title",
+            null,
+            sorting = Sorting.UNSORTED,
+        )
+
+        // Don't sort, because title sorting scatters the custom color preferences.
+        val SEEKBAR = Screen(
+            "revanced_settings_screen_07",
+            "revanced_seekbar_screen_title",
+            null,
+            sorting = Sorting.UNSORTED,
+        )
+
         // Swipe controls is item 8
         // RYD is item 9
         // SB is item 10

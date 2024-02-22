@@ -8,7 +8,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
-import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.SortStyle
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.layout.buttons.navigation.fingerprints.*
 import app.revanced.patches.youtube.layout.buttons.navigation.utils.InjectionUtils.REGISTER_TEMPLATE_REPLACEMENT
@@ -25,7 +25,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
         IntegrationsPatch::class,
         SettingsPatch::class,
         ResolvePivotBarFingerprintsPatch::class,
-        AddResourcesPatch::class
+        AddResourcesPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -43,14 +43,14 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            ]
-        )
-    ]
+                "19.04.37",
+            ],
+        ),
+    ],
 )
 @Suppress("unused")
 object NavigationButtonsPatch : BytecodePatch(
-    setOf(AddCreateButtonViewFingerprint)
+    setOf(AddCreateButtonViewFingerprint),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/NavigationButtonsPatch;"
@@ -61,7 +61,7 @@ object NavigationButtonsPatch : BytecodePatch(
         SettingsPatch.PreferenceScreen.LAYOUT_GENERAL.addPreferences(
             PreferenceScreen(
                 key = "revanced_navigation_buttons_screen",
-                sortStyle = SortStyle.UNSORTED,
+                sorting = Sorting.UNSORTED,
                 preferences = setOf(
                     SwitchPreference("revanced_hide_home_button"),
                     SwitchPreference("revanced_hide_shorts_button"),
@@ -69,7 +69,7 @@ object NavigationButtonsPatch : BytecodePatch(
                     SwitchPreference("revanced_hide_subscriptions_button"),
                     SwitchPreference("revanced_switch_create_with_notifications_button"),
                 ),
-            )
+            ),
         )
 
         /*
@@ -84,13 +84,13 @@ object NavigationButtonsPatch : BytecodePatch(
                     if (!it.resolve(
                             context,
                             initializeButtonsResult.mutableMethod,
-                            initializeButtonsResult.mutableClass
+                            initializeButtonsResult.mutableClass,
                         )
-                    )
+                    ) {
                         throw it.exception
+                    }
                 }
                 .map { it.result!!.scanResult.patternScanResult!! }
-
 
         val enumScanResult = fingerprintResults[0]
         val buttonViewResult = fingerprintResults[1]
@@ -103,14 +103,14 @@ object NavigationButtonsPatch : BytecodePatch(
          */
 
         val enumHook = "sput-object v$REGISTER_TEMPLATE_REPLACEMENT, " +
-                "$INTEGRATIONS_CLASS_DESCRIPTOR->lastNavigationButton:Ljava/lang/Enum;"
+            "$INTEGRATIONS_CLASS_DESCRIPTOR->lastNavigationButton:Ljava/lang/Enum;"
         val buttonHook = "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, " +
-                "$INTEGRATIONS_CLASS_DESCRIPTOR->hideButton(Landroid/view/View;)V"
+            "$INTEGRATIONS_CLASS_DESCRIPTOR->hideButton(Landroid/view/View;)V"
 
         // Inject bottom to top to not mess up the indices
         mapOf(
             buttonHook to buttonHookInsertIndex,
-            enumHook to enumHookInsertIndex
+            enumHook to enumHookInsertIndex,
         ).forEach { (hook, insertIndex) ->
             initializeButtonsResult.mutableMethod.injectHook(hook, insertIndex)
         }
@@ -133,7 +133,7 @@ object NavigationButtonsPatch : BytecodePatch(
                     """
                         invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->switchCreateWithNotificationButton()Z
                         move-result v$conditionRegister
-                    """
+                    """,
                 )
             }
         } ?: throw AddCreateButtonViewFingerprint.exception
@@ -143,8 +143,9 @@ object NavigationButtonsPatch : BytecodePatch(
          */
 
         InitializeButtonsFingerprint.result!!.let {
-            if (!PivotBarCreateButtonViewFingerprint.resolve(context, it.mutableMethod, it.mutableClass))
+            if (!PivotBarCreateButtonViewFingerprint.resolve(context, it.mutableMethod, it.mutableClass)) {
                 throw PivotBarCreateButtonViewFingerprint.exception
+            }
         }
 
         PivotBarCreateButtonViewFingerprint.result!!.apply {
@@ -154,7 +155,7 @@ object NavigationButtonsPatch : BytecodePatch(
              * Inject hooks
              */
             val hook = "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, " +
-                    "$INTEGRATIONS_CLASS_DESCRIPTOR->hideCreateButton(Landroid/view/View;)V"
+                "$INTEGRATIONS_CLASS_DESCRIPTOR->hideCreateButton(Landroid/view/View;)V"
 
             mutableMethod.injectHook(hook, insertIndex)
         }

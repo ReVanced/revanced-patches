@@ -717,8 +717,8 @@ public abstract class app/revanced/patches/shared/misc/settings/preference/BaseP
 }
 
 public class app/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen : app/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$BasePreferenceCollection {
-	public fun <init> (Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$SortStyle;)V
-	public synthetic fun <init> (Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$SortStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;)V
+	public synthetic fun <init> (Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun addPreferences ([Lapp/revanced/patches/shared/misc/settings/preference/BasePreference;)V
 	public final fun getCategories ()Ljava/util/Set;
 	public synthetic fun transform ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreference;
@@ -790,20 +790,20 @@ public class app/revanced/patches/shared/misc/settings/preference/PreferenceCate
 }
 
 public class app/revanced/patches/shared/misc/settings/preference/PreferenceScreen : app/revanced/patches/shared/misc/settings/preference/BasePreference {
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$SortStyle;Ljava/lang/String;Ljava/util/Set;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$SortStyle;Ljava/lang/String;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;Ljava/lang/String;Ljava/util/Set;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;Ljava/lang/String;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun getPreferences ()Ljava/util/Set;
 	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
 }
 
-public final class app/revanced/patches/shared/misc/settings/preference/PreferenceScreen$SortStyle : java/lang/Enum {
-	public static final field KEY Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$SortStyle;
-	public static final field TITLE Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$SortStyle;
-	public static final field UNSORTED Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$SortStyle;
+public final class app/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting : java/lang/Enum {
+	public static final field BY_KEY Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;
+	public static final field BY_TITLE Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;
+	public static final field UNSORTED Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
-	public final fun getSortSuffix ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$SortStyle;
-	public static fun values ()[Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$SortStyle;
+	public final fun getKeySuffix ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;
+	public static fun values ()[Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;
 }
 
 public final class app/revanced/patches/shared/misc/settings/preference/SummaryType : java/lang/Enum {

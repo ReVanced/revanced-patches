@@ -41,16 +41,17 @@ abstract class BaseSettingsResourcePatch(
     }
 
     override fun close() {
-        fun Node.addPreference(preference: BasePreference, addFirst: Boolean = false) {
-            val node = preference.serialize(ownerDocument) { resource ->
+        fun Node.addPreference(preference: BasePreference, prepend: Boolean = false) {
+            preference.serialize(ownerDocument) { resource ->
                 // TODO: Currently, resources can only be added to "values", which may not be the correct place.
                 //  It may be necessary to ask for the desired resourceValue in the future.
                 AddResourcesPatch("values", resource)
-            }
-            if (addFirst && firstChild != null) {
-                insertBefore(node, firstChild)
-            } else {
-                appendChild(node)
+            }.let { preferenceNode ->
+                if (prepend && firstChild != null) {
+                    insertBefore(preferenceNode, firstChild)
+                } else {
+                    appendChild(preferenceNode)
+                }
             }
         }
 

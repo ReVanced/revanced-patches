@@ -14,7 +14,7 @@ import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
-import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.SortStyle
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.MessageDigestImageUrlFingerprint
@@ -40,7 +40,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class,
-        AddResourcesPatch::class
+        AddResourcesPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -58,10 +58,10 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            ]
-        )
-    ]
+                "19.04.37",
+            ],
+        ),
+    ],
 )
 @Suppress("unused")
 object AlternativeThumbnailsPatch : BytecodePatch(
@@ -69,7 +69,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
         MessageDigestImageUrlParentFingerprint,
         OnResponseStartedFingerprint,
         RequestFingerprint,
-    )
+    ),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/AlternativeThumbnailsPatch;"
@@ -93,7 +93,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
             """
                 invoke-static { p1 }, $targetMethodClass->overrideImageURL(Ljava/lang/String;)Ljava/lang/String;
                 move-result-object p1
-                """
+                """,
         )
         loadImageUrlIndex += 2
     }
@@ -107,7 +107,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
         loadImageSuccessCallbackMethod.addInstruction(
             loadImageSuccessCallbackIndex++,
             "invoke-static { p1, p2 }, $targetMethodClass->handleCronetSuccess(" +
-                    "Lorg/chromium/net/UrlRequest;Lorg/chromium/net/UrlResponseInfo;)V"
+                "Lorg/chromium/net/UrlRequest;Lorg/chromium/net/UrlResponseInfo;)V",
         )
     }
 
@@ -119,7 +119,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
         loadImageErrorCallbackMethod.addInstruction(
             loadImageErrorCallbackIndex++,
             "invoke-static { p1, p2, p3 }, $targetMethodClass->handleCronetFailure(" +
-                    "Lorg/chromium/net/UrlRequest;Lorg/chromium/net/UrlResponseInfo;Ljava/io/IOException;)V"
+                "Lorg/chromium/net/UrlRequest;Lorg/chromium/net/UrlResponseInfo;Ljava/io/IOException;)V",
         )
     }
 
@@ -130,12 +130,12 @@ object AlternativeThumbnailsPatch : BytecodePatch(
             key = "revanced_settings_screen_02",
             titleKey = "revanced_alt_thumbnail_screen_title",
             summaryKey = null,
-            sortStyle = SortStyle.UNSORTED,
+            sorting = Sorting.UNSORTED,
             preferences = setOf(
                 NonInteractivePreference(
                     "revanced_alt_thumbnail_about",
                     null, // Summary is dynamically updated based on the current settings.
-                    tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsStatusPreference"
+                    tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsStatusPreference",
                 ),
                 SwitchPreference("revanced_alt_thumbnail_dearrow"),
                 SwitchPreference("revanced_alt_thumbnail_dearrow_connection_toast"),
@@ -144,13 +144,13 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                     "revanced_alt_thumbnail_dearrow_about",
                     // Custom about preference with link to the DeArrow website.
                     tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsAboutDeArrowPreference",
-                    selectable = true
+                    selectable = true,
                 ),
                 SwitchPreference("revanced_alt_thumbnail_stills"),
                 ListPreference("revanced_alt_thumbnail_stills_time", summaryKey = null),
                 SwitchPreference("revanced_alt_thumbnail_stills_fast"),
-                NonInteractivePreference("revanced_alt_thumbnail_stills_about")
-            )
+                NonInteractivePreference("revanced_alt_thumbnail_stills_about"),
+            ),
         )
 
         fun MethodFingerprint.getResultOrThrow() =
@@ -161,7 +161,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
 
         fun MethodFingerprint.resolveAndLetMutableMethod(
             fingerprint: MethodFingerprint,
-            block: (MutableMethod) -> Unit
+            block: (MutableMethod) -> Unit,
         ) = alsoResolve(fingerprint).also { block(it.mutableMethod) }
 
         MessageDigestImageUrlFingerprint.resolveAndLetMutableMethod(MessageDigestImageUrlParentFingerprint) {
@@ -202,15 +202,16 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                     AccessFlags.PUBLIC.value,
                     null,
                     null,
-                    MutableMethodImplementation(2)
+                    MutableMethodImplementation(2),
                 ).toMutable().apply {
                     addInstructions(
                         """
-                        iget-object v0, p0, $definingClass->${urlFieldName}:Ljava/lang/String;
+                        iget-object v0, p0, $definingClass->$urlFieldName:Ljava/lang/String;
                         return-object v0
-                    """
+                    """,
                     )
-                })
+                },
+            )
         }
     }
 }

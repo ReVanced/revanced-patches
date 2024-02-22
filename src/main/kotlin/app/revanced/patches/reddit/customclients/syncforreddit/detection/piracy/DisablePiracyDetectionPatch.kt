@@ -12,12 +12,7 @@ object DisablePiracyDetectionPatch : BytecodePatch(setOf(PiracyDetectionFingerpr
         // Do not throw an error if the fingerprint is not resolved.
         // This is fine because new versions of the target app do not need this patch.
         PiracyDetectionFingerprint.result?.mutableMethod?.apply {
-            addInstruction(
-                0,
-                """
-                    return-void
-                """
-            )
+            addInstruction(0, "return-void")
         }
     }
 }
