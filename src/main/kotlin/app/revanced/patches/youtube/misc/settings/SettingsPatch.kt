@@ -154,7 +154,13 @@ object SettingsPatch :
             sorting = Sorting.UNSORTED,
         )
 
-        // Swipe controls is item 8
+        val SWIPE_CONTROLS = Screen(
+            "revanced_settings_screen_08",
+            "revanced_swipe_controls_screen_title",
+            null,
+            sorting = Sorting.UNSORTED,
+        )
+
         // RYD is item 9
         // SB is item 10
         val MISC = Screen("revanced_settings_screen_11", "revanced_misc_screen_title", null)

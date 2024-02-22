@@ -1625,6 +1625,7 @@ public final class app/revanced/patches/youtube/misc/settings/SettingsPatch$Pref
 	public final fun getMISC ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
 	public final fun getSEEKBAR ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
 	public final fun getSHORTS ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
+	public final fun getSWIPE_CONTROLS ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
 	public final fun getVIDEO ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
 }
 
