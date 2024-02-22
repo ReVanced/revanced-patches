@@ -16,7 +16,7 @@ import java.nio.file.Files
 @Suppress("unused")
 object DynamicColorPatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
-        val resDirectory = context.get("res", false)
+        val resDirectory = context.get("res")
         if (!resDirectory.isDirectory) throw PatchException("The res folder can not be found.")
 
         val valuesV31Directory = resDirectory.resolve("values-v31")
@@ -35,7 +35,9 @@ object DynamicColorPatch : ResourcePatch() {
             }
         }
 
-        context.document["res/values-v31/colors.xml"].use { document ->
+        context.xmlEditor["res/values-v31/colors.xml"].use { editor ->
+            val document = editor.file
+
             mapOf(
                 "ps__twitter_blue" to "@color/twitter_blue",
                 "ps__twitter_blue_pressed" to "@color/twitter_blue_fill_pressed",
@@ -55,7 +57,9 @@ object DynamicColorPatch : ResourcePatch() {
             }
         }
 
-        context.document["res/values-night-v31/colors.xml"].use { document ->
+        context.xmlEditor["res/values-night-v31/colors.xml"].use { editor ->
+            val document = editor.file
+
             mapOf(
                 "twitter_blue" to "@android:color/system_accent1_200",
                 "twitter_blue_fill_pressed" to "@android:color/system_accent1_300",

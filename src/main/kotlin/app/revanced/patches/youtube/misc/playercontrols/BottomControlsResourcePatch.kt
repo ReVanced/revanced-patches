@@ -3,7 +3,7 @@ package app.revanced.patches.youtube.misc.playercontrols
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patcher.util.Document
+import app.revanced.patcher.util.DomFileEditor
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 import java.io.Closeable
 
@@ -18,15 +18,14 @@ object BottomControlsResourcePatch : ResourcePatch(), Closeable {
     private var lastLeftOf = "fullscreen_button"
 
     private lateinit var resourceContext: ResourceContext
-    private lateinit var targetDocument: Document
+    private lateinit var targetDocumentEditor: DomFileEditor
 
     override fun execute(context: ResourceContext) {
         resourceContext = context
-        targetDocument = context.document[TARGET_RESOURCE]
+        targetDocumentEditor = context.xmlEditor[TARGET_RESOURCE]
 
-        bottomUiContainerResourceId =
-            ResourceMappingPatch.resourceMappings
-                .single { it.type == "id" && it.name == "bottom_ui_container_stub" }.id
+        bottomUiContainerResourceId = ResourceMappingPatch.resourceMappings
+            .single { it.type == "id" && it.name == "bottom_ui_container_stub" }.id
     }
 
     /**
@@ -35,21 +34,21 @@ object BottomControlsResourcePatch : ResourcePatch(), Closeable {
      * @param resourceDirectoryName The name of the directory containing the hosting resource.
      */
     fun addControls(resourceDirectoryName: String) {
-        val sourceDocument =
-            resourceContext.document[
-                this::class.java.classLoader.getResourceAsStream(
-                    "$resourceDirectoryName/host/layout/$TARGET_RESOURCE_NAME",
-                )!!,
-            ]
+        val sourceDocumentEditor = resourceContext.xmlEditor[
+            this::class.java.classLoader.getResourceAsStream(
+                "$resourceDirectoryName/host/layout/$TARGET_RESOURCE_NAME",
+            )!!,
+        ]
+        val sourceDocument = sourceDocumentEditor.file
+        val targetDocument = targetDocumentEditor.file
 
-        val targetElement = "android.support.constraint.ConstraintLayout"
+        val targetElementTag = "android.support.constraint.ConstraintLayout"
 
-        val hostElements = sourceDocument.getElementsByTagName(targetElement).item(0).childNodes
+        val sourceElements = sourceDocument.getElementsByTagName(targetElementTag).item(0).childNodes
+        val targetElement = targetDocument.getElementsByTagName(targetElementTag).item(0)
 
-        val destinationElement = targetDocument.getElementsByTagName(targetElement).item(0)
-
-        for (index in 1 until hostElements.length) {
-            val element = hostElements.item(index).cloneNode(true)
+        for (index in 1 until sourceElements.length) {
+            val element = sourceElements.item(index).cloneNode(true)
 
             // If the element has no attributes there's no point to adding it to the destination.
             if (!element.hasAttributes()) continue
@@ -65,10 +64,10 @@ object BottomControlsResourcePatch : ResourcePatch(), Closeable {
 
             // Add the element.
             targetDocument.adoptNode(element)
-            destinationElement.appendChild(element)
+            targetElement.appendChild(element)
         }
-        sourceDocument.close()
+        sourceDocumentEditor.close()
     }
 
-    override fun close() = targetDocument.close()
+    override fun close() = targetDocumentEditor.close()
 }

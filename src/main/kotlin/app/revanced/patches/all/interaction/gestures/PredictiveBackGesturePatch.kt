@@ -14,7 +14,9 @@ object PredictiveBackGesturePatch : ResourcePatch() {
     private const val FLAG = "android:enableOnBackInvokedCallback"
 
     override fun execute(context: ResourceContext) {
-        context.document["AndroidManifest.xml"].use { document ->
+        context.xmlEditor["AndroidManifest.xml"].use { editor ->
+            val document = editor.file
+
             with(document.getElementsByTagName("application").item(0)) {
                 if (attributes.getNamedItem(FLAG) != null) return@with
 

@@ -29,7 +29,9 @@ internal object SeekbarColorResourcePatch : ResourcePatch() {
             findColorResource("inline_time_bar_played_not_highlighted_color")
 
         // Edit the resume playback drawable and replace the progress bar with a custom drawable
-        context.document["res/drawable/resume_playback_progressbar_drawable.xml"].use { document ->
+        context.xmlEditor["res/drawable/resume_playback_progressbar_drawable.xml"].use { editor ->
+            val document = editor.file
+
             val layerList = document.getElementsByTagName("layer-list").item(0) as Element
             val progressNode = layerList.getElementsByTagName("item").item(1) as Element
             if (!progressNode.getAttributeNode("android:id").value.endsWith("progress")) {

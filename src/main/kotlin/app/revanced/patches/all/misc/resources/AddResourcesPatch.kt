@@ -5,7 +5,7 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patcher.util.Document
+import app.revanced.patcher.util.DomFileEditor
 import app.revanced.patches.all.misc.resources.AddResourcesPatch.resources
 import app.revanced.util.*
 import app.revanced.util.resource.ArrayResource
@@ -92,8 +92,10 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
                         // instead of overwriting it.
                         // This covers the example case such as adding strings and arrays of the same value.
                         getOrPut(value, ::mutableMapOf).apply {
-                            context.document[stream].use {
-                                it.getElementsByTagName("app").asSequence().forEach { app ->
+                            context.xmlEditor[stream].use { editor ->
+                                val document = editor.file
+
+                                document.getElementsByTagName("app").asSequence().forEach { app ->
                                     val appId = app.attributes.getNamedItem("id").textContent
 
                                     getOrPut(appId, ::mutableMapOf).apply {
@@ -237,7 +239,7 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
      * This is called after all patches that depend on [AddResourcesPatch] have been executed.
      */
     override fun close() {
-        operator fun MutableMap<String, Pair<Document, Node>>.invoke(
+        operator fun MutableMap<String, Pair<DomFileEditor, Node>>.invoke(
             value: Value,
             resource: BaseResource,
         ) {
@@ -253,16 +255,18 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
 
             getOrPut(resourceFileName) {
                 val targetFile =
-                    context.get("res/$value/$resourceFileName.xml", false).also {
+                    context.get("res/$value/$resourceFileName.xml").also {
                         it.parentFile?.mkdirs()
                         it.createNewFile()
                     }
 
-                context.document[targetFile.path].let { document ->
+                context.xmlEditor[targetFile.path].let { editor ->
+                    val document = editor.file
+
                     // Save the target node here as well
                     // in order to avoid having to call document.getNode("resources")
                     // but also save the document so that it can be closed later.
-                    document to document.getNode("resources")
+                    editor to document.getNode("resources")
                 }
             }.let { (_, targetNode) ->
                 targetNode.addResource(resource) { invoke(value, it) }
@@ -276,7 +280,7 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
             // This is done to prevent having to open the files for every resource that is added.
             // Instead, it is cached once and reused for resources of the same value.
             // This map is later accessed to close all documents for the current resource value.
-            val documents = mutableMapOf<String, Pair<Document, Node>>()
+            val documents = mutableMapOf<String, Pair<DomFileEditor, Node>>()
 
             resources.forEach { resource -> documents(value, resource) }
 
