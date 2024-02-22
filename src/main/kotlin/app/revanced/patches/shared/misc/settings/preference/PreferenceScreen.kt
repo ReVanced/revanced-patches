@@ -11,6 +11,7 @@ import org.w3c.dom.Document
  * @param titleKey The key of the preference title.
  * @param summaryKey The key of the preference summary.
  * @param sorting Sorting to use. If null, the preference will be sorted according to [Sorting.BY_TITLE].
+ *                Note: Using a non null sorting will modify the key of this screen.
  * @param tag The tag or full class name of the preference.
  * @param preferences The preferences in this screen.
  */
