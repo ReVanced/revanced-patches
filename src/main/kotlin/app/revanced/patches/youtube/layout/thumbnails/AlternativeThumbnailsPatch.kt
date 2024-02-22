@@ -13,8 +13,6 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMu
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
-import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
-import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.MessageDigestImageUrlFingerprint
@@ -25,7 +23,6 @@ import app.revanced.patches.youtube.layout.thumbnails.fingerprints.cronet.reques
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.cronet.request.callback.OnSucceededFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.patches.youtube.misc.settings.SettingsResourcePatch
 import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -126,31 +123,25 @@ object AlternativeThumbnailsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsResourcePatch += PreferenceScreen(
-            key = "revanced_settings_screen_02",
-            titleKey = "revanced_alt_thumbnail_screen_title",
-            summaryKey = null,
-            sorting = Sorting.UNSORTED,
-            preferences = setOf(
-                NonInteractivePreference(
-                    "revanced_alt_thumbnail_about",
-                    null, // Summary is dynamically updated based on the current settings.
-                    tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsStatusPreference",
-                ),
-                SwitchPreference("revanced_alt_thumbnail_dearrow"),
-                SwitchPreference("revanced_alt_thumbnail_dearrow_connection_toast"),
-                TextPreference("revanced_alt_thumbnail_dearrow_api_url"),
-                NonInteractivePreference(
-                    "revanced_alt_thumbnail_dearrow_about",
-                    // Custom about preference with link to the DeArrow website.
-                    tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsAboutDeArrowPreference",
-                    selectable = true,
-                ),
-                SwitchPreference("revanced_alt_thumbnail_stills"),
-                ListPreference("revanced_alt_thumbnail_stills_time", summaryKey = null),
-                SwitchPreference("revanced_alt_thumbnail_stills_fast"),
-                NonInteractivePreference("revanced_alt_thumbnail_stills_about"),
+        SettingsPatch.PreferenceScreen.ALTERNATIVE_THUMBNAILS.addPreferences(
+            NonInteractivePreference(
+                "revanced_alt_thumbnail_about",
+                null, // Summary is dynamically updated based on the current settings.
+                tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsStatusPreference",
             ),
+            SwitchPreference("revanced_alt_thumbnail_dearrow"),
+            SwitchPreference("revanced_alt_thumbnail_dearrow_connection_toast"),
+            TextPreference("revanced_alt_thumbnail_dearrow_api_url"),
+            NonInteractivePreference(
+                "revanced_alt_thumbnail_dearrow_about",
+                // Custom about preference with link to the DeArrow website.
+                tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsAboutDeArrowPreference",
+                selectable = true,
+            ),
+            SwitchPreference("revanced_alt_thumbnail_stills"),
+            ListPreference("revanced_alt_thumbnail_stills_time", summaryKey = null),
+            SwitchPreference("revanced_alt_thumbnail_stills_fast"),
+            NonInteractivePreference("revanced_alt_thumbnail_stills_about"),
         )
 
         fun MethodFingerprint.getResultOrThrow() =

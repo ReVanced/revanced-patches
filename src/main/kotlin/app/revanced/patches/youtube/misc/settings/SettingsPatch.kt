@@ -114,8 +114,12 @@ object SettingsPatch :
             "revanced_ads_screen_title",
             null,
         )
-
-        // Alternative thumbnails is item 2
+        val ALTERNATIVE_THUMBNAILS = Screen(
+            "revanced_settings_screen_02",
+            "revanced_alt_thumbnail_screen_title",
+            null,
+            sorting = Sorting.UNSORTED,
+        )
         val LAYOUT_FEED = Screen(
             "revanced_settings_screen_03",
             "revanced_layout_feed_screen_title",
