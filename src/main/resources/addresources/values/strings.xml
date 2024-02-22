@@ -36,9 +36,9 @@
             <string name="revanced_settings_screen_12_video_title">Video</string>
         </patch>
         <patch id="misc.debugging.DebuggingPatch">
-            <string name="revanced_debug_title">Debug logging</string>
             <string name="revanced_debug_screen_title">Debugging</string>
             <string name="revanced_debug_screen_summary">Enable or disable debugging options</string>
+            <string name="revanced_debug_title">Debug logging</string>
             <string name="revanced_debug_summary_on">Debug logs are enabled</string>
             <string name="revanced_debug_summary_off">Debug logs are disabled</string>
             <string name="revanced_debug_protobuffer_title">Log protocol buffer</string>
@@ -985,9 +985,6 @@
         </patch>
         <patch id="misc.settings.SettingsPatch">
             <string name="revanced_settings">ReVanced Settings</string>
-            <string name="revanced_debug_title">Debug logging</string>
-            <string name="revanced_debug_summary_on">Debug logs are enabled</string>
-            <string name="revanced_debug_summary_off">Debug logs are disabled</string>
             <string name="revanced_ads_screen_title">Ads</string>
             <string name="revanced_ads_screen_summary">Ad blocking settings</string>
             <string name="revanced_chat_screen_title">Chat</string>
@@ -998,6 +995,9 @@
             <string name="revanced_other_category_title">Other settings</string>
             <string name="revanced_client_ads_category_title">Client-side ads</string>
             <string name="revanced_surestream_ads_category_title">Server-side surestream ads</string>
+            <string name="revanced_debug_title">Debug logging</string>
+            <string name="revanced_debug_summary_on">Debug logs are enabled</string>
+            <string name="revanced_debug_summary_off">Debug logs are disabled</string>
         </patch>
     </app>
 </resources>

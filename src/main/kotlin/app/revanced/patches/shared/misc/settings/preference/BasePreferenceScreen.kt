@@ -36,7 +36,7 @@ abstract class BasePreferenceScreen(
                 summaryKey,
                 sorting,
                 // Screens and preferences are sorted at runtime by integrations code,
-                // so they appear in alphabetical order for the localized language in use.
+                // so title sorting uses the localized language in use.
                 preferences = preferences + categories.map { it.transform() },
             )
         }
