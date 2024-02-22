@@ -107,7 +107,8 @@ object SettingsPatch :
     }
 
     object PreferenceScreen : BasePreferenceScreen() {
-        // Sort screens by key, to not scatter related items apart.
+        // Sort screens in the root menu by key, to not scatter related items apart
+        // (sorting key is set in 'revanced_prefs.xml').
         // If no preferences are added to a screen, the screen will not be added to the settings.
         val ADS = Screen(
             "revanced_settings_screen_01",
