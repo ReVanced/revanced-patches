@@ -1,5 +1,6 @@
 package app.revanced.patches.shared.misc.settings.preference
 
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import java.io.Closeable
 
 abstract class BasePreferenceScreen(
@@ -25,7 +26,7 @@ abstract class BasePreferenceScreen(
         private val summaryKey: String? = "${key}_summary",
         preferences: MutableSet<BasePreference> = mutableSetOf(),
         val categories: MutableSet<Category> = mutableSetOf(),
-        private val sorting: PreferenceScreen.Sorting? = null,
+        private val sorting: Sorting = Sorting.BY_TITLE,
     ) : BasePreferenceCollection(key, titleKey, preferences) {
 
         override fun transform(): PreferenceScreen {
