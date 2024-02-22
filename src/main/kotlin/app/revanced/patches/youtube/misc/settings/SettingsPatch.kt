@@ -108,64 +108,59 @@ object SettingsPatch :
 
     object PreferenceScreen : BasePreferenceScreen() {
         // Sort screens in the root menu by key, to not scatter related items apart
-        // (sorting key is set in 'revanced_prefs.xml').
+        // (sorting key is set in revanced_prefs.xml).
         // If no preferences are added to a screen, the screen will not be added to the settings.
         val ADS = Screen(
-            "revanced_settings_screen_01",
-            "revanced_ads_screen_title",
-            null,
+            key = "revanced_settings_screen_01_ads",
+            summaryKey = null,
         )
         val ALTERNATIVE_THUMBNAILS = Screen(
-            "revanced_settings_screen_02",
-            "revanced_alt_thumbnail_screen_title",
-            null,
+            key = "revanced_settings_screen_02_alt_thumbnails",
+            summaryKey = null,
             sorting = Sorting.UNSORTED,
         )
         val LAYOUT_FEED = Screen(
-            "revanced_settings_screen_03",
-            "revanced_layout_feed_screen_title",
-            null,
+            key = "revanced_settings_screen_03_layout_feed",
+            summaryKey = null,
         )
         val LAYOUT_PLAYER = Screen(
-            "revanced_settings_screen_04",
-            "revanced_layout_player_screen_title",
-            null,
+            key = "revanced_settings_screen_04_layout_player",
+            summaryKey = null,
         )
         val LAYOUT_GENERAL = Screen(
-            "revanced_settings_screen_05",
-            "revanced_layout_general_screen_title",
-            null,
+            key = "revanced_settings_screen_05_layout_general",
+            summaryKey = null,
         )
-
-        // Don't sort, as preferences are scattered apart.
+        // Don't sort, as related preferences are scattered apart.
         // Can use title sorting after PreferenceCategory support is added.
         val SHORTS = Screen(
-            "revanced_settings_screen_06",
-            "revanced_shorts_screen_title",
-            null,
+            key = "revanced_settings_screen_06_shorts",
+            summaryKey = null,
             sorting = Sorting.UNSORTED,
         )
-
         // Don't sort, because title sorting scatters the custom color preferences.
         val SEEKBAR = Screen(
-            "revanced_settings_screen_07",
-            "revanced_seekbar_screen_title",
-            null,
+            key = "revanced_settings_screen_07_seekbar",
+            summaryKey = null,
             sorting = Sorting.UNSORTED,
         )
-
         val SWIPE_CONTROLS = Screen(
-            "revanced_settings_screen_08",
-            "revanced_swipe_controls_screen_title",
-            null,
+            key = "revanced_settings_screen_08_swipe_controls",
+            summaryKey = null,
             sorting = Sorting.UNSORTED,
         )
 
         // RYD and SB are items 9 and 10.
         // Menus are added in their own patch because they use an Intent and not a Screen.
 
-        val MISC = Screen("revanced_settings_screen_11", "revanced_misc_screen_title", null)
-        val VIDEO = Screen("revanced_settings_screen_12", "revanced_video_screen_title", null)
+        val MISC = Screen(
+            key = "revanced_settings_screen_11_misc",
+            summaryKey = null,
+        )
+        val VIDEO = Screen(
+            key = "revanced_settings_screen_12_video",
+            summaryKey = null,
+        )
 
         override fun commit(screen: app.revanced.patches.shared.misc.settings.preference.PreferenceScreen) {
             SettingsResourcePatch += screen

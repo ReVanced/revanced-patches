@@ -24,14 +24,16 @@
             <string name="revanced_pref_import_export_summary">Import / Export ReVanced settings</string>
         </patch>
         <patch id="misc.settings.SettingsPatch">
-            <string name="revanced_ads_screen_title">Ads</string>
-            <string name="revanced_layout_feed_screen_title">Feed layout</string>
-            <string name="revanced_layout_player_screen_title">Player layout</string>
-            <string name="revanced_layout_general_screen_title">General layout</string>
-            <string name="revanced_shorts_screen_title">Shorts</string>
-            <string name="revanced_seekbar_screen_title">Seekbar</string>
-            <string name="revanced_misc_screen_title">Misc</string>
-            <string name="revanced_video_screen_title">Video</string>
+            <string name="revanced_settings_screen_01_ads_title">Ads</string>
+            <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternative thumbnails</string>
+            <string name="revanced_settings_screen_03_layout_feed_title">Feed layout</string>
+            <string name="revanced_settings_screen_04_layout_player_title">Player layout</string>
+            <string name="revanced_settings_screen_05_layout_general_title">General layout</string>
+            <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
+            <string name="revanced_settings_screen_07_seekbar_title">Seekbar</string>
+            <string name="revanced_settings_screen_08_swipe_controls_title">Swipe controls</string>
+            <string name="revanced_settings_screen_11_misc_title">Misc</string>
+            <string name="revanced_settings_screen_12_video_title">Video</string>
         </patch>
         <patch id="misc.debugging.DebuggingPatch">
             <string name="revanced_debug_title">Debug logging</string>
@@ -245,7 +247,6 @@
             <string name="revanced_seekbar_tapping_summary_off">Seekbar tapping is disabled</string>
         </patch>
         <patch id="interaction.swipecontrols.SwipeControlsResourcePatch">
-            <string name="revanced_swipe_controls_screen_title">Swipe controls</string>
             <string name="revanced_swipe_brightness_title">Enable brightness gesture</string>
             <string name="revanced_swipe_brightness_summary_on">Brightness swipe is enabled</string>
             <string name="revanced_swipe_brightness_summary_off">Brightness swipe is disabled</string>
@@ -807,7 +808,6 @@
             <string name="revanced_seekbar_custom_color_invalid">Invalid seekbar color value. Using default value.</string>
         </patch>
         <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
-            <string name="revanced_alt_thumbnail_screen_title">Alternative thumbnails</string>
             <string name="revanced_alt_thumbnail_about_title">Thumbnails in use</string>
             <string name="revanced_alt_thumbnail_dearrow_title">Enable DeArrow thumbnails</string>
             <string name="revanced_alt_thumbnail_dearrow_summary_on">Using DeArrow thumbnails</string>
