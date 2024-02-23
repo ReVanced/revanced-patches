@@ -64,8 +64,8 @@ This document describes how to contribute to ReVanced Patches.
 
 ## 📖 Resources to help you get started
 
-* The [documentation](https://github.com/ReVanced/revanced-patches/tree/docs/docs) provides the fundamentals of patches 
-and everything necessary to create your own patch from scratch
+* The [documentation](https://github.com/ReVanced/revanced-patcher/tree/docs) contains the fundamentals
+of ReVanced Patcher and how to use ReVanced Patcher to create patches
 * [Our backlog](https://github.com/orgs/ReVanced/projects/12) is where we keep track of what we're working on
 * [Issues](https://github.com/ReVanced/revanced-patches/issues) are where we keep track of bugs and feature requests
 
@@ -110,7 +110,7 @@ are unaffected by this change.
 
 ## 📝 How to contribute
 
-1. Before contributing, it is recommended to open an issue to discuss your change 
+1. Before contributing, it is recommended to open an issue to discuss your change
 with the maintainers of ReVanced Patches. This will help you determine whether your change is acceptable
 and whether it is worth your time to implement it
 2. Development happens on the `dev` branch. Fork the repository and create your branch from `dev`
