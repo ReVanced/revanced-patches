@@ -89,7 +89,6 @@ object HideLayoutComponentsPatch : BytecodePatch(
             ),
             SwitchPreference("revanced_hide_emergency_box"),
             SwitchPreference("revanced_hide_expandable_chip"),
-            SwitchPreference("revanced_hide_gray_separator"),
             SwitchPreference("revanced_hide_info_panels"),
             SwitchPreference("revanced_hide_medical_panels"),
             SwitchPreference("revanced_hide_quick_actions"),
@@ -115,6 +114,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
         )
 
         SettingsPatch.PreferenceScreen.LAYOUT_GENERAL.addPreferences(
+            SwitchPreference("revanced_hide_gray_separator"),
             PreferenceScreen(
                 key = "revanced_custom_filter_screen",
                 sorting = Sorting.UNSORTED,
