@@ -67,7 +67,7 @@ This repository contains a collection of ReVanced Patches.
 
 ## ❓ About
 
-Patches are small modifications to Android apps that allow you to change the behaviour of or add new features, 
+Patches are small modifications to Android apps that allow you to change the behavior of or add new features,
 block ads, customize the appearance, and much more.
 
 ## 💪 Features
@@ -77,11 +77,11 @@ Some of the features the patches provide are:
 * 🚫 **Block ads**: Say goodbye to ads
 * ⭐ **Customize your app**: Personalize the appearance of apps with various layouts and themes
 * 🪄 **Add new features**: Extend the functionality of apps with lots of new features
-* ⚙️ **Miscellaneous and general purpose**: Rename packages, enable debugging, disable screen capture restrictions, 
-export activities, etc.
+* ⚙️ **Miscellaneous and general purpose**: Rename packages, enable debugging, disable screen capture restrictions,
+  export activities, etc.
 * ✨ **And much more!**
 
-For a full list of all available patches, visit [revanced.app/patches](https://revanced.app/patches).
+For a complete list of all available patches, visit [revanced.app/patches](https://revanced.app/patches).
 
 ## 🚀 How to get started
 
@@ -95,10 +95,10 @@ Thank you for considering contributing to ReVanced Patches. You can find the con
 
 ### 🛠️ Building
 
-In order to build ReVanced Patches, you can follow the [ReVanced documentation](https://github.com/ReVanced/revanced-documentation).
+To build ReVanced Patches, you can follow the [ReVanced documentation](https://github.com/ReVanced/revanced-documentation).
 
 ## 📜 Licence
 
-ReVanced Patches is licensed under the GPLv3 licence. Please see the [licence file](LICENSE) for more information.
+ReVanced Patches is licensed under the GPLv3 license. Please see the [license file](LICENSE) for more information.
 [tl;dr](https://www.tldrlegal.com/license/gnu-general-public-license-v3-gpl-3) you may copy, distribute and modify ReVanced Patches as long as you track changes/dates in source files.
-Any modifications to ReVanced Patches must also be made available under the GPL along with build & install instructions.
+Any modifications to ReVanced Patches must also be made available under the GPL, along with build & install instructions.
