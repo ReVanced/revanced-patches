@@ -13,20 +13,21 @@ import app.revanced.patches.youtube.video.speed.remember.RememberPlaybackSpeedPa
     dependencies = [CustomPlaybackSpeedPatch::class, RememberPlaybackSpeedPatch::class],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube",
+            [
                 "18.48.39",
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            ]
-        )
-    ]
+                "19.04.37",
+            ],
+        ),
+    ],
 )
 @Suppress("unused")
-object PlaybackSpeedPatch : BytecodePatch() {
+object PlaybackSpeedPatch : BytecodePatch(emptySet()) {
     override fun execute(context: BytecodeContext) {
         // All patches this patch depends on succeed.
     }

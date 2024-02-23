@@ -15,9 +15,9 @@ import java.nio.file.Files
     name = "Custom branding",
     description = "Applies a custom app name and icon. Defaults to \"YouTube ReVanced\" and the ReVanced logo.",
     compatiblePackages = [
-        CompatiblePackage("com.google.android.youtube")
+        CompatiblePackage("com.google.android.youtube"),
     ],
-    use = false
+    use = false,
 )
 @Suppress("unused")
 object CustomBrandingPatch : ResourcePatch() {
@@ -28,7 +28,7 @@ object CustomBrandingPatch : ResourcePatch() {
         "adaptiveproduct_youtube_background_color_108",
         "adaptiveproduct_youtube_foreground_color_108",
         "ic_launcher",
-        "ic_launcher_round"
+        "ic_launcher_round",
     ).map { "$it.png" }.toTypedArray()
 
     private val mipmapDirectories = arrayOf(
@@ -36,7 +36,7 @@ object CustomBrandingPatch : ResourcePatch() {
         "xxhdpi",
         "xhdpi",
         "hdpi",
-        "mdpi"
+        "mdpi",
     ).map { "mipmap-$it" }
 
     private var appName by stringPatchOption(
@@ -49,7 +49,7 @@ object CustomBrandingPatch : ResourcePatch() {
             "YouTube" to "YouTube",
         ),
         title = "App name",
-        description = "The name of the app."
+        description = "The name of the app.",
     )
 
     private var icon by stringPatchOption(
@@ -58,14 +58,16 @@ object CustomBrandingPatch : ResourcePatch() {
         values = mapOf("ReVanced Logo" to REVANCED_ICON),
         title = "App icon",
         description = """
-            The path to a folder containing the following folders:
+            The icon to apply to the app.
+            
+            If a path to a folder is provided, the folder must contain the following folders:
 
             ${mipmapDirectories.joinToString("\n") { "- $it" }}
 
-            Each of these folders has to have the following files:
+            Each of these folders must contain the following files:
 
             ${iconResourceFileNames.joinToString("\n") { "- $it" }}
-        """.trimIndentMultiline()
+        """.trimIndentMultiline(),
     )
 
     override fun execute(context: ResourceContext) {
@@ -73,12 +75,13 @@ object CustomBrandingPatch : ResourcePatch() {
             // Change the app icon.
             mipmapDirectories.map { directory ->
                 ResourceGroup(
-                    directory, *iconResourceFileNames
+                    directory,
+                    *iconResourceFileNames,
                 )
             }.let { resourceGroups ->
                 if (icon != REVANCED_ICON) {
                     val path = File(icon)
-                    val resourceDirectory = context["res"]
+                    val resourceDirectory = context.get("res")
 
                     resourceGroups.forEach { group ->
                         val fromDirectory = path.resolve(group.resourceDirectoryName)
@@ -87,23 +90,25 @@ object CustomBrandingPatch : ResourcePatch() {
                         group.resources.forEach { iconFileName ->
                             Files.write(
                                 toDirectory.resolve(iconFileName).toPath(),
-                                fromDirectory.resolve(iconFileName).readBytes()
+                                fromDirectory.resolve(iconFileName).readBytes(),
                             )
                         }
                     }
-                } else resourceGroups.forEach { context.copyResources("custom-branding", it) }
+                } else {
+                    resourceGroups.forEach { context.copyResources("custom-branding", it) }
+                }
             }
         }
 
         appName?.let { name ->
             // Change the app name.
-            val manifest = context["AndroidManifest.xml"]
+            val manifest = context.get("AndroidManifest.xml")
             manifest.writeText(
                 manifest.readText()
                     .replace(
                         "android:label=\"@string/application_name",
-                        "android:label=\"$name"
-                    )
+                        "android:label=\"$name",
+                    ),
             )
         }
     }

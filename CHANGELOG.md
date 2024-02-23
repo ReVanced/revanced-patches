@@ -1,3 +1,66 @@
+# [4.3.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.3...v4.3.0-dev.4) (2024-02-22)
+
+
+### Bug Fixes
+
+* Compile DEX without debugging information ([f5df957](https://github.com/ReVanced/revanced-patches/commit/f5df9578669f71a67411bc93a25a7e8da43610d0))
+* Use deprecated members to ensure backwards compatibility ([083bd40](https://github.com/ReVanced/revanced-patches/commit/083bd4009231b9612394b4496ca1d329947d6577))
+
+
+### Features
+
+* **X:** Add `Open links as query` patch ([#2730](https://github.com/ReVanced/revanced-patches/issues/2730)) ([ba75a51](https://github.com/ReVanced/revanced-patches/commit/ba75a51b71dbb9157db230b3e97a90361019fe30))
+
+# [4.3.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.2...v4.3.0-dev.3) (2024-02-20)
+
+
+### Features
+
+* **YouTube - Change header:** Improve patch option description ([3b8bc08](https://github.com/ReVanced/revanced-patches/commit/3b8bc08d4ed3a3a0f96d2f476e5059840b9f9d9b))
+* **YouTube - Custom branding:** Improve patch option description ([e27f56c](https://github.com/ReVanced/revanced-patches/commit/e27f56c8a34d41167b290f47280276c1c6003876))
+
+# [4.3.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.1...v4.3.0-dev.2) (2024-02-09)
+
+
+### Features
+
+* **Sync for Reddit:** Add `Fix /s/ links` patch ([f15ef3f](https://github.com/ReVanced/revanced-patches/commit/f15ef3f63460254236185f8e22c9395db4db9465))
+
+# [4.3.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.2.0...v4.3.0-dev.1) (2024-02-09)
+
+
+### Features
+
+* **YouTube - Change start page:** Add more start pages ([cc1d9b7](https://github.com/ReVanced/revanced-patches/commit/cc1d9b743633c619fb6acc428e884c1c9b53e10b))
+
+# [4.2.0](https://github.com/ReVanced/revanced-patches/compare/v4.1.0...v4.2.0) (2024-02-08)
+
+
+### Bug Fixes
+
+* **Infinity for Reddit - Unlock subscription:** Do not crash by patching billing client ([7d76e2e](https://github.com/ReVanced/revanced-patches/commit/7d76e2e43c69b2b75f40a15a9147d041c77cbcd9))
+
+
+### Features
+
+* **X:** Add `Hide view count` patch ([bf064ec](https://github.com/ReVanced/revanced-patches/commit/bf064ecc1d5de8b592d14d34acfa1a4314c374ba))
+* **X:** Add `Unlock downloads` patch ([2c20844](https://github.com/ReVanced/revanced-patches/commit/2c20844eaae698f185a9d321e2c70bde4b485cee))
+
+# [4.2.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.1.1-dev.1...v4.2.0-dev.1) (2024-02-08)
+
+
+### Features
+
+* **X:** Add `Hide view count` patch ([bf064ec](https://github.com/ReVanced/revanced-patches/commit/bf064ecc1d5de8b592d14d34acfa1a4314c374ba))
+* **X:** Add `Unlock downloads` patch ([2c20844](https://github.com/ReVanced/revanced-patches/commit/2c20844eaae698f185a9d321e2c70bde4b485cee))
+
+## [4.1.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.1.0...v4.1.1-dev.1) (2024-02-07)
+
+
+### Bug Fixes
+
+* **Infinity for Reddit - Unlock subscription:** Do not crash by patching billing client ([7d76e2e](https://github.com/ReVanced/revanced-patches/commit/7d76e2e43c69b2b75f40a15a9147d041c77cbcd9))
+
 # [4.1.0](https://github.com/ReVanced/revanced-patches/compare/v4.0.2...v4.1.0) (2024-02-05)
 
 

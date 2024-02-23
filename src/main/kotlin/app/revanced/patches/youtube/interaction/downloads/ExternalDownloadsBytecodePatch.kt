@@ -13,24 +13,25 @@ import app.revanced.patches.youtube.video.information.VideoInformationPatch
     dependencies = [
         ExternalDownloadsResourcePatch::class,
         PlayerControlsBytecodePatch::class,
-        VideoInformationPatch::class
+        VideoInformationPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube",
+            [
                 "18.48.39",
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            ]
+                "19.04.37",
+            ],
         ),
-    ]
+    ],
 )
 @Suppress("unused")
-object ExternalDownloadsBytecodePatch : BytecodePatch() {
+object ExternalDownloadsBytecodePatch : BytecodePatch(emptySet()) {
     private const val BUTTON_DESCRIPTOR = "Lapp/revanced/integrations/youtube/videoplayer/ExternalDownloadButton;"
 
     override fun execute(context: BytecodeContext) {
@@ -39,13 +40,15 @@ object ExternalDownloadsBytecodePatch : BytecodePatch() {
          */
 
         PlayerControlsBytecodePatch.initializeControl(
-            "$BUTTON_DESCRIPTOR->initializeButton(Landroid/view/View;)V")
+            "$BUTTON_DESCRIPTOR->initializeButton(Landroid/view/View;)V",
+        )
 
         /*
          add code to change the visibility of the control
          */
 
         PlayerControlsBytecodePatch.injectVisibilityCheckCall(
-            "$BUTTON_DESCRIPTOR->changeVisibility(Z)V")
+            "$BUTTON_DESCRIPTOR->changeVisibility(Z)V",
+        )
     }
 }

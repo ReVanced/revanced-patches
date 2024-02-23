@@ -18,11 +18,11 @@ object BottomControlsResourcePatch : ResourcePatch(), Closeable {
     private var lastLeftOf = "fullscreen_button"
 
     private lateinit var resourceContext: ResourceContext
-    private lateinit var targetXmlEditor: DomFileEditor
+    private lateinit var targetDocumentEditor: DomFileEditor
 
     override fun execute(context: ResourceContext) {
         resourceContext = context
-        targetXmlEditor = context.xmlEditor[TARGET_RESOURCE]
+        targetDocumentEditor = context.xmlEditor[TARGET_RESOURCE]
 
         bottomUiContainerResourceId = ResourceMappingPatch.resourceMappings
             .single { it.type == "id" && it.name == "bottom_ui_container_stub" }.id
@@ -34,21 +34,21 @@ object BottomControlsResourcePatch : ResourcePatch(), Closeable {
      * @param resourceDirectoryName The name of the directory containing the hosting resource.
      */
     fun addControls(resourceDirectoryName: String) {
-        val sourceXmlEditor = resourceContext.xmlEditor[
+        val sourceDocumentEditor = resourceContext.xmlEditor[
             this::class.java.classLoader.getResourceAsStream(
-                "$resourceDirectoryName/host/layout/$TARGET_RESOURCE_NAME"
-            )!!
+                "$resourceDirectoryName/host/layout/$TARGET_RESOURCE_NAME",
+            )!!,
         ]
+        val sourceDocument = sourceDocumentEditor.file
+        val targetDocument = targetDocumentEditor.file
 
-        val targetElement = "android.support.constraint.ConstraintLayout"
+        val targetElementTag = "android.support.constraint.ConstraintLayout"
 
-        val hostElements = sourceXmlEditor.file.getElementsByTagName(targetElement).item(0).childNodes
+        val sourceElements = sourceDocument.getElementsByTagName(targetElementTag).item(0).childNodes
+        val targetElement = targetDocument.getElementsByTagName(targetElementTag).item(0)
 
-        val destinationResourceFile = targetXmlEditor.file
-        val destinationElement = destinationResourceFile.getElementsByTagName(targetElement).item(0)
-
-        for (index in 1 until hostElements.length) {
-            val element = hostElements.item(index).cloneNode(true)
+        for (index in 1 until sourceElements.length) {
+            val element = sourceElements.item(index).cloneNode(true)
 
             // If the element has no attributes there's no point to adding it to the destination.
             if (!element.hasAttributes()) continue
@@ -63,11 +63,11 @@ object BottomControlsResourcePatch : ResourcePatch(), Closeable {
             lastLeftOf = element.attributes.getNamedItem("android:id").nodeValue.substring(nameSpaceLength)
 
             // Add the element.
-            destinationResourceFile.adoptNode(element)
-            destinationElement.appendChild(element)
+            targetDocument.adoptNode(element)
+            targetElement.appendChild(element)
         }
-        sourceXmlEditor.close()
+        sourceDocumentEditor.close()
     }
 
-    override fun close() = targetXmlEditor.close()
+    override fun close() = targetDocumentEditor.close()
 }

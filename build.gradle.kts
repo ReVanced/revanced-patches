@@ -1,9 +1,10 @@
 import org.gradle.kotlin.dsl.support.listFilesOrdered
 
 plugins {
-    kotlin("jvm") version "1.9.22"
+    alias(libs.plugins.kotlin)
     alias(libs.plugins.binary.compatibility.validator)
     `maven-publish`
+    signing
 }
 
 group = "app.revanced"
@@ -12,7 +13,14 @@ repositories {
     mavenCentral()
     mavenLocal()
     google()
-    maven { url = uri("https://jitpack.io") }
+    maven {
+        // A repository must be speficied for some reason. "registry" is a dummy.
+        url = uri("https://maven.pkg.github.com/revanced/registry")
+        credentials {
+            username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_ACTOR")
+            password = project.findProperty("gpr.key") as String? ?: System.getenv("GITHUB_TOKEN")
+        }
+    }
 }
 
 dependencies {
@@ -22,34 +30,32 @@ dependencies {
     implementation(libs.guava)
     // Used in JsonGenerator.
     implementation(libs.gson)
-
-    // A dependency to the Android library unfortunately fails the build, which is why this is required.
-    compileOnly(project("dummy"))
 }
 
 kotlin {
     jvmToolchain(11)
 }
 
-tasks.withType(Jar::class) {
-    exclude("app/revanced/meta")
-
-    manifest {
-        attributes["Name"] = "ReVanced Patches"
-        attributes["Description"] = "Patches for ReVanced."
-        attributes["Version"] = version
-        attributes["Timestamp"] = System.currentTimeMillis().toString()
-        attributes["Source"] = "git@github.com:revanced/revanced-patches.git"
-        attributes["Author"] = "ReVanced"
-        attributes["Contact"] = "contact@revanced.app"
-        attributes["Origin"] = "https://revanced.app"
-        attributes["License"] = "GNU General Public License v3.0"
-    }
-}
-
 tasks {
-    register<DefaultTask>("generateBundle") {
-        description = "Generate DEX files and add them in the JAR file"
+    withType(Jar::class) {
+        exclude("app/revanced/meta")
+
+        manifest {
+            attributes["Name"] = "ReVanced Patches"
+            attributes["Description"] = "Patches for ReVanced."
+            attributes["Version"] = version
+            attributes["Timestamp"] = System.currentTimeMillis().toString()
+            attributes["Source"] = "git@github.com:revanced/revanced-patches.git"
+            attributes["Author"] = "ReVanced"
+            attributes["Contact"] = "contact@revanced.app"
+            attributes["Origin"] = "https://revanced.app"
+            attributes["License"] = "GNU General Public License v3.0"
+        }
+    }
+
+    register("buildDexJar") {
+        description = "Build and add a DEX to the JAR file"
+        group = "build"
 
         dependsOn(build)
 
@@ -57,39 +63,50 @@ tasks {
             val d8 = File(System.getenv("ANDROID_HOME")).resolve("build-tools")
                 .listFilesOrdered().last().resolve("d8").absolutePath
 
-            val artifacts = configurations.archives.get().allArtifacts.files.files.first().absolutePath
+            val patchesJar = configurations.archives.get().allArtifacts.files.files.first().absolutePath
             val workingDirectory = layout.buildDirectory.dir("libs").get().asFile
 
             exec {
                 workingDir = workingDirectory
-                commandLine = listOf(d8, artifacts)
+                commandLine = listOf(d8, "--release", patchesJar)
             }
 
             exec {
                 workingDir = workingDirectory
-                commandLine = listOf("zip", "-u", artifacts, "classes.dex")
+                commandLine = listOf("zip", "-u", patchesJar, "classes.dex")
             }
         }
     }
 
-    register<JavaExec>("generateMeta") {
-        description = "Generate metadata for this bundle"
+    register<JavaExec>("generatePatchesFiles") {
+        description = "Generate patches files"
 
         dependsOn(build)
 
         classpath = sourceSets["main"].runtimeClasspath
-        mainClass.set("app.revanced.meta.IPatchesFileGenerator")
+        mainClass.set("app.revanced.generator.MainKt")
     }
 
-    // Required to run tasks because Gradle semantic-release plugin runs the publish task.
+    // Needed by gradle-semantic-release-plugin.
     // Tracking: https://github.com/KengoTODA/gradle-semantic-release-plugin/issues/435
-    named("publish") {
-        dependsOn("generateBundle")
-        dependsOn("generateMeta")
+    publish {
+        dependsOn("buildDexJar")
+        dependsOn("generatePatchesFiles")
     }
 }
 
 publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/revanced/revanced-patches")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+
     publications {
         create<MavenPublication>("revanced-patches-publication") {
             from(components["java"])
@@ -120,4 +137,10 @@ publishing {
             }
         }
     }
+}
+
+signing {
+    useGpgCmd()
+
+    sign(publishing.publications["revanced-patches-publication"])
 }
