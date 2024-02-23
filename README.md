@@ -93,11 +93,6 @@ You can use [ReVanced CLI](https://github.com/ReVanced/revanced-cli) or [ReVance
 
 Thank you for considering contributing to ReVanced Patches. You can find the contribution guidelines [here](CONTRIBUTING.md).
 
-### 📃 Documentation
-
-The documentation provides the fundamentals of patches and everything necessary to create your own patch from scratch.
-You can find it [here](https://github.com/ReVanced/revanced-patches/tree/docs/docs).
-
 ### 🛠️ Building
 
 In order to build ReVanced Patches, you can follow the [ReVanced documentation](https://github.com/ReVanced/revanced-documentation).
