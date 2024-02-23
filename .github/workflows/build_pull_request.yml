@@ -20,4 +20,6 @@ jobs:
         uses: burrunan/gradle-cache-action@v1
 
       - name: Build
-        run: ./gradlew build --no-daemon
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          run: ./gradlew build --no-daemon
