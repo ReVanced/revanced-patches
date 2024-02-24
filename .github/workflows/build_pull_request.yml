@@ -22,4 +22,4 @@ jobs:
       - name: Build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          run: ./gradlew build --no-daemon
+        run: ./gradlew build --no-daemon
