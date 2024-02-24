@@ -70,8 +70,8 @@ object FixCrashPatch : BytecodePatch(
             // Replace the Intrinsics;->checkNotNull instructions with a null check
             // and jump to our newly created label if it returns true.
             // This avoids throwing a NullPointerExceptions.
-            avoidNullPointerException(getOpeningHoursIndex[0], startCalculateStatusIndex, 4)
-            avoidNullPointerException(getOpeningHoursIndex[1], setWeekDayTextIndex, 0)
+            avoidNullPointerException(getOpeningHoursIndex[1], startCalculateStatusIndex, 4)
+            avoidNullPointerException(getOpeningHoursIndex[0], setWeekDayTextIndex, 0)
         } ?: throw SetPlaceFingerprint.exception
     }
 
@@ -96,9 +96,9 @@ object FixCrashPatch : BytecodePatch(
         instructions: List<IndexedValue<Instruction>>,
         className: String,
         methodName: String,
-    ): Int = instructions.indexOfFirst { (_, instruction) ->
+    ): Int = instructions.first { (_, instruction) ->
         isInvokeInstruction(instruction, className, methodName)
-    }
+    }.index
 
     private val Instruction.isCheckNotNullInstruction
         get() = isInvokeInstruction(this, "Lkotlin/jvm/internal/Intrinsics;", "checkNotNull")
