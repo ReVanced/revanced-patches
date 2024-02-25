@@ -21,7 +21,7 @@ internal object CopyVideoUrlResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT_PLAYER.addPreferences(
+        SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_copy_video_url"),
             SwitchPreference("revanced_copy_video_url_timestamp")
         )

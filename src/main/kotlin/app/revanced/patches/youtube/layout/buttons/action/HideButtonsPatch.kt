@@ -48,7 +48,7 @@ object HideButtonsPatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT_PLAYER.addPreferences(
+        SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
             PreferenceScreen(
                 "revanced_hide_buttons_screen",
                 preferences = setOf(

@@ -119,16 +119,16 @@ object SettingsPatch :
             summaryKey = null,
             sorting = Sorting.UNSORTED,
         )
-        val LAYOUT_FEED = Screen(
-            key = "revanced_settings_screen_03_layout_feed",
+        val FEED = Screen(
+            key = "revanced_settings_screen_03_feed",
             summaryKey = null,
         )
-        val LAYOUT_PLAYER = Screen(
-            key = "revanced_settings_screen_04_layout_player",
+        val PLAYER = Screen(
+            key = "revanced_settings_screen_04_player",
             summaryKey = null,
         )
-        val LAYOUT_GENERAL = Screen(
-            key = "revanced_settings_screen_05_layout_general",
+        val GENERAL_LAYOUT = Screen(
+            key = "revanced_settings_screen_05_general",
             summaryKey = null,
         )
         // Don't sort, as related preferences are scattered apart.

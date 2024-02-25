@@ -50,7 +50,7 @@ object HidePlayerFlyoutMenuPatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT_PLAYER.addPreferences(
+        SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
             PreferenceScreen(
                 key = KEY,
                 preferences = setOf(

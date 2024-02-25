@@ -43,7 +43,7 @@ object PlayerPopupPanelsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT_PLAYER.addPreferences(
+        SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_hide_player_popup_panels")
         )
 

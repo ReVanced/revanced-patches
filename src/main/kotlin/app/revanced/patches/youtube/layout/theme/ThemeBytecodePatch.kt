@@ -100,7 +100,7 @@ object ThemeBytecodePatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT_GENERAL.addPreferences(
+        SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             SwitchPreference("revanced_gradient_loading_screen")
         )
 

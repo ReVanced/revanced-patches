@@ -27,7 +27,7 @@ object HideCastButtonPatch : BytecodePatch(emptySet()) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT_PLAYER.addPreferences(
+        SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_hide_cast_button")
         )
 

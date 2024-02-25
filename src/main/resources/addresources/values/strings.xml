@@ -26,9 +26,9 @@
         <patch id="misc.settings.SettingsPatch">
             <string name="revanced_settings_screen_01_ads_title">Ads</string>
             <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternative thumbnails</string>
-            <string name="revanced_settings_screen_03_layout_feed_title">Feed layout</string>
-            <string name="revanced_settings_screen_04_layout_player_title">Player layout</string>
-            <string name="revanced_settings_screen_05_layout_general_title">General layout</string>
+            <string name="revanced_settings_screen_03_feed_title">Feed</string>
+            <string name="revanced_settings_screen_04_player_title">Player</string>
+            <string name="revanced_settings_screen_05_general_title">General layout</string>
             <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
             <string name="revanced_settings_screen_07_seekbar_title">Seekbar</string>
             <string name="revanced_settings_screen_08_swipe_controls_title">Swipe controls</string>

@@ -58,7 +58,7 @@ object NavigationButtonsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT_GENERAL.addPreferences(
+        SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             PreferenceScreen(
                 key = "revanced_navigation_buttons_screen",
                 sorting = Sorting.UNSORTED,

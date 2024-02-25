@@ -1619,10 +1619,10 @@ public final class app/revanced/patches/youtube/misc/settings/SettingsPatch$Pref
 	public fun commit (Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen;)V
 	public final fun getADS ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
 	public final fun getALTERNATIVE_THUMBNAILS ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
-	public final fun getLAYOUT_FEED ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
-	public final fun getLAYOUT_GENERAL ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
-	public final fun getLAYOUT_PLAYER ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
+	public final fun getFEED ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
+	public final fun getGENERAL_LAYOUT ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
 	public final fun getMISC ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
+	public final fun getPLAYER ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
 	public final fun getSEEKBAR ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
 	public final fun getSHORTS ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
 	public final fun getSWIPE_CONTROLS ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;

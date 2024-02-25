@@ -69,7 +69,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT_PLAYER.addPreferences(
+        SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_hide_channel_bar"),
             SwitchPreference("revanced_hide_channel_guidelines"),
             SwitchPreference("revanced_hide_channel_member_shelf"),
@@ -97,7 +97,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_timed_reactions"),
         )
 
-        SettingsPatch.PreferenceScreen.LAYOUT_FEED.addPreferences(
+        SettingsPatch.PreferenceScreen.FEED.addPreferences(
             SwitchPreference("revanced_hide_artist_cards"),
             SwitchPreference("revanced_hide_community_posts"),
             SwitchPreference("revanced_hide_compact_banner"),
@@ -113,7 +113,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_search_result_shelf_header"),
         )
 
-        SettingsPatch.PreferenceScreen.LAYOUT_GENERAL.addPreferences(
+        SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             SwitchPreference("revanced_hide_gray_separator"),
             PreferenceScreen(
                 key = "revanced_custom_filter_screen",
