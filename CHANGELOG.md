@@ -1,3 +1,11 @@
+# [4.3.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.4...v4.3.0-dev.5) (2024-02-25)
+
+
+### Features
+
+* Remove unnecessary description from patch ([1a89dd9](https://github.com/ReVanced/revanced-patches/commit/1a89dd9f8cd0c614055a9da97338839b77a25ed1))
+* **Twitter - Unlock downloads:** Unlock GIF downloads ([d0f91c8](https://github.com/ReVanced/revanced-patches/commit/d0f91c8550592723e1252e1af2971b508591dd59))
+
 # [4.3.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.3...v4.3.0-dev.4) (2024-02-22)
 
 
