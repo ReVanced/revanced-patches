@@ -1,3 +1,10 @@
+# [4.3.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.5...v4.3.0-dev.6) (2024-02-25)
+
+
+### Features
+
+* **VSCO - Unlock pro:** Constrain to last working version ([6dd4a7c](https://github.com/ReVanced/revanced-patches/commit/6dd4a7c29e48c3bc517bbdd7ed160624c36c2333))
+
 # [4.3.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.4...v4.3.0-dev.5) (2024-02-25)
 
 
