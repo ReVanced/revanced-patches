@@ -45,6 +45,7 @@ internal object TwiFucker {
             optJSONObject("user_result")?.optJSONObject("result")
                 ?.optJSONObject("timeline_response")?.optJSONObject("timeline")
                 ?: optJSONObject("timeline_response")?.optJSONObject("timeline")
+                ?: optJSONObject("search")?.optJSONObject("timeline_response")?.optJSONObject("timeline")
                 ?: optJSONObject("timeline_response")
         return timeline?.optJSONArray("instructions")
     }
