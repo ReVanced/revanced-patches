@@ -12,7 +12,7 @@ import app.revanced.util.exception
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21t
-import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -45,7 +45,7 @@ object FixCrashPatch : BytecodePatch(
                         continue
                     }
 
-                    val checkNotNullInstruction = instruction as BuilderInstruction35c
+                    val checkNotNullInstruction = instruction as FiveRegisterInstruction
                     val originalRegister = checkNotNullInstruction.registerC
 
                     it.mutableMethod.replaceInstruction(
