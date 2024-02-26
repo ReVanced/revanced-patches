@@ -1,3 +1,10 @@
+# [4.3.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.6...v4.3.0-dev.7) (2024-02-26)
+
+
+### Features
+
+* **OpeningHours:** Add `Fix crash` patch ([#2697](https://github.com/ReVanced/revanced-patches/issues/2697)) ([0d011b8](https://github.com/ReVanced/revanced-patches/commit/0d011b876ecf05031a7daa54ab7e6d3506728a47))
+
 # [4.3.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.5...v4.3.0-dev.6) (2024-02-25)
 
 
