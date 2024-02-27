@@ -5,17 +5,11 @@
                 <item>@string/revanced_spoof_app_version_target_entry_1</item>
                 <item>@string/revanced_spoof_app_version_target_entry_2</item>
                 <item>@string/revanced_spoof_app_version_target_entry_3</item>
-                <item>@string/revanced_spoof_app_version_target_entry_4</item>
-                <item>@string/revanced_spoof_app_version_target_entry_5</item>
-                <item>@string/revanced_spoof_app_version_target_entry_6</item>
             </string-array>
             <string-array name="revanced_spoof_app_version_target_entry_values">
                 <item>18.33.40</item>
                 <item>18.20.39</item>
                 <item>18.09.39</item>
-                <item>17.08.35</item>
-                <item>16.08.35</item>
-                <item>16.01.35</item>
             </string-array>
         </patch>
         <patch id="layout.startpage.ChangeStartPagePatch">
