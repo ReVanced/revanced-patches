@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="material_grey_100">@android:color/system_neutral1_900</color>
+    <color name="material_grey_50">@android:color/system_neutral1_900</color>
+    <color name="material_grey_600">@android:color/system_neutral1_900</color>
+    <color name="material_grey_800">@android:color/system_neutral1_900</color>
+    <color name="material_grey_850">@android:color/system_neutral1_900</color>
+    <color name="material_grey_900">@android:color/system_neutral1_900</color>
+    <color name="material_grey_white_1000">@android:color/system_neutral1_900</color>
+    <color name="yt_black0">@android:color/system_neutral1_900</color>
+    <color name="yt_black1">@android:color/system_neutral1_900</color>
+    <color name="yt_black1_opacity95">@android:color/system_neutral1_900</color>
+    <color name="yt_black1_opacity98">@android:color/system_neutral1_900</color>
+    <color name="yt_black2">@android:color/system_neutral1_900</color>
+    <color name="yt_black3">@android:color/system_neutral1_900</color>
+    <color name="yt_black4">@android:color/system_neutral1_900</color>
+    <color name="yt_status_bar_background_dark">@android:color/system_neutral1_900</color>
+    <color name="yt_white1">@android:color/system_neutral1_50</color>
+    <color name="yt_white1_opacity95">@android:color/system_neutral1_50</color>
+    <color name="yt_white1_opacity98">@android:color/system_neutral1_50</color>
+    <color name="yt_white2">@android:color/system_neutral1_50</color>
+    <color name="yt_white3">@android:color/system_neutral1_50</color>
+    <color name="yt_white4">@android:color/system_neutral1_50</color>
+</resources>

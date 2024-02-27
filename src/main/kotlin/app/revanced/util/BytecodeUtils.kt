@@ -2,12 +2,15 @@ package app.revanced.util
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
+import app.revanced.patcher.util.proxy.mutableTypes.MutableField
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -31,6 +34,17 @@ val MethodFingerprint.exception
  */
 fun MutableClass.findMutableMethodOf(method: Method) = this.methods.first {
     MethodUtil.methodSignaturesMatch(it, method)
+}
+
+/**
+ * Apply a transform to all fields of the class.
+ *
+ * @param transform The transformation function. Accepts a [MutableField] and returns a transformed [MutableField].
+ */
+fun MutableClass.transformFields(transform: MutableField.() -> MutableField) {
+    val transformedFields = fields.map { it.transform() }
+    fields.clear()
+    fields.addAll(transformedFields)
 }
 
 /**
@@ -63,27 +77,27 @@ fun MutableMethod.injectHideViewCall(
 )
 
 /**
- * Find the index of the first instruction with the id of the given resource name.
- *
- * @param resourceName the name of the resource to find the id for.
- * @return the index of the first instruction with the id of the given resource name, or -1 if not found.
- */
-fun Method.findIndexForIdResource(resourceName: String): Int {
-    fun getIdResourceId(resourceName: String) = ResourceMappingPatch.resourceMappings.single {
-        it.type == "id" && it.name == resourceName
-    }.id
-
-    return indexOfFirstWideLiteralInstructionValue(getIdResourceId(resourceName))
-}
-
-/**
  * Find the index of the first wide literal instruction with the given value.
  *
  * @return the first literal instruction with the value, or -1 if not found.
  */
-fun Method.indexOfFirstWideLiteralInstructionValue(literal: Long) = implementation?.let {
+fun Method.getWideLiteralInstructionIndex(literal: Long) = implementation?.let {
     it.instructions.indexOfFirst { instruction ->
         (instruction as? WideLiteralInstruction)?.wideLiteral == literal
+    }
+} ?: -1
+
+fun Method.getEmptyStringInstructionIndex() = implementation?.let {
+    it.instructions.indexOfFirst { instruction ->
+        instruction.opcode == Opcode.CONST_STRING
+                && (instruction as? BuilderInstruction21c)?.reference.toString().isEmpty()
+    }
+} ?: -1
+
+fun Method.getStringInstructionIndex(value: String) = implementation?.let {
+    it.instructions.indexOfFirst { instruction ->
+        instruction.opcode == Opcode.CONST_STRING
+                && (instruction as? BuilderInstruction21c)?.reference.toString() == value
     }
 } ?: -1
 
@@ -92,8 +106,8 @@ fun Method.indexOfFirstWideLiteralInstructionValue(literal: Long) = implementati
  *
  * @return if the method contains a literal with the given value.
  */
-fun Method.containsWideLiteralInstructionValue(literal: Long) =
-    indexOfFirstWideLiteralInstructionValue(literal) >= 0
+fun Method.containsWideLiteralInstructionIndex(literal: Long) =
+    getWideLiteralInstructionIndex(literal) >= 0
 
 /**
  * Traverse the class hierarchy starting from the given root class.
@@ -101,7 +115,10 @@ fun Method.containsWideLiteralInstructionValue(literal: Long) =
  * @param targetClass the class to start traversing the class hierarchy from.
  * @param callback function that is called for every class in the hierarchy.
  */
-fun BytecodeContext.traverseClassHierarchy(targetClass: MutableClass, callback: MutableClass.() -> Unit) {
+fun BytecodeContext.traverseClassHierarchy(
+    targetClass: MutableClass,
+    callback: MutableClass.() -> Unit
+) {
     callback(targetClass)
     this.findClass(targetClass.superclass ?: return)?.mutableClass?.let {
         traverseClassHierarchy(it, callback)
@@ -116,7 +133,8 @@ fun BytecodeContext.traverseClassHierarchy(targetClass: MutableClass, callback: 
  * if the [Instruction] is not a [ReferenceInstruction] or the [Reference] is not of type [T].
  * @see ReferenceInstruction
  */
-inline fun <reified T : Reference> Instruction.getReference() = (this as? ReferenceInstruction)?.reference as? T
+inline fun <reified T : Reference> Instruction.getReference() =
+    (this as? ReferenceInstruction)?.reference as? T
 
 /**
  * Get the index of the first [Instruction] that matches the predicate.
@@ -127,27 +145,36 @@ inline fun <reified T : Reference> Instruction.getReference() = (this as? Refere
 fun Method.indexOfFirstInstruction(predicate: Instruction.() -> Boolean) =
     this.implementation!!.instructions.indexOfFirst(predicate)
 
-    /**
-     * Return the resolved methods of [MethodFingerprint]s early.
-     */
-    fun List<MethodFingerprint>.returnEarly(bool: Boolean = false) {
-        val const = if (bool) "0x1" else "0x0"
-        this.forEach { fingerprint ->
-            fingerprint.result?.let { result ->
-                val stringInstructions = when (result.method.returnType.first()) {
-                    'L' -> """
-                        const/4 v0, $const
-                        return-object v0
-                        """
-                    'V' -> "return-void"
-                    'I', 'Z' -> """
-                        const/4 v0, $const
-                        return v0
-                        """
-                    else -> throw Exception("This case should never happen.")
-                }
-
-                result.mutableMethod.addInstructions(0, stringInstructions)
-            } ?: throw fingerprint.exception
+fun MutableMethod.getTargetIndex(startIndex: Int, opcode: Opcode) =
+    implementation!!.instructions.let {
+        startIndex + it.subList(startIndex, it.size - 1).indexOfFirst { instruction ->
+            instruction.opcode == opcode
         }
     }
+
+fun MutableMethod.getTargetIndexReversed(startIndex: Int, opcode: Opcode): Int {
+    for (index in startIndex downTo 0) {
+        if (getInstruction(index).opcode != opcode)
+            continue
+
+        return index
+    }
+    throw PatchException("Failed to find target index")
+}
+
+fun BytecodeContext.updatePatchStatus(
+    className: String,
+    methodName: String
+) {
+    this.classes.forEach { classDef ->
+        if (classDef.type.endsWith(className)) {
+            val patchStatusMethod =
+                this.proxy(classDef).mutableClass.methods.first { it.name == methodName }
+
+            patchStatusMethod.replaceInstruction(
+                0,
+                "const/4 v0, 0x1"
+            )
+        }
+    }
+}

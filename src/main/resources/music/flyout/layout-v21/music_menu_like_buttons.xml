@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.google.android.libraries.youtube.common.ui.TouchImageView android:id="@+id/playback_speed_button" android:padding="@dimen/remix_overlay_player_control_button_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/yt_outline_play_arrow_half_circle_black_24" android:tint="@color/ytm_icon_color_active" android:contentDescription="@string/action_add_to_offline_songs" style="@style/MusicPlayerButton" />
+    <com.google.android.libraries.youtube.common.ui.TouchImageView android:id="@id/dislike_button" android:padding="@dimen/remix_overlay_player_control_button_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ytdislike_drawable" android:tint="@color/ytm_icon_color_active" android:contentDescription="@string/accessibility_dislike_video" style="@style/MusicPlayerButton" />
+    <com.google.android.libraries.youtube.common.ui.TouchImageView android:id="@id/like_button" android:padding="@dimen/remix_overlay_player_control_button_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ytlike_drawable" android:tint="@color/ytm_icon_color_active" android:contentDescription="@string/accessibility_like_video" style="@style/MusicPlayerButton" />
+</LinearLayout>

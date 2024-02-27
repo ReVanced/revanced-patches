@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="revanced_external_downloader_label">
+        <item>NewPipe</item>
+        <item>Seal</item>
+        <item>Tubular</item>
+        <item>YTDLnis</item>
+    </string-array>
+    <string-array name="revanced_external_downloader_package_name">
+        <item>org.schabi.newpipe</item>
+        <item>com.junkfood.seal</item>
+        <item>org.polymorphicshade.tubular</item>
+        <item>com.deniscerri.ytdl</item>
+    </string-array>
+    <string-array name="revanced_external_downloader_website">
+        <item>https://github.com/TeamNewPipe/NewPipe/releases/latest</item>
+        <item>https://github.com/JunkFood02/Seal/releases/latest</item>
+        <item>https://github.com/polymorphicshade/Tubular/releases/latest</item>
+        <item>https://github.com/deniscerri/ytdlnis/releases/latest</item>
+    </string-array>
+</resources>

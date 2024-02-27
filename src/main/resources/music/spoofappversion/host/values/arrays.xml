@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="revanced_spoof_app_version_target_entry">
+        <item>@string/revanced_spoof_app_version_target_entry_6_11_52</item>
+        <item>@string/revanced_spoof_app_version_target_entry_4_27_53</item>
+    </string-array>
+    <string-array name="revanced_spoof_app_version_target_entry_value">
+        <item>6.11.52</item>
+        <item>4.27.53</item>
+    </string-array>
+</resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        android:transitionGroup="true">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/yt_white1"
+            android:elevation="0dp">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/revanced_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/ytBrandBackgroundSolid"
+                app:navigationIcon="@drawable/yt_outline_arrow_left_black_24"
+                app:title="@string/revanced_extended_settings_title" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/revanced_settings_fragments"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+</merge>

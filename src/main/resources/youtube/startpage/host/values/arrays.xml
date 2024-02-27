@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="revanced_change_start_page_entry">
+        <item>@string/revanced_change_start_page_entry_default</item>
+        <item>@string/revanced_change_start_page_entry_search</item>
+        <item>@string/revanced_change_start_page_entry_subscriptions</item>
+        <item>@string/revanced_change_start_page_entry_explore</item>
+        <item>@string/revanced_change_start_page_entry_shorts</item>
+        <item>@string/revanced_change_start_page_entry_library</item>
+        <item>@string/revanced_change_start_page_entry_liked_videos</item>
+        <item>@string/revanced_change_start_page_entry_history</item>
+        <item>@string/revanced_change_start_page_entry_trending</item>
+    </string-array>
+    <string-array name="revanced_change_start_page_entry_value">
+        <item></item>
+        <!-- YouTube Shortcuts -->
+        <item>open.search</item>
+        <item>open.subscriptions</item>
+        <item>open.explore</item>
+        <item>open.shorts</item>
+        <!-- YouTube Widgets -->
+        <item>www.youtube.com/feed/library</item>
+        <item>www.youtube.com/playlist?list=LL</item>
+        <item>www.youtube.com/feed/history</item>
+        <item>www.youtube.com/feed/trending</item>
+    </string-array>
+</resources>

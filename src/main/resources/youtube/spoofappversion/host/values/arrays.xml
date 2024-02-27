@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="revanced_spoof_app_version_target_entry">
+        <item>@string/revanced_spoof_app_version_target_entry_18_17_43</item>
+        <item>@string/revanced_spoof_app_version_target_entry_18_09_39</item>
+        <item>@string/revanced_spoof_app_version_target_entry_18_05_40</item>
+        <item>@string/revanced_spoof_app_version_target_entry_17_41_37</item>
+        <item>@string/revanced_spoof_app_version_target_entry_17_08_35</item>
+        <item>@string/revanced_spoof_app_version_target_entry_16_08_35</item>
+    </string-array>
+    <string-array name="revanced_spoof_app_version_target_entry_value">
+        <item>18.17.43</item>
+        <item>18.09.39</item>
+        <item>18.05.40</item>
+        <item>17.41.37</item>
+        <item>17.08.35</item>
+        <item>16.08.35</item>
+    </string-array>
+</resources>

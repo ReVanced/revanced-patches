@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector android:constantSize="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="true" android:state_pressed="true">
+        <bitmap android:src="@drawable/yt_outline_arrow_shuffle_1_white_24" android:tint="?ytTextPrimary" />
+    </item>
+    <item android:state_enabled="true" android:state_selected="true">
+        <bitmap android:src="@drawable/yt_outline_arrow_shuffle_1_white_24" android:tint="?ytTextPrimary" />
+    </item>
+    <item android:state_enabled="false">
+        <bitmap android:src="@drawable/yt_outline_arrow_shuffle_1_white_24" android:tint="?ytIconDisabled" />
+    </item>
+    <item android:state_enabled="true">
+        <bitmap android:src="@drawable/yt_outline_arrow_shuffle_1_white_24" android:tint="?ytTextPrimary" />
+    </item>
+</selector>

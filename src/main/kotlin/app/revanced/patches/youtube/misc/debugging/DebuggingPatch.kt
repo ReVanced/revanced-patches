@@ -4,33 +4,60 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.all.misc.resources.AddResourcesPatch
-import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
-import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
-import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patches.youtube.utils.settings.SettingsPatch
 
 @Patch(
-    name = "Enable debugging",
-    description = "Adds options for debugging.",
-    dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
-    compatiblePackages = [CompatiblePackage("com.google.android.youtube")]
+    name = "Enable debug logging",
+    description = "Adds an option to enable debug logging.",
+    dependencies = [SettingsPatch::class],
+    compatiblePackages = [
+        CompatiblePackage(
+            "com.google.android.youtube",
+            [
+                "18.25.40",
+                "18.27.36",
+                "18.29.38",
+                "18.30.37",
+                "18.31.40",
+                "18.32.39",
+                "18.33.40",
+                "18.34.38",
+                "18.35.36",
+                "18.36.39",
+                "18.37.36",
+                "18.38.44",
+                "18.39.41",
+                "18.40.34",
+                "18.41.39",
+                "18.42.41",
+                "18.43.45",
+                "18.44.41",
+                "18.45.43",
+                "18.46.45",
+                "18.48.39",
+                "18.49.37",
+                "19.01.34",
+                "19.02.39"
+            ]
+        )
+    ],
+    use = false
 )
 @Suppress("unused")
 object DebuggingPatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
-        AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            PreferenceScreen(
-                "revanced_debug_preference_screen",
-                preferences = setOf(
-                    SwitchPreference("revanced_debug"),
-                    SwitchPreference("revanced_debug_protobuffer"),
-                    SwitchPreference("revanced_debug_stacktrace"),
-                    SwitchPreference("revanced_debug_toast_on_error")
-                )
+        /**
+         * Add settings
+         */
+        SettingsPatch.addPreference(
+            arrayOf(
+                "SETTINGS: ENABLE_DEBUG_LOGGING"
             )
         )
+
+        SettingsPatch.updatePatchStatus("Enable debug logging")
+
+
     }
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector android:constantSize="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <bitmap android:src="@drawable/yt_outline_arrow_repeat_1_white_24" android:tint="?ytCallToAction" />
+    </item>
+    <item android:state_selected="true">
+        <bitmap android:src="@drawable/yt_outline_arrow_repeat_1_white_24" android:tint="?ytCallToAction" />
+    </item>
+    <item>
+        <bitmap android:src="@drawable/yt_outline_arrow_repeat_1_white_24" android:tint="@color/yt_white1" />
+    </item>
+</selector>

@@ -1,14 +1,21 @@
 package app.revanced.patches.reddit.ad.comments.fingerprints
 
+import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
-internal object HideCommentAdsFingerprint : MethodFingerprint(
-    strings = listOf(
-        "link",
-        // CommentPageRepository is not returning a link object
-        "is not returning a link object"
+object HideCommentAdsFingerprint : MethodFingerprint(
+    returnType = "L",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("L"),
+    opcodes = listOf(
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.RETURN_OBJECT
     ),
-    customFingerprint = { _, classDef ->
-        classDef.sourceFile == "PostDetailPresenter.kt"
+    customFingerprint = { methodDef, _ ->
+        methodDef.definingClass.endsWith("/PostDetailPresenter\$loadAd\$1;")
+                && methodDef.name == "invokeSuspend"
     },
 )

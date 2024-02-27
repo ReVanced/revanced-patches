@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Translation Exception -->
+    <string name="pref_app_language_dialog_message">&lt;b>%1$s&lt;/b>&lt;br>&lt;br>This will change the language used on YouTube, including buttons, text and dialogs, but will not change the language of ReVanced Extended settings.</string>
+    <string name="pref_app_language_dialog_message_no_lang_name">This will change the language used in the app including buttons, text and dialogs, but will not change the language of ReVanced Extended settings.</string>
+    <string name="pref_app_language_system_default">System default</string>
+
+    <string name="revanced_alt_thumbnail_dearrow">DeArrow</string>
+
+    <string name="revanced_extended_settings_title">ReVanced Extended</string>
+
+    <string name="revanced_hide_account_menu_filter_strings_summary">@string/revanced_custom_filter_strings_summary</string>
+    <string name="revanced_hide_feed_flyout_panel_filter_strings_summary">@string/revanced_custom_filter_strings_summary</string>
+
+    <string name="revanced_hide_quick_actions_dislike_summary_off">@string/revanced_hide_button_dislike_summary_off</string>
+    <string name="revanced_hide_quick_actions_dislike_summary_on">@string/revanced_hide_button_dislike_summary_on</string>
+    <string name="revanced_hide_quick_actions_dislike_title">@string/revanced_hide_button_dislike_title</string>
+    <string name="revanced_hide_quick_actions_like_summary_off">@string/revanced_hide_button_like_summary_off</string>
+    <string name="revanced_hide_quick_actions_like_summary_on">@string/revanced_hide_button_like_summary_on</string>
+    <string name="revanced_hide_quick_actions_like_title">@string/revanced_hide_button_like_title</string>
+    <string name="revanced_hide_quick_actions_live_chat_summary_off">@string/revanced_hide_button_live_chat_summary_off</string>
+    <string name="revanced_hide_quick_actions_live_chat_summary_on">@string/revanced_hide_button_live_chat_summary_on</string>
+    <string name="revanced_hide_quick_actions_live_chat_title">@string/revanced_hide_button_live_chat_title</string>
+    <string name="revanced_hide_quick_actions_open_mix_playlist_summary_off">@string/revanced_hide_button_open_mix_playlist_summary_off</string>
+    <string name="revanced_hide_quick_actions_open_mix_playlist_summary_on">@string/revanced_hide_button_open_mix_playlist_summary_on</string>
+    <string name="revanced_hide_quick_actions_open_mix_playlist_title">@string/revanced_hide_button_open_mix_playlist_title</string>
+    <string name="revanced_hide_quick_actions_open_playlist_summary_off">@string/revanced_hide_button_open_playlist_summary_off</string>
+    <string name="revanced_hide_quick_actions_open_playlist_summary_on">@string/revanced_hide_button_open_playlist_summary_on</string>
+    <string name="revanced_hide_quick_actions_open_playlist_title">@string/revanced_hide_button_open_playlist_title</string>
+    <string name="revanced_hide_quick_actions_save_to_playlist_summary_off">@string/revanced_hide_button_save_to_playlist_summary_off</string>
+    <string name="revanced_hide_quick_actions_save_to_playlist_summary_on">@string/revanced_hide_button_save_to_playlist_summary_on</string>
+    <string name="revanced_hide_quick_actions_save_to_playlist_title">@string/revanced_hide_button_save_to_playlist_title</string>
+    <string name="revanced_hide_quick_actions_share_summary_off">@string/revanced_hide_button_share_summary_off</string>
+    <string name="revanced_hide_quick_actions_share_summary_on">@string/revanced_hide_button_share_summary_on</string>
+    <string name="revanced_hide_quick_actions_share_title">@string/revanced_hide_button_share_title</string>
+
+
+    <string name="revanced_hide_shorts_player_dislike_button_summary_off">@string/revanced_hide_button_dislike_summary_off</string>
+    <string name="revanced_hide_shorts_player_dislike_button_summary_on">@string/revanced_hide_button_dislike_summary_on</string>
+    <string name="revanced_hide_shorts_player_dislike_button_title">@string/revanced_hide_button_dislike_title</string>
+    <string name="revanced_hide_shorts_player_info_panel_summary_off">@string/revanced_hide_info_panel_summary_off</string>
+    <string name="revanced_hide_shorts_player_info_panel_summary_on">@string/revanced_hide_info_panel_summary_on</string>
+    <string name="revanced_hide_shorts_player_info_panel_title">@string/revanced_hide_info_panel_title</string>
+    <string name="revanced_hide_shorts_player_join_button_summary_off">@string/revanced_hide_join_button_summary_off</string>
+    <string name="revanced_hide_shorts_player_join_button_summary_on">@string/revanced_hide_join_button_summary_on</string>
+    <string name="revanced_hide_shorts_player_join_button_title">@string/revanced_hide_join_button_title</string>
+    <string name="revanced_hide_shorts_player_like_button_summary_off">@string/revanced_hide_button_like_summary_off</string>
+    <string name="revanced_hide_shorts_player_like_button_summary_on">@string/revanced_hide_button_like_summary_on</string>
+    <string name="revanced_hide_shorts_player_like_button_title">@string/revanced_hide_button_like_title</string>
+    <string name="revanced_hide_shorts_player_paid_promotion_banner_summary_off">@string/revanced_hide_paid_promotion_banner_summary_off</string>
+    <string name="revanced_hide_shorts_player_paid_promotion_banner_summary_on">@string/revanced_hide_paid_promotion_banner_summary_on</string>
+    <string name="revanced_hide_shorts_player_paid_promotion_banner_title">@string/revanced_hide_paid_promotion_banner_title</string>
+    <string name="revanced_hide_shorts_player_remix_button_summary_off">@string/revanced_hide_button_remix_summary_off</string>
+    <string name="revanced_hide_shorts_player_remix_button_summary_on">@string/revanced_hide_button_remix_summary_on</string>
+    <string name="revanced_hide_shorts_player_remix_button_title">@string/revanced_hide_button_remix_title</string>
+    <string name="revanced_hide_shorts_player_share_button_summary_off">@string/revanced_hide_button_share_summary_off</string>
+    <string name="revanced_hide_shorts_player_share_button_summary_on">@string/revanced_hide_button_share_summary_on</string>
+    <string name="revanced_hide_shorts_player_share_button_title">@string/revanced_hide_button_share_title</string>
+    <string name="revanced_hide_shorts_player_thanks_button_summary_off">@string/revanced_hide_button_thanks_summary_off</string>
+    <string name="revanced_hide_shorts_player_thanks_button_summary_on">@string/revanced_hide_button_thanks_summary_on</string>
+    <string name="revanced_hide_shorts_player_thanks_button_title">@string/revanced_hide_button_thanks_title</string>
+
+    <string name="revanced_header_default">Stock</string>
+    <string name="revanced_icon_custom">Custom</string>
+    <string name="revanced_icon_default">Stock</string>
+    <string name="revanced_icon_mmt">MMT</string>
+    <string name="revanced_icon_revancify_blue">Revancify Blue</string>
+    <string name="revanced_icon_revancify_red">Revancify Red</string>
+    <string name="revanced_label_default">Stock</string>
+    <string name="revanced_patches_excluded">Excluded</string>
+    <string name="revanced_patches_included">Included</string>
+    <string name="revanced_playback_speed_normal">@string/shorts_speed_control_normal_label</string>
+
+    <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
+
+    <string name="revanced_ryd_settings_title">Return YouTube Dislike</string>
+
+    <string name="revanced_sponsorblock_settings_title">SponsorBlock</string>
+
+    <string name="revanced_theme_default">Stock</string>
+
+    <string name="sb_about_api">sponsor.ajay.app</string>
+    <string name="sb_skip_button_intro_middle">@string/sb_skip_button_intro_beginning</string>
+    <string name="sb_skip_button_intro_end">@string/sb_skip_button_intro_beginning</string>
+    <string name="sb_skip_button_preview_middle">@string/sb_skip_button_preview_beginning</string>
+    <string name="sb_skip_button_preview_end">@string/sb_skip_button_preview_beginning</string>
+    <string name="sb_skipped_intro_middle">@string/sb_skipped_intro_beginning</string>
+    <string name="sb_skipped_intro_end">@string/sb_skipped_intro_beginning</string>
+    <string name="sb_skipped_preview_middle">@string/sb_skipped_preview_beginning</string>
+    <string name="sb_skipped_preview_end">@string/sb_skipped_preview_beginning</string>
+
+    <string name="sb_stats_loading">@string/aag_widget_loading</string>
+</resources>
