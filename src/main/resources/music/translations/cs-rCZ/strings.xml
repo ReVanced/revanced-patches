@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="revanced_category_ads">Reklamy</string>
+    <string name="revanced_category_misc">Různé</string>
+    <string name="revanced_custom_filter_strings_title">Upravit vlastní filtr</string>
+    <string name="revanced_custom_filter_summary">Povolit vlastní filtry</string>
+    <string name="revanced_custom_filter_title">Povolit vlastní filtr</string>
+    <string name="revanced_disable_auto_captions_summary">Zakáže vynucené automatické titulky.</string>
+    <string name="revanced_disable_auto_captions_title">Zakázat vynucené automatické titulky</string>
+    <string name="revanced_downloader_not_installed" formatted="false">%s není instalován. Prosím, nainstalujte jej.</string>
+    <string name="revanced_enable_black_navigation_bar_summary">Nastaví barvu navigačního panelu na černou.</string>
+    <string name="revanced_enable_black_navigation_bar_title">Povolit černou navigační lištu</string>
+    <string name="revanced_enable_color_match_player_summary">Odpovídá barvě mini přehrávače a režimu celé obrazovky.</string>
+    <string name="revanced_enable_color_match_player_title">Povolit barevně shodný přehrávač</string>
+    <string name="revanced_enable_compact_dialog_title">Povolit kompaktní dialogové okno</string>
+    <string name="revanced_enable_debug_logging_summary">Vypíše protokol ladění</string>
+    <string name="revanced_enable_debug_logging_title">Povolit režim ladění</string>
+    <string name="revanced_enable_force_minimized_player_summary">Zachovat přehrávač trvale minimalizovaný, i když je přehrávána jiná skladba.</string>
+    <string name="revanced_enable_force_minimized_player_title">Povolit vynucenou minimalizaci přehrávače</string>
+    <string name="revanced_enable_landscape_mode_summary">Umožňuje vstup do režimu na šířku pomocí otočení obrazovky telefonu.</string>
+    <string name="revanced_enable_landscape_mode_title">Povolit režim na šířku</string>
+    <string name="revanced_enable_old_style_mini_player_summary">Vrátit mini přehrávač do starého stylu.</string>
+    <string name="revanced_enable_old_style_mini_player_title">Povolit starý styl přehrávače</string>
+    <string name="revanced_enable_opus_codec_summary">Povolit 250/251 opus kodek při přehrávání audia.</string>
+    <string name="revanced_enable_opus_codec_title">Povolit opus kodek</string>
+    <string name="revanced_enable_save_video_quality_summary">Uložit hodnotu kvality videa kdykoli, kdy ji změníte.</string>
+    <string name="revanced_enable_save_video_quality_title">Povolit ukládání kvality videa</string>
+    <string name="revanced_enable_zen_mode_summary">Přidá šedý odstín do přehrávače videa ke snížení namáhání očí.</string>
+    <string name="revanced_enable_zen_mode_title">Povolit zen mod</string>
+    <string name="revanced_external_downloader_not_installed_warning" formatted="false">%s není instalován. Prosím, nainstalujte jej.</string>
+    <string name="revanced_external_downloader_package_name_summary">Název balíčku externí nainstalované aplikace na stahování, jako jsou např. NewPipe nebo Seal</string>
+    <string name="revanced_external_downloader_package_name_title">Název balíčku pro externí stahování</string>
+    <string name="revanced_hide_button_shelf_summary">Skryje pole s tlačítky z domovské stránky a prohlížeče.</string>
+    <string name="revanced_hide_button_shelf_title">Skrýt pole s tlačítky</string>
+    <string name="revanced_hide_carousel_shelf_summary">Skryje točivé pole z domovské stránky a prohlížeče.</string>
+    <string name="revanced_hide_carousel_shelf_title">Skrýt točivé pole</string>
+    <string name="revanced_hide_cast_button_summary">Skryje tlačítko pro vysílání obrazu z horní části domovské obrazovky a horní části přehrávače.</string>
+    <string name="revanced_hide_cast_button_title">Skrýt tlačítko pro vysílání</string>
+    <string name="revanced_hide_category_bar_summary">Skryje lištu s hudebními kategoriemi z horní části domovské obrazovky.</string>
+    <string name="revanced_hide_category_bar_title">Skrýt lištu s kategoriemi</string>
+    <string name="revanced_hide_channel_guidelines_summary">Skryje pravidla kanálu v horní části komentářů</string>
+    <string name="revanced_hide_channel_guidelines_title">Skrýt pravidla kanálu</string>
+    <string name="revanced_hide_music_ads_summary">Skryje reklamy před přehráváním hudby.</string>
+    <string name="revanced_hide_music_ads_title">Skrýt hudební reklamy</string>
+    <string name="revanced_hide_navigation_label_summary">Skrýt popisky v navigačním panelu.</string>
+    <string name="revanced_hide_navigation_label_title">Skrýt popisky navigačního panelu</string>
+    <string name="revanced_hide_new_playlist_button_summary">Skrýt tlačítko \"Nový playlist\" v knihovně.</string>
+    <string name="revanced_hide_new_playlist_button_title">Skrýt tlačitko pro vytvoření nového playlistu</string>
+    <string name="revanced_hide_playlist_card_summary">Skryje panel playlist z domovské obrazovky.</string>
+    <string name="revanced_hide_playlist_card_title">Skrýt panel playlistu</string>
+    <string name="revanced_reset">Resetovat</string>
+    <string name="revanced_save_video_quality_none">Nepodařilo se nastavit kvalitu</string>
+    <string name="revanced_spoof_app_version_title">Zfalšovat verzi aplikace</string>
+</resources>

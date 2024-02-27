@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yt="http://schemas.android.com/apk/res-auto">
+    <com.google.android.apps.youtube.music.ui.preference.SwitchCompatPreference android:title="@string/sb_enabled" android:key="sb_enabled" android:summary="@string/sb_enabled_sum" android:defaultValue="true" />
+    <com.google.android.apps.youtube.music.ui.preference.SwitchCompatPreference android:title="@string/sb_toast_on_skip" android:key="sb_toast_on_skip" android:summary="@string/sb_toast_on_skip_sum" android:dependency="sb_enabled" android:defaultValue="true" />
+    <com.google.android.apps.youtube.music.ui.preference.SwitchCompatPreference android:title="@string/sb_toast_on_connection_error" android:key="sb_toast_on_connection_error" android:summary="@string/sb_toast_on_connection_error_sum" android:dependency="sb_enabled" android:defaultValue="false" />
+    <Preference android:title="@string/sb_api_url" android:key="sb_api_url" android:summary="@string/sb_api_url_sum" android:dependency="sb_enabled">
+        <intent android:targetPackage="com.google.android.apps.youtube.music" android:data="sb_api_url" android:targetClass="com.google.android.libraries.strictmode.penalties.notification.FullStackTraceActivity" />
+    </Preference>
+    <com.google.android.apps.youtube.music.ui.preference.PreferenceCategoryCompat android:title="@string/sb_diff_segments" android:key="segments">
+        <Preference android:title="@string/sb_segments_sponsor" android:key="sb_segments_sponsor" android:summary="@string/sb_segments_sponsor_sum">
+            <intent android:targetPackage="com.google.android.apps.youtube.music" android:data="sb_segments_sponsor" android:targetClass="com.google.android.libraries.strictmode.penalties.notification.FullStackTraceActivity" />
+        </Preference>
+        <Preference android:title="@string/sb_segments_selfpromo" android:key="sb_segments_selfpromo" android:summary="@string/sb_segments_selfpromo_sum">
+            <intent android:targetPackage="com.google.android.apps.youtube.music" android:data="sb_segments_selfpromo" android:targetClass="com.google.android.libraries.strictmode.penalties.notification.FullStackTraceActivity" />
+        </Preference>
+        <Preference android:title="@string/sb_segments_interaction" android:key="sb_segments_interaction" android:summary="@string/sb_segments_interaction_sum">
+            <intent android:targetPackage="com.google.android.apps.youtube.music" android:data="sb_segments_interaction" android:targetClass="com.google.android.libraries.strictmode.penalties.notification.FullStackTraceActivity" />
+        </Preference>
+        <Preference android:title="@string/sb_segments_intro" android:key="sb_segments_intro" android:summary="@string/sb_segments_intro_sum">
+            <intent android:targetPackage="com.google.android.apps.youtube.music" android:data="sb_segments_intro" android:targetClass="com.google.android.libraries.strictmode.penalties.notification.FullStackTraceActivity" />
+        </Preference>
+        <Preference android:title="@string/sb_segments_outro" android:key="sb_segments_outro" android:summary="@string/sb_segments_outro_sum">
+            <intent android:targetPackage="com.google.android.apps.youtube.music" android:data="sb_segments_outro" android:targetClass="com.google.android.libraries.strictmode.penalties.notification.FullStackTraceActivity" />
+        </Preference>
+        <Preference android:title="@string/sb_segments_preview" android:key="sb_segments_preview" android:summary="@string/sb_segments_preview_sum">
+            <intent android:targetPackage="com.google.android.apps.youtube.music" android:data="sb_segments_preview" android:targetClass="com.google.android.libraries.strictmode.penalties.notification.FullStackTraceActivity" />
+        </Preference>
+        <Preference android:title="@string/sb_segments_filler" android:key="sb_segments_filler" android:summary="@string/sb_segments_filler_sum">
+            <intent android:targetPackage="com.google.android.apps.youtube.music" android:data="sb_segments_filler" android:targetClass="com.google.android.libraries.strictmode.penalties.notification.FullStackTraceActivity" />
+        </Preference>
+        <Preference android:title="@string/sb_segments_nomusic" android:key="sb_segments_music_offtopic" android:summary="@string/sb_segments_nomusic_sum">
+            <intent android:targetPackage="com.google.android.apps.youtube.music" android:data="sb_segments_music_offtopic" android:targetClass="com.google.android.libraries.strictmode.penalties.notification.FullStackTraceActivity" />
+        </Preference>
+    </com.google.android.apps.youtube.music.ui.preference.PreferenceCategoryCompat>
+    <com.google.android.apps.youtube.music.ui.preference.PreferenceCategoryCompat android:title="@string/sb_about" android:key="about">
+        <Preference android:title="@string/sb_about_api" android:key="sb_about_api" android:summary="@string/sb_about_api_sum">
+            <intent android:action="android.intent.action.VIEW" android:data="https://sponsor.ajay.app" />
+        </Preference>
+    </com.google.android.apps.youtube.music.ui.preference.PreferenceCategoryCompat>
+</PreferenceScreen>

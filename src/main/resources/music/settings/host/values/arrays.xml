@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="revanced_extended_settings_import_export_entry">
+        <item>@string/revanced_extended_settings_export_as_file</item>
+        <item>@string/revanced_extended_settings_import_as_file</item>
+        <item>@string/revanced_extended_settings_import_export_as_text</item>
+    </string-array>
+</resources>
