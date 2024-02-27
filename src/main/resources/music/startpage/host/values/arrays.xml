@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="revanced_change_start_page_entry">
+        <item>@string/revanced_change_start_page_entry_chart</item>
+        <item>@string/revanced_change_start_page_entry_downloads</item>
+        <item>@string/revanced_change_start_page_entry_explore</item>
+        <item>@string/revanced_change_start_page_entry_history</item>
+        <item>@string/revanced_change_start_page_entry_home</item>
+        <item>@string/revanced_change_start_page_entry_library</item>
+        <item>@string/revanced_change_start_page_entry_mixed_for_you</item>
+        <item>@string/revanced_change_start_page_entry_moods_and_genres</item>
+        <item>@string/revanced_change_start_page_entry_new_releases</item>
+        <item>@string/revanced_change_start_page_entry_samples</item>
+        <item>@string/revanced_change_start_page_entry_subscription</item>
+    </string-array>
+    <string-array name="revanced_change_start_page_entry_value">
+        <item>FEmusic_charts</item>
+        <item>FEmusic_offline</item>
+        <item>FEmusic_explore</item>
+        <item>FEmusic_history</item>
+        <item>FEmusic_home</item>
+        <item>FEmusic_library_landing</item>
+        <item>FEmusic_mixed_for_you</item>
+        <item>FEmusic_moods_and_genres</item>
+        <item>FEmusic_new_releases</item>
+        <item>FEmusic_immersive</item>
+        <item>FEmusic_library_corpus_artists</item>
+    </string-array>
+</resources>
