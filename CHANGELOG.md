@@ -1,3 +1,10 @@
+# [4.3.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.7...v4.3.0-dev.8) (2024-02-28)
+
+
+### Bug Fixes
+
+* Remove extra space from patch description ([#2780](https://github.com/ReVanced/revanced-patches/issues/2780)) ([96a3f35](https://github.com/ReVanced/revanced-patches/commit/96a3f359266ff8d16ae9ee3c6ce2f16ce67a3b93))
+
 # [4.3.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.6...v4.3.0-dev.7) (2024-02-26)
 
 
