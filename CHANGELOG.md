@@ -1,3 +1,10 @@
+# [4.3.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.8...v4.3.0-dev.9) (2024-02-28)
+
+
+### Bug Fixes
+
+* **Override certificate pinning:** Always overwrite with a generic network security configuration ([2a842a1](https://github.com/ReVanced/revanced-patches/commit/2a842a1e14e1993eb028ae0bd1a93e227bb929a6))
+
 # [4.3.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.7...v4.3.0-dev.8) (2024-02-28)
 
 
