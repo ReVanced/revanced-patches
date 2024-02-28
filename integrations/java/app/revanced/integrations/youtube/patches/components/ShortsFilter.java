@@ -17,6 +17,9 @@ public final class ShortsFilter extends Filter {
     public static PivotBar pivotBar; // Set by patch.
     private final String REEL_CHANNEL_BAR_PATH = "reel_channel_bar.eml";
 
+    private final StringFilterGroup shortsCompactFeedVideoPath;
+    private final ByteArrayFilterGroup shortsCompactFeedVideoBuffer;
+
     private final StringFilterGroup channelBar;
     private final StringFilterGroup subscribeButton;
     private final StringFilterGroup subscribeButtonPaused;
@@ -35,7 +38,6 @@ public final class ShortsFilter extends Filter {
                 "shorts_grid",
                 "shorts_video_cell",
                 "shorts_pivot_item"
-
         );
         // Feed Shorts shelf header.
         // Use a different filter group for this pattern, as it requires an additional check after matching.
@@ -51,6 +53,15 @@ public final class ShortsFilter extends Filter {
         );
 
         addIdentifierCallbacks(shorts, shelfHeader, thanksButton);
+
+        // Shorts that appear in the feed/search when the device is using tablet layout.
+        shortsCompactFeedVideoPath = new StringFilterGroup(Settings.HIDE_SHORTS,
+                "compact_video.eml");
+        // Filter out items that use the 'frame0' thumbnail.
+        // This is a valid thumbnail for both regular videos and Shorts,
+        // but it appears these thumbnails are used only for Shorts.
+        shortsCompactFeedVideoBuffer = new ByteArrayFilterGroup(Settings.HIDE_SHORTS,
+                "/frame0.jpg");
 
         // Shorts player components.
         var joinButton = new StringFilterGroup(
@@ -89,6 +100,7 @@ public final class ShortsFilter extends Filter {
         );
 
         addPathCallbacks(
+                shortsCompactFeedVideoPath,
                 joinButton, subscribeButton, subscribeButtonPaused,
                 channelBar, soundButton, infoPanel, videoActionButton
         );
@@ -122,6 +134,13 @@ public final class ShortsFilter extends Filter {
                     matchedGroup == subscribeButtonPaused
             ) return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
 
+            if (matchedGroup == shortsCompactFeedVideoPath) {
+                if (contentIndex == 0 && shortsCompactFeedVideoBuffer.check(protobufBufferArray).isFiltered()) {
+                    return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
+                }
+                return false;
+            }
+
             // Video action buttons (comment, share, remix) have the same path.
             if (matchedGroup == videoActionButton) {
                 if (videoActionButtonGroupList.check(protobufBufferArray).isFiltered()) return super.isFiltered(
@@ -132,10 +151,11 @@ public final class ShortsFilter extends Filter {
 
             // Filter other path groups from pathFilterGroupList, only when reelChannelBar is visible
             // to avoid false positives.
-            if (path.startsWith(REEL_CHANNEL_BAR_PATH))
-                if (matchedGroup == subscribeButton) return super.isFiltered(
+            if (matchedGroup == subscribeButton) {
+                if (path.startsWith(REEL_CHANNEL_BAR_PATH)) return super.isFiltered(
                         identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex
                 );
+            }
 
             return false;
         } else if (matchedGroup == shelfHeader) {
