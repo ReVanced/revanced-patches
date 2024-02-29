@@ -1,3 +1,10 @@
+# [4.3.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.9...v4.3.0-dev.10) (2024-02-29)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof app version:** Remove broken versions ([#2776](https://github.com/ReVanced/revanced-patches/issues/2776)) ([9466d97](https://github.com/ReVanced/revanced-patches/commit/9466d973c6d7a2891e3fa9f283107b64399152ea))
+
 # [4.3.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.8...v4.3.0-dev.9) (2024-02-28)
 
 
