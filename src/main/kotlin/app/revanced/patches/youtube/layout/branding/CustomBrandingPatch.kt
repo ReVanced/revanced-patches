@@ -15,7 +15,7 @@ import java.nio.file.Files
     name = "Custom branding",
     description = "Applies a custom app name and icon. Defaults to \"YouTube ReVanced\" and the ReVanced logo.",
     compatiblePackages = [
-        CompatiblePackage("com.google.android.youtube")
+        CompatiblePackage("com.google.android.youtube.tv")
     ],
     use = false
 )

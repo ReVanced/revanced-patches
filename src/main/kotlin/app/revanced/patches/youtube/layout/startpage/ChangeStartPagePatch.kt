@@ -19,7 +19,7 @@ import app.revanced.util.exception
     dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube"
+            "com.google.android.youtube.tv"
         )
     ]
 )

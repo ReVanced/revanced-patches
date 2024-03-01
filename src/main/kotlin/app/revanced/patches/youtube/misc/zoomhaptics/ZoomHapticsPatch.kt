@@ -16,7 +16,7 @@ import app.revanced.patches.youtube.misc.zoomhaptics.fingerprints.ZoomHapticsFin
     name = "Disable zoom haptics",
     description = "Adds an option to disable haptics when zooming.",
     dependencies = [SettingsPatch::class, AddResourcesPatch::class],
-    compatiblePackages = [CompatiblePackage("com.google.android.youtube")]
+    compatiblePackages = [CompatiblePackage("com.google.android.youtube.tv")]
 )
 @Suppress("unused")
 object ZoomHapticsPatch : BytecodePatch(

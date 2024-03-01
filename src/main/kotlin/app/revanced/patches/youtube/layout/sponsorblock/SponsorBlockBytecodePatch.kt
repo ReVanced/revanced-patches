@@ -37,7 +37,7 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
     description = "Adds options to enable and configure SponsorBlock, which can skip undesired video segments such as sponsored content.",
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube.tv", [
                 "18.48.39",
                 "18.49.37",
                 "19.01.34",

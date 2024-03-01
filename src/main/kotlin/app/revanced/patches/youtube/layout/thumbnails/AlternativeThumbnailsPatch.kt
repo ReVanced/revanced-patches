@@ -39,7 +39,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
     ],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube",
+            "com.google.android.youtube.tv",
             [
                 "18.32.39",
                 "18.37.36",

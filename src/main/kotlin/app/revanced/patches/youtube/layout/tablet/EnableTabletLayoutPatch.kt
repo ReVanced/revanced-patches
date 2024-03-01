@@ -19,7 +19,7 @@ import app.revanced.util.exception
     name = "Enable tablet layout",
     description = "Adds an option to spoof the device form factor to a tablet which enables the tablet layout.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
-    compatiblePackages = [CompatiblePackage("com.google.android.youtube")]
+    compatiblePackages = [CompatiblePackage("com.google.android.youtube.tv")]
 )
 @Suppress("unused")
 object EnableTabletLayoutPatch : BytecodePatch(

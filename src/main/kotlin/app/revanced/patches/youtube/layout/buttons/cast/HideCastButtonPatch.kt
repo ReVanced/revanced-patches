@@ -20,7 +20,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
         AddResourcesPatch::class
     ],
     compatiblePackages = [
-        CompatiblePackage("com.google.android.youtube")
+        CompatiblePackage("com.google.android.youtube.tv")
     ]
 )
 object HideCastButtonPatch : BytecodePatch() {

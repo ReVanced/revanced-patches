@@ -26,7 +26,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", arrayOf(
+            "com.google.android.youtube.tv", arrayOf(
                 "18.32.39",
                 "18.37.36",
                 "18.38.44",

@@ -30,7 +30,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     ],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube",
+            "com.google.android.youtube.tv",
             [
                 "18.37.36",
                 "18.38.44",

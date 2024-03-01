@@ -21,7 +21,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 @Patch(
     description = "Hide or set a custom seekbar color",
     dependencies = [IntegrationsPatch::class, LithoColorHookPatch::class, SeekbarColorResourcePatch::class],
-    compatiblePackages = [CompatiblePackage("com.google.android.youtube")]
+    compatiblePackages = [CompatiblePackage("com.google.android.youtube.tv")]
 )
 internal object SeekbarColorBytecodePatch : BytecodePatch(
     setOf(PlayerSeekbarColorFingerprint, ShortsSeekbarColorFingerprint, SetSeekbarClickedColorFingerprint)

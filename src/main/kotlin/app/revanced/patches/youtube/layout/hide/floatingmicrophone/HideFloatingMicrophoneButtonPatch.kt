@@ -16,7 +16,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
     dependencies = [HideFloatingMicrophoneButtonResourcePatch::class],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube",
+            "com.google.android.youtube.tv",
             [
                 "18.32.39",
                 "18.37.36",

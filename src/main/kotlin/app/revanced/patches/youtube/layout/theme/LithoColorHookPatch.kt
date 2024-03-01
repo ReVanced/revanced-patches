@@ -12,7 +12,7 @@ import app.revanced.patches.youtube.layout.theme.fingerprints.LithoThemeFingerpr
 @Patch(
     description = "Adds a hook to set color of Litho components.",
     compatiblePackages = [
-        CompatiblePackage("com.google.android.youtube"),
+        CompatiblePackage("com.google.android.youtube.tv"),
     ]
 )
 internal object LithoColorHookPatch : BytecodePatch(setOf(LithoThemeFingerprint)) {

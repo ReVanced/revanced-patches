@@ -13,7 +13,7 @@ import app.revanced.patches.youtube.video.speed.remember.RememberPlaybackSpeedPa
     dependencies = [CustomPlaybackSpeedPatch::class, RememberPlaybackSpeedPatch::class],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube.tv", [
                 "18.48.39",
                 "18.49.37",
                 "19.01.34",

@@ -12,7 +12,7 @@ internal object RemoteEmbeddedPlayerFingerprint : IntegrationsFingerprint(
     returnType = "V",
     parameters = listOf("Landroid/content/Context;", "L", "L", "Z"),
     customFingerprint = { methodDef, _ ->
-        methodDef.definingClass == "Lcom/google/android/youtube/api/jar/client/RemoteEmbeddedPlayer;"
+        methodDef.definingClass == "Lcom.google.android.youtube.tv/api/jar/client/RemoteEmbeddedPlayer;"
     },
     // Integrations context is the first method parameter.
     contextRegisterResolver = { it.implementation!!.registerCount - it.parameters.size }

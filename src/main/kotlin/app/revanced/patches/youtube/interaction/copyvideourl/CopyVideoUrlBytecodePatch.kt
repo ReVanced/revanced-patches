@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.video.information.VideoInformationPatch
     ],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube.tv", [
                 "18.48.39",
                 "18.49.37",
                 "19.01.34",

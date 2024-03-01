@@ -16,7 +16,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     description = "Adds an option to change the opacity of the video player background when player controls are visible.",
     dependencies = [CustomPlayerOverlayOpacityResourcePatch::class],
     compatiblePackages = [
-        CompatiblePackage("com.google.android.youtube")
+        CompatiblePackage("com.google.android.youtube.tv")
     ]
 )
 @Suppress("unused")

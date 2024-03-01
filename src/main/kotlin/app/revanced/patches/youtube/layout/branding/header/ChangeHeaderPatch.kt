@@ -15,7 +15,7 @@ import java.io.File
     name = "Change header",
     description = "Applies a custom header in the top left corner within the app. Defaults to the ReVanced header.",
     compatiblePackages = [
-        CompatiblePackage("com.google.android.youtube")
+        CompatiblePackage("com.google.android.youtube.tv")
     ],
     use = false
 )

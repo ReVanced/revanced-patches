@@ -12,7 +12,7 @@ import app.revanced.patches.youtube.misc.playeroverlay.fingerprint.PlayerOverlay
     description = "Hook for adding custom overlays to the video player.",
     dependencies = [IntegrationsPatch::class],
     compatiblePackages = [
-        CompatiblePackage("com.google.android.youtube", [
+        CompatiblePackage("com.google.android.youtube.tv", [
             "18.32.39"
         ])
     ]

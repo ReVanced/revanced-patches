@@ -100,7 +100,7 @@ object SettingsPatch : BytecodePatch(
         targetClass = "com.google.android.libraries.social.licenses.LicenseActivity"
     ) {
         // The package name change has to be reflected in the intent.
-        ChangePackageNamePatch.setOrGetFallbackPackageName("com.google.android.youtube")
+        ChangePackageNamePatch.setOrGetFallbackPackageName("com.google.android.youtube.tv")
     }
 
     object PreferenceScreen : BasePreferenceScreen() {
