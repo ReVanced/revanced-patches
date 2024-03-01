@@ -870,6 +870,12 @@ public final class app/revanced/patches/strava/upselling/DisableSubscriptionSugg
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/ticktick/misc/premium/UnlockPremiumPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/ticktick/misc/premium/UnlockPremiumPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/ticktick/misc/themeunlock/UnlockProPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/ticktick/misc/themeunlock/UnlockProPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
