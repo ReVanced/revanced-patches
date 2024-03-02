@@ -28,7 +28,7 @@ public class AppCompatActivityHook {
     public static void startSettingsActivity() {
         Logger.printDebug(() -> "Launching ReVanced settings");
 
-        final var context = app.revanced.integrations.shared.Utils.getContext();
+        final var context = Utils.getContext();
 
         if (context != null) {
             Intent intent = new Intent(context, SettingsActivity.class);

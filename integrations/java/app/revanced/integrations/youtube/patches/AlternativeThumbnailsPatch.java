@@ -422,7 +422,7 @@ public final class AlternativeThumbnailsPatch {
             private static final int CACHE_LIMIT = 1000;
 
             @Override
-            protected boolean removeEldestEntry(Map.Entry eldest) {
+            protected boolean removeEldestEntry(Entry eldest) {
                 return size() > CACHE_LIMIT; // Evict the oldest entry if over the cache limit.
             }
         };

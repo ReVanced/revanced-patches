@@ -667,7 +667,7 @@ public class ReturnYouTubeDislikePatch {
      *
      * Called when the user likes or dislikes.
      *
-     * @param vote int that matches {@link ReturnYouTubeDislike.Vote#value}
+     * @param vote int that matches {@link Vote#value}
      */
     public static void sendVote(int vote) {
         try {

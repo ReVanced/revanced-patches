@@ -150,7 +150,7 @@ public class ReturnYouTubeDislikePreferenceFragment extends PreferenceFragment {
                 pref.getContext().startActivity(i);
                 return false;
             });
-            preferenceScreen.addPreference(aboutWebsitePreference);
+            aboutCategory.addPreference(aboutWebsitePreference);
 
             // RYD API connection statistics
 

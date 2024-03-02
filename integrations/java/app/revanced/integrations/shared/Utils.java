@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
+import android.preference.PreferenceScreen;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -26,10 +27,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.text.Bidi;
-import java.util.Locale;
-import java.util.Objects;
-import java.util.SortedMap;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.SynchronousQueue;
@@ -101,7 +99,6 @@ public class Utils {
 
         view.setVisibility(View.GONE);
     }
-
 
     /**
      * General purpose pool for network calls and other background tasks.
@@ -205,7 +202,9 @@ public class Utils {
     public static <T extends View> T getChildView(@NonNull ViewGroup viewGroup, @NonNull MatchFilter filter) {
         for (int i = 0, childCount = viewGroup.getChildCount(); i < childCount; i++) {
             View childAt = viewGroup.getChildAt(i);
+            //noinspection unchecked
             if (filter.matches(childAt)) {
+                //noinspection unchecked
                 return (T) childAt;
             }
         }
@@ -345,6 +344,12 @@ public class Utils {
         }
     }
 
+    public enum NetworkType {
+        NONE,
+        MOBILE,
+        OTHER,
+    }
+
     public static boolean isNetworkConnected() {
         NetworkType networkType = getNetworkType();
         return networkType == NetworkType.MOBILE
@@ -393,48 +398,104 @@ public class Utils {
         }
     }
 
+    /**
+     * {@link PreferenceScreen} and {@link PreferenceGroup} sorting styles.
+     */
+    private enum Sort {
+        /**
+         * Sort by the localized preference title.
+         */
+        BY_TITLE("_sort_by_title"),
+
+        /**
+         * Sort by the preference keys.
+         */
+        BY_KEY("_sort_by_key"),
+
+        /**
+         * Unspecified sorting.
+         */
+        UNSORTED("_sort_by_unsorted");
+
+        final String keySuffix;
+
+        Sort(String keySuffix) {
+            this.keySuffix = keySuffix;
+        }
+
+        /**
+         * Defaults to {@link #UNSORTED} if key is null or has no sort suffix.
+         */
+        @NonNull
+        static Sort fromKey(@Nullable String key) {
+            if (key != null) {
+                for (Sort sort : values()) {
+                    if (key.endsWith(sort.keySuffix)) {
+                        return sort;
+                    }
+                }
+            }
+            return UNSORTED;
+        }
+    }
+
     private static final Regex punctuationRegex = new Regex("\\p{P}+");
 
     /**
-     * Sort the preferences by title and ignore the casing.
-     *
-     * Android Preferences are automatically sorted by title,
-     * but if using a localized string key it sorts on the key and not the actual title text that's used at runtime.
-     *
-     * @param menuDepthToSort Maximum menu depth to sort. Menus deeper than this value
-     *                        will show preferences in the order created in patches.
+     * Strips all punctuation and converts to lower case.  A null parameter returns an empty string.
      */
-    public static void sortPreferenceGroupByTitle(PreferenceGroup group, int menuDepthToSort) {
-        if (menuDepthToSort == 0) return;
-
-        SortedMap<String, Preference> preferences = new TreeMap<>();
-        for (int i = 0, prefCount = group.getPreferenceCount(); i < prefCount; i++) {
-            Preference preference = group.getPreference(i);
-            if (preference instanceof PreferenceGroup) {
-                sortPreferenceGroupByTitle((PreferenceGroup) preference, menuDepthToSort - 1);
-            }
-            preferences.put(removePunctuationConvertToLowercase(preference.getTitle()), preference);
-        }
-
-        int prefIndex = 0;
-        for (Preference pref : preferences.values()) {
-            int indexToSet = prefIndex++;
-            if (pref instanceof PreferenceGroup || pref.getIntent() != null) {
-                // Place preference groups last.
-                // Use an offset to push the group to the end.
-                indexToSet += 1000;
-            }
-            pref.setOrder(indexToSet);
-        }
-    }
-
-    public static String removePunctuationConvertToLowercase(CharSequence original) {
+    public static String removePunctuationConvertToLowercase(@Nullable CharSequence original) {
+        if (original == null) return "";
         return punctuationRegex.replace(original, "").toLowerCase();
     }
 
-    public enum NetworkType {
-        NONE,
-        MOBILE,
-        OTHER,
+    /**
+     * Sort a PreferenceGroup and all it's sub groups by title or key.
+     *
+     * Sort order is determined by the preferences key {@link Sort} suffix.
+     *
+     * If a preference has no key or no {@link Sort} suffix,
+     * then the preferences are left unsorted.
+     */
+    public static void sortPreferenceGroups(@NonNull PreferenceGroup group) {
+        Sort sort = Sort.fromKey(group.getKey());
+        SortedMap<String, Preference> preferences = new TreeMap<>();
+
+        for (int i = 0, prefCount = group.getPreferenceCount(); i < prefCount; i++) {
+            Preference preference = group.getPreference(i);
+
+            if (preference instanceof PreferenceGroup) {
+                sortPreferenceGroups((PreferenceGroup) preference);
+            }
+
+            final String sortValue;
+            switch (sort) {
+                case BY_TITLE:
+                    sortValue = removePunctuationConvertToLowercase(preference.getTitle());
+                    break;
+                case BY_KEY:
+                    sortValue = preference.getKey();
+                    break;
+                case UNSORTED:
+                    continue; // Keep original sorting.
+                default:
+                    throw new IllegalStateException();
+            }
+
+            preferences.put(sortValue, preference);
+        }
+
+        int index = 0;
+        for (Preference pref : preferences.values()) {
+            int order = index++;
+
+            // If the preference is a PreferenceScreen or is an intent preference, move to the top.
+            if (pref instanceof PreferenceScreen || pref.getIntent() != null) {
+                // Arbitrary high number.
+                order -= 1000;
+            }
+
+            pref.setOrder(order);
+        }
     }
 }

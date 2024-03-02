@@ -45,7 +45,7 @@ public final class ReturnYouTubeDislikeFilterPatch extends Filter {
         private static final int NUMBER_OF_LAST_VIDEO_IDS_TO_TRACK = 5;
 
         @Override
-        protected boolean removeEldestEntry(Map.Entry eldest) {
+        protected boolean removeEldestEntry(Entry eldest) {
             return size() > NUMBER_OF_LAST_VIDEO_IDS_TO_TRACK;
         }
     };

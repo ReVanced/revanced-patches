@@ -15,15 +15,14 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import app.revanced.integrations.shared.Logger;
+import app.revanced.integrations.shared.settings.BaseSettings;
 import app.revanced.integrations.shared.settings.BooleanSetting;
 import app.revanced.integrations.shared.settings.FloatSetting;
 import app.revanced.integrations.shared.settings.IntegerSetting;
 import app.revanced.integrations.shared.settings.LongSetting;
 import app.revanced.integrations.shared.settings.Setting;
-import app.revanced.integrations.shared.settings.preference.SharedPrefCategory;
-import app.revanced.integrations.shared.settings.BaseSettings;
 import app.revanced.integrations.shared.settings.StringSetting;
+import app.revanced.integrations.shared.settings.preference.SharedPrefCategory;
 import app.revanced.integrations.youtube.sponsorblock.SponsorBlockSettings;
 
 public class Settings extends BaseSettings {
@@ -129,7 +128,7 @@ public class Settings extends BaseSettings {
     public static final IntegerSetting PLAYER_OVERLAY_OPACITY = new IntegerSetting("revanced_player_overlay_opacity",100, true);
     public static final BooleanSetting PLAYER_POPUP_PANELS = new BooleanSetting("revanced_hide_player_popup_panels", FALSE);
     public static final BooleanSetting SPOOF_APP_VERSION = new BooleanSetting("revanced_spoof_app_version", FALSE, true, "revanced_spoof_app_version_user_dialog_message");
-    public static final StringSetting SPOOF_APP_VERSION_TARGET = new StringSetting("revanced_spoof_app_version_target", "17.08.35", true, parent(SPOOF_APP_VERSION));
+    public static final StringSetting SPOOF_APP_VERSION_TARGET = new StringSetting("revanced_spoof_app_version_target", "17.33.42", true, parent(SPOOF_APP_VERSION));
     public static final BooleanSetting SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON = new BooleanSetting("revanced_switch_create_with_notifications_button", TRUE, true);
     public static final BooleanSetting TABLET_LAYOUT = new BooleanSetting("revanced_tablet_layout", FALSE, true, "revanced_tablet_layout_user_dialog_message");
     public static final BooleanSetting USE_TABLET_MINIPLAYER = new BooleanSetting("revanced_tablet_miniplayer", FALSE, true);
@@ -167,7 +166,6 @@ public class Settings extends BaseSettings {
 
     // Action buttons
     public static final BooleanSetting HIDE_LIKE_DISLIKE_BUTTON = new BooleanSetting("revanced_hide_like_dislike_button", FALSE);
-    public static final BooleanSetting HIDE_LIVE_CHAT_BUTTON = new BooleanSetting("revanced_hide_live_chat_button", FALSE);
     public static final BooleanSetting HIDE_SHARE_BUTTON = new BooleanSetting("revanced_hide_share_button", FALSE);
     public static final BooleanSetting HIDE_REPORT_BUTTON = new BooleanSetting("revanced_hide_report_button", FALSE);
     public static final BooleanSetting HIDE_REMIX_BUTTON = new BooleanSetting("revanced_hide_remix_button", TRUE);
