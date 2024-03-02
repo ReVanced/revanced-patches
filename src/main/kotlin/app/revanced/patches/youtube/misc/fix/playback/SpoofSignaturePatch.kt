@@ -16,7 +16,8 @@ import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
-import app.revanced.util.exception
+import app.revanced.util.*
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
@@ -28,8 +29,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
         PlayerResponseMethodHookPatch::class,
         VideoInformationPatch::class,
         SpoofSignatureResourcePatch::class,
-        AddResourcesPatch::class
-    ]
+        AddResourcesPatch::class,
+    ],
 )
 object SpoofSignaturePatch : BytecodePatch(
     setOf(
@@ -41,7 +42,9 @@ object SpoofSignaturePatch : BytecodePatch(
         StoryboardRendererDecoderRecommendedLevelFingerprint,
         StoryboardThumbnailParentFingerprint,
         ScrubbedPreviewLayoutFingerprint,
-    )
+        StatsQueryParameterFingerprint,
+        ParamsMapPutFingerprint,
+    ),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/spoof/SpoofSignaturePatch;"
@@ -55,14 +58,14 @@ object SpoofSignaturePatch : BytecodePatch(
                 preferences = setOf(
                     SwitchPreference("revanced_spoof_signature_verification_enabled"),
                     SwitchPreference("revanced_spoof_signature_in_feed_enabled"),
-                    SwitchPreference("revanced_spoof_storyboard")
+                    SwitchPreference("revanced_spoof_storyboard"),
                 ),
-            )
+            ),
         )
 
         // Hook the player parameters.
         PlayerResponseMethodHookPatch += PlayerResponseMethodHookPatch.Hook.ProtoBufferParameter(
-            "$INTEGRATIONS_CLASS_DESCRIPTOR->spoofParameter(Ljava/lang/String;Z)Ljava/lang/String;"
+            "$INTEGRATIONS_CLASS_DESCRIPTOR->spoofParameter(Ljava/lang/String;Z)Ljava/lang/String;",
         )
 
         // Force the seekbar time and chapters to always show up.
@@ -72,7 +75,7 @@ object SpoofSignaturePatch : BytecodePatch(
             StoryboardThumbnailFingerprint.also {
                 it.resolve(
                     context,
-                    classDef
+                    classDef,
                 )
             }.result?.let {
                 val endIndex = it.scanResult.patternScanResult!!.endIndex
@@ -84,7 +87,7 @@ object SpoofSignaturePatch : BytecodePatch(
                     endIndex,
                     """
                         invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->getSeekbarThumbnailOverrideValue()Z
-                    """
+                    """,
                 )
                 // Since this is end of the method must replace one line then add the rest.
                 it.mutableMethod.addInstructions(
@@ -92,7 +95,7 @@ object SpoofSignaturePatch : BytecodePatch(
                     """
                     move-result v0
                     return v0
-                """
+                """,
                 )
             } ?: throw StoryboardThumbnailFingerprint.exception
         }
@@ -107,7 +110,7 @@ object SpoofSignaturePatch : BytecodePatch(
                     """
                         iget-object v0, p0, $imageViewFieldName   # copy imageview field to a register
                         invoke-static {v0}, $INTEGRATIONS_CLASS_DESCRIPTOR->seekbarImageViewCreated(Landroid/widget/ImageView;)V
-                    """
+                    """,
                 )
             }
         } ?: throw ScrubbedPreviewLayoutFingerprint.exception
@@ -117,7 +120,7 @@ object SpoofSignaturePatch : BytecodePatch(
          */
         arrayOf(
             PlayerResponseModelImplGeneralFingerprint,
-            PlayerResponseModelImplLiveStreamFingerprint
+            PlayerResponseModelImplLiveStreamFingerprint,
         ).forEach { fingerprint ->
             fingerprint.result?.let {
                 it.mutableMethod.apply {
@@ -130,7 +133,7 @@ object SpoofSignaturePatch : BytecodePatch(
                         """
                         invoke-static { v$getStoryBoardRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getStoryboardRendererSpec(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object v$getStoryBoardRegister
-                    """
+                    """,
                     )
                 }
             } ?: throw fingerprint.exception
@@ -143,10 +146,11 @@ object SpoofSignaturePatch : BytecodePatch(
                 .getInstruction<OneRegisterInstruction>(moveOriginalRecommendedValueIndex).registerA
 
             it.mutableMethod.addInstructions(
-                moveOriginalRecommendedValueIndex + 1, """
+                moveOriginalRecommendedValueIndex + 1,
+                """
                         invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
                         move-result v$originalValueRegister
-                """
+                """,
             )
         } ?: throw StoryboardRendererDecoderRecommendedLevelFingerprint.exception
 
@@ -158,10 +162,11 @@ object SpoofSignaturePatch : BytecodePatch(
                     getInstruction<OneRegisterInstruction>(moveOriginalRecommendedValueIndex).registerA
 
                 addInstructions(
-                    moveOriginalRecommendedValueIndex, """
+                    moveOriginalRecommendedValueIndex,
+                    """
                         invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
                         move-result v$originalValueRegister
-                        """
+                        """,
                 )
             }
         } ?: throw PlayerResponseModelImplRecommendedLevelFingerprint.exception
@@ -177,7 +182,7 @@ object SpoofSignaturePatch : BytecodePatch(
                         invoke-static { p$storyBoardUrlParams }, $INTEGRATIONS_CLASS_DESCRIPTOR->getStoryboardRendererSpec(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object p$storyBoardUrlParams
                     """,
-                    ExternalLabel("ignore", getInstruction(0))
+                    ExternalLabel("ignore", getInstruction(0)),
                 )
             }
         } ?: throw StoryboardRendererSpecFingerprint.exception
@@ -189,11 +194,43 @@ object SpoofSignaturePatch : BytecodePatch(
                 it.mutableMethod.getInstruction<OneRegisterInstruction>(storyBoardUrlIndex).registerA
 
             it.mutableMethod.addInstructions(
-                storyBoardUrlIndex + 1, """
+                storyBoardUrlIndex + 1,
+                """
                         invoke-static { v$storyboardUrlRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getStoryboardDecoderRendererSpec(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object v$storyboardUrlRegister
-                """
+                """,
             )
         } ?: throw StoryboardRendererDecoderSpecFingerprint.exception
+
+        // Fix stats not being tracked.
+        // Due to signature spoofing "adformat" is present in query parameters made for /stats requests,
+        // even though, for regular videos, it should not be.
+        // This breaks stats tracking.
+        // Replace the ad parameter with the video parameter in the query parameters.
+        StatsQueryParameterFingerprint.result?.let {
+            val putMethod = ParamsMapPutFingerprint.result?.method?.toString()
+                ?: throw ParamsMapPutFingerprint.exception
+
+            it.mutableMethod.apply {
+                val adParamIndex = it.scanResult.stringsScanResult!!.matches.first().index
+                val videoParamIndex = adParamIndex + 3
+
+                // Replace the ad parameter with the video parameter.
+                replaceInstruction(adParamIndex, getInstruction(videoParamIndex))
+
+                // Call paramsMap.put instead of paramsMap.putIfNotExist
+                // because the key is already present in the map.
+                val putAdParamIndex = adParamIndex + 1
+                val putIfKeyNotExistsInstruction = getInstruction<FiveRegisterInstruction>(putAdParamIndex)
+                replaceInstruction(
+                    putAdParamIndex,
+                    "invoke-virtual { " +
+                        "v${putIfKeyNotExistsInstruction.registerC}, " +
+                        "v${putIfKeyNotExistsInstruction.registerD}, " +
+                        "v${putIfKeyNotExistsInstruction.registerE} }, " +
+                        putMethod,
+                )
+            }
+        } ?: throw StatsQueryParameterFingerprint.exception
     }
 }
