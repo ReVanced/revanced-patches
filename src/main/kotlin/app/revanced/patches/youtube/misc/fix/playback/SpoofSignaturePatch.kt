@@ -12,6 +12,8 @@ import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.*
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.ParamsMapPutFingerprint
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.PlayerResponseModelImplGeneralFingerprint
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.PlayerResponseModelImplLiveStreamFingerprint
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.PlayerResponseModelImplRecommendedLevelFingerprint
@@ -25,7 +27,8 @@ import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
-import app.revanced.util.exception
+import app.revanced.util.*
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
@@ -50,6 +53,8 @@ object SpoofSignaturePatch : BytecodePatch(
         StoryboardRendererDecoderRecommendedLevelFingerprint,
         StoryboardThumbnailParentFingerprint,
         ScrubbedPreviewLayoutFingerprint,
+        StatsQueryParameterFingerprint,
+        ParamsMapPutFingerprint,
     ),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -208,5 +213,36 @@ object SpoofSignaturePatch : BytecodePatch(
                 """,
             )
         } ?: throw StoryboardRendererDecoderSpecFingerprint.exception
+
+        // Fix stats not being tracked.
+        // Due to signature spoofing "adformat" is present in query parameters made for /stats requests,
+        // even though, for regular videos, it should not be.
+        // This breaks stats tracking.
+        // Replace the ad parameter with the video parameter in the query parameters.
+        StatsQueryParameterFingerprint.result?.let {
+            val putMethod = ParamsMapPutFingerprint.result?.method?.toString()
+                ?: throw ParamsMapPutFingerprint.exception
+
+            it.mutableMethod.apply {
+                val adParamIndex = it.scanResult.stringsScanResult!!.matches.first().index
+                val videoParamIndex = adParamIndex + 3
+
+                // Replace the ad parameter with the video parameter.
+                replaceInstruction(adParamIndex, getInstruction(videoParamIndex))
+
+                // Call paramsMap.put instead of paramsMap.putIfNotExist
+                // because the key is already present in the map.
+                val putAdParamIndex = adParamIndex + 1
+                val putIfKeyNotExistsInstruction = getInstruction<FiveRegisterInstruction>(putAdParamIndex)
+                replaceInstruction(
+                    putAdParamIndex,
+                    "invoke-virtual { " +
+                        "v${putIfKeyNotExistsInstruction.registerC}, " +
+                        "v${putIfKeyNotExistsInstruction.registerD}, " +
+                        "v${putIfKeyNotExistsInstruction.registerE} }, " +
+                        putMethod,
+                )
+            }
+        } ?: throw StatsQueryParameterFingerprint.exception
     }
 }

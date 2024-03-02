@@ -1,3 +1,60 @@
+# [4.3.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.11...v4.3.0-dev.12) (2024-03-02)
+
+
+### Features
+
+* **YouTube - Spoof app version:** Add target versions ([#2787](https://github.com/ReVanced/revanced-patches/issues/2787)) ([83a7bd8](https://github.com/ReVanced/revanced-patches/commit/83a7bd8d69e62623fc4d2ba73d9fb49e92751d89))
+
+# [4.3.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.10...v4.3.0-dev.11) (2024-03-02)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof signature:** Fix tracking such as history or watch time ([bcd8b48](https://github.com/ReVanced/revanced-patches/commit/bcd8b48e70693dac1bfcc0bf4971d6b526065b59))
+
+# [4.3.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.9...v4.3.0-dev.10) (2024-02-29)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof app version:** Remove broken versions ([#2776](https://github.com/ReVanced/revanced-patches/issues/2776)) ([9466d97](https://github.com/ReVanced/revanced-patches/commit/9466d973c6d7a2891e3fa9f283107b64399152ea))
+
+# [4.3.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.8...v4.3.0-dev.9) (2024-02-28)
+
+
+### Bug Fixes
+
+* **Override certificate pinning:** Always overwrite with a generic network security configuration ([2a842a1](https://github.com/ReVanced/revanced-patches/commit/2a842a1e14e1993eb028ae0bd1a93e227bb929a6))
+
+# [4.3.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.7...v4.3.0-dev.8) (2024-02-28)
+
+
+### Bug Fixes
+
+* Remove extra space from patch description ([#2780](https://github.com/ReVanced/revanced-patches/issues/2780)) ([96a3f35](https://github.com/ReVanced/revanced-patches/commit/96a3f359266ff8d16ae9ee3c6ce2f16ce67a3b93))
+
+# [4.3.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.6...v4.3.0-dev.7) (2024-02-26)
+
+
+### Features
+
+* **OpeningHours:** Add `Fix crash` patch ([#2697](https://github.com/ReVanced/revanced-patches/issues/2697)) ([0d011b8](https://github.com/ReVanced/revanced-patches/commit/0d011b876ecf05031a7daa54ab7e6d3506728a47))
+
+# [4.3.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.5...v4.3.0-dev.6) (2024-02-25)
+
+
+### Features
+
+* **VSCO - Unlock pro:** Constrain to last working version ([6dd4a7c](https://github.com/ReVanced/revanced-patches/commit/6dd4a7c29e48c3bc517bbdd7ed160624c36c2333))
+
+# [4.3.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.4...v4.3.0-dev.5) (2024-02-25)
+
+
+### Features
+
+* Remove unnecessary description from patch ([1a89dd9](https://github.com/ReVanced/revanced-patches/commit/1a89dd9f8cd0c614055a9da97338839b77a25ed1))
+* **Twitter - Unlock downloads:** Unlock GIF downloads ([d0f91c8](https://github.com/ReVanced/revanced-patches/commit/d0f91c8550592723e1252e1af2971b508591dd59))
+
 # [4.3.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.3...v4.3.0-dev.4) (2024-02-22)
 
 
