@@ -1,3 +1,10 @@
+# [4.3.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.12...v4.3.0-dev.13) (2024-03-02)
+
+
+### Features
+
+* **YouTube:** Reorganize settings menu ([#2737](https://github.com/ReVanced/revanced-patches/issues/2737)) ([36132df](https://github.com/ReVanced/revanced-patches/commit/36132df4be6a04c08b6f3dd79de1bcea93a80fb8))
+
 # [4.3.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.11...v4.3.0-dev.12) (2024-03-02)
 
 
