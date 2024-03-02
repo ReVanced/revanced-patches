@@ -11,8 +11,8 @@ public class SpoofAppVersionPatch {
 
     static {
         // TODO: remove this migration code
-        // Spoof targets 16.x and 17.x that no longer reliably work.
-        if (Settings.SPOOF_APP_VERSION_TARGET.get().compareTo("18.01.01") < 0) {
+        // Spoof targets below 17.33 that no longer reliably work.
+        if (Settings.SPOOF_APP_VERSION_TARGET.get().compareTo("17.33.01") < 0) {
             Logger.printInfo(() -> "Resetting spoof app version target");
             Settings.SPOOF_APP_VERSION_TARGET.resetToDefault();
         }
