@@ -7,6 +7,7 @@ import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patches.youtube.misc.settings.SettingsResourcePatch
 
 @Patch(
     dependencies = [
@@ -20,14 +21,12 @@ internal object ReturnYouTubeDislikeResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            IntentPreference(
-                "revanced_ryd_settings",
-                intent = SettingsPatch.newIntent("revanced_ryd_settings_intent")
-            )
+        SettingsResourcePatch += IntentPreference(
+            key = "revanced_settings_screen_09",
+            titleKey = "revanced_ryd_settings_title",
+            summaryKey = null,
+            intent = SettingsPatch.newIntent("revanced_ryd_settings_intent")
         )
-
-        AddResourcesPatch(this::class)
 
         oldUIDislikeId = ResourceMappingPatch.resourceMappings.single {
             it.type == "id" && it.name == "dislike_button"

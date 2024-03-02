@@ -21,16 +21,18 @@ import java.io.Closeable
  */
 abstract class BaseSettingsResourcePatch(
     private val rootPreference: Pair<IntentPreference, String>? = null,
-    dependencies: Set<PatchClass> = emptySet()
+    dependencies: Set<PatchClass> = emptySet(),
 ) : ResourcePatch(
-    dependencies = setOf(AddResourcesPatch::class) + dependencies
-), MutableSet<BasePreference> by mutableSetOf(), Closeable {
+    dependencies = setOf(AddResourcesPatch::class) + dependencies,
+),
+    MutableSet<BasePreference> by mutableSetOf(),
+    Closeable {
     private lateinit var context: ResourceContext
 
     override fun execute(context: ResourceContext) {
         context.copyResources(
             "settings",
-            ResourceGroup("xml", "revanced_prefs.xml")
+            ResourceGroup("xml", "revanced_prefs.xml"),
         )
 
         this.context = context
@@ -39,24 +41,34 @@ abstract class BaseSettingsResourcePatch(
     }
 
     override fun close() {
-        fun Node.addPreference(preference: BasePreference) {
+        fun Node.addPreference(preference: BasePreference, prepend: Boolean = false) {
             preference.serialize(ownerDocument) { resource ->
                 // TODO: Currently, resources can only be added to "values", which may not be the correct place.
                 //  It may be necessary to ask for the desired resourceValue in the future.
                 AddResourcesPatch("values", resource)
-            }.let(this::appendChild)
+            }.let { preferenceNode ->
+                if (prepend && firstChild != null) {
+                    insertBefore(preferenceNode, firstChild)
+                } else {
+                    appendChild(preferenceNode)
+                }
+            }
         }
 
         // Add the root preference to an existing fragment if needed.
         rootPreference?.let { (intentPreference, fragment) ->
-            context.xmlEditor["res/xml/$fragment.xml"].use {
-                it.getNode("PreferenceScreen").addPreference(intentPreference)
+            context.xmlEditor["res/xml/$fragment.xml"].use { editor ->
+                val document = editor.file
+
+                document.getNode("PreferenceScreen").addPreference(intentPreference, true)
             }
         }
 
         // Add all preferences to the ReVanced fragment.
         context.xmlEditor["res/xml/revanced_prefs.xml"].use { editor ->
-            val revancedPreferenceScreenNode = editor.getNode("PreferenceScreen")
+            val document = editor.file
+
+            val revancedPreferenceScreenNode = document.getNode("PreferenceScreen")
             forEach { revancedPreferenceScreenNode.addPreference(it) }
         }
     }

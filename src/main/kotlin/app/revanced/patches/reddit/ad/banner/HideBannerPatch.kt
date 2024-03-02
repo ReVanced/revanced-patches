@@ -9,8 +9,10 @@ object HideBannerPatch : ResourcePatch() {
     private const val RESOURCE_FILE_PATH = "res/layout/merge_listheader_link_detail.xml"
 
     override fun execute(context: ResourceContext) {
-        context.xmlEditor[RESOURCE_FILE_PATH].use {
-            it.file.getElementsByTagName("merge").item(0).childNodes.apply {
+        context.xmlEditor[RESOURCE_FILE_PATH].use { editor ->
+            val document = editor.file
+
+            document.getElementsByTagName("merge").item(0).childNodes.apply {
                 val attributes = arrayOf("height", "width")
 
                 for (i in 1 until length) {
@@ -30,4 +32,3 @@ object HideBannerPatch : ResourcePatch() {
         }
     }
 }
-

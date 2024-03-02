@@ -1,3 +1,7 @@
+public final class app/revanced/generator/MainKt {
+	public static synthetic fun main ([Ljava/lang/String;)V
+}
+
 public final class app/revanced/patches/all/activity/exportall/ExportAllActivitiesPatch : app/revanced/patcher/patch/ResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/all/activity/exportall/ExportAllActivitiesPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
@@ -406,6 +410,12 @@ public final class app/revanced/patches/nyx/misc/pro/UnlockProPatch : app/revanc
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/openinghours/misc/fix/crash/FixCrashPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/openinghours/misc/fix/crash/FixCrashPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/photomath/detection/deviceid/SpoofDeviceIdPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/photomath/detection/deviceid/SpoofDeviceIdPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -546,6 +556,12 @@ public final class app/revanced/patches/reddit/customclients/syncforreddit/api/S
 
 public final class app/revanced/patches/reddit/customclients/syncforreddit/detection/piracy/DisablePiracyDetectionPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/syncforreddit/detection/piracy/DisablePiracyDetectionPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/reddit/customclients/syncforreddit/fix/slink/FixSLinksPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/syncforreddit/fix/slink/FixSLinksPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -707,10 +723,8 @@ public abstract class app/revanced/patches/shared/misc/settings/preference/BaseP
 }
 
 public class app/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen : app/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$BasePreferenceCollection {
-	public fun <init> (Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;)V
-	public synthetic fun <init> (Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public fun <init> (Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen;Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;)V
-	public synthetic fun <init> (Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen;Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;)V
+	public synthetic fun <init> (Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun addPreferences ([Lapp/revanced/patches/shared/misc/settings/preference/BasePreference;)V
 	public final fun getCategories ()Ljava/util/Set;
 	public synthetic fun transform ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreference;
@@ -782,10 +796,20 @@ public class app/revanced/patches/shared/misc/settings/preference/PreferenceCate
 }
 
 public class app/revanced/patches/shared/misc/settings/preference/PreferenceScreen : app/revanced/patches/shared/misc/settings/preference/BasePreference {
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;Ljava/lang/String;Ljava/util/Set;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;Ljava/lang/String;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun getPreferences ()Ljava/util/Set;
 	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
+}
+
+public final class app/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting : java/lang/Enum {
+	public static final field BY_KEY Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;
+	public static final field BY_TITLE Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;
+	public static final field UNSORTED Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getKeySuffix ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;
+	public static fun values ()[Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;
 }
 
 public final class app/revanced/patches/shared/misc/settings/preference/SummaryType : java/lang/Enum {
@@ -1102,6 +1126,12 @@ public final class app/revanced/patches/twitter/misc/hook/patch/ads/HideAdsHookP
 
 public final class app/revanced/patches/twitter/misc/hook/patch/recommendation/HideRecommendedUsersPatch : app/revanced/patches/twitter/misc/hook/patch/BaseHookPatch {
 	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/hook/patch/recommendation/HideRecommendedUsersPatch;
+}
+
+public final class app/revanced/patches/twitter/misc/links/OpenLinksWithAppChooserPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/links/OpenLinksWithAppChooserPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
 public final class app/revanced/patches/vsco/misc/pro/UnlockProPatch : app/revanced/patcher/patch/BytecodePatch {
@@ -1446,7 +1476,6 @@ public final class app/revanced/patches/youtube/layout/tabletminiplayer/TabletMi
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/tabletminiplayer/TabletMiniPlayerPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public final fun unwrap (Lapp/revanced/patcher/fingerprint/MethodFingerprint;)Lkotlin/Triple;
 }
 
 public final class app/revanced/patches/youtube/layout/theme/ThemeBytecodePatch : app/revanced/patcher/patch/BytecodePatch {
@@ -1595,9 +1624,14 @@ public final class app/revanced/patches/youtube/misc/settings/SettingsPatch$Pref
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/settings/SettingsPatch$PreferenceScreen;
 	public fun commit (Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen;)V
 	public final fun getADS ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
-	public final fun getINTERACTIONS ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
-	public final fun getLAYOUT ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
+	public final fun getALTERNATIVE_THUMBNAILS ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
+	public final fun getFEED ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
+	public final fun getGENERAL_LAYOUT ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
 	public final fun getMISC ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
+	public final fun getPLAYER ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
+	public final fun getSEEKBAR ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
+	public final fun getSHORTS ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
+	public final fun getSWIPE_CONTROLS ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
 	public final fun getVIDEO ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
 }
 

@@ -18,9 +18,9 @@ internal object HideFilterBarResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
+        SettingsPatch.PreferenceScreen.FEED.addPreferences(
             PreferenceScreen(
-                key = "revanced_hide_filter_bar_preference",
+                key = "revanced_hide_filter_bar_screen",
                 preferences = setOf(
                     SwitchPreference("revanced_hide_filter_bar_feed_in_feed"),
                     SwitchPreference("revanced_hide_filter_bar_feed_in_search"),

@@ -21,7 +21,9 @@ internal object AlbumCardsResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(SwitchPreference("revanced_hide_album_cards"))
+        SettingsPatch.PreferenceScreen.FEED.addPreferences(
+            SwitchPreference("revanced_hide_album_cards")
+        )
 
         albumCardId = ResourceMappingPatch.resourceMappings.single {
             it.type == "layout" && it.name == "album_card"
