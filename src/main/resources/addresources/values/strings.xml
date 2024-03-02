@@ -783,9 +783,11 @@
             <string name="revanced_spoof_app_version_summary_off">Version not spoofed</string>
             <string name="revanced_spoof_app_version_user_dialog_message">App version will be spoofed to an older version of YouTube.\n\nThis will change the appearance and features of the app, but unknown side effects may occur.\n\nIf later turned off, it is recommended to clear the app data to prevent UI bugs.</string>
             <string name="revanced_spoof_app_version_target_title">Spoof app version target</string>
-            <string name="revanced_spoof_app_version_target_entry_1">18.33.40 - Restore RYD Shorts incognito mode</string>
+            <string name="revanced_spoof_app_version_target_entry_1">18.33.40 - Restore RYD on Shorts incognito mode</string>
             <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Restore wide video speed &amp; quality menu</string>
             <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Restore library tab</string>
+            <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Restore old playlist shelf</string>
+            <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Restore old UI layout</string>
         </patch>
         <patch id="layout.startpage.ChangeStartPagePatch">
             <string name="revanced_start_page_title">Set start page</string>
