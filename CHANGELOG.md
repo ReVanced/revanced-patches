@@ -1,3 +1,10 @@
+# [4.3.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.10...v4.3.0-dev.11) (2024-03-02)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof signature:** Fix tracking such as history or watch time ([bcd8b48](https://github.com/ReVanced/revanced-patches/commit/bcd8b48e70693dac1bfcc0bf4971d6b526065b59))
+
 # [4.3.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.9...v4.3.0-dev.10) (2024-02-29)
 
 
