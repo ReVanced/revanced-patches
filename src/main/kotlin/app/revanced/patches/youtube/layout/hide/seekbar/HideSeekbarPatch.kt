@@ -8,7 +8,6 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.layout.seekbar.SeekbarColorBytecodePatch
-import app.revanced.patches.youtube.layout.seekbar.SeekbarPreferencesPatch
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.shared.fingerprints.SeekbarFingerprint
@@ -21,7 +20,6 @@ import app.revanced.patches.youtube.shared.fingerprints.SeekbarOnDrawFingerprint
         IntegrationsPatch::class,
         SettingsPatch::class,
         SeekbarColorBytecodePatch::class,
-        SeekbarPreferencesPatch::class,
         AddResourcesPatch::class
     ],
     compatiblePackages = [
@@ -51,7 +49,7 @@ object HideSeekbarPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SeekbarPreferencesPatch.addPreferences(
+        SettingsPatch.PreferenceScreen.SEEKBAR.addPreferences(
             SwitchPreference("revanced_hide_seekbar"),
             SwitchPreference("revanced_hide_seekbar_thumbnail")
         )

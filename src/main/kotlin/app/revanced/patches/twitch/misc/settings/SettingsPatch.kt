@@ -25,7 +25,6 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import java.io.Closeable
 
-
 @Patch(
     name = "Settings",
     description = "Adds settings menu to Twitch.",
@@ -62,7 +61,9 @@ object SettingsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        PreferenceScreen.MISC.OTHER.addPreferences(SwitchPreference("revanced_debug"))
+        PreferenceScreen.MISC.OTHER.addPreferences(
+            SwitchPreference("revanced_debug")
+        )
 
         // Hook onCreate to handle fragment creation
         SettingsActivityOnCreateFingerprint.result?.apply {

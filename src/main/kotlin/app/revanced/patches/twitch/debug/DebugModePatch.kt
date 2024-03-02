@@ -32,7 +32,9 @@ object DebugModePatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.MISC.OTHER.addPreferences(SwitchPreference("revanced_twitch_debug_mode"))
+        SettingsPatch.PreferenceScreen.MISC.OTHER.addPreferences(
+            SwitchPreference("revanced_twitch_debug_mode")
+        )
 
         listOf(
             IsDebugConfigEnabledFingerprint,

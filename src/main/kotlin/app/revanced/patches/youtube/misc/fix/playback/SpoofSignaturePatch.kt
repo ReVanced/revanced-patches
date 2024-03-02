@@ -10,8 +10,19 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.*
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.ParamsMapPutFingerprint
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.PlayerResponseModelImplGeneralFingerprint
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.PlayerResponseModelImplLiveStreamFingerprint
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.PlayerResponseModelImplRecommendedLevelFingerprint
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.ScrubbedPreviewLayoutFingerprint
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.StoryboardRendererDecoderRecommendedLevelFingerprint
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.StoryboardRendererDecoderSpecFingerprint
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.StoryboardRendererSpecFingerprint
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.StoryboardThumbnailFingerprint
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.StoryboardThumbnailParentFingerprint
 import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
@@ -54,7 +65,8 @@ object SpoofSignaturePatch : BytecodePatch(
 
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             PreferenceScreen(
-                "revanced_spoof_signature_verification",
+                key = "revanced_spoof_signature_verification_screen",
+                sorting = Sorting.UNSORTED,
                 preferences = setOf(
                     SwitchPreference("revanced_spoof_signature_verification_enabled"),
                     SwitchPreference("revanced_spoof_signature_in_feed_enabled"),

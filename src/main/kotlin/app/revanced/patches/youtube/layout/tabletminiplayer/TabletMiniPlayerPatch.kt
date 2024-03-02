@@ -55,7 +55,9 @@ object TabletMiniPlayerPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(SwitchPreference("revanced_tablet_miniplayer"))
+        SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+            SwitchPreference("revanced_tablet_miniplayer")
+        )
 
         // First resolve the fingerprints via the parent fingerprint.
         MiniPlayerDimensionsCalculatorParentFingerprint.result
@@ -127,7 +129,7 @@ object TabletMiniPlayerPatch : BytecodePatch(
         )
     }
 
-    fun MethodFingerprint.unwrap(): Triple<MutableMethod, Int, Int> {
+    private fun MethodFingerprint.unwrap(): Triple<MutableMethod, Int, Int> {
         val result = this.result!!
         val scanIndex = result.scanResult.patternScanResult!!.endIndex
         val method = result.mutableMethod

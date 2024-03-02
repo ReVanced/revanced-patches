@@ -44,7 +44,9 @@ object HideGetPremiumPatch : BytecodePatch(setOf(GetPremiumViewFingerprint)) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.ADS.addPreferences(SwitchPreference("revanced_hide_get_premium"))
+        SettingsPatch.PreferenceScreen.ADS.addPreferences(
+            SwitchPreference("revanced_hide_get_premium")
+        )
 
         GetPremiumViewFingerprint.result?.let {
             it.mutableMethod.apply {

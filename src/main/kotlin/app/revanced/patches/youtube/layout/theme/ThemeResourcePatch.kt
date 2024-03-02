@@ -9,7 +9,6 @@ import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
-import app.revanced.patches.youtube.layout.seekbar.SeekbarPreferencesPatch
 import app.revanced.patches.youtube.layout.theme.ThemeBytecodePatch.darkThemeBackgroundColor
 import app.revanced.patches.youtube.layout.theme.ThemeBytecodePatch.lightThemeBackgroundColor
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
@@ -19,7 +18,6 @@ import org.w3c.dom.Element
     dependencies = [
         SettingsPatch::class,
         ResourceMappingPatch::class,
-        SeekbarPreferencesPatch::class,
         AddResourcesPatch::class,
     ],
 )
@@ -29,7 +27,7 @@ internal object ThemeResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(this::class)
 
-        SeekbarPreferencesPatch.addPreferences(
+        SettingsPatch.PreferenceScreen.SEEKBAR.addPreferences(
             SwitchPreference("revanced_seekbar_custom_color"),
             TextPreference("revanced_seekbar_custom_color_value", inputType = InputType.TEXT_CAP_CHARACTERS),
         )

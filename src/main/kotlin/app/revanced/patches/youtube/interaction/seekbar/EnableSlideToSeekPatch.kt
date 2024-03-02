@@ -50,7 +50,9 @@ object EnableSlideToSeekPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(SwitchPreference("revanced_slide_to_seek"))
+        SettingsPatch.PreferenceScreen.SEEKBAR.addPreferences(
+            SwitchPreference("revanced_slide_to_seek")
+        )
 
         arrayOf(
             // Restore the behaviour to slide to seek.
