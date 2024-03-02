@@ -15,7 +15,7 @@ import app.revanced.integrations.youtube.swipecontrols.misc.toPoint
  * @param controller reference to the main swipe controller
  */
 class ClassicSwipeController(
-    private val controller: SwipeControlsHostActivity
+    private val controller: SwipeControlsHostActivity,
 ) : BaseGestureController(controller),
     PlayerControlsVisibilityObserver by PlayerControlsVisibilityObserverImpl(controller) {
     /**
@@ -27,10 +27,16 @@ class ClassicSwipeController(
         get() = currentSwipe == SwipeDetector.SwipeDirection.VERTICAL
 
     override fun isInSwipeZone(motionEvent: MotionEvent): Boolean {
-        val inVolumeZone = if (controller.config.enableVolumeControls)
-            (motionEvent.toPoint() in controller.zones.volume) else false
-        val inBrightnessZone = if (controller.config.enableBrightnessControl)
-            (motionEvent.toPoint() in controller.zones.brightness) else false
+        val inVolumeZone = if (controller.config.enableVolumeControls) {
+            (motionEvent.toPoint() in controller.zones.volume)
+        } else {
+            false
+        }
+        val inBrightnessZone = if (controller.config.enableBrightnessControl) {
+            (motionEvent.toPoint() in controller.zones.brightness)
+        } else {
+            false
+        }
 
         return inVolumeZone || inBrightnessZone
     }
@@ -92,7 +98,7 @@ class ClassicSwipeController(
         from: MotionEvent,
         to: MotionEvent,
         distanceX: Double,
-        distanceY: Double
+        distanceY: Double,
     ): Boolean {
         // cancel if not vertical
         if (currentSwipe != SwipeDetector.SwipeDirection.VERTICAL) return false

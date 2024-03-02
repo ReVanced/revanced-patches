@@ -25,7 +25,7 @@ interface SwipeDetector {
         from: MotionEvent,
         to: MotionEvent,
         distanceX: Float,
-        distanceY: Float
+        distanceY: Float,
     )
 
     /**
@@ -50,7 +50,7 @@ interface SwipeDetector {
         /**
          * swipe along the Y- Axes
          */
-        VERTICAL
+        VERTICAL,
     }
 }
 
@@ -60,7 +60,7 @@ interface SwipeDetector {
  * @param swipeMagnitudeThreshold minimum magnitude before a swipe is detected as such
  */
 class SwipeDetectorImpl(
-    private val swipeMagnitudeThreshold: Double
+    private val swipeMagnitudeThreshold: Double,
 ) : SwipeDetector {
     override var currentSwipe = SwipeDetector.SwipeDirection.NONE
 
@@ -68,7 +68,7 @@ class SwipeDetectorImpl(
         from: MotionEvent,
         to: MotionEvent,
         distanceX: Float,
-        distanceY: Float
+        distanceY: Float,
     ) {
         if (currentSwipe == SwipeDetector.SwipeDirection.NONE) {
             // no swipe direction was detected yet, try to detect one

@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.ViewGroup
+import app.revanced.integrations.shared.Logger.printDebug
+import app.revanced.integrations.shared.Logger.printException
 import app.revanced.integrations.youtube.shared.PlayerType
 import app.revanced.integrations.youtube.swipecontrols.controller.AudioVolumeController
 import app.revanced.integrations.youtube.swipecontrols.controller.ScreenBrightnessController
@@ -16,8 +18,6 @@ import app.revanced.integrations.youtube.swipecontrols.controller.gesture.PressT
 import app.revanced.integrations.youtube.swipecontrols.controller.gesture.core.GestureController
 import app.revanced.integrations.youtube.swipecontrols.misc.Rectangle
 import app.revanced.integrations.youtube.swipecontrols.views.SwipeControlsOverlayLayout
-import app.revanced.integrations.shared.Logger.printDebug
-import app.revanced.integrations.shared.Logger.printException
 import java.lang.ref.WeakReference
 
 /**
@@ -80,14 +80,18 @@ class SwipeControlsHostActivity : Activity() {
 
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
         ensureInitialized()
-        return if ((ev != null) && gesture.submitTouchEvent(ev)) true else {
+        return if ((ev != null) && gesture.submitTouchEvent(ev)) {
+            true
+        } else {
             super.dispatchTouchEvent(ev)
         }
     }
 
     override fun dispatchKeyEvent(ev: KeyEvent?): Boolean {
         ensureInitialized()
-        return if ((ev != null) && keys.onKeyEvent(ev)) true else {
+        return if ((ev != null) && keys.onKeyEvent(ev)) {
+            true
+        } else {
             super.dispatchKeyEvent(ev)
         }
     }
@@ -139,7 +143,7 @@ class SwipeControlsHostActivity : Activity() {
                 contentRoot.x.toInt(),
                 contentRoot.y.toInt(),
                 contentRoot.width,
-                contentRoot.height
+                contentRoot.height,
             )
         }
 
@@ -157,7 +161,7 @@ class SwipeControlsHostActivity : Activity() {
      * (re) attaches swipe overlays
      */
     private fun reAttachOverlays() {
-        printDebug{ "attaching swipe controls overlay" }
+        printDebug { "attaching swipe controls overlay" }
         contentRoot.removeView(overlay)
         contentRoot.addView(overlay)
     }
@@ -168,7 +172,7 @@ class SwipeControlsHostActivity : Activity() {
      * @param type the new player type
      */
     private fun onPlayerTypeChanged(type: PlayerType) {
-        if (config.shouldSaveAndRestoreBrightness)
+        if (config.shouldSaveAndRestoreBrightness) {
             when (type) {
                 PlayerType.WATCH_WHILE_FULLSCREEN -> screen?.restore()
                 else -> {
@@ -176,29 +180,38 @@ class SwipeControlsHostActivity : Activity() {
                     screen?.restoreDefaultBrightness()
                 }
             }
+        }
     }
 
     /**
      * create the audio volume controller
      */
     private fun createAudioController() =
-        if (config.enableVolumeControls)
-            AudioVolumeController(this) else null
+        if (config.enableVolumeControls) {
+            AudioVolumeController(this)
+        } else {
+            null
+        }
 
     /**
      * create the screen brightness controller instance
      */
     private fun createScreenController() =
-        if (config.enableBrightnessControl)
-            ScreenBrightnessController(this) else null
+        if (config.enableBrightnessControl) {
+            ScreenBrightnessController(this)
+        } else {
+            null
+        }
 
     /**
      * create the gesture controller based on settings
      */
     private fun createGestureController() =
-        if (config.shouldEnablePressToSwipe)
+        if (config.shouldEnablePressToSwipe) {
             PressToSwipeController(this)
-        else ClassicSwipeController(this)
+        } else {
+            ClassicSwipeController(this)
+        }
 
     companion object {
         /**

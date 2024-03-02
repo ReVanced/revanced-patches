@@ -27,4 +27,3 @@ class Event<T> {
             observer.invoke(value)
     }
 }
-

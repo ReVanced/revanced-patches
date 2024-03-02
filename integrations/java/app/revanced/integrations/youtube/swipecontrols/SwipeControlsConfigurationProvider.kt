@@ -11,7 +11,7 @@ import app.revanced.integrations.youtube.shared.PlayerType
  * @param context the context to create in
  */
 class SwipeControlsConfigurationProvider(
-        private val context: Context
+    private val context: Context,
 ) {
 //region swipe enable
     /**

@@ -11,10 +11,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
+import app.revanced.integrations.shared.Utils
 import app.revanced.integrations.youtube.swipecontrols.SwipeControlsConfigurationProvider
 import app.revanced.integrations.youtube.swipecontrols.misc.SwipeControlsOverlay
 import app.revanced.integrations.youtube.swipecontrols.misc.applyDimension
-import app.revanced.integrations.shared.Utils
 import kotlin.math.round
 
 /**
@@ -24,7 +24,7 @@ import kotlin.math.round
  */
 class SwipeControlsOverlayLayout(
     context: Context,
-    private val config: SwipeControlsConfigurationProvider
+    private val config: SwipeControlsConfigurationProvider,
 ) : RelativeLayout(context), SwipeControlsOverlay {
     /**
      * DO NOT use this, for tools only
@@ -40,14 +40,14 @@ class SwipeControlsOverlayLayout(
     private fun getDrawable(name: String, width: Int, height: Int): Drawable {
         return resources.getDrawable(
             Utils.getResourceIdentifier(context, name, "drawable"),
-            context.theme
+            context.theme,
         ).apply {
             setTint(config.overlayForegroundColor)
             setBounds(
                 0,
                 0,
                 width,
-                height
+                height,
             )
         }
     }
@@ -59,14 +59,14 @@ class SwipeControlsOverlayLayout(
         feedbackTextView = TextView(context).apply {
             layoutParams = LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
+                ViewGroup.LayoutParams.WRAP_CONTENT,
             ).apply {
                 addRule(CENTER_IN_PARENT, TRUE)
                 setPadding(
                     feedbackTextViewPadding,
                     feedbackTextViewPadding,
                     feedbackTextViewPadding,
-                    feedbackTextViewPadding
+                    feedbackTextViewPadding,
                 )
             }
             background = GradientDrawable().apply {
@@ -108,7 +108,7 @@ class SwipeControlsOverlayLayout(
                 icon,
                 null,
                 null,
-                null
+                null,
             )
             visibility = VISIBLE
         }
@@ -117,7 +117,7 @@ class SwipeControlsOverlayLayout(
     override fun onVolumeChanged(newVolume: Int, maximumVolume: Int) {
         showFeedbackView(
             "$newVolume",
-            if (newVolume > 0) normalVolumeIcon else mutedVolumeIcon
+            if (newVolume > 0) normalVolumeIcon else mutedVolumeIcon,
         )
     }
 
@@ -134,7 +134,7 @@ class SwipeControlsOverlayLayout(
             @Suppress("DEPRECATION")
             performHapticFeedback(
                 HapticFeedbackConstants.LONG_PRESS,
-                HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING
+                HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING,
             )
         }
     }
