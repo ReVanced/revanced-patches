@@ -71,7 +71,9 @@ object OpenLinksExternallyPatch : BaseTransformInstructionsPatch<Pair<Int, Int>>
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.MISC.addPreferences(SwitchPreference("revanced_external_browser"))
+        SettingsPatch.PreferenceScreen.MISC.addPreferences(
+            SwitchPreference("revanced_external_browser")
+        )
 
         super.execute(context)
     }

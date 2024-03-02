@@ -10,12 +10,13 @@ import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.layout.seekbar.fingerprints.FullscreenSeekbarThumbnailsFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
+import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.exception
 
 @Patch(
     name = "Restore old seekbar thumbnails",
     description = "Adds an option to restore the old seekbar thumbnails that appear above the seekbar while seeking instead of fullscreen thumbnails.",
-    dependencies = [IntegrationsPatch::class, SeekbarPreferencesPatch::class, AddResourcesPatch::class],
+    dependencies = [IntegrationsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
@@ -45,7 +46,9 @@ object RestoreOldSeekbarThumbnailsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SeekbarPreferencesPatch.addPreferences(SwitchPreference("revanced_restore_old_seekbar_thumbnails"))
+        SettingsPatch.PreferenceScreen.SEEKBAR.addPreferences(
+            SwitchPreference("revanced_restore_old_seekbar_thumbnails")
+        )
 
         FullscreenSeekbarThumbnailsFingerprint.result?.mutableMethod?.apply {
             val moveResultIndex = getInstructions().lastIndex - 1

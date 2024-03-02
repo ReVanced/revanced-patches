@@ -7,7 +7,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.reddit.ad.comments.fingerprints.HideCommentAdsFingerprint
 
-@Patch(description = "Removes ads in the comments.",)
+@Patch(description = "Removes ads in the comments.")
 object HideCommentAdsPatch : BytecodePatch(
     setOf(HideCommentAdsFingerprint)
 ) {

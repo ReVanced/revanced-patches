@@ -4,6 +4,7 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.debugging.EnableAndroidDebuggingPatch
+import app.revanced.util.Utils.trimIndentMultiline
 import org.w3c.dom.Element
 import java.io.File
 
@@ -11,16 +12,17 @@ import java.io.File
     name = "Override certificate pinning",
     description = "Overrides certificate pinning, allowing to inspect traffic via a proxy.",
     dependencies = [EnableAndroidDebuggingPatch::class],
-    use = false
+    use = false,
 )
 @Suppress("unused")
 object OverrideCertificatePinningPatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
-        val resXmlDirectory = context["res/xml"]
+        val resXmlDirectory = context.get("res/xml")
 
         // Add android:networkSecurityConfig="@xml/network_security_config" and the "networkSecurityConfig" attribute if it does not exist.
         context.xmlEditor["AndroidManifest.xml"].use { editor ->
             val document = editor.file
+
             val applicationNode = document.getElementsByTagName("application").item(0) as Element
 
             if (!applicationNode.hasAttribute("networkSecurityConfig")) {
@@ -31,10 +33,8 @@ object OverrideCertificatePinningPatch : ResourcePatch() {
 
         // In case the file does not exist create the "network_security_config.xml" file.
         File(resXmlDirectory, "network_security_config.xml").apply {
-            if (!exists()) {
-                createNewFile()
-                writeText(
-                    """
+            writeText(
+                """
                     <?xml version="1.0" encoding="utf-8"?>
                     <network-security-config>
                         <base-config cleartextTrafficPermitted="true">
@@ -54,22 +54,8 @@ object OverrideCertificatePinningPatch : ResourcePatch() {
                             </trust-anchors>
                         </debug-overrides>
                     </network-security-config>
-                    """
-                )
-            } else {
-                // If the file already exists.
-                readText().let { text ->
-                    if (!text.contains("<certificates src=\"user\" />")) {
-                        writeText(
-                            text.replace(
-                                "<trust-anchors>",
-                                "<trust-anchors>\n<certificates src=\"user\" overridePins=\"true\" />\n<certificates src=\"system\" />"
-                            )
-                        )
-                    }
-                }
-
-            }
+                    """.trimIndentMultiline(),
+            )
         }
     }
 }

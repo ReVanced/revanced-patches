@@ -33,7 +33,7 @@ object ChangeStartPagePatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
+        SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             ListPreference(
                 key = "revanced_start_page",
                 summaryKey = null,

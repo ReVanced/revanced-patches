@@ -18,7 +18,7 @@ internal object CustomPlayerOverlayOpacityResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
+        SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
             TextPreference("revanced_player_overlay_opacity", inputType = InputType.NUMBER)
         )
 

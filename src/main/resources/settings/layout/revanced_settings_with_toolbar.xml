@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/yt_white1"
-            android:elevation="4dp">
+            android:elevation="0dp">
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/revanced_toolbar"
