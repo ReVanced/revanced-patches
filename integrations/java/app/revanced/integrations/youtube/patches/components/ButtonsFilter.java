@@ -50,10 +50,6 @@ final class ButtonsFilter extends Filter {
 
         bufferButtonsGroupList.addAll(
                 new ByteArrayFilterGroup(
-                        Settings.HIDE_LIVE_CHAT_BUTTON,
-                        "yt_outline_message_bubble_overlap"
-                ),
-                new ByteArrayFilterGroup(
                         Settings.HIDE_REPORT_BUTTON,
                         "yt_outline_flag"
                 ),
