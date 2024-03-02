@@ -1,3 +1,10 @@
+# [4.3.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.11...v4.3.0-dev.12) (2024-03-02)
+
+
+### Features
+
+* **YouTube - Spoof app version:** Add target versions ([#2787](https://github.com/ReVanced/revanced-patches/issues/2787)) ([83a7bd8](https://github.com/ReVanced/revanced-patches/commit/83a7bd8d69e62623fc4d2ba73d9fb49e92751d89))
+
 # [4.3.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v4.3.0-dev.10...v4.3.0-dev.11) (2024-03-02)
 
 
