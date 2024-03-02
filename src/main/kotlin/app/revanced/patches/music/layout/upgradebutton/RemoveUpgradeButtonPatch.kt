@@ -12,15 +12,14 @@ import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction22t
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 
-
 @Patch(
     name = "Remove upgrade button",
     description = "Removes the upgrade tab from the pivot bar.",
-    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
 )
 @Suppress("unused")
 object RemoveUpgradeButtonPatch : BytecodePatch(
-    setOf(PivotBarConstructorFingerprint)
+    setOf(PivotBarConstructorFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
         val result = PivotBarConstructorFingerprint.result!!
@@ -39,19 +38,20 @@ object RemoveUpgradeButtonPatch : BytecodePatch(
                 iput-object v0, v$register, $pivotBarElementFieldRef
             """.toInstructions().toMutableList()
 
-
         val endIndex = result.scanResult.patternScanResult!!.endIndex
 
         // replace the instruction to retain the label at given index
         implementation.replaceInstruction(
-            endIndex - 1, instructionList[0] // invoke-interface
+            endIndex - 1,
+            instructionList[0], // invoke-interface
         )
         // do not forget to remove this instruction since we added it already
         instructionList.removeFirst()
 
         val exitInstruction = instructionList.last() // iput-object
         implementation.addInstruction(
-            endIndex, exitInstruction
+            endIndex,
+            exitInstruction,
         )
         // do not forget to remove this instruction since we added it already
         instructionList.removeLast()
@@ -60,12 +60,16 @@ object RemoveUpgradeButtonPatch : BytecodePatch(
         instructionList.add(
             2, // if-le
             BuilderInstruction22t(
-                Opcode.IF_LE, 1, 2, implementation.newLabelForIndex(endIndex)
-            )
+                Opcode.IF_LE,
+                1,
+                2,
+                implementation.newLabelForIndex(endIndex),
+            ),
         )
 
         implementation.addInstructions(
-            endIndex, instructionList
+            endIndex,
+            instructionList,
         )
     }
 }

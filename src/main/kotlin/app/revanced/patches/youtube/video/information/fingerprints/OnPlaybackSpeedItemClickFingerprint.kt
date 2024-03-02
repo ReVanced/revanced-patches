@@ -14,7 +14,7 @@ internal object OnPlaybackSpeedItemClickFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.name == "onItemClick" && methodDef.implementation?.instructions?.find {
             it.opcode == Opcode.IGET_OBJECT &&
-                    it.getReference<FieldReference>()!!.type == "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;"
+                it.getReference<FieldReference>()!!.type == "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;"
         } != null
-    }
+    },
 )

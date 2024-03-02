@@ -10,11 +10,11 @@ import app.revanced.patches.serviceportalbund.detection.root.fingerprints.RootDe
 @Patch(
     name = "Remove root detection",
     description = "Removes the check for root permissions and unlocked bootloader.",
-    compatiblePackages = [CompatiblePackage("at.gv.bka.serviceportal")]
+    compatiblePackages = [CompatiblePackage("at.gv.bka.serviceportal")],
 )
 @Suppress("unused")
 object RootDetectionPatch : BytecodePatch(
-    setOf(RootDetectionFingerprint)
+    setOf(RootDetectionFingerprint),
 ) {
     override fun execute(context: BytecodeContext) =
         RootDetectionFingerprint.result!!.mutableMethod.addInstruction(0, "return-void")

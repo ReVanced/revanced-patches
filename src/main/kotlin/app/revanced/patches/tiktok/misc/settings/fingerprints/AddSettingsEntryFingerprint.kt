@@ -5,6 +5,6 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 internal object AddSettingsEntryFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("/SettingNewVersionFragment;") &&
-                methodDef.name == "initUnitManger"
-    }
+            methodDef.name == "initUnitManger"
+    },
 )

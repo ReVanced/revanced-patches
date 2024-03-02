@@ -6,5 +6,5 @@ import com.android.tools.smali.dexlib2.Opcode
 internal object LoadBrowserURLFingerprint : MethodFingerprint(
     parameters = listOf("Landroid/view/View;", "Landroid/os/Bundle;"),
     opcodes = listOf(Opcode.CONST_4),
-    strings = listOf("CustomInterface")
+    strings = listOf("CustomInterface"),
 )

@@ -7,7 +7,7 @@ internal object CreateSearchSuggestionsFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT,
-        Opcode.CONST_4
+        Opcode.CONST_4,
     ),
-    strings = listOf("ss_rds")
+    strings = listOf("ss_rds"),
 )

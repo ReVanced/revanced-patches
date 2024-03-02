@@ -14,7 +14,7 @@ internal object RecyclerViewTreeObserverFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.NEW_INSTANCE,
         Opcode.INVOKE_DIRECT,
-        Opcode.IPUT_OBJECT
+        Opcode.IPUT_OBJECT,
     ),
-    strings = listOf("LithoRVSLCBinder")
+    strings = listOf("LithoRVSLCBinder"),
 )

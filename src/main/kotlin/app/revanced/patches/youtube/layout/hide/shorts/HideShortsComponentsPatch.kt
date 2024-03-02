@@ -1,8 +1,5 @@
 package app.revanced.patches.youtube.layout.hide.shorts
 
-import app.revanced.util.exception
-import app.revanced.util.findIndexForIdResource
-import app.revanced.util.injectHideViewCall
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -14,6 +11,9 @@ import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 import app.revanced.patches.youtube.layout.hide.shorts.fingerprints.*
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
+import app.revanced.util.exception
+import app.revanced.util.findIndexForIdResource
+import app.revanced.util.injectHideViewCall
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -25,11 +25,12 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
         IntegrationsPatch::class,
         LithoFilterPatch::class,
         HideShortsComponentsResourcePatch::class,
-        ResourceMappingPatch::class
+        ResourceMappingPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube",
+            [
                 "18.32.39",
                 "18.37.36",
                 "18.38.44",
@@ -42,10 +43,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            ]
-        )
-    ]
+                "19.04.37",
+            ],
+        ),
+    ],
 )
 @Suppress("unused")
 object HideShortsComponentsPatch : BytecodePatch(
@@ -54,8 +55,8 @@ object HideShortsComponentsPatch : BytecodePatch(
         ReelConstructorFingerprint,
         BottomNavigationBarFingerprint,
         RenderBottomNavigationBarParentFingerprint,
-        SetPivotBarVisibilityParentFingerprint
-    )
+        SetPivotBarVisibilityParentFingerprint,
+    ),
 ) {
     private const val FILTER_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/components/ShortsFilter;"
 
@@ -73,7 +74,7 @@ object HideShortsComponentsPatch : BytecodePatch(
                     insertIndex,
                     viewRegister,
                     FILTER_CLASS_DESCRIPTOR,
-                    "hideShortsShelf"
+                    "hideShortsShelf",
                 )
             }
         } // Do not throw an exception if not resolved.
@@ -87,7 +88,6 @@ object HideShortsComponentsPatch : BytecodePatch(
             ShortsButtons.entries.forEach { button -> button.injectHideCall(it.mutableMethod) }
         } ?: throw CreateShortsButtonsFingerprint.exception
 
-
         // endregion
 
         // region Hide the Shorts buttons in newer versions of YouTube.
@@ -100,8 +100,9 @@ object HideShortsComponentsPatch : BytecodePatch(
 
         // Hook to get the pivotBar view.
         SetPivotBarVisibilityParentFingerprint.result?.let {
-            if (!SetPivotBarVisibilityFingerprint.resolve(context, it.classDef))
+            if (!SetPivotBarVisibilityFingerprint.resolve(context, it.classDef)) {
                 throw SetPivotBarVisibilityFingerprint.exception
+            }
 
             SetPivotBarVisibilityFingerprint.result!!.let { result ->
                 result.mutableMethod.apply {
@@ -110,7 +111,7 @@ object HideShortsComponentsPatch : BytecodePatch(
                     addInstruction(
                         insertIndex,
                         "sput-object v$viewRegister, $FILTER_CLASS_DESCRIPTOR->pivotBar:" +
-                                "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;"
+                            "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;",
                     )
                 }
             }
@@ -118,8 +119,9 @@ object HideShortsComponentsPatch : BytecodePatch(
 
         // Hook to hide the navigation bar when Shorts are being played.
         RenderBottomNavigationBarParentFingerprint.result?.let {
-            if (!RenderBottomNavigationBarFingerprint.resolve(context, it.classDef))
+            if (!RenderBottomNavigationBarFingerprint.resolve(context, it.classDef)) {
                 throw RenderBottomNavigationBarFingerprint.exception
+            }
 
             RenderBottomNavigationBarFingerprint.result!!.mutableMethod.apply {
                 addInstruction(0, "invoke-static { }, $FILTER_CLASS_DESCRIPTOR->hideNavigationBar()V")
@@ -136,7 +138,7 @@ object HideShortsComponentsPatch : BytecodePatch(
                 addInstruction(
                     insertIndex,
                     "invoke-static { v$viewRegister }, $FILTER_CLASS_DESCRIPTOR->" +
-                            "hideNavigationBar(Landroid/view/View;)Landroid/view/View;"
+                        "hideNavigationBar(Landroid/view/View;)Landroid/view/View;",
                 )
             }
         } ?: throw BottomNavigationBarFingerprint.exception
@@ -144,11 +146,11 @@ object HideShortsComponentsPatch : BytecodePatch(
         // endregion
     }
 
-
     private enum class ShortsButtons(private val resourceName: String, private val methodName: String) {
         COMMENTS("reel_dyn_comment", "hideShortsCommentsButton"),
         REMIX("reel_dyn_remix", "hideShortsRemixButton"),
-        SHARE("reel_dyn_share", "hideShortsShareButton");
+        SHARE("reel_dyn_share", "hideShortsShareButton"),
+        ;
 
         fun injectHideCall(method: MutableMethod) {
             val referencedIndex = method.findIndexForIdResource(resourceName)

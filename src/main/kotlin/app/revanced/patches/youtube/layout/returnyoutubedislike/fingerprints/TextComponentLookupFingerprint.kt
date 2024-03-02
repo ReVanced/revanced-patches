@@ -11,5 +11,5 @@ internal object TextComponentLookupFingerprint : MethodFingerprint(
     returnType = "L",
     accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
     parameters = listOf("L"),
-    strings = listOf("…")
+    strings = listOf("…"),
 )

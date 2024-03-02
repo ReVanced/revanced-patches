@@ -18,6 +18,6 @@ internal object MinimizedPlaybackSettingsFingerprint : MethodFingerprint(
         Opcode.IF_NEZ,
         Opcode.GOTO,
         Opcode.IGET_OBJECT,
-        Opcode.CHECK_CAST
+        Opcode.CHECK_CAST,
     ),
 )

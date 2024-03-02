@@ -11,7 +11,7 @@ internal object RollingNumberMeasureAnimatedTextFingerprint : MethodFingerprint(
     parameters = listOf(
         "L",
         "Ljava/lang/String;",
-        "L"
+        "L",
     ),
     opcodes = listOf(
         Opcode.IGET, // First instruction of method
@@ -24,5 +24,5 @@ internal object RollingNumberMeasureAnimatedTextFingerprint : MethodFingerprint(
         Opcode.AGET,
         Opcode.CONST_4,
         Opcode.CONST_4, // Measured text width
-    )
+    ),
 )

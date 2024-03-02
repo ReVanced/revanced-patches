@@ -14,6 +14,6 @@ internal object IsLoggedInFingerprint : MethodFingerprint(
         Opcode.SGET_OBJECT,
         Opcode.IF_NE,
         Opcode.CONST_4,
-        Opcode.GOTO
-    )
+        Opcode.GOTO,
+    ),
 )

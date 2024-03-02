@@ -12,21 +12,24 @@ import app.revanced.patches.youtube.misc.playeroverlay.fingerprint.PlayerOverlay
     description = "Hook for adding custom overlays to the video player.",
     dependencies = [IntegrationsPatch::class],
     compatiblePackages = [
-        CompatiblePackage("com.google.android.youtube", [
-            "18.32.39"
-        ])
-    ]
+        CompatiblePackage(
+            "com.google.android.youtube",
+            [
+                "18.32.39",
+            ],
+        ),
+    ],
 )
 @Suppress("unused")
 object PlayerOverlaysHookPatch : BytecodePatch( // TODO: delete this unused outdated patch and its integration code.
-    setOf(PlayerOverlaysOnFinishInflateFingerprint)
+    setOf(PlayerOverlaysOnFinishInflateFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
         // hook YouTubePlayerOverlaysLayout.onFinishInflate()
         val method = PlayerOverlaysOnFinishInflateFingerprint.result!!.mutableMethod
         method.addInstruction(
             method.implementation!!.instructions.size - 2,
-            "invoke-static { p0 }, Lapp/revanced/integrations/youtube/patches/PlayerOverlaysHookPatch;->YouTubePlayerOverlaysLayout_onFinishInflateHook(Ljava/lang/Object;)V"
+            "invoke-static { p0 }, Lapp/revanced/integrations/youtube/patches/PlayerOverlaysHookPatch;->YouTubePlayerOverlaysLayout_onFinishInflateHook(Ljava/lang/Object;)V",
         )
     }
 }

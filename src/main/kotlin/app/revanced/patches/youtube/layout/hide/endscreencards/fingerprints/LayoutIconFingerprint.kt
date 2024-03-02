@@ -11,5 +11,5 @@ internal object LayoutIconFingerprint : LiteralValueFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,
     ),
-    literalSupplier = { HideEndscreenCardsResourcePatch.layoutIcon }
+    literalSupplier = { HideEndscreenCardsResourcePatch.layoutIcon },
 )

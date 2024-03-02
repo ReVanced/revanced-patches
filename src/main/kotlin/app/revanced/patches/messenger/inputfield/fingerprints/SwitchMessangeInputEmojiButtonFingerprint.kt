@@ -13,6 +13,6 @@ internal object SwitchMessangeInputEmojiButtonFingerprint : MethodFingerprint(
         Opcode.CONST_STRING,
         Opcode.GOTO,
         Opcode.CONST_STRING,
-        Opcode.GOTO
-    )
+        Opcode.GOTO,
+    ),
 )

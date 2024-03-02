@@ -6,7 +6,6 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 
-
 internal object SeekbarTappingFingerprint : MethodFingerprint(
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
@@ -30,5 +29,5 @@ internal object SeekbarTappingFingerprint : MethodFingerprint(
             // with this literal making it unique with the rest of the properties of this fingerprint.
             literal == Integer.MAX_VALUE
         }
-    }
+    },
 )

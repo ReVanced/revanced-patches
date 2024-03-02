@@ -26,5 +26,5 @@ internal object RollingNumberTextViewAnimationUpdateFingerprint : MethodFingerpr
     ),
     customFingerprint = { _, classDef ->
         classDef.superclass == "Landroid/support/v7/widget/AppCompatTextView;"
-    }
+    },
 )

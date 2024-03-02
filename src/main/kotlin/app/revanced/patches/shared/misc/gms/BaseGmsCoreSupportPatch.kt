@@ -53,15 +53,15 @@ abstract class BaseGmsCoreSupportPatch(
 ) : BytecodePatch(
     name = "GmsCore support",
     description = "Allows patched Google apps to run without root and under a different package name " +
-            "by using GmsCore instead of Google Play Services.",
+        "by using GmsCore instead of Google Play Services.",
     dependencies = setOf(
         ChangePackageNamePatch::class,
         gmsCoreSupportResourcePatch::class,
-        integrationsPatchDependency
+        integrationsPatchDependency,
     ) + dependencies,
     compatiblePackages = compatiblePackages,
     fingerprints = setOf(GmsCoreSupportFingerprint, mainActivityOnCreateFingerprint) + fingerprints,
-    requiresIntegrations = true
+    requiresIntegrations = true,
 ) {
     init {
         // Manually register all options of the resource patch so that they are visible in the patch API.
@@ -77,7 +77,7 @@ abstract class BaseGmsCoreSupportPatch(
         val transformations = arrayOf(
             ::commonTransform,
             ::contentUrisTransform,
-            packageNameTransform(fromPackageName, packageName)
+            packageNameTransform(fromPackageName, packageName),
         )
         context.transformStringReferences transform@{ string ->
             transformations.forEach { transform ->
@@ -96,7 +96,7 @@ abstract class BaseGmsCoreSupportPatch(
         // Check the availability of GmsCore.
         mainActivityOnCreateFingerprint.result?.mutableMethod?.addInstruction(
             1, // Hack to not disturb other patches (such as the integrations patch).
-            "invoke-static {}, Lapp/revanced/integrations/youtube/patches/GmsCoreSupport;->checkAvailability()V"
+            "invoke-static {}, Lapp/revanced/integrations/youtube/patches/GmsCoreSupport;->checkAvailability()V",
         ) ?: throw mainActivityOnCreateFingerprint.exception
 
         // Change the vendor of GmsCore in ReVanced Integrations.
@@ -130,8 +130,8 @@ abstract class BaseGmsCoreSupportPatch(
                     BuilderInstruction21c(
                         Opcode.CONST_STRING,
                         instruction.registerA,
-                        ImmutableStringReference(transformedString)
-                    )
+                        ImmutableStringReference(transformedString),
+                    ),
                 )
             }
         }
@@ -145,7 +145,8 @@ abstract class BaseGmsCoreSupportPatch(
             "com.google.android.gms",
             in PERMISSIONS,
             in ACTIONS,
-            in AUTHORITIES -> referencedString.replace("com.google", gmsCoreVendor!!)
+            in AUTHORITIES,
+            -> referencedString.replace("com.google", gmsCoreVendor!!)
 
             // No vendor prefix for whatever reason...
             "subscribedfeeds" -> "$gmsCoreVendor.subscribedfeeds"
@@ -161,7 +162,7 @@ abstract class BaseGmsCoreSupportPatch(
                 if (str.startsWith(uriPrefix)) {
                     return str.replace(
                         uriPrefix,
-                        "content://${authority.replace("com.google", gmsCoreVendor!!)}"
+                        "content://${authority.replace("com.google", gmsCoreVendor!!)}",
                     )
                 }
             }
@@ -174,13 +175,13 @@ abstract class BaseGmsCoreSupportPatch(
         }
 
         return null
-
     }
 
     private fun packageNameTransform(fromPackageName: String, toPackageName: String): (String) -> String? = { string ->
         when (string) {
             "$fromPackageName.SuggestionsProvider",
-            "$fromPackageName.fileprovider" -> string.replace(fromPackageName, toPackageName)
+            "$fromPackageName.fileprovider",
+            -> string.replace(fromPackageName, toPackageName)
 
             else -> null
         }
@@ -293,7 +294,7 @@ abstract class BaseGmsCoreSupportPatch(
             "com.google.android.gms.gmscompliance.service.START",
             "com.google.android.gms.oss.licenses.service.START",
             "com.google.android.gms.safetynet.service.START",
-            "com.google.android.gms.tapandpay.service.BIND"
+            "com.google.android.gms.tapandpay.service.BIND",
         )
 
         /**
@@ -314,7 +315,7 @@ abstract class BaseGmsCoreSupportPatch(
             "com.google.android.gms.fonts",
 
             // phenotype
-            "com.google.android.gms.phenotype"
+            "com.google.android.gms.phenotype",
         )
     }
 

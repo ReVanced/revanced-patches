@@ -6,7 +6,7 @@ internal object HideCommentAdsFingerprint : MethodFingerprint(
     strings = listOf(
         "link",
         // CommentPageRepository is not returning a link object
-        "is not returning a link object"
+        "is not returning a link object",
     ),
     customFingerprint = { _, classDef ->
         classDef.sourceFile == "PostDetailPresenter.kt"

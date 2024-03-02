@@ -24,7 +24,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 @Suppress("unused")
 object RemoveScreenshotRestrictionPatch : BaseTransformInstructionsPatch<Instruction35cInfo>() {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX =
-            "Lapp/revanced/integrations/all/screenshot/removerestriction/RemoveScreenshotRestrictionPatch"
+        "Lapp/revanced/integrations/all/screenshot/removerestriction/RemoveScreenshotRestrictionPatch"
     private const val INTEGRATIONS_CLASS_DESCRIPTOR = "$INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX;"
 
     override fun execute(context: BytecodeContext) {
@@ -36,12 +36,12 @@ object RemoveScreenshotRestrictionPatch : BaseTransformInstructionsPatch<Instruc
         classDef: ClassDef,
         method: Method,
         instruction: Instruction,
-        instructionIndex: Int
+        instructionIndex: Int,
     ) = filterMapInstruction35c<MethodCall>(
         INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX,
         classDef,
         instruction,
-        instructionIndex
+        instructionIndex,
     )
 
     override fun transform(mutableMethod: MutableMethod, entry: Instruction35cInfo) {
@@ -54,8 +54,8 @@ object RemoveScreenshotRestrictionPatch : BaseTransformInstructionsPatch<Instruc
         override val definedClassName: String,
         override val methodName: String,
         override val methodParams: Array<String>,
-        override val returnType: String
-    ): IMethodCall {
+        override val returnType: String,
+    ) : IMethodCall {
         AddFlags(
             "Landroid/view/Window;",
             "addFlags",
@@ -67,7 +67,7 @@ object RemoveScreenshotRestrictionPatch : BaseTransformInstructionsPatch<Instruc
             "setFlags",
             arrayOf("I", "I"),
             "V",
-        );
+        ),
     }
 }
 
@@ -76,7 +76,7 @@ private class ModifyLayoutParamsFlags : BaseTransformInstructionsPatch<Pair<Inst
         classDef: ClassDef,
         method: Method,
         instruction: Instruction,
-        instructionIndex: Int
+        instructionIndex: Int,
     ): Pair<Instruction22c, Int>? {
         if (instruction.opcode != Opcode.IPUT) {
             return null
@@ -85,9 +85,10 @@ private class ModifyLayoutParamsFlags : BaseTransformInstructionsPatch<Pair<Inst
         val instruction22c = instruction as Instruction22c
         val fieldReference = instruction22c.reference as FieldReference
 
-        if (fieldReference.definingClass != "Landroid/view/WindowManager\$LayoutParams;"
-            || fieldReference.name != "flags"
-            || fieldReference.type != "I") {
+        if (fieldReference.definingClass != "Landroid/view/WindowManager\$LayoutParams;" ||
+            fieldReference.name != "flags" ||
+            fieldReference.type != "I"
+        ) {
             return null
         }
 
@@ -100,7 +101,7 @@ private class ModifyLayoutParamsFlags : BaseTransformInstructionsPatch<Pair<Inst
 
         mutableMethod.addInstructions(
             index,
-            "and-int/lit16 v$register, v$register, -0x2001"
+            "and-int/lit16 v$register, v$register, -0x2001",
         )
     }
 }

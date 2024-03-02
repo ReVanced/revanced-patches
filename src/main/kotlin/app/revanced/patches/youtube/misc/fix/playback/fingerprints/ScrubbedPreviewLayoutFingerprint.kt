@@ -23,5 +23,5 @@ internal object ScrubbedPreviewLayoutFingerprint : LiteralValueFingerprint(
         Opcode.IPUT_OBJECT, // preview imageview
     ),
     // This resource is used in ~ 40 different locations, but this method has a distinct list of parameters to match to.
-    literalSupplier = { SpoofSignatureResourcePatch.scrubbedPreviewThumbnailResourceId }
+    literalSupplier = { SpoofSignatureResourcePatch.scrubbedPreviewThumbnailResourceId },
 )

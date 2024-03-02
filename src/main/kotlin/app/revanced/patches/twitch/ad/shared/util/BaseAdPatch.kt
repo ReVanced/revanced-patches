@@ -22,14 +22,14 @@ abstract class BaseAdPatch(
     protected data class ReturnMethod(val returnType: Char = 'V', val value: String = "")
 
     protected fun BytecodeContext.blockMethods(clazz: String, vararg methodNames: String, returnMethod: ReturnMethod = ReturnMethod()): Boolean {
-
         return with(findClass(clazz)?.mutableClass) {
             this ?: return false
 
             this.methods.filter { methodNames.contains(it.name) }.forEach {
                 val retInstruction = when (returnMethod.returnType) {
                     'V' -> "return-void"
-                    'Z' -> """
+                    'Z' ->
+                        """
                         const/4 v0, ${returnMethod.value}
                         return v0
                     """
@@ -41,11 +41,10 @@ abstract class BaseAdPatch(
                         ${createConditionInstructions("v0")}
                         $retInstruction
                     """,
-                    ExternalLabel(skipLabelName, it.getInstruction(0))
+                    ExternalLabel(skipLabelName, it.getInstruction(0)),
                 )
             }
             true
         }
     }
-
 }

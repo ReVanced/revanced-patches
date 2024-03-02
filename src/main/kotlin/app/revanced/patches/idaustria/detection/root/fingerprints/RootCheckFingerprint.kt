@@ -8,6 +8,6 @@ internal object RootCheckFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC.value,
     customFingerprint = { methodDef, _ ->
         methodDef.name == "rootCheck" &&
-        methodDef.definingClass.endsWith("/DeviceIntegrityCheck;")
-    }
+            methodDef.definingClass.endsWith("/DeviceIntegrityCheck;")
+    },
 )

@@ -6,17 +6,17 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.warnwetter.misc.firebasegetcert.fingerprints.GetMessagingCertFingerprint
-import app.revanced.patches.warnwetter.misc.firebasegetcert.fingerprints.GetReqistrationCertFingerprint
+import app.revanced.patches.warnwetter.misc.firebasegetcert.fingerprints.GetRegistrationCertFingerprint
 
 @Patch(
     description = "Spoofs the X-Android-Cert header.",
-    compatiblePackages = [CompatiblePackage("de.dwd.warnapp")]
+    compatiblePackages = [CompatiblePackage("de.dwd.warnapp")],
 )
 object FirebaseGetCertPatch : BytecodePatch(
     setOf(
-        GetReqistrationCertFingerprint,
-        GetMessagingCertFingerprint
-    )
+        GetRegistrationCertFingerprint,
+        GetMessagingCertFingerprint,
+    ),
 ) {
     override fun execute(context: BytecodeContext) {
         val spoofedInstruction =
@@ -25,16 +25,16 @@ object FirebaseGetCertPatch : BytecodePatch(
                 return-object v0
             """
 
-        val registrationCertMethod = GetReqistrationCertFingerprint.result!!.mutableMethod
+        val registrationCertMethod = GetRegistrationCertFingerprint.result!!.mutableMethod
         val messagingCertMethod = GetMessagingCertFingerprint.result!!.mutableMethod
 
         registrationCertMethod.addInstructions(
             0,
-            spoofedInstruction
+            spoofedInstruction,
         )
         messagingCertMethod.addInstructions(
             0,
-            spoofedInstruction
+            spoofedInstruction,
         )
     }
 }

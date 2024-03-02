@@ -1,7 +1,7 @@
 package app.revanced.patches.spotify.lite.ondemand.fingerprints
 
-import app.revanced.patcher.fingerprint.annotation.FuzzyPatternScanMethod
 import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.annotation.FuzzyPatternScanMethod
 import com.android.tools.smali.dexlib2.Opcode
 
 @FuzzyPatternScanMethod(2)
@@ -20,6 +20,6 @@ internal object OnDemandFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
         Opcode.IPUT,
-        Opcode.RETURN_OBJECT
-    )
+        Opcode.RETURN_OBJECT,
+    ),
 )

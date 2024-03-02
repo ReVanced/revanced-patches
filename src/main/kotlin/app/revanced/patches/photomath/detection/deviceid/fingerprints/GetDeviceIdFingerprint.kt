@@ -5,5 +5,5 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 internal object GetDeviceIdFingerprint : MethodFingerprint(
     returnType = "Ljava/lang/String;",
     strings = listOf("androidId", "android_id"),
-    parameters = listOf()
+    parameters = listOf(),
 )

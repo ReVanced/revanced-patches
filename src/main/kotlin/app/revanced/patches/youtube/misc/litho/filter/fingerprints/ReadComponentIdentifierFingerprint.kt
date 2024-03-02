@@ -7,6 +7,6 @@ internal object ReadComponentIdentifierFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.IF_NEZ,
         null,
-        Opcode.MOVE_RESULT_OBJECT // Register stores the component identifier string
-    )
+        Opcode.MOVE_RESULT_OBJECT, // Register stores the component identifier string
+    ),
 )

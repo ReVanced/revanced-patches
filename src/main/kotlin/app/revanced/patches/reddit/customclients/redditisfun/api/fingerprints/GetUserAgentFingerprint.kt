@@ -16,5 +16,5 @@ internal object GetUserAgentFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.APUT_OBJECT,
         Opcode.CONST,
-    )
+    ),
 )

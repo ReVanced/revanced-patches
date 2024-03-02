@@ -32,18 +32,18 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            ]
-        )
+                "19.04.37",
+            ],
+        ),
     ],
-    use = false
+    use = false,
 )
 @Suppress("unused")
 object EnableSlideToSeekPatch : BytecodePatch(
     setOf(
         SlideToSeekFingerprint,
-        DoubleSpeedSeekNoticeFingerprint
-    )
+        DoubleSpeedSeekNoticeFingerprint,
+    ),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/SlideToSeekPatch;"
 
@@ -51,14 +51,14 @@ object EnableSlideToSeekPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.SEEKBAR.addPreferences(
-            SwitchPreference("revanced_slide_to_seek")
+            SwitchPreference("revanced_slide_to_seek"),
         )
 
         arrayOf(
             // Restore the behaviour to slide to seek.
             SlideToSeekFingerprint,
             // Disable the double speed seek notice.
-            DoubleSpeedSeekNoticeFingerprint
+            DoubleSpeedSeekNoticeFingerprint,
         ).map {
             it.result ?: throw it.exception
         }.forEach {
@@ -72,7 +72,7 @@ object EnableSlideToSeekPatch : BytecodePatch(
                     """
                         invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->isSlideToSeekDisabled()Z
                         move-result v$isEnabledRegister
-                    """
+                    """,
                 )
             }
         }

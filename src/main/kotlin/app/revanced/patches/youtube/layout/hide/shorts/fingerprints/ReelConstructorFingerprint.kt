@@ -13,7 +13,7 @@ internal object ReelConstructorFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         // Cannot use LiteralValueFingerprint, because the resource id may not be present.
         val reelMultipleItemShelfId = HideShortsComponentsResourcePatch.reelMultipleItemShelfId
-        reelMultipleItemShelfId != -1L
-                && methodDef.containsWideLiteralInstructionValue(reelMultipleItemShelfId)
-    }
+        reelMultipleItemShelfId != -1L &&
+            methodDef.containsWideLiteralInstructionValue(reelMultipleItemShelfId)
+    },
 )

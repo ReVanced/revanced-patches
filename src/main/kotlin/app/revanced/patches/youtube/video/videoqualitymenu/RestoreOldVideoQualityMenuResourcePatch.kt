@@ -10,7 +10,7 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
-    dependencies = [SettingsPatch::class, ResourceMappingPatch::class, AddResourcesPatch::class]
+    dependencies = [SettingsPatch::class, ResourceMappingPatch::class, AddResourcesPatch::class],
 )
 object RestoreOldVideoQualityMenuResourcePatch : ResourcePatch() {
     internal var videoQualityBottomSheetListFragmentTitle = -1L
@@ -19,7 +19,7 @@ object RestoreOldVideoQualityMenuResourcePatch : ResourcePatch() {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
-            SwitchPreference("revanced_restore_old_video_quality_menu")
+            SwitchPreference("revanced_restore_old_video_quality_menu"),
         )
 
         fun findResource(name: String) = ResourceMappingPatch.resourceMappings.find { it.name == name }?.id

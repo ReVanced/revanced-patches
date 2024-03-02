@@ -7,8 +7,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal object OnSucceededFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters =  listOf("Lorg/chromium/net/UrlRequest;", "Lorg/chromium/net/UrlResponseInfo;"),
+    parameters = listOf("Lorg/chromium/net/UrlRequest;", "Lorg/chromium/net/UrlResponseInfo;"),
     customFingerprint = { methodDef, _ ->
         methodDef.name == "onSucceeded"
-    }
+    },
 )

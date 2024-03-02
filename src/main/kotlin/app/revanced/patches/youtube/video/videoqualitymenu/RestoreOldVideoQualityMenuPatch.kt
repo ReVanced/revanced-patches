@@ -19,7 +19,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
         IntegrationsPatch::class,
         RestoreOldVideoQualityMenuResourcePatch::class,
         LithoFilterPatch::class,
-        RecyclerViewTreeHookPatch::class
+        RecyclerViewTreeHookPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -37,20 +37,20 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            ]
-        )
-    ]
+                "19.04.37",
+            ],
+        ),
+    ],
 )
 @Suppress("unused")
 object RestoreOldVideoQualityMenuPatch : BytecodePatch(
-    setOf(VideoQualityMenuViewInflateFingerprint)
+    setOf(VideoQualityMenuViewInflateFingerprint),
 ) {
     private const val FILTER_CLASS_DESCRIPTOR =
-            "Lapp/revanced/integrations/youtube/patches/components/VideoQualityMenuFilterPatch;"
+        "Lapp/revanced/integrations/youtube/patches/components/VideoQualityMenuFilterPatch;"
 
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-            "Lapp/revanced/integrations/youtube/patches/playback/quality/RestoreOldVideoQualityMenuPatch;"
+        "Lapp/revanced/integrations/youtube/patches/playback/quality/RestoreOldVideoQualityMenuPatch;"
 
     override fun execute(context: BytecodeContext) {
         // region Patch for the old type of the video quality menu.
@@ -64,8 +64,8 @@ object RestoreOldVideoQualityMenuPatch : BytecodePatch(
                 addInstruction(
                     checkCastIndex + 1,
                     "invoke-static { v$listViewRegister }, " +
-                            "$INTEGRATIONS_CLASS_DESCRIPTOR->" +
-                            "showOldVideoQualityMenu(Landroid/widget/ListView;)V"
+                        "$INTEGRATIONS_CLASS_DESCRIPTOR->" +
+                        "showOldVideoQualityMenu(Landroid/widget/ListView;)V",
                 )
             }
         }

@@ -8,5 +8,5 @@ internal object OnApplicationCreateFingerprint : MethodFingerprint(
         if (methodDef.name != "onCreate") return@custom false
 
         classDef.type.endsWith("RecorderApplication;")
-    }
+    },
 )

@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.layout.buttons.navigation
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
@@ -8,13 +7,14 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 import app.revanced.patches.youtube.layout.buttons.navigation.fingerprints.InitializeButtonsFingerprint
 import app.revanced.patches.youtube.layout.buttons.navigation.fingerprints.PivotBarConstructorFingerprint
+import app.revanced.util.exception
 
 @Patch(
     description = "Resolves necessary fingerprints.",
-    dependencies = [ResourceMappingPatch::class]
+    dependencies = [ResourceMappingPatch::class],
 )
 internal object ResolvePivotBarFingerprintsPatch : BytecodePatch(
-    setOf(PivotBarConstructorFingerprint)
+    setOf(PivotBarConstructorFingerprint),
 ) {
     internal var imageOnlyTabResourceId: Long = -1
 
@@ -28,10 +28,11 @@ internal object ResolvePivotBarFingerprintsPatch : BytecodePatch(
             // which PivotBarConstructorFingerprint resolved to
             if (!InitializeButtonsFingerprint.resolve(
                     context,
-                    it.classDef
+                    it.classDef,
                 )
-            ) throw InitializeButtonsFingerprint.exception
+            ) {
+                throw InitializeButtonsFingerprint.exception
+            }
         } ?: throw PivotBarConstructorFingerprint.exception
     }
-
 }

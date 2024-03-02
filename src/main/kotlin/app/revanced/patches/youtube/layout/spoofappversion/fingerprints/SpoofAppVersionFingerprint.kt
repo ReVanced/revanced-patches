@@ -6,7 +6,10 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal object SpoofAppVersionFingerprint : MethodFingerprint(
-    "L", AccessFlags.PUBLIC or AccessFlags.STATIC, listOf("L"), listOf(
+    "L",
+    AccessFlags.PUBLIC or AccessFlags.STATIC,
+    listOf("L"),
+    listOf(
         Opcode.IGET_OBJECT,
         Opcode.GOTO,
         Opcode.CONST_STRING,
@@ -15,5 +18,5 @@ internal object SpoofAppVersionFingerprint : MethodFingerprint(
     // Instead of applying a bytecode patch, it might be possible to only rely on code from the integrations and
     // manually set the desired version string as this keyed value in the SharedPreferences.
     // But, this bytecode patch is simple and it works.
-    strings = listOf("pref_override_build_version_name")
+    strings = listOf("pref_override_build_version_name"),
 )

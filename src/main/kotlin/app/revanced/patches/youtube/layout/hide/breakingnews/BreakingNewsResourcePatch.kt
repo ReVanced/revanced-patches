@@ -12,7 +12,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
     dependencies = [
         SettingsPatch::class,
         ResourceMappingPatch::class,
-        AddResourcesPatch::class
+        AddResourcesPatch::class,
     ],
 )
 internal object BreakingNewsResourcePatch : ResourcePatch() {
@@ -22,7 +22,7 @@ internal object BreakingNewsResourcePatch : ResourcePatch() {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.FEED.addPreferences(
-            SwitchPreference("revanced_hide_breaking_news")
+            SwitchPreference("revanced_hide_breaking_news"),
         )
 
         horizontalCardListId = ResourceMappingPatch.resourceMappings.single {

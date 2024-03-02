@@ -5,6 +5,6 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 internal object IsPremiumPurchasedFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("PreferenceProvider;") &&
-                methodDef.name == "isPremiumPurchased"
-    }
+            methodDef.name == "isPremiumPurchased"
+    },
 )

@@ -9,16 +9,16 @@ internal object DownloadPathParentFingerprint : MethodFingerprint(
     "L",
     AccessFlags.PUBLIC or AccessFlags.STATIC,
     strings = listOf(
-        "video/mp4"
+        "video/mp4",
     ),
     parameters = listOf(
         "L",
-        "L"
+        "L",
     ),
     opcodes = listOf(
         Opcode.CONST_STRING,
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,
-        Opcode.RETURN_OBJECT
-    )
+        Opcode.RETURN_OBJECT,
+    ),
 )

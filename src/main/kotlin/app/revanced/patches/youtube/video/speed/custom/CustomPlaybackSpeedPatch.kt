@@ -35,16 +35,16 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableField
         SettingsPatch::class,
         RecyclerViewTreeHookPatch::class,
         CustomPlaybackSpeedResourcePatch::class,
-        AddResourcesPatch::class
-    ]
+        AddResourcesPatch::class,
+    ],
 )
 object CustomPlaybackSpeedPatch : BytecodePatch(
     setOf(
         SpeedArrayGeneratorFingerprint,
         SpeedLimiterFingerprint,
         GetOldPlaybackSpeedsFingerprint,
-        ShowOldPlaybackSpeedMenuIntegrationsFingerprint
-    )
+        ShowOldPlaybackSpeedMenuIntegrationsFingerprint,
+    ),
 ) {
     private const val FILTER_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/components/PlaybackSpeedMenuFilterPatch;"
@@ -56,7 +56,7 @@ object CustomPlaybackSpeedPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
-            TextPreference("revanced_custom_playback_speeds", inputType = InputType.TEXT_MULTI_LINE)
+            TextPreference("revanced_custom_playback_speeds", inputType = InputType.TEXT_MULTI_LINE),
         )
 
         val arrayGenMethod = SpeedArrayGeneratorFingerprint.result?.mutableMethod!!
@@ -72,7 +72,7 @@ object CustomPlaybackSpeedPatch : BytecodePatch(
 
         arrayGenMethod.replaceInstruction(
             sizeCallIndex + 1,
-            "const/4 v$sizeCallResultRegister, 0x0"
+            "const/4 v$sizeCallResultRegister, 0x0",
         )
 
         val (arrayLengthConstIndex, arrayLengthConst) = arrayGenMethodImpl.instructions.withIndex()
@@ -87,21 +87,21 @@ object CustomPlaybackSpeedPatch : BytecodePatch(
             """
                 sget-object v$arrayLengthConstDestination, $playbackSpeedsArrayType
                 array-length v$arrayLengthConstDestination, v$arrayLengthConstDestination
-            """
+            """,
         )
 
         val (originalArrayFetchIndex, originalArrayFetch) = arrayGenMethodImpl.instructions.withIndex()
             .first {
                 val reference = ((it.value as? ReferenceInstruction)?.reference as? FieldReference)
                 reference?.definingClass?.contains("PlayerConfigModel") ?: false &&
-                        reference?.type == "[F"
+                    reference?.type == "[F"
             }
 
         val originalArrayFetchDestination = (originalArrayFetch as OneRegisterInstruction).registerA
 
         arrayGenMethod.replaceInstruction(
             originalArrayFetchIndex,
-            "sget-object v$originalArrayFetchDestination, $playbackSpeedsArrayType"
+            "sget-object v$originalArrayFetchDestination, $playbackSpeedsArrayType",
         )
 
         val limiterMethod = SpeedLimiterFingerprint.result?.mutableMethod!!
@@ -119,11 +119,11 @@ object CustomPlaybackSpeedPatch : BytecodePatch(
 
         limiterMethod.replaceInstruction(
             limiterMinConstIndex,
-            "const/high16 v$limiterMinConstDestination, 0x0"
+            "const/high16 v$limiterMinConstDestination, 0x0",
         )
         limiterMethod.replaceInstruction(
             limiterMaxConstIndex,
-            "const/high16 v$limiterMaxConstDestination, 0x41200000  # 10.0f"
+            "const/high16 v$limiterMaxConstDestination, 0x41200000  # 10.0f",
         )
 
         // region Force old video quality menu.
@@ -144,7 +144,7 @@ object CustomPlaybackSpeedPatch : BytecodePatch(
                 AccessFlags.PUBLIC or AccessFlags.STATIC,
                 null,
                 null,
-                null
+                null,
             ).toMutable()
 
             result.mutableClass.staticFields.add(instanceField)
@@ -155,8 +155,9 @@ object CustomPlaybackSpeedPatch : BytecodePatch(
             // Get the "showOldPlaybackSpeedMenu" method.
             // This is later called on the field INSTANCE.
             val showOldPlaybackSpeedMenuMethod = ShowOldPlaybackSpeedMenuFingerprint.also {
-                if (!it.resolve(context, result.classDef))
+                if (!it.resolve(context, result.classDef)) {
                     throw ShowOldPlaybackSpeedMenuFingerprint.exception
+                }
             }.result!!.method.toString()
 
             // Insert the call to the "showOldPlaybackSpeedMenu" method on the field INSTANCE.
@@ -169,7 +170,7 @@ object CustomPlaybackSpeedPatch : BytecodePatch(
                         return-void
                         :not_null
                         invoke-virtual { v0 }, $showOldPlaybackSpeedMenuMethod
-                    """
+                    """,
                 )
             } ?: throw ShowOldPlaybackSpeedMenuIntegrationsFingerprint.exception
         } ?: throw GetOldPlaybackSpeedsFingerprint.exception

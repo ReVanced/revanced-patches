@@ -11,5 +11,5 @@ internal object OnReadyFingerprint : MethodFingerprint(
     ),
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass == "Lpl/solidexplorer/plugins/texteditor/TextEditor;" && methodDef.name == "onReady"
-    }
+    },
 )

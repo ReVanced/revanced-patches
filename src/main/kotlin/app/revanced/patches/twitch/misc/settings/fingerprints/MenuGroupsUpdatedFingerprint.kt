@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 
 internal object MenuGroupsUpdatedFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
-        methodDef.definingClass.endsWith("/SettingsMenuPresenter\$Event\$MenuGroupsUpdated;")
-                && methodDef.name == "<init>"
-    }
+        methodDef.definingClass.endsWith("/SettingsMenuPresenter\$Event\$MenuGroupsUpdated;") &&
+            methodDef.name == "<init>"
+    },
 )

@@ -15,7 +15,7 @@ internal object ShoppingAdFingerprint : MediaAdFingerprint(
         Opcode.MOVE_RESULT,
         Opcode.XOR_INT_LIT8,
         Opcode.IF_EQZ,
-    )
+    ),
 ) {
     override fun toString() = result!!.method.toString()
 }

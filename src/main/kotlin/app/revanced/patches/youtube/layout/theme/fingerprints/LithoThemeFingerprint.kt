@@ -24,9 +24,9 @@ internal object LithoThemeFingerprint : MethodFingerprint(
         Opcode.IF_NEZ,
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.RETURN_VOID
+        Opcode.RETURN_VOID,
     ),
     customFingerprint = { methodDef, _ ->
         methodDef.name == "onBoundsChange"
-    }
+    },
 )

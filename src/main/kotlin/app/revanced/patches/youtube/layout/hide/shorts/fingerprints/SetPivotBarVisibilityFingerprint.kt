@@ -11,6 +11,6 @@ internal object SetPivotBarVisibilityFingerprint : MethodFingerprint(
     parameters = listOf("Z"),
     opcodes = listOf(
         Opcode.CHECK_CAST,
-        Opcode.IF_EQZ
-    )
+        Opcode.IF_EQZ,
+    ),
 )

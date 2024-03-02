@@ -5,6 +5,6 @@ import app.revanced.patches.shared.misc.integrations.BaseIntegrationsPatch.Integ
 internal object InitFingerprint : IntegrationsFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("/TwitchApplication;") &&
-                methodDef.name == "onCreate"
-    }
+            methodDef.name == "onCreate"
+    },
 )

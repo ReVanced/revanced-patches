@@ -19,13 +19,13 @@ import app.revanced.util.exception
     dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube"
-        )
-    ]
+            "com.google.android.youtube",
+        ),
+    ],
 )
 @Suppress("unused")
 object ChangeStartPagePatch : BytecodePatch(
-    setOf(HomeActivityFingerprint)
+    setOf(HomeActivityFingerprint),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/ChangeStartPagePatch;"
@@ -37,17 +37,17 @@ object ChangeStartPagePatch : BytecodePatch(
             ListPreference(
                 key = "revanced_start_page",
                 summaryKey = null,
-            )
+            ),
         )
 
         StartActivityFingerprint.resolve(
             context,
-            HomeActivityFingerprint.result?.classDef ?: throw HomeActivityFingerprint.exception
+            HomeActivityFingerprint.result?.classDef ?: throw HomeActivityFingerprint.exception,
         )
 
         StartActivityFingerprint.result?.mutableMethod?.addInstruction(
             0,
-            "invoke-static { p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->changeIntent(Landroid/content/Intent;)V"
+            "invoke-static { p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->changeIntent(Landroid/content/Intent;)V",
         ) ?: throw StartActivityFingerprint.exception
     }
 }

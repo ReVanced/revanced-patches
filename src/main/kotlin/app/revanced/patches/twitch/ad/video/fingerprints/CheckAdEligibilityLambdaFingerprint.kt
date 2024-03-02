@@ -6,7 +6,7 @@ internal object CheckAdEligibilityLambdaFingerprint : MethodFingerprint(
     returnType = "Lio/reactivex/Single;",
     parameters = listOf("L"),
     customFingerprint = { method, _ ->
-        method.definingClass.endsWith("/AdEligibilityFetcher;")
-                && method.name == "shouldRequestAd"
-    }
+        method.definingClass.endsWith("/AdEligibilityFetcher;") &&
+            method.name == "shouldRequestAd"
+    },
 )

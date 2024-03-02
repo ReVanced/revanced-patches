@@ -15,7 +15,7 @@ internal object CopyTextFingerprint : MethodFingerprint(
         Opcode.IGET_OBJECT,
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_INTERFACE,
-        Opcode.RETURN_VOID
+        Opcode.RETURN_VOID,
     ),
-    strings = listOf("text/plain")
+    strings = listOf("text/plain"),
 )

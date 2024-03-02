@@ -17,5 +17,5 @@ internal object SpeedArrayGeneratorFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.IGET_OBJECT,
     ),
-    strings = listOf("0.0#")
+    strings = listOf("0.0#"),
 )

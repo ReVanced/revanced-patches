@@ -11,5 +11,5 @@ internal object MinimizedPlaybackSettingsParentFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     returnType = "I",
     parameters = listOf(),
-    strings = listOf("BiometricManager", "Failure in canAuthenticate(). FingerprintManager was null.")
+    strings = listOf("BiometricManager", "Failure in canAuthenticate(). FingerprintManager was null."),
 )

@@ -8,6 +8,6 @@ internal object JsonHookPatchFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.INVOKE_INTERFACE, // Add dummy hook to hooks list.
         // Add hooks to the hooks list.
-        Opcode.INVOKE_STATIC // Call buildList.
-    )
+        Opcode.INVOKE_STATIC, // Call buildList.
+    ),
 )

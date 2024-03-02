@@ -28,7 +28,7 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
             SwitchPreference("revanced_hide_shorts_info_panel"),
             SwitchPreference("revanced_hide_shorts_channel_bar"),
             SwitchPreference("revanced_hide_shorts_sound_button"),
-            SwitchPreference("revanced_hide_shorts_navigation_bar")
+            SwitchPreference("revanced_hide_shorts_navigation_bar"),
         )
 
         ResourceMappingPatch.resourceMappings.find {

@@ -4,6 +4,6 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 
 internal object SetSeekBarShowTypeFingerprint : MethodFingerprint(
     strings = listOf(
-        "seekbar show type change, change to:"
+        "seekbar show type change, change to:",
     ),
 )

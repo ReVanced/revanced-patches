@@ -32,25 +32,25 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            ]
-        )
-    ]
+                "19.04.37",
+            ],
+        ),
+    ],
 )
 @Suppress("unused")
 object BypassURLRedirectsPatch : BytecodePatch(
-    setOf(ABUriParserFingerprint, HTTPUriParserFingerprint)
+    setOf(ABUriParserFingerprint, HTTPUriParserFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            SwitchPreference("revanced_bypass_url_redirects")
+            SwitchPreference("revanced_bypass_url_redirects"),
         )
 
         mapOf(
             ABUriParserFingerprint to 7, // Offset to Uri.parse.
-            HTTPUriParserFingerprint to 0 // Offset to Uri.parse.
+            HTTPUriParserFingerprint to 0, // Offset to Uri.parse.
         ).map { (fingerprint, offset) ->
             (fingerprint.result ?: throw fingerprint.exception) to offset
         }.forEach { (result, offset) ->
@@ -61,9 +61,9 @@ object BypassURLRedirectsPatch : BytecodePatch(
                 replaceInstruction(
                     insertIndex,
                     "invoke-static {v$uriStringRegister}," +
-                            "Lapp/revanced/integrations/youtube/patches/BypassURLRedirectsPatch;" +
-                            "->" +
-                            "parseRedirectUri(Ljava/lang/String;)Landroid/net/Uri;"
+                        "Lapp/revanced/integrations/youtube/patches/BypassURLRedirectsPatch;" +
+                        "->" +
+                        "parseRedirectUri(Ljava/lang/String;)Landroid/net/Uri;",
                 )
             }
         }

@@ -12,17 +12,17 @@ import app.revanced.patches.tiktok.misc.login.disablerequirement.fingerprints.Ma
     name = "Disable login requirement",
     compatiblePackages = [
         CompatiblePackage("com.ss.android.ugc.trill"),
-        CompatiblePackage("com.zhiliaoapp.musically")
-    ]
+        CompatiblePackage("com.zhiliaoapp.musically"),
+    ],
 )
 @Suppress("unused")
 object DisableLoginRequirementPatch : BytecodePatch(
-    setOf(MandatoryLoginServiceFingerprint, MandatoryLoginServiceFingerprint2)
+    setOf(MandatoryLoginServiceFingerprint, MandatoryLoginServiceFingerprint2),
 ) {
     override fun execute(context: BytecodeContext) {
         listOf(
             MandatoryLoginServiceFingerprint,
-            MandatoryLoginServiceFingerprint2
+            MandatoryLoginServiceFingerprint2,
         ).forEach { fingerprint ->
             val method = fingerprint.result!!.mutableMethod
             method.addInstructions(
@@ -30,7 +30,7 @@ object DisableLoginRequirementPatch : BytecodePatch(
                 """
                 const/4 v0, 0x0
                 return v0
-            """
+            """,
             )
         }
     }

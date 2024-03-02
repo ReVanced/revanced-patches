@@ -4,5 +4,5 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 
 internal object RemoveLikeFingerprint : MethodFingerprint(
     "V",
-    strings = listOf("like/removelike")
+    strings = listOf("like/removelike"),
 )

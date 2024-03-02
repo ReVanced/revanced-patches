@@ -15,7 +15,6 @@ import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.exception
 
-
 @Patch(
     name = "Disable auto captions",
     description = "Adds an option to disable captions from being automatically enabled.",
@@ -36,32 +35,32 @@ import app.revanced.util.exception
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            ]
-        )
+                "19.04.37",
+            ],
+        ),
     ],
 )
 @Suppress("unused")
 object AutoCaptionsPatch : BytecodePatch(
-    setOf(StartVideoInformerFingerprint, SubtitleButtonControllerFingerprint, SubtitleTrackFingerprint)
+    setOf(StartVideoInformerFingerprint, SubtitleButtonControllerFingerprint, SubtitleTrackFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_auto_captions")
+            SwitchPreference("revanced_auto_captions"),
         )
 
         mapOf(
             StartVideoInformerFingerprint to 0,
-            SubtitleButtonControllerFingerprint to 1
+            SubtitleButtonControllerFingerprint to 1,
         ).forEach { (fingerprint, enabled) ->
             fingerprint.result?.mutableMethod?.addInstructions(
                 0,
                 """
                     const/4 v0, 0x$enabled
                     sput-boolean v0, Lapp/revanced/integrations/youtube/patches/DisableAutoCaptionsPatch;->captionsButtonDisabled:Z
-                """
+                """,
             ) ?: throw fingerprint.exception
         }
 
@@ -77,7 +76,7 @@ object AutoCaptionsPatch : BytecodePatch(
                 return v0
                 :auto_captions_enabled
                 nop
-            """
+            """,
         )
     }
 }

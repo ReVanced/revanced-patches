@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
     dependencies = [
         ResourceMappingPatch::class,
         LithoFilterPatch::class,
-        AddResourcesPatch::class
+        AddResourcesPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -35,10 +35,10 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            ]
-        )
-    ]
+                "19.04.37",
+            ],
+        ),
+    ],
 )
 @Suppress("unused")
 object HideButtonsPatch : ResourcePatch() {
@@ -60,9 +60,9 @@ object HideButtonsPatch : ResourcePatch() {
                     SwitchPreference("revanced_hide_thanks_button"),
                     SwitchPreference("revanced_hide_clip_button"),
                     SwitchPreference("revanced_hide_playlist_button"),
-                    SwitchPreference("revanced_hide_shop_button")
+                    SwitchPreference("revanced_hide_shop_button"),
                 ),
-            )
+            ),
         )
 
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)

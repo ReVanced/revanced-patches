@@ -17,6 +17,6 @@ internal object IsFreeVersionFingerprint : MethodFingerprint(
         Opcode.CONST_STRING,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
-        Opcode.IF_EQZ
-    )
+        Opcode.IF_EQZ,
+    ),
 )

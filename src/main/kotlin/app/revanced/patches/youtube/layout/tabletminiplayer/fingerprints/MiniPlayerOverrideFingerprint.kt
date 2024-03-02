@@ -8,5 +8,5 @@ internal object MiniPlayerOverrideFingerprint : MethodFingerprint(
     returnType = "L",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L"),
-    strings = listOf("appName")
+    strings = listOf("appName"),
 )

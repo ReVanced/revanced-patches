@@ -13,5 +13,5 @@ internal object SetQualityByIndexMethodClassFieldReferenceFingerprint : MethodFi
         Opcode.IGET_OBJECT,
         Opcode.IPUT_OBJECT,
         Opcode.IGET_OBJECT,
-    )
+    ),
 )

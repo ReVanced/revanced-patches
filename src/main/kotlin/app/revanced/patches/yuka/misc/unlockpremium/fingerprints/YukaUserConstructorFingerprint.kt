@@ -8,6 +8,6 @@ internal object YukaUserConstructorFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     strings = listOf(
-        "premiumProvider"
-    )
+        "premiumProvider",
+    ),
 )

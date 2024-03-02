@@ -16,5 +16,5 @@ internal object BreakingNewsFingerprint : LiteralValueFingerprint(
         Opcode.CHECK_CAST,
         Opcode.IPUT_OBJECT,
     ),
-    literalSupplier = { BreakingNewsResourcePatch.horizontalCardListId }
+    literalSupplier = { BreakingNewsResourcePatch.horizontalCardListId },
 )

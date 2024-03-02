@@ -11,5 +11,5 @@ internal abstract class FieldMethodFingerprint(fieldValue: String) : MethodFinge
             if (field.name != "__redex_internal_original_name") return@any false
             (field.initialValue as? StringEncodedValue)?.value == fieldValue
         }
-    }
+    },
 )

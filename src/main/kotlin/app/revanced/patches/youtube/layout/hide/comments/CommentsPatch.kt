@@ -16,7 +16,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
     dependencies = [
         SettingsPatch::class,
         LithoFilterPatch::class,
-        AddResourcesPatch::class
+        AddResourcesPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -34,10 +34,10 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            ]
-        )
-    ]
+                "19.04.37",
+            ],
+        ),
+    ],
 )
 @Suppress("unused")
 object CommentsPatch : ResourcePatch() {
@@ -52,9 +52,9 @@ object CommentsPatch : ResourcePatch() {
                 "revanced_comments_screen",
                 preferences = setOf(
                     SwitchPreference("revanced_hide_comments_section"),
-                    SwitchPreference("revanced_hide_preview_comment")
-                )
-            )
+                    SwitchPreference("revanced_hide_preview_comment"),
+                ),
+            ),
         )
 
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)

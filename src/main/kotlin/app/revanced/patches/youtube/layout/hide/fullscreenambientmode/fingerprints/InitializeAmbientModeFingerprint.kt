@@ -9,5 +9,5 @@ internal object InitializeAmbientModeFingerprint : LiteralValueFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.CONSTRUCTOR or AccessFlags.PUBLIC,
     opcodes = listOf(Opcode.MOVE_RESULT),
-    literalSupplier = { 45389368 }
+    literalSupplier = { 45389368 },
 )

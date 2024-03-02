@@ -7,6 +7,6 @@ internal object GetMessagingCertFingerprint : MethodFingerprint(
     strings = listOf(
         "ContentValues",
         "Could not get fingerprint hash for package: ",
-        "No such package: "
-    )
+        "No such package: ",
+    ),
 )

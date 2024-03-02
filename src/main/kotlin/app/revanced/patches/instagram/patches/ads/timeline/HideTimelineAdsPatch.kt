@@ -1,6 +1,5 @@
 package app.revanced.patches.instagram.patches.ads.timeline
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -15,21 +14,23 @@ import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.ads.Gene
 import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.ads.MediaAdFingerprint
 import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.ads.PaidPartnershipAdFingerprint
 import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.ads.ShoppingAdFingerprint
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide timeline ads",
     description = "Removes ads from the timeline.",
-    compatiblePackages = [CompatiblePackage("com.instagram.android", ["275.0.0.27.98"])]
+    compatiblePackages = [CompatiblePackage("com.instagram.android", ["275.0.0.27.98"])],
 )
 @Suppress("unused")
 object HideTimelineAdsPatch : BytecodePatch(
     setOf(
         ShowAdFingerprint,
         MediaFingerprint,
-        PaidPartnershipAdFingerprint // Unlike the other ads this one is resolved from all classes.
-    )
+        // Unlike the other ads this one is resolved from all classes.
+        PaidPartnershipAdFingerprint,
+    ),
 ) {
     override fun execute(context: BytecodeContext) {
         // region Resolve required methods to check for ads.
@@ -80,8 +81,9 @@ object HideTimelineAdsPatch : BytecodePatch(
                 checkForAdInstructions,
                 ExternalLabel(
                     returnFalseLabel,
-                    mutableMethod.getInstruction(mutableMethod.implementation!!.instructions.size - 2 /* return false = ad */)
-                )
+                    // return false = ad
+                    mutableMethod.getInstruction(mutableMethod.implementation!!.instructions.size - 2),
+                ),
             )
 
             // endregion
@@ -92,7 +94,7 @@ object HideTimelineAdsPatch : BytecodePatch(
                 addInstructionsWithLabels(
                     jumpIndex + 1,
                     "if-nez v$freeRegister, :start_check",
-                    ExternalLabel("start_check", getInstruction(insertIndex))
+                    ExternalLabel("start_check", getInstruction(insertIndex)),
                 )
             }.removeInstruction(jumpIndex)
 

@@ -11,13 +11,13 @@ internal object RollingNumberTextViewFingerprint : MethodFingerprint(
     parameters = listOf("L", "F", "F"),
     opcodes = listOf(
         Opcode.IPUT,
-        null,   // invoke-direct or invoke-virtual
+        null, // invoke-direct or invoke-virtual
         Opcode.IPUT_OBJECT,
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.RETURN_VOID
+        Opcode.RETURN_VOID,
     ),
     customFingerprint = { _, classDef ->
         classDef.superclass == "Landroid/support/v7/widget/AppCompatTextView;"
-    }
+    },
 )

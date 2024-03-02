@@ -1,6 +1,5 @@
 package app.revanced.patches.shared.misc.fix.verticalscroll.fingerprints
 
-
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -16,5 +15,5 @@ internal object CanScrollVerticallyFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
     ),
-    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("SwipeRefreshLayout;") }
+    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("SwipeRefreshLayout;") },
 )

@@ -12,7 +12,6 @@ import app.revanced.patches.reddit.customclients.redditisfun.api.fingerprints.Bu
 import app.revanced.patches.reddit.customclients.redditisfun.api.fingerprints.GetUserAgentFingerprint
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-
 @Suppress("unused")
 object SpoofClientPatch : BaseSpoofClientPatch(
     redirectUri = "redditisfun://auth",
@@ -20,8 +19,8 @@ object SpoofClientPatch : BaseSpoofClientPatch(
     userAgentFingerprints = setOf(GetUserAgentFingerprint),
     compatiblePackages = setOf(
         CompatiblePackage("com.andrewshu.android.reddit"),
-        CompatiblePackage("com.andrewshu.android.redditdonation")
-    )
+        CompatiblePackage("com.andrewshu.android.redditdonation"),
+    ),
 ) {
     override fun Set<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
         /**
@@ -59,7 +58,7 @@ object SpoofClientPatch : BaseSpoofClientPatch(
             """
                 const-string v0, "$userAgent"
                 return-object v0
-            """
+            """,
         )
     }
 }

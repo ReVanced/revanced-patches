@@ -27,7 +27,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
         IntegrationsPatch::class,
         SettingsPatch::class,
         ResourceMappingPatch::class,
-        AddResourcesPatch::class
+        AddResourcesPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -45,20 +45,20 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            ]
-        )
-    ]
+                "19.04.37",
+            ],
+        ),
+    ],
 )
 @Suppress("unused")
 object HideAutoplayButtonPatch : BytecodePatch(
-    setOf(LayoutConstructorFingerprint)
+    setOf(LayoutConstructorFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_hide_autoplay_button")
+            SwitchPreference("revanced_hide_autoplay_button"),
         )
 
         LayoutConstructorFingerprint.result?.mutableMethod?.apply {
@@ -86,7 +86,7 @@ object HideAutoplayButtonPatch : BytecodePatch(
                     move-result v$clobberRegister
                     if-eqz v$clobberRegister, :hidden
                 """,
-                ExternalLabel("hidden", jumpInstruction)
+                ExternalLabel("hidden", jumpInstruction),
             )
         } ?: throw LayoutConstructorFingerprint.exception
     }

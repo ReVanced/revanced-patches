@@ -19,6 +19,6 @@ internal object BottomNavigationBarFingerprint : MethodFingerprint(
         Opcode.IGET_OBJECT,
     ),
     strings = listOf(
-        "ReelWatchPaneFragmentViewModelKey"
+        "ReelWatchPaneFragmentViewModelKey",
     ),
 )

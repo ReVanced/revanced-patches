@@ -34,6 +34,6 @@ internal object MinimizedPlaybackManagerFingerprint : MethodFingerprint(
         Opcode.CONST_4,
         Opcode.IF_EQZ,
         Opcode.IGET_BOOLEAN,
-        Opcode.IF_EQZ
-    )
+        Opcode.IF_EQZ,
+    ),
 )

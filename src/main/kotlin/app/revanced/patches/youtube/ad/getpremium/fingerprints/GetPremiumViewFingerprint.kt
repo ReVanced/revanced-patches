@@ -13,10 +13,10 @@ internal object GetPremiumViewFingerprint : MethodFingerprint(
         Opcode.ADD_INT_2ADDR,
         Opcode.ADD_INT_2ADDR,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.RETURN_VOID
+        Opcode.RETURN_VOID,
     ),
     customFingerprint = { methodDef, _ ->
-        methodDef.definingClass == "Lcom/google/android/apps/youtube/app/red/presenter/CompactYpcOfferModuleView;"
-                && methodDef.name == "onMeasure"
-    }
+        methodDef.definingClass == "Lcom/google/android/apps/youtube/app/red/presenter/CompactYpcOfferModuleView;" &&
+            methodDef.name == "onMeasure"
+    },
 )

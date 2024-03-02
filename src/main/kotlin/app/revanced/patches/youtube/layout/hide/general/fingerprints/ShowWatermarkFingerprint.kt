@@ -5,5 +5,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal object ShowWatermarkFingerprint : MethodFingerprint(
-    "V", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf("L", "L")
+    "V",
+    AccessFlags.PUBLIC or AccessFlags.FINAL,
+    listOf("L", "L"),
 )

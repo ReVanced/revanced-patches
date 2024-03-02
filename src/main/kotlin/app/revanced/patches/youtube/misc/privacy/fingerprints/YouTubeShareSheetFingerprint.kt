@@ -14,5 +14,5 @@ internal object YouTubeShareSheetFingerprint : MethodFingerprint(
         Opcode.GOTO,
         Opcode.MOVE_OBJECT,
         Opcode.INVOKE_VIRTUAL,
-    )
+    ),
 )

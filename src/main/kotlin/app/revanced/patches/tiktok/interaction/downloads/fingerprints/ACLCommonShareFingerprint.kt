@@ -9,6 +9,6 @@ internal object ACLCommonShareFingerprint : MethodFingerprint(
     AccessFlags.PUBLIC or AccessFlags.FINAL,
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("/ACLCommonShare;") &&
-                methodDef.name == "getCode"
-    }
+            methodDef.name == "getCode"
+    },
 )

@@ -6,9 +6,9 @@ import com.android.tools.smali.dexlib2.Opcode
 internal object LoginActivityOnCreateFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CONST_4
+        Opcode.CONST_4,
     ),
     customFingerprint = { method, classDef ->
         method.name == "onCreate" && classDef.type.endsWith("LoginActivity;")
-    }
+    },
 )

@@ -4,5 +4,5 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 
 internal object DislikeFingerprint : MethodFingerprint(
     "V",
-    strings = listOf("like/dislike")
+    strings = listOf("like/dislike"),
 )

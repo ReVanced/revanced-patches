@@ -17,7 +17,7 @@ internal object GetFeatureValueFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.IF_EQZ,
         Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT
+        Opcode.MOVE_RESULT,
     ),
-    customFingerprint = { method, _ -> method.definingClass == "Lcom/tumblr/configuration/Configuration;" }
+    customFingerprint = { method, _ -> method.definingClass == "Lcom/tumblr/configuration/Configuration;" },
 )

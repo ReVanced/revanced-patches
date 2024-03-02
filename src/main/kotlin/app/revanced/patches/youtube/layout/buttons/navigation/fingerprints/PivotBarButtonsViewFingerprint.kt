@@ -8,5 +8,5 @@ internal object PivotBarButtonsViewFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL_RANGE,
         Opcode.MOVE_RESULT_OBJECT, // target reference
         Opcode.GOTO,
-    )
+    ),
 )

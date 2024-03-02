@@ -5,5 +5,5 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal object RedditCheckDisableAPIFingerprint : MethodFingerprint(
     strings = listOf("Reddit Disabled"),
-    opcodes = listOf(Opcode.IF_EQZ)
+    opcodes = listOf(Opcode.IF_EQZ),
 )

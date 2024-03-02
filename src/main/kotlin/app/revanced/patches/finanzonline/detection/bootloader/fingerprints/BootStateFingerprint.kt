@@ -25,6 +25,6 @@ internal object BootStateFingerprint : MethodFingerprint(
         Opcode.IF_NE,
         Opcode.GOTO,
         Opcode.MOVE,
-        Opcode.RETURN
-    )
+        Opcode.RETURN,
+    ),
 )

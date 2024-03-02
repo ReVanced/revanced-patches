@@ -1,8 +1,6 @@
 package app.revanced.patches.youtube.video.information.fingerprints
 
-
 import app.revanced.patcher.fingerprint.MethodFingerprint
-
 import com.android.tools.smali.dexlib2.Opcode
 
 internal object VideoLengthFingerprint : MethodFingerprint(
@@ -18,6 +16,6 @@ internal object VideoLengthFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_WIDE,
         Opcode.CONST_4,
-        Opcode.INVOKE_VIRTUAL
-    )
+        Opcode.INVOKE_VIRTUAL,
+    ),
 )

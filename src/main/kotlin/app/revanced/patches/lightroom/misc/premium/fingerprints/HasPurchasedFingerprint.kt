@@ -14,5 +14,5 @@ internal object HasPurchasedFingerprint : MethodFingerprint(
         Opcode.CONST_4,
         Opcode.CONST_4,
         Opcode.CONST_4,
-    )
+    ),
 )

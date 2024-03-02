@@ -14,7 +14,7 @@ internal object PiracyDetectionFingerprint : MethodFingerprint(
         Opcode.INVOKE_DIRECT,
         Opcode.NEW_INSTANCE,
         Opcode.INVOKE_DIRECT,
-        Opcode.INVOKE_VIRTUAL
+        Opcode.INVOKE_VIRTUAL,
     ),
     customFingerprint = { method, _ ->
         method.implementation?.instructions?.any {
@@ -24,5 +24,5 @@ internal object PiracyDetectionFingerprint : MethodFingerprint(
 
             reference.toString() == "Lcom/github/javiersantos/piracychecker/PiracyChecker;"
         } ?: false
-    }
+    },
 )

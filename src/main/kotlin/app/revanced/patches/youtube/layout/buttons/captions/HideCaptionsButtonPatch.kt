@@ -18,7 +18,7 @@ import com.android.tools.smali.dexlib2.Opcode
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class,
-        AddResourcesPatch::class
+        AddResourcesPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -36,20 +36,20 @@ import com.android.tools.smali.dexlib2.Opcode
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            ]
-        )
-    ]
+                "19.04.37",
+            ],
+        ),
+    ],
 )
 @Suppress("unused")
 object HideCaptionsButtonPatch : BytecodePatch(
-    setOf(SubtitleButtonControllerFingerprint)
+    setOf(SubtitleButtonControllerFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_hide_captions_button")
+            SwitchPreference("revanced_hide_captions_button"),
         )
 
         val subtitleButtonControllerMethod = SubtitleButtonControllerFingerprint.result!!.mutableMethod
@@ -63,7 +63,7 @@ object HideCaptionsButtonPatch : BytecodePatch(
             insertIndex,
             """
                 invoke-static {v0}, Lapp/revanced/integrations/youtube/patches/HideCaptionsButtonPatch;->hideCaptionsButton(Landroid/widget/ImageView;)V
-            """
+            """,
         )
     }
 }

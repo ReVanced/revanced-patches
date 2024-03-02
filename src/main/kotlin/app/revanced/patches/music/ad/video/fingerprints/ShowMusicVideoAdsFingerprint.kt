@@ -6,9 +6,12 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal object ShowMusicVideoAdsFingerprint : MethodFingerprint(
-    "V", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf("Z"), listOf(
+    "V",
+    AccessFlags.PUBLIC or AccessFlags.FINAL,
+    listOf("Z"),
+    listOf(
         Opcode.IPUT_BOOLEAN,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.RETURN_VOID
-    )
+        Opcode.RETURN_VOID,
+    ),
 )

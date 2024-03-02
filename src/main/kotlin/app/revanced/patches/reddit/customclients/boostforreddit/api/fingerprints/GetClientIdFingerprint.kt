@@ -7,5 +7,5 @@ internal object GetClientIdFingerprint : MethodFingerprint(
         if (!classDef.type.endsWith("Credentials;")) return@custom false
 
         methodDef.name == "getClientId"
-    }
+    },
 )

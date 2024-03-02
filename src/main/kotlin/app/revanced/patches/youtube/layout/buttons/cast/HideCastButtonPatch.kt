@@ -28,7 +28,7 @@ object HideCastButtonPatch : BytecodePatch(emptySet()) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_hide_cast_button")
+            SwitchPreference("revanced_hide_cast_button"),
         )
 
         val buttonClass = context.findClass("MediaRouteButton")

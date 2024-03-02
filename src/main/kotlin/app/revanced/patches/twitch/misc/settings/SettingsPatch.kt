@@ -12,9 +12,9 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
 import app.revanced.patches.twitch.misc.integrations.IntegrationsPatch
 import app.revanced.patches.twitch.misc.settings.fingerprints.MenuGroupsOnClickFingerprint
 import app.revanced.patches.twitch.misc.settings.fingerprints.MenuGroupsUpdatedFingerprint
@@ -31,20 +31,22 @@ import java.io.Closeable
     dependencies = [
         IntegrationsPatch::class,
         SettingsResourcePatch::class,
-        AddResourcesPatch::class
+        AddResourcesPatch::class,
     ],
     compatiblePackages = [
-        CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])
-    ]
+        CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"]),
+    ],
 )
-object SettingsPatch : BytecodePatch(
-    setOf(
-        SettingsActivityOnCreateFingerprint,
-        SettingsMenuItemEnumFingerprint,
-        MenuGroupsUpdatedFingerprint,
-        MenuGroupsOnClickFingerprint
-    )
-), Closeable {
+object SettingsPatch :
+    BytecodePatch(
+        setOf(
+            SettingsActivityOnCreateFingerprint,
+            SettingsMenuItemEnumFingerprint,
+            MenuGroupsUpdatedFingerprint,
+            MenuGroupsOnClickFingerprint,
+        ),
+    ),
+    Closeable {
     private const val REVANCED_SETTINGS_MENU_ITEM_NAME = "RevancedSettings"
     private const val REVANCED_SETTINGS_MENU_ITEM_ID = 0x7
     private const val REVANCED_SETTINGS_MENU_ITEM_TITLE_RES = "revanced_settings"
@@ -62,7 +64,7 @@ object SettingsPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         PreferenceScreen.MISC.OTHER.addPreferences(
-            SwitchPreference("revanced_debug")
+            SwitchPreference("revanced_debug"),
         )
 
         // Hook onCreate to handle fragment creation
@@ -76,7 +78,7 @@ object SettingsPatch : BytecodePatch(
                     if-eqz              v0, :no_rv_settings_init
                     return-void
                 """,
-                ExternalLabel("no_rv_settings_init", mutableMethod.getInstruction(insertIndex))
+                ExternalLabel("no_rv_settings_init", mutableMethod.getInstruction(insertIndex)),
             )
         } ?: throw SettingsActivityOnCreateFingerprint.exception
 
@@ -86,7 +88,7 @@ object SettingsPatch : BytecodePatch(
                 REVANCED_SETTINGS_MENU_ITEM_NAME,
                 REVANCED_SETTINGS_MENU_ITEM_ID,
                 REVANCED_SETTINGS_MENU_ITEM_TITLE_RES,
-                REVANCED_SETTINGS_MENU_ITEM_ICON_RES
+                REVANCED_SETTINGS_MENU_ITEM_ICON_RES,
             )
         } ?: throw SettingsMenuItemEnumFingerprint.exception
 
@@ -98,7 +100,7 @@ object SettingsPatch : BytecodePatch(
                     sget-object             v0, $MENU_ITEM_ENUM_CLASS_DESCRIPTOR->$REVANCED_SETTINGS_MENU_ITEM_NAME:$MENU_ITEM_ENUM_CLASS_DESCRIPTOR 
                     invoke-static           {p1, v0}, $ACTIVITY_HOOKS_CLASS_DESCRIPTOR->handleSettingMenuCreation(Ljava/util/List;Ljava/lang/Object;)Ljava/util/List;
                     move-result-object      p1
-                """
+                """,
             )
         } ?: throw MenuGroupsUpdatedFingerprint.exception
 
@@ -115,7 +117,7 @@ object SettingsPatch : BytecodePatch(
                         invoke-virtual      {p0, p1}, Ltv/twitch/android/core/mvp/viewdelegate/RxViewDelegate;->pushEvent(Ltv/twitch/android/core/mvp/viewdelegate/ViewDelegateEvent;)V
                         return-void
                 """,
-                ExternalLabel("no_rv_settings_onclick", mutableMethod.getInstruction(insertIndex))
+                ExternalLabel("no_rv_settings_onclick", mutableMethod.getInstruction(insertIndex)),
             )
         } ?: throw MenuGroupsOnClickFingerprint.exception
     }
@@ -124,7 +126,7 @@ object SettingsPatch : BytecodePatch(
         name: String,
         value: Int,
         titleResourceName: String,
-        iconResourceName: String
+        iconResourceName: String,
     ) {
         // Add new static enum member field
         mutableClass.staticFields.add(
@@ -135,8 +137,8 @@ object SettingsPatch : BytecodePatch(
                 AccessFlags.PUBLIC or AccessFlags.FINAL or AccessFlags.ENUM or AccessFlags.STATIC,
                 null,
                 null,
-                null
-            ).toMutable()
+                null,
+            ).toMutable(),
         )
 
         // Add initializer for the new enum member
@@ -154,7 +156,7 @@ object SettingsPatch : BytecodePatch(
                 const/4             v5, $value
                 invoke-direct       {v0, v4, v5, v1, v3}, $MENU_ITEM_ENUM_CLASS_DESCRIPTOR-><init>(Ljava/lang/String;III)V 
                 sput-object         v0, $MENU_ITEM_ENUM_CLASS_DESCRIPTOR->$name:$MENU_ITEM_ENUM_CLASS_DESCRIPTOR
-            """
+            """,
         )
     }
 
@@ -166,6 +168,7 @@ object SettingsPatch : BytecodePatch(
         val CHAT = CustomScreen("revanced_chat_screen")
         val MISC = CustomScreen("revanced_misc_screen")
 
+        @Suppress("ktlint:standard:property-naming")
         internal class CustomScreen(key: String) : Screen(key) {
             /* Categories */
             val GENERAL = CustomCategory("revanced_general_category")
@@ -179,7 +182,7 @@ object SettingsPatch : BytecodePatch(
                     return PreferenceCategory(
                         key,
                         preferences = preferences,
-                        tag = "app.revanced.integrations.twitch.settings.preference.CustomPreferenceCategory"
+                        tag = "app.revanced.integrations.twitch.settings.preference.CustomPreferenceCategory",
                     )
                 }
             }

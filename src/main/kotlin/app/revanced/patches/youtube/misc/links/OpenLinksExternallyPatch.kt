@@ -36,16 +36,18 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            ]
-        )
-    ]
+                "19.04.37",
+            ],
+        ),
+    ],
 )
 @Suppress("unused")
-object OpenLinksExternallyPatch : BaseTransformInstructionsPatch<Pair<Int, Int>>(
-) {
+object OpenLinksExternallyPatch : BaseTransformInstructionsPatch<Pair<Int, Int>>() {
     override fun filterMap(
-        classDef: ClassDef, method: Method, instruction: Instruction, instructionIndex: Int
+        classDef: ClassDef,
+        method: Method,
+        instruction: Instruction,
+        instructionIndex: Int,
     ): Pair<Int, Int>? {
         if (instruction !is ReferenceInstruction) return null
         val reference = instruction.reference as? StringReference ?: return null
@@ -64,7 +66,7 @@ object OpenLinksExternallyPatch : BaseTransformInstructionsPatch<Pair<Int, Int>>
             """
                 invoke-static {v$register}, Lapp/revanced/integrations/youtube/patches/OpenLinksExternallyPatch;->getIntent(Ljava/lang/String;)Ljava/lang/String;
                 move-result-object v$register
-            """
+            """,
         )
     }
 
@@ -72,7 +74,7 @@ object OpenLinksExternallyPatch : BaseTransformInstructionsPatch<Pair<Int, Int>>
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            SwitchPreference("revanced_external_browser")
+            SwitchPreference("revanced_external_browser"),
         )
 
         super.execute(context)

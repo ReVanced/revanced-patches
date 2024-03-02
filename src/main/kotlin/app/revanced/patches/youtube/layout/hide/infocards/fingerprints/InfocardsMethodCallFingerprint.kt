@@ -11,5 +11,5 @@ internal object InfocardsMethodCallFingerprint : LiteralValueFingerprint(
         Opcode.INVOKE_INTERFACE,
     ),
     strings = listOf("Missing ControlsOverlayPresenter for InfoCards to work."),
-    literalSupplier = { HideInfocardsResourcePatch.drawerResourceId }
+    literalSupplier = { HideInfocardsResourcePatch.drawerResourceId },
 )

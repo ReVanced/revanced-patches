@@ -12,7 +12,7 @@ internal object RelatedChipCloudFingerprint : LiteralValueFingerprint(
     opcodes = listOf(
         Opcode.CONST,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT
+        Opcode.MOVE_RESULT_OBJECT,
     ),
-    literalSupplier = { HideFilterBarResourcePatch.relatedChipCloudMarginId }
+    literalSupplier = { HideFilterBarResourcePatch.relatedChipCloudMarginId },
 )

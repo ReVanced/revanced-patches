@@ -20,6 +20,6 @@ internal object PlayerParameterBuilderFingerprint : MethodFingerprint(
         "L",
         "Z", // Appears to indicate if the video id is being opened or is currently playing.
         "Z",
-        "Z"
-    )
+        "Z",
+    ),
 )

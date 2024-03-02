@@ -17,28 +17,30 @@ internal object FixBackToExitGesturePatch : BytecodePatch(
     setOf(
         RecyclerViewTopScrollingParentFingerprint,
         RecyclerViewScrollingFingerprint,
-        OnBackPressedFingerprint
-    )
+        OnBackPressedFingerprint,
+    ),
 ) {
     override fun execute(context: BytecodeContext) {
         RecyclerViewTopScrollingFingerprint.apply {
             resolve(
                 context,
                 RecyclerViewTopScrollingParentFingerprint.result?.classDef
-                    ?: throw RecyclerViewTopScrollingParentFingerprint.exception
+                    ?: throw RecyclerViewTopScrollingParentFingerprint.exception,
             )
         }
 
         mapOf(
             RecyclerViewTopScrollingFingerprint to IntegrationsMethod(
-                methodName = "onTopView"
+                methodName = "onTopView",
             ),
             RecyclerViewScrollingFingerprint to IntegrationsMethod(
-                methodName = "onScrollingViews"
+                methodName = "onScrollingViews",
             ),
             OnBackPressedFingerprint to IntegrationsMethod(
-                "p0", "onBackPressed", "Landroid/app/Activity;"
-            )
+                "p0",
+                "onBackPressed",
+                "Landroid/app/Activity;",
+            ),
         ).forEach { (fingerprint, target) -> fingerprint.injectCall(target) }
     }
 
@@ -49,7 +51,8 @@ internal object FixBackToExitGesturePatch : BytecodePatch(
      */
     private fun MethodFingerprint.injectCall(targetMethod: IntegrationsMethod) = result?.apply {
         mutableMethod.addInstruction(
-            scanResult.patternScanResult!!.endIndex, targetMethod.toString()
+            scanResult.patternScanResult!!.endIndex,
+            targetMethod.toString(),
         )
     } ?: throw this.exception
 
@@ -61,7 +64,9 @@ internal object FixBackToExitGesturePatch : BytecodePatch(
      * @param parameterTypes The parameters of the method.
      */
     internal data class IntegrationsMethod(
-        val register: String = "", val methodName: String, val parameterTypes: String = ""
+        val register: String = "",
+        val methodName: String,
+        val parameterTypes: String = "",
     ) {
         override fun toString() =
             "invoke-static {$register}, Lapp/revanced/integrations/youtube/patches/FixBackToExitGesturePatch;->$methodName($parameterTypes)V"

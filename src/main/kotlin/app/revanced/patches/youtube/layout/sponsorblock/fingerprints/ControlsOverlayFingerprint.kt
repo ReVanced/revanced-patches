@@ -19,6 +19,6 @@ internal object ControlsOverlayFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,
-        Opcode.NEW_INSTANCE
-    )
+        Opcode.NEW_INSTANCE,
+    ),
 )

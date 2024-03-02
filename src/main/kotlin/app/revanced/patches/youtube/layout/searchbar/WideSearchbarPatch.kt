@@ -23,7 +23,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube",
+            [
                 "18.32.39",
                 "18.37.36",
                 "18.38.44",
@@ -35,17 +36,17 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            ]
-        )
-    ]
+                "19.04.37",
+            ],
+        ),
+    ],
 )
 @Suppress("unused")
 object WideSearchbarPatch : BytecodePatch(
     setOf(
         SetWordmarkHeaderFingerprint,
-        CreateSearchSuggestionsFingerprint
-    )
+        CreateSearchSuggestionsFingerprint,
+    ),
 ) {
 
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -55,7 +56,7 @@ object WideSearchbarPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.FEED.addPreferences(
-            SwitchPreference("revanced_wide_searchbar")
+            SwitchPreference("revanced_wide_searchbar"),
         )
 
         val result = CreateSearchSuggestionsFingerprint.result ?: throw CreateSearchSuggestionsFingerprint.exception
@@ -63,7 +64,7 @@ object WideSearchbarPatch : BytecodePatch(
         // patch methods
         mapOf(
             SetWordmarkHeaderFingerprint to 1,
-            CreateSearchSuggestionsFingerprint to result.scanResult.patternScanResult!!.startIndex
+            CreateSearchSuggestionsFingerprint to result.scanResult.patternScanResult!!.startIndex,
         ).forEach { (fingerprint, callIndex) ->
             context.walkMutable(callIndex, fingerprint).injectSearchBarHook()
         }
@@ -81,7 +82,6 @@ object WideSearchbarPatch : BytecodePatch(
             toMethodWalker(it.method).nextMethod(index, true).getMethod() as MutableMethod
         } ?: throw fromFingerprint.exception
 
-
     /**
      * Injects instructions required for certain methods.
      */
@@ -94,7 +94,7 @@ object WideSearchbarPatch : BytecodePatch(
             """
                 invoke-static {v$insertRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->enableWideSearchbar(Z)Z
                 move-result v$insertRegister
-            """
+            """,
         )
     }
 }

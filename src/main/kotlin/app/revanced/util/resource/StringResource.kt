@@ -22,8 +22,9 @@ class StringResource(
             // if the string is un-formatted, explicitly add the formatted attribute
             if (!formatted) setAttribute("formatted", "false")
 
-            if (value.contains(Regex("(?<!\\\\)['\"]")))
+            if (value.contains(Regex("(?<!\\\\)['\"]"))) {
                 throw PatchException("String $name cannot contain unescaped quotes in value \"$value\".")
+            }
 
             textContent = value
         }

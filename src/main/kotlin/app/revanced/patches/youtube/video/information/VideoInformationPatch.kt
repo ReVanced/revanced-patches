@@ -27,15 +27,15 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 
 @Patch(
     description = "Hooks YouTube to get information about the current playing video.",
-    dependencies = [IntegrationsPatch::class, VideoIdPatch::class, PlayerResponseMethodHookPatch::class]
+    dependencies = [IntegrationsPatch::class, VideoIdPatch::class, PlayerResponseMethodHookPatch::class],
 )
 object VideoInformationPatch : BytecodePatch(
     setOf(
         PlayerInitFingerprint,
         CreateVideoPlayerSeekbarFingerprint,
         PlayerControllerSetTimeReferenceFingerprint,
-        OnPlaybackSpeedItemClickFingerprint
-    )
+        OnPlaybackSpeedItemClickFingerprint,
+    ),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/VideoInformation;"
 
@@ -71,8 +71,9 @@ object VideoInformationPatch : BytecodePatch(
                 listOf(ImmutableMethodParameter("J", null, "time")),
                 "Z",
                 AccessFlags.PUBLIC or AccessFlags.FINAL,
-                null, null,
-                MutableMethodImplementation(4)
+                null,
+                null,
+                MutableMethodImplementation(4),
             ).toMutable()
 
             // get enum type for the seek helper method
@@ -86,7 +87,7 @@ object VideoInformationPatch : BytecodePatch(
                     invoke-virtual {p0, p1, p2, v0}, ${seekFingerprintResultMethod.definingClass}->${seekFingerprintResultMethod.name}(J$seekSourceEnumType)Z
                     move-result p1
                     return p1
-                """
+                """,
             )
 
             // add the seekTo method to the class for the integrations to call
@@ -103,7 +104,7 @@ object VideoInformationPatch : BytecodePatch(
 
                 addInstruction(
                     videoLengthMethodResult.scanResult.patternScanResult!!.endIndex,
-                    "invoke-static {v$videoLengthRegister, v$dummyRegisterForLong}, $INTEGRATIONS_CLASS_DESCRIPTOR->setVideoLength(J)V"
+                    "invoke-static {v$videoLengthRegister, v$dummyRegisterForLong}, $INTEGRATIONS_CLASS_DESCRIPTOR->setVideoLength(J)V",
                 )
             }
         }
@@ -115,11 +116,13 @@ object VideoInformationPatch : BytecodePatch(
         VideoIdPatch.hookVideoId(videoIdMethodDescriptor)
         VideoIdPatch.hookBackgroundPlayVideoId(videoIdMethodDescriptor)
         VideoIdPatch.hookPlayerResponseVideoId(
-            "$INTEGRATIONS_CLASS_DESCRIPTOR->setPlayerResponseVideoId(Ljava/lang/String;Z)V")
+            "$INTEGRATIONS_CLASS_DESCRIPTOR->setPlayerResponseVideoId(Ljava/lang/String;Z)V",
+        )
         // Call before any other video id hooks,
         // so they can use VideoInformation and check if the video id is for a Short.
         PlayerResponseMethodHookPatch += PlayerResponseMethodHookPatch.Hook.ProtoBufferParameterBeforeVideoId(
-            "$INTEGRATIONS_CLASS_DESCRIPTOR->newPlayerResponseSignature(Ljava/lang/String;Z)Ljava/lang/String;")
+            "$INTEGRATIONS_CLASS_DESCRIPTOR->newPlayerResponseSignature(Ljava/lang/String;Z)Ljava/lang/String;",
+        )
 
         /*
          * Set the video time method
@@ -177,7 +180,7 @@ object VideoInformationPatch : BytecodePatch(
         playerInitMethod.insert(
             playerInitInsertIndex++,
             "v0",
-            "$targetMethodClass->$targetMethodName(Ljava/lang/Object;)V"
+            "$targetMethodClass->$targetMethodName(Ljava/lang/Object;)V",
         )
 
     /**
@@ -190,7 +193,7 @@ object VideoInformationPatch : BytecodePatch(
     internal fun videoTimeHook(targetMethodClass: String, targetMethodName: String) =
         timeMethod.insertTimeHook(
             timeInitInsertIndex++,
-            "$targetMethodClass->$targetMethodName(J)V"
+            "$targetMethodClass->$targetMethodName(J)V",
         )
 
     private fun getReference(instructions: List<BuilderInstruction>, offset: Int, opcode: Opcode) =
@@ -203,6 +206,6 @@ object VideoInformationPatch : BytecodePatch(
     internal fun userSelectedPlaybackSpeedHook(targetMethodClass: String, targetMethodName: String) =
         speedSelectionInsertMethod.addInstruction(
             speedSelectionInsertIndex++,
-            "invoke-static {v$speedSelectionValueRegister}, $targetMethodClass->$targetMethodName(F)V"
+            "invoke-static {v$speedSelectionValueRegister}, $targetMethodClass->$targetMethodName(F)V",
         )
 }

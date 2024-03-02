@@ -8,6 +8,6 @@ internal object BootloaderCheckFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC.value,
     customFingerprint = { methodDef, _ ->
         methodDef.name == "bootloaderCheck" &&
-        methodDef.definingClass.endsWith("/DeviceIntegrityCheck;")
-    }
+            methodDef.definingClass.endsWith("/DeviceIntegrityCheck;")
+    },
 )

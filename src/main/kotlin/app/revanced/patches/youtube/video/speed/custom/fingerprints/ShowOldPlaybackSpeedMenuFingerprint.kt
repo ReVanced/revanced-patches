@@ -6,5 +6,5 @@ import app.revanced.util.patch.LiteralValueFingerprint
 internal object ShowOldPlaybackSpeedMenuFingerprint : LiteralValueFingerprint(
     literalSupplier = {
         CustomPlaybackSpeedResourcePatch.speedUnavailableId
-    }
+    },
 )

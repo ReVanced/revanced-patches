@@ -24,11 +24,11 @@ internal object KidsMinimizedPlaybackPolicyControllerFingerprint : MethodFingerp
         Opcode.GOTO,
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.RETURN_VOID
+        Opcode.RETURN_VOID,
     ),
     customFingerprint = { methodDef, _ ->
         methodDef.implementation!!.instructions.any {
             ((it as? NarrowLiteralInstruction)?.narrowLiteral == 5)
         }
-    }
+    },
 )

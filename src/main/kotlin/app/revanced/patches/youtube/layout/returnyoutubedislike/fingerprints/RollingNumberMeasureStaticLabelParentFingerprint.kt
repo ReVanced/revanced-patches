@@ -8,5 +8,5 @@ internal object RollingNumberMeasureStaticLabelParentFingerprint : MethodFingerp
     returnType = "Ljava/lang/String;",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf(),
-    strings = listOf("RollingNumberFontProperties{paint=")
+    strings = listOf("RollingNumberFontProperties{paint="),
 )

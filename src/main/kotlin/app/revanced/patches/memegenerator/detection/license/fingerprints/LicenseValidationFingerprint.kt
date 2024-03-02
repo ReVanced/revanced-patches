@@ -19,6 +19,6 @@ internal object LicenseValidationFingerprint : MethodFingerprint(
         Opcode.CONST_4,
         Opcode.RETURN,
         Opcode.CONST_4,
-        Opcode.RETURN
-    )
+        Opcode.RETURN,
+    ),
 )

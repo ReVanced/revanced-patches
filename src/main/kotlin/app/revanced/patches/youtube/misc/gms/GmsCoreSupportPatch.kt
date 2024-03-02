@@ -11,7 +11,6 @@ import app.revanced.patches.youtube.misc.gms.fingerprints.*
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.shared.fingerprints.HomeActivityFingerprint
 
-
 @Suppress("unused")
 object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
     fromPackageName = YOUTUBE_PACKAGE_NAME,
@@ -22,27 +21,28 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
         GooglePlayUtilityFingerprint,
         CastDynamiteModuleFingerprint,
         CastDynamiteModuleV2Fingerprint,
-        CastContextFetchFingerprint
+        CastContextFetchFingerprint,
     ),
     mainActivityOnCreateFingerprint = HomeActivityFingerprint,
     integrationsPatchDependency = IntegrationsPatch::class,
     dependencies = setOf(
         HideCastButtonPatch::class,
-        ClientSpoofPatch::class
+        ClientSpoofPatch::class,
     ),
     gmsCoreSupportResourcePatch = GmsCoreSupportResourcePatch,
     compatiblePackages = setOf(
         CompatiblePackage(
-            "com.google.android.youtube", setOf(
+            "com.google.android.youtube",
+            setOf(
                 "18.48.39",
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            )
-        )
+                "19.04.37",
+            ),
+        ),
     ),
     fingerprints = setOf(
         ServiceCheckFingerprint,
@@ -51,7 +51,7 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
         CastDynamiteModuleV2Fingerprint,
         CastContextFetchFingerprint,
         PrimeMethodFingerprint,
-    )
+    ),
 ) {
     override val gmsCoreVendor by gmsCoreVendorOption
 }

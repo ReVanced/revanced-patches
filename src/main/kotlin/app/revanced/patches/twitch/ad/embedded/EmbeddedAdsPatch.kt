@@ -20,19 +20,19 @@ import app.revanced.util.exception
         VideoAdsPatch::class,
         IntegrationsPatch::class,
         SettingsPatch::class,
-        AddResourcesPatch::class
+        AddResourcesPatch::class,
     ],
-    compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])]
+    compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])],
 )
 @Suppress("unused")
 object EmbeddedAdsPatch : BytecodePatch(
-    setOf(CreateUsherClientFingerprint)
+    setOf(CreateUsherClientFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.ADS.SURESTREAM.addPreferences(
-            ListPreference("revanced_block_embedded_ads", summaryKey = null)
+            ListPreference("revanced_block_embedded_ads", summaryKey = null),
         )
 
         val result = CreateUsherClientFingerprint.result ?: throw CreateUsherClientFingerprint.exception
@@ -44,7 +44,7 @@ object EmbeddedAdsPatch : BytecodePatch(
                 invoke-static  {}, Lapp/revanced/integrations/twitch/patches/EmbeddedAdsPatch;->createRequestInterceptor()Lapp/revanced/integrations/twitch/api/RequestInterceptor;
                 move-result-object v2
                 invoke-virtual {v0, v2}, Lokhttp3/OkHttpClient${"$"}Builder;->addInterceptor(Lokhttp3/Interceptor;)Lokhttp3/OkHttpClient${"$"}Builder;
-            """
+            """,
         )
     }
 }

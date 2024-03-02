@@ -7,5 +7,5 @@ internal object RevCatSubscriptionFingerprint : MethodFingerprint(
     strings = listOf("use_debug_subscription_settings"),
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("/RevCatSubscriptionSettingsRepository;")
-    }
+    },
 )

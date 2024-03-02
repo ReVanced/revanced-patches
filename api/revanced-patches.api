@@ -314,8 +314,8 @@ public final class app/revanced/patches/music/interaction/permanentrepeat/Perman
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/music/interaction/permanentshuffle/PermanentShuffleTogglePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/interaction/permanentshuffle/PermanentShuffleTogglePatch;
+public final class app/revanced/patches/music/interaction/permanentshuffle/PermanentShufflePatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/music/interaction/permanentshuffle/PermanentShufflePatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -894,8 +894,8 @@ public final class app/revanced/patches/strava/upselling/DisableSubscriptionSugg
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/ticktick/misc/themeunlock/UnlockProPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/ticktick/misc/themeunlock/UnlockProPatch;
+public final class app/revanced/patches/ticktick/misc/themeunlock/UnlockThemesPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/ticktick/misc/themeunlock/UnlockThemesPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }

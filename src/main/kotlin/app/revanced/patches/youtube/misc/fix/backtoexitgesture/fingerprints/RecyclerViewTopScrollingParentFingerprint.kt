@@ -16,6 +16,6 @@ internal object RecyclerViewTopScrollingParentFingerprint : MethodFingerprint(
         Opcode.IPUT_OBJECT,
         Opcode.CONST_16,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.NEW_INSTANCE
+        Opcode.NEW_INSTANCE,
     ),
 )

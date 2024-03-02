@@ -4,6 +4,6 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 
 internal object ShouldShowSeekBarFingerprint : MethodFingerprint(
     strings = listOf(
-        "can not show seekbar, state: 1, not in resume"
+        "can not show seekbar, state: 1, not in resume",
     ),
 )

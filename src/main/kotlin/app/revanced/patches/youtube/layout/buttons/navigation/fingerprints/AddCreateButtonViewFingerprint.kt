@@ -8,5 +8,5 @@ internal object AddCreateButtonViewFingerprint : MethodFingerprint(
     strings = listOf(
         "Android Wear",
         ANDROID_AUTOMOTIVE_STRING,
-    )
+    ),
 )

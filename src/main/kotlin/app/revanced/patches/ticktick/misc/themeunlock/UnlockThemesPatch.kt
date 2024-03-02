@@ -12,10 +12,10 @@ import app.revanced.patches.ticktick.misc.themeunlock.fingerprints.SetThemeFinge
 @Patch(
     name = "Unlock themes",
     description = "Unlocks all themes that are inaccessible until a certain level is reached.",
-    compatiblePackages = [CompatiblePackage("com.ticktick.task")]
+    compatiblePackages = [CompatiblePackage("com.ticktick.task")],
 )
 @Suppress("unused")
-object UnlockProPatch : BytecodePatch(setOf(CheckLockedThemesFingerprint, SetThemeFingerprint)) {
+object UnlockThemesPatch : BytecodePatch(setOf(CheckLockedThemesFingerprint, SetThemeFingerprint)) {
     override fun execute(context: BytecodeContext) {
         val lockedThemesMethod = CheckLockedThemesFingerprint.result!!.mutableMethod
         lockedThemesMethod.addInstructions(
@@ -23,9 +23,9 @@ object UnlockProPatch : BytecodePatch(setOf(CheckLockedThemesFingerprint, SetThe
             """
                 const/4 v0, 0x0
                 return v0
-            """
+            """,
         )
-        
+
         val setThemeMethod = SetThemeFingerprint.result!!.mutableMethod
         setThemeMethod.removeInstructions(0, 10)
     }

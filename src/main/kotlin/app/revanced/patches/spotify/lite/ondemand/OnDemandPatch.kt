@@ -1,17 +1,17 @@
 package app.revanced.patches.spotify.lite.ondemand
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.spotify.lite.ondemand.fingerprints.OnDemandFingerprint
+import app.revanced.util.exception
 
 @Patch(
     name = "Enable on demand",
     description = "Enables listening to songs on-demand, allowing to play any song from playlists, albums or artists without limitations. This does not remove ads.",
-    compatiblePackages = [CompatiblePackage("com.spotify.lite")]
+    compatiblePackages = [CompatiblePackage("com.spotify.lite")],
 )
 @Suppress("unused")
 object OnDemandPatch : BytecodePatch(setOf(OnDemandFingerprint)) {

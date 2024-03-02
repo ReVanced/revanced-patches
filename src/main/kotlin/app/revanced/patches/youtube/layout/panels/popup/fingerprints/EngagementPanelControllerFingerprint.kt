@@ -9,6 +9,6 @@ internal object EngagementPanelControllerFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     strings = listOf(
         "EngagementPanelController: cannot show EngagementPanel before EngagementPanelController.init() has been called.",
-        "[EngagementPanel] Cannot show EngagementPanel before EngagementPanelController.init() has been called."
-    )
+        "[EngagementPanel] Cannot show EngagementPanel before EngagementPanelController.init() has been called.",
+    ),
 )

@@ -33,48 +33,50 @@ interface IMethodCall {
         definingClassDescriptor: String,
         method: MutableMethod,
         instruction: Instruction35c,
-        instructionIndex: Int
+        instructionIndex: Int,
     ) {
         val registers = arrayOf(
             instruction.registerC,
             instruction.registerD,
             instruction.registerE,
             instruction.registerF,
-            instruction.registerG
+            instruction.registerG,
         )
         val argsNum = methodParams.size + 1 // + 1 for instance of definedClassName
         if (argsNum > registers.size) {
             // should never happen, but just to be sure (also for the future) a safety check
             throw RuntimeException(
-                "Not enough registers for ${definedClassName}#${methodName}: " +
-                        "Required $argsNum registers, but only got ${registers.size}."
+                "Not enough registers for $definedClassName#$methodName: " +
+                    "Required $argsNum registers, but only got ${registers.size}.",
             )
         }
 
-        val args = registers.take(argsNum).joinToString(separator = ", ") { reg -> "v${reg}" }
+        val args = registers.take(argsNum).joinToString(separator = ", ") { reg -> "v$reg" }
         val replacementMethodDefinition =
-            "${methodName}(${definedClassName}${methodParams.joinToString(separator = "")})${returnType}"
+            "$methodName(${definedClassName}${methodParams.joinToString(separator = "")})$returnType"
 
         method.replaceInstruction(
             instructionIndex,
-            "invoke-static { $args }, ${definingClassDescriptor}->${replacementMethodDefinition}"
+            "invoke-static { $args }, $definingClassDescriptor->$replacementMethodDefinition",
         )
     }
 }
 
-inline fun <reified E> fromMethodReference(methodReference: MethodReference)
+inline fun <reified E> fromMethodReference(
+    methodReference: MethodReference,
+)
         where E : Enum<E>, E : IMethodCall = enumValues<E>().firstOrNull { search ->
-    search.definedClassName == methodReference.definingClass
-            && search.methodName == methodReference.name
-            && methodReference.parameterTypes.toTypedArray().contentEquals(search.methodParams)
-            && search.returnType == methodReference.returnType
+    search.definedClassName == methodReference.definingClass &&
+        search.methodName == methodReference.name &&
+        methodReference.parameterTypes.toTypedArray().contentEquals(search.methodParams) &&
+        search.returnType == methodReference.returnType
 }
 
 inline fun <reified E> filterMapInstruction35c(
     integrationsClassDescriptorPrefix: String,
     classDef: ClassDef,
     instruction: Instruction,
-    instructionIndex: Int
+    instructionIndex: Int,
 ): Instruction35cInfo? where E : Enum<E>, E : IMethodCall {
     if (classDef.type.startsWith(integrationsClassDescriptorPrefix)) {
         // avoid infinite recursion

@@ -7,5 +7,5 @@ internal object IsVIPEPFingerprint : MethodFingerprint(
         if (!methodDef.definingClass.endsWith("RemoteUser;")) return@custom false
 
         methodDef.name == "isVIPEP"
-    }
+    },
 )

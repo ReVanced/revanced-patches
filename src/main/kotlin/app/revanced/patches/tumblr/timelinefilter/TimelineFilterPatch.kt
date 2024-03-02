@@ -1,6 +1,5 @@
 package app.revanced.patches.tumblr.timelinefilter
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -11,11 +10,12 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.tumblr.timelinefilter.fingerprints.PostsResponseConstructorFingerprint
 import app.revanced.patches.tumblr.timelinefilter.fingerprints.TimelineConstructorFingerprint
 import app.revanced.patches.tumblr.timelinefilter.fingerprints.TimelineFilterIntegrationFingerprint
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 
 @Patch(description = "Filter timeline objects.", requiresIntegrations = true)
 object TimelineFilterPatch : BytecodePatch(
-    setOf(TimelineConstructorFingerprint, TimelineFilterIntegrationFingerprint, PostsResponseConstructorFingerprint)
+    setOf(TimelineConstructorFingerprint, TimelineFilterIntegrationFingerprint, PostsResponseConstructorFingerprint),
 ) {
     /**
      * Add a filter to hide the given timeline object type.
@@ -44,10 +44,11 @@ object TimelineFilterPatch : BytecodePatch(
                 addObjectTypeFilter = { typeName ->
                     // blockedObjectTypes.add({typeName})
                     addInstructionsWithLabels(
-                        filterInsertIndex, """
+                        filterInsertIndex,
+                        """
                             const-string v$stringRegister, "$typeName"
                             invoke-virtual { v$filterListRegister, v$stringRegister }, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-                        """
+                        """,
                     )
                 }
             }
@@ -55,13 +56,13 @@ object TimelineFilterPatch : BytecodePatch(
 
         mapOf(
             TimelineConstructorFingerprint to 1,
-            PostsResponseConstructorFingerprint to 2
+            PostsResponseConstructorFingerprint to 2,
         ).forEach { (fingerprint, timelineObjectsRegister) ->
             fingerprint.result?.mutableMethod?.addInstructions(
                 0,
                 "invoke-static {p$timelineObjectsRegister}, " +
-                        "Lapp/revanced/integrations/tumblr/patches/TimelineFilterPatch;->" +
-                        "filterTimeline(Ljava/util/List;)V"
+                    "Lapp/revanced/integrations/tumblr/patches/TimelineFilterPatch;->" +
+                    "filterTimeline(Ljava/util/List;)V",
             ) ?: throw fingerprint.exception
         }
     }

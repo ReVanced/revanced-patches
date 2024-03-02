@@ -4,5 +4,5 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 
 internal object DebuggingDetectionFingerprint : MethodFingerprint(
     returnType = "Z",
-    strings = listOf("adb_enabled")
+    strings = listOf("adb_enabled"),
 )

@@ -20,6 +20,6 @@ internal object TimeCounterFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.IGET_WIDE,
         Opcode.IGET_WIDE,
-        Opcode.SUB_LONG_2ADDR
-    )
+        Opcode.SUB_LONG_2ADDR,
+    ),
 )

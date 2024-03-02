@@ -11,7 +11,7 @@ internal object PlayerTypeFingerprint : MethodFingerprint(
     parameters = listOf("L"),
     opcodes = listOf(
         Opcode.IF_NE,
-        Opcode.RETURN_VOID
+        Opcode.RETURN_VOID,
     ),
-    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("/YouTubePlayerOverlaysLayout;") }
+    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("/YouTubePlayerOverlaysLayout;") },
 )
