@@ -1,29 +1,17 @@
 package app.revanced.integrations.youtube.settings;
 
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
-import static app.revanced.integrations.shared.settings.Setting.migrateFromOldPreferences;
-import static app.revanced.integrations.shared.settings.Setting.migrateOldSettingToNew;
-import static app.revanced.integrations.shared.settings.Setting.parent;
-import static app.revanced.integrations.shared.settings.Setting.parentsAny;
-import static app.revanced.integrations.youtube.sponsorblock.objects.CategoryBehaviour.IGNORE;
-import static app.revanced.integrations.youtube.sponsorblock.objects.CategoryBehaviour.MANUAL_SKIP;
-import static app.revanced.integrations.youtube.sponsorblock.objects.CategoryBehaviour.SKIP_AUTOMATICALLY;
-import static app.revanced.integrations.youtube.sponsorblock.objects.CategoryBehaviour.SKIP_AUTOMATICALLY_ONCE;
+import app.revanced.integrations.shared.settings.*;
+import app.revanced.integrations.shared.settings.preference.SharedPrefCategory;
+import app.revanced.integrations.youtube.sponsorblock.SponsorBlockSettings;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import app.revanced.integrations.shared.settings.BaseSettings;
-import app.revanced.integrations.shared.settings.BooleanSetting;
-import app.revanced.integrations.shared.settings.FloatSetting;
-import app.revanced.integrations.shared.settings.IntegerSetting;
-import app.revanced.integrations.shared.settings.LongSetting;
-import app.revanced.integrations.shared.settings.Setting;
-import app.revanced.integrations.shared.settings.StringSetting;
-import app.revanced.integrations.shared.settings.preference.SharedPrefCategory;
-import app.revanced.integrations.youtube.sponsorblock.SponsorBlockSettings;
+import static app.revanced.integrations.shared.settings.Setting.*;
+import static app.revanced.integrations.youtube.sponsorblock.objects.CategoryBehaviour.*;
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 
 public class Settings extends BaseSettings {
     // External downloader
@@ -205,7 +193,9 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting BYPASS_URL_REDIRECTS = new BooleanSetting("revanced_bypass_url_redirects", TRUE);
     public static final BooleanSetting ANNOUNCEMENTS = new BooleanSetting("revanced_announcements", TRUE);
     public static final StringSetting ANNOUNCEMENT_CONSUMER = new StringSetting("revanced_announcement_consumer", "", false, false);
-    public static final StringSetting ANNOUNCEMENT_LAST_HASH = new StringSetting("revanced_announcement_last_hash", "");
+   @Deprecated
+    public static final StringSetting DEPRECATED_ANNOUNCEMENT_LAST_HASH = new StringSetting("revanced_announcement_last_hash", "");
+    public static final IntegerSetting ANNOUNCEMENT_LAST_ID = new IntegerSetting("revanced_announcement_last_id", -1);
     public static final BooleanSetting REMOVE_TRACKING_QUERY_PARAMETER = new BooleanSetting("revanced_remove_tracking_query_parameter", TRUE);
     public static final BooleanSetting REMOVE_VIEWER_DISCRETION_DIALOG= new BooleanSetting("revanced_remove_viewer_discretion_dialog", FALSE,
             "revanced_remove_viewer_discretion_dialog_user_dialog_message");
@@ -245,6 +235,7 @@ public class Settings extends BaseSettings {
      * Do not use directly, instead use {@link SponsorBlockSettings}
      */
     public static final StringSetting SB_PRIVATE_USER_ID = new StringSetting("sb_private_user_id_Do_Not_Share", "");
+    @Deprecated
     public static final StringSetting DEPRECATED_SB_UUID_OLD_MIGRATION_SETTING = new StringSetting("uuid", ""); // Delete sometime in 2024
     public static final IntegerSetting SB_CREATE_NEW_SEGMENT_STEP = new IntegerSetting("sb_create_new_segment_step", 150, parent(SB_ENABLED));
     public static final BooleanSetting SB_VOTING_BUTTON = new BooleanSetting("sb_voting_button", FALSE, parent(SB_ENABLED));

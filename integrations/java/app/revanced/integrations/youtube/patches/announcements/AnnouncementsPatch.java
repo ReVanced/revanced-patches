@@ -6,12 +6,11 @@ import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.widget.TextView;
 import androidx.annotation.RequiresApi;
-
+import app.revanced.integrations.shared.Logger;
+import app.revanced.integrations.shared.Utils;
 import app.revanced.integrations.youtube.patches.announcements.requests.AnnouncementsRoutes;
 import app.revanced.integrations.youtube.requests.Requester;
 import app.revanced.integrations.youtube.settings.Settings;
-import app.revanced.integrations.shared.Logger;
-import app.revanced.integrations.shared.Utils;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -49,9 +48,10 @@ public final class AnnouncementsPatch {
                 try {
                     // Do not show the announcement if the request failed.
                     if (connection.getResponseCode() != 200) {
-                        if (Settings.ANNOUNCEMENT_LAST_HASH.get().isEmpty()) return;
+                        if (Settings.ANNOUNCEMENT_LAST_ID.isSetToDefault())
+                            return;
 
-                        Settings.ANNOUNCEMENT_LAST_HASH.resetToDefault();
+                        Settings.ANNOUNCEMENT_LAST_ID.resetToDefault();
                         Utils.showToastLong(str("revanced_announcements_connection_failed"));
 
                         return;
@@ -65,22 +65,20 @@ public final class AnnouncementsPatch {
 
                 var jsonString = Requester.parseInputStreamAndClose(connection.getInputStream(), false);
 
-                // Do not show the announcement if it is older or the same as the last one.
-                final byte[] hashBytes = MessageDigest.getInstance("SHA-256").digest(jsonString.getBytes(StandardCharsets.UTF_8));
-                final var hash = java.util.Base64.getEncoder().encodeToString(hashBytes);
-                if (hash.equals(Settings.ANNOUNCEMENT_LAST_HASH.get())) return;
 
                 // Parse the announcement. Fall-back to raw string if it fails.
+                int id = Settings.ANNOUNCEMENT_LAST_ID.defaultValue;
                 String title;
                 String message;
                 Level level = Level.INFO;
                 try {
                     final var announcement = new JSONObject(jsonString);
 
+                    id = announcement.getInt("id");
                     title = announcement.getString("title");
                     message = announcement.getJSONObject("content").getString("message");
-
                     if (!announcement.isNull("level")) level = Level.fromInt(announcement.getInt("level"));
+
                 } catch (Throwable ex) {
                     Logger.printException(() -> "Failed to parse announcement. Fall-backing to raw string", ex);
 
@@ -88,6 +86,28 @@ public final class AnnouncementsPatch {
                     message = jsonString;
                 }
 
+                // TODO: Remove this migration code after a few months.
+                if (!Settings.DEPRECATED_ANNOUNCEMENT_LAST_HASH.isSetToDefault()){
+                    final byte[] hashBytes = MessageDigest
+                            .getInstance("SHA-256")
+                            .digest(jsonString.getBytes(StandardCharsets.UTF_8));
+
+                    final var hash = java.util.Base64.getEncoder().encodeToString(hashBytes);
+
+                    // Migrate to saving the id instead of the hash.
+                    if (hash.equals(Settings.DEPRECATED_ANNOUNCEMENT_LAST_HASH.get())) {
+                        Settings.ANNOUNCEMENT_LAST_ID.save(id);
+                    }
+
+                    Settings.DEPRECATED_ANNOUNCEMENT_LAST_HASH.resetToDefault();
+                }
+
+                // Do not show the announcement, if the last announcement id is the same as the current one.
+                if (Settings.ANNOUNCEMENT_LAST_ID.get() == id) return;
+
+
+
+                int finalId = id;
                 final var finalTitle = title;
                 final var finalMessage = Html.fromHtml(message, FROM_HTML_MODE_COMPACT);
                 final Level finalLevel = level;
@@ -99,7 +119,7 @@ public final class AnnouncementsPatch {
                             .setMessage(finalMessage)
                             .setIcon(finalLevel.icon)
                             .setPositiveButton("Ok", (dialog, which) -> {
-                                Settings.ANNOUNCEMENT_LAST_HASH.save(hash);
+                                Settings.ANNOUNCEMENT_LAST_ID.save(finalId);
                                 dialog.dismiss();
                             }).setNegativeButton("Dismiss", (dialog, which) -> {
                                 dialog.dismiss();
@@ -117,18 +137,6 @@ public final class AnnouncementsPatch {
                 Logger.printException(() -> message, e);
             }
         });
-    }
-
-    /**
-     * Clears the last announcement hash if it is not empty.
-     *
-     * @return true if the last announcement hash was empty.
-     */
-    private static boolean emptyLastAnnouncementHash() {
-        if (Settings.ANNOUNCEMENT_LAST_HASH.get().isEmpty()) return true;
-        Settings.ANNOUNCEMENT_LAST_HASH.resetToDefault();
-
-        return false;
     }
 
     private static String getOrSetConsumer() {
