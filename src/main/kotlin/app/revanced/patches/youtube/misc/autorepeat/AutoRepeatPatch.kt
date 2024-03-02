@@ -47,7 +47,9 @@ object AutoRepeatPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.MISC.addPreferences(SwitchPreference("revanced_auto_repeat"))
+        SettingsPatch.PreferenceScreen.MISC.addPreferences(
+            SwitchPreference("revanced_auto_repeat")
+        )
 
         //Get Result from the ParentFingerprint which is the playMethod we need to get.
         val parentResult = AutoRepeatParentFingerprint.result

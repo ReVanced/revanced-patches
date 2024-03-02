@@ -28,7 +28,9 @@ object EnableTabletLayoutPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(SwitchPreference("revanced_tablet_layout"))
+        SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+            SwitchPreference("revanced_tablet_layout")
+        )
 
         GetFormFactorFingerprint.result?.let {
             it.mutableMethod.apply {

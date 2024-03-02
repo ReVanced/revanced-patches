@@ -35,7 +35,9 @@ object VideoAdsPatch : BaseAdPatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.ADS.CLIENT_SIDE.addPreferences(SwitchPreference("revanced_block_video_ads"))
+        SettingsPatch.PreferenceScreen.ADS.CLIENT_SIDE.addPreferences(
+            SwitchPreference("revanced_block_video_ads")
+        )
 
         /* Amazon ads SDK */
         context.blockMethods(

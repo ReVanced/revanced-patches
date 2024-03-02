@@ -44,7 +44,9 @@ object BypassURLRedirectsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.MISC.addPreferences(SwitchPreference("revanced_bypass_url_redirects" ))
+        SettingsPatch.PreferenceScreen.MISC.addPreferences(
+            SwitchPreference("revanced_bypass_url_redirects")
+        )
 
         mapOf(
             ABUriParserFingerprint to 7, // Offset to Uri.parse.

@@ -50,7 +50,7 @@ object DisablePreciseSeekingGesturePatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
+        SettingsPatch.PreferenceScreen.SEEKBAR.addPreferences(
             SwitchPreference("revanced_disable_precise_seeking_gesture")
         )
 

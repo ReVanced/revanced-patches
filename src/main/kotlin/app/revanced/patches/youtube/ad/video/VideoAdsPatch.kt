@@ -49,7 +49,9 @@ object VideoAdsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.ADS.addPreferences(SwitchPreference("revanced_hide_video_ads"))
+        SettingsPatch.PreferenceScreen.ADS.addPreferences(
+            SwitchPreference("revanced_hide_video_ads")
+        )
 
         val loadVideoAdsFingerprintMethod = LoadVideoAdsFingerprint.result!!.mutableMethod
 

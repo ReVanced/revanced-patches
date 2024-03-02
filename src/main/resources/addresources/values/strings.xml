@@ -18,37 +18,29 @@
         </patch>
     </app>
     <app id="youtube">
-        <patch id="layout.thumbnails.AlternativeThumbnailsResourcePatch">
-            <string name="revanced_alt_thumbnail_about_status_disabled">Showing original YouTube thumbnails</string>
-            <string name="revanced_alt_thumbnail_about_status_stills">Showing still video captures</string>
-            <string name="revanced_alt_thumbnail_about_status_dearrow">Showing DeArrow thumbnails. If a video has no DeArrow thumbnails then the original YouTube thumbnails are shown</string>
-            <string name="revanced_alt_thumbnail_about_status_dearrow_stills">Showing DeArrow thumbnails. If a video has no DeArrow thumbnails then still video captures are shown</string>
-            <string name="revanced_alt_thumbnail_dearrow_error">DeArrow temporarily not available (status code: %s)</string>
-            <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow temporarily not available</string>
-        </patch>
         <patch id="misc.settings.SettingsResourcePatch">
             <string name="revanced_settings">ReVanced</string>
-            <string name="revanced_settings_summary">ReVanced specific settings</string>
             <string name="revanced_pref_import_export_title">Import / Export</string>
             <string name="revanced_pref_import_export_summary">Import / Export ReVanced settings</string>
         </patch>
         <patch id="misc.settings.SettingsPatch">
-            <string name="revanced_ads_screen_title">Ads</string>
-            <string name="revanced_ads_screen_summary">Ad related settings</string>
-            <string name="revanced_interactions_screen_title">Interactions</string>
-            <string name="revanced_interactions_screen_summary">Settings related to interactions</string>
-            <string name="revanced_layout_screen_title">Layout</string>
-            <string name="revanced_layout_screen_summary">Settings related to the layout</string>
-            <string name="revanced_video_screen_title">Video</string>
-            <string name="revanced_video_screen_summary">Settings related to the video player</string>
-            <string name="revanced_misc_screen_title">Misc</string>
-            <string name="revanced_misc_screen_summary">Miscellaneous patches</string>
+            <string name="revanced_settings_screen_01_ads_title">Ads</string>
+            <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternative thumbnails</string>
+            <string name="revanced_settings_screen_03_feed_title">Feed</string>
+            <string name="revanced_settings_screen_04_player_title">Player</string>
+            <string name="revanced_settings_screen_05_general_title">General layout</string>
+            <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
+            <string name="revanced_settings_screen_07_seekbar_title">Seekbar</string>
+            <string name="revanced_settings_screen_08_swipe_controls_title">Swipe controls</string>
+            <string name="revanced_settings_screen_11_misc_title">Misc</string>
+            <string name="revanced_settings_screen_12_video_title">Video</string>
         </patch>
         <patch id="misc.debugging.DebuggingPatch">
+            <string name="revanced_debug_screen_title">Debugging</string>
+            <string name="revanced_debug_screen_summary">Enable or disable debugging options</string>
             <string name="revanced_debug_title">Debug logging</string>
             <string name="revanced_debug_summary_on">Debug logs are enabled</string>
             <string name="revanced_debug_summary_off">Debug logs are disabled</string>
-            <string name="revanced_debug_preference_screen_title">Debugging</string>
             <string name="revanced_debug_protobuffer_title">Log protocol buffer</string>
             <string name="revanced_debug_protobuffer_summary_on">Debug logs include proto buffer</string>
             <string name="revanced_debug_protobuffer_summary_off">Debug logs do not include proto buffer</string>
@@ -59,18 +51,15 @@
             <string name="revanced_debug_toast_on_error_summary_on">Toast shown if error occurs</string>
             <string name="revanced_debug_toast_on_error_summary_off">Toast not shown if error occurs</string>
             <string name="revanced_debug_toast_on_error_user_dialog_message">Turning off error toasts hides all ReVanced error notifications.\n\nYou will not be notified of any unexpected events.</string>
-            <string name="revanced_debug_preference_screen_summary">Enable or disable debugging options</string>
         </patch>
         <patch id="layout.hide.general.HideLayoutComponentsPatch">
-            <string name="ads_title">Ads</string>
-            <string name="ads_summary">Ad related settings</string>
             <string name="revanced_hide_gray_separator_title">Hide gray separator</string>
             <string name="revanced_hide_gray_separator_summary_on">Gray separators are hidden</string>
             <string name="revanced_hide_gray_separator_summary_off">Gray separators are shown</string>
             <string name="revanced_hide_join_membership_button_title">Hide \'Join\' button</string>
             <string name="revanced_hide_join_membership_button_summary_on">Button is hidden</string>
             <string name="revanced_hide_join_membership_button_summary_off">Button is shown</string>
-            <string name="revanced_hide_channel_watermark_title">Hide channel watermark in video player</string>
+            <string name="revanced_hide_channel_watermark_title">Hide channel watermark</string>
             <string name="revanced_hide_channel_watermark_summary_on">Watermark is hidden</string>
             <string name="revanced_hide_channel_watermark_summary_off">Watermark is shown</string>
             <string name="revanced_hide_for_you_shelf_title">Hide \'For you\' shelf in channel page</string>
@@ -97,9 +86,6 @@
             <string name="revanced_hide_video_quality_menu_footer_title">Hide video quality menu footer</string>
             <string name="revanced_hide_video_quality_menu_footer_summary_on">Video quality menu footer is hidden</string>
             <string name="revanced_hide_video_quality_menu_footer_summary_off">Video quality menu footer is shown</string>
-            <string name="revanced_hide_chapters_title">Hide chapters in the video description</string>
-            <string name="revanced_hide_chapters_summary_on">Chapters are hidden</string>
-            <string name="revanced_hide_chapters_summary_off">Chapters are shown</string>
             <string name="revanced_hide_community_posts_title">Hide community posts</string>
             <string name="revanced_hide_community_posts_summary_on">Community posts are hidden</string>
             <string name="revanced_hide_community_posts_summary_off">Community posts are shown</string>
@@ -154,10 +140,12 @@
             <string name="revanced_hide_chips_shelf_title">Hide chips shelf</string>
             <string name="revanced_hide_chips_shelf_summary_on">Chips shelf is hidden</string>
             <string name="revanced_hide_chips_shelf_summary_off">Chips shelf is shown</string>
-            <string name="revanced_hide_description_components_preference_screen_title">Hide components in the video description</string>
             <string name="revanced_hide_info_cards_section_title">Hide info cards section</string>
             <string name="revanced_hide_info_cards_section_summary_on">Info cards section is hidden</string>
             <string name="revanced_hide_info_cards_section_summary_off">Info cards section is shown</string>
+            <string name="revanced_hide_chapters_title">Hide chapters</string>
+            <string name="revanced_hide_chapters_summary_on">Chapters are hidden</string>
+            <string name="revanced_hide_chapters_summary_off">Chapters are shown</string>
             <string name="revanced_hide_game_section_title">Hide game section</string>
             <string name="revanced_hide_game_section_summary_on">Game section is hidden</string>
             <string name="revanced_hide_game_section_summary_off">Game section is shown</string>
@@ -170,14 +158,15 @@
             <string name="revanced_hide_transcript_section_title">Hide transcript section</string>
             <string name="revanced_hide_transcript_section_summary_on">Transcript section is hidden</string>
             <string name="revanced_hide_transcript_section_summary_off">Transcript section is shown</string>
-            <string name="revanced_hide_description_components_preference_screen_summary">Hide components under the video description</string>
-            <string name="revanced_custom_filter_preference_screen_title">Custom filter</string>
+            <string name="revanced_hide_description_components_screen_title">Video description</string>
+            <string name="revanced_hide_description_components_screen_summary">Hide or show video description components</string>
+            <string name="revanced_custom_filter_screen_title">Custom filter</string>
+            <string name="revanced_custom_filter_screen_summary">Hide components using custom filters</string>
             <string name="revanced_custom_filter_title">Enable custom filter</string>
             <string name="revanced_custom_filter_summary_on">Custom filter is enabled</string>
             <string name="revanced_custom_filter_summary_off">Custom filter is disabled</string>
             <string name="revanced_custom_filter_strings_title">Custom filter</string>
             <string name="revanced_custom_filter_strings_summary">List of component path builder strings to filter separated by new line</string>
-            <string name="revanced_custom_filter_preference_screen_summary">Hide components using custom filters</string>
             <string name="revanced_custom_filter_toast_invalid_characters">Invalid custom filter (must be ASCII only): %s</string>
             <string name="revanced_custom_filter_toast_invalid_syntax">Invalid custom filter: %s</string>
             <string name="revanced_custom_filter_toast_reset">Custom filter reset to default</string>
@@ -224,14 +213,12 @@
         <patch id="interaction.copyvideourl.CopyVideoUrlResourcePatch">
             <string name="revanced_share_copy_url_success">URL copied to clipboard</string>
             <string name="revanced_share_copy_url_timestamp_success">URL with timestamp copied</string>
-            <string name="revanced_copy_video_url_preference_screen_title">Copy video URL settings</string>
             <string name="revanced_copy_video_url_title">Show copy video URL button</string>
             <string name="revanced_copy_video_url_summary_on">Button is shown. Tap to copy video URL. Tap and hold to copy video URL with timestamp</string>
             <string name="revanced_copy_video_url_summary_off">Button is not shown</string>
             <string name="revanced_copy_video_url_timestamp_title">Show copy timestamp URL button</string>
             <string name="revanced_copy_video_url_timestamp_summary_on">Button is shown. Tap to copy video URL with timestamp. Tap and hold to copy video without timestamp</string>
             <string name="revanced_copy_video_url_timestamp_summary_off">Button is not shown</string>
-            <string name="revanced_copy_video_url_preference_screen_summary">Settings related to copy URL buttons in video player</string>
         </patch>
         <patch id="interaction.dialog.RemoveViewerDiscretionDialogPatch">
             <string name="revanced_remove_viewer_discretion_dialog_title">Remove viewer discretion dialog</string>
@@ -240,14 +227,14 @@
             <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">This does not bypass the age restriction. It just accepts it automatically.</string>
         </patch>
         <patch id="interaction.downloads.ExternalDownloadsResourcePatch">
-            <string name="revanced_external_downloader_not_installed_warning">%s is not installed. Please install it.</string>
-            <string name="revanced_external_downloader_preference_screen_title">External download settings</string>
+            <string name="revanced_external_downloader_screen_title">External downloads</string>
+            <string name="revanced_external_downloader_screen_summary">Settings for using an external downloader</string>
             <string name="revanced_external_downloader_title">Show external download button</string>
             <string name="revanced_external_downloader_summary_on">Download button shown in player</string>
             <string name="revanced_external_downloader_summary_off">Download button not shown in player</string>
             <string name="revanced_external_downloader_name_title">Downloader package name</string>
             <string name="revanced_external_downloader_name_summary">Package name of your installed external downloader app, such as NewPipe or Seal</string>
-            <string name="revanced_external_downloader_preference_screen_summary">Settings for using an external downloader</string>
+            <string name="revanced_external_downloader_not_installed_warning">%s is not installed. Please install it.</string>
         </patch>
         <patch id="interaction.seekbar.DisablePreciseSeekingGesturePatch">
             <string name="revanced_disable_precise_seeking_gesture_title">Disable precise seeking gesture</string>
@@ -260,7 +247,6 @@
             <string name="revanced_seekbar_tapping_summary_off">Seekbar tapping is disabled</string>
         </patch>
         <patch id="interaction.swipecontrols.SwipeControlsResourcePatch">
-            <string name="revanced_swipe_controls_preference_screen_title">Swipe controls</string>
             <string name="revanced_swipe_brightness_title">Enable brightness gesture</string>
             <string name="revanced_swipe_brightness_summary_on">Brightness swipe is enabled</string>
             <string name="revanced_swipe_brightness_summary_off">Brightness swipe is disabled</string>
@@ -284,7 +270,6 @@
             <string name="revanced_swipe_overlay_background_alpha_summary">The visibility of swipe overlay background</string>
             <string name="revanced_swipe_threshold_title">Swipe magnitude threshold</string>
             <string name="revanced_swipe_threshold_summary">The amount of threshold for swipe to occur</string>
-            <string name="revanced_swipe_controls_preference_screen_summary">Control volume and brightness</string>
         </patch>
         <patch id="layout.autocaptions.AutoCaptionsPatch">
             <string name="revanced_auto_captions_title">Disable auto captions</string>
@@ -292,38 +277,35 @@
             <string name="revanced_auto_captions_summary_off">Auto captions are enabled</string>
         </patch>
         <patch id="layout.buttons.action.HideButtonsPatch">
-            <string name="revanced_hide_buttons_preference_screen_title">Hide action buttons</string>
-            <string name="revanced_hide_like_dislike_button_title">Hide like and dislike buttons</string>
-            <string name="revanced_hide_like_dislike_button_summary_on">Like and dislike buttons are hidden</string>
-            <string name="revanced_hide_like_dislike_button_summary_off">Like and dislike buttons are shown</string>
-            <string name="revanced_hide_live_chat_button_title">Hide live chat button</string>
-            <string name="revanced_hide_live_chat_button_summary_on">Live chat button is hidden</string>
-            <string name="revanced_hide_live_chat_button_summary_off">Live chat button is shown</string>
-            <string name="revanced_hide_share_button_title">Hide share button</string>
+            <string name="revanced_hide_buttons_screen_title">Action buttons</string>
+            <string name="revanced_hide_buttons_screen_summary">Hide or show buttons under videos</string>
+            <string name="revanced_hide_like_dislike_button_title">Hide Like and Dislike</string>
+            <string name="revanced_hide_like_dislike_button_summary_on">Like and Dislike buttons are hidden</string>
+            <string name="revanced_hide_like_dislike_button_summary_off">Like and Dislike buttons are shown</string>
+            <string name="revanced_hide_share_button_title">Hide Share</string>
             <string name="revanced_hide_share_button_summary_on">Share button is hidden</string>
             <string name="revanced_hide_share_button_summary_off">Share button is shown</string>
-            <string name="revanced_hide_report_button_title">Hide report button</string>
+            <string name="revanced_hide_report_button_title">Hide Report</string>
             <string name="revanced_hide_report_button_summary_on">Report button is hidden</string>
             <string name="revanced_hide_report_button_summary_off">Report button is shown</string>
-            <string name="revanced_hide_remix_button_title">Hide remix button</string>
+            <string name="revanced_hide_remix_button_title">Hide Remix</string>
             <string name="revanced_hide_remix_button_summary_on">Remix button is hidden</string>
             <string name="revanced_hide_remix_button_summary_off">Remix button is shown</string>
-            <string name="revanced_hide_download_button_title">Hide download button</string>
+            <string name="revanced_hide_download_button_title">Hide Download</string>
             <string name="revanced_hide_download_button_summary_on">Download button is hidden</string>
             <string name="revanced_hide_download_button_summary_off">Download button is shown</string>
-            <string name="revanced_hide_thanks_button_title">Hide thanks button</string>
+            <string name="revanced_hide_thanks_button_title">Hide Thanks</string>
             <string name="revanced_hide_thanks_button_summary_on">Thanks button is hidden</string>
             <string name="revanced_hide_thanks_button_summary_off">Thanks button is shown</string>
-            <string name="revanced_hide_clip_button_title">Hide clip button</string>
+            <string name="revanced_hide_clip_button_title">Hide Clip</string>
             <string name="revanced_hide_clip_button_summary_on">Clip button is hidden</string>
             <string name="revanced_hide_clip_button_summary_off">Clip button is shown</string>
-            <string name="revanced_hide_playlist_button_title">Hide save to playlist button</string>
-            <string name="revanced_hide_playlist_button_summary_on">Save button is hidden</string>
-            <string name="revanced_hide_playlist_button_summary_off">Save button is shown</string>
-            <string name="revanced_hide_shop_button_title">Hide shop button</string>
+            <string name="revanced_hide_playlist_button_title">Hide Save to playlist</string>
+            <string name="revanced_hide_playlist_button_summary_on">Save to playlist button is hidden</string>
+            <string name="revanced_hide_playlist_button_summary_off">Save to playlist button is shown</string>
+            <string name="revanced_hide_shop_button_title">Hide Shop</string>
             <string name="revanced_hide_shop_button_summary_on">Shop button is hidden</string>
             <string name="revanced_hide_shop_button_summary_off">Shop button is shown</string>
-            <string name="revanced_hide_buttons_preference_screen_summary">Hide or show buttons under videos</string>
         </patch>
         <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
             <string name="revanced_hide_autoplay_button_title">Hide autoplay button</string>
@@ -341,57 +323,57 @@
             <string name="revanced_hide_cast_button_summary_off">Cast button is shown</string>
         </patch>
         <patch id="layout.buttons.navigation.NavigationButtonsPatch">
-            <string name="revanced_navigation_buttons_preference_screen_title">Navigation buttons</string>
-            <string name="revanced_hide_home_button_title">Hide home button</string>
+            <string name="revanced_navigation_buttons_screen_title">Navigation buttons</string>
+            <string name="revanced_navigation_buttons_screen_summary">Hide or change buttons in the navigation bar</string>
+            <string name="revanced_hide_home_button_title">Hide Home</string>
             <string name="revanced_hide_home_button_summary_on">Home button is hidden</string>
             <string name="revanced_hide_home_button_summary_off">Home button is shown</string>
-            <string name="revanced_hide_shorts_button_title">Hide Shorts button</string>
+            <string name="revanced_hide_shorts_button_title">Hide Shorts</string>
             <string name="revanced_hide_shorts_button_summary_on">Shorts button is hidden</string>
             <string name="revanced_hide_shorts_button_summary_off">Shorts button is shown</string>
-            <string name="revanced_hide_subscriptions_button_title">Hide subscriptions button</string>
-            <string name="revanced_hide_subscriptions_button_summary_on">Home subscriptions is hidden</string>
-            <string name="revanced_hide_subscriptions_button_summary_off">Home subscriptions is shown</string>
-            <string name="revanced_hide_create_button_title">Hide create button</string>
+            <string name="revanced_hide_create_button_title">Hide Create</string>
             <string name="revanced_hide_create_button_summary_on">Create button is hidden</string>
             <string name="revanced_hide_create_button_summary_off">Create button is shown</string>
-            <string name="revanced_switch_create_with_notifications_button_title">Switch create with notifications button</string>
-            <string name="revanced_switch_create_with_notifications_button_summary_on">Create button is switched with notifications</string>
-            <string name="revanced_switch_create_with_notifications_button_summary_off">Create button is not switched with notifications</string>
-            <string name="revanced_navigation_buttons_preference_screen_summary">Hide or change buttons in the navigation bar</string>
+            <string name="revanced_hide_subscriptions_button_title">Hide Subscriptions</string>
+            <string name="revanced_hide_subscriptions_button_summary_on">Subscriptions button is hidden</string>
+            <string name="revanced_hide_subscriptions_button_summary_off">Subscriptions button is shown</string>
+            <string name="revanced_switch_create_with_notifications_button_title">Switch Create with Notifications</string>
+            <string name="revanced_switch_create_with_notifications_button_summary_on">Create button is switched with Notifications button</string>
+            <string name="revanced_switch_create_with_notifications_button_summary_off">Create button is not switched with Notifications button</string>
         </patch>
         <patch id="layout.hide.player.flyoutmenupanel.HidePlayerFlyoutMenuPatch">
-            <string name="revanced_hide_player_flyout_title">Player flyout menu items</string>
-            <string name="revanced_hide_player_flyout_summary">Manage the visibility of player flyout menu items</string>
-            <string name="revanced_hide_player_flyout_captions_title">Hide Captions menu</string>
-            <string name="revanced_hide_player_flyout_captions_summary_on">Captions menu item is hidden</string>
-            <string name="revanced_hide_player_flyout_captions_summary_off">Captions menu item is shown</string>
-            <string name="revanced_hide_player_flyout_additional_settings_title">Hide Additional settings menu</string>
-            <string name="revanced_hide_player_flyout_additional_settings_summary_on">Additional settings menu item is hidden</string>
-            <string name="revanced_hide_player_flyout_additional_settings_summary_off">Additional settings menu item is shown</string>
-            <string name="revanced_hide_player_flyout_loop_video_title">Hide Loop video menu</string>
-            <string name="revanced_hide_player_flyout_loop_video_summary_on">Loop video menu item is hidden</string>
-            <string name="revanced_hide_player_flyout_loop_video_summary_off">Loop video menu item is shown</string>
-            <string name="revanced_hide_player_flyout_ambient_mode_title">Hide Ambient mode menu</string>
-            <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Ambient mode menu item is hidden</string>
-            <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Ambient mode menu item is shown</string>
-            <string name="revanced_hide_player_flyout_report_title">Hide Report menu</string>
-            <string name="revanced_hide_player_flyout_report_summary_on">Report menu item is hidden</string>
-            <string name="revanced_hide_player_flyout_report_summary_off">Report menu item is shown</string>
-            <string name="revanced_hide_player_flyout_help_title">Hide Help menu</string>
-            <string name="revanced_hide_player_flyout_help_summary_on">Help menu item is hidden</string>
-            <string name="revanced_hide_player_flyout_help_summary_off">Help menu item is shown</string>
-            <string name="revanced_hide_player_flyout_speed_title">Hide Speed menu</string>
-            <string name="revanced_hide_player_flyout_speed_summary_on">Speed menu item is hidden</string>
-            <string name="revanced_hide_player_flyout_speed_summary_off">Speed menu item is shown</string>
-            <string name="revanced_hide_player_flyout_more_info_title">Hide More info menu</string>
-            <string name="revanced_hide_player_flyout_more_info_summary_on">More info menu item is hidden</string>
-            <string name="revanced_hide_player_flyout_more_info_summary_off">More info menu item is shown</string>
-            <string name="revanced_hide_player_flyout_audio_track_title">Hide Audio track menu</string>
-            <string name="revanced_hide_player_flyout_audio_track_summary_on">Audio track menu item is hidden</string>
-            <string name="revanced_hide_player_flyout_audio_track_summary_off">Audio track menu item is shown</string>
-            <string name="revanced_hide_player_flyout_watch_in_vr_title">Hide Watch in VR menu</string>
-            <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Watch in VR menu item is hidden</string>
-            <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Watch in VR menu item is shown</string>
+            <string name="revanced_hide_player_flyout_title">Flyout menu</string>
+            <string name="revanced_hide_player_flyout_summary">Hide or show player flyout menu items</string>
+            <string name="revanced_hide_player_flyout_captions_title">Hide Captions</string>
+            <string name="revanced_hide_player_flyout_captions_summary_on">Captions menu is hidden</string>
+            <string name="revanced_hide_player_flyout_captions_summary_off">Captions menu is shown</string>
+            <string name="revanced_hide_player_flyout_additional_settings_title">Hide Additional settings</string>
+            <string name="revanced_hide_player_flyout_additional_settings_summary_on">Additional settings menu is hidden</string>
+            <string name="revanced_hide_player_flyout_additional_settings_summary_off">Additional settings menu is shown</string>
+            <string name="revanced_hide_player_flyout_loop_video_title">Hide Loop video</string>
+            <string name="revanced_hide_player_flyout_loop_video_summary_on">Loop video menu is hidden</string>
+            <string name="revanced_hide_player_flyout_loop_video_summary_off">Loop video menu is shown</string>
+            <string name="revanced_hide_player_flyout_ambient_mode_title">Hide Ambient mode</string>
+            <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Ambient mode menu is hidden</string>
+            <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Ambient mode menu is shown</string>
+            <string name="revanced_hide_player_flyout_report_title">Hide Report</string>
+            <string name="revanced_hide_player_flyout_report_summary_on">Report menu is hidden</string>
+            <string name="revanced_hide_player_flyout_report_summary_off">Report menu is shown</string>
+            <string name="revanced_hide_player_flyout_help_title">Hide Help &amp; feedback</string>
+            <string name="revanced_hide_player_flyout_help_summary_on">Help &amp; feedback menu is hidden</string>
+            <string name="revanced_hide_player_flyout_help_summary_off">Help &amp; feedback menu is shown</string>
+            <string name="revanced_hide_player_flyout_speed_title">Hide Playback speed</string>
+            <string name="revanced_hide_player_flyout_speed_summary_on">Playback speed menu is hidden</string>
+            <string name="revanced_hide_player_flyout_speed_summary_off">Playback speed menu is shown</string>
+            <string name="revanced_hide_player_flyout_more_info_title">Hide More info</string>
+            <string name="revanced_hide_player_flyout_more_info_summary_on">More info menu is hidden</string>
+            <string name="revanced_hide_player_flyout_more_info_summary_off">More info menu is shown</string>
+            <string name="revanced_hide_player_flyout_audio_track_title">Hide Audio track</string>
+            <string name="revanced_hide_player_flyout_audio_track_summary_on">Audio track menu is hidden</string>
+            <string name="revanced_hide_player_flyout_audio_track_summary_off">Audio track menu is shown</string>
+            <string name="revanced_hide_player_flyout_watch_in_vr_title">Hide Watch in VR</string>
+            <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Watch in VR menu is hidden</string>
+            <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Watch in VR menu is shown</string>
         </patch>
         <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
             <string name="revanced_hide_player_buttons_title">Hide previous &amp; next video buttons</string>
@@ -409,14 +391,14 @@
             <string name="revanced_hide_breaking_news_summary_off">Breaking news are shown</string>
         </patch>
         <patch id="layout.hide.comments.CommentsPatch">
-            <string name="revanced_comments_preference_screen_title">Comments</string>
+            <string name="revanced_comments_screen_title">Comments</string>
+            <string name="revanced_comments_screen_summary">Hide or show comments section components</string>
             <string name="revanced_hide_comments_section_title">Hide comments section</string>
             <string name="revanced_hide_comments_section_summary_on">Comment section is hidden</string>
             <string name="revanced_hide_comments_section_summary_off">Comment section is shown</string>
             <string name="revanced_hide_preview_comment_title">Hide preview comment</string>
             <string name="revanced_hide_preview_comment_summary_on">Preview comment is hidden</string>
             <string name="revanced_hide_preview_comment_summary_off">Preview comment is shown</string>
-            <string name="revanced_comments_preference_screen_summary">Manage the visibility of comments section components</string>
         </patch>
         <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
             <string name="revanced_hide_crowdfunding_box_title">Hide crowdfunding box</string>
@@ -429,7 +411,8 @@
             <string name="revanced_hide_endscreen_cards_summary_off">End screen cards are shown</string>
         </patch>
         <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-            <string name="revanced_hide_filter_bar_preference_title">Hide filter bar</string>
+            <string name="revanced_hide_filter_bar_screen_title">Filter bar</string>
+            <string name="revanced_hide_filter_bar_screen_summary">Hide or show the filter bar in the feed, search, and related videos</string>
             <string name="revanced_hide_filter_bar_feed_in_feed_title">Hide in feed</string>
             <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Hidden in feed</string>
             <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Shown in feed</string>
@@ -439,7 +422,6 @@
             <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Hide in related videos</string>
             <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Hidden in related videos</string>
             <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Shown in related videos</string>
-            <string name="revanced_hide_filter_bar_preference_summary">Manage the visibility of the filter bar in the feed, search and related videos</string>
         </patch>
         <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
             <string name="revanced_hide_floating_microphone_button_title">Hide floating microphone button</string>
@@ -478,7 +460,6 @@
             <string name="revanced_hide_seekbar_thumbnail_summary_off">Thumbnail seekbar is shown</string>
         </patch>
         <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
-            <string name="revanced_shorts_preference_screen_title">Shorts components</string>
             <string name="revanced_hide_shorts_title">Hide Shorts in feed</string>
             <string name="revanced_hide_shorts_summary_on">Shorts are hidden</string>
             <string name="revanced_hide_shorts_summary_off">Shorts are shown</string>
@@ -515,7 +496,6 @@
             <string name="revanced_hide_shorts_navigation_bar_title">Hide navigation bar</string>
             <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigation bar is hidden</string>
             <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigation bar is shown</string>
-            <string name="revanced_shorts_preference_screen_summary">Manage the visibility of Shorts components</string>
         </patch>
         <patch id="layout.hide.suggestedvideoendscreen.DisableSuggestedVideoEndScreenResourcePatch">
             <string name="revanced_disable_suggested_video_end_screen_title">Disable suggested video end screen</string>
@@ -538,7 +518,6 @@
         </patch>
         <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
             <string name="revanced_ryd_settings_title">Return YouTube Dislike</string>
-            <string name="revanced_ryd_settings_summary">Settings for Return YouTube Dislike</string>
             <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden</string>
             <string name="revanced_ryd_failure_connection_timeout">Dislikes temporarily not available (API timed out)</string>
             <string name="revanced_ryd_failure_connection_status_code" formatted="false">Dislikes not available (status %d)</string>
@@ -594,13 +573,8 @@
             <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Seekbar thumbnails will appear above the seekbar</string>
             <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Seekbar thumbnails will appear in fullscreen</string>
         </patch>
-        <patch id="layout.seekbar.SeekbarPreferencesPatch">
-            <string name="revanced_seekbar_preference_screen_title">Seekbar</string>
-            <string name="revanced_seekbar_preference_screen_summary">Settings for the seekbar</string>
-        </patch>
         <patch id="layout.sponsorblock.SponsorBlockResourcePatch">
             <string name="revanced_sb_settings_title">SponsorBlock</string>
-            <string name="revanced_sb_settings_summary">SponsorBlock related settings</string>
             <string name="revanced_sb_enable_sb">Enable SponsorBlock</string>
             <string name="revanced_sb_enable_sb_sum">SponsorBlock is a crowd-sourced system for skipping annoying parts of YouTube videos</string>
             <string name="revanced_sb_appearance_category">Appearance</string>
@@ -833,7 +807,6 @@
             <string name="revanced_seekbar_custom_color_invalid">Invalid seekbar color value. Using default value.</string>
         </patch>
         <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
-            <string name="revanced_alt_thumbnail_preference_screen_title">Alternative thumbnails</string>
             <string name="revanced_alt_thumbnail_about_title">Thumbnails in use</string>
             <string name="revanced_alt_thumbnail_dearrow_title">Enable DeArrow thumbnails</string>
             <string name="revanced_alt_thumbnail_dearrow_summary_on">Using DeArrow thumbnails</string>
@@ -857,7 +830,12 @@
             <string name="revanced_alt_thumbnail_stills_fast_summary_off">Using high quality still captures</string>
             <string name="revanced_alt_thumbnail_stills_about_title">About still video captures</string>
             <string name="revanced_alt_thumbnail_stills_about_summary">Still captures are taken from the beginning/middle/end of each video. These images are built into YouTube and no external API is used</string>
-            <string name="revanced_alt_thumbnail_preference_screen_summary">Video thumbnail settings</string>
+            <string name="revanced_alt_thumbnail_about_status_disabled">Showing original YouTube thumbnails</string>
+            <string name="revanced_alt_thumbnail_about_status_stills">Showing still video captures</string>
+            <string name="revanced_alt_thumbnail_about_status_dearrow">Showing DeArrow thumbnails. If a video has no DeArrow thumbnails then the original YouTube thumbnails are shown</string>
+            <string name="revanced_alt_thumbnail_about_status_dearrow_stills">Showing DeArrow thumbnails. If a video has no DeArrow thumbnails then still video captures are shown</string>
+            <string name="revanced_alt_thumbnail_dearrow_error">DeArrow temporarily not available (status code: %s)</string>
+            <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow temporarily not available</string>
         </patch>
         <patch id="misc.announcements.AnnouncementsPatch">
             <string name="revanced_announcements_title">Show ReVanced announcements</string>
@@ -877,7 +855,8 @@
             <string name="revanced_spoof_device_dimensions_summary_off">Device dimensions not spoofed\n\nSpoofing the device dimensions can unlock higher video qualities but unknown side effects may occur</string>
         </patch>
         <patch id="misc.fix.playback.SpoofSignaturePatch">
-            <string name="revanced_spoof_signature_verification_title">Spoof app signature</string>
+            <string name="revanced_spoof_signature_verification_screen_title">Spoof app signature</string>
+            <string name="revanced_spoof_signature_verification_screen_summary">Spoof the app signature to prevent playback issues</string>
             <string name="revanced_spoof_signature_verification_enabled_title">Spoof app signature</string>
             <string name="revanced_spoof_signature_verification_enabled_summary_on">App signature spoofed\n\nSide effects include:\n• Enhanced bitrate is not available\n• Videos cannot be downloaded\n• No seekbar thumbnails for paid videos</string>
             <string name="revanced_spoof_signature_verification_enabled_summary_off">App signature not spoofed\n\nVideo playback may not work</string>
@@ -888,7 +867,6 @@
             <string name="revanced_spoof_storyboard_title">Spoof storyboard</string>
             <string name="revanced_spoof_storyboard_summary_on">Storyboard spoofed</string>
             <string name="revanced_spoof_storyboard_summary_off">Storyboard not spoofed\n\nSide effects include:\n• No ambient mode\n• Seekbar thumbnails are hidden</string>
-            <string name="revanced_spoof_signature_verification_summary">Spoof the app signature to prevent playback issues</string>
             <string name="revanced_spoof_storyboard_timeout">Spoof storyboard temporarily not available (API timed out)</string>
             <string name="revanced_spoof_storyboard_io_exception">Spoof storyboard temporarily not available: %s</string>
         </patch>
@@ -907,8 +885,8 @@
             <string name="revanced_external_browser_summary_off">Opening links in app</string>
         </patch>
         <patch id="misc.minimizedplayback.MinimizedPlaybackPatch">
-            <string name="revanced_minimized_playback_enabled_title">Minimized playback</string>
-            <string name="revanced_minimized_playback_summary_on">This setting can be found in Settings -&gt; Background</string>
+            <string name="revanced_minimized_playback_title">Minimized playback</string>
+            <string name="revanced_minimized_playback_summary">This setting can be found in Settings -&gt; Background</string>
         </patch>
         <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
             <string name="revanced_remove_tracking_query_parameter_title">Remove tracking query parameter</string>
@@ -1006,9 +984,6 @@
         </patch>
         <patch id="misc.settings.SettingsPatch">
             <string name="revanced_settings">ReVanced Settings</string>
-            <string name="revanced_debug_title">Debug logging</string>
-            <string name="revanced_debug_summary_on">Debug logs are enabled</string>
-            <string name="revanced_debug_summary_off">Debug logs are disabled</string>
             <string name="revanced_ads_screen_title">Ads</string>
             <string name="revanced_ads_screen_summary">Ad blocking settings</string>
             <string name="revanced_chat_screen_title">Chat</string>
@@ -1019,6 +994,9 @@
             <string name="revanced_other_category_title">Other settings</string>
             <string name="revanced_client_ads_category_title">Client-side ads</string>
             <string name="revanced_surestream_ads_category_title">Server-side surestream ads</string>
+            <string name="revanced_debug_title">Debug logging</string>
+            <string name="revanced_debug_summary_on">Debug logs are enabled</string>
+            <string name="revanced_debug_summary_off">Debug logs are disabled</string>
         </patch>
     </app>
 </resources>

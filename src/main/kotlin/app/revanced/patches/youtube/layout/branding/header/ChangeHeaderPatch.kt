@@ -82,7 +82,7 @@ object ChangeHeaderPatch : ResourcePatch() {
         }
 
         /**
-         * A function that overwrites both header variants from [from] to [to] in the target resource directories.
+         * A function that overwrites both header variants in the target resource directories.
          */
         val overwriteFromTo: (String, String) -> Unit = { from: String, to: String ->
             targetResourceDirectories.forEach { directory ->

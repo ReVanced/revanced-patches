@@ -100,7 +100,9 @@ object ThemeBytecodePatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(SwitchPreference("revanced_gradient_loading_screen"))
+        SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+            SwitchPreference("revanced_gradient_loading_screen")
+        )
 
         UseGradientLoadingScreenFingerprint.result?.mutableMethod?.apply {
             val isEnabledIndex = indexOfFirstWideLiteralInstructionValue(GRADIENT_LOADING_SCREEN_AB_CONSTANT) + 3
