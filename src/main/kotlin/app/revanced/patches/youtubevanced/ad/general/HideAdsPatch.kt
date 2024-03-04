@@ -11,11 +11,12 @@ import app.revanced.patches.youtubevanced.ad.general.fingerprints.ContainsAdFing
 import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
 
+@Deprecated("This patch is going to be removed in the future.")
 @Patch(
-    name = "Hide ads",
     description = "Removes general ads.",
     dependencies = [VerticalScrollPatch::class],
     compatiblePackages = [CompatiblePackage("com.vanced.android.youtube")],
+    use = false,
 )
 @Suppress("unused")
 object HideAdsPatch : BytecodePatch(
