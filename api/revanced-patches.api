@@ -1194,8 +1194,8 @@ public final class app/revanced/patches/youtube/interaction/dialog/RemoveViewerD
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/youtube/interaction/downloads/ExternalDownloadsBytecodePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/interaction/downloads/ExternalDownloadsBytecodePatch;
+public final class app/revanced/patches/youtube/interaction/downloads/DownloadsPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/interaction/downloads/DownloadsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
