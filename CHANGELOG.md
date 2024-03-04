@@ -1,3 +1,10 @@
+# [4.4.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.1...v4.4.0-dev.2) (2024-03-04)
+
+
+### Features
+
+* **YouTube - External downloader:** Add ability to use in-app download button ([d900011](https://github.com/ReVanced/revanced-patches/commit/d9000113a905c14f8409aa75008f1ef6a1aecd0c))
+
 # [4.4.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.3.0...v4.4.0-dev.1) (2024-03-04)
 
 
