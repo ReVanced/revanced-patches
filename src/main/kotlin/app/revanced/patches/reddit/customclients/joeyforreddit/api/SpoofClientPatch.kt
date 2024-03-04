@@ -7,7 +7,6 @@ import app.revanced.patches.reddit.customclients.BaseSpoofClientPatch
 import app.revanced.patches.reddit.customclients.joeyforreddit.api.fingerprints.GetClientIdFingerprint
 import app.revanced.patches.reddit.customclients.joeyforreddit.detection.piracy.DisablePiracyDetectionPatch
 
-
 @Suppress("unused")
 object SpoofClientPatch : BaseSpoofClientPatch(
     redirectUri = "https://127.0.0.1:65023/authorize_callback",
@@ -15,9 +14,9 @@ object SpoofClientPatch : BaseSpoofClientPatch(
     compatiblePackages = setOf(
         CompatiblePackage("o.o.joey"),
         CompatiblePackage("o.o.joey.pro"),
-        CompatiblePackage("o.o.joey.dev")
+        CompatiblePackage("o.o.joey.dev"),
     ),
-    dependencies = setOf(DisablePiracyDetectionPatch::class)
+    dependencies = setOf(DisablePiracyDetectionPatch::class),
 ) {
     override fun Set<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
         first().mutableMethod.addInstructions(
@@ -25,7 +24,7 @@ object SpoofClientPatch : BaseSpoofClientPatch(
             """
                 const-string v0, "$clientId"
                 return-object v0
-            """
+            """,
         )
     }
 }

@@ -8,8 +8,8 @@ internal object SendTypingIndicatorFingerprint : MethodFingerprint(
     parameters = listOf(),
     customFingerprint = { methodDef, classDef ->
         methodDef.name == "run" && classDef.fields.any {
-            it.name == "__redex_internal_original_name"
-                    && (it.initialValue as? DexBackedStringEncodedValue)?.value == "ConversationTypingContext\$sendActiveStateRunnable\$1"
+            it.name == "__redex_internal_original_name" &&
+                (it.initialValue as? DexBackedStringEncodedValue)?.value == "ConversationTypingContext\$sendActiveStateRunnable\$1"
         }
-    }
+    },
 )

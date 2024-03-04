@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.misc.fix.playback
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -8,6 +7,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.UserAgentHeaderBuilderFingerprint
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch(
@@ -16,32 +16,32 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
     dependencies = [SpoofSignaturePatch::class],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube",
+            [
                 "18.48.39",
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            ]
-        )
-    ]
+                "19.04.37",
+            ],
+        ),
+    ],
 )
 object ClientSpoofPatch : BytecodePatch(
-    setOf(UserAgentHeaderBuilderFingerprint)
+    setOf(UserAgentHeaderBuilderFingerprint),
 ) {
     private const val ORIGINAL_PACKAGE_NAME = "com.google.android.youtube"
 
     override fun execute(context: BytecodeContext) {
         UserAgentHeaderBuilderFingerprint.result?.let { result ->
             val insertIndex = result.scanResult.patternScanResult!!.endIndex
-           result.mutableMethod.apply {
-               val packageNameRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
+            result.mutableMethod.apply {
+                val packageNameRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
 
-               addInstruction(insertIndex, "const-string v$packageNameRegister, \"$ORIGINAL_PACKAGE_NAME\"")
-           }
-
+                addInstruction(insertIndex, "const-string v$packageNameRegister, \"$ORIGINAL_PACKAGE_NAME\"")
+            }
         } ?: throw UserAgentHeaderBuilderFingerprint.exception
     }
 }

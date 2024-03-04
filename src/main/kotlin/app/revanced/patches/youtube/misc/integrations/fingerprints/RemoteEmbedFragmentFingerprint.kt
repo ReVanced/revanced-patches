@@ -15,5 +15,5 @@ internal object RemoteEmbedFragmentFingerprint : IntegrationsFingerprint(
         methodDef.definingClass == "Lcom/google/android/apps/youtube/embeddedplayer/service/jar/client/RemoteEmbedFragment;"
     },
     // Integrations context is the first method parameter.
-    contextRegisterResolver = { it.implementation!!.registerCount - it.parameters.size }
+    contextRegisterResolver = { it.implementation!!.registerCount - it.parameters.size },
 )

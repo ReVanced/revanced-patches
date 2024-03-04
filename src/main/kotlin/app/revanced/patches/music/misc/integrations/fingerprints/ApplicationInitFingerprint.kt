@@ -12,7 +12,7 @@ internal object ApplicationInitFingerprint : IntegrationsFingerprint(
         Opcode.INVOKE_STATIC,
         Opcode.NEW_INSTANCE,
         Opcode.INVOKE_DIRECT,
-        Opcode.INVOKE_VIRTUAL
+        Opcode.INVOKE_VIRTUAL,
     ),
     strings = listOf("activity"),
     customFingerprint = { methodDef, _ -> methodDef.name == "onCreate" },

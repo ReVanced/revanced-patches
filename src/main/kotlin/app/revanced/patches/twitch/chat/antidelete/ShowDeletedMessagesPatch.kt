@@ -25,15 +25,15 @@ import app.revanced.util.exception
         SettingsPatch::class,
         AddResourcesPatch::class,
     ],
-    compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])]
+    compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])],
 )
 @Suppress("unused")
 object ShowDeletedMessagesPatch : BytecodePatch(
     setOf(
         SetHasModAccessFingerprint,
         DeletedMessageClickableSpanCtorFingerprint,
-        ChatUtilCreateDeletedSpanFingerprint
-    )
+        ChatUtilCreateDeletedSpanFingerprint,
+    ),
 ) {
     private fun createSpoilerConditionInstructions(register: String = "v0") = """
         invoke-static {}, Lapp/revanced/integrations/twitch/patches/ShowDeletedMessagesPatch;->shouldUseSpoiler()Z
@@ -48,27 +48,28 @@ object ShowDeletedMessagesPatch : BytecodePatch(
             ListPreference(
                 key = "revanced_show_deleted_messages",
                 summaryKey = null,
-            )
+            ),
         )
 
-        // Spoiler mode: Force set hasModAccess member to true in constructor
+        // Spoiler mode: Force set hasModAccess member to true in constructor.
         DeletedMessageClickableSpanCtorFingerprint.result?.mutableMethod?.apply {
             addInstructionsWithLabels(
-                implementation!!.instructions.lastIndex, /* place in front of return-void */
+                // Right before return-void.
+                implementation!!.instructions.lastIndex,
                 """
                     ${createSpoilerConditionInstructions()}
                     const/4 v0, 1
                     iput-boolean v0, p0, $definingClass->hasModAccess:Z
                 """,
-                ExternalLabel("no_spoiler", getInstruction(implementation!!.instructions.lastIndex))
+                ExternalLabel("no_spoiler", getInstruction(implementation!!.instructions.lastIndex)),
             )
         } ?: throw DeletedMessageClickableSpanCtorFingerprint.exception
 
-        // Spoiler mode: Disable setHasModAccess setter
+        // Spoiler mode: Disable setHasModAccess setter.
         SetHasModAccessFingerprint.result?.mutableMethod?.addInstruction(0, "return-void")
             ?: throw SetHasModAccessFingerprint.exception
 
-        // Cross-out mode: Reformat span of deleted message
+        // Cross-out mode: Reformat span of deleted message.
         ChatUtilCreateDeletedSpanFingerprint.result?.mutableMethod?.apply {
             addInstructionsWithLabels(
                 0,
@@ -78,7 +79,7 @@ object ShowDeletedMessagesPatch : BytecodePatch(
                     if-eqz v0, :no_reformat
                     return-object v0
                 """,
-                ExternalLabel("no_reformat", getInstruction(0))
+                ExternalLabel("no_reformat", getInstruction(0)),
             )
         } ?: throw ChatUtilCreateDeletedSpanFingerprint.exception
     }

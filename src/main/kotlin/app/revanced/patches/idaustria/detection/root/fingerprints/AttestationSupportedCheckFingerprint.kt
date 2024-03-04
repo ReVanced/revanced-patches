@@ -8,6 +8,6 @@ internal object AttestationSupportedCheckFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC.value,
     customFingerprint = { methodDef, _ ->
         methodDef.name == "attestationSupportCheck" &&
-        methodDef.definingClass.endsWith("/DeviceIntegrityCheck;")
-    }
+            methodDef.definingClass.endsWith("/DeviceIntegrityCheck;")
+    },
 )

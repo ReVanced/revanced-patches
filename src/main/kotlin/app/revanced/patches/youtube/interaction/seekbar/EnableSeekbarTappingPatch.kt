@@ -22,7 +22,8 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
     name = "Seekbar tapping",
     description = "Adds an option to enable tap-to-seek on the seekbar of the video player.",
     dependencies = [
-        IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
+        IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class,
+    ],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
@@ -36,23 +37,23 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            ]
-        )
-    ]
+                "19.04.37",
+            ],
+        ),
+    ],
 )
 @Suppress("unused")
 object EnableSeekbarTappingPatch : BytecodePatch(
     setOf(
         OnTouchEventHandlerFingerprint,
-        SeekbarTappingFingerprint
-    )
+        SeekbarTappingFingerprint,
+    ),
 ) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.SEEKBAR.addPreferences(
-            SwitchPreference("revanced_seekbar_tapping")
+            SwitchPreference("revanced_seekbar_tapping"),
         )
 
         // Find the required methods to tap the seekbar.
@@ -94,7 +95,7 @@ object EnableSeekbarTappingPatch : BytecodePatch(
                         ${oMethod.toInvokeInstructionString()}
                         ${nMethod.toInvokeInstructionString()}
                     """,
-                    ExternalLabel("disabled", getInstruction(insertIndex))
+                    ExternalLabel("disabled", getInstruction(insertIndex)),
                 )
             }
         } ?: throw SeekbarTappingFingerprint.exception

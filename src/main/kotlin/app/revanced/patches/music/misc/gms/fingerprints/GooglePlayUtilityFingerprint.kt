@@ -13,6 +13,6 @@ internal object GooglePlayUtilityFingerprint : MethodFingerprint(
         "MetadataValueReader",
         "GooglePlayServicesUtil",
         "com.android.vending",
-        "android.hardware.type.embedded"
-    )
+        "android.hardware.type.embedded",
+    ),
 )

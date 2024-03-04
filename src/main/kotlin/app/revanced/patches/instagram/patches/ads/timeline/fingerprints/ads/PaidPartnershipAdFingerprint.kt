@@ -12,11 +12,11 @@ internal object PaidPartnershipAdFingerprint : MediaAdFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
         Opcode.IPUT_BOOLEAN,
-        Opcode.IPUT_BOOLEAN
+        Opcode.IPUT_BOOLEAN,
     ),
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("ClipsEditMetadataController;")
-    }
+    },
 ) {
     override fun toString() = result!!.let {
         val adCheckIndex = it.scanResult.patternScanResult!!.startIndex

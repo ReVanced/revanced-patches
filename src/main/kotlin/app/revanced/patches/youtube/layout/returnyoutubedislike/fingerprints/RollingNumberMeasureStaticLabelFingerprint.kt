@@ -16,6 +16,6 @@ internal object RollingNumberMeasureStaticLabelFingerprint : MethodFingerprint(
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
-        Opcode.RETURN
-    )
+        Opcode.RETURN,
+    ),
 )

@@ -17,5 +17,5 @@ internal object VideoStateFingerprint : MethodFingerprint(
         Opcode.IF_EQZ,
         Opcode.IF_EQZ,
         Opcode.IGET_OBJECT, // obfuscated parameter field name
-    )
+    ),
 )

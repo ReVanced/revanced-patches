@@ -20,15 +20,15 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
     description = "Remembers the clear display configurations in between videos.",
     compatiblePackages = [
         CompatiblePackage("com.ss.android.ugc.trill", ["32.5.3"]),
-        CompatiblePackage("com.zhiliaoapp.musically", ["32.5.3"])
-    ]
+        CompatiblePackage("com.zhiliaoapp.musically", ["32.5.3"]),
+    ],
 )
 @Suppress("unused")
 object RememberClearDisplayPatch : BytecodePatch(
     setOf(
         OnClearDisplayEventFingerprint,
-        OnRenderFirstFrameFingerprint
-    )
+        OnRenderFirstFrameFingerprint,
+    ),
 ) {
     override fun execute(context: BytecodeContext) {
         OnClearDisplayEventFingerprint.result?.mutableMethod?.let {
@@ -40,7 +40,7 @@ object RememberClearDisplayPatch : BytecodePatch(
             it.addInstructions(
                 isEnabledIndex,
                 "invoke-static { v$isEnabledRegister }, " +
-                        "Lapp/revanced/integrations/tiktok/cleardisplay/RememberClearDisplayPatch;->rememberClearDisplayState(Z)V"
+                    "Lapp/revanced/integrations/tiktok/cleardisplay/RememberClearDisplayPatch;->rememberClearDisplayState(Z)V",
             )
 
             // endregion
@@ -69,7 +69,7 @@ object RememberClearDisplayPatch : BytecodePatch(
                         invoke-direct { v0, v1, v2, v3 }, $clearDisplayEventClass-><init>(ILjava/lang/String;Z)V
                         invoke-virtual { v0 }, $clearDisplayEventClass->post()Lcom/ss/android/ugc/governance/eventbus/IEvent;
                     """,
-                    ExternalLabel("clear_display_disabled", getInstruction(0))
+                    ExternalLabel("clear_display_disabled", getInstruction(0)),
                 )
             } ?: throw OnRenderFirstFrameFingerprint.exception
 

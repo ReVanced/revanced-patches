@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.misc.litho.filter
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -14,6 +13,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.*
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -22,12 +22,14 @@ import java.io.Closeable
 
 @Patch(
     description = "Hooks the method which parses the bytes into a ComponentContext to filter components.",
-    dependencies = [IntegrationsPatch::class]
+    dependencies = [IntegrationsPatch::class],
 )
 @Suppress("unused")
-object LithoFilterPatch : BytecodePatch(
-    setOf(ComponentContextParserFingerprint, LithoFilterFingerprint, ProtobufBufferReferenceFingerprint)
-), Closeable {
+object LithoFilterPatch :
+    BytecodePatch(
+        setOf(ComponentContextParserFingerprint, LithoFilterFingerprint, ProtobufBufferReferenceFingerprint),
+    ),
+    Closeable {
     private val MethodFingerprint.patternScanResult
         get() = result!!.scanResult.patternScanResult!!
 
@@ -80,7 +82,7 @@ object LithoFilterPatch : BytecodePatch(
         ComponentContextParserFingerprint.result?.also {
             arrayOf(
                 EmptyComponentBuilderFingerprint,
-                ReadComponentIdentifierFingerprint
+                ReadComponentIdentifierFingerprint,
             ).forEach { fingerprint ->
                 if (fingerprint.resolve(context, it.mutableMethod, it.mutableClass)) return@forEach
                 throw fingerprint.exception
@@ -90,8 +92,10 @@ object LithoFilterPatch : BytecodePatch(
             // region Pass the buffer into Integrations.
 
             ProtobufBufferReferenceFingerprint.result
-                ?.mutableMethod?.addInstruction(0,
-                    " invoke-static { p2 }, $INTEGRATIONS_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V")
+                ?.mutableMethod?.addInstruction(
+                    0,
+                    " invoke-static { p2 }, $INTEGRATIONS_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
+                )
                 ?: throw ProtobufBufferReferenceFingerprint.exception
 
             // endregion
@@ -152,7 +156,7 @@ object LithoFilterPatch : BytecodePatch(
                         return-object v$free2
                     """,
                     // Used to jump over the instruction which block the component from being created.
-                    ExternalLabel("unfiltered", getInstruction(insertHookIndex))
+                    ExternalLabel("unfiltered", getInstruction(insertHookIndex)),
                 )
                 // endregion
             }
@@ -171,7 +175,7 @@ object LithoFilterPatch : BytecodePatch(
                         invoke-direct {v1}, $classDescriptor-><init>()V
                         const/16 v2, ${filterCount++}
                         aput-object v1, v0, v2
-                    """
+                    """,
                 )
             }
         } ?: throw LithoFilterFingerprint.exception

@@ -6,7 +6,10 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal object RecyclerViewTopScrollingFingerprint : MethodFingerprint(
-    "V", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf(), listOf(
+    "V",
+    AccessFlags.PUBLIC or AccessFlags.FINAL,
+    listOf(),
+    listOf(
         Opcode.IGET_OBJECT,
         Opcode.IF_EQZ,
         Opcode.IGET_OBJECT,
@@ -23,5 +26,5 @@ internal object RecyclerViewTopScrollingFingerprint : MethodFingerprint(
         Opcode.GOTO,
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_INTERFACE,
-    )
+    ),
 )

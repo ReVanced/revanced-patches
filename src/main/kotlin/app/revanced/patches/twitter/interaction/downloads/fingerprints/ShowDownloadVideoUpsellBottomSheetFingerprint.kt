@@ -6,5 +6,5 @@ import com.android.tools.smali.dexlib2.Opcode
 internal object ShowDownloadVideoUpsellBottomSheetFingerprint : MethodFingerprint(
     returnType = "Z",
     strings = listOf("variantToDownload.url"),
-    opcodes = listOf(Opcode.IF_EQZ)
+    opcodes = listOf(Opcode.IF_EQZ),
 )

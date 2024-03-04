@@ -5,6 +5,6 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 internal object SettingsStatusLoadFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("Lapp/revanced/integrations/tiktok/settings/SettingsStatus;") &&
-                methodDef.name == "load"
-    }
+            methodDef.name == "load"
+    },
 )

@@ -11,9 +11,9 @@ internal object UnlockProFingerprint : MethodFingerprint(
     parameters = listOf("L"),
     opcodes = listOf(
         Opcode.IGET_BOOLEAN,
-        Opcode.RETURN
+        Opcode.RETURN,
     ),
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("MainActivity;")
-    }
+    },
 )

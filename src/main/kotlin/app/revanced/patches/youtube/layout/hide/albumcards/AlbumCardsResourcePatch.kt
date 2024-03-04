@@ -12,7 +12,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
     dependencies = [
         SettingsPatch::class,
         ResourceMappingPatch::class,
-        AddResourcesPatch::class
+        AddResourcesPatch::class,
     ],
 )
 internal object AlbumCardsResourcePatch : ResourcePatch() {
@@ -22,7 +22,7 @@ internal object AlbumCardsResourcePatch : ResourcePatch() {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.FEED.addPreferences(
-            SwitchPreference("revanced_hide_album_cards")
+            SwitchPreference("revanced_hide_album_cards"),
         )
 
         albumCardId = ResourceMappingPatch.resourceMappings.single {

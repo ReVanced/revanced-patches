@@ -24,7 +24,7 @@ internal object VideoQualityMenuViewInflateFingerprint : LiteralValueFingerprint
         Opcode.CONST,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST
+        Opcode.CHECK_CAST,
     ),
-    literalSupplier = { RestoreOldVideoQualityMenuResourcePatch.videoQualityBottomSheetListFragmentTitle }
+    literalSupplier = { RestoreOldVideoQualityMenuResourcePatch.videoQualityBottomSheetListFragmentTitle },
 )

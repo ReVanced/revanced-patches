@@ -17,11 +17,11 @@ import com.android.tools.smali.dexlib2.Opcode
     name = "Announcements",
     description = "Adds an option to show announcements from ReVanced on app startup.",
     compatiblePackages = [CompatiblePackage("com.google.android.youtube")],
-    dependencies = [SettingsPatch::class,AddResourcesPatch::class]
+    dependencies = [SettingsPatch::class, AddResourcesPatch::class],
 )
 @Suppress("unused")
 object AnnouncementsPatch : BytecodePatch(
-    setOf(MainActivityFingerprint)
+    setOf(MainActivityFingerprint),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/announcements/AnnouncementsPatch;"
@@ -30,7 +30,7 @@ object AnnouncementsPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            SwitchPreference("revanced_announcements")
+            SwitchPreference("revanced_announcements"),
         )
 
         val onCreateMethod = MainActivityFingerprint.result?.let {
@@ -41,8 +41,7 @@ object AnnouncementsPatch : BytecodePatch(
 
         onCreateMethod.addInstructions(
             superCallIndex + 1,
-            "invoke-static { v1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->showAnnouncement(Landroid/app/Activity;)V"
+            "invoke-static { v1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->showAnnouncement(Landroid/app/Activity;)V",
         )
-
     }
 }

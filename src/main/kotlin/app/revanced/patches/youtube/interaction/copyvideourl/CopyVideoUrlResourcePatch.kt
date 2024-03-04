@@ -14,8 +14,8 @@ import app.revanced.util.copyResources
     dependencies = [
         SettingsPatch::class,
         BottomControlsResourcePatch::class,
-        AddResourcesPatch::class
-    ]
+        AddResourcesPatch::class,
+    ],
 )
 internal object CopyVideoUrlResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
@@ -23,15 +23,16 @@ internal object CopyVideoUrlResourcePatch : ResourcePatch() {
 
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_copy_video_url"),
-            SwitchPreference("revanced_copy_video_url_timestamp")
+            SwitchPreference("revanced_copy_video_url_timestamp"),
         )
 
         context.copyResources(
-            "copyvideourl", ResourceGroup(
+            "copyvideourl",
+            ResourceGroup(
                 resourceDirectoryName = "drawable",
                 "revanced_yt_copy.xml",
-                "revanced_yt_copy_timestamp.xml"
-            )
+                "revanced_yt_copy_timestamp.xml",
+            ),
         )
 
         BottomControlsResourcePatch.addControls("copyvideourl")

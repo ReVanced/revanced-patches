@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.layout.hide.albumcards
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -9,6 +8,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.layout.hide.albumcards.fingerprints.AlbumCardsFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -16,7 +16,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     description = "Adds an option to hide album cards below artist descriptions.",
     dependencies = [
         IntegrationsPatch::class,
-        AlbumCardsResourcePatch::class
+        AlbumCardsResourcePatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -34,14 +34,14 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            ]
-        )
-    ]
+                "19.04.37",
+            ],
+        ),
+    ],
 )
 @Suppress("unused")
 object AlbumCardsPatch : BytecodePatch(
-    setOf(AlbumCardsFingerprint)
+    setOf(AlbumCardsFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
         AlbumCardsFingerprint.result?.let {
@@ -54,9 +54,9 @@ object AlbumCardsPatch : BytecodePatch(
                 addInstruction(
                     insertIndex,
                     "invoke-static {v$albumCardViewRegister}, " +
-                            "Lapp/revanced/integrations/youtube/patches/HideAlbumCardsPatch;" +
-                            "->" +
-                            "hideAlbumCard(Landroid/view/View;)V"
+                        "Lapp/revanced/integrations/youtube/patches/HideAlbumCardsPatch;" +
+                        "->" +
+                        "hideAlbumCard(Landroid/view/View;)V",
                 )
             }
         } ?: throw AlbumCardsFingerprint.exception

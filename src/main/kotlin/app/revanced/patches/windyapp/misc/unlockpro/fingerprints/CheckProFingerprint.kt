@@ -6,5 +6,5 @@ internal object CheckProFingerprint : MethodFingerprint(
     "I",
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("RawUserData;") && methodDef.name == "isPro"
-    }
+    },
 )

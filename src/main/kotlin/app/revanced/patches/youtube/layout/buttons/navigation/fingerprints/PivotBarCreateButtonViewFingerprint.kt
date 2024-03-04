@@ -8,6 +8,6 @@ internal object PivotBarCreateButtonViewFingerprint : MethodFingerprint(
         Opcode.INVOKE_DIRECT_RANGE,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
-        Opcode.INVOKE_STATIC
-    )
+        Opcode.INVOKE_STATIC,
+    ),
 )

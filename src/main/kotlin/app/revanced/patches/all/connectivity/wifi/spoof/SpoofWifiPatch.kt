@@ -14,7 +14,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.Instruction
     name = "Spoof Wi-Fi connection",
     description = "Spoofs an existing Wi-Fi connection.",
     use = false,
-    requiresIntegrations = true
+    requiresIntegrations = true,
 )
 @Suppress("unused")
 object SpoofWifiPatch : BaseTransformInstructionsPatch<Instruction35cInfo>() {
@@ -25,12 +25,12 @@ object SpoofWifiPatch : BaseTransformInstructionsPatch<Instruction35cInfo>() {
         classDef: ClassDef,
         method: Method,
         instruction: Instruction,
-        instructionIndex: Int
+        instructionIndex: Int,
     ) = filterMapInstruction35c<MethodCall>(
         INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX,
         classDef,
         instruction,
-        instructionIndex
+        instructionIndex,
     )
 
     override fun transform(mutableMethod: MutableMethod, entry: Instruction35cInfo) {
@@ -38,14 +38,13 @@ object SpoofWifiPatch : BaseTransformInstructionsPatch<Instruction35cInfo>() {
         methodType.replaceInvokeVirtualWithIntegrations(INTEGRATIONS_CLASS_DESCRIPTOR, mutableMethod, instruction, instructionIndex)
     }
 
-
     // Information about method calls we want to replace
     private enum class MethodCall(
         override val definedClassName: String,
         override val methodName: String,
         override val methodParams: Array<String>,
         override val returnType: String,
-    ): IMethodCall {
+    ) : IMethodCall {
         GetSystemService1(
             "Landroid/content/Context;",
             "getSystemService",
@@ -201,6 +200,6 @@ object SpoofWifiPatch : BaseTransformInstructionsPatch<Instruction35cInfo>() {
             "unregisterNetworkCallback",
             arrayOf("Landroid/app/PendingIntent;"),
             "V",
-        );
+        ),
     }
 }

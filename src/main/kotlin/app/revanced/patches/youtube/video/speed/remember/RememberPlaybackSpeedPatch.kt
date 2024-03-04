@@ -23,11 +23,11 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
         SettingsPatch::class,
         VideoInformationPatch::class,
         CustomPlaybackSpeedPatch::class,
-        AddResourcesPatch::class
-    ]
+        AddResourcesPatch::class,
+    ],
 )
 object RememberPlaybackSpeedPatch : BytecodePatch(
-    setOf(InitializePlaybackSpeedValuesFingerprint)
+    setOf(InitializePlaybackSpeedValuesFingerprint),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/playback/speed/RememberPlaybackSpeedPatch;"
@@ -42,13 +42,14 @@ object RememberPlaybackSpeedPatch : BytecodePatch(
                 summaryKey = null,
                 // Entries and values are set by Integrations code based on the actual speeds available.
                 entriesKey = null,
-                entryValuesKey = null
-            )
+                entryValuesKey = null,
+            ),
         )
 
         VideoInformationPatch.onCreateHook(INTEGRATIONS_CLASS_DESCRIPTOR, "newVideoStarted")
         VideoInformationPatch.userSelectedPlaybackSpeedHook(
-            INTEGRATIONS_CLASS_DESCRIPTOR, "userSelectedPlaybackSpeed"
+            INTEGRATIONS_CLASS_DESCRIPTOR,
+            "userSelectedPlaybackSpeed",
         )
 
         /*
@@ -83,7 +84,7 @@ object RememberPlaybackSpeedPatch : BytecodePatch(
                     # Invoke setPlaybackSpeed on that class.
                     invoke-virtual {v2, v0}, ${VideoInformationPatch.setPlaybackSpeedMethodReference}
                 """.trimIndent(),
-                ExternalLabel("do_not_override", mutableMethod.getInstruction(0))
+                ExternalLabel("do_not_override", mutableMethod.getInstruction(0)),
             )
         } ?: throw InitializePlaybackSpeedValuesFingerprint.exception
     }

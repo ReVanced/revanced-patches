@@ -22,7 +22,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction3rc
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class,
-        AddResourcesPatch::class
+        AddResourcesPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -40,20 +40,20 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction3rc
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            ]
-        )
-    ]
+                "19.04.37",
+            ],
+        ),
+    ],
 )
 @Suppress("unused")
 object HidePlayerButtonsPatch : BytecodePatch(
-    setOf(PlayerControlsVisibilityModelFingerprint)
+    setOf(PlayerControlsVisibilityModelFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_hide_player_buttons")
+            SwitchPreference("revanced_hide_player_buttons"),
         )
 
         PlayerControlsVisibilityModelFingerprint.result?.apply {
@@ -72,7 +72,7 @@ object HidePlayerButtonsPatch : BytecodePatch(
                     
                     invoke-static { v$hasPreviousParameterRegister }, Lapp/revanced/integrations/youtube/patches/HidePlayerButtonsPatch;->previousOrNextButtonIsVisible(Z)Z
                     move-result v$hasPreviousParameterRegister
-                """
+                """,
             )
         } ?: throw PlayerControlsVisibilityModelFingerprint.exception
     }

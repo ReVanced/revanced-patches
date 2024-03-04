@@ -13,7 +13,7 @@ internal object BottomControlsInflateFingerprint : LiteralValueFingerprint(
     opcodes = listOf(
         Opcode.CHECK_CAST,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT
+        Opcode.MOVE_RESULT_OBJECT,
     ),
-    literalSupplier = { BottomControlsResourcePatch.bottomUiContainerResourceId }
+    literalSupplier = { BottomControlsResourcePatch.bottomUiContainerResourceId },
 )

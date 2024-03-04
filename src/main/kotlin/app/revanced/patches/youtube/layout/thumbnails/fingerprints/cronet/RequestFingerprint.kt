@@ -10,7 +10,7 @@ internal object RequestFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     customFingerprint = { _, classDef ->
         classDef.type == IMPLEMENTATION_CLASS_NAME
-    }
+    },
 ) {
     const val IMPLEMENTATION_CLASS_NAME = "Lorg/chromium/net/impl/CronetUrlRequest;"
 }

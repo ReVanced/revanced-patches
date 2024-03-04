@@ -8,8 +8,8 @@ internal object BrightnessFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC.value,
     parameters = listOf(),
     customFingerprint = { method, classDef ->
-        method.name == "run"
-                && method.definingClass.contains("/ScreenPlugin\$")
-                && classDef.fields.any { it.type == "Ljava/lang/Float;" }
-    }
+        method.name == "run" &&
+            method.definingClass.contains("/ScreenPlugin\$") &&
+            classDef.fields.any { it.type == "Ljava/lang/Float;" }
+    },
 )

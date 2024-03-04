@@ -12,13 +12,13 @@ internal abstract class MediaAdFingerprint(
     accessFlags: Int? = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters: Iterable<String>? = listOf(),
     opcodes: Iterable<Opcode>?,
-    customFingerprint: ((methodDef: Method, classDef: ClassDef) -> Boolean)? = null
+    customFingerprint: ((methodDef: Method, classDef: ClassDef) -> Boolean)? = null,
 ) : MethodFingerprint(
     returnType,
     accessFlags,
     parameters,
     opcodes,
-    customFingerprint = customFingerprint
+    customFingerprint = customFingerprint,
 ) {
     abstract override fun toString(): String
 }

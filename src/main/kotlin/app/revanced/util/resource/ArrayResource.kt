@@ -20,9 +20,11 @@ class ArrayResource(
             setAttribute("name", name)
 
             items.forEach { item ->
-                appendChild(ownerDocument.createElement("item").also { itemNode ->
-                    itemNode.textContent = item
-                })
+                appendChild(
+                    ownerDocument.createElement("item").also { itemNode ->
+                        itemNode.textContent = item
+                    },
+                )
             }
         }
 

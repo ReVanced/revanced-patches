@@ -12,7 +12,7 @@ internal object GenericMediaAdFingerprint : MediaAdFingerprint(
         Opcode.IF_EQZ,
         Opcode.CONST_4,
         Opcode.RETURN,
-    )
+    ),
 ) {
     override fun toString() = result!!.method.toString()
 }

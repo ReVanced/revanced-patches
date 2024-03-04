@@ -19,5 +19,5 @@ internal object SubtitleButtonControllerFingerprint : MethodFingerprint(
         Opcode.CONST,
         Opcode.INVOKE_VIRTUAL,
         Opcode.IGET_OBJECT,
-    )
+    ),
 )

@@ -12,8 +12,8 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
     dependencies = [
         SettingsPatch::class,
         ResourceMappingPatch::class,
-        AddResourcesPatch::class
-    ]
+        AddResourcesPatch::class,
+    ],
 )
 internal object HideLoadMoreButtonResourcePatch : ResourcePatch() {
     internal var expandButtonDownId: Long = -1
@@ -22,7 +22,7 @@ internal object HideLoadMoreButtonResourcePatch : ResourcePatch() {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.FEED.addPreferences(
-            SwitchPreference("revanced_hide_load_more_button")
+            SwitchPreference("revanced_hide_load_more_button"),
         )
 
         expandButtonDownId = ResourceMappingPatch.resourceMappings.single {

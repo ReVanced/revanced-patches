@@ -12,7 +12,7 @@ import org.w3c.dom.Element
 @Suppress("MemberVisibilityCanBePrivate")
 abstract class BaseResource(
     val name: String,
-    val tag: String
+    val tag: String,
 ) {
     /**
      * Serialize resource element to XML.

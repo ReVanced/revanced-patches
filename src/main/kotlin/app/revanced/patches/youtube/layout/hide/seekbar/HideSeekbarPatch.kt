@@ -20,11 +20,12 @@ import app.revanced.patches.youtube.shared.fingerprints.SeekbarOnDrawFingerprint
         IntegrationsPatch::class,
         SettingsPatch::class,
         SeekbarColorBytecodePatch::class,
-        AddResourcesPatch::class
+        AddResourcesPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube",
+            [
                 "18.32.39",
                 "18.37.36",
                 "18.38.44",
@@ -37,21 +38,21 @@ import app.revanced.patches.youtube.shared.fingerprints.SeekbarOnDrawFingerprint
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            ]
-        )
-    ]
+                "19.04.37",
+            ],
+        ),
+    ],
 )
 @Suppress("unused")
 object HideSeekbarPatch : BytecodePatch(
-    setOf(SeekbarFingerprint)
+    setOf(SeekbarFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.SEEKBAR.addPreferences(
             SwitchPreference("revanced_hide_seekbar"),
-            SwitchPreference("revanced_hide_seekbar_thumbnail")
+            SwitchPreference("revanced_hide_seekbar_thumbnail"),
         )
 
         SeekbarFingerprint.result!!.let {
@@ -66,7 +67,7 @@ object HideSeekbarPatch : BytecodePatch(
                 return-void
                 :hide_seekbar
                 nop
-            """
+            """,
         )
     }
 }

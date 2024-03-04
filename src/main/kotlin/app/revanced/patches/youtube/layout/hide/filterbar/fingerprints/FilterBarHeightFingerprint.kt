@@ -13,7 +13,7 @@ internal object FilterBarHeightFingerprint : LiteralValueFingerprint(
         Opcode.CONST,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
-        Opcode.IPUT
+        Opcode.IPUT,
     ),
-    literalSupplier = { HideFilterBarResourcePatch.filterBarHeightId }
+    literalSupplier = { HideFilterBarResourcePatch.filterBarHeightId },
 )

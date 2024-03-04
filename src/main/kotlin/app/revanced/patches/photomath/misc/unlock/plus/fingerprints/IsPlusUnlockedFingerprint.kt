@@ -8,9 +8,10 @@ internal object IsPlusUnlockedFingerprint : MethodFingerprint(
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     strings = listOf(
-        "genius"
+        "genius",
     ),
     customFingerprint = {
-        methodDef, _ -> methodDef.definingClass.endsWith("/User;")
-    }
+            methodDef, _ ->
+        methodDef.definingClass.endsWith("/User;")
+    },
 )

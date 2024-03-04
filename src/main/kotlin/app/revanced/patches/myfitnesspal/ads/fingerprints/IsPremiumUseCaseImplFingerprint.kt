@@ -7,5 +7,5 @@ object IsPremiumUseCaseImplFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC.value,
     customFingerprint = { methodDef, classDef ->
         classDef.type.endsWith("IsPremiumUseCaseImpl;") && methodDef.name == "doWork"
-    }
+    },
 )

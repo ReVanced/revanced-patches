@@ -19,5 +19,5 @@ internal object SetWordmarkHeaderFingerprint : MethodFingerprint(
         Opcode.IGET_OBJECT,
         Opcode.CONST,
         Opcode.INVOKE_STATIC,
-    )
+    ),
 )

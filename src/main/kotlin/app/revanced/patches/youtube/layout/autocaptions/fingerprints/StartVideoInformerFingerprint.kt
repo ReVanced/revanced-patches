@@ -10,7 +10,7 @@ internal object StartVideoInformerFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     opcodes = listOf(
         Opcode.INVOKE_INTERFACE,
-        Opcode.RETURN_VOID
+        Opcode.RETURN_VOID,
     ),
-    strings = listOf("pc")
+    strings = listOf("pc"),
 )

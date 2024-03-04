@@ -19,17 +19,17 @@ import app.revanced.util.exception
     name = "Enable tablet layout",
     description = "Adds an option to spoof the device form factor to a tablet which enables the tablet layout.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
-    compatiblePackages = [CompatiblePackage("com.google.android.youtube")]
+    compatiblePackages = [CompatiblePackage("com.google.android.youtube")],
 )
 @Suppress("unused")
 object EnableTabletLayoutPatch : BytecodePatch(
-    setOf(GetFormFactorFingerprint)
+    setOf(GetFormFactorFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-            SwitchPreference("revanced_tablet_layout")
+            SwitchPreference("revanced_tablet_layout"),
         )
 
         GetFormFactorFingerprint.result?.let {
@@ -46,8 +46,8 @@ object EnableTabletLayoutPatch : BytecodePatch(
                     """,
                     ExternalLabel(
                         "is_large_form_factor",
-                        returnIsLargeFormFactorLabel
-                    )
+                        returnIsLargeFormFactorLabel,
+                    ),
                 )
             }
         } ?: GetFormFactorFingerprint.exception

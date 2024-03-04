@@ -1,13 +1,12 @@
 package app.revanced.patches.reddit.customclients.syncforreddit.annoyances.startup
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.reddit.customclients.syncforreddit.annoyances.startup.fingerprints.MainActivityOnCreateFingerprint
-
+import app.revanced.util.exception
 
 @Patch(
     name = "Disable Sync for Lemmy bottom sheet",
@@ -15,8 +14,8 @@ import app.revanced.patches.reddit.customclients.syncforreddit.annoyances.startu
     compatiblePackages = [
         CompatiblePackage("com.laurencedawson.reddit_sync", ["v23.06.30-13:39"]),
         CompatiblePackage("com.laurencedawson.reddit_sync.pro"), // Version unknown.
-        CompatiblePackage("com.laurencedawson.reddit_sync.dev") // Version unknown.
-    ]
+        CompatiblePackage("com.laurencedawson.reddit_sync.dev"), // Version unknown.
+    ],
 )
 @Suppress("unused")
 object DisableSyncForLemmyBottomSheetPatch : BytecodePatch(setOf(MainActivityOnCreateFingerprint)) {
@@ -25,6 +24,6 @@ object DisableSyncForLemmyBottomSheetPatch : BytecodePatch(setOf(MainActivityOnC
             val showBottomSheetIndex = implementation!!.instructions.lastIndex - 1
 
             removeInstruction(showBottomSheetIndex)
-        }  ?: throw MainActivityOnCreateFingerprint.exception
+        } ?: throw MainActivityOnCreateFingerprint.exception
     }
 }

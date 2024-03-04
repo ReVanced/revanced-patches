@@ -9,5 +9,5 @@ internal object SwipeControlsHostActivityFingerprint : MethodFingerprint(
     parameters = listOf(),
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass == "Lapp/revanced/integrations/youtube/swipecontrols/SwipeControlsHostActivity;"
-    }
+    },
 )

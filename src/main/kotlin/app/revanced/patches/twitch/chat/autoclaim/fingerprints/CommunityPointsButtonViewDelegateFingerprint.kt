@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 
 internal object CommunityPointsButtonViewDelegateFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
-        methodDef.definingClass.endsWith("CommunityPointsButtonViewDelegate;")
-                && methodDef.name == "showClaimAvailable"
-    }
+        methodDef.definingClass.endsWith("CommunityPointsButtonViewDelegate;") &&
+            methodDef.name == "showClaimAvailable"
+    },
 )

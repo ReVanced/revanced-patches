@@ -9,15 +9,14 @@ import app.revanced.patches.reddit.customclients.baconreader.api.fingerprints.Ge
 import app.revanced.patches.reddit.customclients.baconreader.api.fingerprints.RequestTokenFingerprint
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-
 @Suppress("unused")
 object SpoofClientPatch : BaseSpoofClientPatch(
     redirectUri = "http://baconreader.com/auth",
     clientIdFingerprints = setOf(GetAuthorizationUrlFingerprint, RequestTokenFingerprint),
     compatiblePackages = setOf(
         CompatiblePackage("com.onelouder.baconreader"),
-        CompatiblePackage("com.onelouder.baconreader.premium")
-    )
+        CompatiblePackage("com.onelouder.baconreader.premium"),
+    ),
 ) {
     override fun Set<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
         fun MethodFingerprintResult.patch(replacementString: String) {
@@ -27,7 +26,7 @@ object SpoofClientPatch : BaseSpoofClientPatch(
                 val clientIdRegister = getInstruction<OneRegisterInstruction>(clientIdIndex).registerA
                 replaceInstruction(
                     clientIdIndex,
-                    "const-string v$clientIdRegister, \"$replacementString\""
+                    "const-string v$clientIdRegister, \"$replacementString\"",
                 )
             }
         }

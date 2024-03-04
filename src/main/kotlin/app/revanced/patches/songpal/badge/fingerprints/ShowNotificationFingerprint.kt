@@ -26,7 +26,7 @@ internal object ShowNotificationFingerprint : MethodFingerprint(
             }
             true
         } ?: false
-    }
+    },
 ) {
     val expectedReference = ImmutableMethodReference(
         "Lcom/google/android/material/bottomnavigation/BottomNavigationView;",

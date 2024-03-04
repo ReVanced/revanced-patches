@@ -6,7 +6,10 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal object SubtitleTrackFingerprint : MethodFingerprint(
-    "Z", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf(), listOf(
+    "Z",
+    AccessFlags.PUBLIC or AccessFlags.FINAL,
+    listOf(),
+    listOf(
         Opcode.CONST_STRING,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
@@ -17,5 +20,5 @@ internal object SubtitleTrackFingerprint : MethodFingerprint(
     strings = listOf("DISABLE_CAPTIONS_OPTION"),
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("SubtitleTrack;")
-    }
+    },
 )

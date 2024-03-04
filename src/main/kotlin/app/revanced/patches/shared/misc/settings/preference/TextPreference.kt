@@ -18,7 +18,7 @@ class TextPreference(
     titleKey: String = "${key}_title",
     summaryKey: String? = "${key}_summary",
     tag: String = "app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference",
-    val inputType: InputType = InputType.TEXT
+    val inputType: InputType = InputType.TEXT,
 ) : BasePreference(key, titleKey, summaryKey, tag) {
 
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =

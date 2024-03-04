@@ -7,5 +7,5 @@ internal object GetReadyToShowAdFingerprint : MethodFingerprint(
     parameters = listOf("L", "L"),
     customFingerprint = { method, _ ->
         method.definingClass.endsWith("/StreamDisplayAdsPresenter;") && method.name == "getReadyToShowAdOrAbort"
-    }
+    },
 )

@@ -13,14 +13,14 @@ import app.revanced.util.exception
     name = "Hide update popup",
     description = "Prevents the update popup from showing up.",
     dependencies = [SignatureDetectionPatch::class],
-    compatiblePackages = [CompatiblePackage("com.microblink.photomath", ["8.32.0"])]
+    compatiblePackages = [CompatiblePackage("com.microblink.photomath", ["8.32.0"])],
 )
 @Suppress("unused")
 object HideUpdatePopupPatch : BytecodePatch(
-    setOf(HideUpdatePopupFingerprint)
+    setOf(HideUpdatePopupFingerprint),
 ) {
     override fun execute(context: BytecodeContext) = HideUpdatePopupFingerprint.result?.mutableMethod?.addInstructions(
         2, // Insert after the null check.
-        "return-void"
+        "return-void",
     ) ?: throw HideUpdatePopupFingerprint.exception
 }

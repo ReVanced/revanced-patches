@@ -4,5 +4,5 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 
 internal object ViewCountsEnabledFingerprint : MethodFingerprint(
     returnType = "Z",
-    strings = listOf("view_counts_public_visibility_enabled")
+    strings = listOf("view_counts_public_visibility_enabled"),
 )

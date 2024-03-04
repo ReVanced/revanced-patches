@@ -5,6 +5,6 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 internal object MandatoryLoginServiceFingerprint2 : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("/MandatoryLoginService;") &&
-                methodDef.name == "shouldShowForcedLogin"
-    }
+            methodDef.name == "shouldShowForcedLogin"
+    },
 )

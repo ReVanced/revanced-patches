@@ -8,5 +8,5 @@ internal object RootDetectionFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC.value,
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("/DeviceIntegrityCheck;")
-    }
+    },
 )

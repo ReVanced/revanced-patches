@@ -9,6 +9,6 @@ internal object AutoRepeatParentFingerprint : MethodFingerprint(
     AccessFlags.PUBLIC or AccessFlags.FINAL,
     strings = listOf(
         "play() called when the player wasn't loaded.",
-        "play() blocked because Background Playability failed"
-    )
+        "play() blocked because Background Playability failed",
+    ),
 )

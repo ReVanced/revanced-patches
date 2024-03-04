@@ -1,22 +1,22 @@
 package app.revanced.patches.scbeasy.detection.debugging
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.scbeasy.detection.debugging.fingerprints.DebuggingDetectionFingerprint
+import app.revanced.util.exception
 
 @Patch(
     use = false,
     name = "Remove debugging detection",
     description = "Removes the USB and wireless debugging checks.",
-    compatiblePackages = [CompatiblePackage("com.scb.phone")]
+    compatiblePackages = [CompatiblePackage("com.scb.phone")],
 )
 @Suppress("unused")
 object RemoveDebuggingDetectionPatch : BytecodePatch(
-    setOf(DebuggingDetectionFingerprint)
+    setOf(DebuggingDetectionFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
         DebuggingDetectionFingerprint.result?.mutableMethod?.addInstructions(
@@ -24,7 +24,7 @@ object RemoveDebuggingDetectionPatch : BytecodePatch(
             """
                 const/4 v0, 0x0
                 return v0
-            """
+            """,
         ) ?: throw DebuggingDetectionFingerprint.exception
     }
 }

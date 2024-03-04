@@ -19,5 +19,5 @@ internal object StoryboardRendererDecoderSpecFingerprint : MethodFingerprint(
         Opcode.CONST_4,
         Opcode.IF_NEZ,
     ),
-    strings = listOf("#-1#")
+    strings = listOf("#-1#"),
 )

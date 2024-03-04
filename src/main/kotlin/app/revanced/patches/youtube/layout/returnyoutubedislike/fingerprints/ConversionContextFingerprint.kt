@@ -13,6 +13,6 @@ internal object ConversionContextFingerprint : MethodFingerprint(
         // 18.37.36 and after this String is: ConversionContext{containerInternal=
         // and before it is: ConversionContext{container=
         // Use a partial string to match both.
-        "ConversionContext{container"
-    )
+        "ConversionContext{container",
+    ),
 )

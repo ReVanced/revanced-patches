@@ -9,5 +9,5 @@ internal object ComponentContextParserFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.IPUT_OBJECT,
     ),
-    strings = listOf("Component was not found %s because it was removed due to duplicate converter bindings.")
+    strings = listOf("Component was not found %s because it was removed due to duplicate converter bindings."),
 )

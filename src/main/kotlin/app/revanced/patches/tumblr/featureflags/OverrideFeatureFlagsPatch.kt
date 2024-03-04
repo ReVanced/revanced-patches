@@ -1,6 +1,5 @@
 package app.revanced.patches.tumblr.featureflags
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -9,6 +8,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.tumblr.featureflags.fingerprints.GetFeatureValueFingerprint
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
@@ -16,7 +16,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
 @Patch(description = "Forcibly set the value of A/B testing features of your choice.")
 object OverrideFeatureFlagsPatch : BytecodePatch(
-    setOf(GetFeatureValueFingerprint)
+    setOf(GetFeatureValueFingerprint),
 ) {
     /**
      * Override a feature flag with a value.
@@ -40,7 +40,7 @@ object OverrideFeatureFlagsPatch : BytecodePatch(
             AccessFlags.PUBLIC or AccessFlags.FINAL,
             null,
             null,
-            MutableMethodImplementation(4)
+            MutableMethodImplementation(4),
         ).toMutable().apply {
             // This is the equivalent of
             //   String featureName = feature.toString()
@@ -60,7 +60,7 @@ object OverrideFeatureFlagsPatch : BytecodePatch(
                     # If none of the overrides returned a value, we should return null
                     const/4 v0, 0x0
                     return-object v0
-                """
+                """,
             )
         }.also { helperMethod ->
             it.mutableClass.methods.add(helperMethod)
@@ -85,7 +85,7 @@ object OverrideFeatureFlagsPatch : BytecodePatch(
                     # If our override helper returned null, we let the function continue normally
                     :is_null
                     nop
-                """
+                """,
         )
 
         val helperInsertIndex = 2
@@ -109,7 +109,7 @@ object OverrideFeatureFlagsPatch : BytecodePatch(
                     # Else we just continue...
                     :no_override
                     nop
-                """
+                """,
             )
         }
     } ?: throw GetFeatureValueFingerprint.exception

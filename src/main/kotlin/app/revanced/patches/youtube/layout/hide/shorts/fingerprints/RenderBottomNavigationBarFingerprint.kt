@@ -15,5 +15,5 @@ internal object RenderBottomNavigationBarFingerprint : MethodFingerprint(
         Opcode.MOVE_EXCEPTION,
         Opcode.MONITOR_EXIT,
         Opcode.THROW,
-    )
+    ),
 )

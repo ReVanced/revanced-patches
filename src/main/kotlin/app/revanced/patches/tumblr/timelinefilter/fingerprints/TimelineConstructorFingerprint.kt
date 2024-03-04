@@ -8,5 +8,6 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 internal object TimelineConstructorFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("/Timeline;") && methodDef.parameters[0].type == "Ljava/util/List;"
-    }, strings = listOf("timelineObjectsList")
+    },
+    strings = listOf("timelineObjectsList"),
 )

@@ -12,6 +12,6 @@ internal object IsBookpointEnabledFingerprint : MethodFingerprint(
         "NoGeoData",
         "NoCountryInGeo",
         "RemoteConfig",
-        "GeoRCMismatch"
-    )
+        "GeoRCMismatch",
+    ),
 )

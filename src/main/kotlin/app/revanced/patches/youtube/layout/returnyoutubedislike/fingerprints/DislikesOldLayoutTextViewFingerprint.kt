@@ -18,5 +18,5 @@ internal object DislikesOldLayoutTextViewFingerprint : LiteralValueFingerprint(
         Opcode.IF_NEZ, // textview register
         Opcode.GOTO,
     ),
-    literalSupplier = { ReturnYouTubeDislikeResourcePatch.oldUIDislikeId }
+    literalSupplier = { ReturnYouTubeDislikeResourcePatch.oldUIDislikeId },
 )

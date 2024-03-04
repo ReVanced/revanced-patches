@@ -11,6 +11,6 @@ internal object TimelineFilterIntegrationFingerprint : MethodFingerprint(
     strings = listOf("BLOCKED_OBJECT_DUMMY"),
     opcodes = listOf(
         Opcode.CONST_STRING, // "BLOCKED_OBJECT_DUMMY"
-        Opcode.INVOKE_VIRTUAL // HashSet.add(^)
-    )
+        Opcode.INVOKE_VIRTUAL, // HashSet.add(^)
+    ),
 )

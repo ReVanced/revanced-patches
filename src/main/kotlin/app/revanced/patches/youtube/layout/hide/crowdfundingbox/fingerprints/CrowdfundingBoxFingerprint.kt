@@ -13,5 +13,5 @@ internal object CrowdfundingBoxFingerprint : LiteralValueFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.IPUT_OBJECT,
     ),
-    literalSupplier = { CrowdfundingBoxResourcePatch.crowdfundingBoxId }
+    literalSupplier = { CrowdfundingBoxResourcePatch.crowdfundingBoxId },
 )

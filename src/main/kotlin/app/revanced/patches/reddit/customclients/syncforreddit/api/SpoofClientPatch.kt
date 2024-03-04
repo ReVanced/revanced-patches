@@ -17,7 +17,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import java.util.*
 
-
 @Suppress("unused")
 object SpoofClientPatch : BaseSpoofClientPatch(
     redirectUri = "http://redditsync/auth",
@@ -27,9 +26,9 @@ object SpoofClientPatch : BaseSpoofClientPatch(
     compatiblePackages = setOf(
         CompatiblePackage("com.laurencedawson.reddit_sync"),
         CompatiblePackage("com.laurencedawson.reddit_sync.pro"),
-        CompatiblePackage("com.laurencedawson.reddit_sync.dev")
+        CompatiblePackage("com.laurencedawson.reddit_sync.dev"),
     ),
-    dependencies = setOf(DisablePiracyDetectionPatch::class)
+    dependencies = setOf(DisablePiracyDetectionPatch::class),
 ) {
     override fun Set<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
         forEach { fingerprintResult ->
@@ -41,7 +40,7 @@ object SpoofClientPatch : BaseSpoofClientPatch(
                         """
                          const-string v0, "Basic $auth"
                          return-object v0
-                    """
+                    """,
                     )
                 } ?: throw GetBearerTokenFingerprint.exception
             }.let {
@@ -54,12 +53,12 @@ object SpoofClientPatch : BaseSpoofClientPatch(
 
                     val newAuthorizationUrl = reference.string.replace(
                         "client_id=.*?&".toRegex(),
-                        "client_id=$clientId&"
+                        "client_id=$clientId&",
                     )
 
                     replaceInstruction(
                         occurrenceIndex,
-                        "const-string v$targetRegister, \"$newAuthorizationUrl\""
+                        "const-string v$targetRegister, \"$newAuthorizationUrl\"",
                     )
                 }
             }
@@ -72,7 +71,7 @@ object SpoofClientPatch : BaseSpoofClientPatch(
 
         it.mutableMethod.replaceInstruction(
             apiUrlIndex,
-            "const-string v1, \"https://api.imgur.com/3/image\""
+            "const-string v1, \"https://api.imgur.com/3/image\"",
         )
     }
 }

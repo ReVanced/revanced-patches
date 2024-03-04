@@ -9,7 +9,7 @@ internal object HideLoadMoreButtonFingerprint : LiteralValueFingerprint(
         Opcode.CONST,
         Opcode.CONST_4,
         Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT
+        Opcode.MOVE_RESULT_OBJECT,
     ),
-    literalSupplier = { HideLoadMoreButtonResourcePatch.expandButtonDownId }
+    literalSupplier = { HideLoadMoreButtonResourcePatch.expandButtonDownId },
 )

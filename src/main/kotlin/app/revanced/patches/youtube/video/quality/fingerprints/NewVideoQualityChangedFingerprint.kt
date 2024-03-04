@@ -10,7 +10,7 @@ internal object NewVideoQualityChangedFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L"),
     opcodes = listOf(
-        Opcode.IGET,  // Video resolution (human readable).
+        Opcode.IGET, // Video resolution (human readable).
         Opcode.IGET_OBJECT,
         Opcode.IGET_BOOLEAN,
         Opcode.IGET_OBJECT,
@@ -28,5 +28,5 @@ internal object NewVideoQualityChangedFingerprint : MethodFingerprint(
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.IGET,
-    )
+    ),
 )

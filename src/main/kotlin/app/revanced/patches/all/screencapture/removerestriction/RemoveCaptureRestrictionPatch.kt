@@ -15,20 +15,21 @@ import com.android.tools.smali.dexlib2.iface.instruction.Instruction
     description = "Removes the restriction of capturing audio from apps that normally wouldn't allow it.",
     dependencies = [RemoveCaptureRestrictionResourcePatch::class],
     use = false,
-    requiresIntegrations = true
+    requiresIntegrations = true,
 )
 @Suppress("unused")
 object RemoveCaptureRestrictionPatch : BaseTransformInstructionsPatch<Instruction35cInfo>() {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX =
         "Lapp/revanced/integrations/all/screencapture/removerestriction/RemoveScreencaptureRestrictionPatch"
     private const val INTEGRATIONS_CLASS_DESCRIPTOR = "$INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX;"
+
     // Information about method calls we want to replace
     enum class MethodCall(
         override val definedClassName: String,
         override val methodName: String,
         override val methodParams: Array<String>,
-        override val returnType: String
-    ): IMethodCall {
+        override val returnType: String,
+    ) : IMethodCall {
         SetAllowedCapturePolicySingle(
             "Landroid/media/AudioAttributes\$Builder;",
             "setAllowedCapturePolicy",
@@ -40,19 +41,19 @@ object RemoveCaptureRestrictionPatch : BaseTransformInstructionsPatch<Instructio
             "setAllowedCapturePolicy",
             arrayOf("I"),
             "V",
-        );
+        ),
     }
 
     override fun filterMap(
         classDef: ClassDef,
         method: Method,
         instruction: Instruction,
-        instructionIndex: Int
+        instructionIndex: Int,
     ) = filterMapInstruction35c<MethodCall>(
         INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX,
         classDef,
         instruction,
-        instructionIndex
+        instructionIndex,
     )
 
     override fun transform(mutableMethod: MutableMethod, entry: Instruction35cInfo) {

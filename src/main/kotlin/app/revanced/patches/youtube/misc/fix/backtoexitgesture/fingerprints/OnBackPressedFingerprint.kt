@@ -9,12 +9,14 @@ internal object OnBackPressedFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "V",
     opcodes = listOf(
-        Opcode.RETURN_VOID
+        Opcode.RETURN_VOID,
     ),
     customFingerprint = { methodDef, _ ->
-        (methodDef.definingClass.endsWith("MainActivity;") ||
+        (
+            methodDef.definingClass.endsWith("MainActivity;") ||
                 // Old versions of YouTube called this class "WatchWhileActivity" instead.
-                methodDef.definingClass.endsWith("WatchWhileActivity;"))
-        && methodDef.name == "onBackPressed"
-    }
+                methodDef.definingClass.endsWith("WatchWhileActivity;")
+            ) &&
+            methodDef.name == "onBackPressed"
+    },
 )

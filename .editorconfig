@@ -1,3 +1,4 @@
 [*.{kt,kts}]
-ktlint_code_style = intellij_idea
+ktlint_code_style = android_studio
 ktlint_standard_no-wildcard-imports = disabled
+max_line_length = off

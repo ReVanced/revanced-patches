@@ -24,7 +24,7 @@ abstract class BaseSpoofClientPatch(
         miscellaneousFingerprints.let(::addAll)
     },
     compatiblePackages = compatiblePackages,
-    dependencies = dependencies
+    dependencies = dependencies,
 ) {
     var clientId by stringPatchOption(
         "client-id",
@@ -32,15 +32,15 @@ abstract class BaseSpoofClientPatch(
         null,
         "OAuth client ID",
         "The Reddit OAuth client ID. " +
-                "You can get your client ID from https://www.reddit.com/prefs/apps. " +
-                "The application type has to be \"Installed app\" " +
-                "and the redirect URI has to be set to \"$redirectUri\".",
-        true
+            "You can get your client ID from https://www.reddit.com/prefs/apps. " +
+            "The application type has to be \"Installed app\" " +
+            "and the redirect URI has to be set to \"$redirectUri\".",
+        true,
     )
 
     override fun execute(context: BytecodeContext) {
         fun Set<MethodFingerprint>.executePatch(
-            patch: Set<MethodFingerprintResult>.(BytecodeContext) -> Unit
+            patch: Set<MethodFingerprintResult>.(BytecodeContext) -> Unit,
         ) = this.map { it.result ?: throw it.exception }.toSet().patch(context)
 
         clientIdFingerprints.executePatch { patchClientId(context) }

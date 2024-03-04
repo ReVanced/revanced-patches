@@ -131,6 +131,7 @@ object SettingsPatch :
             key = "revanced_settings_screen_05_general",
             summaryKey = null,
         )
+
         // Don't sort, as related preferences are scattered apart.
         // Can use title sorting after PreferenceCategory support is added.
         val SHORTS = Screen(
@@ -138,6 +139,7 @@ object SettingsPatch :
             summaryKey = null,
             sorting = Sorting.UNSORTED,
         )
+
         // Don't sort, because title sorting scatters the custom color preferences.
         val SEEKBAR = Screen(
             key = "revanced_settings_screen_07_seekbar",

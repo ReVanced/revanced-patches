@@ -16,7 +16,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-
 @Patch(
     name = "Hide ads",
     dependencies = [HideBannerPatch::class, HideCommentAdsPatch::class],
@@ -27,7 +26,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 object HideAdsPatch : BytecodePatch(setOf(AdPostFingerprint, NewAdPostFingerprint)) {
     private const val FILTER_METHOD_DESCRIPTOR =
         "Lapp/revanced/integrations/reddit/patches/FilterPromotedLinksPatch;" +
-                "->filterChildren(Ljava/lang/Iterable;)Ljava/util/List;"
+            "->filterChildren(Ljava/lang/Iterable;)Ljava/util/List;"
 
     override fun execute(context: BytecodeContext) {
         // region Filter promoted ads (does not work in popular or latest feed)
@@ -52,7 +51,7 @@ object HideAdsPatch : BytecodePatch(setOf(AdPostFingerprint, NewAdPostFingerprin
                     invoke-static {v$itemsRegister}, $FILTER_METHOD_DESCRIPTOR
                     move-result-object v0
                     iput-object v0, v$listInstanceRegister, ${castedInstruction.reference}
-                """
+                """,
             )
         }
 

@@ -22,8 +22,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 object VideoIdPatch : BytecodePatch(
     setOf(
         VideoIdFingerprint,
-        VideoIdFingerprintBackgroundPlay
-    )
+        VideoIdFingerprintBackgroundPlay,
+    ),
 ) {
     private var videoIdRegister = 0
     private var videoIdInsertIndex = 0
@@ -34,7 +34,6 @@ object VideoIdPatch : BytecodePatch(
     private lateinit var backgroundPlaybackMethod: MutableMethod
 
     override fun execute(context: BytecodeContext) {
-
         /**
          * Supplies the method and register index of the video id register.
          *
@@ -47,7 +46,6 @@ object VideoIdPatch : BytecodePatch(
                 val videoIdRegister = it.getInstruction<OneRegisterInstruction>(videoIdRegisterIndex).registerA
                 val insertIndex = videoIdRegisterIndex + 1
                 consumer(it, insertIndex, videoIdRegister)
-
             }
         } ?: throw exception
 
@@ -76,10 +74,10 @@ object VideoIdPatch : BytecodePatch(
      * @param methodDescriptor which method to call. Params have to be `Ljava/lang/String;`
      */
     fun hookVideoId(
-        methodDescriptor: String
+        methodDescriptor: String,
     ) = videoIdMethod.addInstruction(
         videoIdInsertIndex++,
-        "invoke-static {v$videoIdRegister}, $methodDescriptor"
+        "invoke-static {v$videoIdRegister}, $methodDescriptor",
     )
 
     /**
@@ -93,10 +91,10 @@ object VideoIdPatch : BytecodePatch(
      * @param methodDescriptor which method to call. Params have to be `Ljava/lang/String;`
      */
     fun hookBackgroundPlayVideoId(
-        methodDescriptor: String
+        methodDescriptor: String,
     ) = backgroundPlaybackMethod.addInstruction(
         backgroundPlaybackInsertIndex++, // move-result-object offset
-        "invoke-static {v$backgroundPlaybackVideoIdRegister}, $methodDescriptor"
+        "invoke-static {v$backgroundPlaybackVideoIdRegister}, $methodDescriptor",
     )
 
     /**
@@ -124,8 +122,7 @@ object VideoIdPatch : BytecodePatch(
      */
     fun hookPlayerResponseVideoId(methodDescriptor: String) {
         PlayerResponseMethodHookPatch += PlayerResponseMethodHookPatch.Hook.VideoId(
-            methodDescriptor
+            methodDescriptor,
         )
     }
 }
-

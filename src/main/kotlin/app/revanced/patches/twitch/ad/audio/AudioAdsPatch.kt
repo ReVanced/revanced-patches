@@ -21,13 +21,13 @@ import app.revanced.patches.twitch.misc.settings.SettingsPatch
 )
 @Suppress("unused")
 object AudioAdsPatch : BytecodePatch(
-    setOf(AudioAdsPresenterPlayFingerprint)
+    setOf(AudioAdsPresenterPlayFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.ADS.CLIENT_SIDE.addPreferences(
-            SwitchPreference("revanced_block_audio_ads")
+            SwitchPreference("revanced_block_audio_ads"),
         )
 
         // Block playAds call
@@ -40,7 +40,7 @@ object AudioAdsPatch : BytecodePatch(
                     if-eqz v0, :show_audio_ads
                     return-void
                 """,
-                ExternalLabel("show_audio_ads", mutableMethod.getInstruction(0))
+                ExternalLabel("show_audio_ads", mutableMethod.getInstruction(0)),
             )
         }
     }

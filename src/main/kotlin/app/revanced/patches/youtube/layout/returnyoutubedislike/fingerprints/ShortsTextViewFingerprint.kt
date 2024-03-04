@@ -10,13 +10,13 @@ internal object ShortsTextViewFingerprint : MethodFingerprint(
     returnType = "V",
     parameters = listOf("L", "L"),
     opcodes = listOf(
-        Opcode.INVOKE_SUPER,    // first instruction of method
+        Opcode.INVOKE_SUPER, // first instruction of method
         Opcode.IF_NEZ,
         null,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,
-        Opcode.SGET_OBJECT,     // insertion point, must be after constructor call to parent class
+        Opcode.SGET_OBJECT, // insertion point, must be after constructor call to parent class
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
         Opcode.CONST_4,
@@ -26,7 +26,7 @@ internal object ShortsTextViewFingerprint : MethodFingerprint(
         Opcode.CONST_4,
         Opcode.IF_EQ,
         Opcode.RETURN_VOID,
-        Opcode.IGET_OBJECT,     // TextView field
-        Opcode.IGET_BOOLEAN,    // boolean field
-    )
+        Opcode.IGET_OBJECT, // TextView field
+        Opcode.IGET_BOOLEAN, // boolean field
+    ),
 )

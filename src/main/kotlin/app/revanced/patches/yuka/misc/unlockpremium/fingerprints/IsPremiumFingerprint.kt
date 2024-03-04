@@ -11,5 +11,5 @@ internal object IsPremiumFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.IGET_BOOLEAN,
         Opcode.RETURN,
-    )
+    ),
 )

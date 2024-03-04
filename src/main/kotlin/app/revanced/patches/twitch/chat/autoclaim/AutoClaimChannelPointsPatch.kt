@@ -17,17 +17,17 @@ import app.revanced.util.exception
     name = "Auto claim channel points",
     description = "Automatically claim Channel Points.",
     dependencies = [SettingsPatch::class, AddResourcesPatch::class],
-    compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])]
+    compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])],
 )
 @Suppress("unused")
 object AutoClaimChannelPointsPatch : BytecodePatch(
-    setOf(CommunityPointsButtonViewDelegateFingerprint)
+    setOf(CommunityPointsButtonViewDelegateFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.CHAT.GENERAL.addPreferences(
-            SwitchPreference("revanced_auto_claim_channel_points")
+            SwitchPreference("revanced_auto_claim_channel_points"),
         )
 
         CommunityPointsButtonViewDelegateFingerprint.result?.mutableMethod?.apply {
@@ -44,7 +44,7 @@ object AutoClaimChannelPointsPatch : BytecodePatch(
                     iget-object v0, p0, Ltv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate;->buttonLayout:Landroid/view/ViewGroup;
                     invoke-virtual { v0 }, Landroid/view/View;->callOnClick()Z
                 """,
-                ExternalLabel("auto_claim", getInstruction(lastIndex))
+                ExternalLabel("auto_claim", getInstruction(lastIndex)),
             )
         } ?: throw CommunityPointsButtonViewDelegateFingerprint.exception
     }

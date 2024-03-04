@@ -1,6 +1,5 @@
 package app.revanced.patches.music.interaction.permanentrepeat
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -9,16 +8,17 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.interaction.permanentrepeat.fingerprints.RepeatTrackFingerprint
+import app.revanced.util.exception
 
 @Patch(
     name = "Permanent repeat",
     description = "Permanently remember your repeating preference even if the playlist ends or another track is played.",
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
-    use = false
+    use = false,
 )
 @Suppress("unused")
 object PermanentRepeatPatch : BytecodePatch(
-    setOf(RepeatTrackFingerprint)
+    setOf(RepeatTrackFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
         RepeatTrackFingerprint.result?.let {
@@ -29,7 +29,7 @@ object PermanentRepeatPatch : BytecodePatch(
                 addInstructionsWithLabels(
                     startIndex,
                     "goto :repeat",
-                    ExternalLabel("repeat", getInstruction(repeatIndex))
+                    ExternalLabel("repeat", getInstruction(repeatIndex)),
                 )
             }
         } ?: throw RepeatTrackFingerprint.exception

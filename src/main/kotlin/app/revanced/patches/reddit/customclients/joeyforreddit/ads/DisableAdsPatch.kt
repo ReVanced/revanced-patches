@@ -1,6 +1,5 @@
 package app.revanced.patches.reddit.customclients.joeyforreddit.ads
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
@@ -8,11 +7,12 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.reddit.customclients.joeyforreddit.ads.fingerprints.IsAdFreeUserFingerprint
 import app.revanced.patches.reddit.customclients.joeyforreddit.detection.piracy.DisablePiracyDetectionPatch
+import app.revanced.util.exception
 
 @Patch(
     name = "Disable ads",
     dependencies = [DisablePiracyDetectionPatch::class],
-    compatiblePackages = [CompatiblePackage("o.o.joey")]
+    compatiblePackages = [CompatiblePackage("o.o.joey")],
 )
 @Suppress("unused")
 object DisableAdsPatch : BytecodePatch(setOf(IsAdFreeUserFingerprint)) {
@@ -22,7 +22,7 @@ object DisableAdsPatch : BytecodePatch(setOf(IsAdFreeUserFingerprint)) {
             """
                 const/4 v0, 0x1
                 return v0
-            """
+            """,
         ) ?: throw IsAdFreeUserFingerprint.exception
     }
 }

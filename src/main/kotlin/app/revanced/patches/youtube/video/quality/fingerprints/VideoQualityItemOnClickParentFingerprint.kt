@@ -5,5 +5,5 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 
 internal object VideoQualityItemOnClickParentFingerprint : MethodFingerprint(
     "V",
-    strings = listOf("VIDEO_QUALITIES_MENU_BOTTOM_SHEET_FRAGMENT")
+    strings = listOf("VIDEO_QUALITIES_MENU_BOTTOM_SHEET_FRAGMENT"),
 )

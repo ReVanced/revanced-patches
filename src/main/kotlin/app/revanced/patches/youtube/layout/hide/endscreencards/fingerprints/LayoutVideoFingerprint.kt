@@ -13,5 +13,5 @@ internal object LayoutVideoFingerprint : LiteralValueFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,
     ),
-    literalSupplier = { HideEndscreenCardsResourcePatch.layoutVideo }
+    literalSupplier = { HideEndscreenCardsResourcePatch.layoutVideo },
 )

@@ -22,5 +22,5 @@ internal object MinimizedPlaybackManagerFingerprint : MethodFingerprint(
         Opcode.CONST_4,
         Opcode.IF_NE,
         Opcode.IPUT_BOOLEAN,
-    )
+    ),
 )

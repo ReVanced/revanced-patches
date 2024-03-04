@@ -20,5 +20,5 @@ internal object RecyclerViewScrollingFingerprint : MethodFingerprint(
         Opcode.IF_LEZ,
         Opcode.IGET_OBJECT,
         Opcode.CONST_4,
-    )
+    ),
 )

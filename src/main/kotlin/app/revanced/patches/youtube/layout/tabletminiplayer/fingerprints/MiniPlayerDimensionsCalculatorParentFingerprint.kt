@@ -19,5 +19,5 @@ internal object MiniPlayerDimensionsCalculatorParentFingerprint : MethodFingerpr
         Opcode.FLOAT_TO_INT,
         Opcode.INVOKE_INTERFACE,
         Opcode.RETURN_VOID,
-    )
+    ),
 )

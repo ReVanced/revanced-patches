@@ -12,7 +12,7 @@ import app.revanced.patches.music.layout.premium.fingerprints.HideGetPremiumPare
 @Patch(
     name = "Hide get premium",
     description = "Removes all \"Get Premium\" evidences from the avatar menu.",
-    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
 )
 @Suppress("unused")
 object HideGetPremiumPatch : BytecodePatch(setOf(HideGetPremiumParentFingerprint)) {
@@ -27,7 +27,7 @@ object HideGetPremiumPatch : BytecodePatch(setOf(HideGetPremiumParentFingerprint
             startIndex,
             """
                 const/4 v1, 0x0
-            """
+            """,
         )
 
         val result = HideGetPremiumFingerprint.result!!
@@ -36,7 +36,7 @@ object HideGetPremiumPatch : BytecodePatch(setOf(HideGetPremiumParentFingerprint
             startIndex,
             """
                 const/16 v0, 0x8
-            """
+            """,
         )
     }
 }

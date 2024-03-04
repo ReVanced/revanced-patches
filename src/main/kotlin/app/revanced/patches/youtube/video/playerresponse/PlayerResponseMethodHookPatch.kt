@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.video.playerresponse
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -9,6 +8,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.video.playerresponse.fingerprint.PlayerParameterBuilderFingerprint
+import app.revanced.util.exception
 import java.io.Closeable
 
 @Patch(
@@ -41,7 +41,8 @@ object PlayerResponseMethodHookPatch :
     override fun close() {
         fun hookVideoId(hook: Hook) {
             playerResponseMethod.addInstruction(
-                0, "invoke-static {v$REGISTER_VIDEO_ID, v$REGISTER_IS_SHORT_AND_OPENING_OR_PLAYING}, $hook"
+                0,
+                "invoke-static {v$REGISTER_VIDEO_ID, v$REGISTER_IS_SHORT_AND_OPENING_OR_PLAYING}, $hook",
             )
             numberOfInstructionsAdded++
         }
@@ -52,7 +53,7 @@ object PlayerResponseMethodHookPatch :
                 """
                     invoke-static {v$REGISTER_PROTO_BUFFER, v$REGISTER_IS_SHORT_AND_OPENING_OR_PLAYING}, $hook
                     move-result-object v$REGISTER_PROTO_BUFFER
-            """
+            """,
             )
             numberOfInstructionsAdded += 2
         }
@@ -70,7 +71,8 @@ object PlayerResponseMethodHookPatch :
         // On some app targets the method has too many registers pushing the parameters past v15.
         // Move the parameters to 4-bit registers so they can be passed to integrations.
         playerResponseMethod.addInstructions(
-            0, """
+            0,
+            """
                 move-object/from16 v$REGISTER_VIDEO_ID, p$PARAMETER_VIDEO_ID
                 move-object/from16 v$REGISTER_PROTO_BUFFER, p$PARAMETER_PROTO_BUFFER
                 move/from16        v$REGISTER_IS_SHORT_AND_OPENING_OR_PLAYING, p$PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING
@@ -81,7 +83,7 @@ object PlayerResponseMethodHookPatch :
         // Move the modified register back.
         playerResponseMethod.addInstruction(
             numberOfInstructionsAdded,
-            "move-object/from16 p$PARAMETER_PROTO_BUFFER, v$REGISTER_PROTO_BUFFER"
+            "move-object/from16 p$PARAMETER_PROTO_BUFFER, v$REGISTER_PROTO_BUFFER",
         )
     }
 
@@ -94,4 +96,3 @@ object PlayerResponseMethodHookPatch :
         override fun toString() = methodDescriptor
     }
 }
-

@@ -13,6 +13,6 @@ internal object ProtobufBufferReferenceFingerprint : MethodFingerprint(
         Opcode.IPUT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
-        Opcode.SUB_INT_2ADDR
-    )
+        Opcode.SUB_INT_2ADDR,
+    ),
 )

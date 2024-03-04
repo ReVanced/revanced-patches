@@ -17,6 +17,6 @@ internal object RootDetectionFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT,
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,
-        Opcode.RETURN_OBJECT
-    )
+        Opcode.RETURN_OBJECT,
+    ),
 )

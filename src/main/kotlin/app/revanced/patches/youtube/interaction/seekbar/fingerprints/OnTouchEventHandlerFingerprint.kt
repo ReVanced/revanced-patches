@@ -27,5 +27,5 @@ internal object OnTouchEventHandlerFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.INVOKE_VIRTUAL, // oMethodReference
     ),
-    customFingerprint = { methodDef, _ -> methodDef.name == "onTouchEvent" }
+    customFingerprint = { methodDef, _ -> methodDef.name == "onTouchEvent" },
 )

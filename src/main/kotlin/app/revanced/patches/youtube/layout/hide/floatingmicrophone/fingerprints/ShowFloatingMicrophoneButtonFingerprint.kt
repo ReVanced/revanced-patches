@@ -13,7 +13,7 @@ internal object ShowFloatingMicrophoneButtonFingerprint : LiteralValueFingerprin
     opcodes = listOf(
         Opcode.IGET_BOOLEAN,
         Opcode.IF_EQZ,
-        Opcode.RETURN_VOID
+        Opcode.RETURN_VOID,
     ),
-    literalSupplier = { HideFloatingMicrophoneButtonResourcePatch.fabButtonId }
+    literalSupplier = { HideFloatingMicrophoneButtonResourcePatch.fabButtonId },
 )

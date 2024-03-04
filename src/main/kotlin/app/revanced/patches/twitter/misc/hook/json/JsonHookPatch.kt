@@ -15,11 +15,13 @@ import java.io.InvalidClassException
 
 @Patch(
     description = "Hooks the stream which reads JSON responses.",
-    requiresIntegrations = true
+    requiresIntegrations = true,
 )
-object JsonHookPatch : BytecodePatch(
-    setOf(LoganSquareFingerprint)
-), Closeable {
+object JsonHookPatch :
+    BytecodePatch(
+        setOf(LoganSquareFingerprint),
+    ),
+    Closeable {
     private const val JSON_HOOK_CLASS_NAMESPACE = "app/revanced/integrations/twitter/patches/hook/json"
     private const val JSON_HOOK_PATCH_CLASS_DESCRIPTOR = "L$JSON_HOOK_CLASS_NAMESPACE/JsonHookPatch;"
     private const val BASE_PATCH_CLASS_NAME = "BaseJsonHook"
@@ -38,8 +40,9 @@ object JsonHookPatch : BytecodePatch(
             val jsonHookPatch = context.findClass { classDef -> classDef.type == JSON_HOOK_PATCH_CLASS_DESCRIPTOR }
                 ?: throw PatchException("Could not find integrations.")
 
-            if (!it.resolve(context, jsonHookPatch.immutableClass))
+            if (!it.resolve(context, jsonHookPatch.immutableClass)) {
                 throw PatchException("Unexpected integrations.")
+            }
         }.let { hooks = JsonHookPatchHook(it) }
 
         // Conveniently find the type to hook a method in, via a named field.
@@ -62,7 +65,7 @@ object JsonHookPatch : BytecodePatch(
                 """
                     invoke-static { p1 }, $JSON_HOOK_PATCH_CLASS_DESCRIPTOR->parseJsonHook(Ljava/io/InputStream;)Ljava/io/InputStream;
                     move-result-object p1
-                """
+                """,
             ) ?: throw PatchException("Could not find method to hook.")
     }
 
@@ -85,8 +88,9 @@ object JsonHookPatch : BytecodePatch(
                     if (
                         classDef.superclass != JSON_HOOK_CLASS_DESCRIPTOR ||
                         !classDef.fields.any { field -> field.name == "INSTANCE" }
-                    ) throw InvalidClassException(classDef.type, "Not a hook class")
-
+                    ) {
+                        throw InvalidClassException(classDef.type, "Not a hook class")
+                    }
                 }
             } ?: throw ClassNotFoundException("Failed to find hook class")
         }
@@ -97,7 +101,7 @@ object JsonHookPatch : BytecodePatch(
      *
      * @param jsonHookPatchFingerprint The [JsonHookPatchFingerprint] to hook.
      */
-    internal class JsonHookPatchHook(jsonHookPatchFingerprint: MethodFingerprint): Closeable {
+    internal class JsonHookPatchHook(jsonHookPatchFingerprint: MethodFingerprint) : Closeable {
         private val jsonHookPatchFingerprintResult = jsonHookPatchFingerprint.result!!
         private val jsonHookPatchIndex = jsonHookPatchFingerprintResult.scanResult.patternScanResult!!.endIndex
 
@@ -119,7 +123,7 @@ object JsonHookPatch : BytecodePatch(
                     """
                             sget-object v1, ${hook.descriptor}->INSTANCE:${hook.descriptor}
                             invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-                        """
+                        """,
                 )
             }
 
@@ -137,5 +141,4 @@ object JsonHookPatch : BytecodePatch(
     }
 
     override fun close() = hooks.close()
-
 }

@@ -30,29 +30,30 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
         IntegrationsPatch::class,
         VideoInformationPatch::class,
         SettingsPatch::class,
-        AddResourcesPatch::class
+        AddResourcesPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube",
+            [
                 "18.48.39",
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            ]
-        )
-    ]
+                "19.04.37",
+            ],
+        ),
+    ],
 )
 @Suppress("unused")
 object RememberVideoQualityPatch : BytecodePatch(
     setOf(
         VideoQualitySetterFingerprint,
         VideoQualityItemOnClickParentFingerprint,
-        NewVideoQualityChangedFingerprint
-    )
+        NewVideoQualityChangedFingerprint,
+    ),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/playback/quality/RememberVideoQualityPatch;"
@@ -66,14 +67,14 @@ object RememberVideoQualityPatch : BytecodePatch(
                 key = "revanced_video_quality_default_wifi",
                 summaryKey = null,
                 entriesKey = "revanced_video_quality_default_entries",
-                entryValuesKey = "revanced_video_quality_default_entry_values"
+                entryValuesKey = "revanced_video_quality_default_entry_values",
             ),
             ListPreference(
                 key = "revanced_video_quality_default_mobile",
                 summaryKey = null,
                 entriesKey = "revanced_video_quality_default_entries",
-                entryValuesKey = "revanced_video_quality_default_entry_values"
-            )
+                entryValuesKey = "revanced_video_quality_default_entry_values",
+            ),
         )
 
         /*
@@ -85,11 +86,11 @@ object RememberVideoQualityPatch : BytecodePatch(
          */
         VideoInformationPatch.onCreateHook(INTEGRATIONS_CLASS_DESCRIPTOR, "newVideoStarted")
 
-
         // Inject a call to set the remembered quality once a video loads.
         VideoQualitySetterFingerprint.result?.also {
-            if (!SetQualityByIndexMethodClassFieldReferenceFingerprint.resolve(context, it.classDef))
+            if (!SetQualityByIndexMethodClassFieldReferenceFingerprint.resolve(context, it.classDef)) {
                 throw PatchException("Could not resolve fingerprint to find setQualityByIndex method")
+            }
         }?.let {
             // This instruction refers to the field with the type that contains the setQualityByIndex method.
             val instructions = SetQualityByIndexMethodClassFieldReferenceFingerprint.result!!
@@ -132,7 +133,6 @@ object RememberVideoQualityPatch : BytecodePatch(
             )
         } ?: throw VideoQualitySetterFingerprint.exception
 
-
         // Inject a call to remember the selected quality.
         VideoQualityItemOnClickParentFingerprint.result?.let {
             val onItemClickMethod = it.mutableClass.methods.find { method -> method.name == "onItemClick" }
@@ -142,11 +142,10 @@ object RememberVideoQualityPatch : BytecodePatch(
 
                 addInstruction(
                     0,
-                    "invoke-static {p$listItemIndexParameter}, $INTEGRATIONS_CLASS_DESCRIPTOR->userChangedQuality(I)V"
+                    "invoke-static {p$listItemIndexParameter}, $INTEGRATIONS_CLASS_DESCRIPTOR->userChangedQuality(I)V",
                 )
             } ?: throw PatchException("Failed to find onItemClick method")
         } ?: throw VideoQualityItemOnClickParentFingerprint.exception
-
 
         // Remember video quality if not using old layout menu.
         NewVideoQualityChangedFingerprint.result?.apply {
@@ -156,7 +155,7 @@ object RememberVideoQualityPatch : BytecodePatch(
 
                 addInstruction(
                     index + 1,
-                    "invoke-static {v$qualityRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->userChangedQualityInNewFlyout(I)V"
+                    "invoke-static {v$qualityRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->userChangedQualityInNewFlyout(I)V",
                 )
             }
         } ?: throw NewVideoQualityChangedFingerprint.exception

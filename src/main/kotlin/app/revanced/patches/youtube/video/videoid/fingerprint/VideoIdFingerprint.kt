@@ -18,5 +18,5 @@ internal object VideoIdFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT_OBJECT,
-    )
+    ),
 )

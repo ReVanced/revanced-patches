@@ -29,8 +29,8 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage("com.ss.android.ugc.trill", ["32.5.3"]),
-        CompatiblePackage("com.zhiliaoapp.musically", ["32.5.3"])
-    ]
+        CompatiblePackage("com.zhiliaoapp.musically", ["32.5.3"]),
+    ],
 )
 @Suppress("unused")
 object DownloadsPatch : BytecodePatch(
@@ -39,8 +39,8 @@ object DownloadsPatch : BytecodePatch(
         ACLCommonShareFingerprint2,
         ACLCommonShareFingerprint3,
         DownloadPathParentFingerprint,
-        SettingsStatusLoadFingerprint
-    )
+        SettingsStatusLoadFingerprint,
+    ),
 ) {
     override fun execute(context: BytecodeContext) {
         fun MethodFingerprint.getMethod() = result?.mutableMethod ?: throw exception
@@ -52,7 +52,7 @@ object DownloadsPatch : BytecodePatch(
                     """
                         const/4 v0, 0x0
                         return v0
-                    """
+                    """,
                 )
             },
             ACLCommonShareFingerprint2 to {
@@ -61,7 +61,7 @@ object DownloadsPatch : BytecodePatch(
                     """
                         const/4 v0, 0x2
                         return v0
-                    """
+                    """,
                 )
             },
             // Download videos without watermark.
@@ -76,7 +76,7 @@ object DownloadsPatch : BytecodePatch(
                     return v0
                     :noremovewatermark
                     nop
-                """
+                """,
                 )
             },
             // Change the download path patch.
@@ -92,7 +92,7 @@ object DownloadsPatch : BytecodePatch(
                 }
                 val secondIndex = downloadUriMethod.indexOfFirstInstruction {
                     opcode == Opcode.INVOKE_STATIC && ((this as Instruction35c).reference as MethodReference).returnType.contains(
-                        "Uri"
+                        "Uri",
                     )
                 }
 
@@ -101,7 +101,7 @@ object DownloadsPatch : BytecodePatch(
                     """
                     invoke-static {}, Lapp/revanced/integrations/tiktok/download/DownloadsPatch;->getDownloadPath()Ljava/lang/String;
                     move-result-object v0
-                """
+                """,
                 )
 
                 downloadUriMethod.addInstructions(
@@ -109,15 +109,15 @@ object DownloadsPatch : BytecodePatch(
                     """
                     invoke-static {}, Lapp/revanced/integrations/tiktok/download/DownloadsPatch;->getDownloadPath()Ljava/lang/String;
                     move-result-object v0
-                """
+                """,
                 )
             },
             SettingsStatusLoadFingerprint to {
                 addInstruction(
                     0,
-                    "invoke-static {}, Lapp/revanced/integrations/tiktok/settings/SettingsStatus;->enableDownload()V"
+                    "invoke-static {}, Lapp/revanced/integrations/tiktok/settings/SettingsStatus;->enableDownload()V",
                 )
-            }
+            },
         ).forEach { (fingerprint, patch) ->
             fingerprint.getMethod().patch()
         }

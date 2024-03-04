@@ -8,6 +8,6 @@ internal object IsSwipingUpFingerprint : MethodFingerprint(
     parameters = listOf("Landroid/view/MotionEvent;", "J"),
     opcodes = listOf(
         Opcode.SGET_OBJECT,
-        Opcode.IGET_OBJECT
-    )
+        Opcode.IGET_OBJECT,
+    ),
 )

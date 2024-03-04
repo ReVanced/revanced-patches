@@ -8,7 +8,7 @@ internal object SystemShareSheetFingerprint : MethodFingerprint(
     parameters = listOf("L", "Ljava/util/Map;"),
     opcodes = listOf(
         Opcode.CHECK_CAST,
-        Opcode.GOTO
+        Opcode.GOTO,
     ),
-    strings = listOf("YTShare_Logging_Share_Intent_Endpoint_Byte_Array")
+    strings = listOf("YTShare_Logging_Share_Intent_Endpoint_Byte_Array"),
 )

@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object AllowExclusiveAudioPlaybackFingerprint: MethodFingerprint(
+internal object AllowExclusiveAudioPlaybackFingerprint : MethodFingerprint(
     "Z",
     AccessFlags.PUBLIC or AccessFlags.FINAL,
     listOf(),
@@ -20,6 +20,6 @@ internal object AllowExclusiveAudioPlaybackFingerprint: MethodFingerprint(
         Opcode.GOTO,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
-        Opcode.RETURN
-    )
+        Opcode.RETURN,
+    ),
 )

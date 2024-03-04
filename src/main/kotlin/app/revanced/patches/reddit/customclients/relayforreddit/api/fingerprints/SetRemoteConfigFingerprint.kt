@@ -4,5 +4,5 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 
 internal object SetRemoteConfigFingerprint : MethodFingerprint(
     strings = listOf("reddit_oauth_url"),
-    parameters = listOf("Lcom/google/firebase/remoteconfig/FirebaseRemoteConfig;")
+    parameters = listOf("Lcom/google/firebase/remoteconfig/FirebaseRemoteConfig;"),
 )
