@@ -6,23 +6,24 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import org.w3c.dom.Element
 
-
 @Patch(
     name = "Remove broadcasts restriction",
     description = "Enables starting/stopping NetGuard via broadcasts.",
     compatiblePackages = [CompatiblePackage("eu.faircode.netguard")],
-    use = false
+    use = false,
 )
 @Suppress("unused")
 object RemoveBroadcastsRestrictionPatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
-        context.xmlEditor["AndroidManifest.xml"].use { dom ->
-            val applicationNode = dom
-                .file
-                .getElementsByTagName("application")
-                .item(0) as Element
+        context.xmlEditor["AndroidManifest.xml"].use { editor ->
+            val document = editor.file
 
-            applicationNode.getElementsByTagName("receiver").also {  list ->
+            val applicationNode =
+                document
+                    .getElementsByTagName("application")
+                    .item(0) as Element
+
+            applicationNode.getElementsByTagName("receiver").also { list ->
                 for (i in 0 until list.length) {
                     val element = list.item(i) as? Element ?: continue
                     if (element.getAttribute("android:name") == "eu.faircode.netguard.WidgetAdmin") {

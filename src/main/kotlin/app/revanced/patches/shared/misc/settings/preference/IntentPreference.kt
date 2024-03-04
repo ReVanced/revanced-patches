@@ -1,19 +1,16 @@
 package app.revanced.patches.shared.misc.settings.preference
 
-import app.revanced.patches.shared.misc.settings.preference.IntentPreference.Intent
 import app.revanced.util.resource.BaseResource
 import org.w3c.dom.Document
 
 /**
  * A preference that opens an intent.
  *
- * @param key The preference key. If null, other parameters must be specified.
+ * @param key Optional preference key.
  * @param titleKey The preference title key.
  * @param summaryKey The preference summary key.
  * @param tag The preference tag.
  * @param intent The intent to open.
- *
- * @see Intent
  */
 class IntentPreference(
     key: String? = null,
@@ -21,7 +18,7 @@ class IntentPreference(
     summaryKey: String? = "${key}_summary",
     tag: String = "Preference",
     val intent: Intent,
-) : BasePreference(null, titleKey, summaryKey, tag) {
+) : BasePreference(key, titleKey, summaryKey, tag) {
 
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
         super.serialize(ownerDocument, resourceCallback).apply {

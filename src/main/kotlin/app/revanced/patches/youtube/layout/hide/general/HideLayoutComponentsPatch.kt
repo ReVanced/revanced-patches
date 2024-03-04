@@ -12,6 +12,8 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.InputType
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ParseElementFromBufferFingerprint
@@ -19,7 +21,6 @@ import app.revanced.patches.youtube.layout.hide.general.fingerprints.PlayerOverl
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ShowWatermarkFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.patches.youtube.misc.settings.SettingsPatch.PreferenceScreen
 import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -31,11 +32,12 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
     dependencies = [
         LithoFilterPatch::class,
         SettingsPatch::class,
-        AddResourcesPatch::class
+        AddResourcesPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube",
+            [
                 "18.32.39",
                 "18.37.36",
                 "18.38.44",
@@ -48,14 +50,14 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            ]
-        )
-    ]
+                "19.04.37",
+            ],
+        ),
+    ],
 )
 @Suppress("unused")
 object HideLayoutComponentsPatch : BytecodePatch(
-    setOf(ParseElementFromBufferFingerprint, PlayerOverlayFingerprint)
+    setOf(ParseElementFromBufferFingerprint, PlayerOverlayFingerprint),
 ) {
     private const val LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/components/LayoutComponentsFilter;"
@@ -64,59 +66,68 @@ object HideLayoutComponentsPatch : BytecodePatch(
     private const val CUSTOM_FILTER_CLASS_NAME =
         "Lapp/revanced/integrations/youtube/patches/components/CustomFilter;"
 
-
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        PreferenceScreen.LAYOUT.addPreferences(
-            SwitchPreference("revanced_hide_gray_separator"),
-            SwitchPreference("revanced_hide_join_membership_button"),
-            SwitchPreference("revanced_hide_channel_watermark"),
-            SwitchPreference("revanced_hide_for_you_shelf"),
-            SwitchPreference("revanced_hide_notify_me_button"),
-            SwitchPreference("revanced_hide_timed_reactions"),
-            SwitchPreference("revanced_hide_search_result_recommendations"),
-            SwitchPreference("revanced_hide_search_result_shelf_header"),
-            SwitchPreference("revanced_hide_channel_guidelines"),
-            SwitchPreference("revanced_hide_expandable_chip"),
-            SwitchPreference("revanced_hide_video_quality_menu_footer"),
-            SwitchPreference("revanced_hide_chapters"),
-            SwitchPreference("revanced_hide_community_posts"),
-            SwitchPreference("revanced_hide_compact_banner"),
-            SwitchPreference("revanced_hide_movies_section"),
-            SwitchPreference("revanced_hide_feed_survey"),
-            SwitchPreference("revanced_hide_community_guidelines"),
-            SwitchPreference("revanced_hide_subscribers_community_guidelines"),
-            SwitchPreference("revanced_hide_channel_member_shelf"),
-            SwitchPreference("revanced_hide_emergency_box"),
-            SwitchPreference("revanced_hide_info_panels"),
-            SwitchPreference("revanced_hide_medical_panels"),
+        SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_hide_channel_bar"),
-            SwitchPreference("revanced_hide_quick_actions"),
-            SwitchPreference("revanced_hide_related_videos"),
-            SwitchPreference("revanced_hide_image_shelf"),
-            SwitchPreference("revanced_hide_latest_posts_ads"),
-            SwitchPreference("revanced_hide_mix_playlists"),
-            SwitchPreference("revanced_hide_artist_cards"),
+            SwitchPreference("revanced_hide_channel_guidelines"),
+            SwitchPreference("revanced_hide_channel_member_shelf"),
+            SwitchPreference("revanced_hide_channel_watermark"),
             SwitchPreference("revanced_hide_chips_shelf"),
-            app.revanced.patches.shared.misc.settings.preference.PreferenceScreen(
-                "revanced_hide_description_components_preference_screen",
+            SwitchPreference("revanced_hide_community_guidelines"),
+            PreferenceScreen(
+                key = "revanced_hide_description_components_screen",
                 preferences = setOf(
+                    SwitchPreference("revanced_hide_chapters"),
                     SwitchPreference("revanced_hide_info_cards_section"),
                     SwitchPreference("revanced_hide_game_section"),
                     SwitchPreference("revanced_hide_music_section"),
                     SwitchPreference("revanced_hide_podcast_section"),
                     SwitchPreference("revanced_hide_transcript_section"),
-                )
+                ),
             ),
-            app.revanced.patches.shared.misc.settings.preference.PreferenceScreen(
-                "revanced_custom_filter_preference_screen",
+            SwitchPreference("revanced_hide_emergency_box"),
+            SwitchPreference("revanced_hide_expandable_chip"),
+            SwitchPreference("revanced_hide_info_panels"),
+            SwitchPreference("revanced_hide_medical_panels"),
+            SwitchPreference("revanced_hide_quick_actions"),
+            SwitchPreference("revanced_hide_related_videos"),
+            SwitchPreference("revanced_hide_subscribers_community_guidelines"),
+            SwitchPreference("revanced_hide_timed_reactions"),
+        )
+
+        SettingsPatch.PreferenceScreen.FEED.addPreferences(
+            SwitchPreference("revanced_hide_artist_cards"),
+            SwitchPreference("revanced_hide_community_posts"),
+            SwitchPreference("revanced_hide_compact_banner"),
+            SwitchPreference("revanced_hide_feed_survey"),
+            SwitchPreference("revanced_hide_for_you_shelf"),
+            SwitchPreference("revanced_hide_image_shelf"),
+            SwitchPreference("revanced_hide_join_membership_button"),
+            SwitchPreference("revanced_hide_latest_posts_ads"),
+            SwitchPreference("revanced_hide_mix_playlists"),
+            SwitchPreference("revanced_hide_movies_section"),
+            SwitchPreference("revanced_hide_notify_me_button"),
+            SwitchPreference("revanced_hide_search_result_recommendations"),
+            SwitchPreference("revanced_hide_search_result_shelf_header"),
+        )
+
+        SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+            SwitchPreference("revanced_hide_gray_separator"),
+            PreferenceScreen(
+                key = "revanced_custom_filter_screen",
+                sorting = Sorting.UNSORTED,
                 preferences = setOf(
                     SwitchPreference("revanced_custom_filter"),
                     // TODO: This should be a dynamic ListPreference, which does not exist yet
-                    TextPreference("revanced_custom_filter_strings", inputType = InputType.TEXT_MULTI_LINE)
-                )
-            )
+                    TextPreference("revanced_custom_filter_strings", inputType = InputType.TEXT_MULTI_LINE),
+                ),
+            ),
+        )
+
+        SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
+            SwitchPreference("revanced_hide_video_quality_menu_footer"),
         )
 
         LithoFilterPatch.addFilter(LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR)
@@ -136,14 +147,15 @@ object HideLayoutComponentsPatch : BytecodePatch(
                 val byteBufferRegister = getInstruction<FiveRegisterInstruction>(consumeByteBufferIndex).registerD
 
                 addInstructionsWithLabels(
-                    consumeByteBufferIndex, """
+                    consumeByteBufferIndex,
+                    """
                         invoke-static {v$conversionContextRegister, v$byteBufferRegister}, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->filterMixPlaylists(Ljava/lang/Object;[B)Z
                         move-result v0 # Conveniently same register happens to be free. 
                         if-nez v0, :return_empty_component
-                    """, ExternalLabel("return_empty_component", returnEmptyComponentInstruction)
+                    """,
+                    ExternalLabel("return_empty_component", returnEmptyComponentInstruction),
                 )
             }
-
         } ?: throw ParseElementFromBufferFingerprint.exception
 
         // endregion
@@ -157,10 +169,11 @@ object HideLayoutComponentsPatch : BytecodePatch(
 
             removeInstruction(index)
             addInstructions(
-                index, """
+                index,
+                """
                     invoke-static {}, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->showWatermark()Z
                     move-result p2
-                """
+                """,
             )
         } ?: throw ShowWatermarkFingerprint.exception
 

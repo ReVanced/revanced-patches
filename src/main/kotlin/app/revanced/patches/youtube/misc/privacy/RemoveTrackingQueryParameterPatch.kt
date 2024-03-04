@@ -51,7 +51,9 @@ object RemoveTrackingQueryParameterPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.MISC.addPreferences(SwitchPreference("revanced_remove_tracking_query_parameter"))
+        SettingsPatch.PreferenceScreen.MISC.addPreferences(
+            SwitchPreference("revanced_remove_tracking_query_parameter")
+        )
 
         fun MethodFingerprint.hook(
             getInsertIndex: PatternScanResult.() -> Int,

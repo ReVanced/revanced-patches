@@ -1,9 +1,10 @@
 package app.revanced.patches.shared.misc.settings.preference
 
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import java.io.Closeable
 
 abstract class BasePreferenceScreen(
-    private val root: MutableSet<Screen> = mutableSetOf()
+    private val root: MutableSet<Screen> = mutableSetOf(),
 ) : Closeable {
 
     override fun close() {
@@ -24,33 +25,27 @@ abstract class BasePreferenceScreen(
         titleKey: String = "${key}_title",
         private val summaryKey: String? = "${key}_summary",
         preferences: MutableSet<BasePreference> = mutableSetOf(),
-        val categories: MutableSet<Category> = mutableSetOf()
+        val categories: MutableSet<Category> = mutableSetOf(),
+        private val sorting: Sorting = Sorting.BY_TITLE,
     ) : BasePreferenceCollection(key, titleKey, preferences) {
-
-        /**
-         * Initialize using title and summary keys with suffix "_title" and "_summary".
-         */
-        constructor(
-            key: String? = null,
-            preferences: MutableSet<BasePreference> = mutableSetOf(),
-            categories: MutableSet<Category> = mutableSetOf()
-        ) : this(key, key + "_title", key + "_summary", preferences, categories)
 
         override fun transform(): PreferenceScreen {
             return PreferenceScreen(
                 key,
                 titleKey,
                 summaryKey,
+                sorting,
                 // Screens and preferences are sorted at runtime by integrations code,
-                // so they appear in alphabetical order for the localized language in use.
-                preferences = preferences + categories.map { it.transform() }
+                // so title sorting uses the localized language in use.
+                preferences = preferences + categories.map { it.transform() },
             )
         }
 
         private fun ensureScreenInserted() {
             // Add to screens if not yet done
-            if (!root.contains(this))
+            if (!root.contains(this)) {
                 root.add(this)
+            }
         }
 
         fun addPreferences(vararg preferences: BasePreference) {
@@ -61,13 +56,13 @@ abstract class BasePreferenceScreen(
         open inner class Category(
             key: String? = null,
             titleKey: String = "${key}_title",
-            preferences: MutableSet<BasePreference> = mutableSetOf()
+            preferences: MutableSet<BasePreference> = mutableSetOf(),
         ) : BasePreferenceCollection(key, titleKey, preferences) {
             override fun transform(): PreferenceCategory {
                 return PreferenceCategory(
                     key,
                     titleKey,
-                    preferences = preferences
+                    preferences = preferences,
                 )
             }
 
@@ -75,8 +70,9 @@ abstract class BasePreferenceScreen(
                 ensureScreenInserted()
 
                 // Add to the categories if not done yet.
-                if (!categories.contains(this))
+                if (!categories.contains(this)) {
                     categories.add(this)
+                }
 
                 this.preferences.addAll(preferences)
             }
@@ -86,7 +82,7 @@ abstract class BasePreferenceScreen(
     abstract class BasePreferenceCollection(
         val key: String? = null,
         val titleKey: String = "${key}_title",
-        val preferences: MutableSet<BasePreference> = mutableSetOf()
+        val preferences: MutableSet<BasePreference> = mutableSetOf(),
     ) {
         abstract fun transform(): BasePreference
     }

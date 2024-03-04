@@ -11,23 +11,25 @@ import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 
 abstract class BaseIntegrationsPatch(
-    private val hooks: Set<IntegrationsFingerprint>
+    private val hooks: Set<IntegrationsFingerprint>,
 ) : BytecodePatch(hooks) {
 
     @Deprecated(
         "Use the constructor without the integrationsDescriptor parameter",
-        ReplaceWith("AbstractIntegrationsPatch(hooks)")
+        ReplaceWith("BaseIntegrationsPatch(hooks)"),
     )
     @Suppress("UNUSED_PARAMETER")
     constructor(
         integrationsDescriptor: String,
-        hooks: Set<IntegrationsFingerprint>
+        hooks: Set<IntegrationsFingerprint>,
     ) : this(hooks)
 
     override fun execute(context: BytecodeContext) {
-        if (context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR) == null) throw PatchException(
-            "Integrations have not been merged yet. This patch can not succeed without merging the integrations."
-        )
+        if (context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR) == null) {
+            throw PatchException(
+                "Integrations have not been merged yet. This patch can not succeed without merging the integrations.",
+            )
+        }
 
         hooks.forEach { hook ->
             hook.invoke(INTEGRATIONS_CLASS_DESCRIPTOR)
@@ -47,14 +49,14 @@ abstract class BaseIntegrationsPatch(
         opcodes: Iterable<Opcode?>? = null,
         strings: Iterable<String>? = null,
         customFingerprint: ((methodDef: Method, classDef: ClassDef) -> Boolean)? = null,
-        private val contextRegisterResolver: (Method) -> Int = object : IRegisterResolver {}
+        private val contextRegisterResolver: (Method) -> Int = object : IRegisterResolver {},
     ) : MethodFingerprint(
         returnType,
         accessFlags,
         parameters,
         opcodes,
         strings,
-        customFingerprint
+        customFingerprint,
     ) {
         fun invoke(integrationsDescriptor: String) {
             result?.mutableMethod?.let { method ->
@@ -63,7 +65,7 @@ abstract class BaseIntegrationsPatch(
                 method.addInstruction(
                     0,
                     "sput-object v$contextRegister, " +
-                            "$integrationsDescriptor->context:Landroid/content/Context;"
+                        "$integrationsDescriptor->context:Landroid/content/Context;",
                 )
             } ?: throw PatchException("Could not find hook target fingerprint.")
         }

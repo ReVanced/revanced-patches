@@ -22,7 +22,9 @@ internal object HideFloatingMicrophoneButtonResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(SwitchPreference("revanced_hide_floating_microphone_button"))
+        SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+            SwitchPreference("revanced_hide_floating_microphone_button")
+        )
 
         fabButtonId = ResourceMappingPatch.resourceMappings.find { it.type == "id" && it.name == "fab" }?.id
             ?: throw PatchException("Can not find required fab button resource id")

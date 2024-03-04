@@ -51,7 +51,9 @@ object EnableSeekbarTappingPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(SwitchPreference("revanced_seekbar_tapping"))
+        SettingsPatch.PreferenceScreen.SEEKBAR.addPreferences(
+            SwitchPreference("revanced_seekbar_tapping")
+        )
 
         // Find the required methods to tap the seekbar.
         val seekbarTappingMethods = OnTouchEventHandlerFingerprint.result?.let {

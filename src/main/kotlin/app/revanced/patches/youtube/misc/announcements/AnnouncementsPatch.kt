@@ -29,7 +29,9 @@ object AnnouncementsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.MISC.addPreferences(SwitchPreference("revanced_announcements"))
+        SettingsPatch.PreferenceScreen.MISC.addPreferences(
+            SwitchPreference("revanced_announcements")
+        )
 
         val onCreateMethod = MainActivityFingerprint.result?.let {
             it.mutableClass.methods.find { method -> method.name == "onCreate" }

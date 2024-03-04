@@ -17,25 +17,26 @@ abstract class BaseDebuggingPatch(
     //  so we do not have to pass it in as a dependency AND it's preference screen at the same time.
     private val miscPreferenceScreen: BasePreferenceScreen.Screen,
     private val additionalDebugPreferences: Set<BasePreference> = emptySet(),
-    additionalDependencies: Set<PatchClass> = emptySet()
+    additionalDependencies: Set<PatchClass> = emptySet(),
 ) : ResourcePatch(
     name = "Enable debugging",
     description = "Adds options for debugging.",
     dependencies = setOf(integrationsPatch, settingsPatch) + AddResourcesPatch::class + additionalDependencies,
-    compatiblePackages = compatiblePackages
+    compatiblePackages = compatiblePackages,
 ) {
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(BaseDebuggingPatch::class)
 
         miscPreferenceScreen.addPreferences(
             PreferenceScreen(
-                "revanced_debug_preference_screen",
+                "revanced_debug_screen",
+                sorting = PreferenceScreen.Sorting.UNSORTED,
                 preferences = setOf(
                     SwitchPreference("revanced_debug"),
                     SwitchPreference("revanced_debug_stacktrace"),
-                    SwitchPreference("revanced_debug_toast_on_error")
-                ) + additionalDebugPreferences
-            )
+                    SwitchPreference("revanced_debug_toast_on_error"),
+                ) + additionalDebugPreferences,
+            ),
         )
     }
 }

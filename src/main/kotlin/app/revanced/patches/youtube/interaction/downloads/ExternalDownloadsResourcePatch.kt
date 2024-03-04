@@ -6,6 +6,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.playercontrols.BottomControlsResourcePatch
@@ -18,25 +19,26 @@ import app.revanced.util.copyResources
         BottomControlsResourcePatch::class,
         SettingsPatch::class,
         AddResourcesPatch::class,
-    ]
+    ],
 )
 internal object ExternalDownloadsResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.INTERACTIONS.addPreferences(
+        SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
             PreferenceScreen(
-                "revanced_external_downloader_preference_screen",
+                key = "revanced_external_downloader_screen",
+                sorting = Sorting.UNSORTED,
                 preferences = setOf(
                     SwitchPreference("revanced_external_downloader"),
-                    TextPreference("revanced_external_downloader_name", inputType = InputType.TEXT)
+                    TextPreference("revanced_external_downloader_name", inputType = InputType.TEXT),
                 ),
-            )
+            ),
         )
 
         context.copyResources(
             "downloads",
-            ResourceGroup("drawable", "revanced_yt_download_button.xml")
+            ResourceGroup("drawable", "revanced_yt_download_button.xml"),
         )
 
         BottomControlsResourcePatch.addControls("downloads")

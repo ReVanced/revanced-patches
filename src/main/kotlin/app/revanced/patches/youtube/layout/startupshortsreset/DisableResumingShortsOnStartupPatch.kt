@@ -56,7 +56,7 @@ object DisableResumingShortsOnStartupPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
+        SettingsPatch.PreferenceScreen.SHORTS.addPreferences(
             SwitchPreference("revanced_disable_resuming_shorts_player")
         )
 

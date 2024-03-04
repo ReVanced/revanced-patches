@@ -26,7 +26,9 @@ object AudioAdsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.ADS.CLIENT_SIDE.addPreferences(SwitchPreference("revanced_block_audio_ads"))
+        SettingsPatch.PreferenceScreen.ADS.CLIENT_SIDE.addPreferences(
+            SwitchPreference("revanced_block_audio_ads")
+        )
 
         // Block playAds call
         with(AudioAdsPresenterPlayFingerprint.result!!) {
