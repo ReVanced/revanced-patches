@@ -8,7 +8,13 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
-import app.revanced.patches.youtube.layout.hide.shorts.fingerprints.*
+import app.revanced.patches.youtube.layout.hide.shorts.fingerprints.BottomNavigationBarFingerprint
+import app.revanced.patches.youtube.layout.hide.shorts.fingerprints.CreateShortsButtonsFingerprint
+import app.revanced.patches.youtube.layout.hide.shorts.fingerprints.ReelConstructorFingerprint
+import app.revanced.patches.youtube.layout.hide.shorts.fingerprints.RenderBottomNavigationBarFingerprint
+import app.revanced.patches.youtube.layout.hide.shorts.fingerprints.RenderBottomNavigationBarParentFingerprint
+import app.revanced.patches.youtube.layout.hide.shorts.fingerprints.SetPivotBarVisibilityFingerprint
+import app.revanced.patches.youtube.layout.hide.shorts.fingerprints.SetPivotBarVisibilityParentFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.util.exception
@@ -25,7 +31,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
         IntegrationsPatch::class,
         LithoFilterPatch::class,
         HideShortsComponentsResourcePatch::class,
-        ResourceMappingPatch::class,
+        ResourceMappingPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -43,10 +49,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37",
-            ],
-        ),
-    ],
+                "19.04.37"
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object HideShortsComponentsPatch : BytecodePatch(
@@ -55,8 +61,8 @@ object HideShortsComponentsPatch : BytecodePatch(
         ReelConstructorFingerprint,
         BottomNavigationBarFingerprint,
         RenderBottomNavigationBarParentFingerprint,
-        SetPivotBarVisibilityParentFingerprint,
-    ),
+        SetPivotBarVisibilityParentFingerprint
+    )
 ) {
     private const val FILTER_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/components/ShortsFilter;"
 
@@ -74,7 +80,7 @@ object HideShortsComponentsPatch : BytecodePatch(
                     insertIndex,
                     viewRegister,
                     FILTER_CLASS_DESCRIPTOR,
-                    "hideShortsShelf",
+                    "hideShortsShelf"
                 )
             }
         } // Do not throw an exception if not resolved.
@@ -111,7 +117,7 @@ object HideShortsComponentsPatch : BytecodePatch(
                     addInstruction(
                         insertIndex,
                         "sput-object v$viewRegister, $FILTER_CLASS_DESCRIPTOR->pivotBar:" +
-                            "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;",
+                            "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;"
                     )
                 }
             }
@@ -138,7 +144,7 @@ object HideShortsComponentsPatch : BytecodePatch(
                 addInstruction(
                     insertIndex,
                     "invoke-static { v$viewRegister }, $FILTER_CLASS_DESCRIPTOR->" +
-                        "hideNavigationBar(Landroid/view/View;)Landroid/view/View;",
+                        "hideNavigationBar(Landroid/view/View;)Landroid/view/View;"
                 )
             }
         } ?: throw BottomNavigationBarFingerprint.exception
@@ -149,7 +155,7 @@ object HideShortsComponentsPatch : BytecodePatch(
     private enum class ShortsButtons(private val resourceName: String, private val methodName: String) {
         COMMENTS("reel_dyn_comment", "hideShortsCommentsButton"),
         REMIX("reel_dyn_remix", "hideShortsRemixButton"),
-        SHARE("reel_dyn_share", "hideShortsShareButton"),
+        SHARE("reel_dyn_share", "hideShortsShareButton")
         ;
 
         fun injectHideCall(method: MutableMethod) {
