@@ -18,6 +18,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting EXTERNAL_DOWNLOADER = new BooleanSetting("revanced_external_downloader", FALSE);
     public static final StringSetting EXTERNAL_DOWNLOADER_PACKAGE_NAME = new StringSetting("revanced_external_downloader_name",
             "org.schabi.newpipe" /* NewPipe */, parent(EXTERNAL_DOWNLOADER));
+    public static final BooleanSetting USE_IN_APP_DOWNLOAD_BUTTON = new BooleanSetting("revanced_use_in_app_download_button", TRUE);
 
     // Copy video URL
     public static final BooleanSetting COPY_VIDEO_URL = new BooleanSetting("revanced_copy_video_url", FALSE);
