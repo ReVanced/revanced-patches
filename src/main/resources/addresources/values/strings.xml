@@ -226,7 +226,7 @@
             <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialog will be shown</string>
             <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">This does not bypass the age restriction. It just accepts it automatically.</string>
         </patch>
-        <patch id="interaction.downloads.ExternalDownloadsResourcePatch">
+        <patch id="interaction.downloads.DownloadsResourcePatch">
             <string name="revanced_external_downloader_screen_title">External downloads</string>
             <string name="revanced_external_downloader_screen_summary">Settings for using an external downloader</string>
             <string name="revanced_external_downloader_title">Show external download button</string>
@@ -235,6 +235,9 @@
             <string name="revanced_external_downloader_name_title">Downloader package name</string>
             <string name="revanced_external_downloader_name_summary">Package name of your installed external downloader app, such as NewPipe or Seal</string>
             <string name="revanced_external_downloader_not_installed_warning">%s is not installed. Please install it.</string>
+            <string name="revanced_use_in_app_download_button_title">Use in-app download button</string>
+            <string name="revanced_use_in_app_download_button_summary_on">Button will launch the external downloader</string>
+            <string name="revanced_use_in_app_download_button_summary_off">Button will launch the native in-app downloader</string>
         </patch>
         <patch id="interaction.seekbar.DisablePreciseSeekingGesturePatch">
             <string name="revanced_disable_precise_seeking_gesture_title">Disable precise seeking gesture</string>
