@@ -1,3 +1,10 @@
+# [4.4.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.3.0...v4.4.0-dev.1) (2024-03-04)
+
+
+### Features
+
+* **YouTube Vanced:** Remove `Hide ads` patch ([87887e4](https://github.com/ReVanced/revanced-patches/commit/87887e4163dd9e242209f4d0fefb415f9bc7ca75))
+
 # [4.3.0](https://github.com/ReVanced/revanced-patches/compare/v4.2.0...v4.3.0) (2024-03-02)
 
 
