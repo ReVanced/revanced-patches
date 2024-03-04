@@ -90,7 +90,7 @@ public class SpoofSignaturePatch {
         try {
             Logger.printDebug(() -> "Original protobuf parameter value: " + parameters);
 
-            if (!Settings.SPOOF_SIGNATURE.get()) {
+            if (parameters == null || !Settings.SPOOF_SIGNATURE.get()) {
                 return parameters;
             }
 
@@ -98,7 +98,7 @@ public class SpoofSignaturePatch {
             // For this reason, the player parameters of a clip are usually very long (150~300 characters).
             // Clips are 60 seconds or less in length, so no spoofing.
             //noinspection AssignmentUsedAsCondition
-            if (useOriginalStoryboardRenderer = parameters.length() > 150 || containsAny(parameters, CLIPS_PARAMETERS)) {
+            if (useOriginalStoryboardRenderer = parameters.length() > 150 || parameters.startsWith(CLIPS_PARAMETERS)) {
                 return parameters;
             }
 
