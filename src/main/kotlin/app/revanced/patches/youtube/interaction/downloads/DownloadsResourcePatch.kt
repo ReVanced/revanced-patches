@@ -31,8 +31,8 @@ internal object DownloadsResourcePatch : ResourcePatch() {
                 sorting = Sorting.UNSORTED,
                 preferences = setOf(
                     SwitchPreference("revanced_external_downloader"),
+                    SwitchPreference("revanced_external_downloader_action_button"),
                     TextPreference("revanced_external_downloader_name", inputType = InputType.TEXT),
-                    SwitchPreference("revanced_use_in_app_download_button"),
                 ),
             ),
         )

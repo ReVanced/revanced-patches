@@ -232,12 +232,12 @@
             <string name="revanced_external_downloader_title">Show external download button</string>
             <string name="revanced_external_downloader_summary_on">Download button shown in player</string>
             <string name="revanced_external_downloader_summary_off">Download button not shown in player</string>
+            <string name="revanced_external_downloader_action_button_title">Override player action button</string>
+            <string name="revanced_external_downloader_action_button_summary_on">Download action button will launch the external downloader</string>
+            <string name="revanced_external_downloader_action_button_summary_off">Download action button will launch the native in-app downloader</string>
             <string name="revanced_external_downloader_name_title">Downloader package name</string>
             <string name="revanced_external_downloader_name_summary">Package name of your installed external downloader app, such as NewPipe or Seal</string>
             <string name="revanced_external_downloader_not_installed_warning">%s is not installed. Please install it.</string>
-            <string name="revanced_use_in_app_download_button_title">Use in-app download button</string>
-            <string name="revanced_use_in_app_download_button_summary_on">Button will launch the external downloader</string>
-            <string name="revanced_use_in_app_download_button_summary_off">Button will launch the native in-app downloader</string>
         </patch>
         <patch id="interaction.seekbar.DisablePreciseSeekingGesturePatch">
             <string name="revanced_disable_precise_seeking_gesture_title">Disable precise seeking gesture</string>

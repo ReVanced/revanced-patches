@@ -64,8 +64,8 @@ abstract class BaseIntegrationsPatch(
 
                 method.addInstruction(
                     0,
-                    "sput-object v$contextRegister, " +
-                        "$integrationsDescriptor->context:Landroid/content/Context;",
+                    "invoke-static/range { v$contextRegister .. v$contextRegister }, " +
+                        "$integrationsDescriptor->setContext(Landroid/content/Context;)V",
                 )
             } ?: throw PatchException("Could not find hook target fingerprint.")
         }
