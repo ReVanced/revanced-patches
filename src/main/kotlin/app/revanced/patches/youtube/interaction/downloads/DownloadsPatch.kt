@@ -61,26 +61,36 @@ object DownloadsPatch : BytecodePatch(
             )
         }
 
+        val commonInstructions = """
+            move-result v0
+            if-eqz v0, :show_native_downloader
+            return-void
+            :show_native_downloader
+            nop
+        """
+
         DownloadActionCommandResolverFingerprint.resolve(context,
             DownloadActionCommandResolverParentFingerprint.resultOrThrow().classDef)
+        DownloadActionCommandResolverFingerprint.resultOrThrow().mutableMethod.apply {
+            addInstructionsWithLabels(
+                0,
+                """
+                    invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->inAppDownloadButtonOnClick()Z
+                    $commonInstructions
+                """
+            )
+        }
 
-        arrayOf(
-            DownloadActionCommandResolverFingerprint,
-            LegacyDownloadCommandResolverFingerprint
-        ).forEach { fingerprint ->
-            fingerprint.resultOrThrow().mutableMethod.apply {
-                addInstructionsWithLabels(
-                    0,
-                    """
-                        invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->inAppDownloadButtonOnClick()Z
-                        move-result v0
-                        if-eqz v0, :show_native_downloader
-                        return-void
-                        :show_native_downloader
-                        nop
-                    """
-                )
-            }
+        // Legacy fingerprint is used for old spoofed versions,
+        // or if download playlist is pressed on any version.
+        LegacyDownloadCommandResolverFingerprint.resultOrThrow().mutableMethod.apply {
+            addInstructionsWithLabels(
+                0,
+                """
+                    invoke-static/range {p1 .. p1}, $INTEGRATIONS_CLASS_DESCRIPTOR->inAppDownloadPlaylistLegacyOnClick(Ljava/lang/String;)Z
+                    $commonInstructions
+                """
+            )
         }
     }
 }
