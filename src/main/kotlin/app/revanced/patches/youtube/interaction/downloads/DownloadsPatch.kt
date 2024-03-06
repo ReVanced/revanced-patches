@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.interaction.downloads
 
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
@@ -9,6 +10,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.interaction.downloads.fingerprints.DownloadButtonActionFingerprint
 import app.revanced.patches.youtube.misc.playercontrols.PlayerControlsBytecodePatch
+import app.revanced.patches.youtube.shared.fingerprints.MainActivityFingerprint
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.util.exception
 
@@ -40,7 +42,8 @@ import app.revanced.util.exception
 object DownloadsPatch : BytecodePatch(
     setOf(
         DownloadButtonActionFingerprint,
-    ),
+        MainActivityFingerprint
+    )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/DownloadsPatch;"
     private const val BUTTON_DESCRIPTOR = "Lapp/revanced/integrations/youtube/videoplayer/ExternalDownloadButton;"
@@ -48,6 +51,14 @@ object DownloadsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         PlayerControlsBytecodePatch.initializeControl("$BUTTON_DESCRIPTOR->initializeButton(Landroid/view/View;)V")
         PlayerControlsBytecodePatch.injectVisibilityCheckCall("$BUTTON_DESCRIPTOR->changeVisibility(Z)V")
+
+        // Main activity is used to launch downloader intent.
+        MainActivityFingerprint.result?.mutableMethod?.apply {
+            addInstruction(
+                implementation!!.instructions.lastIndex,
+                "invoke-static { p0 }, $INTEGRATIONS_CLASS_DESCRIPTOR->activityCreated(Landroid/app/Activity;)V"
+            )
+        } ?: throw MainActivityFingerprint.exception
 
         DownloadButtonActionFingerprint.result?.let {
             it.mutableMethod.apply {
