@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 /**
- * For spoofing to older versions.
+ * For spoofing to older versions.  Also called if download playlist is pressed for any version.
  */
 internal object LegacyDownloadCommandResolverFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,

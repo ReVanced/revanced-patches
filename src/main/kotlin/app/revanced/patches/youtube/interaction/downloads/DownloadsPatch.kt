@@ -83,6 +83,8 @@ object DownloadsPatch : BytecodePatch(
 
         // Legacy fingerprint is used for old spoofed versions,
         // or if download playlist is pressed on any version.
+        // Downloading playlists is not yet supported,
+        // as the code this hooks does not easily expost the playlist id.
         LegacyDownloadCommandResolverFingerprint.resultOrThrow().mutableMethod.apply {
             addInstructionsWithLabels(
                 0,
