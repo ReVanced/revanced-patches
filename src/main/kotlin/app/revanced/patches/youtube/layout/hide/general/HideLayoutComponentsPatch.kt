@@ -118,6 +118,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
         SettingsPatch.PreferenceScreen.FEED.addPreferences(
             PreferenceScreen(
                 key = "revanced_hide_keyword_content_preference_screen",
+                sorting = Sorting.UNSORTED,
                 preferences = setOf(
                     SwitchPreference("revanced_hide_keyword_content"),
                     TextPreference("revanced_hide_keyword_content_phrases", inputType = InputType.TEXT_MULTI_LINE),
