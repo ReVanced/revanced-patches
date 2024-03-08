@@ -167,7 +167,6 @@
             <string name="revanced_custom_filter_summary_off">Custom filter is disabled</string>
             <string name="revanced_custom_filter_strings_title">Custom filter</string>
             <string name="revanced_custom_filter_strings_summary">List of component path builder strings to filter separated by new line</string>
-            <string name="revanced_custom_filter_toast_invalid_characters">Invalid custom filter (must be ASCII only): %s</string>
             <string name="revanced_custom_filter_toast_invalid_syntax">Invalid custom filter: %s</string>
             <string name="revanced_custom_filter_toast_reset">Custom filter reset to default</string>
             <string name="revanced_hide_keyword_content_preference_screen_title">Hide keyword content</string>
@@ -177,7 +176,6 @@
             <string name="revanced_hide_keyword_content_summary_off">Feed/search results are not filtered</string>
             <string name="revanced_hide_keyword_content_phrases_title">Keywords to hide</string>
             <string name="revanced_hide_keyword_content_phrases_summary">Keywords and phrases to hide, separated by new lines.\n\nText specified here automatically include some uppercase and lowercase variations, but some text requires entering the exact casing (ie: LeBlanc, John Doe, etc)</string>
-            <string name="revanced_hide_keyword_toast_invalid_characters" formatted="false">Invalid keyword phrase (must be ASCII only): %s</string>
             <string name="revanced_hide_keyword_toast_invalid_length" formatted="false">Invalid keyword length (must be at least %s characters): %s</string>
             <string name="revanced_hide_keyword_toast_reset">Keywords reset to default</string>
         </patch>
