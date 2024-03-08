@@ -65,6 +65,8 @@ object HideLayoutComponentsPatch : BytecodePatch(
         "Lapp/revanced/integrations/youtube/patches/components/DescriptionComponentsFilter;"
     private const val CUSTOM_FILTER_CLASS_NAME =
         "Lapp/revanced/integrations/youtube/patches/components/CustomFilter;"
+    private const val KEYWORD_FILTER_CLASS_NAME =
+        "Lapp/revanced/integrations/youtube/patches/components/HideKeywordContentFilter;"
 
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
@@ -113,6 +115,16 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_search_result_shelf_header"),
         )
 
+        SettingsPatch.PreferenceScreen.FEED.addPreferences(
+            PreferenceScreen(
+                key = "revanced_hide_keyword_content_preference_screen",
+                preferences = setOf(
+                    SwitchPreference("revanced_hide_keyword_content"),
+                    TextPreference("revanced_hide_keyword_content_phrases", inputType = InputType.TEXT_MULTI_LINE),
+                ),
+            )
+        )
+
         SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             SwitchPreference("revanced_hide_gray_separator"),
             PreferenceScreen(
@@ -132,6 +144,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
 
         LithoFilterPatch.addFilter(LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR)
         LithoFilterPatch.addFilter(DESCRIPTION_COMPONENTS_FILTER_CLASS_NAME)
+        LithoFilterPatch.addFilter(KEYWORD_FILTER_CLASS_NAME)
         LithoFilterPatch.addFilter(CUSTOM_FILTER_CLASS_NAME)
 
         // region Mix playlists
