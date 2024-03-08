@@ -46,7 +46,7 @@ import static app.revanced.integrations.youtube.returnyoutubedislike.ReturnYouTu
 public class ReturnYouTubeDislikePatch {
 
     public static final boolean IS_SPOOFING_TO_NON_LITHO_SHORTS_PLAYER =
-            SpoofAppVersionPatch.isSpoofingToEqualOrLessThan("18.33.40");
+            SpoofAppVersionPatch.isSpoofingToLessThan("18.34.00");
 
     /**
      * RYD data for the current video on screen.

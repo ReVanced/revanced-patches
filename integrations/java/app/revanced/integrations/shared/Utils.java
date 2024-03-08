@@ -40,7 +40,7 @@ import kotlin.text.Regex;
 public class Utils {
 
     @SuppressLint("StaticFieldLeak")
-    public static Context context;
+    private static Context context;
 
     private static String versionName;
 
@@ -231,6 +231,11 @@ public class Utils {
             Logger.initializationError(Utils.class, "Context is null, returning null!",  null);
         }
         return context;
+    }
+
+    public static void setContext(Context appContext) {
+        context = appContext;
+        Logger.printDebug(() -> "Set context: " + appContext); // Cannot log before context is set.
     }
 
     public static void setClipboard(@NonNull String text) {
