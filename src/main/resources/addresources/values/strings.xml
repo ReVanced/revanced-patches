@@ -175,7 +175,7 @@
             <string name="revanced_hide_keyword_content_summary_on">Feed/search is filtered to hide content that matches keyword phrases\n\nLimitations\n• Some UI elements may not be hidden\n• Some Shorts may not be hidden\n• Searching for a keyword may show no results</string>
             <string name="revanced_hide_keyword_content_summary_off">Feed/search results are not filtered</string>
             <string name="revanced_hide_keyword_content_phrases_title">Keywords to hide</string>
-            <string name="revanced_hide_keyword_content_phrases_summary">Keywords and phrases to hide, separated by new lines.\n\nText specified here automatically include some uppercase and lowercase variations, but some text requires entering the exact casing (ie: LeBlanc, John Doe, etc)</string>
+            <string name="revanced_hide_keyword_content_phrases_summary">Keywords and phrases to hide, separated by new lines\n\nText specified here automatically include some uppercase and lowercase variations, but some text requires entering exact casing (ie: LeBlanc, John Doe)</string>
             <string name="revanced_hide_keyword_toast_invalid_length" formatted="false">Invalid keyword length (must be at least %s characters): %s</string>
             <string name="revanced_hide_keyword_toast_reset">Keywords reset to default</string>
         </patch>
