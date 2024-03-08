@@ -1,3 +1,10 @@
+# [4.4.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.2...v4.4.0-dev.3) (2024-03-08)
+
+
+### Bug Fixes
+
+* **YouTube - Downloads:** Use new task context ([#2841](https://github.com/ReVanced/revanced-patches/issues/2841)) ([6d88cb4](https://github.com/ReVanced/revanced-patches/commit/6d88cb49ec739700866290babcba5fb3032dbced))
+
 # [4.4.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.1...v4.4.0-dev.2) (2024-03-04)
 
 
