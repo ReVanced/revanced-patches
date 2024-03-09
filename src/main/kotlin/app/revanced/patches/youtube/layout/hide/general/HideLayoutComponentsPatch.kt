@@ -66,7 +66,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
     private const val CUSTOM_FILTER_CLASS_NAME =
         "Lapp/revanced/integrations/youtube/patches/components/CustomFilter;"
     private const val KEYWORD_FILTER_CLASS_NAME =
-        "Lapp/revanced/integrations/youtube/patches/components/HideKeywordContentFilter;"
+        "Lapp/revanced/integrations/youtube/patches/components/KeywordContentFilter;"
 
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
