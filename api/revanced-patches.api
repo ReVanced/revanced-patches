@@ -1647,6 +1647,12 @@ public final class app/revanced/patches/youtube/misc/zoomhaptics/ZoomHapticsPatc
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/youtube/video/hdrbrightness/HDRBrightnessPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/video/hdrbrightness/HDRBrightnessPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/youtube/video/information/VideoInformationPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/video/information/VideoInformationPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
