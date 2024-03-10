@@ -901,11 +901,6 @@
             <string name="revanced_disable_zoom_haptics_summary_on">Haptics are disabled</string>
             <string name="revanced_disable_zoom_haptics_summary_off">Haptics are enabled</string>
         </patch>
-        <patch id="video.hdrbrightness.HDRBrightnessPatch">
-            <string name="revanced_hdr_auto_brightness_title">Enable auto HDR brightness</string>
-            <string name="revanced_hdr_auto_brightness_summary_on">Auto HDR brightness is enabled</string>
-            <string name="revanced_hdr_auto_brightness_summary_off">Auto HDR brightness is disabled</string>
-        </patch>
         <patch id="video.quality.RememberVideoQualityPatch">
             <string name="revanced_video_quality_default_entry_1">Automatic quality</string>
             <string name="revanced_video_quality_default_entry_2">2160p</string>
