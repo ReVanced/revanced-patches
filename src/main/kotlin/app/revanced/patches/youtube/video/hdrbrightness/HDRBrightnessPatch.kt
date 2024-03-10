@@ -10,6 +10,7 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.video.hdrbrightness.fingerprints.HDRBrightnessFingerprint
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -31,9 +32,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
-                "19.03.35",
-                "19.03.36",
-                "19.04.37"
+                // 19.09+ is dramatically different and the patched code is not present.
             ]
         )
     ]
@@ -44,6 +43,8 @@ object HDRBrightnessPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
+
+        if (HDRBrightnessFingerprint.result == null) throw HDRBrightnessFingerprint.exception
 
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
             SwitchPreference("revanced_hdr_auto_brightness")
