@@ -14,13 +14,14 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
+@Deprecated("Patch is obsolete and the hooked code is no longer present in 19.09+")
 @Patch(
-    name = "HDR auto brightness",
     description = "Adds an option to make the brightness of HDR videos follow the system default.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube",
+            [
                 "18.32.39",
                 "18.37.36",
                 "18.38.44",
@@ -33,20 +34,20 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
                 "19.02.39",
                 "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            ]
-        )
-    ]
+                "19.04.37",
+            ],
+        ),
+    ],
 )
 @Suppress("unused")
 object HDRBrightnessPatch : BytecodePatch(
-    setOf(HDRBrightnessFingerprint)
+    setOf(HDRBrightnessFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
-            SwitchPreference("revanced_hdr_auto_brightness")
+            SwitchPreference("revanced_hdr_auto_brightness"),
         )
 
         val method = HDRBrightnessFingerprint.result!!.mutableMethod
@@ -64,7 +65,7 @@ object HDRBrightnessPatch : BytecodePatch(
                 """
                    invoke-static {v$register}, Lapp/revanced/integrations/youtube/patches/HDRAutoBrightnessPatch;->getHDRBrightness(F)F
                    move-result v$register
-                """
+                """,
             )
         }
     }
