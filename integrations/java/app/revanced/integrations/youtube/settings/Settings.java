@@ -27,7 +27,6 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting COPY_VIDEO_URL_TIMESTAMP = new BooleanSetting("revanced_copy_video_url_timestamp", TRUE);
 
     // Video
-    public static final BooleanSetting HDR_AUTO_BRIGHTNESS = new BooleanSetting("revanced_hdr_auto_brightness", TRUE);
     public static final BooleanSetting RESTORE_OLD_VIDEO_QUALITY_MENU = new BooleanSetting("revanced_restore_old_video_quality_menu", TRUE);
     public static final BooleanSetting REMEMBER_VIDEO_QUALITY_LAST_SELECTED = new BooleanSetting("revanced_remember_video_quality_last_selected", TRUE);
     public static final IntegerSetting VIDEO_QUALITY_DEFAULT_WIFI = new IntegerSetting("revanced_video_quality_default_wifi", -2);
@@ -36,6 +35,8 @@ public class Settings extends BaseSettings {
     public static final FloatSetting PLAYBACK_SPEED_DEFAULT = new FloatSetting("revanced_playback_speed_default", 1.0f);
     public static final StringSetting CUSTOM_PLAYBACK_SPEEDS = new StringSetting("revanced_custom_playback_speeds",
             "0.25\n0.5\n0.75\n0.9\n0.95\n1.0\n1.05\n1.1\n1.25\n1.5\n1.75\n2.0\n3.0\n4.0\n5.0", true);
+    @Deprecated // Patch is obsolete and no longer works with 19.09+
+    public static final BooleanSetting HDR_AUTO_BRIGHTNESS = new BooleanSetting("revanced_hdr_auto_brightness", TRUE);
 
     // Ads
     public static final BooleanSetting HIDE_FULLSCREEN_ADS = new BooleanSetting("revanced_hide_fullscreen_ads", TRUE);
