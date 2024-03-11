@@ -1,3 +1,10 @@
+# [4.4.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.3...v4.4.0-dev.4) (2024-03-11)
+
+
+### Features
+
+* **YouTube :** Remove `HDR auto brightness` patch ([#2863](https://github.com/ReVanced/revanced-patches/issues/2863)) ([b4c7bf4](https://github.com/ReVanced/revanced-patches/commit/b4c7bf48084184e5f031f7f5139a9a29341d8ebf))
+
 # [4.4.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.2...v4.4.0-dev.3) (2024-03-08)
 
 
