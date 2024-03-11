@@ -10,14 +10,20 @@ import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.*
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import java.io.Closeable
 
 @Patch(
@@ -102,7 +108,11 @@ object LithoFilterPatch : BytecodePatch(
             val emptyComponentFieldIndex = builderMethodIndex + 2
 
             bytesToComponentContextMethod.mutableMethod.apply {
-                val insertHookIndex = bytesToComponentContextMethod.scanResult.patternScanResult!!.endIndex + 1
+                val insertHookIndex = indexOfFirstInstruction {
+                    opcode == Opcode.IPUT_OBJECT &&
+                            getReference<FieldReference>()?.type == "Ljava/lang/StringBuilder;"
+                } + 1
+                if (insertHookIndex <= 0) throw PatchException("Could not find insert index")
 
                 // region Get free registers that this patch uses.
                 // Registers are overwritten right after they are used in this patch, therefore free to clobber.
