@@ -1,3 +1,10 @@
+# [4.4.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.5...v4.4.0-dev.6) (2024-03-12)
+
+
+### Features
+
+* **Instagram - Hide timeline ads:** Make compatible with latest versions ([a212f29](https://github.com/ReVanced/revanced-patches/commit/a212f29bd33bb5e10f024e058d26e20ee926190b))
+
 # [4.4.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.4...v4.4.0-dev.5) (2024-03-11)
 
 
