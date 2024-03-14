@@ -12,14 +12,17 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.InputType
+import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
+import app.revanced.patches.youtube.layout.buttons.navigation.NavigationButtonsPatch
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ParseElementFromBufferFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.PlayerOverlayFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ShowWatermarkFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
+import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.Opcode
@@ -33,6 +36,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
         LithoFilterPatch::class,
         SettingsPatch::class,
         AddResourcesPatch::class,
+        NavigationButtonsPatch::class, // FIXME: use a sub patch
+        PlayerTypeHookPatch::class // Used by Keyword Content filter.
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -121,12 +126,15 @@ object HideLayoutComponentsPatch : BytecodePatch(
 
         SettingsPatch.PreferenceScreen.FEED.addPreferences(
             PreferenceScreen(
-                key = "revanced_hide_keyword_content_preference_screen",
+                key = "revanced_hide_keyword_content_screen",
                 sorting = Sorting.UNSORTED,
                 preferences = setOf(
-                    SwitchPreference("revanced_hide_keyword_content"),
+                    SwitchPreference("revanced_hide_keyword_content_search"),
+                    SwitchPreference("revanced_hide_keyword_content_home"),
+                    SwitchPreference("revanced_hide_keyword_content_subscriptions"),
                     TextPreference("revanced_hide_keyword_content_phrases", inputType = InputType.TEXT_MULTI_LINE),
-                ),
+                    NonInteractivePreference("revanced_hide_keyword_content_about")
+                )
             )
         )
 

@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.layout.buttons.navigation
 
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
@@ -16,8 +17,13 @@ import app.revanced.patches.youtube.layout.buttons.navigation.utils.InjectionUti
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.exception
+import app.revanced.util.getReference
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
+// TODO: break this patch apart so other patches can check what tab is active (without depending on this patch).
 @Patch(
     name = "Navigation buttons",
     description = "Adds options to hide and change navigation buttons (such as the Shorts button).",
@@ -54,7 +60,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 )
 @Suppress("unused")
 object NavigationButtonsPatch : BytecodePatch(
-    setOf(AddCreateButtonViewFingerprint),
+    setOf(AddCreateButtonViewFingerprint, ActionBarSearchResultsFingerprint),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/NavigationButtonsPatch;"
@@ -106,17 +112,17 @@ object NavigationButtonsPatch : BytecodePatch(
          * Inject hooks
          */
 
-        val enumHook = "sput-object v$REGISTER_TEMPLATE_REPLACEMENT, " +
-            "$INTEGRATIONS_CLASS_DESCRIPTOR->lastNavigationButton:Ljava/lang/Enum;"
+        val enumHook = "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, " +
+            "$INTEGRATIONS_CLASS_DESCRIPTOR->setLastAppNavigationEnum(Ljava/lang/Enum;)V"
         val buttonHook = "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, " +
-            "$INTEGRATIONS_CLASS_DESCRIPTOR->hideButton(Landroid/view/View;)V"
+            "$INTEGRATIONS_CLASS_DESCRIPTOR->navigationTabLoaded(Landroid/view/View;)V"
 
         // Inject bottom to top to not mess up the indices
         mapOf(
             buttonHook to buttonHookInsertIndex,
             enumHook to enumHookInsertIndex,
         ).forEach { (hook, insertIndex) ->
-            initializeButtonsResult.mutableMethod.injectHook(hook, insertIndex)
+            initializeButtonsResult.mutableMethod.injectHook(insertIndex, hook)
         }
 
         /*
@@ -154,14 +160,31 @@ object NavigationButtonsPatch : BytecodePatch(
 
         PivotBarCreateButtonViewFingerprint.result!!.apply {
             val insertIndex = scanResult.patternScanResult!!.endIndex
-
-            /*
-             * Inject hooks
-             */
-            val hook = "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, " +
-                "$INTEGRATIONS_CLASS_DESCRIPTOR->hideCreateButton(Landroid/view/View;)V"
-
-            mutableMethod.injectHook(hook, insertIndex)
+            mutableMethod.injectHook(
+                insertIndex,
+                "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, " +
+                        "$INTEGRATIONS_CLASS_DESCRIPTOR->createTabLoaded(Landroid/view/View;)V"
+            )
         }
+
+        /**
+         * Search bar TextView
+         */
+
+        // Two different layouts are used at the hooked code.
+        // Insert before the first ViewGroup method call after inflating,
+        // so this works regardless which layout is used.
+        ActionBarSearchResultsFingerprint.result?.mutableMethod?.apply {
+            val instructionIndex = implementation!!.instructions.indexOfFirst {
+                it.opcode == Opcode.INVOKE_VIRTUAL &&
+                        it.getReference<MethodReference>()?.name == "setLayoutDirection"
+            }
+            val register = getInstruction<FiveRegisterInstruction>(instructionIndex).registerC
+            addInstruction(
+                instructionIndex,
+                "invoke-static { v$register }, " +
+                        "$INTEGRATIONS_CLASS_DESCRIPTOR->searchBarResultsViewLoaded(Landroid/view/View;)V"
+            )
+        } ?: ActionBarSearchResultsFingerprint.exception
     }
 }
