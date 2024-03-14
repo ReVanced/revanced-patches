@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.buttons.navigation.utils
+package app.revanced.patches.youtube.misc.navigation.utils
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction

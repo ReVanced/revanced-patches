@@ -17,7 +17,7 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
-import app.revanced.patches.youtube.layout.buttons.navigation.NavigationButtonsPatch
+import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ParseElementFromBufferFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.PlayerOverlayFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ShowWatermarkFingerprint
@@ -36,7 +36,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
         LithoFilterPatch::class,
         SettingsPatch::class,
         AddResourcesPatch::class,
-        NavigationButtonsPatch::class, // FIXME: use a sub patch
+        NavigationBarHookPatch::class,
         PlayerTypeHookPatch::class // Used by Keyword Content filter.
     ],
     compatiblePackages = [
