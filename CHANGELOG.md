@@ -1,3 +1,10 @@
+# [4.4.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.6...v4.4.0-dev.7) (2024-03-14)
+
+
+### Bug Fixes
+
+* **YouTube - Client spoof:** Spoof all user agents ([44a8a13](https://github.com/ReVanced/revanced-patches/commit/44a8a1399897caaff3ff45db8549ddedb2f01b68))
+
 # [4.4.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.5...v4.4.0-dev.6) (2024-03-12)
 
 
