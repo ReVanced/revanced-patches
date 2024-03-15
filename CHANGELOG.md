@@ -1,3 +1,24 @@
+# [4.4.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.7...v4.4.0-dev.8) (2024-03-15)
+
+
+### Features
+
+* **YouTube - Downloads:** Use external downloader when selecting 'Download' in home feed flyout menu ([#2881](https://github.com/ReVanced/revanced-patches/issues/2881)) ([10afc8c](https://github.com/ReVanced/revanced-patches/commit/10afc8cc71ff29fea4937fb12fd3d1edf9c581f5))
+
+# [4.4.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.6...v4.4.0-dev.7) (2024-03-14)
+
+
+### Bug Fixes
+
+* **YouTube - Client spoof:** Spoof all user agents ([44a8a13](https://github.com/ReVanced/revanced-patches/commit/44a8a1399897caaff3ff45db8549ddedb2f01b68))
+
+# [4.4.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.5...v4.4.0-dev.6) (2024-03-12)
+
+
+### Features
+
+* **Instagram - Hide timeline ads:** Make compatible with latest versions ([a212f29](https://github.com/ReVanced/revanced-patches/commit/a212f29bd33bb5e10f024e058d26e20ee926190b))
+
 # [4.4.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.4...v4.4.0-dev.5) (2024-03-11)
 
 
