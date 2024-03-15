@@ -1,3 +1,10 @@
+# [4.4.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.7...v4.4.0-dev.8) (2024-03-15)
+
+
+### Features
+
+* **YouTube - Downloads:** Use external downloader when selecting 'Download' in home feed flyout menu ([#2881](https://github.com/ReVanced/revanced-patches/issues/2881)) ([10afc8c](https://github.com/ReVanced/revanced-patches/commit/10afc8cc71ff29fea4937fb12fd3d1edf9c581f5))
+
 # [4.4.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.6...v4.4.0-dev.7) (2024-03-14)
 
 
