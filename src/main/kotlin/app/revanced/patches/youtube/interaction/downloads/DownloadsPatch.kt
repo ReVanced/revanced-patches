@@ -6,9 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.youtube.interaction.downloads.fingerprints.DownloadActionCommandResolverFingerprint
-import app.revanced.patches.youtube.interaction.downloads.fingerprints.DownloadActionCommandResolverParentFingerprint
-import app.revanced.patches.youtube.interaction.downloads.fingerprints.LegacyDownloadCommandResolverFingerprint
+import app.revanced.patches.youtube.interaction.downloads.fingerprints.OfflineVideoEndpointFingerprint
 import app.revanced.patches.youtube.misc.playercontrols.PlayerControlsBytecodePatch
 import app.revanced.patches.youtube.shared.fingerprints.MainActivityFingerprint
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
@@ -45,8 +43,7 @@ import app.revanced.util.resultOrThrow
 @Suppress("unused")
 object DownloadsPatch : BytecodePatch(
     setOf(
-        DownloadActionCommandResolverParentFingerprint,
-        LegacyDownloadCommandResolverFingerprint,
+        OfflineVideoEndpointFingerprint,
         MainActivityFingerprint
     )
 ) {
@@ -65,36 +62,16 @@ object DownloadsPatch : BytecodePatch(
             )
         }
 
-        val commonInstructions = """
-            move-result v0
-            if-eqz v0, :show_native_downloader
-            return-void
-            :show_native_downloader
-            nop
-        """
-
-        DownloadActionCommandResolverFingerprint.resolve(context,
-            DownloadActionCommandResolverParentFingerprint.resultOrThrow().classDef)
-        DownloadActionCommandResolverFingerprint.resultOrThrow().mutableMethod.apply {
+        OfflineVideoEndpointFingerprint.resultOrThrow().mutableMethod.apply {
             addInstructionsWithLabels(
                 0,
                 """
-                    invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->inAppDownloadButtonOnClick()Z
-                    $commonInstructions
-                """
-            )
-        }
-
-        // Legacy fingerprint is used for old spoofed versions,
-        // or if download playlist is pressed on any version.
-        // Downloading playlists is not yet supported,
-        // as the code this hooks does not easily expost the playlist id.
-        LegacyDownloadCommandResolverFingerprint.resultOrThrow().mutableMethod.apply {
-            addInstructionsWithLabels(
-                0,
-                """
-                    invoke-static/range {p1 .. p1}, $INTEGRATIONS_CLASS_DESCRIPTOR->inAppDownloadPlaylistLegacyOnClick(Ljava/lang/String;)Z
-                    $commonInstructions
+                    invoke-static/range {p3 .. p3}, $INTEGRATIONS_CLASS_DESCRIPTOR->inAppDownloadButtonOnClick(Ljava/lang/String;)Z
+                    move-result v0
+                    if-eqz v0, :show_native_downloader
+                    return-void
+                    :show_native_downloader
+                    nop
                 """
             )
         }
