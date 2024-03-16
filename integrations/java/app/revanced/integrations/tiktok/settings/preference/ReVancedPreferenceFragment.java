@@ -1,17 +1,36 @@
 package app.revanced.integrations.tiktok.settings.preference;
 
+import android.preference.Preference;
 import android.preference.PreferenceScreen;
+import androidx.annotation.NonNull;
+import app.revanced.integrations.shared.settings.Setting;
 import app.revanced.integrations.shared.settings.preference.AbstractPreferenceFragment;
 import app.revanced.integrations.tiktok.settings.preference.categories.DownloadsPreferenceCategory;
 import app.revanced.integrations.tiktok.settings.preference.categories.FeedFilterPreferenceCategory;
 import app.revanced.integrations.tiktok.settings.preference.categories.IntegrationsPreferenceCategory;
 import app.revanced.integrations.tiktok.settings.preference.categories.SimSpoofPreferenceCategory;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Preference fragment for ReVanced settings
  */
 @SuppressWarnings("deprecation")
 public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
+
+    @Override
+    protected void syncSettingWithPreference(@NonNull @NotNull Preference pref,
+                                             @NonNull @NotNull Setting<?> setting,
+                                             boolean applySettingToPreference) {
+        if (pref instanceof RangeValuePreference) {
+            RangeValuePreference rangeValuePref = (RangeValuePreference) pref;
+            Setting.privateSetValueFromString(setting, rangeValuePref.getValue());
+        } else if (pref instanceof DownloadPathPreference) {
+            DownloadPathPreference downloadPathPref = (DownloadPathPreference) pref;
+            Setting.privateSetValueFromString(setting, downloadPathPref.getValue());
+        } else {
+            super.syncSettingWithPreference(pref, setting, applySettingToPreference);
+        }
+    }
 
     @Override
     protected void initialize() {
