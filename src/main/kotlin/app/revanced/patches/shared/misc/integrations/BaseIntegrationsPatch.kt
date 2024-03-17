@@ -59,8 +59,9 @@ abstract class BaseIntegrationsPatch(
         strings,
         customFingerprint,
     ) {
-        // Previous constructor that is missing the insert index.
-        // Here only for binary compatibility.
+        @Deprecated("Previous constructor that is missing the insert index." +
+                "Here only for binary compatibility, " +
+                "and this can be removed after the next major version update.")
         constructor(
             returnType: String? = null,
             accessFlags: Int? = null,
