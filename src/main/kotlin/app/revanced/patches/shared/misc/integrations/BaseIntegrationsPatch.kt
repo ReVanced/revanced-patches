@@ -49,7 +49,8 @@ abstract class BaseIntegrationsPatch(
         opcodes: Iterable<Opcode?>? = null,
         strings: Iterable<String>? = null,
         customFingerprint: ((methodDef: Method, classDef: ClassDef) -> Boolean)? = null,
-        private val contextRegisterResolver: (Method) -> Int = object : IRegisterResolver {},
+        private val insertIndexResolver: (Method) -> Int = object : IHookInsertIndexResolver {},
+        private val contextRegisterResolver: (Method) -> Int = object : IRegisterResolver {}
     ) : MethodFingerprint(
         returnType,
         accessFlags,
@@ -60,14 +61,19 @@ abstract class BaseIntegrationsPatch(
     ) {
         fun invoke(integrationsDescriptor: String) {
             result?.mutableMethod?.let { method ->
+                val insertIndex = insertIndexResolver(method)
                 val contextRegister = contextRegisterResolver(method)
 
                 method.addInstruction(
-                    0,
+                    insertIndex,
                     "invoke-static/range { v$contextRegister .. v$contextRegister }, " +
                         "$integrationsDescriptor->setContext(Landroid/content/Context;)V",
                 )
             } ?: throw PatchException("Could not find hook target fingerprint.")
+        }
+
+        interface IHookInsertIndexResolver : (Method) -> Int {
+            override operator fun invoke(method: Method) = 0
         }
 
         interface IRegisterResolver : (Method) -> Int {
