@@ -57,7 +57,7 @@ object NavigationButtonsPatch : BytecodePatch(
     setOf(AddCreateButtonViewFingerprint),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/youtube/patches/HideNavigationButtonsPatch;"
+        "Lapp/revanced/integrations/youtube/patches/NavigationButtonsPatch;"
 
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
