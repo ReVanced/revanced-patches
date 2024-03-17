@@ -16,8 +16,8 @@ import app.revanced.patches.youtube.misc.navigation.fingerprints.PivotBarCreateB
 import app.revanced.patches.youtube.misc.navigation.fingerprints.PivotBarEnumFingerprint
 import app.revanced.patches.youtube.misc.navigation.utils.InjectionUtils.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.patches.youtube.misc.navigation.utils.InjectionUtils.injectHook
-import app.revanced.util.exception
 import app.revanced.util.getReference
+import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -46,29 +46,25 @@ object NavigationBarHookPatch : BytecodePatch(
     private lateinit var navigationTabCreatedCallbackMethod: MutableMethod
 
     override fun execute(context: BytecodeContext) {
-        PivotBarConstructorFingerprint.result?.let {
+        PivotBarConstructorFingerprint.resultOrThrow().let {
             InitializeButtonsFingerprint.resolve(
                 context,
                 it.classDef
             )
-        } ?: throw PivotBarConstructorFingerprint.exception
+        }
 
-        val initializeButtonsResult = InitializeButtonsFingerprint.result
-            ?: throw InitializeButtonsFingerprint.exception
+        val initializeButtonsResult = InitializeButtonsFingerprint.resultOrThrow()
 
         val fingerprintResults =
             arrayOf(PivotBarEnumFingerprint, PivotBarButtonsViewFingerprint)
                 .onEach {
-                    if (!it.resolve(
-                            context,
-                            initializeButtonsResult.mutableMethod,
-                            initializeButtonsResult.mutableClass,
-                        )
-                    ) {
-                        throw it.exception
-                    }
+                    it.resolve(
+                        context,
+                        initializeButtonsResult.mutableMethod,
+                        initializeButtonsResult.mutableClass,
+                    )
                 }
-                .map { it.result!!.scanResult.patternScanResult!! }
+                .map { it.resultOrThrow().scanResult.patternScanResult!! }
 
         val enumScanResult = fingerprintResults[0]
         val buttonViewResult = fingerprintResults[1]
@@ -93,31 +89,29 @@ object NavigationBarHookPatch : BytecodePatch(
             initializeButtonsResult.mutableMethod.injectHook(insertIndex, hook)
         }
 
-        InitializeButtonsFingerprint.result?.let {
-            if (!PivotBarCreateButtonViewFingerprint.resolve(context, it.mutableMethod, it.mutableClass)) {
-                throw PivotBarCreateButtonViewFingerprint.exception
-            }
-        } ?: throw InitializeButtonsFingerprint.exception
+        InitializeButtonsFingerprint.resultOrThrow().let {
+            PivotBarCreateButtonViewFingerprint.resolve(context, it.mutableMethod, it.mutableClass)
+        }
 
         /**
          * Unique hook just for the Create tab button.
          */
-        PivotBarCreateButtonViewFingerprint.result?.apply {
+        PivotBarCreateButtonViewFingerprint.resultOrThrow().apply {
             val insertIndex = scanResult.patternScanResult!!.endIndex
             mutableMethod.injectHook(
                 insertIndex,
                 "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, " +
                         "$INTEGRATIONS_CLASS_DESCRIPTOR->createTabLoaded(Landroid/view/View;)V"
             )
-        } ?: PivotBarCreateButtonViewFingerprint.exception
+        }
 
 
         /**
          * Callback for other patches.
          */
-        NavigationBarHookCallbackFingerprint.result?.apply {
+        NavigationBarHookCallbackFingerprint.resultOrThrow().apply {
             navigationTabCreatedCallbackMethod = mutableMethod
-        } ?: NavigationBarHookCallbackFingerprint.exception
+        }
 
 
         /**
@@ -127,7 +121,7 @@ object NavigationBarHookPatch : BytecodePatch(
         // Two different layouts are used at the hooked code.
         // Insert before the first ViewGroup method call after inflating,
         // so this works regardless which layout is used.
-        ActionBarSearchResultsFingerprint.result?.mutableMethod?.apply {
+        ActionBarSearchResultsFingerprint.resultOrThrow().mutableMethod.apply {
             val instructionIndex = implementation!!.instructions.indexOfFirst {
                 it.opcode == Opcode.INVOKE_VIRTUAL &&
                         it.getReference<MethodReference>()?.name == "setLayoutDirection"
@@ -138,7 +132,7 @@ object NavigationBarHookPatch : BytecodePatch(
                 "invoke-static { v$register }, " +
                         "$INTEGRATIONS_CLASS_DESCRIPTOR->searchBarResultsViewLoaded(Landroid/view/View;)V"
             )
-        } ?: ActionBarSearchResultsFingerprint.exception
+        }
     }
 
     fun hookNavigationButtonCreated(classDescriptor: String) {

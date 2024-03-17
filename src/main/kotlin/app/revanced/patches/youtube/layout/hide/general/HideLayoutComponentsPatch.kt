@@ -17,14 +17,14 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
-import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ParseElementFromBufferFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.PlayerOverlayFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ShowWatermarkFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
+import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
 import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.util.exception
+import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -162,15 +162,14 @@ object HideLayoutComponentsPatch : BytecodePatch(
 
         // region Mix playlists
 
-        ParseElementFromBufferFingerprint.result?.let { result ->
-            val returnEmptyComponentInstruction =
-                result.mutableMethod.getInstructions().last { it.opcode == Opcode.INVOKE_STATIC }
+        ParseElementFromBufferFingerprint.resultOrThrow().let { result ->
+            val consumeByteBufferIndex = result.scanResult.patternScanResult!!.startIndex
 
             result.mutableMethod.apply {
-                val consumeByteBufferIndex = result.scanResult.patternScanResult!!.startIndex
                 val conversionContextRegister =
                     getInstruction<TwoRegisterInstruction>(consumeByteBufferIndex - 2).registerA
                 val byteBufferRegister = getInstruction<FiveRegisterInstruction>(consumeByteBufferIndex).registerD
+                val returnEmptyComponentInstruction = getInstructions().last { it.opcode == Opcode.INVOKE_STATIC }
 
                 addInstructionsWithLabels(
                     consumeByteBufferIndex,
@@ -182,15 +181,15 @@ object HideLayoutComponentsPatch : BytecodePatch(
                     ExternalLabel("return_empty_component", returnEmptyComponentInstruction),
                 )
             }
-        } ?: throw ParseElementFromBufferFingerprint.exception
+        }
 
         // endregion
 
         // region Watermark (legacy code for old versions of YouTube)
 
         ShowWatermarkFingerprint.also {
-            it.resolve(context, PlayerOverlayFingerprint.result?.classDef ?: throw PlayerOverlayFingerprint.exception)
-        }.result?.mutableMethod?.apply {
+            it.resolve(context, PlayerOverlayFingerprint.resultOrThrow().classDef)
+        }.resultOrThrow().mutableMethod.apply {
             val index = implementation!!.instructions.size - 5
 
             removeInstruction(index)
@@ -201,7 +200,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
                     move-result p2
                 """,
             )
-        } ?: throw ShowWatermarkFingerprint.exception
+        }
 
         // endregion
     }

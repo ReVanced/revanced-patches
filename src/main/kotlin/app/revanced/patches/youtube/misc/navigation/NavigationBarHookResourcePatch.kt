@@ -13,11 +13,11 @@ internal object NavigationBarHookResourcePatch : ResourcePatch() {
     internal var actionBarSearchResultsViewMicId: Long = -1
 
     override fun execute(context: ResourceContext) {
-        imageOnlyTabResourceId = ResourceMappingPatch.resourceMappings.single {
+        imageOnlyTabResourceId = ResourceMappingPatch.resourceMappings.first {
             it.type == "layout" && it.name == "image_only_tab"
         }.id
 
-        actionBarSearchResultsViewMicId = ResourceMappingPatch.resourceMappings.single {
+        actionBarSearchResultsViewMicId = ResourceMappingPatch.resourceMappings.first {
             it.type == "layout" && it.name == "action_bar_search_results_view_mic"
         }.id
     }
