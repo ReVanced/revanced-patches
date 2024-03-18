@@ -54,13 +54,14 @@ public class Utils {
         try {
             final var packageName = Objects.requireNonNull(getContext()).getPackageName();
 
+            PackageManager packageManager = context.getPackageManager();
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
-                packageInfo = context.getPackageManager().getPackageInfo(
+                packageInfo = packageManager.getPackageInfo(
                         packageName,
                         PackageManager.PackageInfoFlags.of(0)
                 );
             else
-                packageInfo = context.getPackageManager().getPackageInfo(
+                packageInfo = packageManager.getPackageInfo(
                         packageName,
                         0
                 );
@@ -228,14 +229,23 @@ public class Utils {
 
     public static Context getContext() {
         if (context == null) {
-            Logger.initializationError(Utils.class, "Context is null, returning null!",  null);
+            Logger.initializationException(Utils.class, "Context is null, returning null!",  null);
         }
         return context;
     }
 
     public static void setContext(Context appContext) {
         context = appContext;
-        Logger.printDebug(() -> "Set context: " + appContext); // Cannot log before context is set.
+        // In some apps like TikTok, the Setting classes can load in weird orders due to cyclic class dependencies.
+        // Calling the regular printDebug method here can cause a Settings context null pointer exception,
+        // even though the context is already set before the call.
+        //
+        // The initialization logger methods do not directly or indirectly
+        // reference the Context or any Settings and are unaffected by this problem.
+        //
+        // Info level also helps debug if a patch hook is called before
+        // the context is set since debug logging is off by default.
+        Logger.initializationInfo(Utils.class, "Set context: " + appContext);
     }
 
     public static void setClipboard(@NonNull String text) {
@@ -280,7 +290,7 @@ public class Utils {
         Objects.requireNonNull(messageToToast);
         runOnMainThreadNowOrLater(() -> {
                     if (context == null) {
-                        Logger.initializationError(Utils.class, "Cannot show toast (context is null): " + messageToToast, null);
+                        Logger.initializationException(Utils.class, "Cannot show toast (context is null): " + messageToToast, null);
                     } else {
                         Logger.printDebug(() -> "Showing toast: " + messageToToast);
                         Toast.makeText(context, messageToToast, toastDuration).show();

@@ -5,13 +5,14 @@ import static app.revanced.integrations.shared.settings.BaseSettings.DEBUG_STACK
 import static app.revanced.integrations.shared.settings.BaseSettings.DEBUG_TOAST_ON_ERROR;
 
 import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import app.revanced.integrations.shared.settings.BaseSettings;
-
 import java.io.PrintWriter;
 import java.io.StringWriter;
+
+import app.revanced.integrations.shared.settings.BaseSettings;
 
 public class Logger {
 
@@ -24,7 +25,7 @@ public class Logger {
 
         /**
          * @return For outer classes, this returns {@link Class#getSimpleName()}.
-         * For inner, static, or anonymous classes, this returns the simple name of the enclosing class.<br>
+         * For static, inner, or anonymous classes, this returns the simple name of the enclosing class.
          * <br>
          * For example, each of these classes return 'SomethingView':
          * <code>
@@ -38,13 +39,13 @@ public class Logger {
 
             String fullClassName = selfClass.getName();
             final int dollarSignIndex = fullClassName.indexOf('$');
-            if (dollarSignIndex == -1) {
-                return selfClass.getSimpleName(); // already an outer class
+            if (dollarSignIndex < 0) {
+                return selfClass.getSimpleName(); // Already an outer class.
             }
 
-            // class is inner, static, or anonymous
-            // parse the simple name full name
-            // a class with no package returns index of -1, but incrementing gives index zero which is correct
+            // Class is inner, static, or anonymous.
+            // Parse the simple name full name.
+            // A class with no package returns index of -1, but incrementing gives index zero which is correct.
             final int simpleClassNameStartIndex = fullClassName.lastIndexOf('.') + 1;
             return fullClassName.substring(simpleClassNameStartIndex, dollarSignIndex);
         }
@@ -137,11 +138,19 @@ public class Logger {
     }
 
     /**
-     * Logging to use if {@link BaseSettings#DEBUG} or {@link Utils#context} may not be initialized.
-     * Always logs even if Debugging is not enabled.
+     * Logging to use if {@link BaseSettings#DEBUG} or {@link Utils#getContext()} may not be initialized.
      * Normally this method should not be used.
      */
-    public static void initializationError(@NonNull Class<?> callingClass, @NonNull String message, @Nullable Exception ex) {
+    public static void initializationInfo(@NonNull Class<?> callingClass, @NonNull String message) {
+        Log.i(REVANCED_LOG_PREFIX + callingClass.getSimpleName(), message);
+    }
+
+    /**
+     * Logging to use if {@link BaseSettings#DEBUG} or {@link Utils#getContext()} may not be initialized.
+     * Normally this method should not be used.
+     */
+    public static void initializationException(@NonNull Class<?> callingClass, @NonNull String message,
+                                               @Nullable Exception ex) {
         Log.e(REVANCED_LOG_PREFIX + callingClass.getSimpleName(), message, ex);
     }
 

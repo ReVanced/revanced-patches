@@ -1,32 +1,37 @@
 package app.revanced.integrations.tiktok.spoof.sim;
 
+import app.revanced.integrations.shared.Logger;
 import app.revanced.integrations.tiktok.settings.Settings;
 
 @SuppressWarnings("unused")
 public class SpoofSimPatch {
-    public static boolean isEnable() {
-        return Settings.SIM_SPOOF.get();
-    }
-    public static String getCountryIso(String value) {
-        if (isEnable()) {
-            return Settings.SIM_SPOOF_ISO.get();
-        } else {
-            return value;
-        }
 
+    private static final Boolean ENABLED = Settings.SIM_SPOOF.get();
+
+    public static String getCountryIso(String value) {
+        if (ENABLED) {
+            String iso = Settings.SIM_SPOOF_ISO.get();
+            Logger.printDebug(() -> "Spoofing sim ISO from: " + value + " to: " + iso);
+            return iso;
+        }
+        return value;
     }
+
     public static String getOperator(String value) {
-        if (isEnable()) {
-            return Settings.SIMSPOOF_MCCMNC.get();
-        } else {
-            return value;
+        if (ENABLED) {
+            String mcc_mnc = Settings.SIMSPOOF_MCCMNC.get();
+            Logger.printDebug(() -> "Spoofing sim MCC-MNC from: " + value + " to: " + mcc_mnc);
+            return mcc_mnc;
         }
+        return value;
     }
+
     public static String getOperatorName(String value) {
-        if (isEnable()) {
-            return Settings.SIMSPOOF_OP_NAME.get();
-        } else {
-            return value;
+        if (ENABLED) {
+            String operator = Settings.SIMSPOOF_OP_NAME.get();
+            Logger.printDebug(() -> "Spoofing sim operator from: " + value + " to: " + operator);
+            return operator;
         }
+        return value;
     }
 }
