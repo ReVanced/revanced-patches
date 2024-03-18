@@ -1,3 +1,10 @@
+# [4.4.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.8...v4.4.0-dev.9) (2024-03-18)
+
+
+### Bug Fixes
+
+* **TikTok:** Hook application context earlier to prevent crash ([#2893](https://github.com/ReVanced/revanced-patches/issues/2893)) ([395ccda](https://github.com/ReVanced/revanced-patches/commit/395ccda7b9218c522c7ca0f99f75a12036d3e3f3))
+
 # [4.4.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.7...v4.4.0-dev.8) (2024-03-15)
 
 
