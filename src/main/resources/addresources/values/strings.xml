@@ -183,6 +183,7 @@
             <string name="revanced_hide_keyword_content_phrases_summary">Keywords and phrases to hide, separated by new lines\n\nWords with uppercase letters in the middle must be entered with the casing (ie: iPhone, TikTok, LeBlanc)</string>
             <string name="revanced_hide_keyword_content_about_title">About keyword filtering</string>
             <string name="revanced_hide_keyword_content_about_summary">Search/Home/Subscription results are filtered to hide content that matches keyword phrases\n\nLimitations\n• Some Shorts may not be hidden\n• Some UI components may not be hidden\n• Searching for a keyword may show no results</string>
+            <string name="revanced_hide_keyword_toast_invalid_common" formatted="false">Invalid keyword. Cannot use: \'%s\' as a filter</string>
             <string name="revanced_hide_keyword_toast_invalid_length" formatted="false">Invalid keyword (must be at least %s characters): %s</string>
         </patch>
         <patch id="ad.general.HideAdsResourcePatch">
