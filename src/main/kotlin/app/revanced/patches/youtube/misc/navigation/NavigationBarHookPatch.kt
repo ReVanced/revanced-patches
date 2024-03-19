@@ -89,13 +89,16 @@ object NavigationBarHookPatch : BytecodePatch(
             initializeButtonsResult.mutableMethod.injectHook(insertIndex, hook)
         }
 
-        InitializeButtonsFingerprint.resultOrThrow().let {
-            PivotBarCreateButtonViewFingerprint.resolve(context, it.mutableMethod, it.mutableClass)
-        }
 
         /**
          * Unique hook just for the Create tab button.
          */
+        PivotBarCreateButtonViewFingerprint.resolve(
+            context,
+            initializeButtonsResult.mutableMethod,
+            initializeButtonsResult.mutableClass
+        )
+
         PivotBarCreateButtonViewFingerprint.resultOrThrow().apply {
             val insertIndex = scanResult.patternScanResult!!.endIndex
             mutableMethod.injectHook(
