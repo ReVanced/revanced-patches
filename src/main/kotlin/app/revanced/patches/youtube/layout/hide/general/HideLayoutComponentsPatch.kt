@@ -129,9 +129,9 @@ object HideLayoutComponentsPatch : BytecodePatch(
                 key = "revanced_hide_keyword_content_screen",
                 sorting = Sorting.UNSORTED,
                 preferences = setOf(
-                    SwitchPreference("revanced_hide_keyword_content_search"),
                     SwitchPreference("revanced_hide_keyword_content_home"),
                     SwitchPreference("revanced_hide_keyword_content_subscriptions"),
+                    SwitchPreference("revanced_hide_keyword_content_search"),
                     TextPreference("revanced_hide_keyword_content_phrases", inputType = InputType.TEXT_MULTI_LINE),
                     NonInteractivePreference("revanced_hide_keyword_content_about")
                 )
