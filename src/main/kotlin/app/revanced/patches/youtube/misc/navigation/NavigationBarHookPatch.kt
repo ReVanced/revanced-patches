@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.misc.navigation
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -14,6 +15,7 @@ import app.revanced.patches.youtube.misc.navigation.fingerprints.PivotBarButtons
 import app.revanced.patches.youtube.misc.navigation.fingerprints.PivotBarConstructorFingerprint
 import app.revanced.patches.youtube.misc.navigation.fingerprints.PivotBarCreateButtonViewFingerprint
 import app.revanced.patches.youtube.misc.navigation.fingerprints.PivotBarEnumFingerprint
+import app.revanced.patches.youtube.misc.navigation.fingerprints.YouNavigationTabFingerprint
 import app.revanced.patches.youtube.misc.navigation.utils.InjectionUtils.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.patches.youtube.misc.navigation.utils.InjectionUtils.injectHook
 import app.revanced.util.getReference
@@ -33,8 +35,8 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 object NavigationBarHookPatch : BytecodePatch(
     setOf(
         PivotBarConstructorFingerprint,
-        ActionBarSearchResultsFingerprint,
-        NavigationBarHookCallbackFingerprint
+        NavigationBarHookCallbackFingerprint,
+        ActionBarSearchResultsFingerprint
     )
 ) {
     internal const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -46,68 +48,54 @@ object NavigationBarHookPatch : BytecodePatch(
     private lateinit var navigationTabCreatedCallbackMethod: MutableMethod
 
     override fun execute(context: BytecodeContext) {
-        PivotBarConstructorFingerprint.resultOrThrow().let {
-            InitializeButtonsFingerprint.resolve(
-                context,
-                it.classDef
-            )
-        }
-
-        val initializeButtonsResult = InitializeButtonsFingerprint.resultOrThrow()
-
-        val fingerprintResults =
-            arrayOf(PivotBarEnumFingerprint, PivotBarButtonsViewFingerprint)
-                .onEach {
-                    it.resolve(
-                        context,
-                        initializeButtonsResult.mutableMethod,
-                        initializeButtonsResult.mutableClass,
-                    )
-                }
-                .map { it.resultOrThrow().scanResult.patternScanResult!! }
-
-        val enumScanResult = fingerprintResults[0]
-        val buttonViewResult = fingerprintResults[1]
-
-        val enumHookInsertIndex = enumScanResult.startIndex + 2
-        val buttonHookInsertIndex = buttonViewResult.endIndex
-
-        /*
-         * Inject hooks
-         */
-
-        val enumHook = "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, " +
-            "$INTEGRATIONS_CLASS_DESCRIPTOR->setLastAppNavigationEnum(Ljava/lang/Enum;)V"
-        val buttonHook = "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, " +
-            "$INTEGRATIONS_CLASS_DESCRIPTOR->navigationTabLoaded(Landroid/view/View;)V"
-
-        // Inject bottom to top to not mess up the indices
-        mapOf(
-            buttonHook to buttonHookInsertIndex,
-            enumHook to enumHookInsertIndex,
-        ).forEach { (hook, insertIndex) ->
-            initializeButtonsResult.mutableMethod.injectHook(insertIndex, hook)
-        }
-
-
-        /**
-         * Unique hook just for the Create tab button.
-         */
-        PivotBarCreateButtonViewFingerprint.resolve(
+        InitializeButtonsFingerprint.resolve(
             context,
-            initializeButtonsResult.mutableMethod,
-            initializeButtonsResult.mutableClass
+            PivotBarConstructorFingerprint.resultOrThrow().classDef
         )
 
-        PivotBarCreateButtonViewFingerprint.resultOrThrow().apply {
-            val insertIndex = scanResult.patternScanResult!!.endIndex
-            mutableMethod.injectHook(
-                insertIndex,
-                "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, " +
-                        "$INTEGRATIONS_CLASS_DESCRIPTOR->createTabLoaded(Landroid/view/View;)V"
-            )
-        }
+        fun MethodFingerprint.patternScanResult() = resultOrThrow().scanResult.patternScanResult!!
 
+        // All of these hooks can be found by filtering the method for the calls to PivotBar
+        // and calls to lookup the Navigation enum.
+        // But the 'You' tab does not have an enum and that approach makes this patch a bit more complicated.
+        InitializeButtonsFingerprint.resultOrThrow().apply {
+
+            PivotBarEnumFingerprint.also {
+                it.resolve(context, mutableMethod, mutableClass)
+                mutableMethod.injectHook(
+                    it.patternScanResult().startIndex + 2,
+                    "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, " +
+                            "$INTEGRATIONS_CLASS_DESCRIPTOR->setLastAppNavigationEnum(Ljava/lang/Enum;)V"
+                )
+            }
+
+            PivotBarButtonsViewFingerprint.also {
+                it.resolve(context, mutableMethod, mutableClass)
+                mutableMethod.injectHook(
+                    it.patternScanResult().endIndex,
+                    "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, " +
+                            "$INTEGRATIONS_CLASS_DESCRIPTOR->navigationTabLoaded(Landroid/view/View;)V"
+                )
+            }
+
+            YouNavigationTabFingerprint.also {
+                it.resolve(context, mutableMethod, mutableClass)
+                mutableMethod.injectHook(
+                    it.patternScanResult().startIndex + 3,
+                    "invoke-static/range { v$REGISTER_TEMPLATE_REPLACEMENT .. v$REGISTER_TEMPLATE_REPLACEMENT }, " +
+                            "$INTEGRATIONS_CLASS_DESCRIPTOR->youTabLoaded(Landroid/view/View;)V"
+                )
+            }
+
+            PivotBarCreateButtonViewFingerprint.also {
+                it.resolve(context, mutableMethod, mutableClass)
+                mutableMethod.injectHook(
+                    it.patternScanResult().endIndex,
+                    "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, " +
+                            "$INTEGRATIONS_CLASS_DESCRIPTOR->createTabLoaded(Landroid/view/View;)V"
+                )
+            }
+        }
 
         /**
          * Callback for other patches.
@@ -115,7 +103,6 @@ object NavigationBarHookPatch : BytecodePatch(
         NavigationBarHookCallbackFingerprint.resultOrThrow().apply {
             navigationTabCreatedCallbackMethod = mutableMethod
         }
-
 
         /**
          * Search bar.
