@@ -8,6 +8,7 @@ import app.revanced.patches.all.misc.packagename.ChangePackageNamePatch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import org.w3c.dom.Element
 import org.w3c.dom.Node
+import java.util.logging.Logger
 
 private const val OBSOLETE_VANCED_MICROG_PATCH_OPTION_VALUE = "com.mgoogle"
 
@@ -46,8 +47,11 @@ abstract class BaseGmsCoreSupportResourcePatch(
 
         // TODO: Remove this, once ReVanced Manager supports falling back to default patch option values,
         //  once a patch option value has been removed from a patch.
-        // The vendor Vanced is known to break with ReVanced. Fall back to ReVanced as the vendor.
         if (gmsCoreVendor == OBSOLETE_VANCED_MICROG_PATCH_OPTION_VALUE) {
+            Logger.getLogger(name).info(
+                "Vanced MicroG is incompatible with ReVanced. Falling back to ReVanced GmsCore.",
+            )
+
             gmsCoreVendor = gmsCoreVendorOption.default
         }
 
