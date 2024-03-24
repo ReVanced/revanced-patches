@@ -25,10 +25,8 @@ abstract class BaseGmsCoreSupportResourcePatch(
     private val spoofedPackageSignature: String,
     dependencies: Set<PatchClass> = setOf(),
 ) : ResourcePatch(dependencies = setOf(ChangePackageNamePatch::class, AddResourcesPatch::class) + dependencies) {
-    private companion object {
-        private const val VANCED_VENDOR = "com.mgoogle"
-        private const val PACKAGE_NAME_REGEX_PATTERN = "^[a-z]\\w*(\\.[a-z]\\w*)+\$"
-    }
+    private val logger = Logger.getLogger(name)
+
     internal val gmsCoreVendorOption =
         stringPatchOption(
             key = "gmsCoreVendor",
@@ -50,9 +48,7 @@ abstract class BaseGmsCoreSupportResourcePatch(
         // TODO: Remove this, once ReVanced Manager supports falling back to default patch option values,
         //  once a patch option value has been removed from a patch.
         if (gmsCoreVendor!!.lowercase().startsWith(VANCED_VENDOR)) {
-            Logger.getLogger(name).info(
-                "Vanced MicroG is incompatible with ReVanced. Falling back to ReVanced GmsCore.",
-            )
+            logger.info("Vanced MicroG is incompatible with ReVanced. Falling back to ReVanced GmsCore.")
 
             gmsCoreVendor = gmsCoreVendorOption.default
         }
@@ -130,5 +126,10 @@ abstract class BaseGmsCoreSupportResourcePatch(
                 "<package android:name=\"$gmsCoreVendor.android.gms\"/></queries>",
             ),
         )
+    }
+
+    private companion object {
+        private const val VANCED_VENDOR = "com.mgoogle"
+        private const val PACKAGE_NAME_REGEX_PATTERN = "^[a-z]\\w*(\\.[a-z]\\w*)+\$"
     }
 }
