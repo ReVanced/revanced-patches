@@ -44,15 +44,11 @@ abstract class BaseGmsCoreSupportResourcePatch(
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(BaseGmsCoreSupportResourcePatch::class)
 
-        // Ignore old Vanced MicroG options, if the patch options are from an old Manager/CLI installation.
-        // This could be done in the option validation, but that shows
-        // a warning message the user might interpret as something went wrong.
-        // So instead silently use the updated default value.
-        // TODO: Remove this temporary logic after Manager improves handling of changed default options.
-        // (and also revert the `gms_core_not_running_warning` string change)
+        // TODO: Remove this, once ReVanced Manager supports falling back to default patch option values,
+        //  once a patch option value has been removed from a patch.
+        // The vendor Vanced is known to break with ReVanced. Fall back to ReVanced as the vendor.
         if (gmsCoreVendorOption.value == OBSOLETE_VANCED_MICROG_PATCH_OPTION_VALUE) {
             gmsCoreVendorOption.value = gmsCoreVendorOption.default
-            // If there was patch logging, it would be useful here.
         }
 
         context.patchManifest()
