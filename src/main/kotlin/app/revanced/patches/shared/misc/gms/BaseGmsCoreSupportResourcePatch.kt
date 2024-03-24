@@ -48,7 +48,8 @@ abstract class BaseGmsCoreSupportResourcePatch(
         // This could be done in the option validation, but that shows
         // a warning message the user might interpret as something went wrong.
         // So instead silently use the updated default value.
-        // TODO: Remove this temporary logic (and also revert the `gms_core_not_running_warning` string change)
+        // TODO: Remove this temporary logic after Manager improves handling of changed default options.
+        // (and also revert the `gms_core_not_running_warning` string change)
         if (gmsCoreVendorOption.value == OBSOLETE_VANCED_MICROG_PATCH_OPTION_VALUE) {
             gmsCoreVendorOption.value = gmsCoreVendorOption.default
             // If there was patch logging, it would be useful here.
