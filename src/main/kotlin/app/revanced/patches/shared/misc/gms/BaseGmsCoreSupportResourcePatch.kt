@@ -9,6 +9,8 @@ import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import org.w3c.dom.Element
 import org.w3c.dom.Node
 
+private const val OBSOLETE_VANCED_MICROG_PATCH_OPTION_VALUE = "com.mgoogle"
+
 /**
  * Abstract resource patch that allows Google apps to run without root and under a different package name
  * by using GmsCore instead of Google Play Services.
@@ -41,6 +43,16 @@ abstract class BaseGmsCoreSupportResourcePatch(
 
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(BaseGmsCoreSupportResourcePatch::class)
+
+        // Ignore old Vanced MicroG options, if the patch options are from an old Manager/CLI installation.
+        // This could be done in the option validation, but that shows
+        // a warning message the user might interpret as something went wrong.
+        // So instead silently use the updated default value.
+        // TODO: Remove this temporary logic (and also revert the `gms_core_not_running_warning` string change)
+        if (gmsCoreVendorOption.value == OBSOLETE_VANCED_MICROG_PATCH_OPTION_VALUE) {
+            gmsCoreVendorOption.value = gmsCoreVendorOption.default
+            // If there was patch logging, it would be useful here.
+        }
 
         context.patchManifest()
         context.addSpoofingMetadata()
