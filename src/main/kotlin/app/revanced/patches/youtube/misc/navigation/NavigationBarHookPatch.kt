@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.misc.navigation
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -11,13 +10,12 @@ import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.navigation.fingerprints.ActionBarSearchResultsFingerprint
 import app.revanced.patches.youtube.misc.navigation.fingerprints.InitializeButtonsFingerprint
 import app.revanced.patches.youtube.misc.navigation.fingerprints.NavigationBarHookCallbackFingerprint
-import app.revanced.patches.youtube.misc.navigation.fingerprints.PivotBarButtonsViewFingerprint
+import app.revanced.patches.youtube.misc.navigation.fingerprints.NavigationEnumFingerprint
+import app.revanced.patches.youtube.misc.navigation.fingerprints.PivotBarButtonsCreateDrawableViewFingerprint
+import app.revanced.patches.youtube.misc.navigation.fingerprints.PivotBarButtonsCreateResourceViewFingerprint
 import app.revanced.patches.youtube.misc.navigation.fingerprints.PivotBarConstructorFingerprint
-import app.revanced.patches.youtube.misc.navigation.fingerprints.PivotBarCreateButtonViewFingerprint
-import app.revanced.patches.youtube.misc.navigation.fingerprints.PivotBarEnumFingerprint
-import app.revanced.patches.youtube.misc.navigation.fingerprints.YouNavigationTabFingerprint
 import app.revanced.patches.youtube.misc.navigation.utils.InjectionUtils.REGISTER_TEMPLATE_REPLACEMENT
-import app.revanced.patches.youtube.misc.navigation.utils.InjectionUtils.injectHook
+import app.revanced.patches.youtube.misc.navigation.utils.InjectionUtils.injectHooksByFilter
 import app.revanced.util.getReference
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -35,6 +33,9 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 object NavigationBarHookPatch : BytecodePatch(
     setOf(
         PivotBarConstructorFingerprint,
+        NavigationEnumFingerprint,
+        PivotBarButtonsCreateDrawableViewFingerprint,
+        PivotBarButtonsCreateResourceViewFingerprint,
         NavigationBarHookCallbackFingerprint,
         ActionBarSearchResultsFingerprint
     )
@@ -53,48 +54,42 @@ object NavigationBarHookPatch : BytecodePatch(
             PivotBarConstructorFingerprint.resultOrThrow().classDef
         )
 
-        fun MethodFingerprint.patternScanResult() = resultOrThrow().scanResult.patternScanResult!!
-
-        // All of these hooks can be found by filtering the method for the calls to PivotBar
-        // and calls to lookup the Navigation enum.
-        // But the 'You' tab does not have an enum and that approach makes this patch a bit more complicated.
         InitializeButtonsFingerprint.resultOrThrow().apply {
 
-            PivotBarEnumFingerprint.also {
-                it.resolve(context, mutableMethod, mutableClass)
-                mutableMethod.injectHook(
-                    it.patternScanResult().startIndex + 2,
-                    "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, " +
-                            "$INTEGRATIONS_CLASS_DESCRIPTOR->setLastAppNavigationEnum(Ljava/lang/Enum;)V"
-                )
-            }
+            // Hook the navigation enum.  Note: The 'You' tab does not have an enum hook.
+            val navigationEnumClassName = NavigationEnumFingerprint.resultOrThrow().mutableClass.type
+            mutableMethod.injectHooksByFilter(
+                {
+                    it.opcode == Opcode.INVOKE_STATIC &&
+                            it.getReference<MethodReference>()?.definingClass == navigationEnumClassName
+                },
+                "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, " +
+                        "$INTEGRATIONS_CLASS_DESCRIPTOR->setLastAppNavigationEnum(Ljava/lang/Enum;)V"
+            )
 
-            PivotBarButtonsViewFingerprint.also {
-                it.resolve(context, mutableMethod, mutableClass)
-                mutableMethod.injectHook(
-                    it.patternScanResult().endIndex,
-                    "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, " +
-                            "$INTEGRATIONS_CLASS_DESCRIPTOR->navigationTabLoaded(Landroid/view/View;)V"
-                )
-            }
+            // Hook the creation of navigation tab views.
+            val drawableTabResult = PivotBarButtonsCreateDrawableViewFingerprint.resultOrThrow()
+            mutableMethod.injectHooksByFilter(
+                {
+                    // Don't need to check for the opcode since the method reference already validates.
+                    val reference = it.getReference<MethodReference>()
+                    reference?.definingClass == drawableTabResult.mutableClass.type &&
+                            reference.name == drawableTabResult.mutableMethod.name
+                },
+                "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, " +
+                        "$INTEGRATIONS_CLASS_DESCRIPTOR->navigationTabLoaded(Landroid/view/View;)V"
+            )
 
-            YouNavigationTabFingerprint.also {
-                it.resolve(context, mutableMethod, mutableClass)
-                mutableMethod.injectHook(
-                    it.patternScanResult().startIndex + 3,
-                    "invoke-static/range { v$REGISTER_TEMPLATE_REPLACEMENT .. v$REGISTER_TEMPLATE_REPLACEMENT }, " +
-                            "$INTEGRATIONS_CLASS_DESCRIPTOR->youTabLoaded(Landroid/view/View;)V"
-                )
-            }
-
-            PivotBarCreateButtonViewFingerprint.also {
-                it.resolve(context, mutableMethod, mutableClass)
-                mutableMethod.injectHook(
-                    it.patternScanResult().endIndex,
-                    "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, " +
-                            "$INTEGRATIONS_CLASS_DESCRIPTOR->createTabLoaded(Landroid/view/View;)V"
-                )
-            }
+            val imageResourceTabResult = PivotBarButtonsCreateResourceViewFingerprint.resultOrThrow()
+            mutableMethod.injectHooksByFilter(
+                {
+                    val reference = it.getReference<MethodReference>()
+                    reference?.definingClass == imageResourceTabResult.mutableClass.type &&
+                            reference.name == imageResourceTabResult.mutableMethod.name
+                },
+                "invoke-static { v$REGISTER_TEMPLATE_REPLACEMENT }, " +
+                        "$INTEGRATIONS_CLASS_DESCRIPTOR->navigationImageResourceTabLoaded(Landroid/view/View;)V"
+            )
         }
 
         /**
