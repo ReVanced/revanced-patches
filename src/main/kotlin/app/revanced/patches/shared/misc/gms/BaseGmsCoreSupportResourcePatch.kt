@@ -39,7 +39,7 @@ abstract class BaseGmsCoreSupportResourcePatch(
             required = true,
         ) { it!!.matches(Regex("^[a-z]\\w*(\\.[a-z]\\w*)+\$")) }
 
-    protected val gmsCoreVendor by gmsCoreVendorOption
+    protected var gmsCoreVendor by gmsCoreVendorOption
 
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(BaseGmsCoreSupportResourcePatch::class)
@@ -47,8 +47,8 @@ abstract class BaseGmsCoreSupportResourcePatch(
         // TODO: Remove this, once ReVanced Manager supports falling back to default patch option values,
         //  once a patch option value has been removed from a patch.
         // The vendor Vanced is known to break with ReVanced. Fall back to ReVanced as the vendor.
-        if (gmsCoreVendorOption.value == OBSOLETE_VANCED_MICROG_PATCH_OPTION_VALUE) {
-            gmsCoreVendorOption.value = gmsCoreVendorOption.default
+        if (gmsCoreVendor == OBSOLETE_VANCED_MICROG_PATCH_OPTION_VALUE) {
+            gmsCoreVendor = gmsCoreVendorOption.default
         }
 
         context.patchManifest()
