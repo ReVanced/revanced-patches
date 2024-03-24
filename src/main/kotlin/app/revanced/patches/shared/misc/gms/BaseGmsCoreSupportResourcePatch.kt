@@ -10,8 +10,6 @@ import org.w3c.dom.Element
 import org.w3c.dom.Node
 import java.util.logging.Logger
 
-private const val OBSOLETE_VANCED_MICROG_PATCH_OPTION_VALUE = "com.mgoogle"
-
 /**
  * Abstract resource patch that allows Google apps to run without root and under a different package name
  * by using GmsCore instead of Google Play Services.
@@ -27,6 +25,10 @@ abstract class BaseGmsCoreSupportResourcePatch(
     private val spoofedPackageSignature: String,
     dependencies: Set<PatchClass> = setOf(),
 ) : ResourcePatch(dependencies = setOf(ChangePackageNamePatch::class, AddResourcesPatch::class) + dependencies) {
+    private companion object {
+        private const val VANCED_VENDOR = "com.mgoogle"
+        private const val PACKAGE_NAME_REGEX_PATTERN = "^[a-z]\\w*(\\.[a-z]\\w*)+\$"
+    }
     internal val gmsCoreVendorOption =
         stringPatchOption(
             key = "gmsCoreVendor",
@@ -38,7 +40,7 @@ abstract class BaseGmsCoreSupportResourcePatch(
             title = "GmsCore Vendor",
             description = "The group id of the GmsCore vendor.",
             required = true,
-        ) { it!!.matches(Regex("^[a-z]\\w*(\\.[a-z]\\w*)+\$")) }
+        ) { it!!.matches(Regex(PACKAGE_NAME_REGEX_PATTERN)) }
 
     protected var gmsCoreVendor by gmsCoreVendorOption
 
@@ -47,7 +49,7 @@ abstract class BaseGmsCoreSupportResourcePatch(
 
         // TODO: Remove this, once ReVanced Manager supports falling back to default patch option values,
         //  once a patch option value has been removed from a patch.
-        if (gmsCoreVendor == OBSOLETE_VANCED_MICROG_PATCH_OPTION_VALUE) {
+        if (gmsCoreVendor!!.lowercase().startsWith(VANCED_VENDOR)) {
             Logger.getLogger(name).info(
                 "Vanced MicroG is incompatible with ReVanced. Falling back to ReVanced GmsCore.",
             )
