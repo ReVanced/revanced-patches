@@ -199,6 +199,7 @@
             <string name="revanced_hide_merchandise_banners_title">Hide merchandise banners</string>
             <string name="revanced_hide_merchandise_banners_summary_on">Merchandise banners are hidden</string>
             <string name="revanced_hide_merchandise_banners_summary_off">Merchandise banners are shown</string>
+            <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Failed to hide full-screen ad. Disabling to prevent issues</string>
         </patch>
         <patch id="ad.getpremium.HideGetPremiumPatch">
             <string name="revanced_hide_get_premium_title">Hide YouTube Premium promotions</string>
