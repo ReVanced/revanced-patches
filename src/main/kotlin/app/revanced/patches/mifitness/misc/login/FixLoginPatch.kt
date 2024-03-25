@@ -1,8 +1,8 @@
 package app.revanced.patches.mifitness.misc.login
 
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
@@ -20,15 +20,14 @@ object FixLoginPatch : BytecodePatch(
     setOf(XiaomiAccountManagerConstructorFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
-        XiaomiAccountManagerConstructorFingerprint.result?.apply {
-            val resolveIfInstruction = scanResult.patternScanResult!!.startIndex
-
-            mutableMethod.apply {
-                val registerIndexToUpdate = getInstruction<OneRegisterInstruction>(resolveIfInstruction).registerA
+        XiaomiAccountManagerConstructorFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val isCertifiedIndex = it.scanResult.patternScanResult!!.startIndex
+                val isCertifiedRegister = getInstruction<OneRegisterInstruction>(isCertifiedIndex).registerA
 
                 addInstruction(
-                    resolveIfInstruction,
-                    "const/4 p$registerIndexToUpdate, 0x0",
+                    isCertifiedIndex,
+                    "const/4 p$isCertifiedRegister, 0x0",
                 )
             }
         } ?: throw XiaomiAccountManagerConstructorFingerprint.exception

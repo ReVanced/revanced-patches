@@ -22,11 +22,12 @@ object ForceEnglishLocalePatch : BytecodePatch(
     setOf(SyncBluetoothLanguageFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
-        SyncBluetoothLanguageFingerprint.result?.apply {
-            val resolvePhoneLocaleInstruction = scanResult.patternScanResult!!.startIndex
+        SyncBluetoothLanguageFingerprint.result?.let {
+            val resolvePhoneLocaleInstruction = it.scanResult.patternScanResult!!.startIndex
 
-            mutableMethod.apply {
-                val registerIndexToUpdate = getInstruction<OneRegisterInstruction>(resolvePhoneLocaleInstruction).registerA
+            it.mutableMethod.apply {
+                val registerIndexToUpdate =
+                    getInstruction<OneRegisterInstruction>(resolvePhoneLocaleInstruction).registerA
 
                 replaceInstruction(
                     resolvePhoneLocaleInstruction,
