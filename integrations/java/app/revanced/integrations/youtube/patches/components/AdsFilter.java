@@ -1,5 +1,7 @@
 package app.revanced.integrations.youtube.patches.components;
 
+import static app.revanced.integrations.shared.StringRef.str;
+
 import android.app.Instrumentation;
 import android.view.KeyEvent;
 import android.view.View;
@@ -170,7 +172,24 @@ public final class AdsFilter extends Filter {
 
         Utils.runOnMainThreadDelayed(() -> {
             // Must run off main thread (Odd, but whatever).
-            Utils.runOnBackgroundThread(() -> instrumentation.sendKeyDownUpSync(KeyEvent.KEYCODE_BACK));
+            Utils.runOnBackgroundThread(() -> {
+                try {
+                    instrumentation.sendKeyDownUpSync(KeyEvent.KEYCODE_BACK);
+                } catch (Exception ex) {
+                    // Injecting user events on Android 10+ requires the manifest to include
+                    // INJECT_EVENTS, and it's usage is heavily restricted
+                    // and requires the user to manually approve the permission in the device settings.
+                    //
+                    // And no matter what, permissions cannot be added for root installations
+                    // as manifest changes are ignored for mount installations.
+                    //
+                    // Instead, catch the SecurityException and turn off hide full screen ads
+                    // since this functionality does not work for these devices.
+                    Logger.printInfo(() -> "Could not inject back button event", ex);
+                    Settings.HIDE_FULLSCREEN_ADS.save(false);
+                    Utils.showToastLong(str("revanced_hide_fullscreen_ads_feature_not_available_toast"));
+                }
+            });
         }, 1000);
     }
 }
