@@ -39,6 +39,9 @@ abstract class BaseGmsCoreSupportResourcePatch(
 
     protected val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
 
+    @Deprecated("Use gmsCoreVendorGroupId instead.", ReplaceWith("gmsCoreVendorGroupId"))
+    protected val gmsCoreVendor by gmsCoreVendorGroupIdOption
+
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(BaseGmsCoreSupportResourcePatch::class)
 
