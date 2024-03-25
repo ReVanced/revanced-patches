@@ -1,3 +1,10 @@
+# [4.4.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.9...v4.4.0-dev.10) (2024-03-25)
+
+
+### Bug Fixes
+
+* **YouTube - Hide ads:** Prevent app crash if hiding fullscreen ads is not possible ([#2910](https://github.com/ReVanced/revanced-patches/issues/2910)) ([9f50470](https://github.com/ReVanced/revanced-patches/commit/9f50470bf6582fe2f20a903a97bf66c41f296fb2))
+
 # [4.4.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.8...v4.4.0-dev.9) (2024-03-18)
 
 
