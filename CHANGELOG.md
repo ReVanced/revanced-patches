@@ -1,3 +1,11 @@
+# [4.4.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.10...v4.4.0-dev.11) (2024-03-25)
+
+
+### Features
+
+* **Mi Fitness:** Add `Force English locale` and `Fix login` patch ([#2734](https://github.com/ReVanced/revanced-patches/issues/2734)) ([7a25791](https://github.com/ReVanced/revanced-patches/commit/7a25791d53530b1236896b2c3d6275ee7556e8b7))
+* **Sync for Lemmy:** Add `Disable ads` patch ([#2872](https://github.com/ReVanced/revanced-patches/issues/2872)) ([0785819](https://github.com/ReVanced/revanced-patches/commit/0785819dd5ad487c778b5baf09004cdab3687184))
+
 # [4.4.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.9...v4.4.0-dev.10) (2024-03-25)
 
 
