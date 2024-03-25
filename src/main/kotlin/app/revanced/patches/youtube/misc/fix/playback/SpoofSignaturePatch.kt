@@ -13,21 +13,11 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.*
-import app.revanced.patches.youtube.misc.fix.playback.fingerprints.ParamsMapPutFingerprint
-import app.revanced.patches.youtube.misc.fix.playback.fingerprints.PlayerResponseModelImplGeneralFingerprint
-import app.revanced.patches.youtube.misc.fix.playback.fingerprints.PlayerResponseModelImplLiveStreamFingerprint
-import app.revanced.patches.youtube.misc.fix.playback.fingerprints.PlayerResponseModelImplRecommendedLevelFingerprint
-import app.revanced.patches.youtube.misc.fix.playback.fingerprints.ScrubbedPreviewLayoutFingerprint
-import app.revanced.patches.youtube.misc.fix.playback.fingerprints.StoryboardRendererDecoderRecommendedLevelFingerprint
-import app.revanced.patches.youtube.misc.fix.playback.fingerprints.StoryboardRendererDecoderSpecFingerprint
-import app.revanced.patches.youtube.misc.fix.playback.fingerprints.StoryboardRendererSpecFingerprint
-import app.revanced.patches.youtube.misc.fix.playback.fingerprints.StoryboardThumbnailFingerprint
-import app.revanced.patches.youtube.misc.fix.playback.fingerprints.StoryboardThumbnailParentFingerprint
 import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
-import app.revanced.util.*
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -43,6 +33,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
         AddResourcesPatch::class,
     ],
 )
+@Deprecated("This patch will be removed in the future.")
 object SpoofSignaturePatch : BytecodePatch(
     setOf(
         PlayerResponseModelImplGeneralFingerprint,
