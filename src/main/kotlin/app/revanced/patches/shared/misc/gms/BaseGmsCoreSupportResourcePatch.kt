@@ -8,7 +8,6 @@ import app.revanced.patches.all.misc.packagename.ChangePackageNamePatch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import org.w3c.dom.Element
 import org.w3c.dom.Node
-import java.util.logging.Logger
 
 /**
  * Abstract resource patch that allows Google apps to run without root and under a different package name
@@ -25,33 +24,23 @@ abstract class BaseGmsCoreSupportResourcePatch(
     private val spoofedPackageSignature: String,
     dependencies: Set<PatchClass> = setOf(),
 ) : ResourcePatch(dependencies = setOf(ChangePackageNamePatch::class, AddResourcesPatch::class) + dependencies) {
-    private val logger = Logger.getLogger(name)
-
-    internal val gmsCoreVendorOption =
+    internal val gmsCoreVendorGroupIdOption =
         stringPatchOption(
-            key = "gmsCoreVendor",
+            key = "gmsCoreVendorGroupId",
             default = "app.revanced",
             values =
             mapOf(
                 "ReVanced" to "app.revanced",
             ),
-            title = "GmsCore Vendor",
-            description = "The group id of the GmsCore vendor.",
+            title = "GmsCore vendor group ID",
+            description = "The vendor's group ID for GmsCore.",
             required = true,
         ) { it!!.matches(Regex(PACKAGE_NAME_REGEX_PATTERN)) }
 
-    protected var gmsCoreVendor by gmsCoreVendorOption
+    protected val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
 
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(BaseGmsCoreSupportResourcePatch::class)
-
-        // TODO: Remove this, once ReVanced Manager supports falling back to default patch option values,
-        //  once a patch option value has been removed from a patch.
-        if (gmsCoreVendor!!.lowercase().startsWith(VANCED_VENDOR)) {
-            logger.info("Vanced MicroG is incompatible with ReVanced. Falling back to ReVanced GmsCore.")
-
-            gmsCoreVendor = gmsCoreVendorOption.default
-        }
 
         context.patchManifest()
         context.addSpoofingMetadata()
@@ -80,12 +69,12 @@ abstract class BaseGmsCoreSupportResourcePatch(
 
             // Spoof package name and signature.
             applicationNode.adoptChild("meta-data") {
-                setAttribute("android:name", "$gmsCoreVendor.android.gms.SPOOFED_PACKAGE_NAME")
+                setAttribute("android:name", "$gmsCoreVendorGroupId.android.gms.SPOOFED_PACKAGE_NAME")
                 setAttribute("android:value", fromPackageName)
             }
 
             applicationNode.adoptChild("meta-data") {
-                setAttribute("android:name", "$gmsCoreVendor.android.gms.SPOOFED_PACKAGE_SIGNATURE")
+                setAttribute("android:name", "$gmsCoreVendorGroupId.android.gms.SPOOFED_PACKAGE_SIGNATURE")
                 setAttribute("android:value", spoofedPackageSignature)
             }
 
@@ -93,7 +82,7 @@ abstract class BaseGmsCoreSupportResourcePatch(
             applicationNode.adoptChild("meta-data") {
                 // TODO: The name of this metadata should be dynamic.
                 setAttribute("android:name", "app.revanced.MICROG_PACKAGE_NAME")
-                setAttribute("android:value", "$gmsCoreVendor.android.gms")
+                setAttribute("android:value", "$gmsCoreVendorGroupId.android.gms")
             }
         }
     }
@@ -120,10 +109,10 @@ abstract class BaseGmsCoreSupportResourcePatch(
                 "$packageName.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
             ).replace(
                 "com.google.android.c2dm",
-                "$gmsCoreVendor.android.c2dm",
+                "$gmsCoreVendorGroupId.android.c2dm",
             ).replace(
                 "</queries>",
-                "<package android:name=\"$gmsCoreVendor.android.gms\"/></queries>",
+                "<package android:name=\"$gmsCoreVendorGroupId.android.gms\"/></queries>",
             ),
         )
     }
