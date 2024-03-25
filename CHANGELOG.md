@@ -1,3 +1,10 @@
+# [4.4.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.11...v4.4.0-dev.12) (2024-03-25)
+
+
+### Bug Fixes
+
+* **YouTube:** Fix video playback by switching to ReVanced GmsCore vendor ([#2907](https://github.com/ReVanced/revanced-patches/issues/2907)) ([33ea122](https://github.com/ReVanced/revanced-patches/commit/33ea12228c2ae5dcadf3e7c7016d4bf6006d899a))
+
 # [4.4.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.10...v4.4.0-dev.11) (2024-03-25)
 
 
