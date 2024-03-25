@@ -284,6 +284,18 @@ public final class app/revanced/patches/messenger/inputfield/patch/DisableTyping
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/mifitness/misc/locale/ForceEnglishLocalePatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/mifitness/misc/locale/ForceEnglishLocalePatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/mifitness/misc/login/FixLoginPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/mifitness/misc/login/FixLoginPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/moneymanager/UnlockProPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/moneymanager/UnlockProPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
