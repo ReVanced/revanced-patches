@@ -18,7 +18,6 @@ import java.net.HttpURLConnection;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.Locale;
-import java.util.UUID;
 
 import static android.text.Html.FROM_HTML_MODE_COMPACT;
 import static app.revanced.integrations.shared.StringRef.str;
@@ -26,8 +25,6 @@ import static app.revanced.integrations.youtube.patches.announcements.requests.A
 
 @SuppressWarnings("unused")
 public final class AnnouncementsPatch {
-    private final static String CONSUMER = getOrSetConsumer();
-
     private AnnouncementsPatch() {
     }
 
@@ -41,7 +38,7 @@ public final class AnnouncementsPatch {
         Utils.runOnBackgroundThread(() -> {
             try {
                 HttpURLConnection connection = AnnouncementsRoutes.getAnnouncementsConnectionFromRoute(
-                        GET_LATEST_ANNOUNCEMENT, CONSUMER, Locale.getDefault().toLanguageTag());
+                        GET_LATEST_ANNOUNCEMENT, Locale.getDefault().toLanguageTag());
 
                 Logger.printDebug(() -> "Get latest announcement route connection url: " + connection.getURL());
 
@@ -137,15 +134,6 @@ public final class AnnouncementsPatch {
                 Logger.printException(() -> message, e);
             }
         });
-    }
-
-    private static String getOrSetConsumer() {
-        final var consumer = Settings.ANNOUNCEMENT_CONSUMER.get();
-        if (!consumer.isEmpty()) return consumer;
-
-        final var uuid = UUID.randomUUID().toString();
-        Settings.ANNOUNCEMENT_CONSUMER.save(uuid);
-        return uuid;
     }
 
     // TODO: Use better icons.

@@ -196,7 +196,6 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting SPOOF_DEVICE_DIMENSIONS = new BooleanSetting("revanced_spoof_device_dimensions", FALSE, true);
     public static final BooleanSetting BYPASS_URL_REDIRECTS = new BooleanSetting("revanced_bypass_url_redirects", TRUE);
     public static final BooleanSetting ANNOUNCEMENTS = new BooleanSetting("revanced_announcements", TRUE);
-    public static final StringSetting ANNOUNCEMENT_CONSUMER = new StringSetting("revanced_announcement_consumer", "", false, false);
    @Deprecated
     public static final StringSetting DEPRECATED_ANNOUNCEMENT_LAST_HASH = new StringSetting("revanced_announcement_last_hash", "");
     public static final IntegerSetting ANNOUNCEMENT_LAST_ID = new IntegerSetting("revanced_announcement_last_id", -1);
@@ -344,6 +343,10 @@ public class Settings extends BaseSettings {
             Logger.printInfo(() -> "Resetting spoof app version target");
             Settings.SPOOF_APP_VERSION_TARGET.resetToDefault();
         }
+
+
+        // Remove any previously saved announcement consumer (a random generated string).
+        Setting.preferences.saveString("revanced_announcement_consumer", null);
 
 
         // endregion
