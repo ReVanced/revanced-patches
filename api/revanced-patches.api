@@ -636,6 +636,7 @@ public abstract class app/revanced/patches/shared/misc/gms/BaseGmsCoreSupportRes
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 	protected final fun getGmsCoreVendor ()Ljava/lang/String;
+	protected final fun getGmsCoreVendorGroupId ()Ljava/lang/String;
 }
 
 public abstract class app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch : app/revanced/patcher/patch/BytecodePatch {
