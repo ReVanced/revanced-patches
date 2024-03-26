@@ -479,6 +479,12 @@
             <string name="revanced_hide_shorts_thanks_button_title">Hide thanks button</string>
             <string name="revanced_hide_shorts_thanks_button_summary_on">Thanks button is hidden</string>
             <string name="revanced_hide_shorts_thanks_button_summary_off">Thanks button is shown</string>
+            <string name="revanced_hide_shorts_like_button_title">Hide like button</string>
+            <string name="revanced_hide_shorts_like_button_summary_on">Like button is hidden</string>
+            <string name="revanced_hide_shorts_like_button_summary_off">Like button is shown</string>
+            <string name="revanced_hide_shorts_dislike_button_title">Hide dislike button</string>
+            <string name="revanced_hide_shorts_dislike_button_summary_on">Dislike button is hidden</string>
+            <string name="revanced_hide_shorts_dislike_button_summary_off">Dislike button is shown</string>
             <string name="revanced_hide_shorts_comments_button_title">Hide comments button</string>
             <string name="revanced_hide_shorts_comments_button_summary_on">Comments button is hidden</string>
             <string name="revanced_hide_shorts_comments_button_summary_off">Comments button is shown</string>
