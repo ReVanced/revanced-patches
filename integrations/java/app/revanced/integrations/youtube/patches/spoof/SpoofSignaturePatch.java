@@ -1,26 +1,25 @@
 package app.revanced.integrations.youtube.patches.spoof;
 
-import static app.revanced.integrations.youtube.patches.spoof.requests.StoryboardRendererRequester.getStoryboardRenderer;
-import static app.revanced.integrations.shared.Utils.containsAny;
-
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
 import androidx.annotation.Nullable;
+import app.revanced.integrations.shared.Logger;
+import app.revanced.integrations.shared.Utils;
+import app.revanced.integrations.youtube.patches.VideoInformation;
+import app.revanced.integrations.youtube.settings.Settings;
+import app.revanced.integrations.youtube.shared.PlayerType;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-import app.revanced.integrations.youtube.patches.VideoInformation;
-import app.revanced.integrations.youtube.settings.Settings;
-import app.revanced.integrations.youtube.shared.PlayerType;
-import app.revanced.integrations.shared.Logger;
-import app.revanced.integrations.shared.Utils;
+import static app.revanced.integrations.shared.Utils.containsAny;
+import static app.revanced.integrations.youtube.patches.spoof.requests.StoryboardRendererRequester.getStoryboardRenderer;
 
 /** @noinspection unused*/
+@Deprecated
 public class SpoofSignaturePatch {
     /**
      * Parameter (also used by
