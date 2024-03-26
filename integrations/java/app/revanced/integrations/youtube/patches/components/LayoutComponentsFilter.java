@@ -29,6 +29,8 @@ public final class LayoutComponentsFilter extends Filter {
     private final StringFilterGroup expandableMetadata;
     private final ByteArrayFilterGroup searchResultRecommendations;
     private final StringFilterGroup searchResultVideo;
+    private final StringFilterGroup compactChannelBarInner;
+    private final ByteArrayFilterGroup joinMembership;
 
     static {
         mixPlaylistsExceptions.addPatterns(
@@ -194,9 +196,14 @@ public final class LayoutComponentsFilter extends Filter {
                 "set_reminder_button"
         );
 
-        final var joinMembership = new StringFilterGroup(
+        compactChannelBarInner = new StringFilterGroup(
                 Settings.HIDE_JOIN_MEMBERSHIP_BUTTON,
-                "compact_sponsor_button"
+                "compact_channel_bar_inner"
+        );
+
+        joinMembership = new ByteArrayFilterGroup(
+                Settings.HIDE_JOIN_MEMBERSHIP_BUTTON,
+                "Join this channel"
         );
 
         final var channelWatermark = new StringFilterGroup(
@@ -233,7 +240,7 @@ public final class LayoutComponentsFilter extends Filter {
                 quickActions,
                 relatedVideos,
                 compactBanner,
-                joinMembership,
+                compactChannelBarInner,
                 medicalPanel,
                 videoQualityMenuFooter,
                 infoPanel,
@@ -254,6 +261,12 @@ public final class LayoutComponentsFilter extends Filter {
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == searchResultVideo) {
             if (searchResultRecommendations.check(protobufBufferArray).isFiltered()) {
+                return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
+            }
+        }
+
+        if (matchedGroup == compactChannelBarInner) {
+            if (joinMembership.check(protobufBufferArray).isFiltered()){
                 return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
             }
         }
