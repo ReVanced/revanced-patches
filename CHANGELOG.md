@@ -1,3 +1,17 @@
+# [4.4.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.12...v4.4.0-dev.13) (2024-03-26)
+
+
+### Bug Fixes
+
+* **YouTube:** Move setting to correct screen ([a16eda8](https://github.com/ReVanced/revanced-patches/commit/a16eda864515612d3a6b846082844df15eb49f56))
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Hide like and dislike buttons ([2df0892](https://github.com/ReVanced/revanced-patches/commit/2df0892682406e67283c4aeaacebf8f222029833))
+* **YouTube - Hide Shorts components:** Hide sound metadata label ([ea7d1e0](https://github.com/ReVanced/revanced-patches/commit/ea7d1e0d08cc245117ffe8ad0df3c31c5e87f739))
+* **YouTube - Hide Shorts components:** Hide title and full video link label ([e7b64e1](https://github.com/ReVanced/revanced-patches/commit/e7b64e154e7fb8edd0037f5e171f4aa3ed9017f8))
+
 # [4.4.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.11...v4.4.0-dev.12) (2024-03-25)
 
 
