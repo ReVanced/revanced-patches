@@ -13,12 +13,9 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal object NavigationBarHookCallbackFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PRIVATE or AccessFlags.STATIC,
     returnType = "V",
-    parameters = listOf(
-        NavigationBarHookPatch.INTEGRATIONS_NAVIGATION_BUTTON_DESCRIPTOR,
-        "Landroid/view/View;"
-    ),
+    parameters = listOf(NavigationBarHookPatch.INTEGRATIONS_NAVIGATION_BUTTON_DESCRIPTOR, "Landroid/view/View;"),
     customFingerprint = { methodDef, _ ->
-        methodDef.name == "navigationTabCreatedCallback"
-                && methodDef.definingClass == NavigationBarHookPatch.INTEGRATIONS_CLASS_DESCRIPTOR
-    }
+        methodDef.name == "navigationTabCreatedCallback" &&
+            methodDef.definingClass == NavigationBarHookPatch.INTEGRATIONS_CLASS_DESCRIPTOR
+    },
 )

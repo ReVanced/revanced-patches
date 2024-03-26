@@ -8,7 +8,6 @@ import com.android.tools.smali.dexlib2.builder.BuilderInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 internal object InjectionUtils {
-    const val REGISTER_TEMPLATE_REPLACEMENT: String = "REGISTER_INDEX"
 
     /**
      * Injects an instruction into insertIndex of the hook.
@@ -23,7 +22,7 @@ internal object InjectionUtils {
 
         addInstruction(
             insertIndex,
-            hook.replace("REGISTER_INDEX", register.toString())
+            hook.replace("REGISTER_INDEX", register.toString()),
         )
     }
 
@@ -32,7 +31,7 @@ internal object InjectionUtils {
      */
     fun MutableMethod.injectHooksByFilter(
         insertionFilter: (BuilderInstruction) -> Boolean,
-        hook: String
+        hook: String,
     ) {
         val methodInstructions = implementation!!.instructions
         methodInstructions.filter(insertionFilter).let { filteredInstructions ->

@@ -25,7 +25,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
         IntegrationsPatch::class,
         SettingsPatch::class,
         AddResourcesPatch::class,
-        NavigationBarHookPatch::class
+        NavigationBarHookPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -47,7 +47,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "19.06.39",
                 "19.07.40",
                 "19.08.36",
-                "19.09.37"
+                "19.09.37",
             ],
         ),
     ],
@@ -76,10 +76,7 @@ object NavigationButtonsPatch : BytecodePatch(
             ),
         )
 
-        /*
-         * Switch create button with notification.
-         */
-
+        // Switch create with notifications button.
         AddCreateButtonViewFingerprint.result?.let {
             it.mutableMethod.apply {
                 val stringIndex = it.scanResult.stringsScanResult!!.matches.find { match ->
@@ -100,6 +97,7 @@ object NavigationButtonsPatch : BytecodePatch(
             }
         } ?: throw AddCreateButtonViewFingerprint.exception
 
+        // Hook navigation button created, in order to hide them.
         NavigationBarHookPatch.hookNavigationButtonCreated(INTEGRATIONS_CLASS_DESCRIPTOR)
     }
 }

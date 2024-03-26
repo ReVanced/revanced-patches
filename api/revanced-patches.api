@@ -1613,7 +1613,7 @@ public final class app/revanced/patches/youtube/misc/navigation/NavigationBarHoo
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/navigation/NavigationBarHookPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public final fun hookNavigationButtonCreated (Ljava/lang/String;)V
+	public final fun getHookNavigationButtonCreated ()Lkotlin/jvm/functions/Function1;
 }
 
 public final class app/revanced/patches/youtube/misc/playercontrols/BottomControlsResourcePatch : app/revanced/patcher/patch/ResourcePatch, java/io/Closeable {
