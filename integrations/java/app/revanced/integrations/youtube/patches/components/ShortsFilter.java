@@ -23,6 +23,7 @@ public final class ShortsFilter extends Filter {
     private final StringFilterGroup channelBar;
     private final StringFilterGroup fullVideoLinkLabel;
     private final StringFilterGroup videoTitle;
+    private final StringFilterGroup reelSoundMetadata;
     private final StringFilterGroup subscribeButton;
     private final StringFilterGroup subscribeButtonPaused;
     private final StringFilterGroup soundButton;
@@ -97,6 +98,11 @@ public final class ShortsFilter extends Filter {
                 "shorts_video_title_item"
         );
 
+        reelSoundMetadata = new StringFilterGroup(
+                Settings.HIDE_SHORTS_SOUND_METADATA_LABEL,
+                "reel_sound_metadata"
+        );
+
         soundButton = new StringFilterGroup(
                 Settings.HIDE_SHORTS_SOUND_BUTTON,
                 "reel_pivot_button"
@@ -115,8 +121,8 @@ public final class ShortsFilter extends Filter {
         addPathCallbacks(
                 shortsCompactFeedVideoPath,
                 joinButton, subscribeButton, subscribeButtonPaused,
-                channelBar, fullVideoLinkLabel, videoTitle, soundButton,
-                infoPanel, actionBar
+                channelBar, fullVideoLinkLabel, videoTitle, reelSoundMetadata,
+                soundButton, infoPanel, actionBar
         );
 
         var shortsLikeButton = new ByteArrayFilterGroup(
@@ -163,6 +169,7 @@ public final class ShortsFilter extends Filter {
                     matchedGroup == channelBar ||
                     matchedGroup == fullVideoLinkLabel ||
                     matchedGroup == videoTitle ||
+                    matchedGroup == reelSoundMetadata ||
                     matchedGroup == subscribeButtonPaused
             ) return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
 
