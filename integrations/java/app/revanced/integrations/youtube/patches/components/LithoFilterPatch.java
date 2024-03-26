@@ -1,7 +1,6 @@
 package app.revanced.integrations.youtube.patches.components;
 
 import android.os.Build;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -15,7 +14,6 @@ import java.util.Spliterator;
 import java.util.function.Consumer;
 
 import app.revanced.integrations.shared.Logger;
-import app.revanced.integrations.shared.Utils;
 import app.revanced.integrations.shared.settings.BooleanSetting;
 import app.revanced.integrations.shared.settings.BaseSettings;
 import app.revanced.integrations.youtube.ByteTrieSearch;
@@ -124,7 +122,7 @@ class StringFilterGroup extends FilterGroup<String> {
         if (isEnabled()) {
             for (String pattern : filters) {
                 if (!string.isEmpty()) {
-                    final int indexOf = pattern.indexOf(string);
+                    final int indexOf = string.indexOf(pattern);
                     if (indexOf >= 0) {
                         matchedIndex = indexOf;
                         matchedLength = pattern.length();
