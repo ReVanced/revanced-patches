@@ -22,6 +22,8 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
             SwitchPreference("revanced_hide_shorts_subscribe_button"),
             SwitchPreference("revanced_hide_shorts_subscribe_button_paused"),
             SwitchPreference("revanced_hide_shorts_thanks_button"),
+            SwitchPreference("revanced_hide_shorts_like_button"),
+            SwitchPreference("revanced_hide_shorts_dislike_button"),
             SwitchPreference("revanced_hide_shorts_comments_button"),
             SwitchPreference("revanced_hide_shorts_remix_button"),
             SwitchPreference("revanced_hide_shorts_share_button"),
