@@ -27,7 +27,7 @@ public final class ShortsFilter extends Filter {
     private final StringFilterGroup infoPanel;
     private final StringFilterGroup shelfHeader;
 
-    private final StringFilterGroup videoActionButton;
+    private final StringFilterGroup actionBar;
     private final ByteArrayFilterGroupList videoActionButtonGroupList = new ByteArrayFilterGroupList();
 
     public ShortsFilter() {
@@ -94,15 +94,25 @@ public final class ShortsFilter extends Filter {
                 "shorts_info_panel_overview"
         );
 
-        videoActionButton = new StringFilterGroup(
+        actionBar = new StringFilterGroup(
                 null,
-                "ContainerType|shorts_video_action_button"
+                "shorts_action_bar"
         );
 
         addPathCallbacks(
                 shortsCompactFeedVideoPath,
                 joinButton, subscribeButton, subscribeButtonPaused,
-                channelBar, soundButton, infoPanel, videoActionButton
+                channelBar, soundButton, infoPanel, actionBar
+        );
+
+        var shortsLikeButton = new ByteArrayFilterGroup(
+                Settings.HIDE_SHORTS_LIKE_BUTTON,
+                "shorts_like_button"
+        );
+
+        var shortsDislikeButton = new ByteArrayFilterGroup(
+                Settings.HIDE_SHORTS_DISLIKE_BUTTON,
+                "shorts_dislike_button"
         );
 
         var shortsCommentButton = new ByteArrayFilterGroup(
@@ -120,7 +130,13 @@ public final class ShortsFilter extends Filter {
                 "reel_remix_button"
         );
 
-        videoActionButtonGroupList.addAll(shortsCommentButton, shortsShareButton, shortsRemixButton);
+        videoActionButtonGroupList.addAll(
+                shortsLikeButton,
+                shortsDislikeButton,
+                shortsCommentButton,
+                shortsShareButton,
+                shortsRemixButton
+        );
     }
 
     @Override
@@ -141,8 +157,8 @@ public final class ShortsFilter extends Filter {
                 return false;
             }
 
-            // Video action buttons (comment, share, remix) have the same path.
-            if (matchedGroup == videoActionButton) {
+            // Video action buttons (like, dislike, comment, share, remix) have the same path.
+            if (matchedGroup == actionBar) {
                 if (videoActionButtonGroupList.check(protobufBufferArray).isFiltered()) return super.isFiltered(
                         identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex
                 );
