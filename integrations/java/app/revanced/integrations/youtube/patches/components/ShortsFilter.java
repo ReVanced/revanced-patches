@@ -21,6 +21,8 @@ public final class ShortsFilter extends Filter {
     private final ByteArrayFilterGroup shortsCompactFeedVideoBuffer;
 
     private final StringFilterGroup channelBar;
+    private final StringFilterGroup fullVideoLinkLabel;
+    private final StringFilterGroup videoTitle;
     private final StringFilterGroup subscribeButton;
     private final StringFilterGroup subscribeButtonPaused;
     private final StringFilterGroup soundButton;
@@ -84,6 +86,16 @@ public final class ShortsFilter extends Filter {
                 REEL_CHANNEL_BAR_PATH
         );
 
+        fullVideoLinkLabel = new StringFilterGroup(
+                Settings.HIDE_SHORTS_FULL_VIDEO_LINK_LABEL,
+                "reel_multi_format_link"
+        );
+
+        videoTitle = new StringFilterGroup(
+                Settings.HIDE_SHORTS_VIDEO_TITLE,
+                "shorts_video_title_item"
+        );
+
         soundButton = new StringFilterGroup(
                 Settings.HIDE_SHORTS_SOUND_BUTTON,
                 "reel_pivot_button"
@@ -102,7 +114,8 @@ public final class ShortsFilter extends Filter {
         addPathCallbacks(
                 shortsCompactFeedVideoPath,
                 joinButton, subscribeButton, subscribeButtonPaused,
-                channelBar, soundButton, infoPanel, actionBar
+                channelBar, fullVideoLinkLabel, videoTitle, soundButton,
+                infoPanel, actionBar
         );
 
         var shortsLikeButton = new ByteArrayFilterGroup(
@@ -147,6 +160,8 @@ public final class ShortsFilter extends Filter {
             if (matchedGroup == soundButton ||
                     matchedGroup == infoPanel ||
                     matchedGroup == channelBar ||
+                    matchedGroup == fullVideoLinkLabel ||
+                    matchedGroup == videoTitle ||
                     matchedGroup == subscribeButtonPaused
             ) return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
 
