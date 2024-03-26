@@ -30,7 +30,8 @@ public final class LayoutComponentsFilter extends Filter {
     private final ByteArrayFilterGroup searchResultRecommendations;
     private final StringFilterGroup searchResultVideo;
     private final StringFilterGroup compactChannelBarInner;
-    private final ByteArrayFilterGroup joinMembership;
+    private final StringFilterGroup compactChannelBarInnerButton;
+    private final ByteArrayFilterGroup joinMembershipButton;
 
     static {
         mixPlaylistsExceptions.addPatterns(
@@ -38,6 +39,7 @@ public final class LayoutComponentsFilter extends Filter {
                 "java.lang.ref.WeakReference"
         );
     }
+
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public LayoutComponentsFilter() {
@@ -201,9 +203,14 @@ public final class LayoutComponentsFilter extends Filter {
                 "compact_channel_bar_inner"
         );
 
-        joinMembership = new ByteArrayFilterGroup(
-                Settings.HIDE_JOIN_MEMBERSHIP_BUTTON,
-                "Join this channel"
+        compactChannelBarInnerButton = new StringFilterGroup(
+                null,
+                "|button.eml|"
+        );
+
+        joinMembershipButton = new ByteArrayFilterGroup(
+                null,
+                "sponsorships"
         );
 
         final var channelWatermark = new StringFilterGroup(
@@ -265,18 +272,24 @@ public final class LayoutComponentsFilter extends Filter {
             }
         }
 
-        if (matchedGroup == compactChannelBarInner) {
-            if (joinMembership.check(protobufBufferArray).isFiltered()){
-                return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
-        }
-
         // The groups are excluded from the filter due to the exceptions list below.
         // Filter them separately here.
         if (matchedGroup == notifyMe || matchedGroup == inFeedSurvey || matchedGroup == expandableMetadata)
             return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
 
         if (exceptions.matches(path)) return false; // Exceptions are not filtered.
+
+        if (matchedGroup == compactChannelBarInner) {
+            if (compactChannelBarInnerButton.check(path).isFiltered()) {
+                // The filter may be broad, but in the context of a compactChannelBarInnerButton,
+                // it's safe to assume that the button is the only thing that should be hidden.
+                if (joinMembershipButton.check(protobufBufferArray).isFiltered()) {
+                    return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
+                }
+            }
+
+            return false;
+        }
 
         // TODO: This also hides the feed Shorts shelf header
         if (matchedGroup == searchResultShelfHeader && contentIndex != 0) return false;

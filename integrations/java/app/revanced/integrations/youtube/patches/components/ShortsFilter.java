@@ -27,6 +27,7 @@ public final class ShortsFilter extends Filter {
     private final StringFilterGroup subscribeButtonPaused;
     private final StringFilterGroup soundButton;
     private final StringFilterGroup infoPanel;
+    private final StringFilterGroup joinButton;
     private final StringFilterGroup shelfHeader;
 
     private final StringFilterGroup actionBar;
@@ -66,7 +67,7 @@ public final class ShortsFilter extends Filter {
                 "/frame0.jpg");
 
         // Shorts player components.
-        var joinButton = new StringFilterGroup(
+        joinButton = new StringFilterGroup(
                 Settings.HIDE_SHORTS_JOIN_BUTTON,
                 "sponsor_button"
         );
@@ -182,7 +183,9 @@ public final class ShortsFilter extends Filter {
 
             // Filter other path groups from pathFilterGroupList, only when reelChannelBar is visible
             // to avoid false positives.
-            if (matchedGroup == subscribeButton) {
+            if (matchedGroup == subscribeButton ||
+                    matchedGroup == joinButton
+            ) {
                 if (path.startsWith(REEL_CHANNEL_BAR_PATH)) return super.isFiltered(
                         identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex
                 );
