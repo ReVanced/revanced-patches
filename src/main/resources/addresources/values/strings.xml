@@ -500,6 +500,12 @@
             <string name="revanced_hide_shorts_channel_bar_title">Hide channel bar</string>
             <string name="revanced_hide_shorts_channel_bar_summary_on">Channel bar is hidden</string>
             <string name="revanced_hide_shorts_channel_bar_summary_off">Channel bar is shown</string>
+            <string name="revanced_hide_shorts_video_title_title">Hide Shorts video title</string>
+            <string name="revanced_hide_shorts_video_title_summary_on">Title is hidden</string>
+            <string name="revanced_hide_shorts_video_title_summary_off">Title is shown</string>
+            <string name="revanced_hide_shorts_full_video_link_label_title">Hide full video link label</string>
+            <string name="revanced_hide_shorts_full_video_link_label_summary_on">Label is hidden</string>
+            <string name="revanced_hide_shorts_full_video_link_label_summary_off">Label is shown</string>
             <string name="revanced_hide_shorts_sound_button_title">Hide sound button</string>
             <string name="revanced_hide_shorts_sound_button_summary_on">Sound button is hidden</string>
             <string name="revanced_hide_shorts_sound_button_summary_off">Sound button is shown</string>
