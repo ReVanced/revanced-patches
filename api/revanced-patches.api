@@ -284,6 +284,18 @@ public final class app/revanced/patches/messenger/inputfield/patch/DisableTyping
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/mifitness/misc/locale/ForceEnglishLocalePatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/mifitness/misc/locale/ForceEnglishLocalePatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/mifitness/misc/login/FixLoginPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/mifitness/misc/login/FixLoginPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/moneymanager/UnlockProPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/moneymanager/UnlockProPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -481,6 +493,13 @@ public final class app/revanced/patches/reddit/customclients/Constants {
 	public static final field OAUTH_USER_AGENT Ljava/lang/String;
 }
 
+public abstract class app/revanced/patches/reddit/customclients/ads/BaseDisableAdsPatch : app/revanced/patcher/patch/BytecodePatch {
+	public fun <init> (Ljava/util/Set;Ljava/util/Set;)V
+	public synthetic fun <init> (Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/reddit/customclients/baconreader/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/BaseSpoofClientPatch {
 	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/baconreader/api/SpoofClientPatch;
 	public fun patchClientId (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -536,10 +555,12 @@ public final class app/revanced/patches/reddit/customclients/slide/api/SpoofClie
 	public fun patchClientId (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
 }
 
-public final class app/revanced/patches/reddit/customclients/syncforreddit/ads/DisableAdsPatch : app/revanced/patcher/patch/BytecodePatch {
+public final class app/revanced/patches/reddit/customclients/syncforlemmy/ads/DisableAdsPatch : app/revanced/patches/reddit/customclients/ads/BaseDisableAdsPatch {
+	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/syncforlemmy/ads/DisableAdsPatch;
+}
+
+public final class app/revanced/patches/reddit/customclients/syncforreddit/ads/DisableAdsPatch : app/revanced/patches/reddit/customclients/ads/BaseDisableAdsPatch {
 	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/syncforreddit/ads/DisableAdsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
 public final class app/revanced/patches/reddit/customclients/syncforreddit/annoyances/startup/DisableSyncForLemmyBottomSheetPatch : app/revanced/patcher/patch/BytecodePatch {
@@ -615,6 +636,7 @@ public abstract class app/revanced/patches/shared/misc/gms/BaseGmsCoreSupportRes
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 	protected final fun getGmsCoreVendor ()Ljava/lang/String;
+	protected final fun getGmsCoreVendorGroupId ()Ljava/lang/String;
 }
 
 public abstract class app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch : app/revanced/patcher/patch/BytecodePatch {

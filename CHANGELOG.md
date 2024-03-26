@@ -1,3 +1,39 @@
+# [4.4.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.12...v4.4.0-dev.13) (2024-03-26)
+
+
+### Bug Fixes
+
+* **YouTube:** Move setting to correct screen ([a16eda8](https://github.com/ReVanced/revanced-patches/commit/a16eda864515612d3a6b846082844df15eb49f56))
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Hide like and dislike buttons ([2df0892](https://github.com/ReVanced/revanced-patches/commit/2df0892682406e67283c4aeaacebf8f222029833))
+* **YouTube - Hide Shorts components:** Hide sound metadata label ([ea7d1e0](https://github.com/ReVanced/revanced-patches/commit/ea7d1e0d08cc245117ffe8ad0df3c31c5e87f739))
+* **YouTube - Hide Shorts components:** Hide title and full video link label ([e7b64e1](https://github.com/ReVanced/revanced-patches/commit/e7b64e154e7fb8edd0037f5e171f4aa3ed9017f8))
+
+# [4.4.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.11...v4.4.0-dev.12) (2024-03-25)
+
+
+### Bug Fixes
+
+* **YouTube:** Fix video playback by switching to ReVanced GmsCore vendor ([#2907](https://github.com/ReVanced/revanced-patches/issues/2907)) ([33ea122](https://github.com/ReVanced/revanced-patches/commit/33ea12228c2ae5dcadf3e7c7016d4bf6006d899a))
+
+# [4.4.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.10...v4.4.0-dev.11) (2024-03-25)
+
+
+### Features
+
+* **Mi Fitness:** Add `Force English locale` and `Fix login` patch ([#2734](https://github.com/ReVanced/revanced-patches/issues/2734)) ([7a25791](https://github.com/ReVanced/revanced-patches/commit/7a25791d53530b1236896b2c3d6275ee7556e8b7))
+* **Sync for Lemmy:** Add `Disable ads` patch ([#2872](https://github.com/ReVanced/revanced-patches/issues/2872)) ([0785819](https://github.com/ReVanced/revanced-patches/commit/0785819dd5ad487c778b5baf09004cdab3687184))
+
+# [4.4.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.9...v4.4.0-dev.10) (2024-03-25)
+
+
+### Bug Fixes
+
+* **YouTube - Hide ads:** Prevent app crash if hiding fullscreen ads is not possible ([#2910](https://github.com/ReVanced/revanced-patches/issues/2910)) ([9f50470](https://github.com/ReVanced/revanced-patches/commit/9f50470bf6582fe2f20a903a97bf66c41f296fb2))
+
 # [4.4.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.8...v4.4.0-dev.9) (2024-03-18)
 
 

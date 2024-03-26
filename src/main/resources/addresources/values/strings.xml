@@ -214,6 +214,7 @@
             <string name="revanced_hide_merchandise_banners_title">Hide merchandise banners</string>
             <string name="revanced_hide_merchandise_banners_summary_on">Merchandise banners are hidden</string>
             <string name="revanced_hide_merchandise_banners_summary_off">Merchandise banners are shown</string>
+            <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Failed to hide full-screen ad. Disabling to prevent issues</string>
         </patch>
         <patch id="ad.getpremium.HideGetPremiumPatch">
             <string name="revanced_hide_get_premium_title">Hide YouTube Premium promotions</string>
@@ -493,6 +494,12 @@
             <string name="revanced_hide_shorts_thanks_button_title">Hide thanks button</string>
             <string name="revanced_hide_shorts_thanks_button_summary_on">Thanks button is hidden</string>
             <string name="revanced_hide_shorts_thanks_button_summary_off">Thanks button is shown</string>
+            <string name="revanced_hide_shorts_like_button_title">Hide like button</string>
+            <string name="revanced_hide_shorts_like_button_summary_on">Like button is hidden</string>
+            <string name="revanced_hide_shorts_like_button_summary_off">Like button is shown</string>
+            <string name="revanced_hide_shorts_dislike_button_title">Hide dislike button</string>
+            <string name="revanced_hide_shorts_dislike_button_summary_on">Dislike button is hidden</string>
+            <string name="revanced_hide_shorts_dislike_button_summary_off">Dislike button is shown</string>
             <string name="revanced_hide_shorts_comments_button_title">Hide comments button</string>
             <string name="revanced_hide_shorts_comments_button_summary_on">Comments button is hidden</string>
             <string name="revanced_hide_shorts_comments_button_summary_off">Comments button is shown</string>
@@ -508,6 +515,15 @@
             <string name="revanced_hide_shorts_channel_bar_title">Hide channel bar</string>
             <string name="revanced_hide_shorts_channel_bar_summary_on">Channel bar is hidden</string>
             <string name="revanced_hide_shorts_channel_bar_summary_off">Channel bar is shown</string>
+            <string name="revanced_hide_shorts_video_title_title">Hide Shorts video title</string>
+            <string name="revanced_hide_shorts_video_title_summary_on">Title is hidden</string>
+            <string name="revanced_hide_shorts_video_title_summary_off">Title is shown</string>
+            <string name="revanced_hide_shorts_sound_metadata_label_title">Hide sound metadata label</string>
+            <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Label is hidden</string>
+            <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Label is shown</string>
+            <string name="revanced_hide_shorts_full_video_link_label_title">Hide full video link label</string>
+            <string name="revanced_hide_shorts_full_video_link_label_summary_on">Label is hidden</string>
+            <string name="revanced_hide_shorts_full_video_link_label_summary_off">Label is shown</string>
             <string name="revanced_hide_shorts_sound_button_title">Hide sound button</string>
             <string name="revanced_hide_shorts_sound_button_summary_on">Sound button is hidden</string>
             <string name="revanced_hide_shorts_sound_button_summary_off">Sound button is shown</string>
