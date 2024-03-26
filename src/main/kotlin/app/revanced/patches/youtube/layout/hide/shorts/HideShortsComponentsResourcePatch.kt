@@ -30,6 +30,7 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
             SwitchPreference("revanced_hide_shorts_info_panel"),
             SwitchPreference("revanced_hide_shorts_channel_bar"),
             SwitchPreference("revanced_hide_shorts_video_title"),
+            SwitchPreference("revanced_hide_shorts_sound_metadata_label"),
             SwitchPreference("revanced_hide_shorts_full_video_link_label"),
             SwitchPreference("revanced_hide_shorts_sound_button"),
             SwitchPreference("revanced_hide_shorts_navigation_bar"),

@@ -503,6 +503,9 @@
             <string name="revanced_hide_shorts_video_title_title">Hide Shorts video title</string>
             <string name="revanced_hide_shorts_video_title_summary_on">Title is hidden</string>
             <string name="revanced_hide_shorts_video_title_summary_off">Title is shown</string>
+            <string name="revanced_hide_shorts_sound_metadata_label_title">Hide sound metadata label</string>
+            <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Label is hidden</string>
+            <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Label is shown</string>
             <string name="revanced_hide_shorts_full_video_link_label_title">Hide full video link label</string>
             <string name="revanced_hide_shorts_full_video_link_label_summary_on">Label is hidden</string>
             <string name="revanced_hide_shorts_full_video_link_label_summary_off">Label is shown</string>
