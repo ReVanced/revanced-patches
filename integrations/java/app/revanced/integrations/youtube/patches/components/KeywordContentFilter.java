@@ -112,6 +112,37 @@ final class KeywordContentFilter extends Filter {
 
     private volatile ByteTrieSearch bufferSearch;
 
+    private static void logNavigationState(String state) {
+        // Enable locally to debug filtering. Default off to reduce log spam.
+        final boolean LOG_NAVIGATION_STATE = false;
+        // noinspection ConstantValue
+        if (LOG_NAVIGATION_STATE) {
+            Logger.printDebug(() -> "Navigation state: " + state);
+        }
+    }
+
+    private static boolean hideKeywordSettingIsActive() {
+        if (NavigationBar.isSearchBarActive()) {
+            // Must check first. Search bar can be active with almost any tab.
+            logNavigationState("Search");
+            return Settings.HIDE_KEYWORD_CONTENT_SEARCH.get();
+        } else if (PlayerType.getCurrent().isMaximizedOrFullscreen()) {
+            // For now, consider the under video results the same as the home feed.
+            logNavigationState("Player active");
+            return Settings.HIDE_KEYWORD_CONTENT_HOME.get();
+        } else if (NavigationButton.HOME.isSelected()) {
+            logNavigationState("Home tab");
+            return Settings.HIDE_KEYWORD_CONTENT_HOME.get();
+        } else if (NavigationButton.SUBSCRIPTIONS.isSelected()) {
+            logNavigationState("Subscription tab");
+            return Settings.HIDE_SUBSCRIPTIONS_BUTTON.get();
+        } else {
+            // User is in the Library or Notifications tab.
+            logNavigationState("Ignored tab");
+        }
+        return false;
+    }
+
     /**
      * Change first letter of the first word to use title case.
      */
@@ -224,15 +255,6 @@ final class KeywordContentFilter extends Filter {
         addPathCallbacks(startsWithFilter, containsFilter);
     }
 
-    private static void logNavigationState(String state) {
-        // Enable locally to debug filtering. Default off to reduce log spam.
-        final boolean LOG_NAVIGATION_STATE = false;
-        // noinspection ConstantValue
-        if (LOG_NAVIGATION_STATE) {
-            Logger.printDebug(() -> "Navigation state: " + state);
-        }
-    }
-
     @Override
     public boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
@@ -240,34 +262,7 @@ final class KeywordContentFilter extends Filter {
             return false;
         }
 
-        if (NavigationBar.isSearchBarActive()) {
-            // Search bar can be active with almost any tab active.
-            if (!Settings.HIDE_KEYWORD_CONTENT_SEARCH.get()) {
-                return false;
-            }
-            logNavigationState("Search");
-        } else if (PlayerType.getCurrent().isMaximizedOrFullscreen()) {
-            // For now, consider the under video results the same as the home feed.
-            if (!Settings.HIDE_KEYWORD_CONTENT_HOME.get()) {
-                return false;
-            }
-            logNavigationState("Player active");
-        } else if (NavigationButton.HOME.isSelected()) {
-            // Could use a Switch statement, but there is only 2 tabs of interest.
-            if (!Settings.HIDE_KEYWORD_CONTENT_HOME.get()) {
-                return false;
-            }
-            logNavigationState("Home tab");
-        } else if (NavigationButton.SUBSCRIPTIONS.isSelected()) {
-            if (!Settings.HIDE_SUBSCRIPTIONS_BUTTON.get()) {
-                return false;
-            }
-            logNavigationState("Subscription tab");
-        } else {
-            // User is in the Library or Notifications tab.
-            logNavigationState("Ignored tab");
-            return false;
-        }
+        if (!hideKeywordSettingIsActive()) return false;
 
         // Field is intentionally compared using reference equality.
         if (Settings.HIDE_KEYWORD_CONTENT_PHRASES.get() != lastKeywordPhrasesParsed) {
@@ -281,4 +276,5 @@ final class KeywordContentFilter extends Filter {
 
         return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
     }
+
 }

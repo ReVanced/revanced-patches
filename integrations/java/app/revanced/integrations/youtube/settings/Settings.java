@@ -98,11 +98,11 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_IMAGE_SHELF = new BooleanSetting("revanced_hide_image_shelf", TRUE);
     public static final BooleanSetting HIDE_INFO_CARDS = new BooleanSetting("revanced_hide_info_cards", TRUE);
     public static final BooleanSetting HIDE_JOIN_MEMBERSHIP_BUTTON = new BooleanSetting("revanced_hide_join_membership_button", TRUE);
-    public static final BooleanSetting HIDE_KEYWORD_CONTENT_SEARCH = new BooleanSetting("revanced_hide_keyword_content_search", FALSE);
     public static final BooleanSetting HIDE_KEYWORD_CONTENT_HOME = new BooleanSetting("revanced_hide_keyword_content_home", FALSE);
     public static final BooleanSetting HIDE_KEYWORD_CONTENT_SUBSCRIPTIONS = new BooleanSetting("revanced_hide_keyword_content_subscriptions", FALSE);
+    public static final BooleanSetting HIDE_KEYWORD_CONTENT_SEARCH = new BooleanSetting("revanced_hide_keyword_content_search", FALSE);
     public static final StringSetting HIDE_KEYWORD_CONTENT_PHRASES = new StringSetting("revanced_hide_keyword_content_phrases", "",
-            parentsAny(HIDE_KEYWORD_CONTENT_SEARCH, HIDE_KEYWORD_CONTENT_HOME, HIDE_KEYWORD_CONTENT_SUBSCRIPTIONS));
+            parentsAny(HIDE_KEYWORD_CONTENT_HOME, HIDE_KEYWORD_CONTENT_SUBSCRIPTIONS, HIDE_KEYWORD_CONTENT_SEARCH));
     public static final BooleanSetting HIDE_LOAD_MORE_BUTTON = new BooleanSetting("revanced_hide_load_more_button", TRUE, true);
     public static final BooleanSetting HIDE_MEDICAL_PANELS = new BooleanSetting("revanced_hide_medical_panels", TRUE);
     public static final BooleanSetting HIDE_MIX_PLAYLISTS = new BooleanSetting("revanced_hide_mix_playlists", TRUE);
@@ -141,7 +141,10 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_TRANSCIPT_SECTION = new BooleanSetting("revanced_hide_transcript_section", TRUE);
 
     // Shorts
-    public static final BooleanSetting HIDE_SHORTS = new BooleanSetting("revanced_hide_shorts", FALSE, true);
+    @Deprecated public static final BooleanSetting DEPRECATED_HIDE_SHORTS = new BooleanSetting("revanced_hide_shorts", FALSE);
+    public static final BooleanSetting HIDE_SHORTS_HOME = new BooleanSetting("revanced_hide_shorts_home", FALSE);
+    public static final BooleanSetting HIDE_SHORTS_SUBSCRIPTIONS = new BooleanSetting("revanced_hide_shorts_subscriptions", FALSE);
+    public static final BooleanSetting HIDE_SHORTS_SEARCH = new BooleanSetting("revanced_hide_shorts_search", FALSE);
     public static final BooleanSetting HIDE_SHORTS_JOIN_BUTTON = new BooleanSetting("revanced_hide_shorts_join_button", TRUE);
     public static final BooleanSetting HIDE_SHORTS_SUBSCRIBE_BUTTON = new BooleanSetting("revanced_hide_shorts_subscribe_button", TRUE);
     public static final BooleanSetting HIDE_SHORTS_SUBSCRIBE_BUTTON_PAUSED = new BooleanSetting("revanced_hide_shorts_subscribe_button_paused", FALSE);
@@ -362,6 +365,14 @@ public class Settings extends BaseSettings {
         // Remove any previously saved announcement consumer (a random generated string).
         Setting.preferences.saveString("revanced_announcement_consumer", null);
 
+        // Shorts
+        if (DEPRECATED_HIDE_SHORTS.get()) {
+            Logger.printInfo(() -> "Migrating hide Shorts setting");
+            DEPRECATED_HIDE_SHORTS.resetToDefault();
+            HIDE_SHORTS_HOME.save(true);
+            HIDE_SHORTS_SUBSCRIPTIONS.save(true);
+            HIDE_SHORTS_SEARCH.save(true);
+        }
 
         // endregion
     }
