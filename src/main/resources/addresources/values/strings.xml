@@ -479,9 +479,15 @@
             <string name="revanced_hide_seekbar_thumbnail_summary_off">Thumbnail seekbar is shown</string>
         </patch>
         <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
-            <string name="revanced_hide_shorts_title">Hide Shorts in feed</string>
-            <string name="revanced_hide_shorts_summary_on">Shorts are hidden</string>
-            <string name="revanced_hide_shorts_summary_off">Shorts are shown</string>
+            <string name="revanced_hide_shorts_home_title">Hide Shorts in home feed</string>
+            <string name="revanced_hide_shorts_home_summary_on">Shorts in home feed are hidden</string>
+            <string name="revanced_hide_shorts_home_summary_off">Shorts in home feed are shown</string>
+            <string name="revanced_hide_shorts_subscriptions_title">Hide Shorts in subscription feed</string>
+            <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts in subscription feed are hidden</string>
+            <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts in subscription feed are shown</string>
+            <string name="revanced_hide_shorts_search_title">Hide Shorts in search results</string>
+            <string name="revanced_hide_shorts_search_summary_on">Shorts in search results are hidden</string>
+            <string name="revanced_hide_shorts_search_summary_off">Shorts in search results are shown</string>
             <string name="revanced_hide_shorts_join_button_title">Hide join button</string>
             <string name="revanced_hide_shorts_join_button_summary_on">Join button is hidden</string>
             <string name="revanced_hide_shorts_join_button_summary_off">Join button is shown</string>
