@@ -356,6 +356,12 @@ public final class app/revanced/patches/music/layout/compactheader/CompactHeader
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/music/layout/compactheader/HideCategoryBar : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/music/layout/compactheader/HideCategoryBar;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/music/layout/minimizedplayback/MinimizedPlaybackPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/layout/minimizedplayback/MinimizedPlaybackPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V

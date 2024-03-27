@@ -5,22 +5,19 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object ConstructCompactHeaderFingerprint : MethodFingerprint(
+internal object ConstructCategoryBarFingerprint : MethodFingerprint(
     "V",
     AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    listOf("L", "L", "L", "L", "L"),
+    listOf("Landroid/content/Context;", "L", "L", "L"),
     listOf(
-        Opcode.INVOKE_DIRECT,
-        Opcode.IPUT_OBJECT,
-        Opcode.IPUT_OBJECT,
-        Opcode.IPUT_OBJECT,
-        Opcode.NEW_INSTANCE,
-        Opcode.INVOKE_DIRECT,
         Opcode.IPUT_OBJECT,
         Opcode.CONST,
-        Opcode.CONST_4,
-        Opcode.INVOKE_STATIC,
+        Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST,
+        Opcode.IPUT_OBJECT,
+        Opcode.CONST,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.NEW_INSTANCE,
+        Opcode.INVOKE_DIRECT,
     ),
 )
