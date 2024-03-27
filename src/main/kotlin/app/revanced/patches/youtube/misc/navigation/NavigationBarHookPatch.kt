@@ -66,17 +66,17 @@ object NavigationBarHookPatch : BytecodePatch(
 
             // Hook the creation of navigation tab views.
             val drawableTabMethod = PivotBarButtonsCreateDrawableViewFingerprint.resultOrThrow().mutableMethod
-            addHook(Hook.NAVIGATION_TAB_LOADED) {
+            addHook(Hook.NAVIGATION_TAB_LOADED) predicate@{
                 MethodUtil.methodSignaturesMatch(
-                    getReference<MethodReference>() ?: return@addHook false,
+                    getReference<MethodReference>() ?: return@predicate false,
                     drawableTabMethod,
                 )
             }
 
             val imageResourceTabMethod = PivotBarButtonsCreateResourceViewFingerprint.resultOrThrow().method
-            addHook(Hook.NAVIGATION_IMAGE_RESOURCE_TAB_LOADED) {
+            addHook(Hook.NAVIGATION_IMAGE_RESOURCE_TAB_LOADED) predicate@{
                 MethodUtil.methodSignaturesMatch(
-                    getReference<MethodReference>() ?: return@addHook false,
+                    getReference<MethodReference>() ?: return@predicate false,
                     imageResourceTabMethod,
                 )
             }
