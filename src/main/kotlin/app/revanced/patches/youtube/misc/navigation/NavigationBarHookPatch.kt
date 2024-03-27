@@ -46,17 +46,19 @@ object NavigationBarHookPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         fun MutableMethod.addHook(hook: Hook, insertPredicate: Instruction.() -> Boolean) =
             getInstructions().filter(insertPredicate).forEach {
-                val register = (getInstruction(it.location.index + 1) as OneRegisterInstruction).registerA
+                val insertIndex = it.location.index + 2
+                val register = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
 
                 addInstruction(
-                    it.location.index + 2,
+                    insertIndex,
                     "invoke-static { v$register }, " +
                         "$INTEGRATIONS_CLASS_DESCRIPTOR->${hook.methodName}(${hook.parameters})V",
                 )
             }
 
-        InitializeButtonsFingerprint.resolve(context, PivotBarConstructorFingerprint.resultOrThrow().classDef)
-        InitializeButtonsFingerprint.resultOrThrow().mutableMethod.apply {
+        InitializeButtonsFingerprint.apply {
+            resolve(context, PivotBarConstructorFingerprint.resultOrThrow().classDef)
+        }.resultOrThrow().mutableMethod.apply {
             // Hook the current navigation bar enum value. Note, the 'You' tab does not have an enum value.
             val navigationEnumClassName = NavigationEnumFingerprint.resultOrThrow().mutableClass.type
             addHook(Hook.SET_LAST_APP_NAVIGATION_ENUM) {
