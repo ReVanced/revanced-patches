@@ -188,9 +188,8 @@ class ByteArrayFilterGroup extends FilterGroup<byte[]> {
     /**
      * Converts the Strings into byte arrays. Used to search for text in binary data.
      */
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public ByteArrayFilterGroup(BooleanSetting setting, String... filters) {
-        super(setting, Arrays.stream(filters).map(String::getBytes).toArray(byte[][]::new));
+        super(setting, ByteTrieSearch.convertStringsToBytes(filters));
     }
 
     private synchronized void buildFailurePatterns() {

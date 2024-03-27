@@ -17,7 +17,6 @@ import java.util.regex.Pattern;
 import app.revanced.integrations.shared.Logger;
 import app.revanced.integrations.shared.Utils;
 import app.revanced.integrations.youtube.ByteTrieSearch;
-import app.revanced.integrations.youtube.StringTrieSearch;
 import app.revanced.integrations.youtube.settings.Settings;
 
 /**
@@ -28,10 +27,6 @@ final class CustomFilter extends Filter {
 
     private static void showInvalidSyntaxToast(@NonNull String expression) {
         Utils.showToastLong(str("revanced_custom_filter_toast_invalid_syntax", expression));
-    }
-
-    private static void showInvalidCharactersToast(@NonNull String expression) {
-        Utils.showToastLong(str("revanced_custom_filter_toast_invalid_characters", expression));
     }
 
     private static class CustomFilterGroup extends StringFilterGroup {
@@ -73,7 +68,7 @@ final class CustomFilter extends Filter {
                 Matcher matcher = pattern.matcher(expression);
                 if (!matcher.find()) {
                     showInvalidSyntaxToast(expression);
-                    return null;
+                    continue;
                 }
 
                 final String mapKey = matcher.group(1);
@@ -84,13 +79,7 @@ final class CustomFilter extends Filter {
 
                 if (path.isBlank() || (hasBufferSymbol && bufferString.isBlank())) {
                     showInvalidSyntaxToast(expression);
-                    return null;
-                }
-                if (!StringTrieSearch.isValidPattern(path)
-                        || (hasBufferSymbol && !StringTrieSearch.isValidPattern(bufferString))) {
-                    // Currently only ASCII is allowed.
-                    showInvalidCharactersToast(path);
-                    return null;
+                    continue;
                 }
 
                 // Use one group object for all expressions with the same path.
@@ -149,11 +138,6 @@ final class CustomFilter extends Filter {
 
     public CustomFilter() {
         Collection<CustomFilterGroup> groups = CustomFilterGroup.parseCustomFilterGroups();
-        if (groups == null) {
-            Settings.CUSTOM_FILTER_STRINGS.resetToDefault();
-            Utils.showToastLong(str("revanced_custom_filter_toast_reset"));
-            groups = Objects.requireNonNull(CustomFilterGroup.parseCustomFilterGroups());
-        }
 
         if (!groups.isEmpty()) {
             CustomFilterGroup[] groupsArray = groups.toArray(new CustomFilterGroup[0]);
