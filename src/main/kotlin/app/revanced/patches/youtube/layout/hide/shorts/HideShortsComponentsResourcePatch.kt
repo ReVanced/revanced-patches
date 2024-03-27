@@ -17,22 +17,32 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.SHORTS.addPreferences(
-            SwitchPreference("revanced_hide_shorts"),
-            SwitchPreference("revanced_hide_shorts_join_button"),
-            SwitchPreference("revanced_hide_shorts_subscribe_button"),
-            SwitchPreference("revanced_hide_shorts_subscribe_button_paused"),
-            SwitchPreference("revanced_hide_shorts_thanks_button"),
+            SwitchPreference("revanced_hide_shorts_home"),
+            SwitchPreference("revanced_hide_shorts_subscriptions"),
+            SwitchPreference("revanced_hide_shorts_search"),
+
+            // Shorts player components.
+            // Ideally each group should be ordered similar to how they appear in the UI
+            // since this Setting menu currently uses the ordering used here.
+
+            // Vertical row of buttons on right side of the screen.
             SwitchPreference("revanced_hide_shorts_like_button"),
             SwitchPreference("revanced_hide_shorts_dislike_button"),
             SwitchPreference("revanced_hide_shorts_comments_button"),
-            SwitchPreference("revanced_hide_shorts_remix_button"),
             SwitchPreference("revanced_hide_shorts_share_button"),
-            SwitchPreference("revanced_hide_shorts_info_panel"),
+            SwitchPreference("revanced_hide_shorts_remix_button"),
+            SwitchPreference("revanced_hide_shorts_sound_button"),
+
+            // Everything else.
+            SwitchPreference("revanced_hide_shorts_thanks_button"),
+            SwitchPreference("revanced_hide_shorts_join_button"),
+            SwitchPreference("revanced_hide_shorts_subscribe_button"),
+            SwitchPreference("revanced_hide_shorts_subscribe_button_paused"),
             SwitchPreference("revanced_hide_shorts_channel_bar"),
+            SwitchPreference("revanced_hide_shorts_info_panel"),
+            SwitchPreference("revanced_hide_shorts_full_video_link_label"),
             SwitchPreference("revanced_hide_shorts_video_title"),
             SwitchPreference("revanced_hide_shorts_sound_metadata_label"),
-            SwitchPreference("revanced_hide_shorts_full_video_link_label"),
-            SwitchPreference("revanced_hide_shorts_sound_button"),
             SwitchPreference("revanced_hide_shorts_navigation_bar"),
         )
 

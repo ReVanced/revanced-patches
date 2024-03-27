@@ -96,7 +96,7 @@ abstract class BaseGmsCoreSupportPatch(
         // Check the availability of GmsCore.
         mainActivityOnCreateFingerprint.result?.mutableMethod?.addInstruction(
             1, // Hack to not disturb other patches (such as the integrations patch).
-            "invoke-static {}, Lapp/revanced/integrations/youtube/patches/GmsCoreSupport;->checkAvailability()V",
+            "invoke-static {}, Lapp/revanced/integrations/shared/GmsCoreSupport;->checkAvailability()V",
         ) ?: throw mainActivityOnCreateFingerprint.exception
 
         // Change the vendor of GmsCore in ReVanced Integrations.
