@@ -131,21 +131,28 @@ object AlternativeThumbnailsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
+        val entries = "revanced_alt_thumbnail_options_entries"
+        val values = "revanced_alt_thumbnail_options_entry_values"
         SettingsPatch.PreferenceScreen.ALTERNATIVE_THUMBNAILS.addPreferences(
             ListPreference("revanced_alt_thumbnail_dearrow_home",
                 summaryKey = null,
-                entriesKey = "revanced_alt_thumbnail_options_entries",
-                entryValuesKey = "revanced_alt_thumbnail_options_entry_values"
+                entriesKey = entries,
+                entryValuesKey = values
             ),
             ListPreference("revanced_alt_thumbnail_dearrow_subscription",
                 summaryKey = null,
-                entriesKey = "revanced_alt_thumbnail_options_entries",
-                entryValuesKey = "revanced_alt_thumbnail_options_entry_values"
+                entriesKey = entries,
+                entryValuesKey = values
             ),
             ListPreference("revanced_alt_thumbnail_dearrow_search",
                 summaryKey = null,
-                entriesKey = "revanced_alt_thumbnail_options_entries",
-                entryValuesKey = "revanced_alt_thumbnail_options_entry_values"
+                entriesKey = entries,
+                entryValuesKey = values
+            ),
+            ListPreference("revanced_alt_thumbnail_dearrow_history",
+                summaryKey = null,
+                entriesKey = entries,
+                entryValuesKey = values
             ),
             SwitchPreference("revanced_alt_thumbnail_dearrow_connection_toast"),
             TextPreference("revanced_alt_thumbnail_dearrow_api_url"),
