@@ -173,7 +173,7 @@
             <string name="revanced_hide_keyword_content_home_title">Hide home videos by keywords</string>
             <string name="revanced_hide_keyword_content_home_summary_on">Videos in the home tab are filtered by keywords</string>
             <string name="revanced_hide_keyword_content_home_summary_off">Videos in the home tab are not filtered by keywords</string>
-            <string name="revanced_hide_keyword_content_subscriptions_title">Hide subscription videos by keywords</string>x
+            <string name="revanced_hide_keyword_content_subscriptions_title">Hide subscription videos by keywords</string>
             <string name="revanced_hide_keyword_content_subscriptions_summary_on">Videos in the subscriptions tab are filtered by keywords</string>
             <string name="revanced_hide_keyword_content_subscriptions_summary_off">Videos in the subscriptions tab are not filtered by keywords</string>
             <string name="revanced_hide_keyword_content_search_title">Hide search results by keywords</string>
