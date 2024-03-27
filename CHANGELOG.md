@@ -1,3 +1,10 @@
+# [4.4.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.13...v4.4.0-dev.14) (2024-03-27)
+
+
+### Features
+
+* **YouTube - Hide layout components:** Filter home/search results by keywords ([#2853](https://github.com/ReVanced/revanced-patches/issues/2853)) ([5916204](https://github.com/ReVanced/revanced-patches/commit/59162042b0a68edf7f94a3c21f838dada3c3f9c3))
+
 # [4.4.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.12...v4.4.0-dev.13) (2024-03-26)
 
 
