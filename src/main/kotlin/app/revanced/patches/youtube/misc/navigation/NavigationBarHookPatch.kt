@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
@@ -44,17 +45,20 @@ object NavigationBarHookPatch : BytecodePatch(
         "Lapp/revanced/integrations/youtube/shared/NavigationBar\$NavigationButton;"
 
     override fun execute(context: BytecodeContext) {
-        fun MutableMethod.addHook(hook: Hook, insertPredicate: Instruction.() -> Boolean) =
-            getInstructions().filter(insertPredicate).forEach {
+        fun MutableMethod.addHook(hook: Hook, insertPredicate: Instruction.() -> Boolean) {
+            val filtered = getInstructions().filter(insertPredicate)
+            if (filtered.isEmpty()) throw PatchException("Could not find insert indexes")
+            filtered.forEach {
                 val insertIndex = it.location.index + 2
                 val register = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
 
                 addInstruction(
                     insertIndex,
                     "invoke-static { v$register }, " +
-                        "$INTEGRATIONS_CLASS_DESCRIPTOR->${hook.methodName}(${hook.parameters})V",
+                            "$INTEGRATIONS_CLASS_DESCRIPTOR->${hook.methodName}(${hook.parameters})V",
                 )
             }
+        }
 
         InitializeButtonsFingerprint.apply {
             resolve(context, PivotBarConstructorFingerprint.resultOrThrow().classDef)
