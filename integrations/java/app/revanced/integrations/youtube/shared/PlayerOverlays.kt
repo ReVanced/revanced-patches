@@ -2,8 +2,8 @@ package app.revanced.integrations.youtube.shared
 
 import android.view.View
 import android.view.ViewGroup
-import app.revanced.integrations.youtube.swipecontrols.misc.Rectangle
 import app.revanced.integrations.youtube.Event
+import app.revanced.integrations.youtube.swipecontrols.misc.Rectangle
 
 /**
  * hooking class for player overlays
@@ -42,8 +42,8 @@ object PlayerOverlays {
                         ChildrenChangeEventArgs(
                             parent,
                             child,
-                            false
-                        )
+                            false,
+                        ),
                     )
                 }
             }
@@ -54,8 +54,8 @@ object PlayerOverlays {
                         ChildrenChangeEventArgs(
                             parent,
                             child,
-                            true
-                        )
+                            true,
+                        ),
                     )
                 }
             }
@@ -69,15 +69,15 @@ object PlayerOverlays {
                             oldLeft,
                             oldTop,
                             oldRight - oldLeft,
-                            oldBottom - oldTop
+                            oldBottom - oldTop,
                         ),
                         Rectangle(
                             newLeft,
                             newTop,
                             newRight - newLeft,
-                            newBottom - newTop
-                        )
-                    )
+                            newBottom - newTop,
+                        ),
+                    ),
                 )
             }
         }
@@ -87,11 +87,11 @@ object PlayerOverlays {
 data class ChildrenChangeEventArgs(
     val overlaysLayout: ViewGroup,
     val childView: View,
-    val wasChildRemoved: Boolean
+    val wasChildRemoved: Boolean,
 )
 
 data class LayoutChangeEventArgs(
     val overlaysLayout: ViewGroup,
     val oldRect: Rectangle,
-    val newRect: Rectangle
+    val newRect: Rectangle,
 )

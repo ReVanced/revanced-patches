@@ -40,7 +40,7 @@ import kotlin.text.Regex;
 public class Utils {
 
     @SuppressLint("StaticFieldLeak")
-    public static Context context;
+    private static Context context;
 
     private static String versionName;
 
@@ -54,13 +54,14 @@ public class Utils {
         try {
             final var packageName = Objects.requireNonNull(getContext()).getPackageName();
 
+            PackageManager packageManager = context.getPackageManager();
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
-                packageInfo = context.getPackageManager().getPackageInfo(
+                packageInfo = packageManager.getPackageInfo(
                         packageName,
                         PackageManager.PackageInfoFlags.of(0)
                 );
             else
-                packageInfo = context.getPackageManager().getPackageInfo(
+                packageInfo = packageManager.getPackageInfo(
                         packageName,
                         0
                 );
@@ -195,17 +196,28 @@ public class Utils {
         return getContext().getResources().getDimension(getResourceIdentifier(resourceIdentifierName, "dimen"));
     }
 
+    public interface MatchFilter<T> {
+        boolean matches(T object);
+    }
+
     /**
+     * @param searchRecursively If children ViewGroups should also be
+     *                          recursively searched using depth first search.
      * @return The first child view that matches the filter.
      */
     @Nullable
-    public static <T extends View> T getChildView(@NonNull ViewGroup viewGroup, @NonNull MatchFilter filter) {
+    public static <T extends View> T getChildView(@NonNull ViewGroup viewGroup, boolean searchRecursively,
+                                                  @NonNull MatchFilter<View> filter) {
         for (int i = 0, childCount = viewGroup.getChildCount(); i < childCount; i++) {
             View childAt = viewGroup.getChildAt(i);
-            //noinspection unchecked
             if (filter.matches(childAt)) {
                 //noinspection unchecked
                 return (T) childAt;
+            }
+            // Must do recursive after filter check, in case the filter is looking for a ViewGroup.
+            if (searchRecursively && childAt instanceof ViewGroup) {
+                T match = getChildView((ViewGroup) childAt, true, filter);
+                if (match != null) return match;
             }
         }
         return null;
@@ -222,15 +234,25 @@ public class Utils {
         System.exit(0);
     }
 
-    public interface MatchFilter<T> {
-        boolean matches(T object);
-    }
-
     public static Context getContext() {
         if (context == null) {
-            Logger.initializationError(Utils.class, "Context is null, returning null!",  null);
+            Logger.initializationException(Utils.class, "Context is null, returning null!",  null);
         }
         return context;
+    }
+
+    public static void setContext(Context appContext) {
+        context = appContext;
+        // In some apps like TikTok, the Setting classes can load in weird orders due to cyclic class dependencies.
+        // Calling the regular printDebug method here can cause a Settings context null pointer exception,
+        // even though the context is already set before the call.
+        //
+        // The initialization logger methods do not directly or indirectly
+        // reference the Context or any Settings and are unaffected by this problem.
+        //
+        // Info level also helps debug if a patch hook is called before
+        // the context is set since debug logging is off by default.
+        Logger.initializationInfo(Utils.class, "Set context: " + appContext);
     }
 
     public static void setClipboard(@NonNull String text) {
@@ -275,7 +297,7 @@ public class Utils {
         Objects.requireNonNull(messageToToast);
         runOnMainThreadNowOrLater(() -> {
                     if (context == null) {
-                        Logger.initializationError(Utils.class, "Cannot show toast (context is null): " + messageToToast, null);
+                        Logger.initializationException(Utils.class, "Cannot show toast (context is null): " + messageToToast, null);
                     } else {
                         Logger.printDebug(() -> "Showing toast: " + messageToToast);
                         Toast.makeText(context, messageToToast, toastDuration).show();

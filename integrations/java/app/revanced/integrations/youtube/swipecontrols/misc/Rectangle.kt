@@ -7,14 +7,13 @@ data class Rectangle(
     val x: Int,
     val y: Int,
     val width: Int,
-    val height: Int
+    val height: Int,
 ) {
     val left = x
     val right = x + width
     val top = y
     val bottom = y + height
 }
-
 
 /**
  * is the point within this rectangle?

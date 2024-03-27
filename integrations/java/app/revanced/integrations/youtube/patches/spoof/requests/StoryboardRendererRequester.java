@@ -19,6 +19,7 @@ import java.util.Objects;
 import static app.revanced.integrations.shared.StringRef.str;
 import static app.revanced.integrations.youtube.patches.spoof.requests.PlayerRoutes.*;
 
+@Deprecated
 public class StoryboardRendererRequester {
 
     /**

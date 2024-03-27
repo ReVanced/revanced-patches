@@ -1,26 +1,25 @@
 package app.revanced.integrations.youtube.patches.spoof;
 
-import static app.revanced.integrations.youtube.patches.spoof.requests.StoryboardRendererRequester.getStoryboardRenderer;
-import static app.revanced.integrations.shared.Utils.containsAny;
-
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
 import androidx.annotation.Nullable;
+import app.revanced.integrations.shared.Logger;
+import app.revanced.integrations.shared.Utils;
+import app.revanced.integrations.youtube.patches.VideoInformation;
+import app.revanced.integrations.youtube.settings.Settings;
+import app.revanced.integrations.youtube.shared.PlayerType;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-import app.revanced.integrations.youtube.patches.VideoInformation;
-import app.revanced.integrations.youtube.settings.Settings;
-import app.revanced.integrations.youtube.shared.PlayerType;
-import app.revanced.integrations.shared.Logger;
-import app.revanced.integrations.shared.Utils;
+import static app.revanced.integrations.shared.Utils.containsAny;
+import static app.revanced.integrations.youtube.patches.spoof.requests.StoryboardRendererRequester.getStoryboardRenderer;
 
 /** @noinspection unused*/
+@Deprecated
 public class SpoofSignaturePatch {
     /**
      * Parameter (also used by
@@ -90,7 +89,7 @@ public class SpoofSignaturePatch {
         try {
             Logger.printDebug(() -> "Original protobuf parameter value: " + parameters);
 
-            if (!Settings.SPOOF_SIGNATURE.get()) {
+            if (parameters == null || !Settings.SPOOF_SIGNATURE.get()) {
                 return parameters;
             }
 
@@ -98,7 +97,7 @@ public class SpoofSignaturePatch {
             // For this reason, the player parameters of a clip are usually very long (150~300 characters).
             // Clips are 60 seconds or less in length, so no spoofing.
             //noinspection AssignmentUsedAsCondition
-            if (useOriginalStoryboardRenderer = parameters.length() > 150 || containsAny(parameters, CLIPS_PARAMETERS)) {
+            if (useOriginalStoryboardRenderer = parameters.length() > 150 || parameters.startsWith(CLIPS_PARAMETERS)) {
                 return parameters;
             }
 

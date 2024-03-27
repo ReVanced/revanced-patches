@@ -6,8 +6,12 @@ import app.revanced.integrations.youtube.settings.Settings;
 import app.revanced.integrations.youtube.swipecontrols.SwipeControlsHostActivity;
 
 /**
- * Patch class for 'hdr-auto-brightness' patch
+ * Patch class for 'hdr-auto-brightness' patch.
+ *
+ * Edit: This patch no longer does anything, as YT already uses BRIGHTNESS_OVERRIDE_NONE
+ * as the default brightness level.  The hooked code was also removed from YT 19.09+ as well.
  */
+@Deprecated
 @SuppressWarnings("unused")
 public class HDRAutoBrightnessPatch {
     /**

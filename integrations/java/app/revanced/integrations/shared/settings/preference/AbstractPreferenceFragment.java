@@ -152,47 +152,60 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     }
 
     /**
-     * Updates a UI Preference with the {@link Setting} that backs it.
+     * Handles syncing a UI Preference with the {@link Setting} that backs it.
      * If needed, subclasses can override this to handle additional UI Preference types.
+     *
+     * @param applySettingToPreference If true, then apply {@link Setting} -> Preference.
+     *                                 If false, then apply {@link Setting} <- Preference.
+     */
+    protected void syncSettingWithPreference(@NonNull Preference pref,
+                                             @NonNull Setting<?> setting,
+                                             boolean applySettingToPreference) {
+        if (pref instanceof SwitchPreference) {
+            SwitchPreference switchPref = (SwitchPreference) pref;
+            BooleanSetting boolSetting = (BooleanSetting) setting;
+            if (applySettingToPreference) {
+                switchPref.setChecked(boolSetting.get());
+            } else {
+                BooleanSetting.privateSetValue(boolSetting, switchPref.isChecked());
+            }
+        } else if (pref instanceof EditTextPreference) {
+            EditTextPreference editPreference = (EditTextPreference) pref;
+            if (applySettingToPreference) {
+                editPreference.setText(setting.get().toString());
+            } else {
+                Setting.privateSetValueFromString(setting, editPreference.getText());
+            }
+        } else if (pref instanceof ListPreference) {
+            ListPreference listPref = (ListPreference) pref;
+            if (applySettingToPreference) {
+                listPref.setValue(setting.get().toString());
+            } else {
+                Setting.privateSetValueFromString(setting, listPref.getValue());
+            }
+            updateListPreferenceSummary(listPref, setting);
+        } else {
+            Logger.printException(() -> "Setting cannot be handled: " + pref.getClass() + ": " + pref);
+        }
+    }
+
+    /**
+     * Updates a UI Preference with the {@link Setting} that backs it.
      *
      * @param syncSetting If the UI should be synced {@link Setting} <-> Preference
      * @param applySettingToPreference If true, then apply {@link Setting} -> Preference.
      *                                 If false, then apply {@link Setting} <- Preference.
      */
-    protected void updatePreference(@NonNull Preference pref, @NonNull Setting<?> setting,
-                                    boolean syncSetting, boolean applySettingToPreference) {
+    private void updatePreference(@NonNull Preference pref, @NonNull Setting<?> setting,
+                                  boolean syncSetting, boolean applySettingToPreference) {
         if (!syncSetting && applySettingToPreference) {
             throw new IllegalArgumentException();
         }
+
         if (syncSetting) {
-            if (pref instanceof SwitchPreference) {
-                SwitchPreference switchPref = (SwitchPreference) pref;
-                BooleanSetting boolSetting = (BooleanSetting) setting;
-                if (applySettingToPreference) {
-                    switchPref.setChecked(boolSetting.get());
-                } else {
-                    BooleanSetting.privateSetValue(boolSetting, switchPref.isChecked());
-                }
-            } else if (pref instanceof EditTextPreference) {
-                EditTextPreference editPreference = (EditTextPreference) pref;
-                if (applySettingToPreference) {
-                    editPreference.setText(setting.get().toString());
-                } else {
-                    Setting.privateSetValueFromString(setting, editPreference.getText());
-                }
-            } else if (pref instanceof ListPreference) {
-                ListPreference listPref = (ListPreference) pref;
-                if (applySettingToPreference) {
-                    listPref.setValue(setting.get().toString());
-                } else {
-                    Setting.privateSetValueFromString(setting, listPref.getValue());
-                }
-                updateListPreferenceSummary(listPref, setting);
-            } else {
-                Logger.printException(() -> "Setting cannot be handled: " + pref.getClass() + ": " + pref);
-                return;
-            }
+            syncSettingWithPreference(pref, setting, applySettingToPreference);
         }
+
         updatePreferenceAvailability(pref, setting);
     }
 

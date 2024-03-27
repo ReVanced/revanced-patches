@@ -10,7 +10,7 @@ import app.revanced.integrations.youtube.swipecontrols.misc.clamp
  * @param host the host activity of which the brightness is adjusted
  */
 class ScreenBrightnessController(
-    private val host: Activity
+    private val host: Activity,
 ) {
     /**
      * screen brightness saved by [save]

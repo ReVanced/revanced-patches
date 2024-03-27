@@ -16,7 +16,7 @@ public class HideBreakingNewsPatch {
      * Breaking news does not appear to be present in these older versions anyways.
      */
     private static final boolean isSpoofingOldVersionWithHorizontalCardListWatchHistory =
-            SpoofAppVersionPatch.isSpoofingToEqualOrLessThan("17.31.00");
+            SpoofAppVersionPatch.isSpoofingToLessThan("18.01.00");
 
     /**
      * Injection point.

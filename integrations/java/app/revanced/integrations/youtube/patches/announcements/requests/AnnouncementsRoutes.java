@@ -14,7 +14,7 @@ public class AnnouncementsRoutes {
     /**
      * 'language' parameter is IETF format (for USA it would be 'en-us').
      */
-    public static final Route GET_LATEST_ANNOUNCEMENT = new Route(GET, "/announcements/youtube/latest?consumer={consumer}&language={language}");
+    public static final Route GET_LATEST_ANNOUNCEMENT = new Route(GET, "/announcements/youtube/latest?language={language}");
 
     private AnnouncementsRoutes() {
     }

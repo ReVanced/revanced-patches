@@ -9,7 +9,7 @@ import app.revanced.integrations.youtube.swipecontrols.SwipeControlsHostActivity
  * @param controller main controller instance
  */
 class VolumeKeysController(
-    private val controller: SwipeControlsHostActivity
+    private val controller: SwipeControlsHostActivity,
 ) {
     /**
      * key event handler
@@ -18,7 +18,7 @@ class VolumeKeysController(
      * @return consume the event?
      */
     fun onKeyEvent(event: KeyEvent): Boolean {
-        if(!controller.config.overwriteVolumeKeyControls) {
+        if (!controller.config.overwriteVolumeKeyControls) {
             return false
         }
 

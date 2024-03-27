@@ -48,7 +48,7 @@ class VolumeAndBrightnessScrollerImpl(
     private val screenController: ScreenBrightnessController?,
     private val overlayController: SwipeControlsOverlay,
     volumeDistance: Int = 10,
-    brightnessDistance: Int = 1
+    brightnessDistance: Int = 1,
 ) : VolumeAndBrightnessScroller {
 
     // region volume
@@ -56,8 +56,8 @@ class VolumeAndBrightnessScrollerImpl(
         ScrollDistanceHelper(
             volumeDistance.applyDimension(
                 context,
-                TypedValue.COMPLEX_UNIT_DIP
-            )
+                TypedValue.COMPLEX_UNIT_DIP,
+            ),
         ) { _, _, direction ->
             volumeController?.run {
                 volume += direction
@@ -73,8 +73,8 @@ class VolumeAndBrightnessScrollerImpl(
         ScrollDistanceHelper(
             brightnessDistance.applyDimension(
                 context,
-                TypedValue.COMPLEX_UNIT_DIP
-            )
+                TypedValue.COMPLEX_UNIT_DIP,
+            ),
         ) { _, _, direction ->
             screenController?.run {
                 if (screenBrightness > 0 || direction > 0) {

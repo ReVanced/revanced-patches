@@ -1,5 +1,9 @@
 package app.revanced.integrations.youtube;
 
+import androidx.annotation.NonNull;
+
+import java.nio.charset.StandardCharsets;
+
 public final class ByteTrieSearch extends TrieSearch<byte[]> {
 
     private static final class ByteTrieNode extends TrieNode<byte[]> {
@@ -24,18 +28,18 @@ public final class ByteTrieSearch extends TrieSearch<byte[]> {
     }
 
     /**
-     * @return If the pattern is valid to add to this instance.
+     * Helper method for the common usage of converting Strings to raw UTF-8 bytes.
      */
-    public static boolean isValidPattern(byte[] pattern) {
-        for (byte b : pattern) {
-            if (TrieNode.isInvalidRange((char) b)) {
-                return false;
-            }
+    public static byte[][] convertStringsToBytes(String... strings) {
+        final int length = strings.length;
+        byte[][] replacement = new byte[length][];
+        for (int i = 0; i < length; i++) {
+            replacement[i] = strings[i].getBytes(StandardCharsets.UTF_8);
         }
-        return true;
+        return replacement;
     }
 
-    public ByteTrieSearch() {
-        super(new ByteTrieNode());
+    public ByteTrieSearch(@NonNull byte[]... patterns) {
+        super(new ByteTrieNode(), patterns);
     }
 }

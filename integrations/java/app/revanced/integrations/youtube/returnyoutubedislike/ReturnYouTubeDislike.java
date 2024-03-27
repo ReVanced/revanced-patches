@@ -91,7 +91,7 @@ public class ReturnYouTubeDislike {
     private static final char MIDDLE_SEPARATOR_CHARACTER = '◎'; // 'bullseye'
 
     private static final boolean IS_SPOOFING_TO_OLD_SEPARATOR_COLOR
-            = SpoofAppVersionPatch.isSpoofingToEqualOrLessThan("18.09.39");
+            = SpoofAppVersionPatch.isSpoofingToLessThan("18.10.00");
 
     /**
      * Cached lookup of all video ids.

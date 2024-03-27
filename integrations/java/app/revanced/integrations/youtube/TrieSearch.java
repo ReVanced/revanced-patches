@@ -11,9 +11,6 @@ import java.util.Objects;
 /**
  * Searches for a group of different patterns using a trie (prefix tree).
  * Can significantly speed up searching for multiple patterns.
- *
- * Currently only supports ASCII non-control characters (letters/numbers/symbols).
- * But could be modified to also support UTF-8 unicode.
  */
 public abstract class TrieSearch<T> {
 
@@ -45,14 +42,14 @@ public abstract class TrieSearch<T> {
      */
     private static final class TrieCompressedPath<T> {
         final T pattern;
-        final int patternLength;
         final int patternStartIndex;
+        final int patternLength;
         final TriePatternMatchedCallback<T> callback;
 
-        TrieCompressedPath(T pattern, int patternLength, int patternStartIndex, TriePatternMatchedCallback<T> callback) {
+        TrieCompressedPath(T pattern, int patternStartIndex, int patternLength, TriePatternMatchedCallback<T> callback) {
             this.pattern = pattern;
-            this.patternLength = patternLength;
             this.patternStartIndex = patternStartIndex;
+            this.patternLength = patternLength;
             this.callback = callback;
         }
         boolean matches(TrieNode<T> enclosingNode, // Used only for the get character method.
@@ -76,19 +73,10 @@ public abstract class TrieSearch<T> {
          */
         private static final char ROOT_NODE_CHARACTER_VALUE = 0;  // ASCII null character.
 
-        // Support only ASCII letters/numbers/symbols and filter out all control characters.
-        private static final char MIN_VALID_CHAR = 32; // Space character.
-        private static final char MAX_VALID_CHAR = 126; // 127 = delete character.
-
         /**
          * How much to expand the children array when resizing.
          */
         private static final int CHILDREN_ARRAY_INCREASE_SIZE_INCREMENT = 2;
-        private static final int CHILDREN_ARRAY_MAX_SIZE = MAX_VALID_CHAR - MIN_VALID_CHAR + 1;
-
-        static boolean isInvalidRange(char character) {
-            return character < MIN_VALID_CHAR || character > MAX_VALID_CHAR;
-        }
 
         /**
          * Character this node represents.
@@ -144,11 +132,11 @@ public abstract class TrieSearch<T> {
 
         /**
          * @param pattern       Pattern to add.
-         * @param patternLength Length of the pattern.
          * @param patternIndex  Current recursive index of the pattern.
+         * @param patternLength Length of the pattern.
          * @param callback      Callback, where a value of NULL indicates to always accept a pattern match.
          */
-        private void addPattern(@NonNull T pattern, int patternLength, int patternIndex,
+        private void addPattern(@NonNull T pattern, int patternIndex, int patternLength,
                                 @Nullable TriePatternMatchedCallback<T> callback) {
             if (patternIndex == patternLength) { // Reached the end of the pattern.
                 if (endOfPatternCallback == null) {
@@ -165,16 +153,13 @@ public abstract class TrieSearch<T> {
                 children = new TrieNode[1];
                 TrieCompressedPath<T> temp = leaf;
                 leaf = null;
-                addPattern(temp.pattern, temp.patternLength, temp.patternStartIndex, temp.callback);
+                addPattern(temp.pattern, temp.patternStartIndex, temp.patternLength, temp.callback);
                 // Continue onward and add the parameter pattern.
             } else if (children == null) {
-                leaf = new TrieCompressedPath<>(pattern, patternLength, patternIndex, callback);
+                leaf = new TrieCompressedPath<>(pattern, patternIndex, patternLength, callback);
                 return;
             }
             final char character = getCharValue(pattern, patternIndex);
-            if (isInvalidRange(character)) {
-                throw new IllegalArgumentException("invalid character at index " + patternIndex + ": " + pattern);
-            }
             final int arrayIndex = hashIndexForTableSize(children.length, character);
             TrieNode<T> child = children[arrayIndex];
             if (child == null) {
@@ -185,12 +170,11 @@ public abstract class TrieSearch<T> {
                 child = createNode(character);
                 expandChildArray(child);
             }
-            child.addPattern(pattern, patternLength, patternIndex + 1, callback);
+            child.addPattern(pattern, patternIndex + 1, patternLength, callback);
         }
 
         /**
          * Resizes the children table until all nodes hash to exactly one array index.
-         * Worse case, this will resize the array to {@link #CHILDREN_ARRAY_MAX_SIZE} elements.
          */
         private void expandChildArray(TrieNode<T> child) {
             int replacementArraySize = Objects.requireNonNull(children).length;
@@ -209,7 +193,6 @@ public abstract class TrieSearch<T> {
                     }
                 }
                 if (collision) {
-                    if (replacementArraySize > CHILDREN_ARRAY_MAX_SIZE) throw new IllegalStateException();
                     continue;
                 }
                 children = replacement;
@@ -232,22 +215,23 @@ public abstract class TrieSearch<T> {
 
         /**
          * This method is static and uses a loop to avoid all recursion.
-         * This is done for performance since the JVM does not do tail recursion optimization.
+         * This is done for performance since the JVM does not optimize tail recursion.
          *
          * @param startNode          Node to start the search from.
          * @param searchText         Text to search for patterns in.
-         * @param searchTextLength   Length of the search text.
-         * @param searchTextIndex    Current recursive search text index. Also, the end index of the current pattern match.
+         * @param searchTextIndex    Start index, inclusive.
+         * @param searchTextEndIndex End index, exclusive.
          * @return If any pattern matches, and it's associated callback halted the search.
          */
-        private static <T> boolean matches(final TrieNode<T> startNode, final T searchText, final int searchTextLength,
-                                           int searchTextIndex, final Object callbackParameter) {
+        private static <T> boolean matches(final TrieNode<T> startNode, final T searchText,
+                                           int searchTextIndex, final int searchTextEndIndex,
+                                           final Object callbackParameter) {
             TrieNode<T> node = startNode;
             int currentMatchLength = 0;
 
             while (true) {
                 TrieCompressedPath<T> leaf = node.leaf;
-                if (leaf != null && leaf.matches(node, searchText, searchTextLength, searchTextIndex, callbackParameter)) {
+                if (leaf != null && leaf.matches(startNode, searchText, searchTextEndIndex, searchTextIndex, callbackParameter)) {
                     return true; // Leaf exists and it matched the search text.
                 }
                 List<TriePatternMatchedCallback<T>> endOfPatternCallback = node.endOfPatternCallback;
@@ -266,7 +250,7 @@ public abstract class TrieSearch<T> {
                 if (children == null) {
                     return false; // Reached a graph end point and there's no further patterns to search.
                 }
-                if (searchTextIndex == searchTextLength) {
+                if (searchTextIndex == searchTextEndIndex) {
                     return false; // Reached end of the search text and found no matches.
                 }
 
@@ -323,8 +307,10 @@ public abstract class TrieSearch<T> {
      */
     private final List<T> patterns = new ArrayList<>();
 
-    TrieSearch(@NonNull TrieNode<T> root) {
+    @SafeVarargs
+    TrieSearch(@NonNull TrieNode<T> root, @NonNull T... patterns) {
         this.root = Objects.requireNonNull(root);
+        addPatterns(patterns);
     }
 
     @SafeVarargs
@@ -355,7 +341,7 @@ public abstract class TrieSearch<T> {
         if (patternLength == 0) return; // Nothing to match
 
         patterns.add(pattern);
-        root.addPattern(pattern, patternLength, 0, callback);
+        root.addPattern(pattern, 0, patternLength, callback);
     }
 
     public final boolean matches(@NonNull T textToSearch) {
@@ -398,7 +384,7 @@ public abstract class TrieSearch<T> {
             return false; // No patterns were added.
         }
         for (int i = startIndex; i < endIndex; i++) {
-            if (TrieNode.matches(root, textToSearch, endIndex, i, callbackParameter)) return true;
+            if (TrieNode.matches(root, textToSearch, i, endIndex, callbackParameter)) return true;
         }
         return false;
     }

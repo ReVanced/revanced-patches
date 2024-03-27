@@ -11,7 +11,7 @@ import kotlin.math.sign
  */
 class ScrollDistanceHelper(
     private val unitDistance: Int,
-    private val callback: (oldDistance: Double, newDistance: Double, direction: Int) -> Unit
+    private val callback: (oldDistance: Double, newDistance: Double, direction: Int) -> Unit,
 ) {
 
     /**
@@ -35,7 +35,7 @@ class ScrollDistanceHelper(
             callback.invoke(
                 oldDistance,
                 scrolledDistance,
-                sign(scrolledDistance).toInt()
+                sign(scrolledDistance).toInt(),
             )
         }
     }

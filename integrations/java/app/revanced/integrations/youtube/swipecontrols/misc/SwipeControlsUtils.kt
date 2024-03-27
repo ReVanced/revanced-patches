@@ -20,7 +20,6 @@ fun Int.applyDimension(context: Context, unit: Int): Int {
     return TypedValue.applyDimension(
         unit,
         this.toFloat(),
-        context.resources.displayMetrics
+        context.resources.displayMetrics,
     ).roundToInt()
 }
-

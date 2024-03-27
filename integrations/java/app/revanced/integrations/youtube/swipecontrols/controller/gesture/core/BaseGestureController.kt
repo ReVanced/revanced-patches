@@ -11,11 +11,11 @@ import app.revanced.integrations.youtube.swipecontrols.SwipeControlsHostActivity
  * @param controller reference to the main swipe controller
  */
 abstract class BaseGestureController(
-    private val controller: SwipeControlsHostActivity
+    private val controller: SwipeControlsHostActivity,
 ) : GestureController,
     GestureDetector.SimpleOnGestureListener(),
     SwipeDetector by SwipeDetectorImpl(
-        controller.config.swipeMagnitudeThreshold.toDouble()
+        controller.config.swipeMagnitudeThreshold.toDouble(),
     ),
     VolumeAndBrightnessScroller by VolumeAndBrightnessScrollerImpl(
         controller,
@@ -23,7 +23,7 @@ abstract class BaseGestureController(
         controller.screen,
         controller.overlay,
         10,
-        1
+        1,
     ) {
 
     /**
@@ -85,7 +85,7 @@ abstract class BaseGestureController(
         from: MotionEvent,
         to: MotionEvent,
         distanceX: Float,
-        distanceY: Float
+        distanceY: Float,
     ): Boolean {
         // submit to swipe detector
         submitForSwipe(from, to, distanceX, distanceY)
@@ -96,7 +96,7 @@ abstract class BaseGestureController(
                 from,
                 to,
                 distanceX.toDouble(),
-                distanceY.toDouble()
+                distanceY.toDouble(),
             )
 
             // if the swipe was consumed, cancel downstream events once
@@ -110,7 +110,9 @@ abstract class BaseGestureController(
             }
 
             consumed
-        } else false
+        } else {
+            false
+        }
     }
 
     /**
@@ -149,6 +151,6 @@ abstract class BaseGestureController(
         from: MotionEvent,
         to: MotionEvent,
         distanceX: Double,
-        distanceY: Double
+        distanceY: Double,
     ): Boolean
 }

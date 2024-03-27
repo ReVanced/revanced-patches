@@ -12,10 +12,13 @@ enum class VideoState {
     PAUSED,
     RECOVERABLE_ERROR,
     UNRECOVERABLE_ERROR,
+
     /**
      * @see [VideoInformation.isAtEndOfVideo]
      */
-    ENDED;
+    ENDED,
+
+    ;
 
     companion object {
 
@@ -43,6 +46,6 @@ enum class VideoState {
                 currentVideoState = value
             }
 
-        private var currentVideoState : VideoState? = null
+        private var currentVideoState: VideoState? = null
     }
 }

@@ -1,6 +1,4 @@
-package app.revanced.integrations.youtube.patches;
-
-import static app.revanced.integrations.shared.StringRef.str;
+package app.revanced.integrations.shared;
 
 import android.app.SearchManager;
 import android.content.Context;
@@ -8,13 +6,11 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
-
 import androidx.annotation.RequiresApi;
 
 import java.util.Objects;
 
-import app.revanced.integrations.shared.Logger;
-import app.revanced.integrations.shared.Utils;
+import static app.revanced.integrations.shared.StringRef.str;
 
 /**
  * @noinspection unused
@@ -61,9 +57,8 @@ public class GmsCoreSupport {
 
     private static String getGmsCoreDownloadLink() {
         final var vendor = getGmsCoreVendor();
+        //noinspection SwitchStatementWithTooFewBranches
         switch (vendor) {
-            case "com.mgoogle":
-                return "https://github.com/TeamVanced/VancedMicroG/releases/latest";
             case "app.revanced":
                 return "https://github.com/revanced/gmscore/releases/latest";
             default:

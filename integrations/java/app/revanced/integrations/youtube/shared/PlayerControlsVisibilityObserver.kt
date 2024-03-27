@@ -12,7 +12,7 @@ import java.lang.ref.WeakReference
  * @param activity activity that contains the controls_layout view
  */
 class PlayerControlsVisibilityObserverImpl(
-    private val activity: Activity
+    private val activity: Activity,
 ) : PlayerControlsVisibilityObserver {
 
     /**
