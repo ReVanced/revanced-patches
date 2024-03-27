@@ -154,17 +154,17 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                 entriesKey = entries,
                 entryValuesKey = values
             ),
-            SwitchPreference("revanced_alt_thumbnail_dearrow_connection_toast"),
-            TextPreference("revanced_alt_thumbnail_dearrow_api_url"),
             NonInteractivePreference(
                 "revanced_alt_thumbnail_dearrow_about",
                 // Custom about preference with link to the DeArrow website.
                 tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsAboutDeArrowPreference",
                 selectable = true,
             ),
+            SwitchPreference("revanced_alt_thumbnail_dearrow_connection_toast"),
+            TextPreference("revanced_alt_thumbnail_dearrow_api_url"),
+            NonInteractivePreference("revanced_alt_thumbnail_stills_about"),
             ListPreference("revanced_alt_thumbnail_stills_time", summaryKey = null),
             SwitchPreference("revanced_alt_thumbnail_stills_fast"),
-            NonInteractivePreference("revanced_alt_thumbnail_stills_about"),
         )
 
         fun MethodFingerprint.alsoResolve(fingerprint: MethodFingerprint) =

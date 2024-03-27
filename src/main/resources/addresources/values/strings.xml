@@ -855,22 +855,22 @@
             <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Original thumbnails</string>
             <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Still captures</string>
             <string name="revanced_alt_thumbnail_options_entry_4">Still captures</string>
+            <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
+            <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow provides crowd-sourced thumbnails for YouTube videos. These thumbnails are often more relevant than those provided by YouTube\n\nIf enabled, video URLs will be sent to the API server and no other data is sent. If a video does not have DeArrow thumbnails, then the original or still captures are shown\n\nTap here to learn more about DeArrow</string>
             <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Show a toast if API is not available</string>
             <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Toast is shown if DeArrow is not available</string>
             <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Toast is not shown if DeArrow is not available</string>
             <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API endpoint</string>
             <string name="revanced_alt_thumbnail_dearrow_api_url_summary">The URL of the DeArrow thumbnail cache endpoint. Do not change this unless you know what you\'re doing</string>
-            <string name="revanced_alt_thumbnail_dearrow_about_title">About DeArrow</string>
-            <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow provides crowd-sourced thumbnails for YouTube videos. These thumbnails are often more relevant than those provided by YouTube\n\nIf enabled, video URLs will be sent to the API server and no other data is sent. If a video does not have DeArrow thumbnails, then the original thumbnails or still captures are shown\n\nTap here to learn more about DeArrow</string>
-            <string name="revanced_alt_thumbnail_stills_time_title">Video time to take the still from</string>
+            <string name="revanced_alt_thumbnail_stills_about_title">Still video captures</string>
+            <string name="revanced_alt_thumbnail_stills_about_summary">Still captures are taken from the beginning/middle/end of each video. These images are built into YouTube and no external API is used</string>
+            <string name="revanced_alt_thumbnail_stills_time_title">Video time to take still captures from</string>
             <string name="revanced_alt_thumbnail_stills_time_entry_1">Beginning of video</string>
             <string name="revanced_alt_thumbnail_stills_time_entry_2">Middle of video</string>
             <string name="revanced_alt_thumbnail_stills_time_entry_3">End of video</string>
             <string name="revanced_alt_thumbnail_stills_fast_title">Use fast still captures</string>
             <string name="revanced_alt_thumbnail_stills_fast_summary_on">Using medium quality still captures. Thumbnails will load faster, but live streams, unreleased, or very old videos may show blank thumbnails</string>
             <string name="revanced_alt_thumbnail_stills_fast_summary_off">Using high quality still captures</string>
-            <string name="revanced_alt_thumbnail_stills_about_title">About still video captures</string>
-            <string name="revanced_alt_thumbnail_stills_about_summary">Still captures are taken from the beginning/middle/end of each video. These images are built into YouTube and no external API is used</string>
             <string name="revanced_alt_thumbnail_dearrow_error">DeArrow temporarily not available (status code: %s)</string>
             <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow temporarily not available</string>
         </patch>
