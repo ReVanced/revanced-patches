@@ -1,3 +1,15 @@
+# [4.4.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.14...v4.4.0-dev.15) (2024-03-27)
+
+
+### Bug Fixes
+
+* **YouTube Music:** Fix compatibility with latest versions ([#2924](https://github.com/ReVanced/revanced-patches/issues/2924)) ([8378c84](https://github.com/ReVanced/revanced-patches/commit/8378c8481634a63a5568480475757e64b7ec466e))
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Selectively hide Shorts for home / subscription / search ([#2925](https://github.com/ReVanced/revanced-patches/issues/2925)) ([497c067](https://github.com/ReVanced/revanced-patches/commit/497c067e80e560eb125f5fc30eef9763929b4ee4))
+
 # [4.4.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v4.4.0-dev.13...v4.4.0-dev.14) (2024-03-27)
 
 
