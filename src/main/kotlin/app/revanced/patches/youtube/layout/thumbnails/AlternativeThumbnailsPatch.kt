@@ -22,6 +22,8 @@ import app.revanced.patches.youtube.layout.thumbnails.fingerprints.cronet.reques
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.cronet.request.callback.OnResponseStartedFingerprint
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.cronet.request.callback.OnSucceededFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
+import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
+import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -38,6 +40,8 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
         IntegrationsPatch::class,
         SettingsPatch::class,
         AddResourcesPatch::class,
+        NavigationBarHookPatch::class,
+        PlayerTypeHookPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -128,12 +132,21 @@ object AlternativeThumbnailsPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.ALTERNATIVE_THUMBNAILS.addPreferences(
-            NonInteractivePreference(
-                "revanced_alt_thumbnail_about",
-                null, // Summary is dynamically updated based on the current settings.
-                tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsStatusPreference",
+            ListPreference("revanced_alt_thumbnail_dearrow_home",
+                summaryKey = null,
+                entriesKey = "revanced_alt_thumbnail_options_entries",
+                entryValuesKey = "revanced_alt_thumbnail_options_entry_values"
             ),
-            SwitchPreference("revanced_alt_thumbnail_dearrow"),
+            ListPreference("revanced_alt_thumbnail_dearrow_subscription",
+                summaryKey = null,
+                entriesKey = "revanced_alt_thumbnail_options_entries",
+                entryValuesKey = "revanced_alt_thumbnail_options_entry_values"
+            ),
+            ListPreference("revanced_alt_thumbnail_dearrow_search",
+                summaryKey = null,
+                entriesKey = "revanced_alt_thumbnail_options_entries",
+                entryValuesKey = "revanced_alt_thumbnail_options_entry_values"
+            ),
             SwitchPreference("revanced_alt_thumbnail_dearrow_connection_toast"),
             TextPreference("revanced_alt_thumbnail_dearrow_api_url"),
             NonInteractivePreference(
@@ -142,7 +155,6 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                 tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsAboutDeArrowPreference",
                 selectable = true,
             ),
-            SwitchPreference("revanced_alt_thumbnail_stills"),
             ListPreference("revanced_alt_thumbnail_stills_time", summaryKey = null),
             SwitchPreference("revanced_alt_thumbnail_stills_fast"),
             NonInteractivePreference("revanced_alt_thumbnail_stills_about"),
