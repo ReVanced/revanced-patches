@@ -17,7 +17,9 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.SHORTS.addPreferences(
-            SwitchPreference("revanced_hide_shorts"),
+            SwitchPreference("revanced_hide_shorts_home"),
+            SwitchPreference("revanced_hide_shorts_subscriptions"),
+            SwitchPreference("revanced_hide_shorts_search"),
             SwitchPreference("revanced_hide_shorts_join_button"),
             SwitchPreference("revanced_hide_shorts_subscribe_button"),
             SwitchPreference("revanced_hide_shorts_subscribe_button_paused"),
