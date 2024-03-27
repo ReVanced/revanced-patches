@@ -861,7 +861,7 @@
             <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API endpoint</string>
             <string name="revanced_alt_thumbnail_dearrow_api_url_summary">The URL of the DeArrow thumbnail cache endpoint. Do not change this unless you know what you\'re doing</string>
             <string name="revanced_alt_thumbnail_dearrow_about_title">About DeArrow</string>
-            <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow provides crowd-sourced thumbnails for YouTube videos. These thumbnails are often more relevant than those provided by YouTube. If enabled, video URLs will be sent to the API server and no other data is sent\n\nIf a video does not have DeArrow thumbnails, then the original thumbnails or still captures are shown\n\nTap here to learn more about DeArrow</string>
+            <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow provides crowd-sourced thumbnails for YouTube videos. These thumbnails are often more relevant than those provided by YouTube\n\nIf enabled, video URLs will be sent to the API server and no other data is sent. If a video does not have DeArrow thumbnails, then the original thumbnails or still captures are shown\n\nTap here to learn more about DeArrow</string>
             <string name="revanced_alt_thumbnail_stills_time_title">Video time to take the still from</string>
             <string name="revanced_alt_thumbnail_stills_time_entry_1">Beginning of video</string>
             <string name="revanced_alt_thumbnail_stills_time_entry_2">Middle of video</string>
