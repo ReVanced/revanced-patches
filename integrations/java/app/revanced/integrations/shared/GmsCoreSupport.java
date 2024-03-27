@@ -1,4 +1,4 @@
-package app.revanced.integrations.youtube.patches;
+package app.revanced.integrations.shared;
 
 import android.app.SearchManager;
 import android.content.Context;
@@ -7,8 +7,6 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import androidx.annotation.RequiresApi;
-import app.revanced.integrations.shared.Logger;
-import app.revanced.integrations.shared.Utils;
 
 import java.util.Objects;
 
