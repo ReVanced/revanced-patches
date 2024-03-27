@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.buttons.navigation.fingerprints
+package app.revanced.patches.youtube.misc.navigation.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint

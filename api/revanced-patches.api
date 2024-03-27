@@ -1609,6 +1609,13 @@ public final class app/revanced/patches/youtube/misc/minimizedplayback/Minimized
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/youtube/misc/navigation/NavigationBarHookPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/navigation/NavigationBarHookPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public final fun getHookNavigationButtonCreated ()Lkotlin/jvm/functions/Function1;
+}
+
 public final class app/revanced/patches/youtube/misc/playercontrols/BottomControlsResourcePatch : app/revanced/patcher/patch/ResourcePatch, java/io/Closeable {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/playercontrols/BottomControlsResourcePatch;
 	public final fun addControls (Ljava/lang/String;)V
