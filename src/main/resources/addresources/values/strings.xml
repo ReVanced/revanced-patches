@@ -847,10 +847,10 @@
             <string name="revanced_seekbar_custom_color_invalid">Invalid seekbar color value. Using default value.</string>
         </patch>
         <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
-            <string name="revanced_alt_thumbnail_dearrow_home_title">Thumbnails for home feed</string>
-            <string name="revanced_alt_thumbnail_dearrow_subscription_title">Thumbnails for subscription tab</string>
-            <string name="revanced_alt_thumbnail_dearrow_search_title">Thumbnails for search results</string>
-            <string name="revanced_alt_thumbnail_dearrow_history_title">Thumbnails for watch history</string>
+            <string name="revanced_alt_thumbnail_home_title">Thumbnails for home feed</string>
+            <string name="revanced_alt_thumbnail_subscription_title">Thumbnails for subscription tab</string>
+            <string name="revanced_alt_thumbnail_search_title">Thumbnails for search results</string>
+            <string name="revanced_alt_thumbnail_history_title">Thumbnails for watch history</string>
             <string name="revanced_alt_thumbnail_options_entry_1">Original thumbnails</string>
             <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Original thumbnails</string>
             <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Still captures</string>
@@ -864,13 +864,13 @@
             <string name="revanced_alt_thumbnail_dearrow_api_url_summary">The URL of the DeArrow thumbnail cache endpoint. Do not change this unless you know what you\'re doing</string>
             <string name="revanced_alt_thumbnail_stills_about_title">Still video captures</string>
             <string name="revanced_alt_thumbnail_stills_about_summary">Still captures are taken from the beginning/middle/end of each video. These images are built into YouTube and no external API is used</string>
+            <string name="revanced_alt_thumbnail_stills_fast_title">Use fast still captures</string>
+            <string name="revanced_alt_thumbnail_stills_fast_summary_on">Using medium quality still captures. Thumbnails will load faster, but live streams, unreleased, or very old videos may show blank thumbnails</string>
+            <string name="revanced_alt_thumbnail_stills_fast_summary_off">Using high quality still captures</string>
             <string name="revanced_alt_thumbnail_stills_time_title">Video time to take still captures from</string>
             <string name="revanced_alt_thumbnail_stills_time_entry_1">Beginning of video</string>
             <string name="revanced_alt_thumbnail_stills_time_entry_2">Middle of video</string>
             <string name="revanced_alt_thumbnail_stills_time_entry_3">End of video</string>
-            <string name="revanced_alt_thumbnail_stills_fast_title">Use fast still captures</string>
-            <string name="revanced_alt_thumbnail_stills_fast_summary_on">Using medium quality still captures. Thumbnails will load faster, but live streams, unreleased, or very old videos may show blank thumbnails</string>
-            <string name="revanced_alt_thumbnail_stills_fast_summary_off">Using high quality still captures</string>
             <string name="revanced_alt_thumbnail_dearrow_error">DeArrow temporarily not available (status code: %s)</string>
             <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow temporarily not available</string>
         </patch>
