@@ -3,42 +3,43 @@ package app.revanced.patches.music.layout.premium
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.layout.premium.fingerprints.HideGetPremiumFingerprint
-import app.revanced.patches.music.layout.premium.fingerprints.HideGetPremiumParentFingerprint
 import app.revanced.util.exception
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch(
-    name = "Hide get premium",
-    description = "Removes all \"Get Premium\" evidences from the avatar menu.",
+    name = "Hide 'Get Music Premium' label",
+    description = "Hides the red \"Get Music Premium\" label from the account menu.",
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
 )
 @Suppress("unused")
 object HideGetPremiumPatch : BytecodePatch(
-    setOf(HideGetPremiumParentFingerprint),
+    setOf(HideGetPremiumFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
-        HideGetPremiumParentFingerprint.result?.let {
+        HideGetPremiumFingerprint.result?.let {
             it.mutableMethod.apply {
-                val insertIndex = it.scanResult.patternScanResult!!.startIndex + 1
-                val register = getInstruction<TwoRegisterInstruction>(insertIndex - 1).registerA
+                val insertIndex = it.scanResult.patternScanResult!!.endIndex
 
-                addInstruction(insertIndex, "const/4 v$register, 0x0")
+                val setVisibilityInstruction = getInstruction<FiveRegisterInstruction>(insertIndex)
+                val getPremiumViewRegister = setVisibilityInstruction.registerC
+                val visibilityRegister = setVisibilityInstruction.registerD
+
+                replaceInstruction(
+                    insertIndex,
+                    "const/16 v$visibilityRegister, 0x8",
+                )
+
+                addInstruction(
+                    insertIndex + 1,
+                    "invoke-virtual {v$getPremiumViewRegister, v$visibilityRegister}, " +
+                        "Landroid/view/View;->setVisibility(I)V",
+                )
             }
-        } ?: throw HideGetPremiumParentFingerprint.exception
-
-        val parentResult = HideGetPremiumParentFingerprint.result!!
-        HideGetPremiumFingerprint.resolve(context, parentResult.classDef)
-
-        val startIndex = parentResult.scanResult.patternScanResult!!.startIndex
-        HideGetPremiumFingerprint.result!!.mutableMethod.addInstruction(
-            startIndex,
-            """
-                const/16 v0, 0x8
-            """,
-        )
+        } ?: throw HideGetPremiumFingerprint.exception
     }
 }
