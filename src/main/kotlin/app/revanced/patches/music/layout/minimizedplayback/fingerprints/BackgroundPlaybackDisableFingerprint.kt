@@ -1,4 +1,4 @@
-package app.revanced.patches.music.premium.backgroundplay.fingerprints
+package app.revanced.patches.music.layout.minimizedplayback.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint

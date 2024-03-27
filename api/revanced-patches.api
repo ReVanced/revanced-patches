@@ -302,6 +302,12 @@ public final class app/revanced/patches/moneymanager/UnlockProPatch : app/revanc
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/music/ad/video/HideMusicVideoAds : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/music/ad/video/HideMusicVideoAds;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/music/ad/video/MusicVideoAdsPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/ad/video/MusicVideoAdsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -314,6 +320,12 @@ public final class app/revanced/patches/music/audio/codecs/CodecsUnlockPatch : a
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/music/audio/exclusiveaudio/EnableExclusiveAudioPlayback : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/music/audio/exclusiveaudio/EnableExclusiveAudioPlayback;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/music/audio/exclusiveaudio/ExclusiveAudioPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/audio/exclusiveaudio/ExclusiveAudioPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -322,6 +334,12 @@ public final class app/revanced/patches/music/audio/exclusiveaudio/ExclusiveAudi
 
 public final class app/revanced/patches/music/interaction/permanentrepeat/PermanentRepeatPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/interaction/permanentrepeat/PermanentRepeatPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/music/interaction/permanentshuffle/PermanentShufflePatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/music/interaction/permanentshuffle/PermanentShufflePatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }

@@ -10,12 +10,11 @@ import app.revanced.patches.music.ad.video.fingerprints.ShowMusicVideoAdsParentF
 import app.revanced.util.exception
 
 @Patch(
-    name = "Music video ads",
-    description = "Removes ads in the music player.",
+    name = "Hide music video ads",
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
 )
 @Suppress("unused")
-object MusicVideoAdsPatch : BytecodePatch(
+object HideMusicVideoAds : BytecodePatch(
     setOf(ShowMusicVideoAdsParentFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
@@ -26,5 +25,13 @@ object MusicVideoAdsPatch : BytecodePatch(
 
             showMusicVideoAdsMethod.addInstruction(0, "const/4 p1, 0x0")
         } ?: throw ShowMusicVideoAdsParentFingerprint.exception
+    }
+}
+
+@Deprecated("This patch class has been renamed to HideMusicVideoAds.")
+object MusicVideoAdsPatch : BytecodePatch(
+    dependencies = setOf(HideMusicVideoAds::class),
+) {
+    override fun execute(context: BytecodeContext) {
     }
 }
