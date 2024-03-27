@@ -24,21 +24,23 @@ abstract class BaseGmsCoreSupportResourcePatch(
     private val spoofedPackageSignature: String,
     dependencies: Set<PatchClass> = setOf(),
 ) : ResourcePatch(dependencies = setOf(ChangePackageNamePatch::class, AddResourcesPatch::class) + dependencies) {
-    internal val gmsCoreVendorOption =
+    internal val gmsCoreVendorGroupIdOption =
         stringPatchOption(
-            key = "gmsCoreVendor",
-            default = "com.mgoogle",
+            key = "gmsCoreVendorGroupId",
+            default = "app.revanced",
             values =
             mapOf(
-                "Vanced" to "com.mgoogle",
                 "ReVanced" to "app.revanced",
             ),
-            title = "GmsCore Vendor",
-            description = "The group id of the GmsCore vendor.",
+            title = "GmsCore vendor group ID",
+            description = "The vendor's group ID for GmsCore.",
             required = true,
-        ) { it!!.matches(Regex("^[a-z]\\w*(\\.[a-z]\\w*)+\$")) }
+        ) { it!!.matches(Regex(PACKAGE_NAME_REGEX_PATTERN)) }
 
-    protected val gmsCoreVendor by gmsCoreVendorOption
+    protected val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
+
+    @Deprecated("Use gmsCoreVendorGroupId instead.", ReplaceWith("gmsCoreVendorGroupId"))
+    protected val gmsCoreVendor by gmsCoreVendorGroupIdOption
 
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(BaseGmsCoreSupportResourcePatch::class)
@@ -70,12 +72,12 @@ abstract class BaseGmsCoreSupportResourcePatch(
 
             // Spoof package name and signature.
             applicationNode.adoptChild("meta-data") {
-                setAttribute("android:name", "$gmsCoreVendor.android.gms.SPOOFED_PACKAGE_NAME")
+                setAttribute("android:name", "$gmsCoreVendorGroupId.android.gms.SPOOFED_PACKAGE_NAME")
                 setAttribute("android:value", fromPackageName)
             }
 
             applicationNode.adoptChild("meta-data") {
-                setAttribute("android:name", "$gmsCoreVendor.android.gms.SPOOFED_PACKAGE_SIGNATURE")
+                setAttribute("android:name", "$gmsCoreVendorGroupId.android.gms.SPOOFED_PACKAGE_SIGNATURE")
                 setAttribute("android:value", spoofedPackageSignature)
             }
 
@@ -83,7 +85,7 @@ abstract class BaseGmsCoreSupportResourcePatch(
             applicationNode.adoptChild("meta-data") {
                 // TODO: The name of this metadata should be dynamic.
                 setAttribute("android:name", "app.revanced.MICROG_PACKAGE_NAME")
-                setAttribute("android:value", "$gmsCoreVendor.android.gms")
+                setAttribute("android:value", "$gmsCoreVendorGroupId.android.gms")
             }
         }
     }
@@ -110,11 +112,16 @@ abstract class BaseGmsCoreSupportResourcePatch(
                 "$packageName.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
             ).replace(
                 "com.google.android.c2dm",
-                "$gmsCoreVendor.android.c2dm",
+                "$gmsCoreVendorGroupId.android.c2dm",
             ).replace(
                 "</queries>",
-                "<package android:name=\"$gmsCoreVendor.android.gms\"/></queries>",
+                "<package android:name=\"$gmsCoreVendorGroupId.android.gms\"/></queries>",
             ),
         )
+    }
+
+    private companion object {
+        private const val VANCED_VENDOR = "com.mgoogle"
+        private const val PACKAGE_NAME_REGEX_PATTERN = "^[a-z]\\w*(\\.[a-z]\\w*)+\$"
     }
 }

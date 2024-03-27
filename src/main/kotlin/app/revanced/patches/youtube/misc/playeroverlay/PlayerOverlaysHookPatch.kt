@@ -3,30 +3,31 @@ package app.revanced.patches.youtube.misc.playeroverlay
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playeroverlay.fingerprint.PlayerOverlaysOnFinishInflateFingerprint
+import app.revanced.util.exception
 
 @Patch(
-    description = "Hook for adding custom overlays to the video player.",
+    description = "Hook for the video player overlay",
     dependencies = [IntegrationsPatch::class],
-    compatiblePackages = [
-        CompatiblePackage("com.google.android.youtube", [
-            "18.32.39"
-        ])
-    ]
 )
+
+/**
+ * Edit: This patch is not in use and may not work.
+ */
 @Suppress("unused")
-object PlayerOverlaysHookPatch : BytecodePatch( // TODO: delete this unused outdated patch and its integration code.
+object PlayerOverlaysHookPatch : BytecodePatch(
     setOf(PlayerOverlaysOnFinishInflateFingerprint)
 ) {
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/PlayerOverlaysHookPatch;"
+
     override fun execute(context: BytecodeContext) {
-        // hook YouTubePlayerOverlaysLayout.onFinishInflate()
-        val method = PlayerOverlaysOnFinishInflateFingerprint.result!!.mutableMethod
-        method.addInstruction(
-            method.implementation!!.instructions.size - 2,
-            "invoke-static { p0 }, Lapp/revanced/integrations/youtube/patches/PlayerOverlaysHookPatch;->YouTubePlayerOverlaysLayout_onFinishInflateHook(Ljava/lang/Object;)V"
-        )
+        PlayerOverlaysOnFinishInflateFingerprint.result?.mutableMethod?.apply {
+            addInstruction(
+                implementation!!.instructions.lastIndex,
+                "invoke-static { p0 }, $INTEGRATIONS_CLASS_DESCRIPTOR->playerOverlayInflated(Landroid/view/ViewGroup;)V"
+            )
+        } ?: throw PlayerOverlaysOnFinishInflateFingerprint.exception
     }
 }
