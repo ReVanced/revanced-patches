@@ -10,13 +10,12 @@ import app.revanced.patches.music.audio.codecs.fingerprints.CodecsLockFingerprin
 import com.android.tools.smali.dexlib2.Opcode
 
 @Patch(
-    name = "Codecs unlock",
     description = "Adds more audio codec options. The new audio codecs usually result in better audio quality.",
-    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
 )
-@Suppress("unused")
+@Deprecated("This patch is no longer needed as the feature is now enabled by default.")
 object CodecsUnlockPatch : BytecodePatch(
-    setOf(CodecsLockFingerprint, AllCodecsReferenceFingerprint)
+    setOf(CodecsLockFingerprint, AllCodecsReferenceFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
         val codecsLockResult = CodecsLockFingerprint.result!!
@@ -25,13 +24,13 @@ object CodecsUnlockPatch : BytecodePatch(
 
         val scanResultStartIndex = codecsLockResult.scanResult.patternScanResult!!.startIndex
         val instructionIndex = scanResultStartIndex +
-                if (implementation.instructions[scanResultStartIndex - 1].opcode == Opcode.CHECK_CAST) {
-                    // for 5.16.xx and lower
-                    -3
-                } else {
-                    // since 5.17.xx
-                    -2
-                }
+            if (implementation.instructions[scanResultStartIndex - 1].opcode == Opcode.CHECK_CAST) {
+                // for 5.16.xx and lower
+                -3
+            } else {
+                // since 5.17.xx
+                -2
+            }
 
         val allCodecsResult = AllCodecsReferenceFingerprint.result!!
         val allCodecsMethod =
@@ -41,7 +40,7 @@ object CodecsUnlockPatch : BytecodePatch(
 
         implementation.replaceInstruction(
             instructionIndex,
-            "invoke-static {}, ${allCodecsMethod.definingClass}->${allCodecsMethod.name}()Ljava/util/Set;".toInstruction()
+            "invoke-static {}, ${allCodecsMethod.definingClass}->${allCodecsMethod.name}()Ljava/util/Set;".toInstruction(),
         )
     }
 }

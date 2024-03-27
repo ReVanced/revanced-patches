@@ -1,6 +1,5 @@
 package app.revanced.patches.youtubevanced.ad.general
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -9,17 +8,19 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.misc.fix.verticalscroll.VerticalScrollPatch
 import app.revanced.patches.youtubevanced.ad.general.fingerprints.ContainsAdFingerprint
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
 
+@Deprecated("This patch is going to be removed in the future.")
 @Patch(
-    name = "Hide ads",
     description = "Removes general ads.",
     dependencies = [VerticalScrollPatch::class],
-    compatiblePackages = [CompatiblePackage("com.vanced.android.youtube")]
+    compatiblePackages = [CompatiblePackage("com.vanced.android.youtube")],
+    use = false,
 )
 @Suppress("unused")
 object HideAdsPatch : BytecodePatch(
-    setOf(ContainsAdFingerprint)
+    setOf(ContainsAdFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
         ContainsAdFingerprint.result?.let { result ->
@@ -40,14 +41,14 @@ object HideAdsPatch : BytecodePatch(
                     "hero_promo_image",
                     "statement_banner",
                     "primetime_promo",
-                    "carousel_footered_layout"
+                    "carousel_footered_layout",
                 ).forEach { component ->
                     addInstructions(
                         insertIndex,
                         """
                            const-string v$adsListRegister, "$component"
                            invoke-interface {v0, v$adsListRegister}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-                        """
+                        """,
                     )
                 }
             }

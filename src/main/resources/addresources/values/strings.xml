@@ -167,9 +167,24 @@
             <string name="revanced_custom_filter_summary_off">Custom filter is disabled</string>
             <string name="revanced_custom_filter_strings_title">Custom filter</string>
             <string name="revanced_custom_filter_strings_summary">List of component path builder strings to filter separated by new line</string>
-            <string name="revanced_custom_filter_toast_invalid_characters">Invalid custom filter (must be ASCII only): %s</string>
             <string name="revanced_custom_filter_toast_invalid_syntax">Invalid custom filter: %s</string>
-            <string name="revanced_custom_filter_toast_reset">Custom filter reset to default</string>
+            <string name="revanced_hide_keyword_content_screen_title">Hide keyword content</string>
+            <string name="revanced_hide_keyword_content_screen_summary">Hide search and feed videos using keyword filters</string>
+            <string name="revanced_hide_keyword_content_home_title">Hide home videos by keywords</string>
+            <string name="revanced_hide_keyword_content_home_summary_on">Videos in the home tab are filtered by keywords</string>
+            <string name="revanced_hide_keyword_content_home_summary_off">Videos in the home tab are not filtered by keywords</string>
+            <string name="revanced_hide_keyword_content_subscriptions_title">Hide subscription videos by keywords</string>
+            <string name="revanced_hide_keyword_content_subscriptions_summary_on">Videos in the subscriptions tab are filtered by keywords</string>
+            <string name="revanced_hide_keyword_content_subscriptions_summary_off">Videos in the subscriptions tab are not filtered by keywords</string>
+            <string name="revanced_hide_keyword_content_search_title">Hide search results by keywords</string>
+            <string name="revanced_hide_keyword_content_search_summary_on">Search results are filtered by keywords</string>
+            <string name="revanced_hide_keyword_content_search_summary_off">Search results are not filtered by keywords</string>
+            <string name="revanced_hide_keyword_content_phrases_title">Keywords to hide</string>
+            <string name="revanced_hide_keyword_content_phrases_summary">Keywords and phrases to hide, separated by new lines\n\nWords with uppercase letters in the middle must be entered with the casing (ie: iPhone, TikTok, LeBlanc)</string>
+            <string name="revanced_hide_keyword_content_about_title">About keyword filtering</string>
+            <string name="revanced_hide_keyword_content_about_summary">Home/Subscription/Search results are filtered to hide content that matches keyword phrases\n\nLimitations\n• Some Shorts may not be hidden\n• Some UI components may not be hidden\n• Searching for a keyword may show no results</string>
+            <string name="revanced_hide_keyword_toast_invalid_common" formatted="false">Invalid keyword. Cannot use: \'%s\' as a filter</string>
+            <string name="revanced_hide_keyword_toast_invalid_length" formatted="false">Invalid keyword. \'%s\' is less than %s characters</string>
         </patch>
         <patch id="ad.general.HideAdsResourcePatch">
             <string name="revanced_hide_general_ads_title">Hide general ads</string>
@@ -199,6 +214,7 @@
             <string name="revanced_hide_merchandise_banners_title">Hide merchandise banners</string>
             <string name="revanced_hide_merchandise_banners_summary_on">Merchandise banners are hidden</string>
             <string name="revanced_hide_merchandise_banners_summary_off">Merchandise banners are shown</string>
+            <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Failed to hide full-screen ad. Disabling to prevent issues</string>
         </patch>
         <patch id="ad.getpremium.HideGetPremiumPatch">
             <string name="revanced_hide_get_premium_title">Hide YouTube Premium promotions</string>
@@ -226,12 +242,15 @@
             <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialog will be shown</string>
             <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">This does not bypass the age restriction. It just accepts it automatically.</string>
         </patch>
-        <patch id="interaction.downloads.ExternalDownloadsResourcePatch">
+        <patch id="interaction.downloads.DownloadsResourcePatch">
             <string name="revanced_external_downloader_screen_title">External downloads</string>
             <string name="revanced_external_downloader_screen_summary">Settings for using an external downloader</string>
             <string name="revanced_external_downloader_title">Show external download button</string>
             <string name="revanced_external_downloader_summary_on">Download button shown in player</string>
             <string name="revanced_external_downloader_summary_off">Download button not shown in player</string>
+            <string name="revanced_external_downloader_action_button_title">Override download action button</string>
+            <string name="revanced_external_downloader_action_button_summary_on">Download button opens your external downloader</string>
+            <string name="revanced_external_downloader_action_button_summary_off">Download button opens the native in-app downloader</string>
             <string name="revanced_external_downloader_name_title">Downloader package name</string>
             <string name="revanced_external_downloader_name_summary">Package name of your installed external downloader app, such as NewPipe or Seal</string>
             <string name="revanced_external_downloader_not_installed_warning">%s is not installed. Please install it.</string>
@@ -460,9 +479,15 @@
             <string name="revanced_hide_seekbar_thumbnail_summary_off">Thumbnail seekbar is shown</string>
         </patch>
         <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
-            <string name="revanced_hide_shorts_title">Hide Shorts in feed</string>
-            <string name="revanced_hide_shorts_summary_on">Shorts are hidden</string>
-            <string name="revanced_hide_shorts_summary_off">Shorts are shown</string>
+            <string name="revanced_hide_shorts_home_title">Hide Shorts in home feed</string>
+            <string name="revanced_hide_shorts_home_summary_on">Shorts in home feed are hidden</string>
+            <string name="revanced_hide_shorts_home_summary_off">Shorts in home feed are shown</string>
+            <string name="revanced_hide_shorts_subscriptions_title">Hide Shorts in subscription feed</string>
+            <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts in subscription feed are hidden</string>
+            <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts in subscription feed are shown</string>
+            <string name="revanced_hide_shorts_search_title">Hide Shorts in search results</string>
+            <string name="revanced_hide_shorts_search_summary_on">Shorts in search results are hidden</string>
+            <string name="revanced_hide_shorts_search_summary_off">Shorts in search results are shown</string>
             <string name="revanced_hide_shorts_join_button_title">Hide join button</string>
             <string name="revanced_hide_shorts_join_button_summary_on">Join button is hidden</string>
             <string name="revanced_hide_shorts_join_button_summary_off">Join button is shown</string>
@@ -475,6 +500,12 @@
             <string name="revanced_hide_shorts_thanks_button_title">Hide thanks button</string>
             <string name="revanced_hide_shorts_thanks_button_summary_on">Thanks button is hidden</string>
             <string name="revanced_hide_shorts_thanks_button_summary_off">Thanks button is shown</string>
+            <string name="revanced_hide_shorts_like_button_title">Hide like button</string>
+            <string name="revanced_hide_shorts_like_button_summary_on">Like button is hidden</string>
+            <string name="revanced_hide_shorts_like_button_summary_off">Like button is shown</string>
+            <string name="revanced_hide_shorts_dislike_button_title">Hide dislike button</string>
+            <string name="revanced_hide_shorts_dislike_button_summary_on">Dislike button is hidden</string>
+            <string name="revanced_hide_shorts_dislike_button_summary_off">Dislike button is shown</string>
             <string name="revanced_hide_shorts_comments_button_title">Hide comments button</string>
             <string name="revanced_hide_shorts_comments_button_summary_on">Comments button is hidden</string>
             <string name="revanced_hide_shorts_comments_button_summary_off">Comments button is shown</string>
@@ -490,6 +521,15 @@
             <string name="revanced_hide_shorts_channel_bar_title">Hide channel bar</string>
             <string name="revanced_hide_shorts_channel_bar_summary_on">Channel bar is hidden</string>
             <string name="revanced_hide_shorts_channel_bar_summary_off">Channel bar is shown</string>
+            <string name="revanced_hide_shorts_video_title_title">Hide Shorts video title</string>
+            <string name="revanced_hide_shorts_video_title_summary_on">Title is hidden</string>
+            <string name="revanced_hide_shorts_video_title_summary_off">Title is shown</string>
+            <string name="revanced_hide_shorts_sound_metadata_label_title">Hide sound metadata label</string>
+            <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Label is hidden</string>
+            <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Label is shown</string>
+            <string name="revanced_hide_shorts_full_video_link_label_title">Hide full video link label</string>
+            <string name="revanced_hide_shorts_full_video_link_label_summary_on">Label is hidden</string>
+            <string name="revanced_hide_shorts_full_video_link_label_summary_off">Label is shown</string>
             <string name="revanced_hide_shorts_sound_button_title">Hide sound button</string>
             <string name="revanced_hide_shorts_sound_button_summary_on">Sound button is hidden</string>
             <string name="revanced_hide_shorts_sound_button_summary_off">Sound button is shown</string>

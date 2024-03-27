@@ -23,7 +23,7 @@ import app.revanced.patches.youtube.layout.thumbnails.fingerprints.cronet.reques
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.cronet.request.callback.OnSucceededFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.util.exception
+import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -53,9 +53,13 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
-                "19.03.35",
                 "19.03.36",
-                "19.04.37",
+                "19.04.38",
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.37"
             ],
         ),
     ],
@@ -144,11 +148,8 @@ object AlternativeThumbnailsPatch : BytecodePatch(
             NonInteractivePreference("revanced_alt_thumbnail_stills_about"),
         )
 
-        fun MethodFingerprint.getResultOrThrow() =
-            result ?: throw exception
-
         fun MethodFingerprint.alsoResolve(fingerprint: MethodFingerprint) =
-            also { resolve(context, fingerprint.getResultOrThrow().classDef) }.getResultOrThrow()
+            also { resolve(context, fingerprint.resultOrThrow().classDef) }.resultOrThrow()
 
         fun MethodFingerprint.resolveAndLetMutableMethod(
             fingerprint: MethodFingerprint,
@@ -172,7 +173,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
 
         // The URL is required for the failure callback hook, but the URL field is obfuscated.
         // Add a helper get method that returns the URL field.
-        RequestFingerprint.getResultOrThrow().apply {
+        RequestFingerprint.resultOrThrow().apply {
             // The url is the only string field that is set inside the constructor.
             val urlFieldInstruction = mutableMethod.getInstructions().first {
                 if (it.opcode != Opcode.IPUT_OBJECT) return@first false
