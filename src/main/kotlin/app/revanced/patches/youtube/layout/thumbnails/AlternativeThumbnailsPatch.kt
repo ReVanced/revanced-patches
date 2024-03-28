@@ -11,7 +11,10 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
-import app.revanced.patches.shared.misc.settings.preference.*
+import app.revanced.patches.shared.misc.settings.preference.ListPreference
+import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.MessageDigestImageUrlFingerprint
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.MessageDigestImageUrlParentFingerprint
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.cronet.RequestFingerprint
@@ -20,7 +23,7 @@ import app.revanced.patches.youtube.layout.thumbnails.fingerprints.cronet.reques
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.cronet.request.callback.OnSucceededFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.util.exception
+import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -34,8 +37,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class,
-        AlternativeThumbnailsResourcePatch::class,
-        AddResourcesPatch::class
+        AddResourcesPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -51,12 +53,16 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
-                "19.03.35",
                 "19.03.36",
-                "19.04.37"
-            ]
-        )
-    ]
+                "19.04.38",
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.37"
+            ],
+        ),
+    ],
 )
 @Suppress("unused")
 object AlternativeThumbnailsPatch : BytecodePatch(
@@ -64,7 +70,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
         MessageDigestImageUrlParentFingerprint,
         OnResponseStartedFingerprint,
         RequestFingerprint,
-    )
+    ),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/AlternativeThumbnailsPatch;"
@@ -88,7 +94,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
             """
                 invoke-static { p1 }, $targetMethodClass->overrideImageURL(Ljava/lang/String;)Ljava/lang/String;
                 move-result-object p1
-                """
+                """,
         )
         loadImageUrlIndex += 2
     }
@@ -102,7 +108,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
         loadImageSuccessCallbackMethod.addInstruction(
             loadImageSuccessCallbackIndex++,
             "invoke-static { p1, p2 }, $targetMethodClass->handleCronetSuccess(" +
-                    "Lorg/chromium/net/UrlRequest;Lorg/chromium/net/UrlResponseInfo;)V"
+                "Lorg/chromium/net/UrlRequest;Lorg/chromium/net/UrlResponseInfo;)V",
         )
     }
 
@@ -114,55 +120,40 @@ object AlternativeThumbnailsPatch : BytecodePatch(
         loadImageErrorCallbackMethod.addInstruction(
             loadImageErrorCallbackIndex++,
             "invoke-static { p1, p2, p3 }, $targetMethodClass->handleCronetFailure(" +
-                    "Lorg/chromium/net/UrlRequest;Lorg/chromium/net/UrlResponseInfo;Ljava/io/IOException;)V"
+                "Lorg/chromium/net/UrlRequest;Lorg/chromium/net/UrlResponseInfo;Ljava/io/IOException;)V",
         )
     }
 
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
-            PreferenceScreen(
-                "revanced_alt_thumbnail_preference_screen",
-                preferences = setOf(
-                    NonInteractivePreference(
-                        "revanced_alt_thumbnail_about",
-                        null, // Summary is dynamically updated based on the current settings.
-                        tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsStatusPreference"
-                    ),
-                    SwitchPreference("revanced_alt_thumbnail_dearrow"),
-                    SwitchPreference("revanced_alt_thumbnail_dearrow_connection_toast"),
-                    TextPreference("revanced_alt_thumbnail_dearrow_api_url"),
-                    NonInteractivePreference(
-                        "revanced_alt_thumbnail_dearrow_about",
-                        // Custom about preference with link to the DeArrow website.
-                        tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsAboutDeArrowPreference",
-                        selectable = true
-                    ),
-                    SwitchPreference("revanced_alt_thumbnail_stills"),
-                    ListPreference(
-                        "revanced_alt_thumbnail_stills_time",
-                        summaryKey = null,
-                    ),
-                    SwitchPreference("revanced_alt_thumbnail_stills_fast"),
-                    NonInteractivePreference(
-                        "revanced_alt_thumbnail_stills_about",
-                        // Restore the preference dividers to keep it from looking weird.
-                        selectable = true
-                    )
-                )
-            )
+        SettingsPatch.PreferenceScreen.ALTERNATIVE_THUMBNAILS.addPreferences(
+            NonInteractivePreference(
+                "revanced_alt_thumbnail_about",
+                null, // Summary is dynamically updated based on the current settings.
+                tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsStatusPreference",
+            ),
+            SwitchPreference("revanced_alt_thumbnail_dearrow"),
+            SwitchPreference("revanced_alt_thumbnail_dearrow_connection_toast"),
+            TextPreference("revanced_alt_thumbnail_dearrow_api_url"),
+            NonInteractivePreference(
+                "revanced_alt_thumbnail_dearrow_about",
+                // Custom about preference with link to the DeArrow website.
+                tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsAboutDeArrowPreference",
+                selectable = true,
+            ),
+            SwitchPreference("revanced_alt_thumbnail_stills"),
+            ListPreference("revanced_alt_thumbnail_stills_time", summaryKey = null),
+            SwitchPreference("revanced_alt_thumbnail_stills_fast"),
+            NonInteractivePreference("revanced_alt_thumbnail_stills_about"),
         )
 
-        fun MethodFingerprint.getResultOrThrow() =
-            result ?: throw exception
-
         fun MethodFingerprint.alsoResolve(fingerprint: MethodFingerprint) =
-            also { resolve(context, fingerprint.getResultOrThrow().classDef) }.getResultOrThrow()
+            also { resolve(context, fingerprint.resultOrThrow().classDef) }.resultOrThrow()
 
         fun MethodFingerprint.resolveAndLetMutableMethod(
             fingerprint: MethodFingerprint,
-            block: (MutableMethod) -> Unit
+            block: (MutableMethod) -> Unit,
         ) = alsoResolve(fingerprint).also { block(it.mutableMethod) }
 
         MessageDigestImageUrlFingerprint.resolveAndLetMutableMethod(MessageDigestImageUrlParentFingerprint) {
@@ -182,7 +173,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
 
         // The URL is required for the failure callback hook, but the URL field is obfuscated.
         // Add a helper get method that returns the URL field.
-        RequestFingerprint.getResultOrThrow().apply {
+        RequestFingerprint.resultOrThrow().apply {
             // The url is the only string field that is set inside the constructor.
             val urlFieldInstruction = mutableMethod.getInstructions().first {
                 if (it.opcode != Opcode.IPUT_OBJECT) return@first false
@@ -203,15 +194,16 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                     AccessFlags.PUBLIC.value,
                     null,
                     null,
-                    MutableMethodImplementation(2)
+                    MutableMethodImplementation(2),
                 ).toMutable().apply {
                     addInstructions(
                         """
-                        iget-object v0, p0, $definingClass->${urlFieldName}:Ljava/lang/String;
+                        iget-object v0, p0, $definingClass->$urlFieldName:Ljava/lang/String;
                         return-object v0
-                    """
+                    """,
                     )
-                })
+                },
+            )
         }
     }
 }

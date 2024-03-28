@@ -21,7 +21,9 @@ internal object CrowdfundingBoxResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(SwitchPreference("revanced_hide_crowdfunding_box"))
+        SettingsPatch.PreferenceScreen.FEED.addPreferences(
+            SwitchPreference("revanced_hide_crowdfunding_box")
+        )
 
         crowdfundingBoxId = ResourceMappingPatch.resourceMappings.single {
             it.type == "layout" && it.name == "donation_companion"

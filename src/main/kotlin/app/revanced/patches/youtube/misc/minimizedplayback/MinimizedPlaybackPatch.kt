@@ -39,9 +39,13 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
-                "19.03.35",
                 "19.03.36",
-                "19.04.37"
+                "19.04.38",
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.37"
             ]
         )
     ]
@@ -61,13 +65,7 @@ object MinimizedPlaybackPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            NonInteractivePreference(
-                "revanced_minimized_playback_enabled",
-                "revanced_minimized_playback_summary_on",
-                // Use horizontal dividers to keep the settings from looking weird.
-                // If PreferenceCategories are added, then this should be removed.
-                selectable = true
-            )
+            NonInteractivePreference("revanced_minimized_playback")
         )
 
         MinimizedPlaybackManagerFingerprint.result?.apply {

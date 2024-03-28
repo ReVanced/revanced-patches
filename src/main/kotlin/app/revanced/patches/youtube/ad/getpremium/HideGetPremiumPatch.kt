@@ -30,9 +30,13 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
-                "19.03.35",
                 "19.03.36",
-                "19.04.37"
+                "19.04.38",
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.37"
             ]
         )
     ]
@@ -44,7 +48,9 @@ object HideGetPremiumPatch : BytecodePatch(setOf(GetPremiumViewFingerprint)) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.ADS.addPreferences(SwitchPreference("revanced_hide_get_premium"))
+        SettingsPatch.PreferenceScreen.ADS.addPreferences(
+            SwitchPreference("revanced_hide_get_premium")
+        )
 
         GetPremiumViewFingerprint.result?.let {
             it.mutableMethod.apply {

@@ -1,102 +1,63 @@
 package app.revanced.patches.instagram.patches.ads.timeline
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.MediaFingerprint
+import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.IsAdCheckOneFingerprint
+import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.IsAdCheckTwoFingerprint
 import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.ShowAdFingerprint
-import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.ads.GenericMediaAdFingerprint
-import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.ads.MediaAdFingerprint
-import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.ads.PaidPartnershipAdFingerprint
-import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.ads.ShoppingAdFingerprint
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide timeline ads",
-    description = "Removes ads from the timeline.",
-    compatiblePackages = [CompatiblePackage("com.instagram.android", ["275.0.0.27.98"])]
+    compatiblePackages = [CompatiblePackage("com.instagram.android")],
 )
 @Suppress("unused")
 object HideTimelineAdsPatch : BytecodePatch(
     setOf(
         ShowAdFingerprint,
-        MediaFingerprint,
-        PaidPartnershipAdFingerprint // Unlike the other ads this one is resolved from all classes.
-    )
+        IsAdCheckOneFingerprint,
+        IsAdCheckTwoFingerprint,
+    ),
 ) {
     override fun execute(context: BytecodeContext) {
-        // region Resolve required methods to check for ads.
+        // The exact function of the following methods is unknown.
+        // They are used to check if a post is an ad.
+        val isAdCheckOneMethod = IsAdCheckOneFingerprint.result?.method ?: throw IsAdCheckOneFingerprint.exception
+        val isAdCheckTwoMethod = IsAdCheckTwoFingerprint.result?.method ?: throw IsAdCheckTwoFingerprint.exception
 
-        ShowAdFingerprint.result ?: throw ShowAdFingerprint.exception
+        ShowAdFingerprint.result?.let {
+            it.mutableMethod.apply {
+                // The register that holds the post object.
+                val postRegister = getInstruction<FiveRegisterInstruction>(1).registerC
 
-        PaidPartnershipAdFingerprint.result ?: throw PaidPartnershipAdFingerprint.exception
+                // At this index the check for an ad can be performed.
+                val checkIndex = it.scanResult.patternScanResult!!.endIndex
 
-        MediaFingerprint.result?.let {
-            GenericMediaAdFingerprint.resolve(context, it.classDef)
-            ShoppingAdFingerprint.resolve(context, it.classDef)
-
-            return@let
-        } ?: throw MediaFingerprint.exception
-
-        // endregion
-
-        ShowAdFingerprint.result!!.apply {
-            // region Create instructions.
-
-            val scanStart = scanResult.patternScanResult!!.startIndex
-            val jumpIndex = scanStart - 1
-
-            val mediaInstanceRegister = mutableMethod.getInstruction<FiveRegisterInstruction>(scanStart).registerC
-            val freeRegister = mutableMethod.getInstruction<OneRegisterInstruction>(jumpIndex).registerA
-
-            val returnFalseLabel = "an_ad"
-
-            val checkForAdInstructions =
-                listOf(GenericMediaAdFingerprint, PaidPartnershipAdFingerprint, ShoppingAdFingerprint)
-                    .map(MediaAdFingerprint::toString)
-                    .joinToString("\n") {
-                        """ 
-                            invoke-virtual {v$mediaInstanceRegister}, $it
-                            move-result v$freeRegister
-                            if-nez v$freeRegister, :$returnFalseLabel
-                        """.trimIndent()
-                    }.let { "$it\nconst/4 v0, 0x1\nreturn v0" }
-
-            // endregion
-
-            // region Patch.
-
-            val insertIndex = scanStart + 3
-
-            mutableMethod.addInstructionsWithLabels(
-                insertIndex,
-                checkForAdInstructions,
-                ExternalLabel(
-                    returnFalseLabel,
-                    mutableMethod.getInstruction(mutableMethod.implementation!!.instructions.size - 2 /* return false = ad */)
-                )
-            )
-
-            // endregion
-
-            // region Jump to checks for ads from previous patch.
-
-            mutableMethod.apply {
+                // If either check returns true, the post is an ad and is hidden by returning false.
                 addInstructionsWithLabels(
-                    jumpIndex + 1,
-                    "if-nez v$freeRegister, :start_check",
-                    ExternalLabel("start_check", getInstruction(insertIndex))
+                    checkIndex,
+                    """
+                        invoke-virtual { v$postRegister }, $isAdCheckOneMethod
+                        move-result v0
+                        if-nez v0, :hide_ad
+                        
+                        invoke-static { v$postRegister }, $isAdCheckTwoMethod
+                        move-result v0
+                        if-eqz v0, :not_an_ad
+                        
+                        :hide_ad
+                        const/4 v0, 0x0 # Returning false to hide the ad.
+                        return v0
+                    """,
+                    ExternalLabel("not_an_ad", getInstruction(checkIndex)),
                 )
-            }.removeInstruction(jumpIndex)
-
-            // endregion
-        }
+            }
+        } ?: throw ShowAdFingerprint.exception
     }
 }

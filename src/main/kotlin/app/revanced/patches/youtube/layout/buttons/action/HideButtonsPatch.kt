@@ -33,9 +33,13 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
-                "19.03.35",
                 "19.03.36",
-                "19.04.37"
+                "19.04.38",
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.37"
             ]
         )
     ]
@@ -48,12 +52,11 @@ object HideButtonsPatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(
+        SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
             PreferenceScreen(
-                "revanced_hide_buttons_preference_screen",
+                "revanced_hide_buttons_screen",
                 preferences = setOf(
                     SwitchPreference("revanced_hide_like_dislike_button"),
-                    SwitchPreference("revanced_hide_live_chat_button"),
                     SwitchPreference("revanced_hide_share_button"),
                     SwitchPreference("revanced_hide_report_button"),
                     SwitchPreference("revanced_hide_remix_button"),

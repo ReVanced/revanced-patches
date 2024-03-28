@@ -27,7 +27,9 @@ object HideCastButtonPatch : BytecodePatch(emptySet()) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.LAYOUT.addPreferences(SwitchPreference("revanced_hide_cast_button"))
+        SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
+            SwitchPreference("revanced_hide_cast_button")
+        )
 
         val buttonClass = context.findClass("MediaRouteButton")
             ?: throw PatchException("MediaRouteButton class not found.")

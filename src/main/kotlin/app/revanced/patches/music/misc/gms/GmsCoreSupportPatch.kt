@@ -2,12 +2,12 @@ package app.revanced.patches.music.misc.gms
 
 import app.revanced.patches.music.misc.gms.Constants.MUSIC_PACKAGE_NAME
 import app.revanced.patches.music.misc.gms.Constants.REVANCED_MUSIC_PACKAGE_NAME
-import app.revanced.patches.music.misc.gms.GmsCoreSupportResourcePatch.gmsCoreVendorOption
+import app.revanced.patches.music.misc.gms.GmsCoreSupportResourcePatch.gmsCoreVendorGroupIdOption
 import app.revanced.patches.music.misc.gms.fingerprints.*
-import app.revanced.patches.music.misc.integrations.fingerprints.ApplicationInitFingerprint
 import app.revanced.patches.music.misc.integrations.IntegrationsPatch
-import app.revanced.patches.shared.misc.gms.BaseGmsCoreSupportPatch
+import app.revanced.patches.music.misc.integrations.fingerprints.ApplicationInitFingerprint
 import app.revanced.patches.shared.fingerprints.CastContextFetchFingerprint
+import app.revanced.patches.shared.misc.gms.BaseGmsCoreSupportPatch
 
 @Suppress("unused")
 object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
@@ -32,7 +32,7 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
         CastDynamiteModuleV2Fingerprint,
         CastContextFetchFingerprint,
         PrimeMethodFingerprint,
-    )
+    ),
 ) {
-    override val gmsCoreVendor by gmsCoreVendorOption
+    override val gmsCoreVendor by gmsCoreVendorGroupIdOption
 }
