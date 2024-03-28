@@ -1,13 +1,14 @@
 package app.revanced.integrations.shared;
 
 import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import androidx.annotation.RequiresApi;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Objects;
 
 import static app.revanced.integrations.shared.StringRef.str;
@@ -23,15 +24,29 @@ public class GmsCoreSupport {
     private static final Uri GMS_CORE_PROVIDER
             = Uri.parse("content://" + getGmsCoreVendor() + ".android.gsf.gservices/prefix");
 
-    private static void search(Context context, String uriString, String message) {
+    private static void open(String queryOrLink, String message) {
         Utils.showToastLong(message);
 
-        var intent = new Intent(Intent.ACTION_WEB_SEARCH);
+        Intent intent;
+        try {
+            // Check if queryOrLink is a valid URL.
+            new URL(queryOrLink);
+
+            intent = new Intent(Intent.ACTION_VIEW, Uri.parse(queryOrLink));
+        } catch (MalformedURLException e) {
+            intent = new Intent(Intent.ACTION_WEB_SEARCH);
+            intent.putExtra(SearchManager.QUERY, queryOrLink);
+        }
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.putExtra(SearchManager.QUERY, uriString);
-        context.startActivity(intent);
+        Utils.getContext().startActivity(intent);
+
+        // Gracefully exit, otherwise without Gms the app crashes and Android can nag the user.
+        System.exit(0);
     }
 
+    /**
+     * Injection point.
+     */
     @RequiresApi(api = Build.VERSION_CODES.N)
     public static void checkAvailability() {
         var context = Objects.requireNonNull(Utils.getContext());
@@ -40,22 +55,21 @@ public class GmsCoreSupport {
             context.getPackageManager().getPackageInfo(GMS_CORE_PACKAGE_NAME, PackageManager.GET_ACTIVITIES);
         } catch (PackageManager.NameNotFoundException exception) {
             Logger.printInfo(() -> "GmsCore was not found", exception);
-            search(context, getGmsCoreDownloadLink(), str("gms_core_not_installed_warning"));
-
-            System.exit(0);
+            open(getGmsCoreDownload(), str("gms_core_not_installed_warning"));
+            return;
         }
 
         try (var client = context.getContentResolver().acquireContentProviderClient(GMS_CORE_PROVIDER)) {
             if (client != null) return;
 
             Logger.printInfo(() -> "GmsCore is not running in the background");
-            search(context, DONT_KILL_MY_APP_LINK, str("gms_core_not_running_warning"));
-
-            System.exit(0);
+            open(DONT_KILL_MY_APP_LINK, str("gms_core_not_running_warning"));
+        } catch (Exception ex) {
+            Logger.printException(() -> "Could not check GmsCore background task", ex);
         }
     }
 
-    private static String getGmsCoreDownloadLink() {
+    private static String getGmsCoreDownload() {
         final var vendor = getGmsCoreVendor();
         //noinspection SwitchStatementWithTooFewBranches
         switch (vendor) {
