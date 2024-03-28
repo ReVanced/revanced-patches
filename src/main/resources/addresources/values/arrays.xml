@@ -44,15 +44,28 @@
             </string-array>
         </patch>
         <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
+            <string-array name="revanced_alt_thumbnail_options_entries">
+                <item>@string/revanced_alt_thumbnail_options_entry_1</item>
+                <item>@string/revanced_alt_thumbnail_options_entry_2</item>
+                <item>@string/revanced_alt_thumbnail_options_entry_3</item>
+                <item>@string/revanced_alt_thumbnail_options_entry_4</item>
+            </string-array>
+            <string-array name="revanced_alt_thumbnail_options_entry_values">
+                <!-- Enum names from Integrations -->
+                <item>ORIGINAL</item>
+                <item>DEARROW</item>
+                <item>DEARROW_STILL_IMAGES</item>
+                <item>STILL_IMAGES</item>
+            </string-array>
             <string-array name="revanced_alt_thumbnail_stills_time_entries">
                 <item>@string/revanced_alt_thumbnail_stills_time_entry_1</item>
                 <item>@string/revanced_alt_thumbnail_stills_time_entry_2</item>
                 <item>@string/revanced_alt_thumbnail_stills_time_entry_3</item>
             </string-array>
             <string-array name="revanced_alt_thumbnail_stills_time_entry_values">
-                <item>1</item>
-                <item>2</item>
-                <item>3</item>
+                <item>BEGINNING</item>
+                <item>MIDDLE</item>
+                <item>END</item>
             </string-array>
         </patch>
         <patch id="video.quality.RememberVideoQualityPatch">
