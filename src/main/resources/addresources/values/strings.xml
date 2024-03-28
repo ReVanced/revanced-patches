@@ -847,10 +847,10 @@
             <string name="revanced_seekbar_custom_color_invalid">Invalid seekbar color value. Using default value.</string>
         </patch>
         <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
-            <string name="revanced_alt_thumbnail_home_title">Thumbnails for home feed</string>
-            <string name="revanced_alt_thumbnail_subscription_title">Thumbnails for subscription tab</string>
-            <string name="revanced_alt_thumbnail_search_title">Thumbnails for search results</string>
-            <string name="revanced_alt_thumbnail_history_title">Thumbnails for watch history</string>
+            <string name="revanced_alt_thumbnail_home_title">Home tab and recommendations</string>
+            <string name="revanced_alt_thumbnail_subscription_title">Subscription tab</string>
+            <string name="revanced_alt_thumbnail_search_title">Search results</string>
+            <string name="revanced_alt_thumbnail_history_title">Watch history</string>
             <string name="revanced_alt_thumbnail_options_entry_1">Original thumbnails</string>
             <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Original thumbnails</string>
             <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Still captures</string>
