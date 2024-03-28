@@ -7,6 +7,7 @@ import android.view.View;
 import java.util.EnumMap;
 import java.util.Map;
 
+import app.revanced.integrations.shared.Logger;
 import app.revanced.integrations.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
@@ -17,6 +18,7 @@ public final class NavigationButtonsPatch {
             put(NavigationButton.HOME, Settings.HIDE_HOME_BUTTON.get());
             put(NavigationButton.CREATE, Settings.HIDE_CREATE_BUTTON.get());
             put(NavigationButton.SHORTS, Settings.HIDE_SHORTS_BUTTON.get());
+            put(NavigationButton.SUBSCRIPTIONS, Settings.HIDE_SUBSCRIPTIONS_BUTTON.get());
         }
     };
 
