@@ -850,7 +850,6 @@
             <string name="revanced_alt_thumbnail_home_title">Thumbnails for home feed</string>
             <string name="revanced_alt_thumbnail_subscription_title">Thumbnails for subscription tab</string>
             <string name="revanced_alt_thumbnail_search_title">Thumbnails for search results</string>
-            <string name="revanced_alt_thumbnail_channel_pages_title">Thumbnails for channel pages</string>
             <string name="revanced_alt_thumbnail_history_title">Thumbnails for watch history</string>
             <string name="revanced_alt_thumbnail_options_entry_1">Original thumbnails</string>
             <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Original thumbnails</string>

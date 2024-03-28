@@ -22,7 +22,6 @@ import app.revanced.patches.youtube.layout.thumbnails.fingerprints.cronet.reques
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.cronet.request.callback.OnResponseStartedFingerprint
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.cronet.request.callback.OnSucceededFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
-import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
 import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
@@ -42,8 +41,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
         SettingsPatch::class,
         AddResourcesPatch::class,
         NavigationBarHookPatch::class,
-        PlayerTypeHookPatch::class,
-        LithoFilterPatch::class
+        PlayerTypeHookPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -80,9 +78,6 @@ object AlternativeThumbnailsPatch : BytecodePatch(
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/AlternativeThumbnailsPatch;"
-
-    private const val FILTER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/youtube/patches/components/AlternativeThumbnailsFilter;"
 
     private lateinit var loadImageUrlMethod: MutableMethod
     private var loadImageUrlIndex = 0
@@ -154,11 +149,6 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                 entriesKey = entries,
                 entryValuesKey = values
             ),
-            ListPreference("revanced_alt_thumbnail_channel_pages",
-                summaryKey = null,
-                entriesKey = entries,
-                entryValuesKey = values
-            ),
             ListPreference("revanced_alt_thumbnail_history",
                 summaryKey = null,
                 entriesKey = entries,
@@ -176,8 +166,6 @@ object AlternativeThumbnailsPatch : BytecodePatch(
             SwitchPreference("revanced_alt_thumbnail_stills_fast"),
             ListPreference("revanced_alt_thumbnail_stills_time", summaryKey = null)
         )
-
-        LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
 
         fun MethodFingerprint.alsoResolve(fingerprint: MethodFingerprint) =
             also { resolve(context, fingerprint.resultOrThrow().classDef) }.resultOrThrow()
@@ -233,7 +221,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                         return-object v0
                     """,
                     )
-                }
+                },
             )
         }
     }
