@@ -21,7 +21,7 @@
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/ytBrandBackgroundSolid"
                 app:navigationIcon="@drawable/yt_outline_arrow_left_black_24"
-                app:title="@string/revanced_settings" />
+                app:title="@string/revanced_settings_title" />
         </FrameLayout>
 
         <FrameLayout

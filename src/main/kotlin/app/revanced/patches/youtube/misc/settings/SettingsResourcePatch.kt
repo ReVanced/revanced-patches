@@ -36,11 +36,10 @@ object SettingsResourcePatch : BaseSettingsResourcePatch(
                 it.type == "string" && it.name == "app_theme_appearance_dark"
             }!!.id
 
-        arrayOf(
+        context.copyResources(
+            "settings",
             ResourceGroup("layout", "revanced_settings_with_toolbar.xml"),
-        ).forEach { resourceGroup ->
-            context.copyResources("settings", resourceGroup)
-        }
+        )
 
         // Remove horizontal divider from the settings Preferences
         // To better match the appearance of the stock YouTube settings.

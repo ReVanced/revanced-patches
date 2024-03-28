@@ -1,7 +1,6 @@
 <resources>
     <app id="shared">
         <patch id="misc.settings.BaseSettingsResourcePatch">
-            <string name="revanced_settings_title">ReVanced</string>
             <string name="revanced_settings_confirm_user_dialog_title">Do you wish to proceed?</string>
             <string name="revanced_settings_reset">Reset</string>
             <string name="revanced_settings_restart_title">Refresh and restart</string>
@@ -16,10 +15,24 @@
             <string name="gms_core_not_installed_warning">GmsCore is not installed. Please install.</string>
             <string name="gms_core_not_running_warning">GmsCore is failing to run. Please follow the \"Don\'t kill my app\" guide for GmsCore.</string>
         </patch>
+        <patch id="misc.debugging.BaseDebuggingPatch">
+            <string name="revanced_debug_screen_title">Debugging</string>
+            <string name="revanced_debug_screen_summary">Enable or disable debugging options</string>
+            <string name="revanced_debug_title">Debug logging</string>
+            <string name="revanced_debug_summary_on">Debug logs are enabled</string>
+            <string name="revanced_debug_summary_off">Debug logs are disabled</string>
+            <string name="revanced_debug_stacktrace_title">Log stack traces</string>
+            <string name="revanced_debug_stacktrace_summary_on">Debug logs include stack trace</string>
+            <string name="revanced_debug_stacktrace_summary_off">Debug logs do not include stack trace</string>
+            <string name="revanced_debug_toast_on_error_title">Show toast on ReVanced error</string>
+            <string name="revanced_debug_toast_on_error_summary_on">Toast shown if error occurs</string>
+            <string name="revanced_debug_toast_on_error_summary_off">Toast not shown if error occurs</string>
+            <string name="revanced_debug_toast_on_error_user_dialog_message">Turning off error toasts hides all ReVanced error notifications.\n\nYou will not be notified of any unexpected events.</string>
+        </patch>
     </app>
     <app id="youtube">
         <patch id="misc.settings.SettingsResourcePatch">
-            <string name="revanced_settings">ReVanced</string>
+            <string name="revanced_settings_title">ReVanced</string>
             <string name="revanced_pref_import_export_title">Import / Export</string>
             <string name="revanced_pref_import_export_summary">Import / Export ReVanced settings</string>
         </patch>
@@ -36,21 +49,9 @@
             <string name="revanced_settings_screen_12_video_title">Video</string>
         </patch>
         <patch id="misc.debugging.DebuggingPatch">
-            <string name="revanced_debug_screen_title">Debugging</string>
-            <string name="revanced_debug_screen_summary">Enable or disable debugging options</string>
-            <string name="revanced_debug_title">Debug logging</string>
-            <string name="revanced_debug_summary_on">Debug logs are enabled</string>
-            <string name="revanced_debug_summary_off">Debug logs are disabled</string>
             <string name="revanced_debug_protobuffer_title">Log protocol buffer</string>
             <string name="revanced_debug_protobuffer_summary_on">Debug logs include proto buffer</string>
             <string name="revanced_debug_protobuffer_summary_off">Debug logs do not include proto buffer</string>
-            <string name="revanced_debug_stacktrace_title">Log stack traces</string>
-            <string name="revanced_debug_stacktrace_summary_on">Debug logs include stack trace</string>
-            <string name="revanced_debug_stacktrace_summary_off">Debug logs do not include stack trace</string>
-            <string name="revanced_debug_toast_on_error_title">Show toast on ReVanced error</string>
-            <string name="revanced_debug_toast_on_error_summary_on">Toast shown if error occurs</string>
-            <string name="revanced_debug_toast_on_error_summary_off">Toast not shown if error occurs</string>
-            <string name="revanced_debug_toast_on_error_user_dialog_message">Turning off error toasts hides all ReVanced error notifications.\n\nYou will not be notified of any unexpected events.</string>
         </patch>
         <patch id="layout.hide.general.HideLayoutComponentsPatch">
             <string name="revanced_hide_gray_separator_title">Hide gray separator</string>
@@ -1023,7 +1024,7 @@
             <string name="revanced_twitch_debug_mode_summary_off">Twitch debug mode is disabled</string>
         </patch>
         <patch id="misc.settings.SettingsPatch">
-            <string name="revanced_settings">ReVanced Settings</string>
+            <string name="revanced_settings_title">ReVanced</string>
             <string name="revanced_ads_screen_title">Ads</string>
             <string name="revanced_ads_screen_summary">Ad blocking settings</string>
             <string name="revanced_chat_screen_title">Chat</string>
