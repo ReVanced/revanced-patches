@@ -861,7 +861,7 @@
             <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Toast is shown if DeArrow is not available</string>
             <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Toast is not shown if DeArrow is not available</string>
             <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API endpoint</string>
-            <string name="revanced_alt_thumbnail_dearrow_api_url_summary">The URL of the DeArrow thumbnail cache endpoint. Do not change this unless you know what you\'re doing</string>
+            <string name="revanced_alt_thumbnail_dearrow_api_url_summary">The URL of the DeArrow thumbnail cache endpoint</string>
             <string name="revanced_alt_thumbnail_stills_about_title">Still video captures</string>
             <string name="revanced_alt_thumbnail_stills_about_summary">Still captures are taken from the beginning/middle/end of each video. These images are built into YouTube and no external API is used</string>
             <string name="revanced_alt_thumbnail_stills_fast_title">Use fast still captures</string>
