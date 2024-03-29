@@ -15,9 +15,11 @@
         <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
             <string name="gms_core_dialog_title">Action needed</string>
             <string name="gms_core_dialog_ok_button_text">Open website</string>
-            <string name="gms_core_not_installed_message">GmsCore is not installed.\n\nTap to open the website to install.</string>
-            <string name="gms_core_not_whitelisted_using_battery_optimizations_message">GmsCore is not whitelisted for battery optimization.\n\nFollow the \"Don\'t kill my app\" guide for GmsCore.</string>
-            <string name="gms_core_not_whitelisted_not_allowed_in_background_message">GmsCore does not have permission to run in the background.\n\nFollow the \"Don\'t kill my app\" guide for GmsCore.</string>
+            <string name="gms_core_dialog_not_installed_message">GmsCore is not installed.\n\nTap to open the website to install.</string>
+            <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">GmsCore is not whitelisted for battery optimization.\n\nFollow the \"Don\'t kill my app\" guide for GmsCore.</string>
+            <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">GmsCore does not have permission to run in the background.\n\nFollow the \"Don\'t kill my app\" guide for GmsCore.</string>
+            <string name="gms_core_toast_not_installed_message">GmsCore is not installed. Install it.</string>
+            <string name="gms_core_toast_not_whitelisted_message">Follow the \"Don\'t kill my app\" guide for GmsCore.</string>
         </patch>
     </app>
     <app id="youtube">
