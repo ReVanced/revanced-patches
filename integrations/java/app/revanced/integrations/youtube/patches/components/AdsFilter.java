@@ -129,8 +129,8 @@ public final class AdsFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
-                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+    boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
+                       StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (exceptions.matches(path))
             return false;
 

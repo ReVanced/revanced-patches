@@ -3,6 +3,10 @@ package app.revanced.integrations.youtube.settings;
 import app.revanced.integrations.shared.Logger;
 import app.revanced.integrations.shared.settings.*;
 import app.revanced.integrations.shared.settings.preference.SharedPrefCategory;
+import app.revanced.integrations.youtube.patches.AlternativeThumbnailsPatch.DeArrowAvailability;
+import app.revanced.integrations.youtube.patches.AlternativeThumbnailsPatch.StillImagesAvailability;
+import app.revanced.integrations.youtube.patches.AlternativeThumbnailsPatch.ThumbnailOption;
+import app.revanced.integrations.youtube.patches.AlternativeThumbnailsPatch.ThumbnailStillTime;
 import app.revanced.integrations.youtube.patches.spoof.SpoofAppVersionPatch;
 import app.revanced.integrations.youtube.sponsorblock.SponsorBlockSettings;
 
@@ -52,13 +56,16 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_VIDEO_ADS = new BooleanSetting("revanced_hide_video_ads", TRUE, true);
     public static final BooleanSetting HIDE_WEB_SEARCH_RESULTS = new BooleanSetting("revanced_hide_web_search_results", TRUE);
     // Layout
-    public static final BooleanSetting ALT_THUMBNAIL_STILLS = new BooleanSetting("revanced_alt_thumbnail_stills", FALSE);
-    public static final IntegerSetting ALT_THUMBNAIL_STILLS_TIME = new IntegerSetting("revanced_alt_thumbnail_stills_time", 2, parent(ALT_THUMBNAIL_STILLS));
-    public static final BooleanSetting ALT_THUMBNAIL_STILLS_FAST = new BooleanSetting("revanced_alt_thumbnail_stills_fast", FALSE, parent(ALT_THUMBNAIL_STILLS));
-    public static final BooleanSetting ALT_THUMBNAIL_DEARROW = new BooleanSetting("revanced_alt_thumbnail_dearrow", FALSE);
+    public static final EnumSetting<ThumbnailOption> ALT_THUMBNAIL_HOME = new EnumSetting<>("revanced_alt_thumbnail_home", ThumbnailOption.ORIGINAL);
+    public static final EnumSetting<ThumbnailOption> ALT_THUMBNAIL_SUBSCRIPTIONS = new EnumSetting<>("revanced_alt_thumbnail_subscription", ThumbnailOption.ORIGINAL);
+    public static final EnumSetting<ThumbnailOption> ALT_THUMBNAIL_LIBRARY = new EnumSetting<>("revanced_alt_thumbnail_library", ThumbnailOption.ORIGINAL);
+    public static final EnumSetting<ThumbnailOption> ALT_THUMBNAIL_PLAYER = new EnumSetting<>("revanced_alt_thumbnail_player", ThumbnailOption.ORIGINAL);
+    public static final EnumSetting<ThumbnailOption> ALT_THUMBNAIL_SEARCH = new EnumSetting<>("revanced_alt_thumbnail_search", ThumbnailOption.ORIGINAL);
     public static final StringSetting ALT_THUMBNAIL_DEARROW_API_URL = new StringSetting("revanced_alt_thumbnail_dearrow_api_url",
-            "https://dearrow-thumb.ajay.app/api/v1/getThumbnail", true, parent(ALT_THUMBNAIL_DEARROW));
-    public static final BooleanSetting ALT_THUMBNAIL_DEARROW_CONNECTION_TOAST = new BooleanSetting("revanced_alt_thumbnail_dearrow_connection_toast", TRUE, parent(ALT_THUMBNAIL_DEARROW));
+            "https://dearrow-thumb.ajay.app/api/v1/getThumbnail", true, new DeArrowAvailability());
+    public static final BooleanSetting ALT_THUMBNAIL_DEARROW_CONNECTION_TOAST = new BooleanSetting("revanced_alt_thumbnail_dearrow_connection_toast", TRUE, new DeArrowAvailability());
+    public static final EnumSetting<ThumbnailStillTime> ALT_THUMBNAIL_STILLS_TIME = new EnumSetting<>("revanced_alt_thumbnail_stills_time", ThumbnailStillTime.MIDDLE, new StillImagesAvailability());
+    public static final BooleanSetting ALT_THUMBNAIL_STILLS_FAST = new BooleanSetting("revanced_alt_thumbnail_stills_fast", FALSE, new StillImagesAvailability());
     public static final BooleanSetting CUSTOM_FILTER = new BooleanSetting("revanced_custom_filter", FALSE);
     public static final StringSetting CUSTOM_FILTER_STRINGS = new StringSetting("revanced_custom_filter_strings", "", true, parent(CUSTOM_FILTER));
     public static final BooleanSetting DISABLE_FULLSCREEN_AMBIENT_MODE = new BooleanSetting("revanced_disable_fullscreen_ambient_mode", TRUE, true);
@@ -365,7 +372,7 @@ public class Settings extends BaseSettings {
 
 
         // Remove any previously saved announcement consumer (a random generated string).
-        Setting.preferences.saveString("revanced_announcement_consumer", null);
+        Setting.preferences.removeKey("revanced_announcement_consumer");
 
         // Shorts
         if (DEPRECATED_HIDE_SHORTS.get()) {

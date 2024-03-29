@@ -383,7 +383,6 @@ abstract class Filter {
  */
 final class DummyFilter extends Filter { }
 
-@RequiresApi(api = Build.VERSION_CODES.N)
 @SuppressWarnings("unused")
 public final class LithoFilterPatch {
     /**

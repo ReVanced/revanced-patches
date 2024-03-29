@@ -1,14 +1,10 @@
 package app.revanced.integrations.youtube.patches.components;
 
-import android.os.Build;
-
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 
 import app.revanced.integrations.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
-@RequiresApi(api = Build.VERSION_CODES.N)
 final class ButtonsFilter extends Filter {
     private static final String VIDEO_ACTION_BAR_PATH = "video_action_bar.eml";
 
@@ -89,8 +85,8 @@ final class ButtonsFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
-                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+    boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
+                       StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         // If the current matched group is the action bar group,
         // in case every filter group is enabled, hide the action bar.
         if (matchedGroup == actionBarGroup) {

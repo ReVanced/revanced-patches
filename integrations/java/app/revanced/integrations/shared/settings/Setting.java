@@ -324,6 +324,7 @@ public abstract class Setting<T> {
     }
 
     /**
+     * @param importExportKey The JSON key. The JSONObject parameter will contain data for this key.
      * @return the value stored using the import/export key.  Do not set any values in this method.
      */
     protected abstract T readFromJSON(JSONObject json, String importExportKey) throws JSONException;

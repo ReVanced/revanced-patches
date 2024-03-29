@@ -10,7 +10,6 @@ import app.revanced.integrations.shared.Logger;
 import app.revanced.integrations.youtube.StringTrieSearch;
 
 @SuppressWarnings("unused")
-@RequiresApi(api = Build.VERSION_CODES.N)
 public final class LayoutComponentsFilter extends Filter {
     private final StringTrieSearch exceptions = new StringTrieSearch();
     private static final StringTrieSearch mixPlaylistsExceptions = new StringTrieSearch();
@@ -265,8 +264,8 @@ public final class LayoutComponentsFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
-                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+    boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
+                       StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == searchResultVideo) {
             if (searchResultRecommendations.check(protobufBufferArray).isFiltered()) {
                 return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
