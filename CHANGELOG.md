@@ -1,3 +1,10 @@
+# [4.5.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.4.0...v4.5.0-dev.1) (2024-03-29)
+
+
+### Features
+
+* **YouTube - Alternative thumbnails:** Selectively enable for home / subscription / search ([#2926](https://github.com/ReVanced/revanced-patches/issues/2926)) ([8549e1b](https://github.com/ReVanced/revanced-patches/commit/8549e1ba58ad1e1608f5e3ceacd31eeb94578949))
+
 # [4.4.0](https://github.com/ReVanced/revanced-patches/compare/v4.3.0...v4.4.0) (2024-03-27)
 
 
