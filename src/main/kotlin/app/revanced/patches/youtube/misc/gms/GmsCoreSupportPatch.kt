@@ -57,5 +57,5 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
         PrimeMethodFingerprint,
     ),
 ) {
-    override val gmsCoreVendor by gmsCoreVendorGroupIdOption
+    override val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
 }
