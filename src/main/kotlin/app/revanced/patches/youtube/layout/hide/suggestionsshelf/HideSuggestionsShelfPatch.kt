@@ -68,10 +68,7 @@ object HideSuggestionsShelfPatch : BytecodePatch(
                 addInstruction(
                     insertIndex,
                     """
-                        invoke-static {v$breakingNewsViewRegister}, 
-                        Lapp/revanced/integrations/youtube/patches/HideBreakingNewsPatch;
-                        ->
-                        hideBreakingNews(Landroid/view/View;)V
+                        invoke-static {v$breakingNewsViewRegister}, $FILTER_CLASS_DESCRIPTOR->hideBreakingNews(Landroid/view/View;)V
                     """
                 )
             }
