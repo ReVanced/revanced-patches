@@ -9,7 +9,6 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
-import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
@@ -18,8 +17,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
     dependencies = [
         IntegrationsPatch::class,
         NavigationBarHookPatch::class,
-        LithoFilterPatch::class,
-        PlayerTypeHookPatch::class,
+        LithoFilterPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
