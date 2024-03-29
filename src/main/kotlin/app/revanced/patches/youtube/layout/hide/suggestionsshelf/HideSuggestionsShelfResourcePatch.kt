@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.hide.breakingnews
+package app.revanced.patches.youtube.layout.hide.suggestionsshelf
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
@@ -15,14 +15,14 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
         AddResourcesPatch::class
     ],
 )
-internal object BreakingNewsResourcePatch : ResourcePatch() {
+internal object HideSuggestionsShelfResourcePatch : ResourcePatch() {
     internal var horizontalCardListId: Long = -1
 
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.FEED.addPreferences(
-            SwitchPreference("revanced_hide_breaking_news")
+            SwitchPreference("revanced_hide_suggestions_shelf")
         )
 
         horizontalCardListId = ResourceMappingPatch.resourceMappings.single {

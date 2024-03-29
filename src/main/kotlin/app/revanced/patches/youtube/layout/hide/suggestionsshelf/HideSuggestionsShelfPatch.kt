@@ -1,22 +1,28 @@
-package app.revanced.patches.youtube.layout.hide.breakingnews
+package app.revanced.patches.youtube.layout.hide.suggestionsshelf
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.youtube.layout.hide.breakingnews.fingerprints.BreakingNewsFingerprint
+import app.revanced.patches.youtube.layout.hide.suggestionsshelf.fingerprints.BreakingNewsFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
+import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
+import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
+import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
-    name = "Hide breaking news shelf",
-    description = "Adds an option to hide the breaking news shelf on the homepage tab.",
+    name = "Hide Suggestions shelf",
+    description = "Hides suggestions shelf on the homepage tab.",
     dependencies = [
         IntegrationsPatch::class,
-        BreakingNewsResourcePatch::class
+        HideSuggestionsShelfResourcePatch::class,
+        NavigationBarHookPatch::class,
+        LithoFilterPatch::class,
+        PlayerTypeHookPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -44,9 +50,12 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     ]
 )
 @Suppress("unused")
-object BreakingNewsPatch : BytecodePatch(
+object HideSuggestionsShelfPatch : BytecodePatch(
     setOf(BreakingNewsFingerprint)
 ) {
+    private const val FILTER_CLASS_DESCRIPTOR =
+        "Lapp/revanced/integrations/youtube/patches/components/SuggestionsShelfFilter;"
+
     override fun execute(context: BytecodeContext) {
         BreakingNewsFingerprint.result?.let {
             val insertIndex = it.scanResult.patternScanResult!!.endIndex - 1
@@ -69,5 +78,6 @@ object BreakingNewsPatch : BytecodePatch(
 
         } ?: throw BreakingNewsFingerprint.exception
 
+        LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
     }
 }

@@ -404,10 +404,10 @@
             <string name="revanced_hide_album_cards_summary_on">Album cards are hidden</string>
             <string name="revanced_hide_album_cards_summary_off">Album cards are shown</string>
         </patch>
-        <patch id="layout.hide.breakingnews.BreakingNewsResourcePatch">
-            <string name="revanced_hide_breaking_news_title">Hide breaking news</string>
-            <string name="revanced_hide_breaking_news_summary_on">Breaking news are hidden</string>
-            <string name="revanced_hide_breaking_news_summary_off">Breaking news are shown</string>
+        <patch id="layout.hide.suggestionsshelf.HideSuggestionsShelfResourcePatch">
+            <string name="revanced_hide_suggestions_shelf_title">Hide Suggestions shelf</string>
+            <string name="revanced_hide_suggestions_shelf_summary_on">Suggestions shelves are hidden</string>
+            <string name="revanced_hide_suggestions_shelf_summary_off">Suggestions shelves are shown</string>
         </patch>
         <patch id="layout.hide.comments.CommentsPatch">
             <string name="revanced_comments_screen_title">Comments</string>
