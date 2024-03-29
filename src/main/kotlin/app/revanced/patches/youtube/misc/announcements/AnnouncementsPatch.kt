@@ -10,8 +10,9 @@ import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.shared.fingerprints.MainActivityFingerprint
+import app.revanced.patches.youtube.shared.fingerprints.MainActivityOnCreateFingerprint
 import app.revanced.util.exception
-import com.android.tools.smali.dexlib2.Opcode
+import app.revanced.util.resultOrThrow
 
 @Patch(
     name = "Announcements",
@@ -21,7 +22,7 @@ import com.android.tools.smali.dexlib2.Opcode
 )
 @Suppress("unused")
 object AnnouncementsPatch : BytecodePatch(
-    setOf(MainActivityFingerprint)
+    setOf(MainActivityOnCreateFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/announcements/AnnouncementsPatch;"
@@ -33,16 +34,9 @@ object AnnouncementsPatch : BytecodePatch(
             SwitchPreference("revanced_announcements")
         )
 
-        val onCreateMethod = MainActivityFingerprint.result?.let {
-            it.mutableClass.methods.find { method -> method.name == "onCreate" }
-        } ?: throw MainActivityFingerprint.exception
-
-        val superCallIndex = onCreateMethod.getInstructions().indexOfFirst { it.opcode == Opcode.INVOKE_SUPER_RANGE }
-
-        onCreateMethod.addInstructions(
-            superCallIndex + 1,
-            "invoke-static { v1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->showAnnouncement(Landroid/app/Activity;)V"
+        MainActivityOnCreateFingerprint.resultOrThrow().mutableMethod.addInstructions(
+            0,
+            "invoke-static/range { p0 .. p0 }, $INTEGRATIONS_CLASS_DESCRIPTOR->showAnnouncement(Landroid/app/Activity;)V"
         )
-
     }
 }

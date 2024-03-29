@@ -648,8 +648,8 @@ public final class app/revanced/patches/shared/misc/fix/verticalscroll/VerticalS
 }
 
 public abstract class app/revanced/patches/shared/misc/gms/BaseGmsCoreSupportPatch : app/revanced/patcher/patch/BytecodePatch {
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Ljava/util/Set;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Lkotlin/reflect/KClass;Lapp/revanced/patches/shared/misc/gms/BaseGmsCoreSupportResourcePatch;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Ljava/util/Set;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Lkotlin/reflect/KClass;Lapp/revanced/patches/shared/misc/gms/BaseGmsCoreSupportResourcePatch;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Ljava/util/Set;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Lkotlin/reflect/KClass;Lapp/revanced/patches/shared/misc/gms/BaseGmsCoreSupportResourcePatch;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Ljava/util/Set;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Lkotlin/reflect/KClass;Lapp/revanced/patches/shared/misc/gms/BaseGmsCoreSupportResourcePatch;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }

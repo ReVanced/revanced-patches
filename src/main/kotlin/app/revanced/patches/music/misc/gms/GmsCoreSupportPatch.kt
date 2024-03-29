@@ -21,7 +21,8 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
         CastDynamiteModuleV2Fingerprint,
         CastContextFetchFingerprint,
     ),
-    mainActivityOnCreateFingerprint = ApplicationInitFingerprint,
+    launchActivityOnCreateFingerprint = ApplicationInitFingerprint,
+    mainActivityOnCreateFingerprint = ApplicationInitFingerprint, // FIXME this needs a YT Music specific fingerprint
     integrationsPatchDependency = IntegrationsPatch::class,
     gmsCoreSupportResourcePatch = GmsCoreSupportResourcePatch,
     compatiblePackages = setOf(CompatiblePackage("com.google.android.apps.youtube.music")),

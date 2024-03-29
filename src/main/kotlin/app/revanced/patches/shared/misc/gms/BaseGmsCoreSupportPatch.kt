@@ -3,6 +3,7 @@ package app.revanced.patches.shared.misc.gms
 import app.revanced.patcher.PatchClass
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
@@ -32,7 +33,9 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
  * @param toPackageName The package name to fall back to if no custom package name is specified in patch options.
  * @param primeMethodFingerprint The fingerprint of the "prime" method that needs to be patched.
  * @param earlyReturnFingerprints The fingerprints of methods that need to be returned early.
- * @param mainActivityOnCreateFingerprint The fingerprint of the main activity's onCreate method.
+ * @param launchActivityOnCreateFingerprint The fingerprint of the launch activity onCreate method.
+ * @param mainActivityOnCreateFingerprint The fingerprint of the main activity onCreate method.
+ *                                        This activity must be suitable to show a dialog with.
  * @param integrationsPatchDependency The patch responsible for the integrations.
  * @param gmsCoreSupportResourcePatch The corresponding resource patch that is used to patch the resources.
  * @param dependencies Additional dependencies of this patch.
@@ -44,6 +47,7 @@ abstract class BaseGmsCoreSupportPatch(
     private val toPackageName: String,
     private val primeMethodFingerprint: MethodFingerprint,
     private val earlyReturnFingerprints: Set<MethodFingerprint>,
+    private val launchActivityOnCreateFingerprint: MethodFingerprint,
     private val mainActivityOnCreateFingerprint: MethodFingerprint,
     private val integrationsPatchDependency: PatchClass,
     gmsCoreSupportResourcePatch: BaseGmsCoreSupportResourcePatch,
@@ -60,7 +64,7 @@ abstract class BaseGmsCoreSupportPatch(
         integrationsPatchDependency,
     ) + dependencies,
     compatiblePackages = compatiblePackages,
-    fingerprints = setOf(GmsCoreSupportFingerprint, mainActivityOnCreateFingerprint) + fingerprints,
+    fingerprints = setOf(GmsCoreSupportFingerprint, launchActivityOnCreateFingerprint, mainActivityOnCreateFingerprint) + fingerprints,
     requiresIntegrations = true,
 ) {
     init {
@@ -93,10 +97,19 @@ abstract class BaseGmsCoreSupportPatch(
         // Return these methods early to prevent the app from crashing.
         earlyReturnFingerprints.toList().returnEarly()
 
-        // Check the availability of GmsCore.
-        mainActivityOnCreateFingerprint.result?.mutableMethod?.addInstruction(
-            1, // Hack to not disturb other patches (such as the integrations patch).
-            "invoke-static {}, Lapp/revanced/integrations/shared/GmsCoreSupport;->checkAvailability()V",
+        // Verify Gms is installed.  Cannot be done in main activity as the app will crash before then.
+        launchActivityOnCreateFingerprint.result?.mutableMethod?.addInstruction(
+            0,
+            "invoke-static/range { p0 .. p0 }, Lapp/revanced/integrations/shared/GmsCoreSupport;->checkGmsInstalled(Landroid/app/Activity;)V",
+        ) ?: throw launchActivityOnCreateFingerprint.exception
+
+        // Verify Gms is whitelisted for power optimizations and background usage.
+        // Must use a different hook because a dialog is shown and the launch activity context is not suitable for that.
+        mainActivityOnCreateFingerprint.result?.mutableMethod?.addInstructions(
+            // p0 is changed before the call to superclass method.
+            // to keep this simple call into integrations first.
+            1, // Insert after Gms installation check.
+            "invoke-static/range { p0 .. p0 }, Lapp/revanced/integrations/shared/GmsCoreSupport;->checkGmsWhitelisted(Landroid/app/Activity;)V",
         ) ?: throw mainActivityOnCreateFingerprint.exception
 
         // Change the vendor of GmsCore in ReVanced Integrations.
