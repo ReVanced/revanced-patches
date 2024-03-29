@@ -20,7 +20,7 @@ object FixLoginPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         XiaomiAccountManagerConstructorFingerprint.result?.mutableMethod?.addInstruction(
             0,
-            "const/4 p2, 0x0",
+            "const/16 p2, 0x0",
         ) ?: throw XiaomiAccountManagerConstructorFingerprint.exception
     }
 }
