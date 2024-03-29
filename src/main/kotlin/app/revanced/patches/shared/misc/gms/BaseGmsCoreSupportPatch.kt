@@ -99,7 +99,7 @@ abstract class BaseGmsCoreSupportPatch(
 
         // Verify GmsCore is installed and whitelisted for power optimizations and background usage.
         mainActivityOnCreateFingerprint.result?.mutableMethod?.addInstructions(
-            0, // Insert at the start, because p0 is overwrote before the super call.
+            1, // Hack to not disturb other patches (such as the YTMusic integrations patch).
             "invoke-static/range { p0 .. p0 }, Lapp/revanced/integrations/shared/GmsCoreSupport;->" +
                 "checkGmsCore(Landroid/app/Activity;)V",
         ) ?: throw mainActivityOnCreateFingerprint.exception

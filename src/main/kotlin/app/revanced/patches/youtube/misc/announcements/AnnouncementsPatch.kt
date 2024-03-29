@@ -34,7 +34,7 @@ object AnnouncementsPatch : BytecodePatch(
         MainActivityOnCreateFingerprint.resultOrThrow().mutableMethod.addInstructions(
             // Insert index must be great than the insert index used by GmsCoreSupport,
             // as both patch the same method, and Announcements needs to check if
-            // Gms is not installed and skip fetching the announcement.
+            // Gms is not installed to skip fetching the announcement.
             1,
             "invoke-static/range { p0 .. p0 }, $INTEGRATIONS_CLASS_DESCRIPTOR->showAnnouncement(Landroid/app/Activity;)V"
         )
