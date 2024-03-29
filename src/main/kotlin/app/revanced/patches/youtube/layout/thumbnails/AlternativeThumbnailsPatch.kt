@@ -144,12 +144,17 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                 entriesKey = entries,
                 entryValuesKey = values
             ),
-            ListPreference("revanced_alt_thumbnail_search",
+            ListPreference("revanced_alt_thumbnail_library",
                 summaryKey = null,
                 entriesKey = entries,
                 entryValuesKey = values
             ),
-            ListPreference("revanced_alt_thumbnail_history",
+            ListPreference("revanced_alt_thumbnail_player",
+                summaryKey = null,
+                entriesKey = entries,
+                entryValuesKey = values
+            ),
+            ListPreference("revanced_alt_thumbnail_search",
                 summaryKey = null,
                 entriesKey = entries,
                 entryValuesKey = values
