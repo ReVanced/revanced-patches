@@ -2,7 +2,6 @@ package app.revanced.patches.shared.misc.gms
 
 import app.revanced.patcher.PatchClass
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
@@ -33,7 +32,6 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
  * @param toPackageName The package name to fall back to if no custom package name is specified in patch options.
  * @param primeMethodFingerprint The fingerprint of the "prime" method that needs to be patched.
  * @param earlyReturnFingerprints The fingerprints of methods that need to be returned early.
- * @param launchActivityOnCreateFingerprint The fingerprint of the launch activity onCreate method.
  * @param mainActivityOnCreateFingerprint The fingerprint of the main activity onCreate method.
  *                                        This activity must be suitable to show a dialog with.
  * @param integrationsPatchDependency The patch responsible for the integrations.
@@ -47,7 +45,6 @@ abstract class BaseGmsCoreSupportPatch(
     private val toPackageName: String,
     private val primeMethodFingerprint: MethodFingerprint,
     private val earlyReturnFingerprints: Set<MethodFingerprint>,
-    private val launchActivityOnCreateFingerprint: MethodFingerprint,
     private val mainActivityOnCreateFingerprint: MethodFingerprint,
     private val integrationsPatchDependency: PatchClass,
     gmsCoreSupportResourcePatch: BaseGmsCoreSupportResourcePatch,
@@ -66,7 +63,6 @@ abstract class BaseGmsCoreSupportPatch(
     compatiblePackages = compatiblePackages,
     fingerprints = setOf(
         GmsCoreSupportFingerprint,
-        launchActivityOnCreateFingerprint,
         mainActivityOnCreateFingerprint,
     ) + fingerprints,
     requiresIntegrations = true,
@@ -101,21 +97,11 @@ abstract class BaseGmsCoreSupportPatch(
         // Return these methods early to prevent the app from crashing.
         earlyReturnFingerprints.toList().returnEarly()
 
-        // Verify GmsCore is installed.  Cannot be done in main activity as the app will crash before then.
-        launchActivityOnCreateFingerprint.result?.mutableMethod?.addInstruction(
-            0,
-            "invoke-static/range { p0 .. p0 }, Lapp/revanced/integrations/shared/GmsCoreSupport;->" +
-                "checkGmsCoreInstalled(Landroid/app/Activity;)V",
-        ) ?: throw launchActivityOnCreateFingerprint.exception
-
-        // Verify GmsCore is whitelisted for power optimizations and background usage.
-        // Must use a different hook because a dialog is shown and the launch activity context is not suitable for that.
+        // Verify GmsCore is installed and whitelisted for power optimizations and background usage.
         mainActivityOnCreateFingerprint.result?.mutableMethod?.addInstructions(
-            // p0 is changed before the call to superclass method.
-            // to keep this simple call into integrations first.
-            1, // Insert after GmsCore installation check.
+            0, // Insert at the start, because p0 is overwrote before the super call.
             "invoke-static/range { p0 .. p0 }, Lapp/revanced/integrations/shared/GmsCoreSupport;->" +
-                "checkGmsCoreWhitelisted(Landroid/app/Activity;)V",
+                "checkGmsCore(Landroid/app/Activity;)V",
         ) ?: throw mainActivityOnCreateFingerprint.exception
 
         // Change the vendor of GmsCore in ReVanced Integrations.

@@ -2,16 +2,13 @@ package app.revanced.patches.youtube.misc.announcements
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.patches.youtube.shared.fingerprints.MainActivityFingerprint
 import app.revanced.patches.youtube.shared.fingerprints.MainActivityOnCreateFingerprint
-import app.revanced.util.exception
 import app.revanced.util.resultOrThrow
 
 @Patch(
@@ -35,7 +32,10 @@ object AnnouncementsPatch : BytecodePatch(
         )
 
         MainActivityOnCreateFingerprint.resultOrThrow().mutableMethod.addInstructions(
-            0,
+            // Insert index must be great than the insert index used by GmsCoreSupport,
+            // as both patch the same method, and Announcements needs to check if
+            // Gms is not installed and skip fetching the announcement.
+            1,
             "invoke-static/range { p0 .. p0 }, $INTEGRATIONS_CLASS_DESCRIPTOR->showAnnouncement(Landroid/app/Activity;)V"
         )
     }
