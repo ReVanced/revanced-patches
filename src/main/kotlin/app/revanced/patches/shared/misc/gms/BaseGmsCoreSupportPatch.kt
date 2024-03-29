@@ -64,7 +64,11 @@ abstract class BaseGmsCoreSupportPatch(
         integrationsPatchDependency,
     ) + dependencies,
     compatiblePackages = compatiblePackages,
-    fingerprints = setOf(GmsCoreSupportFingerprint, launchActivityOnCreateFingerprint, mainActivityOnCreateFingerprint) + fingerprints,
+    fingerprints = setOf(
+        GmsCoreSupportFingerprint,
+        launchActivityOnCreateFingerprint,
+        mainActivityOnCreateFingerprint,
+    ) + fingerprints,
     requiresIntegrations = true,
 ) {
     init {
@@ -97,19 +101,21 @@ abstract class BaseGmsCoreSupportPatch(
         // Return these methods early to prevent the app from crashing.
         earlyReturnFingerprints.toList().returnEarly()
 
-        // Verify Gms is installed.  Cannot be done in main activity as the app will crash before then.
+        // Verify GmsCore is installed.  Cannot be done in main activity as the app will crash before then.
         launchActivityOnCreateFingerprint.result?.mutableMethod?.addInstruction(
             0,
-            "invoke-static/range { p0 .. p0 }, Lapp/revanced/integrations/shared/GmsCoreSupport;->checkGmsInstalled(Landroid/app/Activity;)V",
+            "invoke-static/range { p0 .. p0 }, Lapp/revanced/integrations/shared/GmsCoreSupport;->" +
+                "checkGmsCoreInstalled(Landroid/app/Activity;)V",
         ) ?: throw launchActivityOnCreateFingerprint.exception
 
-        // Verify Gms is whitelisted for power optimizations and background usage.
+        // Verify GmsCore is whitelisted for power optimizations and background usage.
         // Must use a different hook because a dialog is shown and the launch activity context is not suitable for that.
         mainActivityOnCreateFingerprint.result?.mutableMethod?.addInstructions(
             // p0 is changed before the call to superclass method.
             // to keep this simple call into integrations first.
-            1, // Insert after Gms installation check.
-            "invoke-static/range { p0 .. p0 }, Lapp/revanced/integrations/shared/GmsCoreSupport;->checkGmsWhitelisted(Landroid/app/Activity;)V",
+            1, // Insert after GmsCore installation check.
+            "invoke-static/range { p0 .. p0 }, Lapp/revanced/integrations/shared/GmsCoreSupport;->" +
+                "checkGmsCoreWhitelisted(Landroid/app/Activity;)V",
         ) ?: throw mainActivityOnCreateFingerprint.exception
 
         // Change the vendor of GmsCore in ReVanced Integrations.
