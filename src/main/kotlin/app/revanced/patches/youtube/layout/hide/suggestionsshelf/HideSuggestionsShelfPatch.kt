@@ -1,25 +1,22 @@
 package app.revanced.patches.youtube.layout.hide.suggestionsshelf
 
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.youtube.layout.hide.suggestionsshelf.fingerprints.BreakingNewsFingerprint
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
 import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
-import app.revanced.util.exception
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
     name = "Hide suggestions shelf",
     description = "Hides suggestions shelf on the homepage tab.",
     dependencies = [
         IntegrationsPatch::class,
-        HideSuggestionsShelfResourcePatch::class,
         NavigationBarHookPatch::class,
         LithoFilterPatch::class,
         PlayerTypeHookPatch::class,
@@ -50,30 +47,16 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     ]
 )
 @Suppress("unused")
-object HideSuggestionsShelfPatch : BytecodePatch(
-    setOf(BreakingNewsFingerprint)
-) {
+object HideSuggestionsShelfPatch : BytecodePatch(emptySet()) {
     private const val FILTER_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/components/SuggestionsShelfFilter;"
 
     override fun execute(context: BytecodeContext) {
-        BreakingNewsFingerprint.result?.let {
-            val insertIndex = it.scanResult.patternScanResult!!.endIndex - 1
-            val moveResultIndex = insertIndex - 1
+        AddResourcesPatch(this::class)
 
-            it.mutableMethod.apply {
-                val breakingNewsViewRegister =
-                    getInstruction<OneRegisterInstruction>(moveResultIndex).registerA
-
-                addInstruction(
-                    insertIndex,
-                    """
-                        invoke-static {v$breakingNewsViewRegister}, $FILTER_CLASS_DESCRIPTOR->hideBreakingNews(Landroid/view/View;)V
-                    """
-                )
-            }
-
-        } ?: throw BreakingNewsFingerprint.exception
+        SettingsPatch.PreferenceScreen.FEED.addPreferences(
+            SwitchPreference("revanced_hide_suggestions_shelf")
+        )
 
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
     }
