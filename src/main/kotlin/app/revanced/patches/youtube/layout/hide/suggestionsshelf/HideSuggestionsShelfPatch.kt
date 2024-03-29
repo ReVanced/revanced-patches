@@ -15,7 +15,7 @@ import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
-    name = "Hide Suggestions shelf",
+    name = "Hide suggestions shelf",
     description = "Hides suggestions shelf on the homepage tab.",
     dependencies = [
         IntegrationsPatch::class,
