@@ -885,6 +885,7 @@
             <string name="revanced_announcements_summary_off">Announcements are not shown on startup</string>
             <string name="revanced_announcements_enabled_summary">Show announcements on startup</string>
             <string name="revanced_announcements_connection_failed">Failed connecting to announcements provider</string>
+            <string name="revanced_announcements_dialog_dismiss">Dismiss</string>
         </patch>
         <patch id="misc.autorepeat.AutoRepeatPatch">
             <string name="revanced_auto_repeat_title">Enable auto-repeat</string>
