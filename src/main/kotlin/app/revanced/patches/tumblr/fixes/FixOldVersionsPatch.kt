@@ -26,7 +26,7 @@ object FixOldVersionsPatch : BytecodePatch(
             it.mutableMethod.addInstructions(
                 endIndex + 1,
                 """
-                # p2 is "value" string which has the value of the annotation (= the request path)
+                # Remove "?live_now" from the request path p2.
                 # p2 = p2.replace(v0, v1)
                 const-string p1, ",?live_now"
                 const-string p3, ""
