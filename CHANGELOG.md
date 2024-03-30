@@ -1,3 +1,11 @@
+# [4.5.0](https://github.com/ReVanced/revanced-patches/compare/v4.4.0...v4.5.0) (2024-03-30)
+
+
+### Features
+
+* **YouTube - Alternative thumbnails:** Selectively enable for home / subscription / search ([#2926](https://github.com/ReVanced/revanced-patches/issues/2926)) ([8549e1b](https://github.com/ReVanced/revanced-patches/commit/8549e1ba58ad1e1608f5e3ceacd31eeb94578949))
+* **YouTube - GmsCore:** Require ignoring battery optimizations ([#2952](https://github.com/ReVanced/revanced-patches/issues/2952)) ([c0bef25](https://github.com/ReVanced/revanced-patches/commit/c0bef255909ca884838675ca6f7ac5b0e2e21730))
+
 # [4.5.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.5.0-dev.1...v4.5.0-dev.2) (2024-03-30)
 
 
