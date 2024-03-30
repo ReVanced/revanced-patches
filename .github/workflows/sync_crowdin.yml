@@ -10,7 +10,7 @@ on:
 
 jobs:
   sync:
-    name: Sync
+    name: Sync translations
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -18,10 +18,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Dart
-        uses: dart-lang/setup-dart@v1
-
-      - name: Sync translations from Crowdin
+      - name: Sync translations
         uses: crowdin/github-action@v1
         with:
           config: crowdin.yml
