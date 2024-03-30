@@ -462,9 +462,6 @@
             <string name="revanced_hide_load_more_button_summary_on">Button is hidden</string>
             <string name="revanced_hide_load_more_button_summary_off">Button is shown</string>
         </patch>
-        <patch id="layout.hide.player.flyoutmenupanel.HidePlayerFlyoutMenuPatch">
-            <string name="video_title">Video</string>
-        </patch>
         <patch id="layout.hide.rollingnumber.DisableRollingNumberAnimationPatch">
             <string name="revanced_disable_rolling_number_animations_title">Disable rolling number animations</string>
             <string name="revanced_disable_rolling_number_animations_summary_on">Rolling numbers are not animated</string>
