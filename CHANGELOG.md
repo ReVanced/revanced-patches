@@ -1,3 +1,10 @@
+## [4.5.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.5.0...v4.5.1-dev.1) (2024-03-30)
+
+
+### Bug Fixes
+
+* **Tumblr:** Restore compatibility with latest versions ([#2955](https://github.com/ReVanced/revanced-patches/issues/2955)) ([2954ba7](https://github.com/ReVanced/revanced-patches/commit/2954ba78d21d77308404961f79234bbec606d42e))
+
 # [4.5.0](https://github.com/ReVanced/revanced-patches/compare/v4.4.0...v4.5.0) (2024-03-30)
 
 
