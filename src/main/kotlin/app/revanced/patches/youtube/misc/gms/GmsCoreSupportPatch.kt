@@ -9,7 +9,7 @@ import app.revanced.patches.youtube.misc.gms.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.gms.GmsCoreSupportResourcePatch.gmsCoreVendorGroupIdOption
 import app.revanced.patches.youtube.misc.gms.fingerprints.*
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
-import app.revanced.patches.youtube.shared.fingerprints.HomeActivityFingerprint
+import app.revanced.patches.youtube.shared.fingerprints.MainActivityOnCreateFingerprint
 
 @Suppress("unused")
 object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
@@ -23,7 +23,7 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
         CastDynamiteModuleV2Fingerprint,
         CastContextFetchFingerprint,
     ),
-    mainActivityOnCreateFingerprint = HomeActivityFingerprint,
+    mainActivityOnCreateFingerprint = MainActivityOnCreateFingerprint,
     integrationsPatchDependency = IntegrationsPatch::class,
     dependencies = setOf(
         HideCastButtonPatch::class,
@@ -57,5 +57,5 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
         PrimeMethodFingerprint,
     ),
 ) {
-    override val gmsCoreVendor by gmsCoreVendorGroupIdOption
+    override val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
 }
