@@ -1,6 +1,8 @@
 package app.revanced.patches.tumblr.featureflags.fingerprints
 
+import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 // This fingerprint targets the method to get the value of a Feature in the class "com.tumblr.configuration.Feature".
@@ -19,5 +21,7 @@ internal object GetFeatureValueFingerprint : MethodFingerprint(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT
     ),
-    customFingerprint = { method, _ -> method.definingClass == "Lcom/tumblr/configuration/Configuration;" }
+    returnType = "Ljava/lang/String;",
+    parameters = listOf("L", "Z"),
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL
 )
