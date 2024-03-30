@@ -13,7 +13,9 @@
             <string name="revanced_settings_import_failure_parse">Import failed: %s</string>
         </patch>
         <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
+            <!-- Translations of this should not be longer than what is here, otherwise the text can be clipped and not entirely shown. -->
             <string name="gms_core_toast_not_installed_message">GmsCore is not installed. Install it.</string>
+            <!-- Translations of this should not be longer than what is here, otherwise the text can be clipped and not entirely shown. -->
             <string name="gms_core_toast_not_whitelisted_message">Follow the \"Don\'t kill my app\" guide for GmsCore.</string>
             <string name="gms_core_dialog_title">Action needed</string>
             <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">GmsCore is not whitelisted from battery optimization.\n\nFollow the \"Don\'t kill my app\" guide for GmsCore.</string>
@@ -187,8 +189,8 @@
             <string name="revanced_hide_keyword_content_phrases_summary">Keywords and phrases to hide, separated by new lines\n\nWords with uppercase letters in the middle must be entered with the casing (ie: iPhone, TikTok, LeBlanc)</string>
             <string name="revanced_hide_keyword_content_about_title">About keyword filtering</string>
             <string name="revanced_hide_keyword_content_about_summary">Home/Subscription/Search results are filtered to hide content that matches keyword phrases\n\nLimitations\n• Some Shorts may not be hidden\n• Some UI components may not be hidden\n• Searching for a keyword may show no results</string>
-            <string name="revanced_hide_keyword_toast_invalid_common" formatted="false">Invalid keyword. Cannot use: \'%s\' as a filter</string>
-            <string name="revanced_hide_keyword_toast_invalid_length" formatted="false">Invalid keyword. \'%s\' is less than %s characters</string>
+            <string name="revanced_hide_keyword_toast_invalid_common">Invalid keyword. Cannot use: \'%s\' as a filter</string>
+            <string name="revanced_hide_keyword_toast_invalid_length">Invalid keyword. \'%1$s\' is less than %2$s characters</string>
         </patch>
         <patch id="ad.general.HideAdsResourcePatch">
             <string name="revanced_hide_general_ads_title">Hide general ads</string>
@@ -466,9 +468,6 @@
             <string name="revanced_hide_load_more_button_summary_on">Button is hidden</string>
             <string name="revanced_hide_load_more_button_summary_off">Button is shown</string>
         </patch>
-        <patch id="layout.hide.player.flyoutmenupanel.HidePlayerFlyoutMenuPatch">
-            <string name="video_title">Video</string>
-        </patch>
         <patch id="layout.hide.rollingnumber.DisableRollingNumberAnimationPatch">
             <string name="revanced_disable_rolling_number_animations_title">Disable rolling number animations</string>
             <string name="revanced_disable_rolling_number_animations_summary_on">Rolling numbers are not animated</string>
@@ -564,16 +563,16 @@
             <string name="revanced_ryd_settings_title">Return YouTube Dislike</string>
             <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden</string>
             <string name="revanced_ryd_failure_connection_timeout">Dislikes temporarily not available (API timed out)</string>
-            <string name="revanced_ryd_failure_connection_status_code" formatted="false">Dislikes not available (status %d)</string>
+            <string name="revanced_ryd_failure_connection_status_code">Dislikes not available (status %d)</string>
             <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes not available (client API limit reached)</string>
             <string name="revanced_ryd_failure_generic">Dislikes not available (%s)</string>
-            <!-- corner case situation, where user enables RYD while video is playing and then tries
-            to vote for the video -->
+            <!-- corner case situation, where user enables RYD while video is playing and then tries to vote for the video -->
             <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Reload video to vote using ReturnYouTubeDislike</string>
             <string name="revanced_ryd_enable_title">Return YouTube Dislike</string>
             <string name="revanced_ryd_enable_summary_on">Dislikes are shown</string>
             <string name="revanced_ryd_enable_summary_off">Dislikes are not shown</string>
             <string name="revanced_ryd_shorts_title">Show dislikes on Shorts</string>
+            <!-- The %s string is either 'revanced_ryd_shorts_summary_disclaimer', or it is an empty string. This text should read normally in both situations. -->
             <string name="revanced_ryd_shorts_summary_on">Dislikes shown on Shorts %s</string>
             <string name="revanced_ryd_shorts_summary_off">Dislikes hidden on Shorts</string>
             <string name="revanced_ryd_shorts_summary_disclaimer">Limitation: Dislikes may not appear in incognito mode</string>
@@ -589,6 +588,7 @@
             <string name="revanced_ryd_about">About</string>
             <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
             <string name="revanced_ryd_attribution_summary">Data is provided by the Return YouTube Dislike API. Tap here to learn more</string>
+            <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these statistics. -->
             <string name="revanced_ryd_statistics_category_title">ReturnYouTubeDislike API statistics of this device</string>
             <string name="revanced_ryd_statistics_getFetchCallResponseTimeAverage_title">API response time, average</string>
             <string name="revanced_ryd_statistics_getFetchCallResponseTimeMin_title">API response time, minimum</string>
@@ -599,8 +599,7 @@
             <string name="revanced_ryd_statistics_getFetchCallCount_zero_summary">No network calls made</string>
             <string name="revanced_ryd_statistics_getFetchCallCount_non_zero_summary">%d network calls made</string>
             <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_title">API fetch votes, number of timeouts</string>
-            <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_zero_summary">No
-                network calls timed out</string>
+            <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_zero_summary">No network calls timed out</string>
             <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_non_zero_summary">%d network calls timed out</string>
             <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_title">API client rate limits</string>
             <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">No client rate limits encountered</string>
@@ -731,19 +730,19 @@
             <string name="revanced_sb_skip_showbutton">Show a skip button</string>
             <string name="revanced_sb_skip_seekbaronly">Show in seek bar</string>
             <string name="revanced_sb_skip_ignore">Disable</string>
-            <string name="revanced_sb_submit_failed_invalid" formatted="false">Unable to submit segment: %s</string>
+            <string name="revanced_sb_submit_failed_invalid">Unable to submit segment: %s</string>
             <string name="revanced_sb_submit_failed_timeout">SponsorBlock is temporarily down</string>
-            <string name="revanced_sb_submit_failed_unknown_error" formatted="false">Unable to submit segment (status: %d %s)</string>
+            <string name="revanced_sb_submit_failed_unknown_error">Unable to submit segment (status: %1$d %2$s)</string>
             <string name="revanced_sb_submit_failed_rate_limit">Unable to submit segment.\nRate Limited (too many from the same user or IP)</string>
-            <string name="revanced_sb_submit_failed_forbidden" formatted="false">Can\'t submit the segment: %s</string>
+            <string name="revanced_sb_submit_failed_forbidden">Can\'t submit the segment: %s</string>
             <string name="revanced_sb_submit_failed_duplicate">Can\'t submit the segment.\nAlready exists</string>
             <string name="revanced_sb_submit_succeeded">Segment submitted successfully</string>
             <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock temporarily not available</string>
-            <string name="revanced_sb_sponsorblock_connection_failure_status" formatted="false">SponsorBlock temporarily not available (status %d)</string>
+            <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock temporarily not available (status %d)</string>
             <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock temporarily not available (API timed out)</string>
             <string name="revanced_sb_vote_failed_timeout">Unable to vote for segment (API timed out)</string>
-            <string name="revanced_sb_vote_failed_unknown_error" formatted="false">Unable to vote for segment (status: %d %s)</string>
-            <string name="revanced_sb_vote_failed_forbidden" formatted="false">Unable to vote for segment: %s</string>
+            <string name="revanced_sb_vote_failed_unknown_error">Unable to vote for segment (status: %1$d %2$s)</string>
+            <string name="revanced_sb_vote_failed_forbidden">Unable to vote for segment: %s</string>
             <string name="revanced_sb_vote_upvote">Upvote</string>
             <string name="revanced_sb_vote_downvote">Downvote</string>
             <string name="revanced_sb_vote_category">Change category</string>
@@ -751,14 +750,14 @@
             <string name="revanced_sb_new_segment_choose_category">Choose the segment category</string>
             <string name="revanced_sb_new_segment_disabled_category">Category is disabled in settings. Enable category to submit.</string>
             <string name="revanced_sb_new_segment_title">New SponsorBlock segment</string>
-            <string name="revanced_sb_new_segment_mark_time_as_question" formatted="false">Set %02d:%02d:%03d as the start or end of a new segment?</string>
+            <string name="revanced_sb_new_segment_mark_time_as_question">Set %1$02d:%2$02d:%3$03d as the start or end of a new segment?</string>
             <string name="revanced_sb_new_segment_mark_start">start</string>
             <string name="revanced_sb_new_segment_mark_end">end</string>
             <string name="revanced_sb_new_segment_now">now</string>
             <string name="revanced_sb_new_segment_time_start">Time the segment begins at</string>
             <string name="revanced_sb_new_segment_time_end">Time the segment ends at</string>
             <string name="revanced_sb_new_segment_confirm_title">Are the times correct?</string>
-            <string name="revanced_sb_new_segment_confirm_content" formatted="false">The segment lasts from %02d:%02d to %02d:%02d (%d minutes %02d seconds)\nIs it ready to submit?</string>
+            <string name="revanced_sb_new_segment_confirm_content">The segment lasts from %1$02d:%2$02d to %3$02d:%4$02d (%5$d minutes %6$02d seconds)\nIs it ready to submit?</string>
             <string name="revanced_sb_new_segment_start_is_before_end">Start must be before the end</string>
             <string name="revanced_sb_new_segment_mark_locations_first">Mark two locations on the time bar first</string>
             <string name="revanced_sb_new_segment_preview_segment_first">Preview the segment, and ensure it skips smoothly</string>
@@ -769,22 +768,22 @@
             <string name="revanced_sb_stats_connection_failure">Stats temporarily not available (API is down)</string>
             <string name="revanced_sb_stats_loading">Loading...</string>
             <string name="revanced_sb_stats_sb_disabled">SponsorBlock is disabled</string>
-            <string name="revanced_sb_stats_username" formatted="false">Your username: &lt;b>%s&lt;/b></string>
+            <string name="revanced_sb_stats_username">Your username: &lt;b>%s&lt;/b></string>
             <string name="revanced_sb_stats_username_change">Tap here to change your username</string>
-            <string name="revanced_sb_stats_username_change_unknown_error" formatted="false">Unable to change username: Status: %d %s</string>
+            <string name="revanced_sb_stats_username_change_unknown_error">Unable to change username: Status: %1$d %2$s</string>
             <string name="revanced_sb_stats_username_changed">Username successfully changed</string>
-            <string name="revanced_sb_stats_reputation" formatted="false">Your reputation is &lt;b>%.2f&lt;/b></string>
-            <string name="revanced_sb_stats_submissions" formatted="false">You\'ve created &lt;b>%s&lt;/b> segments</string>
+            <string name="revanced_sb_stats_reputation">Your reputation is &lt;b>%.2f&lt;/b></string>
+            <string name="revanced_sb_stats_submissions">You\'ve created &lt;b>%s&lt;/b> segments</string>
             <string name="revanced_sb_stats_saved_zero">SponsorBlock leaderboard</string>
-            <string name="revanced_sb_stats_saved" formatted="false">You\'ve saved people from &lt;b>%s&lt;/b> segments</string>
+            <string name="revanced_sb_stats_saved">You\'ve saved people from &lt;b>%s&lt;/b> segments</string>
             <string name="revanced_sb_stats_saved_sum_zero">Tap here to see the global stats and top contributors</string>
-            <string name="revanced_sb_stats_saved_sum" formatted="false">That\'s &lt;b>%s&lt;/b> of their lives.&lt;br>Tap here to see the leaderboard</string>
-            <string name="revanced_sb_stats_self_saved" formatted="false">You\'ve skipped &lt;b>%s&lt;/b> segments</string>
-            <string name="revanced_sb_stats_self_saved_sum" formatted="false">That\'s &lt;b>%s&lt;/b></string>
+            <string name="revanced_sb_stats_saved_sum">That\'s &lt;b>%s&lt;/b> of their lives.&lt;br>Tap here to see the leaderboard</string>
+            <string name="revanced_sb_stats_self_saved">You\'ve skipped &lt;b>%s&lt;/b> segments</string>
+            <string name="revanced_sb_stats_self_saved_sum">That\'s &lt;b>%s&lt;/b></string>
             <string name="revanced_sb_stats_self_saved_reset_title">Reset skipped segments counter?</string>
-            <string name="revanced_sb_stats_saved_hour_format" formatted="false">%s hours %s minutes</string>
-            <string name="revanced_sb_stats_saved_minute_format" formatted="false">%s minutes %s seconds</string>
-            <string name="revanced_sb_stats_saved_second_format" formatted="false">%s seconds</string>
+            <string name="revanced_sb_stats_saved_hour_format">%1$s hours %2$s minutes</string>
+            <string name="revanced_sb_stats_saved_minute_format">%1$s minutes %2$s seconds</string>
+            <string name="revanced_sb_stats_saved_second_format">%s seconds</string>
             <string name="revanced_sb_color_dot_label">Color:</string>
             <string name="revanced_sb_color_changed">Color changed</string>
             <string name="revanced_sb_color_reset">Color reset</string>
@@ -800,7 +799,10 @@
             <string name="revanced_spoof_app_version_summary_on">Version spoofed</string>
             <string name="revanced_spoof_app_version_summary_off">Version not spoofed</string>
             <string name="revanced_spoof_app_version_user_dialog_message">App version will be spoofed to an older version of YouTube.\n\nThis will change the appearance and features of the app, but unknown side effects may occur.\n\nIf later turned off, it is recommended to clear the app data to prevent UI bugs.</string>
+            <!-- It is ideal, but not required, if the text here appears alphabetically after the text used for 'revanced_spoof_app_version_title'.
+                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
             <string name="revanced_spoof_app_version_target_title">Spoof app version target</string>
+            <!-- 'RYD' is referring to 'Return YouTube Dislike' -->
             <string name="revanced_spoof_app_version_target_entry_1">18.33.40 - Restore RYD on Shorts incognito mode</string>
             <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Restore wide video speed &amp; quality menu</string>
             <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Restore library tab</string>
@@ -897,6 +899,7 @@
             <string name="revanced_spoof_device_dimensions_summary_on">Device dimensions spoofed</string>
             <string name="revanced_spoof_device_dimensions_summary_off">Device dimensions not spoofed\n\nSpoofing the device dimensions can unlock higher video qualities but unknown side effects may occur</string>
         </patch>
+        <!-- This patch is no longer used, these strings are not in use, and these strings likely will be deleted in the future. -->
         <patch id="misc.fix.playback.SpoofSignaturePatch">
             <string name="revanced_spoof_signature_verification_screen_title">Spoof app signature</string>
             <string name="revanced_spoof_signature_verification_screen_summary">Spoof the app signature to prevent playback issues</string>
@@ -941,6 +944,7 @@
             <string name="revanced_disable_zoom_haptics_summary_on">Haptics are disabled</string>
             <string name="revanced_disable_zoom_haptics_summary_off">Haptics are enabled</string>
         </patch>
+        <!-- This patch is no longer used and these strings will soon be deleted. -->
         <patch id="video.hdrbrightness.HDRBrightnessPatch">
             <string name="revanced_hdr_auto_brightness_title">Enable auto HDR brightness</string>
             <string name="revanced_hdr_auto_brightness_summary_on">Auto HDR brightness is enabled</string>
@@ -963,12 +967,12 @@
             <string name="revanced_video_quality_default_mobile_title">Default video quality on mobile network</string>
             <string name="revanced_remember_video_quality_mobile">mobile</string>
             <string name="revanced_remember_video_quality_wifi">wifi</string>
-            <string name="revanced_remember_video_quality_toast" formatted="false">Changed default %s quality to: %s</string>
+            <string name="revanced_remember_video_quality_toast">Changed default %1$s quality to: %2$s</string>
         </patch>
         <patch id="video.speed.custom.CustomPlaybackSpeedPatch">
             <string name="revanced_custom_playback_speeds_title">Custom playback speeds</string>
             <string name="revanced_custom_playback_speeds_summary">Add or change the available playback speeds</string>
-            <string name="revanced_custom_playback_speeds_invalid" formatted="false">Custom speeds must be less than %s Using default values.</string>
+            <string name="revanced_custom_playback_speeds_invalid">Custom speeds must be less than %s Using default values.</string>
             <string name="revanced_custom_playback_speeds_parse_exception">Invalid custom playback speeds. Using default values.</string>
         </patch>
         <patch id="video.speed.remember.RememberPlaybackSpeedPatch">
@@ -976,7 +980,7 @@
             <string name="revanced_remember_playback_speed_last_selected_summary_on">Playback speed changes apply to all videos</string>
             <string name="revanced_remember_playback_speed_last_selected_summary_off">Playback speed changes only apply to the current video</string>
             <string name="revanced_playback_speed_default_title">Default playback speed</string>
-            <string name="revanced_remember_playback_speed_toast" formatted="false">Changed default speed to: %s</string>
+            <string name="revanced_remember_playback_speed_toast">Changed default speed to: %s</string>
         </patch>
         <patch id="video.videoqualitymenu.RestoreOldVideoQualityMenuResourcePatch">
             <string name="revanced_restore_old_video_quality_menu_title">Restore old video quality menu</string>
