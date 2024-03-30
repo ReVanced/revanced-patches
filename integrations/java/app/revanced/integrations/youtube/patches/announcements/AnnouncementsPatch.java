@@ -6,6 +6,7 @@ import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.widget.TextView;
 import androidx.annotation.RequiresApi;
+
 import app.revanced.integrations.shared.Logger;
 import app.revanced.integrations.shared.Utils;
 import app.revanced.integrations.youtube.patches.announcements.requests.AnnouncementsRoutes;
@@ -115,10 +116,10 @@ public final class AnnouncementsPatch {
                             .setTitle(finalTitle)
                             .setMessage(finalMessage)
                             .setIcon(finalLevel.icon)
-                            .setPositiveButton("Ok", (dialog, which) -> {
+                            .setPositiveButton(android.R.string.ok, (dialog, which) -> {
                                 Settings.ANNOUNCEMENT_LAST_ID.save(finalId);
                                 dialog.dismiss();
-                            }).setNegativeButton("Dismiss", (dialog, which) -> {
+                            }).setNegativeButton(str("revanced_announcements_dialog_dismiss"), (dialog, which) -> {
                                 dialog.dismiss();
                             })
                             .setCancelable(false)

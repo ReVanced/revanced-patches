@@ -10,7 +10,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -42,9 +41,9 @@ final class CustomFilter extends Filter {
         public static final String SYNTAX_BUFFER_SYMBOL = "$";
 
         /**
-         * @return the parsed objects, or NULL if there was a parse error.
+         * @return the parsed objects
          */
-        @Nullable
+        @NonNull
         @SuppressWarnings("ConstantConditions")
         static Collection<CustomFilterGroup> parseCustomFilterGroups() {
             String rawCustomFilterText = Settings.CUSTOM_FILTER_STRINGS.get();
@@ -147,8 +146,8 @@ final class CustomFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
-                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+    boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
+                       StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         // All callbacks are custom filter groups.
         CustomFilterGroup custom = (CustomFilterGroup) matchedGroup;
         if (custom.startsWith && contentIndex != 0) {

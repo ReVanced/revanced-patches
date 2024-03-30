@@ -5,9 +5,15 @@ import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import app.revanced.integrations.shared.settings.BaseSettings;
+import app.revanced.integrations.shared.settings.EnumSetting;
+import app.revanced.integrations.shared.settings.Setting;
 import app.revanced.integrations.youtube.settings.Settings;
 import app.revanced.integrations.shared.Logger;
 import app.revanced.integrations.shared.Utils;
+import app.revanced.integrations.youtube.shared.NavigationBar;
+import app.revanced.integrations.youtube.shared.PlayerType;
+
 import org.chromium.net.UrlRequest;
 import org.chromium.net.UrlResponseInfo;
 import org.chromium.net.impl.CronetUrlRequest;
@@ -21,6 +27,12 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 import static app.revanced.integrations.shared.StringRef.str;
+import static app.revanced.integrations.youtube.settings.Settings.ALT_THUMBNAIL_HOME;
+import static app.revanced.integrations.youtube.settings.Settings.ALT_THUMBNAIL_LIBRARY;
+import static app.revanced.integrations.youtube.settings.Settings.ALT_THUMBNAIL_PLAYER;
+import static app.revanced.integrations.youtube.settings.Settings.ALT_THUMBNAIL_SEARCH;
+import static app.revanced.integrations.youtube.settings.Settings.ALT_THUMBNAIL_SUBSCRIPTIONS;
+import static app.revanced.integrations.youtube.shared.NavigationBar.NavigationButton;
 
 /**
  * Alternative YouTube thumbnails.
@@ -39,15 +51,71 @@ import static app.revanced.integrations.shared.StringRef.str;
  * If a failed thumbnail load is reloaded (ie: scroll off, then on screen), then the original thumbnail
  * is reloaded instead.  Fast thumbnails requires using SD or lower thumbnail resolution,
  * because a noticeable number of videos do not have hq720 and too much fail to load.
- * <p>
- * Ideas for improvements:
- * - Selectively allow using original thumbnails in some situations,
- *   such as videos subscription feed, watch history, or in search results.
- * - Save to a temporary file the video id's verified to have alt thumbnails.
- *   This would speed up loading the watch history and users saved playlists.
  */
 @SuppressWarnings("unused")
 public final class AlternativeThumbnailsPatch {
+
+    // These must be class declarations if declared here,
+    // otherwise the app will not load due to cyclic initialization errors.
+    public static final class DeArrowAvailability implements Setting.Availability {
+        public static boolean usingDeArrowAnywhere() {
+            return ALT_THUMBNAIL_HOME.get().useDeArrow
+                    || ALT_THUMBNAIL_SUBSCRIPTIONS.get().useDeArrow
+                    || ALT_THUMBNAIL_LIBRARY.get().useDeArrow
+                    || ALT_THUMBNAIL_PLAYER.get().useDeArrow
+                    || ALT_THUMBNAIL_SEARCH.get().useDeArrow;
+        }
+
+        @Override
+        public boolean isAvailable() {
+            return usingDeArrowAnywhere();
+        }
+    }
+
+    public static final class StillImagesAvailability implements Setting.Availability {
+        public static boolean usingStillImagesAnywhere() {
+            return ALT_THUMBNAIL_HOME.get().useStillImages
+                    || ALT_THUMBNAIL_SUBSCRIPTIONS.get().useStillImages
+                    || ALT_THUMBNAIL_LIBRARY.get().useStillImages
+                    || ALT_THUMBNAIL_PLAYER.get().useStillImages
+                    || ALT_THUMBNAIL_SEARCH.get().useStillImages;
+        }
+
+        @Override
+        public boolean isAvailable() {
+            return usingStillImagesAnywhere();
+        }
+    }
+
+    public enum ThumbnailOption {
+        ORIGINAL(false, false),
+        DEARROW(true, false),
+        DEARROW_STILL_IMAGES(true, true),
+        STILL_IMAGES(false, true);
+
+        final boolean useDeArrow;
+        final boolean useStillImages;
+
+        ThumbnailOption(boolean useDeArrow, boolean useStillImages) {
+            this.useDeArrow = useDeArrow;
+            this.useStillImages = useStillImages;
+        }
+    }
+
+    public enum ThumbnailStillTime {
+        BEGINNING(1),
+        MIDDLE(2),
+        END(3);
+
+        /**
+         * The url alt image number. Such as the 2 in 'hq720_2.jpg'
+         */
+        final int altImageNumber;
+
+        ThumbnailStillTime(int altImageNumber) {
+            this.altImageNumber = altImageNumber;
+        }
+    }
 
     private static final Uri dearrowApiUri;
 
@@ -66,6 +134,11 @@ public final class AlternativeThumbnailsPatch {
      */
     private static volatile long timeToResumeDeArrowAPICalls;
 
+    /**
+     * Used only for debug logging.
+     */
+    private static volatile EnumSetting<ThumbnailOption> currentOptionSetting;
+
     static {
         dearrowApiUri = validateSettings();
         final int port = dearrowApiUri.getPort();
@@ -78,13 +151,6 @@ public final class AlternativeThumbnailsPatch {
      * Fix any bad imported data.
      */
     private static Uri validateSettings() {
-        final int altThumbnailType = Settings.ALT_THUMBNAIL_STILLS_TIME.get();
-        if (altThumbnailType < 1 || altThumbnailType > 3) {
-            Utils.showToastLong("Invalid Alternative still thumbnail type: "
-                    + altThumbnailType + ". Using default");
-            Settings.ALT_THUMBNAIL_STILLS_TIME.resetToDefault();
-        }
-
         Uri apiUri = Uri.parse(Settings.ALT_THUMBNAIL_DEARROW_API_URL.get());
         // Cannot use unsecured 'http', otherwise the connections fail to start and no callbacks hooks are made.
         String scheme = apiUri.getScheme();
@@ -96,12 +162,21 @@ public final class AlternativeThumbnailsPatch {
         return apiUri;
     }
 
-    private static boolean usingDeArrow() {
-        return Settings.ALT_THUMBNAIL_DEARROW.get();
-    }
-
-    private static boolean usingVideoStills() {
-        return Settings.ALT_THUMBNAIL_STILLS.get();
+    private static EnumSetting<ThumbnailOption> optionSettingForCurrentNavigation() {
+        if (NavigationBar.isSearchBarActive()) { // Must check search first.
+            return ALT_THUMBNAIL_SEARCH;
+        }
+        if (PlayerType.getCurrent().isMaximizedOrFullscreen()) {
+            return ALT_THUMBNAIL_PLAYER;
+        }
+        if (NavigationButton.HOME.isSelected()) {
+            return ALT_THUMBNAIL_HOME;
+        }
+        if (NavigationButton.SUBSCRIPTIONS.isSelected() || NavigationButton.NOTIFICATIONS.isSelected()) {
+            return ALT_THUMBNAIL_SUBSCRIPTIONS;
+        }
+        // A library tab variant is active.
+        return ALT_THUMBNAIL_LIBRARY;
     }
 
     /**
@@ -179,9 +254,16 @@ public final class AlternativeThumbnailsPatch {
      */
     public static String overrideImageURL(String originalUrl) {
         try {
-            final boolean usingDeArrow = usingDeArrow();
-            final boolean usingVideoStills = usingVideoStills();
-            if (!usingDeArrow && !usingVideoStills) {
+            EnumSetting<ThumbnailOption> optionSetting = optionSettingForCurrentNavigation();
+            ThumbnailOption option = optionSetting.get();
+            if (BaseSettings.DEBUG.get()) {
+                if (currentOptionSetting != optionSetting) {
+                    currentOptionSetting = optionSetting;
+                    Logger.printDebug(() -> "Changed to setting: " + optionSetting.key);
+                }
+            }
+
+            if (option == ThumbnailOption.ORIGINAL) {
                 return originalUrl;
             }
 
@@ -200,14 +282,14 @@ public final class AlternativeThumbnailsPatch {
 
             String sanitizedReplacementUrl;
             final boolean includeTracking;
-            if (usingDeArrow && canUseDeArrowAPI()) {
+            if (option.useDeArrow && canUseDeArrowAPI()) {
                 includeTracking = false; // Do not include view tracking parameters with API call.
-                final String fallbackUrl = usingVideoStills
+                final String fallbackUrl = option.useStillImages
                         ? buildYoutubeVideoStillURL(decodedUrl, qualityToUse)
                         : decodedUrl.sanitizedUrl;
 
                 sanitizedReplacementUrl = buildDeArrowThumbnailURL(decodedUrl.videoId, fallbackUrl);
-            } else if (usingVideoStills) {
+            } else if (option.useStillImages) {
                 includeTracking = true; // Include view tracking parameters if present.
                 sanitizedReplacementUrl = buildYoutubeVideoStillURL(decodedUrl, qualityToUse);
             } else {
@@ -240,7 +322,7 @@ public final class AlternativeThumbnailsPatch {
 
             String url = responseInfo.getUrl();
 
-            if (usingDeArrow() && urlIsDeArrow(url)) {
+            if (urlIsDeArrow(url)) {
                 Logger.printDebug(() -> "handleCronetSuccess, statusCode: " + statusCode);
                 if (statusCode == 304) {
                     // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/304
@@ -250,7 +332,7 @@ public final class AlternativeThumbnailsPatch {
                 return;
             }
 
-            if (usingVideoStills() && statusCode == 404) {
+            if (statusCode == 404) {
                 // Fast alt thumbnails is enabled and the thumbnail is not available.
                 // The video is:
                 // - live stream
@@ -294,15 +376,13 @@ public final class AlternativeThumbnailsPatch {
                                            @Nullable UrlResponseInfo responseInfo,
                                            IOException exception) {
         try {
-            if (usingDeArrow()) {
-                String url = ((CronetUrlRequest) request).getHookedUrl();
-                if (urlIsDeArrow(url)) {
-                    Logger.printDebug(() -> "handleCronetFailure, exception: " + exception);
-                    final int statusCode = (responseInfo != null)
-                            ? responseInfo.getHttpStatusCode()
-                            : 0;
-                    handleDeArrowError(url, statusCode);
-                }
+            String url = ((CronetUrlRequest) request).getHookedUrl();
+            if (urlIsDeArrow(url)) {
+                Logger.printDebug(() -> "handleCronetFailure, exception: " + exception);
+                final int statusCode = (responseInfo != null)
+                        ? responseInfo.getHttpStatusCode()
+                        : 0;
+                handleDeArrowError(url, statusCode);
             }
         } catch (Exception ex) {
             Logger.printException(() -> "Callback failure error", ex);
@@ -332,13 +412,13 @@ public final class AlternativeThumbnailsPatch {
             for (ThumbnailQuality quality : values()) {
                 originalNameToEnum.put(quality.originalName, quality);
 
-                for (int i = 1; i <= 3; i++) {
+                for (ThumbnailStillTime time : ThumbnailStillTime.values()) {
                     // 'custom' thumbnails set by the content creator.
                     // These show up in place of regular thumbnails
-                    // and seem to be limited to [1, 3] range.
-                    originalNameToEnum.put(quality.originalName + "_custom_" + i, quality);
+                    // and seem to be limited to the same [1, 3] range as the still captures.
+                    originalNameToEnum.put(quality.originalName + "_custom_" + time.altImageNumber, quality);
 
-                    altNameToEnum.put(quality.altImageName + i, quality);
+                    altNameToEnum.put(quality.altImageName + time.altImageNumber, quality);
                 }
             }
         }
@@ -398,7 +478,7 @@ public final class AlternativeThumbnailsPatch {
         }
 
         String getAltImageNameToUse() {
-            return altImageName + Settings.ALT_THUMBNAIL_STILLS_TIME.get();
+            return altImageName + Settings.ALT_THUMBNAIL_STILLS_TIME.get().altImageNumber;
         }
     }
 
@@ -510,12 +590,11 @@ public final class AlternativeThumbnailsPatch {
 
             boolean imageFileFound;
             try {
-                Logger.printDebug(() -> "Verifying image: " + imageUrl);
                 // This hooked code is running on a low priority thread, and it's slightly faster
                 // to run the url connection thru the integrations thread pool which runs at the highest priority.
                 final long start = System.currentTimeMillis();
                 imageFileFound = Utils.submitOnBackgroundThread(() -> {
-                    final int connectionTimeoutMillis = 5000;
+                    final int connectionTimeoutMillis = 10000; // 10 seconds.
                     HttpURLConnection connection = (HttpURLConnection) new URL(imageUrl).openConnection();
                     connection.setConnectTimeout(connectionTimeoutMillis);
                     connection.setReadTimeout(connectionTimeoutMillis);
@@ -533,7 +612,7 @@ public final class AlternativeThumbnailsPatch {
                     }
                     return false;
                 }).get();
-                Logger.printDebug(() -> "Alt verification took: " + (System.currentTimeMillis() - start) + "ms");
+                Logger.printDebug(() -> "Verification took: " + (System.currentTimeMillis() - start) + "ms for image: " + imageUrl);
             } catch (ExecutionException | InterruptedException ex) {
                 Logger.printInfo(() -> "Could not verify alt url: " + imageUrl, ex);
                 imageFileFound = false;
@@ -597,7 +676,7 @@ public final class AlternativeThumbnailsPatch {
                     ? "" : fullUrl.substring(imageExtensionEndIndex);
         }
 
-        /** @noinspection SameParameterValue*/
+        /** @noinspection SameParameterValue */
         String createStillsUrl(@NonNull ThumbnailQuality qualityToUse, boolean includeViewTracking) {
             // Images could be upgraded to webp if they are not already, but this fails quite often,
             // especially for new videos uploaded in the last hour.

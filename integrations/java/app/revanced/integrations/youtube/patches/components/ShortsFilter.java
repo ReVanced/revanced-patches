@@ -2,11 +2,9 @@ package app.revanced.integrations.youtube.patches.components;
 
 import static app.revanced.integrations.shared.Utils.hideViewUnderCondition;
 
-import android.os.Build;
 import android.view.View;
 
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 
 import com.google.android.libraries.youtube.rendering.ui.pivotbar.PivotBar;
 
@@ -16,7 +14,6 @@ import app.revanced.integrations.youtube.shared.NavigationBar;
 import app.revanced.integrations.youtube.shared.PlayerType;
 
 @SuppressWarnings("unused")
-@RequiresApi(api = Build.VERSION_CODES.N)
 public final class ShortsFilter extends Filter {
     public static PivotBar pivotBar; // Set by patch.
     private final String REEL_CHANNEL_BAR_PATH = "reel_channel_bar.eml";

@@ -1,11 +1,8 @@
 package app.revanced.integrations.youtube.patches.components;
 
-import android.os.Build;
-
 import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -29,7 +26,6 @@ import app.revanced.integrations.youtube.TrieSearch;
  *
  * Once a way to asynchronously update litho text is found, this strategy will no longer be needed.
  */
-@RequiresApi(api = Build.VERSION_CODES.N)
 public final class ReturnYouTubeDislikeFilterPatch extends Filter {
 
     /**
@@ -53,6 +49,7 @@ public final class ReturnYouTubeDislikeFilterPatch extends Filter {
     /**
      * Injection point.
      */
+    @SuppressWarnings("unused")
     public static void newPlayerResponseVideoId(String videoId, boolean isShortAndOpeningOrPlaying) {
         try {
             if (!isShortAndOpeningOrPlaying || !Settings.RYD_SHORTS.get()) {
@@ -84,8 +81,8 @@ public final class ReturnYouTubeDislikeFilterPatch extends Filter {
     }
 
     @Override
-    public boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
-                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+    boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
+                       StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         FilterGroup.FilterGroupResult result = videoIdFilterGroup.check(protobufBufferArray);
         if (result.isFiltered()) {
             String matchedVideoId = findVideoId(protobufBufferArray);
