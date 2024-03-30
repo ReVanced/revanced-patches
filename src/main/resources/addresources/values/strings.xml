@@ -13,7 +13,9 @@
             <string name="revanced_settings_import_failure_parse">Import failed: %s</string>
         </patch>
         <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
+            <!-- Translations of this should not be longer than what is here, otherwise the text can be clipped and not entirely shown. -->
             <string name="gms_core_toast_not_installed_message">GmsCore is not installed. Install it.</string>
+            <!-- Translations of this should not be longer than what is here, otherwise the text can be clipped and not entirely shown. -->
             <string name="gms_core_toast_not_whitelisted_message">Follow the \"Don\'t kill my app\" guide for GmsCore.</string>
             <string name="gms_core_dialog_title">Action needed</string>
             <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">GmsCore is not whitelisted from battery optimization.\n\nFollow the \"Don\'t kill my app\" guide for GmsCore.</string>
