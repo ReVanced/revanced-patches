@@ -13,6 +13,7 @@ import app.revanced.util.exception
     description = "Fixes old versions of the app to break due to Tumblr removing remnants of Tumblr Live from the API, " +
         "that cause many requests on old app versions to fail. This patch has no effect on newer versions of the app.",
     compatiblePackages = [CompatiblePackage("com.tumblr")],
+    use = false,
 )
 @Suppress("unused")
 object FixOldVersionsPatch : BytecodePatch(
