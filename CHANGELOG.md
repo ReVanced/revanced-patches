@@ -1,3 +1,10 @@
+# [4.5.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.5.0-dev.1...v4.5.0-dev.2) (2024-03-30)
+
+
+### Features
+
+* **YouTube - GmsCore:** Require ignoring battery optimizations ([#2952](https://github.com/ReVanced/revanced-patches/issues/2952)) ([c0bef25](https://github.com/ReVanced/revanced-patches/commit/c0bef255909ca884838675ca6f7ac5b0e2e21730))
+
 # [4.5.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.4.0...v4.5.0-dev.1) (2024-03-29)
 
 
