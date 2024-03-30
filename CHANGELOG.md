@@ -1,3 +1,10 @@
+## [4.5.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.5.1-dev.1...v4.5.1-dev.2) (2024-03-30)
+
+
+### Bug Fixes
+
+* **Mi Fitness - Fix login:** Patch correct register ([#2942](https://github.com/ReVanced/revanced-patches/issues/2942)) ([dc96942](https://github.com/ReVanced/revanced-patches/commit/dc969422b5d50f21e6ea7a64b67dfc650fee6e36))
+
 ## [4.5.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.5.0...v4.5.1-dev.1) (2024-03-30)
 
 
