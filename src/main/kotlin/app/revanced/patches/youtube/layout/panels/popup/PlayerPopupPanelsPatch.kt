@@ -18,8 +18,7 @@ import app.revanced.util.exception
     dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube",
-            [
+            "com.google.android.youtube", [
                 "18.32.39",
                 "18.37.36",
                 "18.38.44",
@@ -30,22 +29,26 @@ import app.revanced.util.exception
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
-                "19.03.35",
                 "19.03.36",
-                "19.04.37",
-            ],
-        ),
-    ],
+                "19.04.38",
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.37"
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object PlayerPopupPanelsPatch : BytecodePatch(
-    setOf(EngagementPanelControllerFingerprint),
+    setOf(EngagementPanelControllerFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_hide_player_popup_panels"),
+            SwitchPreference("revanced_hide_player_popup_panels")
         )
 
         val engagementPanelControllerMethod = EngagementPanelControllerFingerprint
@@ -62,7 +65,7 @@ object PlayerPopupPanelsPatch : BytecodePatch(
                 return-object v0
                 :player_popup_panels
                 nop
-            """,
+            """
         )
     }
 }

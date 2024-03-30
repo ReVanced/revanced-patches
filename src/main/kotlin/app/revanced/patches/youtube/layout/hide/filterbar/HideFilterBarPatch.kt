@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.filterbar
 
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -10,7 +11,6 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.layout.hide.filterbar.fingerprints.FilterBarHeightFingerprint
 import app.revanced.patches.youtube.layout.hide.filterbar.fingerprints.RelatedChipCloudFingerprint
 import app.revanced.patches.youtube.layout.hide.filterbar.fingerprints.SearchResultsChipBarFingerprint
-import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
@@ -32,20 +32,24 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
-                "19.03.35",
                 "19.03.36",
-                "19.04.37",
-            ],
-        ),
-    ],
+                "19.04.38",
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.37"
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object HideFilterBarPatch : BytecodePatch(
     setOf(
         RelatedChipCloudFingerprint,
         SearchResultsChipBarFingerprint,
-        FilterBarHeightFingerprint,
-    ),
+        FilterBarHeightFingerprint
+    )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/HideFilterBarPatch;"
@@ -60,7 +64,7 @@ object HideFilterBarPatch : BytecodePatch(
 
         RelatedChipCloudFingerprint.patch<OneRegisterInstruction>(1) { register ->
             "invoke-static { v$register }, " +
-                "$INTEGRATIONS_CLASS_DESCRIPTOR->hideInRelatedVideos(Landroid/view/View;)V"
+                    "$INTEGRATIONS_CLASS_DESCRIPTOR->hideInRelatedVideos(Landroid/view/View;)V"
         }
 
         SearchResultsChipBarFingerprint.patch<OneRegisterInstruction>(-1, -2) { register ->
@@ -82,7 +86,7 @@ object HideFilterBarPatch : BytecodePatch(
     private fun <RegisterInstruction : OneRegisterInstruction> MethodFingerprint.patch(
         insertIndexOffset: Int = 0,
         hookRegisterOffset: Int = 0,
-        instructions: (Int) -> String,
+        instructions: (Int) -> String
     ) =
         result?.let {
             it.mutableMethod.apply {

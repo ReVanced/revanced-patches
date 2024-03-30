@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.floatingmicrophone
 
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -7,7 +8,6 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.layout.hide.floatingmicrophone.fingerprints.ShowFloatingMicrophoneButtonFingerprint
-import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
@@ -28,16 +28,20 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
-                "19.03.35",
                 "19.03.36",
-                "19.04.37",
-            ],
-        ),
-    ],
+                "19.04.38",
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.37"
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object HideFloatingMicrophoneButtonPatch : BytecodePatch(
-    setOf(ShowFloatingMicrophoneButtonFingerprint),
+    setOf(ShowFloatingMicrophoneButtonFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/HideFloatingMicrophoneButtonPatch;"
@@ -54,7 +58,7 @@ object HideFloatingMicrophoneButtonPatch : BytecodePatch(
                     """
                         invoke-static {v$showButtonRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->hideFloatingMicrophoneButton(Z)Z
                         move-result v$showButtonRegister
-                        """,
+                        """
                 )
             }
         } ?: throw ShowFloatingMicrophoneButtonFingerprint.exception

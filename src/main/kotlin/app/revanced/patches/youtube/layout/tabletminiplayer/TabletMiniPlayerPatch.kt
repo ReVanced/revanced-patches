@@ -26,8 +26,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube",
-            arrayOf(
+            "com.google.android.youtube", arrayOf(
                 "18.32.39",
                 "18.37.36",
                 "18.38.44",
@@ -38,26 +37,30 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
-                "19.03.35",
                 "19.03.36",
-                "19.04.37",
-            ),
-        ),
-    ],
+                "19.04.38",
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.37"
+            )
+        )
+    ]
 )
 @Suppress("unused")
 object TabletMiniPlayerPatch : BytecodePatch(
     setOf(
         MiniPlayerDimensionsCalculatorParentFingerprint,
         MiniPlayerResponseModelSizeCheckFingerprint,
-        MiniPlayerOverrideFingerprint,
-    ),
+        MiniPlayerOverrideFingerprint
+    )
 ) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-            SwitchPreference("revanced_tablet_miniplayer"),
+            SwitchPreference("revanced_tablet_miniplayer")
         )
 
         // First resolve the fingerprints via the parent fingerprint.
@@ -74,8 +77,7 @@ object TabletMiniPlayerPatch : BytecodePatch(
         // Insert right before the return instruction.
         val secondInsertIndex = method.implementation!!.instructions.size - 1
         method.insertOverride(
-            secondInsertIndex,
-            parameterRegister,
+            secondInsertIndex, parameterRegister
             /** same register used to return **/
         )
 
@@ -127,7 +129,7 @@ object TabletMiniPlayerPatch : BytecodePatch(
             """
                     invoke-static {v$overrideRegister}, Lapp/revanced/integrations/youtube/patches/TabletMiniPlayerOverridePatch;->getTabletMiniPlayerOverride(Z)Z
                     move-result v$overrideRegister
-                """,
+                """
         )
     }
 

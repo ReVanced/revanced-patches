@@ -28,16 +28,20 @@ import app.revanced.util.exception
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
-                "19.03.35",
                 "19.03.36",
-                "19.04.37",
-            ],
-        ),
-    ],
+                "19.04.38",
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.37"
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object SpoofDeviceDimensionsPatch : BytecodePatch(
-    setOf(DeviceDimensionsModelToStringFingerprint),
+    setOf(DeviceDimensionsModelToStringFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/spoof/SpoofDeviceDimensionsPatch;"
@@ -46,7 +50,7 @@ object SpoofDeviceDimensionsPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            SwitchPreference("revanced_spoof_device_dimensions"),
+            SwitchPreference("revanced_spoof_device_dimensions")
         )
 
         DeviceDimensionsModelToStringFingerprint.result
@@ -58,13 +62,13 @@ object SpoofDeviceDimensionsPatch : BytecodePatch(
                     1 to "MinHeightOrWidth", // p1 = min height
                     2 to "MaxHeightOrWidth", // p2 = max height
                     3 to "MinHeightOrWidth", // p3 = min width
-                    4 to "MaxHeightOrWidth", // p4 = max width
+                    4 to "MaxHeightOrWidth"  // p4 = max width
                 ).map { (parameter, method) ->
                     """
                         invoke-static { p$parameter }, $INTEGRATIONS_CLASS_DESCRIPTOR->get$method(I)I
                         move-result p$parameter
                     """
-                }.joinToString("\n") { it },
+                }.joinToString("\n") { it }
             ) ?: throw DeviceDimensionsModelToStringFingerprint.exception
     }
 }

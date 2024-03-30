@@ -18,12 +18,11 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
         LithoFilterPatch::class,
         PlayerTypeHookPatch::class,
         SettingsPatch::class,
-        AddResourcesPatch::class,
+        AddResourcesPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube",
-            [
+            "com.google.android.youtube", [
                 "18.32.39",
                 "18.37.36",
                 "18.38.44",
@@ -34,12 +33,16 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
-                "19.03.35",
                 "19.03.36",
-                "19.04.37",
-            ],
-        ),
-    ],
+                "19.04.38",
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.37"
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object HidePlayerFlyoutMenuPatch : ResourcePatch() {
@@ -66,7 +69,7 @@ object HidePlayerFlyoutMenuPatch : ResourcePatch() {
                     SwitchPreference("${KEY}_audio_track"),
                     SwitchPreference("${KEY}_watch_in_vr"),
                 ),
-            ),
+            )
         )
 
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)

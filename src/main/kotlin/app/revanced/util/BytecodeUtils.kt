@@ -15,6 +15,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.Reference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
+
+fun MethodFingerprint.resultOrThrow() = result ?: throw exception
+
 /**
  * The [PatchException] of failing to resolve a [MethodFingerprint].
  *

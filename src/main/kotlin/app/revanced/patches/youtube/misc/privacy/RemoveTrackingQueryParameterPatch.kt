@@ -35,16 +35,20 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
-                "19.03.35",
                 "19.03.36",
-                "19.04.37",
-            ],
-        ),
-    ],
+                "19.04.38",
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.37"
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object RemoveTrackingQueryParameterPatch : BytecodePatch(
-    setOf(CopyTextFingerprint, SystemShareSheetFingerprint, YouTubeShareSheetFingerprint),
+    setOf(CopyTextFingerprint, SystemShareSheetFingerprint, YouTubeShareSheetFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/RemoveTrackingQueryParameterPatch;"
 
@@ -52,12 +56,12 @@ object RemoveTrackingQueryParameterPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            SwitchPreference("revanced_remove_tracking_query_parameter"),
+            SwitchPreference("revanced_remove_tracking_query_parameter")
         )
 
         fun MethodFingerprint.hook(
             getInsertIndex: PatternScanResult.() -> Int,
-            getUrlRegister: MutableMethod.(insertIndex: Int) -> Int,
+            getUrlRegister: MutableMethod.(insertIndex: Int) -> Int
         ) = result?.let {
             val insertIndex = it.scanResult.patternScanResult!!.getInsertIndex()
             val urlRegister = it.mutableMethod.getUrlRegister(insertIndex)
@@ -67,16 +71,19 @@ object RemoveTrackingQueryParameterPatch : BytecodePatch(
                 """
                     invoke-static {v$urlRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->sanitize(Ljava/lang/String;)Ljava/lang/String;
                     move-result-object v$urlRegister
-                """,
+                """
             )
         } ?: throw exception
 
         // Native YouTube share sheet.
-        YouTubeShareSheetFingerprint.hook(getInsertIndex = { startIndex + 1 }) { insertIndex -> getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA }
+        YouTubeShareSheetFingerprint.hook(getInsertIndex = { startIndex + 1 })
+        { insertIndex -> getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA }
 
         // Native system share sheet.
-        SystemShareSheetFingerprint.hook(getInsertIndex = { endIndex }) { insertIndex -> getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA }
+        SystemShareSheetFingerprint.hook(getInsertIndex = { endIndex })
+        { insertIndex -> getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA }
 
-        CopyTextFingerprint.hook(getInsertIndex = { startIndex + 2 }) { insertIndex -> getInstruction<TwoRegisterInstruction>(insertIndex - 2).registerA }
+        CopyTextFingerprint.hook(getInsertIndex = { startIndex + 2 })
+        { insertIndex -> getInstruction<TwoRegisterInstruction>(insertIndex - 2).registerA }
     }
 }

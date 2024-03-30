@@ -29,7 +29,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
         PlayerTypeHookPatch::class,
         VideoInformationPatch::class,
         SettingsPatch::class,
-        AddResourcesPatch::class,
+        AddResourcesPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -39,20 +39,24 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
-                "19.03.35",
                 "19.03.36",
-                "19.04.37",
-            ],
-        ),
-    ],
+                "19.04.38",
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.37"
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object MinimizedPlaybackPatch : BytecodePatch(
     setOf(
         MinimizedPlaybackManagerFingerprint,
         MinimizedPlaybackSettingsParentFingerprint,
-        KidsMinimizedPlaybackPolicyControllerFingerprint,
-    ),
+        KidsMinimizedPlaybackPolicyControllerFingerprint
+    )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/MinimizedPlaybackPatch;"
@@ -61,7 +65,7 @@ object MinimizedPlaybackPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            NonInteractivePreference("revanced_minimized_playback"),
+            NonInteractivePreference("revanced_minimized_playback")
         )
 
         MinimizedPlaybackManagerFingerprint.result?.apply {
@@ -71,7 +75,7 @@ object MinimizedPlaybackPatch : BytecodePatch(
                     invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->playbackIsNotShort()Z
                     move-result v0
                     return v0
-                """,
+                """
             )
         } ?: throw MinimizedPlaybackManagerFingerprint.exception
 
@@ -79,7 +83,7 @@ object MinimizedPlaybackPatch : BytecodePatch(
         MinimizedPlaybackSettingsParentFingerprint.result ?: throw MinimizedPlaybackSettingsParentFingerprint.exception
         MinimizedPlaybackSettingsFingerprint.resolve(
             context,
-            MinimizedPlaybackSettingsParentFingerprint.result!!.classDef,
+            MinimizedPlaybackSettingsParentFingerprint.result!!.classDef
         )
         MinimizedPlaybackSettingsFingerprint.result?.apply {
             val booleanCalls = method.implementation!!.instructions.withIndex()
@@ -95,7 +99,7 @@ object MinimizedPlaybackPatch : BytecodePatch(
                     invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideMinimizedPlaybackAvailable()Z
                     move-result v0
                     return v0
-                """,
+                """
             )
         } ?: throw MinimizedPlaybackSettingsFingerprint.exception
 
@@ -104,7 +108,7 @@ object MinimizedPlaybackPatch : BytecodePatch(
         KidsMinimizedPlaybackPolicyControllerFingerprint.result?.apply {
             mutableMethod.addInstruction(
                 0,
-                "return-void",
+                "return-void"
             )
         } ?: throw KidsMinimizedPlaybackPolicyControllerFingerprint.exception
     }

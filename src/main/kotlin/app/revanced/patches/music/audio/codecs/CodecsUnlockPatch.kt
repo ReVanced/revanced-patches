@@ -10,11 +10,10 @@ import app.revanced.patches.music.audio.codecs.fingerprints.CodecsLockFingerprin
 import com.android.tools.smali.dexlib2.Opcode
 
 @Patch(
-    name = "Codecs unlock",
     description = "Adds more audio codec options. The new audio codecs usually result in better audio quality.",
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
 )
-@Suppress("unused")
+@Deprecated("This patch is no longer needed as the feature is now enabled by default.")
 object CodecsUnlockPatch : BytecodePatch(
     setOf(CodecsLockFingerprint, AllCodecsReferenceFingerprint),
 ) {

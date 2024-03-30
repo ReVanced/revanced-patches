@@ -19,7 +19,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class,
-        AddResourcesPatch::class,
+        AddResourcesPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -35,35 +35,38 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
-                "19.03.35",
                 "19.03.36",
-                "19.04.37",
-            ],
-        ),
-    ],
+                "19.04.38",
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.37"
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object VideoAdsPatch : BytecodePatch(
-    setOf(LoadVideoAdsFingerprint),
+    setOf(LoadVideoAdsFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.ADS.addPreferences(
-            SwitchPreference("revanced_hide_video_ads"),
+            SwitchPreference("revanced_hide_video_ads")
         )
 
         val loadVideoAdsFingerprintMethod = LoadVideoAdsFingerprint.result!!.mutableMethod
 
         loadVideoAdsFingerprintMethod.addInstructionsWithLabels(
-            0,
-            """
+            0, """
                 invoke-static { }, Lapp/revanced/integrations/youtube/patches/VideoAdsPatch;->shouldShowAds()Z
                 move-result v0
                 if-nez v0, :show_video_ads
                 return-void
             """,
-            ExternalLabel("show_video_ads", loadVideoAdsFingerprintMethod.getInstruction(0)),
+            ExternalLabel("show_video_ads", loadVideoAdsFingerprintMethod.getInstruction(0))
         )
     }
 }

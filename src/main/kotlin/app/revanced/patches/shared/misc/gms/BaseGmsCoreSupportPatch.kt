@@ -96,7 +96,7 @@ abstract class BaseGmsCoreSupportPatch(
         // Check the availability of GmsCore.
         mainActivityOnCreateFingerprint.result?.mutableMethod?.addInstruction(
             1, // Hack to not disturb other patches (such as the integrations patch).
-            "invoke-static {}, Lapp/revanced/integrations/youtube/patches/GmsCoreSupport;->checkAvailability()V",
+            "invoke-static {}, Lapp/revanced/integrations/shared/GmsCoreSupport;->checkAvailability()V",
         ) ?: throw mainActivityOnCreateFingerprint.exception
 
         // Change the vendor of GmsCore in ReVanced Integrations.
@@ -274,6 +274,9 @@ abstract class BaseGmsCoreSupportPatch(
             // fido
             "com.google.android.gms.fido.fido2.privileged.START",
 
+            // gass
+            "com.google.android.gms.gass.START",
+
             // games
             "com.google.android.gms.games.service.START",
             "com.google.android.gms.games.PLAY_GAMES_UPGRADE",
@@ -293,8 +296,18 @@ abstract class BaseGmsCoreSupportPatch(
             // misc
             "com.google.android.gms.gmscompliance.service.START",
             "com.google.android.gms.oss.licenses.service.START",
-            "com.google.android.gms.safetynet.service.START",
             "com.google.android.gms.tapandpay.service.BIND",
+            "com.google.android.gms.measurement.START",
+            "com.google.android.gms.languageprofile.service.START",
+            "com.google.android.gms.clearcut.service.START",
+            "com.google.android.gms.icing.LIGHTWEIGHT_INDEX_SERVICE",
+
+            // potoken
+            "com.google.android.gms.potokens.service.START",
+
+            // droidguard/ safetynet
+            "com.google.android.gms.droidguard.service.START",
+            "com.google.android.gms.safetynet.service.START",
         )
 
         /**

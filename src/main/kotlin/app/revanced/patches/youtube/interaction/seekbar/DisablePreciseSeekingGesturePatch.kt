@@ -32,26 +32,30 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
-                "19.03.35",
                 "19.03.36",
-                "19.04.37",
-            ],
-        ),
-    ],
+                "19.04.38",
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.37"
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object DisablePreciseSeekingGesturePatch : BytecodePatch(
-    setOf(IsSwipingUpFingerprint),
+    setOf(IsSwipingUpFingerprint)
 ) {
     private const val INTEGRATIONS_METHOD_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/DisablePreciseSeekingGesturePatch;->" +
-            "disableGesture(Landroid/view/VelocityTracker;Landroid/view/MotionEvent;)V"
+                "disableGesture(Landroid/view/VelocityTracker;Landroid/view/MotionEvent;)V"
 
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.SEEKBAR.addPreferences(
-            SwitchPreference("revanced_disable_precise_seeking_gesture"),
+            SwitchPreference("revanced_disable_precise_seeking_gesture")
         )
 
         IsSwipingUpFingerprint.result?.let {
@@ -64,7 +68,7 @@ object DisablePreciseSeekingGesturePatch : BytecodePatch(
 
                 replaceInstruction(
                     addMovementIndex,
-                    "invoke-static {v$trackerRegister, v$eventRegister}, $INTEGRATIONS_METHOD_DESCRIPTOR",
+                    "invoke-static {v$trackerRegister, v$eventRegister}, $INTEGRATIONS_METHOD_DESCRIPTOR"
                 )
             }
         } ?: throw IsSwipingUpFingerprint.exception

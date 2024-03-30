@@ -19,8 +19,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
     dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube",
-            [
+            "com.google.android.youtube", [
                 "18.32.39",
                 "18.37.36",
                 "18.38.44",
@@ -31,12 +30,16 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
-                "19.03.35",
                 "19.03.36",
-                "19.04.37",
-            ],
-        ),
-    ],
+                "19.04.38",
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.37"
+            ]
+        )
+    ]
 )
 object HideGetPremiumPatch : BytecodePatch(setOf(GetPremiumViewFingerprint)) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -46,7 +49,7 @@ object HideGetPremiumPatch : BytecodePatch(setOf(GetPremiumViewFingerprint)) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.ADS.addPreferences(
-            SwitchPreference("revanced_hide_get_premium"),
+            SwitchPreference("revanced_hide_get_premium")
         )
 
         GetPremiumViewFingerprint.result?.let {
@@ -70,7 +73,7 @@ object HideGetPremiumPatch : BytecodePatch(setOf(GetPremiumViewFingerprint)) {
                         :allow
                         nop
                         # Layout width/height is then passed to a protected class method.
-                    """,
+                    """
                 )
             }
         } ?: throw GetPremiumViewFingerprint.exception

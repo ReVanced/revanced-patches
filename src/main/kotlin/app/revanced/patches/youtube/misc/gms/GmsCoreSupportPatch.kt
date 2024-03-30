@@ -6,7 +6,7 @@ import app.revanced.patches.youtube.layout.buttons.cast.HideCastButtonPatch
 import app.revanced.patches.youtube.misc.fix.playback.ClientSpoofPatch
 import app.revanced.patches.youtube.misc.gms.Constants.REVANCED_YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.gms.Constants.YOUTUBE_PACKAGE_NAME
-import app.revanced.patches.youtube.misc.gms.GmsCoreSupportResourcePatch.gmsCoreVendorOption
+import app.revanced.patches.youtube.misc.gms.GmsCoreSupportResourcePatch.gmsCoreVendorGroupIdOption
 import app.revanced.patches.youtube.misc.gms.fingerprints.*
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.shared.fingerprints.HomeActivityFingerprint
@@ -38,9 +38,13 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
-                "19.03.35",
                 "19.03.36",
-                "19.04.37",
+                "19.04.38",
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.37",
             ),
         ),
     ),
@@ -53,5 +57,5 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
         PrimeMethodFingerprint,
     ),
 ) {
-    override val gmsCoreVendor by gmsCoreVendorOption
+    override val gmsCoreVendor by gmsCoreVendorGroupIdOption
 }

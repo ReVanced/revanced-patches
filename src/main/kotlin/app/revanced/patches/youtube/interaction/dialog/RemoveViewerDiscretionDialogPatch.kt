@@ -17,12 +17,11 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 @Patch(
     name = "Remove viewer discretion dialog",
     description = "Adds an option to remove the dialog that appears when opening a video that has been age-restricted " +
-        "by accepting it automatically. This does not bypass the age restriction.",
+            "by accepting it automatically. This does not bypass the age restriction.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube",
-            [
+            "com.google.android.youtube", [
                 "18.32.39",
                 "18.37.36",
                 "18.38.44",
@@ -33,26 +32,30 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
-                "19.03.35",
                 "19.03.36",
-                "19.04.37",
-            ],
-        ),
-    ],
+                "19.04.38",
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.37"
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object RemoveViewerDiscretionDialogPatch : BytecodePatch(
-    setOf(CreateDialogFingerprint),
+    setOf(CreateDialogFingerprint)
 ) {
     private const val INTEGRATIONS_METHOD_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/RemoveViewerDiscretionDialogPatch;->" +
-            "confirmDialog(Landroid/app/AlertDialog;)V"
+                "confirmDialog(Landroid/app/AlertDialog;)V"
 
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-            SwitchPreference("revanced_remove_viewer_discretion_dialog"),
+            SwitchPreference("revanced_remove_viewer_discretion_dialog")
         )
 
         CreateDialogFingerprint.result?.mutableMethod?.apply {

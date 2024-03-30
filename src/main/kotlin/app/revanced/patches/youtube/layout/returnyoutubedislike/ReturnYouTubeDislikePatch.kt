@@ -32,6 +32,7 @@ import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import app.revanced.util.exception
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -53,17 +54,20 @@ import com.android.tools.smali.dexlib2.iface.reference.TypeReference
     ],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube",
-            [
+            "com.google.android.youtube", [
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
-                "19.03.35",
                 "19.03.36",
-                "19.04.37",
-            ],
-        ),
-    ],
+                "19.04.38",
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.37"
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object ReturnYouTubeDislikePatch : BytecodePatch(
@@ -80,16 +84,14 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
         RollingNumberMeasureStaticLabelParentFingerprint,
         RollingNumberMeasureAnimatedTextFingerprint,
         RollingNumberTextViewFingerprint,
-        RollingNumberTextViewAnimationUpdateFingerprint,
-    ),
+        RollingNumberTextViewAnimationUpdateFingerprint
+    )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/ReturnYouTubeDislikePatch;"
 
     private const val FILTER_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/components/ReturnYouTubeDislikeFilterPatch;"
-
-    private fun MethodFingerprint.resultOrThrow() = result ?: throw exception
 
     override fun execute(context: BytecodeContext) {
         // region Inject newVideoLoaded event handler to update dislikes when a new video is loaded.
@@ -106,7 +108,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
         listOf(
             LikeFingerprint.toPatch(Vote.LIKE),
             DislikeFingerprint.toPatch(Vote.DISLIKE),
-            RemoveLikeFingerprint.toPatch(Vote.REMOVE_LIKE),
+            RemoveLikeFingerprint.toPatch(Vote.REMOVE_LIKE)
         ).forEach { (fingerprint, vote) ->
             fingerprint.result?.mutableMethod?.apply {
                 addInstructions(
@@ -114,7 +116,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                     """
                         const/4 v0, ${vote.value}
                         invoke-static {v0}, $INTEGRATIONS_CLASS_DESCRIPTOR->sendVote(I)V
-                    """,
+                    """
                 )
             } ?: throw fingerprint.exception
         }
@@ -140,7 +142,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                 val textDataClassType = TextComponentDataFingerprint.resultOrThrow().classDef.type
                 val insertIndex = indexOfFirstInstruction {
                     opcode == Opcode.NEW_INSTANCE &&
-                        getReference<TypeReference>()?.type == textDataClassType
+                            getReference<TypeReference>()?.type == textDataClassType
                 }
                 if (insertIndex < 0) throw PatchException("Could not find data creation instruction")
                 val tempRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
@@ -153,7 +155,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                     .subList(insertIndex, insertIndex + 20)
                     .find {
                         it.opcode == Opcode.IPUT_OBJECT &&
-                            it.getReference<FieldReference>()?.type == "Ljava/lang/CharSequence;"
+                                it.getReference<FieldReference>()?.type == "Ljava/lang/CharSequence;"
                     } ?: throw PatchException("Could not find put object instruction")
                 val charSequenceRegister = (putFieldInstruction as TwoRegisterInstruction).registerA
 
@@ -165,7 +167,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                     iget-object v$tempRegister, v$tempRegister, $conversionContextField
                     invoke-static {v$tempRegister, v$charSequenceRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->onLithoTextLoaded(Ljava/lang/Object;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
                     move-result-object v$charSequenceRegister
-                """,
+                """
                 )
             }
         } ?: throw TextComponentConstructorFingerprint.exception
@@ -205,7 +207,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                         :is_like
                         :ryd_disabled
                         nop
-                    """,
+                    """
                 )
             }
         } ?: throw ShortsTextViewFingerprint.exception
@@ -233,12 +235,13 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
 
                 addInstruction(
                     startIndex + 4,
-                    "invoke-static {v$resourceIdentifierRegister, v$textViewRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->setOldUILayoutDislikes(ILandroid/widget/TextView;)V",
+                    "invoke-static {v$resourceIdentifierRegister, v$textViewRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->setOldUILayoutDislikes(ILandroid/widget/TextView;)V"
                 )
             }
         } ?: throw DislikesOldLayoutTextViewFingerprint.exception
 
         // endregion
+
 
         // region Hook rolling numbers.
 
@@ -270,7 +273,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                         invoke-static {v$conversionContextRegister, v$freeRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->onRollingNumberLoaded(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
                         move-result-object v$freeRegister
                         iput-object v$freeRegister, v$charSequenceInstanceRegister, $charSequenceFieldReference
-                    """,
+                    """
                 )
             }
         } ?: throw RollingNumberSetterFingerprint.exception
@@ -290,7 +293,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                     """
                     invoke-static {p1, v$measuredTextWidthRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->onRollingNumberMeasured(Ljava/lang/String;F)F
                     move-result v$measuredTextWidthRegister
-                """,
+                """
                 )
             }
         } ?: throw RollingNumberMeasureAnimatedTextFingerprint.exception
@@ -308,7 +311,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                     """
                         move-result v$freeRegister
                         invoke-static {p1, v$freeRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->onRollingNumberMeasured(Ljava/lang/String;F)F
-                    """,
+                    """
                 )
             }
         } ?: throw RollingNumberMeasureStaticLabelFingerprint.exception
@@ -327,7 +330,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
 
             arrayOf(
                 initiallyCreatedTextViewMethod,
-                realTimeUpdateTextViewMethod,
+                realTimeUpdateTextViewMethod
             ).forEach { insertMethod ->
                 insertMethod.apply {
                     val setTextIndex = indexOfFirstInstruction {
@@ -344,13 +347,14 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                         """
                             invoke-static {v$textViewRegister, v$textSpanRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->updateRollingNumber(Landroid/widget/TextView;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
                             move-result-object v$textSpanRegister
-                        """,
+                        """
                     )
                 }
             }
         } ?: throw RollingNumberTextViewFingerprint.exception
 
         // endregion
+
     }
 
     private fun MethodFingerprint.toPatch(voteKind: Vote) = VotePatch(this, voteKind)
@@ -358,6 +362,6 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
     private enum class Vote(val value: Int) {
         LIKE(1),
         DISLIKE(-1),
-        REMOVE_LIKE(0),
+        REMOVE_LIKE(0)
     }
 }

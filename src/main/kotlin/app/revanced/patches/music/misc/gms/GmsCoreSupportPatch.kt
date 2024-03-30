@@ -2,7 +2,7 @@ package app.revanced.patches.music.misc.gms
 
 import app.revanced.patches.music.misc.gms.Constants.MUSIC_PACKAGE_NAME
 import app.revanced.patches.music.misc.gms.Constants.REVANCED_MUSIC_PACKAGE_NAME
-import app.revanced.patches.music.misc.gms.GmsCoreSupportResourcePatch.gmsCoreVendorOption
+import app.revanced.patches.music.misc.gms.GmsCoreSupportResourcePatch.gmsCoreVendorGroupIdOption
 import app.revanced.patches.music.misc.gms.fingerprints.*
 import app.revanced.patches.music.misc.integrations.IntegrationsPatch
 import app.revanced.patches.music.misc.integrations.fingerprints.ApplicationInitFingerprint
@@ -34,5 +34,5 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
         PrimeMethodFingerprint,
     ),
 ) {
-    override val gmsCoreVendor by gmsCoreVendorOption
+    override val gmsCoreVendor by gmsCoreVendorGroupIdOption
 }

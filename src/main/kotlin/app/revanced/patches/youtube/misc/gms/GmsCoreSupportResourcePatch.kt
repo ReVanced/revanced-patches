@@ -21,7 +21,7 @@ object GmsCoreSupportResourcePatch : BaseGmsCoreSupportResourcePatch(
             IntentPreference(
                 "microg_settings",
                 intent = IntentPreference.Intent("", "org.microg.gms.ui.SettingsActivity") {
-                    "$gmsCoreVendor.android.gms"
+                    "$gmsCoreVendorGroupId.android.gms"
                 },
             ),
         )

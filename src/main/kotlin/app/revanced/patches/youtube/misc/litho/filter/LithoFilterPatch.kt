@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.misc.litho.filter
 
+import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -9,27 +10,30 @@ import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.*
-import app.revanced.util.exception
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import java.io.Closeable
 
 @Patch(
     description = "Hooks the method which parses the bytes into a ComponentContext to filter components.",
-    dependencies = [IntegrationsPatch::class],
+    dependencies = [IntegrationsPatch::class]
 )
 @Suppress("unused")
-object LithoFilterPatch :
-    BytecodePatch(
-        setOf(ComponentContextParserFingerprint, LithoFilterFingerprint, ProtobufBufferReferenceFingerprint),
-    ),
-    Closeable {
+object LithoFilterPatch : BytecodePatch(
+    setOf(ComponentContextParserFingerprint, LithoFilterFingerprint, ProtobufBufferReferenceFingerprint)
+), Closeable {
     private val MethodFingerprint.patternScanResult
         get() = result!!.scanResult.patternScanResult!!
 
@@ -82,7 +86,7 @@ object LithoFilterPatch :
         ComponentContextParserFingerprint.result?.also {
             arrayOf(
                 EmptyComponentBuilderFingerprint,
-                ReadComponentIdentifierFingerprint,
+                ReadComponentIdentifierFingerprint
             ).forEach { fingerprint ->
                 if (fingerprint.resolve(context, it.mutableMethod, it.mutableClass)) return@forEach
                 throw fingerprint.exception
@@ -92,10 +96,8 @@ object LithoFilterPatch :
             // region Pass the buffer into Integrations.
 
             ProtobufBufferReferenceFingerprint.result
-                ?.mutableMethod?.addInstruction(
-                    0,
-                    " invoke-static { p2 }, $INTEGRATIONS_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
-                )
+                ?.mutableMethod?.addInstruction(0,
+                    " invoke-static { p2 }, $INTEGRATIONS_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V")
                 ?: throw ProtobufBufferReferenceFingerprint.exception
 
             // endregion
@@ -106,7 +108,11 @@ object LithoFilterPatch :
             val emptyComponentFieldIndex = builderMethodIndex + 2
 
             bytesToComponentContextMethod.mutableMethod.apply {
-                val insertHookIndex = bytesToComponentContextMethod.scanResult.patternScanResult!!.endIndex + 1
+                val insertHookIndex = indexOfFirstInstruction {
+                    opcode == Opcode.IPUT_OBJECT &&
+                            getReference<FieldReference>()?.type == "Ljava/lang/StringBuilder;"
+                } + 1
+                if (insertHookIndex <= 0) throw PatchException("Could not find insert index")
 
                 // region Get free registers that this patch uses.
                 // Registers are overwritten right after they are used in this patch, therefore free to clobber.
@@ -156,7 +162,7 @@ object LithoFilterPatch :
                         return-object v$free2
                     """,
                     // Used to jump over the instruction which block the component from being created.
-                    ExternalLabel("unfiltered", getInstruction(insertHookIndex)),
+                    ExternalLabel("unfiltered", getInstruction(insertHookIndex))
                 )
                 // endregion
             }
@@ -175,7 +181,7 @@ object LithoFilterPatch :
                         invoke-direct {v1}, $classDescriptor-><init>()V
                         const/16 v2, ${filterCount++}
                         aput-object v1, v0, v2
-                    """,
+                    """
                 )
             }
         } ?: throw LithoFilterFingerprint.exception

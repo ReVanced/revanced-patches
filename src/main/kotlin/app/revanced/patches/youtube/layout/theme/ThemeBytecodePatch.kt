@@ -26,7 +26,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
         ThemeResourcePatch::class,
         IntegrationsPatch::class,
         SettingsPatch::class,
-        AddResourcesPatch::class,
+        AddResourcesPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -41,16 +41,20 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
-                "19.03.35",
                 "19.03.36",
-                "19.04.37",
-            ],
-        ),
-    ],
+                "19.04.38",
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.37"
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object ThemeBytecodePatch : BytecodePatch(
-    setOf(UseGradientLoadingScreenFingerprint),
+    setOf(UseGradientLoadingScreenFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/theme/ThemePatch;"
@@ -73,7 +77,7 @@ object ThemeBytecodePatch : BytecodePatch(
             "Dark green" to "#FF002905",
             "Dark yellow" to "#FF282900",
             "Dark orange" to "#FF291800",
-            "Dark red" to "#FF290000",
+            "Dark red" to "#FF290000"
         ),
         title = "Dark theme background color",
         description = "Can be a hex color (#AARRGGBB) or a color resource reference.",
@@ -91,7 +95,7 @@ object ThemeBytecodePatch : BytecodePatch(
             "Light green" to "#FFCCFFCC",
             "Light yellow" to "#FFFDFFCC",
             "Light orange" to "#FFFFE6CC",
-            "Light red" to "#FFFFD6D6",
+            "Light red" to "#FFFFD6D6"
         ),
         title = "Light theme background color",
         description = "Can be a hex color (#AARRGGBB) or a color resource reference.",
@@ -101,7 +105,7 @@ object ThemeBytecodePatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-            SwitchPreference("revanced_gradient_loading_screen"),
+            SwitchPreference("revanced_gradient_loading_screen")
         )
 
         UseGradientLoadingScreenFingerprint.result?.mutableMethod?.apply {
@@ -113,7 +117,7 @@ object ThemeBytecodePatch : BytecodePatch(
                 """
                     invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->gradientLoadingScreenEnabled()Z
                     move-result v$isEnabledRegister
-                """,
+                """
             )
         } ?: throw UseGradientLoadingScreenFingerprint.exception
 
