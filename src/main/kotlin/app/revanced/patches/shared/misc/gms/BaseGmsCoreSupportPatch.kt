@@ -33,7 +33,6 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
  * @param primeMethodFingerprint The fingerprint of the "prime" method that needs to be patched.
  * @param earlyReturnFingerprints The fingerprints of methods that need to be returned early.
  * @param mainActivityOnCreateFingerprint The fingerprint of the main activity onCreate method.
- *                                        This activity must be suitable to show a dialog with.
  * @param integrationsPatchDependency The patch responsible for the integrations.
  * @param gmsCoreSupportResourcePatch The corresponding resource patch that is used to patch the resources.
  * @param dependencies Additional dependencies of this patch.
