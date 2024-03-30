@@ -2,7 +2,7 @@ package app.revanced.patches.shared.misc.gms
 
 import app.revanced.patcher.PatchClass
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
@@ -12,7 +12,7 @@ import app.revanced.patches.shared.misc.gms.BaseGmsCoreSupportPatch.Constants.AC
 import app.revanced.patches.shared.misc.gms.BaseGmsCoreSupportPatch.Constants.AUTHORITIES
 import app.revanced.patches.shared.misc.gms.BaseGmsCoreSupportPatch.Constants.PERMISSIONS
 import app.revanced.patches.shared.misc.gms.fingerprints.GmsCoreSupportFingerprint
-import app.revanced.patches.shared.misc.gms.fingerprints.GmsCoreSupportFingerprint.GET_GMS_CORE_VENDOR_METHOD_NAME
+import app.revanced.patches.shared.misc.gms.fingerprints.GmsCoreSupportFingerprint.GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME
 import app.revanced.util.exception
 import app.revanced.util.getReference
 import app.revanced.util.returnEarly
@@ -32,7 +32,7 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
  * @param toPackageName The package name to fall back to if no custom package name is specified in patch options.
  * @param primeMethodFingerprint The fingerprint of the "prime" method that needs to be patched.
  * @param earlyReturnFingerprints The fingerprints of methods that need to be returned early.
- * @param mainActivityOnCreateFingerprint The fingerprint of the main activity's onCreate method.
+ * @param mainActivityOnCreateFingerprint The fingerprint of the main activity onCreate method.
  * @param integrationsPatchDependency The patch responsible for the integrations.
  * @param gmsCoreSupportResourcePatch The corresponding resource patch that is used to patch the resources.
  * @param dependencies Additional dependencies of this patch.
@@ -60,7 +60,10 @@ abstract class BaseGmsCoreSupportPatch(
         integrationsPatchDependency,
     ) + dependencies,
     compatiblePackages = compatiblePackages,
-    fingerprints = setOf(GmsCoreSupportFingerprint, mainActivityOnCreateFingerprint) + fingerprints,
+    fingerprints = setOf(
+        GmsCoreSupportFingerprint,
+        mainActivityOnCreateFingerprint,
+    ) + fingerprints,
     requiresIntegrations = true,
 ) {
     init {
@@ -68,7 +71,7 @@ abstract class BaseGmsCoreSupportPatch(
         gmsCoreSupportResourcePatch.options.values.forEach(options::register)
     }
 
-    internal abstract val gmsCoreVendor: String?
+    internal abstract val gmsCoreVendorGroupId: String?
 
     override fun execute(context: BytecodeContext) {
         val packageName = ChangePackageNamePatch.setOrGetFallbackPackageName(toPackageName)
@@ -93,16 +96,17 @@ abstract class BaseGmsCoreSupportPatch(
         // Return these methods early to prevent the app from crashing.
         earlyReturnFingerprints.toList().returnEarly()
 
-        // Check the availability of GmsCore.
-        mainActivityOnCreateFingerprint.result?.mutableMethod?.addInstruction(
-            1, // Hack to not disturb other patches (such as the integrations patch).
-            "invoke-static {}, Lapp/revanced/integrations/shared/GmsCoreSupport;->checkAvailability()V",
+        // Verify GmsCore is installed and whitelisted for power optimizations and background usage.
+        mainActivityOnCreateFingerprint.result?.mutableMethod?.addInstructions(
+            1, // Hack to not disturb other patches (such as the YTMusic integrations patch).
+            "invoke-static/range { p0 .. p0 }, Lapp/revanced/integrations/shared/GmsCoreSupport;->" +
+                "checkGmsCore(Landroid/content/Context;)V",
         ) ?: throw mainActivityOnCreateFingerprint.exception
 
         // Change the vendor of GmsCore in ReVanced Integrations.
         GmsCoreSupportFingerprint.result?.mutableClass?.methods
-            ?.single { it.name == GET_GMS_CORE_VENDOR_METHOD_NAME }
-            ?.replaceInstruction(0, "const-string v0, \"$gmsCoreVendor\"")
+            ?.single { it.name == GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME }
+            ?.replaceInstruction(0, "const-string v0, \"$gmsCoreVendorGroupId\"")
             ?: throw GmsCoreSupportFingerprint.exception
     }
 
@@ -146,10 +150,10 @@ abstract class BaseGmsCoreSupportPatch(
             in PERMISSIONS,
             in ACTIONS,
             in AUTHORITIES,
-            -> referencedString.replace("com.google", gmsCoreVendor!!)
+            -> referencedString.replace("com.google", gmsCoreVendorGroupId!!)
 
             // No vendor prefix for whatever reason...
-            "subscribedfeeds" -> "$gmsCoreVendor.subscribedfeeds"
+            "subscribedfeeds" -> "$gmsCoreVendorGroupId.subscribedfeeds"
             else -> null
         }
 
@@ -162,7 +166,7 @@ abstract class BaseGmsCoreSupportPatch(
                 if (str.startsWith(uriPrefix)) {
                     return str.replace(
                         uriPrefix,
-                        "content://${authority.replace("com.google", gmsCoreVendor!!)}",
+                        "content://${authority.replace("com.google", gmsCoreVendorGroupId!!)}",
                     )
                 }
             }
@@ -170,7 +174,7 @@ abstract class BaseGmsCoreSupportPatch(
             // gms also has a 'subscribedfeeds' authority, check for that one too
             val subFeedsUriPrefix = "content://subscribedfeeds"
             if (str.startsWith(subFeedsUriPrefix)) {
-                return str.replace(subFeedsUriPrefix, "content://$gmsCoreVendor.subscribedfeeds")
+                return str.replace(subFeedsUriPrefix, "content://$gmsCoreVendorGroupId.subscribedfeeds")
             }
         }
 

@@ -13,8 +13,12 @@
             <string name="revanced_settings_import_failure_parse">Import failed: %s</string>
         </patch>
         <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
-            <string name="gms_core_not_installed_warning">GmsCore is not installed. Please install.</string>
-            <string name="gms_core_not_running_warning">GmsCore is failing to run. Please follow the \"Don\'t kill my app\" guide for GmsCore.</string>
+            <string name="gms_core_toast_not_installed_message">GmsCore is not installed. Install it.</string>
+            <string name="gms_core_toast_not_whitelisted_message">Follow the \"Don\'t kill my app\" guide for GmsCore.</string>
+            <string name="gms_core_dialog_title">Action needed</string>
+            <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">GmsCore is not whitelisted from battery optimization.\n\nFollow the \"Don\'t kill my app\" guide for GmsCore.</string>
+            <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">GmsCore does not have permission to run in the background.\n\nFollow the \"Don\'t kill my app\" guide for GmsCore.</string>
+            <string name="gms_core_dialog_ok_button_text">Open website</string>
         </patch>
     </app>
     <app id="youtube">
@@ -881,6 +885,7 @@
             <string name="revanced_announcements_summary_off">Announcements are not shown on startup</string>
             <string name="revanced_announcements_enabled_summary">Show announcements on startup</string>
             <string name="revanced_announcements_connection_failed">Failed connecting to announcements provider</string>
+            <string name="revanced_announcements_dialog_dismiss">Dismiss</string>
         </patch>
         <patch id="misc.autorepeat.AutoRepeatPatch">
             <string name="revanced_auto_repeat_title">Enable auto-repeat</string>
