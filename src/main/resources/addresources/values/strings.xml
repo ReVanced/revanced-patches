@@ -13,8 +13,12 @@
             <string name="revanced_settings_import_failure_parse">Import failed: %s</string>
         </patch>
         <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
-            <string name="gms_core_not_installed_warning">GmsCore is not installed. Please install.</string>
-            <string name="gms_core_not_running_warning">GmsCore is failing to run. Please follow the \"Don\'t kill my app\" guide for GmsCore.</string>
+            <string name="gms_core_toast_not_installed_message">GmsCore is not installed. Install it.</string>
+            <string name="gms_core_toast_not_whitelisted_message">Follow the \"Don\'t kill my app\" guide for GmsCore.</string>
+            <string name="gms_core_dialog_title">Action needed</string>
+            <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">GmsCore is not whitelisted from battery optimization.\n\nFollow the \"Don\'t kill my app\" guide for GmsCore.</string>
+            <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">GmsCore does not have permission to run in the background.\n\nFollow the \"Don\'t kill my app\" guide for GmsCore.</string>
+            <string name="gms_core_dialog_ok_button_text">Open website</string>
         </patch>
     </app>
     <app id="youtube">
@@ -847,33 +851,31 @@
             <string name="revanced_seekbar_custom_color_invalid">Invalid seekbar color value. Using default value.</string>
         </patch>
         <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
-            <string name="revanced_alt_thumbnail_about_title">Thumbnails in use</string>
-            <string name="revanced_alt_thumbnail_dearrow_title">Enable DeArrow thumbnails</string>
-            <string name="revanced_alt_thumbnail_dearrow_summary_on">Using DeArrow thumbnails</string>
-            <string name="revanced_alt_thumbnail_dearrow_summary_off">Not using DeArrow thumbnails</string>
+            <string name="revanced_alt_thumbnail_home_title">Home tab</string>
+            <string name="revanced_alt_thumbnail_subscription_title">Subscription tab</string>
+            <string name="revanced_alt_thumbnail_library_title">You tab</string>
+            <string name="revanced_alt_thumbnail_player_title">Player playlists, recommendations</string>
+            <string name="revanced_alt_thumbnail_search_title">Search results</string>
+            <string name="revanced_alt_thumbnail_options_entry_1">Original thumbnails</string>
+            <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Original thumbnails</string>
+            <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Still captures</string>
+            <string name="revanced_alt_thumbnail_options_entry_4">Still captures</string>
+            <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
+            <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow provides crowd-sourced thumbnails for YouTube videos. These thumbnails are often more relevant than those provided by YouTube\n\nIf enabled, video URLs will be sent to the API server and no other data is sent. If a video does not have DeArrow thumbnails, then the original or still captures are shown\n\nTap here to learn more about DeArrow</string>
             <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Show a toast if API is not available</string>
             <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Toast is shown if DeArrow is not available</string>
             <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Toast is not shown if DeArrow is not available</string>
             <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API endpoint</string>
-            <string name="revanced_alt_thumbnail_dearrow_api_url_summary">The URL of the DeArrow thumbnail cache endpoint. Do not change this unless you know what you\'re doing</string>
-            <string name="revanced_alt_thumbnail_dearrow_about_title">About DeArrow</string>
-            <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow provides crowd-sourced thumbnails for YouTube videos. These thumbnails are often more relevant than those provided by YouTube. If enabled, video URLs will be sent to the API server and no other data is sent\n\nTap here to learn more about DeArrow</string>
-            <string name="revanced_alt_thumbnail_stills_title">Enable still video captures</string>
-            <string name="revanced_alt_thumbnail_stills_summary_on">Using YouTube still video captures</string>
-            <string name="revanced_alt_thumbnail_stills_summary_off">Not using YouTube still video captures</string>
-            <string name="revanced_alt_thumbnail_stills_time_title">Video time to take the still from</string>
-            <string name="revanced_alt_thumbnail_stills_time_entry_1">Beginning of video</string>
-            <string name="revanced_alt_thumbnail_stills_time_entry_2">Middle of video</string>
-            <string name="revanced_alt_thumbnail_stills_time_entry_3">End of video</string>
+            <string name="revanced_alt_thumbnail_dearrow_api_url_summary">The URL of the DeArrow thumbnail cache endpoint</string>
+            <string name="revanced_alt_thumbnail_stills_about_title">Still video captures</string>
+            <string name="revanced_alt_thumbnail_stills_about_summary">Still captures are taken from the beginning/middle/end of each video. These images are built into YouTube and no external API is used</string>
             <string name="revanced_alt_thumbnail_stills_fast_title">Use fast still captures</string>
             <string name="revanced_alt_thumbnail_stills_fast_summary_on">Using medium quality still captures. Thumbnails will load faster, but live streams, unreleased, or very old videos may show blank thumbnails</string>
             <string name="revanced_alt_thumbnail_stills_fast_summary_off">Using high quality still captures</string>
-            <string name="revanced_alt_thumbnail_stills_about_title">About still video captures</string>
-            <string name="revanced_alt_thumbnail_stills_about_summary">Still captures are taken from the beginning/middle/end of each video. These images are built into YouTube and no external API is used</string>
-            <string name="revanced_alt_thumbnail_about_status_disabled">Showing original YouTube thumbnails</string>
-            <string name="revanced_alt_thumbnail_about_status_stills">Showing still video captures</string>
-            <string name="revanced_alt_thumbnail_about_status_dearrow">Showing DeArrow thumbnails. If a video has no DeArrow thumbnails then the original YouTube thumbnails are shown</string>
-            <string name="revanced_alt_thumbnail_about_status_dearrow_stills">Showing DeArrow thumbnails. If a video has no DeArrow thumbnails then still video captures are shown</string>
+            <string name="revanced_alt_thumbnail_stills_time_title">Video time to take still captures from</string>
+            <string name="revanced_alt_thumbnail_stills_time_entry_1">Beginning of video</string>
+            <string name="revanced_alt_thumbnail_stills_time_entry_2">Middle of video</string>
+            <string name="revanced_alt_thumbnail_stills_time_entry_3">End of video</string>
             <string name="revanced_alt_thumbnail_dearrow_error">DeArrow temporarily not available (status code: %s)</string>
             <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow temporarily not available</string>
         </patch>
@@ -883,6 +885,7 @@
             <string name="revanced_announcements_summary_off">Announcements are not shown on startup</string>
             <string name="revanced_announcements_enabled_summary">Show announcements on startup</string>
             <string name="revanced_announcements_connection_failed">Failed connecting to announcements provider</string>
+            <string name="revanced_announcements_dialog_dismiss">Dismiss</string>
         </patch>
         <patch id="misc.autorepeat.AutoRepeatPatch">
             <string name="revanced_auto_repeat_title">Enable auto-repeat</string>
