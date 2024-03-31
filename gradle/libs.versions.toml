@@ -5,6 +5,7 @@ guava = "33.0.0-jre"
 gson = "2.10.1"
 binary-compatibility-validator = "0.14.0"
 kotlin = "1.9.22"
+ktlint = "12.1.0"
 
 [libraries]
 revanced-patcher = { module = "app.revanced:revanced-patcher", version.ref = "revanced-patcher" }
@@ -15,3 +16,4 @@ gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 [plugins]
 binary-compatibility-validator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "binary-compatibility-validator" }
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
