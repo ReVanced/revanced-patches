@@ -1,4 +1,4 @@
 [*.{kt,kts}]
-ktlint_code_style = android_studio
-ktlint_standard_no-wildcard-imports = disabled
+ij_kotlin_allow_trailing_comma_on_call_site = false
+ij_kotlin_allow_trailing_comma = false
 max_line_length = off
