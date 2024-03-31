@@ -8,14 +8,13 @@ import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playeroverlay.fingerprint.PlayerOverlaysOnFinishInflateFingerprint
 import app.revanced.util.exception
 
+/**
+ * Edit: This patch is not in use and may not work.
+ */
 @Patch(
     description = "Hook for the video player overlay",
     dependencies = [IntegrationsPatch::class]
 )
-
-/**
- * Edit: This patch is not in use and may not work.
- */
 @Suppress("unused")
 object PlayerOverlaysHookPatch : BytecodePatch(
     setOf(PlayerOverlaysOnFinishInflateFingerprint)
