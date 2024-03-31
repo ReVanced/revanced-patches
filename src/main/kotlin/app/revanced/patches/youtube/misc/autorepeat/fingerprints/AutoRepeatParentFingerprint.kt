@@ -7,8 +7,9 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal object AutoRepeatParentFingerprint : MethodFingerprint(
     "V",
     AccessFlags.PUBLIC or AccessFlags.FINAL,
-    strings = listOf(
+    strings =
+    listOf(
         "play() called when the player wasn't loaded.",
-        "play() blocked because Background Playability failed",
-    ),
+        "play() blocked because Background Playability failed"
+    )
 )

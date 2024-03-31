@@ -9,5 +9,5 @@ internal object BootloaderCheckFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.name == "bootloaderCheck" &&
             methodDef.definingClass.endsWith("/DeviceIntegrityCheck;")
-    },
+    }
 )

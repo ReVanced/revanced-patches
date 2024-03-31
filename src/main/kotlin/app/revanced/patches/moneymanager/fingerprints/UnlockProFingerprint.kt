@@ -9,11 +9,12 @@ internal object UnlockProFingerprint : MethodFingerprint(
     "Z",
     AccessFlags.STATIC or AccessFlags.SYNTHETIC,
     parameters = listOf("L"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.IGET_BOOLEAN,
-        Opcode.RETURN,
+        Opcode.RETURN
     ),
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("MainActivity;")
-    },
+    }
 )

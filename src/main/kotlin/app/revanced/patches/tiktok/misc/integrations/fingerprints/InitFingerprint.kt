@@ -8,7 +8,7 @@ internal object InitFingerprint : IntegrationsFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("/AwemeHostApplication;") &&
-                methodDef.name == "<init>"
+            methodDef.name == "<init>"
     },
     insertIndexResolver = { 1 } // Insert after call to super class.
 )

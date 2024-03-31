@@ -17,17 +17,19 @@ class IntentPreference(
     titleKey: String = "${key}_title",
     summaryKey: String? = "${key}_summary",
     tag: String = "Preference",
-    val intent: Intent,
+    val intent: Intent
 ) : BasePreference(key, titleKey, summaryKey, tag) {
-
-    override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
+    override fun serialize(
+        ownerDocument: Document,
+        resourceCallback: (BaseResource) -> Unit
+    ) =
         super.serialize(ownerDocument, resourceCallback).apply {
             appendChild(
                 ownerDocument.createElement("intent").also { intentNode ->
                     intentNode.setAttribute("android:data", intent.data)
                     intentNode.setAttribute("android:targetClass", intent.targetClass)
                     intentNode.setAttribute("android:targetPackage", intent.targetPackageSupplier())
-                },
+                }
             )
         }
 
@@ -50,6 +52,6 @@ class IntentPreference(
     data class Intent(
         internal val data: String,
         internal val targetClass: String,
-        internal val targetPackageSupplier: () -> String,
+        internal val targetPackageSupplier: () -> String
     )
 }

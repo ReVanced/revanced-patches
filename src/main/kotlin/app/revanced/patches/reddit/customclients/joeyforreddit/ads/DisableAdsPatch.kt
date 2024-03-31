@@ -12,7 +12,7 @@ import app.revanced.util.exception
 @Patch(
     name = "Disable ads",
     dependencies = [DisablePiracyDetectionPatch::class],
-    compatiblePackages = [CompatiblePackage("o.o.joey")],
+    compatiblePackages = [CompatiblePackage("o.o.joey")]
 )
 @Suppress("unused")
 object DisableAdsPatch : BytecodePatch(setOf(IsAdFreeUserFingerprint)) {
@@ -22,7 +22,7 @@ object DisableAdsPatch : BytecodePatch(setOf(IsAdFreeUserFingerprint)) {
             """
                 const/4 v0, 0x1
                 return v0
-            """,
+            """
         ) ?: throw IsAdFreeUserFingerprint.exception
     }
 }

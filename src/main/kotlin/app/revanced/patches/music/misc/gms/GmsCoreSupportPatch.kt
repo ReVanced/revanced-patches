@@ -14,25 +14,27 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
     fromPackageName = MUSIC_PACKAGE_NAME,
     toPackageName = REVANCED_MUSIC_PACKAGE_NAME,
     primeMethodFingerprint = PrimeMethodFingerprint,
-    earlyReturnFingerprints = setOf(
+    earlyReturnFingerprints =
+    setOf(
         ServiceCheckFingerprint,
         GooglePlayUtilityFingerprint,
         CastDynamiteModuleFingerprint,
         CastDynamiteModuleV2Fingerprint,
-        CastContextFetchFingerprint,
+        CastContextFetchFingerprint
     ),
     mainActivityOnCreateFingerprint = ApplicationInitFingerprint,
     integrationsPatchDependency = IntegrationsPatch::class,
     gmsCoreSupportResourcePatch = GmsCoreSupportResourcePatch,
     compatiblePackages = setOf(CompatiblePackage("com.google.android.apps.youtube.music")),
-    fingerprints = setOf(
+    fingerprints =
+    setOf(
         ServiceCheckFingerprint,
         GooglePlayUtilityFingerprint,
         CastDynamiteModuleFingerprint,
         CastDynamiteModuleV2Fingerprint,
         CastContextFetchFingerprint,
-        PrimeMethodFingerprint,
-    ),
+        PrimeMethodFingerprint
+    )
 ) {
     override val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
 }

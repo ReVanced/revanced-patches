@@ -9,7 +9,8 @@ internal object IsAdCheckTwoFingerprint : MethodFingerprint(
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("L"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_INTERFACE,
@@ -17,6 +18,6 @@ internal object IsAdCheckTwoFingerprint : MethodFingerprint(
         Opcode.CONST_4,
         Opcode.IF_EQZ,
         Opcode.CONST_4,
-        Opcode.RETURN,
-    ),
+        Opcode.RETURN
+    )
 )

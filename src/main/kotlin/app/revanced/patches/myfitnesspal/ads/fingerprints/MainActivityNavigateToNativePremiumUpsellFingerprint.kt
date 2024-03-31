@@ -9,5 +9,5 @@ object MainActivityNavigateToNativePremiumUpsellFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     customFingerprint = { methodDef, classDef ->
         classDef.type.endsWith("MainActivity;") && methodDef.name == "navigateToNativePremiumUpsell"
-    },
+    }
 )

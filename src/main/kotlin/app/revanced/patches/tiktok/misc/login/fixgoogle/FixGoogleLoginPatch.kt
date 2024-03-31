@@ -13,17 +13,17 @@ import app.revanced.patches.tiktok.misc.login.fixgoogle.fingerprints.GoogleOneTa
     description = "Allows logging in with a Google account.",
     compatiblePackages = [
         CompatiblePackage("com.ss.android.ugc.trill"),
-        CompatiblePackage("com.zhiliaoapp.musically"),
-    ],
+        CompatiblePackage("com.zhiliaoapp.musically")
+    ]
 )
 @Suppress("unused")
 object FixGoogleLoginPatch : BytecodePatch(
-    setOf(GoogleOneTapAuthAvailableFingerprint, GoogleAuthAvailableFingerprint),
+    setOf(GoogleOneTapAuthAvailableFingerprint, GoogleAuthAvailableFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         listOf(
             GoogleOneTapAuthAvailableFingerprint,
-            GoogleAuthAvailableFingerprint,
+            GoogleAuthAvailableFingerprint
         ).forEach {
             with(it.result!!.mutableMethod) {
                 addInstructions(
@@ -31,7 +31,7 @@ object FixGoogleLoginPatch : BytecodePatch(
                     """
                         const/4 v0, 0x0
                         return v0
-                    """,
+                    """
                 )
             }
         }

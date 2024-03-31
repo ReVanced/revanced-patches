@@ -9,15 +9,16 @@ import app.revanced.util.exception
 
 @Patch(description = "Removes ads in the comments.")
 object HideCommentAdsPatch : BytecodePatch(
-    setOf(HideCommentAdsFingerprint),
+    setOf(HideCommentAdsFingerprint)
 ) {
     // Returns a blank object instead of the comment ad.
-    override fun execute(context: BytecodeContext) = HideCommentAdsFingerprint.result?.mutableMethod?.addInstructions(
-        0,
-        """
+    override fun execute(context: BytecodeContext) =
+        HideCommentAdsFingerprint.result?.mutableMethod?.addInstructions(
+            0,
+            """
             new-instance v0, Ljava/lang/Object;
             invoke-direct {v0}, Ljava/lang/Object;-><init>()V
             return-object v0
-            """,
-    ) ?: throw HideCommentAdsFingerprint.exception
+            """
+        ) ?: throw HideCommentAdsFingerprint.exception
 }

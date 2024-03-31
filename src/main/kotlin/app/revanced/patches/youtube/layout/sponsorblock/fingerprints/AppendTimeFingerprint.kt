@@ -24,6 +24,6 @@ internal object AppendTimeFingerprint : MethodFingerprint(
         Opcode.IGET_OBJECT,
         Opcode.CHECK_CAST,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.RETURN_VOID,
-    ),
+        Opcode.RETURN_VOID
+    )
 )

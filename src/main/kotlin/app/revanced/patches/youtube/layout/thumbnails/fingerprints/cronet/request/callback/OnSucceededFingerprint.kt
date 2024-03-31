@@ -10,5 +10,5 @@ internal object OnSucceededFingerprint : MethodFingerprint(
     parameters = listOf("Lorg/chromium/net/UrlRequest;", "Lorg/chromium/net/UrlResponseInfo;"),
     customFingerprint = { methodDef, _ ->
         methodDef.name == "onSucceeded"
-    },
+    }
 )

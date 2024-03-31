@@ -8,10 +8,11 @@ internal object IsBookpointEnabledFingerprint : MethodFingerprint(
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf(),
-    strings = listOf(
+    strings =
+    listOf(
         "NoGeoData",
         "NoCountryInGeo",
         "RemoteConfig",
-        "GeoRCMismatch",
-    ),
+        "GeoRCMismatch"
+    )
 )

@@ -8,8 +8,9 @@ import com.android.tools.smali.dexlib2.Opcode
 internal object OnBackPressedFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "V",
-    opcodes = listOf(
-        Opcode.RETURN_VOID,
+    opcodes =
+    listOf(
+        Opcode.RETURN_VOID
     ),
     customFingerprint = { methodDef, _ ->
         (
@@ -18,5 +19,5 @@ internal object OnBackPressedFingerprint : MethodFingerprint(
                 methodDef.definingClass.endsWith("WatchWhileActivity;")
             ) &&
             methodDef.name == "onBackPressed"
-    },
+    }
 )

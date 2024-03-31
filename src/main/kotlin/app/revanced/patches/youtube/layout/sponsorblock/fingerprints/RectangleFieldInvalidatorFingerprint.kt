@@ -17,5 +17,5 @@ internal object RectangleFieldInvalidatorFingerprint : MethodFingerprint(
         val reference = ((referenceInstruction as? ReferenceInstruction)?.reference as? MethodReference)
 
         reference?.parameterTypes?.size == 1 && reference.name == "invalidate" // the reference is the invalidate(..) method
-    },
+    }
 )

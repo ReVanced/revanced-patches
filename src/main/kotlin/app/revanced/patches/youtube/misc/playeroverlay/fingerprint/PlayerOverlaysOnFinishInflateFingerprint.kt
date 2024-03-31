@@ -8,7 +8,7 @@ internal object PlayerOverlaysOnFinishInflateFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "V",
     customFingerprint = { methodDef, _ ->
-    methodDef.definingClass.endsWith("/YouTubePlayerOverlaysLayout;")
-        && methodDef.name == "onFinishInflate"
-    },
+        methodDef.definingClass.endsWith("/YouTubePlayerOverlaysLayout;") &&
+            methodDef.name == "onFinishInflate"
+    }
 )

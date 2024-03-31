@@ -12,7 +12,7 @@ import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 
 @Patch(
-    dependencies = [SettingsPatch::class, AddResourcesPatch::class],
+    dependencies = [SettingsPatch::class, AddResourcesPatch::class]
 )
 internal object SwipeControlsResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
@@ -27,7 +27,7 @@ internal object SwipeControlsResourcePatch : ResourcePatch() {
             TextPreference("revanced_swipe_overlay_timeout", inputType = InputType.NUMBER),
             TextPreference("revanced_swipe_text_overlay_size", inputType = InputType.NUMBER),
             TextPreference("revanced_swipe_overlay_background_alpha", inputType = InputType.NUMBER),
-            TextPreference("revanced_swipe_threshold", inputType = InputType.NUMBER),
+            TextPreference("revanced_swipe_threshold", inputType = InputType.NUMBER)
         )
 
         context.copyResources(
@@ -37,8 +37,8 @@ internal object SwipeControlsResourcePatch : ResourcePatch() {
                 "revanced_ic_sc_brightness_auto.xml",
                 "revanced_ic_sc_brightness_manual.xml",
                 "revanced_ic_sc_volume_mute.xml",
-                "revanced_ic_sc_volume_normal.xml",
-            ),
+                "revanced_ic_sc_volume_normal.xml"
+            )
         )
     }
 }

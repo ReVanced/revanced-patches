@@ -65,9 +65,9 @@ object BypassURLRedirectsPatch : BytecodePatch(
                 replaceInstruction(
                     insertIndex,
                     "invoke-static {v$uriStringRegister}," +
-                            "Lapp/revanced/integrations/youtube/patches/BypassURLRedirectsPatch;" +
-                            "->" +
-                            "parseRedirectUri(Ljava/lang/String;)Landroid/net/Uri;"
+                        "Lapp/revanced/integrations/youtube/patches/BypassURLRedirectsPatch;" +
+                        "->" +
+                        "parseRedirectUri(Ljava/lang/String;)Landroid/net/Uri;"
                 )
             }
         }

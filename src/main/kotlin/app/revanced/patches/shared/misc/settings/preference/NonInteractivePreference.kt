@@ -18,10 +18,12 @@ class NonInteractivePreference(
     key: String,
     summaryKey: String? = "${key}_summary",
     tag: String = "Preference",
-    val selectable: Boolean = false,
+    val selectable: Boolean = false
 ) : BasePreference(null, "${key}_title", summaryKey, tag) {
-
-    override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
+    override fun serialize(
+        ownerDocument: Document,
+        resourceCallback: (BaseResource) -> Unit
+    ) =
         super.serialize(ownerDocument, resourceCallback).apply {
             setAttribute("android:selectable", selectable.toString())
         }

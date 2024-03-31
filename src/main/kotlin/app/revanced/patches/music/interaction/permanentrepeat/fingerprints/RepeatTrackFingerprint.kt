@@ -17,6 +17,6 @@ internal object RepeatTrackFingerprint : MethodFingerprint(
         Opcode.SGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
-        Opcode.IF_NEZ,
-    ),
+        Opcode.IF_NEZ
+    )
 )

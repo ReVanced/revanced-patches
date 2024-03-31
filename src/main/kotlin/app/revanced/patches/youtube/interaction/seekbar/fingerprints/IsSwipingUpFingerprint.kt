@@ -6,8 +6,9 @@ import com.android.tools.smali.dexlib2.Opcode
 internal object IsSwipingUpFingerprint : MethodFingerprint(
     returnType = "Z",
     parameters = listOf("Landroid/view/MotionEvent;", "J"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.SGET_OBJECT,
-        Opcode.IGET_OBJECT,
-    ),
+        Opcode.IGET_OBJECT
+    )
 )

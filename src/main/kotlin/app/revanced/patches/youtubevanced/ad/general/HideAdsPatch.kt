@@ -16,11 +16,11 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
     description = "Removes general ads.",
     dependencies = [VerticalScrollPatch::class],
     compatiblePackages = [CompatiblePackage("com.vanced.android.youtube")],
-    use = false,
+    use = false
 )
 @Suppress("unused")
 object HideAdsPatch : BytecodePatch(
-    setOf(ContainsAdFingerprint),
+    setOf(ContainsAdFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         ContainsAdFingerprint.result?.let { result ->
@@ -41,14 +41,14 @@ object HideAdsPatch : BytecodePatch(
                     "hero_promo_image",
                     "statement_banner",
                     "primetime_promo",
-                    "carousel_footered_layout",
+                    "carousel_footered_layout"
                 ).forEach { component ->
                     addInstructions(
                         insertIndex,
                         """
                            const-string v$adsListRegister, "$component"
                            invoke-interface {v0, v$adsListRegister}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-                        """,
+                        """
                     )
                 }
             }

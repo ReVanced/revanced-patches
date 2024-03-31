@@ -15,41 +15,44 @@ import java.nio.file.Files
     name = "Custom branding",
     description = "Applies a custom app name and icon. Defaults to \"YouTube ReVanced\" and the ReVanced logo.",
     compatiblePackages = [
-        CompatiblePackage("com.google.android.youtube"),
+        CompatiblePackage("com.google.android.youtube")
     ],
-    use = false,
+    use = false
 )
 @Suppress("unused")
 object CustomBrandingPatch : ResourcePatch() {
     private const val REVANCED_ICON = "ReVanced*Logo" // Can never be a valid path.
     private const val APP_NAME = "YouTube ReVanced"
 
-    private val iconResourceFileNames = arrayOf(
-        "adaptiveproduct_youtube_background_color_108",
-        "adaptiveproduct_youtube_foreground_color_108",
-        "ic_launcher",
-        "ic_launcher_round",
-    ).map { "$it.png" }.toTypedArray()
+    private val iconResourceFileNames =
+        arrayOf(
+            "adaptiveproduct_youtube_background_color_108",
+            "adaptiveproduct_youtube_foreground_color_108",
+            "ic_launcher",
+            "ic_launcher_round"
+        ).map { "$it.png" }.toTypedArray()
 
-    private val mipmapDirectories = arrayOf(
-        "xxxhdpi",
-        "xxhdpi",
-        "xhdpi",
-        "hdpi",
-        "mdpi",
-    ).map { "mipmap-$it" }
+    private val mipmapDirectories =
+        arrayOf(
+            "xxxhdpi",
+            "xxhdpi",
+            "xhdpi",
+            "hdpi",
+            "mdpi"
+        ).map { "mipmap-$it" }
 
     private var appName by stringPatchOption(
         key = "appName",
         default = APP_NAME,
-        values = mapOf(
+        values =
+        mapOf(
             "YouTube ReVanced" to APP_NAME,
             "YT ReVanced" to "YT ReVanced",
             "YT" to "YT",
-            "YouTube" to "YouTube",
+            "YouTube" to "YouTube"
         ),
         title = "App name",
-        description = "The name of the app.",
+        description = "The name of the app."
     )
 
     private var icon by stringPatchOption(
@@ -57,7 +60,8 @@ object CustomBrandingPatch : ResourcePatch() {
         default = REVANCED_ICON,
         values = mapOf("ReVanced Logo" to REVANCED_ICON),
         title = "App icon",
-        description = """
+        description =
+        """
             The icon to apply to the app.
             
             If a path to a folder is provided, the folder must contain the following folders:
@@ -67,7 +71,7 @@ object CustomBrandingPatch : ResourcePatch() {
             Each of these folders must contain the following files:
 
             ${iconResourceFileNames.joinToString("\n") { "- $it" }}
-        """.trimIndentMultiline(),
+        """.trimIndentMultiline()
     )
 
     override fun execute(context: ResourceContext) {
@@ -76,7 +80,7 @@ object CustomBrandingPatch : ResourcePatch() {
             mipmapDirectories.map { directory ->
                 ResourceGroup(
                     directory,
-                    *iconResourceFileNames,
+                    *iconResourceFileNames
                 )
             }.let { resourceGroups ->
                 if (icon != REVANCED_ICON) {
@@ -90,7 +94,7 @@ object CustomBrandingPatch : ResourcePatch() {
                         group.resources.forEach { iconFileName ->
                             Files.write(
                                 toDirectory.resolve(iconFileName).toPath(),
-                                fromDirectory.resolve(iconFileName).readBytes(),
+                                fromDirectory.resolve(iconFileName).readBytes()
                             )
                         }
                     }
@@ -107,8 +111,8 @@ object CustomBrandingPatch : ResourcePatch() {
                 manifest.readText()
                     .replace(
                         "android:label=\"@string/application_name",
-                        "android:label=\"$name",
-                    ),
+                        "android:label=\"$name"
+                    )
             )
         }
     }

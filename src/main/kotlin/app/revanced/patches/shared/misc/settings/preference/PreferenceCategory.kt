@@ -16,10 +16,12 @@ open class PreferenceCategory(
     key: String? = null,
     titleKey: String = "${key}_title",
     tag: String = "PreferenceCategory",
-    val preferences: Set<BasePreference>,
+    val preferences: Set<BasePreference>
 ) : BasePreference(key, titleKey, null, tag) {
-
-    override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
+    override fun serialize(
+        ownerDocument: Document,
+        resourceCallback: (BaseResource) -> Unit
+    ) =
         super.serialize(ownerDocument, resourceCallback).apply {
             preferences.forEach {
                 appendChild(it.serialize(ownerDocument, resourceCallback))

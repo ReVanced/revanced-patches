@@ -20,7 +20,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
         HideGetPremiumPatch::class,
         HideAdsResourcePatch::class,
         VerticalScrollPatch::class,
-        FixBackToExitGesturePatch::class,
+        FixBackToExitGesturePatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -43,9 +43,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
                 "19.07.40",
                 "19.08.36",
                 "19.09.37"
-            ],
-        ),
-    ],
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object HideAdsPatch : BytecodePatch(emptySet()) {
@@ -79,7 +79,7 @@ object HideAdsPatch : BytecodePatch(emptySet()) {
                                     insertIndex,
                                     viewRegister,
                                     "Lapp/revanced/integrations/youtube/patches/components/AdsFilter;",
-                                    "hideAdAttributionView",
+                                    "hideAdAttributionView"
                                 )
                         }
                     }

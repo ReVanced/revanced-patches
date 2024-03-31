@@ -9,7 +9,8 @@ internal object ABUriParserFingerprint : MethodFingerprint(
     returnType = "Ljava/lang/Object",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Ljava/lang/Object"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.RETURN_OBJECT,
         Opcode.CHECK_CAST,
         Opcode.INVOKE_VIRTUAL,
@@ -20,10 +21,10 @@ internal object ABUriParserFingerprint : MethodFingerprint(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.RETURN_OBJECT,
-        Opcode.CHECK_CAST,
+        Opcode.CHECK_CAST
     ),
     customFingerprint = { methodDef, classDef ->
         // This method is always called "a" because this kind of class always has a single method.
         methodDef.name == "a" && classDef.methods.count() == 3
-    },
+    }
 )

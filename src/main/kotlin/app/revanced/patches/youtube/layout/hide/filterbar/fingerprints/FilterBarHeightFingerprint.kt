@@ -9,11 +9,12 @@ import com.android.tools.smali.dexlib2.Opcode
 internal object FilterBarHeightFingerprint : LiteralValueFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.CONST,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
-        Opcode.IPUT,
+        Opcode.IPUT
     ),
-    literalSupplier = { HideFilterBarResourcePatch.filterBarHeightId },
+    literalSupplier = { HideFilterBarResourcePatch.filterBarHeightId }
 )

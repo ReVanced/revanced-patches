@@ -9,8 +9,9 @@ import com.android.tools.smali.dexlib2.Opcode
 internal object TimelineFilterIntegrationFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("/TimelineFilterPatch;") },
     strings = listOf("BLOCKED_OBJECT_DUMMY"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.CONST_STRING, // "BLOCKED_OBJECT_DUMMY"
-        Opcode.INVOKE_VIRTUAL, // HashSet.add(^)
-    ),
+        Opcode.INVOKE_VIRTUAL // HashSet.add(^)
+    )
 )

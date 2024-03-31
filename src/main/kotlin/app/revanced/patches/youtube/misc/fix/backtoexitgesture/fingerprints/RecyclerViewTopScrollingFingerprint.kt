@@ -25,6 +25,6 @@ internal object RecyclerViewTopScrollingFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.GOTO,
         Opcode.IGET_OBJECT,
-        Opcode.INVOKE_INTERFACE,
-    ),
+        Opcode.INVOKE_INTERFACE
+    )
 )

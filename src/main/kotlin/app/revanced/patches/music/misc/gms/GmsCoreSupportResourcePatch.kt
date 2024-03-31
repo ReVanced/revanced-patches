@@ -7,5 +7,5 @@ import app.revanced.patches.shared.misc.gms.BaseGmsCoreSupportResourcePatch
 object GmsCoreSupportResourcePatch : BaseGmsCoreSupportResourcePatch(
     fromPackageName = MUSIC_PACKAGE_NAME,
     toPackageName = REVANCED_MUSIC_PACKAGE_NAME,
-    spoofedPackageSignature = "afb0fed5eeaebdd86f56a97742f4b6b33ef59875",
+    spoofedPackageSignature = "afb0fed5eeaebdd86f56a97742f4b6b33ef59875"
 )

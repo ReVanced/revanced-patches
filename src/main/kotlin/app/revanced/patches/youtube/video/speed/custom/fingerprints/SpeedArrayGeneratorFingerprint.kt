@@ -9,13 +9,14 @@ internal object SpeedArrayGeneratorFingerprint : MethodFingerprint(
     returnType = "[L",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.IF_NEZ,
         Opcode.SGET_OBJECT,
         Opcode.GOTO_16,
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IGET_OBJECT,
+        Opcode.IGET_OBJECT
     ),
-    strings = listOf("0.0#"),
+    strings = listOf("0.0#")
 )

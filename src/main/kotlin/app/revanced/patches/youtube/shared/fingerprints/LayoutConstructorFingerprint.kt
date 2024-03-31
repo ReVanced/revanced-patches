@@ -8,5 +8,5 @@ internal object LayoutConstructorFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = emptyList(),
-    strings = listOf("1.0x"),
+    strings = listOf("1.0x")
 )

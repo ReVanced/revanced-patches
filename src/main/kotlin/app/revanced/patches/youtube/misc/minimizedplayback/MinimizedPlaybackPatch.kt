@@ -86,8 +86,9 @@ object MinimizedPlaybackPatch : BytecodePatch(
             MinimizedPlaybackSettingsParentFingerprint.result!!.classDef
         )
         MinimizedPlaybackSettingsFingerprint.result?.apply {
-            val booleanCalls = method.implementation!!.instructions.withIndex()
-                .filter { ((it.value as? ReferenceInstruction)?.reference as? MethodReference)?.returnType == "Z" }
+            val booleanCalls =
+                method.implementation!!.instructions.withIndex()
+                    .filter { ((it.value as? ReferenceInstruction)?.reference as? MethodReference)?.returnType == "Z" }
 
             val settingsBooleanIndex = booleanCalls.elementAt(1).index
             val settingsBooleanMethod =

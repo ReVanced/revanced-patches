@@ -8,5 +8,5 @@ internal object MessageDigestImageUrlParentFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "Ljava/lang/String;",
     parameters = listOf(),
-    strings = listOf("@#&=*+-_.,:!?()/~'%;\$"),
+    strings = listOf("@#&=*+-_.,:!?()/~'%;\$")
 )

@@ -8,12 +8,12 @@ import app.revanced.util.returnEarly
 
 abstract class BaseDisableAdsPatch(
     dependencies: Set<PatchClass> = emptySet(),
-    compatiblePackages: Set<CompatiblePackage>,
+    compatiblePackages: Set<CompatiblePackage>
 ) : BytecodePatch(
     name = "Disable ads",
     dependencies = dependencies,
     compatiblePackages = compatiblePackages,
-    fingerprints = setOf(IsAdsEnabledFingerprint),
+    fingerprints = setOf(IsAdsEnabledFingerprint)
 ) {
     override fun execute(context: BytecodeContext) = listOf(IsAdsEnabledFingerprint).returnEarly()
 }

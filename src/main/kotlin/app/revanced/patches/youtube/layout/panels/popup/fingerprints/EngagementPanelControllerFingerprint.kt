@@ -7,8 +7,9 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal object EngagementPanelControllerFingerprint : MethodFingerprint(
     returnType = "L",
     accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
-    strings = listOf(
+    strings =
+    listOf(
         "EngagementPanelController: cannot show EngagementPanel before EngagementPanelController.init() has been called.",
-        "[EngagementPanel] Cannot show EngagementPanel before EngagementPanelController.init() has been called.",
-    ),
+        "[EngagementPanel] Cannot show EngagementPanel before EngagementPanelController.init() has been called."
+    )
 )

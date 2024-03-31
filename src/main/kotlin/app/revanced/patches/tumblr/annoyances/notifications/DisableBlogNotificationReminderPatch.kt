@@ -11,11 +11,11 @@ import app.revanced.util.exception
 @Patch(
     name = "Disable blog notification reminder",
     description = "Disables the reminder to enable notifications for blogs you visit.",
-    compatiblePackages = [CompatiblePackage("com.tumblr")],
+    compatiblePackages = [CompatiblePackage("com.tumblr")]
 )
 @Suppress("unused")
 object DisableBlogNotificationReminderPatch : BytecodePatch(
-    setOf(IsBlogNotifyEnabledFingerprint),
+    setOf(IsBlogNotifyEnabledFingerprint)
 ) {
     override fun execute(context: BytecodeContext) =
         IsBlogNotifyEnabledFingerprint.result?.mutableMethod?.addInstructions(
@@ -24,6 +24,6 @@ object DisableBlogNotificationReminderPatch : BytecodePatch(
                 # Return false for BlogNotifyCtaDialog.isEnabled() method.
                 const/4 v0, 0x0
                 return v0
-            """,
+            """
         ) ?: throw IsBlogNotifyEnabledFingerprint.exception
 }

@@ -17,30 +17,33 @@ internal object FixBackToExitGesturePatch : BytecodePatch(
     setOf(
         RecyclerViewTopScrollingParentFingerprint,
         RecyclerViewScrollingFingerprint,
-        OnBackPressedFingerprint,
-    ),
+        OnBackPressedFingerprint
+    )
 ) {
     override fun execute(context: BytecodeContext) {
         RecyclerViewTopScrollingFingerprint.apply {
             resolve(
                 context,
                 RecyclerViewTopScrollingParentFingerprint.result?.classDef
-                    ?: throw RecyclerViewTopScrollingParentFingerprint.exception,
+                    ?: throw RecyclerViewTopScrollingParentFingerprint.exception
             )
         }
 
         mapOf(
-            RecyclerViewTopScrollingFingerprint to IntegrationsMethod(
-                methodName = "onTopView",
-            ),
-            RecyclerViewScrollingFingerprint to IntegrationsMethod(
-                methodName = "onScrollingViews",
-            ),
-            OnBackPressedFingerprint to IntegrationsMethod(
-                "p0",
-                "onBackPressed",
-                "Landroid/app/Activity;",
-            ),
+            RecyclerViewTopScrollingFingerprint to
+                IntegrationsMethod(
+                    methodName = "onTopView"
+                ),
+            RecyclerViewScrollingFingerprint to
+                IntegrationsMethod(
+                    methodName = "onScrollingViews"
+                ),
+            OnBackPressedFingerprint to
+                IntegrationsMethod(
+                    "p0",
+                    "onBackPressed",
+                    "Landroid/app/Activity;"
+                )
         ).forEach { (fingerprint, target) -> fingerprint.injectCall(target) }
     }
 
@@ -49,12 +52,13 @@ internal object FixBackToExitGesturePatch : BytecodePatch(
      *
      * @param targetMethod The target method to call.
      */
-    private fun MethodFingerprint.injectCall(targetMethod: IntegrationsMethod) = result?.apply {
-        mutableMethod.addInstruction(
-            scanResult.patternScanResult!!.endIndex,
-            targetMethod.toString(),
-        )
-    } ?: throw this.exception
+    private fun MethodFingerprint.injectCall(targetMethod: IntegrationsMethod) =
+        result?.apply {
+            mutableMethod.addInstruction(
+                scanResult.patternScanResult!!.endIndex,
+                targetMethod.toString()
+            )
+        } ?: throw this.exception
 
     /**
      * A reference to a method from the integrations for [FixBackToExitGesturePatch].
@@ -66,7 +70,7 @@ internal object FixBackToExitGesturePatch : BytecodePatch(
     internal data class IntegrationsMethod(
         val register: String = "",
         val methodName: String,
-        val parameterTypes: String = "",
+        val parameterTypes: String = ""
     ) {
         override fun toString() =
             "invoke-static {$register}, Lapp/revanced/integrations/youtube/patches/FixBackToExitGesturePatch;->$methodName($parameterTypes)V"

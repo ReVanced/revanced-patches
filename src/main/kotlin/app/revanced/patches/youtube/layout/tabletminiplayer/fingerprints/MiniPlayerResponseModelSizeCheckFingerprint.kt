@@ -15,6 +15,6 @@ internal object MiniPlayerResponseModelSizeCheckFingerprint : MethodFingerprint(
         Opcode.CHECK_CAST,
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT,
-        Opcode.IF_NEZ,
-    ),
+        Opcode.IF_NEZ
+    )
 )

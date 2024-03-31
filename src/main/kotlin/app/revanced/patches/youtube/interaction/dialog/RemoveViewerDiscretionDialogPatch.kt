@@ -16,12 +16,14 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch(
     name = "Remove viewer discretion dialog",
-    description = "Adds an option to remove the dialog that appears when opening a video that has been age-restricted " +
-            "by accepting it automatically. This does not bypass the age restriction.",
+    description =
+    "Adds an option to remove the dialog that appears when opening a video that has been age-restricted " +
+        "by accepting it automatically. This does not bypass the age restriction.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube",
+            [
                 "18.32.39",
                 "18.37.36",
                 "18.38.44",
@@ -49,7 +51,7 @@ object RemoveViewerDiscretionDialogPatch : BytecodePatch(
 ) {
     private const val INTEGRATIONS_METHOD_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/RemoveViewerDiscretionDialogPatch;->" +
-                "confirmDialog(Landroid/app/AlertDialog;)V"
+            "confirmDialog(Landroid/app/AlertDialog;)V"
 
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
@@ -64,7 +66,7 @@ object RemoveViewerDiscretionDialogPatch : BytecodePatch(
 
             replaceInstructions(
                 showDialogIndex,
-                "invoke-static { v$dialogRegister }, $INTEGRATIONS_METHOD_DESCRIPTOR",
+                "invoke-static { v$dialogRegister }, $INTEGRATIONS_METHOD_DESCRIPTOR"
             )
         } ?: throw CreateDialogFingerprint.exception
     }

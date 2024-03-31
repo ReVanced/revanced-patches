@@ -27,7 +27,8 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
     dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube",
+            [
                 "18.32.39",
                 "18.37.36",
                 "18.38.44",
@@ -53,7 +54,6 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 object DisableResumingShortsOnStartupPatch : BytecodePatch(
     setOf(UserWasInShortsFingerprint)
 ) {
-
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/DisableResumingStartupShortsPlayerPatch;"
 
@@ -65,11 +65,12 @@ object DisableResumingShortsOnStartupPatch : BytecodePatch(
         )
 
         UserWasInShortsFingerprint.result?.mutableMethod?.apply {
-            val listenableInstructionIndex = indexOfFirstInstruction {
-                opcode == Opcode.INVOKE_INTERFACE &&
+            val listenableInstructionIndex =
+                indexOfFirstInstruction {
+                    opcode == Opcode.INVOKE_INTERFACE &&
                         getReference<MethodReference>()?.definingClass == "Lcom/google/common/util/concurrent/ListenableFuture;" &&
                         getReference<MethodReference>()?.name == "isDone"
-            }
+                }
             if (listenableInstructionIndex < 0) throw PatchException("Could not find instruction index")
             val originalInstructionRegister = getInstruction<FiveRegisterInstruction>(listenableInstructionIndex).registerC
             val freeRegister = getInstruction<OneRegisterInstruction>(listenableInstructionIndex + 1).registerA

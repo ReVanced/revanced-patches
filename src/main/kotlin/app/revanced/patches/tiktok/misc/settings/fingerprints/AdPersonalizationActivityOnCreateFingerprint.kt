@@ -6,5 +6,5 @@ internal object AdPersonalizationActivityOnCreateFingerprint : MethodFingerprint
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("/AdPersonalizationActivity;") &&
             methodDef.name == "onCreate"
-    },
+    }
 )

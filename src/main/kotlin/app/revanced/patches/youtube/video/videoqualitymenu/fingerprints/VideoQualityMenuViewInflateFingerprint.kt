@@ -10,7 +10,8 @@ internal object VideoQualityMenuViewInflateFingerprint : LiteralValueFingerprint
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L", "L", "L"),
     returnType = "L",
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.INVOKE_SUPER,
         Opcode.CONST,
         Opcode.CONST_4,
@@ -24,7 +25,7 @@ internal object VideoQualityMenuViewInflateFingerprint : LiteralValueFingerprint
         Opcode.CONST,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST,
+        Opcode.CHECK_CAST
     ),
-    literalSupplier = { RestoreOldVideoQualityMenuResourcePatch.videoQualityBottomSheetListFragmentTitle },
+    literalSupplier = { RestoreOldVideoQualityMenuResourcePatch.videoQualityBottomSheetListFragmentTitle }
 )

@@ -10,7 +10,8 @@ internal object KidsMinimizedPlaybackPolicyControllerFingerprint : MethodFingerp
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("I", "L", "L"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.CONST_4,
         Opcode.IF_NE,
         Opcode.SGET_OBJECT,
@@ -24,11 +25,11 @@ internal object KidsMinimizedPlaybackPolicyControllerFingerprint : MethodFingerp
         Opcode.GOTO,
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.RETURN_VOID,
+        Opcode.RETURN_VOID
     ),
     customFingerprint = { methodDef, _ ->
         methodDef.implementation!!.instructions.any {
             ((it as? NarrowLiteralInstruction)?.narrowLiteral == 5)
         }
-    },
+    }
 )

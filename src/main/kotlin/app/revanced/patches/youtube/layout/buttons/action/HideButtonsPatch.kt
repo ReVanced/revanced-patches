@@ -55,7 +55,8 @@ object HideButtonsPatch : ResourcePatch() {
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
             PreferenceScreen(
                 "revanced_hide_buttons_screen",
-                preferences = setOf(
+                preferences =
+                setOf(
                     SwitchPreference("revanced_hide_like_dislike_button"),
                     SwitchPreference("revanced_hide_share_button"),
                     SwitchPreference("revanced_hide_report_button"),
@@ -65,7 +66,7 @@ object HideButtonsPatch : ResourcePatch() {
                     SwitchPreference("revanced_hide_clip_button"),
                     SwitchPreference("revanced_hide_playlist_button"),
                     SwitchPreference("revanced_hide_shop_button")
-                ),
+                )
             )
         )
 

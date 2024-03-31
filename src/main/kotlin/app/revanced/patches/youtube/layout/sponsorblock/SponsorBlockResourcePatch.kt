@@ -18,26 +18,27 @@ import app.revanced.util.inputStreamFromBundledResource
     dependencies = [
         SettingsPatch::class,
         ResourceMappingPatch::class,
-        AddResourcesPatch::class,
-    ],
+        AddResourcesPatch::class
+    ]
 )
 internal object SponsorBlockResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(this::class)
 
-        SettingsResourcePatch += IntentPreference(
-            key = "revanced_settings_screen_10",
-            titleKey = "revanced_sb_settings_title",
-            summaryKey = null,
-            intent = SettingsPatch.newIntent("revanced_sb_settings_intent"),
-        )
+        SettingsResourcePatch +=
+            IntentPreference(
+                key = "revanced_settings_screen_10",
+                titleKey = "revanced_sb_settings_title",
+                summaryKey = null,
+                intent = SettingsPatch.newIntent("revanced_sb_settings_intent")
+            )
 
         arrayOf(
             ResourceGroup(
                 "layout",
                 "revanced_sb_inline_sponsor_overlay.xml",
                 "revanced_sb_new_segment.xml",
-                "revanced_sb_skip_sponsor_button.xml",
+                "revanced_sb_skip_sponsor_button.xml"
             ),
             ResourceGroup(
                 // required resource for back button, because when the base APK is used, this resource will not exist
@@ -47,13 +48,13 @@ internal object SponsorBlockResourcePatch : ResourcePatch() {
                 "revanced_sb_edit.xml",
                 "revanced_sb_logo.xml",
                 "revanced_sb_publish.xml",
-                "revanced_sb_voting.xml",
+                "revanced_sb_voting.xml"
             ),
             ResourceGroup(
                 // required resource for back button, because when the base APK is used, this resource will not exist
                 "drawable-xxxhdpi",
-                "quantum_ic_skip_next_white_24.png",
-            ),
+                "quantum_ic_skip_next_white_24.png"
+            )
         ).forEach { resourceGroup ->
             context.copyResources("sponsorblock", resourceGroup)
         }
@@ -63,14 +64,14 @@ internal object SponsorBlockResourcePatch : ResourcePatch() {
         val hostingResourceStream =
             inputStreamFromBundledResource(
                 "sponsorblock",
-                "host/layout/youtube_controls_layout.xml",
+                "host/layout/youtube_controls_layout.xml"
             )!!
 
         var modifiedControlsLayout = false
         val editor = context.xmlEditor["res/layout/youtube_controls_layout.xml"]
         "RelativeLayout".copyXmlNode(
             context.xmlEditor[hostingResourceStream],
-            editor,
+            editor
         ).also {
             val document = editor.file
 
@@ -84,7 +85,7 @@ internal object SponsorBlockResourcePatch : ResourcePatch() {
                 if (!(
                         view.hasAttributes() &&
                             view.attributes.getNamedItem(
-                                "android:id",
+                                "android:id"
                             ).nodeValue.endsWith("live_chat_overlay_button")
                         )
                 ) {

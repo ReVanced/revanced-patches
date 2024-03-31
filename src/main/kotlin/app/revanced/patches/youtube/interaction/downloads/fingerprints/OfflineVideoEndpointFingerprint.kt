@@ -7,10 +7,12 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal object OfflineVideoEndpointFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "V",
-    parameters = listOf(
+    parameters =
+    listOf(
         "Ljava/util/Map;",
         "L",
         "Ljava/lang/String", // VideoId
-        "L"),
+        "L"
+    ),
     strings = listOf("Object is not an offlineable video: ")
 )

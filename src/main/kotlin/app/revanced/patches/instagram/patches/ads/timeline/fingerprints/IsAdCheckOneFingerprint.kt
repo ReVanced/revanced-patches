@@ -9,10 +9,11 @@ internal object IsAdCheckOneFingerprint : MethodFingerprint(
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf(),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.XOR_INT_LIT8,
         Opcode.IF_NE,
         Opcode.RETURN,
-        Opcode.INVOKE_VIRTUAL,
-    ),
+        Opcode.INVOKE_VIRTUAL
+    )
 )

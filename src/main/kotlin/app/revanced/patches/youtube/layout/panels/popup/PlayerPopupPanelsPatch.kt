@@ -18,7 +18,8 @@ import app.revanced.util.exception
     dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube",
+            [
                 "18.32.39",
                 "18.37.36",
                 "18.38.44",
@@ -51,8 +52,9 @@ object PlayerPopupPanelsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_player_popup_panels")
         )
 
-        val engagementPanelControllerMethod = EngagementPanelControllerFingerprint
-            .result?.mutableMethod ?: throw EngagementPanelControllerFingerprint.exception
+        val engagementPanelControllerMethod =
+            EngagementPanelControllerFingerprint
+                .result?.mutableMethod ?: throw EngagementPanelControllerFingerprint.exception
 
         engagementPanelControllerMethod.addInstructionsWithLabels(
             0,

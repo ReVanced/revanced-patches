@@ -12,11 +12,11 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Pro unlock",
-    compatiblePackages = [CompatiblePackage("com.backdrops.wallpapers", ["4.52"])],
+    compatiblePackages = [CompatiblePackage("com.backdrops.wallpapers", ["4.52"])]
 )
 @Suppress("unused")
 object ProUnlockPatch : BytecodePatch(
-    setOf(ProUnlockFingerprint),
+    setOf(ProUnlockFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         ProUnlockFingerprint.result?.let { result ->
@@ -28,7 +28,7 @@ object ProUnlockPatch : BytecodePatch(
                     result.scanResult.patternScanResult!!.endIndex,
                     """
                         const/4 v$register, 0x1
-                    """,
+                    """
                 )
             }
         } ?: throw ProUnlockFingerprint.exception

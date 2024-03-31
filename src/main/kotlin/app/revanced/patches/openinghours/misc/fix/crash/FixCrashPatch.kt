@@ -18,13 +18,12 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Fix crash",
-    compatiblePackages = [CompatiblePackage("de.simon.openinghours", ["1.0"])],
+    compatiblePackages = [CompatiblePackage("de.simon.openinghours", ["1.0"])]
 )
 @Suppress("unused")
 object FixCrashPatch : BytecodePatch(
-    setOf(SetPlaceFingerprint),
+    setOf(SetPlaceFingerprint)
 ) {
-
     override fun execute(context: BytecodeContext) {
         SetPlaceFingerprint.result?.let {
             val indexedInstructions = it.mutableMethod.getInstructions().withIndex().toList()
@@ -35,7 +34,10 @@ object FixCrashPatch : BytecodePatch(
              * instruction an if-null check is inserted. If the if-null check yields that
              * the value is indeed null, we jump to a newly created label at `endIndex + 1`.
              */
-            fun avoidNullPointerException(startIndex: Int, endIndex: Int) {
+            fun avoidNullPointerException(
+                startIndex: Int,
+                endIndex: Int
+            ) {
                 val continueLabel = it.mutableMethod.newLabel(endIndex + 1)
 
                 for (index in startIndex..endIndex) {
@@ -53,29 +55,32 @@ object FixCrashPatch : BytecodePatch(
                         BuilderInstruction21t(
                             Opcode.IF_EQZ,
                             originalRegister,
-                            continueLabel,
-                        ),
+                            continueLabel
+                        )
                     )
                 }
             }
 
-            val getOpeningHoursIndex = getIndicesOfInvoke(
-                indexedInstructions,
-                "Lde/simon/openinghours/models/Place;",
-                "getOpeningHours",
-            )
+            val getOpeningHoursIndex =
+                getIndicesOfInvoke(
+                    indexedInstructions,
+                    "Lde/simon/openinghours/models/Place;",
+                    "getOpeningHours"
+                )
 
-            val setWeekDayTextIndex = getIndexOfInvoke(
-                indexedInstructions,
-                "Lde/simon/openinghours/views/custom/PlaceCard;",
-                "setWeekDayText",
-            )
+            val setWeekDayTextIndex =
+                getIndexOfInvoke(
+                    indexedInstructions,
+                    "Lde/simon/openinghours/views/custom/PlaceCard;",
+                    "setWeekDayText"
+                )
 
-            val startCalculateStatusIndex = getIndexOfInvoke(
-                indexedInstructions,
-                "Lde/simon/openinghours/views/custom/PlaceCard;",
-                "startCalculateStatus",
-            )
+            val startCalculateStatusIndex =
+                getIndexOfInvoke(
+                    indexedInstructions,
+                    "Lde/simon/openinghours/views/custom/PlaceCard;",
+                    "startCalculateStatus"
+                )
 
             // Replace the Intrinsics;->checkNotNull instructions with a null check
             // and jump to our newly created label if it returns true.
@@ -85,7 +90,11 @@ object FixCrashPatch : BytecodePatch(
         } ?: throw SetPlaceFingerprint.exception
     }
 
-    private fun isInvokeInstruction(instruction: Instruction, className: String, methodName: String): Boolean {
+    private fun isInvokeInstruction(
+        instruction: Instruction,
+        className: String,
+        methodName: String
+    ): Boolean {
         val methodRef = instruction.getReference<MethodReference>() ?: return false
         return methodRef.definingClass == className && methodRef.name == methodName
     }
@@ -93,22 +102,24 @@ object FixCrashPatch : BytecodePatch(
     private fun getIndicesOfInvoke(
         instructions: List<IndexedValue<Instruction>>,
         className: String,
-        methodName: String,
-    ): List<Int> = instructions.mapNotNull { (index, instruction) ->
-        if (isInvokeInstruction(instruction, className, methodName)) {
-            index
-        } else {
-            null
+        methodName: String
+    ): List<Int> =
+        instructions.mapNotNull { (index, instruction) ->
+            if (isInvokeInstruction(instruction, className, methodName)) {
+                index
+            } else {
+                null
+            }
         }
-    }
 
     private fun getIndexOfInvoke(
         instructions: List<IndexedValue<Instruction>>,
         className: String,
-        methodName: String,
-    ): Int = instructions.first { (_, instruction) ->
-        isInvokeInstruction(instruction, className, methodName)
-    }.index
+        methodName: String
+    ): Int =
+        instructions.first { (_, instruction) ->
+            isInvokeInstruction(instruction, className, methodName)
+        }.index
 
     private val Instruction.isCheckNotNullInstruction
         get() = isInvokeInstruction(this, "Lkotlin/jvm/internal/Intrinsics;", "checkNotNull")

@@ -11,9 +11,9 @@ import app.revanced.util.*
 import app.revanced.util.resource.ArrayResource
 import app.revanced.util.resource.BaseResource
 import app.revanced.util.resource.StringResource
-import org.w3c.dom.Node
 import java.io.Closeable
 import java.util.*
+import org.w3c.dom.Node
 
 /**
  * An identifier of an app. For example, `youtube`.
@@ -82,11 +82,11 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
                 fun addResources(
                     value: Value,
                     resourceKind: String,
-                    transform: (Node) -> BaseResource,
+                    transform: (Node) -> BaseResource
                 ) {
                     inputStreamFromBundledResource(
                         "addresources",
-                        "$value/$resourceKind.xml",
+                        "$value/$resourceKind.xml"
                     )?.let { stream ->
                         // Add the resources associated with the given value to the map,
                         // instead of overwriting it.
@@ -144,7 +144,7 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
      */
     operator fun invoke(
         value: Value,
-        resource: BaseResource,
+        resource: BaseResource
     ) = getOrPut(value, ::mutableSetOf).add(resource)
 
     /**
@@ -157,7 +157,7 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
      */
     operator fun invoke(
         value: Value,
-        resources: Iterable<BaseResource>,
+        resources: Iterable<BaseResource>
     ) = getOrPut(value, ::mutableSetOf).addAll(resources)
 
     /**
@@ -174,7 +174,7 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
         name: String,
         value: String,
         formatted: Boolean = true,
-        resourceValue: Value = "values",
+        resourceValue: Value = "values"
     ) = invoke(resourceValue, StringResource(name, value, formatted))
 
     /**
@@ -187,7 +187,7 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
      */
     operator fun invoke(
         name: String,
-        items: List<String>,
+        items: List<String>
     ) = invoke("values", ArrayResource(name, items))
 
     /**
@@ -218,7 +218,7 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
 
                 appId to patchId
             }
-        },
+        }
     ): Boolean {
         val (appId, patchId) = patch.parseIds()
 
@@ -241,7 +241,7 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
     override fun close() {
         operator fun MutableMap<String, Pair<DomFileEditor, Node>>.invoke(
             value: Value,
-            resource: BaseResource,
+            resource: BaseResource
         ) {
             // TODO: Fix open-closed principle violation by modifying BaseResource#serialize so that it accepts
             //  a Value and the map of documents. It will then get or put the document suitable for its resource type

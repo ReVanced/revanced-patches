@@ -11,7 +11,7 @@ import app.revanced.util.exception
 @Patch(
     name = "Disable screenshot popup",
     description = "Disables the popup that shows up when taking a screenshot.",
-    compatiblePackages = [CompatiblePackage("com.reddit.frontpage")],
+    compatiblePackages = [CompatiblePackage("com.reddit.frontpage")]
 )
 @Suppress("unused")
 object DisableScreenshotPopupPatch : BytecodePatch(setOf(DisableScreenshotPopupFingerprint)) {

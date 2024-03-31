@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.misc.litho.filter
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -15,6 +14,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.*
+import app.revanced.util.exception
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.Opcode
@@ -23,7 +23,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import java.io.Closeable
 
 @Patch(
@@ -31,9 +30,11 @@ import java.io.Closeable
     dependencies = [IntegrationsPatch::class]
 )
 @Suppress("unused")
-object LithoFilterPatch : BytecodePatch(
-    setOf(ComponentContextParserFingerprint, LithoFilterFingerprint, ProtobufBufferReferenceFingerprint)
-), Closeable {
+object LithoFilterPatch :
+    BytecodePatch(
+        setOf(ComponentContextParserFingerprint, LithoFilterFingerprint, ProtobufBufferReferenceFingerprint)
+    ),
+    Closeable {
     private val MethodFingerprint.patternScanResult
         get() = result!!.scanResult.patternScanResult!!
 
@@ -96,8 +97,10 @@ object LithoFilterPatch : BytecodePatch(
             // region Pass the buffer into Integrations.
 
             ProtobufBufferReferenceFingerprint.result
-                ?.mutableMethod?.addInstruction(0,
-                    " invoke-static { p2 }, $INTEGRATIONS_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V")
+                ?.mutableMethod?.addInstruction(
+                    0,
+                    " invoke-static { p2 }, $INTEGRATIONS_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V"
+                )
                 ?: throw ProtobufBufferReferenceFingerprint.exception
 
             // endregion
@@ -108,10 +111,11 @@ object LithoFilterPatch : BytecodePatch(
             val emptyComponentFieldIndex = builderMethodIndex + 2
 
             bytesToComponentContextMethod.mutableMethod.apply {
-                val insertHookIndex = indexOfFirstInstruction {
-                    opcode == Opcode.IPUT_OBJECT &&
+                val insertHookIndex =
+                    indexOfFirstInstruction {
+                        opcode == Opcode.IPUT_OBJECT &&
                             getReference<FieldReference>()?.type == "Ljava/lang/StringBuilder;"
-                } + 1
+                    } + 1
                 if (insertHookIndex <= 0) throw PatchException("Could not find insert index")
 
                 // region Get free registers that this patch uses.
@@ -187,6 +191,7 @@ object LithoFilterPatch : BytecodePatch(
         } ?: throw LithoFilterFingerprint.exception
     }
 
-    override fun close() = LithoFilterFingerprint.result!!
-        .mutableMethod.replaceInstruction(0, "const/16 v0, $filterCount")
+    override fun close() =
+        LithoFilterFingerprint.result!!
+            .mutableMethod.replaceInstruction(0, "const/16 v0, $filterCount")
 }

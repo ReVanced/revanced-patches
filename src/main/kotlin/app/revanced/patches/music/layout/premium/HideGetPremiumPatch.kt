@@ -14,11 +14,11 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 @Patch(
     name = "Hide 'Get Music Premium' label",
     description = "Hides the red \"Get Music Premium\" label from the account menu.",
-    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
 object HideGetPremiumPatch : BytecodePatch(
-    setOf(HideGetPremiumFingerprint),
+    setOf(HideGetPremiumFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         HideGetPremiumFingerprint.result?.let {
@@ -31,13 +31,13 @@ object HideGetPremiumPatch : BytecodePatch(
 
                 replaceInstruction(
                     insertIndex,
-                    "const/16 v$visibilityRegister, 0x8",
+                    "const/16 v$visibilityRegister, 0x8"
                 )
 
                 addInstruction(
                     insertIndex + 1,
                     "invoke-virtual {v$getPremiumViewRegister, v$visibilityRegister}, " +
-                        "Landroid/view/View;->setVisibility(I)V",
+                        "Landroid/view/View;->setVisibility(I)V"
                 )
             }
         } ?: throw HideGetPremiumFingerprint.exception

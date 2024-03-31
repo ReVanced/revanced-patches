@@ -6,5 +6,5 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 internal object TextComponentConstructorFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.CONSTRUCTOR or AccessFlags.PRIVATE,
-    strings = listOf("TextComponent"),
+    strings = listOf("TextComponent")
 )

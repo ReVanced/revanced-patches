@@ -12,7 +12,7 @@ import org.w3c.dom.Element
 @Suppress("MemberVisibilityCanBePrivate")
 abstract class BaseResource(
     val name: String,
-    val tag: String,
+    val tag: String
 ) {
     /**
      * Serialize resource element to XML.
@@ -20,7 +20,10 @@ abstract class BaseResource(
      * @param ownerDocument Target document to create elements from.
      * @param resourceCallback Called when a resource has been processed.
      */
-    open fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit = { }): Element {
+    open fun serialize(
+        ownerDocument: Document,
+        resourceCallback: (BaseResource) -> Unit = { }
+    ): Element {
         return ownerDocument.createElement(tag).apply {
             setAttribute("name", name)
         }

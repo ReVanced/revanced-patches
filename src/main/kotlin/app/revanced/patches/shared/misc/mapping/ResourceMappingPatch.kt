@@ -2,10 +2,10 @@ package app.revanced.patches.shared.misc.mapping
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
-import org.w3c.dom.Element
 import java.util.*
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
+import org.w3c.dom.Element
 
 object ResourceMappingPatch : ResourcePatch() {
     internal lateinit var resourceMappings: List<ResourceElement>

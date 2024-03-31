@@ -11,11 +11,11 @@ import app.revanced.util.exception
 @Patch(
     name = "Disable gift message popup",
     description = "Disables the popup suggesting to buy TumblrMart items for other people.",
-    compatiblePackages = [CompatiblePackage("com.tumblr")],
+    compatiblePackages = [CompatiblePackage("com.tumblr")]
 )
 @Suppress("unused")
 object DisableGiftMessagePopupPatch : BytecodePatch(
-    setOf(ShowGiftMessagePopupFingerprint),
+    setOf(ShowGiftMessagePopupFingerprint)
 ) {
     override fun execute(context: BytecodeContext) =
         ShowGiftMessagePopupFingerprint.result?.mutableMethod?.addInstructions(0, "return-void")

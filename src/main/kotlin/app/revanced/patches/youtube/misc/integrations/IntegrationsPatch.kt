@@ -13,6 +13,6 @@ object IntegrationsPatch : BaseIntegrationsPatch(
         RemoteEmbedFragmentFingerprint,
         EmbeddedPlayerControlsOverlayFingerprint,
         EmbeddedPlayerFingerprint,
-        APIPlayerServiceFingerprint,
-    ),
+        APIPlayerServiceFingerprint
+    )
 )

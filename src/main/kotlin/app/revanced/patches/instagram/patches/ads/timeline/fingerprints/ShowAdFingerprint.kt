@@ -9,13 +9,14 @@ internal object ShowAdFingerprint : MethodFingerprint(
     "Z",
     AccessFlags.PUBLIC or AccessFlags.STATIC or AccessFlags.FINAL,
     listOf("L", "L", "Z", "Z"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.SGET_OBJECT,
         Opcode.IF_NE,
         Opcode.IF_NEZ,
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT,
         Opcode.IF_NEZ,
-        Opcode.RETURN,
-    ),
+        Opcode.RETURN
+    )
 )

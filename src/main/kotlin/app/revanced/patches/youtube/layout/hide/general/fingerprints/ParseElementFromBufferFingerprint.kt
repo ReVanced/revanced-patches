@@ -6,5 +6,5 @@ import com.android.tools.smali.dexlib2.Opcode
 internal object ParseElementFromBufferFingerprint : MethodFingerprint(
     parameters = listOf("L", "L", "[B", "L", "L"),
     opcodes = listOf(Opcode.INVOKE_INTERFACE, Opcode.MOVE_RESULT_OBJECT),
-    strings = listOf("Failed to parse Element"),
+    strings = listOf("Failed to parse Element")
 )

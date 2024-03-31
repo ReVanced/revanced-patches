@@ -6,5 +6,5 @@ internal object AddSettingsEntryFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("/SettingNewVersionFragment;") &&
             methodDef.name == "initUnitManger"
-    },
+    }
 )

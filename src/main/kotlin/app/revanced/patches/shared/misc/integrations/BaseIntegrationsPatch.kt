@@ -11,23 +11,22 @@ import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 
 abstract class BaseIntegrationsPatch(
-    private val hooks: Set<IntegrationsFingerprint>,
+    private val hooks: Set<IntegrationsFingerprint>
 ) : BytecodePatch(hooks) {
-
     @Deprecated(
         "Use the constructor without the integrationsDescriptor parameter",
-        ReplaceWith("BaseIntegrationsPatch(hooks)"),
+        ReplaceWith("BaseIntegrationsPatch(hooks)")
     )
     @Suppress("UNUSED_PARAMETER")
     constructor(
         integrationsDescriptor: String,
-        hooks: Set<IntegrationsFingerprint>,
+        hooks: Set<IntegrationsFingerprint>
     ) : this(hooks)
 
     override fun execute(context: BytecodeContext) {
         if (context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR) == null) {
             throw PatchException(
-                "Integrations have not been merged yet. This patch can not succeed without merging the integrations.",
+                "Integrations have not been merged yet. This patch can not succeed without merging the integrations."
             )
         }
 
@@ -57,11 +56,13 @@ abstract class BaseIntegrationsPatch(
         parameters,
         opcodes,
         strings,
-        customFingerprint,
+        customFingerprint
     ) {
-        @Deprecated("Previous constructor that is missing the insert index." +
+        @Deprecated(
+            "Previous constructor that is missing the insert index." +
                 "Here only for binary compatibility, " +
-                "and this can be removed after the next major version update.")
+                "and this can be removed after the next major version update."
+        )
         constructor(
             returnType: String? = null,
             accessFlags: Int? = null,
@@ -89,7 +90,7 @@ abstract class BaseIntegrationsPatch(
                 method.addInstruction(
                     insertIndex,
                     "invoke-static/range { v$contextRegister .. v$contextRegister }, " +
-                        "$integrationsDescriptor->setContext(Landroid/content/Context;)V",
+                        "$integrationsDescriptor->setContext(Landroid/content/Context;)V"
                 )
             } ?: throw PatchException("Could not find hook target fingerprint.")
         }

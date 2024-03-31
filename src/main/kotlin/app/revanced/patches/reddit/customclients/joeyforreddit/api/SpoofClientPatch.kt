@@ -11,12 +11,13 @@ import app.revanced.patches.reddit.customclients.joeyforreddit.detection.piracy.
 object SpoofClientPatch : BaseSpoofClientPatch(
     redirectUri = "https://127.0.0.1:65023/authorize_callback",
     clientIdFingerprints = setOf(GetClientIdFingerprint),
-    compatiblePackages = setOf(
+    compatiblePackages =
+    setOf(
         CompatiblePackage("o.o.joey"),
         CompatiblePackage("o.o.joey.pro"),
-        CompatiblePackage("o.o.joey.dev"),
+        CompatiblePackage("o.o.joey.dev")
     ),
-    dependencies = setOf(DisablePiracyDetectionPatch::class),
+    dependencies = setOf(DisablePiracyDetectionPatch::class)
 ) {
     override fun Set<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
         first().mutableMethod.addInstructions(
@@ -24,7 +25,7 @@ object SpoofClientPatch : BaseSpoofClientPatch(
             """
                 const-string v0, "$clientId"
                 return-object v0
-            """,
+            """
         )
     }
 }

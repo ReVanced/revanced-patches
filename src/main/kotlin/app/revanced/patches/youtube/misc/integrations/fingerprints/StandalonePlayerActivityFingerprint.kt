@@ -18,6 +18,6 @@ internal object StandalonePlayerActivityFingerprint : IntegrationsFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass == "Lcom/google/android/youtube/api/StandalonePlayerActivity;" &&
             methodDef.name == "onCreate"
-    },
+    }
     // Integrations context is the Activity itself.
 )

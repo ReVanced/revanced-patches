@@ -6,5 +6,5 @@ internal object MandatoryLoginServiceFingerprint2 : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("/MandatoryLoginService;") &&
             methodDef.name == "shouldShowForcedLogin"
-    },
+    }
 )

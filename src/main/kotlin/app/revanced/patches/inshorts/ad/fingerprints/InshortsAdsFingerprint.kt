@@ -4,5 +4,5 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 
 internal object InshortsAdsFingerprint : MethodFingerprint(
     "V",
-    strings = listOf("GoogleAdLoader", "exception in requestAd"),
+    strings = listOf("GoogleAdLoader", "exception in requestAd")
 )

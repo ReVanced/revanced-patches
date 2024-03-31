@@ -10,7 +10,7 @@ import app.revanced.patches.tumblr.featureflags.OverrideFeatureFlagsPatch
     name = "Disable in-app update",
     description = "Disables the in-app update check and update prompt.",
     dependencies = [OverrideFeatureFlagsPatch::class],
-    compatiblePackages = [CompatiblePackage("com.tumblr")],
+    compatiblePackages = [CompatiblePackage("com.tumblr")]
 )
 @Suppress("unused")
 object DisableInAppUpdatePatch : BytecodePatch(emptySet()) {

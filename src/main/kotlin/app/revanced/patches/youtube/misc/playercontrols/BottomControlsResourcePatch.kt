@@ -24,8 +24,9 @@ object BottomControlsResourcePatch : ResourcePatch(), Closeable {
         resourceContext = context
         targetDocumentEditor = context.xmlEditor[TARGET_RESOURCE]
 
-        bottomUiContainerResourceId = ResourceMappingPatch.resourceMappings
-            .single { it.type == "id" && it.name == "bottom_ui_container_stub" }.id
+        bottomUiContainerResourceId =
+            ResourceMappingPatch.resourceMappings
+                .single { it.type == "id" && it.name == "bottom_ui_container_stub" }.id
     }
 
     /**
@@ -34,11 +35,12 @@ object BottomControlsResourcePatch : ResourcePatch(), Closeable {
      * @param resourceDirectoryName The name of the directory containing the hosting resource.
      */
     fun addControls(resourceDirectoryName: String) {
-        val sourceDocumentEditor = resourceContext.xmlEditor[
-            this::class.java.classLoader.getResourceAsStream(
-                "$resourceDirectoryName/host/layout/$TARGET_RESOURCE_NAME",
-            )!!,
-        ]
+        val sourceDocumentEditor =
+            resourceContext.xmlEditor[
+                this::class.java.classLoader.getResourceAsStream(
+                    "$resourceDirectoryName/host/layout/$TARGET_RESOURCE_NAME"
+                )!!
+            ]
         val sourceDocument = sourceDocumentEditor.file
         val targetDocument = targetDocumentEditor.file
 

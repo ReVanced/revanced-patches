@@ -4,7 +4,8 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
 internal object VideoLengthFingerprint : MethodFingerprint(
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.MOVE_RESULT_WIDE,
         Opcode.CMP_LONG,
         Opcode.IF_LEZ,
@@ -16,6 +17,6 @@ internal object VideoLengthFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_WIDE,
         Opcode.CONST_4,
-        Opcode.INVOKE_VIRTUAL,
-    ),
+        Opcode.INVOKE_VIRTUAL
+    )
 )

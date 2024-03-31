@@ -50,11 +50,12 @@ import com.android.tools.smali.dexlib2.iface.reference.TypeReference
         LithoFilterPatch::class,
         VideoIdPatch::class,
         ReturnYouTubeDislikeResourcePatch::class,
-        PlayerTypeHookPatch::class,
+        PlayerTypeHookPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube",
+            [
                 "18.49.37",
                 "19.01.34",
                 "19.02.39",
@@ -132,18 +133,20 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
         TextComponentConstructorFingerprint.result?.let { textConstructorResult ->
             // Find the field name of the conversion context.
             val conversionContextClassType = ConversionContextFingerprint.resultOrThrow().classDef.type
-            val conversionContextField = textConstructorResult.classDef.fields.find {
-                it.type == conversionContextClassType
-            } ?: throw PatchException("Could not find conversion context field")
+            val conversionContextField =
+                textConstructorResult.classDef.fields.find {
+                    it.type == conversionContextClassType
+                } ?: throw PatchException("Could not find conversion context field")
 
             TextComponentLookupFingerprint.resolve(context, textConstructorResult.classDef)
             TextComponentLookupFingerprint.resultOrThrow().mutableMethod.apply {
                 // Find the instruction for creating the text data object.
                 val textDataClassType = TextComponentDataFingerprint.resultOrThrow().classDef.type
-                val insertIndex = indexOfFirstInstruction {
-                    opcode == Opcode.NEW_INSTANCE &&
+                val insertIndex =
+                    indexOfFirstInstruction {
+                        opcode == Opcode.NEW_INSTANCE &&
                             getReference<TypeReference>()?.type == textDataClassType
-                }
+                    }
                 if (insertIndex < 0) throw PatchException("Could not find data creation instruction")
                 val tempRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
@@ -151,12 +154,13 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                 // The instruction is only a few lines after the creation of the instance.
                 // The method has multiple iput-object instructions using a CharSequence,
                 // so verify the found instruction is in the expected location.
-                val putFieldInstruction = implementation!!.instructions
-                    .subList(insertIndex, insertIndex + 20)
-                    .find {
-                        it.opcode == Opcode.IPUT_OBJECT &&
+                val putFieldInstruction =
+                    implementation!!.instructions
+                        .subList(insertIndex, insertIndex + 20)
+                        .find {
+                            it.opcode == Opcode.IPUT_OBJECT &&
                                 it.getReference<FieldReference>()?.type == "Ljava/lang/CharSequence;"
-                    } ?: throw PatchException("Could not find put object instruction")
+                        } ?: throw PatchException("Could not find put object instruction")
                 val charSequenceRegister = (putFieldInstruction as TwoRegisterInstruction).registerA
 
                 addInstructions(
@@ -241,7 +245,6 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
         } ?: throw DislikesOldLayoutTextViewFingerprint.exception
 
         // endregion
-
 
         // region Hook rolling numbers.
 
@@ -333,9 +336,10 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                 realTimeUpdateTextViewMethod
             ).forEach { insertMethod ->
                 insertMethod.apply {
-                    val setTextIndex = indexOfFirstInstruction {
-                        getReference<MethodReference>()?.name == "setText"
-                    }
+                    val setTextIndex =
+                        indexOfFirstInstruction {
+                            getReference<MethodReference>()?.name == "setText"
+                        }
 
                     val textViewRegister =
                         getInstruction<FiveRegisterInstruction>(setTextIndex).registerC
@@ -354,11 +358,12 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
         } ?: throw RollingNumberTextViewFingerprint.exception
 
         // endregion
-
     }
 
     private fun MethodFingerprint.toPatch(voteKind: Vote) = VotePatch(this, voteKind)
+
     private data class VotePatch(val fingerprint: MethodFingerprint, val voteKind: Vote)
+
     private enum class Vote(val value: Int) {
         LIKE(1),
         DISLIKE(-1),

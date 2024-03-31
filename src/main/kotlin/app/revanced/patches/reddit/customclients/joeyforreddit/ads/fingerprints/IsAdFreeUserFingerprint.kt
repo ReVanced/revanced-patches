@@ -6,5 +6,5 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal object IsAdFreeUserFingerprint : MethodFingerprint(
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC.value,
-    strings = listOf("AD_FREE_USER"),
+    strings = listOf("AD_FREE_USER")
 )

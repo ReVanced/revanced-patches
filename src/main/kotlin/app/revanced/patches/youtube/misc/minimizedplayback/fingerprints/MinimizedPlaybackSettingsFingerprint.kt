@@ -9,7 +9,8 @@ internal object MinimizedPlaybackSettingsFingerprint : MethodFingerprint(
     returnType = "Ljava/lang/String;",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf(),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
         Opcode.INVOKE_VIRTUAL,
@@ -18,6 +19,6 @@ internal object MinimizedPlaybackSettingsFingerprint : MethodFingerprint(
         Opcode.IF_NEZ,
         Opcode.GOTO,
         Opcode.IGET_OBJECT,
-        Opcode.CHECK_CAST,
-    ),
+        Opcode.CHECK_CAST
+    )
 )

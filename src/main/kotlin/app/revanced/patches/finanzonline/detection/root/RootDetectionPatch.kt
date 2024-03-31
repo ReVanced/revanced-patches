@@ -11,11 +11,11 @@ import app.revanced.util.exception
 @Patch(
     name = "Remove root detection",
     description = "Removes the check for root permissions.",
-    compatiblePackages = [CompatiblePackage("at.gv.bmf.bmf2go")],
+    compatiblePackages = [CompatiblePackage("at.gv.bmf.bmf2go")]
 )
 @Suppress("unused")
 object RootDetectionPatch : BytecodePatch(
-    setOf(RootDetectionFingerprint),
+    setOf(RootDetectionFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         RootDetectionFingerprint.result?.mutableMethod?.addInstructions(
@@ -23,7 +23,7 @@ object RootDetectionPatch : BytecodePatch(
             """
                 sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
                 return-object v0
-            """,
+            """
         ) ?: throw RootDetectionFingerprint.exception
     }
 }

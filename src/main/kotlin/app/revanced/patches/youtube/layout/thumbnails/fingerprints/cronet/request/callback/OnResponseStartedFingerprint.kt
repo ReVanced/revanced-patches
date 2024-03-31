@@ -9,13 +9,14 @@ internal object OnResponseStartedFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Lorg/chromium/net/UrlRequest;", "Lorg/chromium/net/UrlResponseInfo;"),
-    strings = listOf(
+    strings =
+    listOf(
         "Content-Length",
         "Content-Type",
         "identity",
-        "application/x-protobuf",
+        "application/x-protobuf"
     ),
     customFingerprint = { methodDef, _ ->
         methodDef.name == "onResponseStarted"
-    },
+    }
 )

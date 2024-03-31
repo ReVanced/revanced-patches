@@ -26,9 +26,9 @@ import app.revanced.patches.youtube.video.speed.remember.RememberPlaybackSpeedPa
                 "19.07.40",
                 "19.08.36",
                 "19.09.37"
-            ],
-        ),
-    ],
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object PlaybackSpeedPatch : BytecodePatch(emptySet()) {

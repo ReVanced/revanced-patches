@@ -11,5 +11,5 @@ internal object BrightnessFingerprint : MethodFingerprint(
         method.name == "run" &&
             method.definingClass.contains("/ScreenPlugin\$") &&
             classDef.fields.any { it.type == "Ljava/lang/Float;" }
-    },
+    }
 )

@@ -9,7 +9,8 @@ internal object GetFormFactorFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     returnType = "L",
     parameters = listOf("Landroid/content/Context;", "Ljava/util/List;"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.SGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
@@ -20,6 +21,6 @@ internal object GetFormFactorFingerprint : MethodFingerprint(
         Opcode.RETURN_OBJECT,
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,
-        Opcode.RETURN_OBJECT,
-    ),
+        Opcode.RETURN_OBJECT
+    )
 )

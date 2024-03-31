@@ -18,6 +18,6 @@ internal object BackgroundPlaybackDisableFingerprint : MethodFingerprint(
         Opcode.IGET_OBJECT,
         Opcode.IF_NEZ,
         Opcode.SGET_OBJECT,
-        Opcode.IGET,
-    ),
+        Opcode.IGET
+    )
 )

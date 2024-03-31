@@ -51,10 +51,10 @@ object RestoreOldVideoQualityMenuPatch : BytecodePatch(
     setOf(VideoQualityMenuViewInflateFingerprint)
 ) {
     private const val FILTER_CLASS_DESCRIPTOR =
-            "Lapp/revanced/integrations/youtube/patches/components/VideoQualityMenuFilterPatch;"
+        "Lapp/revanced/integrations/youtube/patches/components/VideoQualityMenuFilterPatch;"
 
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-            "Lapp/revanced/integrations/youtube/patches/playback/quality/RestoreOldVideoQualityMenuPatch;"
+        "Lapp/revanced/integrations/youtube/patches/playback/quality/RestoreOldVideoQualityMenuPatch;"
 
     override fun execute(context: BytecodeContext) {
         // region Patch for the old type of the video quality menu.
@@ -68,8 +68,8 @@ object RestoreOldVideoQualityMenuPatch : BytecodePatch(
                 addInstruction(
                     checkCastIndex + 1,
                     "invoke-static { v$listViewRegister }, " +
-                            "$INTEGRATIONS_CLASS_DESCRIPTOR->" +
-                            "showOldVideoQualityMenu(Landroid/widget/ListView;)V"
+                        "$INTEGRATIONS_CLASS_DESCRIPTOR->" +
+                        "showOldVideoQualityMenu(Landroid/widget/ListView;)V"
                 )
             }
         }

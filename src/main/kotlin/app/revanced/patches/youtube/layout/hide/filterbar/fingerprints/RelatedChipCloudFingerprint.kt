@@ -9,10 +9,11 @@ import com.android.tools.smali.dexlib2.Opcode
 internal object RelatedChipCloudFingerprint : LiteralValueFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.CONST,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.MOVE_RESULT_OBJECT
     ),
-    literalSupplier = { HideFilterBarResourcePatch.relatedChipCloudMarginId },
+    literalSupplier = { HideFilterBarResourcePatch.relatedChipCloudMarginId }
 )

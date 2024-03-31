@@ -11,10 +11,10 @@ import app.revanced.util.exception
 @Patch(
     name = "Unlock pro",
     description = "Unlocks pro features.",
-    compatiblePackages = [CompatiblePackage("com.vsco.cam", ["345"])],
+    compatiblePackages = [CompatiblePackage("com.vsco.cam", ["345"])]
 )
 object UnlockProPatch : BytecodePatch(
-    setOf(RevCatSubscriptionFingerprint),
+    setOf(RevCatSubscriptionFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         RevCatSubscriptionFingerprint.result?.mutableMethod?.apply {
@@ -23,7 +23,7 @@ object UnlockProPatch : BytecodePatch(
                 0,
                 """
                     const p1, 0x1
-                """,
+                """
             )
         } ?: throw RevCatSubscriptionFingerprint.exception
     }

@@ -16,5 +16,5 @@ internal object IsNotPremiumFingerprint : MethodFingerprint(
         classDef.virtualMethods.first().let { isNotPremiumMethod ->
             isNotPremiumMethod.parameterTypes.size == 0 && isNotPremiumMethod.returnType == "Z"
         }
-    },
+    }
 )

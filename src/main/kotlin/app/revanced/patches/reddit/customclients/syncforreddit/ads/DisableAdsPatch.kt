@@ -4,5 +4,5 @@ import app.revanced.patches.reddit.customclients.ads.BaseDisableAdsPatch
 
 @Suppress("unused")
 object DisableAdsPatch : BaseDisableAdsPatch(
-    compatiblePackages = setOf(CompatiblePackage("io.syncapps.lemmy_sync")),
+    compatiblePackages = setOf(CompatiblePackage("io.syncapps.lemmy_sync"))
 )

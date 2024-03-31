@@ -13,13 +13,13 @@ import app.revanced.util.returnEarly
     name = "Unlock subscription",
     description = "Unlocks the subscription feature but requires a custom client ID.",
     compatiblePackages = [
-        CompatiblePackage("ml.docilealligator.infinityforreddit"),
+        CompatiblePackage("ml.docilealligator.infinityforreddit")
     ],
-    dependencies = [SpoofClientPatch::class],
+    dependencies = [SpoofClientPatch::class]
 )
 @Suppress("unused")
 object UnlockSubscriptionPatch : BytecodePatch(
-    setOf(StartSubscriptionActivityFingerprint, BillingClientOnServiceConnected),
+    setOf(StartSubscriptionActivityFingerprint, BillingClientOnServiceConnected)
 ) {
     override fun execute(context: BytecodeContext) =
         listOf(StartSubscriptionActivityFingerprint, BillingClientOnServiceConnected).returnEarly()

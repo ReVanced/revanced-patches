@@ -10,5 +10,5 @@ internal object GoogleOneTapAuthAvailableFingerprint : MethodFingerprint(
     parameters = listOf(),
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass == "Lcom/bytedance/lobby/google/GoogleOneTapAuth;"
-    },
+    }
 )

@@ -18,7 +18,8 @@ import app.revanced.util.exception
     dependencies = [SettingsPatch::class, IntegrationsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube",
+            [
                 "18.37.36",
                 "18.38.44",
                 "18.43.45",
@@ -60,7 +61,7 @@ object DisableFullscreenAmbientModePatch : BytecodePatch(
                 addInstruction(
                     moveIsEnabledIndex,
                     "invoke-static { }, " +
-                            "$INTEGRATIONS_CLASS_DESCRIPTOR->enableFullScreenAmbientMode()Z"
+                        "$INTEGRATIONS_CLASS_DESCRIPTOR->enableFullScreenAmbientMode()Z"
                 )
             }
         } ?: throw InitializeAmbientModeFingerprint.exception

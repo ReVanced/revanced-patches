@@ -9,12 +9,13 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 internal object PiracyDetectionFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.NEW_INSTANCE,
         Opcode.INVOKE_DIRECT,
         Opcode.NEW_INSTANCE,
         Opcode.INVOKE_DIRECT,
-        Opcode.INVOKE_VIRTUAL,
+        Opcode.INVOKE_VIRTUAL
     ),
     customFingerprint = { method, _ ->
         method.implementation?.instructions?.any {
@@ -24,5 +25,5 @@ internal object PiracyDetectionFingerprint : MethodFingerprint(
 
             reference.toString() == "Lcom/github/javiersantos/piracychecker/PiracyChecker;"
         } ?: false
-    },
+    }
 )

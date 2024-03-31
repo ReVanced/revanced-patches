@@ -7,5 +7,5 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal object IsAdsEnabledFingerprint : MethodFingerprint(
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    strings = listOf("SyncIapHelper"),
+    strings = listOf("SyncIapHelper")
 )

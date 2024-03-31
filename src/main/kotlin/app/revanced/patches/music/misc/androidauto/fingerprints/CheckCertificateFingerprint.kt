@@ -8,5 +8,5 @@ internal object CheckCertificateFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "Z",
     parameters = listOf("Ljava/lang/String;"),
-    strings = listOf("X509", "Failed to get certificate."),
+    strings = listOf("X509", "Failed to get certificate.")
 )

@@ -7,5 +7,5 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal object CreateKeyFingerprint : MethodFingerprint(
     "Z",
     accessFlags = AccessFlags.PUBLIC.value,
-    strings = listOf("attestation", "SHA-256", "random", "EC", "AndroidKeyStore"),
+    strings = listOf("attestation", "SHA-256", "random", "EC", "AndroidKeyStore")
 )

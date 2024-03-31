@@ -4,7 +4,8 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
 internal object RenderBottomNavigationBarFingerprint : MethodFingerprint(
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.IGET_OBJECT,
         Opcode.MONITOR_ENTER,
         Opcode.IGET_OBJECT,
@@ -14,6 +15,6 @@ internal object RenderBottomNavigationBarFingerprint : MethodFingerprint(
         Opcode.RETURN_VOID,
         Opcode.MOVE_EXCEPTION,
         Opcode.MONITOR_EXIT,
-        Opcode.THROW,
-    ),
+        Opcode.THROW
+    )
 )

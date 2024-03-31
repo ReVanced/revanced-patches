@@ -8,11 +8,12 @@ internal object GooglePlayUtilityFingerprint : MethodFingerprint(
     "I",
     AccessFlags.PUBLIC or AccessFlags.STATIC,
     listOf("L", "I"),
-    strings = listOf(
+    strings =
+    listOf(
         "This should never happen.",
         "MetadataValueReader",
         "GooglePlayServicesUtil",
         "com.android.vending",
-        "android.hardware.type.embedded",
-    ),
+        "android.hardware.type.embedded"
+    )
 )

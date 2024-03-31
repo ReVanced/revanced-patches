@@ -11,11 +11,11 @@ import app.revanced.util.exception
 @Patch(
     name = "Hide inbox ads",
     description = "Hides ads in inbox.",
-    compatiblePackages = [CompatiblePackage("com.facebook.orca")],
+    compatiblePackages = [CompatiblePackage("com.facebook.orca")]
 )
 @Suppress("unused")
 object HideInboxAdsPatch : BytecodePatch(
-    setOf(LoadInboxAdsFingerprint),
+    setOf(LoadInboxAdsFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         LoadInboxAdsFingerprint.result?.mutableMethod?.apply {

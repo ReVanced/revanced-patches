@@ -12,13 +12,12 @@ import app.revanced.util.exception
 import java.io.Closeable
 
 @Patch(
-    dependencies = [IntegrationsPatch::class],
+    dependencies = [IntegrationsPatch::class]
 )
 object PlayerResponseMethodHookPatch :
     BytecodePatch(setOf(PlayerParameterBuilderFingerprint)),
     Closeable,
     MutableSet<PlayerResponseMethodHookPatch.Hook> by mutableSetOf() {
-
     // Parameter numbers of the patched method.
     private const val PARAMETER_VIDEO_ID = 1
     private const val PARAMETER_PROTO_BUFFER = 3
@@ -42,7 +41,7 @@ object PlayerResponseMethodHookPatch :
         fun hookVideoId(hook: Hook) {
             playerResponseMethod.addInstruction(
                 0,
-                "invoke-static {v$REGISTER_VIDEO_ID, v$REGISTER_IS_SHORT_AND_OPENING_OR_PLAYING}, $hook",
+                "invoke-static {v$REGISTER_VIDEO_ID, v$REGISTER_IS_SHORT_AND_OPENING_OR_PLAYING}, $hook"
             )
             numberOfInstructionsAdded++
         }
@@ -53,7 +52,7 @@ object PlayerResponseMethodHookPatch :
                 """
                     invoke-static {v$REGISTER_PROTO_BUFFER, v$REGISTER_IS_SHORT_AND_OPENING_OR_PLAYING}, $hook
                     move-result-object v$REGISTER_PROTO_BUFFER
-            """,
+            """
             )
             numberOfInstructionsAdded += 2
         }
@@ -76,14 +75,14 @@ object PlayerResponseMethodHookPatch :
                 move-object/from16 v$REGISTER_VIDEO_ID, p$PARAMETER_VIDEO_ID
                 move-object/from16 v$REGISTER_PROTO_BUFFER, p$PARAMETER_PROTO_BUFFER
                 move/from16        v$REGISTER_IS_SHORT_AND_OPENING_OR_PLAYING, p$PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING
-            """,
+            """
         )
         numberOfInstructionsAdded += 3
 
         // Move the modified register back.
         playerResponseMethod.addInstruction(
             numberOfInstructionsAdded,
-            "move-object/from16 p$PARAMETER_PROTO_BUFFER, v$REGISTER_PROTO_BUFFER",
+            "move-object/from16 p$PARAMETER_PROTO_BUFFER, v$REGISTER_PROTO_BUFFER"
         )
     }
 
@@ -91,6 +90,7 @@ object PlayerResponseMethodHookPatch :
         internal class VideoId(methodDescriptor: String) : Hook(methodDescriptor)
 
         internal class ProtoBufferParameter(methodDescriptor: String) : Hook(methodDescriptor)
+
         internal class ProtoBufferParameterBeforeVideoId(methodDescriptor: String) : Hook(methodDescriptor)
 
         override fun toString() = methodDescriptor

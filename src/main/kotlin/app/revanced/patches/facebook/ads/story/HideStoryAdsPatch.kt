@@ -12,11 +12,11 @@ import app.revanced.util.exception
 @Patch(
     name = "Hide story ads",
     description = "Hides the ads in the Facebook app stories.",
-    compatiblePackages = [CompatiblePackage("com.facebook.katana")],
+    compatiblePackages = [CompatiblePackage("com.facebook.katana")]
 )
 @Suppress("unused")
 object HideStoryAdsPatch : BytecodePatch(
-    setOf(FetchMoreAdsFingerprint, AdsInsertionFingerprint),
+    setOf(FetchMoreAdsFingerprint, AdsInsertionFingerprint)
 ) {
     override fun execute(context: BytecodeContext) =
         setOf(FetchMoreAdsFingerprint, AdsInsertionFingerprint).forEach { fingerprint ->

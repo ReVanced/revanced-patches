@@ -12,12 +12,13 @@ internal object StoryboardThumbnailFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "Z",
     parameters = listOf(),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.MOVE_RESULT,
         Opcode.IF_GTZ,
         Opcode.GOTO,
         Opcode.CONST_4,
         Opcode.RETURN,
-        Opcode.RETURN, // Last instruction of method.
-    ),
+        Opcode.RETURN // Last instruction of method.
+    )
 )

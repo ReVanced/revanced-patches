@@ -12,11 +12,11 @@ import app.revanced.util.exception
     use = false,
     name = "Remove debugging detection",
     description = "Removes the USB and wireless debugging checks.",
-    compatiblePackages = [CompatiblePackage("com.scb.phone")],
+    compatiblePackages = [CompatiblePackage("com.scb.phone")]
 )
 @Suppress("unused")
 object RemoveDebuggingDetectionPatch : BytecodePatch(
-    setOf(DebuggingDetectionFingerprint),
+    setOf(DebuggingDetectionFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         DebuggingDetectionFingerprint.result?.mutableMethod?.addInstructions(
@@ -24,7 +24,7 @@ object RemoveDebuggingDetectionPatch : BytecodePatch(
             """
                 const/4 v0, 0x0
                 return v0
-            """,
+            """
         ) ?: throw DebuggingDetectionFingerprint.exception
     }
 }

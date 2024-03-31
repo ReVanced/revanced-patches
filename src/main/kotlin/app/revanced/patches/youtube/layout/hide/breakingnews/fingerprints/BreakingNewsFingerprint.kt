@@ -8,13 +8,14 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal object BreakingNewsFingerprint : LiteralValueFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.CONST,
         Opcode.CONST_4,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,
-        Opcode.IPUT_OBJECT,
+        Opcode.IPUT_OBJECT
     ),
-    literalSupplier = { BreakingNewsResourcePatch.horizontalCardListId },
+    literalSupplier = { BreakingNewsResourcePatch.horizontalCardListId }
 )

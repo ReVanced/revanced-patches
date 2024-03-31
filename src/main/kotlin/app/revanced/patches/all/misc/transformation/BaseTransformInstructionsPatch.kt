@@ -14,13 +14,19 @@ abstract class BaseTransformInstructionsPatch<T> : BytecodePatch(emptySet()) {
         classDef: ClassDef,
         method: Method,
         instruction: Instruction,
-        instructionIndex: Int,
+        instructionIndex: Int
     ): T?
 
-    abstract fun transform(mutableMethod: MutableMethod, entry: T)
+    abstract fun transform(
+        mutableMethod: MutableMethod,
+        entry: T
+    )
 
     // Returns the patch indices as a Sequence, which will execute lazily.
-    fun findPatchIndices(classDef: ClassDef, method: Method): Sequence<T>? {
+    fun findPatchIndices(
+        classDef: ClassDef,
+        method: Method
+    ): Sequence<T>? {
         return method.implementation?.instructions?.asSequence()?.withIndex()?.mapNotNull { (index, instruction) ->
             filterMap(classDef, method, instruction, index)
         }
@@ -30,14 +36,15 @@ abstract class BaseTransformInstructionsPatch<T> : BytecodePatch(emptySet()) {
         // Find all methods to patch
         buildMap {
             context.classes.forEach { classDef ->
-                val methods = buildList {
-                    classDef.methods.forEach { method ->
-                        // Since the Sequence executes lazily,
-                        // using any() results in only calling
-                        // filterMap until the first index has been found.
-                        if (findPatchIndices(classDef, method)?.any() == true) add(method)
+                val methods =
+                    buildList {
+                        classDef.methods.forEach { method ->
+                            // Since the Sequence executes lazily,
+                            // using any() results in only calling
+                            // filterMap until the first index has been found.
+                            if (findPatchIndices(classDef, method)?.any() == true) add(method)
+                        }
                     }
-                }
 
                 if (methods.isNotEmpty()) {
                     put(classDef, methods)
@@ -48,8 +55,9 @@ abstract class BaseTransformInstructionsPatch<T> : BytecodePatch(emptySet()) {
             val mutableClass = context.proxy(classDef).mutableClass
 
             methods.map(mutableClass::findMutableMethodOf).forEach methods@{ mutableMethod ->
-                val patchIndices = findPatchIndices(mutableClass, mutableMethod)?.toCollection(ArrayDeque())
-                    ?: return@methods
+                val patchIndices =
+                    findPatchIndices(mutableClass, mutableMethod)?.toCollection(ArrayDeque())
+                        ?: return@methods
 
                 while (!patchIndices.isEmpty()) transform(mutableMethod, patchIndices.removeLast())
             }

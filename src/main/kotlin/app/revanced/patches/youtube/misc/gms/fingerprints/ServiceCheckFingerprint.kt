@@ -8,5 +8,5 @@ internal object ServiceCheckFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("L", "I"),
-    strings = listOf("Google Play Services not available", "GooglePlayServices not available due to error "),
+    strings = listOf("Google Play Services not available", "GooglePlayServices not available due to error ")
 )

@@ -16,21 +16,24 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
     fromPackageName = YOUTUBE_PACKAGE_NAME,
     toPackageName = REVANCED_YOUTUBE_PACKAGE_NAME,
     primeMethodFingerprint = PrimeMethodFingerprint,
-    earlyReturnFingerprints = setOf(
+    earlyReturnFingerprints =
+    setOf(
         ServiceCheckFingerprint,
         GooglePlayUtilityFingerprint,
         CastDynamiteModuleFingerprint,
         CastDynamiteModuleV2Fingerprint,
-        CastContextFetchFingerprint,
+        CastContextFetchFingerprint
     ),
     mainActivityOnCreateFingerprint = MainActivityOnCreateFingerprint,
     integrationsPatchDependency = IntegrationsPatch::class,
-    dependencies = setOf(
+    dependencies =
+    setOf(
         HideCastButtonPatch::class,
-        ClientSpoofPatch::class,
+        ClientSpoofPatch::class
     ),
     gmsCoreSupportResourcePatch = GmsCoreSupportResourcePatch,
-    compatiblePackages = setOf(
+    compatiblePackages =
+    setOf(
         CompatiblePackage(
             "com.google.android.youtube",
             setOf(
@@ -44,18 +47,19 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
                 "19.06.39",
                 "19.07.40",
                 "19.08.36",
-                "19.09.37",
-            ),
-        ),
+                "19.09.37"
+            )
+        )
     ),
-    fingerprints = setOf(
+    fingerprints =
+    setOf(
         ServiceCheckFingerprint,
         GooglePlayUtilityFingerprint,
         CastDynamiteModuleFingerprint,
         CastDynamiteModuleV2Fingerprint,
         CastContextFetchFingerprint,
-        PrimeMethodFingerprint,
-    ),
+        PrimeMethodFingerprint
+    )
 ) {
     override val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
 }

@@ -76,14 +76,11 @@ object RemoveTrackingQueryParameterPatch : BytecodePatch(
         } ?: throw exception
 
         // Native YouTube share sheet.
-        YouTubeShareSheetFingerprint.hook(getInsertIndex = { startIndex + 1 })
-        { insertIndex -> getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA }
+        YouTubeShareSheetFingerprint.hook(getInsertIndex = { startIndex + 1 }) { insertIndex -> getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA }
 
         // Native system share sheet.
-        SystemShareSheetFingerprint.hook(getInsertIndex = { endIndex })
-        { insertIndex -> getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA }
+        SystemShareSheetFingerprint.hook(getInsertIndex = { endIndex }) { insertIndex -> getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA }
 
-        CopyTextFingerprint.hook(getInsertIndex = { startIndex + 2 })
-        { insertIndex -> getInstruction<TwoRegisterInstruction>(insertIndex - 2).registerA }
+        CopyTextFingerprint.hook(getInsertIndex = { startIndex + 2 }) { insertIndex -> getInstruction<TwoRegisterInstruction>(insertIndex - 2).registerA }
     }
 }

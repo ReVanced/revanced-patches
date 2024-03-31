@@ -11,5 +11,5 @@ internal object SetThemeFingerprint : LiteralValueFingerprint(
     returnType = "L",
     parameters = listOf(),
     opcodes = listOf(Opcode.RETURN_OBJECT),
-    literalSupplier = { SettingsResourcePatch.appearanceStringId },
+    literalSupplier = { SettingsResourcePatch.appearanceStringId }
 )

@@ -23,22 +23,23 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 @Patch(
     name = "Unlock downloads",
     description = "Unlocks the ability to download any video. GIFs can be downloaded via the menu on long press.",
-    compatiblePackages = [CompatiblePackage("com.twitter.android")],
+    compatiblePackages = [CompatiblePackage("com.twitter.android")]
 )
 @Suppress("unused")
 object UnlockDownloadsPatch : BytecodePatch(
     setOf(
         ConstructMediaOptionsSheetFingerprint,
         ShowDownloadVideoUpsellBottomSheetFingerprint,
-        BuildMediaOptionsSheetFingerprint,
-    ),
+        BuildMediaOptionsSheetFingerprint
+    )
 ) {
     override fun execute(context: BytecodeContext) {
-        fun MethodFingerprint.patch(getRegisterAndIndex: MethodFingerprintResult.() -> Pair<Int, Int>) = result?.let {
-            getRegisterAndIndex(it).let { (index, register) ->
-                it.mutableMethod.addInstruction(index, "const/4 v$register, 0x1")
-            }
-        } ?: throw exception
+        fun MethodFingerprint.patch(getRegisterAndIndex: MethodFingerprintResult.() -> Pair<Int, Int>) =
+            result?.let {
+                getRegisterAndIndex(it).let { (index, register) ->
+                    it.mutableMethod.addInstruction(index, "const/4 v$register, 0x1")
+                }
+            } ?: throw exception
 
         // Allow downloads for non-premium users.
         ShowDownloadVideoUpsellBottomSheetFingerprint.patch {
@@ -70,12 +71,12 @@ object UnlockDownloadsPatch : BytecodePatch(
                         const/4 v${checkMediaTypeInstruction.registerB}, 0x2 # GIF
                         if-eq v${checkMediaTypeInstruction.registerA}, v${checkMediaTypeInstruction.registerB}, :video
                     """,
-                    ExternalLabel("video", getInstruction(scanResult.endIndex)),
+                    ExternalLabel("video", getInstruction(scanResult.endIndex))
                 )
 
                 // Remove media.isDownloadable check.
                 removeInstruction(
-                    getInstructions().first { insn -> insn.opcode == Opcode.IGET_BOOLEAN }.location.index + 1,
+                    getInstructions().first { insn -> insn.opcode == Opcode.IGET_BOOLEAN }.location.index + 1
                 )
             }
         } ?: throw BuildMediaOptionsSheetFingerprint.exception

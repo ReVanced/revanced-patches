@@ -24,8 +24,8 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
     description = "Hooks the active navigation or search bar.",
     dependencies = [
         IntegrationsPatch::class,
-        NavigationBarHookResourcePatch::class,
-    ],
+        NavigationBarHookResourcePatch::class
+    ]
 )
 @Suppress("unused")
 object NavigationBarHookPatch : BytecodePatch(
@@ -35,8 +35,8 @@ object NavigationBarHookPatch : BytecodePatch(
         PivotBarButtonsCreateDrawableViewFingerprint,
         PivotBarButtonsCreateResourceViewFingerprint,
         NavigationBarHookCallbackFingerprint,
-        ActionBarSearchResultsFingerprint,
-    ),
+        ActionBarSearchResultsFingerprint
+    )
 ) {
     internal const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/shared/NavigationBar;"
@@ -45,7 +45,10 @@ object NavigationBarHookPatch : BytecodePatch(
         "Lapp/revanced/integrations/youtube/shared/NavigationBar\$NavigationButton;"
 
     override fun execute(context: BytecodeContext) {
-        fun MutableMethod.addHook(hook: Hook, insertPredicate: Instruction.() -> Boolean) {
+        fun MutableMethod.addHook(
+            hook: Hook,
+            insertPredicate: Instruction.() -> Boolean
+        ) {
             val filtered = getInstructions().filter(insertPredicate)
             if (filtered.isEmpty()) throw PatchException("Could not find insert indexes")
             filtered.forEach {
@@ -55,7 +58,7 @@ object NavigationBarHookPatch : BytecodePatch(
                 addInstruction(
                     insertIndex,
                     "invoke-static { v$register }, " +
-                            "$INTEGRATIONS_CLASS_DESCRIPTOR->${hook.methodName}(${hook.parameters})V",
+                        "$INTEGRATIONS_CLASS_DESCRIPTOR->${hook.methodName}(${hook.parameters})V"
                 )
             }
         }
@@ -75,7 +78,7 @@ object NavigationBarHookPatch : BytecodePatch(
             addHook(Hook.NAVIGATION_TAB_LOADED) predicate@{
                 MethodUtil.methodSignaturesMatch(
                     getReference<MethodReference>() ?: return@predicate false,
-                    drawableTabMethod,
+                    drawableTabMethod
                 )
             }
 
@@ -83,7 +86,7 @@ object NavigationBarHookPatch : BytecodePatch(
             addHook(Hook.NAVIGATION_IMAGE_RESOURCE_TAB_LOADED) predicate@{
                 MethodUtil.methodSignaturesMatch(
                     getReference<MethodReference>() ?: return@predicate false,
-                    imageResourceTabMethod,
+                    imageResourceTabMethod
                 )
             }
         }
@@ -94,16 +97,17 @@ object NavigationBarHookPatch : BytecodePatch(
         // Insert before the first ViewGroup method call after inflating,
         // so this works regardless which layout is used.
         ActionBarSearchResultsFingerprint.resultOrThrow().mutableMethod.apply {
-            val instructionIndex = indexOfFirstInstruction {
-                opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>()?.name == "setLayoutDirection"
-            }
+            val instructionIndex =
+                indexOfFirstInstruction {
+                    opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>()?.name == "setLayoutDirection"
+                }
 
             val viewRegister = getInstruction<FiveRegisterInstruction>(instructionIndex).registerC
 
             addInstruction(
                 instructionIndex,
                 "invoke-static { v$viewRegister }, " +
-                    "$INTEGRATIONS_CLASS_DESCRIPTOR->searchBarResultsViewLoaded(Landroid/view/View;)V",
+                    "$INTEGRATIONS_CLASS_DESCRIPTOR->searchBarResultsViewLoaded(Landroid/view/View;)V"
             )
         }
     }
@@ -116,7 +120,7 @@ object NavigationBarHookPatch : BytecodePatch(
                 0,
                 "invoke-static { p0, p1 }, " +
                     "$integrationsClassDescriptor->navigationTabCreated" +
-                    "(${INTEGRATIONS_NAVIGATION_BUTTON_DESCRIPTOR}Landroid/view/View;)V",
+                    "(${INTEGRATIONS_NAVIGATION_BUTTON_DESCRIPTOR}Landroid/view/View;)V"
             )
         }
     }
@@ -125,6 +129,6 @@ object NavigationBarHookPatch : BytecodePatch(
         SET_LAST_APP_NAVIGATION_ENUM("setLastAppNavigationEnum", "Ljava/lang/Enum;"),
         NAVIGATION_TAB_LOADED("navigationTabLoaded", "Landroid/view/View;"),
         NAVIGATION_IMAGE_RESOURCE_TAB_LOADED("navigationImageResourceTabLoaded", "Landroid/view/View;"),
-        SEARCH_BAR_RESULTS_VIEW_LOADED("searchBarResultsViewLoaded", "Landroid/view/View;"),
+        SEARCH_BAR_RESULTS_VIEW_LOADED("searchBarResultsViewLoaded", "Landroid/view/View;")
     }
 }

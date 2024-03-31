@@ -8,5 +8,5 @@ internal object GetClientIdFingerprint : MethodFingerprint(
         if (!classDef.type.endsWith("RedditOAuth;")) return@custom false
 
         methodDef.name == "getAuthorizeUrl"
-    },
+    }
 )

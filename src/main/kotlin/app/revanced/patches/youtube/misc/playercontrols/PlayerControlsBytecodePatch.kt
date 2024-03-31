@@ -13,10 +13,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     description = "Manages the code for the player controls of the YouTube player.",
-    dependencies = [BottomControlsResourcePatch::class],
+    dependencies = [BottomControlsResourcePatch::class]
 )
 object PlayerControlsBytecodePatch : BytecodePatch(
-    setOf(LayoutConstructorFingerprint, BottomControlsInflateFingerprint),
+    setOf(LayoutConstructorFingerprint, BottomControlsInflateFingerprint)
 ) {
     lateinit var showPlayerControlsFingerprintResult: MethodFingerprintResult
 
@@ -33,11 +33,12 @@ object PlayerControlsBytecodePatch : BytecodePatch(
 
         showPlayerControlsFingerprintResult = PlayerControlsVisibilityFingerprint.result!!
 
-        inflateFingerprintResult = BottomControlsInflateFingerprint.result!!.also {
-            moveToRegisterInstructionIndex = it.scanResult.patternScanResult!!.endIndex
-            viewRegister =
-                (it.mutableMethod.implementation!!.instructions[moveToRegisterInstructionIndex] as OneRegisterInstruction).registerA
-        }
+        inflateFingerprintResult =
+            BottomControlsInflateFingerprint.result!!.also {
+                moveToRegisterInstructionIndex = it.scanResult.patternScanResult!!.endIndex
+                viewRegister =
+                    (it.mutableMethod.implementation!!.instructions[moveToRegisterInstructionIndex] as OneRegisterInstruction).registerA
+            }
     }
 
     /**
@@ -49,7 +50,7 @@ object PlayerControlsBytecodePatch : BytecodePatch(
             0,
             """
                     invoke-static {p1}, $descriptor
-                """,
+                """
         )
     }
 
@@ -60,7 +61,7 @@ object PlayerControlsBytecodePatch : BytecodePatch(
     fun initializeControl(descriptor: String) {
         inflateFingerprintResult.mutableMethod.addInstruction(
             moveToRegisterInstructionIndex + 1,
-            "invoke-static {v$viewRegister}, $descriptor",
+            "invoke-static {v$viewRegister}, $descriptor"
         )
     }
 }

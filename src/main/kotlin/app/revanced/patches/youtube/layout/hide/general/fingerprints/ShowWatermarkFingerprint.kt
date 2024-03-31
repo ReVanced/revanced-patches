@@ -7,5 +7,5 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal object ShowWatermarkFingerprint : MethodFingerprint(
     "V",
     AccessFlags.PUBLIC or AccessFlags.FINAL,
-    listOf("L", "L"),
+    listOf("L", "L")
 )

@@ -8,7 +8,7 @@ import org.w3c.dom.Element
 @Patch(
     name = "Enable Android debugging",
     description = "Enables Android debugging capabilities. This can slow down the app.",
-    use = false,
+    use = false
 )
 @Suppress("unused")
 object EnableAndroidDebuggingPatch : ResourcePatch() {

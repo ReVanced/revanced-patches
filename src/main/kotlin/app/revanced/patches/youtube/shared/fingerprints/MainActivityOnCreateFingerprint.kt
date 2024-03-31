@@ -7,8 +7,10 @@ internal object MainActivityOnCreateFingerprint : MethodFingerprint(
     parameters = listOf("Landroid/os/Bundle;"),
     customFingerprint = { methodDef, classDef ->
         methodDef.name == "onCreate" &&
-        (classDef.type.endsWith("MainActivity;")
-                // Old versions of YouTube called this class "WatchWhileActivity" instead.
-                || classDef.type.endsWith("WatchWhileActivity;"))
+            (
+                classDef.type.endsWith("MainActivity;") ||
+                    // Old versions of YouTube called this class "WatchWhileActivity" instead.
+                    classDef.type.endsWith("WatchWhileActivity;")
+                )
     }
 )

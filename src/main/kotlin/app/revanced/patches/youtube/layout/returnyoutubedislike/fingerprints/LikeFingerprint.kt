@@ -4,5 +4,5 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 
 internal object LikeFingerprint : MethodFingerprint(
     "V",
-    strings = listOf("like/like"),
+    strings = listOf("like/like")
 )

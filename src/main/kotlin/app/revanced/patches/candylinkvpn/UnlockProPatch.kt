@@ -10,11 +10,11 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Unlock pro",
-    compatiblePackages = [CompatiblePackage("com.candylink.openvpn")],
+    compatiblePackages = [CompatiblePackage("com.candylink.openvpn")]
 )
 @Suppress("unused")
 object UnlockProPatch : BytecodePatch(
-    setOf(IsPremiumPurchasedFingerprint),
+    setOf(IsPremiumPurchasedFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         IsPremiumPurchasedFingerprint.result?.mutableMethod?.addInstructions(
@@ -22,7 +22,7 @@ object UnlockProPatch : BytecodePatch(
             """
                const/4 v0, 0x1
                return v0
-            """,
+            """
         ) ?: throw IsPremiumPurchasedFingerprint.exception
     }
 }

@@ -15,10 +15,10 @@ internal object SubtitleTrackFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
-        Opcode.RETURN,
+        Opcode.RETURN
     ),
     strings = listOf("DISABLE_CAPTIONS_OPTION"),
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("SubtitleTrack;")
-    },
+    }
 )

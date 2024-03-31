@@ -7,5 +7,5 @@ internal object GetModulesFingerprint : MethodFingerprint(
     opcodes = listOf(Opcode.IGET_OBJECT),
     customFingerprint = { methodDef, classDef ->
         classDef.type.endsWith("/GenericLayoutEntry;") && methodDef.name == "getModules"
-    },
+    }
 )

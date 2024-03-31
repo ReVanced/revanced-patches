@@ -10,5 +10,5 @@ internal object AutoRepeatFingerprint : MethodFingerprint(
     listOf(),
     customFingerprint = { methodDef, _ ->
         methodDef.implementation!!.instructions.count() == 3 && methodDef.annotations.isEmpty()
-    },
+    }
 )

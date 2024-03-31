@@ -8,7 +8,8 @@ import com.android.tools.smali.dexlib2.Opcode
 internal object BootStateFingerprint : MethodFingerprint(
     "Z",
     accessFlags = AccessFlags.PUBLIC.value,
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.INVOKE_DIRECT,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CONST_4,
@@ -25,6 +26,6 @@ internal object BootStateFingerprint : MethodFingerprint(
         Opcode.IF_NE,
         Opcode.GOTO,
         Opcode.MOVE,
-        Opcode.RETURN,
-    ),
+        Opcode.RETURN
+    )
 )

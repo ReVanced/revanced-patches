@@ -12,7 +12,7 @@ import app.revanced.util.exception
 @Patch(
     name = "Remove badge tab",
     description = "Removes the badge tab from the activity tab.",
-    compatiblePackages = [CompatiblePackage("com.sony.songpal.mdr")],
+    compatiblePackages = [CompatiblePackage("com.sony.songpal.mdr")]
 )
 object BadgeTabPatch : BytecodePatch(setOf(CreateTabsFingerprint)) {
     const val ACTIVITY_TAB_DESCRIPTOR = "Ljp/co/sony/vim/framework/ui/yourheadphones/YhContract\$Tab;"
@@ -35,7 +35,7 @@ object BadgeTabPatch : BytecodePatch(setOf(CreateTabsFingerprint)) {
                         const/4 v$indexRegister, $index
                         sget-object v$arrayItemRegister, $ACTIVITY_TAB_DESCRIPTOR->$tab:$ACTIVITY_TAB_DESCRIPTOR
                         aput-object v$arrayItemRegister, v$arrayRegister, v$indexRegister
-                    """,
+                    """
                 )
             }
 
@@ -47,7 +47,7 @@ object BadgeTabPatch : BytecodePatch(setOf(CreateTabsFingerprint)) {
                 """
                     const/4 v$arrayRegister, ${arrayTabs.size}
                     new-array v$arrayRegister, v$arrayRegister, [$ACTIVITY_TAB_DESCRIPTOR
-                 """,
+                 """
             )
         } ?: throw CreateTabsFingerprint.exception
     }

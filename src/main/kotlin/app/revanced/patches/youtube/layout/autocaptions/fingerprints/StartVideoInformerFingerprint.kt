@@ -8,9 +8,10 @@ import com.android.tools.smali.dexlib2.Opcode
 internal object StartVideoInformerFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.INVOKE_INTERFACE,
-        Opcode.RETURN_VOID,
+        Opcode.RETURN_VOID
     ),
-    strings = listOf("pc"),
+    strings = listOf("pc")
 )

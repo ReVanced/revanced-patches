@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.layout.hide.suggestedvideoendscreen
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -9,6 +8,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.layout.hide.suggestedvideoendscreen.fingerprints.CreateEndScreenViewFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch(
@@ -17,7 +17,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
     dependencies = [IntegrationsPatch::class, DisableSuggestedVideoEndScreenResourcePatch::class],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube",
+            [
                 "18.37.36",
                 "18.38.44",
                 "18.43.45",
@@ -54,7 +55,7 @@ object DisableSuggestedVideoEndScreenPatch : BytecodePatch(
                 addInstruction(
                     addOnClickEventListenerIndex + 1,
                     "invoke-static {v$viewRegister}, " +
-                            "$INTEGRATIONS_CLASS_DESCRIPTOR->closeEndScreen(Landroid/widget/ImageView;)V"
+                        "$INTEGRATIONS_CLASS_DESCRIPTOR->closeEndScreen(Landroid/widget/ImageView;)V"
                 )
             }
         } ?: throw CreateEndScreenViewFingerprint.exception

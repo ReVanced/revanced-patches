@@ -22,7 +22,7 @@ abstract class BaseGmsCoreSupportResourcePatch(
     private val fromPackageName: String,
     private val toPackageName: String,
     private val spoofedPackageSignature: String,
-    dependencies: Set<PatchClass> = setOf(),
+    dependencies: Set<PatchClass> = setOf()
 ) : ResourcePatch(dependencies = setOf(ChangePackageNamePatch::class, AddResourcesPatch::class) + dependencies) {
     internal val gmsCoreVendorGroupIdOption =
         stringPatchOption(
@@ -30,11 +30,11 @@ abstract class BaseGmsCoreSupportResourcePatch(
             default = "app.revanced",
             values =
             mapOf(
-                "ReVanced" to "app.revanced",
+                "ReVanced" to "app.revanced"
             ),
             title = "GmsCore vendor group ID",
             description = "The vendor's group ID for GmsCore.",
-            required = true,
+            required = true
         ) { it!!.matches(Regex(PACKAGE_NAME_REGEX_PATTERN)) }
 
     protected val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
@@ -55,7 +55,7 @@ abstract class BaseGmsCoreSupportResourcePatch(
     private fun ResourceContext.addSpoofingMetadata() {
         fun Node.adoptChild(
             tagName: String,
-            block: Element.() -> Unit,
+            block: Element.() -> Unit
         ) {
             val child = ownerDocument.createElement(tagName)
             child.block()
@@ -100,23 +100,23 @@ abstract class BaseGmsCoreSupportResourcePatch(
         this.get("AndroidManifest.xml").writeText(
             manifest.replace(
                 "package=\"$fromPackageName",
-                "package=\"$packageName",
+                "package=\"$packageName"
             ).replace(
                 "android:authorities=\"$fromPackageName",
-                "android:authorities=\"$packageName",
+                "android:authorities=\"$packageName"
             ).replace(
                 "$fromPackageName.permission.C2D_MESSAGE",
-                "$packageName.permission.C2D_MESSAGE",
+                "$packageName.permission.C2D_MESSAGE"
             ).replace(
                 "$fromPackageName.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
-                "$packageName.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
+                "$packageName.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
             ).replace(
                 "com.google.android.c2dm",
-                "$gmsCoreVendorGroupId.android.c2dm",
+                "$gmsCoreVendorGroupId.android.c2dm"
             ).replace(
                 "</queries>",
-                "<package android:name=\"$gmsCoreVendorGroupId.android.gms\"/></queries>",
-            ),
+                "<package android:name=\"$gmsCoreVendorGroupId.android.gms\"/></queries>"
+            )
         )
     }
 

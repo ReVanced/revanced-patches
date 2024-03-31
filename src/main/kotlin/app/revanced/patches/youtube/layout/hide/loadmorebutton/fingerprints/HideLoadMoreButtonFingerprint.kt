@@ -5,11 +5,12 @@ import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
 internal object HideLoadMoreButtonFingerprint : LiteralValueFingerprint(
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.CONST,
         Opcode.CONST_4,
         Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.MOVE_RESULT_OBJECT
     ),
-    literalSupplier = { HideLoadMoreButtonResourcePatch.expandButtonDownId },
+    literalSupplier = { HideLoadMoreButtonResourcePatch.expandButtonDownId }
 )

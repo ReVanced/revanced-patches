@@ -17,10 +17,11 @@ object SpoofClientPatch : BaseSpoofClientPatch(
     redirectUri = "redditisfun://auth",
     clientIdFingerprints = setOf(BuildAuthorizationStringFingerprint, BasicAuthorizationFingerprint),
     userAgentFingerprints = setOf(GetUserAgentFingerprint),
-    compatiblePackages = setOf(
+    compatiblePackages =
+    setOf(
         CompatiblePackage("com.andrewshu.android.reddit"),
-        CompatiblePackage("com.andrewshu.android.redditdonation"),
-    ),
+        CompatiblePackage("com.andrewshu.android.redditdonation")
+    )
 ) {
     override fun Set<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
         /**
@@ -33,7 +34,7 @@ object SpoofClientPatch : BaseSpoofClientPatch(
          */
         fun MethodFingerprintResult.replaceWith(
             string: String,
-            getReplacementIndex: List<StringMatch>.() -> Int,
+            getReplacementIndex: List<StringMatch>.() -> Int
         ) = mutableMethod.apply {
             val replacementIndex = scanResult.stringsScanResult!!.matches.getReplacementIndex()
             val clientIdRegister = getInstruction<OneRegisterInstruction>(replacementIndex).registerA
@@ -58,7 +59,7 @@ object SpoofClientPatch : BaseSpoofClientPatch(
             """
                 const-string v0, "$userAgent"
                 return-object v0
-            """,
+            """
         )
     }
 }

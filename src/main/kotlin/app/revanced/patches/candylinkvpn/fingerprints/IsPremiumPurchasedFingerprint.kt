@@ -6,5 +6,5 @@ internal object IsPremiumPurchasedFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("PreferenceProvider;") &&
             methodDef.name == "isPremiumPurchased"
-    },
+    }
 )

@@ -17,5 +17,5 @@ internal object NavigationBarHookCallbackFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.name == "navigationTabCreatedCallback" &&
             methodDef.definingClass == NavigationBarHookPatch.INTEGRATIONS_CLASS_DESCRIPTOR
-    },
+    }
 )

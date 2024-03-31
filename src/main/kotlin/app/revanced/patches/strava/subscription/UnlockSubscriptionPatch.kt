@@ -11,12 +11,13 @@ import app.revanced.util.exception
 @Patch(
     name = "Unlock subscription features",
     description = "Unlocks \"Routes\", \"Matched Runs\" and \"Segment Efforts\".",
-    compatiblePackages = [CompatiblePackage("com.strava", ["320.12"])],
+    compatiblePackages = [CompatiblePackage("com.strava", ["320.12"])]
 )
 @Suppress("unused")
 object UnlockSubscriptionPatch : BytecodePatch(setOf(GetSubscribedFingerprint)) {
-    override fun execute(context: BytecodeContext) = GetSubscribedFingerprint.result?.let { result ->
-        val isSubscribedIndex = result.scanResult.patternScanResult!!.startIndex
-        result.mutableMethod.replaceInstruction(isSubscribedIndex, "const/4 v0, 0x1")
-    } ?: throw GetSubscribedFingerprint.exception
+    override fun execute(context: BytecodeContext) =
+        GetSubscribedFingerprint.result?.let { result ->
+            val isSubscribedIndex = result.scanResult.patternScanResult!!.startIndex
+            result.mutableMethod.replaceInstruction(isSubscribedIndex, "const/4 v0, 0x1")
+        } ?: throw GetSubscribedFingerprint.exception
 }

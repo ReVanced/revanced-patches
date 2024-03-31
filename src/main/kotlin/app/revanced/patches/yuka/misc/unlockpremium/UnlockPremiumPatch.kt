@@ -10,11 +10,11 @@ import app.revanced.patches.yuka.misc.unlockpremium.fingerprints.YukaUserConstru
 
 @Patch(
     name = "Unlock premium",
-    compatiblePackages = [CompatiblePackage("io.yuka.android", ["4.29"])],
+    compatiblePackages = [CompatiblePackage("io.yuka.android", ["4.29"])]
 )
 @Suppress("unused")
 object UnlockPremiumPatch : BytecodePatch(
-    setOf(YukaUserConstructorFingerprint),
+    setOf(YukaUserConstructorFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         IsPremiumFingerprint.resolve(context, YukaUserConstructorFingerprint.result!!.classDef)
@@ -24,7 +24,7 @@ object UnlockPremiumPatch : BytecodePatch(
             """
                 const/4 v0, 0x1
                 return v0
-            """,
+            """
         )
     }
 }

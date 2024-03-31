@@ -11,5 +11,5 @@ internal object DisableScreenshotPopupFingerprint : MethodFingerprint(
         }
 
         methodDef.name == "invoke"
-    },
+    }
 )

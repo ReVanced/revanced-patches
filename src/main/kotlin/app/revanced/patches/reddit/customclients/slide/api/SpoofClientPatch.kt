@@ -10,7 +10,7 @@ import app.revanced.patches.reddit.customclients.boostforreddit.api.fingerprints
 object SpoofClientPatch : BaseSpoofClientPatch(
     redirectUri = "http://www.ccrama.me",
     clientIdFingerprints = setOf(GetClientIdFingerprint),
-    compatiblePackages = setOf(CompatiblePackage("me.ccrama.redditslide")),
+    compatiblePackages = setOf(CompatiblePackage("me.ccrama.redditslide"))
 ) {
     override fun Set<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
         first().mutableMethod.addInstructions(
@@ -18,7 +18,7 @@ object SpoofClientPatch : BaseSpoofClientPatch(
             """
                      const-string v0, "$clientId"
                      return-object v0
-                """,
+                """
         )
     }
 }

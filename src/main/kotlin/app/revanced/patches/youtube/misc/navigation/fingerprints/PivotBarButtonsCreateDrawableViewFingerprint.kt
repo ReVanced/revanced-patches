@@ -11,7 +11,7 @@ internal object PivotBarButtonsCreateDrawableViewFingerprint : MethodFingerprint
     returnType = "Landroid/view/View;",
     customFingerprint = { methodDef, classDef ->
         classDef.type == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;" &&
-                // Only one method has a Drawable parameter.
-                methodDef.parameterTypes.firstOrNull() == "Landroid/graphics/drawable/Drawable;"
+            // Only one method has a Drawable parameter.
+            methodDef.parameterTypes.firstOrNull() == "Landroid/graphics/drawable/Drawable;"
     }
 )

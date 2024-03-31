@@ -9,7 +9,8 @@ internal object VideoIdFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.IF_EQZ,
         Opcode.IGET_OBJECT,
@@ -17,6 +18,6 @@ internal object VideoIdFingerprint : MethodFingerprint(
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
-    ),
+        Opcode.MOVE_RESULT_OBJECT
+    )
 )

@@ -23,12 +23,13 @@ object SpoofClientPatch : BaseSpoofClientPatch(
     miscellaneousFingerprints = setOf(ImgurImageAPIFingerprint),
     clientIdFingerprints = setOf(GetAuthorizationStringFingerprint),
     userAgentFingerprints = setOf(LoadBrowserURLFingerprint),
-    compatiblePackages = setOf(
+    compatiblePackages =
+    setOf(
         CompatiblePackage("com.laurencedawson.reddit_sync"),
         CompatiblePackage("com.laurencedawson.reddit_sync.pro"),
-        CompatiblePackage("com.laurencedawson.reddit_sync.dev"),
+        CompatiblePackage("com.laurencedawson.reddit_sync.dev")
     ),
-    dependencies = setOf(DisablePiracyDetectionPatch::class),
+    dependencies = setOf(DisablePiracyDetectionPatch::class)
 ) {
     override fun Set<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
         forEach { fingerprintResult ->
@@ -40,7 +41,7 @@ object SpoofClientPatch : BaseSpoofClientPatch(
                         """
                          const-string v0, "Basic $auth"
                          return-object v0
-                    """,
+                    """
                     )
                 } ?: throw GetBearerTokenFingerprint.exception
             }.let {
@@ -51,14 +52,15 @@ object SpoofClientPatch : BaseSpoofClientPatch(
                     val targetRegister = (authorizationStringInstruction as OneRegisterInstruction).registerA
                     val reference = authorizationStringInstruction.reference as StringReference
 
-                    val newAuthorizationUrl = reference.string.replace(
-                        "client_id=.*?&".toRegex(),
-                        "client_id=$clientId&",
-                    )
+                    val newAuthorizationUrl =
+                        reference.string.replace(
+                            "client_id=.*?&".toRegex(),
+                            "client_id=$clientId&"
+                        )
 
                     replaceInstruction(
                         occurrenceIndex,
-                        "const-string v$targetRegister, \"$newAuthorizationUrl\"",
+                        "const-string v$targetRegister, \"$newAuthorizationUrl\""
                     )
                 }
             }
@@ -66,12 +68,13 @@ object SpoofClientPatch : BaseSpoofClientPatch(
     }
 
     // Use the non-commercial Imgur API endpoint.
-    override fun Set<MethodFingerprintResult>.patchMiscellaneous(context: BytecodeContext) = first().let {
-        val apiUrlIndex = it.scanResult.stringsScanResult!!.matches.first().index
+    override fun Set<MethodFingerprintResult>.patchMiscellaneous(context: BytecodeContext) =
+        first().let {
+            val apiUrlIndex = it.scanResult.stringsScanResult!!.matches.first().index
 
-        it.mutableMethod.replaceInstruction(
-            apiUrlIndex,
-            "const-string v1, \"https://api.imgur.com/3/image\"",
-        )
-    }
+            it.mutableMethod.replaceInstruction(
+                apiUrlIndex,
+                "const-string v1, \"https://api.imgur.com/3/image\""
+            )
+        }
 }

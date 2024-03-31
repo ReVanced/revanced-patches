@@ -11,7 +11,7 @@ import app.revanced.util.exception
 @Patch(
     name = "Remove notification badge",
     description = "Removes the red notification badge from the activity tab.",
-    compatiblePackages = [CompatiblePackage("com.sony.songpal.mdr", ["10.1.0"])],
+    compatiblePackages = [CompatiblePackage("com.sony.songpal.mdr", ["10.1.0"])]
 )
 @Suppress("unused")
 object RemoveNotificationBadgePatch : BytecodePatch(setOf(ShowNotificationFingerprint)) {

@@ -7,7 +7,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal object PlayerParameterBuilderFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "L",
-    parameters = listOf(
+    parameters =
+    listOf(
         "Ljava/lang/String;", // VideoId.
         "[B",
         "Ljava/lang/String;", // Player parameters proto buffer.
@@ -20,6 +21,6 @@ internal object PlayerParameterBuilderFingerprint : MethodFingerprint(
         "L",
         "Z", // Appears to indicate if the video id is being opened or is currently playing.
         "Z",
-        "Z",
-    ),
+        "Z"
+    )
 )

@@ -20,8 +20,8 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
     name = "Client spoof",
     description = "Spoofs the client to allow video playback.",
     compatiblePackages = [
-        CompatiblePackage("com.google.android.youtube"),
-    ],
+        CompatiblePackage("com.google.android.youtube")
+    ]
 )
 object ClientSpoofPatch : BaseTransformInstructionsPatch<Instruction35cInfo>() {
     private const val ORIGINAL_PACKAGE_NAME = "com.google.android.youtube"
@@ -32,24 +32,28 @@ object ClientSpoofPatch : BaseTransformInstructionsPatch<Instruction35cInfo>() {
         classDef: ClassDef,
         method: Method,
         instruction: Instruction,
-        instructionIndex: Int,
+        instructionIndex: Int
     ) = filterMapInstruction35c<MethodCall>(
         "Lapp/revanced/integrations",
         classDef,
         instruction,
-        instructionIndex,
+        instructionIndex
     )
 
-    override fun transform(mutableMethod: MutableMethod, entry: Instruction35cInfo) {
+    override fun transform(
+        mutableMethod: MutableMethod,
+        entry: Instruction35cInfo
+    ) {
         val (_, _, instructionIndex) = entry
 
         // Replace the result of context.getPackageName(), if it is used in a user agent string.
         mutableMethod.apply {
             // After context.getPackageName() the result is moved to a register.
-            val targetRegister = (
-                getInstruction(instructionIndex + 1)
-                    as? OneRegisterInstruction ?: return
-                ).registerA
+            val targetRegister =
+                (
+                    getInstruction(instructionIndex + 1)
+                        as? OneRegisterInstruction ?: return
+                    ).registerA
 
             // IndexOutOfBoundsException is not possible here,
             // but no such occurrences are present in the app.
@@ -64,7 +68,7 @@ object ClientSpoofPatch : BaseTransformInstructionsPatch<Instruction35cInfo>() {
             // Overwrite the result of context.getPackageName() with the original package name.
             replaceInstruction(
                 instructionIndex + 1,
-                "const-string v$targetRegister, \"${ORIGINAL_PACKAGE_NAME}\"",
+                "const-string v$targetRegister, \"${ORIGINAL_PACKAGE_NAME}\""
             )
         }
     }
@@ -74,13 +78,13 @@ object ClientSpoofPatch : BaseTransformInstructionsPatch<Instruction35cInfo>() {
         override val definedClassName: String,
         override val methodName: String,
         override val methodParams: Array<String>,
-        override val returnType: String,
+        override val returnType: String
     ) : IMethodCall {
         GetPackageName(
             "Landroid/content/Context;",
             "getPackageName",
             emptyArray(),
-            "Ljava/lang/String;",
-        ),
+            "Ljava/lang/String;"
+        )
     }
 }

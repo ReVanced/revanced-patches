@@ -18,7 +18,8 @@ import app.revanced.util.exception
     dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube",
+            [
                 "18.37.36",
                 "18.38.44",
                 "18.43.45",
@@ -52,8 +53,8 @@ object HideTimestampPatch : BytecodePatch(
 
         TimeCounterFingerprint.result?.apply {
             mutableMethod.addInstructionsWithLabels(
-            0,
-            """
+                0,
+                """
                 invoke-static { }, Lapp/revanced/integrations/youtube/patches/HideTimestampPatch;->hideTimestamp()Z
                 move-result v0
                 if-eqz v0, :hide_time

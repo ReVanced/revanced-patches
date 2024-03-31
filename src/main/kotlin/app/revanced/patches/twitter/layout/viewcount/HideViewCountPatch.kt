@@ -12,11 +12,11 @@ import app.revanced.util.exception
     name = "Hide view count",
     description = "Hides the view count of Posts.",
     compatiblePackages = [CompatiblePackage("com.twitter.android")],
-    use = false,
+    use = false
 )
 @Suppress("unused")
 object HideViewCountPatch : BytecodePatch(
-    setOf(ViewCountsEnabledFingerprint),
+    setOf(ViewCountsEnabledFingerprint)
 ) {
     override fun execute(context: BytecodeContext) =
         ViewCountsEnabledFingerprint.result?.mutableMethod?.addInstructions(
@@ -24,6 +24,6 @@ object HideViewCountPatch : BytecodePatch(
             """
                 const/4 v0, 0x0
                 return v0
-            """,
+            """
         ) ?: throw ViewCountsEnabledFingerprint.exception
 }

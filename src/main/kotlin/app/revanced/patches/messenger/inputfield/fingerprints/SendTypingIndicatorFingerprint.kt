@@ -7,9 +7,10 @@ internal object SendTypingIndicatorFingerprint : MethodFingerprint(
     returnType = "V",
     parameters = listOf(),
     customFingerprint = { methodDef, classDef ->
-        methodDef.name == "run" && classDef.fields.any {
-            it.name == "__redex_internal_original_name" &&
-                (it.initialValue as? DexBackedStringEncodedValue)?.value == "ConversationTypingContext\$sendActiveStateRunnable\$1"
-        }
-    },
+        methodDef.name == "run" &&
+            classDef.fields.any {
+                it.name == "__redex_internal_original_name" &&
+                    (it.initialValue as? DexBackedStringEncodedValue)?.value == "ConversationTypingContext\$sendActiveStateRunnable\$1"
+            }
+    }
 )

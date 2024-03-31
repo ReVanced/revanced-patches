@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.layout.sponsorblock
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -25,6 +24,7 @@ import app.revanced.patches.youtube.shared.fingerprints.SeekbarFingerprint
 import app.revanced.patches.youtube.shared.fingerprints.SeekbarOnDrawFingerprint
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.*
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
@@ -37,7 +37,8 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
     description = "Adds options to enable and configure SponsorBlock, which can skip undesired video segments such as sponsored content.",
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube",
+            [
                 "18.48.39",
                 "18.49.37",
                 "19.01.34",
@@ -83,8 +84,9 @@ object SponsorBlockBytecodePatch : BytecodePatch(
 
     override fun execute(context: BytecodeContext) {
         LayoutConstructorFingerprint.result?.let {
-            if (!ControlsOverlayFingerprint.resolve(context, it.classDef))
+            if (!ControlsOverlayFingerprint.resolve(context, it.classDef)) {
                 throw ControlsOverlayFingerprint.exception
+            }
         } ?: throw LayoutConstructorFingerprint.exception
 
         /*
@@ -105,23 +107,25 @@ object SponsorBlockBytecodePatch : BytecodePatch(
         /*
          * Seekbar drawing
          */
-        val seekbarSignatureResult = SeekbarFingerprint.result!!.let {
-            SeekbarOnDrawFingerprint.apply { resolve(context, it.mutableClass) }
-        }.result!!
+        val seekbarSignatureResult =
+            SeekbarFingerprint.result!!.let {
+                SeekbarOnDrawFingerprint.apply { resolve(context, it.mutableClass) }
+            }.result!!
         val seekbarMethod = seekbarSignatureResult.mutableMethod
         val seekbarMethodInstructions = seekbarMethod.implementation!!.instructions
 
         /*
          * Get left and right of seekbar rectangle
          */
-        val moveRectangleToRegisterIndex = seekbarMethodInstructions.indexOfFirst {
-            it.opcode == Opcode.MOVE_OBJECT_FROM16
-        }
+        val moveRectangleToRegisterIndex =
+            seekbarMethodInstructions.indexOfFirst {
+                it.opcode == Opcode.MOVE_OBJECT_FROM16
+            }
 
         seekbarMethod.addInstruction(
             moveRectangleToRegisterIndex + 1,
             "invoke-static/range {p0 .. p0}, " +
-                    "$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarRect(Ljava/lang/Object;)V"
+                "$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarRect(Ljava/lang/Object;)V"
         )
 
         for ((index, instruction) in seekbarMethodInstructions.withIndex()) {
@@ -136,7 +140,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
             seekbarMethod.addInstruction(
                 insertIndex,
                 "invoke-static {v${invokeInstruction.registerC}}, " +
-                        "$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarThickness(I)V"
+                    "$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarThickness(I)V"
             )
             break
         }
@@ -149,9 +153,10 @@ object SponsorBlockBytecodePatch : BytecodePatch(
             val invokeInstruction = seekbarMethodInstructions[i] as? ReferenceInstruction ?: continue
             if ((invokeInstruction.reference as MethodReference).name != "drawCircle") continue
 
-            val (canvasInstance, centerY) = (invokeInstruction as FiveRegisterInstruction).let {
-                it.registerC to it.registerE
-            }
+            val (canvasInstance, centerY) =
+                (invokeInstruction as FiveRegisterInstruction).let {
+                    it.registerC to it.registerE
+                }
             seekbarMethod.addInstruction(
                 i,
                 "invoke-static {v$canvasInstance, v$centerY}, $INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->drawSponsorTimeBars(Landroid/graphics/Canvas;F)V"
@@ -199,8 +204,8 @@ object SponsorBlockBytecodePatch : BytecodePatch(
                         invertVisibilityMethod.addInstructions(
                             0,
                             """
-                                invoke-static {p1}, $INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibilityNegatedImmediate(Z)V
-                                invoke-static {p1}, $INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibilityNegatedImmediate(Z)V
+                            invoke-static {p1}, $INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibilityNegatedImmediate(Z)V
+                            invoke-static {p1}, $INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibilityNegatedImmediate(Z)V
                             """.trimIndent()
                         )
                     }
@@ -239,7 +244,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
                     "invoke-static {v$frameLayoutRegister}, $INTEGRATIONS_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR->initialize(Landroid/view/ViewGroup;)V"
                 )
             }
-        }  ?: throw ControlsOverlayFingerprint.exception
+        } ?: throw ControlsOverlayFingerprint.exception
 
         // get rectangle field name
         RectangleFieldInvalidatorFingerprint.resolve(context, seekbarSignatureResult.classDef)
@@ -255,25 +260,30 @@ object SponsorBlockBytecodePatch : BytecodePatch(
             .methods
             .find { it.name == "setSponsorBarRect" }
             ?.let { method ->
-                fun MutableMethod.replaceStringInstruction(index: Int, instruction: Instruction, with: String) {
+                fun MutableMethod.replaceStringInstruction(
+                    index: Int,
+                    instruction: Instruction,
+                    with: String
+                ) {
                     val register = (instruction as OneRegisterInstruction).registerA
                     this.replaceInstruction(
-                        index, "const-string v$register, \"$with\""
+                        index,
+                        "const-string v$register, \"$with\""
                     )
                 }
                 for ((index, it) in method.implementation!!.instructions.withIndex()) {
                     if (it.opcode.ordinal != Opcode.CONST_STRING.ordinal) continue
 
                     when (((it as ReferenceInstruction).reference as StringReference).string) {
-                        "replaceMeWithsetSponsorBarRect" -> method.replaceStringInstruction(
-                            index,
-                            it,
-                            rectangleFieldName
-                        )
+                        "replaceMeWithsetSponsorBarRect" ->
+                            method.replaceStringInstruction(
+                                index,
+                                it,
+                                rectangleFieldName
+                            )
                     }
                 }
             } ?: throw PatchException("Could not find the method which contains the replaceMeWith* strings")
-
 
         // The vote and create segment buttons automatically change their visibility when appropriate,
         // but if buttons are showing when the end of the video is reached then they will not automatically hide.

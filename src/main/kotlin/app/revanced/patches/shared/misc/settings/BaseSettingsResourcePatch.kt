@@ -9,8 +9,8 @@ import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import app.revanced.util.getNode
-import org.w3c.dom.Node
 import java.io.Closeable
+import org.w3c.dom.Node
 
 /**
  * A resource patch that adds settings to a settings fragment.
@@ -21,9 +21,9 @@ import java.io.Closeable
  */
 abstract class BaseSettingsResourcePatch(
     private val rootPreference: Pair<IntentPreference, String>? = null,
-    dependencies: Set<PatchClass> = emptySet(),
+    dependencies: Set<PatchClass> = emptySet()
 ) : ResourcePatch(
-    dependencies = setOf(AddResourcesPatch::class) + dependencies,
+    dependencies = setOf(AddResourcesPatch::class) + dependencies
 ),
     MutableSet<BasePreference> by mutableSetOf(),
     Closeable {
@@ -32,7 +32,7 @@ abstract class BaseSettingsResourcePatch(
     override fun execute(context: ResourceContext) {
         context.copyResources(
             "settings",
-            ResourceGroup("xml", "revanced_prefs.xml"),
+            ResourceGroup("xml", "revanced_prefs.xml")
         )
 
         this.context = context
@@ -41,7 +41,10 @@ abstract class BaseSettingsResourcePatch(
     }
 
     override fun close() {
-        fun Node.addPreference(preference: BasePreference, prepend: Boolean = false) {
+        fun Node.addPreference(
+            preference: BasePreference,
+            prepend: Boolean = false
+        ) {
             preference.serialize(ownerDocument) { resource ->
                 // TODO: Currently, resources can only be added to "values", which may not be the correct place.
                 //  It may be necessary to ask for the desired resourceValue in the future.

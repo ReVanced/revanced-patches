@@ -7,5 +7,5 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal object InfocardsIncognitoParentFingerprint : MethodFingerprint(
     "Ljava/lang/String;",
     AccessFlags.PUBLIC or AccessFlags.FINAL,
-    strings = listOf("player_overlay_info_card_teaser"),
+    strings = listOf("player_overlay_info_card_teaser")
 )

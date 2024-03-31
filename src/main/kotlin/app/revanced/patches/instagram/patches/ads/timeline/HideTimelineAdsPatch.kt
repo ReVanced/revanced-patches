@@ -15,15 +15,15 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch(
     name = "Hide timeline ads",
-    compatiblePackages = [CompatiblePackage("com.instagram.android")],
+    compatiblePackages = [CompatiblePackage("com.instagram.android")]
 )
 @Suppress("unused")
 object HideTimelineAdsPatch : BytecodePatch(
     setOf(
         ShowAdFingerprint,
         IsAdCheckOneFingerprint,
-        IsAdCheckTwoFingerprint,
-    ),
+        IsAdCheckTwoFingerprint
+    )
 ) {
     override fun execute(context: BytecodeContext) {
         // The exact function of the following methods is unknown.
@@ -55,7 +55,7 @@ object HideTimelineAdsPatch : BytecodePatch(
                         const/4 v0, 0x0 # Returning false to hide the ad.
                         return v0
                     """,
-                    ExternalLabel("not_an_ad", getInstruction(checkIndex)),
+                    ExternalLabel("not_an_ad", getInstruction(checkIndex))
                 )
             }
         } ?: throw ShowAdFingerprint.exception

@@ -10,13 +10,14 @@ internal object HideUpdatePopupFingerprint : MethodFingerprint(
         // The popup is shown only in the main activity
         classDef.type == "Lcom/microblink/photomath/main/activity/MainActivity;"
     },
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.CONST_HIGH16,
         Opcode.INVOKE_VIRTUAL, // ViewPropertyAnimator.alpha(1.0f)
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CONST_WIDE_16,
-        Opcode.INVOKE_VIRTUAL, // ViewPropertyAnimator.setDuration(1000L)
+        Opcode.INVOKE_VIRTUAL // ViewPropertyAnimator.setDuration(1000L)
     ),
     accessFlags = AccessFlags.FINAL or AccessFlags.PUBLIC,
-    returnType = "V",
+    returnType = "V"
 )

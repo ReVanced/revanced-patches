@@ -23,17 +23,17 @@ import app.revanced.util.exception
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class,
-        AddResourcesPatch::class,
+        AddResourcesPatch::class
     ],
-    compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])],
+    compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])]
 )
 @Suppress("unused")
 object ShowDeletedMessagesPatch : BytecodePatch(
     setOf(
         SetHasModAccessFingerprint,
         DeletedMessageClickableSpanCtorFingerprint,
-        ChatUtilCreateDeletedSpanFingerprint,
-    ),
+        ChatUtilCreateDeletedSpanFingerprint
+    )
 ) {
     private fun createSpoilerConditionInstructions(register: String = "v0") = """
         invoke-static {}, Lapp/revanced/integrations/twitch/patches/ShowDeletedMessagesPatch;->shouldUseSpoiler()Z
@@ -47,8 +47,8 @@ object ShowDeletedMessagesPatch : BytecodePatch(
         SettingsPatch.PreferenceScreen.CHAT.GENERAL.addPreferences(
             ListPreference(
                 key = "revanced_show_deleted_messages",
-                summaryKey = null,
-            ),
+                summaryKey = null
+            )
         )
 
         // Spoiler mode: Force set hasModAccess member to true in constructor.
@@ -61,7 +61,7 @@ object ShowDeletedMessagesPatch : BytecodePatch(
                     const/4 v0, 1
                     iput-boolean v0, p0, $definingClass->hasModAccess:Z
                 """,
-                ExternalLabel("no_spoiler", getInstruction(implementation!!.instructions.lastIndex)),
+                ExternalLabel("no_spoiler", getInstruction(implementation!!.instructions.lastIndex))
             )
         } ?: throw DeletedMessageClickableSpanCtorFingerprint.exception
 
@@ -79,7 +79,7 @@ object ShowDeletedMessagesPatch : BytecodePatch(
                     if-eqz v0, :no_reformat
                     return-object v0
                 """,
-                ExternalLabel("no_reformat", getInstruction(0)),
+                ExternalLabel("no_reformat", getInstruction(0))
             )
         } ?: throw ChatUtilCreateDeletedSpanFingerprint.exception
     }

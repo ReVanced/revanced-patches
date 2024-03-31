@@ -12,7 +12,7 @@ internal object HideGetPremiumFingerprint : MethodFingerprint(
     listOf(
         Opcode.IF_NEZ,
         Opcode.CONST_16,
-        Opcode.INVOKE_VIRTUAL,
+        Opcode.INVOKE_VIRTUAL
     ),
-    listOf("FEmusic_history", "FEmusic_offline"),
+    listOf("FEmusic_history", "FEmusic_offline")
 )

@@ -15,5 +15,5 @@ internal object ReelConstructorFingerprint : MethodFingerprint(
         val reelMultipleItemShelfId = HideShortsComponentsResourcePatch.reelMultipleItemShelfId
         reelMultipleItemShelfId != -1L &&
             methodDef.containsWideLiteralInstructionValue(reelMultipleItemShelfId)
-    },
+    }
 )

@@ -14,8 +14,8 @@ import app.revanced.util.exception
     description = "Shows progress bar for all video.",
     compatiblePackages = [
         CompatiblePackage("com.ss.android.ugc.trill"),
-        CompatiblePackage("com.zhiliaoapp.musically"),
-    ],
+        CompatiblePackage("com.zhiliaoapp.musically")
+    ]
 )
 @Suppress("unused")
 object ShowSeekbarPatch : BytecodePatch(setOf(SetSeekBarShowTypeFingerprint, ShouldShowSeekBarFingerprint)) {
@@ -26,7 +26,7 @@ object ShowSeekbarPatch : BytecodePatch(setOf(SetSeekBarShowTypeFingerprint, Sho
                 """
                     const/4 v0, 0x1
                     return v0
-                """,
+                """
             )
         }
         SetSeekBarShowTypeFingerprint.result?.mutableMethod?.apply {
@@ -36,7 +36,7 @@ object ShowSeekbarPatch : BytecodePatch(setOf(SetSeekBarShowTypeFingerprint, Sho
                 0,
                 """
                     const/16 v$typeRegister, 0x64
-                """,
+                """
             )
         } ?: throw SetSeekBarShowTypeFingerprint.exception
     }

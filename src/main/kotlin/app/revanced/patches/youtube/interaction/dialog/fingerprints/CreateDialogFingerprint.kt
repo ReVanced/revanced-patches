@@ -17,6 +17,6 @@ internal object CreateDialogFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.IPUT_OBJECT,
         Opcode.IGET_OBJECT,
-        Opcode.INVOKE_VIRTUAL, // dialog.show()
-    ),
+        Opcode.INVOKE_VIRTUAL // dialog.show()
+    )
 )

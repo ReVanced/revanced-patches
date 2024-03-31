@@ -68,8 +68,9 @@ tasks {
         dependsOn(build)
 
         doLast {
-            val d8 = File(System.getenv("ANDROID_HOME")).resolve("build-tools")
-                .listFilesOrdered().last().resolve("d8").absolutePath
+            val d8 =
+                File(System.getenv("ANDROID_HOME")).resolve("build-tools")
+                    .listFilesOrdered().last().resolve("d8").absolutePath
 
             val patchesJar = configurations.archives.get().allArtifacts.files.files.first().absolutePath
             val workingDirectory = layout.buildDirectory.dir("libs").get().asFile

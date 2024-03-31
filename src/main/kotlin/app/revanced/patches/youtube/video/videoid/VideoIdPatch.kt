@@ -17,13 +17,13 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     description = "Hooks to detect when the video id changes",
-    dependencies = [IntegrationsPatch::class, PlayerResponseMethodHookPatch::class],
+    dependencies = [IntegrationsPatch::class, PlayerResponseMethodHookPatch::class]
 )
 object VideoIdPatch : BytecodePatch(
     setOf(
         VideoIdFingerprint,
-        VideoIdFingerprintBackgroundPlay,
-    ),
+        VideoIdFingerprintBackgroundPlay
+    )
 ) {
     private var videoIdRegister = 0
     private var videoIdInsertIndex = 0
@@ -39,15 +39,16 @@ object VideoIdPatch : BytecodePatch(
          *
          * @param consumer Consumer that receives the method, insert index and video id register index.
          */
-        fun MethodFingerprint.setFields(consumer: (MutableMethod, Int, Int) -> Unit) = result?.let { result ->
-            val videoIdRegisterIndex = result.scanResult.patternScanResult!!.endIndex
+        fun MethodFingerprint.setFields(consumer: (MutableMethod, Int, Int) -> Unit) =
+            result?.let { result ->
+                val videoIdRegisterIndex = result.scanResult.patternScanResult!!.endIndex
 
-            result.mutableMethod.let {
-                val videoIdRegister = it.getInstruction<OneRegisterInstruction>(videoIdRegisterIndex).registerA
-                val insertIndex = videoIdRegisterIndex + 1
-                consumer(it, insertIndex, videoIdRegister)
-            }
-        } ?: throw exception
+                result.mutableMethod.let {
+                    val videoIdRegister = it.getInstruction<OneRegisterInstruction>(videoIdRegisterIndex).registerA
+                    val insertIndex = videoIdRegisterIndex + 1
+                    consumer(it, insertIndex, videoIdRegister)
+                }
+            } ?: throw exception
 
         VideoIdFingerprint.setFields { method, index, register ->
             videoIdMethod = method
@@ -74,10 +75,10 @@ object VideoIdPatch : BytecodePatch(
      * @param methodDescriptor which method to call. Params have to be `Ljava/lang/String;`
      */
     fun hookVideoId(
-        methodDescriptor: String,
+        methodDescriptor: String
     ) = videoIdMethod.addInstruction(
         videoIdInsertIndex++,
-        "invoke-static {v$videoIdRegister}, $methodDescriptor",
+        "invoke-static {v$videoIdRegister}, $methodDescriptor"
     )
 
     /**
@@ -91,10 +92,10 @@ object VideoIdPatch : BytecodePatch(
      * @param methodDescriptor which method to call. Params have to be `Ljava/lang/String;`
      */
     fun hookBackgroundPlayVideoId(
-        methodDescriptor: String,
+        methodDescriptor: String
     ) = backgroundPlaybackMethod.addInstruction(
         backgroundPlaybackInsertIndex++, // move-result-object offset
-        "invoke-static {v$backgroundPlaybackVideoIdRegister}, $methodDescriptor",
+        "invoke-static {v$backgroundPlaybackVideoIdRegister}, $methodDescriptor"
     )
 
     /**
@@ -121,8 +122,9 @@ object VideoIdPatch : BytecodePatch(
      * @param methodDescriptor which method to call. Params must be `Ljava/lang/String;Z`
      */
     fun hookPlayerResponseVideoId(methodDescriptor: String) {
-        PlayerResponseMethodHookPatch += PlayerResponseMethodHookPatch.Hook.VideoId(
-            methodDescriptor,
-        )
+        PlayerResponseMethodHookPatch +=
+            PlayerResponseMethodHookPatch.Hook.VideoId(
+                methodDescriptor
+            )
     }
 }

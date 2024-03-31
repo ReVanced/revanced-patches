@@ -8,5 +8,5 @@ internal object SetSeekbarClickedColorFingerprint : MethodFingerprint(
     strings = listOf("YOUTUBE", "PREROLL", "POSTROLL"),
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("ControlsOverlayStyle;")
-    },
+    }
 )

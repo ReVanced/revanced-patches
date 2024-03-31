@@ -5,14 +5,14 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.debugging.EnableAndroidDebuggingPatch
 import app.revanced.util.Utils.trimIndentMultiline
-import org.w3c.dom.Element
 import java.io.File
+import org.w3c.dom.Element
 
 @Patch(
     name = "Override certificate pinning",
     description = "Overrides certificate pinning, allowing to inspect traffic via a proxy.",
     dependencies = [EnableAndroidDebuggingPatch::class],
-    use = false,
+    use = false
 )
 @Suppress("unused")
 object OverrideCertificatePinningPatch : ResourcePatch() {
@@ -54,7 +54,7 @@ object OverrideCertificatePinningPatch : ResourcePatch() {
                             </trust-anchors>
                         </debug-overrides>
                     </network-security-config>
-                    """.trimIndentMultiline(),
+                    """.trimIndentMultiline()
             )
         }
     }

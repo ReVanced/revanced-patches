@@ -14,13 +14,13 @@ object SettingsResourcePatch : BaseSettingsResourcePatch(
     IntentPreference(
         titleKey = "revanced_settings_title",
         summaryKey = null,
-        intent = SettingsPatch.newIntent("revanced_settings_intent"),
+        intent = SettingsPatch.newIntent("revanced_settings_intent")
     ) to "settings_fragment",
     dependencies =
     setOf(
         ResourceMappingPatch::class,
-        AddResourcesPatch::class,
-    ),
+        AddResourcesPatch::class
+    )
 ) {
     // Used for a fingerprint from SettingsPatch.
     internal var appearanceStringId = -1L
@@ -37,7 +37,7 @@ object SettingsResourcePatch : BaseSettingsResourcePatch(
             }!!.id
 
         arrayOf(
-            ResourceGroup("layout", "revanced_settings_with_toolbar.xml"),
+            ResourceGroup("layout", "revanced_settings_with_toolbar.xml")
         ).forEach { resourceGroup ->
             context.copyResources("settings", resourceGroup)
         }

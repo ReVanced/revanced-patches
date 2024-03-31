@@ -4,8 +4,9 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
 internal object EmptyComponentBuilderFingerprint : MethodFingerprint(
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.INVOKE_INTERFACE,
-        Opcode.INVOKE_STATIC_RANGE,
-    ),
+        Opcode.INVOKE_STATIC_RANGE
+    )
 )

@@ -64,17 +64,17 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
                 "19.07.40",
                 "19.08.36",
                 "19.09.37"
-            ],
-        ),
-    ],
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object AlternativeThumbnailsPatch : BytecodePatch(
     setOf(
         MessageDigestImageUrlParentFingerprint,
         OnResponseStartedFingerprint,
-        RequestFingerprint,
-    ),
+        RequestFingerprint
+    )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/AlternativeThumbnailsPatch;"
@@ -92,13 +92,16 @@ object AlternativeThumbnailsPatch : BytecodePatch(
      * @param highPriority If the hook should be called before all other hooks.
      */
     @Suppress("SameParameterValue")
-    private fun addImageUrlHook(targetMethodClass: String, highPriority: Boolean) {
+    private fun addImageUrlHook(
+        targetMethodClass: String,
+        highPriority: Boolean
+    ) {
         loadImageUrlMethod.addInstructions(
             if (highPriority) 0 else loadImageUrlIndex,
             """
                 invoke-static { p1 }, $targetMethodClass->overrideImageURL(Ljava/lang/String;)Ljava/lang/String;
                 move-result-object p1
-                """,
+                """
         )
         loadImageUrlIndex += 2
     }
@@ -112,7 +115,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
         loadImageSuccessCallbackMethod.addInstruction(
             loadImageSuccessCallbackIndex++,
             "invoke-static { p1, p2 }, $targetMethodClass->handleCronetSuccess(" +
-                "Lorg/chromium/net/UrlRequest;Lorg/chromium/net/UrlResponseInfo;)V",
+                "Lorg/chromium/net/UrlRequest;Lorg/chromium/net/UrlResponseInfo;)V"
         )
     }
 
@@ -124,7 +127,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
         loadImageErrorCallbackMethod.addInstruction(
             loadImageErrorCallbackIndex++,
             "invoke-static { p1, p2, p3 }, $targetMethodClass->handleCronetFailure(" +
-                "Lorg/chromium/net/UrlRequest;Lorg/chromium/net/UrlResponseInfo;Ljava/io/IOException;)V",
+                "Lorg/chromium/net/UrlRequest;Lorg/chromium/net/UrlResponseInfo;Ljava/io/IOException;)V"
         )
     }
 
@@ -134,27 +137,32 @@ object AlternativeThumbnailsPatch : BytecodePatch(
         val entries = "revanced_alt_thumbnail_options_entries"
         val values = "revanced_alt_thumbnail_options_entry_values"
         SettingsPatch.PreferenceScreen.ALTERNATIVE_THUMBNAILS.addPreferences(
-            ListPreference("revanced_alt_thumbnail_home",
+            ListPreference(
+                "revanced_alt_thumbnail_home",
                 summaryKey = null,
                 entriesKey = entries,
                 entryValuesKey = values
             ),
-            ListPreference("revanced_alt_thumbnail_subscription",
+            ListPreference(
+                "revanced_alt_thumbnail_subscription",
                 summaryKey = null,
                 entriesKey = entries,
                 entryValuesKey = values
             ),
-            ListPreference("revanced_alt_thumbnail_library",
+            ListPreference(
+                "revanced_alt_thumbnail_library",
                 summaryKey = null,
                 entriesKey = entries,
                 entryValuesKey = values
             ),
-            ListPreference("revanced_alt_thumbnail_player",
+            ListPreference(
+                "revanced_alt_thumbnail_player",
                 summaryKey = null,
                 entriesKey = entries,
                 entryValuesKey = values
             ),
-            ListPreference("revanced_alt_thumbnail_search",
+            ListPreference(
+                "revanced_alt_thumbnail_search",
                 summaryKey = null,
                 entriesKey = entries,
                 entryValuesKey = values
@@ -163,7 +171,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                 "revanced_alt_thumbnail_dearrow_about",
                 // Custom about preference with link to the DeArrow website.
                 tag = "app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsAboutDeArrowPreference",
-                selectable = true,
+                selectable = true
             ),
             SwitchPreference("revanced_alt_thumbnail_dearrow_connection_toast"),
             TextPreference("revanced_alt_thumbnail_dearrow_api_url"),
@@ -177,7 +185,7 @@ object AlternativeThumbnailsPatch : BytecodePatch(
 
         fun MethodFingerprint.resolveAndLetMutableMethod(
             fingerprint: MethodFingerprint,
-            block: (MutableMethod) -> Unit,
+            block: (MutableMethod) -> Unit
         ) = alsoResolve(fingerprint).also { block(it.mutableMethod) }
 
         MessageDigestImageUrlFingerprint.resolveAndLetMutableMethod(MessageDigestImageUrlParentFingerprint) {
@@ -199,12 +207,13 @@ object AlternativeThumbnailsPatch : BytecodePatch(
         // Add a helper get method that returns the URL field.
         RequestFingerprint.resultOrThrow().apply {
             // The url is the only string field that is set inside the constructor.
-            val urlFieldInstruction = mutableMethod.getInstructions().first {
-                if (it.opcode != Opcode.IPUT_OBJECT) return@first false
+            val urlFieldInstruction =
+                mutableMethod.getInstructions().first {
+                    if (it.opcode != Opcode.IPUT_OBJECT) return@first false
 
-                val reference = (it as ReferenceInstruction).reference as FieldReference
-                reference.type == "Ljava/lang/String;"
-            } as ReferenceInstruction
+                    val reference = (it as ReferenceInstruction).reference as FieldReference
+                    reference.type == "Ljava/lang/String;"
+                } as ReferenceInstruction
 
             val urlFieldName = (urlFieldInstruction.reference as FieldReference).name
             val definingClass = RequestFingerprint.IMPLEMENTATION_CLASS_NAME
@@ -218,15 +227,15 @@ object AlternativeThumbnailsPatch : BytecodePatch(
                     AccessFlags.PUBLIC.value,
                     null,
                     null,
-                    MutableMethodImplementation(2),
+                    MutableMethodImplementation(2)
                 ).toMutable().apply {
                     addInstructions(
                         """
                         iget-object v0, p0, $definingClass->$urlFieldName:Ljava/lang/String;
                         return-object v0
-                    """,
+                    """
                     )
-                },
+                }
             )
         }
     }

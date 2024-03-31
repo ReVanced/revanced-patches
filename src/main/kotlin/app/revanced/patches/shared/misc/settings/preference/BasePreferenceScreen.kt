@@ -4,9 +4,8 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sor
 import java.io.Closeable
 
 abstract class BasePreferenceScreen(
-    private val root: MutableSet<Screen> = mutableSetOf(),
+    private val root: MutableSet<Screen> = mutableSetOf()
 ) : Closeable {
-
     override fun close() {
         if (root.isEmpty()) return
 
@@ -26,9 +25,8 @@ abstract class BasePreferenceScreen(
         private val summaryKey: String? = "${key}_summary",
         preferences: MutableSet<BasePreference> = mutableSetOf(),
         val categories: MutableSet<Category> = mutableSetOf(),
-        private val sorting: Sorting = Sorting.BY_TITLE,
+        private val sorting: Sorting = Sorting.BY_TITLE
     ) : BasePreferenceCollection(key, titleKey, preferences) {
-
         override fun transform(): PreferenceScreen {
             return PreferenceScreen(
                 key,
@@ -37,7 +35,7 @@ abstract class BasePreferenceScreen(
                 sorting,
                 // Screens and preferences are sorted at runtime by integrations code,
                 // so title sorting uses the localized language in use.
-                preferences = preferences + categories.map { it.transform() },
+                preferences = preferences + categories.map { it.transform() }
             )
         }
 
@@ -56,13 +54,13 @@ abstract class BasePreferenceScreen(
         open inner class Category(
             key: String? = null,
             titleKey: String = "${key}_title",
-            preferences: MutableSet<BasePreference> = mutableSetOf(),
+            preferences: MutableSet<BasePreference> = mutableSetOf()
         ) : BasePreferenceCollection(key, titleKey, preferences) {
             override fun transform(): PreferenceCategory {
                 return PreferenceCategory(
                     key,
                     titleKey,
-                    preferences = preferences,
+                    preferences = preferences
                 )
             }
 
@@ -82,7 +80,7 @@ abstract class BasePreferenceScreen(
     abstract class BasePreferenceCollection(
         val key: String? = null,
         val titleKey: String = "${key}_title",
-        val preferences: MutableSet<BasePreference> = mutableSetOf(),
+        val preferences: MutableSet<BasePreference> = mutableSetOf()
     ) {
         abstract fun transform(): BasePreference
     }

@@ -12,11 +12,11 @@ import app.revanced.util.exception
 @Patch(
     name = "Remove bootloader detection",
     description = "Removes the check for an unlocked bootloader.",
-    compatiblePackages = [CompatiblePackage("at.gv.bmf.bmf2go")],
+    compatiblePackages = [CompatiblePackage("at.gv.bmf.bmf2go")]
 )
 @Suppress("unused")
 object BootloaderDetectionPatch : BytecodePatch(
-    setOf(CreateKeyFingerprint, BootStateFingerprint),
+    setOf(CreateKeyFingerprint, BootStateFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         arrayOf(CreateKeyFingerprint, BootStateFingerprint).forEach { fingerprint ->
@@ -25,7 +25,7 @@ object BootloaderDetectionPatch : BytecodePatch(
                 """
                         const/4 v0, 0x1
                         return v0
-                """,
+                """
             ) ?: throw fingerprint.exception
         }
     }

@@ -15,20 +15,23 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Suppress("unused")
 object SpoofClientPatch : BaseSpoofClientPatch(
     redirectUri = "dbrady://relay",
-    miscellaneousFingerprints = setOf(
+    miscellaneousFingerprints =
+    setOf(
         SetRemoteConfigFingerprint,
-        RedditCheckDisableAPIFingerprint,
+        RedditCheckDisableAPIFingerprint
     ),
-    clientIdFingerprints = setOf(
+    clientIdFingerprints =
+    setOf(
         LoginActivityClientIdFingerprint,
         GetLoggedInBearerTokenFingerprint,
         GetLoggedOutBearerTokenFingerprint,
-        GetRefreshTokenFingerprint,
+        GetRefreshTokenFingerprint
     ),
-    compatiblePackages = setOf(
+    compatiblePackages =
+    setOf(
         CompatiblePackage("free.reddit.news"),
-        CompatiblePackage("reddit.news"),
-    ),
+        CompatiblePackage("reddit.news")
+    )
 ) {
     override fun Set<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
         forEach {
@@ -38,7 +41,7 @@ object SpoofClientPatch : BaseSpoofClientPatch(
 
                 it.mutableMethod.replaceInstruction(
                     clientIdIndex,
-                    "const-string v$clientIdRegister, \"$clientId\"",
+                    "const-string v$clientIdRegister, \"$clientId\""
                 )
             }
         }
@@ -58,8 +61,8 @@ object SpoofClientPatch : BaseSpoofClientPatch(
                     checkIsOAuthRequestIndex,
                     BuilderInstruction10t(
                         Opcode.GOTO,
-                        returnNextChain,
-                    ),
+                        returnNextChain
+                    )
                 )
             }
         }

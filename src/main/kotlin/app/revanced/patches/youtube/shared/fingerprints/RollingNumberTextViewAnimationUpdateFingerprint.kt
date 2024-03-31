@@ -9,7 +9,8 @@ internal object RollingNumberTextViewAnimationUpdateFingerprint : MethodFingerpr
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Landroid/graphics/Bitmap;"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.NEW_INSTANCE, // bitmap ImageSpan
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
@@ -22,9 +23,9 @@ internal object RollingNumberTextViewAnimationUpdateFingerprint : MethodFingerpr
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
         Opcode.INT_TO_FLOAT,
-        Opcode.INVOKE_VIRTUAL, // set textview padding using bitmap width
+        Opcode.INVOKE_VIRTUAL // set textview padding using bitmap width
     ),
     customFingerprint = { _, classDef ->
         classDef.superclass == "Landroid/support/v7/widget/AppCompatTextView;"
-    },
+    }
 )

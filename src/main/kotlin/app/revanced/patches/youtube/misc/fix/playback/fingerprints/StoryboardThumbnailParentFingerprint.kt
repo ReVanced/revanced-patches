@@ -13,5 +13,5 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal object StoryboardThumbnailParentFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "Landroid/graphics/Bitmap;",
-    strings = listOf("Storyboard regionDecoder.decodeRegion exception - "),
+    strings = listOf("Storyboard regionDecoder.decodeRegion exception - ")
 )

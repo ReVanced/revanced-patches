@@ -11,16 +11,16 @@ import app.revanced.util.exception
 @Patch(
     name = "Fix login",
     description = "Fixes login for uncertified Mi Fitness app",
-    compatiblePackages = [CompatiblePackage("com.xiaomi.wearable")],
+    compatiblePackages = [CompatiblePackage("com.xiaomi.wearable")]
 )
 @Suppress("unused")
 object FixLoginPatch : BytecodePatch(
-    setOf(XiaomiAccountManagerConstructorFingerprint),
+    setOf(XiaomiAccountManagerConstructorFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         XiaomiAccountManagerConstructorFingerprint.result?.mutableMethod?.addInstruction(
             0,
-            "const/16 p2, 0x0",
+            "const/16 p2, 0x0"
         ) ?: throw XiaomiAccountManagerConstructorFingerprint.exception
     }
 }

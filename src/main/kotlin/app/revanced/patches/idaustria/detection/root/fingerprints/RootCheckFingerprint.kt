@@ -9,5 +9,5 @@ internal object RootCheckFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.name == "rootCheck" &&
             methodDef.definingClass.endsWith("/DeviceIntegrityCheck;")
-    },
+    }
 )

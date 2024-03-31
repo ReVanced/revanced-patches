@@ -9,7 +9,7 @@ import app.revanced.util.exception
 
 @Patch(description = "Enables textbook access")
 internal object EnableBookpointPatch : BytecodePatch(
-    setOf(IsBookpointEnabledFingerprint),
+    setOf(IsBookpointEnabledFingerprint)
 ) {
     override fun execute(context: BytecodeContext) =
         IsBookpointEnabledFingerprint.result?.mutableMethod?.replaceInstructions(
@@ -17,6 +17,6 @@ internal object EnableBookpointPatch : BytecodePatch(
             """
                 const/4 v0, 0x1
                 return v0
-            """,
+            """
         ) ?: throw IsBookpointEnabledFingerprint.exception
 }

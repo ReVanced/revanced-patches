@@ -8,5 +8,5 @@ internal object FullscreenSeekbarThumbnailsFingerprint : LiteralValueFingerprint
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = emptyList(),
-    literalSupplier = { 45398577 },
+    literalSupplier = { 45398577 }
 )

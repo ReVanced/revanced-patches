@@ -15,7 +15,7 @@ import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 
 @Patch(description = "Filter timeline objects.", requiresIntegrations = true)
 object TimelineFilterPatch : BytecodePatch(
-    setOf(TimelineConstructorFingerprint, TimelineFilterIntegrationFingerprint, PostsResponseConstructorFingerprint),
+    setOf(TimelineConstructorFingerprint, TimelineFilterIntegrationFingerprint, PostsResponseConstructorFingerprint)
 ) {
     /**
      * Add a filter to hide the given timeline object type.
@@ -48,7 +48,7 @@ object TimelineFilterPatch : BytecodePatch(
                         """
                             const-string v$stringRegister, "$typeName"
                             invoke-virtual { v$filterListRegister, v$stringRegister }, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-                        """,
+                        """
                     )
                 }
             }
@@ -56,13 +56,13 @@ object TimelineFilterPatch : BytecodePatch(
 
         mapOf(
             TimelineConstructorFingerprint to 1,
-            PostsResponseConstructorFingerprint to 2,
+            PostsResponseConstructorFingerprint to 2
         ).forEach { (fingerprint, timelineObjectsRegister) ->
             fingerprint.result?.mutableMethod?.addInstructions(
                 0,
                 "invoke-static {p$timelineObjectsRegister}, " +
                     "Lapp/revanced/integrations/tumblr/patches/TimelineFilterPatch;->" +
-                    "filterTimeline(Ljava/util/List;)V",
+                    "filterTimeline(Ljava/util/List;)V"
             ) ?: throw fingerprint.exception
         }
     }

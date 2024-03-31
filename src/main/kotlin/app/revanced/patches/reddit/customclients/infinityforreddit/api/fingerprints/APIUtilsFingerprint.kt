@@ -3,5 +3,5 @@ package app.revanced.patches.reddit.customclients.infinityforreddit.api.fingerpr
 import app.revanced.patcher.fingerprint.MethodFingerprint
 
 internal object APIUtilsFingerprint : MethodFingerprint(
-    strings = listOf("native-lib"),
+    strings = listOf("native-lib")
 )

@@ -14,8 +14,8 @@ import app.revanced.util.exception
     compatiblePackages = [
         CompatiblePackage("com.laurencedawson.reddit_sync", ["v23.06.30-13:39"]),
         CompatiblePackage("com.laurencedawson.reddit_sync.pro"), // Version unknown.
-        CompatiblePackage("com.laurencedawson.reddit_sync.dev"), // Version unknown.
-    ],
+        CompatiblePackage("com.laurencedawson.reddit_sync.dev") // Version unknown.
+    ]
 )
 @Suppress("unused")
 object DisableSyncForLemmyBottomSheetPatch : BytecodePatch(setOf(MainActivityOnCreateFingerprint)) {

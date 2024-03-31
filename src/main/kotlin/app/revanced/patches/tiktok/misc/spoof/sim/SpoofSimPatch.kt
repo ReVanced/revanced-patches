@@ -23,20 +23,21 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
         CompatiblePackage("com.ss.android.ugc.trill"),
-        CompatiblePackage("com.zhiliaoapp.musically"),
+        CompatiblePackage("com.zhiliaoapp.musically")
     ],
-    use = false,
+    use = false
 )
 @Suppress("unused")
 object SpoofSimPatch : BytecodePatch(emptySet()) {
-    private val replacements = hashMapOf(
-        "getSimCountryIso" to "getCountryIso",
-        "getNetworkCountryIso" to "getCountryIso",
-        "getSimOperator" to "getOperator",
-        "getNetworkOperator" to "getOperator",
-        "getSimOperatorName" to "getOperatorName",
-        "getNetworkOperatorName" to "getOperatorName",
-    )
+    private val replacements =
+        hashMapOf(
+            "getSimCountryIso" to "getCountryIso",
+            "getNetworkCountryIso" to "getCountryIso",
+            "getSimOperator" to "getOperator",
+            "getNetworkOperator" to "getOperator",
+            "getSimOperatorName" to "getOperatorName",
+            "getNetworkOperatorName" to "getOperatorName"
+        )
 
     override fun execute(context: BytecodeContext) {
         // Find all api call to check sim information.
@@ -85,13 +86,16 @@ object SpoofSimPatch : BytecodePatch(emptySet()) {
         with(SettingsStatusLoadFingerprint.result!!.mutableMethod) {
             addInstruction(
                 0,
-                "invoke-static {}, Lapp/revanced/integrations/tiktok/settings/SettingsStatus;->enableSimSpoof()V",
+                "invoke-static {}, Lapp/revanced/integrations/tiktok/settings/SettingsStatus;->enableSimSpoof()V"
             )
         }
     }
 
     // Patch Android API and return fake sim information.
-    private fun MutableMethod.replaceReference(index: Int, replacement: String) {
+    private fun MutableMethod.replaceReference(
+        index: Int,
+        replacement: String
+    ) {
         val resultReg = getInstruction<OneRegisterInstruction>(index + 1).registerA
 
         addInstructions(
@@ -99,7 +103,7 @@ object SpoofSimPatch : BytecodePatch(emptySet()) {
             """
                 invoke-static {v$resultReg}, Lapp/revanced/integrations/tiktok/spoof/sim/SpoofSimPatch;->$replacement(Ljava/lang/String;)Ljava/lang/String;
                 move-result-object v$resultReg
-            """,
+            """
         )
     }
 }

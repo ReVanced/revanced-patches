@@ -9,5 +9,5 @@ internal object DeletedMessageClickableSpanCtorFingerprint : MethodFingerprint(
     AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("DeletedMessageClickableSpan;")
-    },
+    }
 )

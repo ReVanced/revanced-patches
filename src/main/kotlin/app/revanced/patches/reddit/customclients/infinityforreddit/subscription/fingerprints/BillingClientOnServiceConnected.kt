@@ -3,5 +3,5 @@ package app.revanced.patches.reddit.customclients.infinityforreddit.subscription
 import app.revanced.patcher.fingerprint.MethodFingerprint
 
 internal object BillingClientOnServiceConnected : MethodFingerprint(
-    strings = listOf("Billing service connected"),
+    strings = listOf("Billing service connected")
 )

@@ -6,5 +6,5 @@ internal object HasPremiumIconAccessFingerprint : MethodFingerprint(
     "Z",
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("MyAccount;") && methodDef.name == "isPremiumSubscriber"
-    },
+    }
 )

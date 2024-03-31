@@ -11,5 +11,5 @@ internal object MenuGroupsOnClickFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("/SettingsMenuViewDelegate;") &&
             methodDef.name.contains("render")
-    },
+    }
 )

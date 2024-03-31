@@ -16,17 +16,17 @@ import app.revanced.patches.youtube.misc.zoomhaptics.fingerprints.ZoomHapticsFin
     name = "Disable zoom haptics",
     description = "Adds an option to disable haptics when zooming.",
     dependencies = [SettingsPatch::class, AddResourcesPatch::class],
-    compatiblePackages = [CompatiblePackage("com.google.android.youtube")],
+    compatiblePackages = [CompatiblePackage("com.google.android.youtube")]
 )
 @Suppress("unused")
 object ZoomHapticsPatch : BytecodePatch(
-    setOf(ZoomHapticsFingerprint),
+    setOf(ZoomHapticsFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            SwitchPreference("revanced_disable_zoom_haptics"),
+            SwitchPreference("revanced_disable_zoom_haptics")
         )
 
         val zoomHapticsFingerprintMethod = ZoomHapticsFingerprint.result!!.mutableMethod
@@ -39,7 +39,7 @@ object ZoomHapticsPatch : BytecodePatch(
                 if-nez v0, :vibrate
                 return-void
             """,
-            ExternalLabel("vibrate", zoomHapticsFingerprintMethod.getInstruction(0)),
+            ExternalLabel("vibrate", zoomHapticsFingerprintMethod.getInstruction(0))
         )
     }
 }

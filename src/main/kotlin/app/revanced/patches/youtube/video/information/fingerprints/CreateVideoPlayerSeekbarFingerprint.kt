@@ -4,5 +4,5 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 
 internal object CreateVideoPlayerSeekbarFingerprint : MethodFingerprint(
     "V",
-    strings = listOf("timed_markers_width"),
+    strings = listOf("timed_markers_width")
 )

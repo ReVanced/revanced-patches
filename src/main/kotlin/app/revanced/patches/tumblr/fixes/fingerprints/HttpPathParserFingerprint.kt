@@ -8,7 +8,8 @@ import com.android.tools.smali.dexlib2.Opcode
 // Injecting here allows modifying the path/query params of API endpoints defined via annotations
 object HttpPathParserFingerprint : MethodFingerprint(
     strings = listOf("Only one HTTP method is allowed. Found: %s and %s."),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.IPUT_OBJECT,
         Opcode.IPUT_BOOLEAN
     )

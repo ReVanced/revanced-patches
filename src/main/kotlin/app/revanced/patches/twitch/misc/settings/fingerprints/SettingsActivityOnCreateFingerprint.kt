@@ -6,5 +6,5 @@ internal object SettingsActivityOnCreateFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("/SettingsActivity;") &&
             methodDef.name == "onCreate"
-    },
+    }
 )

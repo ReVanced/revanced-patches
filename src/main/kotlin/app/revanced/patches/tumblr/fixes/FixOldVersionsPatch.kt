@@ -10,14 +10,15 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Fix old versions",
-    description = "Fixes old versions of the app (v33.2 and earlier) breaking due to Tumblr removing remnants of Tumblr" +
-            " Live from the API, which causes many requests to fail. This patch has no effect on newer versions of the app.",
+    description =
+    "Fixes old versions of the app (v33.2 and earlier) breaking due to Tumblr removing remnants of Tumblr" +
+        " Live from the API, which causes many requests to fail. This patch has no effect on newer versions of the app.",
     compatiblePackages = [CompatiblePackage("com.tumblr")],
-    use = false,
+    use = false
 )
 @Suppress("unused")
 object FixOldVersionsPatch : BytecodePatch(
-    setOf(HttpPathParserFingerprint),
+    setOf(HttpPathParserFingerprint)
 ) {
     override fun execute(context: BytecodeContext) =
         HttpPathParserFingerprint.result?.let {
@@ -32,7 +33,7 @@ object FixOldVersionsPatch : BytecodePatch(
                 const-string p3, ""
                 invoke-virtual {p2, p1, p3}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
                 move-result-object p2
-            """,
+            """
             )
         } ?: throw HttpPathParserFingerprint.exception
 }

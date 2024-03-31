@@ -9,7 +9,7 @@ import app.revanced.util.exception
 
 @Patch(description = "Disables detection of incorrect signature.")
 object SignatureVerificationPatch : BytecodePatch(
-    setOf(VerifySignatureFingerprint),
+    setOf(VerifySignatureFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         VerifySignatureFingerprint.result?.apply {
@@ -18,7 +18,7 @@ object SignatureVerificationPatch : BytecodePatch(
                 """
                     const/4 p0, 0x1
                     return  p0
-                """,
+                """
             )
         } ?: throw VerifySignatureFingerprint.exception
     }

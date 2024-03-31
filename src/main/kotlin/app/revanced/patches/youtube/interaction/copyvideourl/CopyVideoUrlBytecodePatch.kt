@@ -13,7 +13,7 @@ import app.revanced.patches.youtube.video.information.VideoInformationPatch
     dependencies = [
         CopyVideoUrlResourcePatch::class,
         PlayerControlsBytecodePatch::class,
-        VideoInformationPatch::class,
+        VideoInformationPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -30,17 +30,18 @@ import app.revanced.patches.youtube.video.information.VideoInformationPatch
                 "19.07.40",
                 "19.08.36",
                 "19.09.37"
-            ],
-        ),
-    ],
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object CopyVideoUrlBytecodePatch : BytecodePatch(emptySet()) {
     private const val INTEGRATIONS_PLAYER_PACKAGE = "Lapp/revanced/integrations/youtube/videoplayer"
-    private val BUTTONS_DESCRIPTORS = listOf(
-        "$INTEGRATIONS_PLAYER_PACKAGE/CopyVideoUrlButton;",
-        "$INTEGRATIONS_PLAYER_PACKAGE/CopyVideoUrlTimestampButton;",
-    )
+    private val BUTTONS_DESCRIPTORS =
+        listOf(
+            "$INTEGRATIONS_PLAYER_PACKAGE/CopyVideoUrlButton;",
+            "$INTEGRATIONS_PLAYER_PACKAGE/CopyVideoUrlTimestampButton;"
+        )
 
     override fun execute(context: BytecodeContext) {
         BUTTONS_DESCRIPTORS.forEach { descriptor ->

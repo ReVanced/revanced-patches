@@ -18,8 +18,8 @@ import app.revanced.util.copyResources
     dependencies = [
         BottomControlsResourcePatch::class,
         SettingsPatch::class,
-        AddResourcesPatch::class,
-    ],
+        AddResourcesPatch::class
+    ]
 )
 internal object DownloadsResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
@@ -29,17 +29,18 @@ internal object DownloadsResourcePatch : ResourcePatch() {
             PreferenceScreen(
                 key = "revanced_external_downloader_screen",
                 sorting = Sorting.UNSORTED,
-                preferences = setOf(
+                preferences =
+                setOf(
                     SwitchPreference("revanced_external_downloader"),
                     SwitchPreference("revanced_external_downloader_action_button"),
-                    TextPreference("revanced_external_downloader_name", inputType = InputType.TEXT),
-                ),
-            ),
+                    TextPreference("revanced_external_downloader_name", inputType = InputType.TEXT)
+                )
+            )
         )
 
         context.copyResources(
             "downloads",
-            ResourceGroup("drawable", "revanced_yt_download_button.xml"),
+            ResourceGroup("drawable", "revanced_yt_download_button.xml")
         )
 
         BottomControlsResourcePatch.addControls("downloads")

@@ -12,7 +12,7 @@ object SpoofClientPatch : BaseSpoofClientPatch(
     redirectUri = "http://rubenmayayo.com",
     clientIdFingerprints = setOf(GetClientIdFingerprint),
     userAgentFingerprints = setOf(LoginActivityOnCreateFingerprint),
-    compatiblePackages = setOf(CompatiblePackage("com.rubenmayayo.reddit")),
+    compatiblePackages = setOf(CompatiblePackage("com.rubenmayayo.reddit"))
 ) {
     override fun Set<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
         first().mutableMethod.addInstructions(
@@ -20,7 +20,7 @@ object SpoofClientPatch : BaseSpoofClientPatch(
             """
                  const-string v0, "$clientId"
                  return-object v0
-            """,
+            """
         )
     }
 }

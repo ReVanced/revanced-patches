@@ -31,11 +31,11 @@ import java.io.Closeable
     dependencies = [
         IntegrationsPatch::class,
         SettingsResourcePatch::class,
-        AddResourcesPatch::class,
+        AddResourcesPatch::class
     ],
     compatiblePackages = [
-        CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"]),
-    ],
+        CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])
+    ]
 )
 object SettingsPatch :
     BytecodePatch(
@@ -43,8 +43,8 @@ object SettingsPatch :
             SettingsActivityOnCreateFingerprint,
             SettingsMenuItemEnumFingerprint,
             MenuGroupsUpdatedFingerprint,
-            MenuGroupsOnClickFingerprint,
-        ),
+            MenuGroupsOnClickFingerprint
+        )
     ),
     Closeable {
     private const val REVANCED_SETTINGS_MENU_ITEM_NAME = "RevancedSettings"
@@ -64,7 +64,7 @@ object SettingsPatch :
         AddResourcesPatch(this::class)
 
         PreferenceScreen.MISC.OTHER.addPreferences(
-            SwitchPreference("revanced_debug"),
+            SwitchPreference("revanced_debug")
         )
 
         // Hook onCreate to handle fragment creation
@@ -78,7 +78,7 @@ object SettingsPatch :
                     if-eqz              v0, :no_rv_settings_init
                     return-void
                 """,
-                ExternalLabel("no_rv_settings_init", mutableMethod.getInstruction(insertIndex)),
+                ExternalLabel("no_rv_settings_init", mutableMethod.getInstruction(insertIndex))
             )
         } ?: throw SettingsActivityOnCreateFingerprint.exception
 
@@ -88,7 +88,7 @@ object SettingsPatch :
                 REVANCED_SETTINGS_MENU_ITEM_NAME,
                 REVANCED_SETTINGS_MENU_ITEM_ID,
                 REVANCED_SETTINGS_MENU_ITEM_TITLE_RES,
-                REVANCED_SETTINGS_MENU_ITEM_ICON_RES,
+                REVANCED_SETTINGS_MENU_ITEM_ICON_RES
             )
         } ?: throw SettingsMenuItemEnumFingerprint.exception
 
@@ -100,7 +100,7 @@ object SettingsPatch :
                     sget-object             v0, $MENU_ITEM_ENUM_CLASS_DESCRIPTOR->$REVANCED_SETTINGS_MENU_ITEM_NAME:$MENU_ITEM_ENUM_CLASS_DESCRIPTOR 
                     invoke-static           {p1, v0}, $ACTIVITY_HOOKS_CLASS_DESCRIPTOR->handleSettingMenuCreation(Ljava/util/List;Ljava/lang/Object;)Ljava/util/List;
                     move-result-object      p1
-                """,
+                """
             )
         } ?: throw MenuGroupsUpdatedFingerprint.exception
 
@@ -117,7 +117,7 @@ object SettingsPatch :
                         invoke-virtual      {p0, p1}, Ltv/twitch/android/core/mvp/viewdelegate/RxViewDelegate;->pushEvent(Ltv/twitch/android/core/mvp/viewdelegate/ViewDelegateEvent;)V
                         return-void
                 """,
-                ExternalLabel("no_rv_settings_onclick", mutableMethod.getInstruction(insertIndex)),
+                ExternalLabel("no_rv_settings_onclick", mutableMethod.getInstruction(insertIndex))
             )
         } ?: throw MenuGroupsOnClickFingerprint.exception
     }
@@ -126,7 +126,7 @@ object SettingsPatch :
         name: String,
         value: Int,
         titleResourceName: String,
-        iconResourceName: String,
+        iconResourceName: String
     ) {
         // Add new static enum member field
         mutableClass.staticFields.add(
@@ -137,8 +137,8 @@ object SettingsPatch :
                 AccessFlags.PUBLIC or AccessFlags.FINAL or AccessFlags.ENUM or AccessFlags.STATIC,
                 null,
                 null,
-                null,
-            ).toMutable(),
+                null
+            ).toMutable()
         )
 
         // Add initializer for the new enum member
@@ -156,7 +156,7 @@ object SettingsPatch :
                 const/4             v5, $value
                 invoke-direct       {v0, v4, v5, v1, v3}, $MENU_ITEM_ENUM_CLASS_DESCRIPTOR-><init>(Ljava/lang/String;III)V 
                 sput-object         v0, $MENU_ITEM_ENUM_CLASS_DESCRIPTOR->$name:$MENU_ITEM_ENUM_CLASS_DESCRIPTOR
-            """,
+            """
         )
     }
 
@@ -170,19 +170,19 @@ object SettingsPatch :
 
         @Suppress("ktlint:standard:property-naming")
         internal class CustomScreen(key: String) : Screen(key) {
-            /* Categories */
+            // Categories
             val GENERAL = CustomCategory("revanced_general_category")
             val OTHER = CustomCategory("revanced_other_category")
             val CLIENT_SIDE = CustomCategory("revanced_client_ads_category")
             val SURESTREAM = CustomCategory("revanced_surestream_ads_category")
 
             internal inner class CustomCategory(key: String) : Screen.Category(key) {
-                /* For Twitch, we need to load our CustomPreferenceCategory class instead of the default one. */
+                // For Twitch, we need to load our CustomPreferenceCategory class instead of the default one.
                 override fun transform(): PreferenceCategory {
                     return PreferenceCategory(
                         key,
                         preferences = preferences,
-                        tag = "app.revanced.integrations.twitch.settings.preference.CustomPreferenceCategory",
+                        tag = "app.revanced.integrations.twitch.settings.preference.CustomPreferenceCategory"
                     )
                 }
             }

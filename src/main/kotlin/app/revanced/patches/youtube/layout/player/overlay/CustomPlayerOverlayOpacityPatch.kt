@@ -16,8 +16,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     description = "Adds an option to change the opacity of the video player background when player controls are visible.",
     dependencies = [CustomPlayerOverlayOpacityResourcePatch::class],
     compatiblePackages = [
-        CompatiblePackage("com.google.android.youtube"),
-    ],
+        CompatiblePackage("com.google.android.youtube")
+    ]
 )
 @Suppress("unused")
 object CustomPlayerOverlayOpacityPatch : BytecodePatch(setOf(CreatePlayerOverviewFingerprint)) {
@@ -35,7 +35,7 @@ object CustomPlayerOverlayOpacityPatch : BytecodePatch(setOf(CreatePlayerOvervie
                 addInstruction(
                     insertIndex,
                     "invoke-static { v$viewRegister }, " +
-                        "$INTEGRATIONS_CLASS_DESCRIPTOR->changeOpacity(Landroid/widget/ImageView;)V",
+                        "$INTEGRATIONS_CLASS_DESCRIPTOR->changeOpacity(Landroid/widget/ImageView;)V"
                 )
             }
         } ?: throw CreatePlayerOverviewFingerprint.exception

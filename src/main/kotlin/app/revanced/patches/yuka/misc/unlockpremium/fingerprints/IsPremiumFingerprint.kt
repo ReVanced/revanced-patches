@@ -8,8 +8,9 @@ import com.android.tools.smali.dexlib2.Opcode
 internal object IsPremiumFingerprint : MethodFingerprint(
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.IGET_BOOLEAN,
-        Opcode.RETURN,
-    ),
+        Opcode.RETURN
+    )
 )

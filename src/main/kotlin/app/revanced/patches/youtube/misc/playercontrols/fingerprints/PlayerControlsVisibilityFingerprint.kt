@@ -7,5 +7,5 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal object PlayerControlsVisibilityFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     returnType = "V",
-    parameters = listOf("Z", "Z"),
+    parameters = listOf("Z", "Z")
 )

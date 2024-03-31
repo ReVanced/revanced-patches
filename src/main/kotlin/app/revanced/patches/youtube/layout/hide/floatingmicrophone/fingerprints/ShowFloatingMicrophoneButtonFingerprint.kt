@@ -10,10 +10,11 @@ internal object ShowFloatingMicrophoneButtonFingerprint : LiteralValueFingerprin
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "V",
     parameters = listOf(),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.IGET_BOOLEAN,
         Opcode.IF_EQZ,
-        Opcode.RETURN_VOID,
+        Opcode.RETURN_VOID
     ),
-    literalSupplier = { HideFloatingMicrophoneButtonResourcePatch.fabButtonId },
+    literalSupplier = { HideFloatingMicrophoneButtonResourcePatch.fabButtonId }
 )

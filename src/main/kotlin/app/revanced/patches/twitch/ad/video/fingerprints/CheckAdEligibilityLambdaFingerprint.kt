@@ -8,5 +8,5 @@ internal object CheckAdEligibilityLambdaFingerprint : MethodFingerprint(
     customFingerprint = { method, _ ->
         method.definingClass.endsWith("/AdEligibilityFetcher;") &&
             method.name == "shouldRequestAd"
-    },
+    }
 )

@@ -12,8 +12,8 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
     dependencies = [
         SettingsPatch::class,
         ResourceMappingPatch::class,
-        AddResourcesPatch::class,
-    ],
+        AddResourcesPatch::class
+    ]
 )
 internal object HideEndscreenCardsResourcePatch : ResourcePatch() {
     internal var layoutCircle: Long = -1
@@ -24,12 +24,13 @@ internal object HideEndscreenCardsResourcePatch : ResourcePatch() {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_hide_endscreen_cards"),
+            SwitchPreference("revanced_hide_endscreen_cards")
         )
 
-        fun findEndscreenResourceId(name: String) = ResourceMappingPatch.resourceMappings.single {
-            it.type == "layout" && it.name == "endscreen_element_layout_$name"
-        }.id
+        fun findEndscreenResourceId(name: String) =
+            ResourceMappingPatch.resourceMappings.single {
+                it.type == "layout" && it.name == "endscreen_element_layout_$name"
+            }.id
 
         layoutCircle = findEndscreenResourceId("circle")
         layoutIcon = findEndscreenResourceId("icon")

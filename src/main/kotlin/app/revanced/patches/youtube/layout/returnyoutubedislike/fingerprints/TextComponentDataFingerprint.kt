@@ -12,5 +12,5 @@ internal object TextComponentDataFingerprint : MethodFingerprint(
         val fields = classDef.fields
         fields.find { it.type == "Ljava/util/BitSet;" } != null &&
             fields.find { it.type == "[Ljava/lang/String;" } != null
-    },
+    }
 )

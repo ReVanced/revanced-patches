@@ -9,11 +9,11 @@ import app.revanced.patches.moneymanager.fingerprints.UnlockProFingerprint
 
 @Patch(
     name = "Unlock pro",
-    compatiblePackages = [CompatiblePackage("com.ithebk.expensemanager")],
+    compatiblePackages = [CompatiblePackage("com.ithebk.expensemanager")]
 )
 @Suppress("unused")
 object UnlockProPatch : BytecodePatch(
-    setOf(UnlockProFingerprint),
+    setOf(UnlockProFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         UnlockProFingerprint.result!!.mutableMethod.addInstructions(
@@ -21,7 +21,7 @@ object UnlockProPatch : BytecodePatch(
             """
                const/4 v0, 0x1
                return v0 
-            """,
+            """
         )
     }
 }

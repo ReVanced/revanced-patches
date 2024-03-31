@@ -8,7 +8,8 @@ import com.android.tools.smali.dexlib2.Opcode
 internal object OnDemandFingerprint : MethodFingerprint(
     "L",
     parameters = listOf(),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT,
         Opcode.INVOKE_STATIC,
@@ -20,6 +21,6 @@ internal object OnDemandFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
         Opcode.IPUT,
-        Opcode.RETURN_OBJECT,
-    ),
+        Opcode.RETURN_OBJECT
+    )
 )

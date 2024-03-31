@@ -3,11 +3,11 @@ package app.revanced.util
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.util.DomFileEditor
 import app.revanced.util.resource.BaseResource
-import org.w3c.dom.Node
-import org.w3c.dom.NodeList
 import java.io.InputStream
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
+import org.w3c.dom.Node
+import org.w3c.dom.NodeList
 
 private val classLoader = object {}.javaClass.classLoader
 
@@ -47,7 +47,7 @@ fun Node.doRecursively(action: (Node) -> Unit) {
  */
 fun ResourceContext.copyResources(
     sourceResourceDirectory: String,
-    vararg resources: ResourceGroup,
+    vararg resources: ResourceGroup
 ) {
     val targetResourceDirectory = this.get("res")
 
@@ -57,7 +57,7 @@ fun ResourceContext.copyResources(
             Files.copy(
                 inputStreamFromBundledResource(sourceResourceDirectory, resourceFile)!!,
                 targetResourceDirectory.resolve(resourceFile).toPath(),
-                StandardCopyOption.REPLACE_EXISTING,
+                StandardCopyOption.REPLACE_EXISTING
             )
         }
     }
@@ -65,7 +65,7 @@ fun ResourceContext.copyResources(
 
 internal fun inputStreamFromBundledResource(
     sourceResourceDirectory: String,
-    resourceFile: String,
+    resourceFile: String
 ): InputStream? = classLoader.getResourceAsStream("$sourceResourceDirectory/$resourceFile")
 
 /**
@@ -84,7 +84,7 @@ class ResourceGroup(val resourceDirectoryName: String, vararg val resources: Str
 fun ResourceContext.iterateXmlNodeChildren(
     resource: String,
     targetTag: String,
-    callback: (node: Node) -> Unit,
+    callback: (node: Node) -> Unit
 ) = xmlEditor[classLoader.getResourceAsStream(resource)!!].use { editor ->
     val document = editor.file
 
@@ -93,7 +93,10 @@ fun ResourceContext.iterateXmlNodeChildren(
 }
 
 // TODO: After the migration to the new patcher, remove the following code and replace it with the commented code below.
-fun String.copyXmlNode(source: DomFileEditor, target: DomFileEditor): AutoCloseable {
+fun String.copyXmlNode(
+    source: DomFileEditor,
+    target: DomFileEditor
+): AutoCloseable {
     val hostNodes = source.file.getElementsByTagName(this).item(0).childNodes
 
     val destinationResourceFile = target.file
@@ -158,7 +161,7 @@ fun String.copyXmlNode(source: DomFileEditor, target: DomFileEditor): AutoClosea
  */
 internal fun Node.addResource(
     resource: BaseResource,
-    resourceCallback: (BaseResource) -> Unit = { },
+    resourceCallback: (BaseResource) -> Unit = { }
 ) {
     appendChild(resource.serialize(ownerDocument, resourceCallback))
 }

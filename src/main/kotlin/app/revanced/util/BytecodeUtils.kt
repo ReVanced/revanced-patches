@@ -15,7 +15,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.Reference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
-
 fun MethodFingerprint.resultOrThrow() = result ?: throw exception
 
 /**
@@ -32,9 +31,10 @@ val MethodFingerprint.exception
  * @param method The [Method] to find.
  * @return The [MutableMethod].
  */
-fun MutableClass.findMutableMethodOf(method: Method) = this.methods.first {
-    MethodUtil.methodSignaturesMatch(it, method)
-}
+fun MutableClass.findMutableMethodOf(method: Method) =
+    this.methods.first {
+        MethodUtil.methodSignaturesMatch(it, method)
+    }
 
 /**
  * Apply a transform to all methods of the class.
@@ -59,10 +59,10 @@ fun MutableMethod.injectHideViewCall(
     insertIndex: Int,
     viewRegister: Int,
     classDescriptor: String,
-    targetMethod: String,
+    targetMethod: String
 ) = addInstruction(
     insertIndex,
-    "invoke-static { v$viewRegister }, $classDescriptor->$targetMethod(Landroid/view/View;)V",
+    "invoke-static { v$viewRegister }, $classDescriptor->$targetMethod(Landroid/view/View;)V"
 )
 
 /**
@@ -72,9 +72,10 @@ fun MutableMethod.injectHideViewCall(
  * @return the index of the first instruction with the id of the given resource name, or -1 if not found.
  */
 fun Method.findIndexForIdResource(resourceName: String): Int {
-    fun getIdResourceId(resourceName: String) = ResourceMappingPatch.resourceMappings.single {
-        it.type == "id" && it.name == resourceName
-    }.id
+    fun getIdResourceId(resourceName: String) =
+        ResourceMappingPatch.resourceMappings.single {
+            it.type == "id" && it.name == resourceName
+        }.id
 
     return indexOfFirstWideLiteralInstructionValue(getIdResourceId(resourceName))
 }
@@ -84,11 +85,12 @@ fun Method.findIndexForIdResource(resourceName: String): Int {
  *
  * @return the first literal instruction with the value, or -1 if not found.
  */
-fun Method.indexOfFirstWideLiteralInstructionValue(literal: Long) = implementation?.let {
-    it.instructions.indexOfFirst { instruction ->
-        (instruction as? WideLiteralInstruction)?.wideLiteral == literal
-    }
-} ?: -1
+fun Method.indexOfFirstWideLiteralInstructionValue(literal: Long) =
+    implementation?.let {
+        it.instructions.indexOfFirst { instruction ->
+            (instruction as? WideLiteralInstruction)?.wideLiteral == literal
+        }
+    } ?: -1
 
 /**
  * Check if the method contains a literal with the given value.
@@ -104,7 +106,10 @@ fun Method.containsWideLiteralInstructionValue(literal: Long) =
  * @param targetClass the class to start traversing the class hierarchy from.
  * @param callback function that is called for every class in the hierarchy.
  */
-fun BytecodeContext.traverseClassHierarchy(targetClass: MutableClass, callback: MutableClass.() -> Unit) {
+fun BytecodeContext.traverseClassHierarchy(
+    targetClass: MutableClass,
+    callback: MutableClass.() -> Unit
+) {
     callback(targetClass)
     this.findClass(targetClass.superclass ?: return)?.mutableClass?.let {
         traverseClassHierarchy(it, callback)
@@ -137,20 +142,21 @@ fun List<MethodFingerprint>.returnEarly(bool: Boolean = false) {
     val const = if (bool) "0x1" else "0x0"
     this.forEach { fingerprint ->
         fingerprint.result?.let { result ->
-            val stringInstructions = when (result.method.returnType.first()) {
-                'L' ->
-                    """
+            val stringInstructions =
+                when (result.method.returnType.first()) {
+                    'L' ->
+                        """
                         const/4 v0, $const
                         return-object v0
                         """
-                'V' -> "return-void"
-                'I', 'Z' ->
-                    """
+                    'V' -> "return-void"
+                    'I', 'Z' ->
+                        """
                         const/4 v0, $const
                         return v0
                         """
-                else -> throw Exception("This case should never happen.")
-            }
+                    else -> throw Exception("This case should never happen.")
+                }
 
             result.mutableMethod.addInstructions(0, stringInstructions)
         } ?: throw fingerprint.exception

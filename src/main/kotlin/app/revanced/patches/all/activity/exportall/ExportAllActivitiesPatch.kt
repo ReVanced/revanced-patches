@@ -7,7 +7,7 @@ import app.revanced.patcher.patch.annotation.Patch
 @Patch(
     name = "Export all activities",
     description = "Makes all app activities exportable.",
-    use = false,
+    use = false
 )
 @Suppress("unused")
 object ExportAllActivitiesPatch : ResourcePatch() {

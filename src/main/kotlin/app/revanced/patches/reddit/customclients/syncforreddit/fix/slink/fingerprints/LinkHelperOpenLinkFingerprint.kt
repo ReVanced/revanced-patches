@@ -3,5 +3,5 @@ package app.revanced.patches.reddit.customclients.syncforreddit.fix.slink.finger
 import app.revanced.patcher.fingerprint.MethodFingerprint
 
 internal object LinkHelperOpenLinkFingerprint : MethodFingerprint(
-    strings = listOf("Link title: "),
+    strings = listOf("Link title: ")
 )

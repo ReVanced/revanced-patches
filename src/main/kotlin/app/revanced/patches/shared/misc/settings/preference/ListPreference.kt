@@ -21,7 +21,7 @@ class ListPreference(
     summaryKey: String? = "${key}_summary",
     tag: String = "ListPreference",
     val entriesKey: String? = "${key}_entries",
-    val entryValuesKey: String? = "${key}_entry_values",
+    val entryValuesKey: String? = "${key}_entry_values"
 ) : BasePreference(key, titleKey, summaryKey, tag) {
     var entries: ArrayResource? = null
         private set
@@ -44,13 +44,16 @@ class ListPreference(
         summaryKey: String? = "${key}_summary",
         tag: String = "ListPreference",
         entries: ArrayResource,
-        entryValues: ArrayResource,
+        entryValues: ArrayResource
     ) : this(key, titleKey, summaryKey, tag, entries.name, entryValues.name) {
         this.entries = entries
         this.entryValues = entryValues
     }
 
-    override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
+    override fun serialize(
+        ownerDocument: Document,
+        resourceCallback: (BaseResource) -> Unit
+    ) =
         super.serialize(ownerDocument, resourceCallback).apply {
             val entriesArrayName = entries?.also { resourceCallback.invoke(it) }?.name ?: entriesKey
             val entryValuesArrayName = entryValues?.also { resourceCallback.invoke(it) }?.name ?: entryValuesKey
@@ -58,14 +61,14 @@ class ListPreference(
             entriesArrayName?.let {
                 setAttribute(
                     "android:entries",
-                    "@array/$it",
+                    "@array/$it"
                 )
             }
 
             entryValuesArrayName?.let {
                 setAttribute(
                     "android:entryValues",
-                    "@array/$it",
+                    "@array/$it"
                 )
             }
         }

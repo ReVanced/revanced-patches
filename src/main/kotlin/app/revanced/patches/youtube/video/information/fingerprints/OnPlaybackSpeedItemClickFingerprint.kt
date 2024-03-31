@@ -16,5 +16,5 @@ internal object OnPlaybackSpeedItemClickFingerprint : MethodFingerprint(
             it.opcode == Opcode.IGET_OBJECT &&
                 it.getReference<FieldReference>()!!.type == "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;"
         } != null
-    },
+    }
 )

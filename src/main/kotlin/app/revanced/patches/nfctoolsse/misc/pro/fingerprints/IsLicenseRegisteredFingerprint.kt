@@ -6,5 +6,5 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal object IsLicenseRegisteredFingerprint : MethodFingerprint(
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC.value,
-    strings = listOf("kLicenseCheck"),
+    strings = listOf("kLicenseCheck")
 )

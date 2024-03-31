@@ -6,5 +6,5 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 internal object PivotBarConstructorFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    strings = listOf("com.google.android.apps.youtube.app.endpoint.flags"),
+    strings = listOf("com.google.android.apps.youtube.app.endpoint.flags")
 )

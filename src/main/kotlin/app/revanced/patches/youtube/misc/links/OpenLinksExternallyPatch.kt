@@ -46,10 +46,12 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
     ]
 )
 @Suppress("unused")
-object OpenLinksExternallyPatch : BaseTransformInstructionsPatch<Pair<Int, Int>>(
-) {
+object OpenLinksExternallyPatch : BaseTransformInstructionsPatch<Pair<Int, Int>>() {
     override fun filterMap(
-        classDef: ClassDef, method: Method, instruction: Instruction, instructionIndex: Int
+        classDef: ClassDef,
+        method: Method,
+        instruction: Instruction,
+        instructionIndex: Int
     ): Pair<Int, Int>? {
         if (instruction !is ReferenceInstruction) return null
         val reference = instruction.reference as? StringReference ?: return null
@@ -59,7 +61,10 @@ object OpenLinksExternallyPatch : BaseTransformInstructionsPatch<Pair<Int, Int>>
         return instructionIndex to (instruction as OneRegisterInstruction).registerA
     }
 
-    override fun transform(mutableMethod: MutableMethod, entry: Pair<Int, Int>) {
+    override fun transform(
+        mutableMethod: MutableMethod,
+        entry: Pair<Int, Int>
+    ) {
         val (intentStringIndex, register) = entry
 
         // Hook the intent string.

@@ -11,11 +11,11 @@ import app.revanced.util.exception
 @Patch(
     name = "Disable typing indicator",
     description = "Disables the indicator while typing a message.",
-    compatiblePackages = [CompatiblePackage("com.facebook.orca")],
+    compatiblePackages = [CompatiblePackage("com.facebook.orca")]
 )
 @Suppress("unused")
 object DisableTypingIndicatorPatch : BytecodePatch(
-    setOf(SendTypingIndicatorFingerprint),
+    setOf(SendTypingIndicatorFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         SendTypingIndicatorFingerprint.result?.mutableMethod?.replaceInstruction(0, "return-void")

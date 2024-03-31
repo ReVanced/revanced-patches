@@ -5,5 +5,5 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 internal object SetHasModAccessFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("DeletedMessageClickableSpan;") && methodDef.name == "setHasModAccess"
-    },
+    }
 )

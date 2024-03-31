@@ -10,14 +10,15 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Open links with app chooser",
-    description = "Instead of opening links directly, open them with an app chooser. " +
+    description =
+    "Instead of opening links directly, open them with an app chooser. " +
         "As a result you can select a browser to open the link with.",
     compatiblePackages = [CompatiblePackage("com.twitter.android")],
-    use = false,
+    use = false
 )
 @Suppress("unused")
 object OpenLinksWithAppChooserPatch : BytecodePatch(
-    setOf(OpenLinkFingerprint),
+    setOf(OpenLinkFingerprint)
 ) {
     private const val METHOD_REFERENCE =
         "Lapp/revanced/integrations/twitter/patches/links/OpenLinksWithAppChooserPatch;->" +
@@ -29,7 +30,7 @@ object OpenLinksWithAppChooserPatch : BytecodePatch(
             """
                 invoke-static { p0, p1 }, $METHOD_REFERENCE
                 return-void
-            """,
+            """
         ) ?: throw OpenLinkFingerprint.exception
     }
 }

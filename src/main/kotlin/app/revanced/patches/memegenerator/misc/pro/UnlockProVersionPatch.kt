@@ -14,7 +14,7 @@ import app.revanced.util.exception
     name = "Unlock pro",
     dependencies = [
         SignatureVerificationPatch::class,
-        LicenseValidationPatch::class,
+        LicenseValidationPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -23,14 +23,14 @@ import app.revanced.util.exception
                 "4.6364",
                 "4.6370",
                 "4.6375",
-                "4.6377",
-            ],
-        ),
-    ],
+                "4.6377"
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object UnlockProVersionPatch : BytecodePatch(
-    setOf(IsFreeVersionFingerprint),
+    setOf(IsFreeVersionFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         IsFreeVersionFingerprint.result?.apply {
@@ -39,7 +39,7 @@ object UnlockProVersionPatch : BytecodePatch(
                 """
                     sget-object p0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
                     return-object p0
-                """,
+                """
             )
         } ?: throw IsFreeVersionFingerprint.exception
     }

@@ -10,7 +10,7 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Unlock premium Reddit icons",
-    compatiblePackages = [CompatiblePackage("com.reddit.frontpage")],
+    compatiblePackages = [CompatiblePackage("com.reddit.frontpage")]
 )
 @Suppress("unused")
 object UnlockPremiumIconPatch : BytecodePatch(setOf(HasPremiumIconAccessFingerprint)) {
@@ -20,7 +20,7 @@ object UnlockPremiumIconPatch : BytecodePatch(setOf(HasPremiumIconAccessFingerpr
             """
                 const/4 v0, 0x1
                 return v0
-            """,
+            """
         ) ?: throw HasPremiumIconAccessFingerprint.exception
     }
 }

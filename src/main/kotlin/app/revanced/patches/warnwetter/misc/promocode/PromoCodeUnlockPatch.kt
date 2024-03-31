@@ -12,11 +12,11 @@ import app.revanced.patches.warnwetter.misc.promocode.fingerprints.PromoCodeUnlo
     name = "Promo code unlock",
     description = "Disables the validation of promo code. Any code will work to unlock all features.",
     dependencies = [FirebaseGetCertPatch::class],
-    compatiblePackages = [CompatiblePackage("de.dwd.warnapp")],
+    compatiblePackages = [CompatiblePackage("de.dwd.warnapp")]
 )
 @Suppress("unused")
 object PromoCodeUnlockPatch : BytecodePatch(
-    setOf(PromoCodeUnlockFingerprint),
+    setOf(PromoCodeUnlockFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         val method = PromoCodeUnlockFingerprint.result!!.mutableMethod
@@ -25,7 +25,7 @@ object PromoCodeUnlockPatch : BytecodePatch(
             """
                 const/4 v0, 0x1
                 return v0
-            """,
+            """
         )
     }
 }

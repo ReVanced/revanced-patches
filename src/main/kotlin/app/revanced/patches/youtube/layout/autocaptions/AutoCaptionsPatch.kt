@@ -15,7 +15,6 @@ import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.exception
 
-
 @Patch(
     name = "Disable auto captions",
     description = "Adds an option to disable captions from being automatically enabled.",
@@ -43,7 +42,7 @@ import app.revanced.util.exception
                 "19.09.37"
             ]
         )
-    ],
+    ]
 )
 @Suppress("unused")
 object AutoCaptionsPatch : BytecodePatch(

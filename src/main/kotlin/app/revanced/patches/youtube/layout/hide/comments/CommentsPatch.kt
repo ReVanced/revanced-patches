@@ -54,7 +54,8 @@ object CommentsPatch : ResourcePatch() {
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
             PreferenceScreen(
                 "revanced_comments_screen",
-                preferences = setOf(
+                preferences =
+                setOf(
                     SwitchPreference("revanced_hide_comments_section"),
                     SwitchPreference("revanced_hide_preview_comment")
                 )

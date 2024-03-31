@@ -14,12 +14,12 @@ import app.revanced.util.exception
     compatiblePackages = [
         CompatiblePackage("com.laurencedawson.reddit_sync"),
         CompatiblePackage("com.laurencedawson.reddit_sync.pro"),
-        CompatiblePackage("com.laurencedawson.reddit_sync.dev"),
+        CompatiblePackage("com.laurencedawson.reddit_sync.dev")
     ],
-    requiresIntegrations = true,
+    requiresIntegrations = true
 )
 object FixSLinksPatch : BytecodePatch(
-    setOf(LinkHelperOpenLinkFingerprint),
+    setOf(LinkHelperOpenLinkFingerprint)
 ) {
     override fun execute(context: BytecodeContext) =
         LinkHelperOpenLinkFingerprint.result?.mutableMethod?.addInstructions(
@@ -27,6 +27,6 @@ object FixSLinksPatch : BytecodePatch(
             """
                 invoke-static { p3 }, Lapp/revanced/integrations/syncforreddit/FixSLinksPatch;->resolveSLink(Ljava/lang/String;)Ljava/lang/String;
                 move-result-object p3
-            """,
+            """
         ) ?: throw LinkHelperOpenLinkFingerprint.exception
 }

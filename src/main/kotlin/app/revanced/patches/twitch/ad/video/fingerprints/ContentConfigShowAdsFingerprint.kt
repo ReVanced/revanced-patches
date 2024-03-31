@@ -7,5 +7,5 @@ internal object ContentConfigShowAdsFingerprint : MethodFingerprint(
     parameters = listOf(),
     customFingerprint = { method, _ ->
         method.definingClass.endsWith("/ContentConfigData;") && method.name == "getShowAds"
-    },
+    }
 )

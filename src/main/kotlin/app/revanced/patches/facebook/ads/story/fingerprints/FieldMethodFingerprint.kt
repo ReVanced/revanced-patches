@@ -7,9 +7,10 @@ internal abstract class FieldMethodFingerprint(fieldValue: String) : MethodFinge
     returnType = "V",
     parameters = listOf(),
     customFingerprint = { methodDef, classDef ->
-        methodDef.name == "run" && classDef.fields.any any@{ field ->
-            if (field.name != "__redex_internal_original_name") return@any false
-            (field.initialValue as? StringEncodedValue)?.value == fieldValue
-        }
-    },
+        methodDef.name == "run" &&
+            classDef.fields.any any@{ field ->
+                if (field.name != "__redex_internal_original_name") return@any false
+                (field.initialValue as? StringEncodedValue)?.value == fieldValue
+            }
+    }
 )

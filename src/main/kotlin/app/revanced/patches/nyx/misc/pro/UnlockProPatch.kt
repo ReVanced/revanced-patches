@@ -10,15 +10,16 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Unlock pro",
-    compatiblePackages = [CompatiblePackage("com.awedea.nyx", ["2.2.7"])],
+    compatiblePackages = [CompatiblePackage("com.awedea.nyx", ["2.2.7"])]
 )
 @Suppress("unused")
 object UnlockProPatch : BytecodePatch(setOf(CheckProFingerprint)) {
-    override fun execute(context: BytecodeContext) = CheckProFingerprint.result?.mutableMethod?.addInstructions(
-        0,
-        """
+    override fun execute(context: BytecodeContext) =
+        CheckProFingerprint.result?.mutableMethod?.addInstructions(
+            0,
+            """
                 const/4 v0, 0x1
                 return v0
-            """,
-    ) ?: throw CheckProFingerprint.exception
+            """
+        ) ?: throw CheckProFingerprint.exception
 }

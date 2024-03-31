@@ -9,7 +9,8 @@ internal object SubtitleButtonControllerFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Lcom/google/android/libraries/youtube/player/subtitles/model/SubtitleTrack;"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.IGET_OBJECT,
         Opcode.IF_NEZ,
         Opcode.RETURN_VOID,
@@ -18,6 +19,6 @@ internal object SubtitleButtonControllerFingerprint : MethodFingerprint(
         Opcode.IF_NEZ,
         Opcode.CONST,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.IGET_OBJECT,
-    ),
+        Opcode.IGET_OBJECT
+    )
 )

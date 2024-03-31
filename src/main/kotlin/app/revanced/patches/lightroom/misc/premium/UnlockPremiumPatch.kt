@@ -10,11 +10,11 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Unlock premium",
-    compatiblePackages = [CompatiblePackage("com.adobe.lrmobile")],
+    compatiblePackages = [CompatiblePackage("com.adobe.lrmobile")]
 )
 @Suppress("unused")
 object UnlockPremiumPatch : BytecodePatch(
-    setOf(HasPurchasedFingerprint),
+    setOf(HasPurchasedFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         // Set hasPremium = true.

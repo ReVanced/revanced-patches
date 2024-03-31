@@ -8,5 +8,5 @@ internal object SyncBluetoothLanguageFingerprint : MethodFingerprint(
         methodDef.definingClass == "Lcom/xiaomi/fitness/devicesettings/DeviceSettingsSyncer;" &&
             methodDef.name == "syncBluetoothLanguage"
     },
-    opcodes = listOf(Opcode.MOVE_RESULT_OBJECT),
+    opcodes = listOf(Opcode.MOVE_RESULT_OBJECT)
 )

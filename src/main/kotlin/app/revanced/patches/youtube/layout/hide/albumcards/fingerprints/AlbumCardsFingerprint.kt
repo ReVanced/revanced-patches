@@ -8,13 +8,14 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal object AlbumCardsFingerprint : LiteralValueFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CONST,
         Opcode.CONST_4,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST,
+        Opcode.CHECK_CAST
     ),
-    literalSupplier = { AlbumCardsResourcePatch.albumCardId },
+    literalSupplier = { AlbumCardsResourcePatch.albumCardId }
 )

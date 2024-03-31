@@ -5,7 +5,8 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 internal object ConversionContextFingerprint : MethodFingerprint(
     returnType = "Ljava/lang/String;",
     parameters = listOf(),
-    strings = listOf(
+    strings =
+    listOf(
         ", widthConstraint=",
         ", heightConstraint=",
         ", templateLoggerFactory=",
@@ -13,6 +14,6 @@ internal object ConversionContextFingerprint : MethodFingerprint(
         // 18.37.36 and after this String is: ConversionContext{containerInternal=
         // and before it is: ConversionContext{container=
         // Use a partial string to match both.
-        "ConversionContext{container",
-    ),
+        "ConversionContext{container"
+    )
 )

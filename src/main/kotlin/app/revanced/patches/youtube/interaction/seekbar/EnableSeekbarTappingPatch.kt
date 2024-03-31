@@ -22,7 +22,8 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
     name = "Seekbar tapping",
     description = "Adds an option to enable tap-to-seek on the seekbar of the video player.",
     dependencies = [
-        IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
+        IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class
+    ],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
@@ -60,17 +61,19 @@ object EnableSeekbarTappingPatch : BytecodePatch(
         )
 
         // Find the required methods to tap the seekbar.
-        val seekbarTappingMethods = OnTouchEventHandlerFingerprint.result?.let {
-            val patternScanResult = it.scanResult.patternScanResult!!
+        val seekbarTappingMethods =
+            OnTouchEventHandlerFingerprint.result?.let {
+                val patternScanResult = it.scanResult.patternScanResult!!
 
-            fun getReference(index: Int) = it.mutableMethod.getInstruction<ReferenceInstruction>(index)
-                .reference as MethodReference
+                fun getReference(index: Int) =
+                    it.mutableMethod.getInstruction<ReferenceInstruction>(index)
+                        .reference as MethodReference
 
-            buildMap {
-                put("N", getReference(patternScanResult.startIndex))
-                put("O", getReference(patternScanResult.endIndex))
+                buildMap {
+                    put("N", getReference(patternScanResult.startIndex))
+                    put("O", getReference(patternScanResult.endIndex))
+                }
             }
-        }
 
         seekbarTappingMethods ?: throw OnTouchEventHandlerFingerprint.exception
 

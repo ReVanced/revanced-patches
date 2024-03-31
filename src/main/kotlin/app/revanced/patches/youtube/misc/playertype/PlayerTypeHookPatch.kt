@@ -14,10 +14,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch(
     description = "Hook to get the current player type and video playback state.",
-    dependencies = [IntegrationsPatch::class],
+    dependencies = [IntegrationsPatch::class]
 )
 object PlayerTypeHookPatch : BytecodePatch(
-    setOf(PlayerTypeFingerprint, VideoStateFingerprint),
+    setOf(PlayerTypeFingerprint, VideoStateFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/PlayerTypeHookPatch;"
@@ -25,7 +25,7 @@ object PlayerTypeHookPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         PlayerTypeFingerprint.result?.mutableMethod?.addInstruction(
             0,
-            "invoke-static {p1}, $INTEGRATIONS_CLASS_DESCRIPTOR->setPlayerType(Ljava/lang/Enum;)V",
+            "invoke-static {p1}, $INTEGRATIONS_CLASS_DESCRIPTOR->setPlayerType(Ljava/lang/Enum;)V"
         ) ?: throw PlayerTypeFingerprint.exception
 
         VideoStateFingerprint.result?.let {
@@ -38,7 +38,7 @@ object PlayerTypeHookPatch : BytecodePatch(
                     """
                         iget-object v0, p1, $videoStateFieldName  # copy VideoState parameter field
                         invoke-static {v0}, $INTEGRATIONS_CLASS_DESCRIPTOR->setVideoState(Ljava/lang/Enum;)V
-                    """,
+                    """
                 )
             }
         } ?: throw VideoStateFingerprint.exception

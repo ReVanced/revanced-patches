@@ -8,5 +8,5 @@ import com.android.tools.smali.dexlib2.AccessFlags
 // The same applies here as with the TimelineConstructorFingerprint.
 internal object PostsResponseConstructorFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.CONSTRUCTOR or AccessFlags.PUBLIC,
-    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("/PostsResponse;") && methodDef.parameters.size == 4 },
+    customFingerprint = { methodDef, _ -> methodDef.definingClass.endsWith("/PostsResponse;") && methodDef.parameters.size == 4 }
 )

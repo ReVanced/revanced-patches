@@ -17,7 +17,7 @@ abstract class BasePreference(
     val key: String? = null,
     val titleKey: String = "${key}_title",
     val summaryKey: String? = "${key}_summary",
-    val tag: String,
+    val tag: String
 ) {
     /**
      * Serialize preference element to XML.
@@ -28,7 +28,10 @@ abstract class BasePreference(
      *
      * @return The serialized element.
      */
-    open fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit): Element =
+    open fun serialize(
+        ownerDocument: Document,
+        resourceCallback: (BaseResource) -> Unit
+    ): Element =
         ownerDocument.createElement(tag).apply {
             key?.let { setAttribute("android:key", it) }
             setAttribute("android:title", "@string/$titleKey")
@@ -56,7 +59,10 @@ abstract class BasePreference(
     }
 
     companion object {
-        fun Element.addSummary(summaryKey: String, summaryType: SummaryType = SummaryType.DEFAULT) =
+        fun Element.addSummary(
+            summaryKey: String,
+            summaryType: SummaryType = SummaryType.DEFAULT
+        ) =
             setAttribute("android:${summaryType.type}", "@string/$summaryKey")
     }
 }

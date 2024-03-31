@@ -23,7 +23,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube",
+            [
                 "18.32.39",
                 "18.37.36",
                 "18.38.44",
@@ -51,7 +52,6 @@ object WideSearchbarPatch : BytecodePatch(
         CreateSearchSuggestionsFingerprint
     )
 ) {
-
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/WideSearchbarPatch;"
 
@@ -80,11 +80,13 @@ object WideSearchbarPatch : BytecodePatch(
      * @param fromFingerprint The fingerprint to walk the method on.
      * @return The [MutableMethod] which was walked on.
      */
-    private fun BytecodeContext.walkMutable(index: Int, fromFingerprint: MethodFingerprint) =
+    private fun BytecodeContext.walkMutable(
+        index: Int,
+        fromFingerprint: MethodFingerprint
+    ) =
         fromFingerprint.result?.let {
             toMethodWalker(it.method).nextMethod(index, true).getMethod() as MutableMethod
         } ?: throw fromFingerprint.exception
-
 
     /**
      * Injects instructions required for certain methods.

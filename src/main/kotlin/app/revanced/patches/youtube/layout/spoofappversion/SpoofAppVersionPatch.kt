@@ -16,12 +16,14 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Spoof app version",
-    description = "Adds an option to trick YouTube into thinking you are running an older version of the app. " +
-            "This can be used to restore old UI elements and features.",
+    description =
+    "Adds an option to trick YouTube into thinking you are running an older version of the app. " +
+        "This can be used to restore old UI elements and features.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube",
+            [
                 "18.32.39",
                 "18.37.36",
                 "18.38.44",
@@ -57,7 +59,7 @@ object SpoofAppVersionPatch : BytecodePatch(
             SwitchPreference("revanced_spoof_app_version"),
             ListPreference(
                 key = "revanced_spoof_app_version_target",
-                summaryKey = null,
+                summaryKey = null
             )
         )
 

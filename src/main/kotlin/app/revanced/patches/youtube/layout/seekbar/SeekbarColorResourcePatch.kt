@@ -41,7 +41,7 @@ internal object SeekbarColorResourcePatch : ResourcePatch() {
             val shapeNode = scaleNode.getElementsByTagName("shape").item(0) as Element
             val replacementNode =
                 document.createElement(
-                    "app.revanced.integrations.youtube.patches.theme.ProgressBarDrawable",
+                    "app.revanced.integrations.youtube.patches.theme.ProgressBarDrawable"
                 )
             scaleNode.replaceChild(replacementNode, shapeNode)
         }

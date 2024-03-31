@@ -11,7 +11,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(description = "Fixes issues with refreshing the feed when the first component is of type EmptyComponent.")
 object VerticalScrollPatch : BytecodePatch(
-    setOf(CanScrollVerticallyFingerprint),
+    setOf(CanScrollVerticallyFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         CanScrollVerticallyFingerprint.result?.let {
@@ -22,7 +22,7 @@ object VerticalScrollPatch : BytecodePatch(
                 val insertIndex = moveResultIndex + 1
                 addInstruction(
                     insertIndex,
-                    "const/4 v$moveResultRegister, 0x0",
+                    "const/4 v$moveResultRegister, 0x0"
                 )
             }
         } ?: throw CanScrollVerticallyFingerprint.exception

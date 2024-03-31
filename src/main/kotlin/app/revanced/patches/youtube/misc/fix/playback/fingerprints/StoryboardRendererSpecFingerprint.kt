@@ -8,5 +8,5 @@ internal object StoryboardRendererSpecFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     returnType = "L",
     parameters = listOf("Ljava/lang/String;", "J"),
-    strings = listOf("\\|"),
+    strings = listOf("\\|")
 )

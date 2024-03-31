@@ -10,13 +10,14 @@ import com.android.tools.smali.dexlib2.Opcode
 internal object CreatePlayerOverviewFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.CONST,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST,
+        Opcode.CHECK_CAST
     ),
     customFingerprint = { methodDef, _ ->
         methodDef.containsWideLiteralInstructionValue(CustomPlayerOverlayOpacityResourcePatch.scrimOverlayId)
-    },
+    }
 )

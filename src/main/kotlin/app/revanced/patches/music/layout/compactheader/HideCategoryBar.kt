@@ -14,11 +14,11 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     name = "Hide category bar",
     description = "Hides the category bar at the top of the homepage.",
     compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
-    use = false,
+    use = false
 )
 @Suppress("unused")
 object HideCategoryBar : BytecodePatch(
-    setOf(ConstructCategoryBarFingerprint),
+    setOf(ConstructCategoryBarFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         ConstructCategoryBarFingerprint.result?.let {
@@ -31,7 +31,7 @@ object HideCategoryBar : BytecodePatch(
                     """
                         const/16 v2, 0x8
                         invoke-virtual {v$register, v2}, Landroid/view/View;->setVisibility(I)V
-                    """,
+                    """
                 )
             }
         } ?: throw ConstructCategoryBarFingerprint.exception
@@ -40,7 +40,7 @@ object HideCategoryBar : BytecodePatch(
 
 @Deprecated("This patch class has been renamed to HideCategoryBar.")
 object CompactHeaderPatch : BytecodePatch(
-    dependencies = setOf(HideCategoryBar::class),
+    dependencies = setOf(HideCategoryBar::class)
 ) {
     override fun execute(context: BytecodeContext) {
     }

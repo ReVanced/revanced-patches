@@ -8,13 +8,14 @@ import com.android.tools.smali.dexlib2.Opcode
 internal object RecyclerViewTreeObserverFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.NEW_INSTANCE,
         Opcode.INVOKE_DIRECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.NEW_INSTANCE,
         Opcode.INVOKE_DIRECT,
-        Opcode.IPUT_OBJECT,
+        Opcode.IPUT_OBJECT
     ),
-    strings = listOf("LithoRVSLCBinder"),
+    strings = listOf("LithoRVSLCBinder")
 )

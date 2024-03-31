@@ -11,7 +11,8 @@ internal object VerifySignatureFingerprint : MethodFingerprint(
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("Landroid/app/Activity;"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.SGET_OBJECT,
         Opcode.IF_NEZ,
         Opcode.INVOKE_STATIC,
@@ -30,6 +31,6 @@ internal object VerifySignatureFingerprint : MethodFingerprint(
         Opcode.IF_EQZ,
         Opcode.CONST_4,
         Opcode.RETURN,
-        Opcode.ADD_INT_LIT8,
-    ),
+        Opcode.ADD_INT_LIT8
+    )
 )

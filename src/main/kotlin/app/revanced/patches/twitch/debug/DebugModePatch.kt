@@ -19,27 +19,27 @@ import app.revanced.util.exception
     description = "Enables Twitch's internal debugging mode.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [CompatiblePackage("tv.twitch.android.app")],
-    use = false,
+    use = false
 )
 @Suppress("unused")
 object DebugModePatch : BytecodePatch(
     setOf(
         IsDebugConfigEnabledFingerprint,
         IsOmVerificationEnabledFingerprint,
-        ShouldShowDebugOptionsFingerprint,
-    ),
+        ShouldShowDebugOptionsFingerprint
+    )
 ) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.MISC.OTHER.addPreferences(
-            SwitchPreference("revanced_twitch_debug_mode"),
+            SwitchPreference("revanced_twitch_debug_mode")
         )
 
         listOf(
             IsDebugConfigEnabledFingerprint,
             IsOmVerificationEnabledFingerprint,
-            ShouldShowDebugOptionsFingerprint,
+            ShouldShowDebugOptionsFingerprint
         ).forEach {
             it.result?.mutableMethod?.apply {
                 addInstructions(
@@ -48,7 +48,7 @@ object DebugModePatch : BytecodePatch(
                          invoke-static {}, Lapp/revanced/integrations/twitch/patches/DebugModePatch;->isDebugModeEnabled()Z
                          move-result v0
                          return v0
-                      """,
+                      """
                 )
             } ?: throw it.exception
         }

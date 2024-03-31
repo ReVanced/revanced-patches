@@ -9,5 +9,5 @@ internal object AttestationSupportedCheckFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.name == "attestationSupportCheck" &&
             methodDef.definingClass.endsWith("/DeviceIntegrityCheck;")
-    },
+    }
 )

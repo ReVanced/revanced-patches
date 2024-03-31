@@ -4,5 +4,5 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 internal object PromoCodeUnlockFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("PromoTokenVerification;") && methodDef.name == "isValid"
-    },
+    }
 )

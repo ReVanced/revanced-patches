@@ -15,6 +15,6 @@ internal object DisableShuffleFingerprint : MethodFingerprint(
         Opcode.SGET_OBJECT,
         Opcode.IPUT_OBJECT,
         Opcode.IGET_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-    ),
+        Opcode.INVOKE_VIRTUAL
+    )
 )

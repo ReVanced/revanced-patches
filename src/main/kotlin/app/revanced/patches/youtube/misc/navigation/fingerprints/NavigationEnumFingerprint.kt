@@ -9,7 +9,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
  */
 internal object NavigationEnumFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.STATIC or AccessFlags.CONSTRUCTOR,
-    strings = listOf(
+    strings =
+    listOf(
         "PIVOT_HOME",
         "TAB_SHORTS",
         "CREATION_TAB_LARGE",

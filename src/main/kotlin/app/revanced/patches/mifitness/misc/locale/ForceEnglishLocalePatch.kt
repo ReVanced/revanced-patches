@@ -15,11 +15,11 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     name = "Force English locale",
     description = "Forces wearable devices to use the English locale.",
     compatiblePackages = [CompatiblePackage("com.xiaomi.wearable")],
-    dependencies = [FixLoginPatch::class],
+    dependencies = [FixLoginPatch::class]
 )
 @Suppress("unused")
 object ForceEnglishLocalePatch : BytecodePatch(
-    setOf(SyncBluetoothLanguageFingerprint),
+    setOf(SyncBluetoothLanguageFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         SyncBluetoothLanguageFingerprint.result?.let {
@@ -31,7 +31,7 @@ object ForceEnglishLocalePatch : BytecodePatch(
 
                 replaceInstruction(
                     resolvePhoneLocaleInstruction,
-                    "const-string v$registerIndexToUpdate, \"en_gb\"",
+                    "const-string v$registerIndexToUpdate, \"en_gb\""
                 )
             }
         } ?: throw SyncBluetoothLanguageFingerprint.exception

@@ -10,11 +10,11 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Hide ads",
-    compatiblePackages = [CompatiblePackage("com.nis.app")],
+    compatiblePackages = [CompatiblePackage("com.nis.app")]
 )
 @Suppress("unused")
 object HideAdsPatch : BytecodePatch(
-    setOf(InshortsAdsFingerprint),
+    setOf(InshortsAdsFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         InshortsAdsFingerprint.result?.let { result ->
@@ -23,7 +23,7 @@ object HideAdsPatch : BytecodePatch(
                     0,
                     """
                         return-void
-                    """,
+                    """
                 )
             }
         } ?: throw InshortsAdsFingerprint.exception

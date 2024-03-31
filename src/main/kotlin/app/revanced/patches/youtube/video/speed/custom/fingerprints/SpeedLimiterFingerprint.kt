@@ -17,6 +17,6 @@ internal object SpeedLimiterFingerprint : MethodFingerprint(
         Opcode.GOTO,
         Opcode.CONST_HIGH16,
         Opcode.CONST_HIGH16,
-        Opcode.INVOKE_STATIC,
-    ),
+        Opcode.INVOKE_STATIC
+    )
 )

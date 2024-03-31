@@ -8,12 +8,14 @@ import com.android.tools.smali.dexlib2.Opcode
 internal object RollingNumberMeasureAnimatedTextFingerprint : MethodFingerprint(
     returnType = "Lj\$/util/Optional;",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    parameters = listOf(
+    parameters =
+    listOf(
         "L",
         "Ljava/lang/String;",
-        "L",
+        "L"
     ),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.IGET, // First instruction of method
         Opcode.IGET_OBJECT,
         Opcode.IGET_OBJECT,
@@ -23,6 +25,6 @@ internal object RollingNumberMeasureAnimatedTextFingerprint : MethodFingerprint(
         Opcode.CONST_4,
         Opcode.AGET,
         Opcode.CONST_4,
-        Opcode.CONST_4, // Measured text width
-    ),
+        Opcode.CONST_4 // Measured text width
+    )
 )

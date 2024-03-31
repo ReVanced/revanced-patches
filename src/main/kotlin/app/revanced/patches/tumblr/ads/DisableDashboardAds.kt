@@ -10,7 +10,7 @@ import app.revanced.patches.tumblr.timelinefilter.TimelineFilterPatch
     name = "Disable dashboard ads",
     description = "Disables ads in the dashboard.",
     compatiblePackages = [CompatiblePackage("com.tumblr")],
-    dependencies = [TimelineFilterPatch::class],
+    dependencies = [TimelineFilterPatch::class]
 )
 @Suppress("unused")
 object DisableDashboardAds : BytecodePatch(emptySet()) {
@@ -20,7 +20,6 @@ object DisableDashboardAds : BytecodePatch(emptySet()) {
         arrayOf(
             "CLIENT_SIDE_MEDIATION", // "client_side_ad_waterfall"
             "GEMINI_AD", // "backfill_ad"
-
             // The object types below weren't actually spotted in the wild in testing, but they are valid Object types
             // and their names clearly indicate that they are ads, so we just block them anyway,
             // just in case they will be used in the future.
@@ -29,7 +28,7 @@ object DisableDashboardAds : BytecodePatch(emptySet()) {
             "DISPLAY_IO_INTERSCROLLER_AD", // "display_io_interscroller"
             "DISPLAY_IO_HEADLINE_VIDEO_AD", // "display_io_headline_video"
             "FACEBOOK_BIDDAABLE", // "facebook_biddable_sdk_ad"
-            "GOOGLE_NATIVE", // "google_native_ad"
+            "GOOGLE_NATIVE" // "google_native_ad"
         ).forEach {
             TimelineFilterPatch.addObjectTypeFilter(it)
         }

@@ -8,5 +8,5 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal object AddNavBarItemFingerprint : LiteralValueFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    literalSupplier = { PremiumNavbarTabResourcePatch.showBottomNavigationItemsTextId },
+    literalSupplier = { PremiumNavbarTabResourcePatch.showBottomNavigationItemsTextId }
 )

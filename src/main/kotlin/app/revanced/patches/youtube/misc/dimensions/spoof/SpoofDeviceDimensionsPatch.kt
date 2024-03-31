@@ -62,7 +62,7 @@ object SpoofDeviceDimensionsPatch : BytecodePatch(
                     1 to "MinHeightOrWidth", // p1 = min height
                     2 to "MaxHeightOrWidth", // p2 = max height
                     3 to "MinHeightOrWidth", // p3 = min width
-                    4 to "MaxHeightOrWidth"  // p4 = max width
+                    4 to "MaxHeightOrWidth" // p4 = max width
                 ).map { (parameter, method) ->
                     """
                         invoke-static { p$parameter }, $INTEGRATIONS_CLASS_DESCRIPTOR->get$method(I)I

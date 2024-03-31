@@ -10,7 +10,7 @@ import app.revanced.util.exception
 
 @Patch(
     description = "Hook for the video player overlay",
-    dependencies = [IntegrationsPatch::class],
+    dependencies = [IntegrationsPatch::class]
 )
 
 /**

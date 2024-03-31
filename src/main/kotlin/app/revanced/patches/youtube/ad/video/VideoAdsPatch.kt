@@ -60,7 +60,8 @@ object VideoAdsPatch : BytecodePatch(
         val loadVideoAdsFingerprintMethod = LoadVideoAdsFingerprint.result!!.mutableMethod
 
         loadVideoAdsFingerprintMethod.addInstructionsWithLabels(
-            0, """
+            0,
+            """
                 invoke-static { }, Lapp/revanced/integrations/youtube/patches/VideoAdsPatch;->shouldShowAds()Z
                 move-result v0
                 if-nez v0, :show_video_ads

@@ -10,14 +10,15 @@ internal object PlayerResponseModelImplRecommendedLevelFingerprint : MethodFinge
     returnType = "I",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = emptyList(),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.SGET_OBJECT,
         Opcode.IGET,
-        Opcode.RETURN,
+        Opcode.RETURN
     ),
     customFingerprint = handler@{ methodDef, _ ->
         if (!methodDef.definingClass.endsWith("/PlayerResponseModelImpl;")) return@handler false
 
         methodDef.containsWideLiteralInstructionValue(55735497)
-    },
+    }
 )

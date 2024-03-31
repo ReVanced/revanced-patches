@@ -10,11 +10,11 @@ import app.revanced.patches.windyapp.misc.unlockpro.fingerprints.CheckProFingerp
 @Patch(
     name = "Unlock pro",
     description = "Unlocks all pro features.",
-    compatiblePackages = [CompatiblePackage("co.windyapp.android")],
+    compatiblePackages = [CompatiblePackage("co.windyapp.android")]
 )
 @Suppress("unused")
 object UnlockProPatch : BytecodePatch(
-    setOf(CheckProFingerprint),
+    setOf(CheckProFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         val method = CheckProFingerprint.result!!.mutableMethod
@@ -23,7 +23,7 @@ object UnlockProPatch : BytecodePatch(
             """
                 const/16 v0, 0x1
                 return v0
-            """,
+            """
         )
     }
 }

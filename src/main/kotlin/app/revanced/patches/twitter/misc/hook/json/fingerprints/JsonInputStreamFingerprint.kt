@@ -9,5 +9,5 @@ internal object JsonInputStreamFingerprint : MethodFingerprint(
         } else {
             methodDef.parameterTypes.first() == "Ljava/io/InputStream;"
         }
-    },
+    }
 )

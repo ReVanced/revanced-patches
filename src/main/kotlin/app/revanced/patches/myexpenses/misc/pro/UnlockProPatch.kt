@@ -10,15 +10,16 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Unlock pro",
-    compatiblePackages = [CompatiblePackage("org.totschnig.myexpenses", ["3.4.9"])],
+    compatiblePackages = [CompatiblePackage("org.totschnig.myexpenses", ["3.4.9"])]
 )
 @Suppress("unused")
 object UnlockProPatch : BytecodePatch(setOf(IsEnabledFingerprint)) {
-    override fun execute(context: BytecodeContext) = IsEnabledFingerprint.result?.mutableMethod?.addInstructions(
-        0,
-        """
+    override fun execute(context: BytecodeContext) =
+        IsEnabledFingerprint.result?.mutableMethod?.addInstructions(
+            0,
+            """
             const/4 v0, 0x1
             return v0
-        """,
-    ) ?: throw IsEnabledFingerprint.exception
+        """
+        ) ?: throw IsEnabledFingerprint.exception
 }

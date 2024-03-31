@@ -10,7 +10,8 @@ internal object ScrubbedPreviewLayoutFingerprint : LiteralValueFingerprint(
     accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     returnType = "V",
     parameters = listOf("Landroid/content/Context;", "Landroid/util/AttributeSet;", "I", "I"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_VIRTUAL,
@@ -20,8 +21,8 @@ internal object ScrubbedPreviewLayoutFingerprint : LiteralValueFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,
-        Opcode.IPUT_OBJECT, // preview imageview
+        Opcode.IPUT_OBJECT // preview imageview
     ),
     // This resource is used in ~ 40 different locations, but this method has a distinct list of parameters to match to.
-    literalSupplier = { SpoofSignatureResourcePatch.scrubbedPreviewThumbnailResourceId },
+    literalSupplier = { SpoofSignatureResourcePatch.scrubbedPreviewThumbnailResourceId }
 )

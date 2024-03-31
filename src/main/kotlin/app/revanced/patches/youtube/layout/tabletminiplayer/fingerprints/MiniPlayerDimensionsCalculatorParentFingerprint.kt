@@ -9,7 +9,8 @@ internal object MiniPlayerDimensionsCalculatorParentFingerprint : MethodFingerpr
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "V",
     parameters = listOf("F"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.CONST_HIGH16,
         Opcode.ADD_FLOAT_2ADDR,
         Opcode.MUL_FLOAT,
@@ -18,6 +19,6 @@ internal object MiniPlayerDimensionsCalculatorParentFingerprint : MethodFingerpr
         Opcode.MOVE_RESULT,
         Opcode.FLOAT_TO_INT,
         Opcode.INVOKE_INTERFACE,
-        Opcode.RETURN_VOID,
-    ),
+        Opcode.RETURN_VOID
+    )
 )

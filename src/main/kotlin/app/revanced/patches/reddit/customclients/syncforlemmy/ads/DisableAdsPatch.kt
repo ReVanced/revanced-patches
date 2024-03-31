@@ -6,5 +6,5 @@ import app.revanced.patches.reddit.customclients.syncforreddit.detection.piracy.
 @Suppress("unused")
 object DisableAdsPatch : BaseDisableAdsPatch(
     dependencies = setOf(DisablePiracyDetectionPatch::class),
-    compatiblePackages = setOf(CompatiblePackage("com.laurencedawson.reddit_sync")),
+    compatiblePackages = setOf(CompatiblePackage("com.laurencedawson.reddit_sync"))
 )

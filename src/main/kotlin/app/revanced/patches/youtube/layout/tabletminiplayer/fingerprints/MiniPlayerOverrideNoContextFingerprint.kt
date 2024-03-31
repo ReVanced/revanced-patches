@@ -8,5 +8,5 @@ import com.android.tools.smali.dexlib2.Opcode
 internal object MiniPlayerOverrideNoContextFingerprint : MethodFingerprint(
     "Z",
     AccessFlags.FINAL or AccessFlags.PRIVATE,
-    opcodes = listOf(Opcode.RETURN), // anchor to insert the instruction
+    opcodes = listOf(Opcode.RETURN) // anchor to insert the instruction
 )

@@ -10,7 +10,7 @@ import org.w3c.dom.Element
     name = "Remove broadcasts restriction",
     description = "Enables starting/stopping NetGuard via broadcasts.",
     compatiblePackages = [CompatiblePackage("eu.faircode.netguard")],
-    use = false,
+    use = false
 )
 @Suppress("unused")
 object RemoveBroadcastsRestrictionPatch : ResourcePatch() {

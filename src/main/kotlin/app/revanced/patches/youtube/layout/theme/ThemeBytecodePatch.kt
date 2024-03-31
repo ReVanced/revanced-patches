@@ -67,7 +67,8 @@ object ThemeBytecodePatch : BytecodePatch(
     internal val darkThemeBackgroundColor by stringPatchOption(
         key = "darkThemeBackgroundColor",
         default = AMOLED_BLACK_COLOR,
-        values = mapOf(
+        values =
+        mapOf(
             "Amoled black" to AMOLED_BLACK_COLOR,
             "Material You" to "@android:color/system_neutral1_900",
             "Classic (old YouTube)" to "#FF212121",
@@ -80,13 +81,14 @@ object ThemeBytecodePatch : BytecodePatch(
             "Dark red" to "#FF290000"
         ),
         title = "Dark theme background color",
-        description = "Can be a hex color (#AARRGGBB) or a color resource reference.",
+        description = "Can be a hex color (#AARRGGBB) or a color resource reference."
     )
 
     internal val lightThemeBackgroundColor by stringPatchOption(
         key = "lightThemeBackgroundColor",
         default = WHITE_COLOR,
-        values = mapOf(
+        values =
+        mapOf(
             "White" to WHITE_COLOR,
             "Material You" to "@android:color/system_neutral1_50",
             "Catppuccin (Latte)" to "#FFE6E9EF",
@@ -98,7 +100,7 @@ object ThemeBytecodePatch : BytecodePatch(
             "Light red" to "#FFFFD6D6"
         ),
         title = "Light theme background color",
-        description = "Can be a hex color (#AARRGGBB) or a color resource reference.",
+        description = "Can be a hex color (#AARRGGBB) or a color resource reference."
     )
 
     override fun execute(context: BytecodeContext) {

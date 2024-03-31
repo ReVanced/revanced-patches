@@ -10,7 +10,7 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Hide ads",
-    compatiblePackages = [CompatiblePackage("jp.pxv.android")],
+    compatiblePackages = [CompatiblePackage("jp.pxv.android")]
 )
 @Suppress("unused")
 object HideAdsPatch : BytecodePatch(setOf(IsNotPremiumFingerprint)) {
@@ -23,6 +23,6 @@ object HideAdsPatch : BytecodePatch(setOf(IsNotPremiumFingerprint)) {
             """
                 const/4 v0, 0x0
                 return v0
-            """,
+            """
         ) ?: throw IsNotPremiumFingerprint.exception
 }

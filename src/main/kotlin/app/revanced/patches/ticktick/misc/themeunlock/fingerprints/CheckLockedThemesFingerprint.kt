@@ -5,5 +5,5 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 internal object CheckLockedThemesFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("Theme;") && methodDef.name == "isLockedTheme"
-    },
+    }
 )

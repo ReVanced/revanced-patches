@@ -10,11 +10,11 @@ import app.revanced.patches.idaustria.detection.signature.fingerprints.SpoofSign
 @Patch(
     name = "Spoof signature",
     description = "Spoofs the signature of the app.",
-    compatiblePackages = [CompatiblePackage("at.gv.oe.app")],
+    compatiblePackages = [CompatiblePackage("at.gv.oe.app")]
 )
 @Suppress("unused")
 object SpoofSignaturePatch : BytecodePatch(
-    setOf(SpoofSignatureFingerprint),
+    setOf(SpoofSignatureFingerprint)
 ) {
     private const val EXPECTED_SIGNATURE =
         "OpenSSLRSAPublicKey{modulus=ac3e6fd6050aa7e0d6010ae58190404cd89a56935b44f6fee" +
@@ -35,7 +35,7 @@ object SpoofSignaturePatch : BytecodePatch(
             """
                 const-string v0, "$EXPECTED_SIGNATURE"
                 return-object v0 
-            """,
+            """
         )
     }
 }

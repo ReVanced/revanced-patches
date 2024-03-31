@@ -25,7 +25,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
         IntegrationsPatch::class,
         SettingsPatch::class,
         AddResourcesPatch::class,
-        NavigationBarHookPatch::class,
+        NavigationBarHookPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -47,14 +47,14 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "19.06.39",
                 "19.07.40",
                 "19.08.36",
-                "19.09.37",
-            ],
-        ),
-    ],
+                "19.09.37"
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object NavigationButtonsPatch : BytecodePatch(
-    setOf(AddCreateButtonViewFingerprint),
+    setOf(AddCreateButtonViewFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/NavigationButtonsPatch;"
@@ -66,22 +66,24 @@ object NavigationButtonsPatch : BytecodePatch(
             PreferenceScreen(
                 key = "revanced_navigation_buttons_screen",
                 sorting = Sorting.UNSORTED,
-                preferences = setOf(
+                preferences =
+                setOf(
                     SwitchPreference("revanced_hide_home_button"),
                     SwitchPreference("revanced_hide_shorts_button"),
                     SwitchPreference("revanced_hide_create_button"),
                     SwitchPreference("revanced_hide_subscriptions_button"),
-                    SwitchPreference("revanced_switch_create_with_notifications_button"),
-                ),
-            ),
+                    SwitchPreference("revanced_switch_create_with_notifications_button")
+                )
+            )
         )
 
         // Switch create with notifications button.
         AddCreateButtonViewFingerprint.result?.let {
             it.mutableMethod.apply {
-                val stringIndex = it.scanResult.stringsScanResult!!.matches.find { match ->
-                    match.string == ANDROID_AUTOMOTIVE_STRING
-                }!!.index
+                val stringIndex =
+                    it.scanResult.stringsScanResult!!.matches.find { match ->
+                        match.string == ANDROID_AUTOMOTIVE_STRING
+                    }!!.index
 
                 val conditionalCheckIndex = stringIndex - 1
                 val conditionRegister =
@@ -92,7 +94,7 @@ object NavigationButtonsPatch : BytecodePatch(
                     """
                         invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->switchCreateWithNotificationButton()Z
                         move-result v$conditionRegister
-                    """,
+                    """
                 )
             }
         } ?: throw AddCreateButtonViewFingerprint.exception

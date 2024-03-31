@@ -21,6 +21,6 @@ internal object KidsMinimizedPlaybackPolicyControllerFingerprint : MethodFingerp
         Opcode.SGET_OBJECT,
         Opcode.CONST_4,
         Opcode.IF_NE,
-        Opcode.IPUT_BOOLEAN,
-    ),
+        Opcode.IPUT_BOOLEAN
+    )
 )

@@ -11,14 +11,14 @@ import app.revanced.util.exception
 @Patch(
     name = "Sanitize sharing links",
     description = "Removes (tracking) query parameters from the URLs when sharing links.",
-    compatiblePackages = [CompatiblePackage("com.reddit.frontpage")],
+    compatiblePackages = [CompatiblePackage("com.reddit.frontpage")]
 )
 @Suppress("unused")
 object SanitizeUrlQueryPatch : BytecodePatch(setOf(ShareLinkFormatterFingerprint)) {
     override fun execute(context: BytecodeContext) {
         ShareLinkFormatterFingerprint.result?.mutableMethod?.addInstructions(
             0,
-            "return-object p0",
+            "return-object p0"
         ) ?: throw ShareLinkFormatterFingerprint.exception
     }
 }

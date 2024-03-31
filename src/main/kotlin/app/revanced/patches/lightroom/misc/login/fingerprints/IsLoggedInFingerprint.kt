@@ -8,12 +8,13 @@ import com.android.tools.smali.dexlib2.Opcode
 internal object IsLoggedInFingerprint : MethodFingerprint(
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC or AccessFlags.FINAL,
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.SGET_OBJECT,
         Opcode.IF_NE,
         Opcode.CONST_4,
-        Opcode.GOTO,
-    ),
+        Opcode.GOTO
+    )
 )

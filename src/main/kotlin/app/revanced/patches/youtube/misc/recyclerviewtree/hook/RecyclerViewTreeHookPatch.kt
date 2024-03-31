@@ -9,10 +9,10 @@ import app.revanced.patches.youtube.misc.recyclerviewtree.hook.fingerprints.Recy
 import app.revanced.util.exception
 
 @Patch(
-    dependencies = [IntegrationsPatch::class],
+    dependencies = [IntegrationsPatch::class]
 )
 internal object RecyclerViewTreeHookPatch : BytecodePatch(
-    setOf(RecyclerViewTreeObserverFingerprint),
+    setOf(RecyclerViewTreeObserverFingerprint)
 ) {
     internal lateinit var addHook: (String) -> Unit
         private set
@@ -26,7 +26,7 @@ internal object RecyclerViewTreeHookPatch : BytecodePatch(
                 addHook = { classDescriptor ->
                     addInstruction(
                         insertIndex,
-                        "invoke-static/range { p$recyclerViewParameter .. p$recyclerViewParameter }, $classDescriptor->onFlyoutMenuCreate(Landroid/support/v7/widget/RecyclerView;)V",
+                        "invoke-static/range { p$recyclerViewParameter .. p$recyclerViewParameter }, $classDescriptor->onFlyoutMenuCreate(Landroid/support/v7/widget/RecyclerView;)V"
                     )
                 }
             }

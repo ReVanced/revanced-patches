@@ -15,9 +15,9 @@ import java.io.File
     name = "Change header",
     description = "Applies a custom header in the top left corner within the app. Defaults to the ReVanced header.",
     compatiblePackages = [
-        CompatiblePackage("com.google.android.youtube"),
+        CompatiblePackage("com.google.android.youtube")
     ],
-    use = false,
+    use = false
 )
 @Suppress("unused")
 object ChangeHeaderPatch : ResourcePatch() {
@@ -29,29 +29,32 @@ object ChangeHeaderPatch : ResourcePatch() {
     private const val REVANCED_HEADER_OPTION = "revanced*"
     private const val REVANCED_BORDERLESS_HEADER_OPTION = "revanced*borderless"
 
-    private val targetResourceDirectoryNames = mapOf(
-        "xxxhdpi" to "512px x 192px",
-        "xxhdpi" to "387px x 144px",
-        "xhdpi" to "258px x 96px",
-        "hdpi" to "194px x 72px",
-        "mdpi" to "129px x 48px",
-    ).map { (dpi, dim) ->
-        "drawable-$dpi" to dim
-    }.toMap()
+    private val targetResourceDirectoryNames =
+        mapOf(
+            "xxxhdpi" to "512px x 192px",
+            "xxhdpi" to "387px x 144px",
+            "xhdpi" to "258px x 96px",
+            "hdpi" to "194px x 72px",
+            "mdpi" to "129px x 48px"
+        ).map { (dpi, dim) ->
+            "drawable-$dpi" to dim
+        }.toMap()
 
     private val variants = arrayOf("light", "dark")
 
     private val header by stringPatchOption(
         key = "header",
         default = REVANCED_BORDERLESS_HEADER_OPTION,
-        values = mapOf(
+        values =
+        mapOf(
             "YouTube" to HEADER_OPTION,
             "YouTube Premium" to PREMIUM_HEADER_OPTION,
             "ReVanced" to REVANCED_HEADER_OPTION,
-            "ReVanced (borderless logo)" to REVANCED_BORDERLESS_HEADER_OPTION,
+            "ReVanced (borderless logo)" to REVANCED_BORDERLESS_HEADER_OPTION
         ),
         title = "Header",
-        description = """
+        description =
+        """
             The header to apply to the app.
             
             If a path to a folder is provided, the folder must contain one or more of the following folders, depending on the DPI of the device:
@@ -65,21 +68,23 @@ object ChangeHeaderPatch : ResourcePatch() {
             The image dimensions must be as follows:
             ${targetResourceDirectoryNames.map { (dpi, dim) -> "- $dpi: $dim" }.joinToString("\n")}
         """.trimIndentMultiline(),
-        required = true,
+        required = true
     )
 
     override fun execute(context: ResourceContext) {
         // The directories to copy the header to.
-        val targetResourceDirectories = targetResourceDirectoryNames.keys.mapNotNull {
-            context.get("res").resolve(it).takeIf(File::exists)
-        }
+        val targetResourceDirectories =
+            targetResourceDirectoryNames.keys.mapNotNull {
+                context.get("res").resolve(it).takeIf(File::exists)
+            }
         // The files to replace in the target directories.
-        val targetResourceFiles = targetResourceDirectoryNames.keys.map { directoryName ->
-            ResourceGroup(
-                directoryName,
-                *variants.map { variant -> "${HEADER_FILE_NAME}_$variant.png" }.toTypedArray(),
-            )
-        }
+        val targetResourceFiles =
+            targetResourceDirectoryNames.keys.map { directoryName ->
+                ResourceGroup(
+                    directoryName,
+                    *variants.map { variant -> "${HEADER_FILE_NAME}_$variant.png" }.toTypedArray()
+                )
+            }
 
         /**
          * A function that overwrites both header variants in the target resource directories.
@@ -113,8 +118,9 @@ object ChangeHeaderPatch : ResourcePatch() {
             toHeader()
         }
         val toCustom = {
-            val sourceFolders = File(header!!).listFiles { file -> file.isDirectory }
-                ?: throw PatchException("The provided path is not a directory: $header")
+            val sourceFolders =
+                File(header!!).listFiles { file -> file.isDirectory }
+                    ?: throw PatchException("The provided path is not a directory: $header")
 
             var copiedFiles = false
 

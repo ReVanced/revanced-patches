@@ -14,11 +14,10 @@ import app.revanced.patches.youtube.misc.autorepeat.fingerprints.AutoRepeatParen
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
-
 @Patch(
     name = "Always repeat",
     description = "Adds an option to always repeat videos when they end.",
-    dependencies = [IntegrationsPatch::class,AddResourcesPatch::class],
+    dependencies = [IntegrationsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
@@ -55,22 +54,24 @@ object AutoRepeatPatch : BytecodePatch(
             SwitchPreference("revanced_auto_repeat")
         )
 
-        //Get Result from the ParentFingerprint which is the playMethod we need to get.
-        val parentResult = AutoRepeatParentFingerprint.result
-            ?: throw PatchException("ParentFingerprint did not resolve.")
+        // Get Result from the ParentFingerprint which is the playMethod we need to get.
+        val parentResult =
+            AutoRepeatParentFingerprint.result
+                ?: throw PatchException("ParentFingerprint did not resolve.")
 
-        //this one needs to be called when app/revanced/integrations/youtube/patches/AutoRepeatPatch;->shouldAutoRepeat() returns true
+        // this one needs to be called when app/revanced/integrations/youtube/patches/AutoRepeatPatch;->shouldAutoRepeat() returns true
         val playMethod = parentResult.mutableMethod
         AutoRepeatFingerprint.resolve(context, parentResult.classDef)
-        //String is: Laamp;->E()V
+        // String is: Laamp;->E()V
         val methodToCall = playMethod.definingClass + "->" + playMethod.name + "()V"
 
-        //This is the method we search for
-        val result = AutoRepeatFingerprint.result
-            ?: throw PatchException("FingerPrint did not resolve.")
+        // This is the method we search for
+        val result =
+            AutoRepeatFingerprint.result
+                ?: throw PatchException("FingerPrint did not resolve.")
         val method = result.mutableMethod
 
-        //Instructions to add to the smali code
+        // Instructions to add to the smali code
         val instructions = """
             invoke-static {}, Lapp/revanced/integrations/youtube/patches/AutoRepeatPatch;->shouldAutoRepeat()Z
             move-result v0
@@ -80,20 +81,20 @@ object AutoRepeatPatch : BytecodePatch(
             return-void
         """
 
-        //Get the implementation so we can do a check for null and get instructions size.
-        val implementation = method.implementation
-            ?: throw PatchException("No Method Implementation found!")
+        // Get the implementation so we can do a check for null and get instructions size.
+        val implementation =
+            method.implementation
+                ?: throw PatchException("No Method Implementation found!")
 
-        //Since addInstructions needs an index which starts counting at 0 and size starts counting at 1,
-        //we have to remove 1 to get the latest instruction
+        // Since addInstructions needs an index which starts counting at 0 and size starts counting at 1,
+        // we have to remove 1 to get the latest instruction
         val index = implementation.instructions.size - 1
 
-
-        //remove last instruction which is return-void
+        // remove last instruction which is return-void
         method.removeInstruction(index)
         // Add our own instructions there
         method.addInstructionsWithLabels(index, instructions)
 
-        //Everything worked as expected, return Success
+        // Everything worked as expected, return Success
     }
 }

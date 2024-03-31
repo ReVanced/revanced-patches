@@ -10,7 +10,8 @@ import com.android.tools.smali.dexlib2.Opcode
 internal object CodecsLockFingerprint : MethodFingerprint(
     "L",
     AccessFlags.PUBLIC or AccessFlags.STATIC,
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.INVOKE_DIRECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
@@ -24,7 +25,7 @@ internal object CodecsLockFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_INTERFACE,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.RETURN_OBJECT,
+        Opcode.RETURN_OBJECT
     ),
-    strings = listOf("eac3_supported"),
+    strings = listOf("eac3_supported")
 )

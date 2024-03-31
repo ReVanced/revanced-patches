@@ -10,5 +10,5 @@ internal object OnFailureFingerprint : MethodFingerprint(
     parameters = listOf("Lorg/chromium/net/UrlRequest;", "Lorg/chromium/net/UrlResponseInfo;", "Lorg/chromium/net/CronetException;"),
     customFingerprint = { methodDef, _ ->
         methodDef.name == "onFailed"
-    },
+    }
 )

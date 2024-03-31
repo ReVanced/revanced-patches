@@ -12,7 +12,7 @@ object DisablePiracyDetectionPatch : BytecodePatch(setOf(PiracyDetectionFingerpr
             0,
             """
                 return-void
-            """,
+            """
         ) ?: throw PiracyDetectionFingerprint.exception
     }
 }

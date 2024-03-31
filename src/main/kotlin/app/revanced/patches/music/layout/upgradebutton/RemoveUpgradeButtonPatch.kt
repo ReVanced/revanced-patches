@@ -22,22 +22,24 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 @Patch(
     name = "Remove upgrade button",
     description = "Removes the upgrade tab from the pivot bar.",
-    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
 object RemoveUpgradeButtonPatch : BytecodePatch(
-    setOf(PivotBarConstructorFingerprint),
+    setOf(PivotBarConstructorFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         PivotBarConstructorFingerprint.result?.let {
             it.mutableMethod.apply {
-                val pivotBarElementFieldReference = getInstruction(it.scanResult.patternScanResult!!.endIndex - 1)
-                    .getReference<FieldReference>()
+                val pivotBarElementFieldReference =
+                    getInstruction(it.scanResult.patternScanResult!!.endIndex - 1)
+                        .getReference<FieldReference>()
 
                 val register = (getInstructions().first() as Instruction35c).registerC
 
                 // First compile all the needed instructions.
-                val instructionList = """
+                val instructionList =
+                    """
                     invoke-interface { v0 }, Ljava/util/List;->size()I
                     move-result v1
                     const/4 v2, 0x4
@@ -50,7 +52,7 @@ object RemoveUpgradeButtonPatch : BytecodePatch(
                 // Replace the instruction to retain the label at given index.
                 replaceInstruction(
                     endIndex - 1,
-                    instructionList[0], // invoke-interface.
+                    instructionList[0] // invoke-interface.
                 )
                 // Do not forget to remove this instruction since we added it already.
                 instructionList.removeFirst()
@@ -58,7 +60,7 @@ object RemoveUpgradeButtonPatch : BytecodePatch(
                 val exitInstruction = instructionList.last() // iput-object
                 addInstruction(
                     endIndex,
-                    exitInstruction,
+                    exitInstruction
                 )
                 // Do not forget to remove this instruction since we added it already.
                 instructionList.removeLast()
@@ -70,13 +72,13 @@ object RemoveUpgradeButtonPatch : BytecodePatch(
                         Opcode.IF_LE,
                         1,
                         2,
-                        newLabel(endIndex),
-                    ),
+                        newLabel(endIndex)
+                    )
                 )
 
                 addInstructions(
                     endIndex,
-                    instructionList,
+                    instructionList
                 )
             }
         } ?: throw PivotBarConstructorFingerprint.exception

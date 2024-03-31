@@ -14,7 +14,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.Instruction
     name = "Spoof Wi-Fi connection",
     description = "Spoofs an existing Wi-Fi connection.",
     use = false,
-    requiresIntegrations = true,
+    requiresIntegrations = true
 )
 @Suppress("unused")
 object SpoofWifiPatch : BaseTransformInstructionsPatch<Instruction35cInfo>() {
@@ -25,15 +25,18 @@ object SpoofWifiPatch : BaseTransformInstructionsPatch<Instruction35cInfo>() {
         classDef: ClassDef,
         method: Method,
         instruction: Instruction,
-        instructionIndex: Int,
+        instructionIndex: Int
     ) = filterMapInstruction35c<MethodCall>(
         INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX,
         classDef,
         instruction,
-        instructionIndex,
+        instructionIndex
     )
 
-    override fun transform(mutableMethod: MutableMethod, entry: Instruction35cInfo) {
+    override fun transform(
+        mutableMethod: MutableMethod,
+        entry: Instruction35cInfo
+    ) {
         val (methodType, instruction, instructionIndex) = entry
         methodType.replaceInvokeVirtualWithIntegrations(INTEGRATIONS_CLASS_DESCRIPTOR, mutableMethod, instruction, instructionIndex)
     }
@@ -43,163 +46,163 @@ object SpoofWifiPatch : BaseTransformInstructionsPatch<Instruction35cInfo>() {
         override val definedClassName: String,
         override val methodName: String,
         override val methodParams: Array<String>,
-        override val returnType: String,
+        override val returnType: String
     ) : IMethodCall {
         GetSystemService1(
             "Landroid/content/Context;",
             "getSystemService",
             arrayOf("Ljava/lang/String;"),
-            "Ljava/lang/Object;",
+            "Ljava/lang/Object;"
         ),
         GetSystemService2(
             "Landroid/content/Context;",
             "getSystemService",
             arrayOf("Ljava/lang/Class;"),
-            "Ljava/lang/Object;",
+            "Ljava/lang/Object;"
         ),
         GetActiveNetworkInfo(
             "Landroid/net/ConnectivityManager;",
             "getActiveNetworkInfo",
             arrayOf(),
-            "Landroid/net/NetworkInfo;",
+            "Landroid/net/NetworkInfo;"
         ),
         IsConnected(
             "Landroid/net/NetworkInfo;",
             "isConnected",
             arrayOf(),
-            "Z",
+            "Z"
         ),
         IsConnectedOrConnecting(
             "Landroid/net/NetworkInfo;",
             "isConnectedOrConnecting",
             arrayOf(),
-            "Z",
+            "Z"
         ),
         IsAvailable(
             "Landroid/net/NetworkInfo;",
             "isAvailable",
             arrayOf(),
-            "Z",
+            "Z"
         ),
         GetState(
             "Landroid/net/NetworkInfo;",
             "getState",
             arrayOf(),
-            "Landroid/net/NetworkInfo\$State;",
+            "Landroid/net/NetworkInfo\$State;"
         ),
         GetDetailedState(
             "Landroid/net/NetworkInfo;",
             "getDetailedState",
             arrayOf(),
-            "Landroid/net/NetworkInfo\$DetailedState;",
+            "Landroid/net/NetworkInfo\$DetailedState;"
         ),
         IsActiveNetworkMetered(
             "Landroid/net/ConnectivityManager;",
             "isActiveNetworkMetered",
             arrayOf(),
-            "Z",
+            "Z"
         ),
         GetActiveNetwork(
             "Landroid/net/ConnectivityManager;",
             "getActiveNetwork",
             arrayOf(),
-            "Landroid/net/Network;",
+            "Landroid/net/Network;"
         ),
         GetNetworkInfo(
             "Landroid/net/ConnectivityManager;",
             "getNetworkInfo",
             arrayOf("Landroid/net/Network;"),
-            "Landroid/net/NetworkInfo;",
+            "Landroid/net/NetworkInfo;"
         ),
         HasTransport(
             "Landroid/net/NetworkCapabilities;",
             "hasTransport",
             arrayOf("I"),
-            "Z",
+            "Z"
         ),
         HasCapability(
             "Landroid/net/NetworkCapabilities;",
             "hasCapability",
             arrayOf("I"),
-            "Z",
+            "Z"
         ),
         RegisterBestMatchingNetworkCallback(
             "Landroid/net/ConnectivityManager;",
             "registerBestMatchingNetworkCallback",
             arrayOf("Landroid/net/NetworkRequest;", "Landroid/net/ConnectivityManager\$NetworkCallback;", "Landroid/os/Handler;"),
-            "V",
+            "V"
         ),
         RegisterDefaultNetworkCallback1(
             "Landroid/net/ConnectivityManager;",
             "registerDefaultNetworkCallback",
             arrayOf("Landroid/net/ConnectivityManager\$NetworkCallback;"),
-            "V",
+            "V"
         ),
         RegisterDefaultNetworkCallback2(
             "Landroid/net/ConnectivityManager;",
             "registerDefaultNetworkCallback",
             arrayOf("Landroid/net/ConnectivityManager\$NetworkCallback;", "Landroid/os/Handler;"),
-            "V",
+            "V"
         ),
         RegisterNetworkCallback1(
             "Landroid/net/ConnectivityManager;",
             "registerNetworkCallback",
             arrayOf("Landroid/net/NetworkRequest;", "Landroid/net/ConnectivityManager\$NetworkCallback;"),
-            "V",
+            "V"
         ),
         RegisterNetworkCallback2(
             "Landroid/net/ConnectivityManager;",
             "registerNetworkCallback",
             arrayOf("Landroid/net/NetworkRequest;", "Landroid/app/PendingIntent;"),
-            "V",
+            "V"
         ),
         RegisterNetworkCallback3(
             "Landroid/net/ConnectivityManager;",
             "registerNetworkCallback",
             arrayOf("Landroid/net/NetworkRequest;", "Landroid/net/ConnectivityManager\$NetworkCallback;", "Landroid/os/Handler;"),
-            "V",
+            "V"
         ),
         RequestNetwork1(
             "Landroid/net/ConnectivityManager;",
             "requestNetwork",
             arrayOf("Landroid/net/NetworkRequest;", "Landroid/net/ConnectivityManager\$NetworkCallback;"),
-            "V",
+            "V"
         ),
         RequestNetwork2(
             "Landroid/net/ConnectivityManager;",
             "requestNetwork",
             arrayOf("Landroid/net/NetworkRequest;", "Landroid/net/ConnectivityManager\$NetworkCallback;", "I"),
-            "V",
+            "V"
         ),
         RequestNetwork3(
             "Landroid/net/ConnectivityManager;",
             "requestNetwork",
             arrayOf("Landroid/net/NetworkRequest;", "Landroid/net/ConnectivityManager\$NetworkCallback;", "Landroid/os/Handler;"),
-            "V",
+            "V"
         ),
         RequestNetwork4(
             "Landroid/net/ConnectivityManager;",
             "requestNetwork",
             arrayOf("Landroid/net/NetworkRequest;", "Landroid/app/PendingIntent;"),
-            "V",
+            "V"
         ),
         RequestNetwork5(
             "Landroid/net/ConnectivityManager;",
             "requestNetwork",
             arrayOf("Landroid/net/NetworkRequest;", "Landroid/net/ConnectivityManager\$NetworkCallback;", "Landroid/os/Handler;", "I"),
-            "V",
+            "V"
         ),
         UnregisterNetworkCallback1(
             "Landroid/net/ConnectivityManager;",
             "unregisterNetworkCallback",
             arrayOf("Landroid/net/ConnectivityManager\$NetworkCallback;"),
-            "V",
+            "V"
         ),
         UnregisterNetworkCallback2(
             "Landroid/net/ConnectivityManager;",
             "unregisterNetworkCallback",
             arrayOf("Landroid/app/PendingIntent;"),
-            "V",
-        ),
+            "V"
+        )
     }
 }

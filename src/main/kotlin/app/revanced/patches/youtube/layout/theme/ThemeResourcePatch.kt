@@ -18,8 +18,8 @@ import org.w3c.dom.Element
     dependencies = [
         SettingsPatch::class,
         ResourceMappingPatch::class,
-        AddResourcesPatch::class,
-    ],
+        AddResourcesPatch::class
+    ]
 )
 internal object ThemeResourcePatch : ResourcePatch() {
     private const val SPLASH_BACKGROUND_COLOR = "revanced_splash_background_color"
@@ -29,7 +29,7 @@ internal object ThemeResourcePatch : ResourcePatch() {
 
         SettingsPatch.PreferenceScreen.SEEKBAR.addPreferences(
             SwitchPreference("revanced_seekbar_custom_color"),
-            TextPreference("revanced_seekbar_custom_color_value", inputType = InputType.TEXT_CAP_CHARACTERS),
+            TextPreference("revanced_seekbar_custom_color_value", inputType = InputType.TEXT_CAP_CHARACTERS)
         )
 
         // Edit theme colors via resources.
@@ -45,11 +45,11 @@ internal object ThemeResourcePatch : ResourcePatch() {
                 node.textContent =
                     when (node.getAttribute("name")) {
                         "yt_black0", "yt_black1", "yt_black1_opacity95", "yt_black1_opacity98", "yt_black2", "yt_black3",
-                        "yt_black4", "yt_status_bar_background_dark", "material_grey_850",
+                        "yt_black4", "yt_status_bar_background_dark", "material_grey_850"
                         -> darkThemeBackgroundColor ?: continue
 
                         "yt_white1", "yt_white1_opacity95", "yt_white1_opacity98",
-                        "yt_white2", "yt_white3", "yt_white4",
+                        "yt_white2", "yt_white3", "yt_white4"
                         -> lightThemeBackgroundColor ?: continue
 
                         else -> continue
@@ -72,7 +72,7 @@ internal object ThemeResourcePatch : ResourcePatch() {
             val splashScreenResourceFiles =
                 listOf(
                     "res/drawable/quantum_launchscreen_youtube.xml",
-                    "res/drawable-sw600dp/quantum_launchscreen_youtube.xml",
+                    "res/drawable-sw600dp/quantum_launchscreen_youtube.xml"
                 )
 
             splashScreenResourceFiles.forEach editSplashScreen@{ resourceFile ->
@@ -99,7 +99,7 @@ internal object ThemeResourcePatch : ResourcePatch() {
         context: ResourceContext,
         resourceFile: String,
         colorName: String,
-        colorValue: String,
+        colorValue: String
     ) {
         context.xmlEditor[resourceFile].use { editor ->
             val document = editor.file
@@ -111,7 +111,7 @@ internal object ThemeResourcePatch : ResourcePatch() {
                     setAttribute("name", colorName)
                     setAttribute("category", "color")
                     textContent = colorValue
-                },
+                }
             )
         }
     }

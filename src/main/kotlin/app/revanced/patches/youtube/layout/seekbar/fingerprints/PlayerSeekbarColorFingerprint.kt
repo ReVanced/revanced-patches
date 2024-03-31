@@ -11,5 +11,5 @@ internal object PlayerSeekbarColorFingerprint : MethodFingerprint(
     customFingerprint = { method, _ ->
         method.containsWideLiteralInstructionValue(SeekbarColorResourcePatch.inlineTimeBarColorizedBarPlayedColorDarkId) &&
             method.containsWideLiteralInstructionValue(SeekbarColorResourcePatch.inlineTimeBarPlayedNotHighlightedColorId)
-    },
+    }
 )

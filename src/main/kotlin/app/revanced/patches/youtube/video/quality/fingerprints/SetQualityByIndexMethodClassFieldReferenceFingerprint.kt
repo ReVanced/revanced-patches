@@ -9,9 +9,10 @@ import com.android.tools.smali.dexlib2.Opcode
 internal object SetQualityByIndexMethodClassFieldReferenceFingerprint : MethodFingerprint(
     returnType = "V",
     parameters = listOf("L"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.IGET_OBJECT,
         Opcode.IPUT_OBJECT,
-        Opcode.IGET_OBJECT,
-    ),
+        Opcode.IGET_OBJECT
+    )
 )

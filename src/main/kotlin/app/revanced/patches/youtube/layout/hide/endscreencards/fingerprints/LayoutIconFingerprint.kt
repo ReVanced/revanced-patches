@@ -6,10 +6,11 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal object LayoutIconFingerprint : LiteralValueFingerprint(
     returnType = "Landroid/view/View;",
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST,
+        Opcode.CHECK_CAST
     ),
-    literalSupplier = { HideEndscreenCardsResourcePatch.layoutIcon },
+    literalSupplier = { HideEndscreenCardsResourcePatch.layoutIcon }
 )

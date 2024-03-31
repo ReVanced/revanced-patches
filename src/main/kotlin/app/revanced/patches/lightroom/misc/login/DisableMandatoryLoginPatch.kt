@@ -10,11 +10,11 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Disable mandatory login",
-    compatiblePackages = [CompatiblePackage("com.adobe.lrmobile")],
+    compatiblePackages = [CompatiblePackage("com.adobe.lrmobile")]
 )
 @Suppress("unused")
 object DisableMandatoryLoginPatch : BytecodePatch(
-    setOf(IsLoggedInFingerprint),
+    setOf(IsLoggedInFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         IsLoggedInFingerprint.result?.mutableMethod?.apply {

@@ -7,7 +7,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal object YukaUserConstructorFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    strings = listOf(
-        "premiumProvider",
-    ),
+    strings =
+    listOf(
+        "premiumProvider"
+    )
 )

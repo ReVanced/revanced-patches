@@ -18,6 +18,6 @@ internal object ConstructCategoryBarFingerprint : MethodFingerprint(
         Opcode.CONST,
         Opcode.INVOKE_VIRTUAL,
         Opcode.NEW_INSTANCE,
-        Opcode.INVOKE_DIRECT,
-    ),
+        Opcode.INVOKE_DIRECT
+    )
 )

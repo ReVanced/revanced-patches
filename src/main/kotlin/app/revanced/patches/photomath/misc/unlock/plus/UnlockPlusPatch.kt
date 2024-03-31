@@ -13,17 +13,18 @@ import app.revanced.util.exception
 @Patch(
     name = "Unlock plus",
     dependencies = [SignatureDetectionPatch::class, EnableBookpointPatch::class],
-    compatiblePackages = [CompatiblePackage("com.microblink.photomath", ["8.32.0"])],
+    compatiblePackages = [CompatiblePackage("com.microblink.photomath", ["8.32.0"])]
 )
 @Suppress("unused")
 object UnlockPlusPatch : BytecodePatch(
-    setOf(IsPlusUnlockedFingerprint),
+    setOf(IsPlusUnlockedFingerprint)
 ) {
-    override fun execute(context: BytecodeContext) = IsPlusUnlockedFingerprint.result?.mutableMethod?.addInstructions(
-        0,
-        """
+    override fun execute(context: BytecodeContext) =
+        IsPlusUnlockedFingerprint.result?.mutableMethod?.addInstructions(
+            0,
+            """
             const/4 v0, 0x1
             return v0
-        """,
-    ) ?: throw IsPlusUnlockedFingerprint.exception
+        """
+        ) ?: throw IsPlusUnlockedFingerprint.exception
 }

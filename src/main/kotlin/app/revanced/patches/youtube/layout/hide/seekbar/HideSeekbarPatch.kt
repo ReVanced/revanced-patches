@@ -24,7 +24,8 @@ import app.revanced.patches.youtube.shared.fingerprints.SeekbarOnDrawFingerprint
     ],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube",
+            [
                 "18.32.39",
                 "18.37.36",
                 "18.38.44",

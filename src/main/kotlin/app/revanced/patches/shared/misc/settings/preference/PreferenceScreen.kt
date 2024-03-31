@@ -21,7 +21,7 @@ open class PreferenceScreen(
     summaryKey: String? = "${key}_summary",
     sorting: Sorting = Sorting.BY_TITLE,
     tag: String = "PreferenceScreen",
-    val preferences: Set<BasePreference>,
+    val preferences: Set<BasePreference>
     // Alternatively, instead of repurposing the key for sorting,
     // an extra bundle parameter can be added to the preferences XML declaration.
     // This would require bundling and referencing an additional XML file
@@ -29,7 +29,10 @@ open class PreferenceScreen(
     // Since the key value is not currently used by integrations,
     // for now it's much simpler to modify the key to include the sort parameter.
 ) : BasePreference(if (sorting == Sorting.UNSORTED) key else (key + sorting.keySuffix), titleKey, summaryKey, tag) {
-    override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
+    override fun serialize(
+        ownerDocument: Document,
+        resourceCallback: (BaseResource) -> Unit
+    ) =
         super.serialize(ownerDocument, resourceCallback).apply {
             preferences.forEach {
                 appendChild(it.serialize(ownerDocument, resourceCallback))
@@ -53,6 +56,6 @@ open class PreferenceScreen(
         /**
          * Unspecified sorting.
          */
-        UNSORTED("_sort_by_unsorted"),
+        UNSORTED("_sort_by_unsorted")
     }
 }

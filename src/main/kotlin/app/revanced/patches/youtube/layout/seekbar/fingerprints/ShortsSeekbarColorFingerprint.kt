@@ -7,5 +7,5 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 internal object ShortsSeekbarColorFingerprint : LiteralValueFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    literalSupplier = { SeekbarColorResourcePatch.reelTimeBarPlayedColorId },
+    literalSupplier = { SeekbarColorResourcePatch.reelTimeBarPlayedColorId }
 )

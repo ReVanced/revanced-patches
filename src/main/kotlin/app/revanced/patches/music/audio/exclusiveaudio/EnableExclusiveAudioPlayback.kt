@@ -11,11 +11,11 @@ import app.revanced.util.exception
 @Patch(
     name = "Enable exclusive audio playback",
     description = "Enables the option to play audio without video.",
-    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
 object EnableExclusiveAudioPlayback : BytecodePatch(
-    setOf(AllowExclusiveAudioPlaybackFingerprint),
+    setOf(AllowExclusiveAudioPlaybackFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         AllowExclusiveAudioPlaybackFingerprint.result?.mutableMethod?.apply {
@@ -24,7 +24,7 @@ object EnableExclusiveAudioPlayback : BytecodePatch(
                 """
                 const/4 v0, 0x1
                 return v0
-            """,
+            """
             )
         } ?: throw AllowExclusiveAudioPlaybackFingerprint.exception
     }

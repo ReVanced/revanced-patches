@@ -9,7 +9,7 @@ import app.revanced.util.exception
 
 @Patch(description = "Disables Firebase license validation.")
 object LicenseValidationPatch : BytecodePatch(
-    setOf(LicenseValidationFingerprint),
+    setOf(LicenseValidationFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         LicenseValidationFingerprint.result?.apply {
@@ -18,7 +18,7 @@ object LicenseValidationPatch : BytecodePatch(
                 """
                     const/4 p0, 0x1
                     return  p0
-                """,
+                """
             )
         } ?: throw LicenseValidationFingerprint.exception
     }

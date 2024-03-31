@@ -13,19 +13,19 @@ import app.revanced.util.exception
 @Patch(
     name = "Minimized playback",
     description = "Unlocks options for picture-in-picture and background playback.",
-    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
+    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
 )
 @Suppress("unused")
 object MinimizedPlaybackPatch : BytecodePatch(
     setOf(
         KidsMinimizedPlaybackPolicyControllerFingerprint,
-        BackgroundPlaybackDisableFingerprint,
-    ),
+        BackgroundPlaybackDisableFingerprint
+    )
 ) {
     override fun execute(context: BytecodeContext) {
         KidsMinimizedPlaybackPolicyControllerFingerprint.result?.mutableMethod?.addInstruction(
             0,
-            "return-void",
+            "return-void"
         ) ?: throw KidsMinimizedPlaybackPolicyControllerFingerprint.exception
 
         BackgroundPlaybackDisableFingerprint.result?.mutableMethod?.addInstructions(
@@ -33,7 +33,7 @@ object MinimizedPlaybackPatch : BytecodePatch(
             """
                 const/4 v0, 0x1
                 return v0
-            """,
+            """
         ) ?: throw BackgroundPlaybackDisableFingerprint.exception
     }
 }

@@ -10,13 +10,13 @@ import app.revanced.patches.warnwetter.misc.firebasegetcert.fingerprints.GetRegi
 
 @Patch(
     description = "Spoofs the X-Android-Cert header.",
-    compatiblePackages = [CompatiblePackage("de.dwd.warnapp")],
+    compatiblePackages = [CompatiblePackage("de.dwd.warnapp")]
 )
 object FirebaseGetCertPatch : BytecodePatch(
     setOf(
         GetRegistrationCertFingerprint,
-        GetMessagingCertFingerprint,
-    ),
+        GetMessagingCertFingerprint
+    )
 ) {
     override fun execute(context: BytecodeContext) {
         val spoofedInstruction =
@@ -30,11 +30,11 @@ object FirebaseGetCertPatch : BytecodePatch(
 
         registrationCertMethod.addInstructions(
             0,
-            spoofedInstruction,
+            spoofedInstruction
         )
         messagingCertMethod.addInstructions(
             0,
-            spoofedInstruction,
+            spoofedInstruction
         )
     }
 }

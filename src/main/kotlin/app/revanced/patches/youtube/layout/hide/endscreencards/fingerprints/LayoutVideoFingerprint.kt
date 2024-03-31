@@ -6,12 +6,13 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal object LayoutVideoFingerprint : LiteralValueFingerprint(
     returnType = "Landroid/view/View;",
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.CONST,
         Opcode.CONST_4,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST,
+        Opcode.CHECK_CAST
     ),
-    literalSupplier = { HideEndscreenCardsResourcePatch.layoutVideo },
+    literalSupplier = { HideEndscreenCardsResourcePatch.layoutVideo }
 )

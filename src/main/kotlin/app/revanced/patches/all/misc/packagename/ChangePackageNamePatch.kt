@@ -5,13 +5,13 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patcher.patch.options.PatchOptionException
-import org.w3c.dom.Element
 import java.io.Closeable
+import org.w3c.dom.Element
 
 @Patch(
     name = "Change package name",
     description = "Appends \".revanced\" to the package name by default. Changing the package name of the app can lead to unexpected issues.",
-    use = false,
+    use = false
 )
 @Suppress("unused")
 object ChangePackageNamePatch : ResourcePatch(), Closeable {
@@ -22,7 +22,7 @@ object ChangePackageNamePatch : ResourcePatch(), Closeable {
             values = mapOf("Default" to "Default"),
             title = "Package name",
             description = "The name of the package to rename the app to.",
-            required = true,
+            required = true
         ) {
             it == "Default" || it!!.matches(Regex("^[a-z]\\w*(\\.[a-z]\\w*)+\$"))
         }
@@ -64,7 +64,7 @@ object ChangePackageNamePatch : ResourcePatch(), Closeable {
                     replacementPackageName
                 } else {
                     "${manifest.getAttribute("package")}.revanced"
-                },
+                }
             )
         }
 }

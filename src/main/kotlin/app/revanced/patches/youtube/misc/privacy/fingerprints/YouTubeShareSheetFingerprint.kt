@@ -9,10 +9,11 @@ internal object YouTubeShareSheetFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L", "Ljava/util/Map;"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.CHECK_CAST,
         Opcode.GOTO,
         Opcode.MOVE_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-    ),
+        Opcode.INVOKE_VIRTUAL
+    )
 )

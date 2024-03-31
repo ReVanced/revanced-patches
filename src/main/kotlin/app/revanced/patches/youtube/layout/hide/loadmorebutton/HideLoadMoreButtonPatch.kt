@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.layout.hide.loadmorebutton
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -8,6 +7,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.layout.hide.loadmorebutton.fingerprints.HideLoadMoreButtonFingerprint
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -57,7 +57,7 @@ object HideLoadMoreButtonPatch : BytecodePatch(
                 addInstruction(
                     insertIndex,
                     "invoke-static { v$viewRegister }, " +
-                            "$INTEGRATIONS_CLASS_DESCRIPTOR->hideLoadMoreButton(Landroid/view/View;)V"
+                        "$INTEGRATIONS_CLASS_DESCRIPTOR->hideLoadMoreButton(Landroid/view/View;)V"
                 )
             }
         } ?: throw HideLoadMoreButtonFingerprint.exception

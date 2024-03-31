@@ -10,10 +10,11 @@ internal object CreateEndScreenViewFingerprint : LiteralValueFingerprint(
     returnType = "Landroid/view/View;",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Landroid/content/Context;"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.INVOKE_DIRECT,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.CONST,
+        Opcode.CONST
     ),
-    literalSupplier = { DisableSuggestedVideoEndScreenResourcePatch.sizeAdjustableLiteAutoNavOverlay },
+    literalSupplier = { DisableSuggestedVideoEndScreenResourcePatch.sizeAdjustableLiteAutoNavOverlay }
 )

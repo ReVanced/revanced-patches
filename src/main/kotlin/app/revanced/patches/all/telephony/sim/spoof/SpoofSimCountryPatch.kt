@@ -19,7 +19,7 @@ import java.util.*
 @Patch(
     name = "Spoof SIM country",
     description = "Spoofs country information returned by the SIM card provider.",
-    use = false,
+    use = false
 )
 @Suppress("unused")
 object SpoofSimCountryPatch : BaseTransformInstructionsPatch<Pair<Int, String>>() {
@@ -27,17 +27,17 @@ object SpoofSimCountryPatch : BaseTransformInstructionsPatch<Pair<Int, String>>(
 
     private val networkCountryIso by isoCountryPatchOption(
         "networkCountryIso",
-        "Network ISO Country Code",
+        "Network ISO Country Code"
     )
 
     private val simCountryIso by isoCountryPatchOption(
         "simCountryIso",
-        "Sim ISO Country Code",
+        "Sim ISO Country Code"
     )
 
     private fun isoCountryPatchOption(
         key: String,
-        title: String,
+        title: String
     ) = stringPatchOption(
         key,
         null,
@@ -45,39 +45,41 @@ object SpoofSimCountryPatch : BaseTransformInstructionsPatch<Pair<Int, String>>(
         title,
         "ISO-3166-1 alpha-2 country code equivalent for the SIM provider's country code.",
         false,
-        validator = { it: String? -> it == null || it.uppercase() in countries.values },
+        validator = { it: String? -> it == null || it.uppercase() in countries.values }
     )
 
     override fun filterMap(
         classDef: ClassDef,
         method: Method,
         instruction: Instruction,
-        instructionIndex: Int,
+        instructionIndex: Int
     ): Pair<Int, String>? {
         if (instruction !is ReferenceInstruction) return null
 
         val reference = instruction.reference as? MethodReference ?: return null
 
-        val match = MethodCall.entries.firstOrNull { search ->
-            MethodUtil.methodSignaturesMatch(reference, search.reference)
-        } ?: return null
+        val match =
+            MethodCall.entries.firstOrNull { search ->
+                MethodUtil.methodSignaturesMatch(reference, search.reference)
+            } ?: return null
 
-        val iso = when (match) {
-            MethodCall.NetworkCountryIso -> networkCountryIso
-            MethodCall.SimCountryIso -> simCountryIso
-        }?.lowercase()
+        val iso =
+            when (match) {
+                MethodCall.NetworkCountryIso -> networkCountryIso
+                MethodCall.SimCountryIso -> simCountryIso
+            }?.lowercase()
 
         return iso?.let { instructionIndex to it }
     }
 
     override fun transform(
         mutableMethod: MutableMethod,
-        entry: Pair<Int, String>,
+        entry: Pair<Int, String>
     ) = transformMethodCall(entry, mutableMethod)
 
     private fun transformMethodCall(
         entry: Pair<Int, String>,
-        mutableMethod: MutableMethod,
+        mutableMethod: MutableMethod
     ) {
         val (instructionIndex, methodCallValue) = entry
 
@@ -85,28 +87,28 @@ object SpoofSimCountryPatch : BaseTransformInstructionsPatch<Pair<Int, String>>(
 
         mutableMethod.replaceInstruction(
             instructionIndex + 1,
-            "const-string v$register, \"$methodCallValue\"",
+            "const-string v$register, \"$methodCallValue\""
         )
     }
 
     private enum class MethodCall(
-        val reference: MethodReference,
+        val reference: MethodReference
     ) {
         NetworkCountryIso(
             ImmutableMethodReference(
                 "Landroid/telephony/TelephonyManager;",
                 "getNetworkCountryIso",
                 emptyList(),
-                "Ljava/lang/String;",
-            ),
+                "Ljava/lang/String;"
+            )
         ),
         SimCountryIso(
             ImmutableMethodReference(
                 "Landroid/telephony/TelephonyManager;",
                 "getSimCountryIso",
                 emptyList(),
-                "Ljava/lang/String;",
-            ),
-        ),
+                "Ljava/lang/String;"
+            )
+        )
     }
 }

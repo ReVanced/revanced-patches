@@ -54,7 +54,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 object HideInfoCardsPatch : BytecodePatch(
     setOf(
         InfocardsIncognitoParentFingerprint,
-        InfocardsMethodCallFingerprint,
+        InfocardsMethodCallFingerprint
     )
 ) {
     private const val FILTER_CLASS_DESCRIPTOR =
@@ -64,16 +64,17 @@ object HideInfoCardsPatch : BytecodePatch(
         InfocardsIncognitoFingerprint.also {
             it.resolve(context, InfocardsIncognitoParentFingerprint.result!!.classDef)
         }.result!!.mutableMethod.apply {
-            val invokeInstructionIndex = implementation!!.instructions.indexOfFirst {
-                it.opcode.ordinal == Opcode.INVOKE_VIRTUAL.ordinal &&
+            val invokeInstructionIndex =
+                implementation!!.instructions.indexOfFirst {
+                    it.opcode.ordinal == Opcode.INVOKE_VIRTUAL.ordinal &&
                         ((it as ReferenceInstruction).reference.toString() == "Landroid/view/View;->setVisibility(I)V")
-            }
+                }
 
-           addInstruction(
-               invokeInstructionIndex,
-               "invoke-static {v${getInstruction<FiveRegisterInstruction>(invokeInstructionIndex).registerC}}," +
-                       " Lapp/revanced/integrations/youtube/patches/HideInfoCardsPatch;->hideInfoCardsIncognito(Landroid/view/View;)V"
-           )
+            addInstruction(
+                invokeInstructionIndex,
+                "invoke-static {v${getInstruction<FiveRegisterInstruction>(invokeInstructionIndex).registerC}}," +
+                    " Lapp/revanced/integrations/youtube/patches/HideInfoCardsPatch;->hideInfoCardsIncognito(Landroid/view/View;)V"
+            )
         }
 
         with(InfocardsMethodCallFingerprint.result!!) {
@@ -90,7 +91,8 @@ object HideInfoCardsPatch : BytecodePatch(
                     if-nez v$toggleRegister, :hide_info_cards
                 """,
                 ExternalLabel(
-                    "hide_info_cards", hideInfoCardsCallMethod.getInstruction(invokeInterfaceIndex + 1)
+                    "hide_info_cards",
+                    hideInfoCardsCallMethod.getInstruction(invokeInterfaceIndex + 1)
                 )
             )
         }

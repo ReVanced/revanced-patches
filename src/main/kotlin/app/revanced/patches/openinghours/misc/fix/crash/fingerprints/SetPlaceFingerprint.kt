@@ -8,5 +8,5 @@ internal object SetPlaceFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass == "Lde/simon/openinghours/views/custom/PlaceCard;" &&
             methodDef.name == "setPlace"
-    },
+    }
 )

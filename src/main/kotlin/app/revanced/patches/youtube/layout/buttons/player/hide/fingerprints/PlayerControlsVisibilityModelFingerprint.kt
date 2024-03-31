@@ -5,5 +5,5 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal object PlayerControlsVisibilityModelFingerprint : MethodFingerprint(
     opcodes = listOf(Opcode.INVOKE_DIRECT_RANGE),
-    strings = listOf("Missing required properties:", "hasNext", "hasPrevious"),
+    strings = listOf("Missing required properties:", "hasNext", "hasPrevious")
 )

@@ -5,8 +5,9 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 internal const val ANDROID_AUTOMOTIVE_STRING = "Android Automotive"
 
 internal object AddCreateButtonViewFingerprint : MethodFingerprint(
-    strings = listOf(
+    strings =
+    listOf(
         "Android Wear",
-        ANDROID_AUTOMOTIVE_STRING,
-    ),
+        ANDROID_AUTOMOTIVE_STRING
+    )
 )

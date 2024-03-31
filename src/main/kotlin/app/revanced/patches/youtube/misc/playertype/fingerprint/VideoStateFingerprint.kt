@@ -9,13 +9,14 @@ internal object VideoStateFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "V",
     parameters = listOf("L"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.IGET_OBJECT,
         Opcode.CONST_4,
         Opcode.IF_EQZ,
         Opcode.IF_EQZ,
-        Opcode.IGET_OBJECT, // obfuscated parameter field name
-    ),
+        Opcode.IGET_OBJECT // obfuscated parameter field name
+    )
 )

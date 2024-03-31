@@ -34,7 +34,8 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
     ],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube",
+            [
                 "18.48.39",
                 "18.49.37",
                 "19.01.34",
@@ -89,15 +90,16 @@ object RememberVideoQualityPatch : BytecodePatch(
          */
         VideoInformationPatch.onCreateHook(INTEGRATIONS_CLASS_DESCRIPTOR, "newVideoStarted")
 
-
         // Inject a call to set the remembered quality once a video loads.
         VideoQualitySetterFingerprint.result?.also {
-            if (!SetQualityByIndexMethodClassFieldReferenceFingerprint.resolve(context, it.classDef))
+            if (!SetQualityByIndexMethodClassFieldReferenceFingerprint.resolve(context, it.classDef)) {
                 throw PatchException("Could not resolve fingerprint to find setQualityByIndex method")
+            }
         }?.let {
             // This instruction refers to the field with the type that contains the setQualityByIndex method.
-            val instructions = SetQualityByIndexMethodClassFieldReferenceFingerprint.result!!
-                .method.implementation!!.instructions
+            val instructions =
+                SetQualityByIndexMethodClassFieldReferenceFingerprint.result!!
+                    .method.implementation!!.instructions
 
             val getOnItemClickListenerClassReference =
                 (instructions.elementAt(0) as ReferenceInstruction).reference
@@ -107,13 +109,15 @@ object RememberVideoQualityPatch : BytecodePatch(
             val setQualityByIndexMethodClassFieldReference =
                 getSetQualityByIndexMethodClassFieldReference as FieldReference
 
-            val setQualityByIndexMethodClass = context.classes
-                .find { classDef -> classDef.type == setQualityByIndexMethodClassFieldReference.type }!!
+            val setQualityByIndexMethodClass =
+                context.classes
+                    .find { classDef -> classDef.type == setQualityByIndexMethodClassFieldReference.type }!!
 
             // Get the name of the setQualityByIndex method.
-            val setQualityByIndexMethod = setQualityByIndexMethodClass.methods
-                .find { method -> method.parameterTypes.first() == "I" }
-                ?: throw PatchException("Could not find setQualityByIndex method")
+            val setQualityByIndexMethod =
+                setQualityByIndexMethodClass.methods
+                    .find { method -> method.parameterTypes.first() == "I" }
+                    ?: throw PatchException("Could not find setQualityByIndex method")
 
             it.mutableMethod.addInstructions(
                 0,
@@ -132,10 +136,9 @@ object RememberVideoQualityPatch : BytecodePatch(
                     # The register v1 stores the name of the setQualityByIndex method.
                     invoke-static {p1, p2, v0, v1}, $INTEGRATIONS_CLASS_DESCRIPTOR->setVideoQuality([Ljava/lang/Object;ILjava/lang/Object;Ljava/lang/String;)I
                     move-result p2
-                """,
+                """
             )
         } ?: throw VideoQualitySetterFingerprint.exception
-
 
         // Inject a call to remember the selected quality.
         VideoQualityItemOnClickParentFingerprint.result?.let {
@@ -150,7 +153,6 @@ object RememberVideoQualityPatch : BytecodePatch(
                 )
             } ?: throw PatchException("Failed to find onItemClick method")
         } ?: throw VideoQualityItemOnClickParentFingerprint.exception
-
 
         // Remember video quality if not using old layout menu.
         NewVideoQualityChangedFingerprint.result?.apply {

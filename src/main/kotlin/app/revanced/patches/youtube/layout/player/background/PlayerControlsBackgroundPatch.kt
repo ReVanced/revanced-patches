@@ -31,10 +31,10 @@ import org.w3c.dom.Element
                 "19.07.40",
                 "19.08.36",
                 "19.09.37"
-            ],
-        ),
+            ]
+        )
     ],
-    use = false,
+    use = false
 )
 @Suppress("unused")
 object PlayerControlsBackgroundPatch : ResourcePatch() {

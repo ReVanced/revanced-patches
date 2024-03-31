@@ -21,7 +21,7 @@ import app.revanced.util.exception
     name = "Block video ads",
     description = "Blocks video ads in streams and VODs.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
-    compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])],
+    compatiblePackages = [CompatiblePackage("tv.twitch.android.app", ["15.4.1", "16.1.0", "16.9.1"])]
 )
 object VideoAdsPatch : BaseAdPatch(
     "Lapp/revanced/integrations/twitch/patches/VideoAdsPatch;->shouldBlockVideoAds()Z",
@@ -29,44 +29,44 @@ object VideoAdsPatch : BaseAdPatch(
     setOf(
         ContentConfigShowAdsFingerprint,
         CheckAdEligibilityLambdaFingerprint,
-        GetReadyToShowAdFingerprint,
-    ),
+        GetReadyToShowAdFingerprint
+    )
 ) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.ADS.CLIENT_SIDE.addPreferences(
-            SwitchPreference("revanced_block_video_ads"),
+            SwitchPreference("revanced_block_video_ads")
         )
 
-        /* Amazon ads SDK */
+        // Amazon ads SDK
         context.blockMethods(
             "Lcom/amazon/ads/video/player/AdsManagerImpl;",
-            "playAds",
+            "playAds"
         )
 
-        /* Twitch ads manager */
+        // Twitch ads manager
         context.blockMethods(
             "Ltv/twitch/android/shared/ads/VideoAdManager;",
             "checkAdEligibilityAndRequestAd",
             "requestAd",
-            "requestAds",
+            "requestAds"
         )
 
-        /* Various ad presenters */
+        // Various ad presenters
         context.blockMethods(
             "Ltv/twitch/android/shared/ads/AdsPlayerPresenter;",
             "requestAd",
             "requestFirstAd",
             "requestFirstAdIfEligible",
             "requestMidroll",
-            "requestAdFromMultiAdFormatEvent",
+            "requestAdFromMultiAdFormatEvent"
         )
 
         context.blockMethods(
             "Ltv/twitch/android/shared/ads/AdsVodPlayerPresenter;",
             "requestAd",
-            "requestFirstAd",
+            "requestFirstAd"
         )
 
         context.blockMethods(
@@ -74,28 +74,28 @@ object VideoAdsPatch : BaseAdPatch(
             "parseAdAndCheckEligibility",
             "requestAdsAfterEligibilityCheck",
             "showAd",
-            "bindMultiAdFormatAllocation",
+            "bindMultiAdFormatAllocation"
         )
 
-        /* A/B ad testing experiments */
+        // A/B ad testing experiments
         context.blockMethods(
             "Ltv/twitch/android/provider/experiments/helpers/DisplayAdsExperimentHelper;",
             "areDisplayAdsEnabled",
-            returnMethod = ReturnMethod('Z', "0"),
+            returnMethod = ReturnMethod('Z', "0")
         )
 
         context.blockMethods(
             "Ltv/twitch/android/shared/ads/tracking/MultiFormatAdsTrackingExperiment;",
             "shouldUseMultiAdFormatTracker",
             "shouldUseVideoAdTracker",
-            returnMethod = ReturnMethod('Z', "0"),
+            returnMethod = ReturnMethod('Z', "0")
         )
 
         context.blockMethods(
             "Ltv/twitch/android/shared/ads/MultiformatAdsExperiment;",
             "shouldDisableClientSideLivePreroll",
             "shouldDisableClientSideVodPreroll",
-            returnMethod = ReturnMethod('Z', "1"),
+            returnMethod = ReturnMethod('Z', "1")
         )
 
         // Pretend our player is ineligible for all ads
@@ -109,7 +109,7 @@ object VideoAdsPatch : BaseAdPatch(
                     move-result-object p0
                     return-object p0
                 """,
-                ExternalLabel(skipLabelName, mutableMethod.getInstruction(0)),
+                ExternalLabel(skipLabelName, mutableMethod.getInstruction(0))
             )
         } ?: throw CheckAdEligibilityLambdaFingerprint.exception
 
@@ -124,7 +124,7 @@ object VideoAdsPatch : BaseAdPatch(
                     move-result-object p1
                     return-object p1
                 """,
-                ExternalLabel(skipLabelName, mutableMethod.getInstruction(0)),
+                ExternalLabel(skipLabelName, mutableMethod.getInstruction(0))
             )
         } ?: throw GetReadyToShowAdFingerprint.exception
 
@@ -137,7 +137,7 @@ object VideoAdsPatch : BaseAdPatch(
                     const/4 v0, 0
                     :$skipLabelName
                     return v0
-                """,
+                """
             )
         } ?: throw ContentConfigShowAdsFingerprint.exception
     }

@@ -9,7 +9,8 @@ internal object ShortsTextViewFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "V",
     parameters = listOf("L", "L"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.INVOKE_SUPER, // first instruction of method
         Opcode.IF_NEZ,
         null,
@@ -27,6 +28,6 @@ internal object ShortsTextViewFingerprint : MethodFingerprint(
         Opcode.IF_EQ,
         Opcode.RETURN_VOID,
         Opcode.IGET_OBJECT, // TextView field
-        Opcode.IGET_BOOLEAN, // boolean field
-    ),
+        Opcode.IGET_BOOLEAN // boolean field
+    )
 )

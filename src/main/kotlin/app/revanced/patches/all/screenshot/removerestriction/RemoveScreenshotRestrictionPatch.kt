@@ -19,7 +19,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
     name = "Remove screenshot restriction",
     description = "Removes the restriction of taking screenshots in apps that normally wouldn't allow it.",
     use = false,
-    requiresIntegrations = true,
+    requiresIntegrations = true
 )
 @Suppress("unused")
 object RemoveScreenshotRestrictionPatch : BaseTransformInstructionsPatch<Instruction35cInfo>() {
@@ -36,15 +36,18 @@ object RemoveScreenshotRestrictionPatch : BaseTransformInstructionsPatch<Instruc
         classDef: ClassDef,
         method: Method,
         instruction: Instruction,
-        instructionIndex: Int,
+        instructionIndex: Int
     ) = filterMapInstruction35c<MethodCall>(
         INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX,
         classDef,
         instruction,
-        instructionIndex,
+        instructionIndex
     )
 
-    override fun transform(mutableMethod: MutableMethod, entry: Instruction35cInfo) {
+    override fun transform(
+        mutableMethod: MutableMethod,
+        entry: Instruction35cInfo
+    ) {
         val (methodType, instruction, instructionIndex) = entry
         methodType.replaceInvokeVirtualWithIntegrations(INTEGRATIONS_CLASS_DESCRIPTOR, mutableMethod, instruction, instructionIndex)
     }
@@ -54,20 +57,20 @@ object RemoveScreenshotRestrictionPatch : BaseTransformInstructionsPatch<Instruc
         override val definedClassName: String,
         override val methodName: String,
         override val methodParams: Array<String>,
-        override val returnType: String,
+        override val returnType: String
     ) : IMethodCall {
         AddFlags(
             "Landroid/view/Window;",
             "addFlags",
             arrayOf("I"),
-            "V",
+            "V"
         ),
         SetFlags(
             "Landroid/view/Window;",
             "setFlags",
             arrayOf("I", "I"),
-            "V",
-        ),
+            "V"
+        )
     }
 }
 
@@ -76,7 +79,7 @@ private class ModifyLayoutParamsFlags : BaseTransformInstructionsPatch<Pair<Inst
         classDef: ClassDef,
         method: Method,
         instruction: Instruction,
-        instructionIndex: Int,
+        instructionIndex: Int
     ): Pair<Instruction22c, Int>? {
         if (instruction.opcode != Opcode.IPUT) {
             return null
@@ -95,13 +98,16 @@ private class ModifyLayoutParamsFlags : BaseTransformInstructionsPatch<Pair<Inst
         return Pair(instruction22c, instructionIndex)
     }
 
-    override fun transform(mutableMethod: MutableMethod, entry: Pair<Instruction22c, Int>) {
+    override fun transform(
+        mutableMethod: MutableMethod,
+        entry: Pair<Instruction22c, Int>
+    ) {
         val (instruction, index) = entry
         val register = instruction.registerA
 
         mutableMethod.addInstructions(
             index,
-            "and-int/lit16 v$register, v$register, -0x2001",
+            "and-int/lit16 v$register, v$register, -0x2001"
         )
     }
 }

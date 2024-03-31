@@ -38,7 +38,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
                 "19.05.36",
                 "19.06.39",
                 "19.07.40",
-                "19.08.36",
+                "19.08.36"
                 // 19.09+ is dramatically different and the patched code is not present.
             ]
         )
@@ -46,7 +46,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 )
 @Suppress("unused")
 object HDRBrightnessPatch : BytecodePatch(
-    setOf(HDRBrightnessFingerprint),
+    setOf(HDRBrightnessFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
@@ -54,7 +54,7 @@ object HDRBrightnessPatch : BytecodePatch(
         if (HDRBrightnessFingerprint.result == null) throw HDRBrightnessFingerprint.exception
 
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
-            SwitchPreference("revanced_hdr_auto_brightness"),
+            SwitchPreference("revanced_hdr_auto_brightness")
         )
 
         // FIXME
@@ -73,7 +73,7 @@ object HDRBrightnessPatch : BytecodePatch(
                     """
                         invoke-static {v$register}, Lapp/revanced/integrations/youtube/patches/HDRAutoBrightnessPatch;->getHDRBrightness(F)F
                         move-result v$register
-                    """,
+                    """
                 )
             }
         } ?: throw HDRBrightnessFingerprint.exception

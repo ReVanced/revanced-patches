@@ -6,5 +6,5 @@ internal object OnClearDisplayEventFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         // Internally the feature is called "Clear mode".
         methodDef.definingClass.endsWith("/ClearModePanelComponent;") && methodDef.name == "onClearModeEvent"
-    },
+    }
 )

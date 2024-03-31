@@ -8,5 +8,5 @@ internal object InfocardsIncognitoFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "Ljava/lang/Boolean;",
     parameters = listOf("L", "J"),
-    strings = listOf("vibrator"),
+    strings = listOf("vibrator")
 )

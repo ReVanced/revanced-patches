@@ -16,7 +16,8 @@ import com.android.tools.smali.dexlib2.Opcode
 // we want to insert our instructions there.
 internal object GetFeatureValueFingerprint : MethodFingerprint(
     strings = listOf("feature"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.IF_EQZ,
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT

@@ -14,8 +14,8 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
         LithoFilterPatch::class,
         SettingsPatch::class,
         ResourceMappingPatch::class,
-        AddResourcesPatch::class,
-    ],
+        AddResourcesPatch::class
+    ]
 )
 object HideAdsResourcePatch : ResourcePatch() {
     private const val FILTER_CLASS_DESCRIPTOR =
@@ -35,7 +35,7 @@ object HideAdsResourcePatch : ResourcePatch() {
             SwitchPreference("revanced_hide_products_banner"),
             SwitchPreference("revanced_hide_shopping_links"),
             SwitchPreference("revanced_hide_web_search_results"),
-            SwitchPreference("revanced_hide_merchandise_banners"),
+            SwitchPreference("revanced_hide_merchandise_banners")
         )
 
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)

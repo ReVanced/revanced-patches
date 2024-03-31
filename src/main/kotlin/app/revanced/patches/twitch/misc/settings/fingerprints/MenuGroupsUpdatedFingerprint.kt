@@ -6,5 +6,5 @@ internal object MenuGroupsUpdatedFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("/SettingsMenuPresenter\$Event\$MenuGroupsUpdated;") &&
             methodDef.name == "<init>"
-    },
+    }
 )

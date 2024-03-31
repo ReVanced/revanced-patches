@@ -59,14 +59,14 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
                 "19.06.39",
                 "19.07.40",
                 "19.08.36",
-                "19.09.37",
-            ],
-        ),
-    ],
+                "19.09.37"
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object HideLayoutComponentsPatch : BytecodePatch(
-    setOf(ParseElementFromBufferFingerprint, PlayerOverlayFingerprint),
+    setOf(ParseElementFromBufferFingerprint, PlayerOverlayFingerprint)
 ) {
     private const val LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/components/LayoutComponentsFilter;"
@@ -89,14 +89,15 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_community_guidelines"),
             PreferenceScreen(
                 key = "revanced_hide_description_components_screen",
-                preferences = setOf(
+                preferences =
+                setOf(
                     SwitchPreference("revanced_hide_chapters"),
                     SwitchPreference("revanced_hide_info_cards_section"),
                     SwitchPreference("revanced_hide_game_section"),
                     SwitchPreference("revanced_hide_music_section"),
                     SwitchPreference("revanced_hide_podcast_section"),
-                    SwitchPreference("revanced_hide_transcript_section"),
-                ),
+                    SwitchPreference("revanced_hide_transcript_section")
+                )
             ),
             SwitchPreference("revanced_hide_emergency_box"),
             SwitchPreference("revanced_hide_expandable_chip"),
@@ -106,7 +107,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_quick_actions"),
             SwitchPreference("revanced_hide_related_videos"),
             SwitchPreference("revanced_hide_subscribers_community_guidelines"),
-            SwitchPreference("revanced_hide_timed_reactions"),
+            SwitchPreference("revanced_hide_timed_reactions")
         )
 
         SettingsPatch.PreferenceScreen.FEED.addPreferences(
@@ -121,14 +122,15 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_movies_section"),
             SwitchPreference("revanced_hide_notify_me_button"),
             SwitchPreference("revanced_hide_search_result_recommendations"),
-            SwitchPreference("revanced_hide_search_result_shelf_header"),
+            SwitchPreference("revanced_hide_search_result_shelf_header")
         )
 
         SettingsPatch.PreferenceScreen.FEED.addPreferences(
             PreferenceScreen(
                 key = "revanced_hide_keyword_content_screen",
                 sorting = Sorting.UNSORTED,
-                preferences = setOf(
+                preferences =
+                setOf(
                     SwitchPreference("revanced_hide_keyword_content_home"),
                     SwitchPreference("revanced_hide_keyword_content_subscriptions"),
                     SwitchPreference("revanced_hide_keyword_content_search"),
@@ -143,16 +145,17 @@ object HideLayoutComponentsPatch : BytecodePatch(
             PreferenceScreen(
                 key = "revanced_custom_filter_screen",
                 sorting = Sorting.UNSORTED,
-                preferences = setOf(
+                preferences =
+                setOf(
                     SwitchPreference("revanced_custom_filter"),
                     // TODO: This should be a dynamic ListPreference, which does not exist yet
-                    TextPreference("revanced_custom_filter_strings", inputType = InputType.TEXT_MULTI_LINE),
-                ),
-            ),
+                    TextPreference("revanced_custom_filter_strings", inputType = InputType.TEXT_MULTI_LINE)
+                )
+            )
         )
 
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
-            SwitchPreference("revanced_hide_video_quality_menu_footer"),
+            SwitchPreference("revanced_hide_video_quality_menu_footer")
         )
 
         LithoFilterPatch.addFilter(LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR)
@@ -178,7 +181,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
                         move-result v0 # Conveniently same register happens to be free. 
                         if-nez v0, :return_empty_component
                     """,
-                    ExternalLabel("return_empty_component", returnEmptyComponentInstruction),
+                    ExternalLabel("return_empty_component", returnEmptyComponentInstruction)
                 )
             }
         }
@@ -198,7 +201,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
                 """
                     invoke-static {}, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->showWatermark()Z
                     move-result p2
-                """,
+                """
             )
         }
 

@@ -5,5 +5,5 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 internal object AudioAdsPresenterPlayFingerprint : MethodFingerprint(
     customFingerprint = { method, _ ->
         method.definingClass.endsWith("AudioAdsPlayerPresenter;") && method.name == "playAd"
-    },
+    }
 )

@@ -13,11 +13,11 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Patch(
     name = "Disable switching emoji to sticker",
     description = "Disables switching from emoji to sticker search mode in message input field.",
-    compatiblePackages = [CompatiblePackage("com.facebook.orca")],
+    compatiblePackages = [CompatiblePackage("com.facebook.orca")]
 )
 @Suppress("unused")
 object DisableSwitchingEmojiToStickerPatch : BytecodePatch(
-    setOf(SwitchMessangeInputEmojiButtonFingerprint),
+    setOf(SwitchMessangeInputEmojiButtonFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         SwitchMessangeInputEmojiButtonFingerprint.result?.let {
@@ -28,7 +28,7 @@ object DisableSwitchingEmojiToStickerPatch : BytecodePatch(
 
                 replaceInstruction(
                     setStringIndex,
-                    "const-string v$targetRegister, \"expression\"",
+                    "const-string v$targetRegister, \"expression\""
                 )
             }
         } ?: throw SwitchMessangeInputEmojiButtonFingerprint.exception

@@ -4,9 +4,10 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
 internal object ReadComponentIdentifierFingerprint : MethodFingerprint(
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.IF_NEZ,
         null,
-        Opcode.MOVE_RESULT_OBJECT, // Register stores the component identifier string
-    ),
+        Opcode.MOVE_RESULT_OBJECT // Register stores the component identifier string
+    )
 )

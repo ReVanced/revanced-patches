@@ -11,5 +11,5 @@ internal object MainActivityFingerprint : MethodFingerprint(
         methodDef.definingClass.endsWith("MainActivity;") ||
             // Old versions of YouTube called this class "WatchWhileActivity" instead.
             methodDef.definingClass.endsWith("WatchWhileActivity;")
-    },
+    }
 )

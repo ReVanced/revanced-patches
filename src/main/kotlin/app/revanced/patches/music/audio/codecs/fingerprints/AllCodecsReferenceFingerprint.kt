@@ -49,7 +49,7 @@ internal object AllCodecsReferenceFingerprint : MethodFingerprint(
         Opcode.MOVE_EXCEPTION,
         Opcode.INVOKE_SUPER,
         Opcode.MOVE_RESULT_WIDE,
-        Opcode.RETURN_WIDE,
+        Opcode.RETURN_WIDE
     ),
-    listOf("itag"),
+    listOf("itag")
 )

@@ -11,7 +11,8 @@ internal object OnTouchEventHandlerFingerprint : MethodFingerprint(
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.PUBLIC,
     parameters = listOf("L"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.INVOKE_VIRTUAL, // nMethodReference
         Opcode.RETURN,
         Opcode.IGET_OBJECT,
@@ -25,7 +26,7 @@ internal object OnTouchEventHandlerFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT,
         Opcode.IF_EQZ,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.INVOKE_VIRTUAL, // oMethodReference
+        Opcode.INVOKE_VIRTUAL // oMethodReference
     ),
-    customFingerprint = { methodDef, _ -> methodDef.name == "onTouchEvent" },
+    customFingerprint = { methodDef, _ -> methodDef.name == "onTouchEvent" }
 )

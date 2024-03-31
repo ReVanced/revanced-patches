@@ -35,16 +35,16 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableField
         SettingsPatch::class,
         RecyclerViewTreeHookPatch::class,
         CustomPlaybackSpeedResourcePatch::class,
-        AddResourcesPatch::class,
-    ],
+        AddResourcesPatch::class
+    ]
 )
 object CustomPlaybackSpeedPatch : BytecodePatch(
     setOf(
         SpeedArrayGeneratorFingerprint,
         SpeedLimiterFingerprint,
         GetOldPlaybackSpeedsFingerprint,
-        ShowOldPlaybackSpeedMenuIntegrationsFingerprint,
-    ),
+        ShowOldPlaybackSpeedMenuIntegrationsFingerprint
+    )
 ) {
     private const val FILTER_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/components/PlaybackSpeedMenuFilterPatch;"
@@ -56,14 +56,15 @@ object CustomPlaybackSpeedPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
-            TextPreference("revanced_custom_playback_speeds", inputType = InputType.TEXT_MULTI_LINE),
+            TextPreference("revanced_custom_playback_speeds", inputType = InputType.TEXT_MULTI_LINE)
         )
 
         val arrayGenMethod = SpeedArrayGeneratorFingerprint.result?.mutableMethod!!
         val arrayGenMethodImpl = arrayGenMethod.implementation!!
 
-        val sizeCallIndex = arrayGenMethodImpl.instructions
-            .indexOfFirst { ((it as? ReferenceInstruction)?.reference as? MethodReference)?.name == "size" }
+        val sizeCallIndex =
+            arrayGenMethodImpl.instructions
+                .indexOfFirst { ((it as? ReferenceInstruction)?.reference as? MethodReference)?.name == "size" }
 
         if (sizeCallIndex == -1) throw PatchException("Couldn't find call to size()")
 
@@ -72,11 +73,12 @@ object CustomPlaybackSpeedPatch : BytecodePatch(
 
         arrayGenMethod.replaceInstruction(
             sizeCallIndex + 1,
-            "const/4 v$sizeCallResultRegister, 0x0",
+            "const/4 v$sizeCallResultRegister, 0x0"
         )
 
-        val (arrayLengthConstIndex, arrayLengthConst) = arrayGenMethodImpl.instructions.withIndex()
-            .first { (it.value as? NarrowLiteralInstruction)?.narrowLiteral == 7 }
+        val (arrayLengthConstIndex, arrayLengthConst) =
+            arrayGenMethodImpl.instructions.withIndex()
+                .first { (it.value as? NarrowLiteralInstruction)?.narrowLiteral == 7 }
 
         val arrayLengthConstDestination = (arrayLengthConst as OneRegisterInstruction).registerA
 
@@ -87,21 +89,22 @@ object CustomPlaybackSpeedPatch : BytecodePatch(
             """
                 sget-object v$arrayLengthConstDestination, $playbackSpeedsArrayType
                 array-length v$arrayLengthConstDestination, v$arrayLengthConstDestination
-            """,
+            """
         )
 
-        val (originalArrayFetchIndex, originalArrayFetch) = arrayGenMethodImpl.instructions.withIndex()
-            .first {
-                val reference = ((it.value as? ReferenceInstruction)?.reference as? FieldReference)
-                reference?.definingClass?.contains("PlayerConfigModel") ?: false &&
-                    reference?.type == "[F"
-            }
+        val (originalArrayFetchIndex, originalArrayFetch) =
+            arrayGenMethodImpl.instructions.withIndex()
+                .first {
+                    val reference = ((it.value as? ReferenceInstruction)?.reference as? FieldReference)
+                    reference?.definingClass?.contains("PlayerConfigModel") ?: false &&
+                        reference?.type == "[F"
+                }
 
         val originalArrayFetchDestination = (originalArrayFetch as OneRegisterInstruction).registerA
 
         arrayGenMethod.replaceInstruction(
             originalArrayFetchIndex,
-            "sget-object v$originalArrayFetchDestination, $playbackSpeedsArrayType",
+            "sget-object v$originalArrayFetchDestination, $playbackSpeedsArrayType"
         )
 
         val limiterMethod = SpeedLimiterFingerprint.result?.mutableMethod!!
@@ -109,21 +112,23 @@ object CustomPlaybackSpeedPatch : BytecodePatch(
 
         val lowerLimitConst = 0.25f.toRawBits()
         val upperLimitConst = 2.0f.toRawBits()
-        val (limiterMinConstIndex, limiterMinConst) = limiterMethodImpl.instructions.withIndex()
-            .first { (it.value as? NarrowLiteralInstruction)?.narrowLiteral == lowerLimitConst }
-        val (limiterMaxConstIndex, limiterMaxConst) = limiterMethodImpl.instructions.withIndex()
-            .first { (it.value as? NarrowLiteralInstruction)?.narrowLiteral == upperLimitConst }
+        val (limiterMinConstIndex, limiterMinConst) =
+            limiterMethodImpl.instructions.withIndex()
+                .first { (it.value as? NarrowLiteralInstruction)?.narrowLiteral == lowerLimitConst }
+        val (limiterMaxConstIndex, limiterMaxConst) =
+            limiterMethodImpl.instructions.withIndex()
+                .first { (it.value as? NarrowLiteralInstruction)?.narrowLiteral == upperLimitConst }
 
         val limiterMinConstDestination = (limiterMinConst as OneRegisterInstruction).registerA
         val limiterMaxConstDestination = (limiterMaxConst as OneRegisterInstruction).registerA
 
         limiterMethod.replaceInstruction(
             limiterMinConstIndex,
-            "const/high16 v$limiterMinConstDestination, 0x0",
+            "const/high16 v$limiterMinConstDestination, 0x0"
         )
         limiterMethod.replaceInstruction(
             limiterMaxConstIndex,
-            "const/high16 v$limiterMaxConstDestination, 0x41200000  # 10.0f",
+            "const/high16 v$limiterMaxConstDestination, 0x41200000  # 10.0f"
         )
 
         // region Force old video quality menu.
@@ -137,15 +142,16 @@ object CustomPlaybackSpeedPatch : BytecodePatch(
         GetOldPlaybackSpeedsFingerprint.result?.let { result ->
             // Add a static INSTANCE field to the class.
             // This is later used to call "showOldPlaybackSpeedMenu" on the instance.
-            val instanceField = ImmutableField(
-                result.classDef.type,
-                "INSTANCE",
-                result.classDef.type,
-                AccessFlags.PUBLIC or AccessFlags.STATIC,
-                null,
-                null,
-                null,
-            ).toMutable()
+            val instanceField =
+                ImmutableField(
+                    result.classDef.type,
+                    "INSTANCE",
+                    result.classDef.type,
+                    AccessFlags.PUBLIC or AccessFlags.STATIC,
+                    null,
+                    null,
+                    null
+                ).toMutable()
 
             result.mutableClass.staticFields.add(instanceField)
             // Set the INSTANCE field to the instance of the class.
@@ -154,11 +160,12 @@ object CustomPlaybackSpeedPatch : BytecodePatch(
 
             // Get the "showOldPlaybackSpeedMenu" method.
             // This is later called on the field INSTANCE.
-            val showOldPlaybackSpeedMenuMethod = ShowOldPlaybackSpeedMenuFingerprint.also {
-                if (!it.resolve(context, result.classDef)) {
-                    throw ShowOldPlaybackSpeedMenuFingerprint.exception
-                }
-            }.result!!.method.toString()
+            val showOldPlaybackSpeedMenuMethod =
+                ShowOldPlaybackSpeedMenuFingerprint.also {
+                    if (!it.resolve(context, result.classDef)) {
+                        throw ShowOldPlaybackSpeedMenuFingerprint.exception
+                    }
+                }.result!!.method.toString()
 
             // Insert the call to the "showOldPlaybackSpeedMenu" method on the field INSTANCE.
             ShowOldPlaybackSpeedMenuIntegrationsFingerprint.result?.mutableMethod?.apply {
@@ -170,7 +177,7 @@ object CustomPlaybackSpeedPatch : BytecodePatch(
                         return-void
                         :not_null
                         invoke-virtual { v0 }, $showOldPlaybackSpeedMenuMethod
-                    """,
+                    """
                 )
             } ?: throw ShowOldPlaybackSpeedMenuIntegrationsFingerprint.exception
         } ?: throw GetOldPlaybackSpeedsFingerprint.exception

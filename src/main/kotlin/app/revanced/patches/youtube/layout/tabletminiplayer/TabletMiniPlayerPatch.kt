@@ -26,7 +26,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", arrayOf(
+            "com.google.android.youtube",
+            arrayOf(
                 "18.32.39",
                 "18.37.36",
                 "18.38.44",
@@ -77,7 +78,8 @@ object TabletMiniPlayerPatch : BytecodePatch(
         // Insert right before the return instruction.
         val secondInsertIndex = method.implementation!!.instructions.size - 1
         method.insertOverride(
-            secondInsertIndex, parameterRegister
+            secondInsertIndex,
+            parameterRegister
             /** same register used to return **/
         )
 
@@ -91,10 +93,11 @@ object TabletMiniPlayerPatch : BytecodePatch(
                     .getMethod() as MutableMethod
             }.apply {
                 implementation!!.let { implementation ->
-                    val returnIndices = implementation.instructions
-                        .withIndex()
-                        .filter { (_, instruction) -> instruction.opcode == Opcode.RETURN }
-                        .map { (index, _) -> index }
+                    val returnIndices =
+                        implementation.instructions
+                            .withIndex()
+                            .filter { (_, instruction) -> instruction.opcode == Opcode.RETURN }
+                            .map { (index, _) -> index }
 
                     if (returnIndices.isEmpty()) throw PatchException("No return instructions found.")
 
@@ -123,7 +126,10 @@ object TabletMiniPlayerPatch : BytecodePatch(
         return Triple(method, scanIndex, parameterRegister)
     }
 
-    private fun MutableMethod.insertOverride(index: Int, overrideRegister: Int) {
+    private fun MutableMethod.insertOverride(
+        index: Int,
+        overrideRegister: Int
+    ) {
         this.addInstructions(
             index,
             """

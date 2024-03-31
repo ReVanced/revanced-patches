@@ -9,13 +9,14 @@ internal object VideoIdFingerprintBackgroundPlay : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.DECLARED_SYNCHRONIZED or AccessFlags.FINAL or AccessFlags.PUBLIC,
     parameters = listOf("L"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
         Opcode.IF_EQZ,
         Opcode.IGET_OBJECT,
         Opcode.IF_EQZ,
         Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
-    ),
+        Opcode.MOVE_RESULT_OBJECT
+    )
 )

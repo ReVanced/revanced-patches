@@ -9,5 +9,5 @@ internal object LithoFilterFingerprint : MethodFingerprint(
     returnType = "V",
     customFingerprint = { _, classDef ->
         classDef.type.endsWith("LithoFilterPatch;")
-    },
+    }
 )

@@ -7,5 +7,5 @@ internal object GetSubscribedFingerprint : MethodFingerprint(
     opcodes = listOf(Opcode.IGET_BOOLEAN),
     customFingerprint = { methodDef, classDef ->
         classDef.type.endsWith("/SubscriptionDetailResponse;") && methodDef.name == "getSubscribed"
-    },
+    }
 )

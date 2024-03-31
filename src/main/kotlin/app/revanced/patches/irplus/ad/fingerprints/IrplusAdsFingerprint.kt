@@ -8,5 +8,5 @@ internal object IrplusAdsFingerprint : MethodFingerprint(
     "V",
     AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     listOf("L", "Z"),
-    strings = listOf("TAGGED"),
+    strings = listOf("TAGGED")
 )

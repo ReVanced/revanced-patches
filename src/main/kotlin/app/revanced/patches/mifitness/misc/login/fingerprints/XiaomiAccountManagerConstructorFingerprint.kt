@@ -9,8 +9,9 @@ internal object XiaomiAccountManagerConstructorFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass == "Lcom/xiaomi/passport/accountmanager/XiaomiAccountManager;"
     },
-    parameters = listOf(
+    parameters =
+    listOf(
         "Landroid/content/Context;",
-        "Z",
-    ),
+        "Z"
+    )
 )

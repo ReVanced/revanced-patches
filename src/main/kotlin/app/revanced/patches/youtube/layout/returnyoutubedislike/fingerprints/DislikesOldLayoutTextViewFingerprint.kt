@@ -10,13 +10,14 @@ internal object DislikesOldLayoutTextViewFingerprint : LiteralValueFingerprint(
     returnType = "V",
     parameters = listOf("L"),
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.CONST, // resource identifier register
         Opcode.INVOKE_VIRTUAL,
         Opcode.INVOKE_VIRTUAL,
         Opcode.IGET_OBJECT,
         Opcode.IF_NEZ, // textview register
-        Opcode.GOTO,
+        Opcode.GOTO
     ),
-    literalSupplier = { ReturnYouTubeDislikeResourcePatch.oldUIDislikeId },
+    literalSupplier = { ReturnYouTubeDislikeResourcePatch.oldUIDislikeId }
 )

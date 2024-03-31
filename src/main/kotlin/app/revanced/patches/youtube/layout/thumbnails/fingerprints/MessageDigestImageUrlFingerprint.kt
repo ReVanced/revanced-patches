@@ -6,5 +6,5 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 internal object MessageDigestImageUrlFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    parameters = listOf("Ljava/lang/String;", "L"),
+    parameters = listOf("Ljava/lang/String;", "L")
 )

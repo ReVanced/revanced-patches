@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.layout.hide.filterbar
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -11,6 +10,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.layout.hide.filterbar.fingerprints.FilterBarHeightFingerprint
 import app.revanced.patches.youtube.layout.hide.filterbar.fingerprints.RelatedChipCloudFingerprint
 import app.revanced.patches.youtube.layout.hide.filterbar.fingerprints.SearchResultsChipBarFingerprint
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
@@ -64,7 +64,7 @@ object HideFilterBarPatch : BytecodePatch(
 
         RelatedChipCloudFingerprint.patch<OneRegisterInstruction>(1) { register ->
             "invoke-static { v$register }, " +
-                    "$INTEGRATIONS_CLASS_DESCRIPTOR->hideInRelatedVideos(Landroid/view/View;)V"
+                "$INTEGRATIONS_CLASS_DESCRIPTOR->hideInRelatedVideos(Landroid/view/View;)V"
         }
 
         SearchResultsChipBarFingerprint.patch<OneRegisterInstruction>(-1, -2) { register ->

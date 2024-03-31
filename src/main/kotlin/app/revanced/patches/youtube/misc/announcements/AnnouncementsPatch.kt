@@ -15,7 +15,7 @@ import app.revanced.util.resultOrThrow
     name = "Announcements",
     description = "Adds an option to show announcements from ReVanced on app startup.",
     compatiblePackages = [CompatiblePackage("com.google.android.youtube")],
-    dependencies = [SettingsPatch::class,AddResourcesPatch::class]
+    dependencies = [SettingsPatch::class, AddResourcesPatch::class]
 )
 @Suppress("unused")
 object AnnouncementsPatch : BytecodePatch(

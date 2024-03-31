@@ -9,7 +9,8 @@ internal object LithoThemeFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
     parameters = listOf("Landroid/graphics/Rect;"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.APUT,
         Opcode.NEW_INSTANCE,
         Opcode.INVOKE_DIRECT,
@@ -24,9 +25,9 @@ internal object LithoThemeFingerprint : MethodFingerprint(
         Opcode.IF_NEZ,
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.RETURN_VOID,
+        Opcode.RETURN_VOID
     ),
     customFingerprint = { methodDef, _ ->
         methodDef.name == "onBoundsChange"
-    },
+    }
 )

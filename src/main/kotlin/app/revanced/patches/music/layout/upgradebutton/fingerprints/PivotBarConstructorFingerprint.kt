@@ -14,6 +14,6 @@ internal object PivotBarConstructorFingerprint : MethodFingerprint(
         Opcode.INVOKE_INTERFACE,
         Opcode.GOTO,
         Opcode.IPUT_OBJECT,
-        Opcode.RETURN_VOID,
-    ),
+        Opcode.RETURN_VOID
+    )
 )

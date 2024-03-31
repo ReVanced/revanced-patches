@@ -12,10 +12,11 @@ internal object RollingNumberMeasureStaticLabelFingerprint : MethodFingerprint(
     returnType = "F",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Ljava/lang/String;"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
-        Opcode.RETURN,
-    ),
+        Opcode.RETURN
+    )
 )

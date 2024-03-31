@@ -12,11 +12,11 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Unlock pro",
-    compatiblePackages = [CompatiblePackage("tv.trakt.trakt", ["1.1.1"])],
+    compatiblePackages = [CompatiblePackage("tv.trakt.trakt", ["1.1.1"])]
 )
 @Suppress("unused")
 object UnlockProPatch : BytecodePatch(
-    setOf(RemoteUserFingerprint),
+    setOf(RemoteUserFingerprint)
 ) {
     private const val RETURN_TRUE_INSTRUCTIONS =
         """

@@ -10,5 +10,5 @@ internal object LicenseActivityOnCreateFingerprint : MethodFingerprint(
     parameters = listOf("L"),
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("LicenseActivity;") && methodDef.name == "onCreate"
-    },
+    }
 )

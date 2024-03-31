@@ -6,9 +6,10 @@ import com.android.tools.smali.dexlib2.Opcode
 internal object SystemShareSheetFingerprint : MethodFingerprint(
     returnType = "V",
     parameters = listOf("L", "Ljava/util/Map;"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.CHECK_CAST,
-        Opcode.GOTO,
+        Opcode.GOTO
     ),
-    strings = listOf("YTShare_Logging_Share_Intent_Endpoint_Byte_Array"),
+    strings = listOf("YTShare_Logging_Share_Intent_Endpoint_Byte_Array")
 )

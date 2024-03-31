@@ -22,5 +22,5 @@ internal object CreateTabsFingerprint : MethodFingerprint(
             if (reference.returnType != "[${BadgeTabPatch.ACTIVITY_TAB_DESCRIPTOR}") return@any false
             true
         } ?: false
-    },
+    }
 )

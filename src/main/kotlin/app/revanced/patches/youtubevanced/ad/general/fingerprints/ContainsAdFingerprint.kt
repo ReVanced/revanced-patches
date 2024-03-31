@@ -9,16 +9,17 @@ internal object ContainsAdFingerprint : MethodFingerprint(
     returnType = "Z",
     parameters = listOf("L", "L"),
     accessFlags = AccessFlags.STATIC or AccessFlags.PUBLIC,
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.CONST_STRING,
         Opcode.INVOKE_INTERFACE,
         Opcode.CONST_STRING,
         Opcode.INVOKE_INTERFACE,
         Opcode.CONST_STRING,
-        Opcode.INVOKE_INTERFACE,
+        Opcode.INVOKE_INTERFACE
     ),
     strings = listOf("ads_video_with_context"),
     customFingerprint = { methodDef, _ ->
         methodDef.name == "containsAd" && methodDef.definingClass.endsWith("LithoAdRemoval;")
-    },
+    }
 )

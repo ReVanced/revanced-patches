@@ -15,30 +15,31 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodImplementation
 object SpoofClientPatch : BaseSpoofClientPatch(
     redirectUri = "infinity://localhost",
     clientIdFingerprints = setOf(APIUtilsFingerprint),
-    compatiblePackages = setOf(CompatiblePackage("ml.docilealligator.infinityforreddit")),
+    compatiblePackages = setOf(CompatiblePackage("ml.docilealligator.infinityforreddit"))
 ) {
     override fun Set<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
         first().mutableClass.methods.apply {
             val getClientIdMethod = single { it.name == "getId" }.also(::remove)
 
-            val newGetClientIdMethod = ImmutableMethod(
-                getClientIdMethod.definingClass,
-                getClientIdMethod.name,
-                null,
-                getClientIdMethod.returnType,
-                AccessFlags.PUBLIC or AccessFlags.STATIC,
-                null,
-                null,
-                ImmutableMethodImplementation(
-                    1,
-                    """
+            val newGetClientIdMethod =
+                ImmutableMethod(
+                    getClientIdMethod.definingClass,
+                    getClientIdMethod.name,
+                    null,
+                    getClientIdMethod.returnType,
+                    AccessFlags.PUBLIC or AccessFlags.STATIC,
+                    null,
+                    null,
+                    ImmutableMethodImplementation(
+                        1,
+                        """
                         const-string v0, "$clientId"
                         return-object v0
                     """.toInstructions(getClientIdMethod),
-                    null,
-                    null,
-                ),
-            ).toMutable()
+                        null,
+                        null
+                    )
+                ).toMutable()
 
             add(newGetClientIdMethod)
         }

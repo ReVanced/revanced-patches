@@ -6,5 +6,5 @@ import app.revanced.patches.twitch.misc.integrations.fingerprints.InitFingerprin
 
 @Patch(requiresIntegrations = true)
 object IntegrationsPatch : BaseIntegrationsPatch(
-    setOf(InitFingerprint),
+    setOf(InitFingerprint)
 )

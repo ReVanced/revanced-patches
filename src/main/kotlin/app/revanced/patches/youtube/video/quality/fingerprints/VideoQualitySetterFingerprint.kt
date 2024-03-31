@@ -15,7 +15,7 @@ internal object VideoQualitySetterFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.IPUT_BOOLEAN,
+        Opcode.IPUT_BOOLEAN
     ),
-    strings = listOf("menu_item_video_quality"),
+    strings = listOf("menu_item_video_quality")
 )

@@ -9,7 +9,8 @@ internal object SetWordmarkHeaderFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "V",
     parameters = listOf("Landroid/widget/ImageView;"),
-    opcodes = listOf(
+    opcodes =
+    listOf(
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT,
@@ -18,6 +19,6 @@ internal object SetWordmarkHeaderFingerprint : MethodFingerprint(
         Opcode.IF_EQZ,
         Opcode.IGET_OBJECT,
         Opcode.CONST,
-        Opcode.INVOKE_STATIC,
-    ),
+        Opcode.INVOKE_STATIC
+    )
 )
