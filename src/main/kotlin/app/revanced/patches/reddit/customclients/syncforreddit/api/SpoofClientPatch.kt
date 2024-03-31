@@ -15,7 +15,7 @@ import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
-import java.util.*
+import java.util.Base64
 
 @Suppress("unused")
 object SpoofClientPatch : BaseSpoofClientPatch(

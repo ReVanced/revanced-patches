@@ -2,7 +2,7 @@ package app.revanced.patches.shared.misc.mapping
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
-import java.util.*
+import java.util.Collections
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 import org.w3c.dom.Element

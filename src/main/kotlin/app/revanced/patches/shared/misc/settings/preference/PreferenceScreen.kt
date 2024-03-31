@@ -1,5 +1,6 @@
 package app.revanced.patches.shared.misc.settings.preference
 
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.util.resource.BaseResource
 import org.w3c.dom.Document
 

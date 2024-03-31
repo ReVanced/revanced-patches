@@ -12,7 +12,7 @@ import app.revanced.util.resource.ArrayResource
 import app.revanced.util.resource.BaseResource
 import app.revanced.util.resource.StringResource
 import java.io.Closeable
-import java.util.*
+import java.util.Locale
 import org.w3c.dom.Node
 
 /**
