@@ -27,7 +27,7 @@ object FixOldVersionsPatch : BytecodePatch(
                 endIndex + 1,
                 """
                 # Remove "?live_now" from the request path p2.
-                # p2 = p2.replace(v0, v1)
+                # p2 = p2.replace(p1, p3)
                 const-string p1, ",?live_now"
                 const-string p3, ""
                 invoke-virtual {p2, p1, p3}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
