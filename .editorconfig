@@ -1,9 +1,14 @@
+[*]
+max_line_length = off
+
 [*.{kt,kts}]
 # ktlint entries are for ktlint gradle task and ktlint Intellij / Android Studio plugin.
 # Ignore all 'property not supported' warnings, these are correct.
 ktlint_code_style = android_studio
-ktlint_standard_no-wildcard-imports = disabled
 ktlint_standard_discouraged-comment-location = disabled
+ktlint_standard_no-wildcard-imports = disabled
+ij_kotlin_imports_layout=*
+ij_kotlin_name_count_to_use_star_import = 5
+ij_kotlin_name_count_to_use_star_import_for_members = 5
 ij_kotlin_allow_trailing_comma_on_call_site = false
 ij_kotlin_allow_trailing_comma = false
-max_line_length = off
