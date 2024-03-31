@@ -8,12 +8,16 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.layout.hide.loadmorebutton.fingerprints.HideLoadMoreButtonFingerprint
+import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Hide \'Load more\' button",
     description = "Adds an option to hide the button under videos that loads similar videos.",
-    dependencies = [HideLoadMoreButtonResourcePatch::class],
+    dependencies = [
+        HideLoadMoreButtonResourcePatch::class,
+        NavigationBarHookPatch::class
+    ],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
