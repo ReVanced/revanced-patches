@@ -1,3 +1,10 @@
+# [4.6.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.5.1-dev.2...v4.6.0-dev.1) (2024-03-31)
+
+
+### Features
+
+* **Tumblr:** Add `Fix old versions` patch ([#2954](https://github.com/ReVanced/revanced-patches/issues/2954)) ([2fde60e](https://github.com/ReVanced/revanced-patches/commit/2fde60eceb0a96fa857c32cd55c1fd7fe776a679))
+
 ## [4.5.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.5.1-dev.1...v4.5.1-dev.2) (2024-03-30)
 
 
