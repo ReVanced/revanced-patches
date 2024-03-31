@@ -10,8 +10,8 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Fix old versions",
-    description = "Fixes old versions of the app to break due to Tumblr removing remnants of Tumblr Live from the API, " +
-        "that cause many requests on old app versions to fail. This patch has no effect on newer versions of the app.",
+    description = "Fixes old versions of the app (v33.2 and earlier) breaking due to Tumblr removing remnants of Tumblr" +
+            " Live from the API, which causes many requests to fail. This patch has no effect on newer versions of the app.",
     compatiblePackages = [CompatiblePackage("com.tumblr")],
     use = false,
 )
