@@ -13,14 +13,17 @@
             <string name="revanced_settings_import_failure_parse">Import failed: %s</string>
         </patch>
         <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
+            <string name="gms_core_dialog_title">Action needed</string>
+            <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">MicroG GmsCore does not have permission to run in the background.\n\nFollow the \"Don\'t kill my app\" guide for your phone, and apply the instructions to your MicroG installation.\n\nThis is required for this app to work.</string>
+            <string name="gms_core_dialog_open_website_text">Open website</string>
+            <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">MicroG GmsCore battery optimizations must be turned off to prevent app crashes.\n\nPress the continue button, and allow turning off battery optimizations.</string>
+            <string name="gms_core_dialog_continue_text">Continue</string>
             <!-- Translations of this should not be longer than what is here, otherwise the text can be clipped and not entirely shown. -->
             <string name="gms_core_toast_not_installed_message">MicroG GmsCore is not installed. Install it.</string>
             <!-- Translations of this should not be longer than what is here, otherwise the text can be clipped and not entirely shown. -->
-            <string name="gms_core_toast_not_whitelisted_message">Follow the \"Don\'t kill my app\" guide for MicroG GmsCore.</string>
-            <string name="gms_core_dialog_title">Action needed</string>
-            <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">MicroG GmsCore does not have permission to run in the background.\n\nFollow the \"Don\'t kill my app\" guide and apply the instructions to MicroG.\n\nThese changes are required for this app to work.</string>
-            <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">MicroG GmsCore is not whitelisted from battery optimization.\n\nFollow the \"Don\'t kill my app\" guide and turn off battery optimizations for MicroG.\n\nThese changes are required for this app to work.</string>
-            <string name="gms_core_dialog_ok_button_text">Open website</string>
+            <string name="gms_core_toast_not_whitelisted_message">MicroG GmsCore requires turning off battery optimizations</string>
+            <!-- Translations of this should not be longer than what is here, otherwise the text can be clipped and not entirely shown. -->
+            <string name="gms_core_toast_user_did_not_whitelist_message">Battery optimizations are still on, and this app may not work</string>
         </patch>
     </app>
     <app id="youtube">

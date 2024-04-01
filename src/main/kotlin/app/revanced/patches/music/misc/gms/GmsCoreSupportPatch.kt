@@ -21,6 +21,9 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
         CastDynamiteModuleV2Fingerprint,
         CastContextFetchFingerprint,
     ),
+    // This fingerprint could be improved by using a main Activity,
+    // as that allows showing a dialog if GmsCore is not whitelisted for battery optimizations.
+    // Because using this fingerprint only allows showing a brief toast and then opening a website.
     mainActivityOnCreateFingerprint = ApplicationInitFingerprint,
     integrationsPatchDependency = IntegrationsPatch::class,
     gmsCoreSupportResourcePatch = GmsCoreSupportResourcePatch,
