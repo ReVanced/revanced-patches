@@ -6,8 +6,8 @@ on:
         - cron: 0 * 1 * *
 
 jobs:
-    sync:
-        name: Sync
+    pull:
+        name: Pull strings
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
