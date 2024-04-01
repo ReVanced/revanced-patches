@@ -44,8 +44,7 @@ import app.revanced.patches.youtube.shared.fingerprints.SeekbarOnDrawFingerprint
                 "19.09.37",
                 "19.09.38",
                 "19.10.39",
-                "19.11.43",
-                "19.12.41"
+                "19.11.43"
             ]
         )
     ]
