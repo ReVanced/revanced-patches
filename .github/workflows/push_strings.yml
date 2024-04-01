@@ -16,13 +16,11 @@ jobs:
               with:
                   fetch-depth: 0
 
-            - name: Push strings to Crowdin
+            - name: Push strings
               uses: crowdin/github-action@v1
               with:
                   config: crowdin.yml
                   upload_sources: true
-                  upload_translations: false
-                  download_translations: false
               env:
                   GITHUB_TOKEN: ${{ secrets.REPOSITORY_PUSH_ACCESS }}
                   CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}

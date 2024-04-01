@@ -19,8 +19,6 @@ jobs:
               uses: crowdin/github-action@v1
               with:
                   config: crowdin.yml
-                  upload_sources: false
-                  upload_translations: false
                   download_translations: true
                   localization_branch_name: feat/translations
                   create_pull_request: true
