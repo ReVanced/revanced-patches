@@ -15,7 +15,7 @@ jobs:
               with:
                   fetch-depth: 0
 
-            - name: Pull strings from Crowdin
+            - name: Pull strings
               uses: crowdin/github-action@v1
               with:
                   config: crowdin.yml
