@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.shared.fingerprints.LayoutConstructorFingerprint
 import app.revanced.util.exception
-import app.revanced.util.findIndexForIdResource
+import app.revanced.util.firstIndexForIdResource
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -69,7 +69,7 @@ object HideAutoplayButtonPatch : BytecodePatch(
             val layoutGenMethodInstructions = implementation!!.instructions
 
             // resolve the offsets of where to insert the branch instructions and ...
-            val insertIndex = findIndexForIdResource("autonav_preview_stub")
+            val insertIndex = firstIndexForIdResource("autonav_preview_stub")
 
             // where to branch away
             val branchIndex =

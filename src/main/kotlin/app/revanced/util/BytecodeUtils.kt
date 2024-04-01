@@ -70,13 +70,26 @@ fun MutableMethod.injectHideViewCall(
  *
  * @param resourceName the name of the resource to find the id for.
  * @return the index of the first instruction with the id of the given resource name, or -1 if not found.
+ * @see [firstIndexForIdResource]
  */
 fun Method.findIndexForIdResource(resourceName: String): Int {
-    fun getIdResourceId(resourceName: String) = ResourceMappingPatch.resourceMappings.single {
+    val resource = ResourceMappingPatch.resourceMappings.find {
         it.type == "id" && it.name == resourceName
-    }.id
+    } ?: throw PatchException("Could not find resource id: $resourceName")
 
-    return indexOfFirstWideLiteralInstructionValue(getIdResourceId(resourceName))
+    return indexOfFirstWideLiteralInstructionValue(resource.id)
+}
+
+/**
+ * Identical to [findIndexForIdResource], except this throws an exception if the method does not contain
+ * the resource id literal value.
+ *
+ * @throws [PatchException] if the resource is not found, or the method does not contain the resource id literal value.
+ */
+fun Method.firstIndexForIdResource(resourceName: String): Int {
+    val index = findIndexForIdResource(resourceName);
+    if (index < 0) throw PatchException("Found resource id for: '$resourceName' but method does not contain the id: $this")
+    return index;
 }
 
 /**

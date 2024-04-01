@@ -52,9 +52,8 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
             reelMultipleItemShelfId = it.id
         }
 
-        reelPlayerRightCellButtonHeight =
-            ResourceMappingPatch.resourceMappings.single {
-                it.type == "dimen" && it.name == "reel_player_right_cell_button_height"
-            }.id
+        reelPlayerRightCellButtonHeight = ResourceMappingPatch.resourceMappings.first {
+            it.type == "dimen" && it.name == "reel_player_right_cell_button_height"
+        }.id
     }
 }

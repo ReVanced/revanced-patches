@@ -16,6 +16,7 @@ import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
 import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
+import app.revanced.util.firstIndexForIdResource
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -159,7 +160,7 @@ object HideShortsComponentsPatch : BytecodePatch(
         SHARE("reel_dyn_share", "hideShortsShareButton");
 
         fun injectHideCall(method: MutableMethod) {
-            val referencedIndex = method.findIndexForIdResource(resourceName)
+            val referencedIndex = method.firstIndexForIdResource(resourceName)
 
             val setIdIndex = referencedIndex + 1
             val viewRegister = method.getInstruction<FiveRegisterInstruction>(setIdIndex).registerC
