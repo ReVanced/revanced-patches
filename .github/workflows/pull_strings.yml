@@ -1,4 +1,4 @@
-name: Pull strings from Crowdin
+name: Pull strings
 
 on:
     workflow_dispatch:
