@@ -7,8 +7,8 @@ on:
             - /src/main/resources/addresources/values/strings.xml
 
 jobs:
-    sync:
-        name: Sync
+    push:
+        name: Push strings
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
