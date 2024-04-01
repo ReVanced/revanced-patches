@@ -1,4 +1,4 @@
-name: Push strings to Crowdin
+name: Push strings
 
 on:
     workflow_dispatch:
