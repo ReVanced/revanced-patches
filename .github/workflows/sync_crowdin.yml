@@ -3,7 +3,7 @@ name: Sync Crowdin
 on:
   workflow_dispatch:
   schedule: 
-    - cron: 0 * 1 * *
+    - cron: 0 0 1 * *
   push:
     paths:
       - /src/main/resources/addresources/values/strings.xml
