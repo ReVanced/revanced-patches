@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.shorts
 
 import app.revanced.util.exception
-import app.revanced.util.findIndexForIdResource
 import app.revanced.util.injectHideViewCall
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
@@ -52,9 +51,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
                 "19.07.40",
                 "19.08.36",
                 "19.09.37",
-                "19.09.38",
-                "19.10.39",
-                "19.11.43"
+                "19.09.38"
             ]
         )
     ]
