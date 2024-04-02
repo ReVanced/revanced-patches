@@ -829,7 +829,6 @@
         </patch>
         <patch id="layout.tablet.EnableTabletLayoutPatch">
             <string name="revanced_tablet_layout_title">Enable tablet layout</string>
-            <string name="layout_summary">Settings related to the layout</string>
             <string name="revanced_tablet_layout_summary_on">Tablet layout is enabled</string>
             <string name="revanced_tablet_layout_summary_off">Tablet layout is disabled</string>
             <string name="revanced_tablet_layout_user_dialog_message">Community posts do not show up on tablet layouts</string>
