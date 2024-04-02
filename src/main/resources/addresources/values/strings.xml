@@ -16,7 +16,7 @@
             <string name="gms_core_dialog_title">Action needed</string>
             <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">MicroG GmsCore does not have permission to run in the background.\n\nFollow the \"Don\'t kill my app\" guide for your phone, and apply the instructions to your MicroG installation.\n\nThis is required for the app to work.</string>
             <string name="gms_core_dialog_open_website_text">Open website</string>
-            <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">MicroG GmsCore battery optimizations must be turned off to prevent app crashes.\n\nPress the continue button, and allow turning off battery optimizations.</string>
+            <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">MicroG GmsCore battery optimizations must be disabled to prevent issues.\n\nPress the continue button and disable battery optimizations.</string>
             <string name="gms_core_dialog_continue_text">Continue</string>
             <!-- Translations of this should not be longer than what is here, otherwise the text can be clipped and not entirely shown. -->
             <string name="gms_core_toast_not_installed_message">MicroG GmsCore is not installed. Install it.</string>
