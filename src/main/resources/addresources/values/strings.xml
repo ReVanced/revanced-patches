@@ -21,9 +21,9 @@
             <!-- Translations of this should not be longer than what is here, otherwise the text can be clipped and not entirely shown. -->
             <string name="gms_core_toast_not_installed_message">MicroG GmsCore is not installed. Install it.</string>
             <!-- Translations of this should not be longer than what is here, otherwise the text can be clipped and not entirely shown. -->
-            <string name="gms_core_toast_not_whitelisted_message">MicroG GmsCore requires turning off battery optimizations</string>
+            <string name="gms_core_toast_not_whitelisted_message">MicroG GmsCore requires disabling battery optimizations</string>
             <!-- Translations of this should not be longer than what is here, otherwise the text can be clipped and not entirely shown. -->
-            <string name="gms_core_toast_user_did_not_whitelist_message">Battery optimizations are still on, and this app may not work</string>
+            <string name="gms_core_toast_user_did_not_whitelist_message">Battery optimizations are still enabled and can cause issues</string>
         </patch>
     </app>
     <app id="youtube">
