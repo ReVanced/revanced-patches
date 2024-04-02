@@ -1,15 +1,12 @@
 package app.revanced.patches.shared.misc.integrations
 
-import app.revanced.generator.main
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.misc.integrations.BaseIntegrationsPatch.IntegrationsFingerprint.IRegisterResolver
-import app.revanced.patches.shared.misc.integrations.fingerprints.IntegrationsUtilsPatchesTimestampFingerprint
 import app.revanced.patches.shared.misc.integrations.fingerprints.IntegrationsUtilsPatchesVersionFingerprint
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -20,12 +17,7 @@ import java.util.jar.JarFile
 
 abstract class BaseIntegrationsPatch(
     private val hooks: Set<IntegrationsFingerprint>,
-) : BytecodePatch(
-    hooks + setOf(
-        IntegrationsUtilsPatchesVersionFingerprint,
-        IntegrationsUtilsPatchesTimestampFingerprint
-    )
-) {
+) : BytecodePatch(hooks + setOf(IntegrationsUtilsPatchesVersionFingerprint)) {
 
     @Deprecated(
         "Use the constructor without the integrationsDescriptor parameter",
@@ -48,28 +40,23 @@ abstract class BaseIntegrationsPatch(
             hook.invoke(INTEGRATIONS_CLASS_DESCRIPTOR)
         }
 
-        // Modify Utils method to include the patches release version and date.
-        IntegrationsUtilsPatchesVersionFingerprint.resultOrThrow().mutableMethod
-            .replaceMethodReturnStringWithManifestValue("Version")
-
-        IntegrationsUtilsPatchesTimestampFingerprint.resultOrThrow().mutableMethod
-            .replaceMethodReturnStringWithManifestValue("Timestamp")
-    }
-
-    private fun MutableMethod.replaceMethodReturnStringWithManifestValue(manifestKeyName: String) {
-        val manifestValue = getPatchesManifestEntry(manifestKeyName);
-        addInstructions(
-            0, """
+        // Modify Utils method to include the patches release version version.
+        IntegrationsUtilsPatchesVersionFingerprint.resultOrThrow().mutableMethod.apply {
+            val manifestValue = getPatchesManifestEntry("Version")
+            addInstructions(
+                0, """
                     const-string v0, "$manifestValue"
                     return-object v0
                 """
-        )
+            )
+        }
     }
 
     /**
      * @return The value for the manifest entry,
      *         or "Unknown" if the entry does not exist or is blank.
      */
+    @Suppress("SameParameterValue")
     private fun getPatchesManifestEntry(attributeKey : String): String {
         JarFile(getCurrentJarFilePath()).use {
             val mainAttributes = it.manifest.mainAttributes
