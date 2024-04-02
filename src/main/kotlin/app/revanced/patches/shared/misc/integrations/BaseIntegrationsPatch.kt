@@ -7,7 +7,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patches.shared.misc.integrations.BaseIntegrationsPatch.IntegrationsFingerprint.IRegisterResolver
-import app.revanced.patches.shared.misc.integrations.fingerprints.IntegrationsUtilsPatchesVersionFingerprint
+import app.revanced.patches.shared.misc.integrations.fingerprints.ReVancedUtilsPatchesVersionFingerprint
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
@@ -17,7 +17,7 @@ import java.util.jar.JarFile
 
 abstract class BaseIntegrationsPatch(
     private val hooks: Set<IntegrationsFingerprint>,
-) : BytecodePatch(hooks + setOf(IntegrationsUtilsPatchesVersionFingerprint)) {
+) : BytecodePatch(hooks + setOf(ReVancedUtilsPatchesVersionFingerprint)) {
 
     @Deprecated(
         "Use the constructor without the integrationsDescriptor parameter",
@@ -41,7 +41,7 @@ abstract class BaseIntegrationsPatch(
         }
 
         // Modify Utils method to include the patches release version version.
-        IntegrationsUtilsPatchesVersionFingerprint.resultOrThrow().mutableMethod.apply {
+        ReVancedUtilsPatchesVersionFingerprint.resultOrThrow().mutableMethod.apply {
             val manifestValue = getPatchesManifestEntry("Version")
             addInstructions(
                 0, """

@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.shared.misc.integrations.BaseIntegrationsPatch
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object IntegrationsUtilsPatchesVersionFingerprint : MethodFingerprint(
+internal object ReVancedUtilsPatchesVersionFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     returnType = "Ljava/lang/String;",
     parameters = listOf(),
