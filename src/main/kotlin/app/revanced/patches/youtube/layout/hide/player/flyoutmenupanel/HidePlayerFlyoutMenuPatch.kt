@@ -46,7 +46,6 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 )
 @Suppress("unused")
 object HidePlayerFlyoutMenuPatch : ResourcePatch() {
-    private const val KEY = "revanced_hide_player_flyout"
 
     private const val FILTER_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/components/PlayerFlyoutMenuItemsFilter;"
@@ -55,21 +54,21 @@ object HidePlayerFlyoutMenuPatch : ResourcePatch() {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
-            PreferenceScreen(
-                key = KEY,
-                preferences = setOf(
-                    SwitchPreference("${KEY}_captions"),
-                    SwitchPreference("${KEY}_additional_settings"),
-                    SwitchPreference("${KEY}_loop_video"),
-                    SwitchPreference("${KEY}_ambient_mode"),
-                    SwitchPreference("${KEY}_report"),
-                    SwitchPreference("${KEY}_help"),
-                    SwitchPreference("${KEY}_speed"),
-                    SwitchPreference("${KEY}_more_info"),
-                    SwitchPreference("${KEY}_audio_track"),
-                    SwitchPreference("${KEY}_watch_in_vr"),
-                ),
-            )
+                PreferenceScreen(
+                        key = "revanced_hide_player_flyout",
+                        preferences = setOf(
+                                SwitchPreference("revanced_hide_player_flyout_captions"),
+                                SwitchPreference("revanced_hide_player_flyout_additional_settings"),
+                                SwitchPreference("revanced_hide_player_flyout_loop_video"),
+                                SwitchPreference("revanced_hide_player_flyout_ambient_mode"),
+                                SwitchPreference("revanced_hide_player_flyout_report"),
+                                SwitchPreference("revanced_hide_player_flyout_help"),
+                                SwitchPreference("revanced_hide_player_flyout_speed"),
+                                SwitchPreference("revanced_hide_player_flyout_more_info"),
+                                SwitchPreference("revanced_hide_player_flyout_audio_track"),
+                                SwitchPreference("revanced_hide_player_flyout_watch_in_vr"),
+                        )
+                )
         )
 
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
