@@ -12,6 +12,7 @@ import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.IntentPreference
+import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
@@ -53,6 +54,12 @@ object SettingsPatch :
                 inputType = InputType.TEXT_MULTI_LINE,
                 tag = "app.revanced.integrations.shared.settings.preference.ImportExportPreference",
             ),
+            // About screen with patches release date and a link to the website.
+            NonInteractivePreference(
+                key = "revanced_settings_about",
+                tag = "app.revanced.integrations.youtube.settings.preference.ReVancedAboutPreference",
+                selectable = true,
+            )
         )
 
         SetThemeFingerprint.result?.mutableMethod?.let { setThemeMethod ->

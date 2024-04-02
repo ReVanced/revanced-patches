@@ -40,6 +40,8 @@
             <string name="revanced_settings_screen_08_swipe_controls_title">Swipe controls</string>
             <string name="revanced_settings_screen_11_misc_title">Misc</string>
             <string name="revanced_settings_screen_12_video_title">Video</string>
+            <string name="revanced_settings_about_title">About ReVanced</string>
+            <string name="revanced_settings_about_summary">Using patches release: ${PATCHES_RELEASE_VERSION}, ${PATCHES_RELEASE_DATE}\n\nTap here to open the ReVanced website</string>
         </patch>
         <patch id="misc.debugging.DebuggingPatch">
             <string name="revanced_debug_screen_title">Debugging</string>
