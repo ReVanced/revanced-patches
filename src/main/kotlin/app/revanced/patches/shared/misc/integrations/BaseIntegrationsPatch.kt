@@ -158,6 +158,6 @@ abstract class BaseIntegrationsPatch(
     }
 
     internal companion object {
-        const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/shared/Utils;"
+        internal const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/shared/Utils;"
     }
 }
