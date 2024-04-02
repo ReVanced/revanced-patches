@@ -18,12 +18,10 @@
             <string name="gms_core_dialog_open_website_text">Open website</string>
             <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">MicroG GmsCore battery optimizations must be disabled to prevent issues.\n\nPress the continue button and disable battery optimizations.</string>
             <string name="gms_core_dialog_continue_text">Continue</string>
-            <!-- Translations of this should not be longer than what is here, otherwise the text can be clipped and not entirely shown. -->
+            <!-- Translations of this should not be longer than this original English text, otherwise the text can be clipped and not entirely shown. -->
             <string name="gms_core_toast_not_installed_message">MicroG GmsCore is not installed. Install it.</string>
-            <!-- Translations of this should not be longer than what is here, otherwise the text can be clipped and not entirely shown. -->
+            <!-- Translations of this should not be longer than this original English text, otherwise the text can be clipped and not entirely shown. -->
             <string name="gms_core_toast_not_whitelisted_message">MicroG GmsCore requires disabling battery optimizations</string>
-            <!-- Translations of this should not be longer than what is here, otherwise the text can be clipped and not entirely shown. -->
-            <string name="gms_core_toast_user_did_not_whitelist_message">Battery optimizations are still enabled and can cause issues</string>
         </patch>
     </app>
     <app id="youtube">
