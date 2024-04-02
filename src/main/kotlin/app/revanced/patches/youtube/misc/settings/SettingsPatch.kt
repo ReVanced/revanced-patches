@@ -62,7 +62,7 @@ object SettingsPatch :
                 "\\uFFFF_revanced_settings_about_screen" + Sorting.BY_KEY.keySuffix,
                 titleKey = "revanced_settings_about_title",
                 summaryKey = "revanced_settings_about_summary",
-                tag = "app.revanced.integrations.youtube.settings.preference.ReVancedAboutPreference",
+                tag = "app.revanced.integrations.shared.settings.preference.ReVancedAboutPreference",
                 selectable = true,
             )
         )
