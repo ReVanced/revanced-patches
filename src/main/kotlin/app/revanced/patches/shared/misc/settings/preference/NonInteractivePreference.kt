@@ -16,10 +16,11 @@ import org.w3c.dom.Document
 @Suppress("MemberVisibilityCanBePrivate")
 class NonInteractivePreference(
     key: String,
+    titleKey: String = "${key}_title",
     summaryKey: String? = "${key}_summary",
     tag: String = "Preference",
     val selectable: Boolean = false
-) : BasePreference(null, "${key}_title", summaryKey, tag) {
+) : BasePreference(key, titleKey, summaryKey, tag) {
 
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
         super.serialize(ownerDocument, resourceCallback).apply {
