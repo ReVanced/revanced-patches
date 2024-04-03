@@ -393,6 +393,9 @@
             <string name="revanced_hide_player_flyout_more_info_title">Hide More info</string>
             <string name="revanced_hide_player_flyout_more_info_summary_on">More info menu is hidden</string>
             <string name="revanced_hide_player_flyout_more_info_summary_off">More info menu is shown</string>
+            <string name="revanced_hide_player_flyout_lock_screen_title">Hide Lock screen</string>
+            <string name="revanced_hide_player_flyout_lock_screen_summary_on">Lock screen menu is hidden</string>
+            <string name="revanced_hide_player_flyout_lock_screen_summary_off">Lock screen menu is shown</string>
             <string name="revanced_hide_player_flyout_audio_track_title">Hide Audio track</string>
             <string name="revanced_hide_player_flyout_audio_track_summary_on">Audio track menu is hidden</string>
             <string name="revanced_hide_player_flyout_audio_track_summary_off">Audio track menu is shown</string>
