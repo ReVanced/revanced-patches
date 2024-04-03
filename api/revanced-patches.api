@@ -1062,6 +1062,10 @@ public final class app/revanced/patches/tumblr/fixes/FixOldVersionsPatch : app/r
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/tumblr/fixes/fingerprints/AddQueryParamFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/tumblr/fixes/fingerprints/AddQueryParamFingerprint;
+}
+
 public final class app/revanced/patches/tumblr/fixes/fingerprints/HttpPathParserFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
 	public static final field INSTANCE Lapp/revanced/patches/tumblr/fixes/fingerprints/HttpPathParserFingerprint;
 }
