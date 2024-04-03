@@ -22,7 +22,6 @@ import app.revanced.patches.youtube.layout.hide.general.fingerprints.PlayerOverl
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ShowWatermarkFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
-import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -36,8 +35,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
         LithoFilterPatch::class,
         SettingsPatch::class,
         AddResourcesPatch::class,
-        NavigationBarHookPatch::class,
-        PlayerTypeHookPatch::class // Used by Keyword Content filter.
+        NavigationBarHookPatch::class // Used by Keyword Content filter.
     ],
     compatiblePackages = [
         CompatiblePackage(
