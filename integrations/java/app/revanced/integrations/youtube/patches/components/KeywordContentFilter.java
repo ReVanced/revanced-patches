@@ -122,24 +122,27 @@ final class KeywordContentFilter extends Filter {
     }
 
     private static boolean hideKeywordSettingIsActive() {
-        if (NavigationBar.isSearchBarActive()) {
-            // Must check first. Search bar can be active with almost any tab.
-            logNavigationState("Search");
-            return Settings.HIDE_KEYWORD_CONTENT_SEARCH.get();
-        } else if (PlayerType.getCurrent().isMaximizedOrFullscreen()) {
+        // Must check player type first, as search bar can be active behind the player.
+        if (PlayerType.getCurrent().isMaximizedOrFullscreen()) {
             // For now, consider the under video results the same as the home feed.
             logNavigationState("Player active");
             return Settings.HIDE_KEYWORD_CONTENT_HOME.get();
-        } else if (NavigationButton.HOME.isSelected()) {
+        }
+        // Must check second, as search can be from any tab.
+        if (NavigationBar.isSearchBarActive()) {
+            logNavigationState("Search");
+            return Settings.HIDE_KEYWORD_CONTENT_SEARCH.get();
+        }
+        if (NavigationButton.HOME.isSelected()) {
             logNavigationState("Home tab");
             return Settings.HIDE_KEYWORD_CONTENT_HOME.get();
-        } else if (NavigationButton.SUBSCRIPTIONS.isSelected()) {
+        }
+        if (NavigationButton.SUBSCRIPTIONS.isSelected()) {
             logNavigationState("Subscription tab");
             return Settings.HIDE_SUBSCRIPTIONS_BUTTON.get();
-        } else {
-            // User is in the Library or Notifications tab.
-            logNavigationState("Ignored tab");
         }
+        // User is in the Library or Notifications tab.
+        logNavigationState("Ignored tab");
         return false;
     }
 
@@ -195,6 +198,7 @@ final class KeywordContentFilter extends Filter {
 
     private synchronized void parseKeywords() { // Must be synchronized since Litho is multi-threaded.
         String rawKeywords = Settings.HIDE_KEYWORD_CONTENT_PHRASES.get();
+        //noinspection StringEquality
         if (rawKeywords == lastKeywordPhrasesParsed) {
             Logger.printDebug(() -> "Using previously initialized search");
             return; // Another thread won the race, and search is already initialized.
@@ -265,6 +269,7 @@ final class KeywordContentFilter extends Filter {
         if (!hideKeywordSettingIsActive()) return false;
 
         // Field is intentionally compared using reference equality.
+        //noinspection StringEquality
         if (Settings.HIDE_KEYWORD_CONTENT_PHRASES.get() != lastKeywordPhrasesParsed) {
             // User changed the keywords.
             parseKeywords();

@@ -219,12 +219,19 @@ public final class ShortsFilter extends Filter {
     }
 
     private static boolean shouldHideShortsFeedItems() {
-        if (NavigationBar.isSearchBarActive()) { // Must check search first.
-            return Settings.HIDE_SHORTS_SEARCH.get();
-        } else if (PlayerType.getCurrent().isMaximizedOrFullscreen()
-                || NavigationBar.NavigationButton.HOME.isSelected()) {
+        // Must check player type first, as search bar can be active behind the player.
+        if (PlayerType.getCurrent().isMaximizedOrFullscreen()) {
+            // For now, consider the under video results the same as the home feed.
             return Settings.HIDE_SHORTS_HOME.get();
-        } else if (NavigationBar.NavigationButton.SUBSCRIPTIONS.isSelected()) {
+        }
+        // Must check second, as search can be from any tab.
+        if (NavigationBar.isSearchBarActive()) {
+            return Settings.HIDE_SHORTS_SEARCH.get();
+        }
+        if (NavigationBar.NavigationButton.HOME.isSelected()) {
+            return Settings.HIDE_SHORTS_HOME.get();
+        }
+        if (NavigationBar.NavigationButton.SUBSCRIPTIONS.isSelected()) {
             return Settings.HIDE_SHORTS_SUBSCRIPTIONS.get();
         }
         return false;

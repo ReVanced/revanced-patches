@@ -27,13 +27,14 @@ public final class NavigationBar {
     }
 
     /**
-     * @return If the search bar is on screen.
+     * @return If the search bar is on screen.  This includes if the player
+     *         is on screen and the search results are behind the player (and not visible).
+     *         Detecting the search is covered by the player can be done by checking {@link PlayerType#isMaximizedOrFullscreen()}.
      */
     public static boolean isSearchBarActive() {
         View searchbarResults = searchBarResultsRef.get();
         return searchbarResults != null && searchbarResults.getParent() != null;
     }
-
 
     /**
      * Last YT navigation enum loaded.  Not necessarily the active navigation tab.
@@ -44,7 +45,7 @@ public final class NavigationBar {
     /**
      * Injection point.
      */
-    public static void setLastAppNavigationEnum(@Nullable Enum ytNavigationEnumName) {
+    public static void setLastAppNavigationEnum(@Nullable Enum<?> ytNavigationEnumName) {
         if (ytNavigationEnumName != null) {
             lastYTNavigationEnumName = ytNavigationEnumName.name();
         }

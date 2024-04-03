@@ -163,11 +163,13 @@ public final class AlternativeThumbnailsPatch {
     }
 
     private static EnumSetting<ThumbnailOption> optionSettingForCurrentNavigation() {
-        if (NavigationBar.isSearchBarActive()) { // Must check search first.
-            return ALT_THUMBNAIL_SEARCH;
-        }
+        // Must check player type first, as search bar can be active behind the player.
         if (PlayerType.getCurrent().isMaximizedOrFullscreen()) {
             return ALT_THUMBNAIL_PLAYER;
+        }
+        // Must check second, as search can be from any tab.
+        if (NavigationBar.isSearchBarActive()) {
+            return ALT_THUMBNAIL_SEARCH;
         }
         if (NavigationButton.HOME.isSelected()) {
             return ALT_THUMBNAIL_HOME;
