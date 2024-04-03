@@ -9,6 +9,7 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
+import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
@@ -16,8 +17,9 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
     description = "Adds an option to hide suggestions shelf on the homepage tab.",
     dependencies = [
         IntegrationsPatch::class,
+        LithoFilterPatch::class,
         NavigationBarHookPatch::class,
-        LithoFilterPatch::class
+        PlayerTypeHookPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
