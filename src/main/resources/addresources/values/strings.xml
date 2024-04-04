@@ -13,9 +13,9 @@
             <string name="revanced_settings_import_failure_parse">Import failed: %s</string>
         </patch>
         <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
-            <!-- Translations of this should not be longer than what is here or the text can be clipped and not entirely shown. -->
+            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
             <string name="gms_core_toast_not_installed_message">GmsCore is not installed. Install it.</string>
-            <!-- Translations of this should not be longer than what is here or the text can be clipped and not entirely shown. -->
+            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
             <string name="gms_core_toast_not_whitelisted_message">Follow the \"Don\'t kill my app\" guide for GmsCore.</string>
             <string name="gms_core_dialog_title">Action needed</string>
             <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">GmsCore is not whitelisted from battery optimization.\n\nFollow the \"Don\'t kill my app\" guide for GmsCore.</string>
@@ -74,7 +74,7 @@
             <string name="revanced_hide_for_you_shelf_title">Hide \'For you\' shelf in channel page</string>
             <string name="revanced_hide_for_you_shelf_summary_on">Shelf is hidden</string>
             <string name="revanced_hide_for_you_shelf_summary_off">Shelf is shown</string>
-            <!-- 'Notify me also watch' should be translated using the same localized wording YouTube displays.
+            <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
             <string name="revanced_hide_notify_me_button_title">Hide \'Notify me\' button</string>
             <string name="revanced_hide_notify_me_button_summary_on">Button is hidden</string>
