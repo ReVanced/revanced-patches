@@ -1,3 +1,10 @@
+## [4.6.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.6.1-dev.1...v4.6.1-dev.2) (2024-04-04)
+
+
+### Bug Fixes
+
+* **YouTube - Hide load more button:** Include patch with `Hide layout components`, and hide button only in search feed  ([#2959](https://github.com/ReVanced/revanced-patches/issues/2959)) ([b007e8e](https://github.com/ReVanced/revanced-patches/commit/b007e8e06a3afad79b40bec1c6a14604f059049c))
+
 ## [4.6.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.6.0...v4.6.1-dev.1) (2024-04-04)
 
 
