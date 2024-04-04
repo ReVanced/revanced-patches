@@ -28,7 +28,7 @@ object FixOldVersionsPatch : BytecodePatch(
 
         HttpPathParserFingerprint.result?.let {
             val endIndex = it.scanResult.patternScanResult!!.endIndex
-            // Remove the live query parameters from the path.
+            // Remove the live query parameters from the path when it's specified via a @METHOD annotation.
             for (liveQueryParameter in liveQueryParameters) {
                 it.mutableMethod.addInstructions(
                     endIndex + 1,
@@ -44,7 +44,12 @@ object FixOldVersionsPatch : BytecodePatch(
         } ?: throw HttpPathParserFingerprint.exception
 
         AddQueryParamFingerprint.result?.let {
-            // Remove the live query parameters when passed via the @Query annotation.
+            // Remove the live query parameters when passed via a parameter which has the @Query annotation.
+            // e.g. an API call could be defined like this:
+            //  @GET("api/me/info")
+            //  ApiResponse getCurrentUserInfo(@Query("fields[blog]") String value)
+            // which would result in the path "api/me/inf0?fields[blog]=${value}"
+            // Here we make sure that this value doesn't contain the broken query parameters.
             for (liveQueryParameter in liveQueryParameters) {
                 it.mutableMethod.addInstructions(
                     0,
