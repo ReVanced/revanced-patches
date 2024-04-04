@@ -1452,12 +1452,6 @@ public final class app/revanced/patches/youtube/layout/hide/shorts/HideShortsCom
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
-public final class app/revanced/patches/youtube/layout/hide/showmorebutton/HideShowMoreButtonPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/showmorebutton/HideShowMoreButtonPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
 public final class app/revanced/patches/youtube/layout/hide/suggestedvideoendscreen/DisableSuggestedVideoEndScreenPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/suggestedvideoendscreen/DisableSuggestedVideoEndScreenPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V

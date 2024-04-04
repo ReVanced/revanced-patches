@@ -1,6 +1,6 @@
-package app.revanced.patches.youtube.layout.hide.showmorebutton.fingerprints
+package app.revanced.patches.youtube.layout.hide.general.fingerprints
 
-import app.revanced.patches.youtube.layout.hide.showmorebutton.HideShowMoreButtonResourcePatch
+import app.revanced.patches.youtube.layout.hide.general.HideLayoutComponentsResourcePatch
 import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -11,5 +11,5 @@ internal object HideShowMoreButtonFingerprint : LiteralValueFingerprint(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    literalSupplier = { HideShowMoreButtonResourcePatch.expandButtonDownId }
+    literalSupplier = { HideLayoutComponentsResourcePatch.expandButtonDownId }
 )
