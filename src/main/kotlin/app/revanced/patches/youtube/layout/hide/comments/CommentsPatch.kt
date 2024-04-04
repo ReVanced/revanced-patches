@@ -55,9 +55,10 @@ object CommentsPatch : ResourcePatch() {
             PreferenceScreen(
                 "revanced_comments_screen",
                 preferences = setOf(
-                    SwitchPreference("revanced_hide_comments_section"),
-                    SwitchPreference("revanced_hide_preview_comment")
-                )
+                    SwitchPreference("revanced_hide_preview_comment"),
+                    SwitchPreference("revanced_hide_comments_section")
+                ),
+                sorting = PreferenceScreen.Sorting.UNSORTED
             )
         )
 
