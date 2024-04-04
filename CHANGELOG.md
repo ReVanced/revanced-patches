@@ -1,3 +1,10 @@
+## [4.6.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.6.0...v4.6.1-dev.1) (2024-04-04)
+
+
+### Bug Fixes
+
+* **YouTube - Player flyout menu:** Add hide Lock screen menu ([#2985](https://github.com/ReVanced/revanced-patches/issues/2985)) ([308de4a](https://github.com/ReVanced/revanced-patches/commit/308de4a63ca99b8d30d6b3242f98d6f0e2aefb37))
+
 # [4.6.0](https://github.com/ReVanced/revanced-patches/compare/v4.5.0...v4.6.0) (2024-04-02)
 
 
