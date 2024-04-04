@@ -20,6 +20,7 @@ import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ParseElementFromBufferFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.PlayerOverlayFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ShowWatermarkFingerprint
+import app.revanced.patches.youtube.layout.hide.showmorebutton.HideShowMoreButtonPatch
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
@@ -35,6 +36,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
         LithoFilterPatch::class,
         SettingsPatch::class,
         AddResourcesPatch::class,
+        HideShowMoreButtonPatch::class,
         NavigationBarHookPatch::class // Used by Keyword Content filter.
     ],
     compatiblePackages = [
