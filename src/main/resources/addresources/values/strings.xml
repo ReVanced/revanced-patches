@@ -73,7 +73,7 @@
             <string name="revanced_hide_for_you_shelf_title">Hide \'For you\' shelf in channel page</string>
             <string name="revanced_hide_for_you_shelf_summary_on">Shelf is hidden</string>
             <string name="revanced_hide_for_you_shelf_summary_off">Shelf is shown</string>
-            <!-- 'Notify me also watch' should be translated using the same localized wording YouTube displays.
+            <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
             <string name="revanced_hide_notify_me_button_title">Hide \'Notify me\' button</string>
             <string name="revanced_hide_notify_me_button_summary_on">Button is hidden</string>
