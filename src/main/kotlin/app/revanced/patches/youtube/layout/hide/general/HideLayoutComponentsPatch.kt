@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.layout.hide.general
 
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -17,16 +18,17 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
+import app.revanced.patches.youtube.layout.hide.general.fingerprints.HideShowMoreButtonFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ParseElementFromBufferFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.PlayerOverlayFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ShowWatermarkFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
-import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
@@ -36,8 +38,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
         LithoFilterPatch::class,
         SettingsPatch::class,
         AddResourcesPatch::class,
-        NavigationBarHookPatch::class,
-        PlayerTypeHookPatch::class // Used by Keyword Content filter.
+        HideLayoutComponentsResourcePatch::class,
+        NavigationBarHookPatch::class // Used by Keyword Content filter.
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -66,7 +68,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 )
 @Suppress("unused")
 object HideLayoutComponentsPatch : BytecodePatch(
-    setOf(ParseElementFromBufferFingerprint, PlayerOverlayFingerprint),
+    setOf(ParseElementFromBufferFingerprint, PlayerOverlayFingerprint, HideShowMoreButtonFingerprint),
 ) {
     private const val LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/components/LayoutComponentsFilter;"
@@ -122,9 +124,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_notify_me_button"),
             SwitchPreference("revanced_hide_search_result_recommendations"),
             SwitchPreference("revanced_hide_search_result_shelf_header"),
-        )
-
-        SettingsPatch.PreferenceScreen.FEED.addPreferences(
+            SwitchPreference("revanced_hide_show_more_button"),
             PreferenceScreen(
                 key = "revanced_hide_keyword_content_screen",
                 sorting = Sorting.UNSORTED,
@@ -200,6 +200,25 @@ object HideLayoutComponentsPatch : BytecodePatch(
                     move-result p2
                 """,
             )
+        }
+
+        // endregion
+
+        // region Show more button
+
+        HideShowMoreButtonFingerprint.resultOrThrow().let {
+            it.mutableMethod.apply {
+                val moveRegisterIndex = it.scanResult.patternScanResult!!.endIndex
+                val viewRegister =
+                    getInstruction<OneRegisterInstruction>(moveRegisterIndex).registerA
+
+                val insertIndex = moveRegisterIndex + 1
+                addInstruction(
+                    insertIndex,
+                    "invoke-static { v$viewRegister }, " +
+                            "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideShowMoreButton(Landroid/view/View;)V"
+                )
+            }
         }
 
         // endregion

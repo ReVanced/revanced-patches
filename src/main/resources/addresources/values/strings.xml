@@ -83,6 +83,11 @@
             <string name="revanced_hide_search_result_recommendations_title">Hide \'People also watched\' recommendations</string>
             <string name="revanced_hide_search_result_recommendations_summary_on">Recommendations are hidden</string>
             <string name="revanced_hide_search_result_recommendations_summary_off">Recommendations are shown</string>
+            <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
+                  This button usually appears when searching for a YT creator. -->
+            <string name="revanced_hide_show_more_button_title">Hide \'Show more\' button</string>
+            <string name="revanced_hide_show_more_button_summary_on">Button is hidden</string>
+            <string name="revanced_hide_show_more_button_summary_off">Button is shown</string>
             <string name="revanced_hide_timed_reactions_title">Hide timed reactions</string>
             <string name="revanced_hide_timed_reactions_summary_on">Timed reactions are hidden</string>
             <string name="revanced_hide_timed_reactions_summary_off">Timed reactions are shown</string>
@@ -506,13 +511,6 @@
             <string name="revanced_hide_info_cards_title">Hide info cards</string>
             <string name="revanced_hide_info_cards_summary_on">Info cards are hidden</string>
             <string name="revanced_hide_info_cards_summary_off">Info cards are shown</string>
-        </patch>
-        <patch id="layout.hide.loadmorebutton.HideLoadMoreButtonResourcePatch">
-            <!-- 'Load more' should be translated with the same localized wording that YouTube displays. 
-                 This commonly appears when searching for a YT creator. -->
-            <string name="revanced_hide_load_more_button_title">Hide \'Load More\' button</string>
-            <string name="revanced_hide_load_more_button_summary_on">Button is hidden</string>
-            <string name="revanced_hide_load_more_button_summary_off">Button is shown</string>
         </patch>
         <patch id="layout.hide.rollingnumber.DisableRollingNumberAnimationPatch">
             <string name="revanced_disable_rolling_number_animations_title">Disable rolling number animations</string>

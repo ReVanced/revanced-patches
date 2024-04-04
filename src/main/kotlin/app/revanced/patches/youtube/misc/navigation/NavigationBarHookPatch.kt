@@ -10,6 +10,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.navigation.fingerprints.*
+import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.resultOrThrow
@@ -25,6 +26,7 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
     dependencies = [
         IntegrationsPatch::class,
         NavigationBarHookResourcePatch::class,
+        PlayerTypeHookPatch::class // Required to detect the search bar in all situations.
     ],
 )
 @Suppress("unused")
