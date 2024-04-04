@@ -15,7 +15,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
 @Patch(
     name = "Disable subscription suggestions",
-    compatiblePackages = [CompatiblePackage("com.strava", ["320.12"])]
+    compatiblePackages = [CompatiblePackage("com.strava", ["351.18"])]
 )
 @Suppress("unused")
 object DisableSubscriptionSuggestionsPatch : BytecodePatch(
