@@ -1,13 +1,17 @@
 package app.revanced.integrations.youtube.patches.components;
 
 import android.os.Build;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
+import app.revanced.integrations.shared.Utils;
 import app.revanced.integrations.youtube.settings.Settings;
 import app.revanced.integrations.shared.Logger;
 import app.revanced.integrations.youtube.StringTrieSearch;
+import app.revanced.integrations.youtube.shared.NavigationBar;
+import app.revanced.integrations.youtube.shared.PlayerType;
 
 @SuppressWarnings("unused")
 public final class LayoutComponentsFilter extends Filter {
@@ -322,7 +326,24 @@ public final class LayoutComponentsFilter extends Filter {
         return true;
     }
 
+    /**
+     * Injection point.
+     */
     public static boolean showWatermark() {
         return !Settings.HIDE_VIDEO_CHANNEL_WATERMARK.get();
+    }
+
+    private static final boolean HIDE_SHOW_MORE_BUTTON_ENABLED = Settings.HIDE_SHOW_MORE_BUTTON.get();
+
+    /**
+     * Injection point.
+     */
+    public static void hideShowMoreButton(View view) {
+        if (HIDE_SHOW_MORE_BUTTON_ENABLED
+                && NavigationBar.isSearchBarActive()
+                // Search bar can be active but behind the player.
+                && !PlayerType.getCurrent().isMaximizedOrFullscreen()) {
+            Utils.hideViewByLayoutParams(view);
+        }
     }
 }
