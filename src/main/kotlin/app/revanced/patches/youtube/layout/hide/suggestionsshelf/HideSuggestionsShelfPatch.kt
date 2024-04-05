@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
     name = "Hide suggestions shelf",
-    description = "Adds an option to hide suggestions shelf on the homepage tab.",
+    description = "Adds an option to hide suggestions shelves (e.g. Breaking news) on the homepage tab.",
     dependencies = [
         IntegrationsPatch::class,
         LithoFilterPatch::class,
