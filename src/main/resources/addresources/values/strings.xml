@@ -406,14 +406,7 @@
         </patch>
         <patch id="layout.hide.suggestionsshelf.HideSuggestionsShelfPatch">
             <string name="revanced_hide_suggestions_shelf_title">Hide suggestions shelf</string>
-            <string name="revanced_hide_suggestions_shelf_summary_on">
-                Suggestions shelves are hidden, which includes: \n
-                • Breaking news\n
-                • Continue watching\n
-                • Explore more channels\n
-                • Shopping\n
-                • Watch it Again
-            </string>
+            <string name="revanced_hide_suggestions_shelf_summary_on">Shelves are hidden, which includes:\n• Breaking news\n• Continue watching\n• Explore more channels\n• Shopping\n• Watch it Again</string>
             <string name="revanced_hide_suggestions_shelf_summary_off">Suggestions shelves are shown</string>
         </patch>
         <patch id="layout.hide.comments.CommentsPatch">
