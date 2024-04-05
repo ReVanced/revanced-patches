@@ -329,6 +329,10 @@
             <string name="revanced_swipe_save_and_restore_brightness_title">Save and restore brightness</string>
             <string name="revanced_swipe_save_and_restore_brightness_summary_on">Save and restore brightness when exiting or entering fullscreen</string>
             <string name="revanced_swipe_save_and_restore_brightness_summary_off">Do not save and restore brightness when exiting or entering fullscreen</string>
+            <string name="revanced_swipe_enable_auto_brightness_title">Enable auto-brightness gesture</string>
+            <string name="revanced_swipe_enable_auto_brightness_summary_on">The lowest value of the brightness gesture activates auto-brightness</string>
+            <string name="revanced_swipe_enable_auto_brightness_summary_off">Brightness is adjustable in the range of 0-100 without auto-brightness</string>
+            <string name="revanced_swipe_enable_auto_brightness_overlay_text">AUTO</string>
             <string name="revanced_swipe_overlay_timeout_title">Swipe overlay timeout</string>
             <string name="revanced_swipe_overlay_timeout_summary">The amount of milliseconds the overlay is visible</string>
             <string name="revanced_swipe_text_overlay_size_title">Swipe overlay text size</string>
