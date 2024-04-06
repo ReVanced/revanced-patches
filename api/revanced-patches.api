@@ -1440,6 +1440,12 @@ public final class app/revanced/patches/youtube/layout/hide/seekbar/HideSeekbarP
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/youtube/layout/hide/shelves/HideHorizontalShelvesPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/shelves/HideHorizontalShelvesPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/youtube/layout/hide/shorts/HideShortsComponentsPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/shorts/HideShortsComponentsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -1454,12 +1460,6 @@ public final class app/revanced/patches/youtube/layout/hide/shorts/HideShortsCom
 
 public final class app/revanced/patches/youtube/layout/hide/suggestedvideoendscreen/DisableSuggestedVideoEndScreenPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/suggestedvideoendscreen/DisableSuggestedVideoEndScreenPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/layout/hide/suggestionsshelves/HideSuggestionsShelvesPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/suggestionsshelves/HideSuggestionsShelvesPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }

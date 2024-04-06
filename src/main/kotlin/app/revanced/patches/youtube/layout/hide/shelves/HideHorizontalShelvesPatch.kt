@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.hide.suggestionsshelves
+package app.revanced.patches.youtube.layout.hide.shelves
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
@@ -9,16 +9,15 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
-import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
-    name = "Hide suggestions shelves",
-    description = "Adds an option to hide suggestions shelves (e.g. Breaking news).",
+    name = "Hide horizontal shelves",
+    description = "Adds an option to hide horizontal shelves (e.g. Breaking news or Continue watching).",
     dependencies = [
         IntegrationsPatch::class,
         LithoFilterPatch::class,
-        NavigationBarHookPatch::class
+        NavigationBarHookPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -40,21 +39,21 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
                 "19.06.39",
                 "19.07.40",
                 "19.08.36",
-                "19.09.37"
-            ]
-        )
-    ]
+                "19.09.37",
+            ],
+        ),
+    ],
 )
 @Suppress("unused")
-object HideSuggestionsShelvesPatch : BytecodePatch(emptySet()) {
+object HideHorizontalShelvesPatch : BytecodePatch(emptySet()) {
     private const val FILTER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/youtube/patches/components/SuggestionsShelvesFilter;"
+        "Lapp/revanced/integrations/youtube/patches/components/HorizontalShelvesFilter;"
 
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.FEED.addPreferences(
-            SwitchPreference("revanced_hide_suggestions_shelves")
+            SwitchPreference("revanced_hide_horizontal_shelves"),
         )
 
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
