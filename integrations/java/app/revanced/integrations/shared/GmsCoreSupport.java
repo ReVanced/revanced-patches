@@ -61,7 +61,8 @@ public class GmsCoreSupport {
                     .setTitle(str("gms_core_dialog_title"))
                     .setMessage(str(dialogMessageRef))
                     .setPositiveButton(str(positiveButtonStringRef), onPositiveClickListener)
-                    .setCancelable(false)
+                    // Allow using back button to skip the action, just in case the check can never be satisfied.
+                    .setCancelable(true)
                     .show();
         }, 100);
     }
