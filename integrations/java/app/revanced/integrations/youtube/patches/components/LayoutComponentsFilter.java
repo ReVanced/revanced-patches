@@ -35,6 +35,7 @@ public final class LayoutComponentsFilter extends Filter {
     private final StringFilterGroup compactChannelBarInner;
     private final StringFilterGroup compactChannelBarInnerButton;
     private final ByteArrayFilterGroup joinMembershipButton;
+    private final StringFilterGroup horizontalShelves;
 
     static {
         mixPlaylistsExceptions.addPatterns(
@@ -42,7 +43,6 @@ public final class LayoutComponentsFilter extends Filter {
                 "java.lang.ref.WeakReference"
         );
     }
-
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public LayoutComponentsFilter() {
@@ -237,6 +237,12 @@ public final class LayoutComponentsFilter extends Filter {
                 "endorsement_header_footer"
         );
 
+        horizontalShelves = new StringFilterGroup(
+                Settings.HIDE_HORIZONTAL_SHELVES,
+                "horizontal_video_shelf.eml",
+                "horizontal_shelf.eml"
+        );
+
         addPathCallbacks(
                 expandableMetadata,
                 inFeedSurvey,
@@ -263,7 +269,8 @@ public final class LayoutComponentsFilter extends Filter {
                 timedReactions,
                 imageShelf,
                 channelMemberShelf,
-                forYouShelf
+                forYouShelf,
+                horizontalShelves
         );
     }
 
@@ -279,7 +286,9 @@ public final class LayoutComponentsFilter extends Filter {
         // The groups are excluded from the filter due to the exceptions list below.
         // Filter them separately here.
         if (matchedGroup == notifyMe || matchedGroup == inFeedSurvey || matchedGroup == expandableMetadata)
+        {
             return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
+        }
 
         if (exceptions.matches(path)) return false; // Exceptions are not filtered.
 
@@ -297,6 +306,10 @@ public final class LayoutComponentsFilter extends Filter {
 
         // TODO: This also hides the feed Shorts shelf header
         if (matchedGroup == searchResultShelfHeader && contentIndex != 0) return false;
+
+        if (contentIndex == 0 && matchedGroup == horizontalShelves && hideShelves()) {
+            return super.isFiltered(path, identifier, protobufBufferArray, matchedGroup, contentType, contentIndex);
+        }
 
         return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
     }
@@ -345,5 +358,16 @@ public final class LayoutComponentsFilter extends Filter {
                 && !PlayerType.getCurrent().isMaximizedOrFullscreen()) {
             Utils.hideViewByLayoutParams(view);
         }
+    }
+
+    private static boolean hideShelves() {
+        // Only filter if the library tab is not selected.
+        // This check is important as the shelf layout is used for the library tab playlists.
+        return !NavigationBar.NavigationButton.libraryOrYouTabIsSelected()
+                // But if the player is opened while library is selected,
+                // then still filter any recommendations below the player.
+                || PlayerType.getCurrent().isMaximizedOrFullscreen()
+                // Or if the search is active while library is selected, then also filter.
+                || NavigationBar.isSearchBarActive();
     }
 }
