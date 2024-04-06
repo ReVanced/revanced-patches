@@ -1,3 +1,10 @@
+## [4.6.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.6.1-dev.2...v4.6.1-dev.3) (2024-04-06)
+
+
+### Bug Fixes
+
+* **YouTube - GmsCore support:** Prompt to disable battery optimizations, if not done already ([#2958](https://github.com/ReVanced/revanced-patches/issues/2958)) ([82acb84](https://github.com/ReVanced/revanced-patches/commit/82acb84b5f6ff0722a2eb080b53da9dd3622502f))
+
 ## [4.6.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.6.1-dev.1...v4.6.1-dev.2) (2024-04-04)
 
 
