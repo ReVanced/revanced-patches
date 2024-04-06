@@ -1452,8 +1452,8 @@ public final class app/revanced/patches/youtube/layout/hide/suggestedvideoendscr
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/youtube/layout/hide/suggestionsshelf/HideSuggestionsShelfPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/suggestionsshelf/HideSuggestionsShelfPatch;
+public final class app/revanced/patches/youtube/layout/hide/suggestionsshelves/HideSuggestionsShelvesPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/suggestionsshelves/HideSuggestionsShelvesPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }

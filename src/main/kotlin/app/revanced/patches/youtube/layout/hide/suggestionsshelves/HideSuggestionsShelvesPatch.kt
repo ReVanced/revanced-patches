@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.hide.suggestionsshelf
+package app.revanced.patches.youtube.layout.hide.suggestionsshelves
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
@@ -13,13 +13,12 @@ import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
-    name = "Hide suggestions shelf",
+    name = "Hide suggestions shelves",
     description = "Adds an option to hide suggestions shelves (e.g. Breaking news).",
     dependencies = [
         IntegrationsPatch::class,
         LithoFilterPatch::class,
-        NavigationBarHookPatch::class,
-        PlayerTypeHookPatch::class
+        NavigationBarHookPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -47,15 +46,15 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
     ]
 )
 @Suppress("unused")
-object HideSuggestionsShelfPatch : BytecodePatch(emptySet()) {
+object HideSuggestionsShelvesPatch : BytecodePatch(emptySet()) {
     private const val FILTER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/youtube/patches/components/SuggestionsShelfFilter;"
+        "Lapp/revanced/integrations/youtube/patches/components/SuggestionsShelvesFilter;"
 
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.FEED.addPreferences(
-            SwitchPreference("revanced_hide_suggestions_shelf")
+            SwitchPreference("revanced_hide_suggestions_shelves")
         )
 
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
