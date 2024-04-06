@@ -1356,6 +1356,12 @@ public final class app/revanced/patches/youtube/layout/hide/albumcards/AlbumCard
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/youtube/layout/hide/breakingnews/BreakingNewsPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/breakingnews/BreakingNewsPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/youtube/layout/hide/comments/CommentsPatch : app/revanced/patcher/patch/ResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/comments/CommentsPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
