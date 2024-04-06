@@ -121,7 +121,6 @@ abstract class BaseGmsCoreSupportResourcePatch(
     }
 
     private companion object {
-        private const val VANCED_VENDOR = "com.mgoogle"
         private const val PACKAGE_NAME_REGEX_PATTERN = "^[a-z]\\w*(\\.[a-z]\\w*)+\$"
     }
 }

@@ -28,6 +28,9 @@ object OverrideFeatureFlagsPatch : BytecodePatch(
     internal lateinit var addOverride: (name: String, value: String) -> Unit private set
 
     override fun execute(context: BytecodeContext) = GetFeatureValueFingerprint.result?.let {
+        val configurationClass = it.method.definingClass
+        val featureClass = it.method.parameterTypes[0].toString()
+
         // The method we want to inject into does not have enough registers, so we inject a helper method
         // and inject more instructions into it later, see addOverride.
         // This is not in an integration since the unused variable would get compiled away and the method would
@@ -35,7 +38,7 @@ object OverrideFeatureFlagsPatch : BytecodePatch(
         val helperMethod = ImmutableMethod(
             it.method.definingClass,
             "getValueOverride",
-            listOf(ImmutableMethodParameter("Lcom/tumblr/configuration/Feature;", null, "feature")),
+            listOf(ImmutableMethodParameter(featureClass, null, "feature")),
             "Ljava/lang/String;",
             AccessFlags.PUBLIC or AccessFlags.FINAL,
             null,
@@ -50,7 +53,7 @@ object OverrideFeatureFlagsPatch : BytecodePatch(
                 0,
                 """
                     # toString() the enum value
-                    invoke-virtual {p1}, Lcom/tumblr/configuration/Feature;->toString()Ljava/lang/String;
+                    invoke-virtual {p1}, $featureClass->toString()Ljava/lang/String;
                     move-result-object v0
                     
                     # !!! If you add more instructions above this line, update helperInsertIndex below!
@@ -75,7 +78,7 @@ object OverrideFeatureFlagsPatch : BytecodePatch(
             getFeatureIndex,
             """
                     # Call the Helper Method with the Feature
-                    invoke-virtual {p0, p1}, Lcom/tumblr/configuration/Configuration;->getValueOverride(Lcom/tumblr/configuration/Feature;)Ljava/lang/String;
+                    invoke-virtual {p0, p1}, $configurationClass->getValueOverride($featureClass)Ljava/lang/String;
                     move-result-object v0
                     # If it returned null, skip
                     if-eqz v0, :is_null

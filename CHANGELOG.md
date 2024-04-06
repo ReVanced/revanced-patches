@@ -1,3 +1,66 @@
+## [4.6.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.6.1-dev.1...v4.6.1-dev.2) (2024-04-04)
+
+
+### Bug Fixes
+
+* **YouTube - Hide load more button:** Include patch with `Hide layout components`, and hide button only in search feed  ([#2959](https://github.com/ReVanced/revanced-patches/issues/2959)) ([b007e8e](https://github.com/ReVanced/revanced-patches/commit/b007e8e06a3afad79b40bec1c6a14604f059049c))
+
+## [4.6.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.6.0...v4.6.1-dev.1) (2024-04-04)
+
+
+### Bug Fixes
+
+* **YouTube - Player flyout menu:** Add hide Lock screen menu ([#2985](https://github.com/ReVanced/revanced-patches/issues/2985)) ([308de4a](https://github.com/ReVanced/revanced-patches/commit/308de4a63ca99b8d30d6b3242f98d6f0e2aefb37))
+
+# [4.6.0](https://github.com/ReVanced/revanced-patches/compare/v4.5.0...v4.6.0) (2024-04-02)
+
+
+### Bug Fixes
+
+* **Mi Fitness - Fix login:** Patch correct register ([#2942](https://github.com/ReVanced/revanced-patches/issues/2942)) ([dc96942](https://github.com/ReVanced/revanced-patches/commit/dc969422b5d50f21e6ea7a64b67dfc650fee6e36))
+* **Tumblr:** Restore compatibility with latest versions ([#2955](https://github.com/ReVanced/revanced-patches/issues/2955)) ([2954ba7](https://github.com/ReVanced/revanced-patches/commit/2954ba78d21d77308404961f79234bbec606d42e))
+
+
+### Features
+
+* **Tumblr:** Add `Fix old versions` patch ([#2954](https://github.com/ReVanced/revanced-patches/issues/2954)) ([2fde60e](https://github.com/ReVanced/revanced-patches/commit/2fde60eceb0a96fa857c32cd55c1fd7fe776a679))
+
+# [4.6.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.5.1-dev.2...v4.6.0-dev.1) (2024-03-31)
+
+
+### Features
+
+* **Tumblr:** Add `Fix old versions` patch ([#2954](https://github.com/ReVanced/revanced-patches/issues/2954)) ([2fde60e](https://github.com/ReVanced/revanced-patches/commit/2fde60eceb0a96fa857c32cd55c1fd7fe776a679))
+
+## [4.5.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.5.1-dev.1...v4.5.1-dev.2) (2024-03-30)
+
+
+### Bug Fixes
+
+* **Mi Fitness - Fix login:** Patch correct register ([#2942](https://github.com/ReVanced/revanced-patches/issues/2942)) ([dc96942](https://github.com/ReVanced/revanced-patches/commit/dc969422b5d50f21e6ea7a64b67dfc650fee6e36))
+
+## [4.5.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.5.0...v4.5.1-dev.1) (2024-03-30)
+
+
+### Bug Fixes
+
+* **Tumblr:** Restore compatibility with latest versions ([#2955](https://github.com/ReVanced/revanced-patches/issues/2955)) ([2954ba7](https://github.com/ReVanced/revanced-patches/commit/2954ba78d21d77308404961f79234bbec606d42e))
+
+# [4.5.0](https://github.com/ReVanced/revanced-patches/compare/v4.4.0...v4.5.0) (2024-03-30)
+
+
+### Features
+
+* **YouTube - Alternative thumbnails:** Selectively enable for home / subscription / search ([#2926](https://github.com/ReVanced/revanced-patches/issues/2926)) ([8549e1b](https://github.com/ReVanced/revanced-patches/commit/8549e1ba58ad1e1608f5e3ceacd31eeb94578949))
+* **YouTube - GmsCore:** Require ignoring battery optimizations ([#2952](https://github.com/ReVanced/revanced-patches/issues/2952)) ([c0bef25](https://github.com/ReVanced/revanced-patches/commit/c0bef255909ca884838675ca6f7ac5b0e2e21730))
+
+# [4.5.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.5.0-dev.1...v4.5.0-dev.2) (2024-03-30)
+
+
+### Features
+
+* **YouTube - GmsCore:** Require ignoring battery optimizations ([#2952](https://github.com/ReVanced/revanced-patches/issues/2952)) ([c0bef25](https://github.com/ReVanced/revanced-patches/commit/c0bef255909ca884838675ca6f7ac5b0e2e21730))
+
 # [4.5.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.4.0...v4.5.0-dev.1) (2024-03-29)
 
 
