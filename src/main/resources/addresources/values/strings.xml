@@ -92,6 +92,9 @@
             <string name="revanced_hide_channel_watermark_title">Hide channel watermark</string>
             <string name="revanced_hide_channel_watermark_summary_on">Watermark is hidden</string>
             <string name="revanced_hide_channel_watermark_summary_off">Watermark is shown</string>
+            <string name="revanced_hide_horizontal_shelves_title">Hide horizontal shelves</string>
+            <string name="revanced_hide_horizontal_shelves_summary_on">Shelves are hidden such as:\n• Breaking news\n• Continue watching\n• Explore more channels\n• Shopping\n• Watch it Again</string>
+            <string name="revanced_hide_horizontal_shelves_summary_off">Shelves are shown</string>
             <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
             <string name="revanced_hide_join_membership_button_title">Hide \'Join\' button</string>
@@ -482,11 +485,6 @@
             <string name="revanced_hide_album_cards_title">Hide album cards</string>
             <string name="revanced_hide_album_cards_summary_on">Album cards are hidden</string>
             <string name="revanced_hide_album_cards_summary_off">Album cards are shown</string>
-        </patch>
-        <patch id="layout.hide.breakingnews.BreakingNewsResourcePatch">
-            <string name="revanced_hide_breaking_news_title">Hide breaking news</string>
-            <string name="revanced_hide_breaking_news_summary_on">Breaking news are hidden</string>
-            <string name="revanced_hide_breaking_news_summary_off">Breaking news are shown</string>
         </patch>
         <patch id="layout.hide.comments.CommentsPatch">
             <string name="revanced_comments_screen_title">Comments</string>
