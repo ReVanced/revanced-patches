@@ -69,7 +69,11 @@
             <string name="revanced_settings_screen_11_misc_title">Misc</string>
             <string name="revanced_settings_screen_12_video_title">Video</string>
             <string name="revanced_settings_about_title">About ReVanced</string>
-            <string name="revanced_settings_about_summary">Patched using release %s\n\nTap here to open the ReVanced website</string>
+            <string name="revanced_settings_about_summary">Tap here to view more about ReVanced</string>
+            <string name="revanced_settings_about_links_dev_header">Notice: You are using pre-release software</string>
+            <string name="revanced_settings_about_links_dev_body1">This app was patched with developer release: &lt;i>%s&lt;/i></string>
+            <string name="revanced_settings_about_links_dev_body2">This release is a work in progress and you may experience bugs and broken features.</string>
+            <string name="revanced_settings_about_links_header">ReVanced is available at</string>
         </patch>
         <patch id="misc.debugging.DebuggingPatch">
             <string name="revanced_debug_screen_title">Debugging</string>
