@@ -53,10 +53,15 @@
     <app id="youtube">
         <patch id="misc.settings.SettingsResourcePatch">
             <string name="revanced_settings">ReVanced</string>
+            <string name="revanced_settings_about_links_body">You are using ReVanced Patches version &lt;i>%s&lt;/i></string>
+            <string name="revanced_settings_about_links_dev_header">Note</string>
+            <string name="revanced_settings_about_links_dev_body">This version is a pre-release and you may experience unexpected issues</string>
+            <string name="revanced_settings_about_links_header">Official links</string>
             <string name="revanced_pref_import_export_title">Import / Export</string>
             <string name="revanced_pref_import_export_summary">Import / Export ReVanced settings</string>
         </patch>
         <patch id="misc.settings.SettingsPatch">
+            <string name="revanced_settings_screen_00_about_title">About</string>
             <string name="revanced_settings_screen_01_ads_title">Ads</string>
             <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternative thumbnails</string>
             <string name="revanced_settings_screen_03_feed_title">Feed</string>
@@ -67,11 +72,6 @@
             <string name="revanced_settings_screen_08_swipe_controls_title">Swipe controls</string>
             <string name="revanced_settings_screen_11_misc_title">Misc</string>
             <string name="revanced_settings_screen_12_video_title">Video</string>
-            <string name="revanced_settings_screen_13_about_title">About</string>
-            <string name="revanced_settings_about_links_body">You are using ReVanced Patches version &lt;i>%s&lt;/i></string>
-            <string name="revanced_settings_about_links_dev_header">Note</string>
-            <string name="revanced_settings_about_links_dev_body">This version is a pre-release and you may experience unexpected issues</string>
-            <string name="revanced_settings_about_links_header">Official links</string>
         </patch>
         <patch id="misc.debugging.DebuggingPatch">
             <string name="revanced_debug_screen_title">Debugging</string>

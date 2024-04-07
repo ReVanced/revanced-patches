@@ -46,6 +46,14 @@ object SettingsPatch :
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
+        // Add an about preference to the top.
+        SettingsResourcePatch += NonInteractivePreference(
+            key = "revanced_settings_screen_00_about",
+            summaryKey = null,
+            tag = "app.revanced.integrations.youtube.settings.preference.ReVancedYouTubeAboutPreference",
+            selectable = true,
+        )
+
         PreferenceScreen.MISC.addPreferences(
             TextPreference(
                 key = null,
@@ -54,14 +62,6 @@ object SettingsPatch :
                 inputType = InputType.TEXT_MULTI_LINE,
                 tag = "app.revanced.integrations.shared.settings.preference.ImportExportPreference",
             )
-        )
-
-        // Add about preference.
-        SettingsResourcePatch += NonInteractivePreference(
-            key = "revanced_settings_screen_13_about",
-            summaryKey = null,
-            tag = "app.revanced.integrations.youtube.settings.preference.ReVancedYouTubeAboutPreference",
-            selectable = true,
         )
 
         SetThemeFingerprint.result?.mutableMethod?.let { setThemeMethod ->
