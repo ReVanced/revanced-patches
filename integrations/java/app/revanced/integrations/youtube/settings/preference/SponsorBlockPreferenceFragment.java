@@ -100,10 +100,10 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
             privateUserId.setEnabled(enabled);
 
             // If the user has a private user id, then include a subtext that mentions not to share it.
-            String exportSummarySubText = SponsorBlockSettings.userHasSBPrivateId()
+            String importExportSummary = SponsorBlockSettings.userHasSBPrivateId()
                     ? str("revanced_sb_settings_ie_sum_warning")
-                    : "";
-            importExport.setSummary(str("revanced_sb_settings_ie_sum", exportSummarySubText));
+                    : str("revanced_sb_settings_ie_sum");
+            importExport.setSummary(importExportSummary);
 
             apiUrl.setEnabled(enabled);
             importExport.setEnabled(enabled);
