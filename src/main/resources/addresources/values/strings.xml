@@ -71,7 +71,7 @@
             <string name="revanced_settings_about_summary">Tap here to learn more about ReVanced</string>
             <string name="revanced_settings_about_links_body">You are using ReVanced Patches v&lt;i>%s&lt;/i>.</string>
             <string name="revanced_settings_about_links_dev_header">Note</string>
-            <string name="revanced_settings_about_links_dev_body">This version is a pre-release and unexpected issues could occur.</string>
+            <string name="revanced_settings_about_links_dev_body">This version is a pre-release and you may experience unexpected issues.</string>
             <string name="revanced_settings_about_links_header">Official links</string>
         </patch>
         <patch id="misc.debugging.DebuggingPatch">
