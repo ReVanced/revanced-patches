@@ -40,7 +40,7 @@ object SettingsPatch :
     private const val INTEGRATIONS_PACKAGE = "app/revanced/integrations/youtube"
     private const val ACTIVITY_HOOK_CLASS_DESCRIPTOR = "L$INTEGRATIONS_PACKAGE/settings/LicenseActivityHook;"
 
-    private const val THEME_HELPER_DESCRIPTOR = "L$INTEGRATIONS_PACKAGE/ThemeHelper;"
+    internal const val THEME_HELPER_DESCRIPTOR = "L$INTEGRATIONS_PACKAGE/ThemeHelper;"
     private const val SET_THEME_METHOD_NAME: String = "setTheme"
 
     override fun execute(context: BytecodeContext) {
@@ -60,7 +60,7 @@ object SettingsPatch :
         SettingsResourcePatch += NonInteractivePreference(
             key = "revanced_settings_screen_13_about",
             summaryKey = null,
-            tag = "app.revanced.integrations.shared.settings.preference.ReVancedAboutPreference",
+            tag = "app.revanced.integrations.youtube.settings.preference.ReVancedYouTubeAboutPreference",
             selectable = true,
         )
 
@@ -78,7 +78,7 @@ object SettingsPatch :
                     replaceInstruction(
                         returnIndex,
                         "invoke-static { v$register }, " +
-                            "$THEME_HELPER_DESCRIPTOR->$SET_THEME_METHOD_NAME(Ljava/lang/Object;)V",
+                            "$THEME_HELPER_DESCRIPTOR->$SET_THEME_METHOD_NAME(Ljava/lang/Enum;)V",
                     )
                     addInstruction(returnIndex + 1, "return-object v$register")
                 }
