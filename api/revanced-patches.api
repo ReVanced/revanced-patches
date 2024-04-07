@@ -152,6 +152,12 @@ public final class app/revanced/patches/all/telephony/sim/spoof/SpoofSimCountryP
 	public fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lkotlin/Pair;)V
 }
 
+public final class app/revanced/patches/amazon/deeplinking/DeepLinkingPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/amazon/deeplinking/DeepLinkingPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/backdrops/misc/pro/ProUnlockPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/backdrops/misc/pro/ProUnlockPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
