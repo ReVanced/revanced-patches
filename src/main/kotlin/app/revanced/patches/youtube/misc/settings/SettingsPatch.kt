@@ -53,18 +53,15 @@ object SettingsPatch :
                 summaryKey = "revanced_pref_import_export_summary",
                 inputType = InputType.TEXT_MULTI_LINE,
                 tag = "app.revanced.integrations.shared.settings.preference.ImportExportPreference",
-            ),
-            // About screen with patches release version and a link to the website.
-            // PreferenceGroups are not supported yet and this looks much better when it's last,
-            // so use a dummy key with key sorting.
-            NonInteractivePreference(
-                // uFFFF = highest Unicode value allowed.
-                "\\uFFFF_revanced_settings_about_screen" + Sorting.BY_KEY.keySuffix,
-                titleKey = "revanced_settings_about_title",
-                summaryKey = "revanced_settings_about_summary",
-                tag = "app.revanced.integrations.shared.settings.preference.ReVancedAboutPreference",
-                selectable = true,
             )
+        )
+
+        // Add about preference.
+        SettingsResourcePatch += NonInteractivePreference(
+            key = "revanced_settings_screen_13_about",
+            summaryKey = null,
+            tag = "app.revanced.integrations.shared.settings.preference.ReVancedAboutPreference",
+            selectable = true,
         )
 
         SetThemeFingerprint.result?.mutableMethod?.let { setThemeMethod ->

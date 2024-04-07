@@ -67,8 +67,7 @@
             <string name="revanced_settings_screen_08_swipe_controls_title">Swipe controls</string>
             <string name="revanced_settings_screen_11_misc_title">Misc</string>
             <string name="revanced_settings_screen_12_video_title">Video</string>
-            <string name="revanced_settings_about_title">About ReVanced</string>
-            <string name="revanced_settings_about_summary">Tap here to learn more about ReVanced</string>
+            <string name="revanced_settings_screen_13_about_title">About</string>
             <string name="revanced_settings_about_links_body">You are using ReVanced Patches version &lt;i>%s&lt;/i></string>
             <string name="revanced_settings_about_links_dev_header">Note</string>
             <string name="revanced_settings_about_links_dev_body">This version is a pre-release and you may experience unexpected issues</string>
