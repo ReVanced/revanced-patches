@@ -281,6 +281,7 @@ public final class LayoutComponentsFilter extends Filter {
             if (searchResultRecommendations.check(protobufBufferArray).isFiltered()) {
                 return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
             }
+            return false;
         }
 
         // The groups are excluded from the filter due to the exceptions list below.
@@ -307,8 +308,12 @@ public final class LayoutComponentsFilter extends Filter {
         // TODO: This also hides the feed Shorts shelf header
         if (matchedGroup == searchResultShelfHeader && contentIndex != 0) return false;
 
-        if (contentIndex == 0 && matchedGroup == horizontalShelves && hideShelves()) {
-            return super.isFiltered(path, identifier, protobufBufferArray, matchedGroup, contentType, contentIndex);
+        if (matchedGroup == horizontalShelves) {
+            if (contentIndex == 0 && hideShelves()) {
+                return super.isFiltered(path, identifier, protobufBufferArray, matchedGroup, contentType, contentIndex);
+            }
+
+            return false;
         }
 
         return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
