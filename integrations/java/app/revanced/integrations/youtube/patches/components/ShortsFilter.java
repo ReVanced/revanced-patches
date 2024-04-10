@@ -1,6 +1,7 @@
 package app.revanced.integrations.youtube.patches.components;
 
 import static app.revanced.integrations.shared.Utils.hideViewUnderCondition;
+import static app.revanced.integrations.youtube.shared.NavigationBar.NavigationButton;
 
 import android.view.View;
 
@@ -224,16 +225,30 @@ public final class ShortsFilter extends Filter {
             // For now, consider the under video results the same as the home feed.
             return Settings.HIDE_SHORTS_HOME.get();
         }
+
         // Must check second, as search can be from any tab.
         if (NavigationBar.isSearchBarActive()) {
             return Settings.HIDE_SHORTS_SEARCH.get();
         }
-        if (NavigationBar.NavigationButton.HOME.isSelected()) {
-            return Settings.HIDE_SHORTS_HOME.get();
+
+        // Avoid checking navigation button status if all other settings are off.
+        final boolean hideHome = Settings.HIDE_SHORTS_HOME.get();
+        final boolean hideSubscriptions = Settings.HIDE_SHORTS_SUBSCRIPTIONS.get();
+        if (!hideHome && !hideSubscriptions) {
+            return false;
         }
-        if (NavigationBar.NavigationButton.SUBSCRIPTIONS.isSelected()) {
-            return Settings.HIDE_SHORTS_SUBSCRIPTIONS.get();
+
+        NavigationButton selectedNavButton = NavigationButton.getSelectedNavigationButton();
+        if (selectedNavButton == null) {
+            return hideHome; // Unknown tab, treat the same as home.
         }
+        if (selectedNavButton == NavigationButton.HOME) {
+            return hideHome;
+        }
+        if (selectedNavButton == NavigationButton.SUBSCRIPTIONS) {
+            return hideSubscriptions;
+        }
+        // User must be in the library tab.  Don't hide the history or any playlists here.
         return false;
     }
 

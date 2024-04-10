@@ -1,15 +1,17 @@
 package app.revanced.integrations.youtube.patches.components;
 
+import static app.revanced.integrations.youtube.shared.NavigationBar.NavigationButton;
+
 import android.os.Build;
 import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
-import app.revanced.integrations.shared.Utils;
-import app.revanced.integrations.youtube.settings.Settings;
 import app.revanced.integrations.shared.Logger;
+import app.revanced.integrations.shared.Utils;
 import app.revanced.integrations.youtube.StringTrieSearch;
+import app.revanced.integrations.youtube.settings.Settings;
 import app.revanced.integrations.youtube.shared.NavigationBar;
 import app.revanced.integrations.youtube.shared.PlayerType;
 
@@ -366,13 +368,18 @@ public final class LayoutComponentsFilter extends Filter {
     }
 
     private static boolean hideShelves() {
+        // If the player is opened while library is selected,
+        // then filter any recommendations below the player.
+        if (PlayerType.getCurrent().isMaximizedOrFullscreen()
+                // Or if the search is active while library is selected, then also filter.
+                || NavigationBar.isSearchBarActive()) {
+            return true;
+        }
+
+        // Check navigation button last.
         // Only filter if the library tab is not selected.
         // This check is important as the shelf layout is used for the library tab playlists.
-        return !NavigationBar.NavigationButton.libraryOrYouTabIsSelected()
-                // But if the player is opened while library is selected,
-                // then still filter any recommendations below the player.
-                || PlayerType.getCurrent().isMaximizedOrFullscreen()
-                // Or if the search is active while library is selected, then also filter.
-                || NavigationBar.isSearchBarActive();
+        NavigationButton selectedNavButton = NavigationButton.getSelectedNavigationButton();
+        return selectedNavButton != null && !selectedNavButton.isLibraryOrYouTab();
     }
 }

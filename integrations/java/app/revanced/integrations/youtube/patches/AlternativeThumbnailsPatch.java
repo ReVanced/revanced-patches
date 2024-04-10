@@ -1,18 +1,14 @@
 package app.revanced.integrations.youtube.patches;
 
+import static app.revanced.integrations.shared.StringRef.str;
+import static app.revanced.integrations.youtube.settings.Settings.*;
+import static app.revanced.integrations.youtube.shared.NavigationBar.NavigationButton;
+
 import android.net.Uri;
+
 import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
-import app.revanced.integrations.shared.settings.BaseSettings;
-import app.revanced.integrations.shared.settings.EnumSetting;
-import app.revanced.integrations.shared.settings.Setting;
-import app.revanced.integrations.youtube.settings.Settings;
-import app.revanced.integrations.shared.Logger;
-import app.revanced.integrations.shared.Utils;
-import app.revanced.integrations.youtube.shared.NavigationBar;
-import app.revanced.integrations.youtube.shared.PlayerType;
 
 import org.chromium.net.UrlRequest;
 import org.chromium.net.UrlResponseInfo;
@@ -26,13 +22,12 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
-import static app.revanced.integrations.shared.StringRef.str;
-import static app.revanced.integrations.youtube.settings.Settings.ALT_THUMBNAIL_HOME;
-import static app.revanced.integrations.youtube.settings.Settings.ALT_THUMBNAIL_LIBRARY;
-import static app.revanced.integrations.youtube.settings.Settings.ALT_THUMBNAIL_PLAYER;
-import static app.revanced.integrations.youtube.settings.Settings.ALT_THUMBNAIL_SEARCH;
-import static app.revanced.integrations.youtube.settings.Settings.ALT_THUMBNAIL_SUBSCRIPTIONS;
-import static app.revanced.integrations.youtube.shared.NavigationBar.NavigationButton;
+import app.revanced.integrations.shared.Logger;
+import app.revanced.integrations.shared.Utils;
+import app.revanced.integrations.shared.settings.Setting;
+import app.revanced.integrations.youtube.settings.Settings;
+import app.revanced.integrations.youtube.shared.NavigationBar;
+import app.revanced.integrations.youtube.shared.PlayerType;
 
 /**
  * Alternative YouTube thumbnails.
@@ -134,11 +129,6 @@ public final class AlternativeThumbnailsPatch {
      */
     private static volatile long timeToResumeDeArrowAPICalls;
 
-    /**
-     * Used only for debug logging.
-     */
-    private static volatile EnumSetting<ThumbnailOption> currentOptionSetting;
-
     static {
         dearrowApiUri = validateSettings();
         final int port = dearrowApiUri.getPort();
@@ -162,23 +152,38 @@ public final class AlternativeThumbnailsPatch {
         return apiUri;
     }
 
-    private static EnumSetting<ThumbnailOption> optionSettingForCurrentNavigation() {
+    private static ThumbnailOption optionSettingForCurrentNavigation() {
         // Must check player type first, as search bar can be active behind the player.
         if (PlayerType.getCurrent().isMaximizedOrFullscreen()) {
-            return ALT_THUMBNAIL_PLAYER;
+            return ALT_THUMBNAIL_PLAYER.get();
         }
+
         // Must check second, as search can be from any tab.
         if (NavigationBar.isSearchBarActive()) {
-            return ALT_THUMBNAIL_SEARCH;
+            return ALT_THUMBNAIL_SEARCH.get();
         }
-        if (NavigationButton.HOME.isSelected()) {
-            return ALT_THUMBNAIL_HOME;
+
+        // Avoid checking which navigation button is selected, if all other settings are the same.
+        ThumbnailOption homeOption = ALT_THUMBNAIL_HOME.get();
+        ThumbnailOption subscriptionsOption = ALT_THUMBNAIL_SUBSCRIPTIONS.get();
+        ThumbnailOption libraryOption = ALT_THUMBNAIL_LIBRARY.get();
+        if ((homeOption == subscriptionsOption) && (homeOption == libraryOption)) {
+            return homeOption; // All are the same option.
         }
-        if (NavigationButton.SUBSCRIPTIONS.isSelected() || NavigationButton.NOTIFICATIONS.isSelected()) {
-            return ALT_THUMBNAIL_SUBSCRIPTIONS;
+
+        NavigationButton selectedNavButton = NavigationButton.getSelectedNavigationButton();
+        if (selectedNavButton == null) {
+            // Unknown tab, treat as the home tab;
+            return homeOption;
+        }
+        if (selectedNavButton == NavigationButton.HOME) {
+            return homeOption;
+        }
+        if (selectedNavButton == NavigationButton.SUBSCRIPTIONS || selectedNavButton == NavigationButton.NOTIFICATIONS) {
+            return subscriptionsOption;
         }
         // A library tab variant is active.
-        return ALT_THUMBNAIL_LIBRARY;
+        return libraryOption;
     }
 
     /**
@@ -256,14 +261,7 @@ public final class AlternativeThumbnailsPatch {
      */
     public static String overrideImageURL(String originalUrl) {
         try {
-            EnumSetting<ThumbnailOption> optionSetting = optionSettingForCurrentNavigation();
-            ThumbnailOption option = optionSetting.get();
-            if (BaseSettings.DEBUG.get()) {
-                if (currentOptionSetting != optionSetting) {
-                    currentOptionSetting = optionSetting;
-                    Logger.printDebug(() -> "Changed to setting: " + optionSetting.key);
-                }
-            }
+            ThumbnailOption option = optionSettingForCurrentNavigation();
 
             if (option == ThumbnailOption.ORIGINAL) {
                 return originalUrl;
