@@ -1,3 +1,46 @@
+# [4.7.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.7.0-dev.4...v4.7.0-dev.5) (2024-04-10)
+
+
+### Bug Fixes
+
+* **YouTube - Hide Shorts components:** Correctly hide Shorts if navigation tab is changed using device back button ([#3007](https://github.com/ReVanced/revanced-patches/issues/3007)) ([e5848e9](https://github.com/ReVanced/revanced-patches/commit/e5848e99c4cc838595164ef673a77fe60d28086b))
+
+# [4.7.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.7.0-dev.3...v4.7.0-dev.4) (2024-04-09)
+
+
+### Features
+
+* **Amazon:** Add `Always allow deep-linking` patch ([#3000](https://github.com/ReVanced/revanced-patches/issues/3000)) ([a92b7fb](https://github.com/ReVanced/revanced-patches/commit/a92b7fb43c8b1b45577360cdc6d883fe2815c2f2))
+* **Twitter:** Add `Sanitize sharing links` patch ([#3003](https://github.com/ReVanced/revanced-patches/issues/3003)) ([186b887](https://github.com/ReVanced/revanced-patches/commit/186b8874157eef1b882b05d491ba1d4ca2809535))
+
+# [4.7.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.7.0-dev.2...v4.7.0-dev.3) (2024-04-09)
+
+
+### Bug Fixes
+
+* **Tumblr - Fix old versions:** Improve reliability by removing remnances of Tumblr Live  ([#2988](https://github.com/ReVanced/revanced-patches/issues/2988)) ([897b4db](https://github.com/ReVanced/revanced-patches/commit/897b4dbce984270ae1fd7de5bd30bd05153e45f2))
+
+# [4.7.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.7.0-dev.1...v4.7.0-dev.2) (2024-04-06)
+
+
+### Features
+
+* **Strava - Unlock subscription:** Remove compatible version constraint ([80a5599](https://github.com/ReVanced/revanced-patches/commit/80a55991683d7b22626224fa2935a5bf9bfcbfee))
+
+# [4.7.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.6.1-dev.3...v4.7.0-dev.1) (2024-04-06)
+
+
+### Features
+
+* **YouTube - Hide layout components:** Add option to hide horizontal shelves ([#2951](https://github.com/ReVanced/revanced-patches/issues/2951)) ([9ae0650](https://github.com/ReVanced/revanced-patches/commit/9ae0650c0005d882299996aa442410bab4261395))
+
+## [4.6.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.6.1-dev.2...v4.6.1-dev.3) (2024-04-06)
+
+
+### Bug Fixes
+
+* **YouTube - GmsCore support:** Prompt to disable battery optimizations, if not done already ([#2958](https://github.com/ReVanced/revanced-patches/issues/2958)) ([82acb84](https://github.com/ReVanced/revanced-patches/commit/82acb84b5f6ff0722a2eb080b53da9dd3622502f))
+
 ## [4.6.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.6.1-dev.1...v4.6.1-dev.2) (2024-04-04)
 
 

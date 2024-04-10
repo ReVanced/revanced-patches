@@ -39,7 +39,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
         SettingsPatch::class,
         AddResourcesPatch::class,
         HideLayoutComponentsResourcePatch::class,
-        NavigationBarHookPatch::class // Used by Keyword Content filter.
+        NavigationBarHookPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -117,6 +117,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_compact_banner"),
             SwitchPreference("revanced_hide_feed_survey"),
             SwitchPreference("revanced_hide_for_you_shelf"),
+            SwitchPreference("revanced_hide_horizontal_shelves"),
             SwitchPreference("revanced_hide_image_shelf"),
             SwitchPreference("revanced_hide_latest_posts_ads"),
             SwitchPreference("revanced_hide_mix_playlists"),
@@ -133,9 +134,9 @@ object HideLayoutComponentsPatch : BytecodePatch(
                     SwitchPreference("revanced_hide_keyword_content_subscriptions"),
                     SwitchPreference("revanced_hide_keyword_content_search"),
                     TextPreference("revanced_hide_keyword_content_phrases", inputType = InputType.TEXT_MULTI_LINE),
-                    NonInteractivePreference("revanced_hide_keyword_content_about")
-                )
-            )
+                    NonInteractivePreference("revanced_hide_keyword_content_about"),
+                ),
+            ),
         )
 
         SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
@@ -216,7 +217,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
                 addInstruction(
                     insertIndex,
                     "invoke-static { v$viewRegister }, " +
-                            "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideShowMoreButton(Landroid/view/View;)V"
+                        "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideShowMoreButton(Landroid/view/View;)V",
                 )
             }
         }
