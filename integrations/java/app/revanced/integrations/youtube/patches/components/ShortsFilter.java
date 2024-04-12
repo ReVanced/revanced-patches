@@ -220,20 +220,34 @@ public final class ShortsFilter extends Filter {
     }
 
     private static boolean shouldHideShortsFeedItems() {
+        final boolean hideHome = Settings.HIDE_SHORTS_HOME.get();
+        final boolean hideSubscriptions = Settings.HIDE_SHORTS_SUBSCRIPTIONS.get();
+        final boolean hideSearch = Settings.HIDE_SHORTS_SEARCH.get();
+
+        if (hideHome && hideSubscriptions && hideSearch) {
+            // Shorts suggestions can load in the background if a video is opened and
+            // then immediately minimized before any suggestions are loaded.
+            // In this state the player type will show minimized, which makes it not possible to
+            // distinguish between Shorts suggestions loading in the player and between
+            // scrolling thru search/home/subscription tabs while a player is minimized.
+            //
+            // To avoid this situation for users that never want to show Shorts (all hide Shorts options are enabled)
+            // then hide all Shorts everywhere including the Library history and Library playlists.
+            return true;
+        }
+
         // Must check player type first, as search bar can be active behind the player.
         if (PlayerType.getCurrent().isMaximizedOrFullscreen()) {
             // For now, consider the under video results the same as the home feed.
-            return Settings.HIDE_SHORTS_HOME.get();
+            return hideHome;
         }
 
         // Must check second, as search can be from any tab.
         if (NavigationBar.isSearchBarActive()) {
-            return Settings.HIDE_SHORTS_SEARCH.get();
+            return hideSearch;
         }
 
-        // Avoid checking navigation button status if all other settings are off.
-        final boolean hideHome = Settings.HIDE_SHORTS_HOME.get();
-        final boolean hideSubscriptions = Settings.HIDE_SHORTS_SUBSCRIPTIONS.get();
+        // Avoid checking navigation button status if all other Shorts should show.
         if (!hideHome && !hideSubscriptions) {
             return false;
         }
