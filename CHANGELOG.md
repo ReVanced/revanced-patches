@@ -1,3 +1,17 @@
+# [4.7.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.7.0-dev.5...v4.7.0-dev.6) (2024-04-12)
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Hide `Shop`, `Location` and `Save sound to playlist` buttons ([#3018](https://github.com/ReVanced/revanced-patches/issues/3018)) ([5210ac4](https://github.com/ReVanced/revanced-patches/commit/5210ac431c191987264865bf8e789ea9f3fdd360))
+
+# [4.7.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.7.0-dev.4...v4.7.0-dev.5) (2024-04-10)
+
+
+### Bug Fixes
+
+* **YouTube - Hide Shorts components:** Correctly hide Shorts if navigation tab is changed using device back button ([#3007](https://github.com/ReVanced/revanced-patches/issues/3007)) ([e5848e9](https://github.com/ReVanced/revanced-patches/commit/e5848e99c4cc838595164ef673a77fe60d28086b))
+
 # [4.7.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.7.0-dev.3...v4.7.0-dev.4) (2024-04-09)
 
 
