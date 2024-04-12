@@ -33,11 +33,16 @@ public final class ShortsFilter extends Filter {
     private final StringFilterGroup joinButton;
     private final StringFilterGroup shelfHeader;
 
+    private final StringFilterGroup suggestedActionPath;
+    private final ByteArrayFilterGroupList suggestedActions =  new ByteArrayFilterGroupList();
+
     private final StringFilterGroup actionBar;
     private final ByteArrayFilterGroupList videoActionButtonGroupList = new ByteArrayFilterGroupList();
 
     public ShortsFilter() {
+        //
         // Identifier components.
+        //
 
         var shorts = new StringFilterGroup(
                 null, // Setting is based on navigation state.
@@ -55,14 +60,17 @@ public final class ShortsFilter extends Filter {
         );
 
         // Home / subscription feed components.
-        var thanksButton = new StringFilterGroup(
+
+        var thanksButton = new StringFilterGroup( // Edit: Does this item show up anymore?
                 Settings.HIDE_SHORTS_THANKS_BUTTON,
                 "suggested_action"
         );
 
         addIdentifierCallbacks(shorts, shelfHeader, thanksButton);
 
+        //
         // Path components.
+        //
 
         // Shorts that appear in the feed/search when the device is using tablet layout.
         shortsCompactFeedVideoPath = new StringFilterGroup(null, "compact_video.eml");
@@ -122,13 +130,21 @@ public final class ShortsFilter extends Filter {
                 "shorts_action_bar"
         );
 
+        suggestedActionPath = new StringFilterGroup(
+                null,
+                "suggested_action.eml"
+        );
+
         addPathCallbacks(
                 shortsCompactFeedVideoPath,
-                joinButton, subscribeButton, subscribeButtonPaused,
+                joinButton, subscribeButton, subscribeButtonPaused, suggestedActionPath,
                 channelBar, fullVideoLinkLabel, videoTitle, reelSoundMetadata,
                 soundButton, infoPanel, actionBar
         );
 
+        //
+        // Action buttons
+        //
         var shortsLikeButton = new ByteArrayFilterGroup(
                 Settings.HIDE_SHORTS_LIKE_BUTTON,
                 "shorts_like_button"
@@ -161,6 +177,24 @@ public final class ShortsFilter extends Filter {
                 shortsShareButton,
                 shortsRemixButton
         );
+
+        //
+        // Suggested actions.
+        //
+        suggestedActions.addAll(
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_SHORTS_SHOP_BUTTON,
+                        "yt_outline_bag_"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_SHORTS_LOCATION_BUTTON,
+                        "yt_outline_location_point_"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_SHORTS_SAVE_SOUND_BUTTON,
+                        "yt_outline_list_add_"
+                )
+        );
     }
 
     @Override
@@ -185,6 +219,14 @@ public final class ShortsFilter extends Filter {
                 return false;
             }
 
+            if (matchedGroup == subscribeButton || matchedGroup == joinButton) {
+                // Filter only when reelChannelBar is visible to avoid false positives.
+                if (path.startsWith(REEL_CHANNEL_BAR_PATH)) return super.isFiltered(
+                        identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex
+                );
+                return false;
+            }
+
             // Video action buttons (like, dislike, comment, share, remix) have the same path.
             if (matchedGroup == actionBar) {
                 if (videoActionButtonGroupList.check(protobufBufferArray).isFiltered()) return super.isFiltered(
@@ -193,14 +235,11 @@ public final class ShortsFilter extends Filter {
                 return false;
             }
 
-            // Filter other path groups from pathFilterGroupList, only when reelChannelBar is visible
-            // to avoid false positives.
-            if (matchedGroup == subscribeButton ||
-                    matchedGroup == joinButton
-            ) {
-                if (path.startsWith(REEL_CHANNEL_BAR_PATH)) return super.isFiltered(
+            if (matchedGroup == suggestedActionPath) {
+                if (contentIndex == 0 && suggestedActions.check(protobufBufferArray).isFiltered()) return super.isFiltered(
                         identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex
-                ); // else, return false.
+                );
+                // else, return false;
             }
 
             return false;
