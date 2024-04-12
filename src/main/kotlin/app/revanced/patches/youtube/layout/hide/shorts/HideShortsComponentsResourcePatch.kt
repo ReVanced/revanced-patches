@@ -34,8 +34,8 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
             SwitchPreference("revanced_hide_shorts_sound_button"),
 
             // Everything else.
-            SwitchPreference("revanced_hide_shorts_thanks_button"),
             SwitchPreference("revanced_hide_shorts_shop_button"),
+            SwitchPreference("revanced_hide_shorts_tagged_products"),
             SwitchPreference("revanced_hide_shorts_location_button"),
             SwitchPreference("revanced_hide_shorts_save_sound_button"),
             SwitchPreference("revanced_hide_shorts_join_button"),
