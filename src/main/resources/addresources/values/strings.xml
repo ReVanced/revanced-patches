@@ -584,6 +584,9 @@
             <string name="revanced_hide_shorts_save_sound_button_title">Hide save sound to playlist button</string>
             <string name="revanced_hide_shorts_save_sound_button_summary_on">Save sound to playlist is hidden</string>
             <string name="revanced_hide_shorts_save_sound_button_summary_off">Save sound to playlist is shown</string>
+            <string name="revanced_hide_shorts_search_suggestions_title">Hide search suggestions</string>
+            <string name="revanced_hide_shorts_search_suggestions_summary_on">Search suggestions are hidden</string>
+            <string name="revanced_hide_shorts_search_suggestions_summary_off">Search suggestions are shown</string>
             <string name="revanced_hide_shorts_like_button_title">Hide like button</string>
             <string name="revanced_hide_shorts_like_button_summary_on">Like button is hidden</string>
             <string name="revanced_hide_shorts_like_button_summary_off">Like button is shown</string>
