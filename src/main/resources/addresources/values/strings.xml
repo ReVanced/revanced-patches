@@ -581,6 +581,15 @@
             <string name="revanced_hide_shorts_thanks_button_title">Hide thanks button</string>
             <string name="revanced_hide_shorts_thanks_button_summary_on">Thanks button is hidden</string>
             <string name="revanced_hide_shorts_thanks_button_summary_off">Thanks button is shown</string>
+            <string name="revanced_hide_shorts_shop_button_title">Hide shop button</string>
+            <string name="revanced_hide_shorts_shop_button_summary_on">Shop button is hidden</string>
+            <string name="revanced_hide_shorts_shop_button_summary_off">Shop button is shown</string>
+            <string name="revanced_hide_shorts_location_button_title">Hide location button</string>
+            <string name="revanced_hide_shorts_location_button_summary_on">Location button is hidden</string>
+            <string name="revanced_hide_shorts_location_button_summary_off">Location button is shown</string>
+            <string name="revanced_hide_shorts_save_sound_button_title">Hide save sound to playlist button</string>
+            <string name="revanced_hide_shorts_save_sound_button_summary_on">Save sound to playlist is hidden</string>
+            <string name="revanced_hide_shorts_save_sound_button_summary_off">Save sound to playlist is shown</string>
             <string name="revanced_hide_shorts_like_button_title">Hide like button</string>
             <string name="revanced_hide_shorts_like_button_summary_on">Like button is hidden</string>
             <string name="revanced_hide_shorts_like_button_summary_off">Like button is shown</string>
