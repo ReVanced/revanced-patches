@@ -578,9 +578,9 @@
             <string name="revanced_hide_shorts_tagged_products_title">Hide tagged products</string>
             <string name="revanced_hide_shorts_tagged_products_summary_on">Tagged products are hidden</string>
             <string name="revanced_hide_shorts_tagged_products_summary_off">Tagged products are shown</string>
-            <string name="revanced_hide_shorts_location_button_title">Hide location button</string>
-            <string name="revanced_hide_shorts_location_button_summary_on">Location button is hidden</string>
-            <string name="revanced_hide_shorts_location_button_summary_off">Location button is shown</string>
+            <string name="revanced_hide_shorts_location_label_title">Hide location label</string>
+            <string name="revanced_hide_shorts_location_label_summary_on">Location label is hidden</string>
+            <string name="revanced_hide_shorts_location_label_summary_off">Location label is shown</string>
             <string name="revanced_hide_shorts_save_sound_button_title">Hide save sound to playlist button</string>
             <string name="revanced_hide_shorts_save_sound_button_summary_on">Save sound to playlist is hidden</string>
             <string name="revanced_hide_shorts_save_sound_button_summary_off">Save sound to playlist is shown</string>
