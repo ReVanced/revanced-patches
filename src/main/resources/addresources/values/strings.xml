@@ -166,6 +166,9 @@
             <string name="revanced_hide_channel_bar_title">Hide channel bar</string>
             <string name="revanced_hide_channel_bar_summary_on">Channel bar is hidden</string>
             <string name="revanced_hide_channel_bar_summary_off">Channel bar is shown</string>
+            <string name="revanced_hide_playables_title">Hide playables</string>
+            <string name="revanced_hide_playables_summary_on">Playables are hidden</string>
+            <string name="revanced_hide_playables_summary_off">Playables are shown</string>
             <string name="revanced_hide_quick_actions_title">Hide quick actions in fullscreen</string>
             <string name="revanced_hide_quick_actions_summary_on">Quick actions are hidden</string>
             <string name="revanced_hide_quick_actions_summary_off">Quick actions are shown</string>
