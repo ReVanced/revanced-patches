@@ -17,7 +17,7 @@ import java.util.Objects;
  * All saved JSON text is converted to lowercase to keep the output less obnoxious.
  */
 @SuppressWarnings("unused")
-public class EnumSetting<T extends Enum> extends Setting<T> {
+public class EnumSetting<T extends Enum<?>> extends Setting<T> {
     public EnumSetting(String key, T defaultValue) {
         super(key, defaultValue);
     }
@@ -72,7 +72,7 @@ public class EnumSetting<T extends Enum> extends Setting<T> {
     @NonNull
     private T getEnumFromString(String enumName) {
         //noinspection ConstantConditions
-        for (Enum value : defaultValue.getClass().getEnumConstants()) {
+        for (Enum<?> value : defaultValue.getClass().getEnumConstants()) {
             if (value.name().equalsIgnoreCase(enumName)) {
                 // noinspection unchecked
                 return (T) value;
