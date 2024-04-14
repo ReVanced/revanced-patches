@@ -1,3 +1,10 @@
+# [4.7.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.7.0-dev.6...v4.7.0-dev.7) (2024-04-14)
+
+
+### Features
+
+* **YouTube - Hide layout components:** Hide playables ([8423515](https://github.com/ReVanced/revanced-patches/commit/842351548baa33737db09be1cbca9f87c1951341))
+
 # [4.7.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.7.0-dev.5...v4.7.0-dev.6) (2024-04-12)
 
 
