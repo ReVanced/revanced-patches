@@ -177,6 +177,11 @@ public final class LayoutComponentsFilter extends Filter {
                 "fullscreen_related_videos"
         );
 
+        final var playables = new StringFilterGroup(
+                Settings.HIDE_PLAYABLES,
+                "horizontal_gaming_shelf.eml"
+        );
+
         final var quickActions = new StringFilterGroup(
                 Settings.HIDE_QUICK_ACTIONS,
                 "quick_actions"
@@ -256,6 +261,7 @@ public final class LayoutComponentsFilter extends Filter {
                 latestPosts,
                 channelWatermark,
                 communityGuidelines,
+                playables,
                 quickActions,
                 relatedVideos,
                 compactBanner,
