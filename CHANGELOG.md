@@ -1,3 +1,10 @@
+# [4.7.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v4.7.0-dev.7...v4.7.0-dev.8) (2024-04-14)
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Hide tagged products, hide search suggestions ([#3019](https://github.com/ReVanced/revanced-patches/issues/3019)) ([e0d2fe5](https://github.com/ReVanced/revanced-patches/commit/e0d2fe5bd2e681b9a5252a8e4ad582cc019b1606))
+
 # [4.7.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.7.0-dev.6...v4.7.0-dev.7) (2024-04-14)
 
 
