@@ -571,10 +571,9 @@
             <string name="revanced_hide_shorts_subscribe_button_title">Hide subscribe button</string>
             <string name="revanced_hide_shorts_subscribe_button_summary_on">Subscribe button is hidden</string>
             <string name="revanced_hide_shorts_subscribe_button_summary_off">Subscribe button is shown</string>
-            <!-- 'subscribe' should be translated using the same localized wording YouTube displays for the button. -->
-            <string name="revanced_hide_shorts_subscribe_button_paused_title">Hide subscribe button when paused</string>
-            <string name="revanced_hide_shorts_subscribe_button_paused_summary_on">Subscribe button is hidden</string>
-            <string name="revanced_hide_shorts_subscribe_button_paused_summary_off">Subscribe button is shown</string>
+            <string name="revanced_hide_shorts_paused_overlay_buttons_title">Hide paused overlay buttons</string>
+            <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Paused overlay buttons are hidden</string>
+            <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Paused overlay buttons are shown</string>
             <string name="revanced_hide_shorts_shop_button_title">Hide shop button</string>
             <string name="revanced_hide_shorts_shop_button_summary_on">Shop button is hidden</string>
             <string name="revanced_hide_shorts_shop_button_summary_off">Shop button is shown</string>
