@@ -1,11 +1,30 @@
-<vector
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<!--
+   https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/compare/materialsymbolsoutlined/compare_wght200gradN25_24px.xml
+   The icon has been resized
+
+
+Copyright 2022 Google
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
         android:tint="#FFFFFF"
         android:width="24dp"
         android:height="24dp"
         android:viewportWidth="24"
         android:viewportHeight="24">
     <path
-            android:pathData="M 10.943253,23 V 20.581691 H 4.7612653 q -0.7423538,0 -1.2517951,-0.485791 Q 3,19.610137 3,18.907253 V 5.0927465 Q 3,4.3898635 3.5094702,3.9041002 4.0189116,3.4183097 4.7612653,3.4183097 H 10.943253 V 1 H 12 V 23 Z M 4.0567765,18.482429 H 10.943253 V 10.614511 Z M 14.20156,20.581691 v -8.648879 l 5.741663,6.549617 V 5.0977133 q 0,-0.2519146 -0.220147,-0.4618298 Q 19.502928,4.4259683 19.238735,4.4259683 H 14.20156 V 3.4183097 h 5.037175 q 0.742354,0 1.251795,0.4857905 Q 21,4.3898635 21,5.0927465 V 18.907253 q 0,0.702884 -0.50947,1.188647 -0.509441,0.485791 -1.251795,0.485791 z"
-            android:fillColor="@android:color/white"/>
+            android:fillColor="@android:color/white"
+            android:pathData="M 10.825834,24 V 21.361845 H 3.9569613 q -0.8248376,0 -1.3908832,-0.529956 Q 2,20.301968 2,19.535186 V 4.4648145 Q 2,3.6980325 2.5660781,3.1681093 3.1321238,2.6381557 3.9569613,2.6381557 H 10.825834 V 0 H 12 V 24 Z M 3.1741963,19.071741 h 7.6516377 v -8.583184 z m 11.2719827,2.290104 v -9.43514 l 6.379624,7.145036 V 4.4702328 q 0,-0.2748156 -0.244607,-0.503814 Q 20.336588,3.7374204 20.043037,3.7374204 H 14.446179 V 2.6381568 h 5.596858 q 0.824836,0 1.390889,0.5299536 Q 22,3.6980329 22,4.4648145 V 19.535186 q 0,0.766776 -0.566074,1.296706 -0.566053,0.529956 -1.390889,0.529956 z"/>
 </vector>
