@@ -30,7 +30,7 @@ object HideAdsResourcePatch : ResourcePatch() {
             SwitchPreference("revanced_hide_general_ads"),
             SwitchPreference("revanced_hide_fullscreen_ads"),
             SwitchPreference("revanced_hide_buttoned_ads"),
-            SwitchPreference("revanced_hide_paid_content_ads"),
+            SwitchPreference("revanced_hide_paid_promotion_label"),
             SwitchPreference("revanced_hide_self_sponsor_ads"),
             SwitchPreference("revanced_hide_products_banner"),
             SwitchPreference("revanced_hide_shopping_links"),
