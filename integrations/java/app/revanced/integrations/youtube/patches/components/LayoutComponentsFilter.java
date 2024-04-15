@@ -113,8 +113,8 @@ public final class LayoutComponentsFilter extends Filter {
                 "medical_panel"
         );
 
-        final var paidContent = new StringFilterGroup(
-                Settings.HIDE_PAID_CONTENT,
+        final var paidPromotion = new StringFilterGroup(
+                Settings.HIDE_PAID_PROMOTION_LABEL,
                 "paid_content_overlay"
         );
 
@@ -256,7 +256,7 @@ public final class LayoutComponentsFilter extends Filter {
                 notifyMe,
                 channelBar,
                 communityPosts,
-                paidContent,
+                paidPromotion,
                 searchResultVideo,
                 latestPosts,
                 channelWatermark,
