@@ -1,3 +1,10 @@
+# [4.7.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v4.7.0-dev.8...v4.7.0-dev.9) (2024-04-15)
+
+
+### Bug Fixes
+
+* **YouTube - Hide ads:** rename `Hide paid content` to `Hide paid promotion label` ([#3026](https://github.com/ReVanced/revanced-patches/issues/3026)) ([17e4ac9](https://github.com/ReVanced/revanced-patches/commit/17e4ac978a2f109fd62469a3163b636cd63c55ae))
+
 # [4.7.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v4.7.0-dev.7...v4.7.0-dev.8) (2024-04-14)
 
 
