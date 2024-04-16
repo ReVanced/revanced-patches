@@ -220,7 +220,8 @@ public final class ShortsFilter extends Filter {
             }
 
             if (matchedGroup == suggestedAction) {
-                if (contentIndex == 0 && suggestedActionsGroupList.check(protobufBufferArray).isFiltered()) {
+                // Suggested actions can be at the start or in the middle of a path.
+                if (suggestedActionsGroupList.check(protobufBufferArray).isFiltered()) {
                     return super.isFiltered(
                             identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex
                     );
