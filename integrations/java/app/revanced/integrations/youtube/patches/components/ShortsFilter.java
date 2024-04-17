@@ -17,7 +17,12 @@ import app.revanced.integrations.youtube.shared.PlayerType;
 @SuppressWarnings("unused")
 public final class ShortsFilter extends Filter {
     public static PivotBar pivotBar; // Set by patch.
-    private final String REEL_CHANNEL_BAR_PATH = "reel_channel_bar.eml";
+
+    private final static String REEL_CHANNEL_BAR_PATH = "reel_channel_bar.eml";
+    /**
+     * For subscribe button that appears in the channel bar.
+     */
+    private final static String REEL_METAPANEL_PATH = "reel_metapanel.eml";
 
     private final StringFilterGroup shortsCompactFeedVideoPath;
     private final ByteArrayFilterGroup shortsCompactFeedVideoBuffer;
@@ -192,8 +197,8 @@ public final class ShortsFilter extends Filter {
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (contentType == FilterContentType.PATH) {
             if (matchedGroup == subscribeButton || matchedGroup == joinButton) {
-                // Filter only when reelChannelBar is visible to avoid false positives.
-                if (path.startsWith(REEL_CHANNEL_BAR_PATH)) {
+                // Selectively filter to avoid false positive filtering of other subscribe/join buttons.
+                if (path.startsWith(REEL_CHANNEL_BAR_PATH) || path.startsWith(REEL_METAPANEL_PATH)) {
                     return super.isFiltered(
                             identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex
                     );
