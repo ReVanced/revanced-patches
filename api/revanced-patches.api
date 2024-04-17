@@ -28,6 +28,12 @@ public final class app/revanced/patches/all/misc/debugging/EnableAndroidDebuggin
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
+public final class app/revanced/patches/all/misc/hex/HexPatch : app/revanced/patcher/patch/RawResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/all/misc/hex/HexPatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
 public final class app/revanced/patches/all/misc/network/OverrideCertificatePinningPatch : app/revanced/patcher/patch/ResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/all/misc/network/OverrideCertificatePinningPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
