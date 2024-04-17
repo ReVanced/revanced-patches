@@ -12,6 +12,7 @@ import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.IntentPreference
+import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
@@ -39,11 +40,19 @@ object SettingsPatch :
     private const val INTEGRATIONS_PACKAGE = "app/revanced/integrations/youtube"
     private const val ACTIVITY_HOOK_CLASS_DESCRIPTOR = "L$INTEGRATIONS_PACKAGE/settings/LicenseActivityHook;"
 
-    private const val THEME_HELPER_DESCRIPTOR = "L$INTEGRATIONS_PACKAGE/ThemeHelper;"
+    internal const val THEME_HELPER_DESCRIPTOR = "L$INTEGRATIONS_PACKAGE/ThemeHelper;"
     private const val SET_THEME_METHOD_NAME: String = "setTheme"
 
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
+
+        // Add an about preference to the top.
+        SettingsResourcePatch += NonInteractivePreference(
+            key = "revanced_settings_screen_00_about",
+            summaryKey = null,
+            tag = "app.revanced.integrations.youtube.settings.preference.ReVancedYouTubeAboutPreference",
+            selectable = true,
+        )
 
         PreferenceScreen.MISC.addPreferences(
             TextPreference(
@@ -52,7 +61,7 @@ object SettingsPatch :
                 summaryKey = "revanced_pref_import_export_summary",
                 inputType = InputType.TEXT_MULTI_LINE,
                 tag = "app.revanced.integrations.shared.settings.preference.ImportExportPreference",
-            ),
+            )
         )
 
         SetThemeFingerprint.result?.mutableMethod?.let { setThemeMethod ->
@@ -69,7 +78,7 @@ object SettingsPatch :
                     replaceInstruction(
                         returnIndex,
                         "invoke-static { v$register }, " +
-                            "$THEME_HELPER_DESCRIPTOR->$SET_THEME_METHOD_NAME(Ljava/lang/Object;)V",
+                            "$THEME_HELPER_DESCRIPTOR->$SET_THEME_METHOD_NAME(Ljava/lang/Enum;)V",
                     )
                     addInstruction(returnIndex + 1, "return-object v$register")
                 }
