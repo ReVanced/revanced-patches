@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.hide.breakingnews
+package app.revanced.patches.youtube.layout.hide.general
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
@@ -13,20 +13,14 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
         SettingsPatch::class,
         ResourceMappingPatch::class,
         AddResourcesPatch::class
-    ],
+    ]
 )
-internal object BreakingNewsResourcePatch : ResourcePatch() {
-    internal var horizontalCardListId: Long = -1
+internal object HideLayoutComponentsResourcePatch : ResourcePatch() {
+    internal var expandButtonDownId: Long = -1
 
     override fun execute(context: ResourceContext) {
-        AddResourcesPatch(this::class)
-
-        SettingsPatch.PreferenceScreen.FEED.addPreferences(
-            SwitchPreference("revanced_hide_breaking_news")
-        )
-
-        horizontalCardListId = ResourceMappingPatch.resourceMappings.single {
-            it.type == "layout" && it.name == "horizontal_card_list"
+        expandButtonDownId = ResourceMappingPatch.resourceMappings.single {
+            it.type == "layout" && it.name == "expand_button_down"
         }.id
     }
 }

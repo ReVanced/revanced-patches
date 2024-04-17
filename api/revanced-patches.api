@@ -152,6 +152,12 @@ public final class app/revanced/patches/all/telephony/sim/spoof/SpoofSimCountryP
 	public fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lkotlin/Pair;)V
 }
 
+public final class app/revanced/patches/amazon/deeplinking/DeepLinkingPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/amazon/deeplinking/DeepLinkingPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/backdrops/misc/pro/ProUnlockPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/backdrops/misc/pro/ProUnlockPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -838,6 +844,8 @@ public final class app/revanced/patches/shared/misc/settings/preference/ListPref
 }
 
 public final class app/revanced/patches/shared/misc/settings/preference/NonInteractivePreference : app/revanced/patches/shared/misc/settings/preference/BasePreference {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun getSelectable ()Z
@@ -1062,10 +1070,6 @@ public final class app/revanced/patches/tumblr/fixes/FixOldVersionsPatch : app/r
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/tumblr/fixes/fingerprints/HttpPathParserFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/tumblr/fixes/fingerprints/HttpPathParserFingerprint;
-}
-
 public final class app/revanced/patches/tumblr/live/DisableTumblrLivePatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/tumblr/live/DisableTumblrLivePatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -1196,6 +1200,12 @@ public final class app/revanced/patches/twitter/misc/hook/patch/recommendation/H
 
 public final class app/revanced/patches/twitter/misc/links/OpenLinksWithAppChooserPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/links/OpenLinksWithAppChooserPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/twitter/misc/links/SanitizeSharingLinksPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/links/SanitizeSharingLinksPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }

@@ -10,6 +10,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.navigation.fingerprints.*
+import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.resultOrThrow
@@ -25,6 +26,7 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
     dependencies = [
         IntegrationsPatch::class,
         NavigationBarHookResourcePatch::class,
+        PlayerTypeHookPatch::class // Required to detect the search bar in all situations.
     ],
 )
 @Suppress("unused")
@@ -34,7 +36,9 @@ object NavigationBarHookPatch : BytecodePatch(
         NavigationEnumFingerprint,
         PivotBarButtonsCreateDrawableViewFingerprint,
         PivotBarButtonsCreateResourceViewFingerprint,
+        PivotBarButtonsViewSetSelectedFingerprint,
         NavigationBarHookCallbackFingerprint,
+        MainActivityOnBackPressedFingerprint,
         ActionBarSearchResultsFingerprint,
     ),
 ) {
@@ -86,6 +90,29 @@ object NavigationBarHookPatch : BytecodePatch(
                     imageResourceTabMethod,
                 )
             }
+        }
+
+        PivotBarButtonsViewSetSelectedFingerprint.resultOrThrow().mutableMethod.apply {
+            val index = PivotBarButtonsViewSetSelectedFingerprint.indexOfSetViewSelectedInstruction(this)
+            val instruction = getInstruction<FiveRegisterInstruction>(index)
+            val viewRegister = instruction.registerC
+            val isSelectedRegister = instruction.registerD
+
+            addInstruction(
+                index + 1,
+                "invoke-static { v$viewRegister, v$isSelectedRegister }, " +
+                        "$INTEGRATIONS_CLASS_DESCRIPTOR->navigationTabSelected(Landroid/view/View;Z)V",
+            )
+        }
+
+        // Hook onto back button pressed.  Needed to fix race problem with
+        // litho filtering based on navigation tab before the tab is updated.
+        MainActivityOnBackPressedFingerprint.resultOrThrow().mutableMethod.apply {
+            addInstruction(
+                0,
+                "invoke-static { p0 }, " +
+                        "$INTEGRATIONS_CLASS_DESCRIPTOR->onBackPressed(Landroid/app/Activity;)V",
+            )
         }
 
         // Hook the search bar.

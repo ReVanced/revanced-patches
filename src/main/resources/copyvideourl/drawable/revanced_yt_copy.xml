@@ -1,10 +1,30 @@
-<vector
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="24dp"
-    android:height="24dp"
-    android:viewportWidth="24"
-    android:viewportHeight="24">
+<!--
+   https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/content_copy/materialsymbolsoutlined/content_copy_wght200gradN25_24px.xml
+   The icon has been resized
+
+
+Copyright 2022 Google
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:tint="#FFFFFF"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24">
     <path
-        android:pathData="M 6.8 19.5 C 6.5 19.5 6.2 19.399 6 19.199 C 5.8 19 5.7 18.699 5.7 18.399 L 5.7 7.099 L 6.8 7.099 L 6.8 18.399 L 15.7 18.399 L 15.7 19.5 L 6.8 19.5 Z M 9 17.2 C 8.7 17.2 8.4 17.1 8.2 16.9 C 8 16.7 7.9 16.4 7.9 16.1 L 7.9 5.6 C 7.9 5.3 8 5 8.2 4.8 C 8.4 4.6 8.7 4.5 9 4.5 L 17.2 4.5 C 17.5 4.5 17.8 4.6 18 4.8 C 18.2 5 18.3 5.3 18.3 5.6 L 18.3 16.1 C 18.3 16.4 18.2 16.7 18 16.9 C 17.8 17.1 17.5 17.2 17.2 17.2 L 9 17.2 Z M 9 16.1 L 17.2 16.1 L 17.2 5.6 L 9 5.6 L 9 16.1 Z M 9 16.1 L 9 5.6 L 9 16.1 Z"
-        android:fillColor="#ffffffff"/>
+            android:fillColor="@android:color/white"
+            android:pathData="m 9.7348145,16.94238 q -0.5966913,0 -1.0062178,-0.39988 Q 8.319101,16.14259 8.319101,15.5599 V 5.88248 q 0,-0.58269 0.4094957,-0.9826 Q 9.1381232,4.5 9.7348145,4.5 h 7.1494615 q 0.596701,0 1.006218,0.39988 Q 18.3,5.29979 18.3,5.88248 v 9.67742 q 0,0.58269 -0.409506,0.9826 -0.409517,0.39988 -1.006218,0.39988 z m 0,-0.82949 h 7.1494615 q 0.212367,0 0.389322,-0.1728 0.176965,-0.17283 0.176965,-0.38019 V 5.88248 q 0,-0.20738 -0.176965,-0.38019 -0.176955,-0.1728 -0.389322,-0.1728 H 9.7348145 q -0.212336,0 -0.389322,0.1728 Q 9.1685373,5.6751 9.1685373,5.88248 v 9.67742 q 0,0.20736 0.1769552,0.38019 0.176986,0.1728 0.389322,0.1728 z M 7.1157237,19.5 Q 6.519022,19.5 6.1094957,19.10009 5.7,18.70021 5.7,18.1175 V 7.61058 H 6.5494363 V 18.1175 q 0,0.20738 0.1769552,0.38018 0.1769655,0.17281 0.3893322,0.17281 H 15.114611 V 19.5 Z M 9.1685373,16.11289 V 5.32949 Z"/>
 </vector>

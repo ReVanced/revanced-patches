@@ -23,7 +23,6 @@ import app.revanced.patches.youtube.layout.thumbnails.fingerprints.cronet.reques
 import app.revanced.patches.youtube.layout.thumbnails.fingerprints.cronet.request.callback.OnSucceededFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
-import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -40,8 +39,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
         IntegrationsPatch::class,
         SettingsPatch::class,
         AddResourcesPatch::class,
-        NavigationBarHookPatch::class,
-        PlayerTypeHookPatch::class
+        NavigationBarHookPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
