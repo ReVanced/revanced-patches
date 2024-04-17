@@ -1,4 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?>
-<vector xmlns:android="http://schemas.android.com/apk/res/android" android:tint="#FFFFFF" android:height="24dp" android:width="24dp" android:viewportWidth="24" android:viewportHeight="24">
-    <path android:fillColor="#FFFFFF" android:pathData="M 6.0050001,16.257111 h 0.916667 v 1.666667 H 16.088333 V 16.257111 H 17.005 v 2.777778 H 6.0050001 Z M 16.5,11.4 15.8,10.7 12,14.4 V 4 h -1 v 10.4 l -3.8,-3.8 -0.7,0.7 5,5 z"/>
+<!--
+   https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/download/materialsymbolsoutlined/download_wght200gradN25_24px.xml
+   The icon has been resized
+
+
+Copyright 2022 Google
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:tint="#FFFFFF"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24">
+    <path
+            android:fillColor="@android:color/white"
+            android:pathData="M 12,15.834271 8.2721019,12.095857 8.9799906,11.392186 11.499655,13.91185 V 4.5 h 1.011235 v 9.41185 l 2.519663,-2.519664 0.707862,0.703671 z M 6.1825058,19.5 Q 5.4750279,19.5 4.9875002,19.0125 4.5,18.524973 4.5,17.81607 v -2.619082 h 1.0112344 v 2.617631 q 0,0.252815 0.2106659,0.46348 0.2106658,0.210666 0.4634813,0.210666 H 17.814619 q 0.252815,0 0.46348,-0.210666 0.210666,-0.210665 0.210666,-0.46348 V 15.196988 H 19.5 v 2.619082 q 0,0.708903 -0.4875,1.19643 Q 18.524973,19.5 17.817522,19.5 Z"/>
 </vector>
