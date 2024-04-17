@@ -35,6 +35,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import app.revanced.integrations.shared.settings.BooleanSetting;
+import app.revanced.integrations.shared.settings.preference.ReVancedAboutPreference;
 import kotlin.text.Regex;
 
 public class Utils {
@@ -47,30 +48,44 @@ public class Utils {
     private Utils() {
     } // utility class
 
-    public static String getVersionName() {
-        if (versionName != null) return versionName;
+    /**
+     * Injection point.
+     *
+     * @return The manifest 'Version' entry of the patches.jar used during patching.
+     */
+    public static String getPatchesReleaseVersion() {
+        return ""; // Value is replaced during patching.
+    }
 
-        PackageInfo packageInfo;
-        try {
-            final var packageName = Objects.requireNonNull(getContext()).getPackageName();
+    /**
+     * @return The version name of the app, such as "YouTube".
+     */
+    public static String getAppVersionName() {
+        if (versionName == null) {
+            try {
+                final var packageName = Objects.requireNonNull(getContext()).getPackageName();
 
-            PackageManager packageManager = context.getPackageManager();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
-                packageInfo = packageManager.getPackageInfo(
-                        packageName,
-                        PackageManager.PackageInfoFlags.of(0)
-                );
-            else
-                packageInfo = packageManager.getPackageInfo(
-                        packageName,
-                        0
-                );
-        } catch (PackageManager.NameNotFoundException e) {
-            Logger.printException(() -> "Failed to get package info", e);
-            return null;
+                PackageManager packageManager = context.getPackageManager();
+                PackageInfo packageInfo;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    packageInfo = packageManager.getPackageInfo(
+                            packageName,
+                            PackageManager.PackageInfoFlags.of(0)
+                    );
+                } else {
+                    packageInfo = packageManager.getPackageInfo(
+                            packageName,
+                            0
+                    );
+                }
+                versionName = packageInfo.versionName;
+            } catch (Exception ex) {
+                Logger.printException(() -> "Failed to get package info", ex);
+                versionName = "Unknown";
+            }
         }
 
-        return versionName = packageInfo.versionName;
+        return versionName;
     }
 
     /**
@@ -185,6 +200,7 @@ public class Utils {
     }
 
     public static int getResourceColor(@NonNull String resourceIdentifierName) throws Resources.NotFoundException {
+        //noinspection deprecation
         return getContext().getResources().getColor(getResourceIdentifier(resourceIdentifierName, "color"));
     }
 
@@ -323,7 +339,7 @@ public class Utils {
             try {
                 runnable.run();
             } catch (Exception ex) {
-                Logger.printException(() -> runnable.getClass() + ": " + ex.getMessage(), ex);
+                Logger.printException(() -> runnable.getClass().getSimpleName() + ": " + ex.getMessage(), ex);
             }
         };
         new Handler(Looper.getMainLooper()).postDelayed(loggingRunnable, delayMillis);
@@ -445,11 +461,8 @@ public class Utils {
             this.keySuffix = keySuffix;
         }
 
-        /**
-         * Defaults to {@link #UNSORTED} if key is null or has no sort suffix.
-         */
         @NonNull
-        static Sort fromKey(@Nullable String key) {
+        static Sort fromKey(@Nullable String key, @NonNull Sort defaultSort) {
             if (key != null) {
                 for (Sort sort : values()) {
                     if (key.endsWith(sort.keySuffix)) {
@@ -457,7 +470,7 @@ public class Utils {
                     }
                 }
             }
-            return UNSORTED;
+            return defaultSort;
         }
     }
 
@@ -479,19 +492,26 @@ public class Utils {
      * If a preference has no key or no {@link Sort} suffix,
      * then the preferences are left unsorted.
      */
+    @SuppressWarnings("deprecation")
     public static void sortPreferenceGroups(@NonNull PreferenceGroup group) {
-        Sort sort = Sort.fromKey(group.getKey());
+        Sort groupSort = Sort.fromKey(group.getKey(), Sort.UNSORTED);
         SortedMap<String, Preference> preferences = new TreeMap<>();
 
         for (int i = 0, prefCount = group.getPreferenceCount(); i < prefCount; i++) {
             Preference preference = group.getPreference(i);
 
+            final Sort preferenceSort;
             if (preference instanceof PreferenceGroup) {
                 sortPreferenceGroups((PreferenceGroup) preference);
+                preferenceSort = groupSort; // Sort value for groups is for it's content, not itself.
+            } else {
+                // Allow individual preferences to set a key sorting.
+                // Used to force a preference to the top or bottom of a group.
+                preferenceSort = Sort.fromKey(preference.getKey(), groupSort);
             }
 
             final String sortValue;
-            switch (sort) {
+            switch (preferenceSort) {
                 case BY_TITLE:
                     sortValue = removePunctuationConvertToLowercase(preference.getTitle());
                     break;
@@ -511,8 +531,9 @@ public class Utils {
         for (Preference pref : preferences.values()) {
             int order = index++;
 
-            // If the preference is a PreferenceScreen or is an intent preference, move to the top.
-            if (pref instanceof PreferenceScreen || pref.getIntent() != null) {
+            // Move any screens, intents, and the one off About preference to the top.
+            if (pref instanceof PreferenceScreen || pref instanceof ReVancedAboutPreference
+                    || pref.getIntent() != null) {
                 // Arbitrary high number.
                 order -= 1000;
             }

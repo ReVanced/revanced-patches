@@ -1,7 +1,7 @@
 package app.revanced.integrations.youtube.returnyoutubedislike.requests;
 
-import static app.revanced.integrations.youtube.returnyoutubedislike.requests.ReturnYouTubeDislikeRoutes.getRYDConnectionFromRoute;
 import static app.revanced.integrations.shared.StringRef.str;
+import static app.revanced.integrations.youtube.returnyoutubedislike.requests.ReturnYouTubeDislikeRoutes.getRYDConnectionFromRoute;
 
 import android.util.Base64;
 
@@ -22,11 +22,11 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Objects;
 
+import app.revanced.integrations.shared.Logger;
+import app.revanced.integrations.shared.Utils;
 import app.revanced.integrations.youtube.requests.Requester;
 import app.revanced.integrations.youtube.returnyoutubedislike.ReturnYouTubeDislike;
 import app.revanced.integrations.youtube.settings.Settings;
-import app.revanced.integrations.shared.Logger;
-import app.revanced.integrations.shared.Utils;
 
 public class ReturnYouTubeDislikeApi {
     /**
@@ -383,7 +383,7 @@ public class ReturnYouTubeDislikeApi {
             }
 
             // Something went wrong, might as well disconnect.
-            String response = Requester.parseJsonAndDisconnect(connection);
+            String response = Requester.parseStringAndDisconnect(connection);
             Logger.printInfo(() -> "Failed to confirm registration for user: " + userId
                     + " solution: " + solution + " responseCode: " + responseCode + " response: '" + response + "''");
             handleConnectionError(str("revanced_ryd_failure_connection_status_code", responseCode),
@@ -505,7 +505,7 @@ public class ReturnYouTubeDislikeApi {
             }
 
             // Something went wrong, might as well disconnect.
-            String response = Requester.parseJsonAndDisconnect(connection);
+            String response = Requester.parseStringAndDisconnect(connection);
             Logger.printInfo(() -> "Failed to confirm vote for video: " + videoId
                     + " solution: " + solution + " responseCode: " + responseCode + " response: '" + response + "'");
             handleConnectionError(str("revanced_ryd_failure_connection_status_code", responseCode),

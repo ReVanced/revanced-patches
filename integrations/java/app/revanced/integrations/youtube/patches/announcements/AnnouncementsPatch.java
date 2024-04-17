@@ -61,7 +61,7 @@ public final class AnnouncementsPatch {
                     return;
                 }
 
-                var jsonString = Requester.parseInputStreamAndClose(connection.getInputStream(), false);
+                var jsonString = Requester.parseStringAndDisconnect(connection);
 
 
                 // Parse the announcement. Fall-back to raw string if it fails.

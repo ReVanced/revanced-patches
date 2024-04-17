@@ -15,7 +15,7 @@ import app.revanced.integrations.shared.Utils;
 
 import static app.revanced.integrations.shared.StringRef.str;
 
-/** @noinspection deprecation, unused */
+@SuppressWarnings({"unused", "deprecation"})
 public class ImportExportPreference extends EditTextPreference implements Preference.OnPreferenceClickListener {
 
     private String existingSettings;
