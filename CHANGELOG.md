@@ -1,3 +1,11 @@
+# [4.7.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v4.7.0-dev.9...v4.7.0-dev.10) (2024-04-17)
+
+
+### Features
+
+* **YouTube:** Add 'About' preference to settings menu ([#2981](https://github.com/ReVanced/revanced-patches/issues/2981)) ([5abf894](https://github.com/ReVanced/revanced-patches/commit/5abf89444a3e6a211ec03c242eb9a7847542b08c))
+* **YouTube:** Match overlay icons style to YouTube ([#3023](https://github.com/ReVanced/revanced-patches/issues/3023)) ([6849393](https://github.com/ReVanced/revanced-patches/commit/684939314be3d0d43482f229b2adb033e7aa492a))
+
 # [4.7.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v4.7.0-dev.8...v4.7.0-dev.9) (2024-04-15)
 
 
