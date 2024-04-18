@@ -247,7 +247,8 @@ public final class LayoutComponentsFilter extends Filter {
         horizontalShelves = new StringFilterGroup(
                 Settings.HIDE_HORIZONTAL_SHELVES,
                 "horizontal_video_shelf.eml",
-                "horizontal_shelf.eml"
+                "horizontal_shelf.eml",
+                "horizontal_tile_shelf.eml"
         );
 
         addPathCallbacks(
