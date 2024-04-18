@@ -1,3 +1,10 @@
+# [4.7.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v4.7.0-dev.11...v4.7.0-dev.12) (2024-04-18)
+
+
+### Features
+
+* Add `Hex` patch ([#3034](https://github.com/ReVanced/revanced-patches/issues/3034)) ([3c95aac](https://github.com/ReVanced/revanced-patches/commit/3c95aac838693b354d3a7b0e3dc57c6da5adfa9e))
+
 # [4.7.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v4.7.0-dev.10...v4.7.0-dev.11) (2024-04-18)
 
 
