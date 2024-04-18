@@ -98,7 +98,7 @@
             <string name="revanced_hide_channel_watermark_summary_on">Watermark is hidden</string>
             <string name="revanced_hide_channel_watermark_summary_off">Watermark is shown</string>
             <string name="revanced_hide_horizontal_shelves_title">Hide horizontal shelves</string>
-            <string name="revanced_hide_horizontal_shelves_summary_on">Shelves are hidden such as:\n• Breaking news\n• Continue watching\n• Explore more channels\n• Shopping\n• Watch it Again</string>
+            <string name="revanced_hide_horizontal_shelves_summary_on">Shelves are hidden such as:\n• Breaking news\n• Continue watching\n• Explore more channels\n• Shopping\n• Watch it again</string>
             <string name="revanced_hide_horizontal_shelves_summary_off">Shelves are shown</string>
             <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
