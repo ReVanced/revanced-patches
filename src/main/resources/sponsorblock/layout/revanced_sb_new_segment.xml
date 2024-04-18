@@ -26,7 +26,7 @@
                 android:paddingTop="3.0dip"
                 android:paddingEnd="5.0dip"
                 android:paddingBottom="3.0dip"
-                android:src="@drawable/player_fast_rewind" />
+                android:src="@drawable/revanced_sb_backward" />
 
             <ImageButton
                 android:id="@+id/revanced_sb_new_segment_forward"
@@ -40,7 +40,7 @@
                 android:paddingTop="3.0dip"
                 android:paddingEnd="5.0dip"
                 android:paddingBottom="3.0dip"
-                android:src="@drawable/player_fast_forward" />
+                android:src="@drawable/revanced_sb_forward" />
 
             <ImageButton
                 android:id="@+id/revanced_sb_new_segment_adjust"

@@ -53,10 +53,15 @@
     <app id="youtube">
         <patch id="misc.settings.SettingsResourcePatch">
             <string name="revanced_settings">ReVanced</string>
+            <string name="revanced_settings_about_links_body">You are using ReVanced Patches version &lt;i>%s&lt;/i></string>
+            <string name="revanced_settings_about_links_dev_header">Note</string>
+            <string name="revanced_settings_about_links_dev_body">This version is a pre-release and you may experience unexpected issues</string>
+            <string name="revanced_settings_about_links_header">Official links</string>
             <string name="revanced_pref_import_export_title">Import / Export</string>
             <string name="revanced_pref_import_export_summary">Import / Export ReVanced settings</string>
         </patch>
         <patch id="misc.settings.SettingsPatch">
+            <string name="revanced_settings_screen_00_about_title">About</string>
             <string name="revanced_settings_screen_01_ads_title">Ads</string>
             <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternative thumbnails</string>
             <string name="revanced_settings_screen_03_feed_title">Feed</string>
@@ -166,6 +171,9 @@
             <string name="revanced_hide_channel_bar_title">Hide channel bar</string>
             <string name="revanced_hide_channel_bar_summary_on">Channel bar is hidden</string>
             <string name="revanced_hide_channel_bar_summary_off">Channel bar is shown</string>
+            <string name="revanced_hide_playables_title">Hide playables</string>
+            <string name="revanced_hide_playables_summary_on">Playables are hidden</string>
+            <string name="revanced_hide_playables_summary_off">Playables are shown</string>
             <string name="revanced_hide_quick_actions_title">Hide quick actions in fullscreen</string>
             <string name="revanced_hide_quick_actions_summary_on">Quick actions are hidden</string>
             <string name="revanced_hide_quick_actions_summary_off">Quick actions are shown</string>
@@ -246,9 +254,9 @@
             <string name="revanced_hide_buttoned_ads_title">Hide buttoned ads</string>
             <string name="revanced_hide_buttoned_ads_summary_on">Buttoned ads are hidden</string>
             <string name="revanced_hide_buttoned_ads_summary_off">Buttoned ads are shown</string>
-            <string name="revanced_hide_paid_content_ads_title">Hide paid content</string>
-            <string name="revanced_hide_paid_content_ads_summary_on">Paid content is hidden</string>
-            <string name="revanced_hide_paid_content_ads_summary_off">Paid content is shown</string>
+            <string name="revanced_hide_paid_promotion_label_title">Hide paid promotion label</string>
+            <string name="revanced_hide_paid_promotion_label_summary_on">Paid promotion label is hidden</string>
+            <string name="revanced_hide_paid_promotion_label_summary_off">Paid promotion label is shown</string>
             <string name="revanced_hide_self_sponsor_ads_title">Hide self sponsored cards</string>
             <string name="revanced_hide_self_sponsor_ads_summary_on">Self sponsored cards are hidden</string>
             <string name="revanced_hide_self_sponsor_ads_summary_off">Self sponsored cards are shown</string>
@@ -572,24 +580,24 @@
             <string name="revanced_hide_shorts_subscribe_button_title">Hide subscribe button</string>
             <string name="revanced_hide_shorts_subscribe_button_summary_on">Subscribe button is hidden</string>
             <string name="revanced_hide_shorts_subscribe_button_summary_off">Subscribe button is shown</string>
-            <!-- 'subscribe' should be translated using the same localized wording YouTube displays for the button. -->
-            <string name="revanced_hide_shorts_subscribe_button_paused_title">Hide subscribe button when paused</string>
-            <string name="revanced_hide_shorts_subscribe_button_paused_summary_on">Subscribe button is hidden</string>
-            <string name="revanced_hide_shorts_subscribe_button_paused_summary_off">Subscribe button is shown</string>
-            <!-- 'thanks' should be translated using the same localized wording YouTube displays for the button.
-                 If the button never shows up, then translate the button name normally. -->
-            <string name="revanced_hide_shorts_thanks_button_title">Hide thanks button</string>
-            <string name="revanced_hide_shorts_thanks_button_summary_on">Thanks button is hidden</string>
-            <string name="revanced_hide_shorts_thanks_button_summary_off">Thanks button is shown</string>
+            <string name="revanced_hide_shorts_paused_overlay_buttons_title">Hide paused overlay buttons</string>
+            <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Paused overlay buttons are hidden</string>
+            <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Paused overlay buttons are shown</string>
             <string name="revanced_hide_shorts_shop_button_title">Hide shop button</string>
             <string name="revanced_hide_shorts_shop_button_summary_on">Shop button is hidden</string>
             <string name="revanced_hide_shorts_shop_button_summary_off">Shop button is shown</string>
-            <string name="revanced_hide_shorts_location_button_title">Hide location button</string>
-            <string name="revanced_hide_shorts_location_button_summary_on">Location button is hidden</string>
-            <string name="revanced_hide_shorts_location_button_summary_off">Location button is shown</string>
+            <string name="revanced_hide_shorts_tagged_products_title">Hide tagged products</string>
+            <string name="revanced_hide_shorts_tagged_products_summary_on">Tagged products are hidden</string>
+            <string name="revanced_hide_shorts_tagged_products_summary_off">Tagged products are shown</string>
+            <string name="revanced_hide_shorts_location_label_title">Hide location label</string>
+            <string name="revanced_hide_shorts_location_label_summary_on">Location label is hidden</string>
+            <string name="revanced_hide_shorts_location_label_summary_off">Location label is shown</string>
             <string name="revanced_hide_shorts_save_sound_button_title">Hide save sound to playlist button</string>
             <string name="revanced_hide_shorts_save_sound_button_summary_on">Save sound to playlist is hidden</string>
             <string name="revanced_hide_shorts_save_sound_button_summary_off">Save sound to playlist is shown</string>
+            <string name="revanced_hide_shorts_search_suggestions_title">Hide search suggestions</string>
+            <string name="revanced_hide_shorts_search_suggestions_summary_on">Search suggestions are hidden</string>
+            <string name="revanced_hide_shorts_search_suggestions_summary_off">Search suggestions are shown</string>
             <string name="revanced_hide_shorts_like_button_title">Hide like button</string>
             <string name="revanced_hide_shorts_like_button_summary_on">Like button is hidden</string>
             <string name="revanced_hide_shorts_like_button_summary_off">Like button is shown</string>
