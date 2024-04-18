@@ -36,21 +36,21 @@ abstract class BaseHexPatch : RawResourcePatch() {
      * @property targetFilePath The path to the file to make the changes in relative to the APK root.
      */
     class Replacement(
-        pattern: String,
+        private val pattern: String,
         replacementPattern: String,
         internal val targetFilePath: String,
     ) {
-        private val pattern = pattern.toByteArrayPattern()
+        private val patternBytes = pattern.toByteArrayPattern()
         private val replacementPattern = replacementPattern.toByteArrayPattern()
 
         init {
-            if (this.pattern.size != this.replacementPattern.size) {
+            if (this.patternBytes.size != this.replacementPattern.size) {
                 throw PatchException("Pattern and replacement pattern must have the same length: $pattern")
             }
         }
 
         /**
-         * Replaces the [pattern] with the [replacementPattern] in the [targetFileBytes].
+         * Replaces the [patternBytes] with the [replacementPattern] in the [targetFileBytes].
          *
          * @param targetFileBytes The bytes of the file to make the changes in.
          */
@@ -61,21 +61,21 @@ abstract class BaseHexPatch : RawResourcePatch() {
                 throw PatchException("Pattern not found in target file: $pattern")
             }
 
-            replacementPattern.copyInto(targetFileBytes, startIndex, 0, replacementPattern.size)
+            replacementPattern.copyInto(targetFileBytes, startIndex)
         }
 
         // TODO: Allow searching in a file channel instead of a byte array to reduce memory usage.
         /**
-         * Returns the index of the first occurrence of [pattern] in the haystack
+         * Returns the index of the first occurrence of [patternBytes] in the haystack
          * using the Boyer-Moore algorithm.
          *
          * @param haystack The array to search in.
          *
-         * @return The index of the first occurrence of the [pattern] in the haystack or -1
-         * if the [pattern] is not found.
+         * @return The index of the first occurrence of the [patternBytes] in the haystack or -1
+         * if the [patternBytes] is not found.
          */
         private fun indexOfPatternIn(haystack: ByteArray): Int {
-            val needle = pattern
+            val needle = patternBytes
 
             val haystackLength = haystack.size - 1
             val needleLength = needle.size - 1
