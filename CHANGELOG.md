@@ -1,3 +1,10 @@
+# [4.7.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v4.7.0-dev.10...v4.7.0-dev.11) (2024-04-18)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof device dimensions:** Warn about potential performance issues ([#3039](https://github.com/ReVanced/revanced-patches/issues/3039)) ([9d6f305](https://github.com/ReVanced/revanced-patches/commit/9d6f305b7c923e62b89581d221fedbe1e3f81835))
+
 # [4.7.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v4.7.0-dev.9...v4.7.0-dev.10) (2024-04-17)
 
 
