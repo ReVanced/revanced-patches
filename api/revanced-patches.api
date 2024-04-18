@@ -28,10 +28,8 @@ public final class app/revanced/patches/all/misc/debugging/EnableAndroidDebuggin
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
-public final class app/revanced/patches/all/misc/hex/HexPatch : app/revanced/patcher/patch/RawResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/all/misc/hex/HexPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/all/misc/hex/HexPatch : app/revanced/patches/shared/misc/hex/BaseHexPatch {
+	public fun <init> ()V
 }
 
 public final class app/revanced/patches/all/misc/network/OverrideCertificatePinningPatch : app/revanced/patcher/patch/ResourcePatch {
@@ -673,6 +671,21 @@ public abstract class app/revanced/patches/shared/misc/gms/BaseGmsCoreSupportRes
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 	protected final fun getGmsCoreVendor ()Ljava/lang/String;
 	protected final fun getGmsCoreVendorGroupId ()Ljava/lang/String;
+}
+
+public abstract class app/revanced/patches/shared/misc/hex/BaseHexPatch : app/revanced/patcher/patch/RawResourcePatch {
+	public fun <init> ()V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
+public final class app/revanced/patches/shared/misc/hex/BaseHexPatch$Replacement {
+	public static final field Companion Lapp/revanced/patches/shared/misc/hex/BaseHexPatch$Replacement$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun replacePattern ([B)V
+}
+
+public final class app/revanced/patches/shared/misc/hex/BaseHexPatch$Replacement$Companion {
 }
 
 public abstract class app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch : app/revanced/patcher/patch/BytecodePatch {
