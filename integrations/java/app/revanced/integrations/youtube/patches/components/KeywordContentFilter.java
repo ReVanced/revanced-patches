@@ -118,6 +118,7 @@ final class KeywordContentFilter extends Filter {
             // For now, consider the under video results the same as the home feed.
             return Settings.HIDE_KEYWORD_CONTENT_HOME.get();
         }
+
         // Must check second, as search can be from any tab.
         if (NavigationBar.isSearchBarActive()) {
             return Settings.HIDE_KEYWORD_CONTENT_SEARCH.get();
@@ -125,7 +126,7 @@ final class KeywordContentFilter extends Filter {
 
         // Avoid checking navigation button status if all other settings are off.
         final boolean hideHome = Settings.HIDE_KEYWORD_CONTENT_HOME.get();
-        final boolean hideSubscriptions = Settings.HIDE_SUBSCRIPTIONS_BUTTON.get();
+        final boolean hideSubscriptions = Settings.HIDE_KEYWORD_CONTENT_SUBSCRIPTIONS.get();
         if (!hideHome && !hideSubscriptions) {
             return false;
         }
