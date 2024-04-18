@@ -20,7 +20,7 @@ public final class ShortsFilter extends Filter {
 
     private final static String REEL_CHANNEL_BAR_PATH = "reel_channel_bar.eml";
     /**
-     * For subscribe button that appears in the channel bar.
+     * For paid promotion label and subscribe button that appears in the channel bar.
      */
     private final static String REEL_METAPANEL_PATH = "reel_metapanel.eml";
 
@@ -29,6 +29,7 @@ public final class ShortsFilter extends Filter {
 
     private final StringFilterGroup subscribeButton;
     private final StringFilterGroup joinButton;
+    private final StringFilterGroup paidPromotionButton;
     private final StringFilterGroup shelfHeader;
 
     private final StringFilterGroup suggestedAction;
@@ -117,6 +118,11 @@ public final class ShortsFilter extends Filter {
                 "subscribe_button"
         );
 
+        paidPromotionButton = new StringFilterGroup(
+                Settings.HIDE_PAID_PROMOTION_LABEL,
+                "reel_player_disclosure.eml"
+        );
+
         actionBar = new StringFilterGroup(
                 null,
                 "shorts_action_bar"
@@ -129,8 +135,8 @@ public final class ShortsFilter extends Filter {
 
         addPathCallbacks(
                 shortsCompactFeedVideoPath, suggestedAction, actionBar, joinButton, subscribeButton,
-                pausedOverlayButtons, channelBar, fullVideoLinkLabel, videoTitle, reelSoundMetadata,
-                soundButton, infoPanel
+                paidPromotionButton, pausedOverlayButtons, channelBar, fullVideoLinkLabel, videoTitle,
+                reelSoundMetadata, soundButton, infoPanel
         );
 
         //
@@ -196,7 +202,7 @@ public final class ShortsFilter extends Filter {
     boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (contentType == FilterContentType.PATH) {
-            if (matchedGroup == subscribeButton || matchedGroup == joinButton) {
+            if (matchedGroup == subscribeButton || matchedGroup == joinButton || matchedGroup == paidPromotionButton) {
                 // Selectively filter to avoid false positive filtering of other subscribe/join buttons.
                 if (path.startsWith(REEL_CHANNEL_BAR_PATH) || path.startsWith(REEL_METAPANEL_PATH)) {
                     return super.isFiltered(
