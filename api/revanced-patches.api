@@ -965,6 +965,10 @@ public final class app/revanced/patches/spotify/navbar/PremiumNavbarTabResourceP
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
+public final class app/revanced/patches/spotify/premium/UnlockPremiumPatch : app/revanced/patches/shared/misc/hex/BaseHexPatch {
+	public fun <init> ()V
+}
+
 public final class app/revanced/patches/strava/subscription/UnlockSubscriptionPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/strava/subscription/UnlockSubscriptionPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
