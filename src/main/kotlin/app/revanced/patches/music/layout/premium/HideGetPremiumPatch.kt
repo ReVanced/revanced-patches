@@ -12,7 +12,6 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.music.layout.premium.fingerprints.AccountMenuFooterFingerprint
 import app.revanced.patches.music.layout.premium.fingerprints.HideGetPremiumFingerprint
 import app.revanced.patches.music.layout.premium.fingerprints.MembershipSettingsFingerprint
-import app.revanced.patches.music.layout.premium.fingerprints.MembershipSettingsParentFingerprint
 import app.revanced.util.exception
 import app.revanced.util.indexOfFirstWideLiteralInstructionValue
 import com.android.tools.smali.dexlib2.Opcode
@@ -33,7 +32,7 @@ object HideGetPremiumPatch : BytecodePatch(
     setOf(
         AccountMenuFooterFingerprint,
         HideGetPremiumFingerprint,
-        MembershipSettingsParentFingerprint,
+        MembershipSettingsFingerprint,
     ),
 ) {
     override fun execute(context: BytecodeContext) {
@@ -90,23 +89,16 @@ object HideGetPremiumPatch : BytecodePatch(
             }
         } ?: throw AccountMenuFooterFingerprint.exception
 
-        MembershipSettingsParentFingerprint.result?.let { parentResult ->
-            MembershipSettingsFingerprint.also {
-                it.resolve(
-                    context,
-                    parentResult.classDef
+        MembershipSettingsFingerprint.result?.let {
+            it.mutableMethod.apply {
+                addInstructions(
+                    0, """
+                        const/4 v0, 0x0
+                        return-object v0
+                        """
                 )
-            }.result?.let {
-                it.mutableMethod.apply {
-                    addInstructions(
-                        0, """
-                            const/4 v0, 0x0
-                            return-object v0
-                            """
-                    )
-                }
-            } ?: throw MembershipSettingsFingerprint.exception
-        } ?: throw MembershipSettingsParentFingerprint.exception
+            }
+        } ?: throw MembershipSettingsFingerprint.exception
     }
     
     private lateinit var targetReference: Reference
