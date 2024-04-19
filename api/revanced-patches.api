@@ -384,12 +384,6 @@ public final class app/revanced/patches/music/layout/premium/HideGetPremiumPatch
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/music/layout/premium/HideGetPremiumResourcePatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/layout/premium/HideGetPremiumResourcePatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-}
-
 public final class app/revanced/patches/music/layout/upgradebutton/RemoveUpgradeButtonPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/layout/upgradebutton/RemoveUpgradeButtonPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
