@@ -25,8 +25,9 @@ object HideInfocardsResourcePatch : ResourcePatch() {
             SwitchPreference("revanced_hide_info_cards")
         )
 
-        drawerResourceId = ResourceMappingPatch.resourceMappings.single {
-            it.type == "id" && it.name == "info_cards_drawer_header"
-        }.id
+        drawerResourceId = ResourceMappingPatch.firstIdForResource(
+            "id",
+            "info_cards_drawer_header"
+        )
     }
 }

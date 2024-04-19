@@ -22,8 +22,9 @@ internal object CustomPlayerOverlayOpacityResourcePatch : ResourcePatch() {
             TextPreference("revanced_player_overlay_opacity", inputType = InputType.NUMBER)
         )
 
-        scrimOverlayId = ResourceMappingPatch.resourceMappings.single {
-            it.type == "id" && it.name == "scrim_overlay"
-        }.id
+        scrimOverlayId = ResourceMappingPatch.firstIdForResource(
+            "id",
+            "scrim_overlay"
+        )
     }
 }

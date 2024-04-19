@@ -168,9 +168,9 @@ object SponsorBlockBytecodePatch : BytecodePatch(
         val controlsMethodResult = PlayerControlsBytecodePatch.showPlayerControlsFingerprintResult
 
         val controlsLayoutStubResourceId =
-            ResourceMappingPatch.resourceMappings.single { it.type == "id" && it.name == "controls_layout_stub" }.id
+            ResourceMappingPatch.firstIdForResource("id", "controls_layout_stub")
         val zoomOverlayResourceId =
-            ResourceMappingPatch.resourceMappings.single { it.type == "id" && it.name == "video_zoom_overlay_stub" }.id
+            ResourceMappingPatch.firstIdForResource("id", "video_zoom_overlay_stub")
 
         methods@ for (method in controlsMethodResult.mutableClass.methods) {
             val instructions = method.implementation?.instructions!!

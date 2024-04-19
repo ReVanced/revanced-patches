@@ -40,6 +40,6 @@ object HideAdsResourcePatch : ResourcePatch() {
 
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
 
-        adAttributionId = ResourceMappingPatch.resourceMappings.single { it.name == "ad_attribution" }.id
+        adAttributionId = ResourceMappingPatch.firstIdForResource("id", "ad_attribution")
     }
 }

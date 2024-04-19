@@ -28,8 +28,9 @@ internal object ReturnYouTubeDislikeResourcePatch : ResourcePatch() {
             intent = SettingsPatch.newIntent("revanced_ryd_settings_intent")
         )
 
-        oldUIDislikeId = ResourceMappingPatch.resourceMappings.single {
-            it.type == "id" && it.name == "dislike_button"
-        }.id
+        oldUIDislikeId = ResourceMappingPatch.firstIdForResource(
+            "id",
+            "dislike_button"
+        )
     }
 }

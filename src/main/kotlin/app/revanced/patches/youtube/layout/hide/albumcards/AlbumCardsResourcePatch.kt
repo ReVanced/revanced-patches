@@ -25,8 +25,9 @@ internal object AlbumCardsResourcePatch : ResourcePatch() {
             SwitchPreference("revanced_hide_album_cards")
         )
 
-        albumCardId = ResourceMappingPatch.resourceMappings.single {
-            it.type == "layout" && it.name == "album_card"
-        }.id
+        albumCardId = ResourceMappingPatch.firstIdForResource(
+            "layout",
+            "album_card"
+        )
     }
 }

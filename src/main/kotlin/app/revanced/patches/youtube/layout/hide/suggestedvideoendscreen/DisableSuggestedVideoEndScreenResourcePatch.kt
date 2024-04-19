@@ -25,8 +25,9 @@ internal object DisableSuggestedVideoEndScreenResourcePatch : ResourcePatch() {
             SwitchPreference("revanced_disable_suggested_video_end_screen")
         )
 
-        sizeAdjustableLiteAutoNavOverlay = ResourceMappingPatch.resourceMappings.single {
-            it.type == "layout" && it.name == "size_adjustable_lite_autonav_overlay"
-        }.id
+        sizeAdjustableLiteAutoNavOverlay = ResourceMappingPatch.firstIdForResource(
+            "layout",
+            "size_adjustable_lite_autonav_overlay"
+        )
     }
 }

@@ -50,14 +50,16 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
             SwitchPreference("revanced_hide_shorts_navigation_bar"),
         )
 
+        // Cannot use first, as this resource does not exist in newer targets.
         ResourceMappingPatch.resourceMappings.find {
             it.type == "layout" && it.name == "reel_multiple_items_shelf"
         }?.also {
             reelMultipleItemShelfId = it.id
         }
 
-        reelPlayerRightCellButtonHeight = ResourceMappingPatch.resourceMappings.first {
-            it.type == "dimen" && it.name == "reel_player_right_cell_button_height"
-        }.id
+        reelPlayerRightCellButtonHeight = ResourceMappingPatch.firstIdForResource(
+            "dimen",
+            "reel_player_right_cell_button_height"
+        )
     }
 }

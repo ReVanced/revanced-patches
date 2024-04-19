@@ -25,8 +25,9 @@ internal object CrowdfundingBoxResourcePatch : ResourcePatch() {
             SwitchPreference("revanced_hide_crowdfunding_box")
         )
 
-        crowdfundingBoxId = ResourceMappingPatch.resourceMappings.single {
-            it.type == "layout" && it.name == "donation_companion"
-        }.id
+        crowdfundingBoxId = ResourceMappingPatch.firstIdForResource(
+            "layout",
+            "donation_companion"
+        )
     }
 }

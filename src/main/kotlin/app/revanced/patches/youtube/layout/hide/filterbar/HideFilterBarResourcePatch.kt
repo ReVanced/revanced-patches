@@ -29,11 +29,9 @@ internal object HideFilterBarResourcePatch : ResourcePatch() {
             )
         )
 
-        relatedChipCloudMarginId = "related_chip_cloud_reduced_margins".layoutResourceId("layout")
-        filterBarHeightId = "filter_bar_height".layoutResourceId()
-        barContainerHeightId = "bar_container_height".layoutResourceId()
+        relatedChipCloudMarginId = ResourceMappingPatch.firstIdForResource("layout", "related_chip_cloud_reduced_margins")
+        filterBarHeightId = ResourceMappingPatch.firstIdForResource("dimen", "filter_bar_height")
+        barContainerHeightId = ResourceMappingPatch.firstIdForResource("dimen", "bar_container_height")
     }
 
-    private fun String.layoutResourceId(type: String = "dimen") =
-        ResourceMappingPatch.resourceMappings.single { it.type == type && it.name == this }.id
 }

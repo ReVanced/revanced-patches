@@ -724,6 +724,7 @@ public final class app/revanced/patches/shared/misc/mapping/ResourceMappingPatch
 	public static final field INSTANCE Lapp/revanced/patches/shared/misc/mapping/ResourceMappingPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+	public final fun firstIdForResource (Ljava/lang/String;Ljava/lang/String;)J
 }
 
 public final class app/revanced/patches/shared/misc/mapping/ResourceMappingPatch$ResourceElement {

@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.video.videoqualitymenu
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
@@ -22,10 +21,10 @@ object RestoreOldVideoQualityMenuResourcePatch : ResourcePatch() {
             SwitchPreference("revanced_restore_old_video_quality_menu")
         )
 
-        fun findResource(name: String) = ResourceMappingPatch.resourceMappings.find { it.name == name }?.id
-            ?: throw PatchException("Could not find resource")
-
         // Used for the old type of the video quality menu.
-        videoQualityBottomSheetListFragmentTitle = findResource("video_quality_bottom_sheet_list_fragment_title")
+        videoQualityBottomSheetListFragmentTitle = ResourceMappingPatch.firstIdForResource(
+            "layout",
+            "video_quality_bottom_sheet_list_fragment_title"
+        )
     }
 }

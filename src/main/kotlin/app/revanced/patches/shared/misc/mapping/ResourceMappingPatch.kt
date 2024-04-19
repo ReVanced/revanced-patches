@@ -1,6 +1,7 @@
 package app.revanced.patches.shared.misc.mapping
 
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import org.w3c.dom.Element
 import java.util.*
@@ -60,4 +61,15 @@ object ResourceMappingPatch : ResourcePatch() {
     }
 
     data class ResourceElement(val type: String, val name: String, val id: Long)
+
+    /**
+     * @throws PatchException if the resource is not found.
+     */
+    fun firstIdForResource(type: String, name: String) : Long {
+        val resource = resourceMappings.find {
+            it.type == type && it.name == name
+        } ?: throw PatchException("Could not find resource type: $type with name: $name")
+
+        return resource.id
+    }
 }

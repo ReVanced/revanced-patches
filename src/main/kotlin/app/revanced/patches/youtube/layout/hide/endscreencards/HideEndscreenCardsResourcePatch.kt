@@ -27,9 +27,10 @@ internal object HideEndscreenCardsResourcePatch : ResourcePatch() {
             SwitchPreference("revanced_hide_endscreen_cards")
         )
 
-        fun findEndscreenResourceId(name: String) = ResourceMappingPatch.resourceMappings.single {
-            it.type == "layout" && it.name == "endscreen_element_layout_$name"
-        }.id
+        fun findEndscreenResourceId(name: String) = ResourceMappingPatch.firstIdForResource(
+            "layout",
+            "endscreen_element_layout_$name"
+        )
 
         layoutCircle = findEndscreenResourceId("circle")
         layoutIcon = findEndscreenResourceId("icon")
