@@ -1,3 +1,10 @@
+# [4.7.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v4.7.0-dev.14...v4.7.0-dev.15) (2024-04-20)
+
+
+### Features
+
+* **YouTube:** Support version `19.09.38`, `19.10.39` and `19.11.43` ([#2971](https://github.com/ReVanced/revanced-patches/issues/2971)) ([730f3e3](https://github.com/ReVanced/revanced-patches/commit/730f3e3a7e058b60f9a8130980ecb0a747fa0a8a))
+
 # [4.7.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v4.7.0-dev.13...v4.7.0-dev.14) (2024-04-20)
 
 
