@@ -47,16 +47,12 @@ object HideGetPremiumPatch : BytecodePatch(
             }
         } ?: throw HideGetPremiumFingerprint.exception
 
-        MembershipSettingsFingerprint.result?.let {
-            it.mutableMethod.apply {
-                addInstructions(
-                    0,
-                    """
-                        const/4 v0, 0x0
-                        return-object v0
-                    """
-                )
-            }
-        } ?: throw MembershipSettingsFingerprint.exception
+        MembershipSettingsFingerprint.result?.mutableMethod?.addInstructions(
+            0,
+            """
+                const/4 v0, 0x0
+                return-object v0
+            """,
+        ) ?: throw MembershipSettingsFingerprint.exception
     }
 }
