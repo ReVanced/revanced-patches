@@ -12,7 +12,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
     dependencies = [
         SettingsPatch::class,
         ResourceMappingPatch::class,
-        AddResourcesPatch::class
+        AddResourcesPatch::class,
     ],
 )
 object HideInfocardsResourcePatch : ResourcePatch() {
@@ -22,11 +22,12 @@ object HideInfocardsResourcePatch : ResourcePatch() {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_hide_info_cards")
+            SwitchPreference("revanced_hide_info_cards"),
         )
 
-        drawerResourceId = ResourceMappingPatch.resourceMappings.single {
-            it.type == "id" && it.name == "info_cards_drawer_header"
-        }.id
+        drawerResourceId = ResourceMappingPatch[
+            "id",
+            "info_cards_drawer_header",
+        ]
     }
 }

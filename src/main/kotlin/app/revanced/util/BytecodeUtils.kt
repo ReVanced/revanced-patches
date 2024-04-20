@@ -15,7 +15,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.Reference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
-
 fun MethodFingerprint.resultOrThrow() = result ?: throw exception
 
 /**
@@ -59,24 +58,41 @@ fun MutableMethod.injectHideViewCall(
     insertIndex: Int,
     viewRegister: Int,
     classDescriptor: String,
-    targetMethod: String
+    targetMethod: String,
 ) = addInstruction(
     insertIndex,
-    "invoke-static { v$viewRegister }, $classDescriptor->$targetMethod(Landroid/view/View;)V"
+    "invoke-static { v$viewRegister }, $classDescriptor->$targetMethod(Landroid/view/View;)V",
 )
 
 /**
- * Find the index of the first instruction with the id of the given resource name.
+ * Get the index of the first instruction with the id of the given resource name.
+ *
+ * Requires [ResourceMappingPatch] as a dependency.
  *
  * @param resourceName the name of the resource to find the id for.
  * @return the index of the first instruction with the id of the given resource name, or -1 if not found.
+ * @throws PatchException if the resource cannot be found.
+ * @see [indexOfIdResourceOrThrow]
  */
-fun Method.findIndexForIdResource(resourceName: String): Int {
-    fun getIdResourceId(resourceName: String) = ResourceMappingPatch.resourceMappings.single {
-        it.type == "id" && it.name == resourceName
-    }.id
+fun Method.indexOfIdResource(resourceName: String): Int {
+    val resourceId = ResourceMappingPatch["id", resourceName]
+    return indexOfFirstWideLiteralInstructionValue(resourceId)
+}
 
-    return indexOfFirstWideLiteralInstructionValue(getIdResourceId(resourceName))
+/**
+ * Get the index of the first instruction with the id of the given resource name or throw a [PatchException].
+ *
+ * Requires [ResourceMappingPatch] as a dependency.
+ *
+ * @throws [PatchException] if the resource is not found, or the method does not contain the resource id literal value.
+ */
+fun Method.indexOfIdResourceOrThrow(resourceName: String): Int {
+    val index = indexOfIdResource(resourceName)
+    if (index < 0) {
+        throw PatchException("Found resource id for: '$resourceName' but method does not contain the id: $this")
+    }
+
+    return index
 }
 
 /**
@@ -130,27 +146,29 @@ inline fun <reified T : Reference> Instruction.getReference() = (this as? Refere
 fun Method.indexOfFirstInstruction(predicate: Instruction.() -> Boolean) =
     this.implementation!!.instructions.indexOfFirst(predicate)
 
-    /**
-     * Return the resolved methods of [MethodFingerprint]s early.
-     */
-    fun List<MethodFingerprint>.returnEarly(bool: Boolean = false) {
-        val const = if (bool) "0x1" else "0x0"
-        this.forEach { fingerprint ->
-            fingerprint.result?.let { result ->
-                val stringInstructions = when (result.method.returnType.first()) {
-                    'L' -> """
+/**
+ * Return the resolved methods of [MethodFingerprint]s early.
+ */
+fun List<MethodFingerprint>.returnEarly(bool: Boolean = false) {
+    val const = if (bool) "0x1" else "0x0"
+    this.forEach { fingerprint ->
+        fingerprint.result?.let { result ->
+            val stringInstructions = when (result.method.returnType.first()) {
+                'L' ->
+                    """
                         const/4 v0, $const
                         return-object v0
                         """
-                    'V' -> "return-void"
-                    'I', 'Z' -> """
+                'V' -> "return-void"
+                'I', 'Z' ->
+                    """
                         const/4 v0, $const
                         return v0
                         """
-                    else -> throw Exception("This case should never happen.")
-                }
+                else -> throw Exception("This case should never happen.")
+            }
 
-                result.mutableMethod.addInstructions(0, stringInstructions)
-            } ?: throw fingerprint.exception
-        }
+            result.mutableMethod.addInstructions(0, stringInstructions)
+        } ?: throw fingerprint.exception
     }
+}

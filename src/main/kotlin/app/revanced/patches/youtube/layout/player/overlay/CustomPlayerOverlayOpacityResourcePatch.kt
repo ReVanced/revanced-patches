@@ -10,7 +10,7 @@ import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
-    dependencies = [SettingsPatch::class, ResourceMappingPatch::class, AddResourcesPatch::class]
+    dependencies = [SettingsPatch::class, ResourceMappingPatch::class, AddResourcesPatch::class],
 )
 internal object CustomPlayerOverlayOpacityResourcePatch : ResourcePatch() {
     internal var scrimOverlayId = -1L
@@ -19,11 +19,12 @@ internal object CustomPlayerOverlayOpacityResourcePatch : ResourcePatch() {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
-            TextPreference("revanced_player_overlay_opacity", inputType = InputType.NUMBER)
+            TextPreference("revanced_player_overlay_opacity", inputType = InputType.NUMBER),
         )
 
-        scrimOverlayId = ResourceMappingPatch.resourceMappings.single {
-            it.type == "id" && it.name == "scrim_overlay"
-        }.id
+        scrimOverlayId = ResourceMappingPatch[
+            "id",
+            "scrim_overlay",
+        ]
     }
 }
