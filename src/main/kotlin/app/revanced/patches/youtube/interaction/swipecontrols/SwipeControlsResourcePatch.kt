@@ -24,6 +24,7 @@ internal object SwipeControlsResourcePatch : ResourcePatch() {
             SwitchPreference("revanced_swipe_press_to_engage"),
             SwitchPreference("revanced_swipe_haptic_feedback"),
             SwitchPreference("revanced_swipe_save_and_restore_brightness"),
+            SwitchPreference("revanced_swipe_lowest_value_enable_auto_brightness"),
             TextPreference("revanced_swipe_overlay_timeout", inputType = InputType.NUMBER),
             TextPreference("revanced_swipe_text_overlay_size", inputType = InputType.NUMBER),
             TextPreference("revanced_swipe_overlay_background_alpha", inputType = InputType.NUMBER),
