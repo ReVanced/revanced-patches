@@ -14,7 +14,7 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Spoof device dimensions",
-    description = "Adds an option to spoof the device dimensions which unlocks higher video qualities if they aren't available on the device.",
+    description = "Adds an option to spoof the device dimensions which can unlock higher video qualities.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
