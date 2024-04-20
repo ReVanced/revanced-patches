@@ -8,8 +8,9 @@ internal object CustomPlaybackSpeedResourcePatch : ResourcePatch() {
     var speedUnavailableId: Long = -1
 
     override fun execute(context: ResourceContext) {
-        speedUnavailableId = ResourceMappingPatch.resourceMappings.single {
-            it.type == "string" && it.name == "varispeed_unavailable_message"
-        }.id
+        speedUnavailableId = ResourceMappingPatch[
+            "string",
+            "varispeed_unavailable_message",
+        ]
     }
 }
