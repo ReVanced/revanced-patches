@@ -11,8 +11,9 @@ object SpoofSignatureResourcePatch : ResourcePatch() {
     internal var scrubbedPreviewThumbnailResourceId: Long = -1
 
     override fun execute(context: ResourceContext) {
-        scrubbedPreviewThumbnailResourceId = ResourceMappingPatch.resourceMappings.single {
-            it.type == "id" && it.name == "thumbnail"
-        }.id
+        scrubbedPreviewThumbnailResourceId = ResourceMappingPatch[
+            "id",
+            "thumbnail",
+        ]
     }
 }

@@ -1,13 +1,10 @@
 package app.revanced.patches.youtube.layout.hide.shorts.fingerprints
 
-import app.revanced.patcher.extensions.or
 import app.revanced.patches.youtube.layout.hide.shorts.HideShortsComponentsResourcePatch
 import app.revanced.util.patch.LiteralValueFingerprint
-import com.android.tools.smali.dexlib2.AccessFlags
 
 internal object CreateShortsButtonsFingerprint : LiteralValueFingerprint(
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
+    // YT 19.12.x moved this code inside another method, and each method has different parameters.
     returnType = "V",
-    parameters = listOf("Z", "Z", "L"),
     literalSupplier = { HideShortsComponentsResourcePatch.reelPlayerRightCellButtonHeight }
 )

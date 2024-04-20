@@ -25,15 +25,12 @@ internal object HideFilterBarResourcePatch : ResourcePatch() {
                     SwitchPreference("revanced_hide_filter_bar_feed_in_feed"),
                     SwitchPreference("revanced_hide_filter_bar_feed_in_search"),
                     SwitchPreference("revanced_hide_filter_bar_feed_in_related_videos"),
-                )
-            )
+                ),
+            ),
         )
 
-        relatedChipCloudMarginId = "related_chip_cloud_reduced_margins".layoutResourceId("layout")
-        filterBarHeightId = "filter_bar_height".layoutResourceId()
-        barContainerHeightId = "bar_container_height".layoutResourceId()
+        relatedChipCloudMarginId = ResourceMappingPatch["layout", "related_chip_cloud_reduced_margins"]
+        filterBarHeightId = ResourceMappingPatch["dimen", "filter_bar_height"]
+        barContainerHeightId = ResourceMappingPatch["dimen", "bar_container_height"]
     }
-
-    private fun String.layoutResourceId(type: String = "dimen") =
-        ResourceMappingPatch.resourceMappings.single { it.type == type && it.name == this }.id
 }

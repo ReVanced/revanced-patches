@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.layout.sponsorblock
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -25,6 +24,7 @@ import app.revanced.patches.youtube.shared.fingerprints.SeekbarFingerprint
 import app.revanced.patches.youtube.shared.fingerprints.SeekbarOnDrawFingerprint
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
+import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.*
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
@@ -37,7 +37,8 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
     description = "Adds options to enable and configure SponsorBlock, which can skip undesired video segments such as sponsored content.",
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube",
+            [
                 "18.48.39",
                 "18.49.37",
                 "19.01.34",
@@ -48,9 +49,11 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
                 "19.06.39",
                 "19.07.40",
                 "19.08.36",
-                "19.09.37"
-            ]
-        )
+                "19.09.38",
+                "19.10.39",
+                "19.11.43",
+            ],
+        ),
     ],
     dependencies = [
         IntegrationsPatch::class,
@@ -60,8 +63,8 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
         // Used to prevent SponsorBlock from running on Shorts because SponsorBlock does not yet support Shorts.
         PlayerTypeHookPatch::class,
         PlayerControlsBytecodePatch::class,
-        SponsorBlockResourcePatch::class
-    ]
+        SponsorBlockResourcePatch::class,
+    ],
 )
 @Suppress("unused")
 object SponsorBlockBytecodePatch : BytecodePatch(
@@ -69,8 +72,8 @@ object SponsorBlockBytecodePatch : BytecodePatch(
         SeekbarFingerprint,
         AppendTimeFingerprint,
         LayoutConstructorFingerprint,
-        AutoRepeatParentFingerprint
-    )
+        AutoRepeatParentFingerprint,
+    ),
 ) {
     private const val INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/sponsorblock/SegmentPlaybackController;"
@@ -83,8 +86,9 @@ object SponsorBlockBytecodePatch : BytecodePatch(
 
     override fun execute(context: BytecodeContext) {
         LayoutConstructorFingerprint.result?.let {
-            if (!ControlsOverlayFingerprint.resolve(context, it.classDef))
+            if (!ControlsOverlayFingerprint.resolve(context, it.classDef)) {
                 throw ControlsOverlayFingerprint.exception
+            }
         } ?: throw LayoutConstructorFingerprint.exception
 
         /*
@@ -93,7 +97,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
         with(VideoInformationPatch) {
             videoTimeHook(
                 INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR,
-                "setVideoTime"
+                "setVideoTime",
             )
         }
 
@@ -121,7 +125,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
         seekbarMethod.addInstruction(
             moveRectangleToRegisterIndex + 1,
             "invoke-static/range {p0 .. p0}, " +
-                    "$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarRect(Ljava/lang/Object;)V"
+                "$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarRect(Ljava/lang/Object;)V",
         )
 
         for ((index, instruction) in seekbarMethodInstructions.withIndex()) {
@@ -136,7 +140,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
             seekbarMethod.addInstruction(
                 insertIndex,
                 "invoke-static {v${invokeInstruction.registerC}}, " +
-                        "$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarThickness(I)V"
+                    "$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarThickness(I)V",
             )
             break
         }
@@ -154,7 +158,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
             }
             seekbarMethod.addInstruction(
                 i,
-                "invoke-static {v$canvasInstance, v$centerY}, $INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->drawSponsorTimeBars(Landroid/graphics/Canvas;F)V"
+                "invoke-static {v$canvasInstance, v$centerY}, $INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->drawSponsorTimeBars(Landroid/graphics/Canvas;F)V",
             )
 
             break
@@ -166,9 +170,9 @@ object SponsorBlockBytecodePatch : BytecodePatch(
         val controlsMethodResult = PlayerControlsBytecodePatch.showPlayerControlsFingerprintResult
 
         val controlsLayoutStubResourceId =
-            ResourceMappingPatch.resourceMappings.single { it.type == "id" && it.name == "controls_layout_stub" }.id
+            ResourceMappingPatch["id", "controls_layout_stub"]
         val zoomOverlayResourceId =
-            ResourceMappingPatch.resourceMappings.single { it.type == "id" && it.name == "video_zoom_overlay_stub" }.id
+            ResourceMappingPatch["id", "video_zoom_overlay_stub"]
 
         methods@ for (method in controlsMethodResult.mutableClass.methods) {
             val instructions = method.implementation?.instructions!!
@@ -188,7 +192,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
                             """
                                 invoke-static {v$inflatedViewRegister}, $INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->initialize(Landroid/view/View;)V
                                 invoke-static {v$inflatedViewRegister}, $INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->initialize(Landroid/view/View;)V
-                            """
+                            """,
                         )
                     }
 
@@ -201,7 +205,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
                             """
                                 invoke-static {p1}, $INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibilityNegatedImmediate(Z)V
                                 invoke-static {p1}, $INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibilityNegatedImmediate(Z)V
-                            """.trimIndent()
+                            """.trimIndent(),
                         )
                     }
                 }
@@ -223,7 +227,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
             """
                 invoke-static {v$targetRegister}, $INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->appendTimeWithoutSegments(Ljava/lang/String;)Ljava/lang/String;
                 move-result-object v$targetRegister
-            """
+            """,
         )
 
         // initialize the player controller
@@ -236,10 +240,10 @@ object SponsorBlockBytecodePatch : BytecodePatch(
                 val frameLayoutRegister = (getInstruction(startIndex + 2) as OneRegisterInstruction).registerA
                 addInstruction(
                     startIndex + 3,
-                    "invoke-static {v$frameLayoutRegister}, $INTEGRATIONS_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR->initialize(Landroid/view/ViewGroup;)V"
+                    "invoke-static {v$frameLayoutRegister}, $INTEGRATIONS_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR->initialize(Landroid/view/ViewGroup;)V",
                 )
             }
-        }  ?: throw ControlsOverlayFingerprint.exception
+        } ?: throw ControlsOverlayFingerprint.exception
 
         // get rectangle field name
         RectangleFieldInvalidatorFingerprint.resolve(context, seekbarSignatureResult.classDef)
@@ -258,7 +262,8 @@ object SponsorBlockBytecodePatch : BytecodePatch(
                 fun MutableMethod.replaceStringInstruction(index: Int, instruction: Instruction, with: String) {
                     val register = (instruction as OneRegisterInstruction).registerA
                     this.replaceInstruction(
-                        index, "const-string v$register, \"$with\""
+                        index,
+                        "const-string v$register, \"$with\"",
                     )
                 }
                 for ((index, it) in method.implementation!!.instructions.withIndex()) {
@@ -268,12 +273,11 @@ object SponsorBlockBytecodePatch : BytecodePatch(
                         "replaceMeWithsetSponsorBarRect" -> method.replaceStringInstruction(
                             index,
                             it,
-                            rectangleFieldName
+                            rectangleFieldName,
                         )
                     }
                 }
             } ?: throw PatchException("Could not find the method which contains the replaceMeWith* strings")
-
 
         // The vote and create segment buttons automatically change their visibility when appropriate,
         // but if buttons are showing when the end of the video is reached then they will not automatically hide.
@@ -283,7 +287,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
             it.resolve(context, AutoRepeatParentFingerprint.result!!.classDef)
         }.result?.mutableMethod?.addInstruction(
             0,
-            "invoke-static {}, $INTEGRATIONS_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR->endOfVideoReached()V"
+            "invoke-static {}, $INTEGRATIONS_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR->endOfVideoReached()V",
         ) ?: throw AutoRepeatFingerprint.exception
 
         // TODO: isSBChannelWhitelisting implementation

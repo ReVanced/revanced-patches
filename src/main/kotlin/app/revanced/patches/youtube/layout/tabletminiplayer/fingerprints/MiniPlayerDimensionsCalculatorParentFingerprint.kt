@@ -12,7 +12,7 @@ internal object MiniPlayerDimensionsCalculatorParentFingerprint : MethodFingerpr
     opcodes = listOf(
         Opcode.CONST_HIGH16,
         Opcode.ADD_FLOAT_2ADDR,
-        Opcode.MUL_FLOAT,
+        null, // Opcode.MUL_FLOAT or Opcode.MUL_FLOAT_2ADDR
         Opcode.CONST_4,
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT,
