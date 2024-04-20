@@ -1,3 +1,10 @@
+# [4.7.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v4.7.0-dev.13...v4.7.0-dev.14) (2024-04-20)
+
+
+### Features
+
+* **YT Music - Hide 'Get Music Premium' label:** Remove occurences of label in settings ([#3046](https://github.com/ReVanced/revanced-patches/issues/3046)) ([10e170a](https://github.com/ReVanced/revanced-patches/commit/10e170a7302fdb585efee663ca13c814aea46c54))
+
 # [4.7.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v4.7.0-dev.12...v4.7.0-dev.13) (2024-04-18)
 
 
