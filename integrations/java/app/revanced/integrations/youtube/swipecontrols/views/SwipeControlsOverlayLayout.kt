@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
+import app.revanced.integrations.shared.StringRef.str
 import app.revanced.integrations.shared.Utils
 import app.revanced.integrations.youtube.swipecontrols.SwipeControlsConfigurationProvider
 import app.revanced.integrations.youtube.swipecontrols.misc.SwipeControlsOverlay
@@ -122,10 +123,13 @@ class SwipeControlsOverlayLayout(
     }
 
     override fun onBrightnessChanged(brightness: Double) {
-        if (brightness > 0) {
+        if (config.shouldLowestValueEnableAutoBrightness && brightness <= 0) {
+            showFeedbackView(
+                str("revanced_swipe_lowest_value_enable_auto_brightness_overlay_text"),
+                autoBrightnessIcon,
+            )
+        } else if (brightness >= 0) {
             showFeedbackView("${round(brightness).toInt()}%", manualBrightnessIcon)
-        } else {
-            showFeedbackView("AUTO", autoBrightnessIcon)
         }
     }
 
