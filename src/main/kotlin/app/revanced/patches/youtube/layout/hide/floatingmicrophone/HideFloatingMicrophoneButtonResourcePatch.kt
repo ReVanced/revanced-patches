@@ -12,8 +12,8 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
     dependencies = [
         SettingsPatch::class,
         ResourceMappingPatch::class,
-        AddResourcesPatch::class
-    ]
+        AddResourcesPatch::class,
+    ],
 )
 internal object HideFloatingMicrophoneButtonResourcePatch : ResourcePatch() {
     internal var fabButtonId: Long = -1
@@ -22,9 +22,9 @@ internal object HideFloatingMicrophoneButtonResourcePatch : ResourcePatch() {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-            SwitchPreference("revanced_hide_floating_microphone_button")
+            SwitchPreference("revanced_hide_floating_microphone_button"),
         )
 
-        fabButtonId = ResourceMappingPatch.firstIdForResource("id", "fab")
+        fabButtonId = ResourceMappingPatch["id", "fab"]
     }
 }

@@ -31,11 +31,7 @@ object SettingsResourcePatch : BaseSettingsResourcePatch(
         AddResourcesPatch(this::class)
 
         // Used for a fingerprint from SettingsPatch.
-        appearanceStringId =
-            ResourceMappingPatch.firstIdForResource(
-                "string",
-                "app_theme_appearance_dark"
-            )
+        appearanceStringId = ResourceMappingPatch["string", "app_theme_appearance_dark"]
 
         arrayOf(
             ResourceGroup("layout", "revanced_settings_with_toolbar.xml"),

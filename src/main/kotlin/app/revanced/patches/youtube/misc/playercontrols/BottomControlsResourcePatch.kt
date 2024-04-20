@@ -24,10 +24,7 @@ object BottomControlsResourcePatch : ResourcePatch(), Closeable {
         resourceContext = context
         targetDocumentEditor = context.xmlEditor[TARGET_RESOURCE]
 
-        bottomUiContainerResourceId = ResourceMappingPatch.firstIdForResource(
-            "id",
-            "bottom_ui_container_stub"
-        )
+        bottomUiContainerResourceId = ResourceMappingPatch["id", "bottom_ui_container_stub"]
     }
 
     /**

@@ -11,11 +11,11 @@ object PremiumNavbarTabResourcePatch : ResourcePatch() {
     internal var premiumTabId = -1L
 
     override fun execute(context: ResourceContext) {
-        premiumTabId = ResourceMappingPatch.firstIdForResource("id", "premium_tab")
+        premiumTabId = ResourceMappingPatch["id", "premium_tab"]
 
-        showBottomNavigationItemsTextId = ResourceMappingPatch.firstIdForResource(
+        showBottomNavigationItemsTextId = ResourceMappingPatch[
             "bool",
-            "show_bottom_navigation_items_text"
-        )
+            "show_bottom_navigation_items_text",
+        ]
     }
 }
