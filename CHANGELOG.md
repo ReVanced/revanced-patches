@@ -1,3 +1,15 @@
+# [4.8.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.7.0...v4.8.0-dev.1) (2024-04-21)
+
+
+### Bug Fixes
+
+* **YouTube - Hide video action buttons:** Remove obsolete `hide Shop button` ([#3057](https://github.com/ReVanced/revanced-patches/issues/3057)) ([b5e34f3](https://github.com/ReVanced/revanced-patches/commit/b5e34f3aabc1d9df8c41f92251618243caecdc9f))
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Hide like / dislike button in video ads ([#3062](https://github.com/ReVanced/revanced-patches/issues/3062)) ([1296985](https://github.com/ReVanced/revanced-patches/commit/12969853adfe530eb6006df38e1a5aa30b28fdf9))
+
 # [4.7.0](https://github.com/ReVanced/revanced-patches/compare/v4.6.0...v4.7.0) (2024-04-21)
 
 
