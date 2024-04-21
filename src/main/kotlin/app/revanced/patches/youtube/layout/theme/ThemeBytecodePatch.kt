@@ -10,11 +10,14 @@ import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatc
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.layout.seekbar.SeekbarColorBytecodePatch
+import app.revanced.patches.youtube.layout.theme.fingerprints.ThemeHelperDarkColorFingerprint
+import app.revanced.patches.youtube.layout.theme.fingerprints.ThemeHelperLightColorFingerprint
 import app.revanced.patches.youtube.layout.theme.fingerprints.UseGradientLoadingScreenFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.exception
 import app.revanced.util.indexOfFirstWideLiteralInstructionValue
+import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -47,14 +50,20 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "19.06.39",
                 "19.07.40",
                 "19.08.36",
-                "19.09.37"
+                "19.09.38",
+                "19.10.39",
+                "19.11.43"
             ]
         )
     ]
 )
 @Suppress("unused")
 object ThemeBytecodePatch : BytecodePatch(
-    setOf(UseGradientLoadingScreenFingerprint)
+    setOf(
+        UseGradientLoadingScreenFingerprint,
+        ThemeHelperLightColorFingerprint,
+        ThemeHelperDarkColorFingerprint
+    )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/theme/ThemePatch;"
@@ -120,6 +129,21 @@ object ThemeBytecodePatch : BytecodePatch(
                 """
             )
         } ?: throw UseGradientLoadingScreenFingerprint.exception
+
+
+        mapOf(
+            ThemeHelperLightColorFingerprint to lightThemeBackgroundColor,
+            ThemeHelperDarkColorFingerprint to darkThemeBackgroundColor
+        ).forEach { (fingerprint, color) ->
+            fingerprint.resultOrThrow().mutableMethod.apply {
+                addInstructions(
+                    0, """
+                        const-string v0, "$color"
+                        return-object v0
+                    """
+                )
+            }
+        }
 
         LithoColorHookPatch.lithoColorOverrideHook(INTEGRATIONS_CLASS_DESCRIPTOR, "getValue")
     }

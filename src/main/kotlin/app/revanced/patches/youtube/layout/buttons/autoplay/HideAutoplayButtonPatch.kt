@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.shared.fingerprints.LayoutConstructorFingerprint
 import app.revanced.util.exception
-import app.revanced.util.findIndexForIdResource
+import app.revanced.util.indexOfIdResourceOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -27,7 +27,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
         IntegrationsPatch::class,
         SettingsPatch::class,
         ResourceMappingPatch::class,
-        AddResourcesPatch::class
+        AddResourcesPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -49,27 +49,29 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
                 "19.06.39",
                 "19.07.40",
                 "19.08.36",
-                "19.09.37"
-            ]
-        )
-    ]
+                "19.09.38",
+                "19.10.39",
+                "19.11.43",
+            ],
+        ),
+    ],
 )
 @Suppress("unused")
 object HideAutoplayButtonPatch : BytecodePatch(
-    setOf(LayoutConstructorFingerprint)
+    setOf(LayoutConstructorFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_hide_autoplay_button")
+            SwitchPreference("revanced_hide_autoplay_button"),
         )
 
         LayoutConstructorFingerprint.result?.mutableMethod?.apply {
             val layoutGenMethodInstructions = implementation!!.instructions
 
             // resolve the offsets of where to insert the branch instructions and ...
-            val insertIndex = findIndexForIdResource("autonav_preview_stub")
+            val insertIndex = indexOfIdResourceOrThrow("autonav_preview_stub")
 
             // where to branch away
             val branchIndex =
@@ -90,7 +92,7 @@ object HideAutoplayButtonPatch : BytecodePatch(
                     move-result v$clobberRegister
                     if-eqz v$clobberRegister, :hidden
                 """,
-                ExternalLabel("hidden", jumpInstruction)
+                ExternalLabel("hidden", jumpInstruction),
             )
         } ?: throw LayoutConstructorFingerprint.exception
     }

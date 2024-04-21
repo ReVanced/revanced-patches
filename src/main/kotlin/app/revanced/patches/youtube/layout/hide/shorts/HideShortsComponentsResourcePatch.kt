@@ -34,10 +34,14 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
             SwitchPreference("revanced_hide_shorts_sound_button"),
 
             // Everything else.
-            SwitchPreference("revanced_hide_shorts_thanks_button"),
             SwitchPreference("revanced_hide_shorts_join_button"),
             SwitchPreference("revanced_hide_shorts_subscribe_button"),
-            SwitchPreference("revanced_hide_shorts_subscribe_button_paused"),
+            SwitchPreference("revanced_hide_shorts_paused_overlay_buttons"),
+            SwitchPreference("revanced_hide_shorts_save_sound_button"),
+            SwitchPreference("revanced_hide_shorts_shop_button"),
+            SwitchPreference("revanced_hide_shorts_tagged_products"),
+            SwitchPreference("revanced_hide_shorts_search_suggestions"),
+            SwitchPreference("revanced_hide_shorts_location_label"),
             SwitchPreference("revanced_hide_shorts_channel_bar"),
             SwitchPreference("revanced_hide_shorts_info_panel"),
             SwitchPreference("revanced_hide_shorts_full_video_link_label"),
@@ -46,15 +50,19 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
             SwitchPreference("revanced_hide_shorts_navigation_bar"),
         )
 
-        ResourceMappingPatch.resourceMappings.find {
-            it.type == "layout" && it.name == "reel_multiple_items_shelf"
-        }?.also {
-            reelMultipleItemShelfId = it.id
-        }
+        reelPlayerRightCellButtonHeight = ResourceMappingPatch[
+            "dimen",
+            "reel_player_right_cell_button_height",
+        ]
 
-        reelPlayerRightCellButtonHeight =
-            ResourceMappingPatch.resourceMappings.single {
-                it.type == "dimen" && it.name == "reel_player_right_cell_button_height"
-            }.id
+        // Resource not present in new versions of the app.
+        try {
+            ResourceMappingPatch[
+                "dimen",
+                "reel_player_right_cell_button_height",
+            ]
+        } catch (e: NoSuchElementException) {
+            return
+        }.also { reelPlayerRightCellButtonHeight = it }
     }
 }

@@ -1,0 +1,30 @@
+<!--
+   https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/fast_forward/materialsymbolsoutlined/fast_forward_wght200gradN25_24px.xml
+   The icon has been mirrored and resized
+
+
+Copyright 2022 Google
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:tint="#FFFFFF"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24">
+    <path
+            android:fillColor="@android:color/white"
+            android:pathData="M 22,17.799197 V 6.2 l -8.689607,5.799598 z m -11.310393,0 V 6.2 L 2,11.999598 Z m 10.114551,-5.799599 z m -11.3103926,0 z m 11.3103926,3.582383 -5.351233,-3.582383 5.351233,-3.582384 z m -11.3103926,0 -5.3512316,-3.582383 5.3512316,-3.582384 z"/>
+</vector>
