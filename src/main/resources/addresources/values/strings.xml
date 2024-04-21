@@ -171,7 +171,7 @@
             <string name="revanced_hide_channel_bar_title">Hide channel bar</string>
             <string name="revanced_hide_channel_bar_summary_on">Channel bar is hidden</string>
             <string name="revanced_hide_channel_bar_summary_off">Channel bar is shown</string>
-            <string name="revanced_hide_playables_title">Hide playables</string>
+            <string name="revanced_hide_playables_title">Hide Playables</string>
             <string name="revanced_hide_playables_summary_on">Playables are hidden</string>
             <string name="revanced_hide_playables_summary_off">Playables are shown</string>
             <string name="revanced_hide_quick_actions_title">Hide quick actions in fullscreen</string>
@@ -249,7 +249,7 @@
             <string name="revanced_hide_general_ads_summary_on">General ads are hidden</string>
             <string name="revanced_hide_general_ads_summary_off">General ads are shown</string>
             <string name="revanced_hide_fullscreen_ads_title">Hide fullscreen ads</string>
-            <string name="revanced_hide_fullscreen_ads_summary_on">Fullscreen ads are hidden</string>
+            <string name="revanced_hide_fullscreen_ads_summary_on">Fullscreen ads are hidden\n\nThis feature is only available for older devices</string>
             <string name="revanced_hide_fullscreen_ads_summary_off">Fullscreen ads are shown</string>
             <string name="revanced_hide_buttoned_ads_title">Hide buttoned ads</string>
             <string name="revanced_hide_buttoned_ads_summary_on">Buttoned ads are hidden</string>
@@ -272,7 +272,7 @@
             <string name="revanced_hide_merchandise_banners_title">Hide merchandise banners</string>
             <string name="revanced_hide_merchandise_banners_summary_on">Merchandise banners are hidden</string>
             <string name="revanced_hide_merchandise_banners_summary_off">Merchandise banners are shown</string>
-            <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Could not hide fullscreen ad. Hide setting disabled to prevent issues.</string>
+            <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Hide fullscreen ads only works with older devices</string>
         </patch>
         <patch id="ad.getpremium.HideGetPremiumPatch">
             <string name="revanced_hide_get_premium_title">Hide YouTube Premium promotions</string>
