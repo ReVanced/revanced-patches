@@ -112,34 +112,36 @@ final class KeywordContentFilter extends Filter {
 
     private volatile ByteTrieSearch bufferSearch;
 
-    private static void logNavigationState(String state) {
-        // Enable locally to debug filtering. Default off to reduce log spam.
-        final boolean LOG_NAVIGATION_STATE = false;
-        // noinspection ConstantValue
-        if (LOG_NAVIGATION_STATE) {
-            Logger.printDebug(() -> "Navigation state: " + state);
-        }
-    }
-
     private static boolean hideKeywordSettingIsActive() {
-        if (NavigationBar.isSearchBarActive()) {
-            // Must check first. Search bar can be active with almost any tab.
-            logNavigationState("Search");
-            return Settings.HIDE_KEYWORD_CONTENT_SEARCH.get();
-        } else if (PlayerType.getCurrent().isMaximizedOrFullscreen()) {
+        // Must check player type first, as search bar can be active behind the player.
+        if (PlayerType.getCurrent().isMaximizedOrFullscreen()) {
             // For now, consider the under video results the same as the home feed.
-            logNavigationState("Player active");
             return Settings.HIDE_KEYWORD_CONTENT_HOME.get();
-        } else if (NavigationButton.HOME.isSelected()) {
-            logNavigationState("Home tab");
-            return Settings.HIDE_KEYWORD_CONTENT_HOME.get();
-        } else if (NavigationButton.SUBSCRIPTIONS.isSelected()) {
-            logNavigationState("Subscription tab");
-            return Settings.HIDE_SUBSCRIPTIONS_BUTTON.get();
-        } else {
-            // User is in the Library or Notifications tab.
-            logNavigationState("Ignored tab");
         }
+
+        // Must check second, as search can be from any tab.
+        if (NavigationBar.isSearchBarActive()) {
+            return Settings.HIDE_KEYWORD_CONTENT_SEARCH.get();
+        }
+
+        // Avoid checking navigation button status if all other settings are off.
+        final boolean hideHome = Settings.HIDE_KEYWORD_CONTENT_HOME.get();
+        final boolean hideSubscriptions = Settings.HIDE_KEYWORD_CONTENT_SUBSCRIPTIONS.get();
+        if (!hideHome && !hideSubscriptions) {
+            return false;
+        }
+
+        NavigationButton selectedNavButton = NavigationButton.getSelectedNavigationButton();
+        if (selectedNavButton == null) {
+            return hideHome; // Unknown tab, treat the same as home.
+        }
+        if (selectedNavButton == NavigationButton.HOME) {
+            return hideHome;
+        }
+        if (selectedNavButton == NavigationButton.SUBSCRIPTIONS) {
+            return hideSubscriptions;
+        }
+        // User is in the Library or Notifications tab.
         return false;
     }
 
@@ -195,6 +197,7 @@ final class KeywordContentFilter extends Filter {
 
     private synchronized void parseKeywords() { // Must be synchronized since Litho is multi-threaded.
         String rawKeywords = Settings.HIDE_KEYWORD_CONTENT_PHRASES.get();
+        //noinspection StringEquality
         if (rawKeywords == lastKeywordPhrasesParsed) {
             Logger.printDebug(() -> "Using previously initialized search");
             return; // Another thread won the race, and search is already initialized.
@@ -265,6 +268,7 @@ final class KeywordContentFilter extends Filter {
         if (!hideKeywordSettingIsActive()) return false;
 
         // Field is intentionally compared using reference equality.
+        //noinspection StringEquality
         if (Settings.HIDE_KEYWORD_CONTENT_PHRASES.get() != lastKeywordPhrasesParsed) {
             // User changed the keywords.
             parseKeywords();

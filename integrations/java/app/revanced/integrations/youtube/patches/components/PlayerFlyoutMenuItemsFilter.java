@@ -58,6 +58,10 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
                         "yt_outline_info_circle"
                 ),
                 new ByteArrayFilterGroup(
+                        Settings.HIDE_LOCK_SCREEN_MENU,
+                        "yt_outline_lock"
+                ),
+                new ByteArrayFilterGroup(
                         Settings.HIDE_SPEED_MENU,
                         "yt_outline_play_arrow_half_circle"
                 ),
@@ -75,15 +79,21 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
     @Override
     boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
-        // Shorts also use this player flyout panel
-        if (PlayerType.getCurrent().isNoneOrHidden() || exception.check(protobufBufferArray).isFiltered())
-            return false;
-
         // Only 1 path callback was added, so the matched group must be the overflow menu.
-        if (contentIndex == 0 && flyoutFilterGroupList.check(protobufBufferArray).isFiltered()) {
+        if (contentIndex != 0) {
+            return false; // Overflow menu is always the start of the path.
+        }
+
+        // Shorts also use this player flyout panel
+        if (PlayerType.getCurrent().isNoneOrHidden() || exception.check(protobufBufferArray).isFiltered()) {
+            return false;
+        }
+
+        if (flyoutFilterGroupList.check(protobufBufferArray).isFiltered()) {
             // Super class handles logging.
             return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
         }
+
         return false;
     }
 }

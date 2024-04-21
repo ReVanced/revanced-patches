@@ -176,12 +176,6 @@ public class ReturnYouTubeDislikePatch {
             textView.removeTextChangedListener(oldUiTextWatcher);
             textView.addTextChangedListener(oldUiTextWatcher);
 
-            /**
-             * If the patch is changed to include the dislikes button as a parameter to this method,
-             * then if the button is already selected the dislikes could be adjusted using
-             * {@link ReturnYouTubeDislike#setUserVote(Vote)}
-             */
-
             updateOldUIDislikesTextView();
 
         } catch (Exception ex) {
@@ -314,19 +308,25 @@ public class ReturnYouTubeDislikePatch {
      */
     public static float onRollingNumberMeasured(String text, float measuredTextWidth) {
         try {
-            if (Settings.RYD_ENABLED.get() && !Settings.RYD_COMPACT_LAYOUT.get()) {
+            if (Settings.RYD_ENABLED.get()) {
                 if (ReturnYouTubeDislike.isPreviouslyCreatedSegmentedSpan(text)) {
                     // +1 pixel is needed for some foreign languages that measure
                     // the text different from what is used for layout (Greek in particular).
                     // Probably a bug in Android, but who knows.
                     // Single line mode is also used as an additional fix for this issue.
-                    return measuredTextWidth + ReturnYouTubeDislike.leftSeparatorBounds.right
-                            + ReturnYouTubeDislike.leftSeparatorShapePaddingPixels + 1;
+                    if (Settings.RYD_COMPACT_LAYOUT.get()) {
+                        return measuredTextWidth + 1;
+                    }
+
+                    return measuredTextWidth + 1
+                            + ReturnYouTubeDislike.leftSeparatorBounds.right
+                            + ReturnYouTubeDislike.leftSeparatorShapePaddingPixels;
                 }
             }
         } catch (Exception ex) {
             Logger.printException(() -> "onRollingNumberMeasured failure", ex);
         }
+
         return measuredTextWidth;
     }
 
@@ -344,10 +344,12 @@ public class ReturnYouTubeDislikePatch {
             } else {
                 view.setCompoundDrawables(separator, null, null, null);
             }
+
             // Disliking can cause the span to grow in size, which is ok and is laid out correctly,
             // but if the user then removes their dislike the layout will not adjust to the new shorter width.
             // Use a center alignment to take up any extra space.
             view.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
             // Single line mode does not clip words if the span is larger than the view bounds.
             // The styled span applied to the view should always have the same bounds,
             // but use this feature just in case the measurements are somehow off by a few pixels.

@@ -24,7 +24,10 @@ public class Requester {
         String url = apiUrl + route.getCompiledRoute();
         HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
         connection.setRequestMethod(route.getMethod().name());
-        connection.setRequestProperty("User-Agent", System.getProperty("http.agent") + "; ReVanced/" + Utils.getVersionName());
+        String agentString = System.getProperty("http.agent")
+                + "; ReVanced/" + Utils.getAppVersionName()
+                + " (" + Utils.getPatchesReleaseVersion() + ")";
+        connection.setRequestProperty("User-Agent", agentString);
 
         return connection;
     }
@@ -32,72 +35,79 @@ public class Requester {
     /**
      * Parse the {@link HttpURLConnection}, and closes the underlying InputStream.
      */
-    public static String parseJson(HttpURLConnection connection) throws IOException {
-        return parseInputStreamAndClose(connection.getInputStream(), true);
-    }
-
-    /**
-     * Parse the {@link HttpURLConnection}, close the underlying InputStream, and disconnect.
-     *
-     * <b>Should only be used if other requests to the server are unlikely in the near future</b>
-     *
-     * @see #parseJson(HttpURLConnection)
-     */
-    public static String parseJsonAndDisconnect(HttpURLConnection connection) throws IOException {
-        String result = parseJson(connection);
-        connection.disconnect();
-        return result;
-    }
-
-    /**
-     * Parse the {@link HttpURLConnection}, and closes the underlying InputStream.
-     *
-     * @param stripNewLineCharacters if newline (\n) characters should be stripped from the InputStream
-     */
-    public static String parseInputStreamAndClose(InputStream inputStream, boolean stripNewLineCharacters) throws IOException {
+    private static String parseInputStreamAndClose(InputStream inputStream) throws IOException {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
             StringBuilder jsonBuilder = new StringBuilder();
             String line;
             while ((line = reader.readLine()) != null) {
                 jsonBuilder.append(line);
-                if (!stripNewLineCharacters)
-                    jsonBuilder.append("\n");
+                jsonBuilder.append("\n");
             }
             return jsonBuilder.toString();
         }
     }
 
     /**
-     * Parse the {@link HttpURLConnection}, and closes the underlying InputStream.
+     * Parse the {@link HttpURLConnection} response as a String.
+     * This does not close the url connection. If further requests to this host are unlikely
+     * in the near future, then instead use {@link #parseStringAndDisconnect(HttpURLConnection)}.
      */
-    public static String parseErrorJson(HttpURLConnection connection) throws IOException {
-        return parseInputStreamAndClose(connection.getErrorStream(), false);
+    public static String parseString(HttpURLConnection connection) throws IOException {
+        return parseInputStreamAndClose(connection.getInputStream());
     }
 
     /**
-     * Parse the {@link HttpURLConnection}, close the underlying InputStream, and disconnect.
+     * Parse the {@link HttpURLConnection} response as a String, and disconnect.
      *
-     * <b>Should only be used if other requests to the server are unlikely in the near future</b>
+     * <b>Should only be used if other requests to the server in the near future are unlikely</b>
      *
-     * @see #parseErrorJson(HttpURLConnection)
+     * @see #parseString(HttpURLConnection)
      */
-    public static String parseErrorJsonAndDisconnect(HttpURLConnection connection) throws IOException {
-        String result = parseErrorJson(connection);
+    public static String parseStringAndDisconnect(HttpURLConnection connection) throws IOException {
+        String result = parseString(connection);
         connection.disconnect();
         return result;
     }
 
     /**
-     * Parse the {@link HttpURLConnection}, and closes the underlying InputStream.
+     * Parse the {@link HttpURLConnection} error stream as a String.
+     * If the server sent no error response data, this returns an empty string.
+     */
+    public static String parseErrorString(HttpURLConnection connection) throws IOException {
+        InputStream errorStream = connection.getErrorStream();
+        if (errorStream == null) {
+            return "";
+        }
+        return parseInputStreamAndClose(errorStream);
+    }
+
+    /**
+     * Parse the {@link HttpURLConnection} error stream as a String, and disconnect.
+     * If the server sent no error response data, this returns an empty string.
+     *
+     * Should only be used if other requests to the server are unlikely in the near future.
+     *
+     * @see #parseErrorString(HttpURLConnection)
+     */
+    public static String parseErrorStringAndDisconnect(HttpURLConnection connection) throws IOException {
+        String result = parseErrorString(connection);
+        connection.disconnect();
+        return result;
+    }
+
+    /**
+     * Parse the {@link HttpURLConnection} response into a JSONObject.
+     * This does not close the url connection. If further requests to this host are unlikely
+     * in the near future, then instead use {@link #parseJSONObjectAndDisconnect(HttpURLConnection)}.
      */
     public static JSONObject parseJSONObject(HttpURLConnection connection) throws JSONException, IOException {
-        return new JSONObject(parseJson(connection));
+        return new JSONObject(parseString(connection));
     }
 
     /**
      * Parse the {@link HttpURLConnection}, close the underlying InputStream, and disconnect.
      *
-     * <b>Should only be used if other requests to the server are unlikely in the near future</b>
+     * <b>Should only be used if other requests to the server in the near future are unlikely</b>
      *
      * @see #parseJSONObject(HttpURLConnection)
      */
@@ -109,15 +119,17 @@ public class Requester {
 
     /**
      * Parse the {@link HttpURLConnection}, and closes the underlying InputStream.
+     * This does not close the url connection. If further requests to this host are unlikely
+     * in the near future, then instead use {@link #parseJSONArrayAndDisconnect(HttpURLConnection)}.
      */
     public static JSONArray parseJSONArray(HttpURLConnection connection) throws JSONException, IOException  {
-        return new JSONArray(parseJson(connection));
+        return new JSONArray(parseString(connection));
     }
 
     /**
      * Parse the {@link HttpURLConnection}, close the underlying InputStream, and disconnect.
      *
-     * <b>Should only be used if other requests to the server are unlikely in the near future</b>
+     * <b>Should only be used if other requests to the server in the near future are unlikely</b>
      *
      * @see #parseJSONArray(HttpURLConnection)
      */

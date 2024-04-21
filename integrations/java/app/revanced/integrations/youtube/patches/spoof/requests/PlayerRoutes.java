@@ -37,7 +37,7 @@ final class PlayerRoutes {
 
             JSONObject client = new JSONObject();
             client.put("clientName", "ANDROID");
-            client.put("clientVersion", Utils.getVersionName());
+            client.put("clientVersion", Utils.getAppVersionName());
             client.put("androidSdkVersion", 34);
 
             context.put("client", client);
@@ -85,7 +85,7 @@ final class PlayerRoutes {
 
         connection.setRequestProperty(
                 "User-Agent", "com.google.android.youtube/" +
-                        Utils.getVersionName() +
+                        Utils.getAppVersionName() +
                         " (Linux; U; Android 12; GB) gzip"
         );
         connection.setRequestProperty("X-Goog-Api-Format-Version", "2");

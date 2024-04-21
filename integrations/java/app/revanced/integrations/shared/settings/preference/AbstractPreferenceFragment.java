@@ -16,10 +16,7 @@ import app.revanced.integrations.shared.settings.Setting;
 
 import static app.revanced.integrations.shared.StringRef.str;
 
-/**
- *
- *
- * @noinspection deprecation, DataFlowIssue , unused */
+@SuppressWarnings({"unused", "deprecation"})
 public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     /**
      * Indicates that if a preference changes,

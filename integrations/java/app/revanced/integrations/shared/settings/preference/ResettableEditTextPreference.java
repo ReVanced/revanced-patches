@@ -14,7 +14,7 @@ import java.util.Objects;
 
 import static app.revanced.integrations.shared.StringRef.str;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "deprecation"})
 public class ResettableEditTextPreference extends EditTextPreference {
 
     public ResettableEditTextPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
@@ -33,7 +33,7 @@ public class ResettableEditTextPreference extends EditTextPreference {
     @Override
     protected void onPrepareDialogBuilder(AlertDialog.Builder builder) {
         super.onPrepareDialogBuilder(builder);
-        Setting setting = Setting.getSettingFromPath(getKey());
+        Setting<?> setting = Setting.getSettingFromPath(getKey());
         if (setting != null) {
             builder.setNeutralButton(str("revanced_settings_reset"), null);
         }
@@ -50,7 +50,7 @@ public class ResettableEditTextPreference extends EditTextPreference {
         }
         button.setOnClickListener(v -> {
             try {
-                Setting setting = Objects.requireNonNull(Setting.getSettingFromPath(getKey()));
+                Setting<?> setting = Objects.requireNonNull(Setting.getSettingFromPath(getKey()));
                 String defaultStringValue = setting.defaultValue.toString();
                 EditText editText = getEditText();
                 editText.setText(defaultStringValue);

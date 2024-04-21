@@ -77,12 +77,17 @@ class VolumeAndBrightnessScrollerImpl(
             ),
         ) { _, _, direction ->
             screenController?.run {
-                if (screenBrightness > 0 || direction > 0) {
+                val shouldAdjustBrightness = if (host.config.shouldLowestValueEnableAutoBrightness) {
+                    screenBrightness > 0 || direction > 0
+                } else {
+                    screenBrightness >= 0 || direction >= 0
+                }
+
+                if (shouldAdjustBrightness) {
                     screenBrightness += direction
                 } else {
                     restoreDefaultBrightness()
                 }
-
                 overlayController.onBrightnessChanged(screenBrightness)
             }
         }

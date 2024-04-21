@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 /**
  * Allows tapping the DeArrow about preference to open the DeArrow website.
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "deprecation"})
 public class AlternativeThumbnailsAboutDeArrowPreference extends Preference {
     {
         setOnPreferenceClickListener(pref -> {

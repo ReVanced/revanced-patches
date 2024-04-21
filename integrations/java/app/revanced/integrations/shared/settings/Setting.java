@@ -224,6 +224,7 @@ public abstract class Setting<T> {
         if (!oldPrefs.preferences.contains(settingKey)) {
             return; // Nothing to do.
         }
+
         Object newValue = setting.get();
         final Object migratedValue;
         if (setting instanceof BooleanSetting) {
@@ -238,13 +239,17 @@ public abstract class Setting<T> {
             migratedValue = oldPrefs.getString(settingKey, (String) newValue);
         } else {
             Logger.printException(() -> "Unknown setting: " + setting);
+            // Remove otherwise it'll show a toast on every launch
+            oldPrefs.preferences.edit().remove(settingKey).apply();
             return;
         }
+
         oldPrefs.preferences.edit().remove(settingKey).apply(); // Remove the old setting.
         if (migratedValue.equals(newValue)) {
             Logger.printDebug(() -> "Value does not need migrating: " + settingKey);
             return; // Old value is already equal to the new setting value.
         }
+
         Logger.printDebug(() -> "Migrating old preference value into current preference: " + settingKey);
         //noinspection unchecked
         setting.save(migratedValue);

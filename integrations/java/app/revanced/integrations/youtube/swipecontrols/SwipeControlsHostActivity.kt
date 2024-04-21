@@ -166,20 +166,31 @@ class SwipeControlsHostActivity : Activity() {
         contentRoot.addView(overlay)
     }
 
+    // Flag that indicates whether the brightness has been saved and restored default brightness
+    private var isBrightnessSaved = false
+
     /**
      * called when the player type changes
      *
      * @param type the new player type
      */
     private fun onPlayerTypeChanged(type: PlayerType) {
-        if (config.shouldSaveAndRestoreBrightness) {
-            when (type) {
-                PlayerType.WATCH_WHILE_FULLSCREEN -> screen?.restore()
-                else -> {
-                    screen?.save()
-                    screen?.restoreDefaultBrightness()
-                }
+        when {
+            // If saving and restoring brightness is enabled, and the player type is WATCH_WHILE_FULLSCREEN,
+            // and brightness has already been saved, then restore the screen brightness
+            config.shouldSaveAndRestoreBrightness && type == PlayerType.WATCH_WHILE_FULLSCREEN && isBrightnessSaved -> {
+                screen?.restore()
+                isBrightnessSaved = false
             }
+            // If saving and restoring brightness is enabled, and brightness has not been saved,
+            // then save the current screen state, restore default brightness, and mark brightness as saved
+            config.shouldSaveAndRestoreBrightness && !isBrightnessSaved -> {
+                screen?.save()
+                screen?.restoreDefaultBrightness()
+                isBrightnessSaved = true
+            }
+            // If saving and restoring brightness is disabled, simply keep the default brightness
+            else -> screen?.restoreDefaultBrightness()
         }
     }
 

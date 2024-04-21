@@ -1,20 +1,24 @@
 package app.revanced.integrations.shared;
 
+import static app.revanced.integrations.shared.StringRef.str;
+
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.PowerManager;
+import android.provider.Settings;
+
 import androidx.annotation.RequiresApi;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-
-import static app.revanced.integrations.shared.StringRef.str;
 
 /**
  * @noinspection unused
@@ -45,26 +49,19 @@ public class GmsCoreSupport {
         System.exit(0);
     }
 
-    private static void showToastOrDialog(Context context, String toastMessageKey, String dialogMessageKey, String link) {
-        if (!(context instanceof Activity)) {
-            // Context is for the application and cannot show a dialog using it.
-            Utils.showToastLong(str(toastMessageKey));
-            open(link);
-            return;
-        }
-
+    private static void showBatteryOptimizationDialog(Activity context,
+                                                      String dialogMessageRef,
+                                                      String positiveButtonStringRef,
+                                                      DialogInterface.OnClickListener onPositiveClickListener) {
         // Use a delay to allow the activity to finish initializing.
         // Otherwise, if device is in dark mode the dialog is shown with wrong color scheme.
         Utils.runOnMainThreadDelayed(() -> {
             new AlertDialog.Builder(context)
                     .setIconAttribute(android.R.attr.alertDialogIcon)
                     .setTitle(str("gms_core_dialog_title"))
-                    .setMessage(str(dialogMessageKey))
-                    .setPositiveButton(str("gms_core_dialog_ok_button_text"), (dialog, id) -> {
-                        open(link);
-                    })
-                    // Manually allow using the back button to dismiss the dialog with the back button,
-                    // if troubleshooting and somehow the GmsCore verification checks always fail.
+                    .setMessage(str(dialogMessageRef))
+                    .setPositiveButton(str(positiveButtonStringRef), onPositiveClickListener)
+                    // Allow using back button to skip the action, just in case the check can never be satisfied.
                     .setCancelable(true)
                     .show();
         }, 100);
@@ -74,45 +71,60 @@ public class GmsCoreSupport {
      * Injection point.
      */
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public static void checkGmsCore(Context context) {
+    public static void checkGmsCore(Activity context) {
         try {
             // Verify GmsCore is installed.
             try {
                 PackageManager manager = context.getPackageManager();
                 manager.getPackageInfo(GMS_CORE_PACKAGE_NAME, PackageManager.GET_ACTIVITIES);
             } catch (PackageManager.NameNotFoundException exception) {
-                Logger.printDebug(() -> "GmsCore was not found");
+                Logger.printInfo(() -> "GmsCore was not found");
                 // Cannot show a dialog and must show a toast,
-                // because on some installations the app crashes before the dialog can display.
+                // because on some installations the app crashes before a dialog can be displayed.
                 Utils.showToastLong(str("gms_core_toast_not_installed_message"));
                 open(getGmsCoreDownload());
-                return;
-            }
-
-            // Check if GmsCore is whitelisted from battery optimizations.
-            var powerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-            if (!powerManager.isIgnoringBatteryOptimizations(GMS_CORE_PACKAGE_NAME)) {
-                Logger.printDebug(() -> "GmsCore is not whitelisted from battery optimizations");
-                showToastOrDialog(context,
-                        "gms_core_toast_not_whitelisted_message",
-                        "gms_core_dialog_not_whitelisted_using_battery_optimizations_message",
-                        DONT_KILL_MY_APP_LINK);
                 return;
             }
 
             // Check if GmsCore is running in the background.
             try (var client = context.getContentResolver().acquireContentProviderClient(GMS_CORE_PROVIDER)) {
                 if (client == null) {
-                    Logger.printDebug(() -> "GmsCore is not running in the background");
-                    showToastOrDialog(context,
-                            "gms_core_toast_not_whitelisted_message",
+                    Logger.printInfo(() -> "GmsCore is not running in the background");
+
+                    showBatteryOptimizationDialog(context,
                             "gms_core_dialog_not_whitelisted_not_allowed_in_background_message",
-                            DONT_KILL_MY_APP_LINK);
+                            "gms_core_dialog_open_website_text",
+                            (dialog, id) -> open(DONT_KILL_MY_APP_LINK));
+                    return;
                 }
+            }
+
+            // Check if GmsCore is whitelisted from battery optimizations.
+            if (batteryOptimizationsEnabled(context)) {
+                Logger.printInfo(() -> "GmsCore is not whitelisted from battery optimizations");
+                showBatteryOptimizationDialog(context,
+                        "gms_core_dialog_not_whitelisted_using_battery_optimizations_message",
+                        "gms_core_dialog_continue_text",
+                        (dialog, id) -> openGmsCoreDisableBatteryOptimizationsIntent(context));
             }
         } catch (Exception ex) {
             Logger.printException(() -> "checkGmsCore failure", ex);
         }
+    }
+
+    @SuppressLint("BatteryLife") // Permission is part of GmsCore
+    private static void openGmsCoreDisableBatteryOptimizationsIntent(Activity activity) {
+        Intent intent = new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
+        intent.setData(Uri.fromParts("package", GMS_CORE_PACKAGE_NAME, null));
+        activity.startActivityForResult(intent, 0);
+    }
+
+    /**
+     * @return If GmsCore is not whitelisted from battery optimizations.
+     */
+    private static boolean batteryOptimizationsEnabled(Context context) {
+        var powerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+        return !powerManager.isIgnoringBatteryOptimizations(GMS_CORE_PACKAGE_NAME);
     }
 
     private static String getGmsCoreDownload() {

@@ -53,7 +53,7 @@ public class SharedPrefCategory {
     /**
      * @param value a NULL parameter removes the value from the preferences
      */
-    public void saveEnumAsString(@NonNull String key, @Nullable Enum value) {
+    public void saveEnumAsString(@NonNull String key, @Nullable Enum<?> value) {
         saveObjectAsString(key, value);
     }
 
@@ -98,7 +98,7 @@ public class SharedPrefCategory {
     }
 
     @NonNull
-    public <T extends Enum> T getEnum(@NonNull String key, @NonNull T _default) {
+    public <T extends Enum<?>> T getEnum(@NonNull String key, @NonNull T _default) {
         Objects.requireNonNull(_default);
         try {
             String enumName = preferences.getString(key, null);
