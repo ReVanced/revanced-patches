@@ -1,3 +1,10 @@
+# [4.7.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v4.7.0-dev.15...v4.7.0-dev.16) (2024-04-21)
+
+
+### Features
+
+* **YouTube - Swipe controls:** Save and restore brightness and add auto-brightness toggle ([#2996](https://github.com/ReVanced/revanced-patches/issues/2996)) ([f6c3bc4](https://github.com/ReVanced/revanced-patches/commit/f6c3bc43190d33e06f49b74fc056d26da1bb014a))
+
 # [4.7.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v4.7.0-dev.14...v4.7.0-dev.15) (2024-04-20)
 
 
