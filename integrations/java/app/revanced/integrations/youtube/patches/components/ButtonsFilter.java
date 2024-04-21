@@ -64,10 +64,6 @@ final class ButtonsFilter extends Filter {
                         "yt_outline_scissors"
                 ),
                 new ByteArrayFilterGroup(
-                        Settings.HIDE_SHOP_BUTTON,
-                        "yt_outline_bag"
-                ),
-                new ByteArrayFilterGroup(
                         Settings.HIDE_THANKS_BUTTON,
                         "yt_outline_dollar_sign_heart"
                 )

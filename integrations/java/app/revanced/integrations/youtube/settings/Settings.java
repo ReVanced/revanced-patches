@@ -194,7 +194,6 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_THANKS_BUTTON = new BooleanSetting("revanced_hide_thanks_button", TRUE);
     public static final BooleanSetting HIDE_CLIP_BUTTON = new BooleanSetting("revanced_hide_clip_button", TRUE);
     public static final BooleanSetting HIDE_PLAYLIST_BUTTON = new BooleanSetting("revanced_hide_playlist_button", FALSE);
-    public static final BooleanSetting HIDE_SHOP_BUTTON = new BooleanSetting("revanced_hide_shop_button", TRUE);
 
     // Player flyout menu items
     public static final BooleanSetting HIDE_CAPTIONS_MENU = new BooleanSetting("revanced_hide_player_flyout_captions", FALSE);
