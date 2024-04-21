@@ -43,8 +43,10 @@ internal object SponsorBlockResourcePatch : ResourcePatch() {
                 // required resource for back button, because when the base APK is used, this resource will not exist
                 "drawable",
                 "revanced_sb_adjust.xml",
+                "revanced_sb_backward.xml",
                 "revanced_sb_compare.xml",
                 "revanced_sb_edit.xml",
+                "revanced_sb_forward.xml",
                 "revanced_sb_logo.xml",
                 "revanced_sb_publish.xml",
                 "revanced_sb_voting.xml",

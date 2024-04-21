@@ -15,18 +15,18 @@ internal object SeekbarColorResourcePatch : ResourcePatch() {
     internal var inlineTimeBarPlayedNotHighlightedColorId = -1L
 
     override fun execute(context: ResourceContext) {
-        fun findColorResource(resourceName: String): Long {
-            return ResourceMappingPatch.resourceMappings
-                .find { it.type == "color" && it.name == resourceName }?.id
-                ?: throw PatchException("Could not find color resource: $resourceName")
-        }
-
-        reelTimeBarPlayedColorId =
-            findColorResource("reel_time_bar_played_color")
-        inlineTimeBarColorizedBarPlayedColorDarkId =
-            findColorResource("inline_time_bar_colorized_bar_played_color_dark")
-        inlineTimeBarPlayedNotHighlightedColorId =
-            findColorResource("inline_time_bar_played_not_highlighted_color")
+        reelTimeBarPlayedColorId = ResourceMappingPatch[
+            "color",
+            "reel_time_bar_played_color",
+        ]
+        inlineTimeBarColorizedBarPlayedColorDarkId = ResourceMappingPatch[
+            "color",
+            "inline_time_bar_colorized_bar_played_color_dark",
+        ]
+        inlineTimeBarPlayedNotHighlightedColorId = ResourceMappingPatch[
+            "color",
+            "inline_time_bar_played_not_highlighted_color",
+        ]
 
         // Edit the resume playback drawable and replace the progress bar with a custom drawable
         context.xmlEditor["res/drawable/resume_playback_progressbar_drawable.xml"].use { editor ->
@@ -39,10 +39,9 @@ internal object SeekbarColorResourcePatch : ResourcePatch() {
             }
             val scaleNode = progressNode.getElementsByTagName("scale").item(0) as Element
             val shapeNode = scaleNode.getElementsByTagName("shape").item(0) as Element
-            val replacementNode =
-                document.createElement(
-                    "app.revanced.integrations.youtube.patches.theme.ProgressBarDrawable",
-                )
+            val replacementNode = document.createElement(
+                "app.revanced.integrations.youtube.patches.theme.ProgressBarDrawable",
+            )
             scaleNode.replaceChild(replacementNode, shapeNode)
         }
     }
