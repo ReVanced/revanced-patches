@@ -1,3 +1,10 @@
+# [4.8.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.1...v4.8.0-dev.2) (2024-04-21)
+
+
+### Bug Fixes
+
+* Case patch option title correctly ([259c8b4](https://github.com/ReVanced/revanced-patches/commit/259c8b4e58df51d92d7e19417e13afa3848afc73))
+
 # [4.8.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.7.0...v4.8.0-dev.1) (2024-04-21)
 
 
