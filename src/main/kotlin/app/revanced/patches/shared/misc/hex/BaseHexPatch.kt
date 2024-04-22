@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.RawResourcePatch
 import kotlin.math.max
 
 abstract class BaseHexPatch : RawResourcePatch() {
-    internal abstract val replacements: List<Replacement>
+    abstract val replacements: List<Replacement>
 
     override fun execute(context: ResourceContext) {
         replacements.groupBy { it.targetFilePath }.forEach { (targetFilePath, replacements) ->
