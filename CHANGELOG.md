@@ -1,3 +1,10 @@
+# [4.8.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.2...v4.8.0-dev.3) (2024-04-22)
+
+
+### Bug Fixes
+
+* Publicize abstract property ([b7c108e](https://github.com/ReVanced/revanced-patches/commit/b7c108ee201c84df31b079f3fecb6cc2f5eaf9f1))
+
 # [4.8.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.1...v4.8.0-dev.2) (2024-04-21)
 
 
