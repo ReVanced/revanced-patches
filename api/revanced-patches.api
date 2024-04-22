@@ -30,6 +30,7 @@ public final class app/revanced/patches/all/misc/debugging/EnableAndroidDebuggin
 
 public final class app/revanced/patches/all/misc/hex/HexPatch : app/revanced/patches/shared/misc/hex/BaseHexPatch {
 	public fun <init> ()V
+	public fun getReplacements ()Ljava/util/List;
 }
 
 public final class app/revanced/patches/all/misc/network/OverrideCertificatePinningPatch : app/revanced/patcher/patch/ResourcePatch {
@@ -677,6 +678,7 @@ public abstract class app/revanced/patches/shared/misc/hex/BaseHexPatch : app/re
 	public fun <init> ()V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+	public abstract fun getReplacements ()Ljava/util/List;
 }
 
 public final class app/revanced/patches/shared/misc/hex/BaseHexPatch$Replacement {
