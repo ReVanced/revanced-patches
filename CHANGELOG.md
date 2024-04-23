@@ -1,3 +1,10 @@
+# [4.8.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.6...v4.8.0-dev.7) (2024-04-23)
+
+
+### Bug Fixes
+
+* URL decode path to JAR containing spaces to get JAR manifest ([#3079](https://github.com/ReVanced/revanced-patches/issues/3079)) ([e1bbcb3](https://github.com/ReVanced/revanced-patches/commit/e1bbcb338dd7fce895b606440bd6f040d5486a64))
+
 # [4.8.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.5...v4.8.0-dev.6) (2024-04-23)
 
 
