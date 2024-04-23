@@ -45,7 +45,7 @@ final class DescriptionComponentsFilter extends Filter {
         );
 
         final StringFilterGroup transcriptSection = new StringFilterGroup(
-                Settings.HIDE_TRANSCIPT_SECTION,
+                Settings.HIDE_TRANSCRIPT_SECTION,
                 "transcript_section"
         );
 
