@@ -12,6 +12,8 @@ import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
+import java.net.URLDecoder
+import java.nio.charset.StandardCharsets
 import java.util.jar.JarFile
 
 abstract class BaseIntegrationsPatch(
@@ -74,7 +76,7 @@ abstract class BaseIntegrationsPatch(
 
             if (urlString.startsWith("jar:file:")) {
                 val end = urlString.indexOf('!')
-                return urlString.substring("jar:file:".length, end)
+                return URLDecoder.decode(urlString.substring("jar:file:".length, end), StandardCharsets.UTF_8)
             }
         }
         throw IllegalStateException("Not running from inside a JAR file.")
