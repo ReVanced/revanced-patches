@@ -1,3 +1,10 @@
+# [4.8.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.5...v4.8.0-dev.6) (2024-04-23)
+
+
+### Features
+
+* **YouTube - Hide ads:** Add option to hide the 'Visit store' button on channel pages ([#3077](https://github.com/ReVanced/revanced-patches/issues/3077)) ([03d2cfa](https://github.com/ReVanced/revanced-patches/commit/03d2cfafbf977340456598a848858ac9452c853f))
+
 # [4.8.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.4...v4.8.0-dev.5) (2024-04-23)
 
 
