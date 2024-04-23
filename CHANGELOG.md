@@ -1,3 +1,10 @@
+# [4.8.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.7...v4.8.0-dev.8) (2024-04-23)
+
+
+### Bug Fixes
+
+* **YouTube - Hide ads:** Fix string typo ([ecc56d6](https://github.com/ReVanced/revanced-patches/commit/ecc56d643a0c4e5f25b933431f097a03d4bf2e69))
+
 # [4.8.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.6...v4.8.0-dev.7) (2024-04-23)
 
 
