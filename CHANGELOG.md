@@ -1,3 +1,10 @@
+# [4.8.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.4...v4.8.0-dev.5) (2024-04-23)
+
+
+### Bug Fixes
+
+* **YouTube - Hide Shorts components:** Rename option title to make it consistent ([4d6e34b](https://github.com/ReVanced/revanced-patches/commit/4d6e34b0540a3334bd77b2b48a1a5e10329171c8))
+
 # [4.8.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.3...v4.8.0-dev.4) (2024-04-23)
 
 
