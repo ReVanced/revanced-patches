@@ -503,6 +503,9 @@
             <string name="revanced_hide_comments_section_title">Hide comments section</string>
             <string name="revanced_hide_comments_section_summary_on">Comment section is hidden</string>
             <string name="revanced_hide_comments_section_summary_off">Comment section is shown</string>
+            <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Hide timestamp and emoji buttons</string>
+            <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_on">Comment timestamp and emoji buttons are hidden</string>
+            <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_off">Comment timestamp and emoji buttons are shown</string>
         </patch>
         <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
             <string name="revanced_hide_crowdfunding_box_title">Hide crowdfunding box</string>
