@@ -619,7 +619,7 @@
             <string name="revanced_hide_shorts_channel_bar_title">Hide channel bar</string>
             <string name="revanced_hide_shorts_channel_bar_summary_on">Channel bar is hidden</string>
             <string name="revanced_hide_shorts_channel_bar_summary_off">Channel bar is shown</string>
-            <string name="revanced_hide_shorts_video_title_title">Hide Shorts video title</string>
+            <string name="revanced_hide_shorts_video_title_title">Hide video title</string>
             <string name="revanced_hide_shorts_video_title_summary_on">Title is hidden</string>
             <string name="revanced_hide_shorts_video_title_summary_off">Title is shown</string>
             <string name="revanced_hide_shorts_sound_metadata_label_title">Hide sound metadata label</string>
