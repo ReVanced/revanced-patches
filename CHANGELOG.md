@@ -1,3 +1,10 @@
+# [4.8.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.3...v4.8.0-dev.4) (2024-04-23)
+
+
+### Features
+
+* **YouTube - Comments:** Add option to hide timestamp and emoji buttons ([#3076](https://github.com/ReVanced/revanced-patches/issues/3076)) ([7efe5ae](https://github.com/ReVanced/revanced-patches/commit/7efe5aefb252a2ed908907ff218b879e2ad1a331))
+
 # [4.8.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.2...v4.8.0-dev.3) (2024-04-22)
 
 
