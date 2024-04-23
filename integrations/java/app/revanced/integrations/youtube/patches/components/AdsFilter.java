@@ -23,6 +23,10 @@ public final class AdsFilter extends Filter {
     // endregion
 
     private final StringTrieSearch exceptions = new StringTrieSearch();
+
+    private final StringFilterGroup channelProfile;
+    private final ByteArrayFilterGroup visitStoreButton;
+
     private final StringFilterGroup shoppingLinks;
 
     public AdsFilter() {
@@ -100,6 +104,16 @@ public final class AdsFilter extends Filter {
                 "expandable_list"
         );
 
+        channelProfile = new StringFilterGroup(
+                null,
+                "channel_profile.eml"
+        );
+
+        visitStoreButton = new ByteArrayFilterGroup(
+                Settings.HIDE_VISIT_STORE_BUTTON,
+                "header_store_button"
+        );
+
         final var webLinkPanel = new StringFilterGroup(
                 Settings.HIDE_WEB_SEARCH_RESULTS,
                 "web_link_panel"
@@ -122,6 +136,7 @@ public final class AdsFilter extends Filter {
                 viewProducts,
                 selfSponsor,
                 fullscreenAd,
+                channelProfile,
                 webLinkPanel,
                 shoppingLinks,
                 movieAds
@@ -138,6 +153,13 @@ public final class AdsFilter extends Filter {
             if (path.contains("|ImageType|")) closeFullscreenAd();
 
             return false; // Do not actually filter the fullscreen ad otherwise it will leave a dimmed screen.
+        }
+
+        if (matchedGroup == channelProfile) {
+            if (visitStoreButton.check(protobufBufferArray).isFiltered()) {
+                return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
+            }
+            return false;
         }
 
         // Check for the index because of likelihood of false positives.
