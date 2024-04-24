@@ -48,11 +48,3 @@ object HideCategoryBar : BytecodePatch(
         } ?: throw ConstructCategoryBarFingerprint.exception
     }
 }
-
-@Deprecated("This patch class has been renamed to HideCategoryBar.")
-object CompactHeaderPatch : BytecodePatch(
-    dependencies = setOf(HideCategoryBar::class),
-) {
-    override fun execute(context: BytecodeContext) {
-    }
-}

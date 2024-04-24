@@ -38,11 +38,3 @@ object HideMusicVideoAds : BytecodePatch(
         } ?: throw ShowMusicVideoAdsParentFingerprint.exception
     }
 }
-
-@Deprecated("This patch class has been renamed to HideMusicVideoAds.")
-object MusicVideoAdsPatch : BytecodePatch(
-    dependencies = setOf(HideMusicVideoAds::class),
-) {
-    override fun execute(context: BytecodeContext) {
-    }
-}
