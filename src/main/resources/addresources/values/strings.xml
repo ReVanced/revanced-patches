@@ -662,7 +662,7 @@
             <string name="revanced_player_overlay_opacity_title">Player overlay opacity</string>
             <string name="revanced_player_overlay_opacity_summary">Opacity value between 0-100, where 0 is transparent</string>
         </patch>
-        <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
+        <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikePatch">
             <string name="revanced_ryd_settings_title">Return YouTube Dislike</string>
             <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden</string>
             <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
