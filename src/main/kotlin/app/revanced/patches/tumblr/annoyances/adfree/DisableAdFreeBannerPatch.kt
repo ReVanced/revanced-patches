@@ -8,7 +8,7 @@ import app.revanced.patches.tumblr.featureflags.OverrideFeatureFlagsPatch
 
 @Patch(
     name = "Disable Ad-Free Banner",
-    description = "Disables the Frog Banner prompting you to buy Tumblr Ad-Free",
+    description = "Disables the Frog Banner prompting you to buy Tumblr Ad-Free.",
     dependencies = [OverrideFeatureFlagsPatch::class],
     compatiblePackages = [CompatiblePackage("com.tumblr")],
 )
