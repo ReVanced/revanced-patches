@@ -69,8 +69,12 @@ public final class ShortsFilter extends Filter {
         // Path components.
         //
 
-        // Shorts that appear in the feed/search when the device is using tablet layout.
-        shortsCompactFeedVideoPath = new StringFilterGroup(null, "compact_video.eml");
+        shortsCompactFeedVideoPath = new StringFilterGroup(null,
+                // Shorts that appear in the feed/search when the device is using tablet layout.
+                "compact_video.eml",
+                // Search results that appear in a horizontal shelf.
+                "video_card.eml");
+
         // Filter out items that use the 'frame0' thumbnail.
         // This is a valid thumbnail for both regular videos and Shorts,
         // but it appears these thumbnails are used only for Shorts.
@@ -217,8 +221,7 @@ public final class ShortsFilter extends Filter {
             }
 
             if (matchedGroup == shortsCompactFeedVideoPath) {
-                if (shouldHideShortsFeedItems() && contentIndex == 0
-                        && shortsCompactFeedVideoBuffer.check(protobufBufferArray).isFiltered()) {
+                if (shouldHideShortsFeedItems() && shortsCompactFeedVideoBuffer.check(protobufBufferArray).isFiltered()) {
                     return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
                 }
                 return false;
