@@ -75,7 +75,7 @@ abstract class BaseIntegrationsPatch(
             val urlString = classUrl.toString()
 
             if (urlString.startsWith("jar:file:")) {
-                val end = urlString.indexOf('!')
+                val end = urlString.lastIndexOf('!')
                 return URLDecoder.decode(urlString.substring("jar:file:".length, end), StandardCharsets.UTF_8)
             }
         }
