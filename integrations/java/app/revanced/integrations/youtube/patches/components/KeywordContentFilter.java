@@ -100,7 +100,8 @@ final class KeywordContentFilter extends Filter {
     private final StringFilterGroup containsFilter = new StringFilterGroup(
             null,
             "modern_type_shelf_header_content.eml",
-             "shorts_lockup_cell.eml" // Part of 'shorts_shelf_carousel.eml'
+             "shorts_lockup_cell.eml", // Part of 'shorts_shelf_carousel.eml'
+            "video_card.eml" // Shorts that appear in a horizontal shelf.
     );
 
     /**
@@ -153,7 +154,7 @@ final class KeywordContentFilter extends Filter {
             return sentence;
         }
         final int firstCodePoint = sentence.codePointAt(0);
-        // In some non English languages title case is different than upper case.
+        // In some non English languages title case is different than uppercase.
         return new StringBuilder()
                 .appendCodePoint(Character.toTitleCase(firstCodePoint))
                 .append(sentence, Character.charCount(firstCodePoint), sentence.length())
@@ -167,6 +168,7 @@ final class KeywordContentFilter extends Filter {
         if (sentence.isEmpty()) {
             return sentence;
         }
+
         final int delimiter = ' ';
         // Use code points and not characters to handle unicode surrogates.
         int[] codePoints = sentence.codePoints().toArray();
