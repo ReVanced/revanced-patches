@@ -1,3 +1,10 @@
+# [4.8.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.8...v4.8.0-dev.9) (2024-04-29)
+
+
+### Bug Fixes
+
+* Correctly handle patches jar path if it contains exclamation marks ([056e2d7](https://github.com/ReVanced/revanced-patches/commit/056e2d7dd5bbacb7dc6b109b3e2d44d55e7eb7d3))
+
 # [4.8.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.7...v4.8.0-dev.8) (2024-04-23)
 
 
