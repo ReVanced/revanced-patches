@@ -4,7 +4,7 @@ import app.revanced.patches.youtube.misc.settings.appearanceStringId
 import app.revanced.util.patch.literalValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-val setThemeFingerprint = literalValueFingerprint(literalSupplier = { appearanceStringId }) {
+internal val setThemeFingerprint = literalValueFingerprint(literalSupplier = { appearanceStringId }) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters()
