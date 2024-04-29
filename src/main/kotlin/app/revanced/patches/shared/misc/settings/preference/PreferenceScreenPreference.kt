@@ -15,7 +15,7 @@ import org.w3c.dom.Document
  * @param preferences The preferences in this screen.
  */
 @Suppress("MemberVisibilityCanBePrivate")
-open class PreferenceScreen(
+open class PreferenceScreenPreference(
     key: String? = null,
     titleKey: String = "${key}_title",
     summaryKey: String? = "${key}_summary",

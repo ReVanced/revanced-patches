@@ -1,37 +1,35 @@
 package app.revanced.patches.youtube.misc.settings
 
-import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patches.all.misc.resources.AddResourcesPatch
-import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
-import app.revanced.patches.shared.misc.settings.BaseSettingsResourcePatch
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
+import app.revanced.patches.shared.misc.settings.baseSettingsResourcePatch
 import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.util.ResourceGroup
+import app.revanced.util.asSequence
 import app.revanced.util.copyResources
 import org.w3c.dom.Element
 
-object SettingsResourcePatch : BaseSettingsResourcePatch(
-    IntentPreference(
-        titleKey = "revanced_settings_title",
-        summaryKey = null,
-        intent = SettingsPatch.newIntent("revanced_settings_intent"),
-    ) to "settings_fragment",
-    dependencies =
-    setOf(
-        ResourceMappingPatch::class,
-        AddResourcesPatch::class,
-    ),
-) {
-    // Used for a fingerprint from SettingsPatch.
-    internal var appearanceStringId = -1L
+// Used for a fingerprint from SettingsPatch.
+internal var appearanceStringId = -1L
 
-    override fun execute(context: ResourceContext) {
-        super.execute(context)
+val settingsResourcePatch = resourcePatch {
+    dependsOn(
+        resourceMappingPatch,
+        baseSettingsResourcePatch(
+            IntentPreference(
+                titleKey = "revanced_settings_title",
+                summaryKey = null,
+                intent = SettingsPatch.newIntent("revanced_settings_intent"),
+            ) to "settings_fragment",
+        ),
+    )
 
-        AddResourcesPatch(this::class)
-
+    execute { context ->
         // Used for a fingerprint from SettingsPatch.
-        appearanceStringId = ResourceMappingPatch["string", "app_theme_appearance_dark"]
+        appearanceStringId = resourceMappings["string", "app_theme_appearance_dark"]
 
         arrayOf(
             ResourceGroup("layout", "revanced_settings_with_toolbar.xml"),
@@ -41,16 +39,17 @@ object SettingsResourcePatch : BaseSettingsResourcePatch(
 
         // Remove horizontal divider from the settings Preferences
         // To better match the appearance of the stock YouTube settings.
-        context.xmlEditor["res/values/styles.xml"].use { editor ->
-            val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
+        context.document["res/values/styles.xml"].use { document ->
+            val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
 
-            for (i in 0 until resourcesNode.childNodes.length) {
-                val node = resourcesNode.childNodes.item(i) as? Element ?: continue
+            resourcesNode.childNodes.asSequence().forEach {
+                val node = it as? Element ?: return@forEach
+
                 val name = node.getAttribute("name")
                 if (name == "Theme.YouTube.Settings" || name == "Theme.YouTube.Settings.Dark") {
-                    val listDividerNode = editor.file.createElement("item")
+                    val listDividerNode = document.createElement("item")
                     listDividerNode.setAttribute("name", "android:listDivider")
-                    listDividerNode.appendChild(editor.file.createTextNode("@null"))
+                    listDividerNode.appendChild(document.createTextNode("@null"))
                     node.appendChild(listDividerNode)
                 }
             }
@@ -60,8 +59,7 @@ object SettingsResourcePatch : BaseSettingsResourcePatch(
         // Some devices freak out if undeclared data is passed to an intent,
         // and this change appears to fix the issue.
         var modifiedIntent = false
-        context.xmlEditor["AndroidManifest.xml"].use { editor ->
-            val document = editor.file
+        context.document["AndroidManifest.xml"].use { document ->
             // A xml regular-expression would probably work better than this manual searching.
             val manifestNodes = document.getElementsByTagName("manifest").item(0).childNodes
             for (i in 0..manifestNodes.length) {
@@ -71,7 +69,8 @@ object SettingsResourcePatch : BaseSettingsResourcePatch(
                     for (j in 0..applicationNodes.length) {
                         val applicationChild = applicationNodes.item(j)
                         if (applicationChild is Element && applicationChild.nodeName == "activity" &&
-                            applicationChild.getAttribute("android:name") == "com.google.android.libraries.social.licenses.LicenseActivity"
+                            applicationChild.getAttribute("android:name") ==
+                            "com.google.android.libraries.social.licenses.LicenseActivity"
                         ) {
                             val intentFilter = document.createElement("intent-filter")
                             val mimeType = document.createElement("data")

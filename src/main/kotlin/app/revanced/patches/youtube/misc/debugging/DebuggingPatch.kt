@@ -5,8 +5,8 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
-import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
-import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
@@ -23,7 +23,7 @@ object DebuggingPatch : ResourcePatch() {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            PreferenceScreen(
+            PreferenceScreenPreference(
                 key = "revanced_debug_screen",
                 sorting = Sorting.UNSORTED,
                 preferences = setOf(

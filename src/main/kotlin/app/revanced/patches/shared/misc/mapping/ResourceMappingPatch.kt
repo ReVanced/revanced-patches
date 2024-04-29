@@ -1,30 +1,32 @@
 package app.revanced.patches.shared.misc.mapping
 
-import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.ResourcePatch
+import app.revanced.patcher.patch.resourcePatch
 import org.w3c.dom.Element
 import java.util.*
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
-object ResourceMappingPatch : ResourcePatch() {
-    private val resourceMappings = Collections.synchronizedList(mutableListOf<ResourceElement>())
+// TODO: Probably renaming the patch/this is a good idea.
+lateinit var resourceMappings: List<ResourceElement>
+    private set
 
-    private val THREAD_COUNT = Runtime.getRuntime().availableProcessors()
-    private val threadPoolExecutor = Executors.newFixedThreadPool(THREAD_COUNT)
+val resourceMappingPatch = resourcePatch {
+    val threadCount = Runtime.getRuntime().availableProcessors()
+    val threadPoolExecutor = Executors.newFixedThreadPool(threadCount)
 
-    override fun execute(context: ResourceContext) {
-        // sSve the file in memory to concurrently read from it.
-        val resourceXmlFile = context.get("res/values/public.xml").readBytes()
+    val resourceMappings = Collections.synchronizedList(mutableListOf<ResourceElement>())
 
-        for (threadIndex in 0 until THREAD_COUNT) {
+    execute { context ->
+        // Save the file in memory to concurrently read from it.
+        val resourceXmlFile = context["res/values/public.xml"].readBytes()
+
+        for (threadIndex in 0 until threadCount) {
             threadPoolExecutor.execute thread@{
-                context.xmlEditor[resourceXmlFile.inputStream()].use { editor ->
-                    val document = editor.file
+                context.document[resourceXmlFile.inputStream()].use { document ->
 
                     val resources = document.documentElement.childNodes
                     val resourcesLength = resources.length
-                    val jobSize = resourcesLength / THREAD_COUNT
+                    val jobSize = resourcesLength / threadCount
 
                     val batchStart = jobSize * threadIndex
                     val batchEnd = jobSize * (threadIndex + 1)
@@ -49,11 +51,13 @@ object ResourceMappingPatch : ResourcePatch() {
         }
 
         threadPoolExecutor.also { it.shutdown() }.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS)
+
+        app.revanced.patches.shared.misc.mapping.resourceMappings = resourceMappings
     }
-
-    operator fun get(type: String, name: String) = resourceMappings.first {
-        it.type == type && it.name == name
-    }.id
-
-    data class ResourceElement(val type: String, val name: String, val id: Long)
 }
+
+operator fun List<ResourceElement>.get(type: String, name: String) = resourceMappings.first {
+    it.type == type && it.name == name
+}.id
+
+data class ResourceElement internal constructor(val type: String, val name: String, val id: Long)

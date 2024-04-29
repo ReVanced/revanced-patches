@@ -7,8 +7,8 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
-import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
-import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.layout.buttons.navigation.fingerprints.ANDROID_AUTOMOTIVE_STRING
 import app.revanced.patches.youtube.layout.buttons.navigation.fingerprints.AddCreateButtonViewFingerprint
@@ -49,7 +49,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "19.08.36",
                 "19.09.38",
                 "19.10.39",
-                "19.11.43"
+                "19.11.43",
             ],
         ),
     ],
@@ -65,7 +65,7 @@ object NavigationButtonsPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-            PreferenceScreen(
+            PreferenceScreenPreference(
                 key = "revanced_navigation_buttons_screen",
                 sorting = Sorting.UNSORTED,
                 preferences = setOf(

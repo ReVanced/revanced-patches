@@ -1,6 +1,6 @@
 package app.revanced.patches.shared.misc.settings.preference
 
-import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import java.io.Closeable
 
 abstract class BasePreferenceScreen(
@@ -18,7 +18,7 @@ abstract class BasePreferenceScreen(
     /**
      * Finalize and insert root preference into resource patch
      */
-    abstract fun commit(screen: PreferenceScreen)
+    abstract fun commit(screen: PreferenceScreenPreference)
 
     open inner class Screen(
         key: String? = null,
@@ -29,8 +29,8 @@ abstract class BasePreferenceScreen(
         private val sorting: Sorting = Sorting.BY_TITLE,
     ) : BasePreferenceCollection(key, titleKey, preferences) {
 
-        override fun transform(): PreferenceScreen {
-            return PreferenceScreen(
+        override fun transform(): PreferenceScreenPreference {
+            return PreferenceScreenPreference(
                 key,
                 titleKey,
                 summaryKey,

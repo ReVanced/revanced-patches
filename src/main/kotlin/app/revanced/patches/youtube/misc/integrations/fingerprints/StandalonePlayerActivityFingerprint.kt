@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.misc.integrations.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patches.shared.misc.integrations.BaseIntegrationsPatch.IntegrationsFingerprint
+import app.revanced.patches.shared.misc.integrations.integrationsHook
 import com.android.tools.smali.dexlib2.AccessFlags
 
 /**
@@ -11,13 +10,15 @@ import com.android.tools.smali.dexlib2.AccessFlags
  * but this may still be used by older apps:
  * https://developers.google.com/youtube/android/player
  */
-internal object StandalonePlayerActivityFingerprint : IntegrationsFingerprint(
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    returnType = "V",
-    parameters = listOf("L"),
-    customFingerprint = { methodDef, _ ->
-        methodDef.definingClass == "Lcom/google/android/youtube/api/StandalonePlayerActivity;"
-                && methodDef.name == "onCreate"
-    },
-    // Integrations context is the Activity itself.
-)
+// Integrations context is the Activity itself.
+internal val standalonePlayerActivityFingerprint = integrationsHook(
+    contextRegisterResolver = { it.implementation!!.registerCount - it.parameters.size },
+) {
+    returns("V")
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    parameters("L")
+    custom { methodDef, _ ->
+        methodDef.definingClass == "Lcom/google/android/youtube/api/StandalonePlayerActivity;" &&
+            methodDef.name == "onCreate"
+    }
+}

@@ -13,7 +13,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.*
-import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.HideShowMoreButtonFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ParseElementFromBufferFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.PlayerOverlayFingerprint
@@ -59,7 +59,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
                 "19.08.36",
                 "19.09.38",
                 "19.10.39",
-                "19.11.43"
+                "19.11.43",
             ],
         ),
     ],
@@ -87,7 +87,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_channel_watermark"),
             SwitchPreference("revanced_hide_chips_shelf"),
             SwitchPreference("revanced_hide_community_guidelines"),
-            PreferenceScreen(
+            PreferenceScreenPreference(
                 key = "revanced_hide_description_components_screen",
                 preferences = setOf(
                     SwitchPreference("revanced_hide_chapters"),
@@ -125,7 +125,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_search_result_recommendations"),
             SwitchPreference("revanced_hide_search_result_shelf_header"),
             SwitchPreference("revanced_hide_show_more_button"),
-            PreferenceScreen(
+            PreferenceScreenPreference(
                 key = "revanced_hide_keyword_content_screen",
                 sorting = Sorting.UNSORTED,
                 preferences = setOf(
@@ -140,7 +140,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
 
         SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             SwitchPreference("revanced_hide_gray_separator"),
-            PreferenceScreen(
+            PreferenceScreenPreference(
                 key = "revanced_custom_filter_screen",
                 sorting = Sorting.UNSORTED,
                 preferences = setOf(

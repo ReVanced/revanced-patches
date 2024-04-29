@@ -1,13 +1,12 @@
 package app.revanced.patches.youtube.misc.litho.filter.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object LithoFilterFingerprint : MethodFingerprint(
-    accessFlags = AccessFlags.STATIC or AccessFlags.CONSTRUCTOR,
-    returnType = "V",
-    customFingerprint = { _, classDef ->
+internal val lithoFilterFingerprint = methodFingerprint {
+    returns("V")
+    accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
+    custom { _, classDef ->
         classDef.type.endsWith("LithoFilterPatch;")
-    },
-)
+    }
+}

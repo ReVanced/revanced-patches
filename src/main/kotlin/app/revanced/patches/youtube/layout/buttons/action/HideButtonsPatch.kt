@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
-import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
     dependencies = [
         ResourceMappingPatch::class,
         LithoFilterPatch::class,
-        AddResourcesPatch::class
+        AddResourcesPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -41,10 +41,10 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
                 "19.08.36",
                 "19.09.38",
                 "19.10.39",
-                "19.11.43"
-            ]
-        )
-    ]
+                "19.11.43",
+            ],
+        ),
+    ],
 )
 @Suppress("unused")
 object HideButtonsPatch : ResourcePatch() {
@@ -55,7 +55,7 @@ object HideButtonsPatch : ResourcePatch() {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
-            PreferenceScreen(
+            PreferenceScreenPreference(
                 "revanced_hide_buttons_screen",
                 preferences = setOf(
                     SwitchPreference("revanced_hide_like_dislike_button"),
@@ -65,9 +65,9 @@ object HideButtonsPatch : ResourcePatch() {
                     SwitchPreference("revanced_hide_download_button"),
                     SwitchPreference("revanced_hide_thanks_button"),
                     SwitchPreference("revanced_hide_clip_button"),
-                    SwitchPreference("revanced_hide_playlist_button")
+                    SwitchPreference("revanced_hide_playlist_button"),
                 ),
-            )
+            ),
         )
 
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)

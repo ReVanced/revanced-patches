@@ -1,13 +1,15 @@
 package app.revanced.util
 
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -67,7 +69,7 @@ fun MutableMethod.injectHideViewCall(
 /**
  * Get the index of the first instruction with the id of the given resource name.
  *
- * Requires [ResourceMappingPatch] as a dependency.
+ * Requires [resourceMappingPatch] as a dependency.
  *
  * @param resourceName the name of the resource to find the id for.
  * @return the index of the first instruction with the id of the given resource name, or -1 if not found.
@@ -75,14 +77,14 @@ fun MutableMethod.injectHideViewCall(
  * @see [indexOfIdResourceOrThrow]
  */
 fun Method.indexOfIdResource(resourceName: String): Int {
-    val resourceId = ResourceMappingPatch["id", resourceName]
+    val resourceId = resourceMappings["id", resourceName]
     return indexOfFirstWideLiteralInstructionValue(resourceId)
 }
 
 /**
  * Get the index of the first instruction with the id of the given resource name or throw a [PatchException].
  *
- * Requires [ResourceMappingPatch] as a dependency.
+ * Requires [resourceMappingPatch] as a dependency.
  *
  * @throws [PatchException] if the resource is not found, or the method does not contain the resource id literal value.
  */
@@ -120,9 +122,9 @@ fun Method.containsWideLiteralInstructionValue(literal: Long) =
  * @param targetClass the class to start traversing the class hierarchy from.
  * @param callback function that is called for every class in the hierarchy.
  */
-fun BytecodeContext.traverseClassHierarchy(targetClass: MutableClass, callback: MutableClass.() -> Unit) {
+fun BytecodePatchContext.traverseClassHierarchy(targetClass: MutableClass, callback: MutableClass.() -> Unit) {
     callback(targetClass)
-    this.findClass(targetClass.superclass ?: return)?.mutableClass?.let {
+    classByType(targetClass.superclass ?: return)?.mutableClass?.let {
         traverseClassHierarchy(it, callback)
     }
 }
