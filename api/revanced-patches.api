@@ -1062,8 +1062,8 @@ public final class app/revanced/patches/tumblr/ads/DisableDashboardAds : app/rev
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/tumblr/annoyances/DisableAdFreeBannerPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/tumblr/annoyances/DisableAdFreeBannerPatch;
+public final class app/revanced/patches/tumblr/annoyances/adfree/DisableAdFreeBannerPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/tumblr/annoyances/adfree/DisableAdFreeBannerPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
