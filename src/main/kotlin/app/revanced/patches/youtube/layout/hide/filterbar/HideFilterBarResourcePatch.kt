@@ -1,24 +1,31 @@
 package app.revanced.patches.youtube.layout.hide.filterbar
 
-import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.all.misc.resources.AddResourcesPatch
-import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import app.revanced.patches.youtube.misc.settings.settingsPatch
 
-@Patch(dependencies = [SettingsPatch::class, ResourceMappingPatch::class, AddResourcesPatch::class])
-internal object HideFilterBarResourcePatch : ResourcePatch() {
-    internal var filterBarHeightId = -1L
-    internal var relatedChipCloudMarginId = -1L
-    internal var barContainerHeightId = -1L
+internal var filterBarHeightId = -1L
+internal var relatedChipCloudMarginId = -1L
+internal var barContainerHeightId = -1L
 
-    override fun execute(context: ResourceContext) {
-        AddResourcesPatch(this::class)
+val hideFilterBarResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        resourceMappingPatch,
+        addResourcesPatch,
+    )
 
-        SettingsPatch.PreferenceScreen.FEED.addPreferences(
+    execute {
+        addResources("youtube", "layout.hide.filterbar.HideFilterBarResourcePatch")
+
+        PreferenceScreen.FEED.addPreferences(
             PreferenceScreenPreference(
                 key = "revanced_hide_filter_bar_screen",
                 preferences = setOf(
@@ -29,8 +36,8 @@ internal object HideFilterBarResourcePatch : ResourcePatch() {
             ),
         )
 
-        relatedChipCloudMarginId = ResourceMappingPatch["layout", "related_chip_cloud_reduced_margins"]
-        filterBarHeightId = ResourceMappingPatch["dimen", "filter_bar_height"]
-        barContainerHeightId = ResourceMappingPatch["dimen", "bar_container_height"]
+        relatedChipCloudMarginId = resourceMappings["layout", "related_chip_cloud_reduced_margins"]
+        filterBarHeightId = resourceMappings["dimen", "filter_bar_height"]
+        barContainerHeightId = resourceMappings["dimen", "bar_container_height"]
     }
 }
