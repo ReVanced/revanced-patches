@@ -3,19 +3,8 @@ package app.revanced.patches.youtube.layout.hide.crowdfundingbox
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.resourcePatch
-import app.revanced.patches.all.misc.resources.addResources
-import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
-import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
-import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.youtube.layout.hide.crowdfundingbox.fingerprints.createCrowdfundingBoxFingerprint
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
-import app.revanced.patches.youtube.misc.settings.PreferenceScreen
-import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.patch.literalValueFingerprint
-import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Suppress("unused")
@@ -23,30 +12,9 @@ val crowdfundingBoxPatch = bytecodePatch(
     name = "Hide crowdfunding box",
     description = "Adds an option to hide the crowdfunding box between the player and video description.",
 ) {
-    var crowdfundingBoxId = -1L
-
     dependsOn(
         integrationsPatch,
-        resourcePatch {
-            dependsOn(
-                settingsPatch,
-                resourceMappingPatch,
-                addResourcesPatch,
-            )
-
-            execute {
-                addResources("youtube", "layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch")
-
-                PreferenceScreen.FEED.addPreferences(
-                    SwitchPreference("revanced_hide_crowdfunding_box"),
-                )
-
-                crowdfundingBoxId = resourceMappings[
-                    "layout",
-                    "donation_companion",
-                ]
-            }
-        },
+        crowdfundingBoxResourcePatch,
     )
 
     compatibleWith(
@@ -73,14 +41,7 @@ val crowdfundingBoxPatch = bytecodePatch(
         ),
     )
 
-    val createCrowdfundingBoxResult by literalValueFingerprint(literalSupplier = { crowdfundingBoxId }) {
-        accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-        opcodes(
-            Opcode.INVOKE_VIRTUAL,
-            Opcode.MOVE_RESULT_OBJECT,
-            Opcode.IPUT_OBJECT,
-        )
-    }
+    val createCrowdfundingBoxResult by createCrowdfundingBoxFingerprint
 
     execute {
         createCrowdfundingBoxResult.mutableMethod.apply {
