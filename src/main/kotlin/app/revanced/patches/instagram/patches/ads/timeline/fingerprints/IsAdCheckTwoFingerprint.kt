@@ -1,15 +1,14 @@
 package app.revanced.patches.instagram.patches.ads.timeline.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object IsAdCheckTwoFingerprint : MethodFingerprint(
-    returnType = "Z",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    parameters = listOf("L"),
-    opcodes = listOf(
+internal val isAdCheckTwoFingerprint = methodFingerprint {
+    returns("Z")
+    accessFlags(AccessFlags.PUBLIC,AccessFlags.STATIC)
+    parameters("L")
+    opcodes(
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_INTERFACE,
@@ -18,5 +17,5 @@ internal object IsAdCheckTwoFingerprint : MethodFingerprint(
         Opcode.IF_EQZ,
         Opcode.CONST_4,
         Opcode.RETURN,
-    ),
-)
+    )
+}

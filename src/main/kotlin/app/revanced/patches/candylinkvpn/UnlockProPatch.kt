@@ -1,28 +1,24 @@
 package app.revanced.patches.candylinkvpn
 
-import app.revanced.util.exception
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.candylinkvpn.fingerprints.IsPremiumPurchasedFingerprint
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.candylinkvpn.fingerprints.isPremiumPurchasedFingerprint
 
-@Patch(
-    name = "Unlock pro",
-    compatiblePackages = [CompatiblePackage("com.candylink.openvpn")]
-)
 @Suppress("unused")
-object UnlockProPatch : BytecodePatch(
-    setOf(IsPremiumPurchasedFingerprint)
+val UnlockProPatch = bytecodePatch(
+    name = "Unlock pro"
 ) {
-    override fun execute(context: BytecodeContext) {
-        IsPremiumPurchasedFingerprint.result?.mutableMethod?.addInstructions(
+    compatibleWith("com.candylink.openvpn"("1.0.0"))
+
+    val isLicenseRegisteredResult by isPremiumPurchasedFingerprint
+
+    execute {
+        isLicenseRegisteredResult.mutableMethod.addInstructions(
             0,
             """
                const/4 v0, 0x1
                return v0
             """
-        ) ?: throw IsPremiumPurchasedFingerprint.exception
+        )
     }
 }

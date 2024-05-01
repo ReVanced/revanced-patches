@@ -1,16 +1,15 @@
 package app.revanced.patches.finanzonline.detection.root.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 // Located @ at.gv.bmf.bmf2go.taxequalization.tools.utils.RootDetection#isRooted (3.0.1)
-internal object RootDetectionFingerprint : MethodFingerprint(
-    "L",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    parameters = listOf("L"),
-    opcodes = listOf(
+internal val rootDetectionFingerprint = methodFingerprint {
+    returns("L")
+    accessFlags(AccessFlags.PUBLIC,AccessFlags.STATIC)
+    parameters("L")
+    opcodes(
         Opcode.NEW_INSTANCE,
         Opcode.INVOKE_DIRECT,
         Opcode.INVOKE_VIRTUAL,
@@ -19,4 +18,4 @@ internal object RootDetectionFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.RETURN_OBJECT
     )
-)
+}

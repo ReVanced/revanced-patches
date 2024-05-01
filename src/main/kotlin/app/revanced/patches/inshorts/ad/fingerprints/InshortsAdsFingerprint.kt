@@ -1,8 +1,8 @@
 package app.revanced.patches.inshorts.ad.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object InshortsAdsFingerprint : MethodFingerprint(
-    "V",
-    strings = listOf("GoogleAdLoader","exception in requestAd"),
-)
+internal val inshortsAdsFingerprint = methodFingerprint {
+    returns("V")
+    strings("GoogleAdLoader", "exception in requestAd")
+}

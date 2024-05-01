@@ -1,22 +1,17 @@
 package app.revanced.patches.idaustria.detection.signature
 
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.idaustria.detection.signature.fingerprints.SpoofSignatureFingerprint
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.idaustria.detection.signature.fingerprints.spoofSignatureFingerprint
 
-@Patch(
-    name = "Spoof signature",
-    description = "Spoofs the signature of the app.",
-    compatiblePackages = [CompatiblePackage("at.gv.oe.app")]
-)
 @Suppress("unused")
-object SpoofSignaturePatch : BytecodePatch(
-    setOf(SpoofSignatureFingerprint)
+val spoofSignaturePatch = bytecodePatch(
+    name = "Spoof signature",
+    description = "Spoofs the signature of the app."
 ) {
-    private const val EXPECTED_SIGNATURE =
+    compatibleWith("at.gv.oe.app"(""))
+
+    val EXPECTED_SIGNATURE =
         "OpenSSLRSAPublicKey{modulus=ac3e6fd6050aa7e0d6010ae58190404cd89a56935b44f6fee" +
                 "067c149768320026e10b24799a1339e414605e448e3f264444a327b9ae292be2b62ad567dd1800dbed4a88f718a33dc6db6b" +
                 "f5178aa41aa0efff8a3409f5ca95dbfccd92c7b4298966df806ea7a0204a00f0e745f6d9f13bdf24f3df715d7b62c1600906" +
@@ -29,8 +24,10 @@ object SpoofSignaturePatch : BytecodePatch(
                 "77ef1be61b2c01ebdabddcbf53cc4b6fd9a3c445606ee77b3758162c80ad8f8137b3c6864e92db904807dcb2be9d7717dd21" +
                 "bf42c121d620ddfb7914f7a95c713d9e1c1b7bdb4a03d618e40cf7e9e235c0b5687e03b7ab3,publicExponent=10001}"
 
-    override fun execute(context: BytecodeContext) {
-        SpoofSignatureFingerprint.result!!.mutableMethod.addInstructions(
+    val spoofSignatureResult by spoofSignatureFingerprint
+
+    execute {
+        spoofSignatureResult.mutableMethod.addInstructions(
             0,
             """
                 const-string v0, "$EXPECTED_SIGNATURE"

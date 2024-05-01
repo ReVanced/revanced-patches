@@ -1,23 +1,19 @@
 package app.revanced.patches.inshorts.ad
 
-import app.revanced.util.exception
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.inshorts.ad.fingerprints.InshortsAdsFingerprint
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.inshorts.ad.fingerprints.inshortsAdsFingerprint
 
-@Patch(
-    name = "Hide ads",
-    compatiblePackages = [CompatiblePackage("com.nis.app")]
-)
 @Suppress("unused")
-object HideAdsPatch : BytecodePatch(
-    setOf(InshortsAdsFingerprint)
+val hideAdsPatch = bytecodePatch(
+    name = "Hide ads"
 ) {
-    override fun execute(context: BytecodeContext) {
-        InshortsAdsFingerprint.result?.let { result ->
+    compatibleWith("com.nis.app"())
+
+    val inshortsAdsResult by inshortsAdsFingerprint
+
+    execute {
+        inshortsAdsResult.let { result ->
             result.apply {
                 mutableMethod.addInstruction(
                     0,
@@ -26,6 +22,6 @@ object HideAdsPatch : BytecodePatch(
                     """
                 )
             }
-        } ?: throw InshortsAdsFingerprint.exception
+        }
     }
 }

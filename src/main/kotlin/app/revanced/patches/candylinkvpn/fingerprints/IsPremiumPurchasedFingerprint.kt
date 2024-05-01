@@ -1,10 +1,10 @@
 package app.revanced.patches.candylinkvpn.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object IsPremiumPurchasedFingerprint : MethodFingerprint(
-    customFingerprint = { methodDef, _ ->
+internal val isPremiumPurchasedFingerprint = methodFingerprint {
+    custom { methodDef, _ ->
         methodDef.definingClass.endsWith("PreferenceProvider;") &&
                 methodDef.name == "isPremiumPurchased"
     }
-)
+}

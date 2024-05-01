@@ -1,37 +1,29 @@
 package app.revanced.patches.instagram.patches.ads.timeline
 
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.IsAdCheckOneFingerprint
-import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.IsAdCheckTwoFingerprint
-import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.ShowAdFingerprint
-import app.revanced.util.exception
+import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.isAdCheckOneFingerprint
+import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.isAdCheckTwoFingerprint
+import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.showAdFingerprint
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
-@Patch(
-    name = "Hide timeline ads",
-    compatiblePackages = [CompatiblePackage("com.instagram.android")],
-)
+
 @Suppress("unused")
-object HideTimelineAdsPatch : BytecodePatch(
-    setOf(
-        ShowAdFingerprint,
-        IsAdCheckOneFingerprint,
-        IsAdCheckTwoFingerprint,
-    ),
+val hideTimelineAdsPatch = bytecodePatch(
+    name = "Hide timeline ads",
 ) {
-    override fun execute(context: BytecodeContext) {
+    compatibleWith("com.instagram.android"())
+
+    execute {
         // The exact function of the following methods is unknown.
         // They are used to check if a post is an ad.
-        val isAdCheckOneMethod = IsAdCheckOneFingerprint.result?.method ?: throw IsAdCheckOneFingerprint.exception
-        val isAdCheckTwoMethod = IsAdCheckTwoFingerprint.result?.method ?: throw IsAdCheckTwoFingerprint.exception
+        val isAdCheckOneResult by isAdCheckOneFingerprint
+        val isAdCheckTwoResult by isAdCheckTwoFingerprint
+        val showAdResult by showAdFingerprint
 
-        ShowAdFingerprint.result?.let {
+        showAdResult.let {
             it.mutableMethod.apply {
                 // The register that holds the post object.
                 val postRegister = getInstruction<FiveRegisterInstruction>(1).registerC
@@ -43,11 +35,11 @@ object HideTimelineAdsPatch : BytecodePatch(
                 addInstructionsWithLabels(
                     checkIndex,
                     """
-                        invoke-virtual { v$postRegister }, $isAdCheckOneMethod
+                        invoke-virtual { v$postRegister }, $isAdCheckOneResult
                         move-result v0
                         if-nez v0, :hide_ad
                         
-                        invoke-static { v$postRegister }, $isAdCheckTwoMethod
+                        invoke-static { v$postRegister }, $isAdCheckTwoResult
                         move-result v0
                         if-eqz v0, :not_an_ad
                         
@@ -58,6 +50,6 @@ object HideTimelineAdsPatch : BytecodePatch(
                     ExternalLabel("not_an_ad", getInstruction(checkIndex)),
                 )
             }
-        } ?: throw ShowAdFingerprint.exception
+        }
     }
 }
