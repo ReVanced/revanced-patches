@@ -1,30 +1,31 @@
 package app.revanced.patches.youtube.layout.hide.floatingmicrophone
 
-import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.all.misc.resources.AddResourcesPatch
-import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import app.revanced.patches.youtube.misc.settings.settingsPatch
 
-@Patch(
-    dependencies = [
-        SettingsPatch::class,
-        ResourceMappingPatch::class,
-        AddResourcesPatch::class,
-    ],
-)
-internal object HideFloatingMicrophoneButtonResourcePatch : ResourcePatch() {
-    internal var fabButtonId: Long = -1
+internal var fabButtonId = -1L
 
-    override fun execute(context: ResourceContext) {
-        AddResourcesPatch(this::class)
+internal val hideFloatingMicrophoneButtonResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        resourceMappingPatch,
+        addResourcesPatch,
+    )
 
-        SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+    execute {
+        addResources("youtube", "layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch")
+
+        PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             SwitchPreference("revanced_hide_floating_microphone_button"),
         )
 
-        fabButtonId = ResourceMappingPatch["id", "fab"]
+        fabButtonId = resourceMappings["id", "fab"]
     }
 }

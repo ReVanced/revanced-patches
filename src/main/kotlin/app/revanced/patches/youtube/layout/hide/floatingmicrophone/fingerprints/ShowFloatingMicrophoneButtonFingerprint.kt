@@ -1,19 +1,19 @@
 package app.revanced.patches.youtube.layout.hide.floatingmicrophone.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patches.youtube.layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch
-import app.revanced.util.patch.LiteralValueFingerprint
+import app.revanced.patches.youtube.layout.hide.floatingmicrophone.fabButtonId
+import app.revanced.util.patch.literalValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object ShowFloatingMicrophoneButtonFingerprint : LiteralValueFingerprint(
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    returnType = "V",
-    parameters = listOf(),
-    opcodes = listOf(
+internal val showFloatingMicrophoneButtonFingerprint = literalValueFingerprint(
+    literalSupplier = { fabButtonId },
+) {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
+    parameters()
+    opcodes(
         Opcode.IGET_BOOLEAN,
         Opcode.IF_EQZ,
-        Opcode.RETURN_VOID
-    ),
-    literalSupplier = { HideFloatingMicrophoneButtonResourcePatch.fabButtonId }
-)
+        Opcode.RETURN_VOID,
+    )
+}
