@@ -10,16 +10,16 @@ import app.revanced.util.copyResources
 import app.revanced.util.getNode
 import org.w3c.dom.Node
 
-val preferences = mutableSetOf<BasePreference>()
-
 /**
  * A resource patch that adds settings to a settings fragment.
  *
  * @param rootPreference A pair of an intent preference and the name of the fragment file to add it to.
  * If null, no preference will be added.
+ * @param preferences A set of preferences to add to the ReVanced fragment.
  */
 fun baseSettingsResourcePatch(
     rootPreference: Pair<IntentPreference, String>? = null,
+    preferences: Set<BasePreference>,
 ) = resourcePatch {
     dependsOn(addResourcesPatch)
 

@@ -10,7 +10,6 @@ import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
-import app.revanced.patches.shared.misc.settings.preferences
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import app.revanced.patches.youtube.misc.settings.fingerprints.licenseActivityOnCreateFingerprint
 import app.revanced.patches.youtube.misc.settings.fingerprints.setThemeFingerprint
@@ -169,7 +168,7 @@ object PreferenceScreen : BasePreferenceScreen() {
         summaryKey = null,
     )
 
-    override fun commit(screen: app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference) {
+    override fun commit(screen: PreferenceScreenPreference) {
         preferences += screen
     }
 }

@@ -6,6 +6,7 @@ import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.baseSettingsResourcePatch
+import app.revanced.patches.shared.misc.settings.preference.BasePreference
 import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.util.ResourceGroup
 import app.revanced.util.asSequence
@@ -15,15 +16,18 @@ import org.w3c.dom.Element
 // Used for a fingerprint from SettingsPatch.
 internal var appearanceStringId = -1L
 
+val preferences = mutableSetOf<BasePreference>()
+
 val settingsResourcePatch = resourcePatch {
     dependsOn(
         resourceMappingPatch,
         baseSettingsResourcePatch(
-            IntentPreference(
+            rootPreference = IntentPreference(
                 titleKey = "revanced_settings_title",
                 summaryKey = null,
                 intent = newIntent("revanced_settings_intent"),
             ) to "settings_fragment",
+            preferences,
         ),
     )
 
