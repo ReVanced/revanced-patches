@@ -49,7 +49,7 @@ val commentsPatch = resourcePatch(
         "Lapp/revanced/integrations/youtube/patches/components/CommentsFilter;"
 
     execute {
-        addResources(this)
+        addResources("youtube", "layout.hide.comments.CommentsPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
             PreferenceScreenPreference(
