@@ -22,7 +22,7 @@ val settingsResourcePatch = resourcePatch {
             IntentPreference(
                 titleKey = "revanced_settings_title",
                 summaryKey = null,
-                intent = SettingsPatch.newIntent("revanced_settings_intent"),
+                intent = newIntent("revanced_settings_intent"),
             ) to "settings_fragment",
         ),
     )

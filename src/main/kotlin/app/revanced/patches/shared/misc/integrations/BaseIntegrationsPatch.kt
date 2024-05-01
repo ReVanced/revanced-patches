@@ -39,7 +39,7 @@ fun integrationsPatch(vararg hooks: IntegrationsHook) = bytecodePatch(requiresIn
                     val urlString = classUrl.toString()
 
                     if (urlString.startsWith("jar:file:")) {
-                val end = urlString.lastIndexOf('!')
+                        val end = urlString.lastIndexOf('!')
                         return URLDecoder.decode(urlString.substring("jar:file:".length, end), StandardCharsets.UTF_8)
                     }
                 }
