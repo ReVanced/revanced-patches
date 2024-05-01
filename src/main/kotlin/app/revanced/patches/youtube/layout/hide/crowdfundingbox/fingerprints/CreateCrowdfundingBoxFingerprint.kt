@@ -5,7 +5,7 @@ import app.revanced.util.patch.literalValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-val createCrowdfundingBoxFingerprint = literalValueFingerprint(
+internal val createCrowdfundingBoxFingerprint = literalValueFingerprint(
     literalSupplier = { crowdfundingBoxId },
 ) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)

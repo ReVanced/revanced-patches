@@ -13,9 +13,9 @@ internal val embeddedPlayerControlsOverlayFingerprint = integrationsHook(
     // Integrations context is the first method parameter.
     contextRegisterResolver = { it.implementation!!.registerCount - it.parameters.size },
 ) {
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.CONSTRUCTOR)
     returns("V")
     parameters("Landroid/content/Context;", "L", "L")
-    accessFlags(AccessFlags.PRIVATE, AccessFlags.CONSTRUCTOR)
     custom { methodDef, _ ->
         methodDef.definingClass.startsWith("Lcom/google/android/apps/youtube/embeddedplayer/service/ui/overlays/controlsoverlay/remoteloaded/")
     }

@@ -13,19 +13,20 @@ import java.net.URLDecoder
 import java.nio.charset.StandardCharsets
 import java.util.jar.JarFile
 
+internal const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/shared/Utils;"
+
 fun integrationsPatch(vararg hooks: IntegrationsHook) = bytecodePatch(requiresIntegrations = true) {
     val revancedUtilsPatchesVersionResult by revancedUtilsPatchesVersionFingerprint
     hooks.forEach { it.fingerprint() }
 
     execute { context ->
-        val integrationsClassDescriptor = "Lapp/revanced/integrations/shared/Utils;"
-        if (context.classByType(integrationsClassDescriptor) == null) {
+        if (context.classByType(INTEGRATIONS_CLASS_DESCRIPTOR) == null) {
             throw PatchException(
                 "Integrations have not been merged yet. This patch can not succeed without merging the integrations.",
             )
         }
 
-        hooks.forEach { hook -> hook(integrationsClassDescriptor) }
+        hooks.forEach { hook -> hook(INTEGRATIONS_CLASS_DESCRIPTOR) }
 
         // Modify Utils method to include the patches release version.
         revancedUtilsPatchesVersionResult.mutableMethod.apply {

@@ -14,8 +14,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal val standalonePlayerActivityFingerprint = integrationsHook(
     contextRegisterResolver = { it.implementation!!.registerCount - it.parameters.size },
 ) {
-    returns("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
     parameters("L")
     custom { methodDef, _ ->
         methodDef.definingClass == "Lcom/google/android/youtube/api/StandalonePlayerActivity;" &&

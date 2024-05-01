@@ -13,8 +13,8 @@ internal val embeddedPlayerFingerprint = integrationsHook(
     // Integrations context is the third method parameter.
     contextRegisterResolver = { it.implementation!!.registerCount - it.parameters.size },
 ) {
-    returns("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returns("V")
     parameters("Landroid/content/Context;", "L", "L")
     strings("android.hardware.type.television") // String is also found in other classes
     custom { methodDef, _ ->

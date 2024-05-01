@@ -5,8 +5,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val protobufBufferReferenceFingerprint = methodFingerprint {
-    returns("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
     parameters("I", "Ljava/nio/ByteBuffer;")
     opcodes(
         Opcode.IPUT,

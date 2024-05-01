@@ -10,8 +10,8 @@ internal val remoteEmbedFragmentFingerprint = integrationsHook(
     // Integrations context is the first method parameter.
     contextRegisterResolver = { it.implementation!!.registerCount - it.parameters.size },
 ) {
-    returns("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    returns("V")
     parameters("Landroid/content/Context;", "L", "L")
     custom { methodDef, _ ->
         methodDef.definingClass == "Lcom/google/android/apps/youtube/embeddedplayer/service/jar/client/RemoteEmbedFragment;"
