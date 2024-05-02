@@ -1,37 +1,28 @@
 package app.revanced.patches.tiktok.interaction.cleardisplay
 
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.tiktok.interaction.cleardisplay.fingerprints.OnClearDisplayEventFingerprint
-import app.revanced.patches.tiktok.interaction.cleardisplay.fingerprints.OnRenderFirstFrameFingerprint
-import app.revanced.util.exception
+import app.revanced.patches.tiktok.interaction.cleardisplay.fingerprints.onClearDisplayEventFingerprint
+import app.revanced.patches.tiktok.interaction.cleardisplay.fingerprints.onRenderFirstFrameFingerprint
 import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
 
-@Patch(
+@Suppress("unused")
+val rememberClearDisplayPatch = bytecodePatch(
     name = "Remember clear display",
     description = "Remembers the clear display configurations in between videos.",
-    compatiblePackages = [
-        CompatiblePackage("com.ss.android.ugc.trill", ["32.5.3"]),
-        CompatiblePackage("com.zhiliaoapp.musically", ["32.5.3"])
-    ]
-)
-@Suppress("unused")
-object RememberClearDisplayPatch : BytecodePatch(
-    setOf(
-        OnClearDisplayEventFingerprint,
-        OnRenderFirstFrameFingerprint
-    )
 ) {
-    override fun execute(context: BytecodeContext) {
-        OnClearDisplayEventFingerprint.result?.mutableMethod?.let {
+    compatibleWith("com.ss.android.ugc.trill"("32.5.3"), "com.zhiliaoapp.musically"("32.5.3"))
+
+    val onClearDisplayEventResult by onClearDisplayEventFingerprint
+    val onRenderFirstFrameResult by onRenderFirstFrameFingerprint
+
+    execute {
+        onClearDisplayEventResult.mutableMethod.let {
             // region Hook the "Clear display" configuration save event to remember the state of clear display.
 
             val isEnabledIndex = it.indexOfFirstInstruction { opcode == Opcode.IGET_BOOLEAN } + 1
@@ -40,7 +31,7 @@ object RememberClearDisplayPatch : BytecodePatch(
             it.addInstructions(
                 isEnabledIndex,
                 "invoke-static { v$isEnabledRegister }, " +
-                        "Lapp/revanced/integrations/tiktok/cleardisplay/RememberClearDisplayPatch;->rememberClearDisplayState(Z)V"
+                    "Lapp/revanced/integrations/tiktok/cleardisplay/RememberClearDisplayPatch;->rememberClearDisplayState(Z)V",
             )
 
             // endregion
@@ -48,10 +39,9 @@ object RememberClearDisplayPatch : BytecodePatch(
             // region Override the "Clear display" configuration load event to load the state of clear display.
 
             val clearDisplayEventClass = it.parameters[0].type
-            OnRenderFirstFrameFingerprint.result?.mutableMethod?.apply {
-                addInstructionsWithLabels(
-                    0,
-                    """
+            onRenderFirstFrameResult.mutableMethod.addInstructionsWithLabels(
+                0,
+                """
                         # Create a new clearDisplayEvent and post it to the EventBus (https://github.com/greenrobot/EventBus)
 
                         # The state of clear display.
@@ -69,11 +59,9 @@ object RememberClearDisplayPatch : BytecodePatch(
                         invoke-direct { v0, v1, v2, v3 }, $clearDisplayEventClass-><init>(ILjava/lang/String;Z)V
                         invoke-virtual { v0 }, $clearDisplayEventClass->post()Lcom/ss/android/ugc/governance/eventbus/IEvent;
                     """,
-                    ExternalLabel("clear_display_disabled", getInstruction(0))
-                )
-            } ?: throw OnRenderFirstFrameFingerprint.exception
-
+                ExternalLabel("clear_display_disabled", it.getInstruction(0)),
+            )
             // endregion
-        } ?: throw OnClearDisplayEventFingerprint.exception
+        }
     }
 }

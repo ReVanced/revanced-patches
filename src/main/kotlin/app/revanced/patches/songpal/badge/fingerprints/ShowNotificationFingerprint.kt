@@ -1,7 +1,6 @@
 package app.revanced.patches.songpal.badge.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.patches.songpal.badge.fingerprints.ShowNotificationFingerprint.expectedReference
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -9,10 +8,10 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
 
 // Located @ com.sony.songpal.mdr.vim.activity.MdrRemoteBaseActivity.e#run (9.5.0)
-internal object ShowNotificationFingerprint : MethodFingerprint(
-    "V",
-    accessFlags = AccessFlags.PUBLIC.value,
-    customFingerprint = custom@{ methodDef, _ ->
+internal val showNotificationFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC)
+    returns("V")
+    custom { methodDef, _ ->
         methodDef.implementation?.instructions?.any { instruction ->
             if (instruction.opcode != Opcode.INVOKE_VIRTUAL) return@any false
 
@@ -27,11 +26,11 @@ internal object ShowNotificationFingerprint : MethodFingerprint(
             true
         } ?: false
     }
-) {
-    val expectedReference = ImmutableMethodReference(
-        "Lcom/google/android/material/bottomnavigation/BottomNavigationView;",
-        "getOrCreateBadge", // Non-obfuscated placeholder method name.
-        listOf("I"),
-        "Lcom/google/android/material/badge/BadgeDrawable;",
-    )
 }
+
+internal val expectedReference = ImmutableMethodReference(
+    "Lcom/google/android/material/bottomnavigation/BottomNavigationView;",
+    "getOrCreateBadge", // Non-obfuscated placeholder method name.
+    listOf("I"),
+    "Lcom/google/android/material/badge/BadgeDrawable;",
+)

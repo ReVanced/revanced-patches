@@ -1,16 +1,16 @@
 package app.revanced.patches.youtube.interaction.downloads.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object OfflineVideoEndpointFingerprint : MethodFingerprint(
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    returnType = "V",
-    parameters = listOf(
+internal val offlineVideoEndpointFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
+    parameters(
         "Ljava/util/Map;",
         "L",
         "Ljava/lang/String", // VideoId
-        "L"),
-    strings = listOf("Object is not an offlineable video: ")
-)
+        "L",
+    )
+    strings("Object is not an offlineable video: ")
+}

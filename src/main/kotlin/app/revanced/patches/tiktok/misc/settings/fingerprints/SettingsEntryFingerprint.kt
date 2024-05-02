@@ -1,9 +1,7 @@
 package app.revanced.patches.tiktok.misc.settings.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object SettingsEntryFingerprint : MethodFingerprint(
-    strings = listOf(
-        "pls pass item or extends the EventUnit"
-    )
-)
+internal val settingsEntryFingerprint = methodFingerprint {
+    strings("pls pass item or extends the EventUnit")
+}

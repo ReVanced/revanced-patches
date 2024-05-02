@@ -1,32 +1,29 @@
 package app.revanced.patches.tumblr.fixes
 
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.tumblr.fixes.fingerprints.AddQueryParamFingerprint
-import app.revanced.patches.tumblr.fixes.fingerprints.HttpPathParserFingerprint
-import app.revanced.util.exception
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.tumblr.fixes.fingerprints.addQueryParamFingerprint
+import app.revanced.patches.tumblr.fixes.fingerprints.httpPathParserFingerprint
 
-@Patch(
+@Suppress("unused")
+val fixOldVersionsPatch = bytecodePatch(
     name = "Fix old versions",
     description = "Fixes old versions of the app (v33.2 and earlier) breaking due to Tumblr removing remnants of Tumblr" +
         " Live from the API, which causes many requests to fail. This patch has no effect on newer versions of the app.",
-    compatiblePackages = [CompatiblePackage("com.tumblr")],
     use = false,
-)
-@Suppress("unused")
-object FixOldVersionsPatch : BytecodePatch(
-    setOf(HttpPathParserFingerprint, AddQueryParamFingerprint),
 ) {
-    override fun execute(context: BytecodeContext) {
+    compatibleWith("com.tumblr"())
+
+    val httpPathParserResult by httpPathParserFingerprint
+    val addQueryParamResult by addQueryParamFingerprint
+
+    execute {
         val liveQueryParameters = listOf(
             ",?live_now",
             ",?live_streaming_user_id",
         )
 
-        HttpPathParserFingerprint.result?.let {
+        httpPathParserResult.let {
             val endIndex = it.scanResult.patternScanResult!!.endIndex
             // Remove the live query parameters from the path when it's specified via a @METHOD annotation.
             for (liveQueryParameter in liveQueryParameters) {
@@ -41,9 +38,9 @@ object FixOldVersionsPatch : BytecodePatch(
                 """,
                 )
             }
-        } ?: throw HttpPathParserFingerprint.exception
+        }
 
-        AddQueryParamFingerprint.result?.let {
+        addQueryParamResult.let {
             // Remove the live query parameters when passed via a parameter which has the @Query annotation.
             // e.g. an API call could be defined like this:
             //  @GET("api/me/info")
@@ -62,6 +59,6 @@ object FixOldVersionsPatch : BytecodePatch(
                 """,
                 )
             }
-        } ?: throw AddQueryParamFingerprint.exception
+        }
     }
 }

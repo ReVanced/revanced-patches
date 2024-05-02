@@ -1,11 +1,11 @@
 package app.revanced.patches.vsco.misc.pro.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object RevCatSubscriptionFingerprint : MethodFingerprint(
-    returnType = "V",
-    strings = listOf("use_debug_subscription_settings"),
-    customFingerprint = { methodDef, _ ->
+internal val revCatSubscriptionFingerprint = methodFingerprint {
+    returns("V")
+    strings("use_debug_subscription_settings")
+    custom { methodDef, _ ->
         methodDef.definingClass.endsWith("/RevCatSubscriptionSettingsRepository;")
     }
-)
+}

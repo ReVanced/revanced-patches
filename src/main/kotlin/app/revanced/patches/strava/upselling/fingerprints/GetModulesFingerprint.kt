@@ -1,11 +1,11 @@
 package app.revanced.patches.strava.upselling.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object GetModulesFingerprint : MethodFingerprint(
-    opcodes = listOf(Opcode.IGET_OBJECT),
-    customFingerprint = { methodDef, classDef ->
+internal val getModulesFingerprint = methodFingerprint {
+    opcodes(Opcode.IGET_OBJECT)
+    custom { methodDef, classDef ->
         classDef.type.endsWith("/GenericLayoutEntry;") && methodDef.name == "getModules"
     }
-)
+}

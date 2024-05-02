@@ -1,10 +1,10 @@
 package app.revanced.patches.twitter.interaction.downloads.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object ShowDownloadVideoUpsellBottomSheetFingerprint : MethodFingerprint(
-    returnType = "Z",
-    strings = listOf("variantToDownload.url"),
-    opcodes = listOf(Opcode.IF_EQZ)
-)
+internal val showDownloadVideoUpsellBottomSheetFingerprint = methodFingerprint {
+    returns("Z")
+    strings("variantToDownload.url")
+    opcodes(Opcode.IF_EQZ)
+}

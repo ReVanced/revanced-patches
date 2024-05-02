@@ -1,7 +1,6 @@
 package app.revanced.patches.tumblr.featureflags.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -14,14 +13,14 @@ import com.android.tools.smali.dexlib2.Opcode
 // Some features seem to be very old and never removed, though, such as Google Login.
 // The startIndex of the opcode pattern is at the start of the function after the arg null check.
 // we want to insert our instructions there.
-internal object GetFeatureValueFingerprint : MethodFingerprint(
-    strings = listOf("feature"),
-    opcodes = listOf(
+internal val getFeatureValueFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Ljava/lang/String;")
+    parameters("L", "Z")
+    opcodes(
         Opcode.IF_EQZ,
         Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT
-    ),
-    returnType = "Ljava/lang/String;",
-    parameters = listOf("L", "Z"),
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL
-)
+        Opcode.MOVE_RESULT,
+    )
+    strings("feature")
+}

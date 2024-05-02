@@ -1,32 +1,35 @@
 package app.revanced.patches.youtube.ad.general
 
-import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.all.misc.resources.AddResourcesPatch
-import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
-import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patches.twitch.misc.settings.SettingsPatch
+import app.revanced.patches.youtube.misc.litho.filter.addFilter
+import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 
-@Patch(
-    dependencies = [
-        LithoFilterPatch::class,
-        SettingsPatch::class,
-        ResourceMappingPatch::class,
-        AddResourcesPatch::class,
-    ],
-)
-object HideAdsResourcePatch : ResourcePatch() {
-    private const val FILTER_CLASS_DESCRIPTOR =
+internal var adAttributionId: Long = -1
+
+@Suppress("unused")
+val hideAdsResourcePatch = resourcePatch {
+    dependsOn(
+        lithoFilterPatch,
+        SettingsPatch,
+        resourceMappingPatch,
+        addResourcesPatch,
+    )
+
+    val filterClassDescriptor =
         "Lapp/revanced/integrations/youtube/patches/components/AdsFilter;"
 
-    internal var adAttributionId: Long = -1
+    execute {
+        addResources("youtube", "ad.general.hideAdsResourcePatch")
 
-    override fun execute(context: ResourceContext) {
-        AddResourcesPatch(this::class)
-
-        SettingsPatch.PreferenceScreen.ADS.addPreferences(
+        PreferenceScreen.ADS.addPreferences(
             SwitchPreference("revanced_hide_general_ads"),
             SwitchPreference("revanced_hide_fullscreen_ads"),
             SwitchPreference("revanced_hide_buttoned_ads"),
@@ -39,8 +42,8 @@ object HideAdsResourcePatch : ResourcePatch() {
             SwitchPreference("revanced_hide_merchandise_banners"),
         )
 
-        LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
+        addFilter(filterClassDescriptor)
 
-        adAttributionId = ResourceMappingPatch["id", "ad_attribution"]
+        adAttributionId = resourceMappings["id", "ad_attribution"]
     }
 }

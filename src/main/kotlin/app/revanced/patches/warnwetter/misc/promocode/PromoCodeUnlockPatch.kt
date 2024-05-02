@@ -1,31 +1,28 @@
 package app.revanced.patches.warnwetter.misc.promocode
 
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.warnwetter.misc.firebasegetcert.FirebaseGetCertPatch
-import app.revanced.patches.warnwetter.misc.promocode.fingerprints.PromoCodeUnlockFingerprint
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.warnwetter.misc.firebasegetcert.firebaseGetCertPatch
+import app.revanced.patches.warnwetter.misc.promocode.fingerprints.promoCodeUnlockFingerprint
 
-@Patch(
+@Suppress("unused")
+val promoCodeUnlockPatch = bytecodePatch(
     name = "Promo code unlock",
     description = "Disables the validation of promo code. Any code will work to unlock all features.",
-    dependencies = [FirebaseGetCertPatch::class],
-    compatiblePackages = [CompatiblePackage("de.dwd.warnapp")]
-)
-@Suppress("unused")
-object PromoCodeUnlockPatch : BytecodePatch(
-    setOf(PromoCodeUnlockFingerprint)
 ) {
-    override fun execute(context: BytecodeContext) {
-        val method = PromoCodeUnlockFingerprint.result!!.mutableMethod
-        method.addInstructions(
+    compatibleWith("de.dwd.warnapp"())
+
+    dependsOn(firebaseGetCertPatch)
+
+    val promoCodeUnlockResult by promoCodeUnlockFingerprint
+
+    execute {
+        promoCodeUnlockResult.mutableMethod.addInstructions(
             0,
             """
                 const/4 v0, 0x1
                 return v0
-            """
+            """,
         )
     }
 }

@@ -1,43 +1,37 @@
 package app.revanced.patches.tiktok.interaction.seekbar
 
-import app.revanced.util.exception
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.tiktok.interaction.seekbar.fingerprints.SetSeekBarShowTypeFingerprint
-import app.revanced.patches.tiktok.interaction.seekbar.fingerprints.ShouldShowSeekBarFingerprint
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.tiktok.interaction.seekbar.fingerprints.setSeekBarShowTypeFingerprint
+import app.revanced.patches.tiktok.interaction.seekbar.fingerprints.shouldShowSeekBarFingerprint
 
-@Patch(
+@Suppress("unused")
+val showSeekbarPatch = bytecodePatch(
     name = "Show seekbar",
     description = "Shows progress bar for all video.",
-    compatiblePackages = [
-        CompatiblePackage("com.ss.android.ugc.trill"),
-        CompatiblePackage("com.zhiliaoapp.musically")
-    ]
-)
-@Suppress("unused")
-object ShowSeekbarPatch : BytecodePatch(setOf(SetSeekBarShowTypeFingerprint, ShouldShowSeekBarFingerprint)) {
-    override fun execute(context: BytecodeContext) {
-        ShouldShowSeekBarFingerprint.result?.mutableMethod?.apply {
-            addInstructions(
-                0,
-                """
-                    const/4 v0, 0x1
-                    return v0
-                """
-            )
-        }
-        SetSeekBarShowTypeFingerprint.result?.mutableMethod?.apply {
+) {
+    compatibleWith("com.ss.android.ugc.trill"(), "com.zhiliaoapp.musically"())
+
+    val shouldShowSeekBarResult by shouldShowSeekBarFingerprint
+    val setSeekBarShowTypeResult by setSeekBarShowTypeFingerprint
+
+    execute {
+        shouldShowSeekBarResult.mutableMethod.addInstructions(
+            0,
+            """
+                const/4 v0, 0x1
+                return v0
+            """,
+        )
+        setSeekBarShowTypeResult.mutableMethod.apply {
             val typeRegister = implementation!!.registerCount - 1
 
             addInstructions(
                 0,
                 """
                     const/16 v$typeRegister, 0x64
-                """
+                """,
             )
-        } ?: throw SetSeekBarShowTypeFingerprint.exception
+        }
     }
 }

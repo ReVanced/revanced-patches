@@ -1,8 +1,8 @@
 package app.revanced.patches.twitter.misc.links.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object SanitizeSharingLinksFingerprint : MethodFingerprint(
-    strings = listOf("<this>", "shareParam", "sessionToken"),
-    returnType = "Ljava/lang/String;",
-)
+internal val sanitizeSharingLinksFingerprint = methodFingerprint {
+    returns("Ljava/lang/String;")
+    strings("<this>", "shareParam", "sessionToken")
+}

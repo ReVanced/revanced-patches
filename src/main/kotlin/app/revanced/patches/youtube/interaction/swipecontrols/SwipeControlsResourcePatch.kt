@@ -1,24 +1,24 @@
 package app.revanced.patches.youtube.interaction.swipecontrols
 
-import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
-import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 
-@Patch(
-    dependencies = [SettingsPatch::class, AddResourcesPatch::class],
-)
-internal object SwipeControlsResourcePatch : ResourcePatch() {
-    override fun execute(context: ResourceContext) {
-        AddResourcesPatch(this::class)
+@Suppress("unused")
+val swipeControlsResourcePatch = resourcePatch {
+    dependsOn(settingsPatch, addResourcesPatch)
 
-        SettingsPatch.PreferenceScreen.SWIPE_CONTROLS.addPreferences(
+    execute { context ->
+        addResources("youtube", "interaction.swipecontrols.swipeControlsResourcePatch")
+
+        PreferenceScreen.SWIPE_CONTROLS.addPreferences(
             SwitchPreference("revanced_swipe_brightness"),
             SwitchPreference("revanced_swipe_volume"),
             SwitchPreference("revanced_swipe_press_to_engage"),

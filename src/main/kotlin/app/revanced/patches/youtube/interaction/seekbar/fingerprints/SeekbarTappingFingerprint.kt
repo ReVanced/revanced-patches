@@ -1,24 +1,22 @@
 package app.revanced.patches.youtube.interaction.seekbar.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 
-
-internal object SeekbarTappingFingerprint : MethodFingerprint(
-    returnType = "Z",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("L"),
-    opcodes = listOf(
+internal val seekbarTappingFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    parameters("L")
+    opcodes(
         Opcode.IPUT_OBJECT,
         Opcode.INVOKE_VIRTUAL,
         // Insert seekbar tapping instructions here.
         Opcode.RETURN,
         Opcode.INVOKE_VIRTUAL,
-    ),
-    customFingerprint = custom@{ methodDef, _ ->
+    )
+    custom { methodDef, _ ->
         if (methodDef.name != "onTouchEvent") return@custom false
 
         methodDef.implementation!!.instructions.any { instruction ->
@@ -31,4 +29,4 @@ internal object SeekbarTappingFingerprint : MethodFingerprint(
             literal == Integer.MAX_VALUE
         }
     }
-)
+}

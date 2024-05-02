@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.layout.buttons.player.hide.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object PlayerControlsVisibilityModelFingerprint : MethodFingerprint(
-    opcodes = listOf(Opcode.INVOKE_DIRECT_RANGE),
-    strings = listOf("Missing required properties:", "hasNext", "hasPrevious")
-)
+internal val playerControlsVisibilityModelFingerprint = methodFingerprint {
+    opcodes(Opcode.INVOKE_DIRECT_RANGE)
+    strings("Missing required properties:", "hasNext", "hasPrevious")
+}

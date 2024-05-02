@@ -1,8 +1,8 @@
 package app.revanced.patches.twitter.misc.links.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object OpenLinkFingerprint : MethodFingerprint(
-    returnType = "V",
-    parameters = listOf("Landroid/content/Context;", "Landroid/content/Intent;", "Landroid/os/Bundle;"),
-)
+internal val openLinkFingerprint = methodFingerprint {
+    returns("V")
+    parameters("Landroid/content/Context;", "Landroid/content/Intent;", "Landroid/os/Bundle;")
+}

@@ -1,8 +1,8 @@
 package app.revanced.patches.twitter.layout.viewcount.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object ViewCountsEnabledFingerprint : MethodFingerprint(
-    returnType = "Z",
-    strings = listOf("view_counts_public_visibility_enabled")
-)
+internal val viewCountsEnabledFingerprint = methodFingerprint {
+    returns("Z")
+    strings("view_counts_public_visibility_enabled")
+}

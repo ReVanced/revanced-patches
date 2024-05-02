@@ -1,30 +1,24 @@
 package app.revanced.patches.vsco.misc.pro
 
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.vsco.misc.pro.fingerprints.RevCatSubscriptionFingerprint
-import app.revanced.util.exception
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.vsco.misc.pro.fingerprints.revCatSubscriptionFingerprint
 
-@Patch(
+@Suppress("unused")
+val unlockProPatch = bytecodePatch(
     name = "Unlock pro",
     description = "Unlocks pro features.",
-    compatiblePackages = [CompatiblePackage("com.vsco.cam", ["345"])],
-)
-object UnlockProPatch : BytecodePatch(
-    setOf(RevCatSubscriptionFingerprint),
 ) {
-    override fun execute(context: BytecodeContext) {
-        RevCatSubscriptionFingerprint.result?.mutableMethod?.apply {
-            // Set isSubscribed to true.
-            addInstruction(
-                0,
-                """
-                    const p1, 0x1
-                """,
-            )
-        } ?: throw RevCatSubscriptionFingerprint.exception
+    compatibleWith("com.vsco.cam"("345"))
+
+    val revCatSubscriptionResult by revCatSubscriptionFingerprint
+
+    execute {
+        revCatSubscriptionResult.mutableMethod.addInstruction(
+            0,
+            """
+                const p1, 0x1
+            """,
+        )
     }
 }

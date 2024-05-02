@@ -1,10 +1,10 @@
 package app.revanced.patches.tiktok.misc.settings.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object AddSettingsEntryFingerprint : MethodFingerprint(
-    customFingerprint = { methodDef, _ ->
+internal val addSettingsEntryFingerprint = methodFingerprint {
+    custom { methodDef, _ ->
         methodDef.definingClass.endsWith("/SettingNewVersionFragment;") &&
-                methodDef.name == "initUnitManger"
+            methodDef.name == "initUnitManger"
     }
-)
+}

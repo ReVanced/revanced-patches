@@ -1,22 +1,19 @@
 package app.revanced.patches.songpal.badge
 
-import app.revanced.util.exception
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.songpal.badge.fingerprints.ShowNotificationFingerprint
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.songpal.badge.fingerprints.showNotificationFingerprint
 
-@Patch(
+@Suppress("unused")
+val removeNotificationBadgePatch = bytecodePatch(
     name = "Remove notification badge",
     description = "Removes the red notification badge from the activity tab.",
-    compatiblePackages = [CompatiblePackage("com.sony.songpal.mdr", ["10.1.0"])]
-)
-@Suppress("unused")
-object RemoveNotificationBadgePatch : BytecodePatch(setOf(ShowNotificationFingerprint)) {
-    override fun execute(context: BytecodeContext) {
-        ShowNotificationFingerprint.result?.mutableMethod?.addInstructions(0, "return-void")
-            ?: throw ShowNotificationFingerprint.exception
+) {
+    compatibleWith("com.sony.songpal.mdr"("10.1.0"))
+
+    val showNotificationResult by showNotificationFingerprint
+
+    execute {
+        showNotificationResult.mutableMethod.addInstructions(0, "return-void")
     }
 }

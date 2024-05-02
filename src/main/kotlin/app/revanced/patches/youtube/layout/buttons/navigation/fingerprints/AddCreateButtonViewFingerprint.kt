@@ -1,12 +1,9 @@
 package app.revanced.patches.youtube.layout.buttons.navigation.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
 internal const val ANDROID_AUTOMOTIVE_STRING = "Android Automotive"
 
-internal object AddCreateButtonViewFingerprint : MethodFingerprint(
-    strings = listOf(
-        "Android Wear",
-        ANDROID_AUTOMOTIVE_STRING,
-    )
-)
+internal val addCreateButtonViewFingerprint = methodFingerprint {
+    strings("Android Wear", ANDROID_AUTOMOTIVE_STRING)
+}

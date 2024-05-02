@@ -1,21 +1,18 @@
 package app.revanced.patches.twitter.misc.dynamiccolor
 
-import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.patch.resourcePatch
 import java.io.FileWriter
 import java.nio.file.Files
 
-@Patch(
+@Suppress("unused")
+val dynamicColorPatch = resourcePatch(
     name = "Dynamic color",
     description = "Replaces the default X (Formerly Twitter) Blue with the user's Material You palette.",
-    compatiblePackages = [CompatiblePackage("com.twitter.android")],
-)
-@Suppress("unused")
-object DynamicColorPatch : ResourcePatch() {
-    override fun execute(context: ResourceContext) {
+) {
+    compatibleWith("com.twitter.android"())
+
+    execute { context ->
         val resDirectory = context.get("res")
         if (!resDirectory.isDirectory) throw PatchException("The res folder can not be found.")
 
@@ -35,8 +32,7 @@ object DynamicColorPatch : ResourcePatch() {
             }
         }
 
-        context.xmlEditor["res/values-v31/colors.xml"].use { editor ->
-            val document = editor.file
+        context.document["res/values-v31/colors.xml"].use { document ->
 
             mapOf(
                 "ps__twitter_blue" to "@color/twitter_blue",
@@ -57,9 +53,7 @@ object DynamicColorPatch : ResourcePatch() {
             }
         }
 
-        context.xmlEditor["res/values-night-v31/colors.xml"].use { editor ->
-            val document = editor.file
-
+        context.document["res/values-night-v31/colors.xml"].use { document ->
             mapOf(
                 "twitter_blue" to "@android:color/system_accent1_200",
                 "twitter_blue_fill_pressed" to "@android:color/system_accent1_300",

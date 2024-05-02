@@ -1,8 +1,8 @@
 package app.revanced.patches.warnwetter.misc.promocode.fingerprints
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object PromoCodeUnlockFingerprint : MethodFingerprint(
-    customFingerprint = { methodDef, _ ->
+internal val promoCodeUnlockFingerprint = methodFingerprint {
+    custom { methodDef, _ ->
         methodDef.definingClass.endsWith("PromoTokenVerification;") && methodDef.name == "isValid"
     }
-)
+}

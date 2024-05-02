@@ -1,31 +1,31 @@
 package app.revanced.patches.youtube.interaction.downloads
 
-import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.playercontrols.BottomControlsResourcePatch
-import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 
-@Patch(
-    dependencies = [
-        BottomControlsResourcePatch::class,
-        SettingsPatch::class,
-        AddResourcesPatch::class,
-    ],
-)
-internal object DownloadsResourcePatch : ResourcePatch() {
-    override fun execute(context: ResourceContext) {
-        AddResourcesPatch(this::class)
+@Suppress("unused")
+val downloadsResourcePatch = resourcePatch {
+    dependsOn(
+        BottomControlsResourcePatch,
+        settingsPatch,
+        addResourcesPatch,
+    )
 
-        SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
+    execute { context ->
+        addResources("youtube", "interaction.downloads.downloadsResourcePatch")
+
+        PreferenceScreen.PLAYER.addPreferences(
             PreferenceScreenPreference(
                 key = "revanced_external_downloader_screen",
                 sorting = Sorting.UNSORTED,

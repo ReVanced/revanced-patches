@@ -1,11 +1,10 @@
 package app.revanced.patches.youtube.interaction.seekbar.fingerprints
 
-import app.revanced.util.patch.LiteralValueFingerprint
+import app.revanced.util.patch.literalValueFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object DoubleSpeedSeekNoticeFingerprint : LiteralValueFingerprint(
-    returnType = "Z",
-    parameters = emptyList(),
-    opcodes = listOf(Opcode.MOVE_RESULT),
-    literalSupplier = { 45411330 }
-)
+internal val doubleSpeedSeekNoticeFingerprint = literalValueFingerprint({ 45411330 }) {
+    returns("Z")
+    parameters()
+    opcodes(Opcode.MOVE_RESULT)
+}

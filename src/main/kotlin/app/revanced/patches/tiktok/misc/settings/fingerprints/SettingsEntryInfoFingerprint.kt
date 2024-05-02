@@ -1,10 +1,10 @@
 package app.revanced.patches.tiktok.misc.settings.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object SettingsEntryInfoFingerprint : MethodFingerprint(
-    strings = listOf(
+internal val settingsEntryInfoFingerprint = methodFingerprint {
+    strings(
         "ExposeItem(title=",
-        ", icon="
+        ", icon=",
     )
-)
+}

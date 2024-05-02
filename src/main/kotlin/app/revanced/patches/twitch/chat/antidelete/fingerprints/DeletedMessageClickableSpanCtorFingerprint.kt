@@ -1,12 +1,12 @@
 package app.revanced.patches.twitch.chat.antidelete.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object DeletedMessageClickableSpanCtorFingerprint : MethodFingerprint(
-    "V", AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    customFingerprint = { methodDef, _ ->
+internal val deletedMessageClickableSpanCtorFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    returns("V")
+    custom { methodDef, _ ->
         methodDef.definingClass.endsWith("DeletedMessageClickableSpan;")
     }
-)
+}

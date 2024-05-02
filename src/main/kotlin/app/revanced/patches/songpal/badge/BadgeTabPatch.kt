@@ -1,25 +1,25 @@
 package app.revanced.patches.songpal.badge
 
-import app.revanced.util.exception
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.songpal.badge.fingerprints.CreateTabsFingerprint
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.songpal.badge.fingerprints.createTabsFingerprint
 
-@Patch(
+internal const val ACTIVITY_TAB_DESCRIPTOR = "Ljp/co/sony/vim/framework/ui/yourheadphones/YhContract\$Tab;"
+
+@Suppress("unused")
+val badgeTabPatch = bytecodePatch(
     name = "Remove badge tab",
     description = "Removes the badge tab from the activity tab.",
-    compatiblePackages = [CompatiblePackage("com.sony.songpal.mdr")]
-)
-object BadgeTabPatch : BytecodePatch(setOf(CreateTabsFingerprint)) {
-    const val ACTIVITY_TAB_DESCRIPTOR = "Ljp/co/sony/vim/framework/ui/yourheadphones/YhContract\$Tab;"
-    private val arrayTabs = listOf("Log", "HealthCare")
+) {
+    compatibleWith("jp.co.sony.vim"())
 
-    override fun execute(context: BytecodeContext) {
-        CreateTabsFingerprint.result?.mutableMethod?.apply {
+    val createTabsResult by createTabsFingerprint
+
+    val arrayTabs = listOf("Log", "HealthCare")
+
+    execute {
+        createTabsResult.mutableMethod.apply {
             removeInstructions(0, 2)
 
             val arrayRegister = 0
@@ -35,7 +35,7 @@ object BadgeTabPatch : BytecodePatch(setOf(CreateTabsFingerprint)) {
                         const/4 v$indexRegister, $index
                         sget-object v$arrayItemRegister, $ACTIVITY_TAB_DESCRIPTOR->$tab:$ACTIVITY_TAB_DESCRIPTOR
                         aput-object v$arrayItemRegister, v$arrayRegister, v$indexRegister
-                    """
+                    """,
                 )
             }
 
@@ -47,9 +47,8 @@ object BadgeTabPatch : BytecodePatch(setOf(CreateTabsFingerprint)) {
                 """
                     const/4 v$arrayRegister, ${arrayTabs.size}
                     new-array v$arrayRegister, v$arrayRegister, [$ACTIVITY_TAB_DESCRIPTOR
-                 """
+                 """,
             )
-
-        } ?: throw CreateTabsFingerprint.exception
+        }
     }
 }

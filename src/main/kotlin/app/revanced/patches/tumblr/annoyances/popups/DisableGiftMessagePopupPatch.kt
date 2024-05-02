@@ -1,23 +1,19 @@
 package app.revanced.patches.tumblr.annoyances.popups
 
-import app.revanced.util.exception
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.tumblr.annoyances.popups.fingerprints.ShowGiftMessagePopupFingerprint
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.tumblr.annoyances.popups.fingerprints.showGiftMessagePopupFingerprint
 
-@Patch(
+@Suppress("unused")
+val disableGiftMessagePopupPatch = bytecodePatch(
     name = "Disable gift message popup",
     description = "Disables the popup suggesting to buy TumblrMart items for other people.",
-    compatiblePackages = [CompatiblePackage("com.tumblr")]
-)
-@Suppress("unused")
-object DisableGiftMessagePopupPatch : BytecodePatch(
-    setOf(ShowGiftMessagePopupFingerprint)
 ) {
-    override fun execute(context: BytecodeContext) =
-        ShowGiftMessagePopupFingerprint.result?.mutableMethod?.addInstructions(0, "return-void")
-            ?: throw ShowGiftMessagePopupFingerprint.exception
+    compatibleWith("com.tumblr"())
+
+    val showGiftMessagePopupResult by showGiftMessagePopupFingerprint
+
+    execute {
+        showGiftMessagePopupResult.mutableMethod.addInstructions(0, "return-void")
+    }
 }

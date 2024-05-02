@@ -1,15 +1,14 @@
 package app.revanced.patches.youtube.layout.autocaptions.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object SubtitleButtonControllerFingerprint : MethodFingerprint(
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("Lcom/google/android/libraries/youtube/player/subtitles/model/SubtitleTrack;"),
-    opcodes = listOf(
+internal val subtitleButtonControllerFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
+    parameters("Lcom/google/android/libraries/youtube/player/subtitles/model/SubtitleTrack;")
+    opcodes(
         Opcode.IGET_OBJECT,
         Opcode.IF_NEZ,
         Opcode.RETURN_VOID,
@@ -20,4 +19,4 @@ internal object SubtitleButtonControllerFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.IGET_OBJECT,
     )
-)
+}

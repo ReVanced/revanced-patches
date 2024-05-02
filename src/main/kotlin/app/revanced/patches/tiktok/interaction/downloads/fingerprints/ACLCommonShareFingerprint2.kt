@@ -1,14 +1,13 @@
 package app.revanced.patches.tiktok.interaction.downloads.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object ACLCommonShareFingerprint2 : MethodFingerprint(
-    "I",
-    AccessFlags.PUBLIC or AccessFlags.FINAL,
-    customFingerprint = { methodDef, _ ->
+internal val aclCommonShareFingerprint2 = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("I")
+    custom { methodDef, _ ->
         methodDef.definingClass.endsWith("/ACLCommonShare;") &&
-                methodDef.name == "getShowType"
+            methodDef.name == "getShowType"
     }
-)
+}

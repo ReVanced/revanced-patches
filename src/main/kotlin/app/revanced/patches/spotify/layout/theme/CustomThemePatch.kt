@@ -1,20 +1,19 @@
+@file:Suppress("NAME_SHADOWING")
+
 package app.revanced.patches.spotify.layout.theme
 
-import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.patch.stringOption
 import org.w3c.dom.Element
 
-@Patch(
+@Suppress("unused")
+val customThemePatch = resourcePatch(
     name = "Custom theme",
     description = "Applies a custom theme.",
-    compatiblePackages = [CompatiblePackage("com.spotify.music")],
-)
-@Suppress("unused")
-object CustomThemePatch : ResourcePatch() {
-    private var backgroundColor by stringPatchOption(
+) {
+    compatibleWith("com.spotify.music"())
+
+    val backgroundColor by stringOption(
         key = "backgroundColor",
         default = "@android:color/black",
         title = "Primary background color",
@@ -22,7 +21,7 @@ object CustomThemePatch : ResourcePatch() {
         required = true,
     )
 
-    private var backgroundColorSecondary by stringPatchOption(
+    val backgroundColorSecondary by stringOption(
         key = "backgroundColorSecondary",
         default = "#ff282828",
         title = "Secondary background color",
@@ -30,7 +29,7 @@ object CustomThemePatch : ResourcePatch() {
         required = true,
     )
 
-    private var accentColor by stringPatchOption(
+    val accentColor by stringOption(
         key = "accentColor",
         default = "#ff1ed760",
         title = "Accent color",
@@ -38,7 +37,7 @@ object CustomThemePatch : ResourcePatch() {
         required = true,
     )
 
-    private var accentColorPressed by stringPatchOption(
+    val accentColorPressed by stringOption(
         key = "accentColorPressed",
         default = "#ff169c46",
         title = "Pressed dark theme accent color",
@@ -48,15 +47,13 @@ object CustomThemePatch : ResourcePatch() {
         required = true,
     )
 
-    override fun execute(context: ResourceContext) {
+    execute { context ->
         val backgroundColor = backgroundColor!!
         val backgroundColorSecondary = backgroundColorSecondary!!
         val accentColor = accentColor!!
         val accentColorPressed = accentColorPressed!!
 
-        context.xmlEditor["res/values/colors.xml"].use { editor ->
-            val document = editor.file
-
+        context.document["res/values/colors.xml"].use { document ->
             val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
 
             for (i in 0 until resourcesNode.childNodes.length) {

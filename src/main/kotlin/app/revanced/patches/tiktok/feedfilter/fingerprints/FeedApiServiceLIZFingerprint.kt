@@ -1,9 +1,9 @@
 package app.revanced.patches.tiktok.feedfilter.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object FeedApiServiceLIZFingerprint : MethodFingerprint(
-    customFingerprint = { methodDef, _ ->
+internal val feedApiServiceLIZFingerprint = methodFingerprint {
+    custom { methodDef, _ ->
         methodDef.definingClass.endsWith("/FeedApiService;") && methodDef.name == "fetchFeedList"
     }
-)
+}

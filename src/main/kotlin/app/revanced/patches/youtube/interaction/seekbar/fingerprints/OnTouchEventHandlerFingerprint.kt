@@ -1,17 +1,14 @@
 package app.revanced.patches.youtube.interaction.seekbar.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.patcher.fingerprint.annotation.FuzzyPatternScanMethod
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-@FuzzyPatternScanMethod(3)
-internal object OnTouchEventHandlerFingerprint : MethodFingerprint(
-    returnType = "Z",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.PUBLIC,
-    parameters = listOf("L"),
-    opcodes = listOf(
+internal val onTouchEventHandlerFingerprint = methodFingerprint(fuzzyPatternScanThreshold = 3) {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.PUBLIC)
+    returns("Z")
+    parameters("L")
+    opcodes(
         Opcode.INVOKE_VIRTUAL, // nMethodReference
         Opcode.RETURN,
         Opcode.IGET_OBJECT,
@@ -26,6 +23,6 @@ internal object OnTouchEventHandlerFingerprint : MethodFingerprint(
         Opcode.IF_EQZ,
         Opcode.INVOKE_VIRTUAL,
         Opcode.INVOKE_VIRTUAL, // oMethodReference
-    ),
-    customFingerprint = { methodDef, _ -> methodDef.name == "onTouchEvent" }
-)
+    )
+    custom { methodDef, _ -> methodDef.name == "onTouchEvent" }
+}

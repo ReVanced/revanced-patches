@@ -1,34 +1,31 @@
 package app.revanced.patches.tudortmund.lockscreen.patch
 
-import app.revanced.util.exception
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.tudortmund.lockscreen.fingerprints.BrightnessFingerprint
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.tudortmund.lockscreen.fingerprints.brightnessFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-@Patch(
+private const val INTEGRATIONS_CLASS_DESCRIPTOR =
+    "Lapp/revanced/integrations/tudortmund/lockscreen/ShowOnLockscreenPatch;"
+
+@Suppress("unused")
+val showOnLockscreenPatch = bytecodePatch(
     name = "Show on lockscreen",
     description = "Shows student id and student ticket on lockscreen.",
-    compatiblePackages = [CompatiblePackage("de.tudortmund.app")],
-    requiresIntegrations = true
-)
-@Suppress("unused")
-object ShowOnLockscreenPatch : BytecodePatch(
-    setOf(BrightnessFingerprint)
+    requiresIntegrations = true,
 ) {
-    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/tudortmund/lockscreen/ShowOnLockscreenPatch;"
+    compatibleWith("de.tudortmund.app"())
 
-    override fun execute(context: BytecodeContext) {
-        BrightnessFingerprint.result?.mutableMethod?.apply {
+    val brightnessResult by brightnessFingerprint
+
+    execute { context ->
+        brightnessResult.mutableMethod.apply {
             // Find the instruction where the brightness value is loaded into a register
             val brightnessInstruction = implementation!!.instructions.firstNotNullOf { instruction ->
                 if (instruction.opcode != Opcode.IGET_OBJECT) return@firstNotNullOf null
@@ -45,21 +42,22 @@ object ShowOnLockscreenPatch : BytecodePatch(
             // Gets the index of that instruction and the register of the Activity.
             val (windowIndex, activityRegister) = implementation!!.instructions.withIndex()
                 .firstNotNullOf { (index, instruction) ->
-                    if (instruction.opcode != Opcode.INVOKE_VIRTUAL)
+                    if (instruction.opcode != Opcode.INVOKE_VIRTUAL) {
                         return@firstNotNullOf null
+                    }
 
                     val invokeInstruction = instruction as Instruction35c
                     val methodRef = invokeInstruction.reference as MethodReference
 
-                    if (methodRef.name != "getWindow" || methodRef.returnType != "Landroid/view/Window;")
+                    if (methodRef.name != "getWindow" || methodRef.returnType != "Landroid/view/Window;") {
                         return@firstNotNullOf null
+                    }
 
                     Pair(index, invokeInstruction.registerC)
                 }
 
             // The register in which the brightness value is loaded
             val brightnessRegister = brightnessInstruction.registerA
-
             // Replaces the getWindow call with our custom one to run the lockscreen code
             replaceInstruction(
                 windowIndex,
@@ -67,7 +65,7 @@ object ShowOnLockscreenPatch : BytecodePatch(
                         "$INTEGRATIONS_CLASS_DESCRIPTOR->" +
                         "getWindow" +
                         "(Landroidx/appcompat/app/AppCompatActivity;F)" +
-                        "Landroid/view/Window;"
+                        "Landroid/view/Window;",
             )
 
             // Normally, the brightness is loaded into a register after the getWindow call.
@@ -79,11 +77,10 @@ object ShowOnLockscreenPatch : BytecodePatch(
                 """
                     invoke-virtual { v$brightnessRegister }, Ljava/lang/Float;->floatValue()F
                     move-result v$brightnessRegister
-                """
+                """,
             )
 
             addInstruction(windowIndex, brightnessInstruction)
-
-        } ?: throw BrightnessFingerprint.exception
+        }
     }
 }
