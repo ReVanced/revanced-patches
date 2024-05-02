@@ -58,8 +58,7 @@ val hideFilterBarPatch = bytecodePatch(
         ) = mutableMethod.apply {
             val endIndex = scanResult.patternScanResult!!.endIndex
             val insertIndex = endIndex + insertIndexOffset
-            val register =
-                getInstruction<RegisterInstruction>(endIndex + hookRegisterOffset).registerA
+            val register = getInstruction<RegisterInstruction>(endIndex + hookRegisterOffset).registerA
 
             addInstructions(insertIndex, instructions(register))
         }
