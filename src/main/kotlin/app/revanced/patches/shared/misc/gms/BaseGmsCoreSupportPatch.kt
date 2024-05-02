@@ -318,6 +318,9 @@ abstract class BaseGmsCoreSupportPatch(
             // droidguard/ safetynet
             "com.google.android.gms.droidguard.service.START",
             "com.google.android.gms.safetynet.service.START",
+
+            // google news
+            "com.google.android.gms.accountsettings.action.VIEW_SETTINGS"
         )
 
         /**
