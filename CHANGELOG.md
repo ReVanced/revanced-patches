@@ -1,3 +1,10 @@
+# [4.8.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.9...v4.8.0-dev.10) (2024-05-02)
+
+
+### Features
+
+* **Tumblr:** Add `Disable Ad-Free Banner` patch ([#3091](https://github.com/ReVanced/revanced-patches/issues/3091)) ([54baf08](https://github.com/ReVanced/revanced-patches/commit/54baf08f777b7c975fa0b6508f0a4de19ac491f4))
+
 # [4.8.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.8...v4.8.0-dev.9) (2024-04-29)
 
 
