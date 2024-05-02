@@ -9,7 +9,6 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
-import com.google.common.collect.ImmutableList
 
 /**
  * Override a feature flag with a value.
@@ -39,7 +38,7 @@ val overrideFeatureFlagsPatch = bytecodePatch(
             val helperMethod = ImmutableMethod(
                 it.method.definingClass,
                 "getValueOverride",
-                ImmutableList.of(ImmutableMethodParameter(featureClass, null, "feature")),
+                listOf(ImmutableMethodParameter(featureClass, null, "feature")),
                 "Ljava/lang/String;",
                 AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
                 null,

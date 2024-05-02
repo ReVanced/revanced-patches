@@ -4,7 +4,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.tiktok.misc.settings.fingerprints.settingsStatusLoadFingerprint
 import app.revanced.patches.twitch.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
@@ -13,28 +12,6 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-
-internal val replacements = hashMapOf(
-    "getSimCountryIso" to "getCountryIso",
-    "getNetworkCountryIso" to "getCountryIso",
-    "getSimOperator" to "getOperator",
-    "getNetworkOperator" to "getOperator",
-    "getSimOperatorName" to "getOperatorName",
-    "getNetworkOperatorName" to "getOperatorName",
-)
-
-// Patch Android API and return fake sim information.
-private fun MutableMethod.replaceReference(index: Int, replacement: String) {
-    val resultReg = getInstruction<OneRegisterInstruction>(index + 1).registerA
-
-    addInstructions(
-        index + 2,
-        """
-                invoke-static {v$resultReg}, Lapp/revanced/integrations/tiktok/spoof/sim/SpoofSimPatch;->$replacement(Ljava/lang/String;)Ljava/lang/String;
-                move-result-object v$resultReg
-            """,
-    )
-}
 
 @Suppress("unused")
 val spoofSimPatch = bytecodePatch(
@@ -49,6 +26,15 @@ val spoofSimPatch = bytecodePatch(
     val settingsStatusLoadResult by settingsStatusLoadFingerprint
 
     execute { context ->
+        val replacements = hashMapOf(
+            "getSimCountryIso" to "getCountryIso",
+            "getNetworkCountryIso" to "getCountryIso",
+            "getSimOperator" to "getOperator",
+            "getNetworkOperator" to "getOperator",
+            "getSimOperatorName" to "getOperatorName",
+            "getNetworkOperatorName" to "getOperatorName",
+        )
+
         // Find all api call to check sim information.
         buildMap {
             context.classes.forEach { classDef ->
@@ -84,7 +70,17 @@ val spoofSimPatch = bytecodePatch(
                     with(findMutableMethodOf(method)) {
                         while (!patches.isEmpty()) {
                             val (index, replacement) = patches.removeLast()
-                            replaceReference(index, replacement)
+
+                            val resultReg = getInstruction<OneRegisterInstruction>(index + 1).registerA
+
+                            // Patch Android API and return fake sim information.
+                            addInstructions(
+                                index + 2,
+                                """
+                                    invoke-static {v$resultReg}, Lapp/revanced/integrations/tiktok/spoof/sim/SpoofSimPatch;->$replacement(Ljava/lang/String;)Ljava/lang/String;
+                                    move-result-object v$resultReg
+                                """,
+                            )
                         }
                     }
                 }
@@ -92,11 +88,9 @@ val spoofSimPatch = bytecodePatch(
         }
 
         // Enable patch in settings.
-        with(settingsStatusLoadResult.mutableMethod) {
-            addInstruction(
-                0,
-                "invoke-static {}, Lapp/revanced/integrations/tiktok/settings/SettingsStatus;->enableSimSpoof()V",
-            )
-        }
+        settingsStatusLoadResult.mutableMethod.addInstruction(
+            0,
+            "invoke-static {}, Lapp/revanced/integrations/tiktok/settings/SettingsStatus;->enableSimSpoof()V",
+        )
     }
 }

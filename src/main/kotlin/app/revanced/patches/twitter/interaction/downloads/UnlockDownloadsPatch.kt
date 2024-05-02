@@ -26,12 +26,12 @@ val unlockDownloadsPatch = bytecodePatch(
     val showDownloadVideoUpsellBottomSheetResult by showDownloadVideoUpsellBottomSheetFingerprint
     val buildMediaOptionsSheetResult by buildMediaOptionsSheetFingerprint
 
-    execute {
-        fun MethodFingerprintResult.patch(getRegisterAndIndex: MethodFingerprintResult.() -> Pair<Int, Int>) {
-            val (index, register) = getRegisterAndIndex()
-            mutableMethod.addInstruction(index, "const/4 v$register, 0x1")
-        }
+    fun MethodFingerprintResult.patch(getRegisterAndIndex: MethodFingerprintResult.() -> Pair<Int, Int>) {
+        val (index, register) = getRegisterAndIndex()
+        mutableMethod.addInstruction(index, "const/4 v$register, 0x1")
+    }
 
+    execute {
         // Allow downloads for non-premium users.
         showDownloadVideoUpsellBottomSheetResult.patch {
             val checkIndex = scanResult.patternScanResult!!.startIndex

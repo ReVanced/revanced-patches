@@ -20,9 +20,9 @@ val fixGoogleLoginPatch = bytecodePatch(
             method.addInstructions(
                 0,
                 """
-                const/4 v0, 0x0
-                return v0
-            """,
+                    const/4 v0, 0x0
+                    return v0
+                """,
             )
         }
     }

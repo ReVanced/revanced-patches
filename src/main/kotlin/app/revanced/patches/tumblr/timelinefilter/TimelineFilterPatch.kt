@@ -6,7 +6,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tumblr.timelinefilter.fingerprints.*
-import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 
 /**
@@ -34,7 +33,6 @@ val timelineFilterPatch = bytecodePatch(
 
             integration.mutableMethod.apply {
                 val addInstruction = getInstruction<BuilderInstruction35c>(filterInsertIndex + 1)
-                if (addInstruction.registerCount != 2) throw timelineFilterIntegrationFingerprint.exception
 
                 val filterListRegister = addInstruction.registerC
                 val stringRegister = addInstruction.registerD
@@ -43,7 +41,7 @@ val timelineFilterPatch = bytecodePatch(
                 removeInstructions(filterInsertIndex, 2)
 
                 addObjectTypeFilter = { typeName ->
-//                     blockedObjectTypes.add({typeName})
+                    // blockedObjectTypes.add({typeName})
                     addInstructionsWithLabels(
                         filterInsertIndex,
                         """
@@ -57,12 +55,12 @@ val timelineFilterPatch = bytecodePatch(
         mapOf(
             timelineConstructorResult to 1,
             postsResponseConstructorResult to 2,
-        ).forEach { (fingerprint, timelineObjectsRegister) ->
-            fingerprint.mutableMethod.addInstructions(
+        ).forEach { (result, timelineObjectsRegister) ->
+            result.mutableMethod.addInstructions(
                 0,
                 "invoke-static {p$timelineObjectsRegister}, " +
-                        "Lapp/revanced/integrations/tumblr/patches/TimelineFilterPatch;->" +
-                        "filterTimeline(Ljava/util/List;)V",
+                    "Lapp/revanced/integrations/tumblr/patches/TimelineFilterPatch;->" +
+                    "filterTimeline(Ljava/util/List;)V",
             )
         }
     }
