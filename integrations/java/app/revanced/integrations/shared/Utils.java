@@ -28,6 +28,7 @@ import androidx.annotation.Nullable;
 
 import java.text.Bidi;
 import java.util.*;
+import java.util.regex.Pattern;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.SynchronousQueue;
@@ -36,7 +37,6 @@ import java.util.concurrent.TimeUnit;
 
 import app.revanced.integrations.shared.settings.BooleanSetting;
 import app.revanced.integrations.shared.settings.preference.ReVancedAboutPreference;
-import kotlin.text.Regex;
 
 public class Utils {
 
@@ -474,14 +474,14 @@ public class Utils {
         }
     }
 
-    private static final Regex punctuationRegex = new Regex("\\p{P}+");
+    private static final Pattern punctuationPattern = Pattern.compile("\\p{P}+");
 
     /**
      * Strips all punctuation and converts to lower case.  A null parameter returns an empty string.
      */
     public static String removePunctuationConvertToLowercase(@Nullable CharSequence original) {
         if (original == null) return "";
-        return punctuationRegex.replace(original, "").toLowerCase();
+        return punctuationPattern.matcher(original).replaceAll("").toLowerCase();
     }
 
     /**
