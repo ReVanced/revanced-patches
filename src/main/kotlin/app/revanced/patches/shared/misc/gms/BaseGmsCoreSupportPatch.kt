@@ -42,7 +42,7 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 abstract class BaseGmsCoreSupportPatch(
     private val fromPackageName: String,
     private val toPackageName: String,
-    private val primeMethodFingerprint: MethodFingerprint,
+    private val primeMethodFingerprint: MethodFingerprint?,
     private val earlyReturnFingerprints: Set<MethodFingerprint>,
     private val mainActivityOnCreateFingerprint: MethodFingerprint,
     private val integrationsPatchDependency: PatchClass,
@@ -91,7 +91,7 @@ abstract class BaseGmsCoreSupportPatch(
         }
 
         // Specific method that needs to be patched.
-        transformPrimeMethod(packageName)
+        primeMethodFingerprint?.let { transformPrimeMethod(packageName) }
 
         // Return these methods early to prevent the app from crashing.
         earlyReturnFingerprints.toList().returnEarly()
@@ -192,7 +192,7 @@ abstract class BaseGmsCoreSupportPatch(
     }
 
     private fun transformPrimeMethod(packageName: String) {
-        primeMethodFingerprint.result?.mutableMethod?.apply {
+        primeMethodFingerprint!!.result?.mutableMethod?.apply {
             var register = 2
 
             val index = getInstructions().indexOfFirst {
@@ -312,6 +312,9 @@ abstract class BaseGmsCoreSupportPatch(
             // droidguard/ safetynet
             "com.google.android.gms.droidguard.service.START",
             "com.google.android.gms.safetynet.service.START",
+
+            // google news
+            "com.google.android.gms.accountsettings.action.VIEW_SETTINGS"
         )
 
         /**
