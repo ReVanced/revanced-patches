@@ -1,14 +1,14 @@
 package app.revanced.patches.finanzonline.detection.bootloader.fingerprints
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 // Located @ at.gv.bmf.bmf2go.taxequalization.tools.utils.AttestationHelper#isBootStateOk (3.0.1)
-internal val bootStateFingerprint = methodFingerprint {
-    returns("Z")
-    accessFlags(AccessFlags.PUBLIC.value)
-    opcodes(
+internal object BootStateFingerprint : MethodFingerprint(
+    "Z",
+    accessFlags = AccessFlags.PUBLIC.value,
+    opcodes = listOf(
         Opcode.INVOKE_DIRECT,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CONST_4,
@@ -27,4 +27,4 @@ internal val bootStateFingerprint = methodFingerprint {
         Opcode.MOVE,
         Opcode.RETURN
     )
-}
+)

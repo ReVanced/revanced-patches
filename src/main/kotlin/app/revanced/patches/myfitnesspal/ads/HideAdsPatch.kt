@@ -1,36 +1,38 @@
 package app.revanced.patches.myfitnesspal.ads
 
+import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.myfitnesspal.ads.fingerprints.isPremiumUseCaseImplFingerprint
-import app.revanced.patches.myfitnesspal.ads.fingerprints.mainActivityNavigateToNativePremiumUpsellFingerprint
+import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.annotation.CompatiblePackage
+import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.myfitnesspal.ads.fingerprints.IsPremiumUseCaseImplFingerprint
+import app.revanced.patches.myfitnesspal.ads.fingerprints.MainActivityNavigateToNativePremiumUpsellFingerprint
+import app.revanced.util.exception
 
-
-@Suppress("unused")
-val hideAdsPatch = bytecodePatch(
+@Patch(
     name = "Hide ads",
-    description = "Hides most of the ads across the app."
+    description = "Hides most of the ads across the app.",
+    compatiblePackages = [CompatiblePackage("com.myfitnesspal.android")]
+)
+@Suppress("unused")
+object HideAdsPatch : BytecodePatch(
+    setOf(IsPremiumUseCaseImplFingerprint, MainActivityNavigateToNativePremiumUpsellFingerprint)
 ) {
-    compatibleWith(("com.myfitnesspal.android"()))
-
-    val isPremiumUseCaseImplResult by isPremiumUseCaseImplFingerprint
-    val mainActivityNavigateToNativePremiumUpsellResult by mainActivityNavigateToNativePremiumUpsellFingerprint
-
-    execute {
+    override fun execute(context: BytecodeContext) {
         // Overwrite the premium status specifically for ads.
-        isPremiumUseCaseImplResult.mutableMethod.replaceInstructions(
+        IsPremiumUseCaseImplFingerprint.result?.mutableMethod?.replaceInstructions(
             0,
             """
                 sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
                 return-object v0
             """
-        )
+        ) ?: throw IsPremiumUseCaseImplFingerprint.exception
 
         // Prevent the premium upsell dialog from showing when the main activity is launched.
         // In other places that are premium-only the dialog will still show.
-        mainActivityNavigateToNativePremiumUpsellResult.mutableMethod.replaceInstructions(
+        MainActivityNavigateToNativePremiumUpsellFingerprint.result?.mutableMethod?.replaceInstructions(
             0,
             "return-void"
-        )
+        ) ?: throw MainActivityNavigateToNativePremiumUpsellFingerprint.exception
     }
 }

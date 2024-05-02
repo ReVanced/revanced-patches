@@ -1,19 +1,24 @@
 package app.revanced.patches.lightroom.misc.premium
 
+import app.revanced.util.exception
+import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.lightroom.misc.premium.fingerprints.hasPurchasedFingerprint
+import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.annotation.CompatiblePackage
+import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.lightroom.misc.premium.fingerprints.HasPurchasedFingerprint
 
-@Suppress("unused")
-val unlockPremiumPatch = bytecodePatch(
+@Patch(
     name = "Unlock premium",
+    compatiblePackages = [CompatiblePackage("com.adobe.lrmobile")]
+)
+@Suppress("unused")
+object UnlockPremiumPatch : BytecodePatch(
+    setOf(HasPurchasedFingerprint)
 ){
-    compatibleWith("com.adobe.lrmobile"("6.3.0"))
-
-    val hasPurchasedResult by hasPurchasedFingerprint
-
-    execute {
+    override fun execute(context: BytecodeContext) {
          // Set hasPremium = true.
-        hasPurchasedResult.mutableMethod.replaceInstruction(2, "const/4 v2, 0x1")
+        HasPurchasedFingerprint.result?.mutableMethod?.replaceInstruction(2, "const/4 v2, 0x1")
+            ?: throw HasPurchasedFingerprint.exception
     }
 }

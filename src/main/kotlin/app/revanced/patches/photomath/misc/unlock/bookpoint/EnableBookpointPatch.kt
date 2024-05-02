@@ -1,22 +1,22 @@
 package app.revanced.patches.photomath.misc.unlock.bookpoint
 
-
+import app.revanced.util.exception
+import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.photomath.misc.unlock.bookpoint.fingerprints.isBookpointEnabledFingerprint
+import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.photomath.misc.unlock.bookpoint.fingerprints.IsBookpointEnabledFingerprint
 
-internal val enableBookpointPatch = bytecodePatch(
-    name = "Enable textbook access",
+@Patch(description = "Enables textbook access")
+internal object EnableBookpointPatch : BytecodePatch(
+    setOf(IsBookpointEnabledFingerprint)
 ) {
-    val isBookpointEnabledResult by isBookpointEnabledFingerprint
-
-    execute {
-        isBookpointEnabledResult.mutableMethod.replaceInstructions(
+    override fun execute(context: BytecodeContext) =
+        IsBookpointEnabledFingerprint.result?.mutableMethod?.replaceInstructions(
             0,
             """
                 const/4 v0, 0x1
                 return v0
             """
-        )
-    }
+        ) ?: throw IsBookpointEnabledFingerprint.exception
 }

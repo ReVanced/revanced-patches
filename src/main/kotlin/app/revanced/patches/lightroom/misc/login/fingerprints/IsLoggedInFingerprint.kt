@@ -1,13 +1,14 @@
 package app.revanced.patches.lightroom.misc.login.fingerprints
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.extensions.or
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val isLoggedInFingerprint = methodFingerprint {
-    returns("Z")
-    accessFlags(AccessFlags.PUBLIC,AccessFlags.STATIC,AccessFlags.FINAL)
-    opcodes(
+internal object IsLoggedInFingerprint : MethodFingerprint(
+    returnType = "Z",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC or AccessFlags.FINAL,
+    opcodes = listOf(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.SGET_OBJECT,
@@ -15,4 +16,4 @@ internal val isLoggedInFingerprint = methodFingerprint {
         Opcode.CONST_4,
         Opcode.GOTO
     )
-}
+)

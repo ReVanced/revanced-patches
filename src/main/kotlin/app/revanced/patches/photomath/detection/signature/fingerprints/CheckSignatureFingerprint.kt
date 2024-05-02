@@ -1,11 +1,14 @@
 package app.revanced.patches.photomath.detection.signature.fingerprints
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val checkSignatureFingerprint = methodFingerprint {
-    strings("packageInfo.signatures", "currentSignature")
-    opcodes(
+internal object CheckSignatureFingerprint : MethodFingerprint(
+    strings = listOf(
+        "packageInfo.signatures",
+        "currentSignature"
+    ),
+    opcodes = listOf(
         Opcode.CONST_STRING,
         Opcode.CONST_STRING,
         Opcode.INVOKE_STATIC,
@@ -16,4 +19,4 @@ internal val checkSignatureFingerprint = methodFingerprint {
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT,
     )
-}
+)

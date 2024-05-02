@@ -1,12 +1,13 @@
 package app.revanced.patches.myfitnesspal.ads.fingerprints
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.extensions.or
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-val mainActivityNavigateToNativePremiumUpsellFingerprint = methodFingerprint {
-    returns("V")
-    accessFlags(AccessFlags.PRIVATE,AccessFlags.FINAL)
-    custom { methodDef, classDef ->
+object MainActivityNavigateToNativePremiumUpsellFingerprint : MethodFingerprint(
+    returnType = "V",
+    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
+    customFingerprint = { methodDef, classDef ->
         classDef.type.endsWith("MainActivity;") && methodDef.name == "navigateToNativePremiumUpsell"
     }
-}
+)

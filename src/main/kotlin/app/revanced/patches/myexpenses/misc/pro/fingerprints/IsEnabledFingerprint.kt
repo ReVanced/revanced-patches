@@ -1,8 +1,8 @@
 package app.revanced.patches.myexpenses.misc.pro.fingerprints
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
-internal val isEnabledFingerprint = methodFingerprint {
-    returns("Z")
-    strings("feature", "feature.licenceStatus")
-}
+internal object IsEnabledFingerprint : MethodFingerprint(
+    "Z",
+    strings = listOf("feature", "feature.licenceStatus")
+)

@@ -1,16 +1,17 @@
 package app.revanced.patches.photomath.misc.unlock.bookpoint.fingerprints
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.extensions.or
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val isBookpointEnabledFingerprint = methodFingerprint {
-    returns("Z")
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters()
-    strings(
+internal object IsBookpointEnabledFingerprint : MethodFingerprint(
+    returnType = "Z",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf(),
+    strings = listOf(
         "NoGeoData",
         "NoCountryInGeo",
         "RemoteConfig",
         "GeoRCMismatch"
     )
-}
+)
