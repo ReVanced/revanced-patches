@@ -12,11 +12,6 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction3rc
 
-private object ParameterOffsets {
-    const val HAS_NEXT = 5
-    const val HAS_PREVIOUS = 6
-}
-
 @Suppress("unused")
 val hidePlayerButtonsPatch = bytecodePatch(
     name = "Hide player buttons",
@@ -53,6 +48,11 @@ val hidePlayerButtonsPatch = bytecodePatch(
     )
 
     val playerControlsVisibilityModelResult by playerControlsVisibilityModelFingerprint
+
+    val ParameterOffsets = object {
+        val HAS_NEXT = 5
+        val HAS_PREVIOUS = 6
+    }
 
     execute {
         addResources(this)
