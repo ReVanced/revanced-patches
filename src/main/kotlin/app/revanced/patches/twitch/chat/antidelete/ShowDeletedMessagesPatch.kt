@@ -12,6 +12,7 @@ import app.revanced.patches.twitch.chat.antidelete.fingerprints.chatUtilCreateDe
 import app.revanced.patches.twitch.chat.antidelete.fingerprints.deletedMessageClickableSpanCtorFingerprint
 import app.revanced.patches.twitch.chat.antidelete.fingerprints.setHasModAccessFingerprint
 import app.revanced.patches.twitch.misc.settings.SettingsPatch
+import app.revanced.patches.twitch.misc.settings.SettingsPatch.PreferenceScreen
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 
 @Suppress("unused")
@@ -36,7 +37,7 @@ val showDeletedMessagesPatch = bytecodePatch(
     execute {
         addResources(this)
 
-        SettingsPatch.PreferenceScreen.CHAT.GENERAL.addPreferences(
+        PreferenceScreen.CHAT.GENERAL.addPreferences(
             ListPreference(
                 key = "revanced_show_deleted_messages",
                 summaryKey = null,

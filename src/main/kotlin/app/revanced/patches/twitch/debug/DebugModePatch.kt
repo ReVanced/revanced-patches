@@ -9,6 +9,7 @@ import app.revanced.patches.twitch.debug.fingerprints.isDebugConfigEnabledFinger
 import app.revanced.patches.twitch.debug.fingerprints.isOmVerificationEnabledFingerprint
 import app.revanced.patches.twitch.debug.fingerprints.shouldShowDebugOptionsFingerprint
 import app.revanced.patches.twitch.misc.settings.SettingsPatch
+import app.revanced.patches.twitch.misc.settings.SettingsPatch.PreferenceScreen
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 
 @Suppress("unused")
@@ -28,7 +29,7 @@ val debugModePatch = bytecodePatch(
     execute {
         addResources(this)
 
-        SettingsPatch.PreferenceScreen.MISC.OTHER.addPreferences(
+        PreferenceScreen.MISC.OTHER.addPreferences(
             SwitchPreference("revanced_twitch_debug_mode"),
         )
 

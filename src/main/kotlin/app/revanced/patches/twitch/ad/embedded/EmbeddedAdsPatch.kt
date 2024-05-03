@@ -8,6 +8,7 @@ import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.twitch.ad.embedded.fingerprints.createsUsherClientFingerprint
 import app.revanced.patches.twitch.ad.video.VideoAdsPatch
 import app.revanced.patches.twitch.misc.settings.SettingsPatch
+import app.revanced.patches.twitch.misc.settings.SettingsPatch.PreferenceScreen
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 
 @Suppress("unused")
@@ -24,7 +25,7 @@ val embeddedAdsPatch = bytecodePatch(
     execute {
         addResources(this)
 
-        SettingsPatch.PreferenceScreen.ADS.SURESTREAM.addPreferences(
+        PreferenceScreen.ADS.SURESTREAM.addPreferences(
             ListPreference("revanced_block_embedded_ads", summaryKey = null),
         )
 

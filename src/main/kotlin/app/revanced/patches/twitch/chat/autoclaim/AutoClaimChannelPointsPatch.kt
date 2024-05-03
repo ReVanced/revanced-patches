@@ -9,7 +9,7 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.twitch.chat.autoclaim.fingerprints.communityPointsButtonViewDelegateFingerprint
 import app.revanced.patches.twitch.misc.settings.SettingsPatch
-import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
+import app.revanced.patches.twitch.misc.settings.SettingsPatch.PreferenceScreen
 
 @Suppress("unused")
 val autoClaimChannelPointsPatch = bytecodePatch(
@@ -25,7 +25,7 @@ val autoClaimChannelPointsPatch = bytecodePatch(
     execute {
         addResources(this)
 
-        SettingsPatch.PreferenceScreen.CHAT.GENERAL.addPreferences(
+        PreferenceScreen.CHAT.GENERAL.addPreferences(
             SwitchPreference("revanced_auto_claim_channel_points"),
         )
 
