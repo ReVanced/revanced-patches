@@ -14,24 +14,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
-private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-    "Lapp/revanced/integrations/tiktok/settings/AdPersonalizationActivityHook;"
-
-private const val INITIALIZE_SETTINGS_METHOD_DESCRIPTOR =
-    "$INTEGRATIONS_CLASS_DESCRIPTOR->initialize(" +
-            "Lcom/bytedance/ies/ugc/aweme/commercialize/compliance/personalization/AdPersonalizationActivity;" +
-            ")Z"
-
-private const val CREATE_SETTINGS_ENTRY_METHOD_DESCRIPTOR =
-    "$INTEGRATIONS_CLASS_DESCRIPTOR->createSettingsEntry(" +
-            "Ljava/lang/String;" +
-            "Ljava/lang/String;" +
-            ")Ljava/lang/Object;"
-
-internal fun String.toClassName(): String {
-    return substring(1, this.length - 1).replace("/", ".")
-}
-
 @Suppress("unused")
 val settingsPatch = bytecodePatch(
     name = "Settings",
@@ -46,6 +28,24 @@ val settingsPatch = bytecodePatch(
     val addSettingsEntryResult by addSettingsEntryFingerprint
     val settingsEntryResult by settingsEntryFingerprint
     val settingsEntryInfoResult by settingsEntryInfoFingerprint
+
+    val integrationsClassDescriptor =
+        "Lapp/revanced/integrations/tiktok/settings/AdPersonalizationActivityHook;"
+
+    val initializeSettingsMethodDescriptor =
+        "$integrationsClassDescriptor->initialize(" +
+                "Lcom/bytedance/ies/ugc/aweme/commercialize/compliance/personalization/AdPersonalizationActivity;" +
+                ")Z"
+
+    val createSettingsEntryMethodDescriptor =
+        "$integrationsClassDescriptor->createSettingsEntry(" +
+                "Ljava/lang/String;" +
+                "Ljava/lang/String;" +
+                ")Ljava/lang/Object;"
+
+    fun String.toClassName(): String {
+        return substring(1, this.length - 1).replace("/", ".")
+    }
 
     execute {
         // Find the class name of classes which construct a settings entry
@@ -74,7 +74,7 @@ val settingsPatch = bytecodePatch(
                 """
                     const-string v0, "$settingsButtonClass"
                     const-string v1, "$settingsButtonInfoClass"
-                    invoke-static {v0, v1}, $CREATE_SETTINGS_ENTRY_METHOD_DESCRIPTOR
+                    invoke-static {v0, v1}, $createSettingsEntryMethodDescriptor
                     move-result-object v0
                 """,
             )
@@ -92,7 +92,7 @@ val settingsPatch = bytecodePatch(
             addInstructionsWithLabels(
                 initializeSettingsIndex,
                 """
-                    invoke-static {v$thisRegister}, $INITIALIZE_SETTINGS_METHOD_DESCRIPTOR
+                    invoke-static {v$thisRegister}, $initializeSettingsMethodDescriptor
                     move-result v$usableRegister
                     if-eqz v$usableRegister, :do_not_open
                     return-void
