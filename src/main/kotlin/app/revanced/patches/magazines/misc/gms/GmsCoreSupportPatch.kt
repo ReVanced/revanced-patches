@@ -21,8 +21,6 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
     ),
     mainActivityOnCreateFingerprint = MagazinesActivityOnCreateFingerprint,
     integrationsPatchDependency = IntegrationsPatch::class,
-    dependencies = setOf(
-    ),
     gmsCoreSupportResourcePatch = GmsCoreSupportResourcePatch,
     compatiblePackages = setOf(
         CompatiblePackage(
@@ -35,8 +33,4 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
     ),
 ) {
     override val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
-
-    override fun execute(context: BytecodeContext) {
-        super.execute(context)
-    }
 }
