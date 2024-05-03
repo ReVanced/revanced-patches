@@ -37,7 +37,10 @@ val settingsPatch = bytecodePatch(
     name = "Settings",
     description = "Adds ReVanced settings to TikTok.",
 ) {
-    compatibleWith("com.ss.android.ugc.trill"("32.5.3"), "com.zhiliaoapp.musically"("32.5.3"))
+    compatibleWith(
+        "com.ss.android.ugc.trill"("32.5.3"),
+        "com.zhiliaoapp.musically"("32.5.3")
+    )
 
     val adPersonalizationActivityOnCreateResult by adPersonalizationActivityOnCreateFingerprint
     val addSettingsEntryResult by addSettingsEntryFingerprint

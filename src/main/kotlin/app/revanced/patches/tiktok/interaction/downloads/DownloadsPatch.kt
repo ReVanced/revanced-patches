@@ -24,7 +24,10 @@ val downloadsPatch = bytecodePatch(
 ) {
     dependsOn(integrationsPatch, settingsPatch)
 
-    compatibleWith("com.ss.android.ugc.trill"("32.5.3"), "com.zhiliaoapp.musically"("32.5.3"))
+    compatibleWith(
+        "com.ss.android.ugc.trill"("32.5.3"),
+        "com.zhiliaoapp.musically"("32.5.3")
+    )
 
     val aclCommonShareResult by aclCommonShareFingerprint
     val aclCommonShareResult2 by aclCommonShareFingerprint2

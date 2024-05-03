@@ -18,7 +18,10 @@ val feedFilterPatch = bytecodePatch(
 ) {
     dependsOn(integrationsPatch, settingsPatch)
 
-    compatibleWith("com.ss.android.ugc.trill"("32.5.3"), "com.zhiliaoapp.musically"("32.5.3"))
+    compatibleWith(
+        "com.ss.android.ugc.trill"("32.5.3"),
+        "com.zhiliaoapp.musically"("32.5.3")
+    )
 
     val feedApiServiceLIZResult by feedApiServiceLIZFingerprint
     val settingsStatusLoadResult by settingsStatusLoadFingerprint

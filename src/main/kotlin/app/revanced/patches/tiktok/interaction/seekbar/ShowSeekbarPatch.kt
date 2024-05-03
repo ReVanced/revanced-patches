@@ -10,7 +10,10 @@ val showSeekbarPatch = bytecodePatch(
     name = "Show seekbar",
     description = "Shows progress bar for all video.",
 ) {
-    compatibleWith("com.ss.android.ugc.trill"(), "com.zhiliaoapp.musically"())
+    compatibleWith(
+        "com.ss.android.ugc.trill"(), 
+        "com.zhiliaoapp.musically"()
+    )
 
     val shouldShowSeekBarResult by shouldShowSeekBarFingerprint
     val setSeekBarShowTypeResult by setSeekBarShowTypeFingerprint

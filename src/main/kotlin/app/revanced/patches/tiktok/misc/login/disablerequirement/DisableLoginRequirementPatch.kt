@@ -9,7 +9,10 @@ import app.revanced.patches.tiktok.misc.login.disablerequirement.fingerprints.ma
 val disableLoginRequirementPatch = bytecodePatch(
     name = "Disable login requirement",
 ) {
-    compatibleWith("com.ss.android.ugc.trill"(), "com.zhiliaoapp.musically"())
+    compatibleWith(
+        "com.ss.android.ugc.trill"(),
+        "com.zhiliaoapp.musically"()
+    )
 
     val mandatoryLoginServiceResult by mandatoryLoginServiceFingerprint
     val mandatoryLoginServiceResult2 by mandatoryLoginServiceFingerprint2

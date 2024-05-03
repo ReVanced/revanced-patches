@@ -16,7 +16,10 @@ val rememberClearDisplayPatch = bytecodePatch(
     name = "Remember clear display",
     description = "Remembers the clear display configurations in between videos.",
 ) {
-    compatibleWith("com.ss.android.ugc.trill"("32.5.3"), "com.zhiliaoapp.musically"("32.5.3"))
+    compatibleWith(
+        "com.ss.android.ugc.trill"("32.5.3"),
+        "com.zhiliaoapp.musically"("32.5.3")
+    )
 
     val onClearDisplayEventResult by onClearDisplayEventFingerprint
     val onRenderFirstFrameResult by onRenderFirstFrameFingerprint

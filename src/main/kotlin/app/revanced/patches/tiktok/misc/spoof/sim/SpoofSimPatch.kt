@@ -21,7 +21,10 @@ val spoofSimPatch = bytecodePatch(
 ) {
     dependsOn(integrationsPatch, SettingsPatch)
 
-    compatibleWith("com.ss.android.ugc.trill"(), "com.zhiliaoapp.musically"())
+    compatibleWith(
+        "com.ss.android.ugc.trill"(),
+        "com.zhiliaoapp.musically"()
+    )
 
     val settingsStatusLoadResult by settingsStatusLoadFingerprint
 

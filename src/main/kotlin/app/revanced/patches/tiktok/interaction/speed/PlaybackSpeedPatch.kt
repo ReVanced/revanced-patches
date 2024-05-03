@@ -18,7 +18,10 @@ val playbackSpeedPatch = bytecodePatch(
     description = "Enables the playback speed option for all videos and " +
             "retains the speed configurations in between videos.",
 ) {
-    compatibleWith("com.ss.android.ugc.trill"("32.5.3"), "com.zhiliaoapp.musically"("32.5.3"))
+    compatibleWith(
+        "com.ss.android.ugc.trill"("32.5.3"),
+        "com.zhiliaoapp.musically"("32.5.3")
+    )
 
     val getSpeedResult by getSpeedFingerprint
     val onRenderFirstFrameResult by onRenderFirstFrameFingerprint
