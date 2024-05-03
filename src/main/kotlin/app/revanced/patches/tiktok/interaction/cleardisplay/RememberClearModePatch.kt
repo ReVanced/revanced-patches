@@ -62,7 +62,7 @@ val rememberClearDisplayPatch = bytecodePatch(
                         invoke-direct { v0, v1, v2, v3 }, $clearDisplayEventClass-><init>(ILjava/lang/String;Z)V
                         invoke-virtual { v0 }, $clearDisplayEventClass->post()Lcom/ss/android/ugc/governance/eventbus/IEvent;
                     """,
-                ExternalLabel("clear_display_disabled", it.getInstruction(0)),
+                ExternalLabel("clear_display_disabled", onRenderFirstFrameResult.mutableMethod.getInstruction(0)),
             )
             // endregion
         }
