@@ -9,6 +9,7 @@ import app.revanced.patches.tiktok.misc.settings.fingerprints.adPersonalizationA
 import app.revanced.patches.tiktok.misc.settings.fingerprints.addSettingsEntryFingerprint
 import app.revanced.patches.tiktok.misc.settings.fingerprints.settingsEntryFingerprint
 import app.revanced.patches.tiktok.misc.settings.fingerprints.settingsEntryInfoFingerprint
+import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
@@ -19,6 +20,8 @@ val settingsPatch = bytecodePatch(
     name = "Settings",
     description = "Adds ReVanced settings to TikTok.",
 ) {
+    dependsOn(integrationsPatch)
+
     compatibleWith(
         "com.ss.android.ugc.trill"("32.5.3"),
         "com.zhiliaoapp.musically"("32.5.3")
