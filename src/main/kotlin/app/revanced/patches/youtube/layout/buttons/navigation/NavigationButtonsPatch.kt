@@ -77,7 +77,7 @@ val navigationButtonsPatch = bytecodePatch(
 
         // Switch create with notifications button.
         addCreateButtonViewResult.mutableMethod.apply {
-            val stringIndex = it.scanResult.stringsScanResult!!.matches.find { match ->
+            val stringIndex = addCreateButtonViewResult.scanResult.stringsScanResult!!.matches.find { match ->
                 match.string == ANDROID_AUTOMOTIVE_STRING
             }!!.index
 
