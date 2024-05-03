@@ -52,7 +52,7 @@ val hideGetPremiumPatch = bytecodePatch(
         "Lapp/revanced/integrations/youtube/patches/HideGetPremiumPatch;"
 
     execute {
-        addResources("youtube", "ad.getpremium.hideGetPremiumPatch")
+        addResources("youtube", "ad.getpremium.HideGetPremiumPatch")
 
         PreferenceScreen.ADS.addPreferences(
             SwitchPreference("revanced_hide_get_premium"),

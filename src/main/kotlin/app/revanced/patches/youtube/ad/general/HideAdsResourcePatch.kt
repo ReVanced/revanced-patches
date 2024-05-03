@@ -27,7 +27,7 @@ val hideAdsResourcePatch = resourcePatch {
         "Lapp/revanced/integrations/youtube/patches/components/AdsFilter;"
 
     execute {
-        addResources("youtube", "ad.general.hideAdsResourcePatch")
+        addResources("youtube", "ad.general.HideAdsResourcePatch")
 
         PreferenceScreen.ADS.addPreferences(
             SwitchPreference("revanced_hide_general_ads"),

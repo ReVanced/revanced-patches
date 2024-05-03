@@ -49,7 +49,7 @@ val hideButtonsPatch = resourcePatch(
         "Lapp/revanced/integrations/youtube/patches/components/ButtonsFilter;"
 
     execute {
-        addResources("youtube", "layout.buttons.action.hideButtonsPatch")
+        addResources("youtube", "layout.buttons.action.HideButtonsPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
             PreferenceScreenPreference(

@@ -23,7 +23,7 @@ val downloadsResourcePatch = resourcePatch {
     )
 
     execute { context ->
-        addResources("youtube", "interaction.downloads.downloadsResourcePatch")
+        addResources("youtube", "interaction.downloads.DownloadsResourcePatch")
 
         PreferenceScreen.PLAYER.addPreferences(
             PreferenceScreenPreference(
