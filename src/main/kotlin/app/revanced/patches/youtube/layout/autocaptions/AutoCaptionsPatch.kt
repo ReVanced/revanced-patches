@@ -16,6 +16,12 @@ val autoCaptionsPatch = bytecodePatch(
     name = "Disable auto captions",
     description = "Adds an option to disable captions from being automatically enabled.",
 ) {
+    dependsOn(
+        integrationsPatch,
+        settingsPatch,
+        addResourcesPatch
+    )
+    
     compatibleWith(
         "com.google.android.youtube"(
             "18.32.39",
@@ -39,8 +45,6 @@ val autoCaptionsPatch = bytecodePatch(
             "19.11.43",
         ),
     )
-
-    dependsOn(integrationsPatch, settingsPatch, addResourcesPatch)
 
     val startVideoInformerResult by startVideoInformerFingerprint
     val subtitleButtonControllerResult by subtitleButtonControllerFingerprint

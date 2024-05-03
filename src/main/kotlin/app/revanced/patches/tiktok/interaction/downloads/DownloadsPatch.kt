@@ -22,7 +22,10 @@ val downloadsPatch = bytecodePatch(
     name = "Downloads",
     description = "Removes download restrictions and changes the default path to download to.",
 ) {
-    dependsOn(integrationsPatch, settingsPatch)
+    dependsOn(
+        integrationsPatch,
+        settingsPatch
+    )
 
     compatibleWith(
         "com.ss.android.ugc.trill"("32.5.3"),

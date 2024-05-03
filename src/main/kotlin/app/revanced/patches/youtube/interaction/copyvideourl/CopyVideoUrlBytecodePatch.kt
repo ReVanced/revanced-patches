@@ -9,6 +9,12 @@ val copyVideoUrlBytecodePatch = bytecodePatch(
     name = "Copy video URL",
     description = "Adds options to display buttons in the video player to copy video URLs.",
 ) {
+    dependsOn(
+        copyVideoUrlResourcePatch,
+        PlayerControlsBytecodePatch,
+        VideoInformationPatch,
+    )
+
     compatibleWith(
         "com.google.android.youtube"(
             "18.48.39",
@@ -25,12 +31,6 @@ val copyVideoUrlBytecodePatch = bytecodePatch(
             "19.10.39",
             "19.11.43",
         ),
-    )
-
-    dependsOn(
-        copyVideoUrlResourcePatch,
-        PlayerControlsBytecodePatch,
-        VideoInformationPatch,
     )
 
     val integrationsPlayerPackage = "Lapp/revanced/integrations/youtube/videoplayer"

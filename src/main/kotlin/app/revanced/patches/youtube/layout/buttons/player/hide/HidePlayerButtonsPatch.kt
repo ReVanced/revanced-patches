@@ -22,6 +22,12 @@ val hidePlayerButtonsPatch = bytecodePatch(
     name = "Hide player buttons",
     description = "Adds an option to hide the previous and next buttons in the video player.",
 ) {
+    dependsOn(
+        integrationsPatch,
+        settingsPatch,
+        addResourcesPatch
+    )
+    
     compatibleWith(
         "com.google.android.youtube"(
             "18.32.39",
@@ -45,8 +51,6 @@ val hidePlayerButtonsPatch = bytecodePatch(
             "19.11.43",
         ),
     )
-
-    dependsOn(integrationsPatch, settingsPatch, addResourcesPatch)
 
     val playerControlsVisibilityModelResult by playerControlsVisibilityModelFingerprint
 

@@ -17,6 +17,12 @@ val disablePreciseSeekingGesturePatch = bytecodePatch(
     name = "Disable precise seeking gesture",
     description = "Adds an option to disable precise seeking when swiping up on the seekbar.",
 ) {
+    dependsOn(
+        integrationsPatch,
+        settingsPatch,
+        addResourcesPatch
+    )
+
     compatibleWith(
         "com.google.android.youtube"(
             "18.32.39",
@@ -40,8 +46,6 @@ val disablePreciseSeekingGesturePatch = bytecodePatch(
             "19.11.43",
         ),
     )
-
-    dependsOn(integrationsPatch, settingsPatch, addResourcesPatch)
 
     val isSwipingUpResult by isSwipingUpFingerprint
 

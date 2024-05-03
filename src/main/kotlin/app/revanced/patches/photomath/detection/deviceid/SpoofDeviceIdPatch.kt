@@ -11,8 +11,9 @@ val spoofDeviceIdPatch = bytecodePatch(
     name = "Spoof device ID",
     description = "Spoofs device ID to mitigate manual bans by developers.",
 ){
-    compatibleWith("com.microblink.photomath"("8.32.0"))
     dependsOn(signatureDetectionPatch)
+
+    compatibleWith("com.microblink.photomath"("8.32.0"))
 
     val getDeviceIdResult by getDeviceIdFingerprint
 

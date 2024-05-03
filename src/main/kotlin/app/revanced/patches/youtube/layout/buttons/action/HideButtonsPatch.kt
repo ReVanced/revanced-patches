@@ -14,7 +14,13 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 val hideButtonsPatch = resourcePatch(
     name = "Hide video action buttons",
     description = "Hides action buttons (such as the Download button) under videos.",
-) {
+) {   
+    dependsOn(
+        resourceMappingPatch,
+        lithoFilterPatch,
+        addResourcesPatch
+    )
+    
     compatibleWith(
         "com.google.android.youtube"(
             "18.32.39",
@@ -38,8 +44,6 @@ val hideButtonsPatch = resourcePatch(
             "19.11.43",
         ),
     )
-
-    dependsOn(resourceMappingPatch, lithoFilterPatch, addResourcesPatch)
 
     val filterClassDescriptor =
         "Lapp/revanced/integrations/youtube/patches/components/ButtonsFilter;"

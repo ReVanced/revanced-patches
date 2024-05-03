@@ -16,7 +16,10 @@ val autoClaimChannelPointsPatch = bytecodePatch(
     name = "Auto claim channel points",
     description = "Automatically claim Channel Points.",
 ) {
-    dependsOn(SettingsPatch, addResourcesPatch)
+    dependsOn(
+        SettingsPatch,
+        addResourcesPatch
+    )
 
     compatibleWith("tv.twitch.android.app"("15.4.1", "16.1.0", "16.9.1"))
 

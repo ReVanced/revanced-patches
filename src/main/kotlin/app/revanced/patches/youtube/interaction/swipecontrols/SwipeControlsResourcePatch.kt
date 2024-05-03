@@ -13,7 +13,10 @@ import app.revanced.util.copyResources
 
 @Suppress("unused")
 val swipeControlsResourcePatch = resourcePatch {
-    dependsOn(settingsPatch, addResourcesPatch)
+    dependsOn(
+        settingsPatch,
+        addResourcesPatch
+    )
 
     execute { context ->
         addResources("youtube", "interaction.swipecontrols.swipeControlsResourcePatch")

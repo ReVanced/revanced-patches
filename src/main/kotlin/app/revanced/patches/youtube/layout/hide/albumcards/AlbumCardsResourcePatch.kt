@@ -14,7 +14,11 @@ internal var albumCardId: Long = -1
 
 @Suppress("unused")
 val albumCardsResourcePatch = resourcePatch {
-    dependsOn(settingsPatch, resourceMappingPatch, addResourcesPatch)
+    dependsOn(
+        settingsPatch,
+        resourceMappingPatch,
+        addResourcesPatch
+    )
 
     execute {
         addResources("youtube", "layout.hide.albumcards.albumCardsResourcePatch")

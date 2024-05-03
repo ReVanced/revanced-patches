@@ -18,6 +18,12 @@ val removeViewerDiscretionDialogPatch = bytecodePatch(
     description = "Adds an option to remove the dialog that appears when opening a video that has been age-restricted " +
         "by accepting it automatically. This does not bypass the age restriction.",
 ) {
+    dependsOn(
+        integrationsPatch,
+        settingsPatch,
+        addResourcesPatch
+    )
+
     compatibleWith(
         "com.google.android.youtube"(
             "18.32.39",
@@ -41,8 +47,6 @@ val removeViewerDiscretionDialogPatch = bytecodePatch(
             "19.11.43",
         ),
     )
-
-    dependsOn(integrationsPatch, settingsPatch, addResourcesPatch)
 
     val createDialogResult by createDialogFingerprint
 

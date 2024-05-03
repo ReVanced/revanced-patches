@@ -11,7 +11,10 @@ import app.revanced.patches.tumblr.timelinefilter.timelineFilterPatch
 val disableTumblrLivePatch = bytecodePatch(
     description = "Disable the Tumblr Live tab button and dashboard carousel.",
 ) {
-    dependsOn(overrideFeatureFlagsPatch, timelineFilterPatch)
+    dependsOn(
+        overrideFeatureFlagsPatch,
+        timelineFilterPatch
+    )
 
     compatibleWith("com.tumblr"())
 

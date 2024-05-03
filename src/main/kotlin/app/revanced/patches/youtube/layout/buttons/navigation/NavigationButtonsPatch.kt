@@ -22,6 +22,13 @@ val navigationButtonsPatch = bytecodePatch(
     name = "Navigation buttons",
     description = "Adds options to hide and change navigation buttons (such as the Shorts button).",
 ) {
+    dependsOn(
+        integrationsPatch,
+        settingsPatch,
+        addResourcesPatch,
+        NavigationBarHookPatch,
+    )
+
     compatibleWith(
         "com.google.android.youtube"(
             "18.32.39",
@@ -44,13 +51,6 @@ val navigationButtonsPatch = bytecodePatch(
             "19.10.39",
             "19.11.43",
         ),
-    )
-
-    dependsOn(
-        integrationsPatch,
-        settingsPatch,
-        addResourcesPatch,
-        NavigationBarHookPatch,
     )
 
     val addCreateButtonViewResult by addCreateButtonViewFingerprint

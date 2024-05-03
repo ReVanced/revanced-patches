@@ -12,7 +12,11 @@ import app.revanced.util.copyResources
 
 @Suppress("unused")
 val copyVideoUrlResourcePatch = resourcePatch {
-    dependsOn(settingsPatch, BottomControlsResourcePatch, addResourcesPatch)
+    dependsOn(
+        settingsPatch,
+        BottomControlsResourcePatch,
+        addResourcesPatch
+    )
 
     execute { context ->
         addResources("youtube", "interaction.copyvideourl.CopyVideoUrlResourcePatch")

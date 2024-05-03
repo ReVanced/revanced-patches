@@ -12,6 +12,11 @@ val albumCardsPatch = bytecodePatch(
     name = "Hide album cards",
     description = "Adds an option to hide album cards below artist descriptions.",
 ) {
+    dependsOn(
+        integrationsPatch,
+        albumCardsResourcePatch
+    )
+    
     compatibleWith(
         "com.google.android.youtube"(
             "18.32.39",
@@ -35,8 +40,6 @@ val albumCardsPatch = bytecodePatch(
             "19.11.43",
         ),
     )
-
-    dependsOn(integrationsPatch, albumCardsResourcePatch)
 
     val albumCardsResult by albumCardsFingerprint
 

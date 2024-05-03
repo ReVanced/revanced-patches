@@ -16,6 +16,12 @@ val swipeControlsBytecodePatch = bytecodePatch(
     name = "Swipe controls",
     description = "Adds options to enable and configure volume and brightness swipe controls.",
 ) {
+    dependsOn(
+        integrationsPatch,
+        PlayerTypeHookPatch,
+        swipeControlsResourcePatch
+    )
+
     compatibleWith(
         "com.google.android.youtube"(
             "18.32.39",
@@ -42,8 +48,6 @@ val swipeControlsBytecodePatch = bytecodePatch(
             // but it may be a bug in YT itself as other target versions do not have this issue.
         ),
     )
-
-    dependsOn(integrationsPatch, PlayerTypeHookPatch, swipeControlsResourcePatch)
 
     val mainActivityResult by mainActivityFingerprint
     val swipeControlsHostActivityResult by swipeControlsHostActivityFingerprint

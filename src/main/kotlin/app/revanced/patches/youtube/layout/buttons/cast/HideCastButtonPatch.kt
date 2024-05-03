@@ -15,7 +15,11 @@ val hideCastButtonPatch = bytecodePatch(
     name = "Hide cast button",
     description = "Adds an option to hide the cast button in the video player.",
 ) {
-    dependsOn(integrationsPatch, settingsPatch, addResourcesPatch)
+    dependsOn(
+        integrationsPatch,
+        settingsPatch,
+        addResourcesPatch
+    )
 
     compatibleWith("com.google.android.youtube"())
 

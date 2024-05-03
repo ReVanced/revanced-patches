@@ -16,7 +16,12 @@ val embeddedAdsPatch = bytecodePatch(
     name = "Block embedded ads",
     description = "Blocks embedded stream ads using services like Luminous or PurpleAdBlocker.",
 ) {
-    dependsOn(VideoAdsPatch, integrationsPatch, SettingsPatch, addResourcesPatch)
+    dependsOn(
+        VideoAdsPatch,
+        integrationsPatch,
+        SettingsPatch, 
+        
+    )
 
     compatibleWith("tv.twitch.android.app"("15.4.1", "16.1.0", "16.9.1"))
 

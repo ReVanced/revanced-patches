@@ -16,6 +16,12 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 val hideGetPremiumPatch = bytecodePatch(
     description = "Hides YouTube Premium signup promotions under the video player.",
 ) {
+    dependsOn(
+        integrationsPatch,
+        settingsPatch,
+        addResourcesPatch,
+    )
+
     compatibleWith(
         "com.google.android.youtube"(
             "18.32.39",
@@ -38,12 +44,6 @@ val hideGetPremiumPatch = bytecodePatch(
             "19.10.39",
             "19.11.43",
         ),
-    )
-
-    dependsOn(
-        integrationsPatch,
-        settingsPatch,
-        addResourcesPatch,
     )
 
     val getPremiumViewResult by getPremiumViewFingerprint

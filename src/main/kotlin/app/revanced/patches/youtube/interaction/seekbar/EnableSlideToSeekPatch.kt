@@ -18,6 +18,12 @@ val enableSlideToSeekPatch = bytecodePatch(
     name = "Enable slide to seek",
     description = "Adds an option to enable slide to seek instead of playing at 2x speed when pressing and holding in the video player. Including this patch may cause issues with tapping or double tapping the video player overlay.",
 ) {
+    dependsOn(
+        integrationsPatch,
+        settingsPatch,
+        addResourcesPatch
+    )
+
     compatibleWith(
         "com.google.android.youtube"(
             "18.43.45",
@@ -38,8 +44,6 @@ val enableSlideToSeekPatch = bytecodePatch(
             "19.11.43",
         ),
     )
-
-    dependsOn(integrationsPatch, settingsPatch, addResourcesPatch)
 
     val slideToSeekResult by slideToSeekFingerprint
     val doubleSpeedSeekNoticeResult by doubleSpeedSeekNoticeFingerprint

@@ -15,6 +15,12 @@ val commentsPatch = resourcePatch(
     name = "Comments",
     description = "Adds options to hide components related to comments.",
 ) {
+    dependsOn(
+        settingsPatch,
+        lithoFilterPatch,
+        addResourcesPatch,
+    )
+
     compatibleWith(
         "com.google.android.youtube"(
             "18.32.39",
@@ -37,12 +43,6 @@ val commentsPatch = resourcePatch(
             "19.10.39",
             "19.11.43",
         ),
-    )
-
-    dependsOn(
-        settingsPatch,
-        lithoFilterPatch,
-        addResourcesPatch,
     )
 
     val filterClassDescriptor =

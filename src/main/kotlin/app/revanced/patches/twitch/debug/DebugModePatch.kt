@@ -18,7 +18,11 @@ val debugModePatch = bytecodePatch(
     description = "Enables Twitch's internal debugging mode.",
     use = false,
 ) {
-    dependsOn(integrationsPatch, SettingsPatch, addResourcesPatch)
+    dependsOn(
+        integrationsPatch,
+        SettingsPatch,
+        addResourcesPatch
+    )
 
     compatibleWith("tv.twitch.android.app"())
 

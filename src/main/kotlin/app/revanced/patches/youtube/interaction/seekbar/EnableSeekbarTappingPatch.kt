@@ -21,6 +21,12 @@ val enableSeekbarTappingPatch = bytecodePatch(
     name = "Seekbar tapping",
     description = "Adds an option to enable tap-to-seek on the seekbar of the video player.",
 ) {
+    dependsOn(
+        integrationsPatch,
+        settingsPatch,
+        addResourcesPatch
+    )
+
     compatibleWith(
         "com.google.android.youtube"(
             "18.43.45",
@@ -41,8 +47,6 @@ val enableSeekbarTappingPatch = bytecodePatch(
             "19.11.43",
         ),
     )
-
-    dependsOn(integrationsPatch, settingsPatch, addResourcesPatch)
 
     val onTouchEventHandlerResult by onTouchEventHandlerFingerprint
     val seekbarTappingResult by seekbarTappingFingerprint

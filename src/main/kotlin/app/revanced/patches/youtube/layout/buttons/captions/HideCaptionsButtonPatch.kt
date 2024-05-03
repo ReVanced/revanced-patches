@@ -16,6 +16,12 @@ val hideCaptionsButtonPatch = bytecodePatch(
     name = "Hide captions button",
     description = "Adds an option to hide the captions button in the video player.",
 ) {
+    dependsOn(
+        integrationsPatch,
+        settingsPatch,
+        addResourcesPatch
+    )
+    
     compatibleWith(
         "com.google.android.youtube"(
             "18.32.39",
@@ -39,8 +45,6 @@ val hideCaptionsButtonPatch = bytecodePatch(
             "19.11.43",
         ),
     )
-
-    dependsOn(integrationsPatch, settingsPatch, addResourcesPatch)
 
     val subtitleButtonControllerResult by subtitleButtonControllerFingerprint
 

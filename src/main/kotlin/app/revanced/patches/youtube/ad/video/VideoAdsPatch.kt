@@ -17,6 +17,12 @@ val videoAdsPatch = bytecodePatch(
     name = "Video ads",
     description = "Adds an option to remove ads in the video player.",
 ) {
+    dependsOn(
+        integrationsPatch,
+        settingsPatch,
+        addResourcesPatch
+    )
+    
     compatibleWith(
         "com.google.android.youtube"(
             "18.32.39",
@@ -40,8 +46,6 @@ val videoAdsPatch = bytecodePatch(
             "19.11.43",
         ),
     )
-
-    dependsOn(integrationsPatch, settingsPatch, addResourcesPatch)
 
     val loadVideoAdsResult by loadVideoAdsFingerprint
 

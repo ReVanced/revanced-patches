@@ -15,6 +15,13 @@ val hideAdsPatch = bytecodePatch(
     name = "Hide ads",
     description = "Adds options to remove general ads.",
 ) {
+    dependsOn(
+        hideGetPremiumPatch,
+        hideAdsResourcePatch,
+        verticalScrollPatch,
+        FixBackToExitGesturePatch
+    )
+
     compatibleWith(
         "com.google.android.youtube"(
             "18.32.39",
@@ -38,8 +45,6 @@ val hideAdsPatch = bytecodePatch(
             "19.11.43",
         ),
     )
-
-    dependsOn(hideGetPremiumPatch, hideAdsResourcePatch, verticalScrollPatch, FixBackToExitGesturePatch)
 
     execute { context ->
         context.classes.forEach { classDef ->

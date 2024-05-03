@@ -13,6 +13,12 @@ val downloadsPatch = bytecodePatch(
     description = "Adds support to download videos with an external downloader app " +
         "using the in-app download button or a video player action button.",
 ) {
+    dependsOn(
+        downloadsResourcePatch,
+        PlayerControlsBytecodePatch,
+        VideoInformationPatch,
+    )
+
     compatibleWith(
         "com.google.android.youtube"(
             "18.48.39",
@@ -29,12 +35,6 @@ val downloadsPatch = bytecodePatch(
             "19.10.39",
             "19.11.43",
         ),
-    )
-
-    dependsOn(
-        downloadsResourcePatch,
-        PlayerControlsBytecodePatch,
-        VideoInformationPatch,
     )
 
     val offlineVideoEndpointResult by offlineVideoEndpointFingerprint
