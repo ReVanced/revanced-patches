@@ -11,9 +11,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-    "Lapp/revanced/integrations/tudortmund/lockscreen/ShowOnLockscreenPatch;"
-
 @Suppress("unused")
 val showOnLockscreenPatch = bytecodePatch(
     name = "Show on lockscreen",
@@ -24,7 +21,10 @@ val showOnLockscreenPatch = bytecodePatch(
 
     val brightnessResult by brightnessFingerprint
 
-    execute { context ->
+    val integrationsClassDescriptor =
+        "Lapp/revanced/integrations/tudortmund/lockscreen/ShowOnLockscreenPatch;"
+
+    execute {
         brightnessResult.mutableMethod.apply {
             // Find the instruction where the brightness value is loaded into a register
             val brightnessInstruction = implementation!!.instructions.firstNotNullOf { instruction ->
@@ -62,7 +62,7 @@ val showOnLockscreenPatch = bytecodePatch(
             replaceInstruction(
                 windowIndex,
                 "invoke-static { v$activityRegister, v$brightnessRegister }, " +
-                        "$INTEGRATIONS_CLASS_DESCRIPTOR->" +
+                        "$integrationsClassDescriptor->" +
                         "getWindow" +
                         "(Landroidx/appcompat/app/AppCompatActivity;F)" +
                         "Landroid/view/Window;",
