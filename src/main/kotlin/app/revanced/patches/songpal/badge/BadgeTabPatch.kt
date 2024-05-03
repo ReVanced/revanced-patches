@@ -12,7 +12,7 @@ val badgeTabPatch = bytecodePatch(
     name = "Remove badge tab",
     description = "Removes the badge tab from the activity tab.",
 ) {
-    compatibleWith("jp.co.sony.vim"())
+    compatibleWith("com.sony.songpal.mdrw"())
 
     val createTabsResult by createTabsFingerprint
 
