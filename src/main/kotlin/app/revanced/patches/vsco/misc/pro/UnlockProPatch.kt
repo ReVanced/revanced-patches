@@ -14,6 +14,7 @@ val unlockProPatch = bytecodePatch(
     val revCatSubscriptionResult by revCatSubscriptionFingerprint
 
     execute {
+        // Set isSubscribed to true.
         revCatSubscriptionResult.mutableMethod.addInstruction(
             0,
             """

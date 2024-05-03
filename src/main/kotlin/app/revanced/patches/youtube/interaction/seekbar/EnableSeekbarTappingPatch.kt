@@ -58,6 +58,7 @@ val enableSeekbarTappingPatch = bytecodePatch(
             SwitchPreference("revanced_seekbar_tapping"),
         )
 
+        // Find the required methods to tap the seekbar.
         val seekbarTappingMethods = onTouchEventHandlerResult.let {
             val patternScanResult = it.scanResult.patternScanResult!!
 

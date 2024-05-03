@@ -15,6 +15,7 @@ val premiumNavbarTabPatch = bytecodePatch(
 
     val addNavbarItemResult by addNavBarItemFingerprint
 
+    // If the navigation bar item is the premium tab, do not add it.
     execute {
         addNavbarItemResult.mutableMethod.addInstructions(
             0,
