@@ -4,8 +4,8 @@ import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val isBookpointEnabledFingerprint = methodFingerprint {
-    returns("Z")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
     parameters()
     strings(
         "NoGeoData",

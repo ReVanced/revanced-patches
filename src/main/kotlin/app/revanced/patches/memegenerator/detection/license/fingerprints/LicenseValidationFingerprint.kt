@@ -5,8 +5,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val licenseValidationFingerprint = methodFingerprint {
-    returns("Z")
     accessFlags(AccessFlags.PUBLIC,AccessFlags.STATIC)
+    returns("Z")
     parameters("Landroid/content/Context;")
     opcodes(
         Opcode.INVOKE_STATIC,

@@ -6,8 +6,8 @@ import com.android.tools.smali.dexlib2.Opcode
 
 // Located @ at.gv.bmf.bmf2go.taxequalization.tools.utils.AttestationHelper#isBootStateOk (3.0.1)
 internal val bootStateFingerprint = methodFingerprint {
-    returns("Z")
     accessFlags(AccessFlags.PUBLIC.value)
+    returns("Z")
     opcodes(
         Opcode.INVOKE_DIRECT,
         Opcode.MOVE_RESULT_OBJECT,

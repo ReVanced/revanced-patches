@@ -5,8 +5,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val verifySignatureFingerprint = methodFingerprint(fuzzyPatternScanThreshold = 2) {
-    returns("Z")
     accessFlags(AccessFlags.PUBLIC,AccessFlags.STATIC)
+    returns("Z")
     parameters("Landroid/app/Activity;")
     opcodes(
         Opcode.SGET_OBJECT,

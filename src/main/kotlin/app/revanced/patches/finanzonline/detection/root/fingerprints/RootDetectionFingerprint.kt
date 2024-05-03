@@ -6,8 +6,8 @@ import com.android.tools.smali.dexlib2.Opcode
 
 // Located @ at.gv.bmf.bmf2go.taxequalization.tools.utils.RootDetection#isRooted (3.0.1)
 internal val rootDetectionFingerprint = methodFingerprint {
-    returns("L")
     accessFlags(AccessFlags.PUBLIC,AccessFlags.STATIC)
+    returns("L")
     parameters("L")
     opcodes(
         Opcode.NEW_INSTANCE,

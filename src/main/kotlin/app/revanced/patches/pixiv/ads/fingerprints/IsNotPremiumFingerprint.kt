@@ -5,8 +5,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 
 internal val isNotPremiumFingerprint = methodFingerprint {
-    returns("V")
     accessFlags(AccessFlags.PUBLIC,AccessFlags.CONSTRUCTOR)
+    returns("V")
     parameters("L")
     strings("pixivAccountManager")
     custom custom@{ _, classDef ->
