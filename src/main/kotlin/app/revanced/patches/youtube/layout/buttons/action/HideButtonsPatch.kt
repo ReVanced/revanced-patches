@@ -13,7 +13,7 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 @Suppress("unused")
 val hideButtonsPatch = resourcePatch(
     name = "Hide video action buttons",
-    description = "Hides action buttons (such as the Download button) under videos.",
+    description = "Adds options to hide action buttons (such as the Download button) under videos.",
 ) {   
     dependsOn(
         resourceMappingPatch,
