@@ -15,14 +15,14 @@ val firebaseGetCertPatch = bytecodePatch(
     val getMessagingCertResult by getMessagingCertFingerprint
 
     execute {
-        listOf(getRegistrationCertResult, getMessagingCertResult).forEach { method ->
+        listOf(getRegistrationCertResult, getMessagingCertResult).forEach { result ->
             val spoofedInstruction =
                 """
                     const-string v0, "0799DDF0414D3B3475E88743C91C0676793ED450"
                     return-object v0
                 """
 
-            method.mutableMethod.addInstructions(
+            result.mutableMethod.addInstructions(
                 0,
                 spoofedInstruction,
             )
