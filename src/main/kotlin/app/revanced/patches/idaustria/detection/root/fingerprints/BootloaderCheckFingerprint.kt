@@ -8,6 +8,6 @@ internal val bootloaderCheckFingerprint = methodFingerprint {
     returns("Z")
     custom { methodDef, _ ->
         methodDef.name == "bootloaderCheck" &&
-                methodDef.definingClass.endsWith("/DeviceIntegrityCheck;")
+        methodDef.definingClass.endsWith("/DeviceIntegrityCheck;")
     }
 }

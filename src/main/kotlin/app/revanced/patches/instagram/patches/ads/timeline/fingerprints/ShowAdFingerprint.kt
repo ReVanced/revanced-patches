@@ -5,7 +5,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val showAdFingerprint = methodFingerprint {
-    accessFlags(AccessFlags.PUBLIC,AccessFlags.STATIC,AccessFlags.FINAL)
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC, AccessFlags.FINAL)
     returns("Z")
     parameters("L", "L", "Z", "Z")
     opcodes(

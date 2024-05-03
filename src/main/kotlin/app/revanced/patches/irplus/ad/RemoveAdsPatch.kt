@@ -1,20 +1,23 @@
 package app.revanced.patches.irplus.ad
 
+import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.irplus.ad.fingerprints.irplusAdsFingerprint
+import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.annotation.CompatiblePackage
+import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.irplus.ad.fingerprints.IrplusAdsFingerprint
 
 
-@Suppress("unused")
-val removeAdsPatch = bytecodePatch(
+@Patch(
     name = "Remove ads",
+    compatiblePackages = [CompatiblePackage("net.binarymode.android.irplus")]
+)
+@Suppress("unused")
+object RemoveAdsPatch : BytecodePatch(
+    setOf(IrplusAdsFingerprint)
 ) {
-    compatibleWith("net.binarymode.android.irplus"("1.4.0"))
-
-    val irplusAdsResult by irplusAdsFingerprint
-
-    execute {
-        val method = irplusAdsResult.mutableMethod
+    override fun execute(context: BytecodeContext) {
+        val method = IrplusAdsFingerprint.result!!.mutableMethod
 
         // By overwriting the second parameter of the method,
         // the view which holds the advertisement is removed.

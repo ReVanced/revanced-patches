@@ -8,6 +8,6 @@ internal val rootCheckFingerprint = methodFingerprint {
     returns("V")
     custom{ methodDef, _ ->
         methodDef.name == "rootCheck" &&
-                methodDef.definingClass.endsWith("/DeviceIntegrityCheck;")
+        methodDef.definingClass.endsWith("/DeviceIntegrityCheck;")
     }
 }

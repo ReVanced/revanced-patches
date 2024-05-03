@@ -1,9 +1,9 @@
 package app.revanced.patches.photomath.detection.deviceid.fingerprints
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
-internal val getDeviceIdFingerprint = methodFingerprint {
-    returns("Ljava/lang/String;")
-    strings("androidId", "android_id")
-    parameters()
-}
+internal object GetDeviceIdFingerprint : MethodFingerprint(
+    returnType = "Ljava/lang/String;",
+    strings = listOf("androidId", "android_id"),
+    parameters = listOf()
+)

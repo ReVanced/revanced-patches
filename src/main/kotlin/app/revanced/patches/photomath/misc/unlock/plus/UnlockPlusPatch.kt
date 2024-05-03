@@ -8,8 +8,7 @@ import app.revanced.patches.photomath.misc.unlock.plus.fingerprints.isPlusUnlock
 
 @Suppress("unused")
 val unlockPlusPatch = bytecodePatch(
-    name = "Unlock plus",
-    description = "Unlocks plus features.",
+    name = "Unlock plus"
 ){
     dependsOn(
         signatureDetectionPatch,
@@ -19,11 +18,14 @@ val unlockPlusPatch = bytecodePatch(
     compatibleWith("com.microblink.photomath"("8.32.0"))
 
     val isPlusUnlockedResult by isPlusUnlockedFingerprint
-    isPlusUnlockedResult.mutableMethod.addInstructions(
-        0,
-        """
+
+    execute {
+        isPlusUnlockedResult.mutableMethod.addInstructions(
+            0,
+            """
             const/4 v0, 0x1
             return v0
         """
-    )
+        )
+    }
 }

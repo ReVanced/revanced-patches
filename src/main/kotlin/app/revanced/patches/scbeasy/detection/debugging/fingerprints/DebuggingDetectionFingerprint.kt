@@ -1,8 +1,8 @@
 package app.revanced.patches.scbeasy.detection.debugging.fingerprints
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
 
-internal var debuggingDetectionFingerprint = methodFingerprint {
-    returns("Z")
-    strings("adb_enabled")
-}
+internal object DebuggingDetectionFingerprint : MethodFingerprint(
+    returnType = "Z",
+    strings = listOf("adb_enabled")
+)

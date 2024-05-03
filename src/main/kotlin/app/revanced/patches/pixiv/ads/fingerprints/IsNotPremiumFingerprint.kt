@@ -5,11 +5,11 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 
 internal val isNotPremiumFingerprint = methodFingerprint {
-    accessFlags(AccessFlags.PUBLIC,AccessFlags.CONSTRUCTOR)
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returns("V")
     parameters("L")
     strings("pixivAccountManager")
-    custom custom@{ _, classDef ->
+    custom { _, classDef ->
         // The "isNotPremium" method is the only method in the class.
         if (classDef.virtualMethods.count() != 1) return@custom false
 
