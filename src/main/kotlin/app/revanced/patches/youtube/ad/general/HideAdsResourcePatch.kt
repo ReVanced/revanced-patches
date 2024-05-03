@@ -7,10 +7,10 @@ import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.twitch.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.misc.litho.filter.addFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import app.revanced.patches.youtube.misc.settings.settingsPatch
 
 internal var adAttributionId: Long = -1
 
@@ -18,7 +18,7 @@ internal var adAttributionId: Long = -1
 val hideAdsResourcePatch = resourcePatch {
     dependsOn(
         lithoFilterPatch,
-        SettingsPatch,
+        settingsPatch,
         resourceMappingPatch,
         addResourcesPatch,
     )
