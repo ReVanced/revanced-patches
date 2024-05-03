@@ -305,6 +305,7 @@ abstract class BaseGmsCoreSupportPatch(
             "com.google.android.gms.languageprofile.service.START",
             "com.google.android.gms.clearcut.service.START",
             "com.google.android.gms.icing.LIGHTWEIGHT_INDEX_SERVICE",
+            "com.google.android.gms.accountsettings.action.VIEW_SETTINGS",
 
             // potoken
             "com.google.android.gms.potokens.service.START",
@@ -312,9 +313,6 @@ abstract class BaseGmsCoreSupportPatch(
             // droidguard/ safetynet
             "com.google.android.gms.droidguard.service.START",
             "com.google.android.gms.safetynet.service.START",
-
-            // google news
-            "com.google.android.gms.accountsettings.action.VIEW_SETTINGS"
         )
 
         /**
