@@ -30,13 +30,13 @@ val hideCastButtonPatch = bytecodePatch(
             SwitchPreference("revanced_hide_cast_button"),
         )
 
-        val buttonClass = context.classes.find {
+        val buttonClass = context.classBy {
             it.methods.any {
                 it.name == "MediaRouteButton"
             }
         } ?: throw PatchException("MediaRouteButton class not found.")
 
-        context.proxy(buttonClass).mutableClass.methods.find { it.name == "setVisibility" }?.addInstructions(
+        buttonClass.mutableClass.methods.find { it.name == "setVisibility" }?.addInstructions(
             0,
             """
                     invoke-static {p1}, Lapp/revanced/integrations/youtube/patches/HideCastButtonPatch;->getCastButtonOverrideV2(I)I
