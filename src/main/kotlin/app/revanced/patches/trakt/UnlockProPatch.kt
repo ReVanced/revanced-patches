@@ -7,14 +7,6 @@ import app.revanced.patches.trakt.fingerprints.isVIPFingerprint
 import app.revanced.patches.trakt.fingerprints.remoteUserFingerprint
 import app.revanced.util.exception
 
-private const val RETURN_TRUE_INSTRUCTIONS =
-    """
-            const/4 v0, 0x1
-            invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-            move-result-object v1
-            return-object v1
-        """
-
 @Suppress("unused")
 val unlockProPatch = bytecodePatch(
     name = "Unlock pro",
@@ -22,6 +14,14 @@ val unlockProPatch = bytecodePatch(
     compatibleWith("tv.trakt.trakt"("1.1.1"))
 
     val remoteUserResult by remoteUserFingerprint
+
+    val returnTrueInstructions =
+        """
+            const/4 v0, 0x1
+            invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+            move-result-object v1
+            return-object v1
+        """
 
     execute { context ->
         remoteUserResult.classDef.let { remoteUserClass ->
@@ -32,7 +32,7 @@ val unlockProPatch = bytecodePatch(
                 }
             }.forEach { fingerprint ->
                 // Return true for both VIP check methods.
-                fingerprint.result?.mutableMethod?.addInstructions(0, RETURN_TRUE_INSTRUCTIONS)
+                fingerprint.result?.mutableMethod?.addInstructions(0, returnTrueInstructions)
                     ?: throw fingerprint.exception
             }
         }
