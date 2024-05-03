@@ -9,9 +9,9 @@ import app.revanced.patches.tiktok.interaction.downloads.fingerprints.aclCommonS
 import app.revanced.patches.tiktok.interaction.downloads.fingerprints.aclCommonShareFingerprint2
 import app.revanced.patches.tiktok.interaction.downloads.fingerprints.aclCommonShareFingerprint3
 import app.revanced.patches.tiktok.interaction.downloads.fingerprints.downloadPathParentFingerprint
+import app.revanced.patches.tiktok.misc.integrations.IntegrationsPatch
 import app.revanced.patches.tiktok.misc.settings.fingerprints.settingsStatusLoadFingerprint
 import app.revanced.patches.tiktok.misc.settings.settingsPatch
-import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
@@ -23,7 +23,7 @@ val downloadsPatch = bytecodePatch(
     description = "Removes download restrictions and changes the default path to download to.",
 ) {
     dependsOn(
-        integrationsPatch,
+        IntegrationsPatch,
         settingsPatch
     )
 

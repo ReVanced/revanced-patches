@@ -5,12 +5,12 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.twitch.misc.integrations.IntegrationsPatch
 import app.revanced.patches.twitch.debug.fingerprints.isDebugConfigEnabledFingerprint
 import app.revanced.patches.twitch.debug.fingerprints.isOmVerificationEnabledFingerprint
 import app.revanced.patches.twitch.debug.fingerprints.shouldShowDebugOptionsFingerprint
 import app.revanced.patches.twitch.misc.settings.SettingsPatch
 import app.revanced.patches.twitch.misc.settings.SettingsPatch.PreferenceScreen
-import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 
 @Suppress("unused")
 val debugModePatch = bytecodePatch(
@@ -19,7 +19,7 @@ val debugModePatch = bytecodePatch(
     use = false,
 ) {
     dependsOn(
-        integrationsPatch,
+        IntegrationsPatch,
         SettingsPatch,
         addResourcesPatch
     )

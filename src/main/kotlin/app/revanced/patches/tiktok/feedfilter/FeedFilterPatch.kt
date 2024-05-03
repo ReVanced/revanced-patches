@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.feedfilter.fingerprints.feedApiServiceLIZFingerprint
 import app.revanced.patches.tiktok.misc.settings.fingerprints.settingsStatusLoadFingerprint
 import app.revanced.patches.tiktok.misc.settings.settingsPatch
-import app.revanced.patches.youtube.misc.integrations.integrationsPatch
+import app.revanced.patches.tiktok.misc.integrations.IntegrationsPatch
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -17,7 +17,7 @@ val feedFilterPatch = bytecodePatch(
         "and videos with a specific amount of views or likes from the feed.",
 ) {
     dependsOn(
-        integrationsPatch,
+        IntegrationsPatch,
         settingsPatch
     )
 
