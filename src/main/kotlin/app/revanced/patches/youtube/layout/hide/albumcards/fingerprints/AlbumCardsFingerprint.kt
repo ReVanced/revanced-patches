@@ -5,7 +5,9 @@ import app.revanced.util.patch.literalValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val albumCardsFingerprint = literalValueFingerprint({ albumCardId }) {
+internal val albumCardsFingerprint = literalValueFingerprint(
+    literalSupplier = { albumCardId }
+) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(
         Opcode.MOVE_RESULT_OBJECT,
