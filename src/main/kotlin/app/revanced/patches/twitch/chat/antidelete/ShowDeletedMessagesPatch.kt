@@ -19,9 +19,9 @@ val showDeletedMessagesPatch = bytecodePatch(
     name = "Show deleted messages",
     description = "Shows deleted chat messages behind a clickable spoiler.",
 ) {
-    compatibleWith("tv.twitch.android.app"("15.4.1", "16.1.0", "16.9.1"))
-
     dependsOn(integrationsPatch, SettingsPatch, addResourcesPatch)
+
+    compatibleWith("tv.twitch.android.app"("15.4.1", "16.1.0", "16.9.1"))
 
     fun createSpoilerConditionInstructions(register: String = "v0") = """
         invoke-static {}, Lapp/revanced/integrations/twitch/patches/ShowDeletedMessagesPatch;->shouldUseSpoiler()Z

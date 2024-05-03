@@ -22,9 +22,9 @@ val downloadsPatch = bytecodePatch(
     name = "Downloads",
     description = "Removes download restrictions and changes the default path to download to.",
 ) {
-    compatibleWith("com.ss.android.ugc.trill"("32.5.3"), "com.zhiliaoapp.musically"("32.5.3"))
-
     dependsOn(integrationsPatch, settingsPatch)
+
+    compatibleWith("com.ss.android.ugc.trill"("32.5.3"), "com.zhiliaoapp.musically"("32.5.3"))
 
     val aclCommonShareResult by aclCommonShareFingerprint
     val aclCommonShareResult2 by aclCommonShareFingerprint2

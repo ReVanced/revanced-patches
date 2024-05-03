@@ -16,9 +16,9 @@ val feedFilterPatch = bytecodePatch(
     description = "Removes ads, livestreams, stories, image videos " +
         "and videos with a specific amount of views or likes from the feed.",
 ) {
-    compatibleWith("com.ss.android.ugc.trill"("32.5.3"), "com.zhiliaoapp.musically"("32.5.3"))
-
     dependsOn(integrationsPatch, settingsPatch)
+
+    compatibleWith("com.ss.android.ugc.trill"("32.5.3"), "com.zhiliaoapp.musically"("32.5.3"))
 
     val feedApiServiceLIZResult by feedApiServiceLIZFingerprint
     val settingsStatusLoadResult by settingsStatusLoadFingerprint

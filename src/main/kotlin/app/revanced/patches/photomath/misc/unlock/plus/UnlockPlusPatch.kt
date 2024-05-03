@@ -11,12 +11,12 @@ val unlockPlusPatch = bytecodePatch(
     name = "Unlock plus",
     description = "Unlocks plus features.",
 ){
-    compatibleWith("com.microblink.photomath"("8.32.0"))
-
     dependsOn(
         signatureDetectionPatch,
         enableBookpointPatch
     )
+
+    compatibleWith("com.microblink.photomath"("8.32.0"))
 
     val isPlusUnlockedResult by isPlusUnlockedFingerprint
     isPlusUnlockedResult.mutableMethod.addInstructions(

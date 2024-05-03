@@ -10,9 +10,9 @@ val promoCodeUnlockPatch = bytecodePatch(
     name = "Promo code unlock",
     description = "Disables the validation of promo code. Any code will work to unlock all features.",
 ) {
-    compatibleWith("de.dwd.warnapp"())
-
     dependsOn(firebaseGetCertPatch)
+
+    compatibleWith("de.dwd.warnapp"())
 
     val promoCodeUnlockResult by promoCodeUnlockFingerprint
 

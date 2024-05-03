@@ -9,9 +9,9 @@ val premiumNavbarTabPatch = bytecodePatch(
     name = "Premium navbar tab",
     description = "Hides the premium tab from the navigation bar.",
 ) {
-    compatibleWith("com.spotify.music"())
-
     dependsOn(premiumNavbarTabResourcePatch)
+
+    compatibleWith("com.spotify.music"())
 
     val addNavbarItemResult by addNavBarItemFingerprint
 

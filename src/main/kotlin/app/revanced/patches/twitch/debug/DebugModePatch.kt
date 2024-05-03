@@ -17,9 +17,9 @@ val debugModePatch = bytecodePatch(
     description = "Enables Twitch's internal debugging mode.",
     use = false,
 ) {
-    compatibleWith("tv.twitch.android.app"())
-
     dependsOn(integrationsPatch, SettingsPatch, addResourcesPatch)
+
+    compatibleWith("tv.twitch.android.app"())
 
     val isDebugConfigEnabledResult by isDebugConfigEnabledFingerprint
     val isOmVerificationEnabledResult by isOmVerificationEnabledFingerprint

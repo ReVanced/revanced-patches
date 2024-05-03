@@ -9,9 +9,9 @@ val disableInAppUpdatePatch = bytecodePatch(
     name = "Disable in-app update",
     description = "Disables the in-app update check and update prompt.",
 ) {
-    compatibleWith("com.tumblr"())
-
     dependsOn(overrideFeatureFlagsPatch)
+
+    compatibleWith("com.tumblr"())
 
     execute {
         addOverride("inAppUpdate", "false")

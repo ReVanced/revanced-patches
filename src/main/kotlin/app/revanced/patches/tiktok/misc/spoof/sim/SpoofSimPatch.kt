@@ -19,9 +19,9 @@ val spoofSimPatch = bytecodePatch(
     description = "Spoofs the information which is retrieved from the SIM card.",
     use = false,
 ) {
-    compatibleWith("com.ss.android.ugc.trill"(), "com.zhiliaoapp.musically"())
-
     dependsOn(integrationsPatch, SettingsPatch)
+
+    compatibleWith("com.ss.android.ugc.trill"(), "com.zhiliaoapp.musically"())
 
     val settingsStatusLoadResult by settingsStatusLoadFingerprint
 

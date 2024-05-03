@@ -11,9 +11,9 @@ import app.revanced.patches.tumblr.timelinefilter.timelineFilterPatch
 val disableTumblrLivePatch = bytecodePatch(
     description = "Disable the Tumblr Live tab button and dashboard carousel.",
 ) {
-    compatibleWith("com.tumblr"())
-
     dependsOn(overrideFeatureFlagsPatch, timelineFilterPatch)
+
+    compatibleWith("com.tumblr"())
 
     execute {
         // Hide the LIVE_MARQUEE timeline element that appears in the feed

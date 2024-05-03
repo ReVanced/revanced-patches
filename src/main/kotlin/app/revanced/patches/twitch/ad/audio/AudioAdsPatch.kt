@@ -16,9 +16,9 @@ val audioAdsPatch = bytecodePatch(
     name = "Block audio ads",
     description = "Blocks audio ads in streams and VODs.",
 ) {
-    compatibleWith("tv.twitch.android.app"("15.4.1", "16.1.0", "16.9.1"))
-
     dependsOn(integrationsPatch, SettingsPatch, addResourcesPatch)
+
+    compatibleWith("tv.twitch.android.app"("15.4.1", "16.1.0", "16.9.1"))
 
     val audioAdsPresenterPlayResult by audioAdsPresenterPlayFingerprint
 
