@@ -14,11 +14,10 @@ val onDemandPatch = bytecodePatch(
     val onDemandResult by onDemandFingerprint
 
     execute {
-        onDemandResult.mutableMethod.apply {
-            val insertIndex = onDemandResult.scanResult.patternScanResult!!.endIndex - 1
-
-            // Spoof a premium account
-            addInstruction(insertIndex, "const/4 v0, 0x2")
-        }
+        // Spoof a premium account
+        onDemandResult.mutableMethod.addInstruction(
+            onDemandResult.scanResult.patternScanResult!!.endIndex - 1,
+            "const/4 v0, 0x2"
+        )
     }
 }
