@@ -31,8 +31,7 @@ val audioAdsPatch = bytecodePatch(
         )
 
         // Block playAds call
-        with(audioAdsPresenterPlayResult) {
-            mutableMethod.addInstructionsWithLabels(
+        audioAdsPresenterPlayResult.mutableMethod.addInstructionsWithLabels(
             0,
             """
                     invoke-static { }, Lapp/revanced/integrations/twitch/patches/AudioAdsPatch;->shouldBlockAudioAds()Z
@@ -40,8 +39,7 @@ val audioAdsPatch = bytecodePatch(
                     if-eqz v0, :show_audio_ads
                     return-void
                 """,
-                ExternalLabel("show_audio_ads", mutableMethod.getInstruction(0)),
+            ExternalLabel("show_audio_ads", audioAdsPresenterPlayResult.mutableMethod.getInstruction(0)),
         )
-        }
     }
 }
