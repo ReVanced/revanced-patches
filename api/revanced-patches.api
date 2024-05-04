@@ -265,18 +265,8 @@ public final class app/revanced/patches/magazines/misc/customtabs/UseCustomTabs 
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/magazines/misc/gms/ClientSpoofPatch : app/revanced/patches/all/misc/transformation/BaseTransformInstructionsPatch {
-	public static final field INSTANCE Lapp/revanced/patches/magazines/misc/gms/ClientSpoofPatch;
-	public synthetic fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Object;
-	public fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Lkotlin/Triple;
-	public synthetic fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Ljava/lang/Object;)V
-	public fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lkotlin/Triple;)V
-}
-
 public final class app/revanced/patches/magazines/misc/gms/GmsCoreSupportPatch : app/revanced/patches/shared/misc/gms/BaseGmsCoreSupportPatch {
 	public static final field INSTANCE Lapp/revanced/patches/magazines/misc/gms/GmsCoreSupportPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
 public final class app/revanced/patches/magazines/misc/gms/GmsCoreSupportResourcePatch : app/revanced/patches/shared/misc/gms/BaseGmsCoreSupportResourcePatch {
