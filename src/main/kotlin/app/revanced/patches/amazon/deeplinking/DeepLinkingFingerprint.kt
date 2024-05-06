@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val deepLinkingFingerprint = methodFingerprint {
-    accessFlags(AccessFlags.PRIVATE.value)
+    accessFlags(AccessFlags.PRIVATE)
     returns("Z")
     parameters("L")
     strings(
