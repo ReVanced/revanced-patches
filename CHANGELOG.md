@@ -1,3 +1,10 @@
+# [4.8.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.12...v4.8.0-dev.13) (2024-05-06)
+
+
+### Bug Fixes
+
+* **YouTube - Navigation buttons:** Adjust summary text of switch notification button ([#3130](https://github.com/ReVanced/revanced-patches/issues/3130)) ([cc8b4c9](https://github.com/ReVanced/revanced-patches/commit/cc8b4c913ed25d07fd4000cfd6318bb06a9d27c0))
+
 # [4.8.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.11...v4.8.0-dev.12) (2024-05-06)
 
 
