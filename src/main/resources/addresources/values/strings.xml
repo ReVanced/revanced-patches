@@ -435,7 +435,7 @@
             <string name="revanced_hide_subscriptions_button_summary_off">Subscriptions button is shown</string>
             <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
             <string name="revanced_switch_create_with_notifications_button_title">Switch Create with Notifications</string>
-            <string name="revanced_switch_create_with_notifications_button_summary_on">Create button is switched with Notifications button</string>
+            <string name="revanced_switch_create_with_notifications_button_summary_on">Create button is switched with Notifications button\n\nNote: Using this setting also hides video ads</string>
             <string name="revanced_switch_create_with_notifications_button_summary_off">Create button is not switched with Notifications button</string>
         </patch>
         <patch id="layout.hide.player.flyoutmenupanel.HidePlayerFlyoutMenuPatch">
