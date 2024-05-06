@@ -1,22 +1,18 @@
 package app.revanced.patches.netguard.broadcasts.removerestriction
 
-import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.patch.resourcePatch
 import org.w3c.dom.Element
 
-@Patch(
+@Suppress("unused")
+val removeBroadcastsRestrictionPatch = resourcePatch(
     name = "Remove broadcasts restriction",
     description = "Enables starting/stopping NetGuard via broadcasts.",
-    compatiblePackages = [CompatiblePackage("eu.faircode.netguard")],
     use = false,
-)
-@Suppress("unused")
-object RemoveBroadcastsRestrictionPatch : ResourcePatch() {
-    override fun execute(context: ResourceContext) {
-        context.xmlEditor["AndroidManifest.xml"].use { editor ->
-            val document = editor.file
+) {
+    compatibleWith("eu.faircode.netguard"("2.292"))
+
+    execute {context ->
+        context.document["AndroidManifest.xml"].use { document ->
 
             val applicationNode =
                 document

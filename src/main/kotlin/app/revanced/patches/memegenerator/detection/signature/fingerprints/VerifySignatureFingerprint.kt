@@ -1,17 +1,14 @@
 package app.revanced.patches.memegenerator.detection.signature.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.annotation.FuzzyPatternScanMethod
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-@FuzzyPatternScanMethod(2)
-internal object VerifySignatureFingerprint : MethodFingerprint(
-    returnType = "Z",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    parameters = listOf("Landroid/app/Activity;"),
-    opcodes = listOf(
+internal val verifySignatureFingerprint = methodFingerprint(fuzzyPatternScanThreshold = 2) {
+    returns("Z")
+    accessFlags(AccessFlags.PUBLIC,AccessFlags.STATIC)
+    parameters("Landroid/app/Activity;")
+    opcodes(
         Opcode.SGET_OBJECT,
         Opcode.IF_NEZ,
         Opcode.INVOKE_STATIC,
@@ -31,5 +28,5 @@ internal object VerifySignatureFingerprint : MethodFingerprint(
         Opcode.CONST_4,
         Opcode.RETURN,
         Opcode.ADD_INT_LIT8
-    ),
-)
+    )
+}

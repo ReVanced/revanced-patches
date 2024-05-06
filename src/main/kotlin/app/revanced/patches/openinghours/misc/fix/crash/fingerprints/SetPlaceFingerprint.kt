@@ -1,12 +1,12 @@
 package app.revanced.patches.openinghours.misc.fix.crash.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object SetPlaceFingerprint : MethodFingerprint(
-    "V",
-    parameters = listOf("Lde/simon/openinghours/models/Place;"),
-    customFingerprint = { methodDef, _ ->
+internal val setPlaceFingerprint = methodFingerprint {
+    returns("V")
+    parameters("Lde/simon/openinghours/models/Place;")
+    custom { methodDef, _ ->
         methodDef.definingClass == "Lde/simon/openinghours/views/custom/PlaceCard;" &&
-            methodDef.name == "setPlace"
-    },
-)
+                methodDef.name == "setPlace"
+    }
+}

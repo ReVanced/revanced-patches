@@ -1,13 +1,13 @@
 package app.revanced.patches.idaustria.detection.root.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object AttestationSupportedCheckFingerprint : MethodFingerprint(
-    "V",
-    accessFlags = AccessFlags.PUBLIC.value,
-    customFingerprint = { methodDef, _ ->
+internal val attestationSupportedCheckFingerprint = methodFingerprint {
+    returns("V")
+    accessFlags(AccessFlags.PUBLIC.value)
+    custom{ methodDef, _ ->
         methodDef.name == "attestationSupportCheck" &&
-        methodDef.definingClass.endsWith("/DeviceIntegrityCheck;")
+                methodDef.definingClass.endsWith("/DeviceIntegrityCheck;")
     }
-)
+}

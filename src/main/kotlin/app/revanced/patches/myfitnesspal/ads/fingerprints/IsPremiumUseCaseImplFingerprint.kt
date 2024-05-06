@@ -1,11 +1,11 @@
 package app.revanced.patches.myfitnesspal.ads.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object IsPremiumUseCaseImplFingerprint : MethodFingerprint(
-    accessFlags = AccessFlags.PUBLIC.value,
-    customFingerprint = { methodDef, classDef ->
+val isPremiumUseCaseImplFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC.value)
+    custom { methodDef, classDef ->
         classDef.type.endsWith("IsPremiumUseCaseImpl;") && methodDef.name == "doWork"
     }
-)
+}

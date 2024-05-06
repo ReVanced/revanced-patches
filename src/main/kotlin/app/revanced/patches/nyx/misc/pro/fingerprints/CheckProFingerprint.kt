@@ -1,9 +1,9 @@
 package app.revanced.patches.nyx.misc.pro.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object CheckProFingerprint : MethodFingerprint(
-    customFingerprint = { methodDef, _ ->
+internal val checkProFingerprint = methodFingerprint{
+    custom { methodDef, _ ->
         methodDef.definingClass.endsWith("BillingManager;") && methodDef.name == "isProVersion"
     }
-)
+}

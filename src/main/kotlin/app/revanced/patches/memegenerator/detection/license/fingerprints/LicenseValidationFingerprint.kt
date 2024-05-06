@@ -1,15 +1,14 @@
 package app.revanced.patches.memegenerator.detection.license.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object LicenseValidationFingerprint : MethodFingerprint(
-    returnType = "Z",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    parameters = listOf("Landroid/content/Context;"),
-    opcodes = listOf(
+internal val licenseValidationFingerprint = methodFingerprint {
+    returns("Z")
+    accessFlags(AccessFlags.PUBLIC,AccessFlags.STATIC)
+    parameters("Landroid/content/Context;")
+    opcodes(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_WIDE,
         Opcode.INVOKE_STATIC,
@@ -21,4 +20,4 @@ internal object LicenseValidationFingerprint : MethodFingerprint(
         Opcode.CONST_4,
         Opcode.RETURN
     )
-)
+}
