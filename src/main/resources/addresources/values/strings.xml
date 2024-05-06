@@ -457,11 +457,6 @@
             <string name="revanced_hide_player_flyout_ambient_mode_title">Hide Ambient mode</string>
             <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Ambient mode menu is hidden</string>
             <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Ambient mode menu is shown</string>
-            <!-- 'Report' should be translated using the same localized wording YouTube displays for the menu item.
-                 This item may not appear in some regions. Translate the name normally if the menu cannot be found. -->
-            <string name="revanced_hide_player_flyout_report_title">Hide Report</string>
-            <string name="revanced_hide_player_flyout_report_summary_on">Report menu is hidden</string>
-            <string name="revanced_hide_player_flyout_report_summary_off">Report menu is shown</string>
             <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
             <string name="revanced_hide_player_flyout_help_title">Hide Help &amp; feedback</string>
             <string name="revanced_hide_player_flyout_help_summary_on">Help &amp; feedback menu is hidden</string>
