@@ -46,10 +46,6 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
                         "yt_outline_screen_light"
                 ),
                 new ByteArrayFilterGroup(
-                        Settings.HIDE_REPORT_MENU,
-                        "yt_outline_flag"
-                ),
-                new ByteArrayFilterGroup(
                         Settings.HIDE_HELP_MENU,
                         "yt_outline_question_circle"
                 ),
