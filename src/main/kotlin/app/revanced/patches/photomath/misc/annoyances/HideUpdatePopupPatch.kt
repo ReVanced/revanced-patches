@@ -11,6 +11,7 @@ val hideUpdatePopupPatch = bytecodePatch(
     description = "Prevents the update popup from showing up.",
 ) {
     compatibleWith("com.microblink.photomath"("8.32.0"))
+
     dependsOn(signatureDetectionPatch)
 
     val hideUpdatePopupResult by hideUpdatePopupFingerprint

@@ -9,7 +9,7 @@ val RemoveDebuggingDetectionPatch = bytecodePatch(
     name = "Remove debugging detection",
     description = "Removes the USB and wireless debugging checks.",
 ) {
-    compatibleWith("com.scb.phone"("1.0.0"))
+    compatibleWith("com.scb.phone"())
 
     val debuggingDetectionResult by debuggingDetectionFingerprint
 

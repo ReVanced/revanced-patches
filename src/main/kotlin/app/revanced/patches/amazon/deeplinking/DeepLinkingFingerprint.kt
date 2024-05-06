@@ -4,8 +4,11 @@ import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val deepLinkingFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PRIVATE.value)
     returns("Z")
     parameters("L")
-    accessFlags(AccessFlags.PRIVATE.value)
-    strings("https://www.", "android.intent.action.VIEW")
+    strings(
+        "https://www.",
+        "android.intent.action.VIEW"
+    )
 }

@@ -8,7 +8,7 @@ import app.revanced.patches.lightroom.misc.login.fingerprints.isLoggedInFingerpr
 val disableMandatoryLoginPatch = bytecodePatch(
     name = "Disable mandatory login"
 ) {
-    compatibleWith("com.adobe.lrmobile"("6.3.0"))
+    compatibleWith("com.adobe.lrmobile"())
 
     val isLoggedInResult by isLoggedInFingerprint
 

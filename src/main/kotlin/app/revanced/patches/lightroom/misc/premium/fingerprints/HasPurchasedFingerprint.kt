@@ -5,13 +5,13 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val hasPurchasedFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("Z")
-    accessFlags(AccessFlags.PRIVATE,AccessFlags.FINAL)
-    strings("isPurchaseDoneRecently = true, access platform profile present? = ")
     opcodes(
         Opcode.SGET_OBJECT,
         Opcode.CONST_4,
         Opcode.CONST_4,
         Opcode.CONST_4,
     )
+    strings("isPurchaseDoneRecently = true, access platform profile present? = ")
 }

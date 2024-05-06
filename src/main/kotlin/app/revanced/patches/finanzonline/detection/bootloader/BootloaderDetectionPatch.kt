@@ -11,7 +11,7 @@ val bootloaderDetectionPatch = bytecodePatch(
     name = "Bootloader detection",
     description = "Removes the check for an unlocked bootloader.",
 ) {
-    compatibleWith("at.gv.bmf.bmf2go"("3.0.1"))
+    compatibleWith("at.gv.bmf.bmf2go"())
 
     val createKeyResult by createKeyFingerprint
     val bootStateResult by bootStateFingerprint

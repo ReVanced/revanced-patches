@@ -9,7 +9,7 @@ val spoofSignaturePatch = bytecodePatch(
     name = "Spoof signature",
     description = "Spoofs the signature of the app."
 ) {
-    compatibleWith("at.gv.oe.app"(""))
+    compatibleWith("at.gv.oe.app"())
 
     val EXPECTED_SIGNATURE =
         "OpenSSLRSAPublicKey{modulus=ac3e6fd6050aa7e0d6010ae58190404cd89a56935b44f6fee" +

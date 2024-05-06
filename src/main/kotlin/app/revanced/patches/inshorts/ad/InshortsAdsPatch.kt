@@ -13,15 +13,11 @@ val hideAdsPatch = bytecodePatch(
     val inshortsAdsResult by inshortsAdsFingerprint
 
     execute {
-        inshortsAdsResult.let { result ->
-            result.apply {
-                mutableMethod.addInstruction(
-                    0,
-                    """
+        inshortsAdsResult.mutableMethod.addInstruction(
+            0,
+            """
                         return-void
                     """
-                )
-            }
-        }
+        )
     }
 }

@@ -4,6 +4,6 @@ import app.revanced.patcher.fingerprint.methodFingerprint
 
 internal val getDeviceIdFingerprint = methodFingerprint {
     returns("Ljava/lang/String;")
-    strings("androidId", "android_id")
     parameters()
+    strings("androidId", "android_id")
 }

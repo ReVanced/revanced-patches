@@ -4,8 +4,8 @@ import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val attestationSupportedCheckFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC)
     returns("V")
-    accessFlags(AccessFlags.PUBLIC.value)
     custom{ methodDef, _ ->
         methodDef.name == "attestationSupportCheck" &&
                 methodDef.definingClass.endsWith("/DeviceIntegrityCheck;")

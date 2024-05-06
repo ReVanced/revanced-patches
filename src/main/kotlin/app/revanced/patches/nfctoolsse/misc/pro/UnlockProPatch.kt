@@ -8,7 +8,7 @@ import app.revanced.patches.nfctoolsse.misc.pro.fingerprints.isLicenseRegistered
 val unlockProPatch = bytecodePatch(
     name = "Unlock pro"
 ) {
-    compatibleWith("com.wakdev.apps.nfctools.se"("1.0.0"))
+    compatibleWith("com.wakdev.apps.nfctools.se"())
 
     val isLicenseRegisteredResult by isLicenseRegisteredFingerprint
 

@@ -5,7 +5,13 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 // Located @ at.gv.bmf.bmf2go.taxequalization.tools.utils.AttestationHelper#createKey (3.0.1)
 internal val createKeyFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC)
     returns("Z")
-    accessFlags(AccessFlags.PUBLIC.value)
-    strings("attestation", "SHA-256", "random", "EC", "AndroidKeyStore")
+    strings(
+        "attestation",
+        "SHA-256",
+        "random",
+        "EC",
+        "AndroidKeyStore"
+    )
 }

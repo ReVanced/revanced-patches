@@ -9,7 +9,7 @@ val rootDetectionPatch = bytecodePatch(
     name = "Root detection",
     description = "Removes the check for root permissions.",
 ) {
-    compatibleWith("at.gv.bmf.bmf2go"("3.0.1"))
+    compatibleWith("at.gv.bmf.bmf2go"())
 
     val rootDetectionResult by rootDetectionFingerprint
 

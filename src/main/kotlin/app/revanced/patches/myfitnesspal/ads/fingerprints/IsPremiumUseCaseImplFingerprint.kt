@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
 val isPremiumUseCaseImplFingerprint = methodFingerprint {
-    accessFlags(AccessFlags.PUBLIC.value)
+    accessFlags(AccessFlags.PUBLIC)
     custom { methodDef, classDef ->
         classDef.type.endsWith("IsPremiumUseCaseImpl;") && methodDef.name == "doWork"
     }

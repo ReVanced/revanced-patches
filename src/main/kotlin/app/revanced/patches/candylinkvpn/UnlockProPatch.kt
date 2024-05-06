@@ -8,7 +8,7 @@ import app.revanced.patches.candylinkvpn.fingerprints.isPremiumPurchasedFingerpr
 val UnlockProPatch = bytecodePatch(
     name = "Unlock pro"
 ) {
-    compatibleWith("com.candylink.openvpn"("1.0.0"))
+    compatibleWith("com.candylink.openvpn"())
 
     val isLicenseRegisteredResult by isPremiumPurchasedFingerprint
 

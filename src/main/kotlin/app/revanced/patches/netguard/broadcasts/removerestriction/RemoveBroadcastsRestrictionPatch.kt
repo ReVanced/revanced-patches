@@ -9,7 +9,7 @@ val removeBroadcastsRestrictionPatch = resourcePatch(
     description = "Enables starting/stopping NetGuard via broadcasts.",
     use = false,
 ) {
-    compatibleWith("eu.faircode.netguard"("2.292"))
+    compatibleWith("eu.faircode.netguard"())
 
     execute {context ->
         context.document["AndroidManifest.xml"].use { document ->

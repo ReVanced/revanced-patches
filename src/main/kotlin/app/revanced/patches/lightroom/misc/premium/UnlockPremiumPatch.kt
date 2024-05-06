@@ -8,7 +8,7 @@ import app.revanced.patches.lightroom.misc.premium.fingerprints.hasPurchasedFing
 val unlockPremiumPatch = bytecodePatch(
     name = "Unlock premium",
 ){
-    compatibleWith("com.adobe.lrmobile"("6.3.0"))
+    compatibleWith("com.adobe.lrmobile"())
 
     val hasPurchasedResult by hasPurchasedFingerprint
 

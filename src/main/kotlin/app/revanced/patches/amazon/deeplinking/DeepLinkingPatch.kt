@@ -9,6 +9,7 @@ val deepLinkingPatch = bytecodePatch(
     description = "Open Amazon links, even if the app is not set to handle Amazon links."
 ) {
     compatibleWith("com.amazon.mShop.android.shopping"())
+
     val deepLinkingResult by deepLinkingFingerprint
 
     execute {

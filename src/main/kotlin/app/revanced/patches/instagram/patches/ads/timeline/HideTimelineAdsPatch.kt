@@ -17,24 +17,21 @@ val hideTimelineAdsPatch = bytecodePatch(
     compatibleWith("com.instagram.android"())
 
     execute {
-        // The exact function of the following methods is unknown.
-        // They are used to check if a post is an ad.
         val isAdCheckOneResult by isAdCheckOneFingerprint
         val isAdCheckTwoResult by isAdCheckTwoFingerprint
         val showAdResult by showAdFingerprint
 
-        showAdResult.let {
-            it.mutableMethod.apply {
-                // The register that holds the post object.
-                val postRegister = getInstruction<FiveRegisterInstruction>(1).registerC
+        showAdResult.mutableMethod.apply {
+            // The register that holds the post object.
+            val postRegister = getInstruction<FiveRegisterInstruction>(1).registerC
 
-                // At this index the check for an ad can be performed.
-                val checkIndex = it.scanResult.patternScanResult!!.endIndex
+            // At this index the check for an ad can be performed.
+            val checkIndex = showAdResult.scanResult.patternScanResult!!.endIndex
 
-                // If either check returns true, the post is an ad and is hidden by returning false.
-                addInstructionsWithLabels(
-                    checkIndex,
-                    """
+            // If either check returns true, the post is an ad and is hidden by returning false.
+            addInstructionsWithLabels(
+                checkIndex,
+                """
                         invoke-virtual { v$postRegister }, $isAdCheckOneResult
                         move-result v0
                         if-nez v0, :hide_ad
@@ -47,9 +44,9 @@ val hideTimelineAdsPatch = bytecodePatch(
                         const/4 v0, 0x0 # Returning false to hide the ad.
                         return v0
                     """,
-                    ExternalLabel("not_an_ad", getInstruction(checkIndex)),
-                )
-            }
+                ExternalLabel("not_an_ad", getInstruction(checkIndex)),
+            )
         }
+
     }
 }

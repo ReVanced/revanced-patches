@@ -19,11 +19,14 @@ val unlockPlusPatch = bytecodePatch(
     )
 
     val isPlusUnlockedResult by isPlusUnlockedFingerprint
-    isPlusUnlockedResult.mutableMethod.addInstructions(
-        0,
-        """
+
+    execute {
+        isPlusUnlockedResult.mutableMethod.addInstructions(
+            0,
+            """
             const/4 v0, 0x1
             return v0
         """
-    )
+        )
+    }
 }

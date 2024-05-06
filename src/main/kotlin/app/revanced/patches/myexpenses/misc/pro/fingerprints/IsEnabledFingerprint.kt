@@ -4,5 +4,8 @@ import app.revanced.patcher.fingerprint.methodFingerprint
 
 internal val isEnabledFingerprint = methodFingerprint {
     returns("Z")
-    strings("feature", "feature.licenceStatus")
+    strings(
+        "feature",
+        "feature.licenceStatus"
+    )
 }

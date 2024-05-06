@@ -9,9 +9,10 @@ val bypassRootChecksPatch = bytecodePatch(
     name = "Bypass root checks",
     description = "Removes the restriction to use the app with root permissions or on a custom ROM."
 ) {
-    compatibleWith("it.ipzs.cieid"("1.0.0"))
+    compatibleWith("it.ipzs.cieid"())
 
     val checkRootResult by checkRootFingerprint
+
     execute {
         checkRootResult.mutableMethod.addInstruction(1, "return-void")
     }

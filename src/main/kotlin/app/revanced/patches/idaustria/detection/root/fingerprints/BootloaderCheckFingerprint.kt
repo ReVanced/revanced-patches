@@ -4,8 +4,8 @@ import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val bootloaderCheckFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC)
     returns("Z")
-    accessFlags(AccessFlags.PUBLIC.value)
     custom { methodDef, _ ->
         methodDef.name == "bootloaderCheck" &&
                 methodDef.definingClass.endsWith("/DeviceIntegrityCheck;")

@@ -5,8 +5,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val isAdCheckOneFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
-    accessFlags(AccessFlags.PUBLIC,AccessFlags.FINAL)
     parameters()
     opcodes(
         Opcode.XOR_INT_LIT8,
