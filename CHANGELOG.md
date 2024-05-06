@@ -1,3 +1,10 @@
+# [4.8.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.11...v4.8.0-dev.12) (2024-05-06)
+
+
+### Bug Fixes
+
+* **YouTube - Player flyout menu:** Remove obsolete `Hide report menu` ([d627d44](https://github.com/ReVanced/revanced-patches/commit/d627d44ad07fa32bb2f247ce24a3591ec5e1be0e))
+
 # [4.8.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.10...v4.8.0-dev.11) (2024-05-06)
 
 
