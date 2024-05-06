@@ -1,3 +1,10 @@
+# [4.8.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.10...v4.8.0-dev.11) (2024-05-06)
+
+
+### Bug Fixes
+
+* **Reddit is Fun - Spoof client:** Fix login by updating the authorization subdomain from "old" to "ssl" ([b156cb1](https://github.com/ReVanced/revanced-patches/commit/b156cb1d8996c4314d59e3441c6b85d8f704cdff))
+
 # [4.8.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.9...v4.8.0-dev.10) (2024-05-02)
 
 
