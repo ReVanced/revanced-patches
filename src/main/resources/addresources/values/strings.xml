@@ -858,7 +858,7 @@
             <string name="revanced_sb_new_segment_confirm_title">Are the times correct?</string>
             <!-- Do not rearrange the (hour):(minute):second) time format operators here.
                  YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-            <string name="revanced_sb_new_segment_confirm_content">The segment lasts from %1$02d:%2$02d to %3$02d:%4$02d (%5$d minutes %6$02d seconds)\nIs it ready to submit?</string>
+            <string name="revanced_sb_new_segment_confirm_content">The segment is from\n\n%1$s\nto\n%2$s\n\n(%3$s)\n\nReady to submit?</string>
             <string name="revanced_sb_new_segment_start_is_before_end">Start must be before the end</string>
             <string name="revanced_sb_new_segment_mark_locations_first">Mark two locations on the time bar first</string>
             <string name="revanced_sb_new_segment_preview_segment_first">Preview the segment, and ensure it skips smoothly</string>
