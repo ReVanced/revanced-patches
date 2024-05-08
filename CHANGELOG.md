@@ -1,3 +1,10 @@
+# [4.8.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.13...v4.8.0-dev.14) (2024-05-08)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Show correct segment times if video is over 24 hours in length ([#3138](https://github.com/ReVanced/revanced-patches/issues/3138)) ([6cdf697](https://github.com/ReVanced/revanced-patches/commit/6cdf697e8e47f6d53964497703dbe79fab3b1821))
+
 # [4.8.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.12...v4.8.0-dev.13) (2024-05-06)
 
 
