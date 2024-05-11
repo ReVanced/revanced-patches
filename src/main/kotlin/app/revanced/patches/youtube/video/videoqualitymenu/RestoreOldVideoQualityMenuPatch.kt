@@ -90,7 +90,8 @@ object RestoreOldVideoQualityMenuPatch : BytecodePatch(
             it.mutableMethod.apply {
                 val freeRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
 
-                // Add a conditional branch around the 3 menu code to force the 4 menu (Advanced menu) code path.
+                // A condition controls whether to show the three or four items quality menu.
+                // Force the four items quality menu to make the "Advanced" item visible, necessary for the patch.
                 addInstructionsWithLabels(
                     startIndex + 1,
                     """
