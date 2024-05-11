@@ -84,15 +84,15 @@ object RestoreOldVideoQualityMenuPatch : BytecodePatch(
         // Force YT to add the 'advanced' quality menu for Shorts.
         VideoQualityMenuOptionsFingerprint.resultOrThrow().let {
             val result = it.scanResult.patternScanResult!!
-            val insertIndex = result.startIndex + 5
+            val startIndex = result.startIndex
             val endIndex = result.endIndex
 
             it.mutableMethod.apply {
-                val freeRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
+                val freeRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
 
                 // Add a conditional branch around the 3 menu code to force the 4 menu (Advanced menu) code path.
                 addInstructionsWithLabels(
-                    insertIndex,
+                    startIndex + 1,
                     """
                         invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->forceAdvancedVideoQualityMenuCreation()Z
                         move-result v$freeRegister

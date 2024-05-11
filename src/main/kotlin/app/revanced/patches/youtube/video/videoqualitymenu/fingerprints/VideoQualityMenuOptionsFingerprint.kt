@@ -10,10 +10,6 @@ internal object VideoQualityMenuOptionsFingerprint : LiteralValueFingerprint(
     parameters = listOf("Landroid/content/Context", "L", "L"),
     returnType = "[L",
     opcodes = listOf(
-        Opcode.GOTO,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.GOTO,
-        Opcode.INVOKE_VIRTUAL,
         Opcode.IF_EQZ, // Check if advanced menu should be shown.
         Opcode.NEW_ARRAY,
         Opcode.APUT_OBJECT,
