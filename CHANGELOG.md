@@ -1,3 +1,10 @@
+# [4.8.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.14...v4.8.0-dev.15) (2024-05-11)
+
+
+### Bug Fixes
+
+* **YouTube - Restore old video quality menu:** Show advanced quality menu in Shorts quality flyout ([#3155](https://github.com/ReVanced/revanced-patches/issues/3155)) ([c2b5bb7](https://github.com/ReVanced/revanced-patches/commit/c2b5bb723416e43a920817f97b9e0ee4ceab4f6b))
+
 # [4.8.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.13...v4.8.0-dev.14) (2024-05-08)
 
 
