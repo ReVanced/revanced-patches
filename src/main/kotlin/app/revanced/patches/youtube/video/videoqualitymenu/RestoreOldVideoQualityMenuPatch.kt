@@ -67,7 +67,7 @@ object RestoreOldVideoQualityMenuPatch : BytecodePatch(
         // Used for regular videos when spoofing to old app version,
         // and for the Shorts quality flyout on newer app versions.
 
-        VideoQualityMenuViewInflateFingerprint.resultOrThrow().let {
+        VideoQualityMenuViewInflateFingerprint.result?.let {
             it.mutableMethod.apply {
                 val checkCastIndex = it.scanResult.patternScanResult!!.endIndex
                 val listViewRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
