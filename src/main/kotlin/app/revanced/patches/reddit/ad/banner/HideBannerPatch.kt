@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.annotation.Patch
 
 @Patch(
     description = "Hides banner ads from comments on subreddits.",
-    // Pinned to 2024.0.17 until https://github.com/iBotPeaches/Apktool/issues/3534
+    // Constrained to last working version (2024.0.17) until https://github.com/iBotPeaches/Apktool/issues/3534
     // is addressed which is causing crashes during patching.
     // See https://github.com/ReVanced/revanced-patches/issues/3099.
     compatiblePackages = [CompatiblePackage("com.reddit.frontpage", ["2024.0.17"])]
