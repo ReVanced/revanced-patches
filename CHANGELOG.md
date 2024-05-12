@@ -1,3 +1,10 @@
+# [4.8.0-dev.17](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.16...v4.8.0-dev.17) (2024-05-12)
+
+
+### Features
+
+* **Photomath:** Support version `8.37.0` ([#3109](https://github.com/ReVanced/revanced-patches/issues/3109)) ([fb02b48](https://github.com/ReVanced/revanced-patches/commit/fb02b481e2be8c2bc4441dc5b3dc6a9df3a2a379))
+
 # [4.8.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.15...v4.8.0-dev.16) (2024-05-12)
 
 
