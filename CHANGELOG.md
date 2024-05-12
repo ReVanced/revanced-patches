@@ -1,3 +1,10 @@
+# [4.8.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.15...v4.8.0-dev.16) (2024-05-12)
+
+
+### Features
+
+* **WarnWetter - Promo code unlock:** Constrain to last working version ([#3110](https://github.com/ReVanced/revanced-patches/issues/3110)) ([92fc8aa](https://github.com/ReVanced/revanced-patches/commit/92fc8aaad80f8fad35b75e6de032692986211536))
+
 # [4.8.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.14...v4.8.0-dev.15) (2024-05-11)
 
 
