@@ -1,4 +1,4 @@
-package app.revanced.patches.messenger.ads.inbox.fingerprints
+package app.revanced.patches.messenger.inbox.ads.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
