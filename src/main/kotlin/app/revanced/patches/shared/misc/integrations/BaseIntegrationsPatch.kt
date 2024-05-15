@@ -139,7 +139,7 @@ abstract class BaseIntegrationsPatch(
                     "invoke-static/range { v$contextRegister .. v$contextRegister }, " +
                         "$integrationsDescriptor->setContext(Landroid/content/Context;)V",
                 )
-            } ?: throw PatchException("Could not find hook target fingerprint.")
+            } ?: throw PatchException("Could not find hook target fingerprint: ${this.javaClass.name}")
         }
 
         interface IHookInsertIndexResolver : (Method) -> Int {
