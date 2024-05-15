@@ -175,7 +175,7 @@ public final class AdsFilter extends Filter {
      * @param view The view, which shows ads.
      */
     public static void hideAdAttributionView(View view) {
-        Utils.hideViewBy1dpUnderCondition(Settings.HIDE_GENERAL_ADS, view);
+        Utils.hideViewBy0dpUnderCondition(Settings.HIDE_GENERAL_ADS, view);
     }
 
     /**

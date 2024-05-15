@@ -15,6 +15,7 @@ import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
@@ -94,7 +95,7 @@ public class Utils {
      * @param condition The setting to check for hiding the view.
      * @param view      The view to hide.
      */
-    public static void hideViewBy1dpUnderCondition(BooleanSetting condition, View view) {
+    public static void hideViewBy0dpUnderCondition(BooleanSetting condition, View view) {
         if (!condition.get()) return;
 
         Logger.printDebug(() -> "Hiding view with setting: " + condition);
@@ -114,6 +115,15 @@ public class Utils {
         Logger.printDebug(() -> "Hiding view with setting: " + condition);
 
         view.setVisibility(View.GONE);
+    }
+
+    public static void removeViewFromParentUnderConditions(BooleanSetting setting, View view) {
+        if (setting.get()) {
+            ViewParent parent = view.getParent();
+            if (parent instanceof ViewGroup) {
+                ((ViewGroup) parent).removeView(view);
+            }
+        }
     }
 
     /**
@@ -412,27 +422,30 @@ public class Utils {
     }
 
     /**
-     * Hide a view by setting its layout params to 1x1
+     * Hide a view by setting its layout params to 0x0
      * @param view The view to hide.
      */
     public static void hideViewByLayoutParams(View view) {
         if (view instanceof LinearLayout) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(1, 1);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, 0);
             view.setLayoutParams(layoutParams);
         } else if (view instanceof FrameLayout) {
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(1, 1);
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(0, 0);
             view.setLayoutParams(layoutParams2);
         } else if (view instanceof RelativeLayout) {
-            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(1, 1);
+            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(0, 0);
             view.setLayoutParams(layoutParams3);
         } else if (view instanceof Toolbar) {
-            Toolbar.LayoutParams layoutParams4 = new Toolbar.LayoutParams(1, 1);
+            Toolbar.LayoutParams layoutParams4 = new Toolbar.LayoutParams(0, 0);
             view.setLayoutParams(layoutParams4);
         } else if (view instanceof ViewGroup) {
-            ViewGroup.LayoutParams layoutParams5 = new ViewGroup.LayoutParams(1, 1);
+            ViewGroup.LayoutParams layoutParams5 = new ViewGroup.LayoutParams(0, 0);
             view.setLayoutParams(layoutParams5);
         } else {
-            Logger.printDebug(() -> "Hidden view with id " + view.getId());
+            ViewGroup.LayoutParams params = view.getLayoutParams();
+            params.width = 0;
+            params.height = 0;
+            view.setLayoutParams(params);
         }
     }
 

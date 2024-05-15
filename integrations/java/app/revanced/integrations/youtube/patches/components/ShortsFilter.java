@@ -1,19 +1,16 @@
 package app.revanced.integrations.youtube.patches.components;
 
 import static app.revanced.integrations.shared.Utils.hideViewUnderCondition;
+import static app.revanced.integrations.shared.Utils.removeViewFromParentUnderConditions;
 import static app.revanced.integrations.youtube.shared.NavigationBar.NavigationButton;
 
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
 import com.google.android.libraries.youtube.rendering.ui.pivotbar.PivotBar;
 
-import app.revanced.integrations.shared.Logger;
 import app.revanced.integrations.shared.Utils;
-import app.revanced.integrations.shared.settings.BooleanSetting;
 import app.revanced.integrations.youtube.settings.Settings;
 import app.revanced.integrations.youtube.shared.NavigationBar;
 import app.revanced.integrations.youtube.shared.PlayerType;
@@ -317,29 +314,19 @@ public final class ShortsFilter extends Filter {
 
     // region Hide the buttons in older versions of YouTube. New versions use Litho.
 
-    private static void hideTextViewUnderCondition(BooleanSetting setting, View view) {
-        try {
-            if (setting.get()) {
-                TextView textView = (TextView) view;
-                ViewGroup.LayoutParams params = textView.getLayoutParams();
-                params.width = 0;
-                params.height = 0;
-                textView.setLayoutParams(params);
-            }
-        } catch (Exception ex) {
-            Logger.printException(() -> "hideTextViewUnderCondition failure", ex);
-        }
-    }
-
     public static void hideLikeButton(final View likeButtonView) {
-        // Cannot simply set the visibility to gone for like/dislike,
+        // Cannot set the visibility to gone for like/dislike,
         // as some other unknown YT code also sets the visibility after this hook.
-        // Instead set the layout to a zero size.
-        hideTextViewUnderCondition(Settings.HIDE_SHORTS_LIKE_BUTTON, likeButtonView);
+        //
+        // Setting the view to 0dp works, but that leaves a blank space where
+        // the button was (only relevant for dislikes button).
+        //
+        // Instead remove the view from the parent.
+        removeViewFromParentUnderConditions(Settings.HIDE_SHORTS_LIKE_BUTTON, likeButtonView);
     }
 
     public static void hideDislikeButton(final View dislikeButtonView) {
-        hideTextViewUnderCondition(Settings.HIDE_SHORTS_DISLIKE_BUTTON, dislikeButtonView);
+        removeViewFromParentUnderConditions(Settings.HIDE_SHORTS_DISLIKE_BUTTON, dislikeButtonView);
     }
 
     public static void hideShortsCommentsButton(final View commentsButtonView) {
