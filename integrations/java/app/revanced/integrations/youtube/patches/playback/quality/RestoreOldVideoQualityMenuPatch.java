@@ -71,6 +71,7 @@ public final class RestoreOldVideoQualityMenuPatch {
 
                     Logger.printDebug(() -> "Found advanced menu item in old type of quality menu");
 
+                    listView.setSoundEffectsEnabled(false);
                     final var qualityItemMenuPosition = 4;
                     listView.performItemClick(null, qualityItemMenuPosition, 0);
 
