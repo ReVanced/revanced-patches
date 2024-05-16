@@ -199,6 +199,10 @@ public final class ShortsFilter extends Filter {
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_SEARCH_SUGGESTIONS,
                         "yt_outline_search_"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_SHORTS_SUPER_THANKS_BUTTON,
+                        "yt_outline_dollar_sign_heart_"
                 )
         );
     }
