@@ -551,6 +551,10 @@ public final class app/revanced/patches/reddit/customclients/boostforreddit/fix/
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/reddit/customclients/boostforreddit/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch {
+	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/boostforreddit/misc/integrations/IntegrationsPatch;
+}
+
 public final class app/revanced/patches/reddit/customclients/infinityforreddit/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/BaseSpoofClientPatch {
 	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/infinityforreddit/api/SpoofClientPatch;
 	public fun patchClientId (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
