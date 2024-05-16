@@ -1,3 +1,10 @@
+# [4.8.0-dev.20](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.19...v4.8.0-dev.20) (2024-05-16)
+
+
+### Features
+
+* **YT Music:** Add support for `7.01.52` ([#3177](https://github.com/ReVanced/revanced-patches/issues/3177)) ([e9bfb25](https://github.com/ReVanced/revanced-patches/commit/e9bfb25dfe85754fd7fa5c9db934bb4fc52e4694))
+
 # [4.8.0-dev.19](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.18...v4.8.0-dev.19) (2024-05-16)
 
 
