@@ -1,3 +1,10 @@
+# [4.8.0-dev.19](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.18...v4.8.0-dev.19) (2024-05-16)
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Hide 'Buy super thanks' button ([#3176](https://github.com/ReVanced/revanced-patches/issues/3176)) ([89c1548](https://github.com/ReVanced/revanced-patches/commit/89c154861c8b3afa665542e97ff201c3e84410b2))
+
 # [4.8.0-dev.18](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.17...v4.8.0-dev.18) (2024-05-14)
 
 
