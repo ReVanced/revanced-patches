@@ -1631,14 +1631,10 @@ public final class app/revanced/patches/youtube/misc/dimensions/spoof/SpoofDevic
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/youtube/misc/fix/playback/ClientSpoofPatch : app/revanced/patches/all/misc/transformation/BaseTransformInstructionsPatch {
+public final class app/revanced/patches/youtube/misc/fix/playback/ClientSpoofPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/fix/playback/ClientSpoofPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public synthetic fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Object;
-	public fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Lkotlin/Triple;
-	public synthetic fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Ljava/lang/Object;)V
-	public fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lkotlin/Triple;)V
 }
 
 public final class app/revanced/patches/youtube/misc/fix/playback/SpoofSignaturePatch : app/revanced/patcher/patch/BytecodePatch {
@@ -1651,6 +1647,22 @@ public final class app/revanced/patches/youtube/misc/fix/playback/SpoofSignature
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/fix/playback/SpoofSignatureResourcePatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
+public final class app/revanced/patches/youtube/misc/fix/playback/UserAgentClientSpoofPatch : app/revanced/patches/all/misc/transformation/BaseTransformInstructionsPatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/fix/playback/UserAgentClientSpoofPatch;
+	public synthetic fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Object;
+	public fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Lkotlin/Triple;
+	public synthetic fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Ljava/lang/Object;)V
+	public fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lkotlin/Triple;)V
+}
+
+public final class app/revanced/patches/youtube/misc/fix/playback/fingerprints/CreatePlayerRequestBodyFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/fix/playback/fingerprints/CreatePlayerRequestBodyFingerprint;
+}
+
+public final class app/revanced/patches/youtube/misc/fix/playback/fingerprints/SetPlayerRequestClientTypeFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/fix/playback/fingerprints/SetPlayerRequestClientTypeFingerprint;
 }
 
 public final class app/revanced/patches/youtube/misc/gms/GmsCoreSupportPatch : app/revanced/patches/shared/misc/gms/BaseGmsCoreSupportPatch {
