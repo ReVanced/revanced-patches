@@ -1,5 +1,7 @@
 package app.revanced.patches.youtube.misc.fix.playback
 
+import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.annotation.CompatiblePackage
@@ -10,6 +12,8 @@ import app.revanced.patches.all.misc.transformation.IMethodCall
 import app.revanced.patches.all.misc.transformation.Instruction35cInfo
 import app.revanced.patches.all.misc.transformation.filterMapInstruction35c
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
@@ -27,6 +31,28 @@ object ClientSpoofPatch : BaseTransformInstructionsPatch<Instruction35cInfo>() {
     private const val ORIGINAL_PACKAGE_NAME = "com.google.android.youtube"
     private const val USER_AGENT_STRING_BUILDER_APPEND_METHOD_REFERENCE =
         "Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;"
+
+    private const val CLIENT_INFO_CLASS = "Lcom/google/protos/youtube/api/innertube/InnertubeContext\$ClientInfo;"
+
+    override fun execute(context: BytecodeContext) {
+        super.execute(context)
+
+        context.findClass("Lagaz;")!!.mutableClass.methods.find {
+            it.name == "J"
+        }!!.apply {
+            val i = indexOfFirstInstruction {
+                opcode == Opcode.CHECK_CAST
+            } + 1
+
+            addInstructions(
+                i,
+                """
+                   iget-object v7, v0, Laqdh;->c:$CLIENT_INFO_CLASS
+                   invoke-static { v7 }, Lapp/revanced/integrations/youtube/patches/spoof/ClientSpoof;->spoofIos($CLIENT_INFO_CLASS)V
+                """,
+            )
+        }
+    }
 
     override fun filterMap(
         classDef: ClassDef,
