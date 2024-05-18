@@ -1,3 +1,11 @@
+# [4.8.0-dev.21](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.20...v4.8.0-dev.21) (2024-05-18)
+
+
+### Features
+
+* **Piccoma:** Add `Disable tracking` patch ([#3143](https://github.com/ReVanced/revanced-patches/issues/3143)) ([8ab9e8f](https://github.com/ReVanced/revanced-patches/commit/8ab9e8f89d2bd014138e31dab7004f8ba77cae10))
+* **YouTube - Navigation buttons:** Add option to hide navigation button labels ([#3189](https://github.com/ReVanced/revanced-patches/issues/3189)) ([f9dc705](https://github.com/ReVanced/revanced-patches/commit/f9dc7050513b9fdb7766838a63a172f1478296f7))
+
 # [4.8.0-dev.20](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.19...v4.8.0-dev.20) (2024-05-16)
 
 
