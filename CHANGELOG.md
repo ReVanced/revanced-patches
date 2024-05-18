@@ -1,3 +1,10 @@
+# [4.8.0-dev.23](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.22...v4.8.0-dev.23) (2024-05-18)
+
+
+### Features
+
+* **Piccoma:** Add `Spoof Android device ID` patch ([#3145](https://github.com/ReVanced/revanced-patches/issues/3145)) ([d953c6b](https://github.com/ReVanced/revanced-patches/commit/d953c6bdd4315d2ba44845fd569a3d12ac4d1af0))
+
 # [4.8.0-dev.22](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.21...v4.8.0-dev.22) (2024-05-18)
 
 
