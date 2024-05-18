@@ -46,7 +46,7 @@ object FixSLinksPatch : BytecodePatch(
 
         AccountSingletonSetAccessHeaderFingerprint.result?.mutableMethod?.addInstruction(
             0,
-            "invoke-static { p0 }, $INTEGRATIONS_CLASS_DESCRIPTOR->JrawHookGetAccessToken(Ljava/lang/String;)V",
+            "invoke-static { p0 }, $INTEGRATIONS_CLASS_DESCRIPTOR->getAccessToken(Ljava/lang/String;)V",
         ) ?: throw AccountSingletonSetAccessHeaderFingerprint.exception
     }
 }
