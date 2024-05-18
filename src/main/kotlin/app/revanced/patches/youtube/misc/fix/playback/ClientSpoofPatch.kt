@@ -34,6 +34,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
+                // 18.x fails with a playback error (unable to connect to server).
                 "19.01.34",
                 "19.02.39",
                 "19.03.36",
