@@ -1088,7 +1088,7 @@
         <patch id="misc.fix.playback.ClientSpoofPatch">
             <string name="revanced_spoof_client_title">Spoof app client</string>
             <string name="revanced_spoof_client_summary">Spoof the app client to prevent playback issues</string>
-            <string name="revanced_spoof_client_summary_on">App client is spoofed\n\nSide effects include:\n• Enhanced bitrate video is not available\n• HDR above 1080p is not available</string>
+            <string name="revanced_spoof_client_summary_on">App client is spoofed</string>
             <string name="revanced_spoof_client_summary_off">App client is not spoofed\n\nVideo playback may not work</string>
             <string name="revanced_spoof_client_user_dialog_message">Turning off this setting will cause video playback issues.</string>
         </patch>
