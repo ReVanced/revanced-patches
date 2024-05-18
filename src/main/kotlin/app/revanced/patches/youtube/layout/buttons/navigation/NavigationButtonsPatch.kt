@@ -82,8 +82,8 @@ object NavigationButtonsPatch : BytecodePatch(
                     SwitchPreference("revanced_hide_shorts_button"),
                     SwitchPreference("revanced_hide_create_button"),
                     SwitchPreference("revanced_hide_subscriptions_button"),
-                    SwitchPreference("revanced_hide_navigation_labels"),
                     SwitchPreference("revanced_switch_create_with_notifications_button"),
+                    SwitchPreference("revanced_hide_navigation_labels"),
                 ),
             ),
         )
