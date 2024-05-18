@@ -24,7 +24,12 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
     description = "Spoofs the client to allow video playback.",
     dependencies = [UserAgentClientSpoofPatch::class],
     compatiblePackages = [
-        CompatiblePackage("com.google.android.youtube"),
+        CompatiblePackage(
+            "com.google.android.youtube",
+            [
+                "19.11.43",
+            ],
+        ),
     ],
 )
 object ClientSpoofPatch : BytecodePatch(
