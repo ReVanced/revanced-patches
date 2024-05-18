@@ -9,11 +9,13 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.BuildInitPlaybackRequestFingerprint
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.BuildPlayerRequestURIFingerprint
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.CreatePlayerRequestBodyFingerprint
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.SetPlayerRequestClientTypeFingerprint
 import app.revanced.util.exception
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
@@ -30,9 +32,13 @@ object ClientSpoofPatch : BytecodePatch(
         SetPlayerRequestClientTypeFingerprint,
         CreatePlayerRequestBodyFingerprint,
         BuildInitPlaybackRequestFingerprint,
+        BuildPlayerRequestURIFingerprint,
     ),
 ) {
-    private const val CLIENT_INFO_CLASS_DESCRIPTOR = "Lcom/google/protos/youtube/api/innertube/InnertubeContext\$ClientInfo;"
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR =
+        "Lapp/revanced/integrations/youtube/patches/spoof/ClientSpoofPatch;"
+    private const val CLIENT_INFO_CLASS_DESCRIPTOR =
+        "Lcom/google/protos/youtube/api/innertube/InnertubeContext\$ClientInfo;"
 
     override fun execute(context: BytecodeContext) {
         // region Block /initplayback requests to fall back to /get_watch requests.
@@ -51,9 +57,18 @@ object ClientSpoofPatch : BytecodePatch(
 
         // region Block /get_watch requests to fall back to /player requests.
 
-        // TODO: Block /get_watch
-        //  Alternative: Below hook also affects /get_watch, so if the client type is set to 30, /get_watch fails.
-        //  A latch can be used to block /get_watch, this way and then set the client type to 5 for the /player.
+        BuildPlayerRequestURIFingerprint.result?.let {
+            val invokeToStringIndex = it.scanResult.patternScanResult!!.startIndex
+            val uriRegister = it.mutableMethod.getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
+
+            it.mutableMethod.addInstructions(
+                invokeToStringIndex,
+                """
+                   invoke-static { v$uriRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->blockGetWatchRequest(Landroid/net/Uri;)Landroid/net/Uri;
+                   move-result-object v$uriRegister
+                """,
+            )
+        } ?: throw BuildPlayerRequestURIFingerprint.exception
 
         // endregion
 
