@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object HideNavigationButtonLabelsFingerprint : MethodFingerprint(
+internal object CreatePivotBarFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     parameters = listOf(
@@ -17,5 +17,4 @@ internal object HideNavigationButtonLabelsFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_VOID,
     ),
-    customFingerprint = { methodDef, _ -> methodDef.name == "<init>" }
 )

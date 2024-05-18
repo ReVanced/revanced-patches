@@ -13,7 +13,7 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sor
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.layout.buttons.navigation.fingerprints.ANDROID_AUTOMOTIVE_STRING
 import app.revanced.patches.youtube.layout.buttons.navigation.fingerprints.AddCreateButtonViewFingerprint
-import app.revanced.patches.youtube.layout.buttons.navigation.fingerprints.HideNavigationButtonLabelsFingerprint
+import app.revanced.patches.youtube.layout.buttons.navigation.fingerprints.CreatePivotBarFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
@@ -55,7 +55,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
                 "19.08.36",
                 "19.09.38",
                 "19.10.39",
-                "19.11.43"
+                "19.11.43",
             ],
         ),
     ],
@@ -64,7 +64,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 object NavigationButtonsPatch : BytecodePatch(
     setOf(
         AddCreateButtonViewFingerprint,
-        HideNavigationButtonLabelsFingerprint,
+        CreatePivotBarFingerprint,
     ),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -110,20 +110,19 @@ object NavigationButtonsPatch : BytecodePatch(
         } ?: throw AddCreateButtonViewFingerprint.exception
 
         // Hide navigation button labels.
-        HideNavigationButtonLabelsFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val targetIndex = indexOfFirstInstruction {
-                    getReference<MethodReference>()?.name == "setText"
-                }
-
-                val targetRegister = getInstruction<FiveRegisterInstruction>(targetIndex).registerC
-
-                addInstruction(
-                    targetIndex,
-                    "invoke-static {v$targetRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->hideNavigationLabels(Landroid/widget/TextView;)V"
-                )
+        CreatePivotBarFingerprint.result?.mutableMethod?.apply {
+            val setTextIndex = indexOfFirstInstruction {
+                getReference<MethodReference>()?.name == "setText"
             }
-        } ?: throw HideNavigationButtonLabelsFingerprint.exception
+
+            val targetRegister = getInstruction<FiveRegisterInstruction>(setTextIndex).registerC
+
+            addInstruction(
+                setTextIndex,
+                "invoke-static { v$targetRegister }, " +
+                    "$INTEGRATIONS_CLASS_DESCRIPTOR->hideNavigationButtonLabels(Landroid/widget/TextView;)V",
+            )
+        } ?: throw CreatePivotBarFingerprint.exception
 
         // Hook navigation button created, in order to hide them.
         NavigationBarHookPatch.hookNavigationButtonCreated(INTEGRATIONS_CLASS_DESCRIPTOR)
