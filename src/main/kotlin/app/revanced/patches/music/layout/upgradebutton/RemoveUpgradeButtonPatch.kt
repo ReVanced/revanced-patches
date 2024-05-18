@@ -22,7 +22,13 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 @Patch(
     name = "Remove upgrade button",
     description = "Removes the upgrade tab from the pivot bar.",
-    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
+        compatiblePackages = [
+        CompatiblePackage(
+            "com.google.android.apps.youtube.music", [
+                "6.47.53"
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object RemoveUpgradeButtonPatch : BytecodePatch(
