@@ -1,23 +1,31 @@
 package app.revanced.patches.youtube.misc.fix.playback
 
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.BuildInitPlaybackRequestFingerprint
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.BuildPlayerRequestURIFingerprint
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.CreatePlayerRequestBodyFingerprint
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.SetPlayerRequestClientTypeFingerprint
 import app.revanced.util.exception
 import app.revanced.util.getReference
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
 @Patch(
     name = "Client spoof",
@@ -101,26 +109,47 @@ object ClientSpoofPatch : BytecodePatch(
         // region Spoof client type for /player requests to 5 (IOS).
 
         CreatePlayerRequestBodyFingerprint.result?.let { result ->
+            val setClientInfoToiOSMethodName = "patch_setClientInfoToiOS"
             val checkCastIndex = result.scanResult.patternScanResult!!.startIndex
+            var clientInfoContainerClassName : String
 
             result.mutableMethod.apply {
-                val requestMessageInstance = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
+                val checkCastInstruction = getInstruction<OneRegisterInstruction>(checkCastIndex)
+                val requestMessageInstanceRegister = checkCastInstruction.registerA
+                clientInfoContainerClassName = checkCastInstruction.getReference<TypeReference>()!!.type
 
-                val freeRegister1 = 5
-                val freeRegister2 = 6
-
-                val iosClientType = 5
-
-                // Set requestMessage.clientInfo.clientType to ClientType.IOS.
-                addInstructions(
+                addInstruction(
                     checkCastIndex + 1,
-                    """
-                        iget-object v$freeRegister1, v$requestMessageInstance, $clientInfoField
-                        const/4 v$freeRegister2, $iosClientType
-                        iput v$freeRegister2, v$freeRegister1, $clientInfoClientTypeField
-                    """,
+                    "invoke-static/range { v$requestMessageInstanceRegister .. v$requestMessageInstanceRegister }," +
+                            " ${result.classDef.type}->$setClientInfoToiOSMethodName($clientInfoContainerClassName)V"
                 )
             }
+
+            // Set requestMessage.clientInfo.clientType to ClientType.IOS.
+            // Do this in a helper method, to remove the need of picking out multiple free registers from the hooked code.
+            val iosClientType = 5
+            result.mutableClass.methods.add(
+                ImmutableMethod(
+                    result.mutableClass.type,
+                    setClientInfoToiOSMethodName,
+                    listOf(ImmutableMethodParameter(clientInfoContainerClassName, null, "clientInfoContainer")),
+                    "V",
+                    AccessFlags.PRIVATE or AccessFlags.STATIC,
+                    null,
+                    null,
+                    MutableMethodImplementation(3),
+                ).toMutable().apply {
+                    addInstructions(
+                        """
+                            iget-object v0, p0, $clientInfoField
+                            const/4 v1, $iosClientType
+                            iput v1, v0, $clientInfoClientTypeField
+                            return-void
+                        """
+                    )
+                }
+            )
+
         } ?: throw CreatePlayerRequestBodyFingerprint.exception
 
         // endregion
