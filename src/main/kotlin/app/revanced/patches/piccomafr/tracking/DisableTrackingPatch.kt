@@ -18,7 +18,7 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 @Patch(
     name = "Disable tracking",
-    description = "Disable tracking by replacing tracking URLs with example.com",
+    description = "Disable tracking by replacing tracking URLs with example.com.",
     compatiblePackages = [
         CompatiblePackage(
             "com.piccomaeurope.fr",
