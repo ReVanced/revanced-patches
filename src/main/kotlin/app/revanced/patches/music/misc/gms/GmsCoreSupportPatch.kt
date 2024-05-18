@@ -23,7 +23,13 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
     mainActivityOnCreateFingerprint = MusicActivityOnCreateFingerprint,
     integrationsPatchDependency = IntegrationsPatch::class,
     gmsCoreSupportResourcePatch = GmsCoreSupportResourcePatch,
-    compatiblePackages = setOf(CompatiblePackage("com.google.android.apps.youtube.music")),
+    compatiblePackages = [
+        CompatiblePackage(
+            "com.google.android.apps.youtube.music", [
+                "6.47.53"
+            ]
+        )
+    ],
     fingerprints = setOf(
         ServiceCheckFingerprint,
         GooglePlayUtilityFingerprint,
