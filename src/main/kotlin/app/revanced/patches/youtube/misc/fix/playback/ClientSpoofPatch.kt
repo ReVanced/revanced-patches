@@ -34,10 +34,10 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 )
 object ClientSpoofPatch : BytecodePatch(
     setOf(
-        SetPlayerRequestClientTypeFingerprint,
-        CreatePlayerRequestBodyFingerprint,
         BuildInitPlaybackRequestFingerprint,
         BuildPlayerRequestURIFingerprint,
+        SetPlayerRequestClientTypeFingerprint,
+        CreatePlayerRequestBodyFingerprint,
     ),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
