@@ -1,3 +1,10 @@
+# [4.8.0-dev.22](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.21...v4.8.0-dev.22) (2024-05-18)
+
+
+### Bug Fixes
+
+* Use correct preference key ([3732b2c](https://github.com/ReVanced/revanced-patches/commit/3732b2ce6b617b4c1c6647397b614f8a040eece3))
+
 # [4.8.0-dev.21](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.20...v4.8.0-dev.21) (2024-05-18)
 
 
