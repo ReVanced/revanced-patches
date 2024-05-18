@@ -16,7 +16,13 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 @Patch(
     name = "Hide 'Get Music Premium' label",
     description = "Hides the \"Get Music Premium\" label from the account menu and settings.",
-    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
+    compatiblePackages = [
+        CompatiblePackage(
+            "com.google.android.apps.youtube.music", [
+                "6.47.53"
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object HideGetPremiumPatch : BytecodePatch(
