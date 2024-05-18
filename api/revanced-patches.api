@@ -1657,14 +1657,6 @@ public final class app/revanced/patches/youtube/misc/fix/playback/UserAgentClien
 	public fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lkotlin/Triple;)V
 }
 
-public final class app/revanced/patches/youtube/misc/fix/playback/fingerprints/CreatePlayerRequestBodyFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/fix/playback/fingerprints/CreatePlayerRequestBodyFingerprint;
-}
-
-public final class app/revanced/patches/youtube/misc/fix/playback/fingerprints/SetPlayerRequestClientTypeFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/fix/playback/fingerprints/SetPlayerRequestClientTypeFingerprint;
-}
-
 public final class app/revanced/patches/youtube/misc/gms/GmsCoreSupportPatch : app/revanced/patches/shared/misc/gms/BaseGmsCoreSupportPatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/gms/GmsCoreSupportPatch;
 }

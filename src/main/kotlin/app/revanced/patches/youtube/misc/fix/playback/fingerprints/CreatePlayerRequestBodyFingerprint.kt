@@ -3,7 +3,7 @@ package app.revanced.patches.youtube.misc.fix.playback.fingerprints
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-object CreatePlayerRequestBodyFingerprint : MethodFingerprint(
+internal object CreatePlayerRequestBodyFingerprint : MethodFingerprint(
     returnType = "V",
     parameters = listOf("L"),
     opcodes = listOf(
