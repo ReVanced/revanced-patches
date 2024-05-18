@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.misc.fix.playback
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
@@ -11,10 +12,14 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.BuildInitPlaybackRequestFingerprint
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.BuildPlayerRequestURIFingerprint
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.CreatePlayerRequestBodyFingerprint
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.SetPlayerRequestClientTypeFingerprint
+import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.exception
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -30,7 +35,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 @Patch(
     name = "Client spoof",
     description = "Spoofs the client to allow video playback.",
-    dependencies = [UserAgentClientSpoofPatch::class],
+    dependencies = [SettingsPatch::class, UserAgentClientSpoofPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
@@ -64,17 +69,28 @@ object ClientSpoofPatch : BytecodePatch(
         "Lcom/google/protos/youtube/api/innertube/InnertubeContext\$ClientInfo;"
 
     override fun execute(context: BytecodeContext) {
+        AddResourcesPatch(this::class)
+
+        SettingsPatch.PreferenceScreen.MISC.addPreferences(
+            SwitchPreference("revanced_spoof_client"),
+        )
+
         // region Block /initplayback requests to fall back to /get_watch requests.
 
         BuildInitPlaybackRequestFingerprint.result?.let {
             val moveUriStringIndex = it.scanResult.patternScanResult!!.startIndex
             val targetRegister = it.mutableMethod.getInstruction<OneRegisterInstruction>(moveUriStringIndex).registerA
 
-            it.mutableMethod.replaceInstruction(
-                moveUriStringIndex,
-                "const-string v$targetRegister, \"https://127.0.0.1\"",
+            it.mutableMethod.addInstructions(
+                moveUriStringIndex + 1,
+                    """
+                        invoke-static { v$targetRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->blockInitPlaybackRequest(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$targetRegister
+                    """
             )
         } ?: throw BuildInitPlaybackRequestFingerprint.exception
+
+        println(BuildInitPlaybackRequestFingerprint.result!!.classDef)
 
         // endregion
 
@@ -130,7 +146,7 @@ object ClientSpoofPatch : BytecodePatch(
 
                 addInstruction(
                     checkCastIndex + 1,
-                    "invoke-static/range { v$requestMessageInstanceRegister .. v$requestMessageInstanceRegister }," +
+                    "invoke-static { v$requestMessageInstanceRegister }," +
                             " ${result.classDef.type}->$setClientInfoToiOSMethodName($clientInfoContainerClassName)V"
                 )
             }
@@ -151,9 +167,13 @@ object ClientSpoofPatch : BytecodePatch(
                 ).toMutable().apply {
                     addInstructions(
                         """
+                            invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->isClientSpoofingEnabled()Z
+                            move-result v0
+                            if-eqz v0, :disabled
                             iget-object v0, p0, $clientInfoField
                             const/4 v1, $iosClientType
                             iput v1, v0, $clientInfoClientTypeField
+                            :disabled                           
                             return-void
                         """
                     )
