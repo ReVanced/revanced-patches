@@ -44,7 +44,7 @@ object FixSLinksPatch : BytecodePatch(
 
         JRAWgetAccessTokenFingerprint.result?.mutableMethod?.addInstruction(
             3,
-            "invoke-static { v0 }, $INTEGRATIONS_CLASS_DESCRIPTOR->getAccessToken(Ljava/lang/String;)V",
+            "invoke-static { v0 }, $INTEGRATIONS_CLASS_DESCRIPTOR->setAppAccessToken(Ljava/lang/String;)V",
         ) ?: throw JRAWgetAccessTokenFingerprint.exception
     }
 }
