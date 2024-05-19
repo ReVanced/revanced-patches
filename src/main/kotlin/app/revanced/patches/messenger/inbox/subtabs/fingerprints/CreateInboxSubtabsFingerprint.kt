@@ -5,7 +5,7 @@ import app.revanced.patcher.extensions.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object InboxSubTabsItemSupplierFingerprint : MethodFingerprint(
+internal object CreateInboxSubtabsFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     opcodes = listOf(
