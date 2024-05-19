@@ -1090,7 +1090,12 @@
             <string name="revanced_spoof_client_summary">Spoof the app client to prevent playback issues</string>
             <string name="revanced_spoof_client_summary_on">App client is spoofed</string>
             <string name="revanced_spoof_client_summary_off">App client is not spoofed\n\nVideo playback may not work</string>
-            <string name="revanced_spoof_client_user_dialog_message">Turning off this setting will cause video playback issues.</string>
+            <string name="revanced_spoof_client_user_dialog_message">Turning off this setting may cause video playback issues.</string>
+            <string name="revanced_spoof_client_use_ios_title">Spoof to an iOS client</string>
+            <string name="revanced_spoof_client_use_ios_summary">Spoof the app client to iOS instead of Android Testsuite</string>
+            <string name="revanced_spoof_client_use_ios_summary_on">App client is spoofed to an iOS client\n\nSide effects include:\n• 60 fps video qualities may not be available\n• No HDR playback\n• High video qualities may be missing</string>
+            <string name="revanced_spoof_client_use_ios_summary_off">App client is spoofed to an Android Testsuite client\n\nSide effects include:\n• Livestreams not playing</string>
+            <string name="revanced_spoof_client_user_dialog_message">Turning on this setting may cause video playback issues but will fix livestreams.</string>
         </patch>
         <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
         <patch id="misc.fix.playback.SpoofSignaturePatch">

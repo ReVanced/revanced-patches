@@ -35,7 +35,8 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
     dependencies = [SettingsPatch::class, UserAgentClientSpoofPatch::class],
     compatiblePackages = [
         CompatiblePackage(
-            "com.google.android.youtube", [
+            "com.google.android.youtube",
+            [
                 "18.32.39",
                 "18.37.36",
                 "18.38.44",
@@ -54,9 +55,9 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
                 "19.08.36",
                 "19.09.38",
                 "19.10.39",
-                "19.11.43"
-            ]
-        )
+                "19.11.43",
+            ],
+        ),
     ],
 )
 object ClientSpoofPatch : BytecodePatch(
@@ -77,6 +78,7 @@ object ClientSpoofPatch : BytecodePatch(
 
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             SwitchPreference("revanced_spoof_client"),
+            SwitchPreference("revanced_spoof_client_use_ios"),
         )
 
         // region Block /initplayback requests to fall back to /get_watch requests.
@@ -87,10 +89,10 @@ object ClientSpoofPatch : BytecodePatch(
 
             it.mutableMethod.addInstructions(
                 moveUriStringIndex + 1,
-                    """
-                        invoke-static { v$targetRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->blockInitPlaybackRequest(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object v$targetRegister
-                    """
+                """
+                invoke-static { v$targetRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->blockInitPlaybackRequest(Ljava/lang/String;)Ljava/lang/String;
+                move-result-object v$targetRegister
+            """,
             )
         } ?: throw BuildInitPlaybackRequestFingerprint.exception
 
@@ -134,12 +136,12 @@ object ClientSpoofPatch : BytecodePatch(
 
         // endregion
 
-        // region Spoof client type for /player requests to 5 (IOS).
+        // region Spoof client type for /player requests.
 
         CreatePlayerRequestBodyFingerprint.result?.let { result ->
-            val setClientInfoToiOSMethodName = "patch_setClientInfoToiOS"
+            val setClientInfoMethodName = "patch_setClientInfo"
             val checkCastIndex = result.scanResult.patternScanResult!!.startIndex
-            var clientInfoContainerClassName : String
+            var clientInfoContainerClassName: String
 
             result.mutableMethod.apply {
                 val checkCastInstruction = getInstruction<OneRegisterInstruction>(checkCastIndex)
@@ -149,17 +151,16 @@ object ClientSpoofPatch : BytecodePatch(
                 addInstruction(
                     checkCastIndex + 1,
                     "invoke-static { v$requestMessageInstanceRegister }," +
-                            " ${result.classDef.type}->$setClientInfoToiOSMethodName($clientInfoContainerClassName)V"
+                        " ${result.classDef.type}->$setClientInfoMethodName($clientInfoContainerClassName)V",
                 )
             }
 
-            // Set requestMessage.clientInfo.clientType to ClientType.IOS.
+            // Change requestMessage.clientInfo.clientType and requestMessage.clientInfo.clientVersion to the spoofed values.
             // Do this in a helper method, to remove the need of picking out multiple free registers from the hooked code.
-            val iosClientType = 5
             result.mutableClass.methods.add(
                 ImmutableMethod(
                     result.mutableClass.type,
-                    setClientInfoToiOSMethodName,
+                    setClientInfoMethodName,
                     listOf(ImmutableMethodParameter(clientInfoContainerClassName, null, "clientInfoContainer")),
                     "V",
                     AccessFlags.PRIVATE or AccessFlags.STATIC,
@@ -173,17 +174,22 @@ object ClientSpoofPatch : BytecodePatch(
                             move-result v0
                             if-eqz v0, :disabled
                             iget-object v0, p0, $clientInfoField
-                            const/4 v1, $iosClientType
+                            invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->getClientTypeId()I
+                            move-result v1
                             iput v1, v0, $clientInfoClientTypeField
+                            invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->getClientVersion()Ljava/lang/String;
+                            move-result-object v1
+                            # TODO: Set version field to v1 here.
                             :disabled                           
                             return-void
-                        """
+                        """,
                     )
-                }
+                },
             )
-
         } ?: throw CreatePlayerRequestBodyFingerprint.exception
 
         // endregion
+
+        // TODO: Add back the code to set the storyboard if Android Testsuite is used.
     }
 }
