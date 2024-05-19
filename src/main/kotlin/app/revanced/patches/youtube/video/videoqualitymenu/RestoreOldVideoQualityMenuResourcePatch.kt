@@ -13,6 +13,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 )
 object RestoreOldVideoQualityMenuResourcePatch : ResourcePatch() {
     internal var videoQualityBottomSheetListFragmentTitle = -1L
+    internal var videoQualityQuickMenuAdvancedMenuDescription = -1L
 
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(this::class)
@@ -25,6 +26,11 @@ object RestoreOldVideoQualityMenuResourcePatch : ResourcePatch() {
         videoQualityBottomSheetListFragmentTitle = ResourceMappingPatch[
             "layout",
             "video_quality_bottom_sheet_list_fragment_title",
+        ]
+
+        videoQualityQuickMenuAdvancedMenuDescription = ResourceMappingPatch[
+            "string",
+            "video_quality_quick_menu_advanced_menu_description"
         ]
     }
 }
