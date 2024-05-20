@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
@@ -19,7 +18,6 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
 import app.revanced.util.exception
 import app.revanced.util.getReference
-import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -73,9 +71,7 @@ object ClientSpoofPatch : BytecodePatch(
         BuildPlayerRequestURIFingerprint,
         SetPlayerRequestClientTypeFingerprint,
         CreatePlayerRequestBodyFingerprint,
-        StoryboardThumbnailParentFingerprint,
         PlayerResponseModelImplGeneralFingerprint,
-        PlayerResponseModelImplLiveStreamFingerprint,
         StoryboardRendererDecoderRecommendedLevelFingerprint,
         PlayerResponseModelImplRecommendedLevelFingerprint,
         StoryboardRendererSpecFingerprint,
@@ -227,26 +223,20 @@ object ClientSpoofPatch : BytecodePatch(
         /**
          * Hook StoryBoard renderer url.
          */
-        arrayOf(
-            PlayerResponseModelImplGeneralFingerprint,
-            PlayerResponseModelImplLiveStreamFingerprint,
-        ).forEach { fingerprint ->
-            fingerprint.resultOrThrow().let {
-                it.mutableMethod.apply {
-                    val getStoryBoardIndex = it.scanResult.patternScanResult!!.endIndex
-                    val getStoryBoardRegister =
-                        getInstruction<OneRegisterInstruction>(getStoryBoardIndex).registerA
+        PlayerResponseModelImplGeneralFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val getStoryBoardIndex = it.scanResult.patternScanResult!!.endIndex
+                val getStoryBoardRegister = getInstruction<OneRegisterInstruction>(getStoryBoardIndex).registerA
 
-                    addInstructions(
-                        getStoryBoardIndex,
-                        """
+                addInstructions(
+                    getStoryBoardIndex,
+                    """
                         invoke-static { v$getStoryBoardRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getStoryboardRendererSpec(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object v$getStoryBoardRegister
                     """,
-                    )
-                }
+                )
             }
-        }
+        } ?: throw PlayerResponseModelImplGeneralFingerprint.exception
 
 
         // Hook recommended seekbar thumbnails quality level.
@@ -309,43 +299,11 @@ object ClientSpoofPatch : BytecodePatch(
             it.mutableMethod.addInstructions(
                 storyBoardUrlIndex + 1,
                 """
-                        invoke-static { v$storyboardUrlRegister }, ${INTEGRATIONS_CLASS_DESCRIPTOR}->getStoryboardDecoderRendererSpec(Ljava/lang/String;)Ljava/lang/String;
+                        invoke-static { v$storyboardUrlRegister }, ${INTEGRATIONS_CLASS_DESCRIPTOR}->getStoryboardRendererSpec(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object v$storyboardUrlRegister
                 """,
             )
         } ?: throw StoryboardRendererDecoderSpecFingerprint.exception
-
-
-        // Force the seekbar time and chapters to always show up.
-        // This is used if the storyboard spec fetch fails or if viewing paid videos.
-        StoryboardThumbnailParentFingerprint.result?.classDef?.let { classDef ->
-            StoryboardThumbnailFingerprint.also {
-                it.resolve(
-                    context,
-                    classDef,
-                )
-            }.result?.let {
-                val endIndex = it.scanResult.patternScanResult!!.endIndex
-                // Replace existing instruction to preserve control flow label.
-                // The replaced return instruction always returns false
-                // (it is the 'no thumbnails found' control path),
-                // so there is no need to pass the existing return value to integrations.
-                it.mutableMethod.replaceInstruction(
-                    endIndex,
-                    """
-                        invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->getSeekbarThumbnailOverrideValue()Z
-                    """,
-                )
-                // Since this is end of the method must replace one line then add the rest.
-                it.mutableMethod.addInstructions(
-                    endIndex + 1,
-                    """
-                    move-result v0
-                    return v0
-                """,
-                )
-            } ?: throw StoryboardThumbnailFingerprint.exception
-        }
 
         // endregion
     }
