@@ -98,15 +98,18 @@ object ClientSpoofPatch : BytecodePatch(
 
         BuildInitPlaybackRequestFingerprint.resultOrThrow().let {
             val moveUriStringIndex = it.scanResult.patternScanResult!!.startIndex
-            val targetRegister = it.mutableMethod.getInstruction<OneRegisterInstruction>(moveUriStringIndex).registerA
 
-            it.mutableMethod.addInstructions(
-                moveUriStringIndex + 1,
-                """
-                invoke-static { v$targetRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->blockInitPlaybackRequest(Ljava/lang/String;)Ljava/lang/String;
-                move-result-object v$targetRegister
-            """,
-            )
+            it.mutableMethod.apply {
+                val targetRegister = getInstruction<OneRegisterInstruction>(moveUriStringIndex).registerA
+
+                addInstructions(
+                    moveUriStringIndex + 1,
+                    """
+                        invoke-static { v$targetRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->blockInitPlaybackRequest(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$targetRegister
+                    """,
+                )
+            }
         }
 
         // endregion
@@ -115,15 +118,18 @@ object ClientSpoofPatch : BytecodePatch(
 
         BuildPlayerRequestURIFingerprint.resultOrThrow().let {
             val invokeToStringIndex = it.scanResult.patternScanResult!!.startIndex
-            val uriRegister = it.mutableMethod.getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
 
-            it.mutableMethod.addInstructions(
-                invokeToStringIndex,
-                """
-                   invoke-static { v$uriRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->blockGetWatchRequest(Landroid/net/Uri;)Landroid/net/Uri;
-                   move-result-object v$uriRegister
-                """,
-            )
+            it.mutableMethod.apply {
+                val uriRegister = getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
+
+                addInstructions(
+                    invokeToStringIndex,
+                    """
+                        invoke-static { v$uriRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->blockGetWatchRequest(Landroid/net/Uri;)Landroid/net/Uri;
+                        move-result-object v$uriRegister
+                    """,
+                )
+            }
         }
 
         // endregion
@@ -225,32 +231,36 @@ object ClientSpoofPatch : BytecodePatch(
 
         // Hook recommended seekbar thumbnails quality level for regular videos.
         StoryboardRendererDecoderRecommendedLevelFingerprint.resultOrThrow().let {
-            val moveOriginalRecommendedValueIndex = it.scanResult.patternScanResult!!.endIndex
-            val originalValueRegister = it.mutableMethod
-                .getInstruction<OneRegisterInstruction>(moveOriginalRecommendedValueIndex).registerA
+            val endIndex = it.scanResult.patternScanResult!!.endIndex
 
-            it.mutableMethod.addInstructions(
-                moveOriginalRecommendedValueIndex + 1,
-                """
+            it.mutableMethod.apply {
+                val originalValueRegister =
+                    getInstruction<OneRegisterInstruction>(endIndex).registerA
+
+                addInstructions(
+                    endIndex + 1,
+                    """
                         invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
                         move-result v$originalValueRegister
-                """,
-            )
+                    """,
+                )
+            }
         }
 
         // Hook the recommended precise seeking thumbnails quality.
         PlayerResponseModelImplRecommendedLevelFingerprint.resultOrThrow().let {
+            val endIndex = it.scanResult.patternScanResult!!.endIndex
+
             it.mutableMethod.apply {
-                val moveOriginalRecommendedValueIndex = it.scanResult.patternScanResult!!.endIndex
                 val originalValueRegister =
-                    getInstruction<OneRegisterInstruction>(moveOriginalRecommendedValueIndex).registerA
+                    getInstruction<OneRegisterInstruction>(endIndex).registerA
 
                 addInstructions(
-                    moveOriginalRecommendedValueIndex,
+                    endIndex,
                     """
                         invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
                         move-result v$originalValueRegister
-                        """,
+                    """
                 )
             }
         }
@@ -261,8 +271,9 @@ object ClientSpoofPatch : BytecodePatch(
          * Hook StoryBoard renderer url.
          */
         PlayerResponseModelImplGeneralFingerprint.resultOrThrow().let {
+            val getStoryBoardIndex = it.scanResult.patternScanResult!!.endIndex
+
             it.mutableMethod.apply {
-                val getStoryBoardIndex = it.scanResult.patternScanResult!!.endIndex
                 val getStoryBoardRegister = getInstruction<OneRegisterInstruction>(getStoryBoardIndex).registerA
 
                 addInstructions(
@@ -278,16 +289,18 @@ object ClientSpoofPatch : BytecodePatch(
         // Hook the seekbar thumbnail decoder, required for Shorts.
         StoryboardRendererDecoderSpecFingerprint.resultOrThrow().let {
             val storyBoardUrlIndex = it.scanResult.patternScanResult!!.startIndex + 1
-            val storyboardUrlRegister =
-                it.mutableMethod.getInstruction<OneRegisterInstruction>(storyBoardUrlIndex).registerA
 
-            it.mutableMethod.addInstructions(
-                storyBoardUrlIndex + 1,
-                """
-                        invoke-static { v$storyboardUrlRegister }, ${INTEGRATIONS_CLASS_DESCRIPTOR}->getStoryboardRendererSpec(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object v$storyboardUrlRegister
-                """,
-            )
+            it.mutableMethod.apply {
+                val getStoryBoardRegister = getInstruction<OneRegisterInstruction>(storyBoardUrlIndex).registerA
+
+                addInstructions(
+                    storyBoardUrlIndex + 1,
+                    """
+                        invoke-static { v$getStoryBoardRegister }, ${INTEGRATIONS_CLASS_DESCRIPTOR}->getStoryboardRendererSpec(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$getStoryBoardRegister
+                    """,
+                )
+            }
         }
 
         StoryboardRendererSpecFingerprint.resultOrThrow().let {
