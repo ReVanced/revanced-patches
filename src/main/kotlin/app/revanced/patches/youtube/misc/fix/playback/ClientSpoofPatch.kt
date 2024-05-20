@@ -99,7 +99,6 @@ object ClientSpoofPatch : BytecodePatch(
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             SwitchPreference("revanced_client_spoof"),
             SwitchPreference("revanced_client_spoof_use_ios"),
-            SwitchPreference("revanced_client_spoof_spoof_storyboard"),
         )
 
         // region Block /initplayback requests to fall back to /get_watch requests.
