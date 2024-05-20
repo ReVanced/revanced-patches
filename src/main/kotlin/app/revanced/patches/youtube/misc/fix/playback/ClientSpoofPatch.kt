@@ -138,7 +138,7 @@ object ClientSpoofPatch : BytecodePatch(
 
         // region Get field references to be used below.
 
-        val (clientInfoField, clientInfoClientTypeField) = SetPlayerRequestClientTypeFingerprint.result?.let { result ->
+        val (clientInfoField, clientInfoClientTypeField, clientInfoClientVersionField) = SetPlayerRequestClientTypeFingerprint.result?.let { result ->
             // Field in the player request object that holds the client info object.
             val clientInfoField = result.mutableMethod
                 .getInstructions().first { instruction ->
@@ -152,7 +152,12 @@ object ClientSpoofPatch : BytecodePatch(
                 .getInstruction(result.scanResult.patternScanResult!!.endIndex)
                 .getReference<FieldReference>()
 
-            clientInfoField to clientInfoClientTypeField
+            // Client info object's client version field.
+            val clientInfoClientVersionField = result.mutableMethod
+                .getInstruction(result.scanResult.stringsScanResult!!.matches.first().index + 1)
+                .getReference<FieldReference>()
+
+            Triple(clientInfoField, clientInfoClientTypeField, clientInfoClientVersionField)
         } ?: throw SetPlayerRequestClientTypeFingerprint.exception
 
         // endregion
@@ -204,10 +209,10 @@ object ClientSpoofPatch : BytecodePatch(
                             iput v1, v0, $clientInfoClientTypeField
                             
                             # Set client version to the spoofed value.
-                            # TODO: iget v1, v0, clientInfoClientVersionField
-                            # invoke-static { v1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->getClientVersion(Ljava/lang/String;)Ljava/lang/String;
-                            # move-result-object v1
-                            # TODO: iput-object v1, v0, clientInfoClientVersionField
+                            iget-object v1, v0, $clientInfoClientVersionField
+                            invoke-static { v1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->getClientVersion(Ljava/lang/String;)Ljava/lang/String;
+                            move-result-object v1
+                            iput-object v1, v0, $clientInfoClientVersionField
                             
                             :disabled                           
                             return-void
