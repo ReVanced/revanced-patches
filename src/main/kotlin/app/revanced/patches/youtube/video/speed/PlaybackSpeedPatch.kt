@@ -4,13 +4,19 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.youtube.video.speed.button.CustomPlaybackSpeedButtonPatch
 import app.revanced.patches.youtube.video.speed.custom.CustomPlaybackSpeedPatch
 import app.revanced.patches.youtube.video.speed.remember.RememberPlaybackSpeedPatch
 
 @Patch(
     name = "Playback speed",
-    description = "Adds options to customize available playback speeds and to remember the last playback speed selected.",
-    dependencies = [CustomPlaybackSpeedPatch::class, RememberPlaybackSpeedPatch::class],
+    description = "Adds options to customize available playback speeds, to remember the last playback speed selected " +
+            "and to display custom speed dialog button in the video player.",
+    dependencies = [
+        CustomPlaybackSpeedButtonPatch::class,
+        CustomPlaybackSpeedPatch::class,
+        RememberPlaybackSpeedPatch::class,
+     ],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
