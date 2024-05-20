@@ -9,6 +9,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
@@ -16,9 +17,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.*
-import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
 import app.revanced.util.exception
 import app.revanced.util.getReference
@@ -42,14 +41,11 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
         SettingsPatch::class,
         AddResourcesPatch::class,
         UserAgentClientSpoofPatch::class,
-        PlayerTypeHookPatch::class,
-        VideoInformationPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
             [
-                "18.32.39",
                 "18.37.36",
                 "18.38.44",
                 "18.43.45",
@@ -144,17 +140,17 @@ object ClientSpoofPatch : BytecodePatch(
                     // requestMessage.clientInfo = clientInfoBuilder.build();
                     instruction.opcode == Opcode.IPUT_OBJECT &&
                         instruction.getReference<FieldReference>()?.type == CLIENT_INFO_CLASS_DESCRIPTOR
-                }.getReference<FieldReference>()
+                }.getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoField")
 
             // Client info object's client type field.
             val clientInfoClientTypeField = result.mutableMethod
                 .getInstruction(result.scanResult.patternScanResult!!.endIndex)
-                .getReference<FieldReference>()
+                .getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoClientTypeField")
 
             // Client info object's client version field.
             val clientInfoClientVersionField = result.mutableMethod
                 .getInstruction(result.scanResult.stringsScanResult!!.matches.first().index + 1)
-                .getReference<FieldReference>()
+                .getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoClientVersionField")
 
             Triple(clientInfoField, clientInfoClientTypeField, clientInfoClientVersionField)
         } ?: throw SetPlayerRequestClientTypeFingerprint.exception
@@ -213,7 +209,7 @@ object ClientSpoofPatch : BytecodePatch(
                             move-result-object v1
                             iput-object v1, v0, $clientInfoClientVersionField
                             
-                            :disabled                           
+                            :disabled
                             return-void
                         """,
                     )

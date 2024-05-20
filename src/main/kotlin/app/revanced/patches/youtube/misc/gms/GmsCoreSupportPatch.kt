@@ -34,7 +34,6 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
         CompatiblePackage(
             "com.google.android.youtube",
             setOf(
-                "18.32.39",
                 "18.37.36",
                 "18.38.44",
                 "18.43.45",
