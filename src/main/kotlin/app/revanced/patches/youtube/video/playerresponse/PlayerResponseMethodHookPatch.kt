@@ -65,7 +65,7 @@ object PlayerResponseMethodHookPatch :
             playerResponseMethod.addInstructions(
                 0,
                 """
-                    invoke-static {$REGISTER_PROTO_BUFFER, $REGISTER_IS_SHORT_AND_OPENING_OR_PLAYING}, $hook
+                    invoke-static {$REGISTER_PROTO_BUFFER, $REGISTER_VIDEO_ID, $REGISTER_IS_SHORT_AND_OPENING_OR_PLAYING}, $hook
                     move-result-object $REGISTER_PROTO_BUFFER
             """
             )

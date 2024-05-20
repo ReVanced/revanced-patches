@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.misc.fix.playback
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
@@ -13,13 +12,11 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.*
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
-import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import app.revanced.util.exception
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -27,7 +24,6 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
@@ -42,7 +38,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
         SettingsPatch::class,
         AddResourcesPatch::class,
         UserAgentClientSpoofPatch::class,
-        VideoIdPatch::class,
+        PlayerResponseMethodHookPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -77,9 +73,7 @@ object ClientSpoofPatch : BytecodePatch(
         SetPlayerRequestClientTypeFingerprint,
         CreatePlayerRequestBodyFingerprint,
         StoryboardThumbnailParentFingerprint,
-        ScrubbedPreviewLayoutFingerprint,
         PlayerResponseModelImplGeneralFingerprint,
-        PlayerResponseModelImplLiveStreamFingerprint,
         StoryboardRendererDecoderRecommendedLevelFingerprint,
         PlayerResponseModelImplRecommendedLevelFingerprint,
         StoryboardRendererSpecFingerprint,
@@ -223,13 +217,99 @@ object ClientSpoofPatch : BytecodePatch(
 
         // region Fix storyboard if Android Testsuite is used.
 
-        VideoIdPatch.hookPlayerResponseVideoId(
-            "$INTEGRATIONS_CLASS_DESCRIPTOR->setPlayerResponseVideoId(Ljava/lang/String;Z)V")
+        PlayerResponseMethodHookPatch += PlayerResponseMethodHookPatch.Hook.ProtoBufferParameter(
+            "$INTEGRATIONS_CLASS_DESCRIPTOR->setPlayerResponseVideoId(" +
+                    "Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;")
+
+
+        /**
+         * Hook StoryBoard renderer url.
+         */
+        PlayerResponseModelImplGeneralFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val getStoryBoardIndex = it.scanResult.patternScanResult!!.endIndex
+                val getStoryBoardRegister = getInstruction<OneRegisterInstruction>(getStoryBoardIndex).registerA
+
+                addInstructions(
+                    getStoryBoardIndex,
+                    """
+                        invoke-static { v$getStoryBoardRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getStoryboardRendererSpec(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$getStoryBoardRegister
+                    """,
+                )
+            }
+        } ?: throw PlayerResponseModelImplGeneralFingerprint.exception
+
+
+        // Hook recommended seekbar thumbnails quality level.
+        StoryboardRendererDecoderRecommendedLevelFingerprint.result?.let {
+            val moveOriginalRecommendedValueIndex = it.scanResult.patternScanResult!!.endIndex
+            val originalValueRegister = it.mutableMethod
+                .getInstruction<OneRegisterInstruction>(moveOriginalRecommendedValueIndex).registerA
+
+            it.mutableMethod.addInstructions(
+                moveOriginalRecommendedValueIndex + 1,
+                """
+                        invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
+                        move-result v$originalValueRegister
+                """,
+            )
+        } ?: throw StoryboardRendererDecoderRecommendedLevelFingerprint.exception
+
+        // Hook the recommended precise seeking thumbnails quality level for regular videos.
+        PlayerResponseModelImplRecommendedLevelFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val moveOriginalRecommendedValueIndex = it.scanResult.patternScanResult!!.endIndex
+                val originalValueRegister =
+                    getInstruction<OneRegisterInstruction>(moveOriginalRecommendedValueIndex).registerA
+
+                addInstructions(
+                    moveOriginalRecommendedValueIndex,
+                    """
+                        invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
+                        move-result v$originalValueRegister
+                        """,
+                )
+            }
+        } ?: throw PlayerResponseModelImplRecommendedLevelFingerprint.exception
+
+        // TODO: Hook the precise seekbar recommended level for Shorts to fix low quality seekbar thumbnails.
+
+        StoryboardRendererSpecFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val storyBoardUrlParams = "p0"
+
+                addInstructions(
+                    0,
+                    """
+                        if-nez $storyBoardUrlParams, :ignore
+                        invoke-static { $storyBoardUrlParams }, $INTEGRATIONS_CLASS_DESCRIPTOR->getStoryboardRendererSpec(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object $storyBoardUrlParams
+                        :ignore
+                        nop
+                    """
+                )
+            }
+        } ?: throw StoryboardRendererSpecFingerprint.exception
+
+        // Hook the seekbar thumbnail decoder, required for Shorts.
+        StoryboardRendererDecoderSpecFingerprint.result?.let {
+            val storyBoardUrlIndex = it.scanResult.patternScanResult!!.startIndex + 1
+            val storyboardUrlRegister =
+                it.mutableMethod.getInstruction<OneRegisterInstruction>(storyBoardUrlIndex).registerA
+
+            it.mutableMethod.addInstructions(
+                storyBoardUrlIndex + 1,
+                """
+                        invoke-static { v$storyboardUrlRegister }, ${INTEGRATIONS_CLASS_DESCRIPTOR}->getStoryboardRendererSpec(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$storyboardUrlRegister
+                """,
+            )
+        } ?: throw StoryboardRendererDecoderSpecFingerprint.exception
 
 
         // Force the seekbar time and chapters to always show up.
-        // This is used if the storyboard spec fetch fails, for viewing paid videos,
-        // or if storyboard spoofing is turned off.
+        // This is used if the storyboard spec fetch fails or if viewing paid videos.
         StoryboardThumbnailParentFingerprint.result?.classDef?.let { classDef ->
             StoryboardThumbnailFingerprint.also {
                 it.resolve(
@@ -258,108 +338,6 @@ object ClientSpoofPatch : BytecodePatch(
                 )
             } ?: throw StoryboardThumbnailFingerprint.exception
         }
-
-        // If storyboard spoofing is turned off, then hide the empty seekbar thumbnail view.
-        ScrubbedPreviewLayoutFingerprint.result?.apply {
-            val endIndex = scanResult.patternScanResult!!.endIndex
-            mutableMethod.apply {
-                val imageViewFieldName = getInstruction<ReferenceInstruction>(endIndex).reference
-                addInstructions(
-                    implementation!!.instructions.lastIndex,
-                    """
-                        iget-object v0, p0, $imageViewFieldName   # copy imageview field to a register
-                        invoke-static {v0}, $INTEGRATIONS_CLASS_DESCRIPTOR->seekbarImageViewCreated(Landroid/widget/ImageView;)V
-                    """,
-                )
-            }
-        } ?: throw ScrubbedPreviewLayoutFingerprint.exception
-
-        /**
-         * Hook StoryBoard renderer url
-         */
-        arrayOf(
-            PlayerResponseModelImplGeneralFingerprint,
-            PlayerResponseModelImplLiveStreamFingerprint,
-        ).forEach { fingerprint ->
-            fingerprint.result?.let {
-                it.mutableMethod.apply {
-                    val getStoryBoardIndex = it.scanResult.patternScanResult!!.endIndex
-                    val getStoryBoardRegister =
-                        getInstruction<OneRegisterInstruction>(getStoryBoardIndex).registerA
-
-                    addInstructions(
-                        getStoryBoardIndex,
-                        """
-                        invoke-static { v$getStoryBoardRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getStoryboardRendererSpec(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object v$getStoryBoardRegister
-                    """,
-                    )
-                }
-            } ?: throw fingerprint.exception
-        }
-
-        // Hook recommended seekbar thumbnails quality level.
-        StoryboardRendererDecoderRecommendedLevelFingerprint.result?.let {
-            val moveOriginalRecommendedValueIndex = it.scanResult.patternScanResult!!.endIndex
-            val originalValueRegister = it.mutableMethod
-                .getInstruction<OneRegisterInstruction>(moveOriginalRecommendedValueIndex).registerA
-
-            it.mutableMethod.addInstructions(
-                moveOriginalRecommendedValueIndex + 1,
-                """
-                        invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
-                        move-result v$originalValueRegister
-                """,
-            )
-        } ?: throw StoryboardRendererDecoderRecommendedLevelFingerprint.exception
-
-        // Hook the recommended precise seeking thumbnails quality level.
-        PlayerResponseModelImplRecommendedLevelFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val moveOriginalRecommendedValueIndex = it.scanResult.patternScanResult!!.endIndex
-                val originalValueRegister =
-                    getInstruction<OneRegisterInstruction>(moveOriginalRecommendedValueIndex).registerA
-
-                addInstructions(
-                    moveOriginalRecommendedValueIndex,
-                    """
-                        invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
-                        move-result v$originalValueRegister
-                        """,
-                )
-            }
-        } ?: throw PlayerResponseModelImplRecommendedLevelFingerprint.exception
-
-        StoryboardRendererSpecFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val storyBoardUrlParams = 0
-
-                addInstructionsWithLabels(
-                    0,
-                    """
-                        if-nez p$storyBoardUrlParams, :ignore
-                        invoke-static { p$storyBoardUrlParams }, $INTEGRATIONS_CLASS_DESCRIPTOR->getStoryboardRendererSpec(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object p$storyBoardUrlParams
-                    """,
-                    ExternalLabel("ignore", getInstruction(0)),
-                )
-            }
-        } ?: throw StoryboardRendererSpecFingerprint.exception
-
-        // Hook the seekbar thumbnail decoder and use a NULL spec for live streams.
-        StoryboardRendererDecoderSpecFingerprint.result?.let {
-            val storyBoardUrlIndex = it.scanResult.patternScanResult!!.startIndex + 1
-            val storyboardUrlRegister =
-                it.mutableMethod.getInstruction<OneRegisterInstruction>(storyBoardUrlIndex).registerA
-
-            it.mutableMethod.addInstructions(
-                storyBoardUrlIndex + 1,
-                """
-                        invoke-static { v$storyboardUrlRegister }, ${INTEGRATIONS_CLASS_DESCRIPTOR}->getStoryboardDecoderRendererSpec(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object v$storyboardUrlRegister
-                """,
-            )
-        } ?: throw StoryboardRendererDecoderSpecFingerprint.exception
 
         // endregion
     }
