@@ -2,14 +2,18 @@ package app.revanced.patches.youtube.video.videoqualitymenu
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.recyclerviewtree.hook.RecyclerViewTreeHookPatch
+import app.revanced.patches.youtube.video.videoqualitymenu.fingerprints.VideoQualityMenuOptionsFingerprint
 import app.revanced.patches.youtube.video.videoqualitymenu.fingerprints.VideoQualityMenuViewInflateFingerprint
+import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -50,7 +54,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 )
 @Suppress("unused")
 object RestoreOldVideoQualityMenuPatch : BytecodePatch(
-    setOf(VideoQualityMenuViewInflateFingerprint)
+    setOf(VideoQualityMenuViewInflateFingerprint, VideoQualityMenuOptionsFingerprint)
 ) {
     private const val FILTER_CLASS_DESCRIPTOR =
             "Lapp/revanced/integrations/youtube/patches/components/VideoQualityMenuFilterPatch;"
@@ -60,7 +64,8 @@ object RestoreOldVideoQualityMenuPatch : BytecodePatch(
 
     override fun execute(context: BytecodeContext) {
         // region Patch for the old type of the video quality menu.
-        // Only used when spoofing to old app version.
+        // Used for regular videos when spoofing to old app version,
+        // and for the Shorts quality flyout on newer app versions.
 
         VideoQualityMenuViewInflateFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -72,6 +77,29 @@ object RestoreOldVideoQualityMenuPatch : BytecodePatch(
                     "invoke-static { v$listViewRegister }, " +
                             "$INTEGRATIONS_CLASS_DESCRIPTOR->" +
                             "showOldVideoQualityMenu(Landroid/widget/ListView;)V"
+                )
+            }
+        }
+
+        // Force YT to add the 'advanced' quality menu for Shorts.
+        VideoQualityMenuOptionsFingerprint.resultOrThrow().let {
+            val result = it.scanResult.patternScanResult!!
+            val startIndex = result.startIndex
+            val endIndex = result.endIndex
+
+            it.mutableMethod.apply {
+                val freeRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
+
+                // A condition controls whether to show the three or four items quality menu.
+                // Force the four items quality menu to make the "Advanced" item visible, necessary for the patch.
+                addInstructionsWithLabels(
+                    startIndex + 1,
+                    """
+                        invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->forceAdvancedVideoQualityMenuCreation()Z
+                        move-result v$freeRegister
+                        if-nez v$freeRegister, :includeAdvancedMenu
+                    """,
+                    ExternalLabel("includeAdvancedMenu", getInstruction(endIndex))
                 )
             }
         }

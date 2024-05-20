@@ -8,6 +8,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patches.shared.misc.integrations.BaseIntegrationsPatch.IntegrationsFingerprint.IRegisterResolver
 import app.revanced.patches.shared.misc.integrations.fingerprints.ReVancedUtilsPatchesVersionFingerprint
+import app.revanced.util.exception
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
@@ -139,7 +140,7 @@ abstract class BaseIntegrationsPatch(
                     "invoke-static/range { v$contextRegister .. v$contextRegister }, " +
                         "$integrationsDescriptor->setContext(Landroid/content/Context;)V",
                 )
-            } ?: throw PatchException("Could not find hook target fingerprint.")
+            } ?: throw this.exception
         }
 
         interface IHookInsertIndexResolver : (Method) -> Int {

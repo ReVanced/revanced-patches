@@ -1,3 +1,67 @@
+# [4.8.0-dev.23](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.22...v4.8.0-dev.23) (2024-05-18)
+
+
+### Features
+
+* **Piccoma:** Add `Spoof Android device ID` patch ([#3145](https://github.com/ReVanced/revanced-patches/issues/3145)) ([d953c6b](https://github.com/ReVanced/revanced-patches/commit/d953c6bdd4315d2ba44845fd569a3d12ac4d1af0))
+
+# [4.8.0-dev.22](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.21...v4.8.0-dev.22) (2024-05-18)
+
+
+### Bug Fixes
+
+* Use correct preference key ([3732b2c](https://github.com/ReVanced/revanced-patches/commit/3732b2ce6b617b4c1c6647397b614f8a040eece3))
+
+# [4.8.0-dev.21](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.20...v4.8.0-dev.21) (2024-05-18)
+
+
+### Features
+
+* **Piccoma:** Add `Disable tracking` patch ([#3143](https://github.com/ReVanced/revanced-patches/issues/3143)) ([8ab9e8f](https://github.com/ReVanced/revanced-patches/commit/8ab9e8f89d2bd014138e31dab7004f8ba77cae10))
+* **YouTube - Navigation buttons:** Add option to hide navigation button labels ([#3189](https://github.com/ReVanced/revanced-patches/issues/3189)) ([f9dc705](https://github.com/ReVanced/revanced-patches/commit/f9dc7050513b9fdb7766838a63a172f1478296f7))
+
+# [4.8.0-dev.20](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.19...v4.8.0-dev.20) (2024-05-16)
+
+
+### Features
+
+* **YT Music:** Add support for `7.01.52` ([#3177](https://github.com/ReVanced/revanced-patches/issues/3177)) ([e9bfb25](https://github.com/ReVanced/revanced-patches/commit/e9bfb25dfe85754fd7fa5c9db934bb4fc52e4694))
+
+# [4.8.0-dev.19](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.18...v4.8.0-dev.19) (2024-05-16)
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Hide 'Buy super thanks' button ([#3176](https://github.com/ReVanced/revanced-patches/issues/3176)) ([89c1548](https://github.com/ReVanced/revanced-patches/commit/89c154861c8b3afa665542e97ff201c3e84410b2))
+
+# [4.8.0-dev.18](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.17...v4.8.0-dev.18) (2024-05-14)
+
+
+### Bug Fixes
+
+* **YouTube Music:** Make `Hide 'Get Music Premium' label` and `Remove upgrade button` compatible with latest version ([#3164](https://github.com/ReVanced/revanced-patches/issues/3164)) ([3ff20de](https://github.com/ReVanced/revanced-patches/commit/3ff20dee4aea49ca77dcd3fbe148287b55a2b5e3))
+
+# [4.8.0-dev.17](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.16...v4.8.0-dev.17) (2024-05-12)
+
+
+### Features
+
+* **Photomath:** Support version `8.37.0` ([#3109](https://github.com/ReVanced/revanced-patches/issues/3109)) ([fb02b48](https://github.com/ReVanced/revanced-patches/commit/fb02b481e2be8c2bc4441dc5b3dc6a9df3a2a379))
+
+# [4.8.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.15...v4.8.0-dev.16) (2024-05-12)
+
+
+### Features
+
+* **WarnWetter - Promo code unlock:** Constrain to last working version ([#3110](https://github.com/ReVanced/revanced-patches/issues/3110)) ([92fc8aa](https://github.com/ReVanced/revanced-patches/commit/92fc8aaad80f8fad35b75e6de032692986211536))
+
+# [4.8.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.14...v4.8.0-dev.15) (2024-05-11)
+
+
+### Bug Fixes
+
+* **YouTube - Restore old video quality menu:** Show advanced quality menu in Shorts quality flyout ([#3155](https://github.com/ReVanced/revanced-patches/issues/3155)) ([c2b5bb7](https://github.com/ReVanced/revanced-patches/commit/c2b5bb723416e43a920817f97b9e0ee4ceab4f6b))
+
 # [4.8.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.13...v4.8.0-dev.14) (2024-05-08)
 
 

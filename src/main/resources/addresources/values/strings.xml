@@ -437,6 +437,9 @@
             <string name="revanced_switch_create_with_notifications_button_title">Switch Create with Notifications</string>
             <string name="revanced_switch_create_with_notifications_button_summary_on">Create button is switched with Notifications button\n\nNote: Enabling this also forcibly hides video ads</string>
             <string name="revanced_switch_create_with_notifications_button_summary_off">Create button is not switched with Notifications button</string>
+            <string name="revanced_hide_navigation_button_labels_title">Hide navigation button labels</string>
+            <string name="revanced_hide_navigation_button_labels_summary_on">Labels are hidden</string>
+            <string name="revanced_hide_navigation_button_labels_summary_off">Labels are shown</string>
         </patch>
         <patch id="layout.hide.player.flyoutmenupanel.HidePlayerFlyoutMenuPatch">
             <string name="revanced_hide_player_flyout_title">Flyout menu</string>
@@ -583,6 +586,9 @@
             <string name="revanced_hide_shorts_shop_button_title">Hide shop button</string>
             <string name="revanced_hide_shorts_shop_button_summary_on">Shop button is hidden</string>
             <string name="revanced_hide_shorts_shop_button_summary_off">Shop button is shown</string>
+            <string name="revanced_hide_shorts_super_thanks_button_title">Hide super thanks button</string>
+            <string name="revanced_hide_shorts_super_thanks_button_summary_on">Super thanks button is hidden</string>
+            <string name="revanced_hide_shorts_super_thanks_button_summary_off">Super thanks button is shown</string>
             <string name="revanced_hide_shorts_tagged_products_title">Hide tagged products</string>
             <string name="revanced_hide_shorts_tagged_products_summary_on">Tagged products are hidden</string>
             <string name="revanced_hide_shorts_tagged_products_summary_off">Tagged products are shown</string>
