@@ -19,6 +19,7 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.*
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
+import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import app.revanced.util.exception
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -41,6 +42,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
         SettingsPatch::class,
         AddResourcesPatch::class,
         UserAgentClientSpoofPatch::class,
+        VideoIdPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -221,10 +223,9 @@ object ClientSpoofPatch : BytecodePatch(
 
         // region Fix storyboard if Android Testsuite is used.
 
-        // Hook the player parameters.
-        PlayerResponseMethodHookPatch += PlayerResponseMethodHookPatch.Hook.ProtoBufferParameter(
-            "$INTEGRATIONS_CLASS_DESCRIPTOR->hookParameter(Ljava/lang/String;Z)Ljava/lang/String;",
-        )
+        VideoIdPatch.hookPlayerResponseVideoId(
+            "$INTEGRATIONS_CLASS_DESCRIPTOR->setPlayerResponseVideoId(Ljava/lang/String;Z)V")
+
 
         // Force the seekbar time and chapters to always show up.
         // This is used if the storyboard spec fetch fails, for viewing paid videos,
