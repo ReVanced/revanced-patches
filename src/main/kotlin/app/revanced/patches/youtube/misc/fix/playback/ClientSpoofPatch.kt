@@ -19,6 +19,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
 import app.revanced.util.exception
 import app.revanced.util.getReference
+import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -74,6 +75,7 @@ object ClientSpoofPatch : BytecodePatch(
         CreatePlayerRequestBodyFingerprint,
         StoryboardThumbnailParentFingerprint,
         PlayerResponseModelImplGeneralFingerprint,
+        PlayerResponseModelImplLiveStreamFingerprint,
         StoryboardRendererDecoderRecommendedLevelFingerprint,
         PlayerResponseModelImplRecommendedLevelFingerprint,
         StoryboardRendererSpecFingerprint,
@@ -225,20 +227,26 @@ object ClientSpoofPatch : BytecodePatch(
         /**
          * Hook StoryBoard renderer url.
          */
-        PlayerResponseModelImplGeneralFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val getStoryBoardIndex = it.scanResult.patternScanResult!!.endIndex
-                val getStoryBoardRegister = getInstruction<OneRegisterInstruction>(getStoryBoardIndex).registerA
+        arrayOf(
+            PlayerResponseModelImplGeneralFingerprint,
+            PlayerResponseModelImplLiveStreamFingerprint,
+        ).forEach { fingerprint ->
+            fingerprint.resultOrThrow().let {
+                it.mutableMethod.apply {
+                    val getStoryBoardIndex = it.scanResult.patternScanResult!!.endIndex
+                    val getStoryBoardRegister =
+                        getInstruction<OneRegisterInstruction>(getStoryBoardIndex).registerA
 
-                addInstructions(
-                    getStoryBoardIndex,
-                    """
+                    addInstructions(
+                        getStoryBoardIndex,
+                        """
                         invoke-static { v$getStoryBoardRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getStoryboardRendererSpec(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object v$getStoryBoardRegister
                     """,
-                )
+                    )
+                }
             }
-        } ?: throw PlayerResponseModelImplGeneralFingerprint.exception
+        }
 
 
         // Hook recommended seekbar thumbnails quality level.
@@ -301,7 +309,7 @@ object ClientSpoofPatch : BytecodePatch(
             it.mutableMethod.addInstructions(
                 storyBoardUrlIndex + 1,
                 """
-                        invoke-static { v$storyboardUrlRegister }, ${INTEGRATIONS_CLASS_DESCRIPTOR}->getStoryboardRendererSpec(Ljava/lang/String;)Ljava/lang/String;
+                        invoke-static { v$storyboardUrlRegister }, ${INTEGRATIONS_CLASS_DESCRIPTOR}->getStoryboardDecoderRendererSpec(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object v$storyboardUrlRegister
                 """,
             )
