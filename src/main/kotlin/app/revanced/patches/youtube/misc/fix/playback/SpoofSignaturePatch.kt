@@ -104,7 +104,7 @@ object SpoofSignaturePatch : BytecodePatch(
         }
 
         // If storyboard spoofing is turned off, then hide the empty seekbar thumbnail view.
-        ScrubbedPreviewLayoutFingerprint.result?.apply {
+        SpoofSignaturePatchScrubbedPreviewLayoutFingerprint.result?.apply {
             val endIndex = scanResult.patternScanResult!!.endIndex
             mutableMethod.apply {
                 val imageViewFieldName = getInstruction<ReferenceInstruction>(endIndex).reference
@@ -116,7 +116,7 @@ object SpoofSignaturePatch : BytecodePatch(
                     """,
                 )
             }
-        } ?: throw ScrubbedPreviewLayoutFingerprint.exception
+        } ?: throw SpoofSignaturePatchScrubbedPreviewLayoutFingerprint.exception
 
         /**
          * Hook StoryBoard renderer url
