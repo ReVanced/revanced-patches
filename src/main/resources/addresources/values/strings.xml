@@ -1095,7 +1095,7 @@
             <string name="revanced_client_spoof_use_ios_title">Spoof app client to iOS</string>
             <string name="revanced_client_spoof_use_ios_summary">Spoof the app client to iOS instead of an Android Testsuite</string>
             <string name="revanced_client_spoof_use_ios_summary_on">App client is spoofed to an iOS client\n\nSide effects include:\n• 60 fps video may not be available\n• No HDR playback\n• Some videos may not load\n• Higher video qualities may be missing</string>
-            <string name="revanced_client_spoof_use_ios_summary_off">App client is spoofed to an Android Testsuite client (iOS client is used for livestreams)\n\nSide effects include:\n• Subtitles may be missing\n• Player gestures may not work\n• Low quality Shorts seekbar thumbnails</string>
+            <string name="revanced_client_spoof_use_ios_summary_off">App client is spoofed to an Android Testsuite client (iOS client is used for live streams)\n\nSide effects include:\n• Subtitles may be missing\n• Player gestures may not work\n• Low quality Shorts seekbar thumbnails</string>
             <string name="revanced_client_spoof_storyboard_timeout">Spoof client thumbnails not available (API timed out)</string>
             <string name="revanced_client_spoof_storyboard_io_exception">Spoof client thumbnails temporarily not available: %s</string>
         </patch>
