@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.misc.fix.playback.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patches.youtube.misc.fix.playback.ClientSpoofResourcePatch
+import app.revanced.patches.youtube.misc.fix.playback.SpoofClientResourcePatch
 import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -23,5 +23,5 @@ internal object ScrubbedPreviewLayoutFingerprint : LiteralValueFingerprint(
         Opcode.IPUT_OBJECT, // preview imageview
     ),
     // This resource is used in ~ 40 different locations, but this method has a distinct list of parameters to match to.
-    literalSupplier = { ClientSpoofResourcePatch.scrubbedPreviewThumbnailResourceId },
+    literalSupplier = { SpoofClientResourcePatch.scrubbedPreviewThumbnailResourceId },
 )

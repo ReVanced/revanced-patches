@@ -1631,8 +1631,8 @@ public final class app/revanced/patches/youtube/misc/dimensions/spoof/SpoofDevic
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/youtube/misc/fix/playback/ClientSpoofPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/fix/playback/ClientSpoofPatch;
+public final class app/revanced/patches/youtube/misc/fix/playback/SpoofClientPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/fix/playback/SpoofClientPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }

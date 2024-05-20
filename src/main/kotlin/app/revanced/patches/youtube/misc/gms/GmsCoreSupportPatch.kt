@@ -3,7 +3,7 @@ package app.revanced.patches.youtube.misc.gms
 import app.revanced.patches.shared.fingerprints.CastContextFetchFingerprint
 import app.revanced.patches.shared.misc.gms.BaseGmsCoreSupportPatch
 import app.revanced.patches.youtube.layout.buttons.cast.HideCastButtonPatch
-import app.revanced.patches.youtube.misc.fix.playback.ClientSpoofPatch
+import app.revanced.patches.youtube.misc.fix.playback.SpoofClientPatch
 import app.revanced.patches.youtube.misc.gms.Constants.REVANCED_YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.gms.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.gms.GmsCoreSupportResourcePatch.gmsCoreVendorGroupIdOption
@@ -27,7 +27,7 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
     integrationsPatchDependency = IntegrationsPatch::class,
     dependencies = setOf(
         HideCastButtonPatch::class,
-        ClientSpoofPatch::class,
+        SpoofClientPatch::class,
     ),
     gmsCoreSupportResourcePatch = GmsCoreSupportResourcePatch,
     compatiblePackages = setOf(

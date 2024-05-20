@@ -12,6 +12,8 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.*
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
@@ -29,10 +31,10 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
 @Patch(
-    name = "Client spoof",
+    name = "Spoof client",
     description = "Spoofs the client to allow video playback.",
     dependencies = [
-        ClientSpoofResourcePatch::class,
+        SpoofClientResourcePatch::class,
         PlayerResponseMethodHookPatch::class,
         SettingsPatch::class,
         AddResourcesPatch::class,
@@ -65,7 +67,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
         ),
     ],
 )
-object ClientSpoofPatch : BytecodePatch(
+object SpoofClientPatch : BytecodePatch(
     setOf(
         // Client type spoof.
         BuildInitPlaybackRequestFingerprint,
@@ -79,10 +81,10 @@ object ClientSpoofPatch : BytecodePatch(
         StoryboardRendererDecoderRecommendedLevelFingerprint,
         PlayerResponseModelImplGeneralFingerprint,
         StoryboardRendererDecoderSpecFingerprint,
-        ),
+    ),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/youtube/patches/spoof/ClientSpoofPatch;"
+        "Lapp/revanced/integrations/youtube/patches/spoof/SpoofClientPatch;"
     private const val CLIENT_INFO_CLASS_DESCRIPTOR =
         "Lcom/google/protos/youtube/api/innertube/InnertubeContext\$ClientInfo;"
 
@@ -90,8 +92,15 @@ object ClientSpoofPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            SwitchPreference("revanced_client_spoof"),
-            SwitchPreference("revanced_client_spoof_use_ios"),
+            PreferenceScreen(
+                key = "revanced_spoof_client_screen",
+                sorting = Sorting.UNSORTED,
+                preferences = setOf(
+                    SwitchPreference("revanced_spoof_client"),
+                    SwitchPreference("revanced_spoof_client_use_ios"),
+                ),
+            ),
+
         )
 
         // region Block /initplayback requests to fall back to /get_watch requests.
@@ -136,28 +145,28 @@ object ClientSpoofPatch : BytecodePatch(
 
         // region Get field references to be used below.
 
-        val (clientInfoField, clientInfoClientTypeField, clientInfoClientVersionField)
-                = SetPlayerRequestClientTypeFingerprint.resultOrThrow().let { result ->
-            // Field in the player request object that holds the client info object.
-            val clientInfoField = result.mutableMethod
-                .getInstructions().first { instruction ->
-                    // requestMessage.clientInfo = clientInfoBuilder.build();
-                    instruction.opcode == Opcode.IPUT_OBJECT &&
-                        instruction.getReference<FieldReference>()?.type == CLIENT_INFO_CLASS_DESCRIPTOR
-                }.getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoField")
+        val (clientInfoField, clientInfoClientTypeField, clientInfoClientVersionField) =
+            SetPlayerRequestClientTypeFingerprint.resultOrThrow().let { result ->
+                // Field in the player request object that holds the client info object.
+                val clientInfoField = result.mutableMethod
+                    .getInstructions().first { instruction ->
+                        // requestMessage.clientInfo = clientInfoBuilder.build();
+                        instruction.opcode == Opcode.IPUT_OBJECT &&
+                            instruction.getReference<FieldReference>()?.type == CLIENT_INFO_CLASS_DESCRIPTOR
+                    }.getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoField")
 
-            // Client info object's client type field.
-            val clientInfoClientTypeField = result.mutableMethod
-                .getInstruction(result.scanResult.patternScanResult!!.endIndex)
-                .getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoClientTypeField")
+                // Client info object's client type field.
+                val clientInfoClientTypeField = result.mutableMethod
+                    .getInstruction(result.scanResult.patternScanResult!!.endIndex)
+                    .getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoClientTypeField")
 
-            // Client info object's client version field.
-            val clientInfoClientVersionField = result.mutableMethod
-                .getInstruction(result.scanResult.stringsScanResult!!.matches.first().index + 1)
-                .getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoClientVersionField")
+                // Client info object's client version field.
+                val clientInfoClientVersionField = result.mutableMethod
+                    .getInstruction(result.scanResult.stringsScanResult!!.matches.first().index + 1)
+                    .getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoClientVersionField")
 
-            Triple(clientInfoField, clientInfoClientTypeField, clientInfoClientVersionField)
-        }
+                Triple(clientInfoField, clientInfoClientTypeField, clientInfoClientVersionField)
+            }
 
         // endregion
 
@@ -227,7 +236,8 @@ object ClientSpoofPatch : BytecodePatch(
 
         PlayerResponseMethodHookPatch += PlayerResponseMethodHookPatch.Hook.ProtoBufferParameter(
             "$INTEGRATIONS_CLASS_DESCRIPTOR->setPlayerResponseVideoId(" +
-                    "Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;")
+                "Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;",
+        )
 
         // Hook recommended seekbar thumbnails quality level for regular videos.
         StoryboardRendererDecoderRecommendedLevelFingerprint.resultOrThrow().let {
@@ -260,7 +270,7 @@ object ClientSpoofPatch : BytecodePatch(
                     """
                         invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
                         move-result v$originalValueRegister
-                    """
+                    """,
                 )
             }
         }
@@ -315,7 +325,7 @@ object ClientSpoofPatch : BytecodePatch(
                         move-result-object $storyBoardUrlParams
                         :ignore
                         nop
-                    """
+                    """,
                 )
             }
         }
