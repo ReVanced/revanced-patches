@@ -16,8 +16,8 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.*
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
-import app.revanced.util.exception
 import app.revanced.util.getReference
+import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -74,11 +74,11 @@ object ClientSpoofPatch : BytecodePatch(
         CreatePlayerRequestBodyFingerprint,
 
         // Storyboard spoof.
+        StoryboardRendererSpecFingerprint,
+        PlayerResponseModelImplRecommendedLevelFingerprint,
+        StoryboardRendererDecoderRecommendedLevelFingerprint,
         PlayerResponseModelImplGeneralFingerprint,
         StoryboardRendererDecoderSpecFingerprint,
-        StoryboardRendererSpecFingerprint,
-        StoryboardRendererDecoderRecommendedLevelFingerprint,
-        PlayerResponseModelImplRecommendedLevelFingerprint,
         ),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -96,7 +96,7 @@ object ClientSpoofPatch : BytecodePatch(
 
         // region Block /initplayback requests to fall back to /get_watch requests.
 
-        BuildInitPlaybackRequestFingerprint.result?.let {
+        BuildInitPlaybackRequestFingerprint.resultOrThrow().let {
             val moveUriStringIndex = it.scanResult.patternScanResult!!.startIndex
             val targetRegister = it.mutableMethod.getInstruction<OneRegisterInstruction>(moveUriStringIndex).registerA
 
@@ -107,13 +107,13 @@ object ClientSpoofPatch : BytecodePatch(
                 move-result-object v$targetRegister
             """,
             )
-        } ?: throw BuildInitPlaybackRequestFingerprint.exception
+        }
 
         // endregion
 
         // region Block /get_watch requests to fall back to /player requests.
 
-        BuildPlayerRequestURIFingerprint.result?.let {
+        BuildPlayerRequestURIFingerprint.resultOrThrow().let {
             val invokeToStringIndex = it.scanResult.patternScanResult!!.startIndex
             val uriRegister = it.mutableMethod.getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
 
@@ -124,13 +124,14 @@ object ClientSpoofPatch : BytecodePatch(
                    move-result-object v$uriRegister
                 """,
             )
-        } ?: throw BuildPlayerRequestURIFingerprint.exception
+        }
 
         // endregion
 
         // region Get field references to be used below.
 
-        val (clientInfoField, clientInfoClientTypeField, clientInfoClientVersionField) = SetPlayerRequestClientTypeFingerprint.result?.let { result ->
+        val (clientInfoField, clientInfoClientTypeField, clientInfoClientVersionField)
+                = SetPlayerRequestClientTypeFingerprint.resultOrThrow().let { result ->
             // Field in the player request object that holds the client info object.
             val clientInfoField = result.mutableMethod
                 .getInstructions().first { instruction ->
@@ -150,13 +151,13 @@ object ClientSpoofPatch : BytecodePatch(
                 .getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoClientVersionField")
 
             Triple(clientInfoField, clientInfoClientTypeField, clientInfoClientVersionField)
-        } ?: throw SetPlayerRequestClientTypeFingerprint.exception
+        }
 
         // endregion
 
         // region Spoof client type for /player requests.
 
-        CreatePlayerRequestBodyFingerprint.result?.let { result ->
+        CreatePlayerRequestBodyFingerprint.resultOrThrow().let { result ->
             val setClientInfoMethodName = "patch_setClientInfo"
             val checkCastIndex = result.scanResult.patternScanResult!!.startIndex
             var clientInfoContainerClassName: String
@@ -212,7 +213,7 @@ object ClientSpoofPatch : BytecodePatch(
                     )
                 },
             )
-        } ?: throw CreatePlayerRequestBodyFingerprint.exception
+        }
 
         // endregion
 
@@ -222,11 +223,44 @@ object ClientSpoofPatch : BytecodePatch(
             "$INTEGRATIONS_CLASS_DESCRIPTOR->setPlayerResponseVideoId(" +
                     "Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;")
 
+        // Hook recommended seekbar thumbnails quality level for regular videos.
+        StoryboardRendererDecoderRecommendedLevelFingerprint.resultOrThrow().let {
+            val moveOriginalRecommendedValueIndex = it.scanResult.patternScanResult!!.endIndex
+            val originalValueRegister = it.mutableMethod
+                .getInstruction<OneRegisterInstruction>(moveOriginalRecommendedValueIndex).registerA
+
+            it.mutableMethod.addInstructions(
+                moveOriginalRecommendedValueIndex + 1,
+                """
+                        invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
+                        move-result v$originalValueRegister
+                """,
+            )
+        }
+
+        // Hook the recommended precise seeking thumbnails quality.
+        PlayerResponseModelImplRecommendedLevelFingerprint.resultOrThrow().let {
+            it.mutableMethod.apply {
+                val moveOriginalRecommendedValueIndex = it.scanResult.patternScanResult!!.endIndex
+                val originalValueRegister =
+                    getInstruction<OneRegisterInstruction>(moveOriginalRecommendedValueIndex).registerA
+
+                addInstructions(
+                    moveOriginalRecommendedValueIndex,
+                    """
+                        invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
+                        move-result v$originalValueRegister
+                        """,
+                )
+            }
+        }
+
+        // TODO: Hook the seekbar recommended level for Shorts to fix Shorts low quality seekbar thumbnails.
 
         /**
          * Hook StoryBoard renderer url.
          */
-        PlayerResponseModelImplGeneralFingerprint.result?.let {
+        PlayerResponseModelImplGeneralFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val getStoryBoardIndex = it.scanResult.patternScanResult!!.endIndex
                 val getStoryBoardRegister = getInstruction<OneRegisterInstruction>(getStoryBoardIndex).registerA
@@ -239,10 +273,10 @@ object ClientSpoofPatch : BytecodePatch(
                     """,
                 )
             }
-        } ?: throw PlayerResponseModelImplGeneralFingerprint.exception
+        }
 
         // Hook the seekbar thumbnail decoder, required for Shorts.
-        StoryboardRendererDecoderSpecFingerprint.result?.let {
+        StoryboardRendererDecoderSpecFingerprint.resultOrThrow().let {
             val storyBoardUrlIndex = it.scanResult.patternScanResult!!.startIndex + 1
             val storyboardUrlRegister =
                 it.mutableMethod.getInstruction<OneRegisterInstruction>(storyBoardUrlIndex).registerA
@@ -254,9 +288,9 @@ object ClientSpoofPatch : BytecodePatch(
                         move-result-object v$storyboardUrlRegister
                 """,
             )
-        } ?: throw StoryboardRendererDecoderSpecFingerprint.exception
+        }
 
-        StoryboardRendererSpecFingerprint.result?.let {
+        StoryboardRendererSpecFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val storyBoardUrlParams = "p0"
 
@@ -271,42 +305,7 @@ object ClientSpoofPatch : BytecodePatch(
                     """
                 )
             }
-        } ?: throw StoryboardRendererSpecFingerprint.exception
-
-
-        // Hook recommended seekbar thumbnails quality level for regular videos.
-        StoryboardRendererDecoderRecommendedLevelFingerprint.result?.let {
-            val moveOriginalRecommendedValueIndex = it.scanResult.patternScanResult!!.endIndex
-            val originalValueRegister = it.mutableMethod
-                .getInstruction<OneRegisterInstruction>(moveOriginalRecommendedValueIndex).registerA
-
-            it.mutableMethod.addInstructions(
-                moveOriginalRecommendedValueIndex + 1,
-                """
-                        invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
-                        move-result v$originalValueRegister
-                """,
-            )
-        } ?: throw StoryboardRendererDecoderRecommendedLevelFingerprint.exception
-
-        // Hook the recommended precise seeking thumbnails quality.
-        PlayerResponseModelImplRecommendedLevelFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val moveOriginalRecommendedValueIndex = it.scanResult.patternScanResult!!.endIndex
-                val originalValueRegister =
-                    getInstruction<OneRegisterInstruction>(moveOriginalRecommendedValueIndex).registerA
-
-                addInstructions(
-                    moveOriginalRecommendedValueIndex,
-                    """
-                        invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
-                        move-result v$originalValueRegister
-                        """,
-                )
-            }
-        } ?: throw PlayerResponseModelImplRecommendedLevelFingerprint.exception
-
-        // TODO: Hook the seekbar recommended level for Shorts to fix Shorts low quality seekbar thumbnails.
+        }
 
         // endregion
     }
