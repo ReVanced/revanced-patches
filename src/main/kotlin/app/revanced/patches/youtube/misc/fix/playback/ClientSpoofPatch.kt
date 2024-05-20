@@ -67,13 +67,16 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 )
 object ClientSpoofPatch : BytecodePatch(
     setOf(
+        // Client type spoof.
         BuildInitPlaybackRequestFingerprint,
         BuildPlayerRequestURIFingerprint,
         SetPlayerRequestClientTypeFingerprint,
         CreatePlayerRequestBodyFingerprint,
+
+        // Storyboard spoof.
         PlayerResponseModelImplGeneralFingerprint,
-        StoryboardRendererDecoderRecommendedLevelFingerprint,
         PlayerResponseModelImplRecommendedLevelFingerprint,
+        StoryboardRendererDecoderRecommendedLevelFingerprint,
         StoryboardRendererSpecFingerprint,
         StoryboardRendererDecoderSpecFingerprint,
     ),
