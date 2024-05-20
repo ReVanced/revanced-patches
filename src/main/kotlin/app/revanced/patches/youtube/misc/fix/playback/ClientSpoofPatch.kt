@@ -75,11 +75,11 @@ object ClientSpoofPatch : BytecodePatch(
 
         // Storyboard spoof.
         PlayerResponseModelImplGeneralFingerprint,
-        PlayerResponseModelImplRecommendedLevelFingerprint,
-        StoryboardRendererDecoderRecommendedLevelFingerprint,
-        StoryboardRendererSpecFingerprint,
         StoryboardRendererDecoderSpecFingerprint,
-    ),
+        StoryboardRendererSpecFingerprint,
+        StoryboardRendererDecoderRecommendedLevelFingerprint,
+        PlayerResponseModelImplRecommendedLevelFingerprint,
+        ),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/spoof/ClientSpoofPatch;"
@@ -241,40 +241,20 @@ object ClientSpoofPatch : BytecodePatch(
             }
         } ?: throw PlayerResponseModelImplGeneralFingerprint.exception
 
-
-        // Hook recommended seekbar thumbnails quality level.
-        StoryboardRendererDecoderRecommendedLevelFingerprint.result?.let {
-            val moveOriginalRecommendedValueIndex = it.scanResult.patternScanResult!!.endIndex
-            val originalValueRegister = it.mutableMethod
-                .getInstruction<OneRegisterInstruction>(moveOriginalRecommendedValueIndex).registerA
+        // Hook the seekbar thumbnail decoder, required for Shorts.
+        StoryboardRendererDecoderSpecFingerprint.result?.let {
+            val storyBoardUrlIndex = it.scanResult.patternScanResult!!.startIndex + 1
+            val storyboardUrlRegister =
+                it.mutableMethod.getInstruction<OneRegisterInstruction>(storyBoardUrlIndex).registerA
 
             it.mutableMethod.addInstructions(
-                moveOriginalRecommendedValueIndex + 1,
+                storyBoardUrlIndex + 1,
                 """
-                        invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
-                        move-result v$originalValueRegister
+                        invoke-static { v$storyboardUrlRegister }, ${INTEGRATIONS_CLASS_DESCRIPTOR}->getStoryboardRendererSpec(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$storyboardUrlRegister
                 """,
             )
-        } ?: throw StoryboardRendererDecoderRecommendedLevelFingerprint.exception
-
-        // Hook the recommended precise seeking thumbnails quality level for regular videos.
-        PlayerResponseModelImplRecommendedLevelFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val moveOriginalRecommendedValueIndex = it.scanResult.patternScanResult!!.endIndex
-                val originalValueRegister =
-                    getInstruction<OneRegisterInstruction>(moveOriginalRecommendedValueIndex).registerA
-
-                addInstructions(
-                    moveOriginalRecommendedValueIndex,
-                    """
-                        invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
-                        move-result v$originalValueRegister
-                        """,
-                )
-            }
-        } ?: throw PlayerResponseModelImplRecommendedLevelFingerprint.exception
-
-        // TODO: Hook the precise seekbar recommended level for Shorts to fix low quality seekbar thumbnails.
+        } ?: throw StoryboardRendererDecoderSpecFingerprint.exception
 
         StoryboardRendererSpecFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -293,20 +273,40 @@ object ClientSpoofPatch : BytecodePatch(
             }
         } ?: throw StoryboardRendererSpecFingerprint.exception
 
-        // Hook the seekbar thumbnail decoder, required for Shorts.
-        StoryboardRendererDecoderSpecFingerprint.result?.let {
-            val storyBoardUrlIndex = it.scanResult.patternScanResult!!.startIndex + 1
-            val storyboardUrlRegister =
-                it.mutableMethod.getInstruction<OneRegisterInstruction>(storyBoardUrlIndex).registerA
+
+        // Hook recommended seekbar thumbnails quality level for regular videos.
+        StoryboardRendererDecoderRecommendedLevelFingerprint.result?.let {
+            val moveOriginalRecommendedValueIndex = it.scanResult.patternScanResult!!.endIndex
+            val originalValueRegister = it.mutableMethod
+                .getInstruction<OneRegisterInstruction>(moveOriginalRecommendedValueIndex).registerA
 
             it.mutableMethod.addInstructions(
-                storyBoardUrlIndex + 1,
+                moveOriginalRecommendedValueIndex + 1,
                 """
-                        invoke-static { v$storyboardUrlRegister }, ${INTEGRATIONS_CLASS_DESCRIPTOR}->getStoryboardRendererSpec(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object v$storyboardUrlRegister
+                        invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
+                        move-result v$originalValueRegister
                 """,
             )
-        } ?: throw StoryboardRendererDecoderSpecFingerprint.exception
+        } ?: throw StoryboardRendererDecoderRecommendedLevelFingerprint.exception
+
+        // Hook the recommended precise seeking thumbnails quality.
+        PlayerResponseModelImplRecommendedLevelFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val moveOriginalRecommendedValueIndex = it.scanResult.patternScanResult!!.endIndex
+                val originalValueRegister =
+                    getInstruction<OneRegisterInstruction>(moveOriginalRecommendedValueIndex).registerA
+
+                addInstructions(
+                    moveOriginalRecommendedValueIndex,
+                    """
+                        invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
+                        move-result v$originalValueRegister
+                        """,
+                )
+            }
+        } ?: throw PlayerResponseModelImplRecommendedLevelFingerprint.exception
+
+        // TODO: Hook the seekbar recommended level for Shorts to fix Shorts low quality seekbar thumbnails.
 
         // endregion
     }
