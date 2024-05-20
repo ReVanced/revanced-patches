@@ -1094,7 +1094,7 @@
             <string name="revanced_client_spoof_use_ios_title">Spoof to an iOS client</string>
             <string name="revanced_client_spoof_use_ios_summary">Spoof the app client to iOS instead of Android Testsuite</string>
             <string name="revanced_client_spoof_use_ios_summary_on">App client is spoofed to an iOS client\n\nSide effects include:\n• 60 fps video qualities may not be available\n• No HDR playback\n• High video qualities may be missing</string>
-            <string name="revanced_client_spoof_use_ios_summary_off">App client is spoofed to an Android Testsuite client\n\nSide effects include:\n• Livestreams not playing</string>
+            <string name="revanced_client_spoof_use_ios_summary_off">App client is spoofed to an Android Testsuite client\n\nSide effects include:\n• Livestreams not playing\n• Subtitles not working</string>
             <string name="revanced_client_spoof_use_ios_user_dialog_message">Turning on this setting may cause video playback issues but allow playing livestreams.</string>
             <string name="revanced_client_spoof_spoof_storyboard_timeout">Spoof storyboard temporarily not available (API timed out)</string>
             <string name="revanced_client_spoof_spoof_storyboard_io_exception">Spoof storyboard temporarily not available: %s</string>
