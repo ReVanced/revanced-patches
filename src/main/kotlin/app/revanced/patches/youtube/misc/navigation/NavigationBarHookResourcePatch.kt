@@ -6,7 +6,9 @@ import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
 
 internal var imageOnlyTabResourceId = -1L
+    private set
 internal var actionBarSearchResultsViewMicId = -1L
+    private set
 
 internal val navigationBarHookResourcePatch = resourcePatch {
     dependsOn(resourceMappingPatch)
