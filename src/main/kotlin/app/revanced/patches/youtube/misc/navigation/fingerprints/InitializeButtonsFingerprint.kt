@@ -1,16 +1,16 @@
 package app.revanced.patches.youtube.misc.navigation.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patches.youtube.misc.navigation.NavigationBarHookResourcePatch
-import app.revanced.util.patch.LiteralValueFingerprint
+import app.revanced.patches.youtube.misc.navigation.imageOnlyTabResourceId
+import app.revanced.util.patch.literalValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
 /**
- * Resolves to the class found in [PivotBarConstructorFingerprint].
+ * Resolves to the class found in [pivotBarConstructorFingerprint].
  */
-internal object InitializeButtonsFingerprint : LiteralValueFingerprint(
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    returnType = "V",
-    parameters = listOf(),
-    literalSupplier = { NavigationBarHookResourcePatch.imageOnlyTabResourceId }
-)
+internal val initializeButtonsFingerprint = literalValueFingerprint(
+    literalSupplier = { imageOnlyTabResourceId },
+) {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
+    parameters()
+}

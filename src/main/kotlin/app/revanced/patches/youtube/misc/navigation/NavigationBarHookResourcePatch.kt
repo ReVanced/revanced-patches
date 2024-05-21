@@ -1,19 +1,18 @@
 package app.revanced.patches.youtube.misc.navigation
 
-import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
 
-@Patch(
-    dependencies = [ResourceMappingPatch::class],
-)
-internal object NavigationBarHookResourcePatch : ResourcePatch() {
-    internal var imageOnlyTabResourceId: Long = -1
-    internal var actionBarSearchResultsViewMicId: Long = -1
+internal var imageOnlyTabResourceId = -1L
+internal var actionBarSearchResultsViewMicId = -1L
 
-    override fun execute(context: ResourceContext) {
-        imageOnlyTabResourceId = ResourceMappingPatch["layout", "image_only_tab"]
-        actionBarSearchResultsViewMicId = ResourceMappingPatch["layout", "action_bar_search_results_view_mic"]
+internal val navigationBarHookResourcePatch = resourcePatch {
+    dependsOn(resourceMappingPatch)
+
+    execute {
+        imageOnlyTabResourceId = resourceMappings["layout", "image_only_tab"]
+        actionBarSearchResultsViewMicId = resourceMappings["layout", "action_bar_search_results_view_mic"]
     }
 }

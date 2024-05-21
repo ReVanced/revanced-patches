@@ -1,10 +1,9 @@
 package app.revanced.patches.youtube.misc.navigation.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object PivotBarConstructorFingerprint : MethodFingerprint(
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    strings = listOf("com.google.android.apps.youtube.app.endpoint.flags")
-)
+internal val pivotBarConstructorFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    strings("com.google.android.apps.youtube.app.endpoint.flags")
+}
