@@ -13,11 +13,14 @@ import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
 import app.revanced.util.exception
+import app.revanced.util.getReference
 import app.revanced.util.indexOfIdResourceOrThrow
 import app.revanced.util.injectHideViewCall
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Hide Shorts components",
@@ -155,17 +158,24 @@ object HideShortsComponentsPatch : BytecodePatch(
     }
 
     private enum class ShortsButtons(private val resourceName: String, private val methodName: String) {
+        LIKE("reel_dyn_like", "hideLikeButton"),
+        DISLIKE("reel_dyn_dislike", "hideDislikeButton"),
         COMMENTS("reel_dyn_comment", "hideShortsCommentsButton"),
         REMIX("reel_dyn_remix", "hideShortsRemixButton"),
-        SHARE("reel_dyn_share", "hideShortsShareButton"),
-        ;
+        SHARE("reel_dyn_share", "hideShortsShareButton");
 
         fun injectHideCall(method: MutableMethod) {
             val referencedIndex = method.indexOfIdResourceOrThrow(resourceName)
 
-            val setIdIndex = referencedIndex + 1
+            val instruction = method.implementation!!.instructions
+                .subList(referencedIndex, referencedIndex + 20)
+                .first {
+                    it.opcode == Opcode.INVOKE_VIRTUAL && it.getReference<MethodReference>()?.name == "setId"
+                }
+
+            val setIdIndex = instruction.location.index
             val viewRegister = method.getInstruction<FiveRegisterInstruction>(setIdIndex).registerC
-            method.injectHideViewCall(setIdIndex, viewRegister, FILTER_CLASS_DESCRIPTOR, methodName)
+            method.injectHideViewCall(setIdIndex + 1, viewRegister, FILTER_CLASS_DESCRIPTOR, methodName)
         }
     }
 }
