@@ -1062,10 +1062,10 @@
             <string name="revanced_remember_video_quality_wifi">wifi</string>
             <string name="revanced_remember_video_quality_toast">Changed default %1$s quality to: %2$s</string>
         </patch>
-        <patch id="video.speed.button.CustomPlaybackSpeedButtonPatch">
-            <string name="revanced_custom_playback_speed_dialog_button_title">Show custom speed dialog button</string>
-            <string name="revanced_custom_playback_speed_dialog_button_summary_on">Button is shown</string>
-            <string name="revanced_custom_playback_speed_dialog_button_summary_off">Button is not shown</string>
+        <patch id="video.speed.button.PlaybackSpeedButtonPatch">
+            <string name="revanced_playback_speed_dialog_button_title">Show speed dialog button</string>
+            <string name="revanced_playback_speed_dialog_button_summary_on">Button is shown</string>
+            <string name="revanced_playback_speed_dialog_button_summary_off">Button is not shown</string>
         </patch>
         <patch id="video.speed.custom.CustomPlaybackSpeedPatch">
             <string name="revanced_custom_playback_speeds_title">Custom playback speeds</string>

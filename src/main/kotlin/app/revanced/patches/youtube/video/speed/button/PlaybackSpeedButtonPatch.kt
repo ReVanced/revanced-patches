@@ -10,9 +10,9 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.video.speed.custom.CustomPlaybackSpeedPatch
 
 @Patch(
-    description = "Adds options to display custom speed dialog button in the video player",
+    description = "Adds option to display playback speed dialog button in the video player.",
     dependencies = [
-        CustomPlaybackSpeedButtonResourcePatch::class,
+        PlaybackSpeedButtonResourcePatch::class,
         CustomPlaybackSpeedPatch::class,
         PlayerControlsBytecodePatch::class,
         SettingsPatch::class,
@@ -20,17 +20,16 @@ import app.revanced.patches.youtube.video.speed.custom.CustomPlaybackSpeedPatch
     ],
 )
 @Suppress("unused")
-object CustomPlaybackSpeedButtonPatch : BytecodePatch(emptySet()) {
-
+object PlaybackSpeedButtonPatch : BytecodePatch(emptySet()) {
     private const val SPEED_BUTTON_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/youtube/videoplayer/CustomSpeedDialogButton;"
+        "Lapp/revanced/integrations/youtube/videoplayer/PlaybackSpeedDialogButton;"
 
     override fun execute(context: BytecodeContext) {
 
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_custom_playback_speed_dialog_button"),
+            SwitchPreference("revanced_playback_speed_dialog_button"),
         )
 
         PlayerControlsBytecodePatch.initializeControl("$SPEED_BUTTON_CLASS_DESCRIPTOR->initializeButton(Landroid/view/View;)V")

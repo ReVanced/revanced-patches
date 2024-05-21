@@ -10,15 +10,15 @@ import app.revanced.util.copyResources
 @Patch(
     dependencies = [BottomControlsResourcePatch::class],
 )
-internal object CustomPlaybackSpeedButtonResourcePatch : ResourcePatch() {
+internal object PlaybackSpeedButtonResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         context.copyResources(
-            "speedbutton", ResourceGroup(
+            "speed-button", ResourceGroup(
                 "drawable",
-                "revanced_custom_playback_speed_dialog_button.xml",
+                "revanced_playback_speed_dialog_button.xml",
             )
         )
 
-        BottomControlsResourcePatch.addControls("speedbutton")
+        BottomControlsResourcePatch.addControls("speed-button")
     }
 }
