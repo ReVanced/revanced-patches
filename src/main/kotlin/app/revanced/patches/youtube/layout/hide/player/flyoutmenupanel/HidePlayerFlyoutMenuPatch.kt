@@ -13,7 +13,7 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 
 @Suppress("unused")
 val hidePlayerFlyoutMenuPatch = bytecodePatch(
-    name = "Hide player flyout menu",
+    name = "Hide player flyout menu items",
     description = "Adds options to hide menu items that appear when pressing the gear icon in the video player.",
 ) {
     dependsOn(
