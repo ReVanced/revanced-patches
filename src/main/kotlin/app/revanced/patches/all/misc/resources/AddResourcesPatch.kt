@@ -171,6 +171,7 @@ class AddResources internal constructor() : MutableResources by mutableMapOf() {
         }
     }
 }
+
 val addResources = AddResources()
 
 val addResourcesPatch = resourcePatch(
