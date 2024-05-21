@@ -6,8 +6,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 
 @Patch(dependencies = [ResourceMappingPatch::class])
-@Deprecated("This patch will be removed in the future.")
-object SpoofSignatureResourcePatch : ResourcePatch() {
+internal object SpoofClientResourcePatch : ResourcePatch() {
     internal var scrubbedPreviewThumbnailResourceId: Long = -1
 
     override fun execute(context: ResourceContext) {
