@@ -5,9 +5,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import app.revanced.integrations.shared.Logger;
 import app.revanced.integrations.youtube.patches.components.VideoQualityMenuFilterPatch;
 import app.revanced.integrations.youtube.settings.Settings;
-import app.revanced.integrations.shared.Logger;
 
 /**
  * This patch contains the logic to show the old video quality menu.
@@ -44,7 +44,18 @@ public final class RestoreOldVideoQualityMenuPatch {
     }
 
     /**
-     * Injection point.  Only used if spoofing to an old app version.
+     * Injection point.
+     *
+     * Used to force the creation of the advanced menu item for the Shorts quality flyout.
+     */
+    public static boolean forceAdvancedVideoQualityMenuCreation() {
+        return Settings.RESTORE_OLD_VIDEO_QUALITY_MENU.get();
+    }
+
+    /**
+     * Injection point.
+     *
+     * Used if spoofing to an old app version, and also used for the Shorts video quality flyout.
      */
     public static void showOldVideoQualityMenu(final ListView listView) {
         if (!Settings.RESTORE_OLD_VIDEO_QUALITY_MENU.get()) return;
@@ -52,17 +63,21 @@ public final class RestoreOldVideoQualityMenuPatch {
         listView.setOnHierarchyChangeListener(new ViewGroup.OnHierarchyChangeListener() {
             @Override
             public void onChildViewAdded(View parent, View child) {
-                Logger.printDebug(() -> "Added listener to old type of quality menu");
+                try {
+                    parent.setVisibility(View.GONE);
 
-                parent.setVisibility(View.GONE);
+                    final var indexOfAdvancedQualityMenuItem = 4;
+                    if (listView.indexOfChild(child) != indexOfAdvancedQualityMenuItem) return;
 
-                final var indexOfAdvancedQualityMenuItem = 4;
-                if (listView.indexOfChild(child) != indexOfAdvancedQualityMenuItem) return;
+                    Logger.printDebug(() -> "Found advanced menu item in old type of quality menu");
 
-                Logger.printDebug(() -> "Found advanced menu item in old type of quality menu");
+                    listView.setSoundEffectsEnabled(false);
+                    final var qualityItemMenuPosition = 4;
+                    listView.performItemClick(null, qualityItemMenuPosition, 0);
 
-                final var qualityItemMenuPosition = 4;
-                listView.performItemClick(null, qualityItemMenuPosition, 0);
+                } catch (Exception ex) {
+                    Logger.printException(() -> "showOldVideoQualityMenu failure", ex);
+                }
             }
 
             @Override

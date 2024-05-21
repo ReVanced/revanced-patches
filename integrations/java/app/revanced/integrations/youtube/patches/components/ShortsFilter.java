@@ -1,6 +1,7 @@
 package app.revanced.integrations.youtube.patches.components;
 
 import static app.revanced.integrations.shared.Utils.hideViewUnderCondition;
+import static app.revanced.integrations.shared.Utils.removeViewFromParentUnderConditions;
 import static app.revanced.integrations.youtube.shared.NavigationBar.NavigationButton;
 
 import android.view.View;
@@ -65,8 +66,12 @@ public final class ShortsFilter extends Filter {
         // Path components.
         //
 
-        // Shorts that appear in the feed/search when the device is using tablet layout.
-        shortsCompactFeedVideoPath = new StringFilterGroup(null, "compact_video.eml");
+        shortsCompactFeedVideoPath = new StringFilterGroup(null,
+                // Shorts that appear in the feed/search when the device is using tablet layout.
+                "compact_video.eml",
+                // Search results that appear in a horizontal shelf.
+                "video_card.eml");
+
         // Filter out items that use the 'frame0' thumbnail.
         // This is a valid thumbnail for both regular videos and Shorts,
         // but it appears these thumbnails are used only for Shorts.
@@ -194,6 +199,10 @@ public final class ShortsFilter extends Filter {
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_SEARCH_SUGGESTIONS,
                         "yt_outline_search_"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_SHORTS_SUPER_THANKS_BUTTON,
+                        "yt_outline_dollar_sign_heart_"
                 )
         );
     }
@@ -213,8 +222,7 @@ public final class ShortsFilter extends Filter {
             }
 
             if (matchedGroup == shortsCompactFeedVideoPath) {
-                if (shouldHideShortsFeedItems() && contentIndex == 0
-                        && shortsCompactFeedVideoBuffer.check(protobufBufferArray).isFiltered()) {
+                if (shouldHideShortsFeedItems() && shortsCompactFeedVideoBuffer.check(protobufBufferArray).isFiltered()) {
                     return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
                 }
                 return false;
@@ -309,6 +317,21 @@ public final class ShortsFilter extends Filter {
     }
 
     // region Hide the buttons in older versions of YouTube. New versions use Litho.
+
+    public static void hideLikeButton(final View likeButtonView) {
+        // Cannot set the visibility to gone for like/dislike,
+        // as some other unknown YT code also sets the visibility after this hook.
+        //
+        // Setting the view to 0dp works, but that leaves a blank space where
+        // the button was (only relevant for dislikes button).
+        //
+        // Instead remove the view from the parent.
+        removeViewFromParentUnderConditions(Settings.HIDE_SHORTS_LIKE_BUTTON, likeButtonView);
+    }
+
+    public static void hideDislikeButton(final View dislikeButtonView) {
+        removeViewFromParentUnderConditions(Settings.HIDE_SHORTS_DISLIKE_BUTTON, dislikeButtonView);
+    }
 
     public static void hideShortsCommentsButton(final View commentsButtonView) {
         hideViewUnderCondition(Settings.HIDE_SHORTS_COMMENTS_BUTTON, commentsButtonView);

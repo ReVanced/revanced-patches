@@ -1,5 +1,6 @@
 package app.revanced.integrations.youtube.patches;
 
+import static app.revanced.integrations.shared.Utils.hideViewUnderCondition;
 import static app.revanced.integrations.youtube.shared.NavigationBar.NavigationButton;
 
 import android.view.View;
@@ -7,7 +8,7 @@ import android.view.View;
 import java.util.EnumMap;
 import java.util.Map;
 
-import app.revanced.integrations.shared.Logger;
+import android.widget.TextView;
 import app.revanced.integrations.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
@@ -39,5 +40,12 @@ public final class NavigationButtonsPatch {
         if (Boolean.TRUE.equals(shouldHideMap.get(button))) {
             tabView.setVisibility(View.GONE);
         }
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void hideNavigationButtonLabels(TextView navigationLabelsView) {
+        hideViewUnderCondition(Settings.HIDE_NAVIGATION_BUTTON_LABELS, navigationLabelsView);
     }
 }

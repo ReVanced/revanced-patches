@@ -23,6 +23,10 @@ public final class AdsFilter extends Filter {
     // endregion
 
     private final StringTrieSearch exceptions = new StringTrieSearch();
+
+    private final StringFilterGroup channelProfile;
+    private final ByteArrayFilterGroup visitStoreButton;
+
     private final StringFilterGroup shoppingLinks;
 
     public AdsFilter() {
@@ -100,6 +104,16 @@ public final class AdsFilter extends Filter {
                 "expandable_list"
         );
 
+        channelProfile = new StringFilterGroup(
+                null,
+                "channel_profile.eml"
+        );
+
+        visitStoreButton = new ByteArrayFilterGroup(
+                Settings.HIDE_VISIT_STORE_BUTTON,
+                "header_store_button"
+        );
+
         final var webLinkPanel = new StringFilterGroup(
                 Settings.HIDE_WEB_SEARCH_RESULTS,
                 "web_link_panel"
@@ -122,6 +136,7 @@ public final class AdsFilter extends Filter {
                 viewProducts,
                 selfSponsor,
                 fullscreenAd,
+                channelProfile,
                 webLinkPanel,
                 shoppingLinks,
                 movieAds
@@ -140,6 +155,13 @@ public final class AdsFilter extends Filter {
             return false; // Do not actually filter the fullscreen ad otherwise it will leave a dimmed screen.
         }
 
+        if (matchedGroup == channelProfile) {
+            if (visitStoreButton.check(protobufBufferArray).isFiltered()) {
+                return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
+            }
+            return false;
+        }
+
         // Check for the index because of likelihood of false positives.
         if (matchedGroup == shoppingLinks && contentIndex != 0)
             return false;
@@ -153,7 +175,7 @@ public final class AdsFilter extends Filter {
      * @param view The view, which shows ads.
      */
     public static void hideAdAttributionView(View view) {
-        Utils.hideViewBy1dpUnderCondition(Settings.HIDE_GENERAL_ADS, view);
+        Utils.hideViewBy0dpUnderCondition(Settings.HIDE_GENERAL_ADS, view);
     }
 
     /**

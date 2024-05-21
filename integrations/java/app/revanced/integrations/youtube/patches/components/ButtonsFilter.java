@@ -22,7 +22,7 @@ final class ButtonsFilter extends Filter {
 
         bufferFilterPathGroup = new StringFilterGroup(
                 null,
-                "|CellType|CollectionType|CellType|ContainerType|button.eml|"
+                "|ContainerType|button.eml|"
         );
         addPathCallbacks(
                 new StringFilterGroup(
@@ -62,10 +62,6 @@ final class ButtonsFilter extends Filter {
                 new ByteArrayFilterGroup(
                         Settings.HIDE_CLIP_BUTTON,
                         "yt_outline_scissors"
-                ),
-                new ByteArrayFilterGroup(
-                        Settings.HIDE_SHOP_BUTTON,
-                        "yt_outline_bag"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_THANKS_BUTTON,

@@ -16,6 +16,7 @@ public class ThemeHelper {
     /**
      * Injection point.
      */
+    @SuppressWarnings("unused")
     public static void setTheme(Enum<?> value) {
         final int newOrdinalValue = value.ordinal();
         if (themeValue != newOrdinalValue) {
@@ -40,12 +41,12 @@ public class ThemeHelper {
      */
     private static String darkThemeResourceName() {
         // Value is changed by Theme patch, if included.
-        return "@android:color/black";
+        return "@color/yt_black3";
     }
 
     /**
      * @return The dark theme color as specified by the Theme patch (if included),
-     *         or the Android color of black.
+     *         or the dark mode background color unpatched YT uses.
      */
     public static int getDarkThemeColor() {
         if (darkThemeColor == null) {
@@ -59,12 +60,12 @@ public class ThemeHelper {
      */
     private static String lightThemeResourceName() {
         // Value is changed by Theme patch, if included.
-        return "@android:color/white";
+        return "@color/yt_white1";
     }
 
     /**
      * @return The light theme color as specified by the Theme patch (if included),
-     *         or the Android color of white.
+     *         or the non dark mode background color unpatched YT uses.
      */
     public static int getLightThemeColor() {
         if (lightThemeColor == null) {

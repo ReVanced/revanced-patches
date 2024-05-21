@@ -2,7 +2,6 @@ package app.revanced.integrations.youtube.sponsorblock;
 
 import static app.revanced.integrations.shared.StringRef.str;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -13,13 +12,14 @@ import androidx.annotation.NonNull;
 
 import java.lang.ref.WeakReference;
 import java.text.NumberFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.Date;
-import java.util.Objects;
-import java.util.TimeZone;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import app.revanced.integrations.shared.Logger;
+import app.revanced.integrations.shared.Utils;
 import app.revanced.integrations.youtube.patches.VideoInformation;
 import app.revanced.integrations.youtube.settings.Settings;
 import app.revanced.integrations.youtube.sponsorblock.objects.CategoryBehaviour;
@@ -28,25 +28,16 @@ import app.revanced.integrations.youtube.sponsorblock.objects.SponsorSegment;
 import app.revanced.integrations.youtube.sponsorblock.objects.SponsorSegment.SegmentVote;
 import app.revanced.integrations.youtube.sponsorblock.requests.SBRequester;
 import app.revanced.integrations.youtube.sponsorblock.ui.SponsorBlockViewController;
-import app.revanced.integrations.shared.Logger;
-import app.revanced.integrations.shared.Utils;
 
 /**
  * Not thread safe. All fields/methods must be accessed from the main thread.
  */
 public class SponsorBlockUtils {
-    private static final String MANUAL_EDIT_TIME_FORMAT = "HH:mm:ss.SSS";
-    @SuppressLint("SimpleDateFormat")
-    private static final SimpleDateFormat manualEditTimeFormatter = new SimpleDateFormat(MANUAL_EDIT_TIME_FORMAT);
-    @SuppressLint("SimpleDateFormat")
-    private static final SimpleDateFormat voteSegmentTimeFormatter = new SimpleDateFormat();
-    private static final NumberFormat statsNumberFormatter = NumberFormat.getNumberInstance();
-    static {
-        TimeZone utc = TimeZone.getTimeZone("UTC");
-        manualEditTimeFormatter.setTimeZone(utc);
-        voteSegmentTimeFormatter.setTimeZone(utc);
-    }
     private static final String LOCKED_COLOR = "#FFC83D";
+    private static final String MANUAL_EDIT_TIME_TEXT_HINT = "hh:mm:ss.sss";
+    private static final Pattern manualEditTimePattern
+            = Pattern.compile("((\\d{1,2}):)?(\\d{1,2}):(\\d{2})(\\.(\\d{1,3}))?");
+    private static final NumberFormat statsNumberFormatter = NumberFormat.getNumberInstance();
 
     private static long newSponsorSegmentDialogShownMillis;
     private static long newSponsorSegmentStartMillis = -1;
@@ -131,17 +122,17 @@ public class SponsorBlockUtils {
             final boolean isStart = DialogInterface.BUTTON_NEGATIVE == which;
 
             final EditText textView = new EditText(context);
-            textView.setHint(MANUAL_EDIT_TIME_FORMAT);
+            textView.setHint(MANUAL_EDIT_TIME_TEXT_HINT);
             if (isStart) {
                 if (newSponsorSegmentStartMillis >= 0)
-                    textView.setText(manualEditTimeFormatter.format(new Date(newSponsorSegmentStartMillis)));
+                    textView.setText(formatSegmentTime(newSponsorSegmentStartMillis));
             } else {
                 if (newSponsorSegmentEndMillis >= 0)
-                    textView.setText(manualEditTimeFormatter.format(new Date(newSponsorSegmentEndMillis)));
+                    textView.setText(formatSegmentTime(newSponsorSegmentEndMillis));
             }
 
             editByHandSaveDialogListener.settingStart = isStart;
-            editByHandSaveDialogListener.editText = new WeakReference<>(textView);
+            editByHandSaveDialogListener.editTextRef = new WeakReference<>(textView);
             new AlertDialog.Builder(context)
                     .setTitle(str(isStart ? "revanced_sb_new_segment_time_start" : "revanced_sb_new_segment_time_end"))
                     .setView(textView)
@@ -243,7 +234,7 @@ public class SponsorBlockUtils {
             new AlertDialog.Builder(SponsorBlockViewController.getOverLaysViewGroupContext())
                     .setTitle(str("revanced_sb_new_segment_title"))
                     .setMessage(str("revanced_sb_new_segment_mark_time_as_question",
-                            newSponsorSegmentDialogShownMillis / 60000,
+                            newSponsorSegmentDialogShownMillis / 3600000,
                             newSponsorSegmentDialogShownMillis / 1000 % 60,
                             newSponsorSegmentDialogShownMillis % 1000))
                     .setNeutralButton(android.R.string.cancel, null)
@@ -265,15 +256,13 @@ public class SponsorBlockUtils {
             } else if (!newSponsorSegmentPreviewed && newSponsorSegmentStartMillis != 0) {
                 Utils.showToastLong(str("revanced_sb_new_segment_preview_segment_first"));
             } else {
-                long length = (newSponsorSegmentEndMillis - newSponsorSegmentStartMillis) / 1000;
-                long start = (newSponsorSegmentStartMillis) / 1000;
-                long end = (newSponsorSegmentEndMillis) / 1000;
+                final long segmentLength = (newSponsorSegmentEndMillis - newSponsorSegmentStartMillis) / 1000;
                 new AlertDialog.Builder(SponsorBlockViewController.getOverLaysViewGroupContext())
                         .setTitle(str("revanced_sb_new_segment_confirm_title"))
                         .setMessage(str("revanced_sb_new_segment_confirm_content",
-                                start / 60, start % 60,
-                                end / 60, end % 60,
-                                length / 60, length % 60))
+                                formatSegmentTime(newSponsorSegmentStartMillis),
+                                formatSegmentTime(newSponsorSegmentEndMillis),
+                                getTimeSavedString(segmentLength)))
                         .setNegativeButton(android.R.string.no, null)
                         .setPositiveButton(android.R.string.yes, segmentReadyDialogButtonListener)
                         .show();
@@ -295,19 +284,6 @@ public class SponsorBlockUtils {
                 return;
             }
 
-            // use same time formatting as shown in the video player
-            final long videoLength = VideoInformation.getVideoLength();
-            final String formatPattern;
-            if (videoLength < (10 * 60 * 1000)) {
-                formatPattern = "m:ss.SSS"; // less than 10 minutes
-            } else if (videoLength < (60 * 60 * 1000)) {
-                formatPattern = "mm:ss.SSS"; // less than 1 hour
-            } else if (videoLength < (10 * 60 * 60 * 1000)) {
-                formatPattern = "H:mm:ss.SSS"; // less than 10 hours
-            } else {
-                formatPattern = "HH:mm:ss.SSS"; // why is this on YouTube
-            }
-            voteSegmentTimeFormatter.applyPattern(formatPattern);
 
             final int numberOfSegments = segments.length;
             CharSequence[] titles = new CharSequence[numberOfSegments];
@@ -319,9 +295,9 @@ public class SponsorBlockUtils {
                 StringBuilder htmlBuilder = new StringBuilder();
                 htmlBuilder.append(String.format("<b><font color=\"#%06X\">⬤</font> %s<br>",
                         segment.category.color, segment.category.title));
-                htmlBuilder.append(voteSegmentTimeFormatter.format(new Date(segment.start)));
+                htmlBuilder.append(formatSegmentTime(segment.start));
                 if (segment.category != SegmentCategory.HIGHLIGHT) {
-                    htmlBuilder.append(" to ").append(voteSegmentTimeFormatter.format(new Date(segment.end)));
+                    htmlBuilder.append(" to ").append(formatSegmentTime(segment.end));
                 }
                 htmlBuilder.append("</b>");
                 if (i + 1 != numberOfSegments) // prevents trailing new line after last segment
@@ -367,7 +343,7 @@ public class SponsorBlockUtils {
                 SegmentPlaybackController.addUnsubmittedSegment(
                         new SponsorSegment(SegmentCategory.UNSUBMITTED, null,
                                 newSponsorSegmentStartMillis, newSponsorSegmentEndMillis, false));
-                VideoInformation.seekTo(newSponsorSegmentStartMillis - 2500);
+                VideoInformation.seekTo(newSponsorSegmentStartMillis - 2000);
             }
         } catch (Exception ex) {
             Logger.printException(() -> "onPreviewClicked failure", ex);
@@ -408,6 +384,65 @@ public class SponsorBlockUtils {
         return statsNumberFormatter.format(viewCount);
     }
 
+    @SuppressWarnings("ConstantConditions")
+    private static long parseSegmentTime(@NonNull String time) {
+        Matcher matcher = manualEditTimePattern.matcher(time);
+        if (!matcher.matches()) {
+            return -1;
+        }
+        String hoursStr = matcher.group(2); // Hours is optional.
+        String minutesStr = matcher.group(3);
+        String secondsStr = matcher.group(4);
+        String millisecondsStr = matcher.group(6); // Milliseconds is optional.
+
+        try {
+            final int hours = (hoursStr != null) ? Integer.parseInt(hoursStr) : 0;
+            final int minutes = Integer.parseInt(minutesStr);
+            final int seconds = Integer.parseInt(secondsStr);
+            final int milliseconds;
+            if (millisecondsStr != null) {
+                // Pad out with zeros if not all decimal places were used.
+                millisecondsStr = String.format(Locale.US, "%-3s", millisecondsStr).replace(' ', '0');
+                milliseconds = Integer.parseInt(millisecondsStr);
+            } else {
+                milliseconds = 0;
+            }
+
+            return (hours * 3600000L) + (minutes * 60000L) + (seconds * 1000L) + milliseconds;
+        } catch (NumberFormatException ex) {
+            Logger.printInfo(() -> "Time format exception: " + time, ex);
+            return -1;
+        }
+    }
+
+    private static String formatSegmentTime(long segmentTime) {
+        // Use same time formatting as shown in the video player.
+        final long videoLength = VideoInformation.getVideoLength();
+
+        // Cannot use DateFormatter, as videos over 24 hours will rollover and not display correctly.
+        final long hours = TimeUnit.MILLISECONDS.toHours(segmentTime);
+        final long minutes = TimeUnit.MILLISECONDS.toMinutes(segmentTime) % 60;
+        final long seconds = TimeUnit.MILLISECONDS.toSeconds(segmentTime) % 60;
+        final long milliseconds = segmentTime % 1000;
+
+        final String formatPattern;
+        Object[] formatArgs = {minutes, seconds, milliseconds};
+
+        if (videoLength < (10 * 60 * 1000)) {
+            formatPattern = "%01d:%02d.%03d"; // Less than 10 minutes.
+        } else if (videoLength < (60 * 60 * 1000)) {
+            formatPattern = "%02d:%02d.%03d"; // Less than 1 hour.
+        } else if (videoLength < (10 * 60 * 60 * 1000)) {
+            formatPattern = "%01d:%02d:%02d.%03d"; // Less than 10 hours.
+            formatArgs = new Object[]{hours, minutes, seconds, milliseconds};
+        } else {
+            formatPattern = "%02d:%02d:%02d.%03d"; // Why is this on YouTube?
+            formatArgs = new Object[]{hours, minutes, seconds, milliseconds};
+        }
+
+        return String.format(Locale.US, formatPattern, formatArgs);
+    }
+
     public static String getTimeSavedString(long totalSecondsSaved) {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             Duration duration = Duration.ofSeconds(totalSecondsSaved);
@@ -431,17 +466,24 @@ public class SponsorBlockUtils {
 
     private static class EditByHandSaveDialogListener implements DialogInterface.OnClickListener {
         boolean settingStart;
-        WeakReference<EditText> editText;
+        WeakReference<EditText> editTextRef = new WeakReference<>(null);
 
         @Override
         public void onClick(DialogInterface dialog, int which) {
             try {
-                final EditText editText = this.editText.get();
+                final EditText editText = editTextRef.get();
                 if (editText == null) return;
 
-                long time = (which == DialogInterface.BUTTON_NEUTRAL) ?
-                        VideoInformation.getVideoTime() :
-                        (Objects.requireNonNull(manualEditTimeFormatter.parse(editText.getText().toString())).getTime());
+                final long time;
+                if (which == DialogInterface.BUTTON_NEUTRAL) {
+                    time = VideoInformation.getVideoTime();
+                } else {
+                    time = parseSegmentTime(editText.getText().toString());
+                    if (time < 0) {
+                        Utils.showToastLong(str("revanced_sb_new_segment_edit_by_hand_parse_error"));
+                        return;
+                    }
+                }
 
                 if (settingStart)
                     newSponsorSegmentStartMillis = Math.max(time, 0);
@@ -452,8 +494,6 @@ public class SponsorBlockUtils {
                     editByHandDialogListener.onClick(dialog, settingStart ?
                             DialogInterface.BUTTON_NEGATIVE :
                             DialogInterface.BUTTON_POSITIVE);
-            } catch (ParseException e) {
-                Utils.showToastLong(str("revanced_sb_new_segment_edit_by_hand_parse_error"));
             } catch (Exception ex) {
                 Logger.printException(() -> "EditByHandSaveDialogListener failure", ex);
             }
