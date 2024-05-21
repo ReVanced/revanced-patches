@@ -1,9 +1,10 @@
 package app.revanced.patches.youtube.layout.hide.general.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object PlayerOverlayFingerprint : MethodFingerprint(
-    "L", AccessFlags.PUBLIC or AccessFlags.FINAL, strings = listOf("player_overlay_in_video_programming")
-)
+internal val playerOverlayFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("L")
+    strings("player_overlay_in_video_programming")
+}

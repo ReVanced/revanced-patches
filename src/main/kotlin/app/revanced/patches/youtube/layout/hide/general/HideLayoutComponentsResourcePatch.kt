@@ -1,24 +1,23 @@
 package app.revanced.patches.youtube.layout.hide.general
 
-import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.all.misc.resources.AddResourcesPatch
-import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
-import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
+import app.revanced.patches.youtube.misc.settings.settingsPatch
 
-@Patch(
-    dependencies = [
-        SettingsPatch::class,
-        ResourceMappingPatch::class,
-        AddResourcesPatch::class,
-    ],
-)
-internal object HideLayoutComponentsResourcePatch : ResourcePatch() {
-    internal var expandButtonDownId: Long = -1
+internal var expandButtonDownId = -1L
 
-    override fun execute(context: ResourceContext) {
-        expandButtonDownId = ResourceMappingPatch[
+internal val hideLayoutComponentsResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        resourceMappingPatch,
+        addResourcesPatch,
+    )
+
+    execute {
+        expandButtonDownId = resourceMappings[
             "layout",
             "expand_button_down",
         ]

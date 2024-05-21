@@ -1,10 +1,10 @@
 package app.revanced.patches.youtube.layout.hide.general.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object ParseElementFromBufferFingerprint : MethodFingerprint(
-    parameters = listOf("L","L","[B", "L","L"),
-    opcodes = listOf(Opcode.INVOKE_INTERFACE, Opcode.MOVE_RESULT_OBJECT),
-    strings = listOf("Failed to parse Element")
-)
+internal val parseElementFromBufferFingerprint = methodFingerprint {
+    parameters("L", "L", "[B", "L", "L")
+    opcodes(Opcode.INVOKE_INTERFACE, Opcode.MOVE_RESULT_OBJECT)
+    strings("Failed to parse Element")
+}
