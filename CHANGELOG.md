@@ -1,3 +1,10 @@
+# [4.8.0-dev.24](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.23...v4.8.0-dev.24) (2024-05-21)
+
+
+### Bug Fixes
+
+* **YouTube - Client spoof:** Spoof client to fix playback ([#3199](https://github.com/ReVanced/revanced-patches/issues/3199)) ([bec1eef](https://github.com/ReVanced/revanced-patches/commit/bec1eef10f2eb4e15696acb271357f1621543de1))
+
 # [4.8.0-dev.23](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.22...v4.8.0-dev.23) (2024-05-18)
 
 
