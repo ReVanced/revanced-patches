@@ -907,7 +907,7 @@
             <string name="revanced_spoof_app_version_summary_on">Version spoofed</string>
             <string name="revanced_spoof_app_version_summary_off">Version not spoofed</string>
             <string name="revanced_spoof_app_version_user_dialog_message">App version will be spoofed to an older version of YouTube.\n\nThis will change the appearance and features of the app, but unknown side effects may occur.\n\nIf later turned off, it is recommended to clear the app data to prevent UI bugs.</string>
-            <!-- It is ideal, but not required, if the text here appears alphabetically after the text used for 'revanced_spoof_app_version_title'.
+            <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
             <string name="revanced_spoof_app_version_target_title">Spoof app version target</string>
             <!-- 'RYD' is 'Return YouTube Dislike' -->
@@ -1084,6 +1084,21 @@
             <string name="revanced_slide_to_seek_title">Enable slide to seek</string>
             <string name="revanced_slide_to_seek_summary_on">Slide to seek is enabled</string>
             <string name="revanced_slide_to_seek_summary_off">Slide to seek is not enabled</string>
+        </patch>
+        <patch id="misc.fix.playback.SpoofClientPatch">
+            <string name="revanced_spoof_client_screen_title">Spoof client</string>
+            <string name="revanced_spoof_client_screen_summary">Spoof the client to prevent playback issues</string>
+            <string name="revanced_spoof_client_title">Spoof client</string>
+            <string name="revanced_spoof_client_summary_on">Client is spoofed</string>
+            <string name="revanced_spoof_client_summary_off">Client is not spoofed\n\nVideo playback may not work</string>
+            <string name="revanced_spoof_client_user_dialog_message">Turning off this setting may cause video playback issues.</string>
+            <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_client_spoof_title' -->
+            <string name="revanced_spoof_client_use_ios_title">Spoof client to iOS</string>
+            <string name="revanced_spoof_client_use_ios_summary">Spoof the client to iOS instead of an Android Testsuite</string>
+            <string name="revanced_spoof_client_use_ios_summary_on">Client is spoofed to an iOS client\n\nSide effects include:\n• 60 fps video may not be available\n• No HDR video\n• Some videos may not load\n• Higher video qualities may be missing</string>
+            <string name="revanced_spoof_client_use_ios_summary_off">Client is spoofed to an Android Testsuite client (iOS client is used for live streams)\n\nSide effects include:\n• Subtitles are missing\n• Player gestures may not work\n• Low quality Shorts seekbar thumbnails</string>
+            <string name="revanced_spoof_client_storyboard_timeout">Spoof client thumbnails not available (API timed out)</string>
+            <string name="revanced_spoof_client_storyboard_io_exception">Spoof client thumbnails temporarily not available: %s</string>
         </patch>
         <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
         <patch id="misc.fix.playback.SpoofSignaturePatch">

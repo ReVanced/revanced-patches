@@ -68,7 +68,7 @@ object SpoofSignaturePatch : BytecodePatch(
 
         // Hook the player parameters.
         PlayerResponseMethodHookPatch += PlayerResponseMethodHookPatch.Hook.ProtoBufferParameter(
-            "$INTEGRATIONS_CLASS_DESCRIPTOR->spoofParameter(Ljava/lang/String;Z)Ljava/lang/String;",
+            "$INTEGRATIONS_CLASS_DESCRIPTOR->spoofParameter(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;",
         )
 
         // Force the seekbar time and chapters to always show up.
@@ -104,7 +104,7 @@ object SpoofSignaturePatch : BytecodePatch(
         }
 
         // If storyboard spoofing is turned off, then hide the empty seekbar thumbnail view.
-        ScrubbedPreviewLayoutFingerprint.result?.apply {
+        SpoofSignaturePatchScrubbedPreviewLayoutFingerprint.result?.apply {
             val endIndex = scanResult.patternScanResult!!.endIndex
             mutableMethod.apply {
                 val imageViewFieldName = getInstruction<ReferenceInstruction>(endIndex).reference
@@ -116,7 +116,7 @@ object SpoofSignaturePatch : BytecodePatch(
                     """,
                 )
             }
-        } ?: throw ScrubbedPreviewLayoutFingerprint.exception
+        } ?: throw SpoofSignaturePatchScrubbedPreviewLayoutFingerprint.exception
 
         /**
          * Hook StoryBoard renderer url
