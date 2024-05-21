@@ -85,7 +85,7 @@ public class SpoofSignaturePatch {
      *
      * @param parameters Original protobuf parameter value.
      */
-    public static String spoofParameter(String parameters, boolean isShortAndOpeningOrPlaying) {
+    public static String spoofParameter(String parameters, String videoId, boolean isShortAndOpeningOrPlaying) {
         try {
             Logger.printDebug(() -> "Original protobuf parameter value: " + parameters);
 
@@ -152,12 +152,12 @@ public class SpoofSignaturePatch {
         if (Settings.SPOOF_SIGNATURE.get() && !useOriginalStoryboardRenderer) {
             StoryboardRenderer renderer = getRenderer(false);
             if (renderer != null) {
-                if (returnNullIfLiveStream && renderer.isLiveStream()) {
+                if (returnNullIfLiveStream && renderer.isLiveStream) {
                     return null;
                 }
-                String spec = renderer.getSpec();
-                if (spec != null) {
-                    return spec;
+
+                if (renderer.spec != null) {
+                    return renderer.spec;
                 }
             }
         }
@@ -191,8 +191,9 @@ public class SpoofSignaturePatch {
         if (Settings.SPOOF_SIGNATURE.get() && !useOriginalStoryboardRenderer) {
             StoryboardRenderer renderer = getRenderer(false);
             if (renderer != null) {
-                Integer recommendedLevel = renderer.getRecommendedLevel();
-                if (recommendedLevel != null) return recommendedLevel;
+                if (renderer.recommendedLevel != null) {
+                    return renderer.recommendedLevel;
+                }
             }
         }
 
@@ -214,7 +215,7 @@ public class SpoofSignaturePatch {
             // Show empty thumbnails so the seek time and chapters still show up.
             return true;
         }
-        return renderer.getSpec() != null;
+        return renderer.spec != null;
     }
 
     /**

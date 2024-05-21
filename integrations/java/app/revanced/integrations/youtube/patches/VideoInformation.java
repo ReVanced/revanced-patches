@@ -81,7 +81,7 @@ public final class VideoInformation {
     /**
      * Injection point.
      */
-    public static String newPlayerResponseSignature(@NonNull String signature, boolean isShortAndOpeningOrPlaying) {
+    public static String newPlayerResponseSignature(@NonNull String signature, String videoId, boolean isShortAndOpeningOrPlaying) {
         final boolean isShort = playerParametersAreShort(signature);
         playerResponseVideoIdIsShort = isShort;
         if (!isShort || isShortAndOpeningOrPlaying) {

@@ -236,6 +236,8 @@ public class Settings extends BaseSettings {
             "revanced_spoof_device_dimensions_user_dialog_message");
     public static final BooleanSetting BYPASS_URL_REDIRECTS = new BooleanSetting("revanced_bypass_url_redirects", TRUE);
     public static final BooleanSetting ANNOUNCEMENTS = new BooleanSetting("revanced_announcements", TRUE);
+    public static final BooleanSetting SPOOF_CLIENT = new BooleanSetting("revanced_spoof_client", TRUE, true, "revanced_spoof_client_user_dialog_message");
+    public static final BooleanSetting SPOOF_CLIENT_USE_IOS = new BooleanSetting("revanced_spoof_client_use_ios", FALSE, true, parent(SPOOF_CLIENT));
     @Deprecated
     public static final StringSetting DEPRECATED_ANNOUNCEMENT_LAST_HASH = new StringSetting("revanced_announcement_last_hash", "");
     public static final IntegerSetting ANNOUNCEMENT_LAST_ID = new IntegerSetting("revanced_announcement_last_id", -1);
@@ -244,7 +246,7 @@ public class Settings extends BaseSettings {
     // Debugging
     /**
      * When enabled, share the debug logs with care.
-     * The buffer contains select user data, including the client ip address and information that could identify the YT account.
+     * The buffer contains select user data, including the client ip address and information that could identify the end user.
      */
     public static final BooleanSetting DEBUG_PROTOBUFFER = new BooleanSetting("revanced_debug_protobuffer", FALSE, parent(BaseSettings.DEBUG));
 

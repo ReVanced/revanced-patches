@@ -10,7 +10,6 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 
-@Deprecated
 final class PlayerRoutes {
     private static final String YT_API_URL = "https://www.youtube.com/youtubei/v1/";
     static final Route.CompiledRoute GET_STORYBOARD_SPEC_RENDERER = new Route(
@@ -27,7 +26,7 @@ final class PlayerRoutes {
     /**
      * TCP connection and HTTP read timeout
      */
-    private static final int CONNECTION_TIMEOUT_MILLISECONDS = 4 * 1000; // 4 Seconds.
+    private static final int CONNECTION_TIMEOUT_MILLISECONDS = 10 * 1000; // 10 Seconds.
 
     static {
         JSONObject innerTubeBody = new JSONObject();
