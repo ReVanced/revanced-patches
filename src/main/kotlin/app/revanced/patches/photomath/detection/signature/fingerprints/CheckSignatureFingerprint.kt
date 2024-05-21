@@ -5,11 +5,9 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal object CheckSignatureFingerprint : MethodFingerprint(
     strings = listOf(
-        "packageInfo.signatures",
-        "currentSignature"
+        "signatures",
     ),
     opcodes = listOf(
-        Opcode.CONST_STRING,
         Opcode.CONST_STRING,
         Opcode.INVOKE_STATIC,
         Opcode.INVOKE_STATIC,

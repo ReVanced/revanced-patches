@@ -171,7 +171,7 @@
             <string name="revanced_hide_channel_bar_title">Hide channel bar</string>
             <string name="revanced_hide_channel_bar_summary_on">Channel bar is hidden</string>
             <string name="revanced_hide_channel_bar_summary_off">Channel bar is shown</string>
-            <string name="revanced_hide_playables_title">Hide playables</string>
+            <string name="revanced_hide_playables_title">Hide Playables</string>
             <string name="revanced_hide_playables_summary_on">Playables are hidden</string>
             <string name="revanced_hide_playables_summary_off">Playables are shown</string>
             <string name="revanced_hide_quick_actions_title">Hide quick actions in fullscreen</string>
@@ -249,7 +249,7 @@
             <string name="revanced_hide_general_ads_summary_on">General ads are hidden</string>
             <string name="revanced_hide_general_ads_summary_off">General ads are shown</string>
             <string name="revanced_hide_fullscreen_ads_title">Hide fullscreen ads</string>
-            <string name="revanced_hide_fullscreen_ads_summary_on">Fullscreen ads are hidden</string>
+            <string name="revanced_hide_fullscreen_ads_summary_on">Fullscreen ads are hidden\n\nThis feature is only available for older devices</string>
             <string name="revanced_hide_fullscreen_ads_summary_off">Fullscreen ads are shown</string>
             <string name="revanced_hide_buttoned_ads_title">Hide buttoned ads</string>
             <string name="revanced_hide_buttoned_ads_summary_on">Buttoned ads are hidden</string>
@@ -266,13 +266,17 @@
             <string name="revanced_hide_shopping_links_title">Hide shopping links in video description</string>
             <string name="revanced_hide_shopping_links_summary_on">Shopping links are hidden</string>
             <string name="revanced_hide_shopping_links_summary_off">Shopping links are shown</string>
+            <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_visit_store_button_title">Hide the \'Visit store\' button on channel pages</string>
+            <string name="revanced_hide_visit_store_button_summary_on">Button is hidden</string>
+            <string name="revanced_hide_visit_store_button_summary_off">Button is shown</string>
             <string name="revanced_hide_web_search_results_title">Hide web search results</string>
             <string name="revanced_hide_web_search_results_summary_on">Web search results are hidden</string>
             <string name="revanced_hide_web_search_results_summary_off">Web search results are shown</string>
             <string name="revanced_hide_merchandise_banners_title">Hide merchandise banners</string>
             <string name="revanced_hide_merchandise_banners_summary_on">Merchandise banners are hidden</string>
             <string name="revanced_hide_merchandise_banners_summary_off">Merchandise banners are shown</string>
-            <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Could not hide fullscreen ad. Hide setting disabled to prevent issues.</string>
+            <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Hide fullscreen ads only works with older devices</string>
         </patch>
         <patch id="ad.getpremium.HideGetPremiumPatch">
             <string name="revanced_hide_get_premium_title">Hide YouTube Premium promotions</string>
@@ -393,11 +397,6 @@
             <string name="revanced_hide_playlist_button_title">Hide Save to playlist</string>
             <string name="revanced_hide_playlist_button_summary_on">Save to playlist button is hidden</string>
             <string name="revanced_hide_playlist_button_summary_off">Save to playlist button is shown</string>
-            <!-- 'Shop' should be translated with the same localized wording that YouTube displays.
-                 Shop button appears only for some videos in certain regions. Translate the button name normally if this menu is never shown. -->
-            <string name="revanced_hide_shop_button_title">Hide Shop</string>
-            <string name="revanced_hide_shop_button_summary_on">Shop button is hidden</string>
-            <string name="revanced_hide_shop_button_summary_off">Shop button is shown</string>
         </patch>
         <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
             <string name="revanced_hide_autoplay_button_title">Hide autoplay button</string>
@@ -436,8 +435,11 @@
             <string name="revanced_hide_subscriptions_button_summary_off">Subscriptions button is shown</string>
             <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
             <string name="revanced_switch_create_with_notifications_button_title">Switch Create with Notifications</string>
-            <string name="revanced_switch_create_with_notifications_button_summary_on">Create button is switched with Notifications button</string>
+            <string name="revanced_switch_create_with_notifications_button_summary_on">Create button is switched with Notifications button\n\nNote: Enabling this also forcibly hides video ads</string>
             <string name="revanced_switch_create_with_notifications_button_summary_off">Create button is not switched with Notifications button</string>
+            <string name="revanced_hide_navigation_button_labels_title">Hide navigation button labels</string>
+            <string name="revanced_hide_navigation_button_labels_summary_on">Labels are hidden</string>
+            <string name="revanced_hide_navigation_button_labels_summary_off">Labels are shown</string>
         </patch>
         <patch id="layout.hide.player.flyoutmenupanel.HidePlayerFlyoutMenuPatch">
             <string name="revanced_hide_player_flyout_title">Flyout menu</string>
@@ -458,11 +460,6 @@
             <string name="revanced_hide_player_flyout_ambient_mode_title">Hide Ambient mode</string>
             <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Ambient mode menu is hidden</string>
             <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Ambient mode menu is shown</string>
-            <!-- 'Report' should be translated using the same localized wording YouTube displays for the menu item.
-                 This item may not appear in some regions. Translate the name normally if the menu cannot be found. -->
-            <string name="revanced_hide_player_flyout_report_title">Hide Report</string>
-            <string name="revanced_hide_player_flyout_report_summary_on">Report menu is hidden</string>
-            <string name="revanced_hide_player_flyout_report_summary_off">Report menu is shown</string>
             <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
             <string name="revanced_hide_player_flyout_help_title">Hide Help &amp; feedback</string>
             <string name="revanced_hide_player_flyout_help_summary_on">Help &amp; feedback menu is hidden</string>
@@ -508,6 +505,9 @@
             <string name="revanced_hide_comments_section_title">Hide comments section</string>
             <string name="revanced_hide_comments_section_summary_on">Comment section is hidden</string>
             <string name="revanced_hide_comments_section_summary_off">Comment section is shown</string>
+            <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Hide timestamp and emoji buttons</string>
+            <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_on">Comment timestamp and emoji buttons are hidden</string>
+            <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_off">Comment timestamp and emoji buttons are shown</string>
         </patch>
         <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
             <string name="revanced_hide_crowdfunding_box_title">Hide crowdfunding box</string>
@@ -586,6 +586,9 @@
             <string name="revanced_hide_shorts_shop_button_title">Hide shop button</string>
             <string name="revanced_hide_shorts_shop_button_summary_on">Shop button is hidden</string>
             <string name="revanced_hide_shorts_shop_button_summary_off">Shop button is shown</string>
+            <string name="revanced_hide_shorts_super_thanks_button_title">Hide super thanks button</string>
+            <string name="revanced_hide_shorts_super_thanks_button_summary_on">Super thanks button is hidden</string>
+            <string name="revanced_hide_shorts_super_thanks_button_summary_off">Super thanks button is shown</string>
             <string name="revanced_hide_shorts_tagged_products_title">Hide tagged products</string>
             <string name="revanced_hide_shorts_tagged_products_summary_on">Tagged products are hidden</string>
             <string name="revanced_hide_shorts_tagged_products_summary_off">Tagged products are shown</string>
@@ -621,7 +624,7 @@
             <string name="revanced_hide_shorts_channel_bar_title">Hide channel bar</string>
             <string name="revanced_hide_shorts_channel_bar_summary_on">Channel bar is hidden</string>
             <string name="revanced_hide_shorts_channel_bar_summary_off">Channel bar is shown</string>
-            <string name="revanced_hide_shorts_video_title_title">Hide Shorts video title</string>
+            <string name="revanced_hide_shorts_video_title_title">Hide video title</string>
             <string name="revanced_hide_shorts_video_title_summary_on">Title is hidden</string>
             <string name="revanced_hide_shorts_video_title_summary_off">Title is shown</string>
             <string name="revanced_hide_shorts_sound_metadata_label_title">Hide sound metadata label</string>
@@ -861,7 +864,7 @@
             <string name="revanced_sb_new_segment_confirm_title">Are the times correct?</string>
             <!-- Do not rearrange the (hour):(minute):second) time format operators here.
                  YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-            <string name="revanced_sb_new_segment_confirm_content">The segment lasts from %1$02d:%2$02d to %3$02d:%4$02d (%5$d minutes %6$02d seconds)\nIs it ready to submit?</string>
+            <string name="revanced_sb_new_segment_confirm_content">The segment is from\n\n%1$s\nto\n%2$s\n\n(%3$s)\n\nReady to submit?</string>
             <string name="revanced_sb_new_segment_start_is_before_end">Start must be before the end</string>
             <string name="revanced_sb_new_segment_mark_locations_first">Mark two locations on the time bar first</string>
             <string name="revanced_sb_new_segment_preview_segment_first">Preview the segment, and ensure it skips smoothly</string>
@@ -904,7 +907,7 @@
             <string name="revanced_spoof_app_version_summary_on">Version spoofed</string>
             <string name="revanced_spoof_app_version_summary_off">Version not spoofed</string>
             <string name="revanced_spoof_app_version_user_dialog_message">App version will be spoofed to an older version of YouTube.\n\nThis will change the appearance and features of the app, but unknown side effects may occur.\n\nIf later turned off, it is recommended to clear the app data to prevent UI bugs.</string>
-            <!-- It is ideal, but not required, if the text here appears alphabetically after the text used for 'revanced_spoof_app_version_title'.
+            <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
             <string name="revanced_spoof_app_version_target_title">Spoof app version target</string>
             <!-- 'RYD' is 'Return YouTube Dislike' -->
@@ -1082,6 +1085,21 @@
             <string name="revanced_slide_to_seek_summary_on">Slide to seek is enabled</string>
             <string name="revanced_slide_to_seek_summary_off">Slide to seek is not enabled</string>
         </patch>
+        <patch id="misc.fix.playback.SpoofClientPatch">
+            <string name="revanced_spoof_client_screen_title">Spoof client</string>
+            <string name="revanced_spoof_client_screen_summary">Spoof the client to prevent playback issues</string>
+            <string name="revanced_spoof_client_title">Spoof client</string>
+            <string name="revanced_spoof_client_summary_on">Client is spoofed</string>
+            <string name="revanced_spoof_client_summary_off">Client is not spoofed\n\nVideo playback may not work</string>
+            <string name="revanced_spoof_client_user_dialog_message">Turning off this setting may cause video playback issues.</string>
+            <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_client_spoof_title' -->
+            <string name="revanced_spoof_client_use_ios_title">Spoof client to iOS</string>
+            <string name="revanced_spoof_client_use_ios_summary">Spoof the client to iOS instead of an Android Testsuite</string>
+            <string name="revanced_spoof_client_use_ios_summary_on">Client is spoofed to an iOS client\n\nSide effects include:\n• 60 fps video may not be available\n• No HDR video\n• Some videos may not load\n• Higher video qualities may be missing</string>
+            <string name="revanced_spoof_client_use_ios_summary_off">Client is spoofed to an Android Testsuite client (iOS client is used for live streams)\n\nSide effects include:\n• Subtitles are missing\n• Player gestures may not work\n• Low quality Shorts seekbar thumbnails</string>
+            <string name="revanced_spoof_client_storyboard_timeout">Spoof client thumbnails not available (API timed out)</string>
+            <string name="revanced_spoof_client_storyboard_io_exception">Spoof client thumbnails temporarily not available: %s</string>
+        </patch>
         <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
         <patch id="misc.fix.playback.SpoofSignaturePatch">
             <string name="revanced_spoof_signature_verification_screen_title">Spoof app signature</string>
@@ -1155,9 +1173,9 @@
             <string name="revanced_other_category_title">Other settings</string>
             <string name="revanced_client_ads_category_title">Client-side ads</string>
             <string name="revanced_surestream_ads_category_title">Server-side surestream ads</string>
-            <string name="revanced_debug_title">Debug logging</string>
-            <string name="revanced_debug_summary_on">Debug logs are enabled</string>
-            <string name="revanced_debug_summary_off">Debug logs are disabled</string>
+            <string name="revanced_twitch_debug_title">Debug logging</string>
+            <string name="revanced_twitch_debug_summary_on">Debug logs are enabled</string>
+            <string name="revanced_twitch_debug_summary_off">Debug logs are disabled</string>
         </patch>
     </app>
 </resources>

@@ -65,8 +65,7 @@ object HideButtonsPatch : ResourcePatch() {
                     SwitchPreference("revanced_hide_download_button"),
                     SwitchPreference("revanced_hide_thanks_button"),
                     SwitchPreference("revanced_hide_clip_button"),
-                    SwitchPreference("revanced_hide_playlist_button"),
-                    SwitchPreference("revanced_hide_shop_button")
+                    SwitchPreference("revanced_hide_playlist_button")
                 ),
             )
         )

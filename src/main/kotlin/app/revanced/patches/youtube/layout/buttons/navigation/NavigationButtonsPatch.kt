@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.layout.buttons.navigation
 
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
@@ -12,11 +13,16 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sor
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.layout.buttons.navigation.fingerprints.ANDROID_AUTOMOTIVE_STRING
 import app.revanced.patches.youtube.layout.buttons.navigation.fingerprints.AddCreateButtonViewFingerprint
+import app.revanced.patches.youtube.layout.buttons.navigation.fingerprints.CreatePivotBarFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.exception
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Navigation buttons",
@@ -49,14 +55,17 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "19.08.36",
                 "19.09.38",
                 "19.10.39",
-                "19.11.43"
+                "19.11.43",
             ],
         ),
     ],
 )
 @Suppress("unused")
 object NavigationButtonsPatch : BytecodePatch(
-    setOf(AddCreateButtonViewFingerprint),
+    setOf(
+        AddCreateButtonViewFingerprint,
+        CreatePivotBarFingerprint,
+    ),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/NavigationButtonsPatch;"
@@ -74,6 +83,7 @@ object NavigationButtonsPatch : BytecodePatch(
                     SwitchPreference("revanced_hide_create_button"),
                     SwitchPreference("revanced_hide_subscriptions_button"),
                     SwitchPreference("revanced_switch_create_with_notifications_button"),
+                    SwitchPreference("revanced_hide_navigation_button_labels"),
                 ),
             ),
         )
@@ -98,6 +108,21 @@ object NavigationButtonsPatch : BytecodePatch(
                 )
             }
         } ?: throw AddCreateButtonViewFingerprint.exception
+
+        // Hide navigation button labels.
+        CreatePivotBarFingerprint.result?.mutableMethod?.apply {
+            val setTextIndex = indexOfFirstInstruction {
+                getReference<MethodReference>()?.name == "setText"
+            }
+
+            val targetRegister = getInstruction<FiveRegisterInstruction>(setTextIndex).registerC
+
+            addInstruction(
+                setTextIndex,
+                "invoke-static { v$targetRegister }, " +
+                    "$INTEGRATIONS_CLASS_DESCRIPTOR->hideNavigationButtonLabels(Landroid/widget/TextView;)V",
+            )
+        } ?: throw CreatePivotBarFingerprint.exception
 
         // Hook navigation button created, in order to hide them.
         NavigationBarHookPatch.hookNavigationButtonCreated(INTEGRATIONS_CLASS_DESCRIPTOR)
