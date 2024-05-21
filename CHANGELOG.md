@@ -1,3 +1,10 @@
+## [4.8.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.8.0...v4.8.1-dev.1) (2024-05-21)
+
+
+### Bug Fixes
+
+* Use UrlDecoder API available in older Android versions ([d42fbb1](https://github.com/ReVanced/revanced-patches/commit/d42fbb152126cf2177315c4706fb03bc89f5af1c))
+
 # [4.8.0](https://github.com/ReVanced/revanced-patches/compare/v4.7.0...v4.8.0) (2024-05-21)
 
 
