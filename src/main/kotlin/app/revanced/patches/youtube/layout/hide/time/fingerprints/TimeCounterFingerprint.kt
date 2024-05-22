@@ -1,16 +1,15 @@
 package app.revanced.patches.youtube.layout.hide.time.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.patcher.fingerprint.annotation.FuzzyPatternScanMethod
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-@FuzzyPatternScanMethod(1)
-internal object TimeCounterFingerprint : MethodFingerprint(
-    "V",
-    AccessFlags.PUBLIC or AccessFlags.FINAL,
-    emptyList(),
+internal val timeCounterFingerprint = methodFingerprint(
+    fuzzyPatternScanThreshold = 1,
+) {
+    returns("V")
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    parameters()
     listOf(
         Opcode.SUB_LONG_2ADDR,
         Opcode.IGET_WIDE,
@@ -20,6 +19,6 @@ internal object TimeCounterFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.IGET_WIDE,
         Opcode.IGET_WIDE,
-        Opcode.SUB_LONG_2ADDR
+        Opcode.SUB_LONG_2ADDR,
     )
-)
+}
