@@ -1,10 +1,10 @@
 package app.revanced.patches.youtube.layout.hide.shorts.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object RenderBottomNavigationBarFingerprint : MethodFingerprint(
-    opcodes = listOf(
+internal val renderBottomNavigationBarFingerprint = methodFingerprint {
+    opcodes(
         Opcode.IGET_OBJECT,
         Opcode.MONITOR_ENTER,
         Opcode.IGET_OBJECT,
@@ -16,4 +16,4 @@ internal object RenderBottomNavigationBarFingerprint : MethodFingerprint(
         Opcode.MONITOR_EXIT,
         Opcode.THROW,
     )
-)
+}

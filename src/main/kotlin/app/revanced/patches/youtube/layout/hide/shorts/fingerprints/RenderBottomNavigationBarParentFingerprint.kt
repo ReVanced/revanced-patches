@@ -1,8 +1,8 @@
 package app.revanced.patches.youtube.layout.hide.shorts.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object RenderBottomNavigationBarParentFingerprint : MethodFingerprint(
-    parameters = listOf("I", "I", "L", "L", "J", "L"),
-    strings = listOf("aa")
-)
+internal val renderBottomNavigationBarParentFingerprint = methodFingerprint {
+    parameters("I", "I", "L", "L", "J", "L")
+    strings("aa")
+}

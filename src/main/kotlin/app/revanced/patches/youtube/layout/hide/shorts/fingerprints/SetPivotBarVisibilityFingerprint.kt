@@ -1,16 +1,15 @@
 package app.revanced.patches.youtube.layout.hide.shorts.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object SetPivotBarVisibilityFingerprint : MethodFingerprint(
-    returnType = "V",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
-    parameters = listOf("Z"),
-    opcodes = listOf(
+internal val setPivotBarVisibilityFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
+    returns("V")
+    parameters("Z")
+    opcodes(
         Opcode.CHECK_CAST,
-        Opcode.IF_EQZ
+        Opcode.IF_EQZ,
     )
-)
+}

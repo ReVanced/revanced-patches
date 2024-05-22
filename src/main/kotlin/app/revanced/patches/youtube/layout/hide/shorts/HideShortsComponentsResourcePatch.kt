@@ -1,22 +1,31 @@
 package app.revanced.patches.youtube.layout.hide.shorts
 
-import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.all.misc.resources.AddResourcesPatch
-import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import app.revanced.patches.youtube.misc.settings.settingsPatch
 
-@Patch(dependencies = [SettingsPatch::class, ResourceMappingPatch::class, AddResourcesPatch::class])
-object HideShortsComponentsResourcePatch : ResourcePatch() {
-    internal var reelMultipleItemShelfId = -1L
-    internal var reelPlayerRightCellButtonHeight = -1L
+internal var reelMultipleItemShelfId = -1L
+    private set
+internal var reelPlayerRightCellButtonHeight = -1L
+    private set
 
-    override fun execute(context: ResourceContext) {
-        AddResourcesPatch(this::class)
+internal val hideShortsComponentsResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        resourceMappingPatch,
+        addResourcesPatch,
+    )
 
-        SettingsPatch.PreferenceScreen.SHORTS.addPreferences(
+    execute {
+        addResources("youtube", "layout.hide.shorts.HideShortsComponentsResourcePatch")
+
+        PreferenceScreen.SHORTS.addPreferences(
             SwitchPreference("revanced_hide_shorts_home"),
             SwitchPreference("revanced_hide_shorts_subscriptions"),
             SwitchPreference("revanced_hide_shorts_search"),
@@ -50,19 +59,19 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
             SwitchPreference("revanced_hide_shorts_navigation_bar"),
         )
 
-        reelPlayerRightCellButtonHeight = ResourceMappingPatch[
+        reelPlayerRightCellButtonHeight = resourceMappings[
             "dimen",
             "reel_player_right_cell_button_height",
         ]
 
         // Resource not present in new versions of the app.
         try {
-            ResourceMappingPatch[
+            resourceMappings[
                 "dimen",
                 "reel_player_right_cell_button_height",
             ]
         } catch (e: NoSuchElementException) {
-            return
+            return@execute
         }.also { reelPlayerRightCellButtonHeight = it }
     }
 }
