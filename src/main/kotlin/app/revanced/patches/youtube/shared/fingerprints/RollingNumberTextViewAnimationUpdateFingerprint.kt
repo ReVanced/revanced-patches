@@ -1,15 +1,14 @@
 package app.revanced.patches.youtube.shared.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object RollingNumberTextViewAnimationUpdateFingerprint : MethodFingerprint(
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("Landroid/graphics/Bitmap;"),
-    opcodes = listOf(
+val rollingNumberTextViewAnimationUpdateFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
+    parameters("Landroid/graphics/Bitmap;")
+    opcodes(
         Opcode.NEW_INSTANCE, // bitmap ImageSpan
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
@@ -23,8 +22,8 @@ internal object RollingNumberTextViewAnimationUpdateFingerprint : MethodFingerpr
         Opcode.MOVE_RESULT,
         Opcode.INT_TO_FLOAT,
         Opcode.INVOKE_VIRTUAL, // set textview padding using bitmap width
-    ),
-    customFingerprint = { _, classDef ->
+    )
+    custom { _, classDef ->
         classDef.superclass == "Landroid/support/v7/widget/AppCompatTextView;"
     }
-)
+}
