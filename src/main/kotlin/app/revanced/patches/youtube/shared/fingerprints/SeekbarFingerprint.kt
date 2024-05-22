@@ -1,9 +1,8 @@
 package app.revanced.patches.youtube.shared.fingerprints
 
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
-
-internal object SeekbarFingerprint : MethodFingerprint(
-    "V",
-    strings = listOf("timed_markers_width")
-)
+internal val seekbarFingerprint = methodFingerprint {
+    returns("V")
+    strings("timed_markers_width")
+}
