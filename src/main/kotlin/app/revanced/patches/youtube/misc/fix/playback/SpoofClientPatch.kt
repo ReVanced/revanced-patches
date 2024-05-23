@@ -101,7 +101,6 @@ object SpoofClientPatch : BytecodePatch(
                     SwitchPreference("revanced_spoof_client_use_testsuite"),
                 ),
             ),
-
         )
 
         // region Block /initplayback requests to fall back to /get_watch requests.
@@ -182,7 +181,7 @@ object SpoofClientPatch : BytecodePatch(
                 instructions.lastIndex,
             ).first { instruction ->
                 instruction.opcode == Opcode.IPUT_OBJECT
-            }.getReference<FieldReference>()
+            }.getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoClientModelField")
         }
 
         // endregion
@@ -206,7 +205,7 @@ object SpoofClientPatch : BytecodePatch(
                 )
             }
 
-            // Change requestMessage.clientInfo.clientType and requestMessage.clientInfo.clientVersion to the spoofed values.
+            // Change client info to use the spoofed values.
             // Do this in a helper method, to remove the need of picking out multiple free registers from the hooked code.
             result.mutableClass.methods.add(
                 ImmutableMethod(
