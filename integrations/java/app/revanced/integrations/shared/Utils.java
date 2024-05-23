@@ -59,7 +59,7 @@ public class Utils {
     }
 
     /**
-     * @return The version name of the app, such as "YouTube".
+     * @return The version name of the app, such as 19.11.43
      */
     public static String getAppVersionName() {
         if (versionName == null) {
