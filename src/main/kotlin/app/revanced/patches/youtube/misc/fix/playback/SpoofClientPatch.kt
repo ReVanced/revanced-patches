@@ -98,7 +98,7 @@ object SpoofClientPatch : BytecodePatch(
                 sorting = Sorting.UNSORTED,
                 preferences = setOf(
                     SwitchPreference("revanced_spoof_client"),
-                    SwitchPreference("revanced_spoof_client_use_ios"),
+                    SwitchPreference("revanced_spoof_client_use_testsuite"),
                 ),
             ),
 
