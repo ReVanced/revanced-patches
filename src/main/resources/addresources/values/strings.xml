@@ -1092,11 +1092,10 @@
             <string name="revanced_spoof_client_summary_on">Client is spoofed</string>
             <string name="revanced_spoof_client_summary_off">Client is not spoofed\n\nVideo playback may not work</string>
             <string name="revanced_spoof_client_user_dialog_message">Turning off this setting may cause video playback issues.</string>
-            <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_client_spoof_title' -->
-            <string name="revanced_spoof_client_use_ios_title">Spoof client to iOS</string>
-            <string name="revanced_spoof_client_use_ios_summary">Spoof the client to iOS instead of an Android Testsuite</string>
-            <string name="revanced_spoof_client_use_ios_summary_on">Client is spoofed to an iOS client\n\nSide effects include:\n• 60 fps video may not be available\n• No HDR video\n• Some videos may not load\n• Higher video qualities may be missing</string>
-            <string name="revanced_spoof_client_use_ios_summary_off">Client is spoofed to an Android Testsuite client (iOS client is used for live streams)\n\nSide effects include:\n• Subtitles are missing\n• Player gestures may not work\n• Low quality Shorts seekbar thumbnails</string>
+            <string name="revanced_spoof_client_use_testsuite_title">Spoof client to Android Testsuite</string>
+            <string name="revanced_spoof_client_use_testsuite_summary">Spoof the client to Android Testsuite</string>
+            <string name="revanced_spoof_client_use_testsuite_summary_on">Client is spoofed to an Android Testsuite client (iOS client is used for live streams)\n\nSide effects include, but are not limited to:\n• Speed flyout menu is missing\n• Captions are missing\n• Player swipe gestures may not work\n• Low quality Shorts seekbar thumbnails\n• Watch history may not work</string>
+            <string name="revanced_spoof_client_use_testsuite_summary_off">Client is spoofed to an iOS client\n\nSide effects include:\n• No HDR video\n• Speed flyout menu is missing</string>
             <string name="revanced_spoof_client_storyboard_timeout">Spoof client thumbnails not available (API timed out)</string>
             <string name="revanced_spoof_client_storyboard_io_exception">Spoof client thumbnails temporarily not available: %s</string>
         </patch>
