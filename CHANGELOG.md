@@ -1,3 +1,10 @@
+## [4.8.2](https://github.com/ReVanced/revanced-patches/compare/v4.8.1...v4.8.2) (2024-05-24)
+
+
+### Bug Fixes
+
+* **YouTube - Client spoof:** Spoof iOS client model to fix various side effects ([#3220](https://github.com/ReVanced/revanced-patches/issues/3220)) ([9b5f4ce](https://github.com/ReVanced/revanced-patches/commit/9b5f4ce2b251c67e24cfcac3edae70c8a8aae230))
+
 ## [4.8.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.8.1...v4.8.2-dev.1) (2024-05-23)
 
 
