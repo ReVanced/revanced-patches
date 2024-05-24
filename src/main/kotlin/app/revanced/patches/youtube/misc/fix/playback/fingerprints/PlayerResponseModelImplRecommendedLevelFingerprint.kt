@@ -6,6 +6,7 @@ import app.revanced.util.containsWideLiteralInstructionValue
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
+@Deprecated("Fingerprint is obsolete and will be deleted soon")
 internal object PlayerResponseModelImplRecommendedLevelFingerprint : MethodFingerprint(
     returnType = "I",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
