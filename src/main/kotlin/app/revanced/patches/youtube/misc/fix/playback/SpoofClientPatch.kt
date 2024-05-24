@@ -19,6 +19,7 @@ import app.revanced.patches.youtube.misc.fix.playback.fingerprints.*
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -34,7 +35,6 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
     name = "Spoof client",
     description = "Spoofs the client to allow video playback.",
     dependencies = [
-        SpoofClientResourcePatch::class,
         PlayerResponseMethodHookPatch::class,
         SettingsPatch::class,
         AddResourcesPatch::class,
@@ -74,6 +74,7 @@ object SpoofClientPatch : BytecodePatch(
         BuildPlayerRequestURIFingerprint,
         SetPlayerRequestClientTypeFingerprint,
         CreatePlayerRequestBodyFingerprint,
+        CreatePlayerRequestBodyWithModelFingerprint,
 
         // Storyboard spoof.
         StoryboardRendererSpecFingerprint,
@@ -97,10 +98,9 @@ object SpoofClientPatch : BytecodePatch(
                 sorting = Sorting.UNSORTED,
                 preferences = setOf(
                     SwitchPreference("revanced_spoof_client"),
-                    SwitchPreference("revanced_spoof_client_use_ios"),
+                    SwitchPreference("revanced_spoof_client_use_testsuite"),
                 ),
             ),
-
         )
 
         // region Block /initplayback requests to fall back to /get_watch requests.
@@ -168,6 +168,22 @@ object SpoofClientPatch : BytecodePatch(
                 Triple(clientInfoField, clientInfoClientTypeField, clientInfoClientVersionField)
             }
 
+        val clientInfoClientModelField = CreatePlayerRequestBodyWithModelFingerprint.resultOrThrow().mutableMethod.let {
+            val instructions = it.getInstructions()
+
+            val getClientModelIndex = it.indexOfFirstInstruction {
+                getReference<FieldReference>().toString() == "Landroid/os/Build;->MODEL:Ljava/lang/String;"
+            }
+
+            // The next IPUT_OBJECT instruction after getting the client model is setting the client model field.
+            instructions.subList(
+                getClientModelIndex,
+                instructions.lastIndex,
+            ).first { instruction ->
+                instruction.opcode == Opcode.IPUT_OBJECT
+            }.getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoClientModelField")
+        }
+
         // endregion
 
         // region Spoof client type for /player requests.
@@ -189,7 +205,7 @@ object SpoofClientPatch : BytecodePatch(
                 )
             }
 
-            // Change requestMessage.clientInfo.clientType and requestMessage.clientInfo.clientVersion to the spoofed values.
+            // Change client info to use the spoofed values.
             // Do this in a helper method, to remove the need of picking out multiple free registers from the hooked code.
             result.mutableClass.methods.add(
                 ImmutableMethod(
@@ -216,12 +232,17 @@ object SpoofClientPatch : BytecodePatch(
                             move-result v1
                             iput v1, v0, $clientInfoClientTypeField
                             
+                            # Set client model to the spoofed value.
+                            iget-object v1, v0, $clientInfoClientModelField
+                            invoke-static { v1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->getClientModel(Ljava/lang/String;)Ljava/lang/String;
+                            move-result-object v1
+                            iput-object v1, v0, $clientInfoClientModelField
+
                             # Set client version to the spoofed value.
                             iget-object v1, v0, $clientInfoClientVersionField
                             invoke-static { v1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->getClientVersion(Ljava/lang/String;)Ljava/lang/String;
                             move-result-object v1
                             iput-object v1, v0, $clientInfoClientVersionField
-                            
                             :disabled
                             return-void
                         """,

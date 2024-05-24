@@ -43,7 +43,7 @@ object SpoofSignaturePatch : BytecodePatch(
         StoryboardRendererDecoderSpecFingerprint,
         StoryboardRendererDecoderRecommendedLevelFingerprint,
         StoryboardThumbnailParentFingerprint,
-        ScrubbedPreviewLayoutFingerprint,
+        SpoofSignaturePatchScrubbedPreviewLayoutFingerprint,
         StatsQueryParameterFingerprint,
         ParamsMapPutFingerprint,
     ),
