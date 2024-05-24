@@ -4,6 +4,7 @@ import static app.revanced.integrations.youtube.patches.spoof.requests.Storyboar
 
 import android.net.Uri;
 
+import android.os.Build;
 import androidx.annotation.Nullable;
 
 import java.util.Collections;
@@ -22,8 +23,8 @@ import app.revanced.integrations.youtube.settings.Settings;
 @SuppressWarnings("unused")
 public class SpoofClientPatch {
     private static final boolean SPOOF_CLIENT_ENABLED = Settings.SPOOF_CLIENT.get();
-    private static final boolean SPOOF_CLIENT_USE_IOS = Settings.SPOOF_CLIENT_USE_IOS.get();
-    private static final boolean SPOOF_CLIENT_STORYBOARD = SPOOF_CLIENT_ENABLED && !SPOOF_CLIENT_USE_IOS;
+    private static final boolean SPOOF_CLIENT_USE_TEST_SUITE = Settings.SPOOF_CLIENT_USE_TESTSUITE.get();
+    private static final boolean SPOOF_CLIENT_STORYBOARD = SPOOF_CLIENT_ENABLED && SPOOF_CLIENT_USE_TEST_SUITE;
 
     /**
      * Any unreachable ip address.  Used to intentionally fail requests.
@@ -46,10 +47,10 @@ public class SpoofClientPatch {
 
     /**
      * Injection point.
-     * Blocks /get_watch requests by returning a localhost URI.
+     * Blocks /get_watch requests by returning an unreachable URI.
      *
      * @param playerRequestUri The URI of the player request.
-     * @return Localhost URI if the request is a /get_watch request, otherwise the original URI.
+     * @return An unreachable URI if the request is a /get_watch request, otherwise the original URI.
      */
     public static Uri blockGetWatchRequest(Uri playerRequestUri) {
         if (SPOOF_CLIENT_ENABLED) {
@@ -102,7 +103,7 @@ public class SpoofClientPatch {
     }
 
     private static ClientType getSpoofClientType() {
-        if (SPOOF_CLIENT_USE_IOS) {
+        if (!SPOOF_CLIENT_USE_TEST_SUITE) {
             return ClientType.IOS;
         }
 
@@ -145,6 +146,17 @@ public class SpoofClientPatch {
         }
 
         return originalClientVersion;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static String getClientModel(String originalClientModel) {
+        if (SPOOF_CLIENT_ENABLED) {
+            return getSpoofClientType().model;
+        }
+
+        return originalClientModel;
     }
 
     /**
@@ -250,14 +262,19 @@ public class SpoofClientPatch {
     }
 
     private enum ClientType {
-        ANDROID_TESTSUITE(30, "1.9"),
-        IOS(5, Utils.getAppVersionName());
+        ANDROID_TESTSUITE(30, Build.MODEL, "1.9"),
+        // 16,2 = iPhone 15 Pro Max.
+        // Version number should be a valid iOS release.
+        // https://www.ipa4fun.com/history/185230
+        IOS(5, "iPhone16,2", "19.10.7");
 
         final int id;
+        final String model;
         final String version;
 
-        ClientType(int id, String version) {
+        ClientType(int id, String model, String version) {
             this.id = id;
+            this.model = model;
             this.version = version;
         }
     }
