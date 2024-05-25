@@ -523,6 +523,15 @@ public final class app/revanced/patches/reddit/ad/general/HideAdsPatch : app/rev
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public abstract class app/revanced/patches/reddit/customclients/BaseFixSLinksPatch : app/revanced/patcher/patch/BytecodePatch {
+	public fun <init> (Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;)V
+	public synthetic fun <init> (Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun patchNavigation (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
+	public fun patchSetAccessToken (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
+}
+
 public abstract class app/revanced/patches/reddit/customclients/BaseSpoofClientPatch : app/revanced/patcher/patch/BytecodePatch {
 	public fun <init> (Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;)V
 	public synthetic fun <init> (Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -557,10 +566,10 @@ public final class app/revanced/patches/reddit/customclients/boostforreddit/api/
 	public fun patchClientId (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
 }
 
-public final class app/revanced/patches/reddit/customclients/boostforreddit/fix/slink/FixSLinksPatch : app/revanced/patcher/patch/BytecodePatch {
+public final class app/revanced/patches/reddit/customclients/boostforreddit/fix/slink/FixSLinksPatch : app/revanced/patches/reddit/customclients/BaseFixSLinksPatch {
 	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/boostforreddit/fix/slink/FixSLinksPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun patchNavigation (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
+	public fun patchSetAccessToken (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
 }
 
 public final class app/revanced/patches/reddit/customclients/boostforreddit/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch {
