@@ -648,10 +648,10 @@ public final class app/revanced/patches/reddit/customclients/syncforreddit/detec
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/reddit/customclients/syncforreddit/fix/slink/FixSLinksPatch : app/revanced/patcher/patch/BytecodePatch {
+public final class app/revanced/patches/reddit/customclients/syncforreddit/fix/slink/FixSLinksPatch : app/revanced/patches/reddit/customclients/BaseFixSLinksPatch {
 	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/syncforreddit/fix/slink/FixSLinksPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun patchNavigation (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
+	public fun patchSetAccessToken (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
 }
 
 public final class app/revanced/patches/reddit/customclients/syncforreddit/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch {
