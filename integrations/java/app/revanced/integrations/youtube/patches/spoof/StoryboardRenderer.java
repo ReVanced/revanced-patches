@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 
 import org.jetbrains.annotations.NotNull;
 
+@Deprecated
 public final class StoryboardRenderer {
     public final String videoId;
     @Nullable
