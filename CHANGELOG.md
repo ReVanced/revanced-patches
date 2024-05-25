@@ -1,3 +1,10 @@
+## [4.8.3-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.8.2...v4.8.3-dev.1) (2024-05-25)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof client:** Improve Android spoofing ([#3230](https://github.com/ReVanced/revanced-patches/issues/3230)) ([b688923](https://github.com/ReVanced/revanced-patches/commit/b688923c7e83805f2377a19b20a969b8cb749a9c))
+
 ## [4.8.2](https://github.com/ReVanced/revanced-patches/compare/v4.8.1...v4.8.2) (2024-05-24)
 
 
