@@ -22,7 +22,6 @@ import app.revanced.patches.youtube.misc.fix.playback.fingerprints.CreatePlayerR
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.SetPlayerRequestClientTypeFingerprint
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -142,11 +141,11 @@ object SpoofClientPatch : BytecodePatch(
             SetPlayerRequestClientTypeFingerprint.resultOrThrow().let { result ->
                 // Field in the player request object that holds the client info object.
                 val clientInfoField = result.mutableMethod
-                    .getInstructions().first { instruction ->
+                    .getInstructions().find { instruction ->
                         // requestMessage.clientInfo = clientInfoBuilder.build();
                         instruction.opcode == Opcode.IPUT_OBJECT &&
                             instruction.getReference<FieldReference>()?.type == CLIENT_INFO_CLASS_DESCRIPTOR
-                    }.getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoField")
+                    }?.getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoField")
 
                 // Client info object's client type field.
                 val clientInfoClientTypeField = result.mutableMethod
@@ -161,20 +160,17 @@ object SpoofClientPatch : BytecodePatch(
                 Triple(clientInfoField, clientInfoClientTypeField, clientInfoClientVersionField)
             }
 
-        val clientInfoClientModelField = CreatePlayerRequestBodyWithModelFingerprint.resultOrThrow().mutableMethod.let {
-            val getClientModelIndex = it.indexOfFirstInstruction {
-                getReference<FieldReference>().toString() == "Landroid/os/Build;->MODEL:Ljava/lang/String;"
-            }
-
-            val instructions = it.getInstructions()
+        val clientInfoClientModelField = CreatePlayerRequestBodyWithModelFingerprint.resultOrThrow().let {
+            val getClientModelIndex = CreatePlayerRequestBodyWithModelFingerprint.indexOfBuildModelInstruction(it.method)
+            val instructions = it.mutableMethod.getInstructions()
 
             // The next IPUT_OBJECT instruction after getting the client model is setting the client model field.
             instructions.subList(
                 getClientModelIndex,
                 instructions.size,
-            ).first { instruction ->
+            ).find { instruction ->
                 instruction.opcode == Opcode.IPUT_OBJECT
-            }.getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoClientModelField")
+            }?.getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoClientModelField")
         }
 
         // endregion
