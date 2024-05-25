@@ -162,16 +162,16 @@ object SpoofClientPatch : BytecodePatch(
             }
 
         val clientInfoClientModelField = CreatePlayerRequestBodyWithModelFingerprint.resultOrThrow().mutableMethod.let {
-            val instructions = it.getInstructions()
-
             val getClientModelIndex = it.indexOfFirstInstruction {
                 getReference<FieldReference>().toString() == "Landroid/os/Build;->MODEL:Ljava/lang/String;"
             }
 
+            val instructions = it.getInstructions()
+
             // The next IPUT_OBJECT instruction after getting the client model is setting the client model field.
             instructions.subList(
                 getClientModelIndex,
-                instructions.lastIndex,
+                instructions.size,
             ).first { instruction ->
                 instruction.opcode == Opcode.IPUT_OBJECT
             }.getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoClientModelField")
@@ -236,6 +236,7 @@ object SpoofClientPatch : BytecodePatch(
                             invoke-static { v1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->getClientVersion(Ljava/lang/String;)Ljava/lang/String;
                             move-result-object v1
                             iput-object v1, v0, $clientInfoClientVersionField
+                            
                             :disabled
                             return-void
                         """,
