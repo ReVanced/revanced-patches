@@ -1,34 +1,33 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike
 
-import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.all.misc.resources.AddResourcesPatch
-import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.IntentPreference
-import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.patches.youtube.misc.settings.SettingsResourcePatch
+import app.revanced.patches.youtube.misc.settings.*
 
-@Patch(
-    dependencies = [
-        SettingsPatch::class,
-        AddResourcesPatch::class,
-    ],
-)
-internal object ReturnYouTubeDislikeResourcePatch : ResourcePatch() {
-    internal var oldUIDislikeId: Long = -1
+internal var oldUIDislikeId = -1L
+    private set
 
-    override fun execute(context: ResourceContext) {
-        AddResourcesPatch(this::class)
+internal val returnYouTubeDislikeResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        addResourcesPatch,
+    )
 
-        SettingsResourcePatch += IntentPreference(
+    execute {
+        addResources("youtube", "layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch")
+
+        preferences += IntentPreference(
             key = "revanced_settings_screen_09",
             titleKey = "revanced_ryd_settings_title",
             summaryKey = null,
-            intent = SettingsPatch.newIntent("revanced_ryd_settings_intent"),
+            intent = newIntent("revanced_ryd_settings_intent"),
         )
 
-        oldUIDislikeId = ResourceMappingPatch[
+        oldUIDislikeId = resourceMappings[
             "id",
             "dislike_button",
         ]

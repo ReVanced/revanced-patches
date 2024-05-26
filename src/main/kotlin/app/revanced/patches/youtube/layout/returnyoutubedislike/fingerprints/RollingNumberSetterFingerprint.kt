@@ -1,12 +1,12 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object RollingNumberSetterFingerprint : MethodFingerprint(
-    opcodes = listOf(
+internal val rollingNumberSetterFingerprint = methodFingerprint {
+    opcodes(
         Opcode.INVOKE_DIRECT,
-        Opcode.IGET_OBJECT
-    ),
-    strings = listOf("RollingNumberType required properties missing! Need updateCount, fontName, color and fontSize.")
-)
+        Opcode.IGET_OBJECT,
+    )
+    strings("RollingNumberType required properties missing! Need updateCount, fontName, color and fontSize.")
+}

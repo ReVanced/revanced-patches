@@ -1,16 +1,15 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object TextComponentDataFingerprint : MethodFingerprint(
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    parameters = listOf("L", "L"),
-    strings = listOf("text"),
-    customFingerprint = { _, classDef ->
+internal val textComponentDataFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    parameters("L", "L")
+    strings("text")
+    custom { _, classDef ->
         val fields = classDef.fields
         fields.find { it.type == "Ljava/util/BitSet;" } != null &&
-        fields.find { it.type == "[Ljava/lang/String;" } != null
+            fields.find { it.type == "[Ljava/lang/String;" } != null
     }
-)
+}

@@ -1,15 +1,14 @@
 package app.revanced.patches.youtube.video.videoid.fingerprint
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object VideoIdFingerprintBackgroundPlay : MethodFingerprint(
-    returnType = "V",
-    accessFlags = AccessFlags.DECLARED_SYNCHRONIZED or AccessFlags.FINAL or AccessFlags.PUBLIC,
-    parameters = listOf("L"),
-    opcodes = listOf(
+internal val videoIdFingerprintBackgroundPlay = methodFingerprint {
+    accessFlags(AccessFlags.DECLARED_SYNCHRONIZED, AccessFlags.FINAL, AccessFlags.PUBLIC)
+    returns("V")
+    parameters("L")
+    opcodes(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
         Opcode.IF_EQZ,
@@ -17,5 +16,5 @@ internal object VideoIdFingerprintBackgroundPlay : MethodFingerprint(
         Opcode.IF_EQZ,
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT_OBJECT,
-    ),
-)
+    )
+}

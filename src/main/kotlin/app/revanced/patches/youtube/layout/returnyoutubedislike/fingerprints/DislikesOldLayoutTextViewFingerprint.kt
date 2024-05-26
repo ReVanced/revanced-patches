@@ -1,22 +1,22 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patches.youtube.layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch
-import app.revanced.util.patch.LiteralValueFingerprint
+import app.revanced.patches.youtube.layout.returnyoutubedislike.oldUIDislikeId
+import app.revanced.util.patch.literalValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object DislikesOldLayoutTextViewFingerprint : LiteralValueFingerprint(
-    returnType = "V",
-    parameters = listOf("L"),
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    opcodes = listOf(
+internal val dislikesOldLayoutTextViewFingerprint = literalValueFingerprint(
+    literalSupplier = { oldUIDislikeId },
+) {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
+    parameters("L")
+    opcodes(
         Opcode.CONST, // resource identifier register
         Opcode.INVOKE_VIRTUAL,
         Opcode.INVOKE_VIRTUAL,
         Opcode.IGET_OBJECT,
         Opcode.IF_NEZ, // textview register
         Opcode.GOTO,
-    ),
-    literalSupplier = { ReturnYouTubeDislikeResourcePatch.oldUIDislikeId }
-)
+    )
+}

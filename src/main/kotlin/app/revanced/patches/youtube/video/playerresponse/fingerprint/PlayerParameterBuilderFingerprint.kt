@@ -1,13 +1,12 @@
 package app.revanced.patches.youtube.video.playerresponse.fingerprint
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object PlayerParameterBuilderFingerprint : MethodFingerprint(
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    returnType = "L",
-    parameters = listOf(
+internal val playerParameterBuilderFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("L")
+    parameters(
         "Ljava/lang/String;", // VideoId.
         "[B",
         "Ljava/lang/String;", // Player parameters proto buffer.
@@ -20,6 +19,7 @@ internal object PlayerParameterBuilderFingerprint : MethodFingerprint(
         "L",
         "Z", // Appears to indicate if the video id is being opened or is currently playing.
         "Z",
-        "Z"
+        "Z",
     )
-)
+    strings("player_response")
+}

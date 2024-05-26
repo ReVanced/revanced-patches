@@ -1,8 +1,8 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object RemoveLikeFingerprint : MethodFingerprint(
-    "V",
-    strings = listOf("like/removelike")
-)
+internal val removeLikeFingerprint = methodFingerprint {
+    returns("V")
+    strings("like/removelike")
+}
