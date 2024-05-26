@@ -1,14 +1,13 @@
 package app.revanced.patches.youtube.layout.panels.popup.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object EngagementPanelControllerFingerprint : MethodFingerprint(
-    returnType = "L",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
-    strings = listOf(
+internal val engagementPanelControllerFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
+    returns("L")
+    strings(
         "EngagementPanelController: cannot show EngagementPanel before EngagementPanelController.init() has been called.",
-        "[EngagementPanel] Cannot show EngagementPanel before EngagementPanelController.init() has been called."
+        "[EngagementPanel] Cannot show EngagementPanel before EngagementPanelController.init() has been called.",
     )
-)
+}
