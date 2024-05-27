@@ -1,15 +1,14 @@
 package app.revanced.patches.youtube.layout.tablet.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object GetFormFactorFingerprint : MethodFingerprint(
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    returnType = "L",
-    parameters = listOf("Landroid/content/Context;", "Ljava/util/List;"),
-    opcodes = listOf(
+internal val getFormFactorFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returns("L")
+    parameters("Landroid/content/Context;", "Ljava/util/List;")
+    opcodes(
         Opcode.SGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
@@ -20,6 +19,6 @@ internal object GetFormFactorFingerprint : MethodFingerprint(
         Opcode.RETURN_OBJECT,
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,
-        Opcode.RETURN_OBJECT
+        Opcode.RETURN_OBJECT,
     )
-)
+}
