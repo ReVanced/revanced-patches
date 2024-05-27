@@ -2,12 +2,12 @@ package app.revanced.patches.youtube.video.videoqualitymenu
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.recyclerviewtree.hook.RecyclerViewTreeHookPatch
@@ -83,23 +83,22 @@ object RestoreOldVideoQualityMenuPatch : BytecodePatch(
 
         // Force YT to add the 'advanced' quality menu for Shorts.
         VideoQualityMenuOptionsFingerprint.resultOrThrow().let {
-            val result = it.scanResult.patternScanResult!!
-            val startIndex = result.startIndex
-            val endIndex = result.endIndex
+            val patternResults = it.scanResult.patternScanResult!!
+            val startIndex = patternResults.startIndex
+            if (startIndex != 0) throw PatchException("Unexpected opcode start index: $startIndex")
+            val insertIndex = patternResults.endIndex
 
             it.mutableMethod.apply {
-                val freeRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
+                val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 // A condition controls whether to show the three or four items quality menu.
                 // Force the four items quality menu to make the "Advanced" item visible, necessary for the patch.
-                addInstructionsWithLabels(
-                    startIndex + 1,
+                addInstructions(
+                     insertIndex,
                     """
-                        invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->forceAdvancedVideoQualityMenuCreation()Z
-                        move-result v$freeRegister
-                        if-nez v$freeRegister, :includeAdvancedMenu
-                    """,
-                    ExternalLabel("includeAdvancedMenu", getInstruction(endIndex))
+                        invoke-static { v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->forceAdvancedVideoQualityMenuCreation(Z)Z
+                        move-result v$register
+                    """
                 )
             }
         }
