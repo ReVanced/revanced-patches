@@ -14,7 +14,7 @@ import app.revanced.util.containsWideLiteralInstructionValue
 fun literalValueFingerprint(
     // Has to be a supplier because the fingerprint is created before patches can set literals.
     literalSupplier: () -> Long,
-    block: MethodFingerprintBuilder.() -> Unit,
+    block: MethodFingerprintBuilder.() -> Unit = {},
 ) = methodFingerprint {
     block()
 
