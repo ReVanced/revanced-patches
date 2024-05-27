@@ -4,6 +4,7 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
@@ -13,11 +14,11 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.shared.fingerprints.LayoutConstructorFingerprint
-import app.revanced.util.exception
-import app.revanced.util.indexOfIdResourceOrThrow
-import com.android.tools.smali.dexlib2.iface.instruction.Instruction
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstWideLiteralInstructionValue
+import app.revanced.util.resultOrThrow
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
@@ -60,6 +61,10 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 object HideAutoplayButtonPatch : BytecodePatch(
     setOf(LayoutConstructorFingerprint),
 ) {
+
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR =
+        "Lapp/revanced/integrations/youtube/patches/HideAutoplayButtonPatch;"
+
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
@@ -67,33 +72,29 @@ object HideAutoplayButtonPatch : BytecodePatch(
             SwitchPreference("revanced_hide_autoplay_button"),
         )
 
-        LayoutConstructorFingerprint.result?.mutableMethod?.apply {
-            val layoutGenMethodInstructions = implementation!!.instructions
+        LayoutConstructorFingerprint.resultOrThrow().mutableMethod.apply {
+            val constIndex = indexOfFirstWideLiteralInstructionValue(ResourceMappingPatch["id", "autonav_toggle"])
+            val constRegister = getInstruction<OneRegisterInstruction>(constIndex).registerA
+            val instructions = implementation!!.instructions
 
-            // resolve the offsets of where to insert the branch instructions and ...
-            val insertIndex = indexOfIdResourceOrThrow("autonav_preview_stub")
-
-            // where to branch away
-            val branchIndex =
-                layoutGenMethodInstructions.subList(insertIndex + 1, layoutGenMethodInstructions.size - 1)
-                    .indexOfFirst {
-                        ((it as? ReferenceInstruction)?.reference as? MethodReference)?.name == "addOnLayoutChangeListener"
-                    } + 2
-
-            val jumpInstruction = layoutGenMethodInstructions[insertIndex + branchIndex] as Instruction
-
-            // can be clobbered because this register is overwritten after the injected code
-            val clobberRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+            // Add a conditional branch around the code that inflates and adds the auto repeat button.
+            var gotoIndex = instructions.subList(constIndex, instructions.size)
+                .indexOfFirst { instruction ->
+                    val parameterTypes = instruction.getReference<MethodReference>()?.parameterTypes
+                    instruction.opcode == Opcode.INVOKE_VIRTUAL &&
+                            parameterTypes?.size == 2 &&
+                            parameterTypes.first() == "Landroid/view/ViewStub;"
+                }
+            if (gotoIndex < 0) throw PatchException("Could not find goto index")
+            gotoIndex += (constIndex + 1)
 
             addInstructionsWithLabels(
-                insertIndex,
-                """
-                    invoke-static {}, Lapp/revanced/integrations/youtube/patches/HideAutoplayButtonPatch;->isButtonShown()Z
-                    move-result v$clobberRegister
-                    if-eqz v$clobberRegister, :hidden
-                """,
-                ExternalLabel("hidden", jumpInstruction),
+                constIndex, """
+                    invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->hideAutoPlayButton()Z
+                    move-result v$constRegister
+                    if-nez v$constRegister, :hidden
+                    """, ExternalLabel("hidden", getInstruction(gotoIndex))
             )
-        } ?: throw LayoutConstructorFingerprint.exception
+        }
     }
 }
