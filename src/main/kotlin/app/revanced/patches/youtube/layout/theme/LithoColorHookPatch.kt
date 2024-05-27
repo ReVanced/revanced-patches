@@ -1,41 +1,29 @@
 package app.revanced.patches.youtube.layout.theme
 
-import app.revanced.util.exception
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.youtube.layout.theme.fingerprints.LithoThemeFingerprint
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.youtube.layout.theme.fingerprints.lithoThemeFingerprint
 
-@Patch(
+lateinit var lithoColorOverrideHook: (targetMethodClass: String, targetMethodName: String) -> Unit
+    private set
+
+val lithoColorHookPatch = bytecodePatch(
     description = "Adds a hook to set color of Litho components.",
-    compatiblePackages = [
-        CompatiblePackage("com.google.android.youtube"),
-    ]
-)
-internal object LithoColorHookPatch : BytecodePatch(setOf(LithoThemeFingerprint)) {
-    private var insertionIndex : Int = -1
-    private lateinit var colorRegister : String
-    private lateinit var insertionMethod : MutableMethod
+) {
+    val lithoThemeResult by lithoThemeFingerprint
 
-    internal fun lithoColorOverrideHook(targetMethodClass: String, targetMethodName: String)  {
-        insertionMethod.addInstructions(
-            insertionIndex,
-            """
-                invoke-static {$colorRegister}, $targetMethodClass->$targetMethodName(I)I
-                move-result $colorRegister
-            """
-        )
-        insertionIndex += 2
-    }
+    execute {
+        var insertionIndex = lithoThemeResult.scanResult.patternScanResult!!.endIndex - 1
 
-    override fun execute(context: BytecodeContext) {
-        LithoThemeFingerprint.result?.let {
-            insertionIndex = it.scanResult.patternScanResult!!.endIndex - 1
-            colorRegister = "p1"
-            insertionMethod = it.mutableMethod
-        } ?: throw LithoThemeFingerprint.exception
+        lithoColorOverrideHook = { targetMethodClass, targetMethodName ->
+            lithoThemeResult.mutableMethod.addInstructions(
+                insertionIndex,
+                """
+                    invoke-static { p1 }, $targetMethodClass->$targetMethodName(I)I
+                    move-result p1
+                """,
+            )
+            insertionIndex += 2
+        }
     }
 }

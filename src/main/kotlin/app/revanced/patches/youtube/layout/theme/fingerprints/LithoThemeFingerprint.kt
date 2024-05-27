@@ -1,15 +1,14 @@
 package app.revanced.patches.youtube.layout.theme.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object LithoThemeFingerprint : MethodFingerprint(
-    returnType = "V",
-    accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
-    parameters = listOf("Landroid/graphics/Rect;"),
-    opcodes = listOf(
+internal val lithoThemeFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
+    returns("V")
+    parameters("Landroid/graphics/Rect;")
+    opcodes(
         Opcode.APUT,
         Opcode.NEW_INSTANCE,
         Opcode.INVOKE_DIRECT,
@@ -24,9 +23,9 @@ internal object LithoThemeFingerprint : MethodFingerprint(
         Opcode.IF_NEZ,
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.RETURN_VOID
-    ),
-    customFingerprint = { methodDef, _ ->
+        Opcode.RETURN_VOID,
+    )
+    custom { methodDef, _ ->
         methodDef.name == "onBoundsChange"
     }
-)
+}
