@@ -1,15 +1,15 @@
 package app.revanced.patches.youtube.layout.seekbar.fingerprints
 
+import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patches.youtube.layout.seekbar.inlineTimeBarColorizedBarPlayedColorDarkId
+import app.revanced.patches.youtube.layout.seekbar.inlineTimeBarPlayedNotHighlightedColorId
 import app.revanced.util.containsWideLiteralInstructionValue
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.patches.youtube.layout.seekbar.SeekbarColorResourcePatch
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object PlayerSeekbarColorFingerprint : MethodFingerprint(
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    customFingerprint = { method, _ ->
-        method.containsWideLiteralInstructionValue(SeekbarColorResourcePatch.inlineTimeBarColorizedBarPlayedColorDarkId)
-                && method.containsWideLiteralInstructionValue(SeekbarColorResourcePatch.inlineTimeBarPlayedNotHighlightedColorId)
+internal val playerSeekbarColorFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    custom { method, _ ->
+        method.containsWideLiteralInstructionValue(inlineTimeBarColorizedBarPlayedColorDarkId) &&
+            method.containsWideLiteralInstructionValue(inlineTimeBarPlayedNotHighlightedColorId)
     }
-)
+}
