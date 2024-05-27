@@ -13,7 +13,6 @@ import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.KidsMinimizedPlaybackPolicyControllerFingerprint
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackManagerFingerprint
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackSettingsFingerprint
-import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackSettingsParentFingerprint
 import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
@@ -25,6 +24,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
     name = "Minimized playback",
     description = "Unlocks options for picture-in-picture and background playback.",
     dependencies = [
+        MinimizedPlaybackResourcePatch::class,
         IntegrationsPatch::class,
         PlayerTypeHookPatch::class,
         VideoInformationPatch::class,
@@ -56,7 +56,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 object MinimizedPlaybackPatch : BytecodePatch(
     setOf(
         MinimizedPlaybackManagerFingerprint,
-        MinimizedPlaybackSettingsParentFingerprint,
+        MinimizedPlaybackSettingsFingerprint,
         KidsMinimizedPlaybackPolicyControllerFingerprint
     )
 ) {
@@ -82,11 +82,6 @@ object MinimizedPlaybackPatch : BytecodePatch(
         } ?: throw MinimizedPlaybackManagerFingerprint.exception
 
         // Enable minimized playback option in YouTube settings
-        MinimizedPlaybackSettingsParentFingerprint.result ?: throw MinimizedPlaybackSettingsParentFingerprint.exception
-        MinimizedPlaybackSettingsFingerprint.resolve(
-            context,
-            MinimizedPlaybackSettingsParentFingerprint.result!!.classDef
-        )
         MinimizedPlaybackSettingsFingerprint.result?.apply {
             val booleanCalls = method.implementation!!.instructions.withIndex()
                 .filter { ((it.value as? ReferenceInstruction)?.reference as? MethodReference)?.returnType == "Z" }
