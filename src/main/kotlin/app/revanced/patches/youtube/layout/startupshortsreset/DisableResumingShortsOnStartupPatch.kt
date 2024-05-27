@@ -23,7 +23,7 @@ private const val INTEGRATIONS_CLASS_DESCRIPTOR =
     "Lapp/revanced/integrations/youtube/patches/DisableResumingStartupShortsPlayerPatch;"
 
 @Suppress("unused")
-internal val disableResumingShortsOnStartupPatch = bytecodePatch(
+val disableResumingShortsOnStartupPatch = bytecodePatch(
     name = "Disable resuming Shorts on startup",
     description = "Adds an option to disable the Shorts player from resuming on app startup when Shorts were last being watched.",
 ) {
