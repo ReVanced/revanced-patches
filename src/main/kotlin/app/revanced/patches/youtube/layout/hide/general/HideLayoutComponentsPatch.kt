@@ -169,18 +169,18 @@ object HideLayoutComponentsPatch : BytecodePatch(
             val startIndex = result.scanResult.patternScanResult!!.startIndex
 
             result.mutableMethod.apply {
+                val freeRegister = "v0"
                 val byteArrayParameter = "p3"
-                val conversionContextRegister = getInstruction<TwoRegisterInstruction>(startIndex + 1).registerA
-                val freeRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
+                val conversionContextRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
                 val returnEmptyComponentInstruction = getInstructions().last { it.opcode == Opcode.INVOKE_STATIC }
 
                 addInstructionsWithLabels(
-                    startIndex + 2,
+                    startIndex + 1,
                     """
                         invoke-static { v$conversionContextRegister, $byteArrayParameter }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->filterMixPlaylists(Ljava/lang/Object;[B)Z
-                        move-result v$freeRegister 
-                        if-nez v$freeRegister, :return_empty_component
-                        const/4 v$freeRegister, 0x0  # Restore register 
+                        move-result $freeRegister 
+                        if-nez $freeRegister, :return_empty_component
+                        const/4 $freeRegister, 0x0  # Restore register, required for 19.16
                     """,
                     ExternalLabel("return_empty_component", returnEmptyComponentInstruction),
                 )
