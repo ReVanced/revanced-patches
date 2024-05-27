@@ -1,11 +1,10 @@
 package app.revanced.patches.youtube.misc.playercontrols.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object PlayerControlsVisibilityFingerprint : MethodFingerprint(
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
-    returnType = "V",
-    parameters = listOf("Z", "Z")
-)
+internal val playerControlsVisibilityFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
+    returns("V")
+    parameters("Z", "Z")
+}

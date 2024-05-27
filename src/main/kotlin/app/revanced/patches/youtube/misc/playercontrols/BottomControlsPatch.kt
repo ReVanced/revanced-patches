@@ -19,7 +19,7 @@ private lateinit var targetDocument: Document
 internal var bottomUiContainerResourceId = -1L
     private set
 
-val bottomControlsResourcePatch = resourcePatch {
+val bottomControlsPatch = resourcePatch {
     dependsOn(resourceMappingPatch)
 
     execute { context ->
