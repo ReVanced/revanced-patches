@@ -23,7 +23,6 @@ import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
@@ -167,20 +166,21 @@ object HideLayoutComponentsPatch : BytecodePatch(
         // region Mix playlists
 
         ParseElementFromBufferFingerprint.resultOrThrow().let { result ->
-            val consumeByteBufferIndex = result.scanResult.patternScanResult!!.startIndex
+            val startIndex = result.scanResult.patternScanResult!!.startIndex
 
             result.mutableMethod.apply {
-                val conversionContextRegister =
-                    getInstruction<TwoRegisterInstruction>(consumeByteBufferIndex - 2).registerA
-                val byteBufferRegister = getInstruction<FiveRegisterInstruction>(consumeByteBufferIndex).registerD
+                val byteArrayParameter = "p3"
+                val conversionContextRegister = getInstruction<TwoRegisterInstruction>(startIndex + 1).registerA
+                val freeRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
                 val returnEmptyComponentInstruction = getInstructions().last { it.opcode == Opcode.INVOKE_STATIC }
 
                 addInstructionsWithLabels(
-                    consumeByteBufferIndex,
+                    startIndex + 2,
                     """
-                        invoke-static {v$conversionContextRegister, v$byteBufferRegister}, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->filterMixPlaylists(Ljava/lang/Object;[B)Z
-                        move-result v0 # Conveniently same register happens to be free. 
-                        if-nez v0, :return_empty_component
+                        invoke-static { v$conversionContextRegister, $byteArrayParameter }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->filterMixPlaylists(Ljava/lang/Object;[B)Z
+                        move-result v$freeRegister 
+                        if-nez v$freeRegister, :return_empty_component
+                        const/4 v$freeRegister, 0x0  # Restore register 
                     """,
                     ExternalLabel("return_empty_component", returnEmptyComponentInstruction),
                 )
