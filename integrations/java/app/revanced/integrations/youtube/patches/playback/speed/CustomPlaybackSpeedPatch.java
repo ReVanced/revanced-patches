@@ -6,6 +6,8 @@ import android.preference.ListPreference;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
+
 import androidx.annotation.NonNull;
 
 import app.revanced.integrations.youtube.patches.components.PlaybackSpeedMenuFilterPatch;
@@ -115,24 +117,36 @@ public class CustomPlaybackSpeedPatch {
                 if (!PlaybackSpeedMenuFilterPatch.isPlaybackSpeedMenuVisible || recyclerView.getChildCount() == 0) {
                     return;
                 }
-                ViewGroup PlaybackSpeedParentView = (ViewGroup) recyclerView.getChildAt(0);
-                if (PlaybackSpeedParentView == null || PlaybackSpeedParentView.getChildCount() != 8) {
+
+                View firstChild = recyclerView.getChildAt(0);
+                if (!(firstChild instanceof ViewGroup)) {
+                    return;
+                }
+                ViewGroup PlaybackSpeedParentView = (ViewGroup) firstChild;
+                if (PlaybackSpeedParentView.getChildCount() != 8) {
                     return;
                 }
 
                 PlaybackSpeedMenuFilterPatch.isPlaybackSpeedMenuVisible = false;
-                ViewGroup parentView3rd = (ViewGroup) recyclerView.getParent().getParent().getParent();
-                ViewGroup parentView4th = (ViewGroup) parentView3rd.getParent();
+
+                ViewParent parentView3rd = Utils.getParentView(recyclerView, 3);
+                if (!(parentView3rd instanceof ViewGroup)) {
+                    return;
+                }
+                ViewParent parentView4th = parentView3rd.getParent();
+                if (!(parentView4th instanceof ViewGroup)) {
+                    return;
+                }
 
                 // Dismiss View [R.id.touch_outside] is the 1st ChildView of the 4th ParentView.
                 // This only shows in phone layout.
-                final var touchInsidedView = parentView4th.getChildAt(0);
+                final var touchInsidedView = ((ViewGroup) parentView4th).getChildAt(0);
                 touchInsidedView.setSoundEffectsEnabled(false);
                 touchInsidedView.performClick();
 
                 // In tablet layout there is no Dismiss View, instead we just hide all two parent views.
-                parentView3rd.setVisibility(View.GONE);
-                parentView4th.setVisibility(View.GONE);
+                ((ViewGroup) parentView3rd).setVisibility(View.GONE);
+                ((ViewGroup) parentView4th).setVisibility(View.GONE);
 
                 // This works without issues for both tablet and phone layouts,
                 // So no code is needed to check whether the current device is a tablet or phone.

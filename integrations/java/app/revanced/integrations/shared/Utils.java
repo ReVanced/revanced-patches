@@ -249,6 +249,25 @@ public class Utils {
         return null;
     }
 
+    @Nullable
+    public static ViewParent getParentView(@NonNull View view, int nthParent) {
+        ViewParent parent = view.getParent();
+
+        int currentDepth = 0;
+        while (++currentDepth < nthParent && parent != null) {
+            parent = parent.getParent();
+        }
+
+        if (currentDepth == nthParent) {
+            return parent;
+        }
+
+        final int currentDepthLog = currentDepth;
+        Logger.printDebug(() -> "Could not find parent view of depth: " + nthParent
+                + " and instead found at: " + currentDepthLog + " view: " + view);
+        return null;
+    }
+
     public static void restartApp(@NonNull Context context) {
         String packageName = context.getPackageName();
         Intent intent = context.getPackageManager().getLaunchIntentForPackage(packageName);
