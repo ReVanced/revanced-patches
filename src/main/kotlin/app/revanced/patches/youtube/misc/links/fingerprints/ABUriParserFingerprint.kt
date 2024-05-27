@@ -23,7 +23,7 @@ internal object ABUriParserFingerprint : MethodFingerprint(
         Opcode.CHECK_CAST
     ),
     customFingerprint = { methodDef, classDef ->
-        // This method is always called "a" because this kind of class always has a single method.
-        methodDef.name == "a" && classDef.methods.count() == 3
+        // This method is always called "a" because this kind of class always has a single (non synthetic) method.
+        methodDef.name == "a" && classDef.methods.count() == 2 || classDef.methods.count() == 3
     }
 )
