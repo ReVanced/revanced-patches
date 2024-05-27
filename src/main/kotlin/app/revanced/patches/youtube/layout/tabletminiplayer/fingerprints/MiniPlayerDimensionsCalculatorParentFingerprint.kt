@@ -1,15 +1,14 @@
 package app.revanced.patches.youtube.layout.tabletminiplayer.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object MiniPlayerDimensionsCalculatorParentFingerprint : MethodFingerprint(
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    returnType = "V",
-    parameters = listOf("F"),
-    opcodes = listOf(
+internal val miniPlayerDimensionsCalculatorParentFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
+    parameters("F")
+    opcodes(
         Opcode.CONST_HIGH16,
         Opcode.ADD_FLOAT_2ADDR,
         null, // Opcode.MUL_FLOAT or Opcode.MUL_FLOAT_2ADDR
@@ -20,4 +19,4 @@ internal object MiniPlayerDimensionsCalculatorParentFingerprint : MethodFingerpr
         Opcode.INVOKE_INTERFACE,
         Opcode.RETURN_VOID,
     )
-)
+}
