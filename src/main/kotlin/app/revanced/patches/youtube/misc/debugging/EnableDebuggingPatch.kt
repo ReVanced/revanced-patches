@@ -1,28 +1,31 @@
 package app.revanced.patches.youtube.misc.debugging
 
-import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
-import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patches.youtube.misc.integrations.integrationsPatch
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import app.revanced.patches.youtube.misc.settings.settingsPatch
 
-@Patch(
+val enableDebuggingPatch = resourcePatch(
     name = "Enable debugging",
     description = "Adds options for debugging.",
-    dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
-    compatiblePackages = [CompatiblePackage("com.google.android.youtube")],
-)
-@Suppress("unused")
-object DebuggingPatch : ResourcePatch() {
-    override fun execute(context: ResourceContext) {
-        AddResourcesPatch(this::class)
+) {
+    dependsOn(
+        integrationsPatch,
+        settingsPatch,
+        addResourcesPatch,
+    )
 
-        SettingsPatch.PreferenceScreen.MISC.addPreferences(
+    compatibleWith("com.google.android.youtube")
+
+    execute {
+        addResources("youtube", "misc.debugging.DebuggingPatch")
+
+        PreferenceScreen.MISC.addPreferences(
             PreferenceScreenPreference(
                 key = "revanced_debug_screen",
                 sorting = Sorting.UNSORTED,
