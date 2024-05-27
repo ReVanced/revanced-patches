@@ -34,7 +34,8 @@ fun initializeControl(descriptor: String) {
     )
 }
 
-private lateinit var showPlayerControlsFingerprintResult: MethodFingerprintResult
+lateinit var showPlayerControlsFingerprintResult: MethodFingerprintResult
+    private set
 
 private var moveToRegisterInstructionIndex = 0
 private var viewRegister = 0

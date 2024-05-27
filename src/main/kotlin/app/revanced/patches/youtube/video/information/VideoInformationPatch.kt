@@ -46,7 +46,7 @@ lateinit var setPlaybackSpeedClassFieldReference: String
 lateinit var setPlaybackSpeedMethodReference: String
     private set
 
-val vieoInformationPatch = bytecodePatch(
+val videoInformationPatch = bytecodePatch(
     description = "Hooks YouTube to get information about the current playing video.",
 ) {
     dependsOn(

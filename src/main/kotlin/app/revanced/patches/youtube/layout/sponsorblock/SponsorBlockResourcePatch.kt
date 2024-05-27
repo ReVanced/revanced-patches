@@ -1,35 +1,34 @@
 package app.revanced.patches.youtube.layout.sponsorblock
 
-import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.all.misc.resources.AddResourcesPatch
-import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.IntentPreference
-import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.patches.youtube.misc.settings.SettingsResourcePatch
+import app.revanced.patches.youtube.misc.settings.newIntent
+import app.revanced.patches.youtube.misc.settings.preferences
+import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import app.revanced.util.copyXmlNode
 import app.revanced.util.inputStreamFromBundledResource
 
-@Patch(
-    dependencies = [
-        SettingsPatch::class,
-        ResourceMappingPatch::class,
-        AddResourcesPatch::class,
-    ],
-)
-internal object SponsorBlockResourcePatch : ResourcePatch() {
-    override fun execute(context: ResourceContext) {
-        AddResourcesPatch(this::class)
+internal val sponsorBlockResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        resourceMappingPatch,
+        addResourcesPatch,
+    )
 
-        SettingsResourcePatch += IntentPreference(
+    execute { context ->
+        addResources("youtube", "layout.sponsorblock.SponsorBlockResourcePatch")
+
+        preferences += IntentPreference(
             key = "revanced_settings_screen_10",
             titleKey = "revanced_sb_settings_title",
             summaryKey = null,
-            intent = SettingsPatch.newIntent("revanced_sb_settings_intent")
+            intent = newIntent("revanced_sb_settings_intent"),
         )
 
         arrayOf(
@@ -69,13 +68,11 @@ internal object SponsorBlockResourcePatch : ResourcePatch() {
             )!!
 
         var modifiedControlsLayout = false
-        val editor = context.xmlEditor["res/layout/youtube_controls_layout.xml"]
+        val document = context.document["res/layout/youtube_controls_layout.xml"]
         "RelativeLayout".copyXmlNode(
-            context.xmlEditor[hostingResourceStream],
-            editor,
+            context.document[hostingResourceStream],
+            document,
         ).also {
-            val document = editor.file
-
             val children = document.getElementsByTagName("RelativeLayout").item(0).childNodes
 
             // Replace the startOf with the voting button view so that the button does not overlap
