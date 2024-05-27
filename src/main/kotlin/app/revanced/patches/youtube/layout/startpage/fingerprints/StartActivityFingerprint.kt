@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.startpage.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-object StartActivityFingerprint : MethodFingerprint(
-    parameters = listOf("Landroid/content/Intent;"),
-)
+internal val startActivityFingerprint = methodFingerprint {
+    parameters("Landroid/content/Intent;")
+}

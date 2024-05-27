@@ -1,53 +1,51 @@
 package app.revanced.patches.youtube.layout.startpage
 
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
-import app.revanced.patches.youtube.layout.startpage.fingerprints.StartActivityFingerprint
-import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
-import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.patches.youtube.shared.fingerprints.HomeActivityFingerprint
-import app.revanced.util.exception
+import app.revanced.patches.youtube.layout.startpage.fingerprints.startActivityFingerprint
+import app.revanced.patches.youtube.misc.integrations.integrationsPatch
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.patches.youtube.shared.fingerprints.homeActivityFingerprint
+import app.revanced.util.resultOrThrow
 
-@Patch(
+private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/ChangeStartPagePatch;"
+
+@Suppress("unused")
+val changeStartPagePatch = bytecodePatch(
     name = "Change start page",
     description = "Adds an option to set which page the app opens in instead of the homepage.",
-    dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.youtube"
-        )
-    ]
-)
-@Suppress("unused")
-object ChangeStartPagePatch : BytecodePatch(
-    setOf(HomeActivityFingerprint)
 ) {
-    private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/youtube/patches/ChangeStartPagePatch;"
+    dependsOn(
+        integrationsPatch,
+        settingsPatch,
+        addResourcesPatch,
+    )
 
-    override fun execute(context: BytecodeContext) {
-        AddResourcesPatch(this::class)
+    compatibleWith(
+        "com.google.android.youtube",
+    )
 
-        SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+    val homeActivityResult by homeActivityFingerprint
+
+    execute { context ->
+        addResources("youtube", "layout.startpage.ChangeStartPagePatch")
+
+        PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             ListPreference(
                 key = "revanced_start_page",
                 summaryKey = null,
-            )
+            ),
         )
 
-        StartActivityFingerprint.resolve(
-            context,
-            HomeActivityFingerprint.result?.classDef ?: throw HomeActivityFingerprint.exception
-        )
-
-        StartActivityFingerprint.result?.mutableMethod?.addInstruction(
+        startActivityFingerprint.apply {
+            resolve(context, homeActivityResult.classDef)
+        }.resultOrThrow().mutableMethod.addInstruction(
             0,
-            "invoke-static { p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->changeIntent(Landroid/content/Intent;)V"
-        ) ?: throw StartActivityFingerprint.exception
+            "invoke-static { p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->changeIntent(Landroid/content/Intent;)V",
+        )
     }
 }
