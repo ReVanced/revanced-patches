@@ -10,10 +10,11 @@ import app.revanced.util.containsWideLiteralInstructionValue
  * @param literalSupplier A supplier for the literal value to check for.
  * @param block The fingerprint builder block.
  */
+// TODO: Convert literalSupplier to an extension function on MethodFingerprintBuilder.
 fun literalValueFingerprint(
     // Has to be a supplier because the fingerprint is created before patches can set literals.
     literalSupplier: () -> Long,
-    block: MethodFingerprintBuilder.() -> Unit,
+    block: MethodFingerprintBuilder.() -> Unit = {},
 ) = methodFingerprint {
     block()
 

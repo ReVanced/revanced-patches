@@ -1,86 +1,85 @@
 package app.revanced.patches.youtube.layout.hide.general
 
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
-import app.revanced.patches.youtube.layout.hide.general.fingerprints.HideShowMoreButtonFingerprint
-import app.revanced.patches.youtube.layout.hide.general.fingerprints.ParseElementFromBufferFingerprint
-import app.revanced.patches.youtube.layout.hide.general.fingerprints.PlayerOverlayFingerprint
-import app.revanced.patches.youtube.layout.hide.general.fingerprints.ShowWatermarkFingerprint
-import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
-import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
-import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patches.youtube.layout.hide.general.fingerprints.*
+import app.revanced.patches.youtube.layout.hide.general.fingerprints.parseElementFromBufferFingerprint
+import app.revanced.patches.youtube.misc.litho.filter.addFilter
+import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
+import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 
-@Patch(
+@Suppress("unused")
+val hideLayoutComponentsPatch = bytecodePatch(
     name = "Hide layout components",
     description = "Adds options to hide general layout components.",
-    dependencies = [
-        LithoFilterPatch::class,
-        SettingsPatch::class,
-        AddResourcesPatch::class,
-        HideLayoutComponentsResourcePatch::class,
-        NavigationBarHookPatch::class,
-    ],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.youtube",
-            [
-                "18.32.39",
-                "18.37.36",
-                "18.38.44",
-                "18.43.45",
-                "18.44.41",
-                "18.45.43",
-                "18.48.39",
-                "18.49.37",
-                "19.01.34",
-                "19.02.39",
-                "19.03.36",
-                "19.04.38",
-                "19.05.36",
-                "19.06.39",
-                "19.07.40",
-                "19.08.36",
-                "19.09.38",
-                "19.10.39",
-                "19.11.43",
-            ],
-        ),
-    ],
-)
-@Suppress("unused")
-object HideLayoutComponentsPatch : BytecodePatch(
-    setOf(ParseElementFromBufferFingerprint, PlayerOverlayFingerprint, HideShowMoreButtonFingerprint),
 ) {
-    private const val LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/youtube/patches/components/LayoutComponentsFilter;"
-    private const val DESCRIPTION_COMPONENTS_FILTER_CLASS_NAME =
-        "Lapp/revanced/integrations/youtube/patches/components/DescriptionComponentsFilter;"
-    private const val CUSTOM_FILTER_CLASS_NAME =
-        "Lapp/revanced/integrations/youtube/patches/components/CustomFilter;"
-    private const val KEYWORD_FILTER_CLASS_NAME =
-        "Lapp/revanced/integrations/youtube/patches/components/KeywordContentFilter;"
+    dependsOn(
+        lithoFilterPatch,
+        settingsPatch,
+        addResourcesPatch,
+        hideLayoutComponentsResourcePatch,
+        navigationBarHookPatch,
+    )
 
-    override fun execute(context: BytecodeContext) {
-        AddResourcesPatch(this::class)
+    compatibleWith(
+        "com.google.android.youtube"(
+            "18.32.39",
+            "18.37.36",
+            "18.38.44",
+            "18.43.45",
+            "18.44.41",
+            "18.45.43",
+            "18.48.39",
+            "18.49.37",
+            "19.01.34",
+            "19.02.39",
+            "19.03.36",
+            "19.04.38",
+            "19.05.36",
+            "19.06.39",
+            "19.07.40",
+            "19.08.36",
+            "19.09.38",
+            "19.10.39",
+            "19.11.43",
+        ),
+    )
 
-        SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
+    val parseElementFromBufferResult by parseElementFromBufferFingerprint
+    val playerOverlayResult by playerOverlayFingerprint
+    val hideShowMoreButtonResult by hideShowMoreButtonFingerprint
+
+    execute { context ->
+        val layoutComponentsFilterClassDescriptor =
+            "Lapp/revanced/integrations/youtube/patches/components/LayoutComponentsFilter;"
+        val descriptionComponentsFilterClassName =
+            "Lapp/revanced/integrations/youtube/patches/components/DescriptionComponentsFilter;"
+        val keywordFilterClassName =
+            "Lapp/revanced/integrations/youtube/patches/components/KeywordContentFilter;"
+        val customFilterClassName =
+            "Lapp/revanced/integrations/youtube/patches/components/CustomFilter;"
+
+        addResources("youtube", "layout.hide.general.HideLayoutComponentsPatch")
+
+        PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_hide_channel_bar"),
             SwitchPreference("revanced_hide_channel_guidelines"),
             SwitchPreference("revanced_hide_channel_member_shelf"),
@@ -109,7 +108,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_timed_reactions"),
         )
 
-        SettingsPatch.PreferenceScreen.FEED.addPreferences(
+        PreferenceScreen.FEED.addPreferences(
             SwitchPreference("revanced_hide_artist_cards"),
             SwitchPreference("revanced_hide_community_posts"),
             SwitchPreference("revanced_hide_compact_banner"),
@@ -138,7 +137,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
             ),
         )
 
-        SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+        PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             SwitchPreference("revanced_hide_gray_separator"),
             PreferenceScreenPreference(
                 key = "revanced_custom_filter_screen",
@@ -151,44 +150,42 @@ object HideLayoutComponentsPatch : BytecodePatch(
             ),
         )
 
-        SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
+        PreferenceScreen.VIDEO.addPreferences(
             SwitchPreference("revanced_hide_video_quality_menu_footer"),
         )
 
-        LithoFilterPatch.addFilter(LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR)
-        LithoFilterPatch.addFilter(DESCRIPTION_COMPONENTS_FILTER_CLASS_NAME)
-        LithoFilterPatch.addFilter(KEYWORD_FILTER_CLASS_NAME)
-        LithoFilterPatch.addFilter(CUSTOM_FILTER_CLASS_NAME)
+        addFilter(layoutComponentsFilterClassDescriptor)
+        addFilter(descriptionComponentsFilterClassName)
+        addFilter(keywordFilterClassName)
+        addFilter(customFilterClassName)
 
         // region Mix playlists
 
-        ParseElementFromBufferFingerprint.resultOrThrow().let { result ->
-            val consumeByteBufferIndex = result.scanResult.patternScanResult!!.startIndex
+        val consumeByteBufferIndex = parseElementFromBufferResult.scanResult.patternScanResult!!.startIndex
 
-            result.mutableMethod.apply {
-                val conversionContextRegister =
-                    getInstruction<TwoRegisterInstruction>(consumeByteBufferIndex - 2).registerA
-                val byteBufferRegister = getInstruction<FiveRegisterInstruction>(consumeByteBufferIndex).registerD
-                val returnEmptyComponentInstruction = getInstructions().last { it.opcode == Opcode.INVOKE_STATIC }
+        parseElementFromBufferResult.mutableMethod.apply {
+            val conversionContextRegister =
+                getInstruction<TwoRegisterInstruction>(consumeByteBufferIndex - 2).registerA
+            val byteBufferRegister = getInstruction<FiveRegisterInstruction>(consumeByteBufferIndex).registerD
+            val returnEmptyComponentInstruction = getInstructions().last { it.opcode == Opcode.INVOKE_STATIC }
 
-                addInstructionsWithLabels(
-                    consumeByteBufferIndex,
-                    """
-                        invoke-static {v$conversionContextRegister, v$byteBufferRegister}, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->filterMixPlaylists(Ljava/lang/Object;[B)Z
+            addInstructionsWithLabels(
+                consumeByteBufferIndex,
+                """
+                        invoke-static {v$conversionContextRegister, v$byteBufferRegister}, $layoutComponentsFilterClassDescriptor->filterMixPlaylists(Ljava/lang/Object;[B)Z
                         move-result v0 # Conveniently same register happens to be free. 
                         if-nez v0, :return_empty_component
                     """,
-                    ExternalLabel("return_empty_component", returnEmptyComponentInstruction),
-                )
-            }
+                ExternalLabel("return_empty_component", returnEmptyComponentInstruction),
+            )
         }
 
         // endregion
 
         // region Watermark (legacy code for old versions of YouTube)
 
-        ShowWatermarkFingerprint.also {
-            it.resolve(context, PlayerOverlayFingerprint.resultOrThrow().classDef)
+        showWatermarkFingerprint.apply {
+            resolve(context, playerOverlayResult.classDef)
         }.resultOrThrow().mutableMethod.apply {
             val index = implementation!!.instructions.size - 5
 
@@ -196,7 +193,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
             addInstructions(
                 index,
                 """
-                    invoke-static {}, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->showWatermark()Z
+                    invoke-static {}, $layoutComponentsFilterClassDescriptor->showWatermark()Z
                     move-result p2
                 """,
             )
@@ -206,19 +203,17 @@ object HideLayoutComponentsPatch : BytecodePatch(
 
         // region Show more button
 
-        HideShowMoreButtonFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                val moveRegisterIndex = it.scanResult.patternScanResult!!.endIndex
-                val viewRegister =
-                    getInstruction<OneRegisterInstruction>(moveRegisterIndex).registerA
+        hideShowMoreButtonResult.mutableMethod.apply {
+            val moveRegisterIndex = hideShowMoreButtonResult.scanResult.patternScanResult!!.endIndex
+            val viewRegister =
+                getInstruction<OneRegisterInstruction>(moveRegisterIndex).registerA
 
-                val insertIndex = moveRegisterIndex + 1
-                addInstruction(
-                    insertIndex,
-                    "invoke-static { v$viewRegister }, " +
-                        "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideShowMoreButton(Landroid/view/View;)V",
-                )
-            }
+            val insertIndex = moveRegisterIndex + 1
+            addInstruction(
+                insertIndex,
+                "invoke-static { v$viewRegister }, " +
+                    "$layoutComponentsFilterClassDescriptor->hideShowMoreButton(Landroid/view/View;)V",
+            )
         }
 
         // endregion

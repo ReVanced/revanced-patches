@@ -1,16 +1,14 @@
 package app.revanced.patches.youtube.layout.theme.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object ThemeHelperLightColorFingerprint : MethodFingerprint(
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.STATIC,
-    returnType = "Ljava/lang/String;",
-    parameters = listOf(),
-    customFingerprint = { methodDef, classDef ->
+internal val themeHelperLightColorFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
+    returns("Ljava/lang/String;")
+    parameters()
+    custom { methodDef, classDef ->
         methodDef.name == "lightThemeResourceName" &&
-                classDef.type == SettingsPatch.THEME_HELPER_DESCRIPTOR
+            classDef.type == "Lapp/revanced/integrations/youtube/ThemeHelper;"
     }
-)
+}

@@ -1,13 +1,12 @@
 package app.revanced.patches.youtube.layout.sponsorblock.fingerprints
 
-
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal object RectangleFieldInvalidatorFingerprint : MethodFingerprint(
-    "V",
-    customFingerprint = custom@{ methodDef, _ ->
+internal val rectangleFieldInvalidatorFingerprint = methodFingerprint {
+    returns("V")
+    custom { methodDef, _ ->
         val instructions = methodDef.implementation?.instructions!!
         val instructionCount = instructions.count()
 
@@ -19,4 +18,4 @@ internal object RectangleFieldInvalidatorFingerprint : MethodFingerprint(
 
         reference?.parameterTypes?.size == 1 && reference.name == "invalidate" // the reference is the invalidate(..) method
     }
-)
+}

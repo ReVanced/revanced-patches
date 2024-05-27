@@ -1,19 +1,18 @@
 package app.revanced.patches.youtube.layout.hide.shorts.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.patches.youtube.layout.hide.shorts.HideShortsComponentsResourcePatch
+import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patches.youtube.layout.hide.shorts.reelMultipleItemShelfId
 import app.revanced.util.containsWideLiteralInstructionValue
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object ReelConstructorFingerprint : MethodFingerprint(
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    opcodes = listOf(Opcode.INVOKE_VIRTUAL),
-    customFingerprint = { methodDef, _ ->
+internal val reelConstructorFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    opcodes(Opcode.INVOKE_VIRTUAL)
+    custom { methodDef, _ ->
         // Cannot use LiteralValueFingerprint, because the resource id may not be present.
-        val reelMultipleItemShelfId = HideShortsComponentsResourcePatch.reelMultipleItemShelfId
-        reelMultipleItemShelfId != -1L
-                && methodDef.containsWideLiteralInstructionValue(reelMultipleItemShelfId)
+        val reelMultipleItemShelfId = reelMultipleItemShelfId
+        reelMultipleItemShelfId != -1L &&
+            methodDef.containsWideLiteralInstructionValue(reelMultipleItemShelfId)
     }
-)
+}

@@ -1,11 +1,10 @@
 package app.revanced.patches.youtube.layout.hide.infocards.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object InfocardsIncognitoParentFingerprint : MethodFingerprint(
-    "Ljava/lang/String;",
-    AccessFlags.PUBLIC or AccessFlags.FINAL,
-    strings = listOf("player_overlay_info_card_teaser"),
-)
+internal val infocardsIncognitoParentFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Ljava/lang/String;")
+    strings("player_overlay_info_card_teaser")
+}

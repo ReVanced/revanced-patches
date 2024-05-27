@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.shared.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object HomeActivityFingerprint : MethodFingerprint(
-    customFingerprint = { methodDef, classDef ->
-        methodDef.name == "onCreate" && classDef.type.endsWith("Shell_HomeActivity;")
-    },
-)
+internal val homeActivityFingerprints = methodFingerprint {
+    custom { methodDef, classDef ->
+        methodDef.name == "onCreate" && classDef.endsWith("Shell_HomeActivity;")
+    }
+}

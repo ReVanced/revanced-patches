@@ -1,15 +1,14 @@
 package app.revanced.patches.youtube.layout.sponsorblock.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object ControlsOverlayFingerprint : MethodFingerprint(
-    returnType = "V",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
-    parameters = listOf(),
-    opcodes = listOf(
+internal val controlsOverlayFingerprint = methodFingerprint {
+    returns("V")
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
+    parameters()
+    opcodes(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST, // R.id.inset_overlay_view_layout
@@ -19,6 +18,6 @@ internal object ControlsOverlayFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,
-        Opcode.NEW_INSTANCE
+        Opcode.NEW_INSTANCE,
     )
-)
+}

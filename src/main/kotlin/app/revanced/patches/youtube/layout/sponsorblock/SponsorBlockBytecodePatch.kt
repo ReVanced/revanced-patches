@@ -1,30 +1,29 @@
 package app.revanced.patches.youtube.layout.sponsorblock
 
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
-import app.revanced.patches.youtube.layout.sponsorblock.fingerprints.AppendTimeFingerprint
-import app.revanced.patches.youtube.layout.sponsorblock.fingerprints.ControlsOverlayFingerprint
-import app.revanced.patches.youtube.layout.sponsorblock.fingerprints.RectangleFieldInvalidatorFingerprint
-import app.revanced.patches.youtube.misc.autorepeat.fingerprints.AutoRepeatFingerprint
-import app.revanced.patches.youtube.misc.autorepeat.fingerprints.AutoRepeatParentFingerprint
-import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
-import app.revanced.patches.youtube.misc.playercontrols.PlayerControlsBytecodePatch
-import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
-import app.revanced.patches.youtube.shared.fingerprints.LayoutConstructorFingerprint
-import app.revanced.patches.youtube.shared.fingerprints.SeekbarFingerprint
-import app.revanced.patches.youtube.shared.fingerprints.SeekbarOnDrawFingerprint
-import app.revanced.patches.youtube.video.information.VideoInformationPatch
-import app.revanced.patches.youtube.video.videoid.VideoIdPatch
-import app.revanced.util.exception
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappings
+import app.revanced.patches.youtube.layout.sponsorblock.fingerprints.appendTimeFingerprint
+import app.revanced.patches.youtube.layout.sponsorblock.fingerprints.controlsOverlayFingerprint
+import app.revanced.patches.youtube.layout.sponsorblock.fingerprints.rectangleFieldInvalidatorFingerprint
+import app.revanced.patches.youtube.misc.integrations.integrationsPatch
+import app.revanced.patches.youtube.misc.playercontrols.injectVisibilityCheckCall
+import app.revanced.patches.youtube.misc.playercontrols.playerControlsPatch
+import app.revanced.patches.youtube.misc.playercontrols.showPlayerControlsFingerprintResult
+import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
+import app.revanced.patches.youtube.shared.fingerprints.*
+import app.revanced.patches.youtube.video.information.onCreateHook
+import app.revanced.patches.youtube.video.information.videoInformationPatch
+import app.revanced.patches.youtube.video.information.videoTimeHook
+import app.revanced.patches.youtube.video.videoid.hookBackgroundPlayVideoId
+import app.revanced.patches.youtube.video.videoid.videoIdPatch
+import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.*
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
@@ -32,86 +31,76 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
-@Patch(
+private const val INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR =
+    "Lapp/revanced/integrations/youtube/sponsorblock/SegmentPlaybackController;"
+private const val INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR =
+    "Lapp/revanced/integrations/youtube/sponsorblock/ui/CreateSegmentButtonController;"
+private const val INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR =
+    "Lapp/revanced/integrations/youtube/sponsorblock/ui/VotingButtonController;"
+private const val INTEGRATIONS_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR =
+    "Lapp/revanced/integrations/youtube/sponsorblock/ui/SponsorBlockViewController;"
+
+@Suppress("unused")
+val sponsorBlockBytecodePatch = bytecodePatch(
     name = "SponsorBlock",
     description = "Adds options to enable and configure SponsorBlock, which can skip undesired video segments such as sponsored content.",
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.youtube",
-            [
-                "18.48.39",
-                "18.49.37",
-                "19.01.34",
-                "19.02.39",
-                "19.03.36",
-                "19.04.38",
-                "19.05.36",
-                "19.06.39",
-                "19.07.40",
-                "19.08.36",
-                "19.09.38",
-                "19.10.39",
-                "19.11.43",
-            ],
-        ),
-    ],
-    dependencies = [
-        IntegrationsPatch::class,
-        VideoIdPatch::class,
-        // Required to skip segments on time.
-        VideoInformationPatch::class,
-        // Used to prevent SponsorBlock from running on Shorts because SponsorBlock does not yet support Shorts.
-        PlayerTypeHookPatch::class,
-        PlayerControlsBytecodePatch::class,
-        SponsorBlockResourcePatch::class,
-    ],
-)
-@Suppress("unused")
-object SponsorBlockBytecodePatch : BytecodePatch(
-    setOf(
-        SeekbarFingerprint,
-        AppendTimeFingerprint,
-        LayoutConstructorFingerprint,
-        AutoRepeatParentFingerprint,
-    ),
 ) {
-    private const val INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/youtube/sponsorblock/SegmentPlaybackController;"
-    private const val INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/youtube/sponsorblock/ui/CreateSegmentButtonController;"
-    private const val INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/youtube/sponsorblock/ui/VotingButtonController;"
-    private const val INTEGRATIONS_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/youtube/sponsorblock/ui/SponsorBlockViewController;"
+    dependsOn(
+        integrationsPatch,
+        videoIdPatch,
+        // Required to skip segments on time.
+        videoInformationPatch,
+        // Used to prevent SponsorBlock from running on Shorts because SponsorBlock does not yet support Shorts.
+        playerTypeHookPatch,
+        playerControlsPatch,
+        sponsorBlockResourcePatch,
+    )
 
-    override fun execute(context: BytecodeContext) {
-        LayoutConstructorFingerprint.result?.let {
-            if (!ControlsOverlayFingerprint.resolve(context, it.classDef)) {
-                throw ControlsOverlayFingerprint.exception
-            }
-        } ?: throw LayoutConstructorFingerprint.exception
+    compatibleWith(
+        "com.google.android.youtube"(
+            "18.48.39",
+            "18.49.37",
+            "19.01.34",
+            "19.02.39",
+            "19.03.36",
+            "19.04.38",
+            "19.05.36",
+            "19.06.39",
+            "19.07.40",
+            "19.08.36",
+            "19.09.38",
+            "19.10.39",
+            "19.11.43",
+        ),
+    )
 
+    val seekbarResult by seekbarFingerprint
+    val appendTimeResult by appendTimeFingerprint
+    val layoutConstructorResult by layoutConstructorFingerprint
+    val autoRepeatParentResult by autoRepeatParentFingerprint
+
+    execute { context ->
         /*
          * Hook the video time methods
          */
-        with(VideoInformationPatch) {
-            videoTimeHook(
-                INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR,
-                "setVideoTime",
-            )
-        }
+        videoTimeHook(
+            INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR,
+            "setVideoTime",
+        )
 
         /*
          * Set current video id.
          */
-        VideoIdPatch.hookBackgroundPlayVideoId("$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setCurrentVideoId(Ljava/lang/String;)V")
+        hookBackgroundPlayVideoId(
+            "$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->" +
+                "setCurrentVideoId(Ljava/lang/String;)V",
+        )
 
         /*
          * Seekbar drawing
          */
-        val seekbarSignatureResult = SeekbarFingerprint.result!!.let {
-            SeekbarOnDrawFingerprint.apply { resolve(context, it.mutableClass) }
-        }.result!!
+        val seekbarSignatureResult =
+            seekbarOnDrawFingerprint.apply { resolve(context, seekbarResult.mutableClass) }.resultOrThrow()
         val seekbarMethod = seekbarSignatureResult.mutableMethod
         val seekbarMethodInstructions = seekbarMethod.implementation!!.instructions
 
@@ -142,6 +131,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
                 "invoke-static {v${invokeInstruction.registerC}}, " +
                     "$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarThickness(I)V",
             )
+
             break
         }
 
@@ -158,7 +148,9 @@ object SponsorBlockBytecodePatch : BytecodePatch(
             }
             seekbarMethod.addInstruction(
                 i,
-                "invoke-static {v$canvasInstance, v$centerY}, $INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->drawSponsorTimeBars(Landroid/graphics/Canvas;F)V",
+                "invoke-static {v$canvasInstance, v$centerY}, " +
+                    "$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->" +
+                    "drawSponsorTimeBars(Landroid/graphics/Canvas;F)V",
             )
 
             break
@@ -167,12 +159,10 @@ object SponsorBlockBytecodePatch : BytecodePatch(
         /*
          * Voting & Shield button
          */
-        val controlsMethodResult = PlayerControlsBytecodePatch.showPlayerControlsFingerprintResult
+        val controlsMethodResult = showPlayerControlsFingerprintResult
 
-        val controlsLayoutStubResourceId =
-            ResourceMappingPatch["id", "controls_layout_stub"]
-        val zoomOverlayResourceId =
-            ResourceMappingPatch["id", "video_zoom_overlay_stub"]
+        val controlsLayoutStubResourceId = resourceMappings["id", "controls_layout_stub"]
+        val zoomOverlayResourceId = resourceMappings["id", "video_zoom_overlay_stub"]
 
         methods@ for (method in controlsMethodResult.mutableClass.methods) {
             val instructions = method.implementation?.instructions!!
@@ -198,7 +188,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
 
                     zoomOverlayResourceId -> {
                         val invertVisibilityMethod =
-                            context.toMethodWalker(method).nextMethod(index - 6, true).getMethod() as MutableMethod
+                            context.navigator(method).at(index - 6).mutable()
                         // change visibility of the buttons
                         invertVisibilityMethod.addInstructions(
                             0,
@@ -213,16 +203,15 @@ object SponsorBlockBytecodePatch : BytecodePatch(
         }
 
         // change visibility of the buttons
-        PlayerControlsBytecodePatch.injectVisibilityCheckCall("$INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibility(Z)V")
-        PlayerControlsBytecodePatch.injectVisibilityCheckCall("$INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibility(Z)V")
+        injectVisibilityCheckCall("$INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibility(Z)V")
+        injectVisibilityCheckCall("$INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibility(Z)V")
 
         // append the new time to the player layout
-        val appendTimeFingerprintResult = AppendTimeFingerprint.result!!
-        val appendTimePatternScanStartIndex = appendTimeFingerprintResult.scanResult.patternScanResult!!.startIndex
+        val appendTimePatternScanStartIndex = appendTimeResult.scanResult.patternScanResult!!.startIndex
         val targetRegister =
-            (appendTimeFingerprintResult.method.implementation!!.instructions.elementAt(appendTimePatternScanStartIndex + 1) as OneRegisterInstruction).registerA
+            (appendTimeResult.method.implementation!!.instructions.elementAt(appendTimePatternScanStartIndex + 1) as OneRegisterInstruction).registerA
 
-        appendTimeFingerprintResult.mutableMethod.addInstructions(
+        appendTimeResult.mutableMethod.addInstructions(
             appendTimePatternScanStartIndex + 2,
             """
                 invoke-static {v$targetRegister}, $INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->appendTimeWithoutSegments(Ljava/lang/String;)Ljava/lang/String;
@@ -231,10 +220,12 @@ object SponsorBlockBytecodePatch : BytecodePatch(
         )
 
         // initialize the player controller
-        VideoInformationPatch.onCreateHook(INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR, "initialize")
+        onCreateHook(INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR, "initialize")
 
         // initialize the sponsorblock view
-        ControlsOverlayFingerprint.result?.let {
+        controlsOverlayFingerprint.apply {
+            resolve(context, layoutConstructorResult.classDef)
+        }.resultOrThrow().let {
             val startIndex = it.scanResult.patternScanResult!!.startIndex
             it.mutableMethod.apply {
                 val frameLayoutRegister = (getInstruction(startIndex + 2) as OneRegisterInstruction).registerA
@@ -243,12 +234,12 @@ object SponsorBlockBytecodePatch : BytecodePatch(
                     "invoke-static {v$frameLayoutRegister}, $INTEGRATIONS_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR->initialize(Landroid/view/ViewGroup;)V",
                 )
             }
-        } ?: throw ControlsOverlayFingerprint.exception
+        }
 
         // get rectangle field name
-        RectangleFieldInvalidatorFingerprint.resolve(context, seekbarSignatureResult.classDef)
+        rectangleFieldInvalidatorFingerprint.resolve(context, seekbarSignatureResult.classDef)
         val rectangleFieldInvalidatorInstructions =
-            RectangleFieldInvalidatorFingerprint.result!!.method.implementation!!.instructions
+            rectangleFieldInvalidatorFingerprint.result!!.method.implementation!!.instructions
         val rectangleFieldName =
             ((rectangleFieldInvalidatorInstructions.elementAt(rectangleFieldInvalidatorInstructions.count() - 3) as ReferenceInstruction).reference as FieldReference).name
 
@@ -282,13 +273,12 @@ object SponsorBlockBytecodePatch : BytecodePatch(
         // The vote and create segment buttons automatically change their visibility when appropriate,
         // but if buttons are showing when the end of the video is reached then they will not automatically hide.
         // Add a hook to forcefully hide when the end of the video is reached.
-        AutoRepeatParentFingerprint.result ?: throw AutoRepeatParentFingerprint.exception
-        AutoRepeatFingerprint.also {
-            it.resolve(context, AutoRepeatParentFingerprint.result!!.classDef)
-        }.result?.mutableMethod?.addInstruction(
+        autoRepeatFingerprint.also {
+            it.resolve(context, autoRepeatParentResult.classDef)
+        }.resultOrThrow().mutableMethod.addInstruction(
             0,
             "invoke-static {}, $INTEGRATIONS_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR->endOfVideoReached()V",
-        ) ?: throw AutoRepeatFingerprint.exception
+        )
 
         // TODO: isSBChannelWhitelisting implementation
     }

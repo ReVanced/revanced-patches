@@ -1,14 +1,16 @@
 package app.revanced.patches.youtube.shared.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object MainActivityOnCreateFingerprint : MethodFingerprint(
-    returnType = "V",
-    parameters = listOf("Landroid/os/Bundle;"),
-    customFingerprint = { methodDef, classDef ->
+internal val mainActivityOnCreateFingerprint = methodFingerprint {
+    returns("V")
+    parameters("Landroid/os/Bundle;")
+    custom { methodDef, classDef ->
         methodDef.name == "onCreate" &&
-        (classDef.type.endsWith("MainActivity;")
-                // Old versions of YouTube called this class "WatchWhileActivity" instead.
-                || classDef.type.endsWith("WatchWhileActivity;"))
+            (
+                classDef.endsWith("MainActivity;") ||
+                    // Old versions of YouTube called this class "WatchWhileActivity" instead.
+                    classDef.endsWith("WatchWhileActivity;")
+                )
     }
-)
+}

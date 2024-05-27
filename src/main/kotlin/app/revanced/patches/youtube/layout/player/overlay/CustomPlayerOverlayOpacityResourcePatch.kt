@@ -1,28 +1,34 @@
 package app.revanced.patches.youtube.layout.player.overlay
 
-import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.all.misc.resources.AddResourcesPatch
-import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
-import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import app.revanced.patches.youtube.misc.settings.settingsPatch
 
-@Patch(
-    dependencies = [SettingsPatch::class, ResourceMappingPatch::class, AddResourcesPatch::class],
-)
-internal object CustomPlayerOverlayOpacityResourcePatch : ResourcePatch() {
-    internal var scrimOverlayId = -1L
+internal var scrimOverlayId = -1L
+    private set
 
-    override fun execute(context: ResourceContext) {
-        AddResourcesPatch(this::class)
+internal val customPlayerOverlayOpacityResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        resourceMappingPatch,
+        addResourcesPatch,
+    )
 
-        SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
+    execute {
+        addResources("youtube", "layout.player.overlay.CustomPlayerOverlayOpacityResourcePatch")
+
+        PreferenceScreen.PLAYER.addPreferences(
             TextPreference("revanced_player_overlay_opacity", inputType = InputType.NUMBER),
         )
 
-        scrimOverlayId = ResourceMappingPatch[
+        scrimOverlayId = resourceMappings[
             "id",
             "scrim_overlay",
         ]

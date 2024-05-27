@@ -6,9 +6,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal val mainActivityFingerprint = methodFingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters()
-    custom { methodDef, _ ->
-        methodDef.definingClass.endsWith("MainActivity;") ||
-            // Old versions of YouTube called this class "WatchWhileActivity" instead.
-            methodDef.definingClass.endsWith("WatchWhileActivity;")
+    custom { _, classDef ->
+        // Old versions of YouTube called this class "WatchWhileActivity" instead.
+        classDef.endsWith("MainActivity;") || classDef.endsWith("WatchWhileActivity;")
     }
 }

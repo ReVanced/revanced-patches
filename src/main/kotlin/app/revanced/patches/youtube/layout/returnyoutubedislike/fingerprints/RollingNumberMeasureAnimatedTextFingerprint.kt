@@ -1,19 +1,14 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object RollingNumberMeasureAnimatedTextFingerprint : MethodFingerprint(
-    returnType = "Lj\$/util/Optional;",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    parameters = listOf(
-        "L",
-        "Ljava/lang/String;",
-        "L"
-    ),
-    opcodes = listOf(
+internal val rollingNumberMeasureAnimatedTextFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returns("Lj\$/util/Optional;")
+    parameters("L", "Ljava/lang/String;", "L")
+    opcodes(
         Opcode.IGET, // First instruction of method
         Opcode.IGET_OBJECT,
         Opcode.IGET_OBJECT,
@@ -25,4 +20,4 @@ internal object RollingNumberMeasureAnimatedTextFingerprint : MethodFingerprint(
         Opcode.CONST_4,
         Opcode.CONST_4, // Measured text width
     )
-)
+}
