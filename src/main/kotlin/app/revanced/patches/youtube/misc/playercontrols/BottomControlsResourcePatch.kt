@@ -1,72 +1,75 @@
 package app.revanced.patches.youtube.misc.playercontrols
 
-import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patcher.util.DomFileEditor
-import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
-import java.io.Closeable
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.util.Document
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
 
-@Patch(dependencies = [ResourceMappingPatch::class])
-object BottomControlsResourcePatch : ResourcePatch(), Closeable {
-    internal var bottomUiContainerResourceId: Long = -1
+/**
+ * Add new controls to the bottom of the YouTube player.
+ *
+ * @param resourceDirectoryName The name of the directory containing the hosting resource.
+ */
+lateinit var addControls: (resourceDirectoryName: String) -> Unit
+    private set
 
-    private const val TARGET_RESOURCE_NAME = "youtube_controls_bottom_ui_container.xml"
-    private const val TARGET_RESOURCE = "res/layout/$TARGET_RESOURCE_NAME"
+private lateinit var targetDocument: Document
 
-    // The element to the left of the element being added.
-    private var lastLeftOf = "fullscreen_button"
+internal var bottomUiContainerResourceId = -1L
+    private set
 
-    private lateinit var resourceContext: ResourceContext
-    private lateinit var targetDocumentEditor: DomFileEditor
+val bottomControlsResourcePatch = resourcePatch {
+    dependsOn(resourceMappingPatch)
 
-    override fun execute(context: ResourceContext) {
-        resourceContext = context
-        targetDocumentEditor = context.xmlEditor[TARGET_RESOURCE]
+    execute { context ->
+        bottomUiContainerResourceId = resourceMappings["id", "bottom_ui_container_stub"]
 
-        bottomUiContainerResourceId = ResourceMappingPatch["id", "bottom_ui_container_stub"]
-    }
+        val targetResourceName = "youtube_controls_bottom_ui_container.xml"
+        val targetResourcePath = "res/layout/$targetResourceName"
 
-    /**
-     * Add new controls to the bottom of the YouTube player.
-     *
-     * @param resourceDirectoryName The name of the directory containing the hosting resource.
-     */
-    fun addControls(resourceDirectoryName: String) {
-        val sourceDocumentEditor = resourceContext.xmlEditor[
-            this::class.java.classLoader.getResourceAsStream(
-                "$resourceDirectoryName/host/layout/$TARGET_RESOURCE_NAME",
-            )!!,
-        ]
-        val sourceDocument = sourceDocumentEditor.file
-        val targetDocument = targetDocumentEditor.file
+        targetDocument = context.document[targetResourcePath]
 
-        val targetElementTag = "android.support.constraint.ConstraintLayout"
+        // The element to the left of the element being added.
+        var lastLeftOf = "fullscreen_button"
 
-        val sourceElements = sourceDocument.getElementsByTagName(targetElementTag).item(0).childNodes
-        val targetElement = targetDocument.getElementsByTagName(targetElementTag).item(0)
+        addControls = { resourceDirectoryName ->
+            val sourceDocument = context.document[
+                this::class.java.classLoader.getResourceAsStream(
+                    "$resourceDirectoryName/host/layout/$targetResourceName",
+                )!!,
+            ]
 
-        for (index in 1 until sourceElements.length) {
-            val element = sourceElements.item(index).cloneNode(true)
+            val targetElementTag = "android.support.constraint.ConstraintLayout"
 
-            // If the element has no attributes there's no point to adding it to the destination.
-            if (!element.hasAttributes()) continue
+            val sourceElements = sourceDocument.getElementsByTagName(targetElementTag).item(0).childNodes
+            val targetElement = targetDocument.getElementsByTagName(targetElementTag).item(0)
 
-            // Set the elements lastLeftOf attribute to the lastLeftOf value.
-            val namespace = "@+id"
-            element.attributes.getNamedItem("yt:layout_constraintRight_toLeftOf").nodeValue =
-                "$namespace/$lastLeftOf"
+            for (index in 1 until sourceElements.length) {
+                val element = sourceElements.item(index).cloneNode(true)
 
-            // Set lastLeftOf attribute to the current element.
-            val nameSpaceLength = 5
-            lastLeftOf = element.attributes.getNamedItem("android:id").nodeValue.substring(nameSpaceLength)
+                // If the element has no attributes there's no point to adding it to the destination.
+                if (!element.hasAttributes()) continue
 
-            // Add the element.
-            targetDocument.adoptNode(element)
-            targetElement.appendChild(element)
+                // Set the elements lastLeftOf attribute to the lastLeftOf value.
+                val namespace = "@+id"
+                element.attributes.getNamedItem("yt:layout_constraintRight_toLeftOf").nodeValue =
+                    "$namespace/$lastLeftOf"
+
+                // Set lastLeftOf attribute to the current element.
+                val nameSpaceLength = 5
+                lastLeftOf = element.attributes.getNamedItem("android:id").nodeValue.substring(nameSpaceLength)
+
+                // Add the element.
+                targetDocument.adoptNode(element)
+                targetElement.appendChild(element)
+            }
+
+            sourceDocument.close()
         }
-        sourceDocumentEditor.close()
-    }
 
-    override fun close() = targetDocumentEditor.close()
+        finalize {
+            targetDocument.close()
+        }
+    }
 }
