@@ -146,6 +146,36 @@ inline fun <reified T : Reference> Instruction.getReference() = (this as? Refere
 fun Method.indexOfFirstInstruction(predicate: Instruction.() -> Boolean) =
     this.implementation!!.instructions.indexOfFirst(predicate)
 
+
+/**
+ * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
+ *
+ * @return -1 if the instruction is not found
+ * @see indexOfFirstInstructionOrThrow
+ */
+fun Method.indexOfFirstInstruction(startIndex : Int, predicate: Instruction.() -> Boolean): Int {
+    val index =  this.implementation!!.instructions.drop(startIndex).indexOfFirst(predicate)
+    if (index < 0) {
+        return index
+    }
+    return startIndex + index
+}
+
+/**
+ * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
+ *
+ * @return the index of the instruction
+ * @throws PatchException
+ * @see indexOfFirstInstruction
+ */
+fun Method.indexOfFirstInstructionOrThrow(startIndex : Int, predicate: Instruction.() -> Boolean): Int {
+    val index =  indexOfFirstInstruction(startIndex, predicate)
+    if (index < 0) {
+        throw PatchException("Could not find instruction index")
+    }
+    return index
+}
+
 /**
  * Return the resolved methods of [MethodFingerprint]s early.
  */

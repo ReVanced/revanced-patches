@@ -4,7 +4,6 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
@@ -15,7 +14,8 @@ import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.shared.fingerprints.LayoutConstructorFingerprint
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstWideLiteralInstructionValue
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfIdResourceOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -78,20 +78,16 @@ object HideAutoplayButtonPatch : BytecodePatch(
         )
 
         LayoutConstructorFingerprint.resultOrThrow().mutableMethod.apply {
-            val constIndex = indexOfFirstWideLiteralInstructionValue(ResourceMappingPatch["id", "autonav_toggle"])
+            val constIndex = indexOfIdResourceOrThrow("autonav_toggle")
             val constRegister = getInstruction<OneRegisterInstruction>(constIndex).registerA
-            val instructions = implementation!!.instructions
 
             // Add a conditional branch around the code that inflates and adds the auto repeat button.
-            var gotoIndex = instructions.subList(constIndex, instructions.size)
-                .indexOfFirst { instruction ->
-                    val parameterTypes = instruction.getReference<MethodReference>()?.parameterTypes
-                    instruction.opcode == Opcode.INVOKE_VIRTUAL &&
-                            parameterTypes?.size == 2 &&
-                            parameterTypes.first() == "Landroid/view/ViewStub;"
-                }
-            if (gotoIndex < 0) throw PatchException("Could not find goto index")
-            gotoIndex += (constIndex + 1)
+            val gotoIndex = indexOfFirstInstructionOrThrow(constIndex) {
+                val parameterTypes = getReference<MethodReference>()?.parameterTypes
+                opcode == Opcode.INVOKE_VIRTUAL &&
+                        parameterTypes?.size == 2 &&
+                        parameterTypes.first() == "Landroid/view/ViewStub;"
+            } + 1
 
             addInstructionsWithLabels(
                 constIndex, """
