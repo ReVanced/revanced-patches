@@ -3,6 +3,7 @@ package app.revanced.util
 import app.revanced.patcher.patch.ResourcePatchContext
 import app.revanced.patcher.util.Document
 import app.revanced.util.resource.BaseResource
+import org.w3c.dom.Element
 import org.w3c.dom.Node
 import org.w3c.dom.NodeList
 import java.io.InputStream
@@ -19,12 +20,13 @@ fun NodeList.asSequence() = (0 until this.length).asSequence().map { this.item(i
 /**
  * Returns a sequence for all child nodes.
  */
-fun Node.childElementsSequence() = this.childNodes.asSequence().filter { it.nodeType == Node.ELEMENT_NODE }
+@Suppress("UNCHECKED_CAST")
+fun Node.childElementsSequence() = this.childNodes.asSequence().filter { it.nodeType == Node.ELEMENT_NODE } as Sequence<Element>
 
 /**
  * Performs the given [action] on each child element.
  */
-fun Node.forEachChildElement(action: (Node) -> Unit) =
+inline fun Node.forEachChildElement(action: (Element) -> Unit) =
     childElementsSequence().forEach {
         action(it)
     }

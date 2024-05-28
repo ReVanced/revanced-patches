@@ -1,83 +1,70 @@
 package app.revanced.patches.youtube.layout.theme
 
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
-import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.stringOption
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.layout.seekbar.SeekbarColorBytecodePatch
-import app.revanced.patches.youtube.layout.theme.fingerprints.ThemeHelperDarkColorFingerprint
-import app.revanced.patches.youtube.layout.theme.fingerprints.ThemeHelperLightColorFingerprint
-import app.revanced.patches.youtube.layout.theme.fingerprints.UseGradientLoadingScreenFingerprint
-import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
-import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.util.exception
+import app.revanced.patches.youtube.layout.seekbar.seekbarColorBytecodePatch
+import app.revanced.patches.youtube.layout.theme.fingerprints.themeHelperDarkColorFingerprint
+import app.revanced.patches.youtube.layout.theme.fingerprints.themeHelperLightColorFingerprint
+import app.revanced.patches.youtube.layout.theme.fingerprints.useGradientLoadingScreenFingerprint
+import app.revanced.patches.youtube.misc.integrations.integrationsPatch
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.indexOfFirstWideLiteralInstructionValue
-import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Patch(
+private const val INTEGRATIONS_CLASS_DESCRIPTOR =
+    "Lapp/revanced/integrations/youtube/patches/theme/ThemePatch;"
+
+@Suppress("unused")
+val themePatch = bytecodePatch(
     name = "Theme",
     description = "Adds options for theming and applies a custom background theme (dark background theme defaults to amoled black).",
-    dependencies = [
-        LithoColorHookPatch::class,
-        SeekbarColorBytecodePatch::class,
-        ThemeResourcePatch::class,
-        IntegrationsPatch::class,
-        SettingsPatch::class,
-        AddResourcesPatch::class
-    ],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.youtube",
-            [
-                "18.37.36",
-                "18.38.44",
-                "18.43.45",
-                "18.44.41",
-                "18.45.43",
-                "18.48.39",
-                "18.49.37",
-                "19.01.34",
-                "19.02.39",
-                "19.03.36",
-                "19.04.38",
-                "19.05.36",
-                "19.06.39",
-                "19.07.40",
-                "19.08.36",
-                "19.09.38",
-                "19.10.39",
-                "19.11.43"
-            ]
-        )
-    ]
-)
-@Suppress("unused")
-object ThemeBytecodePatch : BytecodePatch(
-    setOf(
-        UseGradientLoadingScreenFingerprint,
-        ThemeHelperLightColorFingerprint,
-        ThemeHelperDarkColorFingerprint
-    )
 ) {
-    private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/youtube/patches/theme/ThemePatch;"
+    dependsOn(
+        lithoColorHookPatch,
+        seekbarColorBytecodePatch,
+        themeResourcePatch,
+        integrationsPatch,
+        settingsPatch,
+        addResourcesPatch,
+    )
 
-    internal const val GRADIENT_LOADING_SCREEN_AB_CONSTANT = 45412406L
+    compatibleWith(
+        "com.google.android.youtube"(
+            "18.37.36",
+            "18.38.44",
+            "18.43.45",
+            "18.44.41",
+            "18.45.43",
+            "18.48.39",
+            "18.49.37",
+            "19.01.34",
+            "19.02.39",
+            "19.03.36",
+            "19.04.38",
+            "19.05.36",
+            "19.06.39",
+            "19.07.40",
+            "19.08.36",
+            "19.09.38",
+            "19.10.39",
+            "19.11.43",
+        ),
+    )
 
-    private const val AMOLED_BLACK_COLOR = "@android:color/black"
-    private const val WHITE_COLOR = "@android:color/white"
+    val amoledBlackColor = "@android:color/black"
+    val whiteColor = "@android:color/white"
 
-    internal val darkThemeBackgroundColor by stringPatchOption(
+    val darkThemeBackgroundColor by stringOption(
         key = "darkThemeBackgroundColor",
-        default = AMOLED_BLACK_COLOR,
+        default = amoledBlackColor,
         values = mapOf(
-            "Amoled black" to AMOLED_BLACK_COLOR,
+            "Amoled black" to amoledBlackColor,
             "Material You" to "@android:color/system_neutral1_900",
             "Classic (old YouTube)" to "#FF212121",
             "Catppuccin (Mocha)" to "#FF181825",
@@ -86,17 +73,17 @@ object ThemeBytecodePatch : BytecodePatch(
             "Dark green" to "#FF002905",
             "Dark yellow" to "#FF282900",
             "Dark orange" to "#FF291800",
-            "Dark red" to "#FF290000"
+            "Dark red" to "#FF290000",
         ),
         title = "Dark theme background color",
         description = "Can be a hex color (#AARRGGBB) or a color resource reference.",
     )
 
-    internal val lightThemeBackgroundColor by stringPatchOption(
+    val lightThemeBackgroundColor by stringOption(
         key = "lightThemeBackgroundColor",
-        default = WHITE_COLOR,
+        default = whiteColor,
         values = mapOf(
-            "White" to WHITE_COLOR,
+            "White" to whiteColor,
             "Material You" to "@android:color/system_neutral1_50",
             "Catppuccin (Latte)" to "#FFE6E9EF",
             "Light pink" to "#FFFCCFF3",
@@ -104,21 +91,27 @@ object ThemeBytecodePatch : BytecodePatch(
             "Light green" to "#FFCCFFCC",
             "Light yellow" to "#FFFDFFCC",
             "Light orange" to "#FFFFE6CC",
-            "Light red" to "#FFFFD6D6"
+            "Light red" to "#FFFFD6D6",
         ),
         title = "Light theme background color",
         description = "Can be a hex color (#AARRGGBB) or a color resource reference.",
     )
 
-    override fun execute(context: BytecodeContext) {
-        AddResourcesPatch(this::class)
+    val useGradientLoadingScreenResult by useGradientLoadingScreenFingerprint
+    val themeHelperLightColorResult by themeHelperLightColorFingerprint
+    val themeHelperDarkColorResult by themeHelperDarkColorFingerprint
 
-        SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-            SwitchPreference("revanced_gradient_loading_screen")
+    execute {
+        addResources("youtube", "layout.theme.ThemeResourcePatch")
+
+        PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+            SwitchPreference("revanced_gradient_loading_screen"),
         )
 
-        UseGradientLoadingScreenFingerprint.result?.mutableMethod?.apply {
-            val isEnabledIndex = indexOfFirstWideLiteralInstructionValue(GRADIENT_LOADING_SCREEN_AB_CONSTANT) + 3
+        useGradientLoadingScreenResult.mutableMethod.apply {
+            val gradientLoadingScreenABConstant = 45412406L
+
+            val isEnabledIndex = indexOfFirstWideLiteralInstructionValue(gradientLoadingScreenABConstant) + 3
             val isEnabledRegister = getInstruction<OneRegisterInstruction>(isEnabledIndex - 1).registerA
 
             addInstructions(
@@ -126,25 +119,24 @@ object ThemeBytecodePatch : BytecodePatch(
                 """
                     invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->gradientLoadingScreenEnabled()Z
                     move-result v$isEnabledRegister
-                """
+                """,
             )
-        } ?: throw UseGradientLoadingScreenFingerprint.exception
-
-
+        }
         mapOf(
-            ThemeHelperLightColorFingerprint to lightThemeBackgroundColor,
-            ThemeHelperDarkColorFingerprint to darkThemeBackgroundColor
-        ).forEach { (fingerprint, color) ->
-            fingerprint.resultOrThrow().mutableMethod.apply {
+            themeHelperLightColorResult to lightThemeBackgroundColor,
+            themeHelperDarkColorResult to darkThemeBackgroundColor,
+        ).forEach { (result, color) ->
+            result.mutableMethod.apply {
                 addInstructions(
-                    0, """
+                    0,
+                    """
                         const-string v0, "$color"
                         return-object v0
-                    """
+                    """,
                 )
             }
         }
 
-        LithoColorHookPatch.lithoColorOverrideHook(INTEGRATIONS_CLASS_DESCRIPTOR, "getValue")
+        lithoColorOverrideHook(INTEGRATIONS_CLASS_DESCRIPTOR, "getValue")
     }
 }
