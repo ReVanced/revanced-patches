@@ -130,7 +130,7 @@ val videoInformationPatch = bytecodePatch(
         addPlayerResponseMethodHook(
             Hook.ProtoBufferParameterBeforeVideoId(
                 "$INTEGRATIONS_CLASS_DESCRIPTOR->" +
-                    "newPlayerResponseSignature(Ljava/lang/String;Z)Ljava/lang/String;",
+                    "newPlayerResponseSignature(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;",
             ),
         )
 
