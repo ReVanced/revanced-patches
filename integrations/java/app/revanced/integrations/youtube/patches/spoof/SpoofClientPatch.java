@@ -32,7 +32,7 @@ public class SpoofClientPatch {
                 String path = playerRequestUri.getPath();
 
                 if (path != null && path.contains("get_watch")) {
-                    Logger.printDebug(() -> "Blocking: " + playerRequestUri + " by returning unreachable uri");
+                    Logger.printDebug(() -> "Blocking 'get_watch' by returning unreachable uri");
 
                     return UNREACHABLE_HOST_URI;
                 }
@@ -56,7 +56,7 @@ public class SpoofClientPatch {
                 String path = originalUri.getPath();
 
                 if (path != null && path.contains("initplayback")) {
-                    Logger.printDebug(() -> "Blocking: " + originalUrlString + " by returning unreachable url");
+                    Logger.printDebug(() -> "Blocking 'initplayback' by returning unreachable url");
 
                     return UNREACHABLE_HOST_URI_STRING;
                 }
