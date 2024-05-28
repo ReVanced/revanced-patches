@@ -1,6 +1,9 @@
 package app.revanced.integrations.youtube.patches.spoof;
 
+import android.media.MediaCodecInfo;
+import android.media.MediaCodecList;
 import android.net.Uri;
+import android.os.Build;
 
 import app.revanced.integrations.shared.Logger;
 import app.revanced.integrations.youtube.settings.Settings;
@@ -29,7 +32,7 @@ public class SpoofClientPatch {
                 String path = playerRequestUri.getPath();
 
                 if (path != null && path.contains("get_watch")) {
-                    Logger.printDebug(() -> "Blocking: " + playerRequestUri + " by returning: " + UNREACHABLE_HOST_URI_STRING);
+                    Logger.printDebug(() -> "Blocking: " + playerRequestUri + " by returning unreachable uri");
 
                     return UNREACHABLE_HOST_URI;
                 }
@@ -106,15 +109,32 @@ public class SpoofClientPatch {
     }
 
     private enum ClientType {
-        // https://dumps.tadiphone.dev/dumps/oculus/monterey/-/blob/vr_monterey-user-7.1.1-NGI77B-256550.6810.0-release-keys/system/system/build.prop?ref_type=heads
+        // https://dumps.tadiphone.dev/dumps/oculus/monterey/-/blob/vr_monterey-user-7.1.1-NGI77B-256550.6810.0-release-keys/system/system/build.prop
+        // version 1.37 is not the latest, but it works with livestream audio only playback.
         ANDROID_VR(28, "Quest", "1.37"),
+        // 11,4 = iPhone XS Max.
         // 16,2 = iPhone 15 Pro Max.
+        // Since the 15 supports AV1 hardware decoding, only spoof that device if this
+        // Android device also has hardware decoding.
+        //
         // Version number should be a valid iOS release.
         // https://www.ipa4fun.com/history/185230
-        IOS(5, "iPhone16,2", "19.10.7");
+        IOS(5, deviceHasAV1HardwareDecoding() ? "iPhone16,2" : "iPhone11,4", "19.10.7");
 
+        /**
+         * YouTube
+         * <a href="https://github.com/zerodytrash/YouTube-Internal-Clients?tab=readme-ov-file#clients">client type</a>
+         */
         final int id;
+
+        /**
+         * Device model, equivalent to {@link Build#MODEL} (System property: ro.product.model)
+         */
         final String model;
+
+        /**
+         * App version.
+         */
         final String version;
 
         ClientType(int id, String model, String version) {
@@ -122,5 +142,29 @@ public class SpoofClientPatch {
             this.model = model;
             this.version = version;
         }
+    }
+
+    private static boolean deviceHasAV1HardwareDecoding() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            MediaCodecList codecList = new MediaCodecList(MediaCodecList.ALL_CODECS);
+
+            for (MediaCodecInfo codecInfo : codecList.getCodecInfos()) {
+                if (codecInfo.isHardwareAccelerated() && !codecInfo.isEncoder()) {
+                    String[] supportedTypes = codecInfo.getSupportedTypes();
+                    for (String type : supportedTypes) {
+                        if (type.equalsIgnoreCase("video/av01")) {
+                            MediaCodecInfo.CodecCapabilities capabilities = codecInfo.getCapabilitiesForType(type);
+                            if (capabilities != null) {
+                                Logger.printDebug(() -> "Device supports AV1 hardware decoding.");
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        Logger.printDebug(() -> "Device does not support AV1 hardware decoding.");
+        return false;
     }
 }
