@@ -1,69 +1,65 @@
 package app.revanced.patches.youtube.misc.fix.backtoexitgesture
 
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fingerprints.OnBackPressedFingerprint
-import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fingerprints.RecyclerViewScrollingFingerprint
-import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fingerprints.RecyclerViewTopScrollingFingerprint
-import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fingerprints.RecyclerViewTopScrollingParentFingerprint
-import app.revanced.util.exception
+import app.revanced.patcher.fingerprint.MethodFingerprintResult
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fingerprints.onBackPressedFingerprint
+import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fingerprints.recyclerViewScrollingFingerprint
+import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fingerprints.recyclerViewTopScrollingFingerprint
+import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fingerprints.recyclerViewTopScrollingParentFingerprint
+import app.revanced.util.resultOrThrow
 
-@Patch(description = "Fixes the swipe back to exit gesture.")
 @Suppress("unused")
-internal object FixBackToExitGesturePatch : BytecodePatch(
-    setOf(
-        RecyclerViewTopScrollingParentFingerprint,
-        RecyclerViewScrollingFingerprint,
-        OnBackPressedFingerprint
-    )
+internal val fixBackToExitGesturePatch = bytecodePatch(
+    description = "Fixes the swipe back to exit gesture.",
 ) {
-    override fun execute(context: BytecodeContext) {
-        RecyclerViewTopScrollingFingerprint.apply {
-            resolve(
-                context,
-                RecyclerViewTopScrollingParentFingerprint.result?.classDef
-                    ?: throw RecyclerViewTopScrollingParentFingerprint.exception
-            )
+    val recyclerViewTopScrollingParentResult by recyclerViewTopScrollingParentFingerprint
+    val recyclerViewScrollingResult by recyclerViewScrollingFingerprint
+    val onBackPressedResult by onBackPressedFingerprint
+
+    execute { context ->
+        recyclerViewTopScrollingFingerprint.apply {
+            resolve(context, recyclerViewTopScrollingParentResult.classDef)
         }
 
-        mapOf(
-            RecyclerViewTopScrollingFingerprint to IntegrationsMethod(
-                methodName = "onTopView"
-            ),
-            RecyclerViewScrollingFingerprint to IntegrationsMethod(
-                methodName = "onScrollingViews"
-            ),
-            OnBackPressedFingerprint to IntegrationsMethod(
-                "p0", "onBackPressed", "Landroid/app/Activity;"
-            )
-        ).forEach { (fingerprint, target) -> fingerprint.injectCall(target) }
-    }
-
-    /**
-     * Inject a call to a method from the integrations.
-     *
-     * @param targetMethod The target method to call.
-     */
-    private fun MethodFingerprint.injectCall(targetMethod: IntegrationsMethod) = result?.apply {
-        mutableMethod.addInstruction(
-            scanResult.patternScanResult!!.endIndex, targetMethod.toString()
+        /**
+         * Inject a call to a method from the integrations.
+         *
+         * @param targetMethod The target method to call.
+         */
+        fun MethodFingerprintResult.injectCall(targetMethod: IntegrationsMethod) = mutableMethod.addInstruction(
+            scanResult.patternScanResult!!.endIndex,
+            targetMethod.toString(),
         )
-    } ?: throw this.exception
 
-    /**
-     * A reference to a method from the integrations for [FixBackToExitGesturePatch].
-     *
-     * @param register The method registers.
-     * @param methodName The method name.
-     * @param parameterTypes The parameters of the method.
-     */
-    internal data class IntegrationsMethod(
-        val register: String = "", val methodName: String, val parameterTypes: String = ""
-    ) {
-        override fun toString() =
-            "invoke-static {$register}, Lapp/revanced/integrations/youtube/patches/FixBackToExitGesturePatch;->$methodName($parameterTypes)V"
+        mapOf(
+            recyclerViewTopScrollingFingerprint.resultOrThrow() to IntegrationsMethod(
+                methodName = "onTopView",
+            ),
+            recyclerViewScrollingResult to IntegrationsMethod(
+                methodName = "onScrollingViews",
+            ),
+            onBackPressedResult to IntegrationsMethod(
+                "p0",
+                "onBackPressed",
+                "Landroid/app/Activity;",
+            ),
+        ).forEach { (result, target) -> result.injectCall(target) }
     }
+}
+
+/**
+ * A reference to a method from the integrations for [fixBackToExitGesturePatch].
+ *
+ * @param register The method registers.
+ * @param methodName The method name.
+ * @param parameterTypes The parameters of the method.
+ */
+private class IntegrationsMethod(
+    val register: String = "",
+    val methodName: String,
+    val parameterTypes: String = "",
+) {
+    override fun toString() =
+        "invoke-static {$register}, Lapp/revanced/integrations/youtube/patches/FixBackToExitGesturePatch;->$methodName($parameterTypes)V"
 }
