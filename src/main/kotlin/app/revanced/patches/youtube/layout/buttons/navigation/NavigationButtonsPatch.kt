@@ -19,7 +19,7 @@ import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.exception
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -116,7 +116,7 @@ object NavigationButtonsPatch : BytecodePatch(
 
         // Hide navigation button labels.
         CreatePivotBarFingerprint.result?.mutableMethod?.apply {
-            val setTextIndex = indexOfFirstInstruction {
+            val setTextIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>()?.name == "setText"
             }
 

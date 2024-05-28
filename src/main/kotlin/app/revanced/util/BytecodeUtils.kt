@@ -143,17 +143,18 @@ inline fun <reified T : Reference> Instruction.getReference() = (this as? Refere
  * @param predicate The predicate to match.
  * @return The index of the first [Instruction] that matches the predicate.
  */
-fun Method.indexOfFirstInstruction(predicate: Instruction.() -> Boolean) =
-    this.implementation!!.instructions.indexOfFirst(predicate)
+// TODO: delete this on next major release, the overloaded method with an optional start index serves the same purposes.
+fun Method.indexOfFirstInstruction(predicate: Instruction.() -> Boolean) = indexOfFirstInstruction(0, predicate)
 
 
 /**
  * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
  *
- * @return -1 if the instruction is not found
+ * @param startIndex Optional starting index to start searching from.
+ * @return -1 if the instruction is not found.
  * @see indexOfFirstInstructionOrThrow
  */
-fun Method.indexOfFirstInstruction(startIndex : Int, predicate: Instruction.() -> Boolean): Int {
+fun Method.indexOfFirstInstruction(startIndex : Int = 0, predicate: Instruction.() -> Boolean): Int {
     val index =  this.implementation!!.instructions.drop(startIndex).indexOfFirst(predicate)
     if (index < 0) {
         return index
@@ -168,7 +169,7 @@ fun Method.indexOfFirstInstruction(startIndex : Int, predicate: Instruction.() -
  * @throws PatchException
  * @see indexOfFirstInstruction
  */
-fun Method.indexOfFirstInstructionOrThrow(startIndex : Int, predicate: Instruction.() -> Boolean): Int {
+fun Method.indexOfFirstInstructionOrThrow(startIndex : Int = 0, predicate: Instruction.() -> Boolean): Int {
     val index =  indexOfFirstInstruction(startIndex, predicate)
     if (index < 0) {
         throw PatchException("Could not find instruction index")

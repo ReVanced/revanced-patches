@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
@@ -15,7 +14,7 @@ import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.exception
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -72,12 +71,11 @@ object DisableResumingShortsOnStartupPatch : BytecodePatch(
         )
 
         UserWasInShortsFingerprint.result?.mutableMethod?.apply {
-            val listenableInstructionIndex = indexOfFirstInstruction {
+            val listenableInstructionIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_INTERFACE &&
                         getReference<MethodReference>()?.definingClass == "Lcom/google/common/util/concurrent/ListenableFuture;" &&
                         getReference<MethodReference>()?.name == "isDone"
             }
-            if (listenableInstructionIndex < 0) throw PatchException("Could not find instruction index")
             val originalInstructionRegister = getInstruction<FiveRegisterInstruction>(listenableInstructionIndex).registerC
             val freeRegister = getInstruction<OneRegisterInstruction>(listenableInstructionIndex + 1).registerA
 
