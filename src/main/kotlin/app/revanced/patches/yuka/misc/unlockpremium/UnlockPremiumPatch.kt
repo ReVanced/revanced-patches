@@ -1,30 +1,28 @@
 package app.revanced.patches.yuka.misc.unlockpremium
 
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.yuka.misc.unlockpremium.fingerprints.IsPremiumFingerprint
-import app.revanced.patches.yuka.misc.unlockpremium.fingerprints.YukaUserConstructorFingerprint
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.yuka.misc.unlockpremium.fingerprints.isPremiumFingerprint
+import app.revanced.patches.yuka.misc.unlockpremium.fingerprints.yukaUserConstructorFingerprint
+import app.revanced.util.resultOrThrow
 
-@Patch(
-    name = "Unlock premium",
-    compatiblePackages = [CompatiblePackage("io.yuka.android", ["4.29"])]
-)
 @Suppress("unused")
-object UnlockPremiumPatch : BytecodePatch(
-    setOf(YukaUserConstructorFingerprint)
+val unlockPremiumPatch = bytecodePatch(
+    name = "Unlock premium",
 ) {
-    override fun execute(context: BytecodeContext) {
-        IsPremiumFingerprint.resolve(context,YukaUserConstructorFingerprint.result!!.classDef)
-        val method = IsPremiumFingerprint.result!!.mutableMethod
-        method.addInstructions(
+    compatibleWith("io.yuka.android"("4.29"))
+
+    val yukaUserConstructorResult by yukaUserConstructorFingerprint
+
+    execute { context ->
+        isPremiumFingerprint.apply {
+            resolve(context, yukaUserConstructorResult.classDef)
+        }.resultOrThrow().mutableMethod.addInstructions(
             0,
             """
                 const/4 v0, 0x1
                 return v0
-            """
+            """,
         )
     }
 }
