@@ -1,24 +1,16 @@
 package app.revanced.patches.all.misc.transformation
 
-import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.util.findMutableMethodOf
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 
-@Suppress("MemberVisibilityCanBePrivate")
-abstract class BaseTransformInstructionsPatch<T> : BytecodePatch(emptySet()) {
-    abstract fun filterMap(
-        classDef: ClassDef,
-        method: Method,
-        instruction: Instruction,
-        instructionIndex: Int,
-    ): T?
-
-    abstract fun transform(mutableMethod: MutableMethod, entry: T)
-
+fun <T> transformInstructionsPatch(
+    filterMap: (ClassDef, Method, Instruction, Int) -> T?,
+    transform: (MutableMethod, T) -> Unit,
+) = bytecodePatch {
     // Returns the patch indices as a Sequence, which will execute lazily.
     fun findPatchIndices(classDef: ClassDef, method: Method): Sequence<T>? {
         return method.implementation?.instructions?.asSequence()?.withIndex()?.mapNotNull { (index, instruction) ->
@@ -26,7 +18,7 @@ abstract class BaseTransformInstructionsPatch<T> : BytecodePatch(emptySet()) {
         }
     }
 
-    override fun execute(context: BytecodeContext) {
+    execute { context ->
         // Find all methods to patch
         buildMap {
             context.classes.forEach { classDef ->
