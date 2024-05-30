@@ -1,3 +1,10 @@
+## [4.8.3-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.8.3-dev.3...v4.8.3-dev.4) (2024-05-30)
+
+
+### Bug Fixes
+
+* **3rd-party Reddit apps:** Spoof user agent to work around Reddit API issues ([#3253](https://github.com/ReVanced/revanced-patches/issues/3253)) ([495e6d6](https://github.com/ReVanced/revanced-patches/commit/495e6d65e7cbae88baa71f8334b9afcf9819deaf))
+
 ## [4.8.3-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.8.3-dev.2...v4.8.3-dev.3) (2024-05-30)
 
 
