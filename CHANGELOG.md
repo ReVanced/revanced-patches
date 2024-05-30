@@ -1,3 +1,10 @@
+## [4.8.3-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.8.3-dev.1...v4.8.3-dev.2) (2024-05-30)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof client:** Clarify that only enter/exit fullscreen gesture does not work with Android VR spoof ([#3243](https://github.com/ReVanced/revanced-patches/issues/3243)) ([06d8f55](https://github.com/ReVanced/revanced-patches/commit/06d8f55e9b6ce27d8c550f202615689ac9c34cfa))
+
 ## [4.8.3-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.8.2...v4.8.3-dev.1) (2024-05-25)
 
 
