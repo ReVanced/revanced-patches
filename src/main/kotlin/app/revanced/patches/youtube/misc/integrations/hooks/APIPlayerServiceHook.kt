@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.integrations.fingerprints
+package app.revanced.patches.youtube.misc.integrations.hooks
 
 import app.revanced.patches.shared.misc.integrations.integrationsHook
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -6,9 +6,9 @@ import com.android.tools.smali.dexlib2.AccessFlags
 /**
  * For embedded playback.
  * It appears this hook may no longer be needed as one of the constructor parameters is the already hooked
- * [embeddedPlayerControlsOverlayFingerprint]
+ * [embeddedPlayerControlsOverlayHook]
  */
-internal val apiPlayerServiceFingerprint = integrationsHook(
+internal val apiPlayerServiceHook = integrationsHook(
     // Integrations context is the first method parameter.
     contextRegisterResolver = { it.implementation!!.registerCount - it.parameters.size },
 ) {

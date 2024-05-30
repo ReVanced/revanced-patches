@@ -1,11 +1,15 @@
 package app.revanced.patches.music.misc.gms
 
+import app.revanced.patcher.patch.Option
 import app.revanced.patches.music.misc.gms.Constants.MUSIC_PACKAGE_NAME
 import app.revanced.patches.music.misc.gms.Constants.REVANCED_MUSIC_PACKAGE_NAME
-import app.revanced.patches.shared.misc.gms.BaseGmsCoreSupportResourcePatch
+import app.revanced.patches.shared.misc.gms.gmsCoreSupportResourcePatch
 
-object GmsCoreSupportResourcePatch : BaseGmsCoreSupportResourcePatch(
+internal fun gmsCoreSupportResourcePatch(
+    gmsCoreVendorGroupIdOption: Option<String>,
+) = gmsCoreSupportResourcePatch(
     fromPackageName = MUSIC_PACKAGE_NAME,
     toPackageName = REVANCED_MUSIC_PACKAGE_NAME,
-    spoofedPackageSignature = "afb0fed5eeaebdd86f56a97742f4b6b33ef59875"
+    gmsCoreVendorGroupIdOption = gmsCoreVendorGroupIdOption,
+    spoofedPackageSignature = "afb0fed5eeaebdd86f56a97742f4b6b33ef59875",
 )

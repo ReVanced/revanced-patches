@@ -42,7 +42,7 @@ fun integrationsPatch(vararg hooks: IntegrationsHook) = bytecodePatch(requiresIn
                     if (urlString.startsWith("jar:file:")) {
                         val end = urlString.lastIndexOf('!')
 
-                return URLDecoder.decode(urlString.substring("jar:file:".length, end), "UTF-8")
+                        return URLDecoder.decode(urlString.substring("jar:file:".length, end), "UTF-8")
                     }
                 }
                 throw IllegalStateException("Not running from inside a JAR file.")
@@ -86,12 +86,12 @@ class IntegrationsHook internal constructor(
                 "invoke-static/range { v$contextRegister .. v$contextRegister }, " +
                     "$integrationsClassDescriptor->setContext(Landroid/content/Context;)V",
             )
-            } ?: throw fingerprint.exception
+        } ?: throw fingerprint.exception
     }
 }
 
 fun integrationsHook(
     insertIndexResolver: ((Method) -> Int) = { 0 },
     contextRegisterResolver: (Method) -> Int = { it.implementation!!.registerCount - 1 },
-    block: MethodFingerprintBuilder.() -> Unit,
-) = IntegrationsHook(methodFingerprint(block = block), insertIndexResolver, contextRegisterResolver)
+    methodFingerprintBuilderBlock: MethodFingerprintBuilder.() -> Unit,
+) = IntegrationsHook(methodFingerprint(block = methodFingerprintBuilderBlock), insertIndexResolver, contextRegisterResolver)

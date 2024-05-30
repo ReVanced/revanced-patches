@@ -1,14 +1,14 @@
 package app.revanced.patches.youtube.misc.integrations
 
 import app.revanced.patches.shared.misc.integrations.integrationsPatch
-import app.revanced.patches.youtube.misc.integrations.fingerprints.*
+import app.revanced.patches.youtube.misc.integrations.hooks.*
 
 val integrationsPatch = integrationsPatch(
-    applicationInitFingerprint,
-    standalonePlayerActivityFingerprint,
-    remoteEmbeddedPlayerFingerprint,
-    remoteEmbedFragmentFingerprint,
-    embeddedPlayerControlsOverlayFingerprint,
-    embeddedPlayerFingerprint,
-    apiPlayerServiceFingerprint,
+    applicationInitHook,
+    standalonePlayerActivityHook,
+    remoteEmbeddedPlayerHook,
+    remoteEmbedFragmentHook,
+    embeddedPlayerControlsOverlayHook,
+    embeddedPlayerHook,
+    apiPlayerServiceHook,
 )

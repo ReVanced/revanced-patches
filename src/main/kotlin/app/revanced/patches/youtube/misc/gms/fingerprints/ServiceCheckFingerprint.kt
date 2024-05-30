@@ -1,12 +1,11 @@
 package app.revanced.patches.youtube.misc.gms.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object ServiceCheckFingerprint : MethodFingerprint(
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    parameters = listOf("L", "I"),
-    strings = listOf("Google Play Services not available", "GooglePlayServices not available due to error ")
-)
+internal val serviceCheckFingerprint = methodFingerprint {
+    returns("V")
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    parameters("L", "I")
+    strings("Google Play Services not available", "GooglePlayServices not available due to error ")
+}

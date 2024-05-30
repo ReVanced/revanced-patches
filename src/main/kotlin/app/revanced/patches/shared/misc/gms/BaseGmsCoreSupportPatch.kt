@@ -1,18 +1,17 @@
 package app.revanced.patches.shared.misc.gms
 
-import app.revanced.patcher.PatchClass
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patches.all.misc.packagename.ChangePackageNamePatch
-import app.revanced.patches.shared.misc.gms.BaseGmsCoreSupportPatch.Constants.ACTIONS
-import app.revanced.patches.shared.misc.gms.BaseGmsCoreSupportPatch.Constants.AUTHORITIES
-import app.revanced.patches.shared.misc.gms.BaseGmsCoreSupportPatch.Constants.PERMISSIONS
-import app.revanced.patches.shared.misc.gms.fingerprints.GmsCoreSupportFingerprint
-import app.revanced.patches.shared.misc.gms.fingerprints.GmsCoreSupportFingerprint.GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME
+import app.revanced.patcher.patch.*
+import app.revanced.patches.all.misc.packagename.changePackageNamePatch
+import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
+import app.revanced.patches.shared.misc.gms.Constants.ACTIONS
+import app.revanced.patches.shared.misc.gms.Constants.AUTHORITIES
+import app.revanced.patches.shared.misc.gms.Constants.PERMISSIONS
+import app.revanced.patches.shared.misc.gms.fingerprints.GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME
+import app.revanced.patches.shared.misc.gms.fingerprints.gmsCoreSupportFingerprint
 import app.revanced.util.exception
 import app.revanced.util.getReference
 import app.revanced.util.returnEarly
@@ -24,6 +23,8 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableStringReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
+private const val PACKAGE_NAME_REGEX_PATTERN = "^[a-z]\\w*(\\.[a-z]\\w*)+\$"
+
 /**
  * A patch that allows patched Google apps to run without root and under a different package name
  * by using GmsCore instead of Google Play Services.
@@ -33,48 +34,151 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
  * @param primeMethodFingerprint The fingerprint of the "prime" method that needs to be patched.
  * @param earlyReturnFingerprints The fingerprints of methods that need to be returned early.
  * @param mainActivityOnCreateFingerprint The fingerprint of the main activity onCreate method.
- * @param integrationsPatchDependency The patch responsible for the integrations.
- * @param gmsCoreSupportResourcePatch The corresponding resource patch that is used to patch the resources.
- * @param dependencies Additional dependencies of this patch.
- * @param compatiblePackages The compatible packages of this patch.
- * @param fingerprints The fingerprints of this patch.
+ * @param integrationsPatch The patch responsible for the integrations.
+ * @param gmsCoreSupportResourcePatchFactory The factory for the corresponding resource patch
+ * that is used to patch the resources.
+ * @param executeBlock The additional execution block of the patch.
+ * @param block The additional block to build the patch.
  */
-abstract class BaseGmsCoreSupportPatch(
-    private val fromPackageName: String,
-    private val toPackageName: String,
-    private val primeMethodFingerprint: MethodFingerprint,
-    private val earlyReturnFingerprints: Set<MethodFingerprint>,
-    private val mainActivityOnCreateFingerprint: MethodFingerprint,
-    private val integrationsPatchDependency: PatchClass,
-    gmsCoreSupportResourcePatch: BaseGmsCoreSupportResourcePatch,
-    dependencies: Set<PatchClass> = setOf(),
-    compatiblePackages: Set<CompatiblePackage>? = null,
-    fingerprints: Set<MethodFingerprint> = emptySet(),
-) : BytecodePatch(
+fun gmsCoreSupportPatch(
+    fromPackageName: String,
+    toPackageName: String,
+    primeMethodFingerprint: MethodFingerprint,
+    earlyReturnFingerprints: Set<MethodFingerprint>,
+    mainActivityOnCreateFingerprint: MethodFingerprint,
+    integrationsPatch: Patch<*>,
+    gmsCoreSupportResourcePatchFactory: (gmsCoreVendorGroupIdOption: Option<String>) -> Patch<*>,
+    executeBlock: Patch<BytecodePatchContext>.(BytecodePatchContext) -> Unit = {},
+    block: BytecodePatchBuilder.() -> Unit = {},
+) = bytecodePatch(
     name = "GmsCore support",
     description = "Allows patched Google apps to run without root and under a different package name " +
         "by using GmsCore instead of Google Play Services.",
-    dependencies = setOf(
-        ChangePackageNamePatch::class,
-        gmsCoreSupportResourcePatch::class,
-        integrationsPatchDependency,
-    ) + dependencies,
-    compatiblePackages = compatiblePackages,
-    fingerprints = setOf(
-        GmsCoreSupportFingerprint,
-        mainActivityOnCreateFingerprint,
-    ) + fingerprints,
     requiresIntegrations = true,
 ) {
-    init {
-        // Manually register all options of the resource patch so that they are visible in the patch API.
-        gmsCoreSupportResourcePatch.options.values.forEach(options::register)
-    }
+    val gmsCoreVendorGroupIdOption = stringOption(
+        key = "gmsCoreVendorGroupId",
+        default = "app.revanced",
+        values =
+        mapOf(
+            "ReVanced" to "app.revanced",
+        ),
+        title = "GmsCore vendor group ID",
+        description = "The vendor's group ID for GmsCore.",
+        required = true,
+    ) { it!!.matches(Regex(PACKAGE_NAME_REGEX_PATTERN)) }
 
-    internal abstract val gmsCoreVendorGroupId: String?
+    dependsOn(
+        changePackageNamePatch,
+        gmsCoreSupportResourcePatchFactory(gmsCoreVendorGroupIdOption),
+        integrationsPatch,
+    )
 
-    override fun execute(context: BytecodeContext) {
-        val packageName = ChangePackageNamePatch.setOrGetFallbackPackageName(toPackageName)
+    val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
+
+    val gmsCoreSupportResult by gmsCoreSupportFingerprint
+    val mainActivityOnCreateResult by mainActivityOnCreateFingerprint
+
+    execute { context ->
+        fun transformStringReferences(transform: (str: String) -> String?) = context.classes.forEach {
+            val mutableClass by lazy {
+                context.proxy(it).mutableClass
+            }
+
+            it.methods.forEach classLoop@{ methodDef ->
+                val implementation = methodDef.implementation ?: return@classLoop
+
+                val mutableMethod by lazy {
+                    mutableClass.methods.first { MethodUtil.methodSignaturesMatch(it, methodDef) }
+                }
+
+                implementation.instructions.forEachIndexed insnLoop@{ index, instruction ->
+                    val string = ((instruction as? Instruction21c)?.reference as? StringReference)?.string
+                        ?: return@insnLoop
+
+                    // Apply transformation.
+                    val transformedString = transform(string) ?: return@insnLoop
+
+                    mutableMethod.replaceInstruction(
+                        index,
+                        BuilderInstruction21c(
+                            Opcode.CONST_STRING,
+                            instruction.registerA,
+                            ImmutableStringReference(transformedString),
+                        ),
+                    )
+                }
+            }
+        }
+
+        // region Collection of transformations that are applied to all strings.
+
+        fun commonTransform(referencedString: String): String? =
+            when (referencedString) {
+                "com.google",
+                "com.google.android.gms",
+                in PERMISSIONS,
+                in ACTIONS,
+                in AUTHORITIES,
+                -> referencedString.replace("com.google", gmsCoreVendorGroupId!!)
+
+                // No vendor prefix for whatever reason...
+                "subscribedfeeds" -> "$gmsCoreVendorGroupId.subscribedfeeds"
+                else -> null
+            }
+
+        fun contentUrisTransform(str: String): String? {
+            // only when content:// uri
+            if (str.startsWith("content://")) {
+                // check if matches any authority
+                for (authority in AUTHORITIES) {
+                    val uriPrefix = "content://$authority"
+                    if (str.startsWith(uriPrefix)) {
+                        return str.replace(
+                            uriPrefix,
+                            "content://${authority.replace("com.google", gmsCoreVendorGroupId!!)}",
+                        )
+                    }
+                }
+
+                // gms also has a 'subscribedfeeds' authority, check for that one too
+                val subFeedsUriPrefix = "content://subscribedfeeds"
+                if (str.startsWith(subFeedsUriPrefix)) {
+                    return str.replace(subFeedsUriPrefix, "content://$gmsCoreVendorGroupId.subscribedfeeds")
+                }
+            }
+
+            return null
+        }
+
+        fun packageNameTransform(fromPackageName: String, toPackageName: String): (String) -> String? = { string ->
+            when (string) {
+                "$fromPackageName.SuggestionsProvider",
+                "$fromPackageName.fileprovider",
+                -> string.replace(fromPackageName, toPackageName)
+
+                else -> null
+            }
+        }
+
+        fun transformPrimeMethod(packageName: String) {
+            primeMethodFingerprint.result?.mutableMethod?.apply {
+                var register = 2
+
+                val index = getInstructions().indexOfFirst {
+                    if (it.getReference<StringReference>()?.string != fromPackageName) return@indexOfFirst false
+
+                    register = (it as OneRegisterInstruction).registerA
+                    return@indexOfFirst true
+                }
+
+                replaceInstruction(index, "const-string v$register, \"$packageName\"")
+            } ?: throw primeMethodFingerprint.exception
+        }
+
+        // endregion
+
+        val packageName = setOrGetFallbackPackageName(toPackageName)
 
         // Transform all strings using all provided transforms, first match wins.
         val transformations = arrayOf(
@@ -82,7 +186,7 @@ abstract class BaseGmsCoreSupportPatch(
             ::contentUrisTransform,
             packageNameTransform(fromPackageName, packageName),
         )
-        context.transformStringReferences transform@{ string ->
+        transformStringReferences transform@{ string ->
             transformations.forEach { transform ->
                 transform(string)?.let { transformedString -> return@transform transformedString }
             }
@@ -97,244 +201,149 @@ abstract class BaseGmsCoreSupportPatch(
         earlyReturnFingerprints.toList().returnEarly()
 
         // Verify GmsCore is installed and whitelisted for power optimizations and background usage.
-        mainActivityOnCreateFingerprint.result?.mutableMethod?.addInstructions(
+        mainActivityOnCreateResult.mutableMethod.addInstructions(
             0,
             "invoke-static/range { p0 .. p0 }, Lapp/revanced/integrations/shared/GmsCoreSupport;->" +
                 "checkGmsCore(Landroid/app/Activity;)V",
-        ) ?: throw mainActivityOnCreateFingerprint.exception
+        )
 
         // Change the vendor of GmsCore in ReVanced Integrations.
-        GmsCoreSupportFingerprint.result?.mutableClass?.methods
-            ?.single { it.name == GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME }
-            ?.replaceInstruction(0, "const-string v0, \"$gmsCoreVendorGroupId\"")
-            ?: throw GmsCoreSupportFingerprint.exception
+        gmsCoreSupportResult.mutableClass.methods
+            .single { it.name == GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME }
+            .replaceInstruction(0, "const-string v0, \"$gmsCoreVendorGroupId\"")
+
+        executeBlock(context)
     }
 
-    private fun BytecodeContext.transformStringReferences(transform: (str: String) -> String?) = classes.forEach {
-        val mutableClass by lazy {
-            proxy(it).mutableClass
-        }
+    block()
+}
 
-        it.methods.forEach classLoop@{ methodDef ->
-            val implementation = methodDef.implementation ?: return@classLoop
+/**
+ * A collection of permissions, intents and content provider authorities
+ * that are present in GmsCore which need to be transformed.
+ *
+ * NOTE: The following were present, but it seems like they are not needed to be transformed:
+ * - com.google.android.gms.chimera.GmsIntentOperationService
+ * - com.google.android.gms.phenotype.internal.IPhenotypeCallbacks
+ * - com.google.android.gms.phenotype.internal.IPhenotypeService
+ * - com.google.android.gms.phenotype.PACKAGE_NAME
+ * - com.google.android.gms.phenotype.UPDATE
+ * - com.google.android.gms.phenotype
+ */
+private object Constants {
+    /**
+     * A list of all permissions.
+     */
+    val PERMISSIONS = listOf(
+        // C2DM / GCM
+        "com.google.android.c2dm.permission.RECEIVE",
+        "com.google.android.c2dm.permission.SEND",
+        "com.google.android.gtalkservice.permission.GTALK_SERVICE",
 
-            val mutableMethod by lazy {
-                mutableClass.methods.first { MethodUtil.methodSignaturesMatch(it, methodDef) }
-            }
-
-            implementation.instructions.forEachIndexed insnLoop@{ index, instruction ->
-                val string = ((instruction as? Instruction21c)?.reference as? StringReference)?.string
-                    ?: return@insnLoop
-
-                // Apply transformation.
-                val transformedString = transform(string) ?: return@insnLoop
-
-                mutableMethod.replaceInstruction(
-                    index,
-                    BuilderInstruction21c(
-                        Opcode.CONST_STRING,
-                        instruction.registerA,
-                        ImmutableStringReference(transformedString),
-                    ),
-                )
-            }
-        }
-    }
-
-    // region Collection of transformations that are applied to all strings.
-
-    private fun commonTransform(referencedString: String): String? =
-        when (referencedString) {
-            "com.google",
-            "com.google.android.gms",
-            in PERMISSIONS,
-            in ACTIONS,
-            in AUTHORITIES,
-            -> referencedString.replace("com.google", gmsCoreVendorGroupId!!)
-
-            // No vendor prefix for whatever reason...
-            "subscribedfeeds" -> "$gmsCoreVendorGroupId.subscribedfeeds"
-            else -> null
-        }
-
-    private fun contentUrisTransform(str: String): String? {
-        // only when content:// uri
-        if (str.startsWith("content://")) {
-            // check if matches any authority
-            for (authority in AUTHORITIES) {
-                val uriPrefix = "content://$authority"
-                if (str.startsWith(uriPrefix)) {
-                    return str.replace(
-                        uriPrefix,
-                        "content://${authority.replace("com.google", gmsCoreVendorGroupId!!)}",
-                    )
-                }
-            }
-
-            // gms also has a 'subscribedfeeds' authority, check for that one too
-            val subFeedsUriPrefix = "content://subscribedfeeds"
-            if (str.startsWith(subFeedsUriPrefix)) {
-                return str.replace(subFeedsUriPrefix, "content://$gmsCoreVendorGroupId.subscribedfeeds")
-            }
-        }
-
-        return null
-    }
-
-    private fun packageNameTransform(fromPackageName: String, toPackageName: String): (String) -> String? = { string ->
-        when (string) {
-            "$fromPackageName.SuggestionsProvider",
-            "$fromPackageName.fileprovider",
-            -> string.replace(fromPackageName, toPackageName)
-
-            else -> null
-        }
-    }
-
-    private fun transformPrimeMethod(packageName: String) {
-        primeMethodFingerprint.result?.mutableMethod?.apply {
-            var register = 2
-
-            val index = getInstructions().indexOfFirst {
-                if (it.getReference<StringReference>()?.string != fromPackageName) return@indexOfFirst false
-
-                register = (it as OneRegisterInstruction).registerA
-                return@indexOfFirst true
-            }
-
-            replaceInstruction(index, "const-string v$register, \"$packageName\"")
-        } ?: throw primeMethodFingerprint.exception
-    }
+        // GAuth
+        "com.google.android.googleapps.permission.GOOGLE_AUTH",
+        "com.google.android.googleapps.permission.GOOGLE_AUTH.cp",
+        "com.google.android.googleapps.permission.GOOGLE_AUTH.local",
+        "com.google.android.googleapps.permission.GOOGLE_AUTH.mail",
+        "com.google.android.googleapps.permission.GOOGLE_AUTH.writely",
+    )
 
     /**
-     * A collection of permissions, intents and content provider authorities
-     * that are present in GmsCore which need to be transformed.
-     *
-     * NOTE: The following were present, but it seems like they are not needed to be transformed:
-     * - com.google.android.gms.chimera.GmsIntentOperationService
-     * - com.google.android.gms.phenotype.internal.IPhenotypeCallbacks
-     * - com.google.android.gms.phenotype.internal.IPhenotypeService
-     * - com.google.android.gms.phenotype.PACKAGE_NAME
-     * - com.google.android.gms.phenotype.UPDATE
-     * - com.google.android.gms.phenotype
+     * All intent actions.
      */
-    private object Constants {
-        /**
-         * A list of all permissions.
-         */
-        val PERMISSIONS = listOf(
-            // C2DM / GCM
-            "com.google.android.c2dm.permission.RECEIVE",
-            "com.google.android.c2dm.permission.SEND",
-            "com.google.android.gtalkservice.permission.GTALK_SERVICE",
+    val ACTIONS = listOf(
+        // location
+        "com.google.android.gms.location.places.ui.PICK_PLACE",
+        "com.google.android.gms.location.places.GeoDataApi",
+        "com.google.android.gms.location.places.PlacesApi",
+        "com.google.android.gms.location.places.PlaceDetectionApi",
+        "com.google.android.gms.wearable.MESSAGE_RECEIVED",
 
-            // GAuth
-            "com.google.android.googleapps.permission.GOOGLE_AUTH",
-            "com.google.android.googleapps.permission.GOOGLE_AUTH.cp",
-            "com.google.android.googleapps.permission.GOOGLE_AUTH.local",
-            "com.google.android.googleapps.permission.GOOGLE_AUTH.mail",
-            "com.google.android.googleapps.permission.GOOGLE_AUTH.writely",
-        )
+        // C2DM / GCM
+        "com.google.android.c2dm.intent.REGISTER",
+        "com.google.android.c2dm.intent.REGISTRATION",
+        "com.google.android.c2dm.intent.UNREGISTER",
+        "com.google.android.c2dm.intent.RECEIVE",
+        "com.google.iid.TOKEN_REQUEST",
+        "com.google.android.gcm.intent.SEND",
 
-        /**
-         * All intent actions.
-         */
-        val ACTIONS = listOf(
-            // location
-            "com.google.android.gms.location.places.ui.PICK_PLACE",
-            "com.google.android.gms.location.places.GeoDataApi",
-            "com.google.android.gms.location.places.PlacesApi",
-            "com.google.android.gms.location.places.PlaceDetectionApi",
-            "com.google.android.gms.wearable.MESSAGE_RECEIVED",
+        // car
+        "com.google.android.gms.car.service.START",
 
-            // C2DM / GCM
-            "com.google.android.c2dm.intent.REGISTER",
-            "com.google.android.c2dm.intent.REGISTRATION",
-            "com.google.android.c2dm.intent.UNREGISTER",
-            "com.google.android.c2dm.intent.RECEIVE",
-            "com.google.iid.TOKEN_REQUEST",
-            "com.google.android.gcm.intent.SEND",
+        // people
+        "com.google.android.gms.people.service.START",
 
-            // car
-            "com.google.android.gms.car.service.START",
+        // wearable
+        "com.google.android.gms.wearable.BIND",
 
-            // people
-            "com.google.android.gms.people.service.START",
+        // auth
+        "com.google.android.gsf.login",
+        "com.google.android.gsf.action.GET_GLS",
+        "com.google.android.gms.common.account.CHOOSE_ACCOUNT",
+        "com.google.android.gms.auth.login.LOGIN",
+        "com.google.android.gms.auth.api.credentials.PICKER",
+        "com.google.android.gms.auth.api.credentials.service.START",
+        "com.google.android.gms.auth.service.START",
+        "com.google.firebase.auth.api.gms.service.START",
+        "com.google.android.gms.auth.be.appcert.AppCertService",
 
-            // wearable
-            "com.google.android.gms.wearable.BIND",
+        // fido
+        "com.google.android.gms.fido.fido2.privileged.START",
 
-            // auth
-            "com.google.android.gsf.login",
-            "com.google.android.gsf.action.GET_GLS",
-            "com.google.android.gms.common.account.CHOOSE_ACCOUNT",
-            "com.google.android.gms.auth.login.LOGIN",
-            "com.google.android.gms.auth.api.credentials.PICKER",
-            "com.google.android.gms.auth.api.credentials.service.START",
-            "com.google.android.gms.auth.service.START",
-            "com.google.firebase.auth.api.gms.service.START",
-            "com.google.android.gms.auth.be.appcert.AppCertService",
+        // gass
+        "com.google.android.gms.gass.START",
 
-            // fido
-            "com.google.android.gms.fido.fido2.privileged.START",
+        // games
+        "com.google.android.gms.games.service.START",
+        "com.google.android.gms.games.PLAY_GAMES_UPGRADE",
 
-            // gass
-            "com.google.android.gms.gass.START",
+        // chimera
+        "com.google.android.gms.chimera",
 
-            // games
-            "com.google.android.gms.games.service.START",
-            "com.google.android.gms.games.PLAY_GAMES_UPGRADE",
+        // fonts
+        "com.google.android.gms.fonts",
 
-            // chimera
-            "com.google.android.gms.chimera",
+        // phenotype
+        "com.google.android.gms.phenotype.service.START",
 
-            // fonts
-            "com.google.android.gms.fonts",
+        // location
+        "com.google.android.gms.location.reporting.service.START",
 
-            // phenotype
-            "com.google.android.gms.phenotype.service.START",
+        // misc
+        "com.google.android.gms.gmscompliance.service.START",
+        "com.google.android.gms.oss.licenses.service.START",
+        "com.google.android.gms.tapandpay.service.BIND",
+        "com.google.android.gms.measurement.START",
+        "com.google.android.gms.languageprofile.service.START",
+        "com.google.android.gms.clearcut.service.START",
+        "com.google.android.gms.icing.LIGHTWEIGHT_INDEX_SERVICE",
 
-            // location
-            "com.google.android.gms.location.reporting.service.START",
+        // potoken
+        "com.google.android.gms.potokens.service.START",
 
-            // misc
-            "com.google.android.gms.gmscompliance.service.START",
-            "com.google.android.gms.oss.licenses.service.START",
-            "com.google.android.gms.tapandpay.service.BIND",
-            "com.google.android.gms.measurement.START",
-            "com.google.android.gms.languageprofile.service.START",
-            "com.google.android.gms.clearcut.service.START",
-            "com.google.android.gms.icing.LIGHTWEIGHT_INDEX_SERVICE",
+        // droidguard/ safetynet
+        "com.google.android.gms.droidguard.service.START",
+        "com.google.android.gms.safetynet.service.START",
+    )
 
-            // potoken
-            "com.google.android.gms.potokens.service.START",
+    /**
+     * All content provider authorities.
+     */
+    val AUTHORITIES = listOf(
+        // gsf
+        "com.google.android.gsf.gservices",
+        "com.google.settings",
 
-            // droidguard/ safetynet
-            "com.google.android.gms.droidguard.service.START",
-            "com.google.android.gms.safetynet.service.START",
-        )
+        // auth
+        "com.google.android.gms.auth.accounts",
 
-        /**
-         * All content provider authorities.
-         */
-        val AUTHORITIES = listOf(
-            // gsf
-            "com.google.android.gsf.gservices",
-            "com.google.settings",
+        // chimera
+        "com.google.android.gms.chimera",
 
-            // auth
-            "com.google.android.gms.auth.accounts",
+        // fonts
+        "com.google.android.gms.fonts",
 
-            // chimera
-            "com.google.android.gms.chimera",
-
-            // fonts
-            "com.google.android.gms.fonts",
-
-            // phenotype
-            "com.google.android.gms.phenotype",
-        )
-    }
-
-    // endregion
+        // phenotype
+        "com.google.android.gms.phenotype",
+    )
 }

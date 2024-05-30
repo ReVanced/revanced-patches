@@ -2,36 +2,36 @@ package app.revanced.patches.music.misc.gms
 
 import app.revanced.patches.music.misc.gms.Constants.MUSIC_PACKAGE_NAME
 import app.revanced.patches.music.misc.gms.Constants.REVANCED_MUSIC_PACKAGE_NAME
-import app.revanced.patches.music.misc.gms.GmsCoreSupportResourcePatch.gmsCoreVendorGroupIdOption
 import app.revanced.patches.music.misc.gms.fingerprints.*
-import app.revanced.patches.music.misc.integrations.IntegrationsPatch
-import app.revanced.patches.shared.fingerprints.CastContextFetchFingerprint
-import app.revanced.patches.shared.misc.gms.BaseGmsCoreSupportPatch
+import app.revanced.patches.music.misc.integrations.integrationsPatch
+import app.revanced.patches.shared.fingerprints.castContextFetchFingerprint
+import app.revanced.patches.shared.fingerprints.castDynamiteModuleFingerprint
+import app.revanced.patches.shared.fingerprints.castDynamiteModuleV2Fingerprint
+import app.revanced.patches.shared.fingerprints.primeMethodFingerprint
+import app.revanced.patches.shared.misc.gms.gmsCoreSupportPatch
 
 @Suppress("unused")
-object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
+val gmsCoreSupportPatch = gmsCoreSupportPatch(
     fromPackageName = MUSIC_PACKAGE_NAME,
     toPackageName = REVANCED_MUSIC_PACKAGE_NAME,
-    primeMethodFingerprint = PrimeMethodFingerprint,
+    primeMethodFingerprint = primeMethodFingerprint,
     earlyReturnFingerprints = setOf(
-        ServiceCheckFingerprint,
-        GooglePlayUtilityFingerprint,
-        CastDynamiteModuleFingerprint,
-        CastDynamiteModuleV2Fingerprint,
-        CastContextFetchFingerprint,
+        serviceCheckFingerprint,
+        googlePlayUtilityFingerprint,
+        castDynamiteModuleFingerprint,
+        castDynamiteModuleV2Fingerprint,
+        castContextFetchFingerprint,
     ),
-    mainActivityOnCreateFingerprint = MusicActivityOnCreateFingerprint,
-    integrationsPatchDependency = IntegrationsPatch::class,
-    gmsCoreSupportResourcePatch = GmsCoreSupportResourcePatch,
-    compatiblePackages = setOf(CompatiblePackage("com.google.android.apps.youtube.music")),
-    fingerprints = setOf(
-        ServiceCheckFingerprint,
-        GooglePlayUtilityFingerprint,
-        CastDynamiteModuleFingerprint,
-        CastDynamiteModuleV2Fingerprint,
-        CastContextFetchFingerprint,
-        PrimeMethodFingerprint,
-    ),
+    mainActivityOnCreateFingerprint = musicActivityOnCreateFingerprint,
+    integrationsPatch = integrationsPatch,
+    gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
 ) {
-    override val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
+    compatibleWith(MUSIC_PACKAGE_NAME)
+
+    serviceCheckFingerprint()
+    googlePlayUtilityFingerprint()
+    castDynamiteModuleFingerprint()
+    castDynamiteModuleV2Fingerprint()
+    castContextFetchFingerprint()
+    primeMethodFingerprint()
 }

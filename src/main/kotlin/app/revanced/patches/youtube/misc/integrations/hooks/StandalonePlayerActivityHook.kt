@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.integrations.fingerprints
+package app.revanced.patches.youtube.misc.integrations.hooks
 
 import app.revanced.patches.shared.misc.integrations.integrationsHook
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -11,7 +11,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
  * https://developers.google.com/youtube/android/player
  */
 // Integrations context is the Activity itself.
-internal val standalonePlayerActivityFingerprint = integrationsHook(
+internal val standalonePlayerActivityHook = integrationsHook(
     contextRegisterResolver = { it.implementation!!.registerCount - it.parameters.size },
 ) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)

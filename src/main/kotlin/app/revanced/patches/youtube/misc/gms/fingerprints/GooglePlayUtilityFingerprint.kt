@@ -1,12 +1,15 @@
 package app.revanced.patches.youtube.misc.gms.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object GooglePlayUtilityFingerprint : MethodFingerprint(
-    returnType = "I",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    parameters = listOf("L", "I"),
-    strings = listOf("This should never happen.", "MetadataValueReader", "com.google.android.gms")
-)
+internal val googlePlayUtilityFingerprint = methodFingerprint {
+    returns("I")
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    parameters("L", "I")
+    strings(
+        "This should never happen.",
+        "MetadataValueReader",
+        "com.google.android.gms",
+    )
+}

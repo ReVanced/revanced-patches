@@ -1,11 +1,11 @@
 package app.revanced.patches.music.misc.gms.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object MusicActivityOnCreateFingerprint : MethodFingerprint(
-    returnType = "V",
-    parameters = listOf("Landroid/os/Bundle;"),
-    customFingerprint = { methodDef, classDef ->
-        methodDef.name == "onCreate" && classDef.type.endsWith("/MusicActivity;")
+internal val musicActivityOnCreateFingerprint = methodFingerprint {
+    returns("V")
+    parameters("Landroid/os/Bundle;")
+    custom { methodDef, classDef ->
+        methodDef.name == "onCreate" && classDef.endsWith("/MusicActivity;")
     }
-)
+}
