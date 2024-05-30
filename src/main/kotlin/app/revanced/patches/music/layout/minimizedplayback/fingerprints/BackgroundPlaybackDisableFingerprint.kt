@@ -1,15 +1,14 @@
 package app.revanced.patches.music.layout.minimizedplayback.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object BackgroundPlaybackDisableFingerprint : MethodFingerprint(
-    "Z",
-    AccessFlags.PUBLIC or AccessFlags.STATIC,
-    listOf("L"),
-    listOf(
+internal val backgroundPlaybackDisableFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returns("Z")
+    parameters("L")
+    opcodes(
         Opcode.CONST_4,
         Opcode.IF_EQZ,
         Opcode.IGET,
@@ -19,5 +18,5 @@ internal object BackgroundPlaybackDisableFingerprint : MethodFingerprint(
         Opcode.IF_NEZ,
         Opcode.SGET_OBJECT,
         Opcode.IGET,
-    ),
-)
+    )
+}
