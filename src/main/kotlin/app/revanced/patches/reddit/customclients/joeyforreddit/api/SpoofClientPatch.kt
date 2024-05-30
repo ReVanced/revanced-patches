@@ -2,7 +2,6 @@ package app.revanced.patches.reddit.customclients.joeyforreddit.api
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patches.reddit.customclients.BaseSpoofClientPatch
