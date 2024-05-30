@@ -12,7 +12,7 @@ import app.revanced.patches.warnwetter.misc.promocode.fingerprints.PromoCodeUnlo
     name = "Promo code unlock",
     description = "Disables the validation of promo code. Any code will work to unlock all features.",
     dependencies = [FirebaseGetCertPatch::class],
-    compatiblePackages = [CompatiblePackage("de.dwd.warnapp")]
+    compatiblePackages = [CompatiblePackage("de.dwd.warnapp", ["4.2.2"])]
 )
 @Suppress("unused")
 object PromoCodeUnlockPatch : BytecodePatch(

@@ -19,7 +19,7 @@ class HexPatch : BaseHexPatch() {
     //  Replace the custom option type with a stringArrayOption once the issue is resolved.
     private val replacementsOption by registerNewPatchOption<PatchClass<*>, List<String>>(
         key = "replacements",
-        title = "replacements",
+        title = "Replacements",
         description = """
             Hexadecimal patterns to search for and replace with another in a target file.
             
