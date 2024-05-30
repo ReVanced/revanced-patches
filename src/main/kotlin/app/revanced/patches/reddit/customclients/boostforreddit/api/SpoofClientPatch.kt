@@ -30,9 +30,7 @@ object SpoofClientPatch : BaseSpoofClientPatch(
         val randomName = (0..100000).random()
         first().mutableMethod.addInstructions(
             1,
-            """
-                const-string v3, "$randomName"
-            """,
+            "const-string v3, \"$randomName\"",
         )
     }
 }
