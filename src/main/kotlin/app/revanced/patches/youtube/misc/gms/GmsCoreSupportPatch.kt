@@ -56,11 +56,4 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
             "19.11.43",
         ),
     )
-
-    serviceCheckFingerprint()
-    googlePlayUtilityFingerprint()
-    castDynamiteModuleFingerprint()
-    castDynamiteModuleV2Fingerprint()
-    castContextFetchFingerprint()
-    primeMethodFingerprint()
 }

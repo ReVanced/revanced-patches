@@ -78,6 +78,8 @@ fun gmsCoreSupportPatch(
 
     val gmsCoreSupportResult by gmsCoreSupportFingerprint
     val mainActivityOnCreateResult by mainActivityOnCreateFingerprint
+    primeMethodFingerprint()
+    earlyReturnFingerprints.forEach { it() }
 
     execute { context ->
         fun transformStringReferences(transform: (str: String) -> String?) = context.classes.forEach {

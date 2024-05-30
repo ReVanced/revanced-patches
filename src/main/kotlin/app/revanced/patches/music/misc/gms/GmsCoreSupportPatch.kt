@@ -27,11 +27,4 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
 ) {
     compatibleWith(MUSIC_PACKAGE_NAME)
-
-    serviceCheckFingerprint()
-    googlePlayUtilityFingerprint()
-    castDynamiteModuleFingerprint()
-    castDynamiteModuleV2Fingerprint()
-    castContextFetchFingerprint()
-    primeMethodFingerprint()
 }
