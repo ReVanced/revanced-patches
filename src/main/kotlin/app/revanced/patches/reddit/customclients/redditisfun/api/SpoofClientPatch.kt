@@ -12,7 +12,6 @@ import app.revanced.patches.reddit.customclients.redditisfun.api.fingerprints.Bu
 import app.revanced.patches.reddit.customclients.redditisfun.api.fingerprints.GetUserAgentFingerprint
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-
 @Suppress("unused")
 object SpoofClientPatch : BaseSpoofClientPatch(
     redirectUri = "redditisfun://auth",
@@ -20,8 +19,8 @@ object SpoofClientPatch : BaseSpoofClientPatch(
     userAgentFingerprints = setOf(GetUserAgentFingerprint),
     compatiblePackages = setOf(
         CompatiblePackage("com.andrewshu.android.reddit"),
-        CompatiblePackage("com.andrewshu.android.redditdonation")
-    )
+        CompatiblePackage("com.andrewshu.android.redditdonation"),
+    ),
 ) {
     override fun Set<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
         /**
@@ -52,14 +51,14 @@ object SpoofClientPatch : BaseSpoofClientPatch(
     override fun Set<MethodFingerprintResult>.patchUserAgent(context: BytecodeContext) {
         // Use a random user agent.
         val randomName = (0..100000).random()
-        val userAgent = "android:app.revanced.$randomName:v1.0.0 (by /u/revanced)"
+        val userAgent = "$randomName:app.revanced.$randomName:v1.0.0 (by /u/revanced)"
 
         first().mutableMethod.addInstructions(
             0,
             """
                 const-string v0, "$userAgent"
                 return-object v0
-            """
+            """,
         )
     }
 }
