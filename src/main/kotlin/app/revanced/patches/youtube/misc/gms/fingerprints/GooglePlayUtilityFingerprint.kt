@@ -4,8 +4,8 @@ import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val googlePlayUtilityFingerprint = methodFingerprint {
-    returns("I")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returns("I")
     parameters("L", "I")
     strings(
         "This should never happen.",
