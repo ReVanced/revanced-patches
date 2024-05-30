@@ -13,7 +13,6 @@ internal object PivotBarConstructorFingerprint : MethodFingerprint(
         Opcode.CHECK_CAST,
         Opcode.INVOKE_INTERFACE,
         Opcode.GOTO,
-        Opcode.NOP,
         Opcode.IPUT_OBJECT,
         Opcode.RETURN_VOID,
     ),

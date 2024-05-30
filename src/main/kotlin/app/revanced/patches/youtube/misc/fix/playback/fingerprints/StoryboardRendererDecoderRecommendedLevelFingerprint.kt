@@ -8,6 +8,7 @@ import com.android.tools.smali.dexlib2.Opcode
 /**
  * Resolves to the same method as [StoryboardRendererDecoderSpecFingerprint].
  */
+@Deprecated("Fingerprint is obsolete and will be deleted soon")
 internal object StoryboardRendererDecoderRecommendedLevelFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
@@ -17,7 +18,7 @@ internal object StoryboardRendererDecoderRecommendedLevelFingerprint : MethodFin
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.IPUT_OBJECT,
         Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT
+        Opcode.MOVE_RESULT,
     ),
-    strings = listOf("#-1#")
+    strings = listOf("#-1#"),
 )
