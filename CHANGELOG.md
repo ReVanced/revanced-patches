@@ -1,3 +1,10 @@
+## [4.8.3-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.8.3-dev.2...v4.8.3-dev.3) (2024-05-30)
+
+
+### Bug Fixes
+
+* **Reddit - Hide ads:** Constrain to last working version 2024.17.0 ([#3192](https://github.com/ReVanced/revanced-patches/issues/3192)) ([4fb3456](https://github.com/ReVanced/revanced-patches/commit/4fb3456e93ff7ec19030de8870e1cb9c1319faef))
+
 ## [4.8.3-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.8.3-dev.1...v4.8.3-dev.2) (2024-05-30)
 
 
