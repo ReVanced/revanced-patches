@@ -20,7 +20,12 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 @Patch(
     name = "Hide ads",
     dependencies = [HideBannerPatch::class, HideCommentAdsPatch::class],
-    compatiblePackages = [CompatiblePackage("com.reddit.frontpage")],
+	// Note that for now, this patch and anything using it will only work on
+	// Reddit 2024.17.0 or older. Newer versions will crash during patching.
+	// See https://github.com/ReVanced/revanced-patches/issues/3099 
+ 	// and https://github.com/iBotPeaches/Apktool/issues/3534.
+    // This constraint is necessary due to dependency on HideBannerPatch.
+    compatiblePackages = [CompatiblePackage("com.reddit.frontpage", ["2024.17.0"])],
     requiresIntegrations = true,
 )
 @Suppress("unused")
