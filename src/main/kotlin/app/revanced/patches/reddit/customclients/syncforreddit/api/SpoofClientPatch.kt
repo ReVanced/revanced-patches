@@ -6,10 +6,10 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patches.reddit.customclients.BaseSpoofClientPatch
+import app.revanced.patches.reddit.customclients.syncforreddit.api.fingerprints.*
 import app.revanced.patches.reddit.customclients.syncforreddit.api.fingerprints.GetAuthorizationStringFingerprint
 import app.revanced.patches.reddit.customclients.syncforreddit.api.fingerprints.GetBearerTokenFingerprint
 import app.revanced.patches.reddit.customclients.syncforreddit.api.fingerprints.ImgurImageAPIFingerprint
-import app.revanced.patches.reddit.customclients.syncforreddit.api.fingerprints.LoadBrowserURLFingerprint
 import app.revanced.patches.reddit.customclients.syncforreddit.detection.piracy.DisablePiracyDetectionPatch
 import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -23,7 +23,7 @@ object SpoofClientPatch : BaseSpoofClientPatch(
     redirectUri = "http://redditsync/auth",
     miscellaneousFingerprints = setOf(ImgurImageAPIFingerprint),
     clientIdFingerprints = setOf(GetAuthorizationStringFingerprint),
-    userAgentFingerprints = setOf(LoadBrowserURLFingerprint),
+    userAgentFingerprints = setOf(AccountSingletonUserAgent),
     compatiblePackages = setOf(
         CompatiblePackage("com.laurencedawson.reddit_sync"),
         CompatiblePackage("com.laurencedawson.reddit_sync.pro"),
@@ -75,4 +75,19 @@ object SpoofClientPatch : BaseSpoofClientPatch(
             "const-string v1, \"https://api.imgur.com/3/image\""
         )
     }
+
+    override fun Set<MethodFingerprintResult>.patchUserAgent(context: BytecodeContext) {
+        // Use a random user agent.
+        val randomName = (0..100000).random()
+        val userAgent = "$randomName:app.revanced.$randomName:v1.0.0 (by /u/revanced)"
+
+        first().mutableMethod.replaceInstruction(
+            0,
+            """
+                const-string v0, "$userAgent"
+                return-object v0
+            """,
+        )
+    }
+
 }
