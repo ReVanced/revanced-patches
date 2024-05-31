@@ -2,6 +2,6 @@ package app.revanced.patches.reddit.customclients.boostforreddit.api.fingerprint
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 
-internal object JRAWUserAgent : MethodFingerprint(
-    strings = listOf("platform", "appId", "version", "redditUsername"),
+internal object BuildUserAgentFingerprint : MethodFingerprint(
+    strings = listOf("%s:%s:%s (by /u/%s)"),
 )

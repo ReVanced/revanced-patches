@@ -4,14 +4,14 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patches.reddit.customclients.BaseSpoofClientPatch
+import app.revanced.patches.reddit.customclients.boostforreddit.api.fingerprints.BuildUserAgentFingerprint
 import app.revanced.patches.reddit.customclients.boostforreddit.api.fingerprints.GetClientIdFingerprint
-import app.revanced.patches.reddit.customclients.boostforreddit.api.fingerprints.JRAWUserAgent
 
 @Suppress("unused")
 object SpoofClientPatch : BaseSpoofClientPatch(
     redirectUri = "http://rubenmayayo.com",
     clientIdFingerprints = setOf(GetClientIdFingerprint),
-    userAgentFingerprints = setOf(JRAWUserAgent),
+    userAgentFingerprints = setOf(BuildUserAgentFingerprint),
     compatiblePackages = setOf(CompatiblePackage("com.rubenmayayo.reddit")),
 ) {
     override fun Set<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
@@ -27,10 +27,11 @@ object SpoofClientPatch : BaseSpoofClientPatch(
     override fun Set<MethodFingerprintResult>.patchUserAgent(context: BytecodeContext) {
         // Use a random number as the platform in the user agent string.
         val platformName = (0..100000).random()
+        val platformParameter = 0
 
         first().mutableMethod.addInstructions(
-            1,
-            "const-string v3, \"$platformName\"",
+            0,
+            "const-string p$platformParameter, \"$platformName\"",
         )
     }
 }
