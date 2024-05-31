@@ -20,6 +20,7 @@ import app.revanced.patches.youtube.misc.fix.playback.fingerprints.BuildPlayerRe
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.CreatePlayerRequestBodyFingerprint
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.CreatePlayerRequestBodyWithModelFingerprint
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.SetPlayerRequestClientTypeFingerprint
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.PlayerGestureConfigSyntheticFingerprint
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.getReference
 import app.revanced.util.resultOrThrow
@@ -69,11 +70,15 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 )
 object SpoofClientPatch : BytecodePatch(
     setOf(
+        // Client type spoof.
         BuildInitPlaybackRequestFingerprint,
         BuildPlayerRequestURIFingerprint,
         SetPlayerRequestClientTypeFingerprint,
         CreatePlayerRequestBodyFingerprint,
         CreatePlayerRequestBodyWithModelFingerprint,
+
+        // Player gesture config.
+        PlayerGestureConfigSyntheticFingerprint,
     ),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -114,6 +119,28 @@ object SpoofClientPatch : BytecodePatch(
         }
 
         // endregion
+
+        // region fix player gesture.
+
+        PlayerGestureConfigSyntheticFingerprint.resultOrThrow().let {
+            arrayOf(3, 9).forEach { offSet ->
+                it.mutableMethod.apply {
+                    val index = implementation!!.instructions.size - 1
+                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                    addInstructions(
+                        index,
+                        """
+                        invoke-static {v$register}, $INTEGRATIONS_CLASS_DESCRIPTOR->enablePlayerGesture(Z)Z
+                        move-result v$register
+                    """
+                    )
+                }
+            }
+        }
+
+        // endregion
+
 
         // region Block /get_watch requests to fall back to /player requests.
 
