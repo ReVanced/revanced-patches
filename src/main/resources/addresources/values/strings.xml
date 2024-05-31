@@ -91,6 +91,9 @@
             <string name="revanced_debug_toast_on_error_user_dialog_message">Turning off error toasts hides all ReVanced error notifications.\n\nYou will not be notified of any unexpected events.</string>
         </patch>
         <patch id="layout.hide.general.HideLayoutComponentsPatch">
+            <string name="revanced_disable_like_subscribe_glow_title">Disable like / subscribe button glow</string>
+            <string name="revanced_disable_like_subscribe_glow_summary_on">Like and subscribe button will not glow when mentioned</string>
+            <string name="revanced_disable_like_subscribe_glow_summary_off">Like and subscribe button will glow when mentioned</string>
             <string name="revanced_hide_gray_separator_title">Hide gray separator</string>
             <string name="revanced_hide_gray_separator_summary_on">Gray separators are hidden</string>
             <string name="revanced_hide_gray_separator_summary_off">Gray separators are shown</string>
