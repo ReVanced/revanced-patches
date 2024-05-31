@@ -18,7 +18,7 @@ import app.revanced.patches.youtube.misc.playercontrols.playerControlsPatch
 import app.revanced.patches.youtube.misc.playercontrols.showPlayerControlsFingerprintResult
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.shared.fingerprints.*
-import app.revanced.patches.youtube.video.information.onCreateHook
+import app.revanced.patches.youtube.video.information.playerControllerOnCreateHook
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.patches.youtube.video.information.videoTimeHook
 import app.revanced.patches.youtube.video.videoid.hookBackgroundPlayVideoId
@@ -220,7 +220,7 @@ val sponsorBlockBytecodePatch = bytecodePatch(
         )
 
         // initialize the player controller
-        onCreateHook(INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR, "initialize")
+        playerControllerOnCreateHook(INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR, "initialize")
 
         // initialize the sponsorblock view
         controlsOverlayFingerprint.apply {

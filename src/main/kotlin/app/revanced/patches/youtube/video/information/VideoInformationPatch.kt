@@ -64,7 +64,7 @@ val videoInformationPatch = bytecodePatch(
         playerInitMethod = playerInitResult.mutableClass.methods.first { MethodUtil.isConstructor(it) }
 
         // hook the player controller for use through integrations
-        onCreateHook(INTEGRATIONS_CLASS_DESCRIPTOR, "initialize")
+        playerControllerOnCreateHook(INTEGRATIONS_CLASS_DESCRIPTOR, "initialize")
 
         // seek method
         val seekFingerprintResultMethod = seekFingerprint.apply {
@@ -185,7 +185,7 @@ private fun MutableMethod.insertTimeHook(insertIndex: Int, descriptor: String) =
  * @param targetMethodClass The descriptor for the class to invoke when the player controller is created.
  * @param targetMethodName The name of the static method to invoke when the player controller is created.
  */
-fun onCreateHook(targetMethodClass: String, targetMethodName: String) =
+fun playerControllerOnCreateHook(targetMethodClass: String, targetMethodName: String) =
     playerInitMethod.insert(
         playerInitInsertIndex++,
         "v0",
