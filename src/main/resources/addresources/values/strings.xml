@@ -1092,10 +1092,9 @@
             <string name="revanced_spoof_client_summary_on">Client is spoofed</string>
             <string name="revanced_spoof_client_summary_off">Client is not spoofed\n\nVideo playback may not work</string>
             <string name="revanced_spoof_client_user_dialog_message">Turning off this setting may cause video playback issues.</string>
-            <string name="revanced_spoof_client_use_testsuite_title">Spoof client to Android Testsuite</string>
-            <string name="revanced_spoof_client_use_testsuite_summary">Spoof the client to Android Testsuite</string>
-            <string name="revanced_spoof_client_use_testsuite_summary_on">Client is spoofed to an Android Testsuite client (iOS client is used for live streams)\n\nSide effects include, but are not limited to:\n• Speed flyout menu is missing\n• Captions are missing\n• Player swipe gestures may not work\n• Low quality Shorts seekbar thumbnails\n• Watch history may not work</string>
-            <string name="revanced_spoof_client_use_testsuite_summary_off">Client is spoofed to an iOS client\n\nSide effects include:\n• No HDR video\n• Speed flyout menu is missing</string>
+            <string name="revanced_spoof_client_use_ios_title">Spoof client to iOS</string>
+            <string name="revanced_spoof_client_use_ios_summary_on">Client is currently spoofed to iOS\n\nSide effects include:\n• No HDR video\n• Speed menu is missing\n• Watch history may not work\n• Live streams cannot play as audio only\n• Live streams not available on older devices</string>
+            <string name="revanced_spoof_client_use_ios_summary_off">Client is currently spoofed to Android VR\n\nSide effects include:\n• No HDR video\n• Swipe to enter/exit fullscreen does not work\n• Kids videos do not playback\n• Paused videos can randomly resume</string>
             <string name="revanced_spoof_client_storyboard_timeout">Spoof client thumbnails not available (API timed out)</string>
             <string name="revanced_spoof_client_storyboard_io_exception">Spoof client thumbnails temporarily not available: %s</string>
         </patch>
