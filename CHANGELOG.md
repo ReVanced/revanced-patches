@@ -1,3 +1,10 @@
+# [4.9.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.8.3...v4.9.0-dev.1) (2024-05-31)
+
+
+### Features
+
+* **YouTube - Hide layout components:** Disable like / subscribe button glow animation ([#3265](https://github.com/ReVanced/revanced-patches/issues/3265)) ([68d35ea](https://github.com/ReVanced/revanced-patches/commit/68d35eafc15513c23cd5220260023e7ec5b7978a))
+
 ## [4.8.3](https://github.com/ReVanced/revanced-patches/compare/v4.8.2...v4.8.3) (2024-05-31)
 
 
