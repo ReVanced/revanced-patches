@@ -25,12 +25,12 @@ object SpoofClientPatch : BaseSpoofClientPatch(
     }
 
     override fun Set<MethodFingerprintResult>.patchUserAgent(context: BytecodeContext) {
-        // Use a random user agent.
-        val randomName = (0..100000).random()
+        // Use a random number as the platform in the user agent string.
+        val platformName = (0..100000).random()
 
         first().mutableMethod.addInstructions(
             1,
-            "const-string v3, \"$randomName\"",
+            "const-string v3, \"$platformName\"",
         )
     }
 }
