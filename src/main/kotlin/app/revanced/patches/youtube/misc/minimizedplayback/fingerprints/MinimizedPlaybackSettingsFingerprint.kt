@@ -1,15 +1,14 @@
 package app.revanced.patches.youtube.misc.minimizedplayback.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object MinimizedPlaybackSettingsFingerprint : MethodFingerprint(
-    returnType = "Ljava/lang/String;",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf(),
-    opcodes = listOf(
+internal val minimizedPlaybackSettingsFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Ljava/lang/String;")
+    parameters()
+    opcodes(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
         Opcode.INVOKE_VIRTUAL,
@@ -18,6 +17,6 @@ internal object MinimizedPlaybackSettingsFingerprint : MethodFingerprint(
         Opcode.IF_NEZ,
         Opcode.GOTO,
         Opcode.IGET_OBJECT,
-        Opcode.CHECK_CAST
-    ),
-)
+        Opcode.CHECK_CAST,
+    )
+}
