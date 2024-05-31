@@ -11,7 +11,6 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-
 @FuzzyPatternScanMethod(5)
 internal object PlayerGestureConfigSyntheticFingerprint : MethodFingerprint(
     returnType = "V",
@@ -38,9 +37,9 @@ internal object PlayerGestureConfigSyntheticFingerprint : MethodFingerprint(
         Opcode.RETURN_VOID,
     ),
     customFingerprint = { methodDef, classDef ->
-        indexOfDownAndOutAllowedInstruction(methodDef) > 0 &&
-                // This method is always called "a" because this kind of class always has a single method.
-                methodDef.name == "a" && classDef.methods.count() == 2
+        // This method is always called "a" because this kind of class always has a single method.
+        methodDef.name == "a" && classDef.methods.count() == 2 &&
+                indexOfDownAndOutAllowedInstruction(methodDef) > 0
     }
 ) {
     fun indexOfDownAndOutAllowedInstruction(methodDef: Method) =
