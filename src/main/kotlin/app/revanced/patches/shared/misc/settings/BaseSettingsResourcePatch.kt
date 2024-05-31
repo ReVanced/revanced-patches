@@ -1,6 +1,7 @@
 package app.revanced.patches.shared.misc.settings
 
-import app.revanced.patcher.patch.*
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.all.misc.resources.addResource
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
@@ -17,7 +18,7 @@ import org.w3c.dom.Node
  * If null, no preference will be added.
  * @param preferences A set of preferences to add to the ReVanced fragment.
  */
-fun baseSettingsResourcePatch(
+fun settingsResourcePatch(
     rootPreference: Pair<IntentPreference, String>? = null,
     preferences: Set<BasePreference>,
 ) = resourcePatch {
@@ -37,7 +38,7 @@ fun baseSettingsResourcePatch(
             preference.serialize(ownerDocument) { resource ->
                 // TODO: Currently, resources can only be added to "values", which may not be the correct place.
                 //  It may be necessary to ask for the desired resourceValue in the future.
-                addResources("values", resource)
+                addResource("values", resource)
             }.let { preferenceNode ->
                 if (prepend && firstChild != null) {
                     insertBefore(preferenceNode, firstChild)

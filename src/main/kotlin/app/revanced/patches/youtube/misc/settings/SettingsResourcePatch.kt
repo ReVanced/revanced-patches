@@ -5,9 +5,9 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
-import app.revanced.patches.shared.misc.settings.baseSettingsResourcePatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
 import app.revanced.patches.shared.misc.settings.preference.IntentPreference
+import app.revanced.patches.shared.misc.settings.settingsResourcePatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.asSequence
 import app.revanced.util.copyResources
@@ -21,7 +21,7 @@ val preferences = mutableSetOf<BasePreference>()
 val settingsResourcePatch = resourcePatch {
     dependsOn(
         resourceMappingPatch,
-        baseSettingsResourcePatch(
+        settingsResourcePatch(
             rootPreference = IntentPreference(
                 titleKey = "revanced_settings_title",
                 summaryKey = null,
