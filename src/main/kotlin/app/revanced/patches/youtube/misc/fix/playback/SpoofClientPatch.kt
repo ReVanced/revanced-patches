@@ -125,22 +125,24 @@ object SpoofClientPatch : BytecodePatch(
 
         PlayerGestureConfigSyntheticFingerprint.resultOrThrow().let {
             val endIndex = it.scanResult.patternScanResult!!.endIndex
+
             arrayOf(3, 9).forEach { offSet ->
                 (context.toMethodWalker(it.mutableMethod)
                     .nextMethod(endIndex - offSet, true)
-                    .getMethod() as MutableMethod).apply {
+                    .getMethod() as MutableMethod)
+                    .apply {
 
-                    val index = implementation!!.instructions.lastIndex
-                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+                        val index = implementation!!.instructions.lastIndex
+                        val register = getInstruction<OneRegisterInstruction>(index).registerA
 
-                    addInstructions(
-                        index,
-                        """
+                        addInstructions(
+                            index,
+                            """
                             invoke-static {v$register}, $INTEGRATIONS_CLASS_DESCRIPTOR->enablePlayerGesture(Z)Z
                             move-result v$register
                         """
-                    )
-                }
+                        )
+                    }
             }
         }
 
