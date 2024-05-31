@@ -3,9 +3,11 @@ package app.revanced.integrations.youtube.patches.playback.quality;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.ListView;
 
 import app.revanced.integrations.shared.Logger;
+import app.revanced.integrations.shared.Utils;
 import app.revanced.integrations.youtube.patches.components.VideoQualityMenuFilterPatch;
 import app.revanced.integrations.youtube.settings.Settings;
 
@@ -26,22 +28,42 @@ public final class RestoreOldVideoQualityMenuPatch {
         recyclerView.getViewTreeObserver().addOnDrawListener(() -> {
             try {
                 // Check if the current view is the quality menu.
-                if (VideoQualityMenuFilterPatch.isVideoQualityMenuVisible) {
-                    VideoQualityMenuFilterPatch.isVideoQualityMenuVisible = false;
-
-                    ((ViewGroup) recyclerView.getParent().getParent().getParent()).setVisibility(View.GONE);
-                    View advancedQualityView = ((ViewGroup) recyclerView.getChildAt(0)).getChildAt(3);
-                    if (advancedQualityView != null) {
-                        // Click the "Advanced" quality menu to show the "old" quality menu.
-                        advancedQualityView.setSoundEffectsEnabled(false);
-                        advancedQualityView.performClick();
-                    }
+                if (!VideoQualityMenuFilterPatch.isVideoQualityMenuVisible || recyclerView.getChildCount() == 0) {
+                    return;
                 }
+                VideoQualityMenuFilterPatch.isVideoQualityMenuVisible = false;
+
+                ViewParent quickQualityViewParent = Utils.getParentView(recyclerView, 3);
+                if (!(quickQualityViewParent instanceof ViewGroup)) {
+                    return;
+                }
+
+                View firstChild = recyclerView.getChildAt(0);
+                if (!(firstChild instanceof ViewGroup)) {
+                    return;
+                }
+
+                ViewGroup advancedQualityParentView = (ViewGroup) firstChild;
+                if (advancedQualityParentView.getChildCount() < 4) {
+                    return;
+                }
+
+                View advancedQualityView = advancedQualityParentView.getChildAt(3);
+                if (advancedQualityView == null) {
+                    return;
+                }
+
+                ((ViewGroup) quickQualityViewParent).setVisibility(View.GONE);
+
+                // Click the "Advanced" quality menu to show the "old" quality menu.
+                advancedQualityView.setSoundEffectsEnabled(false);
+                advancedQualityView.performClick();
             } catch (Exception ex) {
                 Logger.printException(() -> "onFlyoutMenuCreate failure", ex);
             }
         });
     }
+
 
     /**
      * Injection point.
