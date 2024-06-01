@@ -85,16 +85,18 @@ object HideAutoplayButtonPatch : BytecodePatch(
             val gotoIndex = indexOfFirstInstructionOrThrow(constIndex) {
                 val parameterTypes = getReference<MethodReference>()?.parameterTypes
                 opcode == Opcode.INVOKE_VIRTUAL &&
-                        parameterTypes?.size == 2 &&
-                        parameterTypes.first() == "Landroid/view/ViewStub;"
+                    parameterTypes?.size == 2 &&
+                    parameterTypes.first() == "Landroid/view/ViewStub;"
             } + 1
 
             addInstructionsWithLabels(
-                constIndex, """
+                constIndex,
+                """
                     invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->hideAutoPlayButton()Z
                     move-result v$constRegister
                     if-nez v$constRegister, :hidden
-                    """, ExternalLabel("hidden", getInstruction(gotoIndex))
+                """,
+                ExternalLabel("hidden", getInstruction(gotoIndex)),
             )
         }
     }

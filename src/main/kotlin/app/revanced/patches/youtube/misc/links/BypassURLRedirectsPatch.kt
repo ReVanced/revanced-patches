@@ -44,25 +44,27 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
                 "19.14.43",
                 "19.15.36",
                 "19.16.39",
-            ]
-        )
-    ]
+            ],
+        ),
+    ],
 )
 @Suppress("unused")
 object BypassURLRedirectsPatch : BytecodePatch(
-    setOf(ABUriParserFingerprint, HTTPUriParserFingerprint)
+    setOf(ABUriParserFingerprint, HTTPUriParserFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            SwitchPreference("revanced_bypass_url_redirects")
+            SwitchPreference("revanced_bypass_url_redirects"),
         )
 
         mapOf(
-            ABUriParserFingerprint.resultOrThrow() to 7, // Offset to Uri.parse.
-            HTTPUriParserFingerprint.resultOrThrow() to 0 // Offset to Uri.parse.
-        ).forEach { (result, offset) ->
+            ABUriParserFingerprint to 7, // Offset to Uri.parse.
+            HTTPUriParserFingerprint to 0, // Offset to Uri.parse.
+        ).map { (fingerprint, offset) ->
+            fingerprint.resultOrThrow() to offset
+        }.forEach { (result, offset) ->
             result.mutableMethod.apply {
                 val insertIndex = result.scanResult.patternScanResult!!.startIndex + offset
                 val uriStringRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
@@ -70,9 +72,9 @@ object BypassURLRedirectsPatch : BytecodePatch(
                 replaceInstruction(
                     insertIndex,
                     "invoke-static {v$uriStringRegister}," +
-                            "Lapp/revanced/integrations/youtube/patches/BypassURLRedirectsPatch;" +
-                            "->" +
-                            "parseRedirectUri(Ljava/lang/String;)Landroid/net/Uri;"
+                        "Lapp/revanced/integrations/youtube/patches/BypassURLRedirectsPatch;" +
+                        "->" +
+                        "parseRedirectUri(Ljava/lang/String;)Landroid/net/Uri;",
                 )
             }
         }

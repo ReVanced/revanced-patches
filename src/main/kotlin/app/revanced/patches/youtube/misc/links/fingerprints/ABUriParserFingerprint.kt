@@ -20,10 +20,14 @@ internal object ABUriParserFingerprint : MethodFingerprint(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.RETURN_OBJECT,
-        Opcode.CHECK_CAST
+        Opcode.CHECK_CAST,
     ),
-    customFingerprint = { methodDef, classDef ->
+    customFingerprint = custom@{ methodDef, classDef ->
         // This method is always called "a" because this kind of class always has a single (non synthetic) method.
-        methodDef.name == "a" && classDef.methods.count() == 2 || classDef.methods.count() == 3
-    }
+
+        if (methodDef.name != "a") return@custom false
+
+        val count = classDef.methods.count()
+        count == 2 || count == 3
+    },
 )
