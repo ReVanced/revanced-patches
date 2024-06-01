@@ -13,7 +13,6 @@ import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.KidsMinimizedPlaybackPolicyControllerFingerprint
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackManagerFingerprint
 import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackSettingsFingerprint
-import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackSettingsParentFingerprint
 import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
@@ -25,6 +24,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
     name = "Minimized playback",
     description = "Unlocks options for picture-in-picture and background playback.",
     dependencies = [
+        MinimizedPlaybackResourcePatch::class,
         IntegrationsPatch::class,
         PlayerTypeHookPatch::class,
         VideoInformationPatch::class,
@@ -47,7 +47,12 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
                 "19.08.36",
                 "19.09.38",
                 "19.10.39",
-                "19.11.43"
+                "19.11.43",
+                "19.12.41",
+                "19.13.37",
+                "19.14.43",
+                "19.15.36",
+                "19.16.39",
             ]
         )
     ]
@@ -56,7 +61,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 object MinimizedPlaybackPatch : BytecodePatch(
     setOf(
         MinimizedPlaybackManagerFingerprint,
-        MinimizedPlaybackSettingsParentFingerprint,
+        MinimizedPlaybackSettingsFingerprint,
         KidsMinimizedPlaybackPolicyControllerFingerprint
     )
 ) {
@@ -82,11 +87,6 @@ object MinimizedPlaybackPatch : BytecodePatch(
         } ?: throw MinimizedPlaybackManagerFingerprint.exception
 
         // Enable minimized playback option in YouTube settings
-        MinimizedPlaybackSettingsParentFingerprint.result ?: throw MinimizedPlaybackSettingsParentFingerprint.exception
-        MinimizedPlaybackSettingsFingerprint.resolve(
-            context,
-            MinimizedPlaybackSettingsParentFingerprint.result!!.classDef
-        )
         MinimizedPlaybackSettingsFingerprint.result?.apply {
             val booleanCalls = method.implementation!!.instructions.withIndex()
                 .filter { ((it.value as? ReferenceInstruction)?.reference as? MethodReference)?.returnType == "Z" }
