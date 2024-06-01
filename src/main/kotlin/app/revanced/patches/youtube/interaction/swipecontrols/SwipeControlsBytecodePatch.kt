@@ -44,10 +44,12 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
                 "19.08.36",
                 "19.09.38",
                 "19.10.39",
-                "19.11.43", // 19.12.x has an issue with opening YT using external links,
-                // and the app then crashes if double tap to skip forward/back is immediately used.
-                // The stack trace shows a call coming from integrations SwipeController,
-                // but it may be a bug in YT itself as other target versions do not have this issue.
+                "19.11.43",
+                "19.12.41",
+                "19.13.37",
+                "19.14.43",
+                "19.15.36",
+                "19.16.39",
             ],
         ),
     ],

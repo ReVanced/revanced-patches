@@ -10,13 +10,11 @@ internal object VideoQualityMenuOptionsFingerprint : LiteralValueFingerprint(
     parameters = listOf("Landroid/content/Context", "L", "L"),
     returnType = "[L",
     opcodes = listOf(
-        Opcode.IF_EQZ, // Check if advanced menu should be shown.
-        Opcode.NEW_ARRAY,
-        Opcode.APUT_OBJECT,
-        Opcode.APUT_OBJECT,
-        Opcode.APUT_OBJECT,
-        Opcode.RETURN_OBJECT,
-        Opcode.CONST_4 // Advanced menu code path.
+        Opcode.CONST_4, // First instruction of method.
+        Opcode.CONST_4,
+        Opcode.IF_EQZ,
+        Opcode.IGET_BOOLEAN, // Use the quality menu, that contains the advanced menu.
+        Opcode.IF_NEZ
     ),
     literalSupplier = { RestoreOldVideoQualityMenuResourcePatch.videoQualityQuickMenuAdvancedMenuDescription }
 )

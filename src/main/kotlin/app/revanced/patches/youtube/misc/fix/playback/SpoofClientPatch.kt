@@ -24,6 +24,7 @@ import app.revanced.patches.youtube.misc.fix.playback.fingerprints.PlayerGesture
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.SetPlayerRequestClientTypeFingerprint
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -65,6 +66,11 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
                 "19.09.38",
                 "19.10.39",
                 "19.11.43",
+                "19.12.41",
+                "19.13.37",
+                "19.14.43",
+                "19.15.36",
+                "19.16.39",
             ],
         ),
     ],
@@ -195,15 +201,14 @@ object SpoofClientPatch : BytecodePatch(
 
         val clientInfoClientModelField = CreatePlayerRequestBodyWithModelFingerprint.resultOrThrow().let {
             val getClientModelIndex = CreatePlayerRequestBodyWithModelFingerprint.indexOfBuildModelInstruction(it.method)
-            val instructions = it.mutableMethod.getInstructions()
 
             // The next IPUT_OBJECT instruction after getting the client model is setting the client model field.
-            instructions.subList(
-                getClientModelIndex,
-                instructions.size,
-            ).find { instruction ->
-                instruction.opcode == Opcode.IPUT_OBJECT
-            }?.getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoClientModelField")
+            val index = it.mutableMethod.indexOfFirstInstructionOrThrow(getClientModelIndex) {
+                opcode == Opcode.IPUT_OBJECT
+            }
+
+            it.mutableMethod.getInstruction(index).getReference<FieldReference>()
+                ?: throw PatchException("Could not find clientInfoClientModelField")
         }
 
         // endregion
