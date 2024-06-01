@@ -1,3 +1,10 @@
+# [4.9.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.9.0-dev.1...v4.9.0-dev.2) (2024-06-01)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof client:** Allow swipe gestures to enter/exit fullscreen when spoofing with `Android VR` client ([#3259](https://github.com/ReVanced/revanced-patches/issues/3259)) ([5114900](https://github.com/ReVanced/revanced-patches/commit/5114900b1b5572c04ba6759eedab77f0a934b058))
+
 # [4.9.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.8.3...v4.9.0-dev.1) (2024-05-31)
 
 
