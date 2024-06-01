@@ -1,3 +1,10 @@
+# [4.9.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.9.0-dev.3...v4.9.0-dev.4) (2024-06-01)
+
+
+### Features
+
+* **Messenger:** Add `Hide inbox subtabs` patch ([#3163](https://github.com/ReVanced/revanced-patches/issues/3163)) ([24e4ebd](https://github.com/ReVanced/revanced-patches/commit/24e4ebd77ad0f349b479926bf3983b72c2683496))
+
 # [4.9.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.9.0-dev.2...v4.9.0-dev.3) (2024-06-01)
 
 
