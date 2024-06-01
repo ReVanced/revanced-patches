@@ -6,17 +6,16 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal object RepeatTrackFingerprint : MethodFingerprint(
-    "V",
-    AccessFlags.PUBLIC or AccessFlags.FINAL,
-    listOf("L", "L"),
-    listOf(
-        Opcode.CHECK_CAST,
-        Opcode.INVOKE_INTERFACE,
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("L", "L"),
+    opcodes = listOf(
         Opcode.IGET_OBJECT,
         Opcode.IGET_OBJECT,
         Opcode.SGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
         Opcode.IF_NEZ
-    )
+    ),
+    strings = listOf("w_st")
 )

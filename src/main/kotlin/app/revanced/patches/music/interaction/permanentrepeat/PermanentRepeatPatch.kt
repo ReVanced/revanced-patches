@@ -23,7 +23,7 @@ object PermanentRepeatPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         RepeatTrackFingerprint.result?.let {
             val startIndex = it.scanResult.patternScanResult!!.endIndex
-            val repeatIndex = startIndex + 3
+            val repeatIndex = startIndex + 1
 
             it.mutableMethod.apply {
                 addInstructionsWithLabels(
