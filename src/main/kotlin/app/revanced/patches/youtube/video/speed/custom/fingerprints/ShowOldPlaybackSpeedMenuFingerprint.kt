@@ -1,10 +1,6 @@
 package app.revanced.patches.youtube.video.speed.custom.fingerprints
 
-import app.revanced.patches.youtube.video.speed.custom.CustomPlaybackSpeedResourcePatch
-import app.revanced.util.patch.LiteralValueFingerprint
+import app.revanced.patches.youtube.video.speed.custom.speedUnavailableId
+import app.revanced.util.patch.literalValueFingerprint
 
-internal object ShowOldPlaybackSpeedMenuFingerprint : LiteralValueFingerprint(
-    literalSupplier = {
-        CustomPlaybackSpeedResourcePatch.speedUnavailableId
-    }
-)
+internal val showOldPlaybackSpeedMenuFingerprint = literalValueFingerprint(literalSupplier = { speedUnavailableId })

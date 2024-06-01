@@ -14,7 +14,7 @@ import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.*
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.parseElementFromBufferFingerprint
-import app.revanced.patches.youtube.misc.litho.filter.addFilter
+import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
@@ -24,7 +24,6 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 
 @Suppress("unused")
 val hideLayoutComponentsPatch = bytecodePatch(
@@ -154,10 +153,10 @@ val hideLayoutComponentsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_video_quality_menu_footer"),
         )
 
-        addFilter(layoutComponentsFilterClassDescriptor)
-        addFilter(descriptionComponentsFilterClassName)
-        addFilter(keywordFilterClassName)
-        addFilter(customFilterClassName)
+        addLithoFilter(layoutComponentsFilterClassDescriptor)
+        addLithoFilter(descriptionComponentsFilterClassName)
+        addLithoFilter(keywordFilterClassName)
+        addLithoFilter(customFilterClassName)
 
         // region Mix playlists
 

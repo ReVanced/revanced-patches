@@ -6,12 +6,11 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.layout.player.overlay.fingerprints.createPlayerOverviewFingerprint
 import app.revanced.util.indexOfFirstWideLiteralInstructionValue
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 
 private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/CustomPlayerOverlayOpacityPatch;"
 
 @Suppress("unused")
-val customPLayerOverlayOpacityPatch = bytecodePatch(
+val customPlayerOverlayOpacityPatch = bytecodePatch(
     name = "Custom player overlay opacity",
     description = "Adds an option to change the opacity of the video player background when player controls are visible.",
 ) {

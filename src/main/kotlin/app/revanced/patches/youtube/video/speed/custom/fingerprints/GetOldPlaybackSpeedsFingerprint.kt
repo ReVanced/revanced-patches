@@ -1,8 +1,8 @@
 package app.revanced.patches.youtube.video.speed.custom.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object GetOldPlaybackSpeedsFingerprint : MethodFingerprint(
-    parameters = listOf("[L", "I"),
-    strings = listOf("menu_item_playback_speed")
-)
+internal val getOldPlaybackSpeedsFingerprint = methodFingerprint {
+    parameters("[L", "I")
+    strings("menu_item_playback_speed")
+}

@@ -7,7 +7,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.youtube.layout.hide.shorts.fingerprints.*
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
-import app.revanced.patches.youtube.misc.litho.filter.addFilter
+import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.util.*
@@ -92,7 +92,7 @@ val hideShortsComponentsPatch = bytecodePatch(
 
         // region Hide the Shorts buttons in newer versions of YouTube.
 
-        addFilter(FILTER_CLASS_DESCRIPTOR)
+        addLithoFilter(FILTER_CLASS_DESCRIPTOR)
 
         // endregion
 

@@ -33,7 +33,7 @@ private val MethodFingerprint.patternScanEndIndex
 private val Instruction.descriptor
     get() = (this as ReferenceInstruction).reference.toString()
 
-lateinit var addFilter: (String) -> Unit
+lateinit var addLithoFilter: (String) -> Unit
     private set
 
 val lithoFilterPatch = bytecodePatch(
@@ -174,7 +174,7 @@ val lithoFilterPatch = bytecodePatch(
         lithoFilterResult.mutableMethod.apply {
             removeInstructions(2, 4) // Remove dummy filter.
 
-            addFilter = { classDescriptor ->
+            addLithoFilter = { classDescriptor ->
                 addInstructions(
                     2,
                     """
