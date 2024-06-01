@@ -26,8 +26,8 @@ abstract class BaseFixSLinksPatch(
         "$integrationsClassDescriptor->resolveSLink(Landroid/content/Context;Ljava/lang/String;)Z"
 
     @Suppress("LeakingThis")
-    protected val setAppAccessTokenMethodDescriptor =
-        "$integrationsClassDescriptor->setAppAccessToken(Ljava/lang/String;)V"
+    protected val setAccessTokenMethodDescriptor =
+        "$integrationsClassDescriptor->staticSetAccessToken(Ljava/lang/String;)V"
 
     override fun execute(context: BytecodeContext) {
         navigationFingerprint.resultOrThrow().patchNavigation(context)

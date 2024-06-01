@@ -41,6 +41,6 @@ object FixSLinksPatch : BaseFixSLinksPatch(
 
     override fun MethodFingerprintResult.patchSetAccessToken(context: BytecodeContext) = mutableMethod.addInstruction(
         3,
-        "invoke-static { v0 }, $setAppAccessTokenMethodDescriptor",
+        "invoke-static { v0 }, $setAccessTokenMethodDescriptor",
     )
 }
