@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.interaction.downloads
 
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.interaction.downloads.fingerprints.offlineVideoEndpointFingerprint
@@ -47,18 +48,26 @@ val downloadsPatch = bytecodePatch(
         PlayerControlsBytecodePatch.initializeControl("$buttonDescriptor->initializeButton(Landroid/view/View;)V")
         PlayerControlsBytecodePatch.injectVisibilityCheckCall("$buttonDescriptor->changeVisibility(Z)V")
 
-//        mainActivityResult.mutableMethod.implementation?.instructions.lastIndex = ""
+        // Main activity is used to launch downloader intent.
+        mainActivityResult.mutableMethod.apply {
+            addInstruction(
+                implementation!!.instructions.lastIndex,
+                "invoke-static { p0 }, $integrationsClassDescriptor->activityCreated(Landroid/app/Activity;)V",
+            )
+        }
 
-        offlineVideoEndpointResult.mutableMethod.addInstructionsWithLabels(
-            0,
-            """
-                invoke-static/range {p3 .. p3}, $integrationsClassDescriptor->inAppDownloadButtonOnClick(Ljava/lang/String;)Z
-                move-result v0
-                if-eqz v0, :show_native_downloader
-                return-void
-                :show_native_downloader
-                nop
-            """,
-        )
+        offlineVideoEndpointResult.mutableMethod.apply {
+            addInstructionsWithLabels(
+                0,
+                """
+                    invoke-static/range {p3 .. p3}, $integrationsClassDescriptor->inAppDownloadButtonOnClick(Ljava/lang/String;)Z
+                    move-result v0
+                    if-eqz v0, :show_native_downloader
+                    return-void
+                    :show_native_downloader
+                    nop
+                """,
+            )
+        }
     }
 }
