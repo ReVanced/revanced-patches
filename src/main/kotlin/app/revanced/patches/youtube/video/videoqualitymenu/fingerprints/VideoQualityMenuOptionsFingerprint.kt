@@ -13,7 +13,7 @@ internal object VideoQualityMenuOptionsFingerprint : LiteralValueFingerprint(
         Opcode.CONST_4, // First instruction of method.
         Opcode.CONST_4,
         Opcode.IF_EQZ,
-        Opcode.IGET_BOOLEAN, // Use 4 item (advanced) quality quality menu.
+        Opcode.IGET_BOOLEAN, // Use the quality menu, that contains the advanced menu.
         Opcode.IF_NEZ
     ),
     literalSupplier = { RestoreOldVideoQualityMenuResourcePatch.videoQualityQuickMenuAdvancedMenuDescription }
