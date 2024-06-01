@@ -1,3 +1,176 @@
+# [4.9.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.9.0-dev.2...v4.9.0-dev.3) (2024-06-01)
+
+
+### Features
+
+* **YouTube Music:** Support version `7.03` ([#3272](https://github.com/ReVanced/revanced-patches/issues/3272)) ([d1ceca3](https://github.com/ReVanced/revanced-patches/commit/d1ceca39984f7933b28d81802d04bb3ead327595))
+
+# [4.9.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.9.0-dev.1...v4.9.0-dev.2) (2024-06-01)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof client:** Allow swipe gestures to enter/exit fullscreen when spoofing with `Android VR` client ([#3259](https://github.com/ReVanced/revanced-patches/issues/3259)) ([5114900](https://github.com/ReVanced/revanced-patches/commit/5114900b1b5572c04ba6759eedab77f0a934b058))
+
+# [4.9.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.8.3...v4.9.0-dev.1) (2024-05-31)
+
+
+### Features
+
+* **YouTube - Hide layout components:** Disable like / subscribe button glow animation ([#3265](https://github.com/ReVanced/revanced-patches/issues/3265)) ([68d35ea](https://github.com/ReVanced/revanced-patches/commit/68d35eafc15513c23cd5220260023e7ec5b7978a))
+
+## [4.8.3](https://github.com/ReVanced/revanced-patches/compare/v4.8.2...v4.8.3) (2024-05-31)
+
+
+### Bug Fixes
+
+* **3rd-party Reddit apps:** Spoof user agent to work around Reddit API issues ([#3253](https://github.com/ReVanced/revanced-patches/issues/3253)) ([495e6d6](https://github.com/ReVanced/revanced-patches/commit/495e6d65e7cbae88baa71f8334b9afcf9819deaf))
+* **Reddit - Hide ads:** Constrain to last working version 2024.17.0 ([#3192](https://github.com/ReVanced/revanced-patches/issues/3192)) ([4fb3456](https://github.com/ReVanced/revanced-patches/commit/4fb3456e93ff7ec19030de8870e1cb9c1319faef))
+* **YouTube - Spoof client:** Clarify that only enter/exit fullscreen gesture does not work with Android VR spoof ([#3243](https://github.com/ReVanced/revanced-patches/issues/3243)) ([06d8f55](https://github.com/ReVanced/revanced-patches/commit/06d8f55e9b6ce27d8c550f202615689ac9c34cfa))
+* **YouTube - Spoof client:** Improve Android spoofing ([#3230](https://github.com/ReVanced/revanced-patches/issues/3230)) ([b688923](https://github.com/ReVanced/revanced-patches/commit/b688923c7e83805f2377a19b20a969b8cb749a9c))
+
+## [4.8.3-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.8.3-dev.3...v4.8.3-dev.4) (2024-05-30)
+
+
+### Bug Fixes
+
+* **3rd-party Reddit apps:** Spoof user agent to work around Reddit API issues ([#3253](https://github.com/ReVanced/revanced-patches/issues/3253)) ([495e6d6](https://github.com/ReVanced/revanced-patches/commit/495e6d65e7cbae88baa71f8334b9afcf9819deaf))
+
+## [4.8.3-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.8.3-dev.2...v4.8.3-dev.3) (2024-05-30)
+
+
+### Bug Fixes
+
+* **Reddit - Hide ads:** Constrain to last working version 2024.17.0 ([#3192](https://github.com/ReVanced/revanced-patches/issues/3192)) ([4fb3456](https://github.com/ReVanced/revanced-patches/commit/4fb3456e93ff7ec19030de8870e1cb9c1319faef))
+
+## [4.8.3-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.8.3-dev.1...v4.8.3-dev.2) (2024-05-30)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof client:** Clarify that only enter/exit fullscreen gesture does not work with Android VR spoof ([#3243](https://github.com/ReVanced/revanced-patches/issues/3243)) ([06d8f55](https://github.com/ReVanced/revanced-patches/commit/06d8f55e9b6ce27d8c550f202615689ac9c34cfa))
+
+## [4.8.3-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.8.2...v4.8.3-dev.1) (2024-05-25)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof client:** Improve Android spoofing ([#3230](https://github.com/ReVanced/revanced-patches/issues/3230)) ([b688923](https://github.com/ReVanced/revanced-patches/commit/b688923c7e83805f2377a19b20a969b8cb749a9c))
+
+## [4.8.2](https://github.com/ReVanced/revanced-patches/compare/v4.8.1...v4.8.2) (2024-05-24)
+
+
+### Bug Fixes
+
+* **YouTube - Client spoof:** Spoof iOS client model to fix various side effects ([#3220](https://github.com/ReVanced/revanced-patches/issues/3220)) ([9b5f4ce](https://github.com/ReVanced/revanced-patches/commit/9b5f4ce2b251c67e24cfcac3edae70c8a8aae230))
+
+## [4.8.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.8.1...v4.8.2-dev.1) (2024-05-23)
+
+
+### Bug Fixes
+
+* **YouTube - Client spoof:** Spoof iOS client model to fix various side effects ([#3220](https://github.com/ReVanced/revanced-patches/issues/3220)) ([9b5f4ce](https://github.com/ReVanced/revanced-patches/commit/9b5f4ce2b251c67e24cfcac3edae70c8a8aae230))
+
+## [4.8.1](https://github.com/ReVanced/revanced-patches/compare/v4.8.0...v4.8.1) (2024-05-21)
+
+
+### Bug Fixes
+
+* Use UrlDecoder API available in older Android versions ([d42fbb1](https://github.com/ReVanced/revanced-patches/commit/d42fbb152126cf2177315c4706fb03bc89f5af1c))
+
+## [4.8.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.8.0...v4.8.1-dev.1) (2024-05-21)
+
+
+### Bug Fixes
+
+* Use UrlDecoder API available in older Android versions ([d42fbb1](https://github.com/ReVanced/revanced-patches/commit/d42fbb152126cf2177315c4706fb03bc89f5af1c))
+
+# [4.8.0](https://github.com/ReVanced/revanced-patches/compare/v4.7.0...v4.8.0) (2024-05-21)
+
+
+### Bug Fixes
+
+* Case patch option title correctly ([259c8b4](https://github.com/ReVanced/revanced-patches/commit/259c8b4e58df51d92d7e19417e13afa3848afc73))
+* Correctly handle patches jar path if it contains exclamation marks ([056e2d7](https://github.com/ReVanced/revanced-patches/commit/056e2d7dd5bbacb7dc6b109b3e2d44d55e7eb7d3))
+* Publicize abstract property ([b7c108e](https://github.com/ReVanced/revanced-patches/commit/b7c108ee201c84df31b079f3fecb6cc2f5eaf9f1))
+* **Reddit is Fun - Spoof client:** Fix login by updating the authorization subdomain from "old" to "ssl" ([b156cb1](https://github.com/ReVanced/revanced-patches/commit/b156cb1d8996c4314d59e3441c6b85d8f704cdff))
+* URL decode path to JAR containing spaces to get JAR manifest ([#3079](https://github.com/ReVanced/revanced-patches/issues/3079)) ([e1bbcb3](https://github.com/ReVanced/revanced-patches/commit/e1bbcb338dd7fce895b606440bd6f040d5486a64))
+* Use correct preference key ([3732b2c](https://github.com/ReVanced/revanced-patches/commit/3732b2ce6b617b4c1c6647397b614f8a040eece3))
+* **YouTube - Client spoof:** Spoof client to fix playback ([#3199](https://github.com/ReVanced/revanced-patches/issues/3199)) ([bec1eef](https://github.com/ReVanced/revanced-patches/commit/bec1eef10f2eb4e15696acb271357f1621543de1))
+* **YouTube - Hide ads:** Fix string typo ([ecc56d6](https://github.com/ReVanced/revanced-patches/commit/ecc56d643a0c4e5f25b933431f097a03d4bf2e69))
+* **YouTube - Hide Shorts components:** Rename option title to make it consistent ([4d6e34b](https://github.com/ReVanced/revanced-patches/commit/4d6e34b0540a3334bd77b2b48a1a5e10329171c8))
+* **YouTube - Hide video action buttons:** Remove obsolete `hide Shop button` ([#3057](https://github.com/ReVanced/revanced-patches/issues/3057)) ([b5e34f3](https://github.com/ReVanced/revanced-patches/commit/b5e34f3aabc1d9df8c41f92251618243caecdc9f))
+* **YouTube - Navigation buttons:** Adjust summary text of switch notification button ([#3130](https://github.com/ReVanced/revanced-patches/issues/3130)) ([cc8b4c9](https://github.com/ReVanced/revanced-patches/commit/cc8b4c913ed25d07fd4000cfd6318bb06a9d27c0))
+* **YouTube - Player flyout menu:** Remove obsolete `Hide report menu` ([d627d44](https://github.com/ReVanced/revanced-patches/commit/d627d44ad07fa32bb2f247ce24a3591ec5e1be0e))
+* **YouTube - Restore old video quality menu:** Show advanced quality menu in Shorts quality flyout ([#3155](https://github.com/ReVanced/revanced-patches/issues/3155)) ([c2b5bb7](https://github.com/ReVanced/revanced-patches/commit/c2b5bb723416e43a920817f97b9e0ee4ceab4f6b))
+* **YouTube - SponsorBlock:** Show correct segment times if video is over 24 hours in length ([#3138](https://github.com/ReVanced/revanced-patches/issues/3138)) ([6cdf697](https://github.com/ReVanced/revanced-patches/commit/6cdf697e8e47f6d53964497703dbe79fab3b1821))
+* **YouTube Music:** Make `Hide 'Get Music Premium' label` and `Remove upgrade button` compatible with latest version ([#3164](https://github.com/ReVanced/revanced-patches/issues/3164)) ([3ff20de](https://github.com/ReVanced/revanced-patches/commit/3ff20dee4aea49ca77dcd3fbe148287b55a2b5e3))
+
+
+### Features
+
+* **Photomath:** Support version `8.37.0` ([#3109](https://github.com/ReVanced/revanced-patches/issues/3109)) ([fb02b48](https://github.com/ReVanced/revanced-patches/commit/fb02b481e2be8c2bc4441dc5b3dc6a9df3a2a379))
+* **Piccoma:** Add `Disable tracking` patch ([#3143](https://github.com/ReVanced/revanced-patches/issues/3143)) ([8ab9e8f](https://github.com/ReVanced/revanced-patches/commit/8ab9e8f89d2bd014138e31dab7004f8ba77cae10))
+* **Piccoma:** Add `Spoof Android device ID` patch ([#3145](https://github.com/ReVanced/revanced-patches/issues/3145)) ([d953c6b](https://github.com/ReVanced/revanced-patches/commit/d953c6bdd4315d2ba44845fd569a3d12ac4d1af0))
+* **Tumblr:** Add `Disable Ad-Free Banner` patch ([#3091](https://github.com/ReVanced/revanced-patches/issues/3091)) ([54baf08](https://github.com/ReVanced/revanced-patches/commit/54baf08f777b7c975fa0b6508f0a4de19ac491f4))
+* **WarnWetter - Promo code unlock:** Constrain to last working version ([#3110](https://github.com/ReVanced/revanced-patches/issues/3110)) ([92fc8aa](https://github.com/ReVanced/revanced-patches/commit/92fc8aaad80f8fad35b75e6de032692986211536))
+* **YouTube - Comments:** Add option to hide timestamp and emoji buttons ([#3076](https://github.com/ReVanced/revanced-patches/issues/3076)) ([7efe5ae](https://github.com/ReVanced/revanced-patches/commit/7efe5aefb252a2ed908907ff218b879e2ad1a331))
+* **YouTube - Hide ads:** Add option to hide the 'Visit store' button on channel pages ([#3077](https://github.com/ReVanced/revanced-patches/issues/3077)) ([03d2cfa](https://github.com/ReVanced/revanced-patches/commit/03d2cfafbf977340456598a848858ac9452c853f))
+* **YouTube - Hide Shorts components:** Hide 'Buy super thanks' button ([#3176](https://github.com/ReVanced/revanced-patches/issues/3176)) ([89c1548](https://github.com/ReVanced/revanced-patches/commit/89c154861c8b3afa665542e97ff201c3e84410b2))
+* **YouTube - Hide Shorts components:** Hide like / dislike button in video ads ([#3062](https://github.com/ReVanced/revanced-patches/issues/3062)) ([1296985](https://github.com/ReVanced/revanced-patches/commit/12969853adfe530eb6006df38e1a5aa30b28fdf9))
+* **YouTube - Navigation buttons:** Add option to hide navigation button labels ([#3189](https://github.com/ReVanced/revanced-patches/issues/3189)) ([f9dc705](https://github.com/ReVanced/revanced-patches/commit/f9dc7050513b9fdb7766838a63a172f1478296f7))
+* **YT Music:** Add support for `7.01.52` ([#3177](https://github.com/ReVanced/revanced-patches/issues/3177)) ([e9bfb25](https://github.com/ReVanced/revanced-patches/commit/e9bfb25dfe85754fd7fa5c9db934bb4fc52e4694))
+
+# [4.8.0-dev.24](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.23...v4.8.0-dev.24) (2024-05-21)
+
+
+### Bug Fixes
+
+* **YouTube - Client spoof:** Spoof client to fix playback ([#3199](https://github.com/ReVanced/revanced-patches/issues/3199)) ([bec1eef](https://github.com/ReVanced/revanced-patches/commit/bec1eef10f2eb4e15696acb271357f1621543de1))
+
+# [4.8.0-dev.23](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.22...v4.8.0-dev.23) (2024-05-18)
+
+
+### Features
+
+* **Piccoma:** Add `Spoof Android device ID` patch ([#3145](https://github.com/ReVanced/revanced-patches/issues/3145)) ([d953c6b](https://github.com/ReVanced/revanced-patches/commit/d953c6bdd4315d2ba44845fd569a3d12ac4d1af0))
+
+# [4.8.0-dev.22](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.21...v4.8.0-dev.22) (2024-05-18)
+
+
+### Bug Fixes
+
+* Use correct preference key ([3732b2c](https://github.com/ReVanced/revanced-patches/commit/3732b2ce6b617b4c1c6647397b614f8a040eece3))
+
+# [4.8.0-dev.21](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.20...v4.8.0-dev.21) (2024-05-18)
+
+
+### Features
+
+* **Piccoma:** Add `Disable tracking` patch ([#3143](https://github.com/ReVanced/revanced-patches/issues/3143)) ([8ab9e8f](https://github.com/ReVanced/revanced-patches/commit/8ab9e8f89d2bd014138e31dab7004f8ba77cae10))
+* **YouTube - Navigation buttons:** Add option to hide navigation button labels ([#3189](https://github.com/ReVanced/revanced-patches/issues/3189)) ([f9dc705](https://github.com/ReVanced/revanced-patches/commit/f9dc7050513b9fdb7766838a63a172f1478296f7))
+
+# [4.8.0-dev.20](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.19...v4.8.0-dev.20) (2024-05-16)
+
+
+### Features
+
+* **YT Music:** Add support for `7.01.52` ([#3177](https://github.com/ReVanced/revanced-patches/issues/3177)) ([e9bfb25](https://github.com/ReVanced/revanced-patches/commit/e9bfb25dfe85754fd7fa5c9db934bb4fc52e4694))
+
+# [4.8.0-dev.19](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.18...v4.8.0-dev.19) (2024-05-16)
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Hide 'Buy super thanks' button ([#3176](https://github.com/ReVanced/revanced-patches/issues/3176)) ([89c1548](https://github.com/ReVanced/revanced-patches/commit/89c154861c8b3afa665542e97ff201c3e84410b2))
+
+# [4.8.0-dev.18](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.17...v4.8.0-dev.18) (2024-05-14)
+
+
+### Bug Fixes
+
+* **YouTube Music:** Make `Hide 'Get Music Premium' label` and `Remove upgrade button` compatible with latest version ([#3164](https://github.com/ReVanced/revanced-patches/issues/3164)) ([3ff20de](https://github.com/ReVanced/revanced-patches/commit/3ff20dee4aea49ca77dcd3fbe148287b55a2b5e3))
+
 # [4.8.0-dev.17](https://github.com/ReVanced/revanced-patches/compare/v4.8.0-dev.16...v4.8.0-dev.17) (2024-05-12)
 
 

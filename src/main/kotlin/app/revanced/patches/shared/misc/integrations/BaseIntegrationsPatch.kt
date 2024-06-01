@@ -8,12 +8,12 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patches.shared.misc.integrations.BaseIntegrationsPatch.IntegrationsFingerprint.IRegisterResolver
 import app.revanced.patches.shared.misc.integrations.fingerprints.ReVancedUtilsPatchesVersionFingerprint
+import app.revanced.util.exception
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import java.net.URLDecoder
-import java.nio.charset.StandardCharsets
 import java.util.jar.JarFile
 
 abstract class BaseIntegrationsPatch(
@@ -76,7 +76,8 @@ abstract class BaseIntegrationsPatch(
 
             if (urlString.startsWith("jar:file:")) {
                 val end = urlString.lastIndexOf('!')
-                return URLDecoder.decode(urlString.substring("jar:file:".length, end), StandardCharsets.UTF_8)
+
+                return URLDecoder.decode(urlString.substring("jar:file:".length, end), "UTF-8")
             }
         }
         throw IllegalStateException("Not running from inside a JAR file.")
@@ -139,7 +140,7 @@ abstract class BaseIntegrationsPatch(
                     "invoke-static/range { v$contextRegister .. v$contextRegister }, " +
                         "$integrationsDescriptor->setContext(Landroid/content/Context;)V",
                 )
-            } ?: throw PatchException("Could not find hook target fingerprint.")
+            } ?: throw this.exception
         }
 
         interface IHookInsertIndexResolver : (Method) -> Int {

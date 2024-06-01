@@ -102,6 +102,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_expandable_chip"),
             SwitchPreference("revanced_hide_info_panels"),
             SwitchPreference("revanced_hide_join_membership_button"),
+            SwitchPreference("revanced_disable_like_subscribe_glow"),
             SwitchPreference("revanced_hide_medical_panels"),
             SwitchPreference("revanced_hide_quick_actions"),
             SwitchPreference("revanced_hide_related_videos"),

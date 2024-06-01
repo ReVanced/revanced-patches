@@ -91,6 +91,9 @@
             <string name="revanced_debug_toast_on_error_user_dialog_message">Turning off error toasts hides all ReVanced error notifications.\n\nYou will not be notified of any unexpected events.</string>
         </patch>
         <patch id="layout.hide.general.HideLayoutComponentsPatch">
+            <string name="revanced_disable_like_subscribe_glow_title">Disable like / subscribe button glow</string>
+            <string name="revanced_disable_like_subscribe_glow_summary_on">Like and subscribe button will not glow when mentioned</string>
+            <string name="revanced_disable_like_subscribe_glow_summary_off">Like and subscribe button will glow when mentioned</string>
             <string name="revanced_hide_gray_separator_title">Hide gray separator</string>
             <string name="revanced_hide_gray_separator_summary_on">Gray separators are hidden</string>
             <string name="revanced_hide_gray_separator_summary_off">Gray separators are shown</string>
@@ -437,6 +440,9 @@
             <string name="revanced_switch_create_with_notifications_button_title">Switch Create with Notifications</string>
             <string name="revanced_switch_create_with_notifications_button_summary_on">Create button is switched with Notifications button\n\nNote: Enabling this also forcibly hides video ads</string>
             <string name="revanced_switch_create_with_notifications_button_summary_off">Create button is not switched with Notifications button</string>
+            <string name="revanced_hide_navigation_button_labels_title">Hide navigation button labels</string>
+            <string name="revanced_hide_navigation_button_labels_summary_on">Labels are hidden</string>
+            <string name="revanced_hide_navigation_button_labels_summary_off">Labels are shown</string>
         </patch>
         <patch id="layout.hide.player.flyoutmenupanel.HidePlayerFlyoutMenuPatch">
             <string name="revanced_hide_player_flyout_title">Flyout menu</string>
@@ -583,6 +589,9 @@
             <string name="revanced_hide_shorts_shop_button_title">Hide shop button</string>
             <string name="revanced_hide_shorts_shop_button_summary_on">Shop button is hidden</string>
             <string name="revanced_hide_shorts_shop_button_summary_off">Shop button is shown</string>
+            <string name="revanced_hide_shorts_super_thanks_button_title">Hide super thanks button</string>
+            <string name="revanced_hide_shorts_super_thanks_button_summary_on">Super thanks button is hidden</string>
+            <string name="revanced_hide_shorts_super_thanks_button_summary_off">Super thanks button is shown</string>
             <string name="revanced_hide_shorts_tagged_products_title">Hide tagged products</string>
             <string name="revanced_hide_shorts_tagged_products_summary_on">Tagged products are hidden</string>
             <string name="revanced_hide_shorts_tagged_products_summary_off">Tagged products are shown</string>
@@ -901,7 +910,7 @@
             <string name="revanced_spoof_app_version_summary_on">Version spoofed</string>
             <string name="revanced_spoof_app_version_summary_off">Version not spoofed</string>
             <string name="revanced_spoof_app_version_user_dialog_message">App version will be spoofed to an older version of YouTube.\n\nThis will change the appearance and features of the app, but unknown side effects may occur.\n\nIf later turned off, it is recommended to clear the app data to prevent UI bugs.</string>
-            <!-- It is ideal, but not required, if the text here appears alphabetically after the text used for 'revanced_spoof_app_version_title'.
+            <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
             <string name="revanced_spoof_app_version_target_title">Spoof app version target</string>
             <!-- 'RYD' is 'Return YouTube Dislike' -->
@@ -1078,6 +1087,19 @@
             <string name="revanced_slide_to_seek_title">Enable slide to seek</string>
             <string name="revanced_slide_to_seek_summary_on">Slide to seek is enabled</string>
             <string name="revanced_slide_to_seek_summary_off">Slide to seek is not enabled</string>
+        </patch>
+        <patch id="misc.fix.playback.SpoofClientPatch">
+            <string name="revanced_spoof_client_screen_title">Spoof client</string>
+            <string name="revanced_spoof_client_screen_summary">Spoof the client to prevent playback issues</string>
+            <string name="revanced_spoof_client_title">Spoof client</string>
+            <string name="revanced_spoof_client_summary_on">Client is spoofed</string>
+            <string name="revanced_spoof_client_summary_off">Client is not spoofed\n\nVideo playback may not work</string>
+            <string name="revanced_spoof_client_user_dialog_message">Turning off this setting may cause video playback issues.</string>
+            <string name="revanced_spoof_client_use_ios_title">Spoof client to iOS</string>
+            <string name="revanced_spoof_client_use_ios_summary_on">Client is currently spoofed to iOS\n\nSide effects include:\n• No HDR video\n• Speed menu is missing\n• Watch history may not work\n• Live streams cannot play as audio only\n• Live streams not available on older devices</string>
+            <string name="revanced_spoof_client_use_ios_summary_off">Client is currently spoofed to Android VR\n\nSide effects include:\n• No HDR video\n• Kids videos do not playback\n• Paused videos can randomly resume</string>
+            <string name="revanced_spoof_client_storyboard_timeout">Spoof client thumbnails not available (API timed out)</string>
+            <string name="revanced_spoof_client_storyboard_io_exception">Spoof client thumbnails temporarily not available: %s</string>
         </patch>
         <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
         <patch id="misc.fix.playback.SpoofSignaturePatch">

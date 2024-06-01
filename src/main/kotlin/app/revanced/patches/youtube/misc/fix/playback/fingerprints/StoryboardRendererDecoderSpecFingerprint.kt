@@ -6,8 +6,9 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 /**
-* Resolves to the same method as [StoryboardRendererDecoderRecommendedLevelFingerprint].
-*/
+ * Resolves to the same method as [StoryboardRendererDecoderRecommendedLevelFingerprint].
+ */
+@Deprecated("Fingerprint is obsolete and will be deleted soon")
 internal object StoryboardRendererDecoderSpecFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
@@ -19,5 +20,5 @@ internal object StoryboardRendererDecoderSpecFingerprint : MethodFingerprint(
         Opcode.CONST_4,
         Opcode.IF_NEZ,
     ),
-    strings = listOf("#-1#")
+    strings = listOf("#-1#"),
 )

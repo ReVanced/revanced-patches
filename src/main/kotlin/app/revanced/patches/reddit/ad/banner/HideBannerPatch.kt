@@ -4,6 +4,9 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 
+// Note that for now, this patch and anything using it will only work on
+// Reddit 2024.17.0 or older. Newer versions will crash during patching.
+// See https://github.com/ReVanced/revanced-patches/issues/3099
 @Patch(description = "Hides banner ads from comments on subreddits.")
 object HideBannerPatch : ResourcePatch() {
     private const val RESOURCE_FILE_PATH = "res/layout/merge_listheader_link_detail.xml"
