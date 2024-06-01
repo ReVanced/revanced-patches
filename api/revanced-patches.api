@@ -277,20 +277,26 @@ public final class app/revanced/patches/memegenerator/misc/pro/UnlockProVersionP
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/messenger/ads/inbox/patch/HideInboxAdsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/messenger/ads/inbox/patch/HideInboxAdsPatch;
+public final class app/revanced/patches/messenger/inbox/HideInboxAdsPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/messenger/inbox/HideInboxAdsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/messenger/inputfield/patch/DisableSwitchingEmojiToStickerPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/messenger/inputfield/patch/DisableSwitchingEmojiToStickerPatch;
+public final class app/revanced/patches/messenger/inbox/HideInboxSubtabsPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/messenger/inbox/HideInboxSubtabsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/messenger/inputfield/patch/DisableTypingIndicatorPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/messenger/inputfield/patch/DisableTypingIndicatorPatch;
+public final class app/revanced/patches/messenger/inputfield/DisableSwitchingEmojiToStickerPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/messenger/inputfield/DisableSwitchingEmojiToStickerPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/messenger/inputfield/DisableTypingIndicatorPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/messenger/inputfield/DisableTypingIndicatorPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
