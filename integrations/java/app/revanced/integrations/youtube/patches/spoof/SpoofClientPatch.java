@@ -104,6 +104,13 @@ public class SpoofClientPatch {
     /**
      * Injection point.
      */
+    public static boolean enablePlayerGesture(boolean original) {
+        return SPOOF_CLIENT_ENABLED || original;
+    }
+
+    /**
+     * Injection point.
+     */
     public static boolean isClientSpoofingEnabled() {
         return SPOOF_CLIENT_ENABLED;
     }
