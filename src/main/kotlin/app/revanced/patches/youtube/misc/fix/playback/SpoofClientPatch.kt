@@ -10,6 +10,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
@@ -19,6 +20,7 @@ import app.revanced.patches.youtube.misc.fix.playback.fingerprints.BuildInitPlay
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.BuildPlayerRequestURIFingerprint
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.CreatePlayerRequestBodyFingerprint
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.CreatePlayerRequestBodyWithModelFingerprint
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.PlayerGestureConfigSyntheticFingerprint
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.SetPlayerRequestClientTypeFingerprint
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.getReference
@@ -69,11 +71,15 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 )
 object SpoofClientPatch : BytecodePatch(
     setOf(
+        // Client type spoof.
         BuildInitPlaybackRequestFingerprint,
         BuildPlayerRequestURIFingerprint,
         SetPlayerRequestClientTypeFingerprint,
         CreatePlayerRequestBodyFingerprint,
         CreatePlayerRequestBodyWithModelFingerprint,
+
+        // Player gesture config.
+        PlayerGestureConfigSyntheticFingerprint,
     ),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -110,6 +116,33 @@ object SpoofClientPatch : BytecodePatch(
                         move-result-object v$targetRegister
                     """,
                 )
+            }
+        }
+
+        // endregion
+
+        // region fix player gesture.
+
+        PlayerGestureConfigSyntheticFingerprint.resultOrThrow().let {
+            val endIndex = it.scanResult.patternScanResult!!.endIndex
+
+            arrayOf(3, 9).forEach { offSet ->
+                (context.toMethodWalker(it.mutableMethod)
+                    .nextMethod(endIndex - offSet, true)
+                    .getMethod() as MutableMethod)
+                    .apply {
+
+                        val index = implementation!!.instructions.lastIndex
+                        val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                        addInstructions(
+                            index,
+                            """
+                            invoke-static {v$register}, $INTEGRATIONS_CLASS_DESCRIPTOR->enablePlayerGesture(Z)Z
+                            move-result v$register
+                        """
+                        )
+                    }
             }
         }
 
