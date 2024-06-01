@@ -1,3 +1,10 @@
+# [4.9.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.9.0-dev.2...v4.9.0-dev.3) (2024-06-01)
+
+
+### Features
+
+* **YouTube Music:** Support version `7.03` ([#3272](https://github.com/ReVanced/revanced-patches/issues/3272)) ([d1ceca3](https://github.com/ReVanced/revanced-patches/commit/d1ceca39984f7933b28d81802d04bb3ead327595))
+
 # [4.9.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.9.0-dev.1...v4.9.0-dev.2) (2024-06-01)
 
 
