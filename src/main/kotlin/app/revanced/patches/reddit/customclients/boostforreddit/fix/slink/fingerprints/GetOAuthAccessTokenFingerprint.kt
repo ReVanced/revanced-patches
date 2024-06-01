@@ -2,9 +2,9 @@ package app.revanced.patches.reddit.customclients.boostforreddit.fix.slink.finge
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object JRAWgetAccessTokenFingerprint: MethodFingerprint (
+internal object GetOAuthAccessTokenFingerprint : MethodFingerprint(
     strings = listOf("access_token"),
     accessFlags = AccessFlags.PUBLIC.value,
     returnType = "Ljava/lang/String",
-    customFingerprint = { methodDef, _ -> methodDef.definingClass == "Lnet/dean/jraw/http/oauth/OAuthData;" }
+    customFingerprint = { _, classDef -> classDef.type == "Lnet/dean/jraw/http/oauth/OAuthData;" },
 )

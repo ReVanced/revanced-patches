@@ -3,6 +3,8 @@ package app.revanced.patches.reddit.customclients.syncforreddit.misc.integration
 import app.revanced.patches.shared.misc.integrations.BaseIntegrationsPatch.IntegrationsFingerprint
 
 internal object InitFingerprint : IntegrationsFingerprint(
-    customFingerprint = { methodDef, _ -> methodDef.definingClass == "Lcom/laurencedawson/reddit_sync/RedditApplication;" && methodDef.name == "onCreate" },
-    insertIndexResolver = { 1 } // Insert after call to super class.
+    customFingerprint = { methodDef, classDef ->
+        methodDef.name == "onCreate" && classDef.type == "Lcom/laurencedawson/reddit_sync/RedditApplication;"
+    },
+    insertIndexResolver = { 1 }, // Insert after call to super class.
 )

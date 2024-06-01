@@ -7,14 +7,14 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.reddit.customclients.BaseFixSLinksPatch
-import app.revanced.patches.reddit.customclients.syncforreddit.fix.slink.fingerprints.AccountSingletonSetAccessHeaderFingerprint
 import app.revanced.patches.reddit.customclients.syncforreddit.fix.slink.fingerprints.LinkHelperOpenLinkFingerprint
+import app.revanced.patches.reddit.customclients.syncforreddit.fix.slink.fingerprints.SetAuthorizationHeaderFingerprint
 import app.revanced.patches.reddit.customclients.syncforreddit.misc.integrations.IntegrationsPatch
 
 @Suppress("unused")
 object FixSLinksPatch : BaseFixSLinksPatch(
-    navigationFingerprint = setOf(LinkHelperOpenLinkFingerprint),
-    setAccessTokenFingerprint = setOf(AccountSingletonSetAccessHeaderFingerprint),
+    navigationFingerprint = LinkHelperOpenLinkFingerprint,
+    setAccessTokenFingerprint = SetAuthorizationHeaderFingerprint,
     compatiblePackages = setOf(
         CompatiblePackage("com.laurencedawson.reddit_sync"),
         CompatiblePackage("com.laurencedawson.reddit_sync.pro"),
@@ -22,29 +22,29 @@ object FixSLinksPatch : BaseFixSLinksPatch(
     ),
     dependencies = setOf(IntegrationsPatch::class),
 ) {
-    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/syncforreddit/FixSLinksPatch;"
+    override val integrationsClassDescriptor = "Lapp/revanced/integrations/syncforreddit/FixSLinksPatch;"
 
-    override fun Set<MethodFingerprintResult>.patchNavigation(context: BytecodeContext) {
-        first().mutableMethod.apply {
+    override fun MethodFingerprintResult.patchNavigation(context: BytecodeContext) {
+        mutableMethod.apply {
+            val contextRegister = "p0"
+            val urlRegister = "p3"
+            val tempRegister = "v2"
+
             addInstructionsWithLabels(
                 0,
                 """
-                    invoke-static { p0, p3 }, $INTEGRATIONS_CLASS_DESCRIPTOR->resolveSLink(Landroid/content/Context;Ljava/lang/String;)Z
-                    move-result v2
-                    if-eqz v2, :continue
-                    return v2
+                    invoke-static { $contextRegister, $urlRegister }, $resolveSLinkMethodDescriptor
+                    move-result $tempRegister
+                    if-eqz $tempRegister, :continue
+                    return $tempRegister
                 """,
                 ExternalLabel("continue", getInstruction(0)),
             )
         }
     }
 
-    override fun Set<MethodFingerprintResult>.patchSetAccessToken(context: BytecodeContext) {
-        first().mutableMethod.apply {
-            addInstruction(
-                0,
-                "invoke-static { p0 }, $INTEGRATIONS_CLASS_DESCRIPTOR->setAppAccessToken(Ljava/lang/String;)V",
-            )
-        }
-    }
+    override fun MethodFingerprintResult.patchSetAccessToken(context: BytecodeContext) = mutableMethod.addInstruction(
+        0,
+        "invoke-static { p0 }, $setAppAccessTokenMethodDescriptor",
+    )
 }
