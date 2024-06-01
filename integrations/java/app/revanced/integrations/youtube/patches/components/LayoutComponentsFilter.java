@@ -21,17 +21,20 @@ public final class LayoutComponentsFilter extends Filter {
     private static final String VIDEO_ACTION_BAR_PATH_PREFIX = "video_action_bar.eml";
     private static final String ANIMATED_VECTOR_TYPE_PATH = "AnimatedVectorType";
 
-    private final StringTrieSearch exceptions = new StringTrieSearch();
-    private static final StringTrieSearch mixPlaylistsExceptions = new StringTrieSearch();
+    private static final StringTrieSearch mixPlaylistsExceptions = new StringTrieSearch(
+            "V.ED", // Playlist browse id.
+            "java.lang.ref.WeakReference"
+    );
     private static final ByteArrayFilterGroup mixPlaylistsExceptions2 = new ByteArrayFilterGroup(
             null,
             "cell_description_body"
     );
-
     private static final ByteArrayFilterGroup mixPlaylists = new ByteArrayFilterGroup(
             Settings.HIDE_MIX_PLAYLISTS,
             "&list="
     );
+
+    private final StringTrieSearch exceptions = new StringTrieSearch();
     private final StringFilterGroup searchResultShelfHeader;
     private final StringFilterGroup inFeedSurvey;
     private final StringFilterGroup notifyMe;
@@ -43,13 +46,6 @@ public final class LayoutComponentsFilter extends Filter {
     private final ByteArrayFilterGroup joinMembershipButton;
     private final StringFilterGroup likeSubscribeGlow;
     private final StringFilterGroup horizontalShelves;
-
-    static {
-        mixPlaylistsExceptions.addPatterns(
-                "V.ED", // Playlist browse id.
-                "java.lang.ref.WeakReference"
-        );
-    }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public LayoutComponentsFilter() {
@@ -353,24 +349,31 @@ public final class LayoutComponentsFilter extends Filter {
      * Called from a different place then the other filters.
      */
     public static boolean filterMixPlaylists(final Object conversionContext, @Nullable final byte[] bytes) {
-        if (bytes == null) {
-            Logger.printDebug(() -> "bytes is null");
-            return false;
+        try {
+            if (bytes == null) {
+                Logger.printDebug(() -> "bytes is null");
+                return false;
+            }
+
+            // Prevent playlist items being hidden, if a mix playlist is present in it.
+            if (mixPlaylistsExceptions.matches(conversionContext.toString())) {
+                return false;
+            }
+
+            // Prevent hiding the description of some videos accidentally.
+            if (mixPlaylistsExceptions2.check(bytes).isFiltered()) {
+                return false;
+            }
+
+            if (mixPlaylists.check(bytes).isFiltered()) {
+                Logger.printDebug(() -> "Filtered mix playlist");
+                return true;
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "filterMixPlaylists failure", ex);
         }
 
-        // Prevent playlist items being hidden, if a mix playlist is present in it.
-        if (mixPlaylistsExceptions.matches(conversionContext.toString()))
-            return false;
-
-        if (!mixPlaylists.check(bytes).isFiltered())
-            return false;
-
-        // Prevent hiding the description of some videos accidentally.
-        if (mixPlaylistsExceptions2.check(bytes).isFiltered())
-            return false;
-
-        Logger.printDebug(() -> "Filtered mix playlist");
-        return true;
+        return false;
     }
 
     /**

@@ -70,8 +70,8 @@ public final class RestoreOldVideoQualityMenuPatch {
      *
      * Used to force the creation of the advanced menu item for the Shorts quality flyout.
      */
-    public static boolean forceAdvancedVideoQualityMenuCreation() {
-        return Settings.RESTORE_OLD_VIDEO_QUALITY_MENU.get();
+    public static boolean forceAdvancedVideoQualityMenuCreation(boolean original) {
+        return Settings.RESTORE_OLD_VIDEO_QUALITY_MENU.get() || original;
     }
 
     /**
