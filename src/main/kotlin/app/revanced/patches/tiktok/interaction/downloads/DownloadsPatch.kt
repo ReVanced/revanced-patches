@@ -18,7 +18,7 @@ import app.revanced.patches.tiktok.misc.integrations.IntegrationsPatch
 import app.revanced.patches.tiktok.misc.settings.SettingsPatch
 import app.revanced.patches.tiktok.misc.settings.fingerprints.SettingsStatusLoadFingerprint
 import app.revanced.util.exception
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -81,16 +81,16 @@ object DownloadsPatch : BytecodePatch(
             },
             // Change the download path patch.
             DownloadPathParentFingerprint to {
-                val targetIndex = indexOfFirstInstruction { opcode == Opcode.INVOKE_STATIC }
+                val targetIndex = indexOfFirstInstructionOrThrow { opcode == Opcode.INVOKE_STATIC }
                 val downloadUriMethod = context
                     .toMethodWalker(this)
                     .nextMethod(targetIndex, true)
                     .getMethod() as MutableMethod
 
-                val firstIndex = downloadUriMethod.indexOfFirstInstruction {
+                val firstIndex = downloadUriMethod.indexOfFirstInstructionOrThrow {
                     opcode == Opcode.INVOKE_DIRECT && ((this as Instruction35c).reference as MethodReference).name == "<init>"
                 }
-                val secondIndex = downloadUriMethod.indexOfFirstInstruction {
+                val secondIndex = downloadUriMethod.indexOfFirstInstructionOrThrow {
                     opcode == Opcode.INVOKE_STATIC && ((this as Instruction35c).reference as MethodReference).returnType.contains(
                         "Uri"
                     )

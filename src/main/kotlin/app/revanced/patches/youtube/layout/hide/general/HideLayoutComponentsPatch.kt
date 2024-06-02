@@ -23,7 +23,6 @@ import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
@@ -59,7 +58,12 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
                 "19.08.36",
                 "19.09.38",
                 "19.10.39",
-                "19.11.43"
+                "19.11.43",
+                "19.12.41",
+                "19.13.37",
+                "19.14.43",
+                "19.15.36",
+                "19.16.39",
             ],
         ),
     ],
@@ -102,6 +106,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_expandable_chip"),
             SwitchPreference("revanced_hide_info_panels"),
             SwitchPreference("revanced_hide_join_membership_button"),
+            SwitchPreference("revanced_disable_like_subscribe_glow"),
             SwitchPreference("revanced_hide_medical_panels"),
             SwitchPreference("revanced_hide_quick_actions"),
             SwitchPreference("revanced_hide_related_videos"),
@@ -163,20 +168,21 @@ object HideLayoutComponentsPatch : BytecodePatch(
         // region Mix playlists
 
         ParseElementFromBufferFingerprint.resultOrThrow().let { result ->
-            val consumeByteBufferIndex = result.scanResult.patternScanResult!!.startIndex
+            val startIndex = result.scanResult.patternScanResult!!.startIndex
 
             result.mutableMethod.apply {
-                val conversionContextRegister =
-                    getInstruction<TwoRegisterInstruction>(consumeByteBufferIndex - 2).registerA
-                val byteBufferRegister = getInstruction<FiveRegisterInstruction>(consumeByteBufferIndex).registerD
+                val freeRegister = "v0"
+                val byteArrayParameter = "p3"
+                val conversionContextRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
                 val returnEmptyComponentInstruction = getInstructions().last { it.opcode == Opcode.INVOKE_STATIC }
 
                 addInstructionsWithLabels(
-                    consumeByteBufferIndex,
+                    startIndex + 1,
                     """
-                        invoke-static {v$conversionContextRegister, v$byteBufferRegister}, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->filterMixPlaylists(Ljava/lang/Object;[B)Z
-                        move-result v0 # Conveniently same register happens to be free. 
-                        if-nez v0, :return_empty_component
+                        invoke-static { v$conversionContextRegister, $byteArrayParameter }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->filterMixPlaylists(Ljava/lang/Object;[B)Z
+                        move-result $freeRegister 
+                        if-nez $freeRegister, :return_empty_component
+                        const/4 $freeRegister, 0x0  # Restore register, required for 19.16
                     """,
                     ExternalLabel("return_empty_component", returnEmptyComponentInstruction),
                 )
