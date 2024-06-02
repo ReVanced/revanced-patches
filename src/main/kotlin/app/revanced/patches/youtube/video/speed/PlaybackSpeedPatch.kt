@@ -10,7 +10,7 @@ import app.revanced.patches.youtube.video.speed.remember.RememberPlaybackSpeedPa
 
 @Patch(
     name = "Playback speed",
-    description = "Adds options to customize available playback speeds, to remember the last playback speed selected " +
+    description = "Adds options to customize available playback speeds, remember the last playback speed selected " +
             "and show a speed dialog button to the video player.",
     dependencies = [
         PlaybackSpeedButtonPatch::class,

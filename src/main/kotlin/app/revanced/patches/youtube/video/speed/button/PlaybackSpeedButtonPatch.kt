@@ -10,7 +10,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.video.speed.custom.CustomPlaybackSpeedPatch
 
 @Patch(
-    description = "Adds option to display playback speed dialog button in the video player.",
+    description = "Adds the option to display playback speed dialog button in the video player.",
     dependencies = [
         PlaybackSpeedButtonResourcePatch::class,
         CustomPlaybackSpeedPatch::class,
