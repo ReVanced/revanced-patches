@@ -4,7 +4,6 @@ import android.media.MediaCodecInfo;
 import android.media.MediaCodecList;
 import android.net.Uri;
 import android.os.Build;
-
 import app.revanced.integrations.shared.Logger;
 import app.revanced.integrations.youtube.settings.Settings;
 
@@ -104,8 +103,28 @@ public class SpoofClientPatch {
     /**
      * Injection point.
      */
+    public static boolean enablePlayerGesture(boolean original) {
+        return SPOOF_CLIENT_ENABLED || original;
+    }
+
+    /**
+     * Injection point.
+     */
     public static boolean isClientSpoofingEnabled() {
         return SPOOF_CLIENT_ENABLED;
+    }
+
+    /**
+     * Injection point.
+     * When spoofing the client to iOS, the playback speed menu is missing from the player response.
+     * Return true to force create the playback speed menu.
+     */
+    public static boolean forceCreatePlaybackSpeedMenu(boolean original) {
+        if (SPOOF_CLIENT_ENABLED && SPOOF_CLIENT_TYPE == ClientType.IOS) {
+            return true;
+        }
+
+        return original;
     }
 
     private enum ClientType {
