@@ -1,3 +1,10 @@
+# [4.9.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.9.0-dev.5...v4.9.0-dev.6) (2024-06-02)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof client:** Restore playback speed menu when spoofing to an iOS client ([95f290f](https://github.com/ReVanced/revanced-patches/commit/95f290f1139cc8679beecac53c623847668f885e))
+
 # [4.9.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.9.0-dev.4...v4.9.0-dev.5) (2024-06-01)
 
 
