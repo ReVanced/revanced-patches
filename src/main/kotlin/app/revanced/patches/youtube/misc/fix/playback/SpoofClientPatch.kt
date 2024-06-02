@@ -14,14 +14,8 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
-import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.misc.fix.playback.fingerprints.BuildInitPlaybackRequestFingerprint
-import app.revanced.patches.youtube.misc.fix.playback.fingerprints.BuildPlayerRequestURIFingerprint
-import app.revanced.patches.youtube.misc.fix.playback.fingerprints.CreatePlayerRequestBodyFingerprint
-import app.revanced.patches.youtube.misc.fix.playback.fingerprints.CreatePlayerRequestBodyWithModelFingerprint
-import app.revanced.patches.youtube.misc.fix.playback.fingerprints.PlayerGestureConfigSyntheticFingerprint
-import app.revanced.patches.youtube.misc.fix.playback.fingerprints.SetPlayerRequestClientTypeFingerprint
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.*
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -86,6 +80,9 @@ object SpoofClientPatch : BytecodePatch(
 
         // Player gesture config.
         PlayerGestureConfigSyntheticFingerprint,
+
+        // Player speed menu item.
+        CreatePlaybackSpeedMenuItemFingerprint,
     ),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -99,7 +96,7 @@ object SpoofClientPatch : BytecodePatch(
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
             PreferenceScreen(
                 key = "revanced_spoof_client_screen",
-                sorting = Sorting.UNSORTED,
+                sorting = PreferenceScreen.Sorting.UNSORTED,
                 preferences = setOf(
                     SwitchPreference("revanced_spoof_client"),
                     SwitchPreference("revanced_spoof_client_use_ios"),
@@ -122,33 +119,6 @@ object SpoofClientPatch : BytecodePatch(
                         move-result-object v$targetRegister
                     """,
                 )
-            }
-        }
-
-        // endregion
-
-        // region fix player gesture.
-
-        PlayerGestureConfigSyntheticFingerprint.resultOrThrow().let {
-            val endIndex = it.scanResult.patternScanResult!!.endIndex
-
-            arrayOf(3, 9).forEach { offSet ->
-                (context.toMethodWalker(it.mutableMethod)
-                    .nextMethod(endIndex - offSet, true)
-                    .getMethod() as MutableMethod)
-                    .apply {
-
-                        val index = implementation!!.instructions.lastIndex
-                        val register = getInstruction<OneRegisterInstruction>(index).registerA
-
-                        addInstructions(
-                            index,
-                            """
-                            invoke-static {v$register}, $INTEGRATIONS_CLASS_DESCRIPTOR->enablePlayerGesture(Z)Z
-                            move-result v$register
-                        """
-                        )
-                    }
             }
         }
 
@@ -281,5 +251,56 @@ object SpoofClientPatch : BytecodePatch(
 
         // endregion
 
+        // region Fix player gesture if spoofing to iOS.
+
+        PlayerGestureConfigSyntheticFingerprint.resultOrThrow().let {
+            val endIndex = it.scanResult.patternScanResult!!.endIndex
+            val downAndOutLandscapeAllowedIndex = endIndex - 3
+            val downAndOutPortraitAllowedIndex = endIndex - 9
+
+            arrayOf(
+                downAndOutLandscapeAllowedIndex,
+                downAndOutPortraitAllowedIndex,
+            ).forEach { index ->
+                val gestureAllowedMethod = context.toMethodWalker(it.mutableMethod)
+                    .nextMethod(index, true)
+                    .getMethod() as MutableMethod
+
+                gestureAllowedMethod.apply {
+                    val isAllowedIndex = getInstructions().lastIndex
+                    val isAllowed = getInstruction<OneRegisterInstruction>(isAllowedIndex).registerA
+
+                    addInstructions(
+                        isAllowedIndex,
+                        """
+                            invoke-static { v$isAllowed }, $INTEGRATIONS_CLASS_DESCRIPTOR->enablePlayerGesture(Z)Z
+                            move-result v$isAllowed
+                        """,
+                    )
+                }
+            }
+        }
+
+        // endregion
+
+        // Fix playback speed menu item if spoofing to iOS.
+
+        CreatePlaybackSpeedMenuItemFingerprint.resultOrThrow().let {
+            val shouldCreateMenuIndex = it.scanResult.patternScanResult!!.endIndex
+
+            it.mutableMethod.apply {
+                val shouldCreateMenuRegister = getInstruction<OneRegisterInstruction>(shouldCreateMenuIndex).registerA
+
+                addInstructions(
+                    shouldCreateMenuIndex,
+                    """
+                        invoke-static { v$shouldCreateMenuRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->forceCreatePlaybackSpeedMenu(Z)Z
+                        move-result v$shouldCreateMenuRegister
+                    """,
+                )
+            }
+        }
+
+        // endregion
     }
 }
