@@ -11,10 +11,9 @@ import app.revanced.patches.reddit.customclients.redditisfun.api.fingerprints.Ba
 import app.revanced.patches.reddit.customclients.redditisfun.api.fingerprints.BuildAuthorizationStringFingerprint
 import app.revanced.patches.reddit.customclients.redditisfun.api.fingerprints.GetUserAgentFingerprint
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
-
 @Suppress("unused")
 object SpoofClientPatch : BaseSpoofClientPatch(
     redirectUri = "redditisfun://auth",
@@ -54,7 +53,7 @@ object SpoofClientPatch : BaseSpoofClientPatch(
     override fun Set<MethodFingerprintResult>.patchUserAgent(context: BytecodeContext) {
         // Use a random user agent.
         val randomName = (0..100000).random()
-        val userAgent = "android:app.revanced.$randomName:v1.0.0 (by /u/revanced)"
+        val userAgent = "$randomName:app.revanced.$randomName:v1.0.0 (by /u/revanced)"
 
         first().mutableMethod.addInstructions(
             0,
@@ -69,7 +68,7 @@ object SpoofClientPatch : BaseSpoofClientPatch(
         // Reddit messed up and does not append a redirect uri to the authorization url to old.reddit.com/login.
         // Replace old.reddit.com with ssl.reddit.com to fix this.
         BuildAuthorizationStringFingerprint.result!!.mutableMethod.apply {
-            val index = indexOfFirstInstruction {
+            val index = indexOfFirstInstructionOrThrow {
                 getReference<StringReference>()?.contains("old.reddit.com") == true
             }
 

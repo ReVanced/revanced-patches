@@ -11,7 +11,18 @@ import com.android.tools.smali.dexlib2.Opcode
 
 @Patch(
     description = "Adds more audio codec options. The new audio codecs usually result in better audio quality.",
-    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
+    compatiblePackages = [
+        CompatiblePackage(
+            "com.google.android.apps.youtube.music",
+            [
+                "6.45.54",
+                "6.51.53",
+                "7.01.53",
+                "7.02.52",
+                "7.03.52",
+            ]
+        )
+    ]
 )
 @Deprecated("This patch is no longer needed as the feature is now enabled by default.")
 object CodecsUnlockPatch : BytecodePatch(

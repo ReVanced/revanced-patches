@@ -10,15 +10,21 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.misc.fix.playback.fingerprints.*
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.BuildInitPlaybackRequestFingerprint
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.BuildPlayerRequestURIFingerprint
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.CreatePlayerRequestBodyFingerprint
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.CreatePlayerRequestBodyWithModelFingerprint
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.PlayerGestureConfigSyntheticFingerprint
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.SetPlayerRequestClientTypeFingerprint
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -34,12 +40,9 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
     name = "Spoof client",
     description = "Spoofs the client to allow video playback.",
     dependencies = [
-        SpoofClientResourcePatch::class,
-        PlayerResponseMethodHookPatch::class,
         SettingsPatch::class,
         AddResourcesPatch::class,
         UserAgentClientSpoofPatch::class,
-        PlayerResponseMethodHookPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -63,6 +66,11 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
                 "19.09.38",
                 "19.10.39",
                 "19.11.43",
+                "19.12.41",
+                "19.13.37",
+                "19.14.43",
+                "19.15.36",
+                "19.16.39",
             ],
         ),
     ],
@@ -74,13 +82,10 @@ object SpoofClientPatch : BytecodePatch(
         BuildPlayerRequestURIFingerprint,
         SetPlayerRequestClientTypeFingerprint,
         CreatePlayerRequestBodyFingerprint,
+        CreatePlayerRequestBodyWithModelFingerprint,
 
-        // Storyboard spoof.
-        StoryboardRendererSpecFingerprint,
-        PlayerResponseModelImplRecommendedLevelFingerprint,
-        StoryboardRendererDecoderRecommendedLevelFingerprint,
-        PlayerResponseModelImplGeneralFingerprint,
-        StoryboardRendererDecoderSpecFingerprint,
+        // Player gesture config.
+        PlayerGestureConfigSyntheticFingerprint,
     ),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -100,7 +105,6 @@ object SpoofClientPatch : BytecodePatch(
                     SwitchPreference("revanced_spoof_client_use_ios"),
                 ),
             ),
-
         )
 
         // region Block /initplayback requests to fall back to /get_watch requests.
@@ -118,6 +122,33 @@ object SpoofClientPatch : BytecodePatch(
                         move-result-object v$targetRegister
                     """,
                 )
+            }
+        }
+
+        // endregion
+
+        // region fix player gesture.
+
+        PlayerGestureConfigSyntheticFingerprint.resultOrThrow().let {
+            val endIndex = it.scanResult.patternScanResult!!.endIndex
+
+            arrayOf(3, 9).forEach { offSet ->
+                (context.toMethodWalker(it.mutableMethod)
+                    .nextMethod(endIndex - offSet, true)
+                    .getMethod() as MutableMethod)
+                    .apply {
+
+                        val index = implementation!!.instructions.lastIndex
+                        val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                        addInstructions(
+                            index,
+                            """
+                            invoke-static {v$register}, $INTEGRATIONS_CLASS_DESCRIPTOR->enablePlayerGesture(Z)Z
+                            move-result v$register
+                        """
+                        )
+                    }
             }
         }
 
@@ -149,11 +180,11 @@ object SpoofClientPatch : BytecodePatch(
             SetPlayerRequestClientTypeFingerprint.resultOrThrow().let { result ->
                 // Field in the player request object that holds the client info object.
                 val clientInfoField = result.mutableMethod
-                    .getInstructions().first { instruction ->
+                    .getInstructions().find { instruction ->
                         // requestMessage.clientInfo = clientInfoBuilder.build();
                         instruction.opcode == Opcode.IPUT_OBJECT &&
                             instruction.getReference<FieldReference>()?.type == CLIENT_INFO_CLASS_DESCRIPTOR
-                    }.getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoField")
+                    }?.getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoField")
 
                 // Client info object's client type field.
                 val clientInfoClientTypeField = result.mutableMethod
@@ -167,6 +198,18 @@ object SpoofClientPatch : BytecodePatch(
 
                 Triple(clientInfoField, clientInfoClientTypeField, clientInfoClientVersionField)
             }
+
+        val clientInfoClientModelField = CreatePlayerRequestBodyWithModelFingerprint.resultOrThrow().let {
+            val getClientModelIndex = CreatePlayerRequestBodyWithModelFingerprint.indexOfBuildModelInstruction(it.method)
+
+            // The next IPUT_OBJECT instruction after getting the client model is setting the client model field.
+            val index = it.mutableMethod.indexOfFirstInstructionOrThrow(getClientModelIndex) {
+                opcode == Opcode.IPUT_OBJECT
+            }
+
+            it.mutableMethod.getInstruction(index).getReference<FieldReference>()
+                ?: throw PatchException("Could not find clientInfoClientModelField")
+        }
 
         // endregion
 
@@ -189,7 +232,7 @@ object SpoofClientPatch : BytecodePatch(
                 )
             }
 
-            // Change requestMessage.clientInfo.clientType and requestMessage.clientInfo.clientVersion to the spoofed values.
+            // Change client info to use the spoofed values.
             // Do this in a helper method, to remove the need of picking out multiple free registers from the hooked code.
             result.mutableClass.methods.add(
                 ImmutableMethod(
@@ -216,6 +259,12 @@ object SpoofClientPatch : BytecodePatch(
                             move-result v1
                             iput v1, v0, $clientInfoClientTypeField
                             
+                            # Set client model to the spoofed value.
+                            iget-object v1, v0, $clientInfoClientModelField
+                            invoke-static { v1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->getClientModel(Ljava/lang/String;)Ljava/lang/String;
+                            move-result-object v1
+                            iput-object v1, v0, $clientInfoClientModelField
+
                             # Set client version to the spoofed value.
                             iget-object v1, v0, $clientInfoClientVersionField
                             invoke-static { v1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->getClientVersion(Ljava/lang/String;)Ljava/lang/String;
@@ -232,104 +281,5 @@ object SpoofClientPatch : BytecodePatch(
 
         // endregion
 
-        // region Fix storyboard if Android Testsuite is used.
-
-        PlayerResponseMethodHookPatch += PlayerResponseMethodHookPatch.Hook.ProtoBufferParameter(
-            "$INTEGRATIONS_CLASS_DESCRIPTOR->setPlayerResponseVideoId(" +
-                "Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;",
-        )
-
-        // Hook recommended seekbar thumbnails quality level for regular videos.
-        StoryboardRendererDecoderRecommendedLevelFingerprint.resultOrThrow().let {
-            val endIndex = it.scanResult.patternScanResult!!.endIndex
-
-            it.mutableMethod.apply {
-                val originalValueRegister =
-                    getInstruction<OneRegisterInstruction>(endIndex).registerA
-
-                addInstructions(
-                    endIndex + 1,
-                    """
-                        invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
-                        move-result v$originalValueRegister
-                    """,
-                )
-            }
-        }
-
-        // Hook the recommended precise seeking thumbnails quality.
-        PlayerResponseModelImplRecommendedLevelFingerprint.resultOrThrow().let {
-            val endIndex = it.scanResult.patternScanResult!!.endIndex
-
-            it.mutableMethod.apply {
-                val originalValueRegister =
-                    getInstruction<OneRegisterInstruction>(endIndex).registerA
-
-                addInstructions(
-                    endIndex,
-                    """
-                        invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
-                        move-result v$originalValueRegister
-                    """,
-                )
-            }
-        }
-
-        // TODO: Hook the seekbar recommended level for Shorts to fix Shorts low quality seekbar thumbnails.
-
-        /**
-         * Hook StoryBoard renderer url.
-         */
-        PlayerResponseModelImplGeneralFingerprint.resultOrThrow().let {
-            val getStoryBoardIndex = it.scanResult.patternScanResult!!.endIndex
-
-            it.mutableMethod.apply {
-                val getStoryBoardRegister = getInstruction<OneRegisterInstruction>(getStoryBoardIndex).registerA
-
-                addInstructions(
-                    getStoryBoardIndex,
-                    """
-                        invoke-static { v$getStoryBoardRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getStoryboardRendererSpec(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object v$getStoryBoardRegister
-                    """,
-                )
-            }
-        }
-
-        // Hook the seekbar thumbnail decoder, required for Shorts.
-        StoryboardRendererDecoderSpecFingerprint.resultOrThrow().let {
-            val storyBoardUrlIndex = it.scanResult.patternScanResult!!.startIndex + 1
-
-            it.mutableMethod.apply {
-                val getStoryBoardRegister = getInstruction<OneRegisterInstruction>(storyBoardUrlIndex).registerA
-
-                addInstructions(
-                    storyBoardUrlIndex + 1,
-                    """
-                        invoke-static { v$getStoryBoardRegister }, ${INTEGRATIONS_CLASS_DESCRIPTOR}->getStoryboardRendererSpec(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object v$getStoryBoardRegister
-                    """,
-                )
-            }
-        }
-
-        StoryboardRendererSpecFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                val storyBoardUrlParams = "p0"
-
-                addInstructions(
-                    0,
-                    """
-                        if-nez $storyBoardUrlParams, :ignore
-                        invoke-static { $storyBoardUrlParams }, $INTEGRATIONS_CLASS_DESCRIPTOR->getStoryboardRendererSpec(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object $storyBoardUrlParams
-                        :ignore
-                        nop
-                    """,
-                )
-            }
-        }
-
-        // endregion
     }
 }

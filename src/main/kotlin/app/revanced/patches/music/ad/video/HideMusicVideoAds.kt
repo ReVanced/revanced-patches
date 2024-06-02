@@ -11,7 +11,18 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Hide music video ads",
-    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
+    compatiblePackages = [
+        CompatiblePackage(
+            "com.google.android.apps.youtube.music",
+            [
+                "6.45.54",
+                "6.51.53",
+                "7.01.53",
+                "7.02.52",
+                "7.03.52",
+            ]
+        )
+    ],
 )
 @Suppress("unused")
 object HideMusicVideoAds : BytecodePatch(
