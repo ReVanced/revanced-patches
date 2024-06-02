@@ -22,14 +22,12 @@ object FixSLinksPatch : BaseFixSLinksPatch(
 
     override fun MethodFingerprintResult.patchNavigation(context: BytecodeContext) {
         mutableMethod.apply {
-            val contextRegister = "p0"
             val urlRegister = "p1"
             val tempRegister = "v1"
-
             addInstructionsWithLabels(
                 0,
                 """
-                    invoke-static { $contextRegister, $urlRegister }, $resolveSLinkMethodDescriptor
+                    invoke-static { $urlRegister }, $integrationsClassDescriptor->$resolveSLinkMethodDescriptor
                     move-result $tempRegister
                     if-eqz $tempRegister, :continue
                     return $tempRegister
@@ -41,6 +39,6 @@ object FixSLinksPatch : BaseFixSLinksPatch(
 
     override fun MethodFingerprintResult.patchSetAccessToken(context: BytecodeContext) = mutableMethod.addInstruction(
         3,
-        "invoke-static { v0 }, $setAccessTokenMethodDescriptor",
+        "invoke-static { v0 }, $integrationsClassDescriptor->$setAccessTokenMethodDescriptor",
     )
 }

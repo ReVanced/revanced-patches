@@ -524,12 +524,15 @@ public final class app/revanced/patches/reddit/ad/general/HideAdsPatch : app/rev
 }
 
 public abstract class app/revanced/patches/reddit/customclients/BaseFixSLinksPatch : app/revanced/patcher/patch/BytecodePatch {
-	public fun <init> (Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;)V
-	public synthetic fun <init> (Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lapp/revanced/patcher/fingerprint/MethodFingerprint;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Ljava/util/Set;Ljava/util/Set;)V
+	public synthetic fun <init> (Lapp/revanced/patcher/fingerprint/MethodFingerprint;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun patchNavigation (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
-	public fun patchSetAccessToken (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
+	protected abstract fun getIntegrationsClassDescriptor ()Ljava/lang/String;
+	protected final fun getResolveSLinkMethodDescriptor ()Ljava/lang/String;
+	protected final fun getSetAccessTokenMethodDescriptor ()Ljava/lang/String;
+	protected abstract fun patchNavigation (Lapp/revanced/patcher/fingerprint/MethodFingerprintResult;Lapp/revanced/patcher/data/BytecodeContext;)V
+	protected abstract fun patchSetAccessToken (Lapp/revanced/patcher/fingerprint/MethodFingerprintResult;Lapp/revanced/patcher/data/BytecodeContext;)V
 }
 
 public abstract class app/revanced/patches/reddit/customclients/BaseSpoofClientPatch : app/revanced/patcher/patch/BytecodePatch {
@@ -568,8 +571,6 @@ public final class app/revanced/patches/reddit/customclients/boostforreddit/api/
 
 public final class app/revanced/patches/reddit/customclients/boostforreddit/fix/slink/FixSLinksPatch : app/revanced/patches/reddit/customclients/BaseFixSLinksPatch {
 	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/boostforreddit/fix/slink/FixSLinksPatch;
-	public fun patchNavigation (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
-	public fun patchSetAccessToken (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
 }
 
 public final class app/revanced/patches/reddit/customclients/boostforreddit/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch {
@@ -650,8 +651,6 @@ public final class app/revanced/patches/reddit/customclients/syncforreddit/detec
 
 public final class app/revanced/patches/reddit/customclients/syncforreddit/fix/slink/FixSLinksPatch : app/revanced/patches/reddit/customclients/BaseFixSLinksPatch {
 	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/syncforreddit/fix/slink/FixSLinksPatch;
-	public fun patchNavigation (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
-	public fun patchSetAccessToken (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
 }
 
 public final class app/revanced/patches/reddit/customclients/syncforreddit/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch {
