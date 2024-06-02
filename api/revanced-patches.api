@@ -1840,6 +1840,12 @@ public final class app/revanced/patches/youtube/video/speed/PlaybackSpeedPatch :
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/youtube/video/speed/button/PlaybackSpeedButtonPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/video/speed/button/PlaybackSpeedButtonPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/youtube/video/speed/custom/CustomPlaybackSpeedPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/video/speed/custom/CustomPlaybackSpeedPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
