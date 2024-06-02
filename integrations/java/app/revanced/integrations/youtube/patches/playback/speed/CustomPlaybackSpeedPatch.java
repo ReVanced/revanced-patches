@@ -159,7 +159,7 @@ public class CustomPlaybackSpeedPatch {
         });
     }
 
-    private static void showOldPlaybackSpeedMenu() {
+    public static void showOldPlaybackSpeedMenu() {
         // This method is sometimes used multiple times.
         // To prevent this, ignore method reuse within 1 second.
         final long now = System.currentTimeMillis();
