@@ -18,24 +18,22 @@ import com.android.tools.smali.dexlib2.immutable.reference.ImmutableStringRefere
 )
 object FixDownloadedVReddItAudio : BytecodePatch(setOf(DownloaderSelectVReddItAudioLink)) {
     private val INDEXES = setOf(
-        Pair("/DASH_audio.mp4", "/DASH_AUDIO_128.mp4"),
-        Pair("/audio", "/DASH_AUDIO_64.mp4")
+        Pair(2, "/DASH_AUDIO_128.mp4"),
+        Pair(3, "/DASH_AUDIO_64.mp4")
     )
 
     override fun execute(context: BytecodeContext) {
         val searchResult = DownloaderSelectVReddItAudioLink.result
         searchResult?.mutableMethod?.apply {
-            INDEXES.forEach { endpointPair ->
-                val instructionIndex = searchResult.scanResult.stringsScanResult!!.matches.find {
-                    it.string == endpointPair.first
-                }!!.index
+            INDEXES.forEach { (stringIndex, endpoint) ->
+                val instructionIndex = searchResult.scanResult.stringsScanResult!!.matches[stringIndex].index
                 val instruction = getInstruction(instructionIndex) as Instruction21c
                 replaceInstruction(
                     instructionIndex,
                     BuilderInstruction21c(
                         instruction.opcode,
                         instruction.registerA,
-                        ImmutableStringReference(endpointPair.second)
+                        ImmutableStringReference(endpoint)
                     )
                 )
             }
