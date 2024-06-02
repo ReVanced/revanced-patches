@@ -13,12 +13,13 @@ import app.revanced.util.copyResources
 internal object PlaybackSpeedButtonResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         context.copyResources(
-            "speed-button", ResourceGroup(
+            "speedbutton",
+            ResourceGroup(
                 "drawable",
                 "revanced_playback_speed_dialog_button.xml",
-            )
+            ),
         )
 
-        BottomControlsResourcePatch.addControls("speed-button")
+        BottomControlsResourcePatch.addControls("speedbutton")
     }
 }
