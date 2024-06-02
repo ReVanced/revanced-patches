@@ -564,6 +564,12 @@ public final class app/revanced/patches/reddit/customclients/boostforreddit/api/
 	public fun patchUserAgent (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
 }
 
+public final class app/revanced/patches/reddit/customclients/boostforreddit/fix/downloadVReddItAudio/FixDownloadedVReddItAudio : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/boostforreddit/fix/downloadVReddItAudio/FixDownloadedVReddItAudio;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/reddit/customclients/infinityforreddit/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/BaseSpoofClientPatch {
 	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/infinityforreddit/api/SpoofClientPatch;
 	public fun patchClientId (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
