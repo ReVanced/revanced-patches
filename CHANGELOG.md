@@ -1,3 +1,10 @@
+# [4.9.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.9.0-dev.6...v4.9.0-dev.7) (2024-06-02)
+
+
+### Features
+
+* **YouTube - Playback speed:** Add option to show speed dialog button in video player ([#3197](https://github.com/ReVanced/revanced-patches/issues/3197)) ([ad00305](https://github.com/ReVanced/revanced-patches/commit/ad00305ff57d5e8041de7375bea7d3ad6f18c4e2))
+
 # [4.9.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.9.0-dev.5...v4.9.0-dev.6) (2024-06-02)
 
 
