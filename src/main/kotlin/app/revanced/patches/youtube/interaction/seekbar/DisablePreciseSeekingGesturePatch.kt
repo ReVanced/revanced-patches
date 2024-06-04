@@ -20,7 +20,7 @@ val disablePreciseSeekingGesturePatch = bytecodePatch(
     dependsOn(
         integrationsPatch,
         settingsPatch,
-        addResourcesPatch
+        addResourcesPatch,
     )
 
     compatibleWith(
@@ -60,19 +60,17 @@ val disablePreciseSeekingGesturePatch = bytecodePatch(
             SwitchPreference("revanced_disable_precise_seeking_gesture"),
         )
 
-        isSwipingUpResult.let {
-            val addMovementIndex = it.scanResult.patternScanResult!!.startIndex - 1
+        val addMovementIndex = isSwipingUpResult.scanResult.patternScanResult!!.startIndex - 1
 
-            it.mutableMethod.apply {
-                val addMovementInstruction = getInstruction<FiveRegisterInstruction>(addMovementIndex)
-                val trackerRegister = addMovementInstruction.registerC
-                val eventRegister = addMovementInstruction.registerD
+        isSwipingUpResult.mutableMethod.apply {
+            val addMovementInstruction = getInstruction<FiveRegisterInstruction>(addMovementIndex)
+            val trackerRegister = addMovementInstruction.registerC
+            val eventRegister = addMovementInstruction.registerD
 
-                replaceInstruction(
-                    addMovementIndex,
-                    "invoke-static {v$trackerRegister, v$eventRegister}, $integrationsMethodDescriptor",
-                )
-            }
+            replaceInstruction(
+                addMovementIndex,
+                "invoke-static {v$trackerRegister, v$eventRegister}, $integrationsMethodDescriptor",
+            )
         }
     }
 }

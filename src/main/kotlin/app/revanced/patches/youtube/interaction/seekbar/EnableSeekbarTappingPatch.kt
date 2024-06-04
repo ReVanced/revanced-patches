@@ -24,7 +24,7 @@ val enableSeekbarTappingPatch = bytecodePatch(
     dependsOn(
         integrationsPatch,
         settingsPatch,
-        addResourcesPatch
+        addResourcesPatch,
     )
 
     compatibleWith(
@@ -59,16 +59,14 @@ val enableSeekbarTappingPatch = bytecodePatch(
         )
 
         // Find the required methods to tap the seekbar.
-        val seekbarTappingMethods = onTouchEventHandlerResult.let {
-            val patternScanResult = it.scanResult.patternScanResult!!
+        val patternScanResult = onTouchEventHandlerResult.scanResult.patternScanResult!!
 
-            fun getReference(index: Int) = it.mutableMethod.getInstruction<ReferenceInstruction>(index)
-                .reference as MethodReference
+        fun getReference(index: Int) = onTouchEventHandlerResult.mutableMethod.getInstruction<ReferenceInstruction>(index)
+            .reference as MethodReference
 
-            buildMap {
-                put("N", getReference(patternScanResult.startIndex))
-                put("O", getReference(patternScanResult.endIndex))
-            }
+        val seekbarTappingMethods = buildMap {
+            put("N", getReference(patternScanResult.startIndex))
+            put("O", getReference(patternScanResult.endIndex))
         }
 
         seekbarTappingResult.let {
