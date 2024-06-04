@@ -51,28 +51,9 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", arrayOf(
-                "18.32.39",
-                "18.37.36",
-                "18.38.44",
-                "18.43.45",
-                "18.44.41",
-                "18.45.43",
-                "18.48.39",
-                "18.49.37",
-                "19.01.34",
-                "19.02.39",
-                "19.03.36",
-                "19.04.38",
-                "19.05.36",
-                "19.06.39",
-                "19.07.40",
-                "19.08.36",
-                "19.09.38",
-                "19.10.39",
-                "19.11.43",
-                "19.12.41",
-                "19.13.37",
-                "19.14.43",
+                // Hide modern mini player is only present in 19.15+
+                // If a robust way of detecting the target app version is added,
+                // then all changes except modern mini player could be applied to older versions.
                 "19.15.36",
                 "19.16.39",
             )
@@ -110,6 +91,7 @@ object TabletLayoutPatch : BytecodePatch(
         )
 
         // Enable tablet mode.
+
         GetFormFactorFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val returnIsLargeFormFactorIndex = getInstructions().lastIndex - 4
@@ -160,6 +142,7 @@ object TabletLayoutPatch : BytecodePatch(
         }
 
         // Enable modern mini player
+
         ModernMiniPlayerConfigFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 insertModernTabletOverrideBoolean(it.scanResult.patternScanResult!!.endIndex)
@@ -193,8 +176,10 @@ object TabletLayoutPatch : BytecodePatch(
                 }
 
                 val register = getInstruction<OneRegisterInstruction>(imageViewIndex).registerA
-                addInstruction(imageViewIndex + 1,
-                    "invoke-static { v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->hideModernMiniPlayerButtonView(Landroid/view/View;)V")
+                addInstruction(
+                    imageViewIndex + 1,
+                    "invoke-static { v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->hideModernMiniPlayerButtonView(Landroid/view/View;)V"
+                )
             }
         }
     }
