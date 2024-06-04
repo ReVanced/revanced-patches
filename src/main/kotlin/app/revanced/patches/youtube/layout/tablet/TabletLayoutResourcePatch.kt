@@ -10,6 +10,7 @@ internal object TabletLayoutResourcePatch : ResourcePatch() {
     var floatyBarButtonTopMargin = -1L
     var modernMiniplayerClose = -1L
     var modernMiniplayerExpand = -1L
+    var scrimOverlay = -1L
 
     override fun execute(context: ResourceContext) {
         floatyBarButtonTopMargin = ResourceMappingPatch[
@@ -25,6 +26,11 @@ internal object TabletLayoutResourcePatch : ResourcePatch() {
         modernMiniplayerExpand = ResourceMappingPatch[
             "id",
             "modern_miniplayer_expand"
+        ]
+
+        scrimOverlay = ResourceMappingPatch[
+            "id",
+            "scrim_overlay"
         ]
     }
 }

@@ -661,6 +661,7 @@
         <patch id="layout.player.overlay.CustomPlayerOverlayOpacityResourcePatch">
             <string name="revanced_player_overlay_opacity_title">Player overlay opacity</string>
             <string name="revanced_player_overlay_opacity_summary">Opacity value between 0-100, where 0 is transparent</string>
+            <string name="revanced_player_overlay_opacity_invalid_toast">Player overlay opacity must be between 0-100</string>
         </patch>
         <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
             <string name="revanced_ryd_settings_title">Return YouTube Dislike</string>
@@ -953,11 +954,14 @@
             <string name="revanced_tablet_mini_player_summary_on">Mini player is enabled</string>
             <string name="revanced_tablet_mini_player_summary_off">Mini player is disabled</string>
             <string name="revanced_tablet_mini_player_modern_title">Enable modern tablet mini player</string>
-            <string name="revanced_tablet_mini_player_modern_summary_on">Modern Mini player is enabled</string>
+            <string name="revanced_tablet_mini_player_modern_summary_on">Modern mini player is enabled</string>
             <string name="revanced_tablet_mini_player_modern_summary_off">Modern mini player is disabled</string>
             <string name="revanced_tablet_mini_player_modern_hide_expand_close_title">Hide expand and close buttons</string>
             <string name="revanced_tablet_mini_player_modern_hide_expand_close_summary_on">Buttons are hidden\n(swipe mini player to expand or close)</string>
             <string name="revanced_tablet_mini_player_modern_hide_expand_close_summary_off">Expand and close buttons are shown</string>
+            <string name="revanced_tablet_mini_player_opacity_title">Modern mini player overlay opacity</string>
+            <string name="revanced_tablet_mini_player_opacity_summary">Opacity value between 0-100, where 0 is transparent</string>
+            <string name="revanced_tablet_mini_player_opacity_invalid_toast">Mini player overlay opacity must be between 0-100</string>
         </patch>
         <patch id="layout.theme.ThemeBytecodePatch">
             <string name="revanced_gradient_loading_screen_title">Enable gradient loading screen</string>

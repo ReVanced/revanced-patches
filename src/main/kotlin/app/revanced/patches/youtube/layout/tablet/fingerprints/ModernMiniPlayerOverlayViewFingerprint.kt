@@ -8,9 +8,9 @@ import com.android.tools.smali.dexlib2.AccessFlags
 /**
  * Resolves using the class found in [ModernMiniPlayerViewParentFingerprint].
  */
-internal object ModernMiniPlayerCloseImageViewFingerprint : LiteralValueFingerprint(
+internal object ModernMiniPlayerOverlayViewFingerprint : LiteralValueFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    returnType = "Landroid/widget/ImageView;",
+    returnType = "V",
     parameters = listOf(),
-    literalSupplier = { TabletLayoutResourcePatch.modernMiniplayerClose }
+    literalSupplier = { TabletLayoutResourcePatch.scrimOverlay }
 )

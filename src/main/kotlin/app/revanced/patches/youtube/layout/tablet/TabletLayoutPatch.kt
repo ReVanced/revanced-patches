@@ -14,8 +14,10 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.layout.tablet.fingerprints.GetFormFactorFingerprint
 import app.revanced.patches.youtube.layout.tablet.fingerprints.MiniPlayerDimensionsCalculatorParentFingerprint
 import app.revanced.patches.youtube.layout.tablet.fingerprints.MiniPlayerOverrideFingerprint
@@ -25,6 +27,8 @@ import app.revanced.patches.youtube.layout.tablet.fingerprints.ModernMiniPlayerC
 import app.revanced.patches.youtube.layout.tablet.fingerprints.ModernMiniPlayerConfigFingerprint
 import app.revanced.patches.youtube.layout.tablet.fingerprints.ModernMiniPlayerConstructorFingerprint
 import app.revanced.patches.youtube.layout.tablet.fingerprints.ModernMiniPlayerExpandImageViewFingerprint
+import app.revanced.patches.youtube.layout.tablet.fingerprints.ModernMiniPlayerOverlayViewFingerprint
+import app.revanced.patches.youtube.layout.tablet.fingerprints.ModernMiniPlayerViewParentFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.getReference
@@ -68,8 +72,7 @@ object TabletLayoutPatch : BytecodePatch(
         MiniPlayerOverrideFingerprint,
         ModernMiniPlayerConfigFingerprint,
         ModernMiniPlayerConstructorFingerprint,
-        ModernMiniPlayerExpandImageViewFingerprint,
-        ModernMiniPlayerCloseImageViewFingerprint
+        ModernMiniPlayerViewParentFingerprint
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/TabletLayoutPatch;"
@@ -85,7 +88,8 @@ object TabletLayoutPatch : BytecodePatch(
                     SwitchPreference("revanced_tablet_layout"),
                     SwitchPreference("revanced_tablet_mini_player"),
                     SwitchPreference("revanced_tablet_mini_player_modern"),
-                    SwitchPreference("revanced_tablet_mini_player_modern_hide_expand_close")
+                    SwitchPreference("revanced_tablet_mini_player_modern_hide_expand_close"),
+                    TextPreference("revanced_tablet_mini_player_opacity", inputType = InputType.NUMBER),
                 )
             )
         )
@@ -163,22 +167,29 @@ object TabletLayoutPatch : BytecodePatch(
             }
         }
 
-        // Hide modern mini player buttons
+        // Hide modern mini player buttons.
+
         listOf(
-            ModernMiniPlayerExpandImageViewFingerprint to TabletLayoutResourcePatch.modernMiniplayerExpand,
-            ModernMiniPlayerCloseImageViewFingerprint to TabletLayoutResourcePatch.modernMiniplayerClose
-        ).forEach { (fingerprint, resourceId) ->
+            Triple(ModernMiniPlayerOverlayViewFingerprint, TabletLayoutResourcePatch.scrimOverlay, "adjustModernTabletMiniPlayerOpacity"),
+            Triple(ModernMiniPlayerExpandImageViewFingerprint, TabletLayoutResourcePatch.modernMiniplayerExpand, "hideModernMiniPlayerButtonView"),
+            Triple(ModernMiniPlayerCloseImageViewFingerprint, TabletLayoutResourcePatch.modernMiniplayerClose, "hideModernMiniPlayerButtonView")
+        ).forEach { (fingerprint, resourceId, integrationsMethodName) ->
+            fingerprint.resolve(
+                context,
+                ModernMiniPlayerViewParentFingerprint.resultOrThrow().classDef
+            )
+
             fingerprint.resultOrThrow().mutableMethod.apply {
                 val imageViewIndex = indexOfFirstInstructionOrThrow(
                     indexOfFirstWideLiteralInstructionValueOrThrow(resourceId)
                 ) {
-                    opcode == Opcode.MOVE_RESULT_OBJECT
+                    opcode == Opcode.CHECK_CAST
                 }
 
                 val register = getInstruction<OneRegisterInstruction>(imageViewIndex).registerA
                 addInstruction(
                     imageViewIndex + 1,
-                    "invoke-static { v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->hideModernMiniPlayerButtonView(Landroid/view/View;)V"
+                    "invoke-static { v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->$integrationsMethodName(Landroid/widget/ImageView;)V"
                 )
             }
         }

@@ -5,6 +5,9 @@ import app.revanced.patches.youtube.layout.tablet.TabletLayoutResourcePatch
 import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
+/**
+ * Resolves using the class found in [ModernMiniPlayerViewParentFingerprint].
+ */
 internal object ModernMiniPlayerExpandImageViewFingerprint : LiteralValueFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "Landroid/widget/ImageView;",
