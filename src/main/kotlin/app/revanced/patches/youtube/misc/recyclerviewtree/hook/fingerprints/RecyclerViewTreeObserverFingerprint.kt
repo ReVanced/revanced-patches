@@ -1,20 +1,19 @@
 package app.revanced.patches.youtube.misc.recyclerviewtree.hook.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object RecyclerViewTreeObserverFingerprint : MethodFingerprint(
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    opcodes = listOf(
+internal val recyclerViewTreeObserverFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    returns("V")
+    opcodes(
         Opcode.NEW_INSTANCE,
         Opcode.INVOKE_DIRECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.NEW_INSTANCE,
         Opcode.INVOKE_DIRECT,
-        Opcode.IPUT_OBJECT
-    ),
-    strings = listOf("LithoRVSLCBinder")
-)
+        Opcode.IPUT_OBJECT,
+    )
+    strings("LithoRVSLCBinder")
+}

@@ -1,14 +1,18 @@
 package app.revanced.patches.youtube.video.speed.custom
 
-import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
 
-internal object CustomPlaybackSpeedResourcePatch : ResourcePatch() {
-    var speedUnavailableId: Long = -1
+var speedUnavailableId = -1L
+    internal set
 
-    override fun execute(context: ResourceContext) {
-        speedUnavailableId = ResourceMappingPatch[
+internal val customPlaybackSpeedResourcePatch = resourcePatch {
+    dependsOn(resourceMappingPatch)
+
+    execute {
+        speedUnavailableId = resourceMappings[
             "string",
             "varispeed_unavailable_message",
         ]

@@ -1,14 +1,14 @@
 package app.revanced.patches.youtube.misc.privacy.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object SystemShareSheetFingerprint : MethodFingerprint(
-    returnType = "V",
-    parameters = listOf("L", "Ljava/util/Map;"),
-    opcodes = listOf(
+internal val systemShareSheetFingerprint = methodFingerprint {
+    returns("V")
+    parameters("L", "Ljava/util/Map;")
+    opcodes(
         Opcode.CHECK_CAST,
-        Opcode.GOTO
-    ),
-    strings = listOf("YTShare_Logging_Share_Intent_Endpoint_Byte_Array")
-)
+        Opcode.GOTO,
+    )
+    strings("YTShare_Logging_Share_Intent_Endpoint_Byte_Array")
+}

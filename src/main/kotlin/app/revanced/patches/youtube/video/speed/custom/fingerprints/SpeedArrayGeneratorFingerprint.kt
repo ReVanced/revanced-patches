@@ -1,21 +1,20 @@
 package app.revanced.patches.youtube.video.speed.custom.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object SpeedArrayGeneratorFingerprint : MethodFingerprint(
-    returnType = "[L",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    parameters = listOf("Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;"),
-    opcodes = listOf(
+internal val speedArrayGeneratorFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returns("[L")
+    parameters("Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;")
+    opcodes(
         Opcode.IF_NEZ,
         Opcode.SGET_OBJECT,
         Opcode.GOTO_16,
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.IGET_OBJECT,
-    ),
-    strings = listOf("0.0#")
-)
+    )
+    strings("0.0#")
+}

@@ -1,8 +1,6 @@
 package app.revanced.patches.youtube.misc.zoomhaptics.fingerprints
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object ZoomHapticsFingerprint : MethodFingerprint(
-    strings = listOf(
-        "Failed to haptics vibrate for video zoom"
-    )
-)
+internal val zoomHapticsFingerprint = methodFingerprint {
+    strings("Failed to haptics vibrate for video zoom")
+}

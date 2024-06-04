@@ -18,10 +18,11 @@ private const val PARAMETER_VIDEO_ID = 1
 private const val PARAMETER_PROTO_BUFFER = 3
 private const val PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING = 11
 
-// Temporary 4-bit registers used to pass the parameters to integrations.
-private const val REGISTER_VIDEO_ID = 0
-private const val REGISTER_PROTO_BUFFER = 1
-private const val REGISTER_IS_SHORT_AND_OPENING_OR_PLAYING = 2
+// Registers used to pass the parameters to integrations.
+private var playerResponseMethodCopyRegisters = false
+private lateinit var registerVideoId: String
+private lateinit var registerProtoBuffer: String
+private lateinit var registerIsShortAndOpeningOrPlaying: String
 
 private lateinit var playerResponseMethod: MutableMethod
 private var numberOfInstructionsAdded = 0
@@ -33,13 +34,28 @@ val playerResponseMethodHookPatch = bytecodePatch {
 
     execute {
         playerResponseMethod = playerParameterBuilderResult.mutableMethod
+
+        // On some app targets the method has too many registers pushing the parameters past v15.
+        // If needed, move the parameters to 4-bit registers, so they can be passed to integrations.
+        playerResponseMethodCopyRegisters = playerResponseMethod.implementation!!.registerCount -
+            playerResponseMethod.parameterTypes.size + PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING > 15
+
+        if (playerResponseMethodCopyRegisters) {
+            registerVideoId = "v0"
+            registerProtoBuffer = "v1"
+            registerIsShortAndOpeningOrPlaying = "v2"
+        } else {
+            registerVideoId = "p$PARAMETER_VIDEO_ID"
+            registerProtoBuffer = "p$PARAMETER_PROTO_BUFFER"
+            registerIsShortAndOpeningOrPlaying = "p$PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING"
+        }
     }
 
     finalize {
         fun hookVideoId(hook: Hook) {
             playerResponseMethod.addInstruction(
                 0,
-                "invoke-static {v$REGISTER_VIDEO_ID, v$REGISTER_IS_SHORT_AND_OPENING_OR_PLAYING}, $hook",
+                "invoke-static {$registerVideoId, $registerIsShortAndOpeningOrPlaying}, $hook",
             )
             numberOfInstructionsAdded++
         }
@@ -48,8 +64,8 @@ val playerResponseMethodHookPatch = bytecodePatch {
             playerResponseMethod.addInstructions(
                 0,
                 """
-                    invoke-static {v$REGISTER_PROTO_BUFFER, v$REGISTER_IS_SHORT_AND_OPENING_OR_PLAYING}, $hook
-                    move-result-object v$REGISTER_PROTO_BUFFER
+                    invoke-static {$registerProtoBuffer, $registerVideoId, $registerIsShortAndOpeningOrPlaying}, $hook
+                    move-result-object $registerProtoBuffer
             """,
             )
             numberOfInstructionsAdded += 2
@@ -65,27 +81,27 @@ val playerResponseMethodHookPatch = bytecodePatch {
         videoIdHooks.forEach(::hookVideoId)
         beforeVideoIdHooks.forEach(::hookProtoBufferParameter)
 
-        // On some app targets the method has too many registers pushing the parameters past v15.
-        // Move the parameters to 4-bit registers, so they can be passed to integrations.
-        playerResponseMethod.addInstructions(
-            0,
-            """
-                move-object/from16 v$REGISTER_VIDEO_ID, p$PARAMETER_VIDEO_ID
-                move-object/from16 v$REGISTER_PROTO_BUFFER, p$REGISTER_PROTO_BUFFER
-                move/from16        v$REGISTER_IS_SHORT_AND_OPENING_OR_PLAYING, p$PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING
-            """,
-        )
-        numberOfInstructionsAdded += 3
+        if (playerResponseMethodCopyRegisters) {
+            playerResponseMethod.addInstructions(
+                0,
+                """
+                    move-object/from16 $registerVideoId, p$PARAMETER_VIDEO_ID
+                    move-object/from16 $registerProtoBuffer, p$PARAMETER_PROTO_BUFFER
+                    move/from16        $registerIsShortAndOpeningOrPlaying, p$PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING
+                """,
+            )
+            numberOfInstructionsAdded += 3
 
-        // Move the modified register back.
-        playerResponseMethod.addInstruction(
-            numberOfInstructionsAdded,
-            "move-object/from16 p$PARAMETER_PROTO_BUFFER, v$REGISTER_PROTO_BUFFER",
-        )
+            // Move the modified register back.
+            playerResponseMethod.addInstruction(
+                numberOfInstructionsAdded,
+                "move-object/from16 p$PARAMETER_PROTO_BUFFER, $registerProtoBuffer",
+            )
+        }
     }
 }
 
-sealed class Hook(private val methodDescriptor: String) {
+sealed class Hook private constructor(private val methodDescriptor: String) {
     class VideoId(methodDescriptor: String) : Hook(methodDescriptor)
 
     class ProtoBufferParameter(methodDescriptor: String) : Hook(methodDescriptor)

@@ -10,7 +10,6 @@ import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
-@Suppress("unused")
 val hideCastButtonPatch = bytecodePatch(
     name = "Hide cast button",
     description = "Adds an option to hide the cast button in the video player.",
@@ -18,30 +17,27 @@ val hideCastButtonPatch = bytecodePatch(
     dependsOn(
         integrationsPatch,
         settingsPatch,
-        addResourcesPatch
+        addResourcesPatch,
     )
 
-    compatibleWith("com.google.android.youtube"())
+    compatibleWith("com.google.android.youtube")
 
     execute { context ->
-        addResources(this)
+        addResources("youtube", "layout.buttons.cast.HideCastButtonPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_hide_cast_button"),
         )
 
-        val buttonClass = context.classBy {
-            it.methods.any {
-                it.name == "MediaRouteButton"
-            }
-        } ?: throw PatchException("MediaRouteButton class not found.")
+        val buttonClass = context.classByType("MediaRouteButton")
+            ?: throw PatchException("MediaRouteButton class not found.")
 
         buttonClass.mutableClass.methods.find { it.name == "setVisibility" }?.addInstructions(
             0,
             """
-                    invoke-static {p1}, Lapp/revanced/integrations/youtube/patches/HideCastButtonPatch;->getCastButtonOverrideV2(I)I
-                    move-result p1
-                """,
-        )
+                invoke-static {p1}, Lapp/revanced/integrations/youtube/patches/HideCastButtonPatch;->getCastButtonOverrideV2(I)I
+                move-result p1
+            """,
+        ) ?: throw PatchException("setVisibility method not found.")
     }
 }

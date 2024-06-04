@@ -1,15 +1,14 @@
 package app.revanced.patches.youtube.layout.tabletminiplayer.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object MiniPlayerResponseModelSizeCheckFingerprint : MethodFingerprint(
-    "L",
-    AccessFlags.PUBLIC or AccessFlags.FINAL,
-    listOf("Ljava/lang/Object;", "Ljava/lang/Object;"),
-    listOf(
+internal val miniPlayerResponseModelSizeCheckFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("L")
+    parameters("Ljava/lang/Object;", "Ljava/lang/Object;")
+    opcodes(
         Opcode.RETURN_OBJECT,
         Opcode.CHECK_CAST,
         Opcode.CHECK_CAST,
@@ -17,4 +16,4 @@ internal object MiniPlayerResponseModelSizeCheckFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT,
         Opcode.IF_NEZ,
     )
-)
+}

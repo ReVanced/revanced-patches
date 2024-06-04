@@ -10,6 +10,12 @@ import kotlin.random.Random
 val spoofDeviceIdPatch = bytecodePatch(
     name = "Spoof device ID",
     description = "Spoofs device ID to mitigate manual bans by developers.",
+    dependencies = [SignatureDetectionPatch::class],
+    compatiblePackages = [CompatiblePackage("com.microblink.photomath", ["8.37.0"])]
+)
+@Suppress("unused")
+object SpoofDeviceIdPatch : BytecodePatch(
+    setOf(GetDeviceIdFingerprint)
 ){
     dependsOn(signatureDetectionPatch)
 

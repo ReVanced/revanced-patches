@@ -1,12 +1,11 @@
 package app.revanced.patches.youtube.layout.thumbnails.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object MessageDigestImageUrlParentFingerprint : MethodFingerprint(
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    returnType =  "Ljava/lang/String;",
-    parameters = listOf(),
-    strings = listOf("@#&=*+-_.,:!?()/~'%;\$"),
-)
+internal val messageDigestImageUrlParentFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Ljava/lang/String;")
+    parameters()
+    strings("@#&=*+-_.,:!?()/~'%;\$")
+}

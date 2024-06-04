@@ -1,11 +1,11 @@
 package app.revanced.patches.shared.misc.gms.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object GmsCoreSupportFingerprint : MethodFingerprint(
-    customFingerprint = { _, classDef ->
-        classDef.type.endsWith("GmsCoreSupport;")
-    },
-) {
-    const val GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME = "getGmsCoreVendorGroupId"
+const val GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME = "getGmsCoreVendorGroupId"
+
+internal val gmsCoreSupportFingerprint = methodFingerprint {
+    custom { _, classDef ->
+        classDef.endsWith("GmsCoreSupport;")
+    }
 }

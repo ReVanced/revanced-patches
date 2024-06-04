@@ -6,6 +6,11 @@ import app.revanced.patches.photomath.detection.signature.signatureDetectionPatc
 import app.revanced.patches.photomath.misc.unlock.bookpoint.enableBookpointPatch
 import app.revanced.patches.photomath.misc.unlock.plus.fingerprints.isPlusUnlockedFingerprint
 
+@Patch(
+    name = "Unlock plus",
+    dependencies = [SignatureDetectionPatch::class, EnableBookpointPatch::class],
+    compatiblePackages = [CompatiblePackage("com.microblink.photomath", ["8.37.0"])]
+)
 @Suppress("unused")
 val unlockPlusPatch = bytecodePatch(
     name = "Unlock plus"

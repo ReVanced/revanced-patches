@@ -8,12 +8,11 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.layout.hide.infocards.fingerprints.*
 import app.revanced.patches.youtube.layout.hide.infocards.fingerprints.infocardsIncognitoParentFingerprint
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
-import app.revanced.patches.youtube.misc.litho.filter.addFilter
+import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 
 @Suppress("unused")
 val hideInfoCardsPatch = bytecodePatch(
@@ -89,6 +88,6 @@ val hideInfoCardsPatch = bytecodePatch(
 
         // Info cards can also appear as Litho components.
         val filterClassDescriptor = "Lapp/revanced/integrations/youtube/patches/components/HideInfoCardsFilterPatch;"
-        addFilter(filterClassDescriptor)
+        addLithoFilter(filterClassDescriptor)
     }
 }

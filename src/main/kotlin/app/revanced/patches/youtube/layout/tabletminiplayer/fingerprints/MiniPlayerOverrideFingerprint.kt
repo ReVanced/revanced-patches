@@ -1,12 +1,11 @@
 package app.revanced.patches.youtube.layout.tabletminiplayer.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object MiniPlayerOverrideFingerprint : MethodFingerprint(
-    returnType = "L",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("L"),
-    strings = listOf("appName")
-)
+internal val miniPlayerOverrideFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("L")
+    parameters("L")
+    strings("appName")
+}

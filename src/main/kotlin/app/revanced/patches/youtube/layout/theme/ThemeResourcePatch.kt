@@ -1,40 +1,35 @@
 package app.revanced.patches.youtube.layout.theme
 
-import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.all.misc.resources.AddResourcesPatch
-import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
-import app.revanced.patches.youtube.layout.theme.ThemeBytecodePatch.darkThemeBackgroundColor
-import app.revanced.patches.youtube.layout.theme.ThemeBytecodePatch.lightThemeBackgroundColor
-import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.util.forEachChildElement
 import org.w3c.dom.Element
 
-@Patch(
-    dependencies = [
-        SettingsPatch::class,
-        ResourceMappingPatch::class,
-        AddResourcesPatch::class,
-    ],
-)
-internal object ThemeResourcePatch : ResourcePatch() {
-    private const val SPLASH_BACKGROUND_COLOR = "revanced_splash_background_color"
+internal val themeResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        resourceMappingPatch,
+        addResourcesPatch,
+    )
 
-    override fun execute(context: ResourceContext) {
-        AddResourcesPatch(this::class)
+    execute { context ->
+        addResources("youtube", "layout.theme.ThemeResourcePatch")
 
-        SettingsPatch.PreferenceScreen.SEEKBAR.addPreferences(
+        PreferenceScreen.SEEKBAR.addPreferences(
             SwitchPreference("revanced_seekbar_custom_color"),
             TextPreference("revanced_seekbar_custom_color_value", inputType = InputType.TEXT_CAP_CHARACTERS),
         )
 
         // Edit theme colors via resources.
-        context.xmlEditor["res/values/colors.xml"].use { editor ->
-            val document = editor.file
+        context.document["res/values/colors.xml"].use { document ->
 
             val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
 
@@ -57,13 +52,34 @@ internal object ThemeResourcePatch : ResourcePatch() {
             }
         }
 
+        fun addColorResource(
+            resourceFile: String,
+            colorName: String,
+            colorValue: String,
+        ) {
+            context.document[resourceFile].use { document ->
+
+                val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
+
+                resourcesNode.appendChild(
+                    document.createElement("color").apply {
+                        setAttribute("name", colorName)
+                        setAttribute("category", "color")
+                        textContent = colorValue
+                    },
+                )
+            }
+        }
+
+        val splashBackgroundColor = "revanced_splash_background_color"
+
         // Add a dynamic background color to the colors.xml file.
         lightThemeBackgroundColor?.let {
-            addColorResource(context, "res/values/colors.xml", SPLASH_BACKGROUND_COLOR, it)
+            addColorResource("res/values/colors.xml", splashBackgroundColor, it)
         }
 
         darkThemeBackgroundColor?.let {
-            addColorResource(context, "res/values-night/colors.xml", SPLASH_BACKGROUND_COLOR, it)
+            addColorResource("res/values-night/colors.xml", splashBackgroundColor, it)
         }
 
         // Edit splash screen files and change the background color,
@@ -76,43 +92,17 @@ internal object ThemeResourcePatch : ResourcePatch() {
                 )
 
             splashScreenResourceFiles.forEach editSplashScreen@{ resourceFile ->
-                context.xmlEditor[resourceFile].use { editor ->
-                    val document = editor.file
-
-                    val layerList = document.getElementsByTagName("layer-list").item(0) as Element
-
-                    val childNodes = layerList.childNodes
-                    for (i in 0 until childNodes.length) {
-                        val node = childNodes.item(i)
-                        if (node is Element && node.hasAttribute("android:drawable")) {
-                            node.setAttribute("android:drawable", "@color/$SPLASH_BACKGROUND_COLOR")
+                context.document[resourceFile].use { document ->
+                    document.getElementsByTagName("layer-list").item(0).forEachChildElement { node ->
+                        if (node.hasAttribute("android:drawable")) {
+                            node.setAttribute("android:drawable", "@color/$splashBackgroundColor")
                             return@editSplashScreen
                         }
                     }
+
                     throw PatchException("Failed to modify launch screen")
                 }
             }
-        }
-    }
-
-    private fun addColorResource(
-        context: ResourceContext,
-        resourceFile: String,
-        colorName: String,
-        colorValue: String,
-    ) {
-        context.xmlEditor[resourceFile].use { editor ->
-            val document = editor.file
-
-            val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
-
-            resourcesNode.appendChild(
-                document.createElement("color").apply {
-                    setAttribute("name", colorName)
-                    setAttribute("category", "color")
-                    textContent = colorValue
-                },
-            )
         }
     }
 }

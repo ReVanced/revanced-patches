@@ -1,12 +1,14 @@
 package app.revanced.patches.youtube.misc.fix.backtoexitgesture.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object RecyclerViewTopScrollingFingerprint : MethodFingerprint(
-    "V", AccessFlags.PUBLIC or AccessFlags.FINAL, listOf(), listOf(
+internal val recyclerViewTopScrollingFingerprint = methodFingerprint {
+    returns("V")
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    parameters()
+    opcodes(
         Opcode.IGET_OBJECT,
         Opcode.IF_EQZ,
         Opcode.IGET_OBJECT,
@@ -24,4 +26,4 @@ internal object RecyclerViewTopScrollingFingerprint : MethodFingerprint(
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_INTERFACE,
     )
-)
+}

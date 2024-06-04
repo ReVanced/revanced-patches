@@ -9,7 +9,7 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.*
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
-import app.revanced.patches.youtube.misc.litho.filter.addFilter
+import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.shared.fingerprints.rollingNumberTextViewAnimationUpdateFingerprint
@@ -28,7 +28,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
-import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 
 private const val INTEGRATIONS_CLASS_DESCRIPTOR =
     "Lapp/revanced/integrations/youtube/patches/ReturnYouTubeDislikePatch;"
@@ -198,7 +197,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
         // region Hook for litho Shorts
 
         // Filter that parses the video id from the UI
-        addFilter(FILTER_CLASS_DESCRIPTOR)
+        addLithoFilter(FILTER_CLASS_DESCRIPTOR)
 
         // Player response video id is needed to search for the video ids in Shorts litho components.
         hookPlayerResponseVideoId("$FILTER_CLASS_DESCRIPTOR->newPlayerResponseVideoId(Ljava/lang/String;Z)V")

@@ -1,5 +1,7 @@
 package app.revanced.patches.youtube.layout.buttons.navigation
 
+import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
@@ -9,18 +11,61 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPref
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.layout.buttons.navigation.fingerprints.ANDROID_AUTOMOTIVE_STRING
-import app.revanced.patches.youtube.layout.buttons.navigation.fingerprints.addCreateButtonViewFingerprint
-import app.revanced.patches.youtube.misc.integrations.integrationsPatch
+import app.revanced.patches.youtube.layout.buttons.navigation.fingerprints.AddCreateButtonViewFingerprint
+import app.revanced.patches.youtube.layout.buttons.navigation.fingerprints.CreatePivotBarFingerprint
+import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
-import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch.hookNavigationButtonCreated
-import app.revanced.patches.youtube.misc.settings.PreferenceScreen
-import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.util.exception
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
 val navigationButtonsPatch = bytecodePatch(
     name = "Navigation buttons",
     description = "Adds options to hide and change navigation buttons (such as the Shorts button).",
+    dependencies = [
+        IntegrationsPatch::class,
+        SettingsPatch::class,
+        AddResourcesPatch::class,
+        NavigationBarHookPatch::class,
+    ],
+    compatiblePackages = [
+        CompatiblePackage(
+            "com.google.android.youtube",
+            [
+                "18.32.39",
+                "18.37.36",
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.43",
+                "18.48.39",
+                "18.49.37",
+                "19.01.34",
+                "19.02.39",
+                "19.03.36",
+                "19.04.38",
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.38",
+                "19.10.39",
+                "19.11.43",
+            ],
+        ),
+    ],
+)
+@Suppress("unused")
+object NavigationButtonsPatch : BytecodePatch(
+    setOf(
+        AddCreateButtonViewFingerprint,
+        CreatePivotBarFingerprint,
+    ),
 ) {
     dependsOn(
         integrationsPatch,
@@ -71,6 +116,7 @@ val navigationButtonsPatch = bytecodePatch(
                     SwitchPreference("revanced_hide_create_button"),
                     SwitchPreference("revanced_hide_subscriptions_button"),
                     SwitchPreference("revanced_switch_create_with_notifications_button"),
+                    SwitchPreference("revanced_hide_navigation_button_labels"),
                 ),
             ),
         )
@@ -93,6 +139,21 @@ val navigationButtonsPatch = bytecodePatch(
                     """,
             )
         }
+
+        // Hide navigation button labels.
+        CreatePivotBarFingerprint.result?.mutableMethod?.apply {
+            val setTextIndex = indexOfFirstInstruction {
+                getReference<MethodReference>()?.name == "setText"
+            }
+
+            val targetRegister = getInstruction<FiveRegisterInstruction>(setTextIndex).registerC
+
+            addInstruction(
+                setTextIndex,
+                "invoke-static { v$targetRegister }, " +
+                    "$INTEGRATIONS_CLASS_DESCRIPTOR->hideNavigationButtonLabels(Landroid/widget/TextView;)V",
+            )
+        } ?: throw CreatePivotBarFingerprint.exception
 
         // Hook navigation button created, in order to hide them.
         hookNavigationButtonCreated(integrationsClassDescriptor)
