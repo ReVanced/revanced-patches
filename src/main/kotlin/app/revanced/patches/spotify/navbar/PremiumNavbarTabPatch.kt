@@ -11,7 +11,7 @@ val premiumNavbarTabPatch = bytecodePatch(
 ) {
     dependsOn(premiumNavbarTabResourcePatch)
 
-    compatibleWith("com.spotify.music"())
+    compatibleWith("com.spotify.music")
 
     val addNavbarItemResult by addNavBarItemFingerprint
 

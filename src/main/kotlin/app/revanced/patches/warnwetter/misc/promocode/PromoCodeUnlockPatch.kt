@@ -18,7 +18,7 @@ object PromoCodeUnlockPatch : BytecodePatch(
 ) {
     dependsOn(firebaseGetCertPatch)
 
-    compatibleWith("de.dwd.warnapp"())
+    compatibleWith("de.dwd.warnapp")
 
     val promoCodeUnlockResult by promoCodeUnlockFingerprint
 

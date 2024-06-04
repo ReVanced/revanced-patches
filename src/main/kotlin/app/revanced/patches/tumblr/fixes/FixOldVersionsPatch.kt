@@ -12,7 +12,7 @@ val fixOldVersionsPatch = bytecodePatch(
             " Live from the API, which causes many requests to fail. This patch has no effect on newer versions of the app.",
     use = false,
 ) {
-    compatibleWith("com.tumblr"())
+    compatibleWith("com.tumblr")
 
     val httpPathParserResult by httpPathParserFingerprint
     val addQueryParamResult by addQueryParamFingerprint

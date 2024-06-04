@@ -9,7 +9,7 @@ val onDemandPatch = bytecodePatch(
     name = "Enable on demand",
     description = "Enables listening to songs on-demand, allowing to play any song from playlists, albums or artists without limitations. This does not remove ads.",
 ) {
-    compatibleWith("com.spotify.lite"())
+    compatibleWith("com.spotify.lite")
 
     val onDemandResult by onDemandFingerprint
 

@@ -16,7 +16,7 @@ val disableTumblrLivePatch = bytecodePatch(
         timelineFilterPatch
     )
 
-    compatibleWith("com.tumblr"())
+    compatibleWith("com.tumblr")
 
     execute {
         // Hide the LIVE_MARQUEE timeline element that appears in the feed

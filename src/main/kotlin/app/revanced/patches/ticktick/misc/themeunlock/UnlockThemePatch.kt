@@ -11,7 +11,7 @@ val unlockProPatch = bytecodePatch(
     name = "Unlock themes",
     description = "Unlocks all themes that are inaccessible until a certain level is reached.",
 ) {
-    compatibleWith("com.ticktick.task"())
+    compatibleWith("com.ticktick.task")
 
     val checkLockedThemesResult by checkLockedThemesFingerprint
     val setThemeResult by setThemeFingerprint

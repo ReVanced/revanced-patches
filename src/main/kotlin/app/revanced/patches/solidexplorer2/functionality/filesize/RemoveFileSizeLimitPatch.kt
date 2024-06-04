@@ -11,7 +11,7 @@ val removeFileSizeLimitPatch = bytecodePatch(
     name = "Remove file size limit",
     description = "Allows opening files larger than 2 MB in the text editor.",
 ) {
-    compatibleWith("pl.solidexplorer2"())
+    compatibleWith("pl.solidexplorer2")
 
     val onReadyResult by onReadyFingerprint
 

@@ -20,7 +20,7 @@ val unlockDownloadsPatch = bytecodePatch(
     name = "Unlock downloads",
     description = "Unlocks the ability to download any video. GIFs can be downloaded via the menu on long press.",
 ) {
-    compatibleWith("com.twitter.android"())
+    compatibleWith("com.twitter.android")
 
     val constructMediaOptionsSheetResult by constructMediaOptionsSheetFingerprint
     val showDownloadVideoUpsellBottomSheetResult by showDownloadVideoUpsellBottomSheetFingerprint

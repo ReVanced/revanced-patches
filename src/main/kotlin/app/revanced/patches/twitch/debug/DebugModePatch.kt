@@ -24,7 +24,7 @@ val debugModePatch = bytecodePatch(
         addResourcesPatch
     )
 
-    compatibleWith("tv.twitch.android.app"())
+    compatibleWith("tv.twitch.android.app")
 
     val isDebugConfigEnabledResult by isDebugConfigEnabledFingerprint
     val isOmVerificationEnabledResult by isOmVerificationEnabledFingerprint

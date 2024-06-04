@@ -11,7 +11,7 @@ val customThemePatch = resourcePatch(
     name = "Custom theme",
     description = "Applies a custom theme.",
 ) {
-    compatibleWith("com.spotify.music"())
+    compatibleWith("com.spotify.music")
 
     val backgroundColor by stringOption(
         key = "backgroundColor",

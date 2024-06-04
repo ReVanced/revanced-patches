@@ -9,7 +9,7 @@ import app.revanced.patches.warnwetter.misc.firebasegetcert.fingerprints.getReqi
 val firebaseGetCertPatch = bytecodePatch(
     description = "Spoofs the X-Android-Cert header.",
 ) {
-    compatibleWith("de.dwd.warnapp"())
+    compatibleWith("de.dwd.warnapp")
 
     val getRegistrationCertResult by getReqistrationCertFingerprint
     val getMessagingCertResult by getMessagingCertFingerprint

@@ -9,7 +9,7 @@ val rootDetectionPatch = bytecodePatch(
     name = "Remove root detection",
     description = "Removes the check for root permissions and unlocked bootloader.",
 ) {
-    compatibleWith("at.gv.bka.serviceportal"())
+    compatibleWith("at.gv.bka.serviceportal")
 
     val rootDetectionResult by rootDetectionFingerprint
 

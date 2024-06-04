@@ -10,7 +10,7 @@ val dynamicColorPatch = resourcePatch(
     name = "Dynamic color",
     description = "Replaces the default X (Formerly Twitter) Blue with the user's Material You palette.",
 ) {
-    compatibleWith("com.twitter.android"())
+    compatibleWith("com.twitter.android")
 
     execute { context ->
         val resDirectory = context.get("res")

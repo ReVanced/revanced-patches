@@ -11,7 +11,7 @@ val disableInAppUpdatePatch = bytecodePatch(
 ) {
     dependsOn(overrideFeatureFlagsPatch)
 
-    compatibleWith("com.tumblr"())
+    compatibleWith("com.tumblr")
 
     execute {
         // Before checking for updates using Google Play core AppUpdateManager, the value of this feature flag is checked.

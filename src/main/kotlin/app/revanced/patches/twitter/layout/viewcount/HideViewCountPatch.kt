@@ -10,7 +10,7 @@ val hideViewCountPatch = bytecodePatch(
     description = "Hides the view count of Posts.",
     use = false,
 ) {
-    compatibleWith("com.twitter.android"())
+    compatibleWith("com.twitter.android")
 
     val viewCountsEnabledResult by viewCountsEnabledFingerprint
 

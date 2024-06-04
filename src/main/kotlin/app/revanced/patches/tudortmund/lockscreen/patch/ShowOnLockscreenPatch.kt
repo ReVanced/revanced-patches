@@ -17,7 +17,7 @@ val showOnLockscreenPatch = bytecodePatch(
     description = "Shows student id and student ticket on lockscreen.",
     requiresIntegrations = true,
 ) {
-    compatibleWith("de.tudortmund.app"())
+    compatibleWith("de.tudortmund.app")
 
     val brightnessResult by brightnessFingerprint
 

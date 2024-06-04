@@ -9,7 +9,7 @@ val disableBlogNotificationReminderPatch = bytecodePatch(
     name = "Disable blog notification reminder",
     description = "Disables the reminder to enable notifications for blogs you visit.",
 ) {
-    compatibleWith("com.tumblr"())
+    compatibleWith("com.tumblr")
 
     val isBlogNotifyEnabledResult by isBlogNotifyEnabledFingerprint
 

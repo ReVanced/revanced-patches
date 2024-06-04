@@ -9,7 +9,7 @@ val unlockProPatch = bytecodePatch(
     name = "Unlock pro",
     description = "Unlocks all pro features.",
 ) {
-    compatibleWith("co.windyapp.android"())
+    compatibleWith("co.windyapp.android")
 
     val checkProResult by checkProFingerprint
 

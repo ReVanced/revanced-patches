@@ -8,7 +8,7 @@ val unlockSubscriptionPatch = bytecodePatch(
     name = "Unlock subscription features",
     description = "Unlocks \"Routes\", \"Matched Runs\" and \"Segment Efforts\".",
 ) {
-    compatibleWith("com.strava"())
+    compatibleWith("com.strava")
 
     val getSubscribedResult by getSubscribedFingerprint
 
