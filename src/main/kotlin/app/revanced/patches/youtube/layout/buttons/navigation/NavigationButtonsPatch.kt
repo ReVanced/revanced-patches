@@ -104,7 +104,7 @@ object NavigationButtonsPatch : BytecodePatch(
         "Lapp/revanced/integrations/youtube/patches/NavigationButtonsPatch;"
 
     execute {
-        addResources(this)
+        addResources("youtube", "layout.buttons.navigation.NavigationButtonsPatch")
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             PreferenceScreenPreference(

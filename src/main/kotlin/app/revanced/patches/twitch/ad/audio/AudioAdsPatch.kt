@@ -28,7 +28,7 @@ val audioAdsPatch = bytecodePatch(
     val audioAdsPresenterPlayResult by audioAdsPresenterPlayFingerprint
 
     execute {
-        addResources(this)
+        addResources("twitch", "ad.audio.AudioAdsPatch")
 
         PreferenceScreen.ADS.CLIENT_SIDE.addPreferences(
             SwitchPreference("revanced_block_audio_ads"),

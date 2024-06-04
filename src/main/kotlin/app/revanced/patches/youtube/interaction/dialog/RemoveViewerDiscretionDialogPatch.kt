@@ -55,7 +55,7 @@ val removeViewerDiscretionDialogPatch = bytecodePatch(
             "confirmDialog(Landroid/app/AlertDialog;)V"
 
     execute {
-        addResources(this)
+        addResources("youtube", "interaction.dialog.RemoveViewerDiscretionDialogPatch")
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             SwitchPreference("revanced_remove_viewer_discretion_dialog"),

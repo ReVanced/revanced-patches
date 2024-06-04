@@ -51,7 +51,7 @@ val enableSlideToSeekPatch = bytecodePatch(
     val integrationsClassDescriptor = "Lapp/revanced/integrations/youtube/patches/SlideToSeekPatch;"
 
     execute {
-        addResources(this)
+        addResources("youtube", "interaction.seekbar.EnableSlideToSeekPatch")
 
         PreferenceScreen.SEEKBAR.addPreferences(
             SwitchPreference("revanced_slide_to_seek"),

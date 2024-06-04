@@ -28,7 +28,7 @@ val embeddedAdsPatch = bytecodePatch(
     val createUsherClientResult by createsUsherClientFingerprint
 
     execute {
-        addResources(this)
+        addResources("twitch", "ad.embedded.EmbeddedAdsPatch")
 
         PreferenceScreen.ADS.SURESTREAM.addPreferences(
             ListPreference("revanced_block_embedded_ads", summaryKey = null),

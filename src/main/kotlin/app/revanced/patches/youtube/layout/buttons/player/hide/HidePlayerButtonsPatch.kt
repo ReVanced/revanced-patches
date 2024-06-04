@@ -55,7 +55,7 @@ val hidePlayerButtonsPatch = bytecodePatch(
     }
 
     execute {
-        addResources(this)
+        addResources("youtube", "layout.buttons.player.hide.HidePlayerButtonsPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_hide_player_buttons"),

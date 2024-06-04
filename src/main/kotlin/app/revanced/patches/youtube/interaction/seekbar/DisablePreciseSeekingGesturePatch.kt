@@ -54,7 +54,7 @@ val disablePreciseSeekingGesturePatch = bytecodePatch(
             "disableGesture(Landroid/view/VelocityTracker;Landroid/view/MotionEvent;)V"
 
     execute {
-        addResources(this)
+        addResources("youtube", "interaction.seekbar.DisablePreciseSeekingGesturePatch")
 
         PreferenceScreen.SEEKBAR.addPreferences(
             SwitchPreference("revanced_disable_precise_seeking_gesture"),
