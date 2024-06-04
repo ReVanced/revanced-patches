@@ -7,9 +7,9 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.reddit.customclients.boostforreddit.fix.downloadVReddItAudio.fingerprints.DownloaderSelectVReddItAudioLink
-import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
-import com.android.tools.smali.dexlib2.immutable.reference.ImmutableStringReference
+import app.revanced.util.resultOrThrow
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 
 @Patch(
     name = "Fix downloads from v.redd.it",
@@ -23,19 +23,17 @@ object FixDownloadedVReddItAudio : BytecodePatch(setOf(DownloaderSelectVReddItAu
     )
 
     override fun execute(context: BytecodeContext) {
-        val searchResult = DownloaderSelectVReddItAudioLink.result
-        searchResult?.mutableMethod?.apply {
-            INDEXES.forEach { (stringIndex, endpoint) ->
-                val instructionIndex = searchResult.scanResult.stringsScanResult!!.matches[stringIndex].index
-                val instruction = getInstruction(instructionIndex) as Instruction21c
-                replaceInstruction(
-                    instructionIndex,
-                    BuilderInstruction21c(
-                        instruction.opcode,
-                        instruction.registerA,
-                        ImmutableStringReference(endpoint)
+        DownloaderSelectVReddItAudioLink.resultOrThrow().let {
+            it.mutableMethod.apply {
+                INDEXES.forEach { (stringIndex, endpoint) ->
+                    val instructionIndex = it.scanResult.stringsScanResult!!.matches[stringIndex].index
+                    val register = getInstruction<OneRegisterInstruction>(instructionIndex).registerA
+
+                    replaceInstruction(
+                        instructionIndex,
+                        "const-string v$register, \"$endpoint\"",
                     )
-                )
+                }
             }
         }
     }
