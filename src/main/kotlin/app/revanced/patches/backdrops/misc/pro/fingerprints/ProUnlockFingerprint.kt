@@ -12,7 +12,7 @@ internal object ProUnlockFingerprint : MethodFingerprint(
         Opcode.IF_EQZ
     ),
     customFingerprint = { methodDef, classDef ->
-        classDef == "Lcom/backdrops/wallpapers/data/local/DatabaseHandlerIAB;"
+        classDef.type == "Lcom/backdrops/wallpapers/data/local/DatabaseHandlerIAB;"
                 && methodDef.name == "lambda\$existPurchase\$0"
     }
 )

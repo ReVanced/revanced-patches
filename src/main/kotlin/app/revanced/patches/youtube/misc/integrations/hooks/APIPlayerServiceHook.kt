@@ -14,6 +14,6 @@ internal val apiPlayerServiceHook = integrationsHook(
 ) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     custom { _, classDef ->
-        classDef == "Lcom/google/android/apps/youtube/embeddedplayer/service/service/jar/ApiPlayerService;"
+        classDef.type == "Lcom/google/android/apps/youtube/embeddedplayer/service/service/jar/ApiPlayerService;"
     }
 }

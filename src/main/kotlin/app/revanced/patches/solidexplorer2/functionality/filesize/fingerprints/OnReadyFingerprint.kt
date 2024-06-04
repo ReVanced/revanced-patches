@@ -10,6 +10,6 @@ internal val onReadyFingerprint = methodFingerprint {
         Opcode.IF_LEZ,
     )
     custom { methodDef, classDef ->
-        classDef == "Lpl/solidexplorer/plugins/texteditor/TextEditor;" && methodDef.name == "onReady"
+        classDef.type == "Lpl/solidexplorer/plugins/texteditor/TextEditor;" && methodDef.name == "onReady"
     }
 }

@@ -7,7 +7,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal object XiaomiAccountManagerConstructorFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PRIVATE or AccessFlags.CONSTRUCTOR,
     customFingerprint = { _, classDef ->
-        classDef == "Lcom/xiaomi/passport/accountmanager/XiaomiAccountManager;"
+        classDef.type == "Lcom/xiaomi/passport/accountmanager/XiaomiAccountManager;"
     },
     parameters = listOf(
         "Landroid/content/Context;",

@@ -14,6 +14,6 @@ internal val remoteEmbeddedPlayerHook = integrationsHook(
     returns("V")
     parameters("Landroid/content/Context;", "L", "L", "Z")
     custom { _, classDef ->
-        classDef == "Lcom/google/android/youtube/api/jar/client/RemoteEmbeddedPlayer;"
+        classDef.type == "Lcom/google/android/youtube/api/jar/client/RemoteEmbeddedPlayer;"
     }
 }

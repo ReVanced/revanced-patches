@@ -7,6 +7,6 @@ internal val swipeControlsHostActivityFingerprint = methodFingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters()
     custom { _, classDef ->
-        classDef == "Lapp/revanced/integrations/youtube/swipecontrols/SwipeControlsHostActivity;"
+        classDef.type == "Lapp/revanced/integrations/youtube/swipecontrols/SwipeControlsHostActivity;"
     }
 }

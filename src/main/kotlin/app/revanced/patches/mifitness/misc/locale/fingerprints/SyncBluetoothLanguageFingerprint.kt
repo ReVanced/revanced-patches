@@ -5,7 +5,7 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal object SyncBluetoothLanguageFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, classDef ->
-        classDef == "Lcom/xiaomi/fitness/devicesettings/DeviceSettingsSyncer;" &&
+        classDef.type == "Lcom/xiaomi/fitness/devicesettings/DeviceSettingsSyncer;" &&
             methodDef.name == "syncBluetoothLanguage"
     },
     opcodes = listOf(Opcode.MOVE_RESULT_OBJECT),

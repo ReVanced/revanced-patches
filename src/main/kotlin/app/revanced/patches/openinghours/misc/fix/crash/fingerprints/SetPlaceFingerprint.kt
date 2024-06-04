@@ -6,7 +6,7 @@ internal object SetPlaceFingerprint : MethodFingerprint(
     "V",
     parameters = listOf("Lde/simon/openinghours/models/Place;"),
     customFingerprint = { methodDef, classDef ->
-        classDef == "Lde/simon/openinghours/views/custom/PlaceCard;" &&
+        classDef.type == "Lde/simon/openinghours/views/custom/PlaceCard;" &&
             methodDef.name == "setPlace"
     },
 )

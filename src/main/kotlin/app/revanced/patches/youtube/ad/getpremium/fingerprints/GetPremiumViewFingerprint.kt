@@ -15,7 +15,7 @@ internal val getPremiumViewFingerprint = methodFingerprint {
         Opcode.RETURN_VOID,
     )
     custom { methodDef, classDef ->
-        classDef == "Lcom/google/android/apps/youtube/app/red/presenter/CompactYpcOfferModuleView;" &&
-            methodDef.name == "onMeasure"
+        classDef.type == "Lcom/google/android/apps/youtube/app/red/presenter/CompactYpcOfferModuleView;" &&
+                (methodDef.name == "onMeasure")
     }
 }

@@ -12,7 +12,7 @@ internal object LoadInboxAdsFingerprint : MethodFingerprint(
     ),
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     customFingerprint = { _, classDef ->
-        classDef == "Lcom/facebook/messaging/business/inboxads/plugins/inboxads/itemsupplier/InboxAdsItemSupplierImplementation;"
+        classDef.type == "Lcom/facebook/messaging/business/inboxads/plugins/inboxads/itemsupplier/InboxAdsItemSupplierImplementation;"
     }
 )
 

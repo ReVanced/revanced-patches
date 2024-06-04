@@ -4,6 +4,6 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 
 internal object CheckRootFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, classDef ->
-        classDef == "Lit/ipzs/cieid/BaseActivity;" && methodDef.name == "onResume"
+        classDef.type == "Lit/ipzs/cieid/BaseActivity;" && methodDef.name == "onResume"
     }
 )

@@ -8,6 +8,6 @@ internal val googleOneTapAuthAvailableFingerprint = methodFingerprint {
     returns("Z")
     parameters()
     custom { _, classDef ->
-        classDef == "Lcom/bytedance/lobby/google/GoogleOneTapAuth;"
+        classDef.type == "Lcom/bytedance/lobby/google/GoogleOneTapAuth;"
     }
 }
